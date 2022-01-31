@@ -2,7 +2,7 @@
 permalink: concepts/index.html 
 sidebar: sidebar 
 keywords: decide, concepts, ontap, overview, data, management, cluster storage, high-availability, virtualization, protection, storage, efficiency, security 
-summary: 다음 개념은 클러스터 스토리지, 고가용성, 가상화, 데이터 보호를 비롯한 ONTAP 데이터 관리 소프트웨어에 스토리지 효율성 및 보안: 
+summary: '다음 개념은 클러스터 스토리지, 고가용성, 가상화, 데이터 보호를 비롯한 ONTAP 데이터 관리 소프트웨어에 스토리지 효율성 및 보안:' 
 ---
 = 개념 개요
 :icons: font
