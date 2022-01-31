@@ -1,0 +1,56 @@
+---
+permalink: authentication/enable-ssl-certificate-accounts-task.html 
+sidebar: sidebar 
+keywords: enable, ssl certificate, accounts 
+summary: 보안 로그인 create 명령을 사용하여 관리자 계정이 SSL 인증서를 통해 admin 또는 data SVM에 액세스할 수 있도록 할 수 있습니다. 
+---
+= SSL 인증서 계정을 활성화합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'보안 로그인 생성' 명령을 사용하면 관리자 계정이 SSL 인증서를 통해 관리자 또는 데이터 SVM에 액세스할 수 있습니다.
+
+이 작업을 수행하려면 클러스터 관리자여야 합니다.
+
+.이 작업에 대해
+* 계정이 SVM에 액세스하려면 CA 서명 서버 디지털 인증서를 설치해야 합니다.
++
+xref:install-server-certificate-cluster-svm-ssl-server-task.adoc[CA 서명 서버 인증서 생성 및 설치]
+
++
+계정 액세스를 활성화하기 전이나 후에 이 작업을 수행할 수 있습니다.
+
+* 로그인 계정에 할당할 액세스 제어 역할을 잘 모르는 경우 나중에 '보안 로그인 수정' 명령을 사용하여 역할을 추가할 수 있습니다.
++
+xref:modify-role-assigned-administrator-task.adoc[관리자에게 할당된 역할 수정]
+
+
+
+[NOTE]
+====
+클러스터 관리자 계정의 경우 인증서 인증은 'http' 및 'ontapi' 애플리케이션에서만 지원됩니다. SVM 관리자 계정의 경우 "ontapi" 애플리케이션에서만 인증서 인증이 지원됩니다.
+
+====
+.단계
+. 로컬 관리자 계정이 SSL 인증서를 사용하여 SVM에 액세스할 수 있도록 지원:
++
+'보안 로그인 생성 - vserver SVM_name -user -or -group -name user_or_group_name -application application application -AuthMethod authentication_method -role role role-comment'
+
++
+전체 명령 구문은 을 참조하십시오 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP man 페이지를 릴리스별로 표시합니다"].
+
++
+다음 명령을 실행하면 SSL 디지털 인증서를 사용하여 SVM "engData2"에 액세스할 수 있는 기본 "vsadmin" 역할을 가진 SVM 관리자 계정 'vmadmin2'가 활성화됩니다.
+
++
+[listing]
+----
+cluster1::>security login create -vserver engData2 -user-or-group-name svmadmin2 -application ontapi -authmethod cert
+----
+
+
+CA 서명 서버 디지털 인증서를 설치하지 않은 경우 계정이 SVM에 액세스하려면 먼저 인증서를 설치해야 합니다.
+
+xref:install-server-certificate-cluster-svm-ssl-server-task.adoc[CA 서명 서버 인증서 생성 및 설치]

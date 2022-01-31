@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+permalink: networking/configure_traphosts_to_receive_snmp_notifications.html 
+keywords: configure, configuration, configuring, setup, setting, set, up, traphosts, trap, host, receive, snmp, notifications, configure traphosts to receive snmp notifications. system snmp traphost add 
+summary: 트랩 알림을 받도록 SNMP 관리자를 구성합니다 
+---
+= SNMP 알림을 수신하도록 traphosts를 구성합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+클러스터에서 SNMP 트랩이 생성될 때 알림(SNMP 트랩 PDU)을 받도록 Traphost(SNMP 관리자)를 구성할 수 있습니다. SNMP traphost의 호스트 이름 또는 IP 주소(IPv4 또는 IPv6)를 지정할 수 있습니다.
+
+.시작하기 전에
+* 클러스터에서 SNMP 및 SNMP 트랩을 활성화해야 합니다.
+
+
+
+NOTE: SNMP 및 SNMP 트랩은 기본적으로 사용하도록 설정됩니다.
+
+* traphost 이름을 확인하기 위해 클러스터에서 DNS를 구성해야 합니다.
+* IPv6 주소를 사용하여 SNMP traaphosts를 구성하려면 클러스터에서 IPv6을 활성화해야 합니다.
+* ONTAP 9.1 이상 버전의 경우 traphosts를 생성할 때 사전 정의된 USM(사용자 기반 보안 모델) 인증 및 개인 정보 보호 자격 증명을 지정해야 합니다.
+
+
+SNMP traaphost 추가:
+
+....
+system snmp traphost add
+....
+
+NOTE: 트랩은 하나 이상의 SNMP 관리 스테이션이 트랩 호스트로 지정된 경우에만 보낼 수 있습니다.
+
+다음 명령을 실행하면 알려진 USM 사용자와 함께 yyy.example.com 이라는 새로운 SNMPv3 traphost가 추가됩니다.
+
+....
+system snmp traphost add -peer-address yyy.example.com -usm-username MyUsmUser
+....
+다음 명령을 실행하면 호스트의 IPv6 주소를 사용하는 traphost가 추가됩니다.
+
+....
+system snmp traphost add -peer-address 2001:0db8:1:1:209:6bff:feae:6d67
+....

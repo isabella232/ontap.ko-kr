@@ -1,0 +1,22 @@
+---
+permalink: smb-admin/recover-files-folders-previous-versions-concept.html 
+sidebar: sidebar 
+keywords: ability, microsoft, previous, version, applicable, file, system, support, snapshot, copies, copy, form, enable, technolofy, integral, ontap, recover, file, recover files and folders using previous versions 
+summary: Microsoft 이전 버전을 사용하는 기능은 Snapshot 복사본을 일부 형식으로 지원하고 사용하도록 설정한 파일 시스템에 적용할 수 있습니다. 스냅샷 기술은 ONTAP의 핵심 요소입니다. 사용자는 Microsoft 이전 버전 기능을 사용하여 Windows 클라이언트에서 Snapshot 복사본의 파일과 폴더를 복구할 수 있습니다. 
+---
+= 이전 버전 개요를 사용하여 파일 및 폴더를 복구합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Microsoft 이전 버전을 사용하는 기능은 Snapshot 복사본을 일부 형식으로 지원하고 사용하도록 설정한 파일 시스템에 적용할 수 있습니다. 스냅샷 기술은 ONTAP의 핵심 요소입니다. 사용자는 Microsoft 이전 버전 기능을 사용하여 Windows 클라이언트에서 Snapshot 복사본의 파일과 폴더를 복구할 수 있습니다.
+
+이전 버전 기능을 사용하면 사용자는 스토리지 관리자의 개입 없이 스냅샷 복사본을 탐색하거나 스냅샷 복사본에서 데이터를 복원할 수 있습니다. 이전 버전은 구성할 수 없습니다. 항상 활성화되어 있습니다. 스토리지 관리자가 공유에 스냅샷 복사본을 사용하도록 설정한 경우 이전 버전을 사용하여 다음 작업을 수행할 수 있습니다.
+
+* 실수로 삭제된 파일을 복구합니다.
+* 실수로 파일을 덮어쓴 경우 복구
+* 작업 중 파일 버전을 비교합니다.
+
+
+스냅샷 복사본에 저장된 데이터는 읽기 전용입니다. 파일을 변경하려면 파일 복사본을 다른 위치에 저장해야 합니다. 스냅샷 복사본은 주기적으로 삭제되므로 이전 버전의 파일을 무기한 보존하려는 경우 이전 버전에 포함된 파일 복사본을 만들어야 합니다.

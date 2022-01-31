@@ -1,0 +1,110 @@
+---
+section: smb-hyper-v-sql
+title: Microsoft Hyper-V 및 SQL Server를 위한 SMB 구성
+entries:
+- title: 개요
+  url: "/smb-hyper-v-sql/index.html"
+- title: SMB 솔루션을 통해 Microsoft Hyper-V 및 SQL Server용 ONTAP를 구성합니다
+  url: "/smb-hyper-v-sql/configure-solutions-concept.html"
+- title: SMB를 통한 Hyper-V 및 SQL Server의 무중단 운영
+  entries:
+  - title: 무중단 운영이란 무엇입니까?
+    url: "/smb-hyper-v-sql/nondisruptive-operations-meaning-concept.html"
+  - title: 프로토콜을 지원하여 SMB를 통해 무중단 운영을 실현합니다
+    url: "/smb-hyper-v-sql/protocols-nondisruptive-operations-smb-concept.html"
+  - title: SMB를 통한 Hyper-V 및 SQL Server의 무중단 운영에 대한 주요 개념입니다
+    url: "/smb-hyper-v-sql/nondisruptive-operations-glossary-concept.html"
+  - title: SMB 3.0 기능이 SMB 공유에서 무중단 운영을 지원하는 방법
+    url: "/smb-hyper-v-sql/smb-30-supports-nondisruptive-operations-concept.html"
+  - title: Witness 프로토콜이 투명한 장애 조치를 강화하기 위해 수행하는 조치
+    url: "/smb-hyper-v-sql/witness-protocol-transparent-failover-concept.html"
+  - title: Witness 프로토콜 작동 방식
+    url: "/smb-hyper-v-sql/witness-protocol-concept.html"
+- title: 원격 VSS와 공유 기반 백업
+  entries:
+  - title: 개요
+    url: "/smb-hyper-v-sql/share-based-backups-remote-vss-concept.html"
+  - title: 원격 VSS 개념
+    url: "/smb-hyper-v-sql/remote-vss-concepts-concept.html"
+  - title: 원격 VSS에서 사용하는 디렉토리 구조의 예
+    url: "/smb-hyper-v-sql/example-directory-structure-remote-vss-concept.html"
+  - title: SnapManager for Hyper-V가 SMB를 통해 Hyper-V에 대한 원격 VSS 기반 백업을 관리하는 방법
+    url: "/smb-hyper-v-sql/snapmanager-hyper-v-remote-backups-concept.html"
+- title: SMB 공유를 통해 Hyper-V 및 SQL Server에서 ODX 복사 오프로드를 사용하는 방법
+  url: "/smb-hyper-v-sql/odx-copy-offload-concept.html"
+- title: 구성 요구 사항 및 고려 사항
+  entries:
+  - title: ONTAP 및 라이센스 요구 사항
+    url: "/smb-hyper-v-sql/licensing-requirements-concept.html"
+  - title: 네트워크 및 데이터 LIF 요구사항
+    url: "/smb-hyper-v-sql/network-data-lif-requirements-concept.html"
+  - title: SMB를 통한 Hyper-V의 SMB 서버 및 볼륨 요구 사항
+    url: "/smb-hyper-v-sql/server-volume-requirements-hyper-v-concept.html"
+  - title: SMB를 통한 SQL Server의 SMB 서버 및 볼륨 요구 사항
+    url: "/smb-hyper-v-sql/server-volume-requirements-sql-serve-concept.html"
+  - title: SMB를 통한 Hyper-V의 지속적인 가용성 공유 요구 사항 및 고려 사항
+    url: "/smb-hyper-v-sql/continuously-available-share-hyper-v-concept.html"
+  - title: SMB를 통한 SQL Server의 지속적인 가용성 공유 요구 사항 및 고려 사항
+    url: "/smb-hyper-v-sql/continuously-available-share-sql-concept.html"
+  - title: SMB 구성을 통한 Hyper-V에 대한 원격 VSS 고려 사항
+    url: "/smb-hyper-v-sql/remote-vss-considerations-concept.html"
+  - title: ODX SMB를 통한 SQL Server 및 Hyper-V의 복사 오프로드 요구 사항
+    url: "/smb-hyper-v-sql/odx-copy-offload-requirements-concept.html"
+- title: SMB 구성을 통한 SQL Server 및 Hyper-V 권장 사항
+  url: "/smb-hyper-v-sql/recommendations-config-concept.html"
+- title: SMB를 통한 Hyper-V 또는 SQL Server 구성 계획
+  entries:
+  - title: 볼륨 구성 워크시트를 작성합니다
+    url: "/smb-hyper-v-sql/volume-config-worksheet-reference.html"
+  - title: SMB 공유 구성 워크시트를 작성합니다
+    url: "/smb-hyper-v-sql/smb-share-config-worksheet-reference.html"
+- title: SMB를 통한 Hyper-V 및 SQL Server의 무중단 운영을 위한 ONTAP 구성 생성
+  entries:
+  - title: 개요
+    url: "/smb-hyper-v-sql/create-config-nondisruptive-operations-task.html"
+  - title: Kerberos 및 NTLMv2 인증이 모두 허용되는지 확인(SMB 공유를 통한 Hyper-V)
+    url: "/smb-hyper-v-sql/verify-kerberos-ntlmv2-authentication-task.html"
+  - title: 도메인 계정이 기본 UNIX 사용자에게 매핑되는지 확인합니다
+    url: "/smb-hyper-v-sql/verify-domain-accounts-map-default-unix-user-task.html"
+  - title: SVM 루트 볼륨의 보안 스타일이 NTFS로 설정되어 있는지 확인합니다
+    url: "/smb-hyper-v-sql/verify-security-style-svm-root-volume-ntfs-task.html"
+  - title: 필요한 CIFS 서버 옵션이 구성되었는지 확인합니다
+    url: "/smb-hyper-v-sql/verify-smb-server-options-task.html"
+  - title: 성능 및 이중화를 위해 SMB 멀티 채널을 구성합니다
+    url: "/smb-hyper-v-sql/configure-smb-multichannel-performance-task.html"
+  - title: NTFS 데이터 볼륨을 생성합니다
+    url: "/smb-hyper-v-sql/create-ntfs-data-volumes-task.html"
+  - title: 지속적으로 사용 가능한 SMB 공유를 생성합니다
+    url: "/smb-hyper-v-sql/create-continuously-available-shares-task.html"
+  - title: sSecurityPrivilege 권한을 사용자 계정에 추가합니다(SMB 공유의 SQL Server에 해당).
+    url: "/smb-hyper-v-sql/add-sesecurityprivilege-user-account-task.html"
+  - title: VSS 섀도우 복제본 디렉토리 깊이 구성(SMB 공유를 통한 Hyper-V의 경우)
+    url: "/smb-hyper-v-sql/configure-vss-shadow-copy-directory-depth-task.html"
+- title: SMB 구성을 통해 Hyper-V 및 SQL Server 관리
+  entries:
+  - title: 지속적인 가용성을 위해 기존 공유를 구성합니다
+    url: "/smb-hyper-v-sql/configure-shares-continuous-availability-task.html"
+  - title: SMB 백업을 통해 Hyper-V에 대한 VSS 섀도우 복제본을 설정하거나 해제합니다
+    url: "/smb-hyper-v-sql/enable-disable-vss-shadow-copies-backups-task.html"
+- title: 통계를 사용하여 SMB 작업을 통해 Hyper-V 및 SQL Server를 모니터링합니다
+  entries:
+  - title: 사용할 수 있는 통계 개체 및 카운터를 확인합니다
+    url: "/smb-hyper-v-sql/determine-statistics-objects-counters-task.html"
+  - title: SMB 통계를 표시합니다
+    url: "/smb-hyper-v-sql/display-smb-statistics-hyper-v-task.html"
+- title: 구성이 무중단 운영이 가능한지 확인합니다
+  entries:
+  - title: 상태 모니터링을 사용하여 무중단 운영 상태가 정상인지 확인하십시오
+    url: "/smb-hyper-v-sql/health-monitoring-nondisruptive-operation-concept.html"
+  - title: 시스템 상태 모니터링을 사용하여 무중단 운영 상태를 표시합니다
+    url: "/smb-hyper-v-sql/display-nondisruptive-status-health-task.html"
+  - title: 지속적으로 사용 가능한 SMB 공유 구성을 확인합니다
+    url: "/smb-hyper-v-sql/verify-continuously-available-share-config-task.html"
+  - title: LIF 상태를 확인합니다
+    url: "/smb-hyper-v-sql/verify-lif-status-task.html"
+  - title: SMB 세션을 지속적으로 사용할 수 있는지 확인합니다
+    entries:
+    - title: SMB 세션 정보를 표시합니다
+      url: "/smb-hyper-v-sql/display-session-task.html"
+    - title: 열려 있는 SMB 파일에 대한 정보를 표시합니다
+      url: "/smb-hyper-v-sql/display-open-smb-files-task.html"

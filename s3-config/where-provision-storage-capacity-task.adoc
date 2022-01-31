@@ -1,0 +1,36 @@
+---
+permalink: s3-config/where-provision-storage-capacity-task.html 
+sidebar: sidebar 
+keywords: decide, provision, new s3, storage, capacity 
+summary: 새 S3 버킷을 생성하기 전에 새 SVM이나 기존 SVM에 배치할 것인지 결정해야 합니다. 이 결정에 따라 워크플로가 결정됩니다. 
+---
+= 새 S3 스토리지 용량을 프로비저닝할 위치를 결정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+새 S3 버킷을 생성하기 전에 새 SVM이나 기존 SVM에 배치할 것인지 결정해야 합니다. 이 결정에 따라 워크플로가 결정됩니다.
+
+.선택
+* S3에 대해 활성화되지 않은 새 SVM 또는 SVM에서 버킷을 프로비저닝하려면 다음 항목의 단계를 완료하십시오.
++
+link:configure-s3-access-svm-task.html["SVM에 대한 S3 액세스 구성"]
+
++
+link:add-storage-capacity-s3-enabled-svm-concept.html["S3 지원 SVM에 스토리지 용량 추가"]
+
++
+S3는 NFS 및 SMB와 SVM에서 공존할 수 있지만, 다음 중 하나가 참인 경우 새 SVM을 생성하도록 선택할 수 있습니다.
+
++
+** 클러스터에서 S3를 처음으로 사용하도록 설정하고 있습니다.
+** S3 지원을 활성화하지 않으려는 클러스터에 기존 SVM이 있습니다.
+** 클러스터에 하나 이상의 S3 기반 SVM이 있고 성능 특성이 다른 또 다른 S3 서버를 원합니다. SVM에서 S3를 활성화한 후 버킷 프로비저닝을 진행합니다.
+
+
+* 기존 S3 기반 SVM에서 초기 버킷 또는 추가 버킷을 프로비저닝하려면 다음 항목의 단계를 완료하십시오.
++
+link:add-storage-capacity-s3-enabled-svm-concept.html["S3 지원 SVM에 스토리지 용량 추가"]
+
+

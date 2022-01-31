@@ -1,0 +1,21 @@
+---
+permalink: smb-admin/modify-dynamic-dns-domain-before-moving-server-task.html 
+sidebar: sidebar 
+keywords: active, directory-integrated, dns, server, dynamic, register, smb, server, record, modify, ddns, storage, virtual, machine, svm, modify the dynamic dns domain on the svm before moving the smb server 
+summary: 'SMB 서버를 다른 도메인으로 이동할 때 Active Directory 통합 DNS 서버가 DNS에 SMB 서버의 DNS 레코드를 동적으로 등록하도록 하려면 SMB 서버를 이동하기 전에 SVM(스토리지 가상 시스템)에서 DDNS(동적 DNS)를 수정해야 합니다.' 
+---
+= SMB 서버를 이동하기 전에 SVM에서 동적 DNS 도메인을 수정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMB 서버를 다른 도메인으로 이동할 때 Active Directory 통합 DNS 서버가 DNS에 SMB 서버의 DNS 레코드를 동적으로 등록하도록 하려면 SMB 서버를 이동하기 전에 SVM(스토리지 가상 시스템)에서 DDNS(동적 DNS)를 수정해야 합니다.
+
+SMB 서버 컴퓨터 계정이 포함될 새 도메인의 서비스 위치 레코드가 포함된 DNS 도메인을 사용하려면 SVM에서 DNS 이름 서비스를 수정해야 합니다. 보안 DDNS를 사용하는 경우 Active Directory 통합 DNS 이름 서버를 사용해야 합니다.
+
+DDNS(SVM에서 구성된 경우)는 데이터 LIF의 DNS 레코드를 자동으로 새 도메인에 추가하지만 원래 도메인의 DNS 레코드는 원래 DNS 서버에서 자동으로 삭제되지 않습니다. 수동으로 삭제해야 합니다.
+
+SMB 서버를 이동하기 전에 DDNS 수정을 완료하려면 다음 항목을 참조하십시오.
+
+https://docs.netapp.com/us-en/ontap/networking/configure_dynamic_dns_services.html["동적 DNS 서비스를 구성합니다"]

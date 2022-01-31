@@ -1,0 +1,58 @@
+---
+permalink: nfs-admin/multi-byte-file-directory-qtree-names-concept.html 
+sidebar: sidebar 
+keywords: ontap, multi byte, file, directory, qtree, name 
+summary: 'ONTAP 9.5부터 4바이트 UTF-8 인코딩 이름을 지원하므로 BMP(기본 다국어 플레인) 외부의 유니코드 보조 문자를 포함하는 파일, 디렉터리 및 트리 이름을 만들고 표시할 수 있습니다. 이전 릴리스에서는 이러한 보조 문자가 멀티 프로토콜 환경에서 올바르게 표시되지 않았습니다.' 
+---
+= ONTAP에서 멀티바이트 파일, 디렉토리 및 qtree 이름을 처리하는 방식
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.5부터 4바이트 UTF-8 인코딩 이름을 지원하므로 BMP(기본 다국어 플레인) 외부의 유니코드 보조 문자를 포함하는 파일, 디렉터리 및 트리 이름을 만들고 표시할 수 있습니다. 이전 릴리스에서는 이러한 보조 문자가 멀티 프로토콜 환경에서 올바르게 표시되지 않았습니다.
+
+4바이트 UTF-8 인코딩된 이름을 지원하기 위해 새 _utf8mb4_language 코드를 "vserver" 및 "volume" 명령 제품군에 사용할 수 있습니다.
+
+* 다음 방법 중 하나로 새 볼륨을 만들어야 합니다.
+* 볼륨 '-language' 옵션을 명시적으로 설정하기:
++
+'볼륨 생성 - 언어 utf8mb4{…}'
+
+* 옵션으로 생성되거나 수정된 SVM에서 볼륨 '-language' 옵션 상속:
++
+``vserver[create|modify] -language utf8mb4{…}''volume create{…}'
+
+* utf8mb4 지원을 위해 기존 볼륨을 수정할 수는 없습니다. 새 utf8mb4 지원 볼륨을 생성한 다음 클라이언트 기반 복사 도구를 사용하여 데이터를 마이그레이션해야 합니다.
++
+utf8mb4 지원을 위해 SVM을 업데이트할 수 있지만 기존 볼륨에 원래 언어 코드가 유지됩니다.
+
++
+[NOTE]
+====
+4바이트 UTF-8 문자를 사용하는 LUN 이름은 현재 지원되지 않습니다.
+
+====
+* 유니코드 문자 데이터는 일반적으로 16비트 UTF-16(Unicode Transformation Format)을 사용하는 Windows 파일 시스템 응용 프로그램과 8비트 UTF-8(Unicode Transformation Format)을 사용하는 NFS 파일 시스템에 표시됩니다.
++
+ONTAP 9.5 이전 버전에서는 Windows 클라이언트에서 생성한 UTF-16 보조 문자를 포함한 이름이 다른 Windows 클라이언트에 올바르게 표시되었지만 NFS 클라이언트용 UTF-8로 올바르게 변환되지 않았습니다. 마찬가지로, 생성된 NFS 클라이언트에서 UTF-8 보완 문자를 사용하는 이름은 Windows 클라이언트의 UTF-16으로 올바르게 변환되지 않았습니다.
+
+* ONTAP 9.4 이하를 실행하는 시스템에서 유효하거나 잘못된 보조 문자가 포함된 파일 이름을 만들면 ONTAP가 파일 이름을 거부하고 잘못된 파일 이름 오류를 반환합니다.
++
+이 문제를 방지하려면 파일 이름에 BMP 문자만 사용하고 보조 문자는 사용하지 마십시오. 또는 ONTAP 9.5 이상으로 업그레이드하십시오.
+
+
+
+유니코드 문자는 qtree 이름에 사용할 수 있습니다.
+
+* 'volume qtree' 명령군 또는 System Manager를 사용하여 qtree 이름을 설정하거나 수정할 수 있습니다.
+* Qtree 이름에는 일본어 및 중국어 문자와 같은 유니코드 형식의 멀티바이트 문자가 포함될 수 있습니다.
+* ONTAP 9.5 이전 버전에서는 BMP 문자(즉, 3바이트로 표현될 수 있는 문자)만 지원되었습니다.
++
+[NOTE]
+====
+ONTAP 9.5 이전의 릴리즈에서는 qtree 상위 볼륨의 연결 경로에 유니코드 문자가 있는 qtree 및 디렉토리 이름이 포함될 수 있습니다. 볼륨 표시 명령은 상위 볼륨에 UTF-8 언어 설정이 있는 경우 이러한 이름을 올바르게 표시합니다. 그러나 상위 볼륨 언어가 UTF-8 언어 설정 중 하나가 아닌 경우 junction-path의 일부 부분은 숫자 NFS 대체 이름을 사용하여 표시됩니다.
+
+====
+* 9.5 이상 릴리즈에서는 qtree 이름이 qtree 이름으로 지원되지만 qtree가 utf8mb4에 대해 활성화된 볼륨에 있습니다.
+

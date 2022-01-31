@@ -1,0 +1,58 @@
+---
+permalink: flexgroup/convert-flexvol-concept.html 
+sidebar: sidebar 
+keywords: consider, convert, flexvol, volume, flexgroup, autobalance, give back, giveback, revert, split, space limit, limit 
+summary: FlexVol 볼륨을 FlexGroup 볼륨으로 변환하기 전에 지원되는 기능 및 작업을 알고 있어야 합니다. 
+---
+= FlexVol 볼륨을 FlexGroup 볼륨으로 변환 개요
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FlexVol 볼륨을 공간 제한 이상으로 확장하려면 FlexVol 볼륨을 FlexGroup 볼륨으로 변환할 수 있습니다. ONTAP 9.7부터는 SnapMirror 관계에 있는 독립 실행형 FlexVol 볼륨 또는 FlexVol 볼륨을 FlexGroup 볼륨으로 변환할 수 있습니다.
+
+
+
+== FlexVol 볼륨을 FlexGroup 볼륨으로 변환할 때의 고려 사항
+
+FlexVol 볼륨을 FlexGroup 볼륨으로 변환하기 전에 지원되는 기능 및 작업을 알고 있어야 합니다.
+
+
+
+== 변환 중에는 작업이 지원되지 않습니다
+
+볼륨 변환이 진행 중일 때는 다음 작업이 허용되지 않습니다.
+
+* 볼륨 이동
+* 애그리게이트 자동 균형
+* 애그리게이트 재배치
+* 고가용성 구성에서 계획된 테이크오버 및 반환
+* 고가용성 구성에서 수동 및 자동 반환
+* 클러스터 업그레이드 및 되돌리기
+* FlexClone 볼륨 분할
+* 볼륨 재호스팅
+* 볼륨 수정 및 자동 크기 조정
+* 볼륨 이름 바꾸기
+* 오브젝트 저장소를 Aggregate에 연결합니다
+* MetroCluster 구성에서 협상된 전환
+* SnapMirror 작업
+* 스냅샷 복사본에서 복원 중
+* 할당량 작업
+* 스토리지 효율성 작업
+
+
+성공적인 변환 후 FlexGroup 볼륨에서 이러한 작업을 수행할 수 있습니다.
+
+
+
+== FlexGroup 볼륨에서 지원되지 않는 구성입니다
+
+* 오프라인 또는 제한된 볼륨
+* SVM 루트 볼륨
+* SnapLock 볼륨
+* 산
+* SMB 1.0
+* NVMe 네임스페이스
+* 원격 볼륨 섀도 복사본 서비스(VSS)
+

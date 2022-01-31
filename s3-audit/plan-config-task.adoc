@@ -1,0 +1,98 @@
+---
+permalink: s3-audit/plan-config-task.html 
+sidebar: sidebar 
+keywords: s3, audit, create, configure s3 audit 
+summary: 이 작업에서는 S3 감사에 사용되는 매개 변수에 대해 설명합니다. 
+---
+= S3 감사 구성 계획
+
+
+[role="lead"]
+S3 감사 구성에 대해 여러 매개 변수를 지정하거나 기본값을 그대로 사용해야 합니다. 특히 적절한 여유 공간을 확보하는 데 도움이 되는 로그 회전 매개 변수를 고려해야 합니다.
+
+구문 세부 정보는 * vserver object-store-server audit create * man 페이지를 참조하십시오.
+
+
+
+== 일반 매개변수
+
+감사 구성을 만들 때 지정해야 하는 필수 매개 변수는 두 가지입니다. 지정할 수 있는 세 가지 선택적 매개 변수도 있습니다.
+
+[cols="4,2,1"]
+|===
+| 정보 유형입니다 | 옵션을 선택합니다 | 필수 요소입니다 
+
+
+| _SVM 이름_감사 구성을 생성할 SVM의 이름입니다. S3에 대해 SVM이 이미 존재하고 사용하도록 설정해야 합니다. | '-verserver_svm_name_' | 예 
+
+
+| _Log 대상 경로 _ 변환된 감사 로그를 저장할 위치를 지정합니다. SVM에 경로가 이미 있어야 합니다. 경로는 최대 864자까지 가능하며 읽기-쓰기 권한이 있어야 합니다. 경로가 유효하지 않으면 감사 구성 명령이 실패합니다. | '-destination_text_' | 예 
+
+
+| _감사할 이벤트의 범주 _ 다음 이벤트 범주를 감사할 수 있습니다. * DATA GetObject , PutObject 및 DeleteObject 이벤트 * 관리 PutBucket 및 DeleteBucket 이벤트 기본값은 데이터 이벤트만 감사하는 것입니다. | '-events{data{vbar} management},...' | 아니요 
+|===
+다음 매개 변수 중 하나를 입력하여 감사 로그 파일 수를 제어할 수 있습니다. 값을 입력하지 않으면 모든 로그 파일이 유지됩니다.
+
+[cols="4,2,1"]
+|===
+| 정보 유형입니다 | 옵션을 선택합니다 | 필수 요소입니다 
+
+
+| _Log files rotation limit _ 가장 오래된 로그 파일을 회전하기 전에 유지할 감사 로그 파일 수를 결정합니다. 예를 들어 값을 5로 입력하면 마지막 5개의 로그 파일이 유지됩니다. 값 0은 모든 로그 파일이 보존됨을 나타냅니다. 기본값은 0입니다. | '-rotate-limit_integer _' | 아니요 
+
+
+| _Log 파일 지속 시간 제한 _ 로그 파일을 삭제하기 전에 보존할 수 있는 기간을 결정합니다. 예를 들어 5d0h0m 값을 입력하면 5일 이상 지난 로그가 삭제됩니다. 값 0은 모든 로그 파일이 보존됨을 나타냅니다. 기본값은 0입니다. | '-retention duration_integer_time_' | 아니요 
+|===
+
+
+== 감사 로그 회전을 위한 매개 변수입니다
+
+크기 또는 일정에 따라 감사 로그를 회전할 수 있습니다. 기본값은 크기에 따라 감사 로그를 회전하는 것입니다.
+
+
+
+=== 로그 크기에 따라 로그를 회전합니다
+
+기본 로그 회전 방법과 기본 로그 크기를 사용하려면 로그 회전을 위한 특정 매개 변수를 구성할 필요가 없습니다. 기본 로그 크기는 100MB입니다.
+
+기본 로그 크기를 사용하지 않으려면 '-rotate-size' 매개변수를 구성하여 사용자 정의 로그 크기를 지정할 수 있습니다.
+
+로그 크기만을 기준으로 회전을 재설정하려면 다음 명령을 사용하여 '-rotate-schedule-minute' 매개 변수를 설정 해제합니다.
+
+'vserver audit modify -vserver_svm_name_-destination/-rotate-schedule-minute -'
+
+
+
+=== 일정에 따라 로그를 회전합니다
+
+일정에 따라 감사 로그를 회전하도록 선택한 경우 시간 기반 회전 매개 변수를 조합하여 로그 회전을 예약할 수 있습니다.
+
+* 시간 기반 회전을 사용하는 경우 '-rotate-schedule-minute' 매개변수는 필수입니다.
+* 다른 모든 시간 기반 회전 매개변수는 옵션입니다.
++
+** '-rotate-schedule-month'입니다
+** '-rotate-schedule-DayOfWeek'
+** '-rotate-schedule-day'
+** '-rotate-schedule-hour'
+
+
+* 회전 일정은 모든 시간 관련 값을 사용하여 계산됩니다. 예를 들어, '-rotate-schedule-minute' 매개 변수만 지정하면 감사 로그 파일은 모든 연도의 모든 월에 지정된 모든 요일에 지정된 분을 기준으로 회전합니다.
+* 시간 기반 회전 매개 변수(예: '-rotate-schedule-month' 및 '-rotate-schedule-minutes')를 하나 또는 두 개만 지정하는 경우 모든 시간 동안 모든 요일에 지정한 분 값을 기준으로 로그 파일이 회전되며 지정된 개월 동안에만 회전됩니다.
++
+예를 들어 월요일, 수요일 및 토요일은 오전 10시 30분에 월, 3월, 8월 중 감사 로그를 회전하도록 지정할 수 있습니다
+
+* '-rotate-schedule-dayOfWeek' 및 '-rotate-schedule-day' 값을 모두 지정하면 독립적으로 간주됩니다.
++
+예를 들어, `-rotate-schedule-dayOfWeek'를 금요일로 지정하고 '-rotate-schedule-day'를 13일로 지정하면 13일에 금요일이 아니라 지정한 달의 13일에 감사 로그가 회전합니다.
+
+* 일정만 기준으로 회전을 재설정하려면 다음 명령을 사용하여 '-rotate-size 매개 변수'를 해제합니다.
++
+'vserver audit modify -vserver_svm_name_-destination/-rotate-size-'
+
+
+
+
+
+=== 로그 크기 및 일정에 따라 로그를 회전합니다
+
+모든 조합의 -rotate-size 매개 변수와 시간 기반 회전 매개 변수를 모두 설정하여 로그 크기와 일정에 따라 로그 파일을 회전하도록 선택할 수 있습니다. 예를 들어, '-rotate-size'를 10MB로 설정하고 '-rotate-schedule-minute'를 15로 설정하면 로그 파일 크기가 10MB에 도달하거나 매 시간 15분(둘 중 먼저 발생하는 이벤트)에 도달할 때 로그 파일이 회전합니다.

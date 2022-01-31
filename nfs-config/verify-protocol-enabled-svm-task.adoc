@@ -1,0 +1,58 @@
+---
+permalink: nfs-config/verify-protocol-enabled-svm-task.html 
+sidebar: sidebar 
+keywords: verify, nfs, protocol, enabled, svm 
+summary: SVM에서 NFS를 구성 및 사용하려면 먼저 프로토콜이 활성화되어 있는지 확인해야 합니다. 
+---
+= SVM에서 NFS 프로토콜이 활성화되어 있는지 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SVM에서 NFS를 구성 및 사용하려면 먼저 프로토콜이 활성화되어 있는지 확인해야 합니다.
+
+이는 일반적으로 SVM 설정 중에 수행되지만 설정 중에 프로토콜을 활성화하지 않은 경우 나중에 'vserver add-protocols' 명령을 사용하여 활성화할 수 있습니다.
+
+[NOTE]
+====
+프로토콜을 생성한 후에는 LIF에서 프로토콜을 추가하거나 제거할 수 없습니다.
+
+====
+"vserver remove-protocols" 명령을 사용하여 SVM에서 프로토콜을 비활성화할 수도 있습니다.
+
+.단계
+. 현재 SVM에 대해 활성화 및 비활성화된 프로토콜을 확인합니다.
++
+'vserver show -vserver_vserver_name_-protocols'
+
++
+"vserver show-protocols" 명령을 사용하여 클러스터의 모든 SVM에서 현재 활성화된 프로토콜을 볼 수도 있습니다.
+
+. 필요한 경우 프로토콜을 활성화 또는 비활성화합니다.
++
+** NFS 프로토콜을 활성화하려면: + 'vserver add-protocols-vserver_vserver_name_-protocols nfs'
+** 프로토콜을 작동 불가능하게 하려면: + "vserver remove-protocols-vserver_name_-protocols_protocol_name_[,_protocol_name_,...]
+
+
+. 활성화된 프로토콜과 비활성화된 프로토콜이 올바르게 업데이트되었는지 확인합니다.
++
+'vserver show -vserver_vserver_name_-protocols'
+
+
+
+다음 명령을 실행하면 이름이 VS1 인 SVM에서 현재 설정 및 해제된 프로토콜(허용 및 허용 안 함)이 표시됩니다.
+
+[listing]
+----
+vs1::> vserver show -vserver vs1.example.com -protocols
+Vserver           Allowed Protocols         Disallowed Protocols
+-----------       ----------------------    -----------------------
+vs1.example.com   nfs                       cifs, fcp, iscsi, ndmp
+----
+다음 명령을 사용하면 이름이 VS1 인 SVM에서 활성화된 프로토콜 목록에 NFS를 추가하여 NFS를 통해 액세스할 수 있습니다.
+
+[listing]
+----
+vs1::> vserver add-protocols -vserver vs1.example.com -protocols nfs
+----

@@ -1,0 +1,29 @@
+---
+permalink: system-admin/manage-autosupport-concept.html 
+sidebar: sidebar 
+keywords: manage, autosupport, support, technical, message 
+summary: AutoSupport는 시스템의 상태를 능동적으로 모니터링하고 NetApp 기술 지원, 내부 지원 조직 및 지원 파트너에게 메시지를 자동으로 보내는 메커니즘입니다. AutoSupport 기술 지원 메시지를 기본적으로 사용하도록 설정했지만 올바른 옵션을 설정하고 내부 지원 조직에 메시지를 보낼 수 있는 유효한 메일 호스트를 가지고 있어야 합니다. 
+---
+= AutoSupport 개요 관리
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+AutoSupport는 시스템의 상태를 능동적으로 모니터링하고 NetApp 기술 지원, 내부 지원 조직 및 지원 파트너에게 메시지를 자동으로 보내는 메커니즘입니다. AutoSupport 기술 지원 메시지를 기본적으로 사용하도록 설정했지만 올바른 옵션을 설정하고 내부 지원 조직에 메시지를 보낼 수 있는 유효한 메일 호스트를 가지고 있어야 합니다.
+
+클러스터 관리자만 AutoSupport 관리를 수행할 수 있습니다. 스토리지 가상 시스템(SVM) 관리자는 AutoSupport에 액세스할 수 없습니다.
+
+스토리지 시스템을 처음 구성할 때 AutoSupport가 기본적으로 설정됩니다. AutoSupport는 AutoSupport가 활성화된 후 24시간 후에 기술 지원 부서에 메시지를 보내기 시작합니다. 시스템을 업그레이드 또는 되돌리거나, AutoSupport 구성을 수정하거나, 시스템 시간을 24시간 이외의 시간으로 변경하여 24시간을 단축할 수 있습니다.
+
+[NOTE]
+====
+언제든지 AutoSupport를 비활성화할 수 있지만, 이 기능을 활성 상태로 두어야 합니다. AutoSupport를 활성화하면 스토리지 시스템에서 문제가 발생할 경우 문제를 신속하게 확인하고 해결할 수 있습니다. 기본적으로 시스템에서는 AutoSupport를 사용하지 않도록 설정하더라도 AutoSupport 정보를 수집하여 로컬에 저장합니다.
+
+====
+AutoSupport에 대한 자세한 내용은 NetApp Support 사이트 를 참조하십시오.
+
+.관련 정보
+* https://support.netapp.com/["NetApp 지원"]
+* http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP CLI에서 AutoSupport 명령에 대해 자세히 알아보십시오"]
+

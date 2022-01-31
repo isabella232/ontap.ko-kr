@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/no-files-were-created-reference.html 
+sidebar: sidebar 
+keywords: no, files, created, enable, dar, functionality 
+summary: 향상된 DAR 기능을 사용하지 않고 DAR 디렉토리 DAR을 시도했습니다. 
+---
+= 파일이 생성되지 않았습니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+파일이 생성되지 않았습니다
+
+* * 원인 *
++
+향상된 DAR 기능을 사용하지 않고 DAR 디렉토리 DAR을 시도했습니다.
+
+* * 시정 조치 *
++
+향상된 DAR 기능을 사용하도록 설정하고 DAR를 다시 시도합니다.
+
+

@@ -1,0 +1,100 @@
+---
+permalink: smb-admin/create-share-access-control-lists-task.html 
+sidebar: sidebar 
+keywords: configuring, configure, permission, share, creating, create, control, list, acl, smb, enable, level, access, user, group, create smb share access control lists 
+summary: 'SMB 공유에 대한 ACL(액세스 제어 목록)을 생성하여 공유 권한을 구성하면 사용자 및 그룹의 공유에 대한 액세스 수준을 제어할 수 있습니다.' 
+---
+= SMB 공유 액세스 제어 목록을 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMB 공유에 대한 ACL(액세스 제어 목록)을 생성하여 공유 권한을 구성하면 사용자 및 그룹의 공유에 대한 액세스 수준을 제어할 수 있습니다.
+
+로컬 또는 도메인 Windows 사용자 또는 그룹 이름 또는 UNIX 사용자 또는 그룹 이름을 사용하여 공유 수준 ACL을 구성할 수 있습니다.
+
+새 ACL을 생성하기 전에 보안 위험을 야기시키는 기본 공유 ACL 'Everyone/Full Control'을 삭제해야 합니다.
+
+워크그룹 모드에서 로컬 도메인 이름은 SMB 서버 이름입니다.
+
+.단계
+. 기본 공유 ACL: ``vserver cifs share access-control delete-vserver_vserver_name_-share_share_name_-user-or-group everyone’’을 삭제합니다
+. 새 ACL 구성:
++
+|===
+| 을 사용하여 ACL을 구성하려면... | 명령 입력... 
+
+
+ a| 
+Windows 사용자
+ a| 
+'vserver cifs share access-control create-vserver_name_-share_share_name_-user-group-type windows-user-or-group_windows_domain_name\\user_name_-permission_access_right_'
+
+
+
+ a| 
+Windows 그룹
+ a| 
+'vserver cifs share access-control create-vserver_name_-share_share_name_-user-group-type windows-user-or-group_windows_group_name_-permission_access_right_'
+
+
+
+ a| 
+Unix 사용자입니다
+ a| 
+'vserver cifs share access-control create-vserver_name_-share_share_name_-user-group-type_unix-user_-or-group_unix_user_name_-permission access_right'
+
+
+
+ a| 
+Unix 그룹
+ a| 
+'vserver cifs share access-control create-vserver_name_-share_share_name_-user-group-type_unix-group_-user-or-group_unix_group_name_-permission access_right'
+
+|===
+. 'vserver cifs share access-control show' 명령을 사용하여 공유에 적용된 ACL이 올바른지 확인하십시오.
+
+
+다음 명령을 실행하면 vs1.example.com`"SVM: "Sales" 공유에 대한 "Sales Team" Windows 그룹에 대한 "Change" 권한이 부여됩니다
+
+[listing]
+----
+cluster1::> vserver cifs share access-control create -vserver vs1.example.com -share sales -user-or-group "Sales Team" -permission Change
+
+cluster1::> vserver cifs share access-control show
+                 Share       User/Group              User/Group  Access
+Vserver          Name        Name                    Type        Permission
+---------------- ----------- --------------------    ---------   -----------
+vs1.example.com  c$          BUILTIN\Administrators  windows     Full_Control
+vs1.example.com  sales       DOMAIN\"Sales Team"     windows     Change
+----
+다음 명령을 실행하면 vs2.example.com`"SVM: "엔지니어링" UNIX 그룹에 "eng" 공유에 대한 "읽기" 권한이 부여됩니다
+
+[listing]
+----
+cluster1::> vserver cifs share access-control create -vserver vs2.example.com -share eng -user-group-type unix-group -user-or-group  eng -permission Read
+
+cluster1::> vserver cifs share access-control show
+                 Share       User/Group               User/Group  Access
+Vserver          Name        Name                     Type        Permission
+---------------- ----------- -------------------      ----------- -----------
+vs2.example.com  c$          BUILTIN\Administrators   windows     Full_Control
+vs2.example.com  eng         engineering              unix-group  Read
+----
+다음 명령은 로컬 윈도우 그룹인 '타이거 팀'과 'Full_Control'에 대한 'SUE Chang'이라는 이름의 변경 권한을 VS1 SVM의 'datavol5' 공유에 부여합니다.
+
+[listing]
+----
+cluster1::> vserver cifs share access-control create -vserver vs1 -share datavol5 -user-group-type windows -user-or-group "Tiger Team" -permission Change
+
+cluster1::> vserver cifs share access-control create -vserver vs1 -share datavol5 -user-group-type windows -user-or-group "Sue Chang" -permission Full_Control
+
+cluster1::> vserver cifs share access-control show -vserver vs1
+               Share       User/Group                  User/Group  Access
+Vserver        Name        Name                        Type        Permission
+-------------- ----------- --------------------------- ----------- -----------
+vs1            c$          BUILTIN\Administrators      windows     Full_Control
+vs1            datavol5    DOMAIN\"Tiger Team"         windows     Change
+vs1            datavol5    DOMAIN\"Sue Chang"          windows     Full_Control
+----

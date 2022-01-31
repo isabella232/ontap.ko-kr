@@ -1,0 +1,50 @@
+---
+permalink: san-config/fc-target-port-supported-speeds-reference.html 
+sidebar: sidebar 
+keywords: fc, target, port, supported, speeds 
+summary: FC 타겟 포트는 다른 속도로 실행되도록 구성할 수 있습니다. 대상 포트 속도를 연결할 장치의 속도와 일치하도록 설정해야 합니다. 지정된 호스트에서 사용하는 모든 타겟 포트는 동일한 속도로 설정되어야 합니다. FC 타겟 포트는 FC 구성에 사용되는 것과 동일한 방식으로 FC-NVMe 구성에 사용할 수 있습니다. 
+---
+= FC 타겟 포트의 지원 속도입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FC 타겟 포트는 다른 속도로 실행되도록 구성할 수 있습니다. 대상 포트 속도를 연결할 장치의 속도와 일치하도록 설정해야 합니다. 지정된 호스트에서 사용하는 모든 타겟 포트는 동일한 속도로 설정되어야 합니다. FC 타겟 포트는 FC 구성에 사용되는 것과 동일한 방식으로 FC-NVMe 구성에 사용할 수 있습니다.
+
+autonegotiation을 사용하는 대신 연결되는 장치의 속도에 맞게 타겟 포트 속도를 설정해야 합니다. autonegotiation으로 설정된 포트는 Takeover/Giveback 또는 기타 중단 후 다시 연결하는 데 더 오래 걸릴 수 있습니다.
+
+다음과 같은 속도로 실행되도록 온보드 포트 및 확장 어댑터를 구성할 수 있습니다. 필요에 따라 각 컨트롤러 및 확장 어댑터 포트를 각기 다른 속도로 구성할 수 있습니다.
+
+[cols="4*"]
+|===
+| 4Gb 포트 | 8Gb 포트 | 16Gb 포트 | 32 Gb 포트 
+
+
+ a| 
+* 4Gb
+* 2Gb
+* 1Gb
+
+ a| 
+* 8Gb
+* 4Gb
+* 2Gb
+
+ a| 
+* 16Gb
+* 8Gb
+* 4Gb
+
+ a| 
+* 32Gb
+* 16Gb
+* 8Gb
+
+
+|===
+[NOTE]
+====
+UTA2 포트는 8Gb SFP+ 어댑터를 사용하여 8Gb, 4 및 2Gb 속도를 지원할 수 있습니다.
+
+====

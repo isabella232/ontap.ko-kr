@@ -1,0 +1,41 @@
+---
+permalink: data-protection/define-schedule-create-local-copy-destination-task.html 
+sidebar: sidebar 
+keywords: define, schedule, create, local copy, destination 
+summary: 'SnapVault 및 유니파이드 복제 관계의 경우, 타겟에 마지막으로 전송된 스냅샷 복사본의 복사본을 생성하여 업데이트된 스냅샷 복사본이 손상될 가능성을 방지할 수 있습니다. 이 "로컬 복사본"은 소스의 보존 규칙에 관계없이 유지되므로 SnapMirror에서 원래 전송한 스냅샷을 소스에서 더 이상 사용할 수 없는 경우에도 대상에서 사용할 수 있습니다.' 
+---
+= 대상에 로컬 복제본을 생성하기 위한 스케줄을 정의합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapVault 및 유니파이드 복제 관계의 경우, 타겟에 마지막으로 전송된 스냅샷 복사본의 복사본을 생성하여 업데이트된 스냅샷 복사본이 손상될 가능성을 방지할 수 있습니다. 이 ""로컬 복사본""은 소스의 보존 규칙에 관계없이 보존되므로, SnapMirror에서 원래 전송한 스냅샷을 소스에서 더 이상 사용할 수 없더라도 대상에서 사용할 수 있습니다.
+
+'napmirror policy add-rule' 명령의 '-schedule' 옵션에서 로컬 복제본 생성 스케줄을 지정합니다.
+
+.단계
+. 대상에 로컬 복제본을 생성하기 위한 스케줄을 정의합니다.
++
+'스냅샷 정책 추가-규칙-vserver_SVM_-policy_policy_for_rule_-snapmirror-label_snapmirror-label_-schedule_schedule_'
+
++
+전체 명령 구문은 man 페이지를 참조하십시오. 작업 일정을 만드는 방법에 대한 예는 를 참조하십시오 link:create-replication-job-schedule-task.html["복제 작업 스케줄 생성"].
+
++
+다음 예제에서는 기본 MirorAndVault 정책에 로컬 복사본을 만들기 위한 일정을 추가합니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror policy add-rule -vserver svm1 -policy MirrorAndVault -snapmirror-label my_monthly -schedule my_monthly
+----
++
+다음 예에서는 사용자 지정 my_unified" 정책에 로컬 복사본을 만들기 위한 일정을 추가합니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror policy add-rule -vserver svm1 -policy my_unified -snapmirror-label my_monthly -schedule my_monthly
+----
+

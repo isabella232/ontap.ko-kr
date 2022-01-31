@@ -1,0 +1,466 @@
+---
+sidebar: sidebar 
+permalink: networking/lifs_and_service_policies96.html 
+keywords: service policies for system svms, lif service policies, lif, logical, interface, service, policy, policies, lifs and service policies in ontap 9.6 and later, assign service policies to lifs to specify the supported traffic, service policies for system svms, service policies for data svms, data-core service 
+summary: LIF에 서비스 정책을 할당하여 지원되는 트래픽을 지정합니다 
+---
+= ONTAP 9.6 이상의 LIF 및 서비스 정책
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+LIF에서 지원되는 트래픽 유형을 결정하는 LIF에 서비스 정책(LIF 역할 대신)을 할당할 수 있습니다. 서비스 정책은 LIF에서 지원하는 네트워크 서비스 모음을 정의합니다. ONTAP는 LIF와 연결할 수 있는 기본 서비스 정책 세트를 제공합니다.
+
+네트워크 인터페이스 service-policy show 명령을 사용하여 서비스 정책과 세부 정보를 표시할 수 있습니다
+
+
+
+== 시스템 SVM에 대한 서비스 정책
+
+관리 SVM과 모든 시스템 SVM에는 관리 및 인터클러스터 LIF를 포함하여 해당 SVM의 LIF에 사용할 수 있는 서비스 정책이 포함되어 있습니다. 이러한 정책은 IPspace가 생성될 때 시스템에서 자동으로 생성됩니다.
+
+다음 표에는 ONTAP 9.10.1 현재 시스템 SVM에 있는 LIF에 대한 기본 제공 정책이 나와 있습니다. 다른 릴리즈의 경우 다음 명령을 사용하여 서비스 정책과 세부 정보를 표시합니다.
+
+네트워크 인터페이스 서비스 정책 쇼
+
+[cols="20,20,20,40"]
+|===
+
+
+| 정책 | 포함된 서비스 | 동등한 역할 | 설명 
+
+
+ a| 
+기본값 - 인터클러스터
+ a| 
+인터클러스터 코어, 관리 - https
+ a| 
+인터클러스터
+ a| 
+인터클러스터 트래픽을 전송하는 LIF에서 사용됩니다. 참고: 서비스 인터클러스터 코어는 net-인터클러스터 서비스 정책이라는 이름의 ONTAP 9.5에서 사용할 수 있습니다.
+
+
+
+ a| 
+default-route-공지
+ a| 
+관리 - BGP
+ a| 
+-
+ a| 
+BGP 피어 연결을 전달하는 LIF에서 사용됩니다. 참고: net-route-공지 서비스 정책과 함께 ONTAP 9.5에서 사용할 수 있습니다.
+
+
+
+ a| 
+기본 관리
+ a| 
+management-core, management-https, management-http, management-ssh management-autosupport, management-ems, 관리 코어, 관리 - https, 관리 - http, 관리 - 관리 - 관리 - 관리 - 관리 - NTP - 클라이언트, 관리 - SNMP - 서버, 관리 - NTP - 서버, 백업 - NDMP - 제어
+ a| 
+노드 관리 또는 클러스터 관리
+ a| 
+시스템 범위 관리 요청을 처리하는 LIF에서 사용됩니다. 관리 - EMS에서 EMS 콘텐츠를 게시할 수 있는 LIF를 제어합니다. 시스템 범위 관리 정책은 시스템 SVM이 소유하는 노드 범위 및 클러스터 범위 관리 LIF를 생성하는 데 사용됩니다. 이러한 LIF는 NTP 또는 DNS 서버에 대한 아웃바운드 연결뿐만 아니라 전체 시스템을 대신하여 실행되는 애플리케이션을 지원하기 위한 일부 추가 연결에 사용할 수 있습니다.
+
+|===
+다음 표에는 ONTAP 9.10.1을 기반으로 시스템 SVM에서 LIF가 사용할 수 있는 서비스가 나와 있습니다.
+
+[cols="25,25,50"]
+|===
+
+
+| 서비스 | 페일오버 제한 사항 | 설명 
+
+
+ a| 
+인터클러스터 코어
+ a| 
+홈 노드 전용
+ a| 
+핵심 인터클러스터 서비스
+
+
+
+ a| 
+관리 코어
+ a| 
+-
+ a| 
+핵심 관리 서비스
+
+
+
+ a| 
+관리 - ssh
+ a| 
+-
+ a| 
+SSH 관리 액세스를 위한 서비스
+
+
+
+ a| 
+관리 - http
+ a| 
+-
+ a| 
+HTTP 관리 액세스를 위한 서비스입니다
+
+
+
+ a| 
+관리 - https
+ a| 
+-
+ a| 
+HTTPS 관리 액세스를 위한 서비스
+
+
+
+ a| 
+AutoSupport에 대해 설명합니다
+ a| 
+-
+ a| 
+AutoSupport 페이로드 게시와 관련된 서비스
+
+
+
+ a| 
+관리 - BGP
+ a| 
+홈 포트 전용
+ a| 
+BGP 피어 상호 작용과 관련된 서비스
+
+
+
+ a| 
+backup-ndmp-control입니다
+ a| 
+-
+ a| 
+NDMP 백업 제어를 위한 서비스
+
+
+
+ a| 
+관리 - EMS
+ a| 
+-
+ a| 
+관리 메시징 액세스를 위한 서비스
+
+
+
+ a| 
+관리 - NTP - 클라이언트
+ a| 
+-
+ a| 
+NTP 클라이언트 액세스를 위한 서비스입니다.
+
+
+
+ a| 
+관리 - NTP - 서버
+ a| 
+시스템 전용
+ a| 
+NTP 서버 관리 액세스를 위한 서비스입니다
+
+
+
+ a| 
+관리 - portmap
+ a| 
+-
+ a| 
+포트맵 관리 서비스
+
+
+
+ a| 
+관리 - rsh - 서버
+ a| 
+시스템 전용
+ a| 
+rsh 서버 관리를 위한 서비스
+
+
+
+ a| 
+관리 - SNMP - 서버
+ a| 
+-
+ a| 
+SNMP 서버 관리를 위한 서비스입니다
+
+
+
+ a| 
+관리 - 텔넷 - 서버
+ a| 
+시스템 전용
+ a| 
+텔넷 서버 관리를 위한 서비스
+
+|===
+
+
+== 데이터 SVM에 대한 서비스 정책
+
+모든 데이터 SVM에는 해당 SVM의 LIF에서 사용할 수 있는 서비스 정책이 포함되어 있습니다.
+
+다음 표에는 ONTAP 9.10.1을 기반으로 데이터 SVM에 있는 LIF에 대한 기본 제공 정책이 나와 있습니다. 다른 릴리즈의 경우 다음 명령을 사용하여 서비스 정책과 세부 정보를 표시합니다.
+
+네트워크 인터페이스 서비스 정책 쇼
+
+[cols="20,20,20,40"]
+|===
+
+
+| 정책 | 포함된 서비스 | 등가 데이터 프로토콜 | 설명 
+
+
+ a| 
+기본 관리
+ a| 
+data-core, management-ssh, management-https, data-dns-server, management-http, backup-ndmp-control, management-snmp-server
+ a| 
+없음
+ a| 
+SVM 범위 관리를 처리하는 LIF에서 데이터 SVM이 소유하는 SVM 관리 LIF를 생성하는 데 사용됩니다. 이러한 LIF는 SVM 관리자에게 SSH 또는 HTTPS 액세스를 제공하는 데 사용할 수 있습니다.
+
+
+
+ a| 
+default-data-blocks입니다
+ a| 
+데이터 코어, 데이터 - iSCSI
+ a| 
+iSCSI
+ a| 
+블록 지향 SAN 데이터 트래픽을 전송하는 LIF에서 사용됩니다
+
+
+
+ a| 
+default-data-files 를 선택합니다
+ a| 
+데이터 코어, 데이터 - NFS, 데이터 - CIFS, 데이터 - FlexCache, 데이터 - FPolicy - 클라이언트
+ a| 
+NFS, CIFS, FCache가 있습니다
+ a| 
+기본 데이터 파일 정책을 사용하여 파일 기반 데이터 프로토콜을 지원하는 NAS LIF를 생성합니다.
+
+|===
+다음 표에는 데이터 SVM에서 사용할 수 있는 서비스와 ONTAP 9.10.1: LIF 페일오버 정책에서 각 서비스가 부과하는 제한 사항이 나열되어 있습니다.
+
+[cols="25,25,50"]
+|===
+
+
+| 서비스 | 페일오버 제한 사항 | 설명 
+
+
+ a| 
+관리 - ssh
+ a| 
+-
+ a| 
+SSH 관리 액세스를 위한 서비스
+
+
+
+ a| 
+관리 - http
+ a| 
+-
+ a| 
+HTTP 관리 액세스를 위한 서비스입니다
+
+
+
+ a| 
+관리 - https
+ a| 
+-
+ a| 
+HTTPS 관리 액세스를 위한 서비스
+
+
+
+ a| 
+관리 - portmap
+ a| 
+-
+ a| 
+포트맵 관리 액세스를 위한 서비스
+
+
+
+ a| 
+관리 - SNMP - 서버
+ a| 
+-
+ a| 
+SNMP 서버 관리 액세스를 위한 서비스입니다
+
+
+
+ a| 
+데이터 코어
+ a| 
+-
+ a| 
+핵심 데이터 서비스
+
+
+
+ a| 
+데이터 - NFS
+ a| 
+-
+ a| 
+NFS 데이터 서비스
+
+
+
+ a| 
+데이터 - CIFS
+ a| 
+-
+ a| 
+CIFS 데이터 서비스
+
+
+
+ a| 
+데이터 - FlexCache
+ a| 
+-
+ a| 
+FlexCache 데이터 서비스
+
+
+
+ a| 
+데이터 - iSCSI
+ a| 
+홈 포트 전용
+ a| 
+iSCSI 데이터 서비스
+
+
+
+ a| 
+backup-ndmp-control입니다
+ a| 
+-
+ a| 
+백업 NDMP는 데이터 서비스를 제어합니다
+
+
+
+ a| 
+data-dns-server 를 참조하십시오
+ a| 
+-
+ a| 
+DNS 서버 데이터 서비스
+
+
+
+ a| 
+데이터 - FPolicy - 클라이언트
+ a| 
+-
+ a| 
+파일 스크리닝 정책 데이터 서비스
+
+
+
+ a| 
+데이터 NVMe-TCP
+ a| 
+홈 포트 전용
+ a| 
+NVMe TCP 데이터 서비스
+
+
+
+ a| 
+Data-S3-서버
+ a| 
+-
+ a| 
+S3(Simple Storage Service) 서버 데이터 서비스
+
+|===
+서비스 정책이 데이터 SVM의 LIF에 할당되는 방식에 대해 알고 있어야 합니다.
+
+* 데이터 서비스 목록을 사용해 데이터 SVM을 생성할 경우 지정된 서비스를 사용하여 해당 SVM에 내장된 "기본 데이터 파일" 및 "기본 데이터 블록" 서비스 정책을 생성합니다.
+* 데이터 서비스 목록을 지정하지 않고 SVM 데이터 생성 시 기본 데이터 서비스 목록을 사용하여 해당 SVM에 내장된 "default-data-files" 및 "default-data-blocks" 서비스 정책이 생성됩니다.
++
+기본 데이터 서비스 목록에는 iSCSI, NFS, SMB 및 FlexCache 서비스가 포함됩니다.
+
+* LIF가 데이터 프로토콜 목록으로 작성되면 지정된 데이터 프로토콜에 해당하는 서비스 정책이 LIF에 할당됩니다.
++
+동등한 서비스 정책이 없으면 사용자 지정 서비스 정책이 만들어집니다.
+
+* 서비스 정책이나 데이터 프로토콜 목록 없이 LIF를 생성할 경우 기본적으로 기본 데이터 파일 서비스 정책이 LIF에 할당됩니다.
+
+
+
+
+== 데이터 코어 서비스
+
+데이터 코어 서비스는 LIF 역할(ONTAP 9.6에서 더 이상 사용되지 않음)을 사용하여 서비스 정책을 관리하는 LIF를 관리하도록 업그레이드된 클러스터에서 데이터 역할의 LIF를 사용한 구성 요소가 예상대로 작동할 수 있도록 합니다.
+
+데이터 코어를 서비스로 지정해도 방화벽에서 어떠한 포트도 열리지 않지만 데이터 SVM의 서비스 정책에는 서비스가 포함되어야 합니다. 예를 들어 기본 데이터 파일 서비스 정책에는 기본적으로 다음 서비스가 포함됩니다.
+
+* 데이터 코어
+* 데이터 - NFS
+* 데이터 - CIFS
+* 데이터 - FlexCache
+
+
+데이터 코어 서비스를 정책에 포함하여 LIF를 사용하는 모든 애플리케이션이 예상대로 작동하도록 해야 하지만, 필요한 경우 다른 세 서비스를 제거할 수 있습니다.
+
+
+
+== 클라이언트 측 LIF 서비스
+
+ONTAP는 ONTAP 9.10.1부터 여러 애플리케이션을 위한 클라이언트측 LIF 서비스를 제공합니다. 이러한 서비스를 통해 각 애플리케이션을 대신하여 아웃바운드 연결에 사용되는 LIF를 제어할 수 있습니다.
+
+관리자는 다음과 같은 새로운 서비스를 통해 특정 애플리케이션의 소스 주소로 사용되는 LIF를 제어할 수 있습니다.
+
+[cols="25,25,50"]
+|===
+
+
+| 서비스 | SVM 제한 | 설명 
+
+
+ a| 
+관리 - NTP - 클라이언트
+ a| 
+시스템 전용
+ a| 
+ONTAP 9.10.1부터 ONTAP는 외부 NTP 서버에 대한 아웃바운드 연결을 위한 NTP 클라이언트 서비스를 제공합니다.
+
+
+
+ a| 
+데이터 - FPolicy - 클라이언트
+ a| 
+데이터 전용
+ a| 
+ONTAP 9.8부터 ONTAP는 아웃바운드 FPolicy 연결을 위한 클라이언트 서비스를 제공합니다.
+
+|===
+새로운 서비스 각각은 자동으로 일부 기본 제공 서비스 정책에 포함되지만 관리자는 기본 제공 정책에서 해당 서비스를 제거하거나 사용자 지정 정책에 추가하여 각 애플리케이션을 대신하여 아웃바운드 연결에 사용되는 LIF를 제어할 수 있습니다.

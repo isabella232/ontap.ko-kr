@@ -1,0 +1,73 @@
+---
+permalink: san-config/fcoe-initiator-target-combinations-reference.html 
+sidebar: sidebar 
+keywords: fcoe, initiator, target, combinations 
+summary: FCoE와 기존 FC Initiator와 타겟의 특정 조합이 지원됩니다. 
+---
+= FCoE 이니시에이터 및 타겟 조합
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FCoE와 기존 FC Initiator와 타겟의 특정 조합이 지원됩니다.
+
+
+
+== FCoE 이니시에이터
+
+호스트 컴퓨터에서 FCoE 이니시에이터와 스토리지 컨트롤러의 기존 FC 타겟을 모두 사용할 수 있습니다. 호스트 FCoE 초기자는 FCoE DCB(데이터 센터 브리징) 스위치에 연결해야 합니다. 대상에 대한 직접 연결은 지원되지 않습니다.
+
+다음 표에는 지원되는 조합이 나와 있습니다.
+
+[cols="3*"]
+|===
+| 이니시에이터 | 타겟 | 지원 여부 
+
+
+ a| 
+FC
+ a| 
+FC
+ a| 
+예
+
+
+
+ a| 
+FC
+ a| 
+FCoE 를 참조하십시오
+ a| 
+예
+
+
+
+ a| 
+FCoE 를 참조하십시오
+ a| 
+FC
+ a| 
+예
+
+
+
+ a| 
+FCoE 를 참조하십시오
+ a| 
+FCoE 를 참조하십시오
+ a| 
+예
+
+|===
+
+
+== FCoE 타겟
+
+FC 포트가 추가 대상 어댑터인지 온보드 포트인지에 관계없이 스토리지 컨트롤러의 4Gb, 8Gb 또는 16Gb FC 포트와 FCoE 타겟 포트를 혼합할 수 있습니다. 동일한 스토리지 컨트롤러에 FCoE 및 FC 타겟 어댑터를 둘 다 사용할 수 있습니다.
+
+[NOTE]
+====
+온보드 및 확장 FC 포트의 결합에 대한 규칙이 계속 적용됩니다.
+
+====

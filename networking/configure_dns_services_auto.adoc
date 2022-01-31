@@ -1,0 +1,144 @@
+---
+sidebar: sidebar 
+permalink: networking/configure_dns_services_auto.html 
+keywords: dns, service, services, configuration, configure, configuring, set, up, setup, nfs, smb, cifs, active, directory, statistics, configure dns services, configure dns services for the svm before creating an nfs or smb server, vserver services name-service, configure dynamic dns on the svm, vserver-fqdn 
+summary: NFS 또는 SMB 서버를 생성하기 전에 SVM을 위한 DNS 서비스를 구성합니다 
+---
+= DNS 서비스를 구성합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NFS 또는 SMB 서버를 생성하기 전에 SVM을 위한 DNS 서비스를 구성해야 합니다. 일반적으로 DNS 이름 서버는 NFS 또는 SMB 서버가 연결할 도메인의 Active Directory 통합 DNS 서버입니다.
+
+Active Directory 통합 DNS 서버에는 도메인 LDAP 및 도메인 컨트롤러 서버에 대한 SRV(서비스 위치 레코드)가 포함되어 있습니다. SVM이 Active Directory LDAP 서버 및 도메인 컨트롤러를 찾을 수 없는 경우 NFS 또는 SMB 서버 설정에 실패합니다.
+
+SVM은 hosts name services ns-switch 데이터베이스를 사용하여 호스트에 대한 정보를 찾을 때 사용할 이름 서비스와 순서를 결정합니다. 호스트 데이터베이스에 대해 지원되는 두 가지 이름 서비스는 파일과 DNS입니다.
+
+SMB 서버를 생성하기 전에 DNS가 소스 중 하나인지 확인해야 합니다.
+
+
+NOTE: mgwd 프로세스 및 SecD 프로세스의 DNS 이름 서비스에 대한 통계를 보려면 통계 UI를 사용합니다.
+
+.단계
+. 호스트 이름 서비스 데이터베이스에 대한 현재 구성을 확인합니다. 이 예에서는 호스트 이름 서비스 데이터베이스가 기본 설정을 사용합니다.
++
+'vserver services name-service_ns-switch_show-vserver_vs1_-database_hosts_'
+
++
+....
+Vserver: vs1
+Name Service Switch Database: hosts
+Vserver: vs1 Name Service Switch Database: hosts
+Name Service Source Order: files, dns
+....
+. 필요한 경우 다음 작업을 수행합니다.
++
+.. DNS 이름 서비스를 호스트 이름 서비스 데이터베이스에 원하는 순서로 추가하거나 소스를 다시 정렬합니다.
++
+이 예에서는 호스트 데이터베이스가 DNS 및 로컬 파일을 순서대로 사용하도록 구성되어 있습니다.
+
++
+'vserver services name-service_ns-switch_modify -vserver_vs1_-database_hosts_-sources_dns, files_'
+
+.. 이름 서비스 구성이 올바른지 확인합니다.
++
+'vserver services name-service_ns-switch_show-vserver_vs1_-database_hosts_'
+
++
+....
+Vserver: vs1
+Name Service Switch Database: hosts
+Name Service Source Order: dns, files
+....
+
+
+. DNS 서비스를 구성합니다.
++
+'vserver services name-service dns create-vserver_vs1_-domain _example.com,example2.com_ -name-servers_10.0.0.50,10.0.0.51_'
+
++
+
+NOTE: vserver services name-service dns create 명령은 자동 구성 검증을 수행하고 ONTAP가 이름 서버에 연결할 수 없는 경우 오류 메시지를 보고합니다.
+
+. DNS 구성이 올바르고 서비스가 활성화되었는지 확인합니다.
++
+....
+Vserver: vs1
+Domains: example.com, example2.com Name Servers: 10.0.0.50, 10.0.0.51
+Enable/Disable DNS: enabled Timeout (secs): 2
+Maximum Attempts: 1
+....
+. 이름 서버의 상태를 확인합니다.
++
+'vserver services name-service dns check-vserver_vs1_'
+
+
+
+....
+Vserver  Name Server  Status  Status Details
+vs1      10.0.0.50    up      Response time (msec): 2
+vs1      10.0.0.51    up      Response time (msec): 2
+....
+
+
+== SVM에서 동적 DNS를 구성합니다
+
+Active Directory 통합 DNS 서버가 DNS에 있는 NFS 또는 SMB 서버의 DNS 레코드를 동적으로 등록하도록 하려면 SVM에서 DDNS(동적 DNS)를 구성해야 합니다.
+
+SVM에서 DNS 이름 서비스를 구성해야 합니다. 보안 DDNS를 사용하는 경우 Active Directory 통합 DNS 이름 서버를 사용해야 하며 SVM을 위해 NFS 또는 SMB 서버 또는 Active Directory 계정을 생성해야 합니다.
+
+지정된 FQDN(정규화된 도메인 이름)은 고유해야 합니다.
+
+지정된 FQDN(정규화된 도메인 이름)은 고유해야 합니다.
+
+* NFS의 경우 'vserver services name-service dns dynamic-update' 명령의 일부로 '-vserver-FQDN'에 지정된 값이 LIF의 등록 FQDN이 됩니다.
+* SMB의 경우 CIFS 서버 NetBIOS 이름 및 CIFS 서버 정규화된 도메인 이름으로 지정된 값이 LIF의 등록 FQDN이 됩니다. ONTAP에서는 구성할 수 없습니다. 다음 시나리오에서 LIF FQDN은 "CIFS_VS1.EXAMPLE.COM": 입니다
++
+....
+cluster1::> cifs server show -vserver vs1
+
+                                          Vserver: vs1
+                         CIFS Server NetBIOS Name: CIFS_VS1
+                    NetBIOS Domain/Workgroup Name: EXAMPLE
+                      Fully Qualified Domain Name: EXAMPLE.COM
+                              Organizational Unit: CN=Computers
+Default Site Used by LIFs Without Site Membership:
+                                   Workgroup Name: -
+                                   Kerberos Realm: -
+                             Authentication Style: domain
+                CIFS Server Administrative Status: up
+                          CIFS Server Description:
+                          List of NetBIOS Aliases: -
+....
+
+
+
+NOTE: DDNS 업데이트에 대한 RFC 규칙을 준수하지 않는 SVM FQDN의 구성 오류를 방지하려면 RFC와 호환되는 FQDN 이름을 사용합니다. 자세한 내용은 을 참조하십시오 link:https://tools.ietf.org/html/rfc1123["RFC 1123"].
+
+.단계
+. SVM에서 DDNS 구성:
++
+'vserver services name-service dns dynamic-update modify -vserver_vserver_name_-is-enabled_true_[-use-secure{true|false}-vserver-FQDN_FQDN_used_for_dns_updates_'
+
++
+'vserver services name-service dns dynamic-update modify -vserver_vs1_-is-enabled_true_-use-secure_true_-vserver-FQDN _vs1.example.com_`
+
++
+별표는 사용자 지정 FQDN의 일부로 사용할 수 없습니다. 예를 들어, '* .netapp.com'은(는) 유효하지 않습니다.
+
+. DDNS 구성이 올바른지 확인합니다.
++
+'vserver services name-service dns dynamic-update show'
+
++
+....
+Vserver  Is-Enabled Use-Secure Vserver FQDN      TTL
+-------- ---------- ---------- ----------------- -------
+vs1      true       true       vs1.example.com   24h
+....
+

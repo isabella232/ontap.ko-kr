@@ -1,0 +1,21 @@
+---
+permalink: nas-audit/fpolicy-scope-config-native-engine-concept.html 
+sidebar: sidebar 
+keywords: requirement, fpolicy, scope, configurations, policy, native engine 
+summary: 기본 엔진을 사용하도록 FPolicy 정책을 구성하는 경우 정책에 구성된 FPolicy 범위를 정의하는 방법에 대한 특정 요구사항이 있습니다. 
+---
+= FPolicy 정책에서 기본 엔진을 사용하는 경우 FPolicy 범위 구성에 대한 요구사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+기본 엔진을 사용하도록 FPolicy 정책을 구성하는 경우 정책에 구성된 FPolicy 범위를 정의하는 방법에 대한 특정 요구사항이 있습니다.
+
+FPolicy 범위는 FPolicy 정책이 적용되는 경계(예: FPolicy가 지정된 볼륨 또는 공유에 적용되는지 여부)를 정의합니다. FPolicy 정책이 적용되는 범위를 더욱 제한하는 다양한 매개 변수가 있습니다. 이 매개 변수 중 하나인 '-is-file-extension-check-on-directories-enabled'는 디렉터리에서 파일 확장명을 검사할지 여부를 지정합니다. 기본값은 false로, 디렉토리의 파일 확장자가 선택되지 않았음을 의미합니다.
+
+기본 엔진을 사용하는 FPolicy 정책이 공유 또는 볼륨에서 활성화되고 정책 범위에 대한 '-is-file-extension-check-on-directories-enabled' 매개 변수가 'false'로 설정된 경우 디렉토리 액세스가 거부됩니다. 이 구성에서는 파일 확장자가 디렉토리에 대해 검사되지 않으므로 정책 범위에 속하는 경우 모든 디렉토리 작업이 거부됩니다.
+
+네이티브 엔진을 사용할 때 디렉터리 액세스가 성공하도록 하려면 범위를 만들 때 '-is-file-extension-check-on-directories-enabled 매개 변수'를 'true'로 설정해야 합니다.
+
+이 매개 변수를 'true'로 설정하면 디렉터리 작업에 대한 확장 검사가 수행되어 FPolicy 범위 구성에 포함되거나 제외된 확장명을 기준으로 액세스를 허용할지 또는 거부할지 여부를 결정합니다.

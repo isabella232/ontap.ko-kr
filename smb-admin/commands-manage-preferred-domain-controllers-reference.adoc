@@ -1,0 +1,41 @@
+---
+permalink: smb-admin/commands-manage-preferred-domain-controllers-reference.html 
+sidebar: sidebar 
+keywords: command, add, display, removing, remove, prefer, domain, controller, commands for managing preferred domain controllers 
+summary: 기본 도메인 컨트롤러를 추가, 표시 및 제거하는 명령을 알아야 합니다. 
+---
+= 기본 도메인 컨트롤러를 관리하는 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+기본 도메인 컨트롤러를 추가, 표시 및 제거하는 명령을 알아야 합니다.
+
+|===
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+기본 도메인 컨트롤러를 추가합니다
+ a| 
+'vserver cifs domain preferred-dc add'
+
+
+
+ a| 
+기본 도메인 컨트롤러를 표시합니다
+ a| 
+'vserver cifs domain preferred-dc show'
+
+
+
+ a| 
+기본 도메인 컨트롤러를 제거합니다
+ a| 
+'vserver cifs domain preferred-dc remove'
+
+|===
+자세한 내용은 각 명령에 대한 man 페이지를 참조하십시오.
+
+xref:add-preferred-domain-controllers-task.adoc[기본 도메인 컨트롤러 추가 중]

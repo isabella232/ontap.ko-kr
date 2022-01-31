@@ -1,0 +1,307 @@
+---
+permalink: fabricpool/requirements-concept.html 
+sidebar: sidebar 
+keywords: considerations, requirements, using, fabricpool 
+summary: FabricPool 사용에 관한 몇 가지 고려 사항 및 요구 사항을 숙지해야 합니다. 
+---
+= FabricPool 사용에 대한 고려 사항 및 요구 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FabricPool 사용에 관한 몇 가지 고려 사항 및 요구 사항을 숙지해야 합니다.
+
+
+
+== 일반 고려 사항 및 요구 사항
+
+* FabricPool를 사용하려면 ONTAP 9.2를 실행해야 합니다.
+* 다음 FabricPool 기능을 사용하려면 ONTAP 9.4 이상 릴리스를 실행해야 합니다.
++
+** 자동 계층화 정책
++
+link:tiering-policies-concept.html#types-of-fabricpool-tiering-policies["FabricPool 계층화 정책의 유형입니다"]
+
+** 계층화 최소 냉각 기간 지정
+** 비활성 데이터 보고
+** 클라우드에 Microsoft Azure Blob Storage를 FabricPool의 클라우드 계층으로 사용
+** ONTAP Select와 함께 FabricPool 사용
+
+
+* 다음 FabricPool 기능을 사용하려면 ONTAP 9.5 이상의 릴리스를 실행해야 합니다.
++
+** 계층화 충만 임계값 지정
+** IBM 클라우드 오브젝트 스토리지를 FabricPool의 클라우드 계층으로 사용
+** 기본적으로 활성화되어 있는 클라우드 계층의 NetApp Volume Encryption(NVE)
+
+
+* 다음 FabricPool 기능을 사용하려면 ONTAP 9.6 이상 버전을 실행해야 합니다.
++
+** 모든 계층화 정책
+** 비활성 데이터 보고는 HDD 애그리게이트에서 수동으로 활성화됩니다
+** ONTAP 9.6으로 업그레이드하고 시점에 애그리게이트를 생성할 때, SSD 애그리게이트에 대해 비활성 데이터 보고가 자동으로 활성화됩니다. 단, CPU가 4개 미만이거나 RAM이 6GB 미만인 로우엔드 시스템 또는 WAFL 버퍼 캐시 크기가 3GB 미만인 경우는 예외입니다.
++
+ONTAP는 시스템 로드를 모니터링하며, 로드가 4분 동안 계속 높게 유지되면 IDR이 비활성화되고 자동으로 활성화되지 않습니다. IDR을 수동으로 다시 활성화할 수 있지만 수동으로 활성화된 IDR은 자동으로 비활성화되지 않습니다.
+
+** Alibaba 클라우드 오브젝트 스토리지를 FabricPool의 클라우드 계층으로 사용
+** Google Cloud Platform을 FabricPool의 클라우드 계층으로 사용
+** 클라우드 계층 데이터 복사본 없이 볼륨 이동
+
+
+* 다음 FabricPool 기능을 사용하려면 ONTAP 9.7 이상 릴리즈를 실행 중이어야 합니다.
++
+** 화이트리스트된 액세스 포인트에만 액세스하고 감사 및 보고 기능을 제공하는 비투명 HTTP 및 HTTPS 프록시.
+** FabricPool 미러링을 통해 콜드 데이터를 2개의 오브젝트 저장소에 동시에 계층화합니다
+** MetroCluster 구성의 FabricPool 미러
+** FabricPool 연결 애그리게이트에는 NDMP 덤프 및 복구가 기본적으로 설정됩니다.
++
+[NOTE]
+====
+백업 애플리케이션이 NFS 또는 CIFS와 같은 NDMP 이외의 프로토콜을 사용하는 경우 성능 계층에서 백업되는 모든 데이터가 핫 상태가 되고 해당 데이터를 클라우드 계층으로 계층화하는 데 영향을 미칠 수 있습니다. 비 NDMP 읽기로 인해 클라우드 계층에서 성능 계층으로 데이터가 다시 마이그레이션할 수 있습니다.
+
+====
++
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/NDMP_Backup_and_Restore_supported_for_FabricPool%3F["FabricPool에 대한 NDMP 백업 및 복구 지원"]
+
+
+
+* 다음 FabricPool 기능을 사용하려면 ONTAP 9.8 이상을 실행해야 합니다.
++
+** 클라우드 마이그레이션 제어를 통해 기본 계층화 정책을 재정의할 수 있습니다
+** 데이터를 성능 계층으로 상향 이동
+** SnapLock 엔터프라이즈 및 FabricPool
+** 최소 냉각 기간은 최대 183일입니다
+** 사용자가 만든 사용자 지정 태그를 사용하여 개체 태그 지정
+** FabricPool을 통해 HDD 플랫폼 및 애그리게이트가 지원됩니다
++
+HDD FabricPool은 다음 모델을 포함하여 6개 이상의 CPU 코어가 있는 시스템에서만 SAS, FSA, BSAS 및 mSATA 디스크를 지원합니다.
+
++
+*** FAS9000
+*** FAS8700
+*** FAS8300
+*** FAS8200
+*** FAS8080
+*** FAS8060
+*** FAS8040
+*** FAS2750
+*** FAS2720
+*** FAS2650
+*** FAS2620
++
+확인합니다 https://hwu.netapp.com/Home/Index["Hardware Universe"] 를 참조하십시오.
+
+
+
+
+
+* FabricPool는 다음 사항을 제외하고 ONTAP 9.2를 실행할 수 있는 모든 플랫폼에서 지원됩니다.
++
+** FAS8020
+** FAS2554
+** FAS2552
+** FAS2520
+
+
+* FabricPool는 다음과 같은 애그리게이트 유형을 지원합니다.
++
+** AFF 시스템에서는 FabricPool에 All-Flash(All SSD) 애그리게이트만 사용할 수 있습니다.
++
+Flash Pool 애그리게이트(SSD와 HDD를 모두 포함하는)는 사용할 수 없습니다.
+
+** FAS 시스템에서는 FabricPool에 All-Flash(All-SSD) 또는 HDD 애그리게이트를 사용할 수 있습니다.
+** Cloud Volumes ONTAP 및 ONTAP Select에서는 FabricPool에 SSD 또는 HDD 애그리게이트를 사용할 수 있습니다.
++
+그러나 SSD 애그리게이트를 사용하는 것이 좋습니다.
+
+
+
+* FabricPool은 다음과 같은 오브젝트 저장소를 클라우드 계층으로 사용할 수 있도록 지원합니다.
++
+** NetApp StorageGRID 10.3 이상
+** NetApp ONTAP S3(ONTAP 9.8 이상)
+** Alibaba 클라우드 개체 스토리지
+** Amazon Web Services Simple Storage Service(AWS S3)
+** Google 클라우드 스토리지
+** IBM 클라우드 오브젝트 스토리지
+** 클라우드용 Microsoft Azure Blob Storage
+
+
+* 사용하려는 오브젝트 저장소 ""버킷""(컨테이너)이 이미 설정되어 있어야 하고, 최소 10GB의 저장 공간이 있어야 하며, 이름을 바꿀 수 없습니다.
+* FabricPool를 사용하는 HA 쌍에서는 오브젝트 저장소와 통신하기 위해 인터클러스터 LIF가 필요합니다.
+* FabricPool를 연결한 후에는 오브젝트 저장소 버킷을 분리할 수 없습니다.
+* 처리량 수준(QoS Min)을 사용하는 경우, FabricPool에 애그리게이트를 연결하기 전에 볼륨에 대한 계층화 정책을 "없음"으로 설정해야 합니다.
++
+다른 계층화 정책을 사용하면 애그리게이트는 FabricPool에 연결되지 않습니다.
+
+* 특정 시나리오에서 FabricPool을 사용하기 위한 모범 사례 지침을 따라야 합니다.
++
+http://www.netapp.com/us/media/tr-4598.pdf["NetApp 기술 보고서 4598: ONTAP 9의 FabricPool 모범 사례"]
+
+
+
+
+
+== Cloud Volumes ONTAP 사용 시 추가 고려 사항
+
+사용 중인 오브젝트 저장소 공급자에 관계없이 Cloud Volumes ONTAP에는 FabricPool 라이센스가 필요하지 않습니다.
+
+
+
+== FabricPool와 함께 StorageGRID를 사용하기 위한 추가 고려 사항
+
+* 인증서 확인을 명시적으로 해제하지 않는 한 StorageGRID용 CA 인증서를 설치해야 합니다.
+* 오브젝트 저장소 버킷에서 StorageGRID 오브젝트 버전 관리를 사용하도록 설정하면 안 됩니다.
+* FabricPool 라이센스는 필요하지 않습니다.
+* StorageGRID 노드가 NetApp AFF 시스템에서 할당된 스토리지가 있는 가상 머신에 구축된 경우 해당 볼륨에 FabricPool 계층화 정책이 활성화되어 있지 않은지 확인하십시오.
++
+StorageGRID 노드와 함께 사용되는 볼륨에 대해 FabricPool 계층화를 사용하지 않도록 설정하면 문제 해결과 스토리지 작업이 간소화됩니다.
+
++
+[NOTE]
+====
+FabricPool를 사용하여 StorageGRID 관련 데이터를 StorageGRID 자체로 계층화하지 마십시오. StorageGRID 데이터를 StorageGRID로 다시 계층화하면 문제 해결과 운영 복잡성이 늘어납니다.
+
+====
+
+
+
+
+== Alibaba 클라우드 개체 스토리지를 FabricPool와 함께 사용하기 위한 추가 고려 사항
+
+* FabricPool 라이센스가 필요할 수 있습니다.
++
+새로 주문한 AFF 시스템에는 FabricPool를 사용할 수 있는 10TB의 여유 용량이 제공됩니다. AFF 시스템에서 추가 용량이 필요하거나, 비 AFF 시스템에서 Alibaba 클라우드 오브젝트 스토리지를 사용하거나, 기존 클러스터에서 업그레이드하는 경우 FabricPool 라이센스가 필요합니다.
+
+* AFF 및 FAS 시스템과 ONTAP Select에서 FabricPool는 다음 Alibaba 개체 스토리지 서비스 클래스를 지원합니다.
++
+** Alibaba 개체 스토리지 서비스 표준
+** Alibaba Object Storage Service 낮은 액세스 빈도
++
+https://www.alibabacloud.com/help/doc-detail/51374.htm["Alibaba Cloud: 스토리지 클래스 소개"]
+
+
+
+
+
+목록에 없는 스토리지 클래스에 대한 자세한 내용은 NetApp 세일즈 담당자에게 문의하십시오.
+
+
+
+== FabricPool에서 AWS S3를 사용하기 위한 추가 고려사항
+
+* FabricPool 라이센스가 필요할 수 있습니다.
++
+** 새로 주문한 AFF 시스템에는 FabricPool를 사용할 수 있는 10TB의 여유 용량이 제공됩니다.
++
+AFF 시스템에서 추가 용량이 필요하거나, 비 AFF 시스템에서 AWS S3를 사용하거나, 기존 클러스터에서 업그레이드하는 경우 FabricPool 라이센스가 필요합니다.
+
++
+기존 클러스터에 대해 FabricPool를 처음으로 주문하는 경우 가용 용량이 10TB인 FabricPool 라이센스를 사용할 수 있습니다.
+
+
+
+* ONTAP에서 AWS S3 오브젝트 서버에 연결하는 데 사용하는 LIF는 10Gbps 포트에 있어야 합니다.
+* AFF 및 FAS 시스템과 ONTAP Select에서 FabricPool은 다음과 같은 Amazon S3 스토리지 클래스를 지원합니다.
++
+** Amazon S3 Standard
+** Amazon S3 Standard - 낮은 액세스 빈도(Standard-IA)
+** Amazon S3 ONE Zone - 낮은 액세스 빈도(Zone-IA 1개)
+** Amazon S3 지능형 계층화
+** Amazon 상용 클라우드 서비스
++
+https://aws.amazon.com/s3/storage-classes/["AWS(Amazon Web Services) 문서: Amazon S3 스토리지 클래스"]
+
+
+
++
+목록에 없는 스토리지 클래스에 대한 자세한 내용은 영업 담당자에게 문의하십시오.
+
+* Cloud Volumes ONTAP에서 FabricPool는 EBS(Elastic Block Store)의 GP2(General Purpose SSD) 및 st1(Throughput Optimized HDD) 볼륨의 계층화를 지원합니다.
+
+
+
+
+== FabricPool에서 Google 클라우드 스토리지를 사용할 때 고려해야 할 추가 사항
+
+* FabricPool 라이센스가 필요할 수 있습니다.
++
+새로 주문한 AFF 시스템에는 FabricPool를 사용할 수 있는 10TB의 여유 용량이 제공됩니다. AFF 시스템에서 추가 용량이 필요하거나, 비 AFF 시스템에서 Google Cloud 스토리지를 사용하거나, 기존 클러스터에서 업그레이드하는 경우 FabricPool 라이센스가 필요합니다.
+
+* ONTAP이 Google 클라우드 스토리지 오브젝트 서버에 연결하는 데 사용하는 LIF는 10Gbps 포트에 있어야 합니다.
+* AFF 및 FAS 시스템과 ONTAP Select에서 FabricPool은 다음과 같은 Google Cloud Object 스토리지 클래스를 지원합니다.
++
+** Google Cloud 다중 지역
+** Google Cloud 지역
+** Google Cloud Nearline
+** Google Cloud Coldline
++
+https://cloud.google.com/storage/docs/storage-classes["Google Cloud: 스토리지 클래스"]
+
+
+
+
+
+
+
+== FabricPool에서 IBM 클라우드 오브젝트 스토리지를 사용하기 위한 추가 고려 사항
+
+* FabricPool 라이센스가 필요할 수 있습니다.
++
+새로 주문한 AFF 시스템에는 FabricPool를 사용할 수 있는 10TB의 여유 용량이 제공됩니다. AFF 시스템에서 추가 용량이 필요하거나, 비 AFF 시스템에서 IBM 클라우드 오브젝트 스토리지를 사용하거나, 기존 클러스터에서 업그레이드하는 경우 FabricPool 라이센스가 필요합니다.
+
++
+기존 클러스터에 대해 FabricPool를 처음으로 주문하는 경우 가용 용량이 10TB인 FabricPool 라이센스를 사용할 수 있습니다.
+
+* ONTAP이 IBM 클라우드 오브젝트 서버에 연결하는 데 사용하는 LIF는 10Gbps 포트에 있어야 합니다.
+
+
+
+
+== FabricPool와 함께 Microsoft Azure Blob Storage를 사용하기 위한 추가 고려 사항
+
+* FabricPool 라이센스가 필요할 수 있습니다.
++
+새로 주문한 AFF 시스템에는 FabricPool를 사용할 수 있는 10TB의 여유 용량이 제공됩니다. AFF 시스템에서 추가 용량이 필요하거나, 비 AFF 시스템에서 Azure Blob Storage를 사용하거나, 기존 클러스터에서 업그레이드하는 경우 FabricPool 라이센스가 필요합니다.
+
++
+기존 클러스터에 대해 FabricPool를 처음으로 주문하는 경우 가용 용량이 10TB인 FabricPool 라이센스를 사용할 수 있습니다.
+
+* Cloud Volumes ONTAP와 함께 Azure Blob Storage를 사용하는 경우 FabricPool 라이센스가 필요하지 않습니다.
+* ONTAP가 Azure Blob 스토리지 오브젝트 서버에 연결하는 데 사용하는 LIF는 10Gbps 포트에 있어야 합니다.
+* FabricPool은 현재 온프레미스 Azure 서비스인 Azure 스택을 지원하지 않습니다.
+* Microsoft Azure Blob Storage의 계정 수준에서 FabricPool는 핫 및 쿨 스토리지 계층만 지원합니다.
++
+FabricPool는 BLOB 레벨 계층화를 지원하지 않습니다. 또한 Azure의 아카이브 스토리지 계층화도 지원하지 않습니다.
+
+
+
+
+
+== SAN 프로토콜에서 액세스하는 데이터를 계층화하기 위한 추가 고려 사항
+
+SAN 프로토콜에서 액세스하는 데이터를 계층화할 경우 연결 고려사항으로 인해 StorageGRID와 같은 프라이빗 클라우드를 사용하는 것이 좋습니다.
+
+
+
+== FabricPool에서 지원하지 않는 기능 또는 기능입니다
+
+* WORM 지원 및 오브젝트 버전 관리가 활성화된 오브젝트 저장소
+* 오브젝트 저장소 버킷에 적용되는 ILM(정보 라이프사이클 관리) 정책
++
+ILM에는 일반적으로 다양한 이동 및 삭제 정책이 포함됩니다. 이러한 정책은 FabricPool의 클라우드 계층에 있는 데이터에 영향을 줄 수 있습니다. 오브젝트 저장소에 구성된 ILM 정책에 FabricPool을 사용하면 데이터 손실이 발생할 수 있습니다.
+
+* ONTAP CLI 명령 또는 7-Mode 전환 툴을 사용하여 7-Mode 데이터 전환
+* FlexArray 가상화
+* RAID SyncMirror(MetroCluster 구성 제외
+* ONTAP 9.7 이하 릴리즈를 사용할 때 SnapLock 볼륨
+* FabricPool 지원 애그리게이트용 SMTape를 사용한 테이프 백업
+* 자동 균형 조정 기능
+* '없음' 이외의 공간을 사용하는 볼륨
++
+FabricPool에서는 '없음' 이외의 공간 보장을 사용하여 볼륨이 포함된 애그리게이트에 클라우드 계층을 연결할 수 없습니다. 예를 들어, 볼륨(space-보증)의 공간 보장(volume)을 사용하는 볼륨은 지원되지 않습니다.
+
+* DP_Optimized 라이센스가 있는 클러스터
+* Flash Pool 애그리게이트로 전환 가능
+

@@ -1,0 +1,59 @@
+---
+permalink: data-protection/restore-part-file-snapshot-task.html 
+sidebar: sidebar 
+keywords: restore, part, file, snapshot copy 
+summary: 데이터의 시작 바이트 오프셋과 바이트 수를 알고 있다고 가정하면 볼륨 스냅샷 partial-restore-file 명령을 사용하여 스냅샷 복사본에서 LUN 또는 NFS 또는 CIFS 컨테이너 파일로 데이터 범위를 복원할 수 있습니다. 이 명령을 사용하여 여러 데이터베이스를 동일한 LUN에 저장하는 호스트에서 데이터베이스 중 하나를 복원할 수 있습니다. 
+---
+= 스냅샷 복사본에서 파일 일부를 복원합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'volume snapshot partial-restore-file' 명령을 사용하면 데이터의 시작 바이트 오프셋과 바이트 수를 알고 있다고 가정할 때 스냅샷 복사본에서 LUN 또는 NFS 또는 CIFS 컨테이너 파일로 데이터 범위를 복원할 수 있습니다. 이 명령을 사용하여 여러 데이터베이스를 동일한 LUN에 저장하는 호스트에서 데이터베이스 중 하나를 복원할 수 있습니다.
+
+.단계
+. 볼륨의 스냅샷 복사본을 나열합니다.
++
+'volume snapshot show -vserver_SVM_-volume_volume_'
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+다음 예에서는 "vol1"의 스냅샷 복사본을 보여 줍니다.
+
++
+[listing]
+----
+
+clus1::> volume snapshot show -vserver vs1 -volume vol1
+
+Vserver Volume Snapshot                State    Size  Total% Used%
+------- ------ ---------- ----------- ------   -----  ------ -----
+vs1	 vol1   hourly.2013-01-25_0005  valid   224KB     0%    0%
+               daily.2013-01-25_0010   valid   92KB      0%    0%
+               hourly.2013-01-25_0105  valid   228KB     0%    0%
+               hourly.2013-01-25_0205  valid   236KB     0%    0%
+               hourly.2013-01-25_0305  valid   244KB     0%    0%
+               hourly.2013-01-25_0405  valid   244KB     0%    0%
+               hourly.2013-01-25_0505  valid   244KB     0%    0%
+
+7 entries were displayed.
+----
+. 스냅샷 복사본에서 파일 부분 복원:
++
+'볼륨 스냅샷 부분 복구 파일 - vserver_SVM_-volume_volume_-snapshot_snapshot_-path_file_path_-start-byte_starting_byte_-byte-count_byte_count_'
+
++
+시작 바이트 오프셋 및 바이트 수는 4,096의 배수여야 합니다.
+
++
+다음 예에서는 myfile.txt 파일의 첫 4,096바이트를 복원합니다.
+
++
+[listing]
+----
+cluster1::> volume snapshot partial-restore-file -vserver vs0 -volume vol1 -snapshot daily.2013-01-25_0010 -path /myfile.txt -start-byte 0 -byte-count 4096
+----
+

@@ -1,0 +1,54 @@
+---
+permalink: smb-admin/requirements-odx-concept.html 
+sidebar: sidebar 
+keywords: odx, copy, offload, storage, virtual, machine, svm, requirement, requirements for using odx, odx 
+summary: '복사 오프로드를 SVM(스토리지 가상 머신)과 함께 사용하려면 먼저 특정 요구사항을 알고 있어야 합니다.' 
+---
+= ODX 사용을 위한 요구사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+복사 오프로드를 SVM(스토리지 가상 머신)과 함께 사용하려면 먼저 특정 요구사항을 알고 있어야 합니다.
+
+
+
+== ONTAP 버전 요구 사항
+
+ONTAP는 복사 오프로드를 위한 ODX를 지원합니다.
+
+
+
+== SMB 버전 요구 사항
+
+* ONTAP는 SMB 3.0 이상을 지원하는 ODX를 지원합니다.
+* ODX를 사용하려면 CIFS 서버에서 SMB 3.0을 설정해야 함:
++
+** ODX를 사용하도록 설정하면 SMB 3.0도 사용할 수 없습니다.
+** SMB 3.0을 비활성화하면 ODX도 비활성화됩니다.
+
+
+
+
+
+
+== Windows 서버 및 클라이언트 요구 사항
+
+복사 오프로드를 위해 ODX를 사용하려면 Windows 클라이언트에서 이 기능을 지원해야 합니다. ODX 지원은 Windows 2012 Server 및 Windows 8에서 시작됩니다.
+
+상호 운용성 매트릭스에는 지원되는 Windows 클라이언트에 대한 최신 정보가 포함되어 있습니다.
+
+https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"]
+
+
+
+== 볼륨 요구 사항
+
+* 소스 볼륨은 최소 1.25GB여야 합니다.
+* 복사본 오프로드와 함께 사용되는 볼륨에 대해 중복제거를 활성화해야 합니다.
+* 압축 볼륨을 사용하는 경우 압축 유형은 적응 가능해야 하며 압축 그룹 크기 8K만 지원됩니다.
++
+보조 압축 유형은 지원되지 않습니다.
+
+

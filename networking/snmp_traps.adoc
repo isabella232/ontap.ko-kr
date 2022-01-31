@@ -1,0 +1,40 @@
+---
+sidebar: sidebar 
+permalink: networking/snmp_traps.html 
+keywords: snmp, trap, traphosts, asynchronous, notification, notify, alert, message, thresholds, failures, errors, fail, rfc 1215, built in, built-in, standard, snmp traps, use snmp traps to periodically check for operational thresholds or failures, standard snmp traps, system snmp authtrap, rfc 1215, coldstart, warmstart, linkdown, linkup, authenticationfailure, built-in snmp traps, traphost, diskfailedshutdown, cputoobusy, and volumenearlyfull 
+summary: SNMP 트랩을 사용하여 운영 임계값 또는 오류를 정기적으로 확인합니다 
+---
+= SNMP 트랩
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+SNMP 트랩은 SNMP 에이전트에서 SNMP 관리자로 보내는 비동기 알림으로 전송되는 시스템 모니터링 정보를 캡처합니다.
+
+SNMP 트랩에는 표준, 기본 제공 및 사용자 정의 세 가지 유형이 있습니다. 사용자 정의 트랩은 ONTAP에서 지원되지 않습니다.
+
+트랩을 사용하여 MIB에 정의된 작동 임계값 또는 오류를 정기적으로 확인할 수 있습니다. 임계값에 도달하거나 장애가 감지되면 SNMP 에이전트는 해당 이벤트를 알리는 메시지(트랩)를 Traphosts에 보냅니다.
+
+
+NOTE: ONTAP는 SNMPv1 트랩을 지원하고 ONTAP 9.1, SNMPv3 트랩을 확인합니다. ONTAP는 SNMPv2c 트랩 및 정보를 지원하지 않습니다.
+
+
+
+== 표준 SNMP 트랩
+
+이러한 트랩은 RFC 1215에 정의되어 있습니다. ONTAP에서 지원하는 5개의 표준 SNMP 트랩은 coldstart, 웜스타트, Linkdown, Linkup 및 authenticationFailure입니다.
+
+
+NOTE: authenticationFailure 트랩은 기본적으로 해제되어 있습니다. 트랩을 활성화하려면 '시스템 SNMP authtrap' 명령을 사용해야 합니다. 자세한 내용은 man 페이지를 참조하십시오. http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"^]
+
+
+
+== 기본 제공 SNMP 트랩
+
+내장 트랩은 ONTAP에서 미리 정의되며 이벤트가 발생하면 Traphost 목록의 네트워크 관리 스테이션으로 자동으로 전송됩니다. diskFailedShutdown, cpuTooBusy 및 volumeNearlyFull과 같은 이러한 트랩은 사용자 지정 MIB에 정의되어 있습니다.
+
+각 내장 트랩은 고유한 트랩 코드로 식별됩니다.

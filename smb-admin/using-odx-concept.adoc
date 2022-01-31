@@ -1,0 +1,75 @@
+---
+permalink: smb-admin/using-odx-concept.html 
+sidebar: sidebar 
+keywords: odx, copy, offload, aware, guideline, volume, intra-cluster, inter-cluster, consideration, guidelines for using odx 
+summary: 복사 오프로드에 ODX를 사용하려면 먼저 지침을 숙지하고 있어야 합니다. 예를 들어, ODX를 사용할 수 있는 볼륨 유형을 파악하고 클러스터 내부 및 클러스터 간 ODX 고려 사항을 파악해야 합니다. 
+---
+= ODX 사용 지침
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+복사 오프로드에 ODX를 사용하려면 먼저 지침을 숙지하고 있어야 합니다. 예를 들어, ODX를 사용할 수 있는 볼륨 유형을 파악하고 클러스터 내부 및 클러스터 간 ODX 고려 사항을 파악해야 합니다.
+
+
+
+== 볼륨 지침
+
+* 다음과 같은 볼륨 구성에서는 복사 오프로드에 ODX를 사용할 수 없습니다.
++
+** 소스 볼륨 크기가 1.25GB 미만입니다
++
+ODX를 사용하려면 볼륨 크기가 1.25GB 이상이어야 합니다.
+
+** 읽기 전용 볼륨입니다
++
+ODX는 로드 공유 미러 또는 SnapMirror 또는 SnapVault 대상 볼륨에 상주하는 파일 및 폴더에 사용되지 않습니다.
+
+** 소스 볼륨 중복 제거가 수행되지 않은 경우
+
+
+* ODX 복사본은 클러스터 내 복사본에만 지원됩니다.
++
+ODX를 사용하여 파일 또는 폴더를 다른 클러스터의 볼륨으로 복사할 수는 없습니다.
+
+
+
+
+
+== 기타 지침
+
+* SMB 환경에서 복사 오프로드에 ODX를 사용하려면 파일이 256KB 이상이어야 합니다.
++
+작은 파일은 기존 복사 작업을 사용하여 전송됩니다.
+
+* ODX 복사 오프로드는 복제 프로세스의 일부로 중복 제거를 사용합니다.
++
+데이터를 복사하거나 이동할 때 SVM 볼륨에서 중복 제거를 수행하지 않으려면 해당 SVM에서 ODX 복사 오프로드를 해제해야 합니다.
+
+* ODX를 지원하려면 데이터 전송을 수행하는 애플리케이션에 데이터를 기록해야 합니다.
++
+ODX를 지원하는 애플리케이션 작업은 다음과 같습니다.
+
++
+** VHD(가상 하드 디스크) 생성 및 변환, Snapshot 복사본 관리, 가상 시스템 간 파일 복사와 같은 Hyper-V 관리 작업입니다
+** Windows 탐색기 작업
+** Windows PowerShell 복사 명령
+** Windows 명령 프롬프트 복사 명령
++
+Windows 명령 프롬프트의 Robocopy는 ODX를 지원합니다.
+
++
+[NOTE]
+====
+ODX를 지원하는 Windows 서버 또는 클라이언트에서 애플리케이션이 실행되고 있어야 합니다.
+
+====
++
+Windows 서버 및 클라이언트에서 지원되는 ODX 애플리케이션에 대한 자세한 내용은 Microsoft TechNet 라이브러리를 참조하십시오.
+
+
+
+
+
+http://technet.microsoft.com/en-us/library/["Microsoft TechNet 라이브러리: technet.microsoft.com/en-us/library/"]

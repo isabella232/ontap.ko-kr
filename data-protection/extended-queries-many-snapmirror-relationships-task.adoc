@@ -1,0 +1,37 @@
+---
+permalink: data-protection/extended-queries-many-snapmirror-relationships-task.html 
+sidebar: sidebar 
+keywords: extend, query, act, snapmirror, relationships 
+summary: 확장된 쿼리를 사용하여 여러 SnapMirror 관계에 대한 SnapMirror 작업을 한 번에 수행할 수 있습니다. 예를 들어, 하나의 명령을 사용하여 초기화하려는 초기화되지 않은 SnapMirror 관계가 여러 개 있을 수 있습니다. 
+---
+= 확장된 쿼리를 사용하여 다양한 SnapMirror 관계 작업
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+_extended query_를 사용하여 여러 SnapMirror 관계에 대해 한 번에 SnapMirror 작업을 수행할 수 있습니다. 예를 들어, 하나의 명령을 사용하여 초기화하려는 초기화되지 않은 SnapMirror 관계가 여러 개 있을 수 있습니다.
+
+다음 SnapMirror 작업에 확장 쿼리를 적용할 수 있습니다.
+
+* 초기화되지 않은 관계를 초기화하는 중입니다
+* 중단된 관계를 재개하는 중입니다
+* 끊어진 관계를 재동기화합니다
+* 유휴 관계를 업데이트하는 중입니다
+* 관계 데이터 전송을 중단합니다
+
+
+.단계
+. 다양한 관계에서 SnapMirror 작업 수행:
++
+'_SnapMirror 명령_{-state 상태} *'
+
++
+다음 명령을 실행하면 '초기화되지 않음' 상태인 SnapMirror 관계가 초기화됩니다.
+
++
+[listing]
+----
+vs1::> snapmirror initialize {-state Uninitialized} *
+----
+

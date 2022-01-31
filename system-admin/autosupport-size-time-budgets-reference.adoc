@@ -1,0 +1,17 @@
+---
+permalink: system-admin/autosupport-size-time-budgets-reference.html 
+sidebar: sidebar 
+keywords: autosupport, size, time, budget, subsystem, payload, data, delivery 
+summary: AutoSupport는 하위 시스템별로 정보를 수집하고 각 하위 시스템의 콘텐츠에 대한 크기 및 시간 예산을 적용합니다. 스토리지 시스템이 확장됨에 따라 AutoSupport 예산을 통해 AutoSupport 페이로드를 제어할 수 있으므로, AutoSupport 데이터를 확장 가능한 제공할 수 있습니다. 
+---
+= AutoSupport 규모와 시간 예산이 있습니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+AutoSupport는 하위 시스템별로 정보를 수집하고 각 하위 시스템의 콘텐츠에 대한 크기 및 시간 예산을 적용합니다. 스토리지 시스템이 확장됨에 따라 AutoSupport 예산을 통해 AutoSupport 페이로드를 제어할 수 있으므로, AutoSupport 데이터를 확장 가능한 제공할 수 있습니다.
+
+AutoSupport는 하위 시스템 컨텐츠가 크기 또는 시간 예산을 초과하는 경우 정보 수집을 중지하고 AutoSupport 콘텐츠를 잘라냅니다. 콘텐츠를 쉽게 자를 수 없는 경우(예: 이진 파일) AutoSupport에서 콘텐츠를 생략합니다.
+
+기본 크기 및 시간 예산은 기술 지원 부서의 안내에 따라서만 수정해야 합니다. AutoSupport manifest show 명령을 사용하여 하위 시스템의 기본 크기 및 시간 예산을 검토할 수도 있습니다.

@@ -1,0 +1,76 @@
+---
+permalink: system-admin/free-space-node-root-volume-task.html 
+sidebar: sidebar 
+keywords: free, space, node, root, volume, full, delete, file, core, dump 
+summary: 노드의 루트 볼륨이 꽉 찼거나 거의 꽉 찼을 때 경고 메시지가 나타납니다. 루트 볼륨이 꽉 찼을 때 노드가 제대로 작동하지 않습니다. 코어 덤프 파일, 패킷 추적 파일 및 루트 볼륨 스냅샷 복사본을 삭제하여 노드의 루트 볼륨에서 공간을 확보할 수 있습니다. 
+---
+= 노드의 루트 볼륨에서 공간을 확보하십시오
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+노드의 루트 볼륨이 꽉 찼거나 거의 꽉 찼을 때 경고 메시지가 나타납니다. 루트 볼륨이 꽉 찼을 때 노드가 제대로 작동하지 않습니다. 코어 덤프 파일, 패킷 추적 파일 및 루트 볼륨 스냅샷 복사본을 삭제하여 노드의 루트 볼륨에서 공간을 확보할 수 있습니다.
+
+.단계
+. 'system node coredump show' 명령을 사용하여 노드의 코어 덤프 파일과 해당 이름을 표시합니다.
+. 'system node coredump delete' 명령어를 이용하여 노드에서 불필요한 core dump 파일을 삭제한다.
+. 노데스 액세스:
++
+'* 시스템 노드 run-node_nodename_*'
+
++
+'_nodename_'은 루트 볼륨 공간을 확보하려는 노드의 이름입니다.
+
+. 노드 쉘에서 노드 고급 권한 레벨로 전환합니다.
++
+``한자 세트 어드밴스드 *’’
+
+. 노드 패킷 추적 파일을 노드 쉘을 통해 표시 및 삭제:
++
+.. 노드의 루트 볼륨에 있는 모든 파일을 표시합니다.
++
+' * ls /etc * '
+
+.. 노드의 루트 볼륨에 패킷 추적 파일('*.trc')이 있으면 개별적으로 삭제합니다.
++
+' * rm/etc/log/packet_trace/_file_name.trc_ *'
+
+
+
+. 노드 루트 볼륨 스냅샷 복사본을 식별하여 노드 쉘을 통해 삭제:
++
+.. 루트 볼륨 이름 확인:
++
+' * vol status * '
+
++
+루트 볼륨은 "vol status" 명령 출력의 "Options" 열에 "root"라는 단어가 표시됩니다.
+
++
+다음 예에서는 루트 볼륨이 "vol0"입니다.
+
++
+[listing]
+----
+node1*> vol status
+
+         Volume State           Status            Options
+           vol0 online          raid_dp, flex     root, nvfail=on
+                                64-bit
+----
+.. 루트 볼륨 스냅샷 복사본 표시:
++
+'* 스냅 목록 root_vol_name*'
+
+.. 필요 없는 루트 볼륨 스냅샷 복사본 삭제:
++
+' * snap delete root_vol_namesnapshot_name * '
+
+
+
+. 노드 쉘을 종료하고 클러스터 쉘로 돌아갑니다.
++
+' * exit * '
+
+

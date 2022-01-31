@@ -1,0 +1,29 @@
+---
+permalink: volumes/view-efficiency-statistics-flexvol-task.html 
+sidebar: sidebar 
+keywords: view, efficiency, statistics, flexvol, volume 
+summary: 볼륨 효율성 stat 명령을 사용하여 FlexVol 볼륨에서 실행되는 효율성 작업의 세부 정보를 확인할 수 있습니다. 
+---
+= FlexVol 볼륨의 효율성 통계를 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'volume Efficiency stat' 명령을 사용하면 FlexVol 볼륨에서 실행되는 효율성 작업의 세부 정보를 볼 수 있습니다.
+
+.단계
+. 'volume Efficiency stat' 명령을 사용하여 FlexVol 볼륨의 효율성 작업 통계를 볼 수 있습니다.
+
+
+다음 명령을 사용하면 볼륨 VolA에 대한 효율성 작업의 통계를 볼 수 있습니다. '볼륨 효율성 stat -vserver vs1 -volume vola
+
+[listing]
+----
+cluster1::> volume efficiency stat -vserver vs1 -volume VolA
+
+               Vserver Name: vs1
+                Volume Name: VolA
+                Volume Path: /vol/VolA
+Inline Compression Attempts: 0
+----

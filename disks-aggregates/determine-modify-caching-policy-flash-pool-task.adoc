@@ -1,0 +1,53 @@
+---
+permalink: disks-aggregates/determine-modify-caching-policy-flash-pool-task.html 
+sidebar: sidebar 
+keywords: determine, modify, cache, policy, flash pool, aggregates 
+summary: Flash Pool 애그리게이트의 볼륨에 캐시 보존 정책을 할당하여 Flash Pool 캐시의 볼륨 데이터가 유지되는 기간을 결정할 수 있습니다. 그러나 캐시 보존 정책을 변경해도 볼륨의 데이터가 캐시에 남아 있는 시간에 영향을 주지 않는 경우도 있습니다. 
+---
+= Flash Pool 애그리게이트의 캐싱 정책을 수정할지 여부를 확인합니다. 개요
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Flash Pool 애그리게이트의 볼륨에 캐시 보존 정책을 할당하여 Flash Pool 캐시의 볼륨 데이터가 유지되는 기간을 결정할 수 있습니다. 그러나 캐시 보존 정책을 변경해도 볼륨의 데이터가 캐시에 남아 있는 시간에 영향을 주지 않는 경우도 있습니다.
+
+데이터가 다음 조건 중 하나를 충족하는 경우 캐시 보존 정책을 변경해도 영향이 없을 수 있습니다.
+
+* 워크로드는 순차적입니다.
+* 워크로드가 SSD(Solid State Drive)에 캐시된 랜덤 블록을 다시 읽지는 않습니다.
+* 볼륨의 캐시 크기가 너무 작습니다.
+
+
+다음 단계에서는 이러한 상태를 확인합니다. 작업은 고급 권한 모드에서 수행해야 합니다.
+
+.단계
+. 워크로드 볼륨 보기:
++
+'스타티틱스 스타트-객체 워크로드_볼륨'
+
+. 볼륨의 워크로드 패턴 결정:
++
+'tistics show-object workload_volume-instance_volume-workload_-counter sequential_reads'
+
+. 볼륨의 적중률을 확인합니다.
++
+'tistics show-object waf_hya_vVol-instance_volume_-counter read_ops_replaced_pwerceent|wc_write_blks_overwritted_ percent'
+
+. 볼륨의 '캐시 가능 읽기' 및 '프로젝트 캐시 할당'을 결정합니다.
++
+'System node run-node node_name WAFL awa start_aggr_name_'
+
+. AWA 요약 정보를 표시합니다.
++
+'시스템 노드 run-node node_name WAFL awa print_aggr_name_'
+
+. 볼륨의 적중률을 "캐시 가능 읽기"와 비교합니다.
++
+볼륨의 적중률이 '캐시 가능 읽기'보다 높을 경우 SSD에 캐시된 랜덤 블록을 다시 읽을 수 없습니다.
+
+. 볼륨의 현재 캐시 크기를 Project Cache Alloc과 비교합니다.
++
+볼륨의 현재 캐시 크기가 Project Cache Alloc보다 크면 볼륨 캐시의 크기가 너무 작습니다.
+
+

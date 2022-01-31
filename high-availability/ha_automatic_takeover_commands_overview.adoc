@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: high-availability/ha_automatic_takeover_commands_overview.html 
+keywords: ontap, high, availability, ha, pair, automatic, takeover, commands, system, events, result, enable, email, notification, capability, disabled 
+summary: 자동 테이크오버 기능은 지원되는 모든 NetApp FAS, AFF, ASA 플랫폼에서 기본적으로 활성화됩니다. 
+---
+= 자동 테이크오버 명령
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+자동 테이크오버 기능은 지원되는 모든 NetApp FAS, AFF, ASA 플랫폼에서 기본적으로 활성화됩니다. 파트너 노드가 재부팅, 패닉 또는 중지되었을 때 자동 테이크오버 발생하면 기본 동작과 제어를 변경해야 할 수 있습니다.
+
+|===
+
+
+| 파트너 노드에서 테이크오버 발생 여부를 자동으로 수행하려는 경우... | 이 명령 사용... 
+
+
+| 재부팅 또는 중지 | 'Storage failover modify‑node nodename‑onreboot true' 
+
+
+| 패닉 | '스토리지 페일오버 수정 - 노드 노데나미 - on패닉 true' 
+|===
+
+
+== 테이크오버 기능이 비활성화된 경우 이메일 알림을 활성화하십시오
+
+탈취 기능이 비활성화된 경우 프롬프트 알림을 받으려면 ""탈취 불가능" EMS 메시지에 대한 자동 이메일 알림을 사용하도록 시스템을 구성해야 합니다.
+
+* 하 테이크오버임버전
+* 하-테이크오버임로엠을 선택합니다
+* 하 테이크오버임팩드드
+* 하 테이크오버임팩싱크
+* 하 테이크오버임팩IC
+* 하 테이크오버ImpHotShelf
+* A.테이크오버임NotDef
+

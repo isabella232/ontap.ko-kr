@@ -1,0 +1,120 @@
+---
+permalink: volumes/quota-report-quotas-effect-concept.html 
+sidebar: sidebar 
+keywords: how you can, use, quota report, see, quotas in effect 
+summary: 할당량이 상호 작용하는 다양한 방법 때문에 명시적으로 생성한 할당량보다 더 많은 할당량이 적용됩니다. 사용 중인 할당량을 확인하려면 할당량 보고서를 보면 됩니다. 
+---
+= 할당량 보고서를 사용하여 현재 사용 중인 할당량을 확인하는 방법
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+할당량이 상호 작용하는 다양한 방법 때문에 명시적으로 생성한 할당량보다 더 많은 할당량이 적용됩니다. 사용 중인 할당량을 확인하려면 할당량 보고서를 보면 됩니다.
+
+다음 예에서는 FlexVol 볼륨 vol1에 적용된 다양한 유형의 할당량과 해당 볼륨에 포함된 qtree Q1에 대한 할당량 보고서를 보여 줍니다.
+
+이 예에서는 볼륨 vol1에 포함된 qtree 1Q1이 있습니다. 관리자가 할당량 3개를 생성했습니다.
+
+* vol1의 기본 트리 할당량 제한인 400MB입니다
+* 100MB의 vol1에 대한 기본 사용자 할당량 제한입니다
+* 사용자 jsmith에 대해 vol1에 대한 명시적 사용자 할당량 제한입니다
+
+
+이러한 할당량에 대한 할당량 파일은 다음 인용과 유사하게 표시됩니다.
+
+[listing]
+----
+
+#Quota target type            disk files  thold sdisk  sfile
+#-----------  ----            ---  -----  ----  -----  -----
+*             tree@/vol/vol1  400M
+*             user@/vol/vol1  100M
+jsmith        user@/vol/vol1  200M
+----
+이러한 할당량에 대한 할당량 보고서는 다음 인용과 유사합니다.
+
+[listing]
+----
+
+cluster1::> volume quota report
+Vserver: vs1
+                                    ----Disk----  ----Files-----   Quota
+Volume   Tree      Type    ID        Used  Limit    Used   Limit   Specifier
+-------  --------  ------  -------  -----  -----  ------  ------   ---------
+vol1     -          tree   *           0B  400MB       0       -   *
+vol1     -          user   *           0B  100MB       0       -   *
+vol1     -          user   corp/jsmith
+                                     150B  200MB       7       -   corp/jsmith
+vol1     q1         tree   1           0B  400MB       6       -   q1
+vol1     q1         user   *           0B  100MB       0       -
+vol1     q1         user   corp/jsmith 0B  100MB       5       -
+vol1     -          user   root        0B   0MB        1       -
+vol1     q1         user   root        0B   0MB        8       -
+----
+할당량 보고서의 처음 세 줄에는 관리자가 지정한 세 개의 할당량이 표시됩니다. 이 할당량 중 두 개가 기본 할당량이므로 ONTAP는 자동으로 파생 할당량을 생성합니다.
+
+네 번째 줄에는 vol1의 모든 qtree에 대한 기본 트리 할당량에서 파생된 트리 할당량이 표시됩니다(이 예에서는 Q1만 해당).
+
+다섯 번째 줄에는 볼륨에 기본 사용자 할당량과 qtree 할당량이 있으므로 qtree에 대해 생성되는 기본 사용자 할당량이 표시됩니다.
+
+6번째 줄에는 qtree(줄 5)에 대한 기본 사용자 할당량이 있고 사용자 jsmith가 해당 qtree에 파일을 소유하기 때문에 jsmith에 대해 생성된 파생 사용자 할당량이 표시됩니다. qtree Q1 사용자의 jsmith에 적용되는 제한은 명시적 사용자 할당량 한도(200MB)에 의해 결정되지 않습니다. 이는 명시적 사용자 할당량 제한이 볼륨에 있기 때문에 qtree의 제한에는 영향을 미치지 않습니다. 대신 qtree에 대한 파생 사용자 할당량 제한값은 qtree에 대한 기본 사용자 할당량(100MB)에 따라 결정됩니다.
+
+마지막 두 줄에는 볼륨 및 qtree의 기본 사용자 할당량에서 파생된 더 많은 사용자 할당량이 표시됩니다. 루트 사용자가 볼륨과 qtree의 파일을 소유하기 때문에 볼륨과 qtree의 루트 사용자에 대해 파생된 사용자 할당량이 생성되었습니다. 루트 사용자는 할당량과 관련하여 특별한 치료를 받게 되므로, 파생 할당량은 할당량만 추적합니다.
+
+이 예는 관리자가 qtree에 할당량을 2개 추가했다는 점을 제외하면 이전 쿼터와 비슷합니다.
+
+Q1에는 여전히 볼륨 1과 볼륨 1과 qtree 1이 있습니다. 관리자가 다음 할당량을 생성했습니다.
+
+* vol1의 기본 트리 할당량 제한인 400MB입니다
+* 100MB의 vol1에 대한 기본 사용자 할당량 제한입니다
+* 200MB의 사용자 jsmith에 대한 vol1의 명시적 사용자 할당량 제한입니다
+* 50MB의 Q1에 대한 기본 사용자 할당량 제한입니다
+* 사용자 jsmith가 75MB인 경우 qtree Q1에 명시적 사용자 할당량 제한이 적용됩니다
+
+
+이러한 할당량에 대한 할당량 파일은 다음과 같습니다.
+
+[listing]
+----
+
+#Quota target type             disk files  thold sdisk  sfile
+#-----------  ----             ---  -----  ----  -----  -----
+*             tree@/vol/vol1   400M
+*             user@/vol/vol1   100M
+jsmith        user@/vol/vol1   200M
+*             user@/vol/vol1/q1 50M
+jsmith        user@/vol/vol1/q1 75M
+----
+이러한 할당량에 대한 할당량 보고서는 다음과 같습니다.
+
+[listing]
+----
+
+cluster1::> volume quota report
+Vserver: vs1
+                                    ----Disk----  ----Files-----   Quota
+Volume   Tree      Type    ID        Used  Limit    Used   Limit   Specifier
+-------  --------  ------  -------  -----  -----  ------  ------   ---------
+vol1     -          tree   *           0B  400MB       0       -   *
+vol1     -          user   *           0B  100MB       0       -   *
+vol1     -          user   corp/jsmith
+                                    2000B  200MB       7       -   corp/jsmith
+vol1     q1         user   *           0B   50MB       0       -   *
+vol1     q1         user   corp/jsmith 0B  75MB        5       -   corp/jsmith
+vol1     q1         tree   1           0B 400MB        6       -   q1
+vol1     -          user   root        0B   0MB        2       -
+vol1     q1         user   root        0B   0MB        1       -
+----
+할당량 보고서의 처음 다섯 줄에는 관리자가 생성한 할당량 5개가 표시됩니다. 이러한 할당량 중 일부는 기본 할당량이므로 ONTAP는 자동으로 파생 할당량을 생성합니다.
+
+6번째 줄에는 vol1의 모든 qtree에 대한 기본 트리 할당량에서 파생된 트리 할당량이 표시됩니다(이 예제에서는 Q1만 해당).
+
+마지막 두 줄에는 볼륨 및 qtree의 기본 사용자 할당량에서 파생된 사용자 할당량이 표시됩니다. 루트 사용자가 볼륨과 qtree의 파일을 소유하기 때문에 볼륨과 qtree의 루트 사용자에 대해 파생된 사용자 할당량이 생성되었습니다. 루트 사용자는 할당량과 관련하여 특별한 치료를 받게 되므로, 파생 할당량은 할당량만 추적합니다.
+
+다음과 같은 이유로 다른 기본 할당량 또는 파생 할당량이 생성되지 않았습니다.
+
+* 사용자가 두 레벨에서 이미 명시적 할당량을 가지고 있기 때문에 볼륨과 qtree에 있는 파일을 소유하고 있더라도 jsmith 사용자에 대해 파생된 사용자 할당량이 생성되지 않았습니다.
+* 다른 사용자가 볼륨 또는 qtree에 있는 파일을 소유하지 않기 때문에 다른 사용자에 대해 파생된 사용자 할당량이 생성되지 않았습니다.
+* qtree에 기본 사용자 할당량이 이미 있기 때문에 볼륨에 있는 기본 사용자 할당량이 qtree에 기본 사용자 할당량을 생성하지 않았습니다.
+

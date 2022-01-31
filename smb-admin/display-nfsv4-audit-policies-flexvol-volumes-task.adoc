@@ -1,0 +1,79 @@
+---
+permalink: smb-admin/display-nfsv4-audit-policies-flexvol-volumes-task.html 
+sidebar: sidebar 
+keywords: display, information, nfsv4, audit, policies, policy, flexvol, volume, ontap, cli, security, style, permission, applied, apply, system, access, control, lists, sacl, result, validate, security, display information about nfsv4 audit policies on flexvol volumes using cli 
+summary: '보안 스타일 및 효과적인 보안 스타일의 정의, 적용되는 권한 및 SACL(시스템 액세스 제어 목록)에 대한 정보를 포함하여 ONTAP CLI를 사용하여 FlexVol 볼륨에서 NFSv4 감사 정책에 대한 정보를 표시할 수 있습니다. 결과를 사용하여 보안 구성을 확인하거나 감사 문제를 해결할 수 있습니다.' 
+---
+= CLI를 사용하여 FlexVol 볼륨에서 NFSv4 감사 정책에 대한 정보를 표시합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+보안 스타일 및 효과적인 보안 스타일의 정의, 적용되는 권한 및 SACL(시스템 액세스 제어 목록)에 대한 정보를 포함하여 ONTAP CLI를 사용하여 FlexVol 볼륨에서 NFSv4 감사 정책에 대한 정보를 표시할 수 있습니다. 결과를 사용하여 보안 구성을 확인하거나 감사 문제를 해결할 수 있습니다.
+
+SVM(스토리지 가상 시스템)의 이름과 감사 정보를 표시할 파일 또는 디렉토리의 경로를 제공해야 합니다. 출력을 요약 양식 또는 상세 목록으로 표시할 수 있습니다.
+
+* UNIX 보안 스타일 볼륨 및 qtree는 감사 정책에 NFSv4 SACL만 사용합니다.
+* UNIX 보안 스타일의 혼합 보안 스타일 볼륨에 있는 파일과 디렉토리에는 NFSv4 감사 정책이 적용될 수 있습니다.
++
+혼합 보안 스타일 볼륨 및 qtree에는 모드 비트 또는 NFSv4 ACL, NTFS 파일 권한을 사용하는 일부 파일 및 디렉토리 등 UNIX 파일 권한을 사용하는 일부 파일과 디렉토리가 포함될 수 있습니다.
+
+* 혼합 보안 형식 볼륨의 최상위 수준은 UNIX 또는 NTFS의 유효 보안을 가질 수 있으며 NFSv4 SACL을 포함하거나 포함하지 않을 수 있습니다.
+* ACL 출력은 NTFS 또는 NFSv4 보안이 설정된 파일 및 폴더에만 표시됩니다.
++
+모드 비트 권한만 적용된 UNIX 보안을 사용하는 파일 및 폴더의 경우 이 필드는 비어 있습니다(NFSv4 ACL 없음).
+
+* ACL 출력의 소유자 및 그룹 출력 필드는 NTFS 보안 설명자의 경우에만 적용됩니다.
+* 볼륨 루트 또는 qtree의 효과적인 보안 스타일이 UNIX인 경우에도 스토리지 레벨 액세스 가드 보안을 혼합 보안 스타일 볼륨 또는 qtree로 구성할 수 있으므로 Storage-Level Access Guard가 구성된 볼륨 또는 qtree 경로의 출력에는 일반 NFSv4 파일 및 디렉터리 SACL과 Storage-Level Access Guard NTFS SACL이 모두 표시될 수 있습니다.
+* SVM에 CIFS 서버가 구성된 경우 UNIX 볼륨 또는 qtree에서 Storage-Level Access Guard 보안이 지원되므로 '-path' 매개 변수에 지정된 볼륨 또는 qtree에 적용된 Storage-Level Access Guard 보안에 대한 정보가 출력에 포함될 수 있습니다.
+
+
+.단계
+. 파일 및 디렉터리 보안 설정을 원하는 수준으로 표시합니다.
++
+|===
+| 정보를 표시하려면... | 다음 명령을 입력합니다... 
+
+
+ a| 
+요약 양식
+ a| 
+'vserver security file-directory show -vserver vserver_name -path path path'
+
+
+
+ a| 
+세부 정보가 확장됩니다
+ a| 
+'vserver security file-directory show -vserver vserver_name -path path path -expand-mask true'
+
+|===
+
+
+다음 예제는 SVM VS1 경로 /lab에 대한 보안 정보를 보여 줍니다. 이 UNIX 보안 스타일 경로에는 NFSv4 SACL이 있습니다.
+
+[listing]
+----
+cluster::> vserver security file-directory show -vserver vs1 -path /lab
+
+                Vserver: vs1
+              File Path: /lab
+      File Inode Number: 288
+         Security Style: unix
+        Effective Style: unix
+         DOS Attributes: 11
+ DOS Attributes in Text: ----D--R
+Expanded Dos Attributes: -
+           Unix User Id: 0
+          Unix Group Id: 0
+         Unix Mode Bits: 0
+ Unix Mode Bits in Text: ---------
+                   ACLs: NFSV4 Security Descriptor
+                         Control:0x8014
+                         SACL - ACEs
+                           SUCCESSFUL-S-1-520-0-0xf01ff-SA
+                           FAILED-S-1-520-0-0xf01ff-FA
+                         DACL - ACEs
+                           ALLOW-S-1-520-1-0xf01ff
+----

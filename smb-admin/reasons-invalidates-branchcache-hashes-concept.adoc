@@ -1,0 +1,30 @@
+---
+permalink: smb-admin/reasons-invalidates-branchcache-hashes-concept.html 
+sidebar: sidebar 
+keywords: understand, ontap, invalidate, hash, branchcache, configuration, share, reasons ontap invalidates branchcache hashes 
+summary: BranchCache 구성을 계획할 때 ONTAP에서 해시를 무효화하는 이유를 이해하는 것이 도움이 될 수 있습니다. 구성할 운영 모드를 결정하는 데 도움이 되며 BranchCache를 활성화할 공유를 선택하는 데 도움이 될 수 있습니다. 
+---
+= ONTAP가 BranchCache 해시를 무효화하는 이유
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+BranchCache 구성을 계획할 때 ONTAP에서 해시를 무효화하는 이유를 이해하는 것이 도움이 될 수 있습니다. 구성할 운영 모드를 결정하는 데 도움이 되며 BranchCache를 활성화할 공유를 선택하는 데 도움이 될 수 있습니다.
+
+ONTAP는 해시가 유효한지 확인하기 위해 BranchCache 해시를 관리해야 합니다. 해시가 유효하지 않은 경우 ONTAP는 해시를 무효화하고 다음에 해당 콘텐츠가 요청될 때 BranchCache가 여전히 활성화되어 있다고 가정하고 새 해시를 계산합니다.
+
+ONTAP는 다음과 같은 이유로 해시를 무효화합니다.
+
+* 서버 키가 수정되었습니다.
++
+서버 키가 수정되면 ONTAP는 해시 저장소의 모든 해시를 무효화합니다.
+
+* BranchCache 해시 저장소의 최대 크기에 도달했기 때문에 캐시에서 해시가 플러시됩니다.
++
+이 매개 변수는 조정 가능하며 비즈니스 요구 사항에 맞게 수정할 수 있습니다.
+
+* 파일은 SMB 또는 NFS 액세스를 통해 수정됩니다.
+* 해시가 계산된 파일은 'Snap restore' 명령어를 이용하여 복구한다.
+* BranchCache를 사용하는 SMB 공유가 포함된 볼륨은 'Snap restore' 명령을 사용하여 복구됩니다.
+

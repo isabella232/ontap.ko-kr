@@ -1,0 +1,24 @@
+---
+permalink: system-admin/get-autosupport-message-descriptions-task.html 
+sidebar: sidebar 
+keywords: getting, autosupport, message, descriptions, matrices 
+summary: 수신하는 AutoSupport 메시지에 대한 설명은 온라인 AutoSupport 메시지 매트릭스 페이지를 통해 확인할 수 있습니다. 
+---
+= AutoSupport 메시지 설명을 봅니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+수신하는 AutoSupport 메시지에 대한 설명은 온라인 AutoSupport 메시지 매트릭스 페이지를 통해 확인할 수 있습니다.
+
+.단계
+. AutoSupport 메시지 매트릭스 페이지로 이동합니다.
++
+http://support.netapp.com/NOW/knowledge/docs/olio/autosupport/matrices/["support.netapp.com/NOW/knowledge/docs/olio/autosupport/matrices/"]
+
+. 릴리스 선택 아래의 AutoSupport 메시지 매트릭스 페이지에서 ONTAP 버전을 선택한 다음 * 매트릭스 보기 * 를 클릭합니다.
++
+Syslog Translator 페이지에 모든 AutoSupport 메시지 설명이 제목줄에 알파벳 순으로 나열되어 있습니다.
+
+

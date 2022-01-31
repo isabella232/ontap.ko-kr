@@ -1,0 +1,35 @@
+---
+permalink: volumes/view-capacity-flexclone-files-luns-task.html 
+sidebar: sidebar 
+keywords: view, node, capacity, creating, deleting, flexclone, files, flexclone luns 
+summary: 노드의 분할 부하를 확인하여 FlexClone 파일 및 FlexClone LUN을 생성하고 삭제하라는 새 요청을 수신할 용량이 노드에 있는지 여부를 확인할 수 있습니다. 최대 분할 로드에 도달하면 분할 부하가 최대 아래로 떨어질 때까지 새 요청이 수락되지 않습니다. 
+---
+= FlexClone 파일 및 FlexClone LUN을 생성하고 삭제하는 데 필요한 노드 용량을 봅니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+노드의 분할 부하를 확인하여 FlexClone 파일 및 FlexClone LUN을 생성하고 삭제하라는 새 요청을 수신할 용량이 노드에 있는지 여부를 확인할 수 있습니다. 최대 분할 로드에 도달하면 분할 부하가 최대 아래로 떨어질 때까지 새 요청이 수락되지 않습니다.
+
+노드가 최대 분할 로드에 도달하면 요청을 생성하고 삭제하는 데 대한 응답으로 EBUSY 오류 메시지가 표시됩니다. 노드의 분할 부하가 최대 아래로 떨어지면 노드에서 FlexClone 파일 및 FlexClone LUN을 다시 생성하고 삭제하는 요청을 수락합니다.
+
+허용 가능한 분할 로드 필드에 용량이 표시되고 생성 요청이 사용 가능한 용량에 맞는 경우 노드는 새 요청을 수락할 수 있습니다.
+
+.단계
+. 'volume file clone split load show' 명령을 사용하여 노드에서 FlexClone 파일 및 FlexClone LUN을 생성하고 삭제하는 데 필요한 용량을 확인하십시오.
++
+다음 예제에서 분할 로드는 cluster1의 모든 노드에 대해 표시됩니다. 클러스터의 모든 노드에는 Allowable Split Load 필드가 나타내는 FlexClone 파일 및 FlexClone LUN을 생성 및 삭제할 수 있는 용량이 있습니다.
+
++
+[listing]
+----
+cluster1::> volume file clone split load show
+Node       Max        Current    Token         Allowable
+           Split Load Split Load Reserved Load Split Load
+---------- ---------- ---------- ------------- ----------
+node1         15.97TB         0B         100MB    15.97TB
+node2         15.97TB         0B         100MB    15.97TB
+2 entries were displayed.
+----
+

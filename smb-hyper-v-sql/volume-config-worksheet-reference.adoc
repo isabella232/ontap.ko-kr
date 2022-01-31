@@ -1,0 +1,107 @@
+---
+permalink: smb-hyper-v-sql/volume-config-worksheet-reference.html 
+sidebar: sidebar 
+keywords: complete, volume, configuration, worksheet, sql, server, hyper, v, smb, configuration 
+summary: 이 워크시트는 SMB 구성을 통해 SQL Server 및 Hyper-V용 볼륨을 생성할 때 필요한 값을 쉽게 기록할 수 있는 방법을 제공합니다. 
+---
+= 볼륨 구성 워크시트를 작성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 워크시트는 SMB 구성을 통해 SQL Server 및 Hyper-V용 볼륨을 생성할 때 필요한 값을 쉽게 기록할 수 있는 방법을 제공합니다.
+
+각 볼륨에 대해 다음 정보를 지정해야 합니다.
+
+* 스토리지 가상 시스템(SVM) 이름
++
+SVM 이름은 모든 볼륨에서 동일합니다.
+
+* 볼륨 이름입니다
+* 애그리게이트 이름입니다
++
+클러스터의 노드에 있는 애그리게이트에 볼륨을 생성할 수 있습니다.
+
+* 크기
+* 접합 경로
+
+
+애플리케이션 서버 데이터를 저장하는 데 사용되는 볼륨을 생성할 때 다음 사항을 염두에 두어야 합니다.
+
+* 루트 볼륨에 NTFS 보안 스타일이 없는 경우 볼륨을 생성할 때 보안 스타일을 NTFS로 지정해야 합니다.
++
+기본적으로 볼륨은 SVM 루트 볼륨의 보안 스타일을 상속합니다.
+
+* 볼륨은 기본 볼륨 공간 보장으로 구성해야 합니다.
+* 필요에 따라 공간 자동 크기 조정 관리 설정을 구성할 수 있습니다.
+* 스냅샷 복사본 예약 공간을 결정하는 옵션을 '0'으로 설정해야 합니다.
+* 볼륨에 적용된 스냅샷 정책을 비활성화해야 합니다.
++
+SVM 스냅샷 정책을 사용하지 않도록 설정한 경우 볼륨에 대한 스냅샷 정책을 지정할 필요가 없습니다. 볼륨은 SVM의 스냅샷 정책을 상속합니다. SVM의 스냅샷 정책이 비활성화되어 있고 스냅샷 복사본을 만들도록 구성된 경우 볼륨 레벨에서 스냅샷 정책을 지정해야 하며 해당 정책을 비활성화해야 합니다. 섀도 복사본 서비스 지원 백업 및 SQL Server 백업으로 스냅샷 복사본 생성 및 삭제를 관리합니다.
+
+* 볼륨에 대한 로드 공유 미러는 구성할 수 없습니다.
+
+
+공유 진입점 아래에 접합된 볼륨이 없도록 애플리케이션 서버가 사용하는 공유를 생성하려는 연결 경로를 선택해야 합니다.
+
+예를 들어, 가상 시스템 파일을 ""vol1"", ""vol2", ""vol3"" 및 ""vol4""라는 네 개의 볼륨에 저장하려면 예제에 표시된 네임스페이스를 생성할 수 있습니다. 그런 다음 '/data1/vol1', '/data1/vol2', '/data2/vol3', '/data2/vol4' 경로에서 애플리케이션 서버에 대한 공유를 생성할 수 있습니다.
+
+[listing]
+----
+
+                     Junction                       Junction
+Vserver Volume       Active   Junction Path         Path Source
+------- ------------ -------- -------------------   -----------
+vs1     data1         true     /data1               RW_volume
+vs1     vol1          true     /data1/vol1          RW_volume
+vs1     vol2          true     /data1/vol2          RW_volume
+vs1     data2         true     /data2               RW_volume
+vs1     vol3          true     /data2/vol3          RW_volume
+vs1     vol4          true     /data2/vol4          RW_volume
+----
+|===
+| 정보 유형 | 값 
+
+
+ a| 
+_Volume 1: 볼륨 이름, 애그리게이트, 크기, 접합 경로 _
+ a| 
+
+
+
+ a| 
+_Volume 2: 볼륨 이름, 애그리게이트, 크기, 접합 경로 _
+ a| 
+
+
+
+ a| 
+_Volume 3: 볼륨 이름, 애그리게이트, 크기, 접합 경로 _
+ a| 
+
+
+
+ a| 
+_Volume 4: 볼륨 이름, 애그리게이트, 크기, 접합 경로 _
+ a| 
+
+
+
+ a| 
+_Volume 5: 볼륨 이름, 애그리게이트, 크기, 접합 경로 _
+ a| 
+
+
+
+ a| 
+_Volume 6: 볼륨 이름, 애그리게이트, 크기, 접합 경로 _
+ a| 
+
+
+
+ a| 
+_추가 볼륨: 볼륨 이름, 애그리게이트, 크기, 접합 경로 _
+ a| 
+
+|===

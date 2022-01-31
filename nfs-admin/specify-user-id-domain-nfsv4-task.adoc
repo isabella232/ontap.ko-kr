@@ -1,0 +1,22 @@
+---
+permalink: nfs-admin/specify-user-id-domain-nfsv4-task.html 
+sidebar: sidebar 
+keywords: specify, user, domain, nfsv4 
+summary: 사용자 ID 도메인을 지정하려면 -v4-id-domain 옵션을 설정합니다. 
+---
+= NFSv4의 사용자 ID 도메인을 지정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+사용자 ID 도메인을 지정하려면 '-v4-id-domain' 옵션을 설정합니다.
+
+기본적으로 ONTAP에서는 NFSv4 사용자 ID 매핑이 설정된 경우 NIS 도메인을 사용합니다. NIS 도메인이 설정되어 있지 않으면 DNS 도메인이 사용됩니다. 예를 들어 여러 사용자 ID 도메인이 있는 경우 사용자 ID 도메인을 설정해야 할 수 있습니다. 도메인 이름은 도메인 컨트롤러의 도메인 구성과 일치해야 합니다. NFSv3에는 필요하지 않습니다.
+
+.단계
+. 다음 명령을 입력합니다.
++
+'vserver nfs modify -vserver vserver_name -v4-id-domain NIS_domain_name'
+
+

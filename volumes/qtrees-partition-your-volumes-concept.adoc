@@ -1,0 +1,21 @@
+---
+permalink: volumes/qtrees-partition-your-volumes-concept.html 
+sidebar: sidebar 
+keywords: use, qtrees, partition, flexvol volumes 
+summary: Qtree를 사용하면 FlexVol 볼륨을 작은 세그먼트로 파티셔닝하여 개별적으로 관리할 수 있습니다. Qtree를 사용하여 할당량, 보안 스타일 및 CIFS oplocks를 관리할 수 있습니다. 
+---
+= Qtree를 사용하여 FlexVol 볼륨 파티셔닝 개요
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Qtree를 사용하면 FlexVol 볼륨을 작은 세그먼트로 파티셔닝하여 개별적으로 관리할 수 있습니다. Qtree를 사용하여 할당량, 보안 스타일 및 CIFS oplocks를 관리할 수 있습니다.
+
+ONTAP는 각 볼륨에 대해 _qtree0_이라는 기본 qtree를 생성합니다. 데이터를 qtree에 넣지 않으면 qtree0에 상주합니다.
+
+qtree 이름은 64자 이하여야 합니다.
+
+qtree 간에 디렉토리를 이동할 수 없습니다. Qtree 간에 파일만 이동할 수 있습니다.
+
+동일한 FlexVol 또는 SCVMM 풀에 qtree 레벨 및 볼륨 레벨 공유를 생성하는 경우 qtree가 FlexVol 공유에 디렉토리로 표시됩니다. 따라서 실수로 삭제하지 않도록 주의해야 합니다.

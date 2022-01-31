@@ -1,0 +1,17 @@
+---
+permalink: smb-admin/configure-ntfs-file-permissions-concept.html 
+sidebar: sidebar 
+keywords: configure, ntfs, file, permission, directories, directory, ontap, cli, enable, windows, client, how to configure ntfs file permissions using the ontap cli 
+summary: ONTAP CLI를 사용하여 파일 및 디렉토리에 대한 NTFS 파일 권한을 구성할 수 있습니다. 따라서 Windows 클라이언트에서 SMB 공유를 사용하여 데이터에 연결할 필요 없이 NTFS 파일 권한을 구성할 수 있습니다. 
+---
+= ONTAP CLI를 사용하여 NTFS 파일 권한을 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP CLI를 사용하여 파일 및 디렉토리에 대한 NTFS 파일 권한을 구성할 수 있습니다. 따라서 Windows 클라이언트에서 SMB 공유를 사용하여 데이터에 연결할 필요 없이 NTFS 파일 권한을 구성할 수 있습니다.
+
+NTFS 보안 설명자와 연결된 NTFS DACL(임의 액세스 제어 목록)에 항목을 추가하여 NTFS 파일 권한을 구성할 수 있습니다. 그런 다음 보안 설명자가 NTFS 파일 및 디렉터리에 적용됩니다.
+
+명령줄을 사용해서만 NTFS 파일 권한을 구성할 수 있습니다. CLI를 사용하여 NFSv4 ACL을 구성할 수 없습니다.

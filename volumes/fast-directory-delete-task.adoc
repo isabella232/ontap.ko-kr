@@ -1,0 +1,52 @@
+---
+permalink: volumes/fast-directory-delete-task.html 
+sidebar: sidebar 
+keywords: fast, directory, delete, deleting, using CLI 
+summary: 'REST API를 사용하여 디렉토리를 삭제하는 것이 좋습니다. ONTAP CLI(Command Line Interface)를 사용하여 디렉토리를 삭제할 수도 있습니다.' 
+---
+= CLI를 사용하여 빠른 디렉토리 삭제를 수행합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+REST API를 사용하여 디렉토리를 삭제하는 것이 좋습니다. ONTAP CLI(Command Line Interface)를 사용하여 디렉토리를 삭제할 수도 있습니다.
+
+.단계
+. 고급 권한 모드 시작:
++
+특권 진전
+
+. 디렉토리를 삭제합니다.
++
+'볼륨 파일 비동기 삭제 시작 볼륨 볼륨 볼륨 볼륨 이름 vserver_name path directory_path -throttle'
+
++
+최소 스로틀 값은 10, 최대값은 100,000, 기본값은 5000입니다.
+
++
+다음 예에서는 기본 스로틀을 사용하여 새 디렉토리 비동기식 삭제 작업을 생성합니다.
+
++
+[listing]
+----
+cluster-cli::*> volume file async-delete start -vserver vs1 -volume vol1 -path d1
+
+[Job 32] Job is queued: Asynchronous directory delete job.
+----
+. 디렉토리가 삭제되었는지 확인합니다.
++
+이벤트 로그 쇼
+
++
+다음 예제에서는 디렉터리가 성공적으로 삭제되었을 때 이벤트 로그의 출력을 보여 줍니다.
+
++
+[listing]
+----
+cluster-cli::*> event log show
+Time              Node             Severity      Event
+------------------- ---------------- ------------- --------------------
+MM/DD/YYYY 00:11:11  cluster-vsim     INFORMATIONAL asyncDelete.message.success: Async delete job on path d1 of volume (MSID: 2162149232) was completed.
+----
+

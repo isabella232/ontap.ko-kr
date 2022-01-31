@@ -1,0 +1,19 @@
+---
+permalink: smb-hyper-v-sql/protocols-nondisruptive-operations-smb-concept.html 
+sidebar: sidebar 
+keywords: protocol, smb, microsoft, nondisruptive, sql, server, hyper, v 
+summary: Microsoft는 SMB 3.0 릴리스와 함께 SMB를 통해 Hyper-V 및 SQL Server의 무중단 운영을 지원하는 데 필요한 기능을 제공하는 새로운 프로토콜을 출시했습니다. 
+---
+= 프로토콜을 지원하여 SMB를 통해 무중단 운영을 실현합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Microsoft는 SMB 3.0 릴리스와 함께 SMB를 통해 Hyper-V 및 SQL Server의 무중단 운영을 지원하는 데 필요한 기능을 제공하는 새로운 프로토콜을 출시했습니다.
+
+ONTAP은 SMB를 통해 애플리케이션 서버에 무중단 운영을 제공할 때 다음과 같은 프로토콜을 사용합니다.
+
+* SMB 3.0
+* 증인
+

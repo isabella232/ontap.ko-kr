@@ -1,0 +1,28 @@
+---
+permalink: nfs-rdma/configure-nfs-task.html 
+sidebar: sidebar 
+keywords: networking, NFS over RDMA, NVIDIA, NFS, v4 grace period 
+summary: 이 문서에서는 RDMA 상의 NFS 성능을 최적화하기 위한 선택적 단계에 대해 설명합니다. 
+---
+= NFS 구성을 수정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+대부분의 경우 RDMA를 통한 NFS용 NFS 지원 가상 서버의 구성을 수정할 필요가 없습니다.
+
+그러나 Mellanox 칩 및 LIF 마이그레이션과 관련된 문제를 처리하는 경우 NFSv4 잠금 유예 기간을 늘려야 합니다. 기본적으로 유예 기간은 45초로 설정됩니다. ONTAP 9.10.1부터 유예 기간은 최대 180초까지 가능합니다.
+
+.단계
+. 권한 수준을 고급으로 설정합니다.
++
+세트 프리빌리지 고급
+
+. 다음 명령을 입력합니다.
++
+'vserver nfs modify -vserver_vserver_name_-v4-grace-seconds_number_of_seconds _'
+
+
+
+이 작업에 대한 자세한 내용은 을 참조하십시오 xref:../nfs-admin/specify-nfsv4-locking-grace-period-task.adoc[NFSv4 잠금 유예 기간 지정].

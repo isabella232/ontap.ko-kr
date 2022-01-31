@@ -1,0 +1,50 @@
+---
+permalink: system-admin/access-cluster-system-manager-browser-task.html 
+sidebar: sidebar 
+keywords: access, cluster, ontap, system, manager, graphic, interface, browser, cli 
+summary: 'CLI(Command-Line Interface) 대신 그래픽 인터페이스를 사용하여 클러스터를 액세스하고 관리하려면 ONTAP에 웹 서비스로 포함되어 있는 System Manager를 기본적으로 사용해야 하며 브라우저를 사용하여 액세스할 수 있습니다.' 
+---
+= System Manager를 사용하여 클러스터에 액세스합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+CLI(Command-Line Interface) 대신 그래픽 인터페이스를 사용하여 클러스터를 액세스하고 관리하려면 ONTAP에 웹 서비스로 포함되어 있는 System Manager를 기본적으로 사용해야 하며 브라우저를 사용하여 액세스할 수 있습니다.
+
+.무엇을 &#8217;필요로 할거야
+* admin 역할과 http, ontapi, console 애플리케이션 유형으로 구성된 클러스터 사용자 계정이 있어야 합니다.
+* 브라우저에서 쿠키 및 사이트 데이터를 활성화해야 합니다.
+
+
+클러스터 관리 LIF 또는 노드 관리 LIF를 사용하여 System Manager에 액세스할 수 있습니다. System Manager에 중단 없이 액세스하려면 클러스터 관리 LIF를 사용해야 합니다.
+
+.단계
+. 웹 브라우저에서 클러스터 관리 LIF의 IP 주소를 가리킵니다.
++
+** IPv4를 사용하는 경우: ``https://__cluster-mgmt-LIF__*`
+** IPv6를 사용하는 경우: ``https://[_cluster-mgmt-LIF_]*`
++
+
+NOTE: System Manager의 브라우저 액세스에는 HTTPS만 지원됩니다.
+
+
+
++
+클러스터에서 자체 서명된 디지털 인증서를 사용하는 경우 브라우저에서 인증서를 신뢰할 수 없음을 나타내는 경고를 표시할 수 있습니다. 액세스를 계속할 위험을 확인하거나 서버 인증을 위해 클러스터에 CA(인증 기관) 서명 디지털 인증서를 설치할 수 있습니다.
+
+. * 선택 사항: * CLI를 사용하여 액세스 배너를 구성한 경우 * 경고 * 대화 상자에 표시된 메시지를 읽고 필요한 옵션을 선택하여 계속 진행합니다.
++
+SAML(Security Assertion Markup Language) 인증이 활성화된 시스템에서는 이 옵션이 지원되지 않습니다.
+
++
+** 계속 진행하지 않으려면 * 취소 * 를 클릭하고 브라우저를 닫습니다.
+** 계속하려면 * 확인 * 을 클릭하여 System Manager 로그인 페이지로 이동하십시오.
+
+
+. 클러스터 관리자 자격 증명을 사용하여 System Manager에 로그인합니다.
+
+
+xref:manage-access-web-services-concept.adoc[웹 서비스에 대한 액세스 관리]
+
+xref:accessg-node-log-core-dump-mib-files-task.adoc[웹 브라우저를 사용하여 노드의 로그, 코어 덤프 및 MIB 파일에 액세스합니다]

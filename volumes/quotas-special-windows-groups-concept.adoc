@@ -1,0 +1,31 @@
+---
+permalink: volumes/quotas-special-windows-groups-concept.html 
+sidebar: sidebar 
+keywords: how quotas work, with, special windows groups 
+summary: 할당량은 Everyone 그룹 및 BUILTIN\Administrators 그룹에 다른 Windows 그룹과 다르게 적용됩니다. 
+---
+= 특수 Windows 그룹에서 할당량을 사용하는 방법
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+할당량은 Everyone 그룹 및 BUILTIN\Administrators 그룹에 다른 Windows 그룹과 다르게 적용됩니다.
+
+다음 목록에서는 할당량 대상이 특수 Windows 그룹 ID인 경우 수행되는 작업을 설명합니다.
+
+* 할당량 대상이 Everyone 그룹인 경우 소유자가 Everyone인 것으로 ACL이 표시되는 파일은 모든 사용자의 SID로 계산됩니다.
+* 할당량 대상이 BUILTIN\Administrators인 경우 추적만을 위한 사용자 할당량으로 간주됩니다.
++
+BUILTIN\Administrators에는 제한을 적용할 수 없습니다.
+
++
+BUILTIN\Administrators 구성원이 파일을 만들면 해당 파일은 BUILTIN\Administrators가 소유하며 사용자의 개인 SID가 아닌 BUILTIN\Administrators의 SID로 계산됩니다.
+
+
+
+[NOTE]
+====
+ONTAP는 Windows 그룹 ID 기반의 그룹 할당량을 지원하지 않습니다. Windows 그룹 ID를 할당량 타겟으로 지정하면 할당량이 사용자 할당량으로 간주됩니다.
+
+====

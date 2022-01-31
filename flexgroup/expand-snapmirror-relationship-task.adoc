@@ -1,0 +1,28 @@
+---
+permalink: flexgroup/expand-snapmirror-relationship-task.html 
+sidebar: sidebar 
+keywords: expand, flexgroup, volume, snapmirror, relationship, snap mirror, flex group, manual, automatic, automatically, disaster 
+summary: ONTAP 9.3부터는 새 구성요소를 볼륨에 추가하여 SnapMirror 관계에 있는 소스 FlexGroup 볼륨과 타겟 FlexGroup 볼륨을 확장할 수 있습니다. 대상 볼륨을 수동 또는 자동으로 확장할 수 있습니다. 
+---
+= SnapMirror 관계에서 FlexGroup 볼륨을 확장합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.3부터는 새 구성요소를 볼륨에 추가하여 SnapMirror 관계에 있는 소스 FlexGroup 볼륨과 타겟 FlexGroup 볼륨을 확장할 수 있습니다. 대상 볼륨을 수동 또는 자동으로 확장할 수 있습니다.
+
+.이 작업에 대해
+* 확장 후에는 소스 FlexGroup 볼륨과 SnapMirror 관계의 타겟 FlexGroup 볼륨에 있는 구성 수가 일치해야 합니다.
++
+볼륨의 구성요소 수가 일치하지 않는 경우 SnapMirror 전송이 실패합니다.
+
+* 확장 프로세스가 진행 중일 때는 SnapMirror 작업을 수행하지 않아야 합니다.
+* 확장 프로세스가 완료되기 전에 재해가 발생할 경우 SnapMirror 관계를 끊은 후 작업이 성공할 때까지 기다려야 합니다.
++
+[NOTE]
+====
+확장 프로세스가 진행 중일 때는 재해 발생 시에만 SnapMirror 관계를 끊어야 합니다. 재해가 발생할 경우 중단 작업을 완료하는 데 약간의 시간이 걸릴 수 있습니다. 재동기화 작업을 수행하기 전에 중단 작업이 성공적으로 완료될 때까지 기다려야 합니다. 중단 작업이 실패하면 중단 작업을 다시 시도해야 합니다. 중단 작업이 실패하면 중단 작업 후 일부 새 구성 요소들이 대상 FlexGroup 볼륨에 남아 있을 수 있습니다. 계속 진행하기 전에 이러한 구성 요소들을 수동으로 삭제하는 것이 좋습니다.
+
+====
+

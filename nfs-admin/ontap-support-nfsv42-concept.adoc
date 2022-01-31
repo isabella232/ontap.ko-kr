@@ -1,0 +1,47 @@
+---
+permalink: nfs-admin/ontap-support-nfsv42-concept.html 
+sidebar: sidebar 
+keywords: ontap, support, nfsv4.2 
+summary: ONTAP 9.8부터 NFSv4.2 클라이언트에 대한 액세스를 허용하는 NFSv4.2 프로토콜이 지원됩니다. 
+---
+= NFSv4.2에 대한 ONTAP 지원
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.8부터 NFSv4.2 클라이언트에 대한 액세스를 허용하는 NFSv4.2 프로토콜이 지원됩니다.
+
+NFSv4.2는 ONTAP 9.9.1 이상에서 기본적으로 설정됩니다. ONTAP 9.8에서는 SVM(Storage Virtual Machine)에서 NFS 서버를 생성할 때 '-v4.1' 옵션을 지정하고 이를 '사용'으로 설정하여 v4.2를 활성화할 수 있습니다. 또한 NFSv4.1을 활성화하면 클라이언트가 v4.2로 마운트된 상태에서 NFSv4.1 기능을 사용할 수 있습니다.
+
+지원되는 NFSv4.2 선택적 기능은 다음과 같습니다.
+
+* ONTAP 9.9.1부터 NFSv4.2가 활성화된 경우 NFS 레이블이 지정된 MAC(Mandatory Access Control)가 지원됩니다.
+* 추가 NFSv4.2 선택적 기능은 이후 ONTAP 릴리즈에서 추가될 예정입니다.
+
+
+
+
+== NFS v4.2 보안 레이블을 사용하도록 설정합니다
+
+ONTAP 9.9.1부터 NFS 보안 레이블을 활성화할 수 있습니다. 기본적으로 비활성화되어 있습니다.
+
+NFS v4.2 보안 레이블에서 ONTAP NFS 서버는 MAC(Mandatory Access Control)를 인식하여 클라이언트가 전송한 sec_label 특성을 저장 및 검색합니다.
+
+자세한 내용은 을 참조하십시오 https://tools.ietf.org/html/rfc7204["RFC7240"]
+
+[NOTE]
+====
+NFS v4.2 보안 레이블은 현재 NDMP 덤프 작업에 지원되지 않습니다. 파일 또는 디렉터리에서 보안 레이블이 발견되면 덤프가 실패합니다.
+
+====
+.단계
+. 권한 설정을 고급으로 변경합니다.
++
+'세트 프리빌리지 어드밴스드'
+
+. 보안 레이블 활성화:
++
+``vserver nfs modify -vserver svm_name -v4.2-seclabel enabled’’라는 이름의 가상 서버가 있습니다
+
+

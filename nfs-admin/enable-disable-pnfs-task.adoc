@@ -1,0 +1,52 @@
+---
+permalink: nfs-admin/enable-disable-pnfs-task.html 
+sidebar: sidebar 
+keywords: enable, disable, pnfs 
+summary: 'pNFS는 NFS 클라이언트가 스토리지 장치에서 직접 및 병렬로 읽기/쓰기 작업을 수행할 수 있도록 지원하여 잠재적 병목 현상으로 NFS 서버를 우회함으로써 성능을 개선합니다. pNFS(병렬 NFS)를 사용하거나 사용하지 않도록 설정하려면 -v4.1-pNFS 옵션을 수정합니다.' 
+---
+= pNFS를 사용하거나 사용하지 않도록 설정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+pNFS는 NFS 클라이언트가 스토리지 장치에서 직접 및 병렬로 읽기/쓰기 작업을 수행할 수 있도록 지원하여 잠재적 병목 현상으로 NFS 서버를 우회함으로써 성능을 개선합니다. pNFS(parallel NFS)를 활성화 또는 비활성화하려면 '-v4.1-pNFS' 옵션을 수정합니다.
+
+[cols="50,50"]
+|===
+| ONTAP 릴리즈가... | pNFS 기본값은... 
+
+
+| 9.8 이상 | 사용 안 함 
+
+
+| 9.7 이하 | 활성화됨 
+|===
+pNFS를 사용하려면 NFSv4.1 지원이 필요합니다.
+
+pNFS를 활성화하려면 먼저 NFS 조회를 비활성화해야 합니다. 둘 다 동시에 활성화할 수는 없습니다.
+
+SVM에서 Kerberos와 pNFS를 사용하는 경우 SVM의 모든 LIF에서 Kerberos를 사용하도록 설정해야 합니다.
+
+.단계
+. 다음 작업 중 하나를 수행합니다.
++
+[cols="2*"]
+|===
+| 원하는 작업 | 명령 입력... 
+
+
+ a| 
+pNFS를 활성화합니다
+ a| 
+'vserver nfs modify -vserver vserver_name -v4.1 -pNFS enabled'
+
+
+
+ a| 
+pNFS를 비활성화합니다
+ a| 
+'vserver nfs modify -vserver vserver_name -v4.1 -pNFS disabled'
+
+|===
+

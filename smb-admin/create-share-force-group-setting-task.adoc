@@ -1,0 +1,29 @@
+---
+permalink: smb-admin/create-share-force-group-setting-task.html 
+sidebar: sidebar 
+keywords: create, smb, share, force-group, setting, user, access, data, volume, qtree, unix, file, security, regard, ontap, belong, group, create an smb share with the force-group share setting 
+summary: UNIX 파일 보안이 설정된 볼륨 또는 Qtree에서 데이터에 액세스하는 SMB 사용자가 ONTAP 동일한 UNIX 그룹에 속한 것으로 간주하도록 하려면 force-group 공유 설정을 사용하여 SMB 공유를 생성할 수 있습니다. 
+---
+= 그룹 강제 공유 설정을 사용하여 SMB 공유를 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+UNIX 파일 보안이 설정된 볼륨 또는 Qtree에서 데이터에 액세스하는 SMB 사용자가 ONTAP 동일한 UNIX 그룹에 속한 것으로 간주하도록 하려면 force-group 공유 설정을 사용하여 SMB 공유를 생성할 수 있습니다.
+
+.단계
+. SMB 공유:'vserver cifs share create-vserver_name_-share-name_share_name_-path path path -force-group-for-create_unix_group_name_'을 생성합니다
++
+공유의 UNC 경로('\\servername\sharename\filepath')에 256자 이상(UNC 경로의 초기 ""\"" 제외)이 포함되어 있으면 Windows 속성 상자의 * 보안 * 탭을 사용할 수 없습니다. 이것은 ONTAP 문제가 아니라 Windows 클라이언트 문제입니다. 이 문제를 방지하려면 256자를 초과하는 UNC 경로를 사용하여 공유를 생성하지 마십시오.
+
++
+공유가 생성된 후 force 그룹을 제거하려면 언제든지 공유를 수정하고 빈 문자열("")을 "-force-group-for-create" 매개 변수의 값으로 지정할 수 있습니다. 공유를 수정하여 강제 그룹을 제거하는 경우 이 공유에 대한 모든 기존 연결은 이전에 설정된 강제 그룹을 기본 GID로 계속 설정합니다.
+
+
+
+다음 명령을 실행하면 "/Corp/CompanyInfo" 디렉토리에 웹에서 액세스할 수 있는 ""웹 페이지" 공유가 생성되며, 이 디렉토리에서 SMB 사용자가 생성한 모든 파일이 webgroup1 그룹에 할당됩니다.
+
+'vserver cifs share create-vserver vs1-share-name povp-path/corp/CompanyInfo-force-group-for-create webgroup1'
+
+xref:optimize-user-access-force-group-share-concept.adoc[force-group 공유 설정을 사용하여 SMB 사용자 액세스를 최적화합니다]

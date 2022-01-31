@@ -1,0 +1,96 @@
+---
+permalink: system-admin/online-help-at-sp-bmc-cli-task.html 
+sidebar: sidebar 
+keywords: online, help, sp, bmc, cli, command 
+summary: 온라인 도움말에는 SP/BMC CLI 명령 및 옵션이 표시됩니다. 
+---
+= SP/BMC CLI에서 온라인 도움말을 사용합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+온라인 도움말에는 SP/BMC CLI 명령 및 옵션이 표시됩니다.
+
+이 태스크는 SP와 BMC 모두에 적용됩니다.
+
+.단계
+. SP/BMC 명령에 대한 도움말 정보를 표시하려면 다음을 입력합니다.
++
+|===
+| SP 도움말을 액세스하려면... | BMC 도움말에 액세스하려면... 
+
+
+ a| 
+SP 프롬프트에 help를 입력합니다.
+ a| 
+BMC 프롬프트에 '시스템'을 입력합니다.
+
+|===
++
+다음 예는 SP CLI 온라인 도움말을 보여 줍니다.
+
++
+[listing]
+----
+SP> help
+date - print date and time
+exit - exit from the SP command line interface
+events - print system events and event information
+help - print command help
+priv - show and set user mode
+sp - commands to control the SP
+system - commands to control the system
+version - print SP version
+----
++
+다음 예에서는 BMC CLI 온라인 도움말을 보여 줍니다.
+
++
+[listing]
+----
+BMC> system
+system acp - acp related commands
+system battery - battery related commands
+system console - connect to the system console
+system core - dump the system core and reset
+system cpld - cpld commands
+system log - print system console logs
+system power - commands controlling system power
+system reset - reset the system using the selected firmware
+system sensors - print environmental sensors status
+system service-event - print service-event status
+system fru - fru related commands
+system watchdog - system watchdog commands
+
+BMC>
+----
+. SP/BMC 명령 옵션에 대한 도움말 정보를 표시하려면 SP/BMC 명령 앞이나 뒤에 "help"를 입력합니다.
++
+다음 예에서는 SP 'events' 명령에 대한 SP CLI 온라인 도움말을 보여 줍니다.
+
++
+[listing]
+----
+SP> help events
+events all - print all system events
+events info - print system event log information
+events newest - print newest system events
+events oldest - print oldest system events
+events search - search for and print system events
+----
++
+다음 예에서는 BMC '시스템 전원' 명령에 대한 BMC CLI 온라인 도움말을 보여 줍니다.
+
++
+[listing]
+----
+BMC> system power help
+system power cycle - power the system off, then on
+system power off - power the system off
+system power on - power the system on
+system power status - print system power status
+
+BMC>
+----
+

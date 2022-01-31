@@ -1,0 +1,56 @@
+---
+permalink: smb-admin/display-netbios-over-tcp-connections-task.html 
+sidebar: sidebar 
+keywords: display, information, netbios, tcp, nbt, connection, useful, troubleshoot, issue, display information about netbios over tcp connections 
+summary: 'NBT(NetBIOS over TCP) 연결에 대한 정보를 표시할 수 있습니다. 이는 NetBIOS 관련 문제를 해결할 때 유용할 수 있습니다.' 
+---
+= NetBIOS over TCP 연결에 대한 정보를 표시합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NBT(NetBIOS over TCP) 연결에 대한 정보를 표시할 수 있습니다. 이는 NetBIOS 관련 문제를 해결할 때 유용할 수 있습니다.
+
+.단계
+. 'vserver cifs nbtstat' 명령을 사용하여 NetBIOS over TCP 연결에 대한 정보를 표시합니다.
++
+[NOTE]
+====
+IPv6를 통한 NBNS(NetBIOS 이름 서비스)는 지원되지 않습니다.
+
+====
+
+
+다음 예제에서는 ""cluster1""에 대해 표시되는 NetBIOS 이름 서비스 정보를 보여 줍니다.
+
+[listing]
+----
+cluster1::> vserver cifs nbtstat
+
+          Vserver: vs1
+          Node:    cluster1-01
+          Interfaces:
+                   10.10.10.32
+                   10.10.10.33
+         Servers:
+                   17.17.1.2  (active  )
+         NBT Scope:
+                  [ ]
+         NBT Mode:
+                  [h]
+         NBT Name    NetBIOS Suffix   State   Time Left   Type
+         ----------- ---------------  ------- ---------   -----
+         CLUSTER_1   00               wins    57
+         CLUSTER_1   20               wins    57
+
+         Vserver: vs1
+         Node:    cluster1-02
+         Interfaces:
+                 10.10.10.35
+         Servers:
+                 17.17.1.2  (active  )
+         CLUSTER_1          00               wins          58
+         CLUSTER_1          20               wins          58
+         4 entries were displayed.
+----

@@ -1,0 +1,33 @@
+---
+permalink: nfs-admin/enable-nfsv42-security-labels-task.html 
+sidebar: sidebar 
+keywords: enable, nfs, v4.2, security, label 
+summary: ONTAP 9.9.1부터 NFS 보안 레이블을 활성화할 수 있습니다. 기본적으로 비활성화되어 있습니다. 
+---
+= NFS v4.2 보안 레이블을 사용하도록 설정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.9.1부터 NFS 보안 레이블을 활성화할 수 있습니다. 기본적으로 비활성화되어 있습니다.
+
+NFS v4.2 보안 레이블에서 ONTAP NFS 서버는 MAC(Mandatory Access Control)를 인식하여 클라이언트가 전송한 sec_label 특성을 저장 및 검색합니다.
+
+자세한 내용은 을 참조하십시오 https://tools.ietf.org/html/rfc7204["RFC7240"]
+
+[NOTE]
+====
+NFS v4.2 보안 레이블은 현재 NDMP 덤프 작업에 지원되지 않습니다. 파일 또는 디렉터리에서 보안 레이블이 발견되면 덤프가 실패합니다.
+
+====
+.단계
+. 권한 설정을 고급으로 변경합니다.
++
+'세트 프리빌리지 어드밴스드'
+
+. 보안 레이블 활성화:
++
+``vserver nfs modify -vserver svm_name -v4.2-seclabel enabled’’라는 이름의 가상 서버가 있습니다
+
+

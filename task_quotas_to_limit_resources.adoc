@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: task_quotas_to_limit_resources.html 
+keywords: netapp, ontap, quotas, quota, managing, resources, qtree, qtrees, work load, workload, disk space, hard limit, soft limit, limit resource use 
+summary: 할당량을 추가하여 할당량 대상이 사용할 수 있는 디스크 공간의 양을 제한합니다. 
+---
+= 리소스 사용을 제한하도록 할당량을 설정합니다
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+할당량을 추가하여 할당량 대상이 사용할 수 있는 디스크 공간의 양을 제한합니다.
+
+할당량에 대한 하드 제한값 및 소프트 제한값을 설정할 수 있습니다.
+
+하드 할당량은 시스템 리소스에 엄격한 제한을 부과하며, 제한을 초과하는 작업은 모두 실패합니다. 소프트 할당량은 리소스 사용량이 특정 수준에 도달해도 데이터 액세스 작업에 영향을 주지 않으므로 할당량이 초과되기 전에 적절한 조치를 취할 수 있도록 경고 메시지를 보냅니다.
+
+.단계
+. 스토리지 > 할당량 * 을 클릭합니다.
+. 추가 * 를 클릭합니다.
+

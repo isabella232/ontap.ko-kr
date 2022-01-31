@@ -1,0 +1,102 @@
+---
+section: flexgroup
+title: CLI를 사용한 FlexGroup 볼륨 관리
+entries:
+- title: 개요
+  url: "/flexgroup/index.html"
+- title: FlexGroup 볼륨이란
+  url: "/flexgroup/definition-concept.html"
+- title: FlexGroup 볼륨에 대해 지원 및 지원되지 않는 구성입니다
+  url: "/flexgroup/supported-unsupported-config-concept.html"
+- title: FlexGroup 볼륨 설정
+  entries:
+  - title: 워크플로우
+    url: "/flexgroup/creation-workflow-task.html"
+  - title: SVM에서 64비트 NFSv3 식별자 사용
+    url: "/flexgroup/enable-64-bit-nfsv3-identifiers-svm-task.html"
+  - title: FlexGroup 볼륨을 자동으로 프로비저닝합니다
+    url: "/flexgroup/provision-automatically-task.html"
+  - title: FlexGroup 볼륨을 생성합니다
+    url: "/flexgroup/create-task.html"
+- title: FlexGroup 볼륨 관리
+  entries:
+  - title: FlexGroup 볼륨의 공간 사용량을 모니터링합니다
+    url: "/flexgroup/monitor-space-usage-task.html"
+  - title: FlexGroup 볼륨의 크기를 늘립니다
+    url: "/flexgroup/increase-capacity-task.html"
+  - title: FlexGroup 볼륨의 크기를 줄입니다
+    url: "/flexgroup/shrink-flexgroup-volume-task.html"
+  - title: 크기가 자동으로 확장 및 축소되도록 FlexGroup 볼륨을 구성합니다
+    url: "/flexgroup/configure-automatic-grow-shrink-task.html"
+  - title: 파일 및 디렉토리를 비동기적으로 삭제하여 빠른 디렉토리 삭제를 수행합니다
+    url: "/flexgroup/fast-directory-delete-asynchronous-task.html"
+  - title: FlexGroup 볼륨으로 qtree를 생성합니다
+    url: "/flexgroup/create-qtrees-task.html"
+  - title: FlexGroup 볼륨에 할당량을 사용합니다
+    url: "/flexgroup/quota-reporting-task.html"
+  - title: FlexGroup 볼륨에서 스토리지 효율성 실현
+    url: "/flexgroup/enable-storage-efficiency-task.html"
+  - title: 스냅샷 복사본을 사용하여 FlexGroup 볼륨 보호
+    url: "/flexgroup/protect-snapshot-copies-task.html"
+  - title: FlexGroup 볼륨의 구성요소를 이동합니다
+    url: "/flexgroup/move-constituents-task.html"
+  - title: 기존 FlexGroup 볼륨에 대해 FabricPool의 애그리게이트를 사용합니다
+    url: "/flexgroup/fabricpool-aggregates-existing-volumes-task.html"
+- title: FlexGroup 볼륨에 대한 데이터 보호
+  entries:
+  - title: 워크플로우
+    url: "/flexgroup/provide-disaster-recovery-snapmirror-task.html"
+  - title: FlexGroup 볼륨에 대한 SnapMirror 관계를 생성합니다
+    url: "/flexgroup/create-snapmirror-relationship-task.html"
+  - title: FlexGroup 볼륨에 대한 SnapVault 관계를 생성합니다
+    url: "/flexgroup/create-snapvault-relationship-task.html"
+  - title: FlexGroup 볼륨에 대한 통합 데이터 보호 관계를 생성합니다
+    url: "/flexgroup/create-unified-data-protection-relationship-task.html"
+  - title: FlexGroup 볼륨에 대한 SVM 재해 복구 관계를 생성합니다
+    url: "/flexgroup/create-svm-disaster-recovery-relationship-task.html"
+  - title: 기존 FlexGroup SnapMirror 관계를 SVM DR으로 전환합니다
+    url: "/flexgroup/transition-snapmirror-relationship-svm-dr-task.html"
+  - title: SVM-DR 관계 내에서 FlexVol 볼륨을 FlexGroup 볼륨으로 변환합니다
+    url: "/flexgroup/convert-flexvol-svm-dr-relationship-task.html"
+  - title: FlexGroups에 대한 계단식 SnapMirror 및 팬아웃 관계를 생성할 때의 고려 사항
+    url: "/flexgroup/create-snapmirror-cascade-fanout-reference.html"
+  - title: SnapVault 백업 관계를 생성할 때의 고려 사항 및 FlexGroup 볼륨에 대한 통합 데이터 보호 관계
+    url: "/flexgroup/snapvault-backup-concept.html"
+  - title: FlexGroup 볼륨에 대한 SnapMirror 데이터 전송을 모니터링합니다
+    url: "/flexgroup/monitor-snapmirror-data-transfers-task.html"
+- title: FlexGroup 볼륨에 대한 데이터 보호 작업을 관리합니다
+  entries:
+  - title: FlexGroup 볼륨의 재해 복구
+    entries:
+    - title: 워크플로우
+      url: "/flexgroup/disaster-recovery-workflow-task.html"
+    - title: 대상 FlexGroup 볼륨을 활성화합니다
+      url: "/flexgroup/activate-destination-task.html"
+    - title: 재해 발생 후 원본 FlexGroup 볼륨을 다시 활성화합니다
+      url: "/flexgroup/reactivate-original-source-after-disaster-task.html"
+    - title: 재해 복구 중에 FlexGroup 볼륨 간 SnapMirror 관계를 바꿉니다
+      url: "/flexgroup/reverse-snapmirror-relationship-task.html"
+  - title: SnapMirror 관계에서 FlexGroup 볼륨을 확장합니다
+    entries:
+    - title: 개요
+      url: "/flexgroup/expand-snapmirror-relationship-task.html"
+    - title: SnapMirror 관계의 소스 FlexGroup 볼륨을 확장합니다
+      url: "/flexgroup/expand-source-snapmirror-relationship-task.html"
+    - title: SnapMirror 관계의 대상 FlexGroup 볼륨을 확장합니다
+      url: "/flexgroup/expand-destination-snapmirror-relationship-task.html"
+  - title: FlexGroup 볼륨에서 SnapMirror 단일 파일 복원을 수행합니다
+    url: "/flexgroup/perform-snapmirror-single-file-restore-task.html"
+  - title: SnapVault 백업에서 FlexGroup 볼륨을 복원합니다
+    url: "/flexgroup/restore-snapvault-backup-task.html"
+  - title: FlexGroup 볼륨에서 SVM 보호 비활성화
+    url: "/flexgroup/disable-svm-protection-task.html"
+  - title: FlexGroup 볼륨에서 SVM 보호 활성화
+    url: "/flexgroup/enable-svm-protection-task.html"
+- title: FlexVol 볼륨을 FlexGroup 볼륨으로 변환합니다
+  entries:
+  - title: 개요
+    url: "/flexgroup/convert-flexvol-concept.html"
+  - title: FlexVol 볼륨을 FlexGroup 볼륨으로 변환합니다
+    url: "/flexgroup/convert-flexvol-volume-task.html"
+  - title: FlexVol 볼륨 SnapMirror 관계를 FlexGroup 볼륨 SnapMirror 관계로 변환합니다
+    url: "/flexgroup/convert-flexvol-snapmirror-relationship-task.html"

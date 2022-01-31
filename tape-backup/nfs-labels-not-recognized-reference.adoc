@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/nfs-labels-not-recognized-reference.html 
+sidebar: sidebar 
+keywords: nfs, label, recognized, not, abort, file, system, security 
+summary: NFS 보안 레이블은 NFSv4.2가 활성화된 경우 ONTAP 9.9.1부터 지원됩니다. 
+---
+= NFS 레이블을 인식할 수 없습니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+"오류: 중단 중: 덤프가 파일 시스템에서 NFS 보안 레이블을 발견했습니다.
+
+* * 원인 *
++
+NFS 보안 레이블은 NFSv4.2가 활성화된 경우 ONTAP 9.9.1부터 지원됩니다. 그러나 덤프 엔진에서 NFS 보안 레이블을 현재 인식하지 않습니다. 파일, 디렉토리 또는 덤프 형식의 특수 파일에 NFS 보안 레이블이 있으면 덤프가 실패합니다.
+
+* * 시정 조치 *
++
+파일 또는 디렉토리에 NFS 보안 레이블이 없는지 확인합니다.
+
+

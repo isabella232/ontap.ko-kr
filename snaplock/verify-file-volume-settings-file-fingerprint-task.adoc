@@ -1,0 +1,91 @@
+---
+permalink: snaplock/verify-file-volume-settings-file-fingerprint-task.html 
+sidebar: sidebar 
+keywords: verfiy, snaplock, settings, volume, file, fingerprint, start, worm, regular, appendable, volume, expiration, date 
+summary: '볼륨 파일 지문 시작 및 볼륨 파일 지문 덤프 명령을 사용하여 파일 유형(일반, WORM 또는 WORM 추가 가능), 볼륨 만료 날짜 등 파일 및 볼륨에 대한 주요 정보를 볼 수 있습니다.' 
+---
+= SnapLock 설정을 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'volume file fingerprint start' 및 'volume file fingerprint dump' 명령을 사용하여 파일 유형(Regular, WORM 또는 WORM appendable), 볼륨 만료 날짜 등 파일 및 볼륨에 대한 주요 정보를 볼 수 있습니다.
+
+.단계
+. 파일 지문 생성:
++
+'* 볼륨 파일 지문 시작 - vserver_SVM_name_-file_file_path_*'
+
++
+[listing]
+----
+svm1::> volume file fingerprint start -vserver svm1 -file /vol/sle/vol/f1
+File fingerprint operation is queued. Run "volume file fingerprint show -session-id 16842791" to view the fingerprint session status.
+----
++
+이 명령어는 'volume file fingerprint dump' 명령어에 대한 입력으로 사용할 수 있는 세션 ID를 생성한다.
+
++
+[NOTE]
+====
+세션 ID와 함께 볼륨 파일 fingerprint show 명령을 사용하여 지문 작업의 진행률을 모니터링할 수 있습니다. 지문 표시를 시도하기 전에 작업이 완료되었는지 확인하십시오.
+
+====
+. 파일의 지문을 표시합니다.
++
+'* 볼륨 파일 지문 덤프 - session-id_session_ID_ * '
+
++
+[listing]
+----
+svm1::> volume file fingerprint dump -session-id 33619976
+        Vserver:svm1
+        Session-ID:33619976
+        Volume:slc_vol
+        Path:/vol/slc_vol/f1
+        Data Fingerprint:MOFJVevxNSJm3C/4Bn5oEEYH51CrudOzZYK4r5Cfy1g=Metadata
+        Fingerprint:8iMjqJXiNcqgXT5XuRhLiEwIrJEihDmwS0hrexnjgmc=Fingerprint Algorithm:SHA256
+        Fingerprint Scope:data-and-metadata
+        Fingerprint Start Time:1460612586
+        Formatted Fingerprint Start Time:Thu Apr 14 05:43:06 GMT 2016
+        Fingerprint Version:3
+        **SnapLock License:available**
+        Vserver UUID:acf7ae64-00d6-11e6-a027-0050569c55ae
+        Volume MSID:2152884007
+        Volume DSID:1028
+        Hostname:my_host
+        Filer ID:5f18eda2-00b0-11e6-914e-6fb45e537b8d
+        Volume Containing Aggregate:slc_aggr1
+        Aggregate ID:c84634aa-c757-4b98-8f07-eefe32565f67
+        **SnapLock System ComplianceClock:1460610635
+        Formatted SnapLock System ComplianceClock:Thu Apr 14 05:10:35 GMT 2016
+        Volume SnapLock Type:compliance
+        Volume ComplianceClock:1460610635
+        Formatted Volume ComplianceClock:Thu Apr 14 05:10:35 GMT 2016
+        Volume Expiry Date:1465880998**
+         Is Volume Expiry Date Wraparound:false
+        Formatted Volume Expiry Date:Tue Jun 14 05:09:58 GMT 2016
+        Filesystem ID:1028
+        File ID:96
+        File Type:worm
+        File Size:1048576
+        Creation Time:1460612515
+        Formatted Creation Time:Thu Apr 14 05:41:55 GMT 2016
+        Modification Time:1460612515
+        Formatted Modification Time:Thu Apr 14 05:41:55 GMT 2016
+        Changed Time:1460610598
+        Is Changed Time Wraparound:false
+        Formatted Changed Time:Thu Apr 14 05:09:58 GMT 2016
+        Retention Time:1465880998
+        Is Retention Time Wraparound:false
+        Formatted Retention Time:Tue Jun 14 05:09:58 GMT 2016
+        Access Time:-
+        Formatted Access Time:-
+        Owner ID:0
+        Group ID:0
+        Owner SID:-
+        Fingerprint End Time:1460612586
+        Formatted Fingerprint End Time:Thu Apr 14 05:43:06 GMT 2016
+----
+

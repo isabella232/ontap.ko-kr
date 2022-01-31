@@ -1,0 +1,30 @@
+---
+permalink: smb-admin/display-user-home-directory-path-task.html 
+sidebar: sidebar 
+keywords: display, smb, user, home, directory, path, storage, virtual, machine, svm, multiple, cifs, display information about an smb users home directory path 
+summary: '스토리지 가상 시스템(SVM)에 SMB 사용자의 홈 디렉토리 경로를 표시할 수 있습니다. SVM은 CIFS 홈 디렉토리 경로가 여러 개 구성되어 있고 사용자의 홈 디렉토리가 있는 경로를 확인하려는 경우에 사용할 수 있습니다.' 
+---
+= SMB 사용자의 홈 디렉토리 경로에 대한 정보를 표시합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+스토리지 가상 시스템(SVM)에 SMB 사용자의 홈 디렉토리 경로를 표시할 수 있습니다. SVM은 CIFS 홈 디렉토리 경로가 여러 개 구성되어 있고 사용자의 홈 디렉토리가 있는 경로를 확인하려는 경우에 사용할 수 있습니다.
+
+.단계
+. 'vserver cifs home-directory show-user' 명령을 사용하여 홈 디렉토리 경로를 표시합니다.
++
+'vserver cifs home-directory show-user-vserver vs1-username user1'
+
++
+[listing]
+----
+
+     Vserver      User                  Home Dir Path
+     -----------  -------------------   -----------------------
+     vs1          user1                 /home/user1
+----
+
+
+xref:manage-accessibility-users-home-directories-task.adoc[사용자의 홈 디렉터리에 대한 액세스 가능성 관리]

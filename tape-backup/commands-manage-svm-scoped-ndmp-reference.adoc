@@ -1,0 +1,129 @@
+---
+permalink: tape-backup/commands-manage-svm-scoped-ndmp-reference.html 
+sidebar: sidebar 
+keywords: commands, manage, svm, scoped, ndmp, mode, vserver, storage, virtual, machine 
+summary: 'SVM 서비스 NDMP 명령을 사용하여 각 스토리지 가상 머신(SVM, 이전의 Vserver)에서 NDMP를 관리할 수 있습니다.' 
+---
+= SVM 범위의 NDMP 모드를 관리하는 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'vserver services NDMP' 명령을 사용하여 각 스토리지 가상 머신(SVM, 이전 명칭 Vserver)에서 NDMP를 관리할 수 있습니다.
+
+|===
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+NDMP 서비스를 설정합니다
+ a| 
+'vserver services ndmp on'
+
+[NOTE]
+====
+NDMP 서비스는 항상 클러스터의 모든 노드에서 설정해야 합니다. 'system services ndmp on' 명령을 사용하여 노드에서 NDMP 서비스를 설정할 수 있습니다. 기본적으로 NDMP 서비스는 노드에 대해 항상 설정됩니다.
+
+====
+
+
+ a| 
+NDMP 서비스를 해제합니다
+ a| 
+'vserver services ndmp off'
+
+
+
+ a| 
+NDMP 구성을 표시합니다
+ a| 
+'vserver services ndmp show'
+
+
+
+ a| 
+NDMP 구성을 수정합니다
+ a| 
+'vserver services ndmp modify
+
+
+
+ a| 
+기본 NDMP 버전을 표시합니다
+ a| 
+'vserver services ndmp version
+
+
+
+ a| 
+모든 NDMP 세션을 표시합니다
+ a| 
+'vserver services ndmp status'
+
+
+
+ a| 
+모든 NDMP 세션에 대한 자세한 정보를 표시합니다
+ a| 
+'vserver services ndmp probe'
+
+
+
+ a| 
+지정된 NDMP 세션을 종료합니다
+ a| 
+'vserver services ndmp kill'
+
+
+
+ a| 
+모든 NDMP 세션을 종료합니다
+ a| 
+'vserver services ndmp kill-all'
+
+
+
+ a| 
+NDMP 암호를 생성합니다
+ a| 
+'vserver services ndmp generate-password
+
+
+
+ a| 
+NDMP 확장 상태를 표시합니다
+ a| 
+'vserver services ndmp extensions show'
+
+이 명령은 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+NDMP 확장 상태를 수정(설정 또는 해제)합니다
+ a| 
+'vserver services ndmp extensions modify(SVM 서비스 NDMP 확장 수정
+
+이 명령은 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+지정된 NDMP 세션에 대해 로깅을 시작합니다
+ a| 
+'vserver services ndmp log start'를 선택합니다
+
+이 명령은 고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+지정된 NDMP 세션에 대한 로깅을 중지합니다
+ a| 
+'vserver services ndmp log stop'
+
+이 명령은 고급 권한 수준에서 사용할 수 있습니다.
+
+|===
+이러한 명령에 대한 자세한 내용은 'vserver services ndmp' 명령에 대한 man 페이지를 참조하십시오.

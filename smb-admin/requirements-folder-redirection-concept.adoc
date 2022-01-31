@@ -1,0 +1,35 @@
+---
+permalink: smb-admin/requirements-folder-redirection-concept.html 
+sidebar: sidebar 
+keywords: microsoft, folder, redirection, cifs, server, version, ontap, smb, windows, client, support, feature, requirements for using folder redirection, requirement 
+summary: CIFS 서버에서 Microsoft의 폴더 리디렉션을 사용하려면 먼저 ONTAP 및 SMB의 버전과 이 기능을 지원하는 Windows 클라이언트를 알아야 합니다. 
+---
+= 폴더 리디렉션 사용 요구 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+CIFS 서버에서 Microsoft의 폴더 리디렉션을 사용하려면 먼저 ONTAP 및 SMB의 버전과 이 기능을 지원하는 Windows 클라이언트를 알아야 합니다.
+
+
+
+== ONTAP 버전 요구 사항
+
+ONTAP는 Microsoft 폴더 리디렉션을 지원합니다.
+
+
+
+== SMB 프로토콜 버전 요구 사항
+
+SVM(스토리지 가상 시스템)의 경우 ONTAP는 모든 버전의 SMB에서 Microsoft의 폴더 리디렉션을 지원합니다.
+
+
+
+== Windows 클라이언트 요구 사항
+
+사용자가 Microsoft의 폴더 리디렉션을 사용하려면 Windows 클라이언트가 이 기능을 지원해야 합니다.
+
+폴더 리디렉션을 지원하는 Windows 클라이언트에 대한 최신 정보는 상호 운용성 매트릭스 를 참조하십시오.
+
+http://mysupport.netapp.com/matrix["mysupport.netapp.com/matrix"]

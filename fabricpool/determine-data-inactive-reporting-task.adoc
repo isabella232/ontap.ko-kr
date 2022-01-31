@@ -1,0 +1,83 @@
+---
+permalink: fabricpool/determine-data-inactive-reporting-task.html 
+sidebar: sidebar 
+keywords: determining, how, much, data, volume, inactive, using, data reporting, fabricpool 
+summary: 볼륨에 있는 데이터의 양이 얼마나 비활성 상태인지 보면 스토리지 계층을 잘 활용할 수 있습니다. 비활성 데이터 보고의 정보를 통해 FabricPool에 사용할 애그리게이트, FabricPool에서 볼륨으로 이동할지 또는 볼륨의 계층화 정책을 수정할지 여부를 결정할 수 있습니다. 
+---
+= 비활성 데이터 보고를 사용하여 볼륨의 비활성 데이터 양을 결정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+볼륨에 있는 데이터의 양이 얼마나 비활성 상태인지 보면 스토리지 계층을 잘 활용할 수 있습니다. 비활성 데이터 보고의 정보를 통해 FabricPool에 사용할 애그리게이트, FabricPool에서 볼륨으로 이동할지 또는 볼륨의 계층화 정책을 수정할지 여부를 결정할 수 있습니다.
+
+비활성 데이터 보고 기능을 사용하려면 ONTAP 9.4 이상을 실행해야 합니다.
+
+.이 작업에 대해
+* 일부 애그리게이트에서는 비활성 데이터 보고가 지원되지 않습니다.
++
+다음 인스턴스를 포함하여 FabricPool를 활성화할 수 없는 경우 비활성 데이터 보고를 활성화할 수 없습니다.
+
++
+** 루트 애그리게이트
+** 9.7 이전의 ONTAP 버전을 실행하는 MetroCluster 애그리게이트
+** Flash Pool(하이브리드 애그리게이트 또는 SnapLock 애그리게이트)
+
+
+* 비활성 데이터 보고는 ONTAP 9.6의 모든 SSD 애그리게이트에서 기본적으로 활성화됩니다.
+* 비활성 데이터 보고는 ONTAP 9.4 및 ONTAP 9.5의 FabricPool 집계에서 기본적으로 활성화됩니다.
+* ONTAP 9.6부터 HDD 애그리게이트를 포함한 ONTAP CLI를 사용하여 비 FabricPool 애그리게이트에 대해 비활성 데이터 리포팅을 활성화할 수 있습니다.
+
+
+.단계
+. 비활성 데이터 보고를 확인할 집계가 FabricPool에서 사용되지 않는 경우, '-is-inactive-data-reporting-enabled' true 매개 변수를 사용하여 'storage aggregate modify' 명령을 사용하여 집계에 대한 비활성 데이터 보고를 사용하도록 설정합니다.
++
+[listing]
+----
+cluster1::> storage aggregate modify -aggregate aggr1 -is-inactive-data-reporting-enabled true
+----
++
+FabricPool에 사용되지 않는 애그리게이트에 대해 비활성 데이터 보고 기능을 명시적으로 설정해야 합니다.
+
++
+FabricPool 지원 애그리게이트에는 비활성 데이터 보고가 이미 포함되어 있으므로 이러한 애그리게이트는 FabricPool 지원 애그리게이트에 대해 비활성 데이터 리포팅을 활성화할 필요가 없으며 그렇게 할 필요도 없습니다. '-is-inactive-data-reporting-enabled' 매개변수는 FabricPool 지원 애그리게이트에서 작동하지 않습니다.
+
++
+'storage aggregate show' 명령의 '-fields is-inactive-data-reporting-enabled' 매개 변수는 비활성 데이터 보고가 집계에서 활성화되어 있는지 여부를 나타냅니다.
+
+. 볼륨에서 비활성 상태인 데이터의 양을 표시하려면 '-fields performance-tier-inactive-user-data, performance-tier-inactive-user-data-percent' 매개 변수와 함께 'volume show' 명령을 사용합니다.
++
+[listing]
+----
+cluster1::> volume show -fields performance-tier-inactive-user-data,performance-tier-inactive-user-data-percent
+
+vserver volume performance-tier-inactive-user-data performance-tier-inactive-user-data-percent
+------- ------ ----------------------------------- -------------------------------------------
+vsim1   vol0   0B                                  0%
+vs1     vs1rv1 0B                                  0%
+vs1     vv1    10.34MB                             0%
+vs1     vv2    10.38MB                             0%
+4 entries were displayed.
+----
++
+** 'performance-tier-inactive-user-data' 필드에는 애그리게이트에 저장된 사용자 데이터의 비활성 양이 표시됩니다.
+** 'performance-tier-inactive-user-data-percent' 필드에는 액티브 파일 시스템과 스냅샷 복사본에서 비활성 상태인 데이터의 비율이 표시됩니다.
+** FabricPool에 사용되지 않는 애그리게이트의 경우 계층화 정책이 설정되었는지 또는 계층화 정책이 무엇인지에 관계없이 ONTAP에 대한 비활성 데이터 보고가 전체 볼륨에 대해 비활성 데이터를 표시하도록 설정한 후 31일이 걸립니다.
++
+기간이 다 될 때까지 출력에는 값이 아닌 비활성 데이터의 양에 대한 ""-"가 표시됩니다.
+
+** FabricPool의 일부인 볼륨에서 ONTAP가 비활성 상태로 보고하는 것은 볼륨에 설정된 계층화 정책에 따라 달라집니다.
++
+*** 자동 계층화 정책의 경우 ONTAP는 볼륨 생성 또는 볼륨 수정 명령의 고급 권한 수준에서 '-Tiering-Minimum-Cooling-Days' 매개 변수로 지정한 기간 동안 전체 볼륨의 비활성 양을 보고합니다.
++
+`-Tiering-Minimum-Cooling-Days' 값이 설정되지 않은 경우 ONTAP는 기본값(31일)을 사용합니다.
+
+*** '스냅샷 전용' 계층화 정책의 경우 ONTAP는 활성 파일 시스템이 31일 이상 비활성 상태임을 보고합니다.
+*** "없음" 계층화 정책의 경우 ONTAP는 최소 31일 동안 비활성 상태인 전체 볼륨의 양을 보고합니다.
+*** 'All' 계층화 정책의 경우 비활성 데이터 보고는 지원되지 않습니다.
+
+
+
+
+

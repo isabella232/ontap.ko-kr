@@ -1,0 +1,45 @@
+---
+sidebar: sidebar 
+permalink: task_nvme_provision_suse_linux.html 
+keywords: netapp, ontap, nvme, SUSE, linux, servers, Provision NVMe storage, namespace, SCSI disk service 
+summary: NVMe 프로토콜을 사용하여 SUSE Linux 서버의 스토리지를 제공하기 위한 네임스페이스를 생성합니다. 네임스페이스는 Linux에 SCSI 디스크 디바이스로 나타납니다. 
+---
+= SUSE Linux용 NVMe 스토리지 프로비저닝
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+NVMe 프로토콜을 사용하여 SUSE Linux 서버의 스토리지를 제공하기 위한 네임스페이스를 생성합니다. 네임스페이스는 Linux에 SCSI 디스크 디바이스로 나타납니다.
+
+이 절차에서는 기존 스토리지 VM에 새 네임스페이스를 만듭니다. 스토리지 VM은 NVMe에 맞게 구성해야 하며 FC 또는 TCP 전송은 이미 설정되어 있어야 합니다.
+
+image:workflow_nvme_provision_suse_linux_update.png["SUSE Linux용 NVMe를 제공하는 워크플로우 다이어그램"]
+
+
+NOTE: ONTAP 9.8부터는 스토리지 용량 할당 시 QoS가 기본적으로 사용하도록 설정됩니다. 프로비저닝 프로세스 중에 또는 나중에 QoS를 비활성화하거나 사용자 지정 QoS 정책을 선택할 수 있습니다.
+
+.단계
+. System Manager에서 * 스토리지 > NVMe 네임스페이스 * 를 클릭한 다음 * 추가 * 를 클릭합니다.
++
+새 하위 시스템을 만들어야 하는 경우 * 추가 옵션 * 을 클릭합니다.
+
++
+.. ONTAP 9.8 이상을 실행하고 있고 QoS를 비활성화하거나 사용자 지정 QoS 정책을 선택하려면 * 추가 옵션 * 을 클릭한 다음 * 스토리지 및 최적화 * 에서 * 성능 서비스 수준 * 을 선택합니다.
+
+
+
+
+. WWPN을 기준으로 FC 스위치를 조닝(Zoning)하십시오. 이니시에이터당 하나의 존을 사용하고 각 존에 모든 타겟 포트를 포함합니다.
+. Linux 서버에서 새 네임스페이스를 검색합니다.
+. 네임스페이스를 초기화하고 파일 시스템으로 포맷합니다.
+. Linux 서버가 네임스페이스에서 데이터를 쓰고 읽을 수 있는지 확인합니다.
+

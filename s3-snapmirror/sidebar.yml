@@ -1,0 +1,38 @@
+---
+section: s3-snapmirror
+title: S3 SnapMirror로 버킷 보호
+entries:
+- title: 개요
+  url: "/s3-snapmirror/index.html"
+- title: 원격 클러스터의 미러링 및 백업 보호
+  entries:
+  - title: 새 버킷을 위한 거울을 작성합니다
+    url: "/s3-snapmirror/create-remote-mirror-new-bucket-task.html"
+  - title: 기존 버킷을 위한 거울을 작성합니다
+    url: "/s3-snapmirror/create-remote-mirror-existing-bucket-task.html"
+  - title: 대상에서 테이크오버
+    url: "/s3-snapmirror/takeover-remote-destination-task.html"
+  - title: 대상에서 복원
+    url: "/s3-snapmirror/restore-remote-destination-task.html"
+- title: 로컬 클러스터의 미러링 및 백업 보호
+  entries:
+  - title: 새 버킷을 위한 거울을 작성합니다
+    url: "/s3-snapmirror/create-local-mirror-new-bucket-task.html"
+  - title: 기존 버킷을 위한 거울을 작성합니다
+    url: "/s3-snapmirror/create-local-mirror-existing-bucket-task.html"
+  - title: 대상에서 테이크오버
+    url: "/s3-snapmirror/takeover-local-destination-task.html"
+  - title: 대상에서 복원
+    url: "/s3-snapmirror/restore-local-destination-task.html"
+- title: 클라우드 타겟을 통한 백업 보호
+  entries:
+  - title: 클라우드 타겟 요구사항
+    url: "/s3-snapmirror/requirements-cloud-targets-concept.html"
+  - title: 새 버킷에 대한 백업을 생성합니다
+    url: "/s3-snapmirror/create-cloud-backup-new-bucket-task.html"
+  - title: 기존 버킷에 대한 백업을 생성합니다
+    url: "/s3-snapmirror/create-cloud-backup-existing-bucket-task.html"
+  - title: 클라우드 대상에서 복원
+    url: "/s3-snapmirror/restore-cloud-target-task.html"
+- title: 미러 정책을 수정합니다
+  url: "/s3-snapmirror/modify-policy-task.html"

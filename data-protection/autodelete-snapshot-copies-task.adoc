@@ -1,0 +1,33 @@
+---
+permalink: data-protection/autodelete-snapshot-copies-task.html 
+sidebar: sidebar 
+keywords: autodelete, snapshot, copies 
+summary: 볼륨 스냅샷 자동 삭제 수정 명령을 사용하면 스냅샷 예약 공간이 초과될 경우 스냅샷 복사본의 자동 삭제를 트리거할 수 있습니다. 기본적으로 가장 오래된 스냅샷 복사본이 먼저 삭제됩니다. 
+---
+= 자동 삭제 스냅샷 복사본
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+스냅샷 예약 공간이 초과되면 '볼륨 스냅샷 자동 삭제 수정' 명령을 사용하여 스냅샷 복사본의 자동 삭제를 트리거할 수 있습니다. 기본적으로 가장 오래된 스냅샷 복사본이 먼저 삭제됩니다.
+
+삭제할 스냅샷 복사본이 더 이상 없으면 LUN 및 파일 클론이 삭제됩니다.
+
+.단계
+. 자동 삭제 스냅샷 복사본:
++
+'볼륨 스냅샷 자동 삭제 수정 - vserver_SVM_-volume_volume_-enabled true|false-trigger volume|snap_reserve'
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+다음 예에서는 스냅샷 복사본 예약이 소진된 경우 "vol1"에 대한 스냅샷 복사본을 자동으로 삭제합니다.
+
++
+[listing]
+----
+cluster1::> volume snapshot autodelete modify -vserver vs0 -volume vol1 -enabled true -trigger snap_reserve
+----
+

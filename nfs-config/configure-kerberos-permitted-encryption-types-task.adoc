@@ -1,0 +1,60 @@
+---
+permalink: nfs-config/configure-kerberos-permitted-encryption-types-task.html 
+sidebar: sidebar 
+keywords: configure, nfs, kerberos, permitted, encryption, types 
+summary: 기본적으로 ONTAP는 NFS Kerberos인 DES, 3DES, AES-128, AES-256에 대해 다음 암호화 유형을 지원합니다. vserver NFS modify 명령과 -enc -types 매개 변수를 함께 사용하면 각 SVM에 대해 허용되는 암호화 유형을 특정 환경의 보안 요구사항에 맞게 구성할 수 있습니다. 
+---
+= NFS Kerberos 허용 암호화 유형을 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+기본적으로 ONTAP는 NFS Kerberos인 DES, 3DES, AES-128, AES-256에 대해 다음 암호화 유형을 지원합니다. "vserver nfs modify" 명령을 `-enc-types' 매개 변수와 함께 사용하면 각 SVM에 대해 허용된 암호화 유형을 특정 환경의 보안 요구사항에 맞게 구성할 수 있습니다.
+
+클라이언트 호환성을 극대화하기 위해 ONTAP는 기본적으로 약한 DES와 강력한 AES 암호화를 모두 지원합니다. 예를 들어, 보안을 강화하려는 경우 사용자 환경에서 이 절차를 사용하여 DES 및 3DES를 비활성화하고 클라이언트가 AES 암호화만 사용하도록 할 수 있습니다.
+
+사용 가능한 가장 강력한 암호화를 사용해야 합니다. ONTAP의 경우, AES-256입니다. 해당 환경에서 이 암호화 수준이 지원되는지 KDC 관리자에게 확인해야 합니다.
+
+* SVM에서 AES를 완전히 활성화 또는 비활성화(AES-128 및 AES-256 모두)하면 원래의 DES 기본/키탭 파일이 삭제되므로 SVM을 위한 모든 LIF에서 Kerberos 구성을 비활성화해야 합니다.
++
+이를 변경하기 전에 NFS 클라이언트가 SVM에서 AES 암호화를 사용하지 않는지 확인해야 합니다.
+
+* DES 또는 3DES를 활성화 또는 비활성화할 경우 LIF에서 Kerberos 구성을 변경할 필요가 없습니다.
+
+
+.단계
+. 허용되는 암호화 유형을 사용하거나 사용하지 않도록 설정합니다.
++
+|===
+| 활성화 또는 비활성화하려는 경우... | 다음 단계를 따르십시오... 
+
+
+ a| 
+DES 또는 3DES입니다
+ a| 
+.. SVM의 NFS Kerberos 허용 암호화 유형을 구성합니다. + 'vserver NFS modify -vserver_vserver_name_-enc -types_encryption_types_'
++
+여러 암호화 유형을 쉼표로 구분합니다.
+
+.. 성공적으로 변경되었는지 확인합니다. + 'vserver nfs show -vserver_vserver_name_ -fields fitted-enc-types'
+
+
+
+
+ a| 
+AES-128 또는 AES-256
+ a| 
+.. SVM 및 LIF Kerberos 사용 설정 식별: + 'vserver NFS Kerberos interface show
+.. NFS Kerberos에서 허용할 암호화 유형을 수정하려는 SVM의 모든 LIF에서 Kerberos를 해제합니다. + 'vserver NFS Kerberos interface disable-lif_lif_name_'
+.. SVM의 NFS Kerberos 허용 암호화 유형을 구성합니다. + 'vserver NFS modify -vserver_vserver_name_-enc -types_encryption_types_'
++
+여러 암호화 유형을 쉼표로 구분합니다.
+
+.. 성공적으로 변경되었는지 확인합니다. + 'vserver nfs show -vserver_vserver_name_ -fields fitted-enc-types'
+.. SVM의 모든 LIF에서 Kerberos를 사용하도록 다시 설정합니다. + 'vserver NFS Kerberos interface enable-lif_lif_name_-spN_service_principal_name_'
+.. 모든 LIF에서 Kerberos가 설정되어 있는지 확인합니다. + "vserver NFS Kerberos interface show
+
+
+|===
+

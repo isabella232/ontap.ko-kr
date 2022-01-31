@@ -1,0 +1,73 @@
+---
+indexpage:
+  tiles:
+  - title: 시작하십시오
+    links:
+    - title: 네트워크 관리 개요
+      url: "/../networking/networking_reference.html"
+    - title: 업그레이드 고려 사항
+      url: "/../networking/network_features_by_release.html"
+    - title: 네트워킹 구성 요소
+      url: "/../networking/networking_components_of_a_cluster_overview.html"
+    - title: NAS 경로 페일오버(ONTAP 9.8 이상)
+      url: "/../networking/set_up_nas_path_failover_98_and_later_cli.html"
+    - title: NAS 경로 페일오버(ONTAP 9.7 이하)
+      url: "/../networking/set_up_nas_path_failover_9_to_97_cli.html"
+  - title: 네트워크 포트
+    links:
+    - title: 네트워크 포트를 구성합니다
+      url: "/../networking/configure_network_ports_@cluster_administrators_only@_overview.html"
+    - title: 네트워크 포트의 상태를 모니터링합니다
+      url: "/../networking/monitor_the_health_of_network_ports.html"
+    - title: ONTAP 9.8 이상에서 네트워크 포트의 연결 상태를 모니터링합니다
+      url: "/../networking/monitor_the_reachability_of_network_ports.html"
+    - title: 스토리지 시스템에서 ONTAP 포트 사용
+      url: "/../networking/ontap_port_usage_on_a_storage_system_overview.html"
+  - title: 논리 인터페이스(LIF)
+    links:
+    - title: LIF를 구성합니다
+      url: "/../networking/configure_lifs_@cluster_administrators_only@_overview.html"
+    - title: LIF 마이그레이션
+      url: "/../networking/migrate_a_lif.html"
+    - title: LIF 및 서비스 정책
+      url: "/../networking/lifs_and_service_policies96.html"
+    - title: LIF를 홈 포트로 되돌립니다
+      url: "/../networking/revert_a_lif_to_its_home_port.html"
+  - title: IPspace 및 브로드캐스트 도메인
+    links:
+    - title: IPspace 구성
+      url: "/../networking/configure_ipspaces_@cluster_administrators_only@_overview.html"
+    - title: 브로드캐스트 도메인을 구성합니다
+      url: "/../networking/configure_broadcast_domains_@cluster_administrators_only@_overview.html"
+  - title: 가상 인터페이스
+    links:
+    - title: VLAN을 생성합니다
+      url: "/../networking/configure_vlans_over_physical_ports.html"
+    - title: 인터페이스 그룹을 생성합니다
+      url: "/../networking/combine_physical_ports_to_create_interface_groups.html"
+  - title: 라우팅
+    links:
+    - title: SVM에서 라우팅 관리
+      url: "/../networking/manage_routing_in_an_svm_overview.html"
+    - title: 라우팅 정보를 표시합니다
+      url: "/../networking/display_routing_information.html"
+  - title: SNMP를 선택합니다
+    links:
+    - title: 개요
+      url: "/../networking/manage_snmp_on_the_cluster_@cluster_administrators_only@_overview.html"
+    - title: Traphosts를 구성합니다
+      url: "/../networking/configure_traphosts_to_receive_snmp_notifications.html"
+  - title: 보안
+    links:
+    - title: FIPS를 구성합니다
+      url: "/../networking/configure_network_security_using_federal_information_processing_standards_@fips@.html"
+    - title: IPsec을 구성합니다
+      url: "/../networking/configure_ip_security_@ipsec@_over_wire_encryption.html"
+    - title: 방화벽 및 서비스 정책을 구성합니다
+      url: "/../networking/configure_firewall_policies_for_lifs.html"
+  - title: 더 많은 리소스
+    links:
+    - title: 'TR-4182: 이더넷 스토리지 설계 고려 사항 및 모범 사례'
+      url: https://www.netapp.com/media/16885-tr-4182.pdf
+    - title: 'TR-4220: ONTAP에서 SNMP 지원'
+      url: https://www.netapp.com/media/16417-tr-4220.pdf

@@ -1,0 +1,76 @@
+---
+permalink: smb-hyper-v-sql/verify-continuously-available-share-config-task.html 
+sidebar: sidebar 
+keywords: verify, continuously, available, smb, share, configuration, hyper, v, sql, server, nondisruptive, application 
+summary: 무중단 운영을 지원하려면 Hyper-V 및 SQL Server SMB 공유를 지속적으로 사용 가능한 공유로 구성해야 합니다. 또한 확인해야 할 다른 공유 설정도 있습니다. 계획된 또는 계획되지 않은 중단 이벤트가 있는 경우 공유가 애플리케이션 서버에 무중단 운영을 원활하게 제공하도록 올바르게 구성되었는지 확인해야 합니다. 
+---
+= 지속적으로 사용 가능한 SMB 공유 구성을 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+무중단 운영을 지원하려면 Hyper-V 및 SQL Server SMB 공유를 지속적으로 사용 가능한 공유로 구성해야 합니다. 또한 확인해야 할 다른 공유 설정도 있습니다. 계획된 또는 계획되지 않은 중단 이벤트가 있는 경우 공유가 애플리케이션 서버에 무중단 운영을 원활하게 제공하도록 올바르게 구성되었는지 확인해야 합니다.
+
+다음 두 공유 매개 변수가 올바르게 설정되었는지 확인해야 합니다.
+
+* '-offline-files' 매개변수는 수동(기본값) 또는 없음(없음)으로 설정됩니다.
+* Symlink를 비활성화해야 합니다.
+
+
+적절한 무중단 운영을 위해서는 다음 공유 속성을 설정해야 합니다.
+
+* "계속 사용할 수 있습니다.
+* oplocks
+
+
+다음 공유 속성을 설정하지 않아야 합니다.
+
+* 홈디렉토리
+* 'attributecache
+* 브랜치캐시
+* '액세스 기반 열거'
+
+
+.단계
+. 오프라인 파일이 '수동' 또는 '사용 안 함'으로 설정되어 있고 symlink가 비활성화되어 있는지 확인합니다.
++
+'* vserver CIFS 공유 show -vserver_vserver_name_*'
+
+. SMB 공유가 무중단 가용성을 위해 구성되었는지 확인합니다.
++
+'* vserver cifs 공유 속성 표시 - vserver_vserver_name_*'
+
+
+
+다음 예에서는 스토리지 가상 머신(SVM, 이전 명칭 Vserver) VS1 의 "shay1"이라는 공유 설정을 표시합니다. 오프라인 파일은 '수동'으로 설정되고 symlink는 비활성화됩니다('대칭 링크 속성' 필드 출력에서 하이픈으로 지정됨).
+
+[listing]
+----
+cluster1::> vserver cifs share show -vserver vs1 -share-name share1
+                      Vserver: vs1
+                        Share: share1
+     CIFS Server NetBIOS Name: VS1
+                         Path: /data/share1
+             Share Properties: oplocks
+                               continuously-available
+           Symlink Properties: -
+      File Mode Creation Mask: -
+ Directory Mode Creation Mask: -
+                Share Comment: -
+                    Share ACL: Everyone / Full Control
+File Attribute Cache Lifetime: -
+                  Volume Name: -
+                Offline Files: manual
+Vscan File-Operations Profile: standard
+----
+다음 예에서는 SVM VS1 에서 "shay1"이라는 이름의 공유에 대한 공유 속성을 표시합니다.
+
+[listing]
+----
+cluster1::> vserver cifs share properties show -vserver vs1 -share-name share1
+Vserver    Share   Properties
+---------  ------  ----------
+vs1        share1  oplocks
+                   continuously-available
+----

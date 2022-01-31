@@ -1,0 +1,17 @@
+---
+permalink: peering/index.html 
+sidebar: sidebar 
+keywords: decide, cluster, svm, peering, peer, relationships, source, destination, svm, storage, virtual, machines 
+summary: '소스 및 타겟 클러스터와 소스 및 타겟 스토리지 가상 머신(SVM) 간에 피어 관계를 생성할 수 있습니다.' 
+---
+= CLI를 통한 클러스터 및 SVM 피어링 개요
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+소스 및 타겟 클러스터와 소스 및 타겟 스토리지 가상 머신(SVM) 간에 피어 관계를 생성할 수 있습니다. SnapMirror를 사용하여 스냅샷 복사본을 복제하려면 먼저 이러한 엔터티 간 피어 관계를 생성해야 합니다.
+
+ONTAP 9.3은 클러스터와 SVM 간의 피어 관계를 간편하게 구성할 수 있도록 향상된 기능을 제공합니다. 모든 ONTAP 9 버전에서 클러스터 및 SVM 피어링 절차를 사용할 수 있습니다. 해당 버전의 ONTAP에 적합한 절차를 사용해야 합니다.
+
+System Manager나 자동화된 스크립팅 도구가 아니라 CLI(Command-Line Interface)를 사용하여 절차를 수행합니다.

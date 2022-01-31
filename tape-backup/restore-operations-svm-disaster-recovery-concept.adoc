@@ -1,0 +1,15 @@
+---
+permalink: tape-backup/restore-operations-svm-disaster-recovery-concept.html 
+sidebar: sidebar 
+keywords: tape, backup, restore, operations, disaster, recovery, metrocluster, configuration 
+summary: MetroCluster 구성에서 재해 복구 중에 테이프 백업 및 복원 작업을 동시에 수행할 수 있습니다. 재해 복구 중에 이러한 작업이 어떻게 영향을 받는지 알아야 합니다. 
+---
+= MetroCluster 구성에서 재해 복구 중에 테이프 백업 및 복원 작업이 영향을 받는 방식
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+MetroCluster 구성에서 재해 복구 중에 테이프 백업 및 복원 작업을 동시에 수행할 수 있습니다. 재해 복구 중에 이러한 작업이 어떻게 영향을 받는지 알아야 합니다.
+
+재해 복구 관계에서 anSVM 볼륨에서 테이프 백업 및 복원 작업을 수행하는 경우, 전환 및 스위치백 후 증분 테이프 백업 및 복원 작업을 계속 수행할 수 있습니다.

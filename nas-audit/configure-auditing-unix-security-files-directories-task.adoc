@@ -1,0 +1,24 @@
+---
+permalink: nas-audit/configure-auditing-unix-security-files-directories-task.html 
+sidebar: sidebar 
+keywords: configure, audit, unix security style files, directories 
+summary: NFSv4.x ACL에 감사 ACE를 추가하여 UNIX 보안 스타일 파일 및 디렉토리에 대한 감사를 구성합니다. 이를 통해 보안을 위해 특정 NFS 파일 및 디렉토리 액세스 이벤트를 모니터링할 수 있습니다. 
+---
+= UNIX 보안 스타일 파일 및 디렉토리에 대한 감사를 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NFSv4.x ACL에 감사 ACE를 추가하여 UNIX 보안 스타일 파일 및 디렉토리에 대한 감사를 구성합니다. 이를 통해 보안을 위해 특정 NFS 파일 및 디렉토리 액세스 이벤트를 모니터링할 수 있습니다.
+
+NFSv4.x의 경우 임의 ACE와 시스템 ACE가 모두 동일한 ACL에 저장됩니다. 이 파일은 별도의 DACL 및 SACL에 저장되지 않습니다. 따라서 기존 ACL을 덮어쓰거나 잃지 않도록 기존 ACL에 감사 ACE를 추가할 때는 주의해야 합니다. 감사 ACE를 기존 ACL에 추가하는 순서는 중요하지 않습니다.
+
+.단계
+. nfs4_getfacl 또는 이와 동등한 명령을 사용하여 파일 또는 디렉토리의 기존 ACL을 검색합니다.
++
+ACL을 조작하는 방법에 대한 자세한 내용은 NFS 클라이언트의 man 페이지를 참조하십시오.
+
+. 원하는 감사 ACE를 추가합니다.
+. nfs4_setfacl 또는 이와 동등한 명령을 사용하여 파일 또는 디렉토리에 업데이트된 ACL을 적용합니다.
+

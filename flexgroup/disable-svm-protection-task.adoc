@@ -1,0 +1,33 @@
+---
+permalink: flexgroup/disable-svm-protection-task.html 
+sidebar: sidebar 
+keywords: disable, SVM, protection, flexgroup, volume 
+summary: SVM DR 플래그가 FlexGroup 볼륨에서 보호됨으로 설정된 경우 해당 플래그를 보호되지 않음으로 설정하여 FlexGroup 볼륨에서 SVM DR 보호를 비활성화할 수 있습니다. 
+---
+= FlexGroup 볼륨에서 SVM 보호 비활성화
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FlexGroup 볼륨에서 SVM DR 플래그가 '보호'로 설정된 경우 해당 플래그를 보호되지 않음으로 설정하여 FlexGroup 볼륨에서 SVM DR '보호'를 비활성화할 수 있습니다.
+
+.무엇을 &#8217;필요로 할거야
+* 1차 및 2차 시스템 간의 SVM DR 관계가 양호합니다.
+* SVM DR 보호 매개 변수가 '보호됨'으로 설정됩니다.
+
+
+.단계
+. FlexGroup 볼륨에 대한 vserver-dr-protection 매개변수를 '보호되지 않음'으로 변경하려면 'volume modify' 명령을 사용하여 보호를 해제하십시오.
++
+[listing]
+----
+cluster2::> volume modify -vserver vs1 -volume fg_src -vserver-dr-protection unprotected
+[Job 5384] Job is queued: Modify fg_src.
+[Job 5384] Steps completed: 4 of 4.
+cluster2::>
+----
+. 보조 사이트에서 'sapmirror update-destination-path destination_svm_name: - source-path source_svm_name:'을(를) 업데이트하십시오
+. SnapMirror 관계가 정상인지 '스냅샷 표시'로 확인합니다
+. FlexGroup SnapMirror 관계가 '스냅샷 표시-확장'으로 제거되었는지 확인합니다
+

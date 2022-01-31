@@ -1,0 +1,51 @@
+---
+indexpage:
+  tiles:
+  - title: 시작하십시오
+    links:
+    - title: SAN 스토리지 용량 할당 개요
+      url: "/../concept_san_provision_overview.html"
+    - title: SAN 관리 개요
+      url: "/../san-admin/index.html"
+    - title: SnapMirror 비즈니스 연속성 개요
+      url: "/../concept_san_smbc_overview.html"
+    - title: SAN 구성 개요
+      url: "/../san-config/index.html"
+  - title: SAN 스토리지 용량 할당
+    links:
+    - title: System Manager가 설치된 VMware 데이터 저장소
+      url: "/../task_san_provision_vmware.html"
+    - title: Linux 서버에 설치합니다
+      url: "/../task_san_provision_linux.html"
+    - title: System Manager가 설치된 Windows 서버
+      url: "/../task_san_provision_windows.html"
+    - title: CLI를 사용하는 FC 및 iSCSI 호스트의 경우
+      url: "/../san-admin/lun-setup-workflow-concept.html"
+  - title: NVMe 스토리지 프로비저닝
+    links:
+    - title: 시스템 관리자가 있는 SUSE Linux에서
+      url: "/../task_nvme_provision_suse_linux.html"
+    - title: CLI를 사용한 네임스페이스 및 하위 시스템
+      url: "/../san-admin/create-nvme-namespace-subsystem-task.html"
+  - title: SAN 스토리지를 구성합니다
+    links:
+    - title: HA 쌍이 있는 iSCSI SAN 호스트
+      url: "/../san-config/configure-iscsi-san-hosts-ha-pairs-reference.html"
+    - title: FC 및 FC-NVMe 및 HA 쌍
+      url: "/../san-config/configure-fc-nvme-hosts-ha-pairs-reference.html"
+    - title: FCoE 를 참조하십시오
+      url: "/../san-config/configure-fcoe-reference.html"
+  - title: 더 많은 리소스
+    links:
+    - title: ONTAP SAN 호스트 구성
+      url: https://docs.netapp.com/us-en/ontap-sanhost/
+    - title: ONTAP 외부 LUN 임포트
+      url: https://docs.netapp.com/us-en/ontap-fli/
+    - title: 'TR-4080: 최신 SAN에 대한 모범 사례'
+      url: https://www.netapp.com/pdf.html?item=/media/10680-tr4080pdf.pdf
+    - title: 'TR-4684: NVMe/FC를 사용하여 최신 SAN 구현 및 구성'
+      url: https://www.netapp.com/pdf.html?item=/media/10681-tr4684pdf.pdf
+    - title: 'TR 4017: 파이버 채널 SAN 모범 사례'
+      url: https://www.netapp.com/pdf.html?item=/media/19680-tr-4017.pdf
+    - title: NetApp TechCommTV에 대한 SnapMirror 비즈니스 연속성 비디오
+      url: https://www.youtube.com/watch?v=KwRW7n8cb_w

@@ -1,0 +1,137 @@
+---
+permalink: smb-hyper-v-sql/smb-share-config-worksheet-reference.html 
+sidebar: sidebar 
+keywords: complete, smb, share, configuration, worksheet, information, settings 
+summary: 이 워크시트를 사용하여 SMB 구성에서 SQL Server 및 Hyper-V에 대해 지속적으로 사용 가능한 SMB 공유를 생성할 때 필요한 값을 기록하십시오. 
+---
+= SMB 공유 구성 워크시트를 작성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 워크시트를 사용하여 SMB 구성에서 SQL Server 및 Hyper-V에 대해 지속적으로 사용 가능한 SMB 공유를 생성할 때 필요한 값을 기록하십시오.
+
+
+
+== SMB 공유 속성 및 구성 설정에 대한 정보입니다
+
+각 공유에 대해 다음 정보를 지정해야 합니다.
+
+* 스토리지 가상 시스템(SVM) 이름
++
+SVM 이름은 모든 공유에서 동일합니다
+
+* 공유 이름
+* 경로
+* 공유 속성
++
+다음 두 공유 속성을 구성해야 합니다.
+
++
+** oplocks
+** "계속 사용할 수 있습니다.
+
+
+
+
+다음 공유 속성을 설정하지 않아야 합니다.
+
+* 홈디렉토리 attributecache
+* 브랜치캐시
+* '액세스 기반 열거'
++
+[NOTE]
+====
+변경 알림을 사용하지 않도록 설정하면 Windows 2012 Server가 탐색기 창을 새로 고치지 않으므로 디렉터리 내용이 일관되지 않게 표시됩니다.
+
+====
++
+** symlinks를 비활성화해야 합니다('-symlink-properties' 매개 변수의 값은 null ["] 이어야 함).
+
+
+
+
+
+
+== 공유 경로에 대한 정보입니다
+
+원격 VSS를 사용하여 Hyper-V 파일을 백업하는 경우 Hyper-V 서버에서 가상 머신 파일이 저장된 스토리지 위치로 SMB 연결을 설정할 때 사용할 공유 경로를 선택해야 합니다. 네임스페이스에서 어느 지점에서나 공유를 생성할 수 있지만 Hyper-V 서버가 사용하는 공유의 경로에 접합된 볼륨이 포함되어서는 안 됩니다. 교차점이 포함된 공유 경로에서는 섀도 복사본 작업을 수행할 수 없습니다.
+
+SQL Server는 데이터베이스 디렉토리 구조를 생성할 때 교차점을 교차할 수 없습니다. 교차점이 포함된 SQL Server에 대한 공유 경로를 생성할 수 없습니다.
+
+예를 들어, 표시된 네임스페이스를 사용할 경우 가상 머신 파일 또는 데이터베이스 파일을 볼륨 ""vol1"", ""vol2"", ""vol3"", ""vol4""에 저장하려면 "/data1/vol1", "/data1/vol2", "/data2/data4" 경로에 애플리케이션 서버의 공유를 생성해야 합니다.
+
+[listing]
+----
+
+                     Junction                       Junction
+Vserver Volume       Active   Junction Path         Path Source
+------- ------------ -------- -------------------   -----------
+vs1     data1         true     /data1               RW_volume
+vs1     vol1          true     /data1/vol1          RW_volume
+vs1     vol2          true     /data1/vol2          RW_volume
+vs1     data2         true     /data2               RW_volume
+vs1     vol3          true     /data2/vol3          RW_volume
+vs1     vol4          true     /data2/vol4          RW_volume
+----
+[NOTE]
+====
+관리 관리를 위해 '/data1' 및 '/data2' 경로에 공유를 생성할 수는 있지만, 이러한 공유를 사용하여 데이터를 저장하도록 애플리케이션 서버를 구성해서는 안 됩니다.
+
+====
+
+
+== 계획 워크시트
+
+|===
+| 정보 유형 | 값 
+
+
+ a| 
+_볼륨 1: SMB 공유 이름 및 경로 _
+ a| 
+
+
+
+ a| 
+_Volume 2: SMB 공유 이름 및 경로 _
+ a| 
+
+
+
+ a| 
+_Volume 3: SMB 공유 이름 및 경로 _
+ a| 
+
+
+
+ a| 
+_Volume 4: SMB 공유 이름 및 경로 _
+ a| 
+
+
+
+ a| 
+_Volume 5: SMB 공유 이름 및 경로 _
+ a| 
+
+
+
+ a| 
+_Volume 6: SMB 공유 이름 및 경로 _
+ a| 
+
+
+
+ a| 
+_Volume 7: SMB 공유 이름 및 경로 _
+ a| 
+
+
+
+ a| 
+_추가 볼륨: SMB 공유 이름 및 경로 _
+ a| 
+
+|===

@@ -1,0 +1,56 @@
+---
+sidebar: sidebar 
+permalink: smbc/smbc_troubleshoot_link_between_site_a_and_mediator_down.html 
+keywords: SM-BC, SMBC, troubleshooting, link down, Mediator 
+summary: 사이트 A와 중재 다운 및 사이트 B 다운 사이의 문제 해결 링크. 
+---
+= 사이트 A와 중재 Down 및 사이트 B Down 사이의 연결
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+사이트 A에서 중재자의 상태를 확인합니다
+
+....
+C1_cluster::*> snapmirror mediator show
+Mediator Address Peer Cluster     Connection Status Quorum Status
+---------------- ---------------- ----------------- -------------
+10.237.86.17     C2_cluster       unreachable       true
+
+C1_cluster::*> snapmirror list-destinations
+                                                  Progress
+Source             Destination         Transfer   Last         Relationship
+Path         Type  Path         Status Progress   Updated      Id
+----------- ----- ------------ ------- --------- ------------ ---------------
+vs0:/cg/src_cg_1  XDP   vs1:/cg/dst_cg_1  OutOfSync  -         -            bba7d354-06f6-11eb-9138-005056acec19
+....
+사이트 B 연결 확인:
+
+....
+C1_sti78-vsim-ucs188a_cluster::*> cluster peer show
+Peer Cluster Name         Cluster Serial Number Availability   Authentication
+------------------------- --------------------- -------------- --------------
+C2_cluster                1-80-000011           Unavailable    ok
+....
+SM-BC 볼륨에서 합의 상태 확인:
+
+....
+C1_cluster::*> volume show zrto_cg_894191_188b_RW1 -fields smbc-consensus
+vserver volume                  smbc-consensus
+------- ----------------------- ------------------
+vs0     zrto_cg_894191_188b_RW1 Awaiting-consensus
+....
+SM-BC 합의를 무시하고 사이트 A에서 강제로 I/O를 재개하려면 다음 단계를 수행하십시오.
+
+. 사이트 A에서 LUN 매핑을 해제합니다
+. 사이트 A에서 '-force' 및 'override-smbc-Consensus' 옵션을 사용하여 SnapMirror 릴리즈 명령을 실행합니다
+. LUN을 다시 매핑합니다.
+. 먼저 중재자를 불러 사이트 B 노드를 가져옵니다.
+. '스냅샷 재동기화'를 사용하여 정합성 보장 그룹 관계를 다시 동기화하십시오.
+. 사이트 B가 가동된 후 정합성 보장 그룹 관계가 설정되어 있고 동기화되어 있는지 확인합니다.
+. 호스트에서 LUN 재검색을 수행하여 LUN에 대한 모든 경로를 복구합니다.
+

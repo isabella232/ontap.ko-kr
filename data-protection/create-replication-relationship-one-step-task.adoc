@@ -1,0 +1,100 @@
+---
+permalink: data-protection/create-replication-relationship-one-step-task.html 
+sidebar: sidebar 
+keywords: configure, replication, relationship, one step, snapmirror, protect, policy, volumes, job schedule 
+summary: ONTAP 9.3부터는 SnapMirror Protect 명령을 사용하여 단일 단계로 데이터 보호 관계를 구성할 수 있습니다. 복제할 볼륨 목록, 타겟 클러스터의 SVM, 작업 일정, SnapMirror 정책 등을 지정합니다. SnapMirror Protect는 나머지 기능을 수행합니다. 
+---
+= 한 번에 복제 관계를 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.3부터는 '스냅샷 보호' 명령을 사용하여 한 번에 데이터 보호 관계를 구성할 수 있습니다. 복제할 볼륨 목록, 타겟 클러스터의 SVM, 작업 일정, SnapMirror 정책 등을 지정합니다. 나머지는 스냅미러 프로텍스.
+
+.무엇을 &#8217;필요로 할거야
+* 소스 및 타겟 클러스터와 SVM을 피어링해야 합니다.
++
+https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["클러스터 및 SVM 피어링"]
+
+* 대상 볼륨의 언어는 소스 볼륨의 언어와 동일해야 합니다.
+
+
+'스냅샷 보호' 명령은 지정된 SVM과 연결된 애그리게이트를 선택합니다. SVM과 연결된 애그리게이트가 없으면 클러스터의 모든 애그리게이트 중에서 선택합니다. Aggregate는 여유 공간의 양과 애그리게이트의 볼륨 수를 기준으로 합니다.
+
+그런 다음 'napmirror protect' 명령은 다음 단계를 수행합니다.
+
+* 복제할 볼륨 목록에서 각 볼륨에 대해 적절한 유형과 예약된 공간을 사용하여 대상 볼륨을 생성합니다.
+* 지정한 정책에 적합한 복제 관계를 구성합니다.
+* 관계를 초기화합니다.
+
+
+대상 볼륨의 이름은 '_source_volume_name_dst_' 형식입니다. 기존 이름과 충돌하는 경우 명령이 볼륨 이름에 번호를 추가합니다. 명령 옵션에서 접두사 및/또는 접미사를 지정할 수 있습니다. 접미사는 시스템 제공 st 접미사를 대체합니다.
+
+ONTAP 9.3 이전 버전에서는 타겟 볼륨에 최대 251개의 스냅샷 복사본이 포함될 수 있습니다. ONTAP 9.4 이상에서 타겟 볼륨에는 최대 1019개의 스냅샷 복사본이 포함될 수 있습니다.
+
+[NOTE]
+====
+초기화에는 시간이 오래 걸릴 수 있습니다. 스냅미러 보호 기능은 작업이 완료되기 전에 초기화가 완료될 때까지 기다리지 않습니다. 따라서 초기화가 완료되는 시점을 결정하려면 job show 명령 대신 sapmirror show 명령을 사용해야 합니다.
+
+====
+ONTAP 9.5부터 '스냅샷 보호' 명령을 사용하여 SnapMirror 동기식 관계를 생성할 수 있습니다.
+
+.단계
+. 한 단계로 복제 관계를 생성하고 초기화합니다.
++
+'스냅샷 보호-경로-list_SVM:volume_|_cluster://SVM/volume_,... -destination-vserver_destination_SVM_-policy_policy_-schedule_schedule_-auto-initialize true|false-destination-volume-prefix_-destination-volume-suffix_suffix_
+
++
+[NOTE]
+====
+이 명령은 타겟 SVM 또는 타겟 클러스터에서 실행해야 합니다. '-auto-initialize' 옵션은 기본적으로 ""true""로 설정됩니다.
+
+====
++
+다음 예에서는 기본 'MirorAllSnapshots' 정책을 사용하여 SnapMirror DR 관계를 생성하고 초기화합니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror protect -path-list svm1:volA, svm1:volB -destination-vserver svm_backup -policy MirrorAllSnapshots -schedule replication_daily
+----
++
+[NOTE]
+====
+원하는 경우 사용자 지정 정책을 사용할 수 있습니다. 자세한 내용은 을 참조하십시오 link:create-custom-replication-policy-concept.html["사용자 지정 복제 정책 생성"].
+
+====
++
+다음 예에서는 기본 "XDPDefault" 정책을 사용하여 SnapVault 관계를 만들고 초기화합니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror protect -path-list svm1:volA, svm1:volB -destination-vserver svm_backup -policy XDPDefault -schedule replication_daily
+----
++
+다음 예제에서는 기본 MirorAndVault 정책을 사용하여 통합 복제 관계를 만들고 초기화합니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror protect -path-list svm1:volA, svm1:volB -destination-vserver svm_backup -policy MirrorAndVault
+----
++
+다음 예제에서는 기본 '동기화' 정책을 사용하여 SnapMirror Synchronous 관계를 만들고 초기화합니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror protect -path-list svm1:volA, svm1:volB -destination-vserver svm_sync -policy Sync
+----
++
+[NOTE]
+====
+SnapVault 및 유니파이드 복제 정책의 경우, 마지막으로 전송된 스냅샷 복사본의 복사본을 대상에 생성하기 위한 일정을 정의하는 것이 유용할 수 있습니다. 자세한 내용은 을 참조하십시오 link:define-schedule-create-local-copy-destination-task.html["대상에 로컬 복제본을 생성하기 위한 스케줄 정의"].
+
+====
+
+
+'snapmirror show' 명령을 사용하여 SnapMirror 관계가 생성되었는지 확인합니다. 전체 명령 구문은 man 페이지를 참조하십시오.

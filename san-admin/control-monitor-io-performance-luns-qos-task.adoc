@@ -1,0 +1,35 @@
+---
+permalink: san-admin/control-monitor-io-performance-luns-qos-task.html 
+sidebar: sidebar 
+keywords: control, monitor, i/o, performance, luns, using, storage qos 
+summary: 스토리지 QoS 정책 그룹에 LUN을 할당하여 LUN에 대한 입출력 성능을 제어할 수 있습니다. 입출력 성능을 제어하여 워크로드가 특정 성능 목표를 달성하도록 보장하고, 다른 워크로드에 부정적인 영향을 주는 워크로드를 조절할 수 있습니다. 
+---
+= 스토리지 QoS를 사용하여 LUN에 대한 I/O 성능을 제어 및 모니터링합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+스토리지 QoS 정책 그룹에 LUN을 할당하여 LUN에 대한 입출력 성능을 제어할 수 있습니다. 입출력 성능을 제어하여 워크로드가 특정 성능 목표를 달성하도록 보장하고, 다른 워크로드에 부정적인 영향을 주는 워크로드를 조절할 수 있습니다.
+
+정책 그룹은 최대 처리량 제한(예: 100MB/s)을 적용합니다. 최대 처리량을 지정하지 않고 정책 그룹을 생성하면 워크로드를 제어하기 전에 성능을 모니터링할 수 있습니다.
+
+FlexVol 볼륨 및 LUN이 있는 SVM(스토리지 가상 시스템)을 정책 그룹에 할당할 수도 있습니다.
+
+LUN을 정책 그룹에 할당하는 것에 대한 다음 요구 사항을 참고하십시오.
+
+* LUN은 정책 그룹이 속한 SVM에 의해 포함되어야 합니다.
++
+정책 그룹을 생성할 때 SVM을 지정합니다.
+
+* LUN을 정책 그룹에 할당할 경우 LUN에 포함된 볼륨 또는 SVM을 정책 그룹에 할당할 수 없습니다.
+
+
+스토리지 QoS를 사용하는 방법에 대한 자세한 내용은 를 참조하십시오 link:../system-admin/index.html["시스템 관리 참조"].
+
+.단계
+. QoS policy-group create 명령을 사용하여 정책 그룹을 생성합니다.
+. 정책 그룹에 LUN을 할당하려면 "lun create" 명령 또는 "lun modify" 명령과 함께 -qos-policy-group" 매개 변수를 사용합니다.
+. QoS 통계 명령어를 이용하여 성능 데이터를 확인할 수 있다.
+. 필요한 경우 QoS policy-group modify 명령을 사용하여 정책 그룹의 최대 처리량 한도를 조정합니다.
+

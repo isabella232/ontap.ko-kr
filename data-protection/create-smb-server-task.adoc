@@ -1,0 +1,77 @@
+---
+permalink: data-protection/create-smb-server-task.html 
+sidebar: sidebar 
+keywords: cifs, create, server 
+summary: 소스 SVM에 CIFS 구성이 있고 ID 보존이 false로 설정된 경우 대상 SVM을 위한 CIFS 서버를 생성해야 합니다. SnapMirror 관계를 초기화하는 동안 공유와 같이 CIFS 서버는 일부 CIFS 구성에 필요합니다. 
+---
+= CIFS만 해당: CIFS 서버를 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+소스 SVM에 CIFS 구성이 있고 'identity-preserve'를 'false'로 설정한 경우, 대상 SVM을 위한 CIFS 서버를 생성해야 합니다. SnapMirror 관계를 초기화하는 동안 공유와 같이 CIFS 서버는 일부 CIFS 구성에 필요합니다.
+
+.단계
+. 'vserver start' 명령을 사용하여 대상 SVM을 시작합니다.
++
+[listing]
+----
+destination_cluster::> vserver start -vserver dvs1
+[Job 30] Job succeeded: DONE
+----
+. vserver show 명령을 사용하여 대상 SVM이 "Running" 상태이고 하위 유형이 dp-destination인지 확인하십시오.
++
+[listing]
+----
+destination_cluster::> vserver show
+                                   Admin      Operational Root
+Vserver  Type    Subtype           State      State       Volume     Aggregate
+-------- ------- ----------       ---------- ----------- ---------- ----------
+dvs1     data    dp-destination    running    running       -         -
+----
+. 네트워크 인터페이스 생성 명령을 사용하여 LIF를 생성합니다.
++
+[listing]
+----
+destination_cluster::>network interface create -vserver dvs1 -lif NAS1 -role data -data-protocol cifs -home-node destination_cluster-01 -home-port a0a-101  -address 192.0.2.128 -netmask 255.255.255.128
+----
+. network route create 명령을 사용하여 route를 생성한다.
++
+[listing]
+----
+destination_cluster::>network route create -vserver dvs1 -destination 0.0.0.0/0
+-gateway 192.0.2.1
+----
++
+link:../networking/index.html["네트워크 관리"]
+
+. 'vserver services dns create' 명령을 사용하여 DNS를 구성합니다.
++
+[listing]
+----
+destination_cluster::>vserver services dns create -domains mydomain.example.com -vserver
+dvs1 -name-servers 192.0.2.128 -state enabled
+----
+. 'vserver cifs domain preferred-dc add' 명령을 사용하여 기본 도메인 컨트롤러를 추가합니다.
++
+[listing]
+----
+destination_cluster::>vserver cifs domain preferred-dc add -vserver dvs1 -preferred-dc
+192.0.2.128 -domain mydomain.example.com
+----
+. 'vserver cifs create' 명령을 사용하여 CIFS 서버를 생성합니다.
++
+[listing]
+----
+destination_cluster::>vserver cifs create -vserver dvs1 -domain mydomain.example.com
+-cifs-server CIFS1
+----
+. 'vserver stop' 명령을 사용하여 대상 SVM을 중지합니다.
++
+[listing]
+----
+destination_cluster::> vserver stop -vserver dvs1
+[Job 46] Job succeeded: DONE
+----
+

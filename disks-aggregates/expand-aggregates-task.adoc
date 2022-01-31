@@ -1,0 +1,159 @@
+---
+permalink: disks-aggregates/expand-aggregates-task.html 
+sidebar: sidebar 
+keywords: expand, aggregate 
+summary: 연결된 볼륨에 더 많은 스토리지를 제공할 수 있도록 디스크를 애그리게이트에 추가할 수 있습니다. 분할된 디스크를 Aggregate에 추가하는 절차는 분할되지 않은 디스크를 추가하는 절차와 비슷합니다. 
+---
+= Aggregate를 확장합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+연결된 볼륨에 더 많은 스토리지를 제공할 수 있도록 디스크를 애그리게이트에 추가할 수 있습니다. 분할된 디스크를 Aggregate에 추가하는 절차는 분할되지 않은 디스크를 추가하는 절차와 비슷합니다.
+
+스토리지를 추가하고 있는 애그리게이트의 RAID 그룹 크기를 알아야 합니다.
+
+Aggregate를 확장할 때 분할 또는 분할되지 않은 디스크를 Aggregate에 추가할지 여부를 알아야 합니다. 분할되지 않은 드라이브를 기존 aggregate에 추가하면 기존 RAID 그룹의 크기가 새 RAID 그룹에 상속되며, 이는 필요한 패리티 디스크 수에 영향을 줄 수 있습니다. 분할되지 않은 디스크가 분할된 디스크로 구성된 RAID 그룹에 추가되는 경우 새 디스크는 분할되어 사용되지 않은 스페어 파티션을 남겨둡니다.
+
+파티션을 프로비저닝할 때 두 파티션이 모두 스페어로 된 드라이브 없이 노드를 떠나지 않도록 해야 합니다. 이렇게 하면 노드에 컨트롤러 중단이 발생할 경우 문제(코어 파일)에 대한 중요 정보를 기술 지원 팀에 제공하지 못할 수 있습니다.
+
+[NOTE]
+====
+displist 명령을 사용하여 집계를 확장하지 마십시오. 이로 인해 파티션이 잘못 정렬될 수 있습니다.
+
+====
+.단계
+. Aggregate를 소유한 시스템에서 사용 가능한 스페어 스토리지를 표시합니다.
++
+'Storage aggregate show-spare-disks-original-owner_node_name_'
+
++
+'-is-disk-shared' 매개 변수를 사용하여 분할된 드라이브만 표시하거나 분할되지 않은 드라이브만 표시할 수 있습니다.
+
++
+[listing]
+----
+cl1-s2::> storage aggregate show-spare-disks -original-owner cl1-s2 -is-disk-shared true
+
+Original Owner: cl1-s2
+ Pool0
+  Shared HDD Spares
+                                                            Local    Local
+                                                             Data     Root Physical
+ Disk                        Type     RPM Checksum         Usable   Usable     Size Status
+ --------------------------- ----- ------ -------------- -------- -------- -------- --------
+ 1.0.1                       BSAS    7200 block           753.8GB  73.89GB  828.0GB zeroed
+ 1.0.2                       BSAS    7200 block           753.8GB       0B  828.0GB zeroed
+ 1.0.3                       BSAS    7200 block           753.8GB       0B  828.0GB zeroed
+ 1.0.4                       BSAS    7200 block           753.8GB       0B  828.0GB zeroed
+ 1.0.8                       BSAS    7200 block           753.8GB       0B  828.0GB zeroed
+ 1.0.9                       BSAS    7200 block           753.8GB       0B  828.0GB zeroed
+ 1.0.10                      BSAS    7200 block                0B  73.89GB  828.0GB zeroed
+2 entries were displayed.
+----
+. Aggregate의 현재 RAID 그룹을 표시합니다.
++
+'Storage aggregate show-status_aggr_name_'
+
++
+[listing]
+----
+cl1-s2::> storage aggregate show-status -aggregate data_1
+
+Owner Node: cl1-s2
+ Aggregate: data_1 (online, raid_dp) (block checksums)
+  Plex: /data_1/plex0 (online, normal, active, pool0)
+   RAID Group /data_1/plex0/rg0 (normal, block checksums)
+                                                              Usable Physical
+     Position Disk                        Pool Type     RPM     Size     Size Status
+     -------- --------------------------- ---- ----- ------ -------- -------- ----------
+     shared   1.0.10                       0   BSAS    7200  753.8GB  828.0GB (normal)
+     shared   1.0.5                        0   BSAS    7200  753.8GB  828.0GB (normal)
+     shared   1.0.6                        0   BSAS    7200  753.8GB  828.0GB (normal)
+     shared   1.0.11                       0   BSAS    7200  753.8GB  828.0GB (normal)
+     shared   1.0.0                        0   BSAS    7200  753.8GB  828.0GB (normal)
+5 entries were displayed.
+----
+. 스토리지에 Aggregate를 추가하는 시뮬레이션:
++
+'Storage aggregate add-disks-aggregate_aggr_name_-diskcount_number_of_disks_or_partitions_-simulate true'
+
++
+실제로 스토리지를 프로비저닝하지 않고 스토리지를 추가한 결과를 볼 수 있습니다. 시뮬레이트된 명령에서 경고가 표시되는 경우 명령을 조정하고 시뮬레이션을 반복할 수 있습니다.
+
++
+[listing]
+----
+cl1-s2::> storage aggregate add-disks data_1 -diskcount 5 -simulate true
+
+Addition of disks would succeed for aggregate "data_1" on node "cl1-s2". The
+following disks would be used to add to the aggregate: 1.0.2, 1.0.3, 1.0.4, 1.0.8, 1.0.9.
+----
+. 스토리지를 Aggregate에 추가합니다.
++
+스토리지 집계 add-disks-aggregate_aggr_name_-raidgroup new-diskcount_number_of_disks_or_partitions_'
+
++
+Flash Pool 애그리게이트를 생성할 때, 체크섬이 Aggregate와 다른 디스크를 추가하거나, 혼합 체크섬 애그리게이트에 디스크를 추가할 경우 '-checksumstyle' 매개 변수를 사용해야 합니다.
+
++
+Flash Pool Aggregate에 디스크를 추가하려면 '-disktype' 매개 변수를 사용하여 디스크 유형을 지정해야 합니다.
+
++
+'-disksize' 매개변수를 사용하여 추가할 디스크의 크기를 지정할 수 있습니다. Aggregate에 추가하기 위해 지정된 크기가 거의 있는 디스크만 선택됩니다.
+
++
+[listing]
+----
+cl1-s2::> storage aggregate add-disks -aggregate data_1 -raidgroup new -diskcount 5
+----
+. 스토리지가 성공적으로 추가되었는지 확인합니다.
++
+'Storage aggregate show-status-aggregate_aggr_name_'
+
++
+[listing]
+----
+cl1-s2::> storage aggregate show-status -aggregate data_1
+
+Owner Node: cl1-s2
+ Aggregate: data_1 (online, raid_dp) (block checksums)
+  Plex: /data_1/plex0 (online, normal, active, pool0)
+   RAID Group /data_1/plex0/rg0 (normal, block checksums)
+                                                              Usable Physical
+     Position Disk                        Pool Type     RPM     Size     Size Status
+     -------- --------------------------- ---- ----- ------ -------- -------- ----------
+     shared   1.0.10                       0   BSAS    7200  753.8GB  828.0GB (normal)
+     shared   1.0.5                        0   BSAS    7200  753.8GB  828.0GB (normal)
+     shared   1.0.6                        0   BSAS    7200  753.8GB  828.0GB (normal)
+     shared   1.0.11                       0   BSAS    7200  753.8GB  828.0GB (normal)
+     shared   1.0.0                        0   BSAS    7200  753.8GB  828.0GB (normal)
+     shared   1.0.2                        0   BSAS    7200  753.8GB  828.0GB (normal)
+     shared   1.0.3                        0   BSAS    7200  753.8GB  828.0GB (normal)
+     shared   1.0.4                        0   BSAS    7200  753.8GB  828.0GB (normal)
+     shared   1.0.8                        0   BSAS    7200  753.8GB  828.0GB (normal)
+     shared   1.0.9                        0   BSAS    7200  753.8GB  828.0GB (normal)
+10 entries were displayed.
+----
+. 노드에 루트 파티션과 데이터 파티션을 모두 스페어로 사용하는 드라이브가 하나 이상 있는지 확인합니다.
++
+'Storage aggregate show-spare-disks-original-owner_node_name_'
+
++
+[listing]
+----
+cl1-s2::> storage aggregate show-spare-disks -original-owner cl1-s2 -is-disk-shared true
+
+Original Owner: cl1-s2
+ Pool0
+  Shared HDD Spares
+                                                            Local    Local
+                                                             Data     Root Physical
+ Disk                        Type     RPM Checksum         Usable   Usable     Size Status
+ --------------------------- ----- ------ -------------- -------- -------- -------- --------
+ 1.0.1                       BSAS    7200 block           753.8GB  73.89GB  828.0GB zeroed
+ 1.0.10                      BSAS    7200 block                0B  73.89GB  828.0GB zeroed
+2 entries were displayed.
+----
+

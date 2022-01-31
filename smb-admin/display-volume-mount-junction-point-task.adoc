@@ -1,0 +1,74 @@
+---
+permalink: smb-admin/display-volume-mount-junction-point-task.html 
+sidebar: sidebar 
+keywords: display, information, mount, volume, storage, virtual, machine, svm, junction, point, namespace, display volume mount and junction point information 
+summary: '스토리지 가상 시스템(SVM)에 대해 마운트된 볼륨 및 볼륨이 마운트된 접합 지점에 대한 정보를 표시할 수 있습니다. 또한 어느 볼륨이 분기점에 마운트되지 않는지 확인할 수 있습니다. 이 정보를 사용하여 SVM 네임스페이스를 이해하고 관리할 수 있습니다.' 
+---
+= 볼륨 마운트 및 접합 지점 정보를 표시합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+스토리지 가상 시스템(SVM)에 대해 마운트된 볼륨 및 볼륨이 마운트된 접합 지점에 대한 정보를 표시할 수 있습니다. 또한 어느 볼륨이 분기점에 마운트되지 않는지 확인할 수 있습니다. 이 정보를 사용하여 SVM 네임스페이스를 이해하고 관리할 수 있습니다.
+
+.단계
+. 원하는 작업을 수행합니다.
++
+|===
+| 를 표시하려면... | 명령 입력... 
+
+
+ a| 
+SVM에서 마운트 및 마운트 해제된 볼륨에 대한 요약 정보
+ a| 
+'volume show-vserver vserver_name-junction'
+
+
+
+ a| 
+SVM에서 마운트 및 마운트 해제된 볼륨에 대한 자세한 정보
+ a| 
+'volume show -vserver vserver_name -volume volume_name -instance'
+
+
+
+ a| 
+SVM에서 마운트 및 마운트 해제된 볼륨에 대한 특정 정보
+ a| 
+.. 필요한 경우 볼륨 표시 필드? 명령을 사용하여 '-fields' 매개 변수에 대한 유효한 필드를 표시할 수 있습니다
+.. '-fields' 매개 변수를 사용하여 원하는 정보를 표시합니다. volume show -vserver vserver_name -fields fieldname,...
+
+
+|===
+
+
+다음 예는 SVM VS1 에서 마운트 및 마운트 해제된 볼륨에 대한 요약을 표시합니다.
+
+[listing]
+----
+cluster1::> volume show -vserver vs1 -junction
+                     Junction                 Junction
+Vserver   Volume     Active   Junction Path   Path Source
+--------- ---------- -------- --------------- -----------
+vs1       data       true     /data           RW_volume
+vs1       home4      true     /eng/home       RW_volume
+vs1       vs1_root   -        /               -
+vs1       sales      true     /sales          RW_volume
+----
+다음 예는 SVM VS2 에 있는 볼륨의 지정된 필드에 대한 정보를 표시합니다.
+
+[listing]
+----
+cluster1::> volume show -vserver vs2 -fields vserver,volume,aggregate,size,state,type,security-style,junction-path,junction-parent,node
+vserver volume   aggregate size state  type security-style junction-path junction-parent node
+------- ------   --------- ---- ------ ---- -------------- ------------- --------------- -----
+vs2     data1    aggr3     2GB  online RW   unix           -             -               node3
+vs2     data2    aggr3     1GB  online RW   ntfs           /data2        vs2_root        node3
+vs2     data2_1  aggr3     8GB  online RW   ntfs           /data2/d2_1   data2           node3
+vs2     data2_2  aggr3     8GB  online RW   ntfs           /data2/d2_2   data2           node3
+vs2     pubs     aggr1     1GB  online RW   unix           /publications vs2_root        node1
+vs2     images   aggr3     2TB  online RW   ntfs           /images       vs2_root        node3
+vs2     logs     aggr1     1GB  online RW   unix           /logs         vs2_root        node1
+vs2     vs2_root aggr3     1GB  online RW   ntfs           /             -               node3
+----

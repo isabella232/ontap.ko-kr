@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: concept_cluster_performance_overview.html 
+keywords: netapp, ontap, cluster, performance, overview, provision, SAN, cluster, health, capacity, performance, headroom, cpu, cpus, latency, IOPS, throughput, network, availability, interface, storage VM 
+summary: System Manager를 사용하면 사용자 환경에서 클러스터를 생성하고 관리할 수 있습니다. 
+---
+= System Manager를 이용한 클러스터 성능 개요
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+이 섹션의 항목에서는 ONTAP 9.7 이상 릴리즈의 System Manager에서 클러스터 상태 및 성능을 관리하는 방법을 보여 줍니다.
+
+System Manager 대시보드에서는 다음과 같은 성능 정보를 제공합니다.
+
+* * 상태 *: 클러스터의 상태를 모니터링할 수 있습니다. 문제가 발생하면 경고가 표시됩니다.
+* * 용량 *: System Manager에 클러스터의 사용 가능한 용량이 표시됩니다.
+* * 성능 *: 지연 시간, IOPS 및 처리량을 기준으로 클러스터가 얼마나 잘 수행되고 있는지 모니터링할 수 있습니다. 시간, 일, 주, 월 또는 연도별로 15초마다 메트릭이 그래프로 표시됩니다.
+* * 네트워크 *: 호스트 및 스토리지 객체로 네트워크가 구성되는 방식을 볼 수 있습니다. 사용 가능한 포트 수와 포트 및 이와 연결된 인터페이스 및 스토리지 VM을 볼 수 있습니다.
+

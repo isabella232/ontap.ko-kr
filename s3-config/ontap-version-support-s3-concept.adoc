@@ -1,0 +1,17 @@
+---
+permalink: s3-config/ontap-version-support-s3-concept.html 
+sidebar: sidebar 
+keywords: ontap, version, support, s3, object, storage 
+summary: ONTAP 9.7에서는 S3 오브젝트 스토리지가 공용 미리 보기로 도입되었습니다. 이 버전은 프로덕션 환경을 위한 것이 아니며 ONTAP 9.8을 통해 더 이상 업데이트되지 않습니다. ONTAP 9.8 이상 릴리즈에서만 운영 환경에서 S3 오브젝트 스토리지를 지원합니다. 
+---
+= S3 오브젝트 스토리지를 위한 ONTAP 버전 지원
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.7에서는 S3 오브젝트 스토리지가 공용 미리 보기로 도입되었습니다. 이 버전은 프로덕션 환경을 위한 것이 아니며 ONTAP 9.8을 통해 더 이상 업데이트되지 않습니다. ONTAP 9.8 이상 릴리즈에서만 운영 환경에서 S3 오브젝트 스토리지를 지원합니다.
+
+9.7 공용 미리 보기로 생성된 S3 버킷은 ONTAP 9.8 이상에서 사용할 수 있지만 향상된 기능을 활용할 수는 없습니다. 9.7 공용 미리 보기로 만든 버킷이 있는 경우 이러한 버킷의 내용을 9.8 버킷으로 마이그레이션하여 기능 지원, 보안 및 성능 향상을 지원해야 합니다.
+
+ONTAP 9.9.1 이상 릴리즈에서는 ONTAP S3가 Cloud Volumes ONTAP for Azure에서 지원되지만 AWS 또는 Google Cloud에서는 지원되지 않습니다.

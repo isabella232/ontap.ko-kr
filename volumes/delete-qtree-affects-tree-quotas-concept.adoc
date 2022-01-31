@@ -1,0 +1,19 @@
+---
+permalink: volumes/delete-qtree-affects-tree-quotas-concept.html 
+sidebar: sidebar 
+keywords: how, deleting, qtree, affects, tree quotas 
+summary: qtree를 삭제할 경우 명시적 또는 파생된 qtree에 적용되는 모든 할당량이 ONTAP에서 더 이상 적용되지 않습니다. 
+---
+= qtree를 삭제하는 방법이 트리 할당량에 영향을 미치는 방식
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+qtree를 삭제할 경우 명시적 또는 파생된 qtree에 적용되는 모든 할당량이 ONTAP에서 더 이상 적용되지 않습니다.
+
+할당량 규칙이 계속 유지되는지 여부는 qtree를 삭제하는 위치에 따라 달라집니다.
+
+* ONTAP를 사용하여 qtree를 삭제하는 경우 트리 할당량 규칙과 해당 qtree에 대해 구성된 사용자 및 그룹 할당량 규칙을 포함하여 해당 qtree에 대한 할당량 규칙이 자동으로 삭제됩니다.
+* CIFS 또는 NFS 클라이언트를 사용하여 qtree를 삭제하는 경우 할당량을 다시 초기화할 때 오류가 발생하지 않도록 해당 qtree에 대한 할당량 규칙을 삭제해야 합니다. 삭제한 qtree와 동일한 이름을 가진 새 qtree를 생성하는 경우, 할당량을 다시 초기화하기 전에는 기존 할당량 규칙이 새 qtree에 적용되지 않습니다.
+

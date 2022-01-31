@@ -1,0 +1,17 @@
+---
+permalink: tape-backup/ndmp-server-secure-control-svm-scoped-mode-concept.html 
+sidebar: sidebar 
+keywords: ndmp, server, supports, secure, control, connections, svm, scoped, mode, ssl, connection, dma, data, management, application 
+summary: '보안 소켓(SSL/TLS)을 통신 메커니즘으로 사용하여 DMA(Data Management Application)와 NDMP 서버 간에 보안 제어 연결을 설정할 수 있습니다. 이 SSL 통신은 서버 인증서를 기반으로 합니다. NDMP 서버는 포트 30000에서 수신 대기합니다(IANA에서 "ndmps" 서비스에 할당됨).' 
+---
+= NDMP 서버는 SVM 범위 모드에서 보안 제어 연결을 지원합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+보안 소켓(SSL/TLS)을 통신 메커니즘으로 사용하여 DMA(Data Management Application)와 NDMP 서버 간에 보안 제어 연결을 설정할 수 있습니다. 이 SSL 통신은 서버 인증서를 기반으로 합니다. NDMP 서버는 포트 30000에서 수신 대기합니다(IANA에서 ""ndmps"" 서비스에 할당).
+
+이 포트에서 클라이언트와의 연결을 설정한 후 서버가 클라이언트에 인증서를 제공하는 표준 SSL 핸드셰이크가 발생합니다. 클라이언트가 인증서를 수락하면 SSL 핸드셰이크가 완료됩니다. 이 프로세스가 완료되면 클라이언트와 서버 간의 모든 통신이 암호화됩니다. NDMP 프로토콜 워크플로우는 이전과 동일하게 유지됩니다. 보안 NDMP 접속에는 서버 측 인증서 인증만 필요합니다. DMA는 보안 NDMP 서비스 또는 표준 NDMP 서비스에 연결하여 연결을 설정할 수 있습니다.
+
+기본적으로 SVM(스토리지 가상 머신)에는 보안 NDMP 서비스가 사용되지 않습니다. 'vserver services ndmp modify -vserver vserver -is -secure-control -connection -enabled [true|false]' 명령을 사용하여 지정된 SVM에서 보안 NDMP 서비스를 설정하거나 해제할 수 있습니다.

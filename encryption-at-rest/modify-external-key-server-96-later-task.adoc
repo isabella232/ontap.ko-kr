@@ -1,0 +1,64 @@
+---
+permalink: encryption-at-rest/modify-external-key-server-96-later-task.html 
+sidebar: sidebar 
+keywords: modifying, external key management, server, properties 
+summary: ONTAP 9.6부터 보안 키 관리자 외부 수정 서버 명령을 사용하여 외부 키 관리 서버의 I/O 시간 초과 및 사용자 이름을 변경할 수 있습니다. 
+---
+= 외부 키 관리 서버 속성을 수정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.6부터, 외부 키 관리 서버의 I/O 제한 시간 및 사용자 이름을 변경하기 위해 'Security key-manager external modify-server' 명령어를 사용할 수 있다.
+
+.무엇을 &#8217;필요로 할거야
+* 이 작업을 수행하려면 클러스터 또는 SVM 관리자여야 합니다.
+* 이 작업에는 고급 권한이 필요합니다.
+
+
+.단계
+. 스토리지 시스템에서 고급 권한 레벨로 변경합니다.
++
+세트 프리빌리지 고급
+
+. 클러스터의 외부 키 관리자 서버 속성 수정:
++
+'Security key-manager external modify-server-vserver admin_SVM-key-server host_name|ip_address:port,... -timeout 1...60 - username user_name'입니다
+
++
+[NOTE]
+====
+시간 초과 값은 초 단위로 표시됩니다. 사용자 이름을 수정하면 새 암호를 입력하라는 메시지가 표시됩니다. 클러스터 로그인 프롬프트에서 명령을 실행하면 '_admin_SVM_'이(가) 현재 클러스터의 admin SVM으로 기본 설정됩니다. 외부 키 관리자 서버 속성을 수정하려면 클러스터 관리자여야 합니다.
+
+====
++
+다음 명령을 실행하면 기본 포트 5696에서 수신 대기하는 'cluster1' 외부 키 관리 서버의 시간 초과 값이 45초로 변경됩니다.
+
++
+[listing]
+----
+clusterl::> security key-manager external modify-server -vserver cluster1 -key-server ks1.local -timeout 45
+----
+. SVM에 대한 외부 키 관리자 서버 속성 수정(NVE만 해당):
++
+'Security key-manager external modify-server-vserver SVM-key-server host_name|ip_address:port,... -timeout 1...60 - username user_name'입니다
+
++
+[NOTE]
+====
+시간 초과 값은 초 단위로 표시됩니다. 사용자 이름을 수정하면 새 암호를 입력하라는 메시지가 표시됩니다. SVM 로그인 프롬프트에서 명령을 실행하면 '_SVM_'이(가) 현재 SVM으로 기본 설정됩니다. 외부 키 관리자 서버 속성을 수정하려면 클러스터 또는 SVM 관리자여야 합니다.
+
+====
++
+다음 명령을 실행하면 기본 포트 5696에서 수신 대기 중인 'vm1' 외부 키 관리 서버의 사용자 이름과 암호가 변경됩니다.
+
++
+[listing]
+----
+svml::> security key-manager external modify-server -vserver svm11 -key-server ks1.local -username svm1user
+Enter the password:
+Reenter the password:
+----
+. 추가 SVM에 대해 마지막 단계를 반복합니다.
+

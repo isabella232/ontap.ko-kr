@@ -1,0 +1,28 @@
+---
+permalink: tape-backup/data-backup-dump-concept.html 
+sidebar: sidebar 
+keywords: dump, engine, flexvol, volumes, backup, recovery, snapshot, copy, tape, device 
+summary: 덤프는 ONTAP의 스냅샷 복사본 기반 백업 및 복구 솔루션으로, 스냅샷 복사본의 파일과 디렉토리를 테이프 장치로 백업하고 백업된 데이터를 스토리지 시스템으로 복구할 수 있도록 도와줍니다. 
+---
+= FlexVol 볼륨의 덤프 엔진 정보
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+덤프는 ONTAP의 스냅샷 복사본 기반 백업 및 복구 솔루션으로, 스냅샷 복사본의 파일과 디렉토리를 테이프 장치로 백업하고 백업된 데이터를 스토리지 시스템으로 복구할 수 있도록 도와줍니다.
+
+덤프 백업을 사용하여 디렉토리, 파일 및 관련 보안 설정과 같은 파일 시스템 데이터를 테이프 디바이스에 백업할 수 있습니다. 전체 볼륨, 전체 qtree 또는 전체 볼륨 또는 전체 qtree가 아닌 하위 트리를 백업할 수 있습니다.
+
+NDMP 호환 백업 애플리케이션을 사용하여 덤프 백업 또는 복구를 수행할 수 있습니다.
+
+덤프 백업을 수행할 때 백업에 사용할 스냅샷 복사본을 지정할 수 있습니다. 백업에 대한 스냅샷 복사본을 지정하지 않으면 덤프 엔진이 백업에 대한 스냅샷 복사본을 생성합니다. 백업 작업이 완료되면 덤프 엔진이 이 스냅샷 복사본을 삭제합니다.
+
+덤프 엔진을 사용하여 레벨 0, 증분 또는 차등 백업을 테이프에 수행할 수 있습니다.
+
+[NOTE]
+====
+Data ONTAP 8.3 이전의 릴리즈로 되돌린 후에는 증분 백업 작업을 수행하기 전에 기본 백업 작업을 수행해야 합니다.
+
+====
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ug-rdg/home.html["업그레이드, 되돌리기 또는 다운그레이드를 수행할 수 있습니다"]

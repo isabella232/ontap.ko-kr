@@ -1,0 +1,25 @@
+---
+permalink: system-admin/changes-audit-logging-ontap-9-concept.html 
+sidebar: sidebar 
+keywords: audit, logging, ontap, 9, command, history, scripts, tool 
+summary: ONTAP 9부터는 command-history.log 파일이 audit.log로 대체되고 mgwd.log 파일에는 더 이상 감사 정보가 포함되지 않습니다. ONTAP 9로 업그레이드하는 경우 기존 파일과 해당 콘텐츠를 참조하는 스크립트나 도구를 검토해야 합니다. 
+---
+= ONTAP 9의 감사 로깅을 변경합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9부터는 Command-history.log 파일이 audit.log로 대체되고, mgwd.log 파일은 더 이상 Audit 정보를 포함하지 않는다. ONTAP 9로 업그레이드하는 경우 기존 파일과 해당 콘텐츠를 참조하는 스크립트나 도구를 검토해야 합니다.
+
+ONTAP 9로 업그레이드한 후 기존 명령어 이력.log 파일을 보존한다. 새 감사.로그 파일이 (작성됨) 회전되면 해당 파일이 삭제(삭제)됩니다.
+
+명령어-히스토리.로그 파일을 체크하는 툴과 스크립트는 업그레이드 시 명령어-히스토리.로그부터 audit.log로의 소프트 링크가 생성되기 때문에 계속 동작할 수 있다. 그러나 mgwd.log 파일을 확인하는 도구와 스크립트는 해당 파일에 더 이상 감사 정보가 없기 때문에 실패합니다.
+
+또한 ONTAP 9 이상의 감사 로그에는 유용하지 않고 불필요한 로깅 활동을 유발하기 때문에 다음 항목이 더 이상 포함되지 않습니다.
+
+* ONTAP에서 실행되는 내부 명령(즉, username=root)
+* 명령 별칭(해당 명령이 가리키는 명령과는 별개)
+
+
+ONTAP 9부터는 TCP 및 TLS 프로토콜을 사용하여 감사 로그를 외부 대상으로 안전하게 전송할 수 있습니다.

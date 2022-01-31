@@ -1,0 +1,248 @@
+---
+sidebar: sidebar 
+permalink: networking/display_cluster_connections.html 
+keywords: 'display, view, show, cluster, connections, active, client, listening, lif, protocol, service, display cluster connections, view all the active or listening connections in the cluster or a count of active connections on the node by client, lif, protocol, or service, display active connections by client (cluster administrators only), network connections active show-clients, display active connections by protocol (cluster administrators only), network connections active show-protocols, display active connections by service (cluster administrators only), network connections active show-services, display active connections by lif on a node and svm, network connections active show-lifs, display active connections in a cluster, network connections active show, display listening connections in a cluster, network connections listening show' 
+summary: 클러스터의 모든 액티브 또는 리스닝 연결 또는 클라이언트, LIF, 프로토콜 또는 서비스별 노드의 활성 연결 수를 봅니다 
+---
+= 클러스터 연결을 표시합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+클러스터의 모든 활성 연결 또는 클라이언트, 논리 인터페이스, 프로토콜 또는 서비스별로 노드의 활성 연결 수를 표시할 수 있습니다. 클러스터의 모든 수신 대기 연결을 표시할 수도 있습니다.
+
+
+
+== 클라이언트별 활성 연결 표시(클러스터 관리자만 해당)
+
+클라이언트별로 활성 연결을 확인하여 특정 클라이언트가 사용 중인 노드를 확인하고 노드당 클라이언트 수 간의 불균형을 확인할 수 있습니다.
+
+클라이언트별 활성 연결 수는 다음 시나리오에서 유용합니다.
+
+* 사용 중이거나 과부하 상태인 노드 찾기
+* 특정 클라이언트의 볼륨 액세스 속도가 느린 이유 파악
++
+클라이언트가 액세스하는 노드에 대한 세부 정보를 확인한 다음 볼륨이 상주하는 노드와 비교할 수 있습니다. 볼륨에 액세스해야 할 경우 초과 할당된 원격 노드의 볼륨에 대한 원격 액세스로 인해 클라이언트 성능이 저하될 수 있습니다.
+
+* 모든 노드가 데이터 액세스에 동등하게 사용되는지 확인
+* 예기치 않게 많은 수의 연결이 있는 클라이언트를 찾는 중입니다.
+* 특정 클라이언트에 노드에 대한 연결이 있는지 확인
+
+
+network connections active show-clients 명령을 사용하여 노드의 클라이언트별 활성 연결 수를 표시합니다.
+
+이 명령에 대한 자세한 내용은 man 페이지를 참조하십시오. http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"^]
+
+....
+network connections active show-clients
+Node    Vserver Name    Client IP Address     Count
+------  --------------  -----------------     ------
+node0   vs0             192.0.2.253                1
+        vs0             192.0.2.252                2
+        Cluster         192.10.2.124               5
+node1   vs0             192.0.2.250                1
+        vs0             192.0.2.252                3
+        Cluster         192.10.2.123               4
+node2   vs1             customer.example.com       1
+        vs1             192.0.2.245                3
+        Cluster         192.10.2.122               4
+node3   vs1             customer.example.org       1
+        vs1             customer.example.net       3
+        Cluster         192.10.2.121               4
+....
+
+
+== 프로토콜별 활성 연결 표시(클러스터 관리자만 해당)
+
+노드의 프로토콜(TCP 또는 UDP)별로 활성 연결 수를 표시하여 클러스터 내의 프로토콜 사용량을 비교할 수 있습니다.
+
+프로토콜별 활성 연결 수는 다음 시나리오에서 유용합니다.
+
+* 연결을 끊는 UDP 클라이언트를 찾습니다.
++
+노드가 연결 제한에 근접하면 UDP 클라이언트가 가장 먼저 삭제됩니다.
+
+* 사용 중인 다른 프로토콜이 없는지 확인
+
+
+network connections active show-protocols 명령을 사용하여 노드의 프로토콜별 활성 연결 수를 표시합니다.
+
+이 명령에 대한 자세한 내용은 man 페이지를 참조하십시오.
+
+....
+network connections active show-protocols
+Node     Vserver Name  Protocol   Count
+-------  ------------  ---------  ------
+node0
+         vs0           UDP            19
+         Cluster       TCP            11
+node1
+         vs0           UDP            17
+         Cluster       TCP             8
+node2
+         vs1           UDP            14
+         Cluster       TCP            10
+node3
+         vs1           UDP            18
+         Cluster       TCP             4
+....
+
+
+== 서비스별 활성 연결 표시(클러스터 관리자만 해당)
+
+클러스터의 각 노드에 대해 서비스 유형(예: NFS, SMB, 마운트 등)별로 활성 연결 수를 표시할 수 있습니다. 이 기능은 클러스터 내의 서비스 사용을 비교하여 노드의 운영 워크로드를 확인하는 데 유용합니다.
+
+서비스별 활성 연결 수는 다음 시나리오에서 유용합니다.
+
+* 모든 노드가 적절한 서비스에 사용되고 있는지, 그리고 해당 서비스에 대한 로드 밸런싱이 작동하는지 확인합니다.
+* 사용 중인 다른 서비스가 없는지 확인 network connections active show-services 명령을 사용하여 노드의 service별 활성 접속 수를 출력한다.
+
+
+이 명령에 대한 자세한 내용은 man 페이지를 참조하십시오. http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"^]
+
+....
+network connections active show-services
+Node       Vserver Name    Service    Count
+---------  --------------  ---------  ------
+node0
+           vs0             mount           3
+           vs0             nfs            14
+           vs0             nlm_v4          4
+           vs0             cifs_srv        3
+           vs0             port_map       18
+           vs0             rclopcp        27
+           Cluster         ctlopcp        60
+node1
+           vs0             cifs_srv        3
+           vs0             rclopcp        16
+           Cluster         ctlopcp        60
+node2
+           vs1             rclopcp        13
+           Cluster         ctlopcp        60
+node3
+           vs1             cifs_srv        1
+           vs1             rclopcp        17
+           Cluster         ctlopcp        60
+....
+
+
+== LIF를 사용하여 노드 및 SVM에 활성 연결을 표시합니다
+
+노드 및 SVM(스토리지 가상 머신)별로 각 LIF의 활성 연결 수를 표시하여 클러스터 내 LIF 간 연결 불균형을 확인할 수 있습니다.
+
+LIF에 의한 활성 연결 수는 다음 시나리오에서 유용합니다.
+
+* 각 LIF의 연결 수를 비교하여 오버로드된 LIF를 찾습니다.
+* 모든 데이터 LIF에서 DNS 로드 밸런싱이 작동하는지 확인
+* 다양한 SVM에 대한 연결 수를 비교하여 가장 많이 사용되는 SVM을 찾습니다.
+
+
+'network connections active show-liff' 명령을 사용하여 SVM과 노드에서 각 LIF의 활성 연결 수를 표시합니다.
+
+이 명령에 대한 자세한 내용은 man 페이지를 참조하십시오. http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"^]
+
+....
+network connections active show-lifs
+Node      Vserver Name  Interface Name  Count
+--------  ------------  --------------- ------
+node0
+          vs0           datalif1             3
+          Cluster       node0_clus_1         6
+          Cluster       node0_clus_2         5
+node1
+          vs0           datalif2             3
+          Cluster       node1_clus_1         3
+          Cluster       node1_clus_2         5
+node2
+          vs1           datalif2             1
+          Cluster       node2_clus_1         5
+          Cluster       node2_clus_2         3
+node3
+          vs1           datalif1             1
+          Cluster       node3_clus_1         2
+          Cluster       node3_clus_2         2
+....
+
+
+== 클러스터의 활성 연결을 표시합니다
+
+클러스터의 활성 연결에 대한 정보를 표시하여 개별 연결에 사용되는 LIF, 포트, 원격 호스트, 서비스, SVM(스토리지 가상 머신) 및 프로토콜을 볼 수 있습니다.
+
+클러스터에서 활성 연결을 보는 것은 다음 시나리오에서 유용합니다.
+
+* 개별 클라이언트가 올바른 노드에서 올바른 프로토콜 및 서비스를 사용하고 있는지 확인
+* 클라이언트가 특정 노드, 프로토콜 및 서비스 조합을 사용하여 데이터에 액세스하는 데 문제가 있는 경우 이 명령을 사용하여 구성 또는 패킷 추적 비교를 위한 유사한 클라이언트를 찾을 수 있습니다.
+
+
+network connections active show 명령을 사용하여 클러스터의 활성 연결을 표시합니다.
+
+이 명령에 대한 자세한 내용은 man 페이지를 참조하십시오. http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"^]
+
+다음 명령을 실행하면 노드 노드 1의 활성 연결이 표시됩니다.
+
+....
+network connections active show -node node1
+Vserver  Interface           Remote
+Name     Name:Local Port     Host:Port           Protocol/Service
+-------  ------------------  ------------------  ----------------
+Node: node1
+Cluster  node1_clus_1:50297  192.0.2.253:7700    TCP/ctlopcp
+Cluster  node1_clus_1:13387  192.0.2.253:7700    TCP/ctlopcp
+Cluster  node1_clus_1:8340   192.0.2.252:7700    TCP/ctlopcp
+Cluster  node1_clus_1:42766  192.0.2.252:7700    TCP/ctlopcp
+Cluster  node1_clus_1:36119  192.0.2.250:7700    TCP/ctlopcp
+vs1      data1:111           host1.aa.com:10741  UDP/port-map
+vs3      data2:111           host1.aa.com:10741  UDP/port-map
+vs1      data1:111           host1.aa.com:12017  UDP/port-map
+vs3      data2:111           host1.aa.com:12017  UDP/port-map
+....
+다음 명령을 실행하면 SVM VS1 에서의 활성 연결이 표시됩니다.
+
+....
+network connections active show -vserver vs1
+Vserver  Interface           Remote
+Name     Name:Local Port     Host:Port           Protocol/Service
+-------  ------------------  ------------------  ----------------
+Node: node1
+vs1      data1:111           host1.aa.com:10741  UDP/port-map
+vs1      data1:111           host1.aa.com:12017  UDP/port-map
+....
+
+
+== 클러스터의 수신 대기 연결을 표시합니다
+
+클러스터에서 수신 대기 중인 연결에 대한 정보를 표시하여 지정된 프로토콜 및 서비스의 연결을 수락하는 LIF 및 포트를 볼 수 있습니다.
+
+클러스터에서 청취 연결을 보는 것은 다음 시나리오에서 유용합니다.
+
+* 클라이언트가 해당 LIF에 일관되게 연결할 수 없을 경우, 원하는 프로토콜 또는 서비스가 LIF에서 청취 가능한지 확인하십시오.
+* 다른 노드의 LIF를 통해 한 노드의 볼륨에 대한 원격 데이터 액세스가 장애가 발생할 경우 각 클러스터 LIF에서 UDP/rclopcp 수신기가 열려 있는지 확인합니다.
+* SnapMirror가 동일한 클러스터의 두 노드 간에 전송 실패 시 각 클러스터 LIF에서 UDP/rclopcp 수신기가 열렸는지 확인
+* SnapMirror가 서로 다른 클러스터에 있는 두 노드 간에 전송하는 데 실패할 경우 각 인터클러스터 LIF에서 TCP/ctlpcp 수신기가 열렸는지 확인합니다.
+
+
+Network connections listening show 명령을 사용하여 노드별 listening connection을 출력한다.
+
+....
+network connections listening show
+Vserver Name     Interface Name:Local Port        Protocol/Service
+---------------- -------------------------------  ----------------
+Node: node0
+Cluster          node0_clus_1:7700                TCP/ctlopcp
+vs1              data1:4049                       UDP/unknown
+vs1              data1:111                        TCP/port-map
+vs1              data1:111                        UDP/port-map
+vs1              data1:4046                       TCP/sm
+vs1              data1:4046                       UDP/sm
+vs1              data1:4045                       TCP/nlm-v4
+vs1              data1:4045                       UDP/nlm-v4
+vs1              data1:2049                       TCP/nfs
+vs1              data1:2049                       UDP/nfs
+vs1              data1:635                        TCP/mount
+vs1              data1:635                        UDP/mount
+Cluster          node0_clus_2:7700                TCP/ctlopcp
+....

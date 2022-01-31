@@ -1,0 +1,59 @@
+---
+permalink: smb-admin/create-branchcache-enabled-share-task.html 
+sidebar: sidebar 
+keywords: enable, branchcache, smb, create, share, setting, property, create a bracnhcache-enabled smb share 
+summary: BranchCache 공유 속성을 설정하여 공유를 생성할 때 SMB 공유에서 BranchCache를 사용하도록 설정할 수 있습니다. 
+---
+= BranchCache 지원 SMB 공유를 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+공유를 생성할 때 "BranchCache" 공유 속성을 설정하여 SMB 공유에서 BranchCache를 사용하도록 설정할 수 있습니다.
+
+.이 작업에 대해
+* SMB 공유에 BranchCache가 설정되어 있으면 공유에 수동 캐싱으로 설정된 오프라인 파일 구성이 있어야 합니다.
++
+공유를 생성할 때 기본 설정입니다.
+
+* BranchCache 사용 공유를 생성할 때 추가 선택적 공유 매개 변수를 지정할 수도 있습니다.
+* BranchCache가 SVM(스토리지 가상 시스템)에서 구성 및 설정되지 않은 경우에도 공유에 "BranchCache" 속성을 설정할 수 있습니다.
++
+그러나 공유 폴더에 캐시된 콘텐츠가 제공되도록 하려면 SVM에서 BranchCache를 구성하고 사용하도록 설정해야 합니다.
+
+* '-share-properties' 매개 변수를 사용할 때 공유에 적용되는 기본 공유 속성이 없으므로 쉼표로 구분된 목록을 사용하여 "BranchCache" 공유 속성 외에도 공유에 적용할 다른 모든 공유 속성을 지정해야 합니다.
+* 자세한 내용은 'vserver cifs share create' 명령에 대한 man 페이지를 참조하십시오.
+
+
+.단계
+. BranchCache 지원 SMB 공유 생성: + 'vserver CIFS share create -vserver_vserver_name_-share-name_share_name_-path_path_-share-properties BranchCache[,...]'
+. 'vserver cifs share show' 명령을 사용하여 SMB 공유에 BranchCache 공유 속성이 설정되어 있는지 확인합니다.
+
+
+다음 명령을 실행하면 SVM VS1 에서 "/data " 경로를 사용하여 " data " 라는 BranchCache 지원 SMB 공유가 생성됩니다. 기본적으로 오프라인 파일 설정은 '수동'으로 설정됩니다.
+
+[listing]
+----
+cluster1::> vserver cifs share create -vserver vs1 -share-name data -path /data -share-properties branchcache,oplocks,browsable,changenotify
+
+cluster1::> vserver cifs share show -vserver vs1 -share-name data
+                      Vserver: vs1
+                        Share: data
+     CIFS Server NetBIOS Name: VS1
+                         Path: /data
+             Share Properties: branchcache
+                               oplocks
+                               browsable
+                               changenotify
+           Symlink Properties: enable
+      File Mode Creation Mask: -
+ Directory Mode Creation Mask: -
+                Share Comment: -
+                    Share ACL: Everyone / Full Control
+File Attribute Cache Lifetime: -
+                  Volume Name: data
+                Offline Files: manual
+Vscan File-Operations Profile: standard
+----
+xref:disable-branchcache-single-share-task.adoc[단일 SMB 공유에서 BranchCache를 사용하지 않도록 설정합니다]

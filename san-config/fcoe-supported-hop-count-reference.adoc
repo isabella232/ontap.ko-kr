@@ -1,0 +1,44 @@
+---
+permalink: san-config/fcoe-supported-hop-count-reference.html 
+sidebar: sidebar 
+keywords: fcoe, supported, hop, count 
+summary: '호스트와 스토리지 시스템 간에 지원되는 최대 FCoE(Fibre Channel over Ethernet) 홉 수는 스위치 공급업체와 FCoE 구성에 대한 스토리지 시스템 지원에 따라 달라집니다.' 
+---
+= FCoE 지원 홉 수
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+호스트와 스토리지 시스템 간에 지원되는 최대 FCoE(Fibre Channel over Ethernet) 홉 수는 스위치 공급업체와 FCoE 구성에 대한 스토리지 시스템 지원에 따라 달라집니다.
+
+홉 수는 이니시에이터(호스트)와 타겟(스토리지 시스템) 사이의 경로에 있는 스위치의 수로 정의됩니다. Cisco Systems의 설명서에서는 이 값을 SAN fabric_의 _diameter로 참조합니다.
+
+FCoE의 경우 FC 스위치에 FCoE 스위치를 연결할 수 있습니다.
+
+엔드 투 엔드 FCoE 연결의 경우 FCoE 스위치는 이더넷 ISL(Inter-Switch Link)을 지원하는 펌웨어 버전을 실행해야 합니다.
+
+다음 표에는 지원되는 최대 홉 수가 나와 있습니다.
+
+[cols="2*"]
+|===
+| 공급업체를 전환합니다 | 지원되는 홉 수입니다 
+
+
+ a| 
+모든 정보를 제공합니다
+ a| 
+FC의 경우 7
+
+FCoE의 경우 5입니다
+
+
+
+ a| 
+Cisco의
+ a| 
+7
+
+최대 3개의 스위치가 FCoE 스위치일 수 있습니다.
+
+|===

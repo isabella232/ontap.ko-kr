@@ -1,0 +1,109 @@
+---
+permalink: disks-aggregates/setup-active-passive-config-root-data-data-task.html 
+sidebar: sidebar 
+keywords: root-data-data, partitioning, disks, active-passive 
+summary: HA 쌍이 공장 출하 시 루트 데이터 데이터 파티셔닝을 사용하도록 구성된 경우, 액티브-액티브 구성에서 사용하기 위해 데이터 파티션의 소유권은 두 노드 사이에 분할됩니다. 액티브-패시브 구성에서 HA 쌍을 사용하려면 데이터 애그리게이트를 생성하기 전에 파티션 소유권을 업데이트해야 합니다. 
+---
+= 루트-데이터-데이터 파티셔닝을 사용하여 노드에서 액티브-패시브 구성을 설정하십시오
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+HA 쌍이 공장 출하 시 루트 데이터 데이터 파티셔닝을 사용하도록 구성된 경우, 액티브-액티브 구성에서 사용하기 위해 데이터 파티션의 소유권은 두 노드 사이에 분할됩니다. 액티브-패시브 구성에서 HA 쌍을 사용하려면 데이터 애그리게이트를 생성하기 전에 파티션 소유권을 업데이트해야 합니다.
+
+.무엇을 &#8217;필요로 할거야
+* 액티브 노드가 될 노드와 패시브 노드가 될 노드를 결정해야 합니다.
+* 스토리지 페일오버는 HA 쌍에서 구성해야 합니다.
+
+
+이 작업은 노드 A와 노드 B의 두 노드에서 수행됩니다
+
+모든 명령은 클러스터 쉘에 입력됩니다.
+
+이 절차는 분할된 디스크에서 데이터 애그리게이트를 생성하지 않은 노드를 위해 설계되었습니다.
+
+.단계
+. 데이터 파티션의 현재 소유권을 봅니다.
++
+'Storage aggregate show-spare-disks-original-owner_passive_node_name_-fields local-usable-data1-size, local-usable-data2-size'를 입력합니다
+
++
+데이터 파티션의 절반이 한 노드에 의해 소유되고 절반은 다른 노드에 의해 소유된다는 것을 알아야 합니다. 모든 데이터 파티션은 스페어 파티션이어야 합니다.
+
+. 고급 권한 수준 입력:
++
+진일진일보한 것
+
+. 패시브 노드가 될 노드가 소유하는 각 데이터 1 파티션에 대해 액티브 노드에 할당합니다.
++
+'storage disk assign-force-data1-owner_active_node_name_-disk disk disk disk_name'
+
++
+디스크 이름의 일부로 파티션을 포함할 필요는 없습니다
+
+. 패시브 노드가 될 노드가 소유하는 각 데이터 2 파티션에 대해 액티브 노드에 할당합니다.
++
+'storage disk assign-force-data2-owner active_node_name-disk disk disk_name'
+
++
+디스크 이름의 일부로 파티션을 포함할 필요는 없습니다
+
+. 모든 파티션이 액티브 노드에 할당되었는지 확인합니다.
++
+'스토리지 집계 show-spare-disks'
+
++
+[listing]
+----
+cluster1::*> storage aggregate show-spare-disks
+
+Original Owner: cluster1-01
+ Pool0
+  Partitioned Spares
+                                                            Local    Local
+                                                             Data     Root Physical
+ Disk                        Type     RPM Checksum         Usable   Usable     Size
+ --------------------------- ----- ------ -------------- -------- -------- --------
+ 1.0.0                       BSAS    7200 block           753.8GB       0B  828.0GB
+ 1.0.1                       BSAS    7200 block           753.8GB  73.89GB  828.0GB
+ 1.0.2                       BSAS    7200 block           753.8GB       0B  828.0GB
+ 1.0.3                       BSAS    7200 block           753.8GB       0B  828.0GB
+ 1.0.4                       BSAS    7200 block           753.8GB       0B  828.0GB
+ 1.0.5                       BSAS    7200 block           753.8GB       0B  828.0GB
+ 1.0.6                       BSAS    7200 block           753.8GB       0B  828.0GB
+ 1.0.7                       BSAS    7200 block           753.8GB       0B  828.0GB
+ 1.0.8                       BSAS    7200 block           753.8GB       0B  828.0GB
+ 1.0.9                       BSAS    7200 block           753.8GB       0B  828.0GB
+ 1.0.10                      BSAS    7200 block           753.8GB       0B  828.0GB
+ 1.0.11                      BSAS    7200 block           753.8GB       0B  828.0GB
+
+Original Owner: cluster1-02
+ Pool0
+  Partitioned Spares
+                                                            Local    Local
+                                                             Data     Root Physical
+ Disk                        Type     RPM Checksum         Usable   Usable     Size
+ --------------------------- ----- ------ -------------- -------- -------- --------
+ 1.0.8                       BSAS    7200 block                0B  73.89GB  828.0GB
+13 entries were displayed.
+----
++
+cluster1-02는 여전히 스페어 루트 파티션을 소유합니다.
+
+. 관리 권한으로 돌아가기:
++
+'관리자 설정'을 선택합니다
+
+. 하나 이상의 데이터 파티션을 스페어로 남겨두고 데이터 애그리게이트를 생성합니다.
++
+'Storage aggregate create_new_aggr_name_-diskcount_number_of_partitions_-node_active_node_name_'
+
++
+데이터 애그리게이트는 생성되며 액티브 노드가 소유합니다.
+
+. 또는 RAID 그룹 레이아웃 및 스페어 수에 대한 모범 사례를 포함하는 ONTAP의 권장 애그리게이트 레이아웃을 사용할 수도 있습니다.
++
+'스토리지 집계 자동 프로비저닝'
+
+

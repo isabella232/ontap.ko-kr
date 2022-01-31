@@ -1,0 +1,59 @@
+---
+permalink: encryption-at-rest/change-encryption-key-volume-92-earlier-task.html 
+sidebar: sidebar 
+keywords: changing, encryption key, volume, volume move start, command 
+summary: 볼륨의 암호화 키를 정기적으로 변경하는 것이 가장 좋은 방법입니다. 볼륨 이동 시작 명령을 사용하여 암호화 키를 변경할 수 있습니다. ONTAP 9.2 이하에서는 볼륨 이동 시작을 사용해야 합니다. 이동된 볼륨은 동일한 애그리게이트 또는 다른 애그리게이트에 있을 수 있습니다. 
+---
+= 볼륨 이동 시작 명령을 사용하여 볼륨의 암호화 키를 변경합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+볼륨의 암호화 키를 정기적으로 변경하는 것이 가장 좋은 방법입니다. 'volume move start' 명령을 사용하여 암호화 키를 변경할 수 있습니다. ONTAP 9.2 이하에서는 볼륨 이동 시작을 사용해야 합니다. 이동된 볼륨은 동일한 애그리게이트 또는 다른 애그리게이트에 있을 수 있습니다.
+
+이 작업을 수행하려면 클러스터 관리자이거나 클러스터 관리자가 권한을 위임한 SVM 관리자여야 합니다.
+
+link:delegate-volume-encryption-svm-administrator-task.html["볼륨 이동 명령을 실행하는 위임 권한"]
+
+SnapLock 또는 FlexGroup 볼륨을 다시 입력하다
+
+.단계
+. 기존 볼륨을 이동하고 암호화 키를 변경합니다.
++
+'volume move start-vserver SVM_name-volume volume_name-destination-aggregate aggregate_name-generate-destination-key true'
+
++
+전체 명령 구문은 명령에 대한 man 페이지를 참조하십시오.
+
++
+다음 명령을 실행하면 이름이 ' * vol1 * '인 기존 볼륨이 대상 집합 ' * aggr2 * '로 이동하고 암호화 키가 변경됩니다.
+
++
+[listing]
+----
+cluster1::> volume move start -vserver vs1 -volume vol1 -destination-aggregate aggr2 -generate-destination-key true
+----
++
+볼륨에 대한 새 암호화 키가 생성됩니다. 볼륨의 데이터는 암호화된 상태로 유지됩니다.
+
+. 볼륨에 암호화가 활성화되어 있는지 확인합니다.
++
+볼륨 쇼는 암호화된 사실이다
+
++
+전체 명령 구문은 명령에 대한 man 페이지를 참조하십시오.
+
++
+다음 명령을 실행하면 암호화된 볼륨이 'cluster1'에 표시됩니다.
+
++
+[listing]
+----
+cluster1::> volume show -is-encrypted true
+
+Vserver  Volume  Aggregate  State  Type  Size  Available  Used
+-------  ------  ---------  -----  ----  -----  --------- ----
+vs1      vol1    aggr2     online    RW  200GB    160.0GB  20%
+----
+

@@ -1,0 +1,17 @@
+---
+permalink: revert/task_enabling_automatic_switchover_for_metrocluster_configurations.html 
+sidebar: sidebar 
+keywords: ontap, revert, reversion, reverting, downgrade, downgrading, enable, enabling, automatic, switchover, metrocluster, mcc, configurations 
+summary: 이 항목에서는 MetroCluster 구성을 재설치한 후 수행해야 하는 추가 작업에 대한 정보를 제공합니다. 
+---
+= MetroCluster 구성에 대해 자동 전환을 활성화합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 항목에서는 MetroCluster 구성을 재설치한 후 수행해야 하는 추가 작업에 대한 정보를 제공합니다.
+
+. 'MetroCluster modify-auto-switchover-failure-domain auso-on-cluster-disaster'라는 예기치 않은 자동 전환을 활성화합니다
+. MetroCluster 설정 'MetroCluster check run'을 확인한다
+

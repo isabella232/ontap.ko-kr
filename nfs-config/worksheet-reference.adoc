@@ -1,0 +1,1020 @@
+---
+permalink: nfs-config/worksheet-reference.html 
+sidebar: sidebar 
+keywords: worksheet, gathering, nfs, configuration, information, access, svm, name, service, information, add, storage, capacity 
+summary: NFS 구성 워크시트를 사용하면 클라이언트에 대한 NFS 액세스를 설정하는 데 필요한 정보를 수집할 수 있습니다. 
+---
+= NFS 구성 정보 수집을 위한 워크시트입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NFS 구성 워크시트를 사용하면 클라이언트에 대한 NFS 액세스를 설정하는 데 필요한 정보를 수집할 수 있습니다.
+
+스토리지 용량 할당 위치에 대한 결정에 따라 워크시트의 섹션 중 하나 또는 두 섹션을 모두 완료해야 합니다.
+
+* SVM에 대한 NFS 액세스를 구성하는 경우 두 섹션을 모두 완료해야 합니다.
++
+link:worksheet-reference.html#configuring-nfs-access-to-an-svm["SVM에 대한 NFS 액세스 구성"]
+
++
+link:worksheet-reference.html#adding-storage-capacity-to-an-nfs-enabled-svm["NFS 지원 SVM에 스토리지 용량 추가"]
+
+* NFS 지원 SVM에 스토리지 용량을 추가하려면 두 번째 섹션만 완료해야 합니다.
++
+link:worksheet-reference.html#adding-storage-capacity-to-an-nfs-enabled-svm["NFS 지원 SVM에 스토리지 용량 추가"]
+
+
+
+매개 변수에 대한 자세한 내용은 명령 man 페이지를 참조하십시오.
+
+
+
+== SVM에 대한 NFS 액세스를 구성합니다
+
+* SVM 생성을 위한 매개 변수 *
+
+새 SVM을 생성하는 경우 이러한 값을 'vserver create' 명령으로 제공합니다.
+
+|===
+
+
+| 필드에 입력합니다 | 설명 | 귀사의 가치 
+
+
+ a| 
+'-vserver'
+ a| 
+FQDN(정규화된 도메인 이름)이거나 클러스터 전체에 고유한 SVM 이름을 적용하는 다른 규칙을 따르는 새 SVM에 대해 제공하는 이름입니다.
+ a| 
+
+
+
+ a| 
+'-집계'
+ a| 
+새 NFS 스토리지 용량을 위한 충분한 공간이 있는 클러스터의 애그리게이트 이름입니다.
+ a| 
+
+
+
+ a| 
+'-rootvolume'
+ a| 
+SVM 루트 볼륨에 제공하는 고유 이름입니다.
+ a| 
+
+
+
+ a| 
+'-rootvolume-security-style'
+ a| 
+SVM에 UNIX 보안 스타일을 사용합니다.
+ a| 
+유닉스
+
+
+
+ a| 
+'-언어'
+ a| 
+이 워크플로의 기본 언어 설정을 사용합니다.
+ a| 
+C. UTF-8
+
+
+
+ a| 
+'IPSpace'
+ a| 
+IPspace는 SVM(스토리지 가상 머신)이 상주하는 고유 IP 주소 공간입니다.
+ a| 
+
+|===
+* NFS 서버 생성을 위한 매개 변수 *
+
+새 NFS 서버를 생성하고 지원되는 NFS 버전을 지정할 때 이러한 값을 'vserver NFS create' 명령으로 제공합니다.
+
+NFSv4 이상을 설정하는 경우 보안을 강화하기 위해 LDAP를 사용해야 합니다.
+
+|===
+
+
+| 필드에 입력합니다 | 설명 | 귀사의 가치 
+
+
+ a| 
+v3 -v4.0 -v4.1 -v4.1 -v4.1 -pNFS
+ a| 
+필요에 따라 NFS 버전을 사용하도록 설정합니다.
+
+[NOTE]
+====
+v4.2는 v4.1이 활성화된 경우 ONTAP 9.8 이상에서도 지원됩니다.
+
+==== a| 
+
+
+
+ a| 
+'-v4-id-domain'
+ a| 
+ID 매핑 도메인 이름입니다.
+ a| 
+
+
+
+ a| 
+'-v4-numeric-ids'
+ a| 
+숫자 소유자 ID 지원(사용 또는 사용 안 함)
+ a| 
+
+|===
+* LIF 생성을 위한 매개 변수 *
+
+LIF를 생성할 때 이러한 값을 'network interface create' 명령으로 제공합니다.
+
+Kerberos를 사용하는 경우 여러 LIF에서 Kerberos를 사용하도록 설정해야 합니다.
+
+|===
+
+
+| 필드에 입력합니다 | 설명 | 귀사의 가치 
+
+
+ a| 
+'-lif'
+ a| 
+새 LIF에 대해 제공한 이름입니다.
+ a| 
+
+
+
+ a| 
+'-역할'
+ a| 
+이 워크플로우에서 데이터 LIF 역할을 사용합니다.
+ a| 
+다타
+
+
+
+ a| 
+'-데이터-프로토콜'
+ a| 
+이 워크플로우에서는 NFS 프로토콜만 사용합니다.
+ a| 
+'NFS'입니다
+
+
+
+ a| 
+홈 노드
+ a| 
+LIF에서 '네트워크 인터페이스 되돌리기' 명령을 실행할 때 LIF가 반환되는 노드입니다.
+ a| 
+
+
+
+ a| 
+``홈 포트’’
+ a| 
+LIF에서 '네트워크 인터페이스 되돌리기' 명령을 실행하면 LIF가 반환되는 포트 또는 인터페이스 그룹입니다.
+ a| 
+
+
+
+ a| 
+주소
+ a| 
+새 LIF가 데이터 액세스에 사용할 클러스터의 IPv4 또는 IPv6 주소입니다.
+ a| 
+
+
+
+ a| 
+넷마스크입니다
+ a| 
+LIF의 네트워크 마스크와 게이트웨이입니다.
+ a| 
+
+
+
+ a| 
+'-서브넷'
+ a| 
+IP 주소 풀입니다. 주소와 넷마스크를 자동으로 할당하기 위해 -address와 -netmask 대신 사용됩니다.
+ a| 
+
+
+
+ a| 
+방화벽 정책
+ a| 
+이 워크플로우에서 기본 데이터 방화벽 정책을 사용합니다.
+ a| 
+다타
+
+|===
+* DNS 호스트 이름 확인을 위한 매개 변수 *
+
+DNS를 구성할 때 이러한 값을 'vserver services name-service dns create' 명령으로 제공합니다.
+
+|===
+
+
+| 필드에 입력합니다 | 설명 | 귀사의 가치 
+
+
+ a| 
+``도메인’
+ a| 
+최대 5개의 DNS 도메인 이름
+ a| 
+
+
+
+ a| 
+이름-서버
+ a| 
+각 DNS 이름 서버에 대해 최대 3개의 IP 주소를 지정할 수 있습니다.
+ a| 
+
+|===
+
+
+== 네임 서비스 정보
+
+* 로컬 사용자 생성을 위한 매개 변수 *
+
+'vserver services name-service unix-user create' 명령을 사용하여 로컬 사용자를 생성하는 경우 이러한 값을 제공합니다. UNIX 사용자가 포함된 파일을 URI(Uniform Resource Identifier)에서 로드하여 로컬 사용자를 구성하는 경우에는 이러한 값을 수동으로 지정할 필요가 없습니다.
+
+|===
+
+
+|  | 사용자 이름 '(-user)'입니다 | 사용자 ID '(-id)'입니다 | 그룹 ID '(-primary-gid)'입니다 | 전체 이름(-full-name) 
+
+
+ a| 
+예
+ a| 
+합니다
+ a| 
+123을 선택합니다
+ a| 
+100
+ a| 
+존 밀러
+
+
+
+ a| 
+1
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+2
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+3
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+...
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+해당 없음
+ a| 
+ a| 
+ a| 
+ a| 
+
+|===
+* 로컬 그룹 생성을 위한 매개 변수 *
+
+'vserver services name-service unix-group create' 명령을 사용하여 로컬 그룹을 생성하는 경우 이러한 값을 제공합니다. URI에서 UNIX 그룹이 포함된 파일을 로드하여 로컬 그룹을 구성하는 경우에는 이러한 값을 수동으로 지정할 필요가 없습니다.
+
+|===
+
+
+|  | 그룹 이름('-name') | Group ID('-id') 
+
+
+ a| 
+예
+ a| 
+엔지니어링
+ a| 
+100
+
+
+
+ a| 
+1
+ a| 
+ a| 
+
+
+
+ a| 
+2
+ a| 
+ a| 
+
+
+
+ a| 
+3
+ a| 
+ a| 
+
+
+
+ a| 
+...
+ a| 
+ a| 
+
+
+
+ a| 
+해당 없음
+ a| 
+ a| 
+
+|===
+* NIS용 매개 변수 *
+
+이러한 값은 'vserver services name-service NIS-domain create' 명령을 사용하여 입력합니다.
+
+[NOTE]
+====
+ONTAP 9.2부터, 필드 '-NIS-SERS'는 필드 '-SERVers'를 대체합니다. 이 새 필드는 NIS 서버의 호스트 이름 또는 IP 주소를 사용할 수 있습니다.
+
+====
+|===
+
+
+| 필드에 입력합니다 | 설명 | 귀사의 가치 
+
+
+ a| 
+``도메인’
+ a| 
+SVM이 이름 조회에 사용할 NIS 도메인입니다.
+ a| 
+
+
+
+ a| 
+'-활성'
+ a| 
+활성 NIS 도메인 서버입니다.
+ a| 
+참 거짓입니다
+
+
+
+ a| 
+'-서버'
+ a| 
+ONTAP 9.0, 9.1: NIS 도메인 구성에서 사용되는 NIS 서버의 IP 주소 하나 이상
+ a| 
+
+
+
+ a| 
+'-NIS-서버'
+ a| 
+ONTAP 9.2: 도메인 구성에서 사용되는 NIS 서버의 IP 주소 및 호스트 이름을 쉼표로 구분하여 나열한 목록입니다.
+ a| 
+
+|===
+* LDAP용 매개 변수 *
+
+이러한 값은 'vserver services name-service ldap client create' 명령을 사용하여 입력합니다.
+
+자체 서명된 루트 CA 인증서 '.pem' 파일도 필요합니다.
+
+[NOTE]
+====
+ONTAP 9.2부터 -ldap-servers 필드가 -servers 필드를 대체합니다. 이 새 필드는 LDAP 서버의 호스트 이름 또는 IP 주소를 사용할 수 있습니다.
+
+====
+|===
+| 필드에 입력합니다 | 설명 | 귀사의 가치 
+
+
+ a| 
+'-vserver'
+ a| 
+LDAP 클라이언트 구성을 생성할 SVM의 이름입니다.
+ a| 
+
+
+
+ a| 
+'-client-config'입니다
+ a| 
+새 LDAP 클라이언트 구성에 할당한 이름입니다.
+ a| 
+
+
+
+ a| 
+'-서버'
+ a| 
+ONTAP 9.0, 9.1: 쉼표로 구분된 목록의 IP 주소로 하나 이상의 LDAP 서버.
+ a| 
+
+
+
+ a| 
+'-LDAP-서버'
+ a| 
+ONTAP 9.2: LDAP 서버에 대한 쉼표로 구분된 IP 주소 및 호스트 이름 목록입니다.
+ a| 
+
+
+
+ a| 
+'-query-timeout'입니다
+ a| 
+이 워크플로에 기본 3초를 사용합니다.
+ a| 
+3
+
+
+
+ a| 
+'-min-bind-level'
+ a| 
+최소 바인딩 인증 수준입니다. 기본값은 'anonymous'입니다. 서명 및 봉인을 구성한 경우 'ASL'으로 설정해야 합니다.
+ a| 
+
+
+
+ a| 
+'-preferred-ad-servers'
+ a| 
+쉼표로 구분된 목록에서 IP 주소별로 하나 이상의 기본 Active Directory 서버가 있습니다.
+ a| 
+
+
+
+ a| 
+'-ad-domain'입니다
+ a| 
+Active Directory 도메인입니다.
+ a| 
+
+
+
+ a| 
+'-스키마'
+ a| 
+사용할 스키마 템플릿입니다. 기본 스키마나 사용자 지정 스키마를 사용할 수 있습니다.
+ a| 
+
+
+
+ a| 
+``포트’’
+ a| 
+이 워크플로우에는 기본 LDAP 서버 포트 '389'를 사용합니다.
+ a| 
+389
+
+
+
+ a| 
+'-bind-dn'
+ a| 
+Bind 사용자 고유 이름입니다.
+ a| 
+
+
+
+ a| 
+'-base-dn'
+ a| 
+기본 고유 이름입니다. 기본값은 ""(root)입니다.
+ a| 
+
+
+
+ a| 
+``기본범위’’
+ a| 
+이 워크플로에 기본 기본 검색 범위 'Subnet'을 사용합니다.
+ a| 
+'우방'
+
+
+
+ a| 
+'-세션-보안'
+ a| 
+LDAP 서명 또는 서명 및 봉인을 활성화합니다. 기본값은 '없음'입니다.
+ a| 
+
+
+
+ a| 
+'-use-start-tls'
+ a| 
+TLS를 통해 LDAP를 활성화합니다. 기본값은 false 입니다.
+ a| 
+
+|===
+* Kerberos 인증 매개변수 *
+
+이러한 값은 'vserver NFS Kerberos realm create' 명령을 사용하여 입력합니다. 일부 값은 KDC(Key Distribution Center) 서버로 Microsoft Active Directory를 사용할지, MIT 또는 기타 UNIX KDC 서버를 사용하는지에 따라 달라집니다.
+
+|===
+| 필드에 입력합니다 | 설명 | 귀사의 가치 
+
+
+ a| 
+'-vserver'
+ a| 
+KDC와 통신할 SVM.
+ a| 
+
+
+
+ a| 
+``영역’
+ a| 
+Kerberos 영역.
+ a| 
+
+
+
+ a| 
+시계 편중
+ a| 
+클라이언트와 서버 간에 허용되는 클럭 편중.
+ a| 
+
+
+
+ a| 
+'-KDC-IP'
+ a| 
+KDC IP 주소입니다.
+ a| 
+
+
+
+ a| 
+``KDC-포트’
+ a| 
+KDC 포트 번호입니다.
+ a| 
+
+
+
+ a| 
+'-adserver-name'입니다
+ a| 
+Microsoft KDC 전용: AD 서버 이름입니다.
+ a| 
+
+
+
+ a| 
+'-adserver-ip'입니다
+ a| 
+Microsoft KDC 전용: AD 서버 IP 주소입니다.
+ a| 
+
+
+
+ a| 
+'-AdminServer-IP'입니다
+ a| 
+UNIX KDC 전용: 관리 서버 IP 주소.
+ a| 
+
+
+
+ a| 
+'-AdminServer-port'입니다
+ a| 
+UNIX KDC만 해당: 관리 서버 포트 번호입니다.
+ a| 
+
+
+
+ a| 
+'-passwordserver-IP'입니다
+ a| 
+UNIX KDC 전용: 암호 서버 IP 주소입니다.
+ a| 
+
+
+
+ a| 
+'-passwordserver-port'입니다
+ a| 
+UNIX KDC 전용: 암호 서버 포트.
+ a| 
+
+
+
+ a| 
+``KDC-벤더’
+ a| 
+KDC 공급업체.
+ a| 
+{'Microsoft'|'기타'}
+
+
+
+ a| 
+``논평’
+ a| 
+원하는 코멘트.
+ a| 
+
+|===
+이러한 값은 'vserver NFS Kerberos interface enable' 명령을 사용하여 제공합니다.
+
+|===
+| 필드에 입력합니다 | 설명 | 귀사의 가치 
+
+
+ a| 
+'-vserver'
+ a| 
+Kerberos 구성을 생성할 SVM의 이름입니다.
+ a| 
+
+
+
+ a| 
+'-lif'
+ a| 
+Kerberos를 사용하도록 설정할 데이터 LIF입니다. 여러 LIF에서 Kerberos를 사용하도록 설정할 수 있습니다.
+ a| 
+
+
+
+ a| 
+'-SPN'
+ a| 
+서비스 원칙 이름(SPN)
+ a| 
+
+
+
+ a| 
+``허용된-원력-유형’’
+ a| 
+클라이언트 기능에 따라 Kerberos over NFS에 대해 허용되는 암호화 유형인 AES-256을 사용하는 것이 좋습니다.
+ a| 
+
+
+
+ a| 
+'-admin-username'입니다
+ a| 
+KDC에서 직접 SPN 암호 키를 검색하는 KDC 관리자 자격 증명입니다. 암호가 필요합니다
+ a| 
+
+
+
+ a| 
+'-keytab-Uri'입니다
+ a| 
+KDC 관리자 자격 증명이 없는 경우 SPN 키가 포함된 KDC의 keytab 파일입니다.
+ a| 
+
+
+
+ a| 
+'-ou'
+ a| 
+Microsoft KDC의 영역을 사용하여 Kerberos를 설정할 때 Microsoft Active Directory 서버 계정이 생성되는 OU(조직 구성 단위)입니다.
+ a| 
+
+|===
+
+
+== NFS 지원 SVM에 스토리지 용량 추가
+
+* 내보내기 정책 및 규칙 생성을 위한 매개 변수 *
+
+이러한 값은 'vserver export-policy create' 명령을 사용하여 제공합니다.
+
+|===
+| 필드에 입력합니다 | 설명 | 귀사의 가치 
+
+
+ a| 
+'-vserver'
+ a| 
+새 볼륨을 호스팅할 SVM의 이름입니다.
+ a| 
+
+
+
+ a| 
+정책 이름
+ a| 
+새 엑스포트 정책에 대해 제공한 이름입니다.
+ a| 
+
+|===
+각 규칙에 대해 'vserver export-policy rule create' 명령을 사용하여 이러한 값을 제공합니다.
+
+|===
+| 필드에 입력합니다 | 설명 | 귀사의 가치 
+
+
+ a| 
+'-clientmatch'
+ a| 
+클라이언트 일치 사양.
+ a| 
+
+
+
+ a| 
+룰레인덱스
+ a| 
+규칙 목록에서 내보내기 규칙의 위치입니다.
+ a| 
+
+
+
+ a| 
+'-프로토콜'
+ a| 
+이 워크플로우에서 NFS를 사용합니다.
+ a| 
+'NFS'입니다
+
+
+
+ a| 
+'-rorule'
+ a| 
+읽기 전용 액세스에 대한 인증 방법입니다.
+ a| 
+
+
+
+ a| 
+'-rwrule'
+ a| 
+읽기-쓰기 액세스를 위한 인증 방법입니다.
+ a| 
+
+
+
+ a| 
+'-슈퍼유저'
+ a| 
+고급 사용자 액세스를 위한 인증 방법입니다.
+ a| 
+
+
+
+ a| 
+'-anon'
+ a| 
+익명 사용자가 매핑되는 사용자 ID입니다.
+ a| 
+
+|===
+각 엑스포트 정책에 대해 하나 이상의 규칙을 생성해야 합니다.
+
+|===
+| '*-ruleindex*' | '* - clientmatch * ' | ' * -rorule * ' | '*-rwrule * ' | '*-슈퍼유저 * ' | '*-anon * ' 
+
+
+ a| 
+예
+ a| 
+0.0.0.0/0, @rootaccess_netgroup
+ a| 
+모두
+ a| 
+krb5
+ a| 
+시스템
+ a| 
+65534
+
+
+
+ a| 
+1
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+2
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+3
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+...
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+
+
+ a| 
+해당 없음
+ a| 
+ a| 
+ a| 
+ a| 
+ a| 
+
+|===
+* 볼륨 생성을 위한 매개 변수 *
+
+Qtree 대신 볼륨을 생성하는 경우 이 값에 'volume create' 명령을 입력합니다.
+
+|===
+| 필드에 입력합니다 | 설명 | 귀사의 가치 
+
+
+ a| 
+'-vserver'
+ a| 
+새 볼륨을 호스팅할 새 SVM 또는 기존 SVM의 이름입니다.
+ a| 
+
+
+
+ a| 
+'- 볼륨'
+ a| 
+새 볼륨에 제공하는 고유한 설명 이름입니다.
+ a| 
+
+
+
+ a| 
+'-집계'
+ a| 
+새 NFS 볼륨을 위한 충분한 공간이 있는 클러스터의 애그리게이트 이름입니다.
+ a| 
+
+
+
+ a| 
+'-size'
+ a| 
+새 볼륨의 크기에 대해 제공하는 정수입니다.
+ a| 
+
+
+
+ a| 
+'-user'
+ a| 
+볼륨 루트의 소유자로 설정된 사용자의 이름 또는 ID입니다.
+ a| 
+
+
+
+ a| 
+``그룹’’
+ a| 
+볼륨 루트의 소유자로 설정된 그룹의 이름 또는 ID입니다.
+ a| 
+
+
+
+ a| 
+``보안스타일’’
+ a| 
+이 워크플로우에는 UNIX 보안 스타일을 사용합니다.
+ a| 
+유닉스
+
+
+
+ a| 
+``교차점-경로’’
+ a| 
+새 볼륨을 마운트할 루트(/) 아래의 위치입니다.
+ a| 
+
+
+
+ a| 
+수출정책
+ a| 
+기존 엑스포트 정책을 사용하려는 경우 볼륨을 생성할 때 해당 이름을 입력할 수 있습니다.
+ a| 
+
+|===
+* qtree 생성을 위한 매개 변수 *
+
+볼륨 대신 qtree를 생성하는 경우 이 값에 'volume qtree create' 명령을 입력합니다.
+
+|===
+| 필드에 입력합니다 | 설명 | 귀사의 가치 
+
+
+ a| 
+'-vserver'
+ a| 
+qtree가 포함된 볼륨이 있는 SVM의 이름입니다.
+ a| 
+
+
+
+ a| 
+'- 볼륨'
+ a| 
+새 qtree를 포함할 볼륨의 이름입니다.
+ a| 
+
+
+
+ a| 
+'-qtree'
+ a| 
+새 qtree를 64자 이하로 설명하는 고유한 이름입니다.
+ a| 
+
+
+
+ a| 
+'-qtree-path'
+ a| 
+볼륨과 qtree를 별도의 인수로 지정하는 대신 '/vol/_volume_name/qtree_name_\>' 형식의 qtree 경로 인수를 지정할 수 있습니다.
+ a| 
+
+
+
+ a| 
+'-unix-permissions'
+ a| 
+선택 사항: qtree에 대한 UNIX 사용 권한
+ a| 
+
+
+
+ a| 
+수출정책
+ a| 
+기존 엑스포트 정책을 사용하려는 경우 qtree를 생성할 때 이름을 입력할 수 있습니다.
+ a| 
+
+|===

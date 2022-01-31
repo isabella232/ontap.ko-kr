@@ -1,0 +1,52 @@
+---
+permalink: smb-config/verify-protocol-enabled-task.html 
+sidebar: sidebar 
+keywords: configure, smb, svm, verify, protocol, enable, verify that the smb protocol is enabled on the svm 
+summary: SVM에서 SMB를 구성 및 사용하려면 먼저 프로토콜이 활성화되어 있는지 확인해야 합니다. 
+---
+= SVM에서 SMB 프로토콜이 활성화되어 있는지 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SVM에서 SMB를 구성 및 사용하려면 먼저 프로토콜이 활성화되어 있는지 확인해야 합니다.
+
+이는 일반적으로 SVM 설정 중에 수행되지만 설정 중에 프로토콜을 활성화하지 않은 경우 나중에 'vserver add-protocols' 명령을 사용하여 활성화할 수 있습니다.
+
+[NOTE]
+====
+프로토콜을 생성한 후에는 LIF에서 프로토콜을 추가하거나 제거할 수 없습니다.
+
+====
+"vserver remove-protocols" 명령을 사용하여 SVM에서 프로토콜을 비활성화할 수도 있습니다.
+
+.단계
+. SVM에 대해 현재 활성화 및 비활성화된 프로토콜은 'vserver show -vserver vserver_name -protocols'(vserver show -vserver vserver vserver_name -protocol)를 확인하십시오
++
+"vserver show-protocols" 명령을 사용하여 클러스터의 모든 SVM에서 현재 활성화된 프로토콜을 볼 수도 있습니다.
+
+. 필요한 경우 프로토콜을 활성화 또는 비활성화합니다.
++
+** SMB 프로토콜을 활성화하려면: 'vserver add-protocols-vserver vserver_name-protocols cifs'
+** 프로토콜을 작동 불가능하게 하려면: "+vserver remove-protocols-vserver vserver_name-protocols protocol_name[,protocol_name,...]+"
+
+
+. 활성화된 프로토콜과 비활성화된 프로토콜이 'vserver show -vserver vserver_name -protocols'(vserver show -vserver vserver_name -protocol)로 올바르게 업데이트되었는지 확인합니다
+
+
+다음 명령을 실행하면 이름이 VS1 인 SVM에서 현재 설정 및 해제된 프로토콜(허용 및 허용 안 함)이 표시됩니다.
+
+[listing]
+----
+vs1::> vserver show -vserver vs1.example.com -protocols
+Vserver           Allowed Protocols         Disallowed Protocols
+-----------       ----------------------    -----------------------
+vs1.example.com   cifs                       nfs, fcp, iscsi, ndmp
+----
+다음 명령을 실행하면 VS1 이라는 SVM의 활성화된 프로토콜 목록에 "CIFS"를 추가하여 SMB를 통해 액세스할 수 있습니다.
+
+[listing]
+----
+vs1::> vserver add-protocols -vserver vs1.example.com -protocols cifs
+----

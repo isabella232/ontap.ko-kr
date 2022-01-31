@@ -1,0 +1,65 @@
+---
+permalink: smb-admin/display-types-users-connected-task.html 
+sidebar: sidebar 
+keywords: display, information, type, connect, smb, session, appropriate, type, storage, virtual, machine, svm 
+summary: 'SMB 세션을 통해 연결된 사용자 유형에 대한 정보를 표시할 수 있습니다. 따라서 적절한 유형의 사용자만 SVM(스토리지 가상 머신)의 SMB 세션을 통해 연결할 수 있습니다.' 
+---
+= SMB 세션을 통해 연결된 사용자 유형에 대한 정보를 표시합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMB 세션을 통해 연결된 사용자 유형에 대한 정보를 표시할 수 있습니다. 따라서 적절한 유형의 사용자만 SVM(스토리지 가상 머신)의 SMB 세션을 통해 연결할 수 있습니다.
+
+다음 유형의 사용자는 SMB 세션을 통해 연결할 수 있습니다.
+
+* '로컬 사용자'
++
+로컬 CIFS 사용자로 인증되었습니다
+
+* '다민 사용자'입니다
++
+도메인 사용자로 인증됨(CIFS 서버의 홈 도메인 또는 신뢰할 수 있는 도메인)
+
+* 'guest-user'입니다
++
+게스트 사용자로 인증되었습니다
+
+* 익명의 사용자
++
+익명 또는 null 사용자로 인증되었습니다
+
+
+
+.단계
+. SMB 세션을 통해 연결된 사용자 유형을 확인합니다. 'vserver cifs session show -vserver_vserver_name_-windows-user_windows_user_name_-fields windows-user, address, lif-address, user-type'
++
+|===
+| 설정된 세션에 대한 사용자 유형 정보를 표시하려면... | 다음 명령을 입력합니다... 
+
+
+ a| 
+사용자 유형이 지정된 모든 세션에 대해
+ a| 
+'vserver cifs session show -vserver_vserver_name_-user-type{local-user|domain-user|guest-user|anonymous-user}'입니다
+
+
+
+ a| 
+특정 사용자의 경우
+ a| 
+'vserver cifs session show -vserver_vserver_name_-windows-user_windows_user_name_-fields windows-user, address, lif-address, user-type'
+
+|===
+
+
+다음 명령을 실행하면 ""iepubs\user1" 사용자가 설정한 SVM VS1 세션의 사용자 유형에 대한 세션 정보가 표시됩니다.
+
+[listing]
+----
+cluster1::> vserver cifs session show -vserver pub1 -windows-user iepubs\user1 -fields windows-user,address,lif-address,user-type
+node      vserver session-id connection-id lif-address  address       windows-user         user-type
+--------- ------- ---------- ------------- ------------ ------------- -------------------- -----------
+pub1node1 pub1    1          3439441860    10.0.0.1     10.1.1.1      IEPUBS\user1         domain-user
+----

@@ -1,0 +1,51 @@
+---
+permalink: nfs-admin/commands-manage-local-netgroups-reference.html 
+sidebar: sidebar 
+keywords: command, manage, local, netgroup 
+summary: 로컬 넷그룹을 URI에서 로드하고, 노드 간에 상태를 확인하고, 표시하고, 삭제하여 관리할 수 있습니다. 
+---
+= 로컬 넷그룹을 관리하기 위한 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+로컬 넷그룹을 URI에서 로드하고, 노드 간에 상태를 확인하고, 표시하고, 삭제하여 관리할 수 있습니다.
+
+[cols="35,65"]
+|===
+
+
+| 원하는 작업 | 명령 사용... 
+
+
+ a| 
+URI에서 넷그룹을 로드합니다
+ a| 
+'vserver services name-service netgroup load'
+
+
+
+ a| 
+전체 노드에서 넷그룹의 상태를 확인합니다
+ a| 
+'vserver services name-service netgroup status'
+
+고급 권한 수준에서 사용할 수 있습니다.
+
+
+
+ a| 
+로컬 넷그룹을 표시합니다
+ a| 
+'vserver services name-service netgroup file show'를 참조하십시오
+
+
+
+ a| 
+로컬 넷그룹을 삭제합니다
+ a| 
+'vserver services name-service 넷그룹 파일 삭제
+
+|===
+자세한 내용은 각 명령에 대한 man 페이지를 참조하십시오.

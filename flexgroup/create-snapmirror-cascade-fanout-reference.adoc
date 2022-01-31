@@ -1,0 +1,51 @@
+---
+permalink: flexgroup/create-snapmirror-cascade-fanout-reference.html 
+sidebar: sidebar 
+keywords: consider, create, snapmirror, cascade, fanout, relationship, flexgroup 
+summary: FlexGroup 볼륨에 대한 계단식 배열 및 팬아웃 관계를 만들 때 유의해야 할 지원 고려 사항 및 제한 사항이 있습니다. 
+---
+= FlexGroups에 대한 계단식 SnapMirror 및 팬아웃 관계를 생성할 때의 고려 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FlexGroup 볼륨에 대한 계단식 배열 및 팬아웃 관계를 만들 때 유의해야 할 지원 고려 사항 및 제한 사항이 있습니다.
+
+
+
+== 다중 구간 관계를 만들 때의 고려 사항
+
+* 각 관계는 클러스터 간 또는 클러스터 내 관계일 수 있습니다.
+* 비동기 미러, 미러 볼트, 볼트를 포함한 모든 비동기 정책 유형은 두 관계 모두에서 지원됩니다.
+* "MirrorAllSnapshots"만 지원되며 "MirrorLatest" 비동기식 미러 정책은 지원되지 않습니다.
+* 다중 구간 XDP 관계의 동시 업데이트가 지원됩니다.
+* A에서 B로, B에서 C로 제거 및 A를 C로 재동기화 또는 C를 A로 재동기화하는 기능을 지원합니다
+* 또한 모든 노드에서 ONTAP 9.9.1 이상을 실행 중인 경우 A 및 B FlexGroup 볼륨도 팬아웃을 지원합니다.
+* B 또는 C FlexGroup 볼륨에서 복원 작업이 지원됩니다.
+* 대상이 복구 관계의 소스인 동안에는 FlexGroup 관계의 전송이 지원되지 않습니다.
+* FlexGroup 복원 대상은 다른 FlexGroup 관계의 대상이 될 수 없습니다.
+* FlexGroup 파일 복원 작업은 일반 FlexGroup 복원 작업과 동일한 제한 사항을 갖습니다.
+* B 및 C FlexGroup 볼륨이 상주하는 클러스터의 모든 노드에서 ONTAP 9.9.1 이상을 실행해야 합니다.
+* 모든 확장 및 자동 확장 기능이 지원됩니다.
+* A에서 B와 C 사이의 다중 구간 구성에서는 A에서 B로 B에서 B로, B에서 C로 구성되는 서로 다른 수의 구성 SnapMirror 관계가 있으면 B에서 C로 SnapMirror 관계에 대해 소스의 중단 작업이 지원되지 않습니다.
+* System Manager는 ONTAP 9.9.1에서 계단식 관계를 지원하지 않습니다.
+* A를 B에서 C로 변환하는 경우 FlexVol 관계를 FlexGroup 관계로 변환할 때 먼저 B를 C 홉으로 변환해야 합니다.
+* REST에서 지원하는 정책 유형과 관련된 모든 FlexGroup 캐스케이드 구성은 Cascading FlexGroup 구성의 REST API에서도 지원됩니다.
+* FlexVol 관계와 마찬가지로 FlexGroup cascading은 'napmirror protect' 명령에서는 지원되지 않습니다.
+
+
+
+
+== 팬아웃 관계를 만들기 위한 고려 사항
+
+* 2개 이상의 FlexGroup 팬아웃 관계가 지원됩니다(예: A ~ B, A ~ C, 최대 8개의 팬아웃 다리).
+* 각 관계는 클러스터 간 또는 클러스터 내가 될 수 있습니다.
+* 동시 업데이트는 두 관계에 대해 지원됩니다.
+* 모든 확장 및 자동 확장 기능이 지원됩니다.
+* 관계의 팬아웃 레그의 구성 요소 SnapMirror 관계 수가 서로 다른 경우 소스에서 B 및 A와 C 사이의 관계에 대해 중단 작업이 지원되지 않습니다.
+* 소스 및 대상 FlexGroups가 상주하는 클러스터의 모든 노드에서 ONTAP 9.9.1 이상을 실행해야 합니다.
+* 현재 FlexGroup SnapMirror에 대해 지원되는 모든 비동기식 정책 유형은 팬아웃 관계에서 지원됩니다.
+* B에서 C FlexGroups로 복구 작업을 수행할 수 있습니다.
+* REST에서 지원하는 정책 유형의 모든 팬아웃 구성은 FlexGroup 팬아웃 구성의 REST API에도 지원됩니다.
+

@@ -1,0 +1,53 @@
+---
+permalink: smb-hyper-v-sql/network-data-lif-requirements-concept.html 
+sidebar: sidebar 
+keywords: network, data, lif, requirements, hyper, v, sql, server, protocol 
+summary: 무중단 운영을 위해 SQL Server 또는 SMB를 통한 Hyper-V 구성을 생성할 때 특정 네트워크 및 데이터 LIF 요구사항을 알고 있어야 합니다. 
+---
+= 네트워크 및 데이터 LIF 요구사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+무중단 운영을 위해 SQL Server 또는 SMB를 통한 Hyper-V 구성을 생성할 때 특정 네트워크 및 데이터 LIF 요구사항을 알고 있어야 합니다.
+
+
+
+== 네트워크 프로토콜 요구 사항
+
+* IPv4 및 IPv6 네트워크가 지원됩니다.
+* SMB 3.0 이상이 필요합니다.
++
+SMB 3.0은 무중단 운영을 제공하는 데 필요한 지속적으로 사용 가능한 SMB 연결을 생성하는 데 필요한 기능을 제공합니다.
+
+* DNS 서버에는 SVM(Storage Virtual Machine)의 데이터 LIF에 할당된 IP 주소에 CIFS 서버 이름을 매핑하는 항목이 포함되어 있어야 합니다.
++
+Hyper-V 또는 SQL Server 애플리케이션 서버는 일반적으로 가상 머신 또는 데이터베이스 파일에 액세스할 때 여러 데이터 LIF를 통해 여러 개의 연결을 생성합니다. 적절한 기능을 위해 애플리케이션 서버는 여러 고유 IP 주소에 여러 번 연결하는 대신 CIFS 서버 이름을 사용하여 이러한 여러 SMB 연결을 설정해야 합니다.
+
++
+또한 감시 기능을 사용하려면 개별 LIF IP 주소 대신 CIFS 서버의 DNS 이름을 사용해야 합니다.
+
++
+ONTAP 9.4부터 SMB 멀티 채널을 활성화하여 SMB 구성에서 Hyper-V 및 SQL Server의 처리량과 내결함성을 향상시킬 수 있습니다. 이렇게 하려면 클러스터 및 클라이언트에 1G, 10G 또는 더 큰 NIC가 여러 개 설치되어 있어야 합니다.
+
+
+
+
+
+== 데이터 LIF 요구사항
+
+* SMB 솔루션을 통해 애플리케이션 서버를 호스팅하는 SVM은 클러스터의 모든 노드에 운영 데이터 LIF가 하나 이상 있어야 합니다.
++
+SVM 데이터 LIF는 애플리케이션 서버에서 액세스하는 데이터를 현재 호스팅하지 않는 노드를 비롯하여 클러스터 내의 다른 데이터 포트로 페일오버할 수 있습니다. 또한 Witness 노드는 항상 애플리케이션 서버가 접속된 노드의 SFO 파트너이므로 클러스터의 모든 노드가 잠재적인 Witness 노드입니다.
+
+* 데이터 LIF가 자동으로 복구되도록 구성하지 않아야 합니다.
++
+테이크오버 또는 반환 이벤트가 발생한 후에는 데이터 LIF를 홈 포트로 수동으로 되돌려야 합니다.
+
+* 모든 데이터 LIF IP 주소에는 DNS에 항목이 있어야 하며 모든 항목이 CIFS 서버 이름으로 확인되어야 합니다.
++
+애플리케이션 서버는 CIFS 서버 이름을 사용하여 SMB 공유에 접속해야 합니다. LIF IP 주소를 사용하여 연결을 설정할 애플리케이션 서버를 구성해서는 안 됩니다.
+
+* CIFS 서버 이름이 SVM 이름과 다른 경우 DNS 항목이 CIFS 서버 이름으로 확인되어야 합니다.
+

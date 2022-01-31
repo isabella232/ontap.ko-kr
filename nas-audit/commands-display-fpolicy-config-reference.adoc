@@ -1,0 +1,47 @@
+---
+permalink: nas-audit/commands-display-fpolicy-config-reference.html 
+sidebar: sidebar 
+keywords: commands, display, information, fpolicy, configurations 
+summary: FPolicy show 명령을 사용하여 FPolicy 외부 엔진, 이벤트, 범위, 정책에 대한 정보를 비롯하여 FPolicy 구성에 대한 정보를 표시할 수 있습니다. 
+---
+= FPolicy 구성에 대한 정보를 표시하는 명령입니다
+
+
+[role="lead"]
+FPolicy show 명령을 사용하면 외부 엔진, 이벤트, 범위, 정책에 대한 정보를 비롯하여 FPolicy 구성에 대한 정보를 표시할 수 있습니다.
+
+[cols="40,60"]
+|===
+
+
+| FPolicy에 대한 정보를 표시하려면... | 이 명령 사용... 
+
+
+ a| 
+외부 엔진
+ a| 
+'vserver FPolicy external-engine show'
+
+
+
+ a| 
+이벤트
+ a| 
+'vserver FPolicy event show'
+
+
+
+ a| 
+범위
+ a| 
+'SVM FPolicy 정책 범위 표시
+
+
+
+ a| 
+정책
+ a| 
+'vserver FPolicy show'
+
+|===
+자세한 내용은 명령에 대한 man 페이지를 참조하십시오.

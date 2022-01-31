@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: task_nas_provide_client_access_with_name_services.html 
+keywords: netapp, ontap, name services, client access, LDAP, NIS, authenticate NAS client, look up 
+summary: LDAP 또는 NIS를 사용하여 NAS 클라이언트를 인증합니다 
+---
+= 이름 서비스를 사용하여 클라이언트 액세스 제공
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+ONTAP에서 LDAP 또는 NIS를 사용하여 호스트, 사용자, 그룹 또는 넷그룹 정보를 조회하여 NAS 클라이언트를 인증합니다.
+
+이 절차는 에 대해 설정된 기존 스토리지 VM에 대한 LDAP 또는 NIS 구성을 생성하거나 수정합니다 link:task_nas_enable_linux_nfs.html["NFS 를 참조하십시오"] 또는 .
+
+LDAP 구성의 경우 환경에 필요한 LDAP 구성 세부 정보가 있어야 하며 기본 ONTAP LDAP 스키마를 사용해야 합니다.
+
+.단계
+. 필요한 서비스를 구성합니다. * 스토리지 > 스토리지 VM * 을 클릭합니다.
+. 스토리지 VM을 선택하고 * Settings * 를 클릭한 다음 를 클릭합니다 image:icon_gear.gif["기어"] LDAP 또는 NIS의 경우
+. 이름 서비스 스위치에 변경 내용을 포함합니다. 을 클릭합니다 image:icon_pencil.gif["연필"] 이름 서비스 스위치 아래에서.
+

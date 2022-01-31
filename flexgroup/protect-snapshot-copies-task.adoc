@@ -1,0 +1,81 @@
+---
+permalink: flexgroup/protect-snapshot-copies-task.html 
+sidebar: sidebar 
+keywords: protect, flexgroup, volume, snapshot, copy, flex group, snap shot, manually, manual, automatically, automatic, policy 
+summary: 스냅샷 복사본 생성을 자동으로 관리하는 스냅샷 정책을 생성하거나 FlexGroup 볼륨에 대한 스냅샷 복사본을 수동으로 생성할 수 있습니다. ONTAP이 FlexGroup 볼륨의 각 구성요소에 대해 스냅샷 복사본을 생성할 수 있는 경우에만 FlexGroup 볼륨에 대해 유효한 스냅샷 복사본이 생성됩니다. 
+---
+= 스냅샷 복사본을 사용하여 FlexGroup 볼륨 보호
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+스냅샷 복사본 생성을 자동으로 관리하는 스냅샷 정책을 생성하거나 FlexGroup 볼륨에 대한 스냅샷 복사본을 수동으로 생성할 수 있습니다. ONTAP이 FlexGroup 볼륨의 각 구성요소에 대해 스냅샷 복사본을 생성할 수 있는 경우에만 FlexGroup 볼륨에 대해 유효한 스냅샷 복사본이 생성됩니다.
+
+스냅샷 정책과 연결된 FlexGroup 볼륨이 여러 개인 경우 FlexGroup 볼륨 일정이 겹치지 않도록 해야 합니다. ONTAP 9.8부터 FlexGroup 볼륨에서 지원되는 최대 스냅샷 복사본 수는 1023개입니다.
+
+.단계
+. 스냅샷 정책을 생성하거나 스냅샷 복사본을 수동으로 생성합니다.
++
+|===
+
+
+| 을(를) 만들려면... | 이 명령을 입력하십시오... 
+
+
+ a| 
+스냅샷 정책
+ a| 
+볼륨 스냅샷 정책 생성
+
+[NOTE]
+====
+FlexGroup 볼륨의 스냅샷 정책과 연결된 스케줄의 간격은 30분을 초과해야 합니다.
+
+====
+FlexGroup 볼륨을 생성할 때 FlexGroup 볼륨에 기본 스냅샷 정책이 적용됩니다.
+
+
+
+ a| 
+Snapshot 복사본 수동
+ a| 
+'볼륨 스냅샷 생성'
+
+[NOTE]
+====
+FlexGroup 볼륨의 스냅샷 복사본을 생성한 후에는 스냅샷 복사본의 특성을 수정할 수 없습니다. 속성을 수정하려면 스냅샷 복사본을 삭제한 후 다시 생성해야 합니다.
+
+====
+|===
++
+스냅샷 복사본이 생성될 때 FlexGroup 볼륨에 대한 클라이언트 액세스가 잠시 정지됩니다.
+
+. FlexGroup 볼륨에 대해 'volume snapshot show-volume volume_name-fields state'라는 유효한 스냅샷 복사본이 생성되었는지 확인합니다
++
+[listing]
+----
+cluster1::> volume snapshot show -volume fg -fields state
+vserver volume snapshot               state
+------- ------ ---------------------- -----
+fg_vs   fg     hourly.2016-08-23_0505 valid
+----
+. FlexGroup 볼륨의 구성 요소인 볼륨 스냅샷 show-is-f구성요소 true의 스냅샷 복사본을 확인하십시오
++
+[listing]
+----
+cluster1::> volume snapshot show -is-constituent true
+                                                                 ---Blocks---
+Vserver  Volume   Snapshot                                  Size Total% Used%
+-------- -------- ------------------------------------- -------- ------ -----
+fg_vs    fg__0001
+                  hourly.2016-08-23_0505                    72MB     0%   27%
+         fg__0002
+                  hourly.2016-08-23_0505                    72MB     0%   27%
+         fg__0003
+                  hourly.2016-08-23_0505                    72MB     0%   27%
+...
+         fg__0016
+                  hourly.2016-08-23_0505                    72MB     0%   27%
+----
+

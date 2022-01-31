@@ -1,0 +1,22 @@
+---
+sidebar: sidebar 
+permalink: smbc/smbc_troubleshoot_sm_delete_fails_when_fence_is_set_on_dest.html 
+keywords: troubleshooting, SM-BC, SMBC, SnapMirror, redirection fence, delete 
+summary: 대상 볼륨에 리디렉션 펜스 세트가 있으면 SnapMirror 삭제 작업이 실패합니다. 
+---
+= 대상 볼륨에 Fence가 설정되어 있으면 SM-BC SnapMirror 삭제 작업이 실패합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+대상 볼륨에 리디렉션 펜스 세트가 있으면 SnapMirror 삭제 작업이 실패합니다.
+
+다음 작업을 수행하여 리디렉션을 재시도하고 대상 볼륨에서 Fence를 제거합니다.
+
+* SnapMirror 재동기화
+* SnapMirror 업데이트
+

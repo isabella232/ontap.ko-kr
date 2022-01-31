@@ -1,0 +1,60 @@
+---
+permalink: smb-admin/default-administrative-shares-concept.html 
+sidebar: sidebar 
+keywords: create, cifs, server, storage, virtual, machine, svm, default, administrative, share, automatic, what the default administrative shares are 
+summary: 'SVM(스토리지 가상 시스템)에서 CIFS 서버를 생성하면 세 가지 기본 관리 공유가 자동으로 생성됩니다. 이러한 기본 공유가 무엇이고 어떻게 사용되는지 이해해야 합니다.' 
+---
+= 기본 관리 공유는 무엇입니까
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SVM(스토리지 가상 시스템)에서 CIFS 서버를 생성하면 세 가지 기본 관리 공유가 자동으로 생성됩니다. 이러한 기본 공유가 무엇이고 어떻게 사용되는지 이해해야 합니다.
+
+ONTAP는 CIFS 서버를 생성할 때 다음과 같은 기본 관리 공유를 생성합니다.
+
+* IPC$
+* 관리 비용
+* c$
+
+
+$ 문자로 끝나는 공유는 숨겨진 공유이므로 기본 관리 공유는 내 컴퓨터에서 표시되지 않지만 공유 폴더를 사용하여 볼 수 있습니다.
+
+
+
+== IPC$ 및 admin$ 기본 공유가 사용되는 방법입니다
+
+IPC$ 및 admin$ 공유는 ONTAP에서 사용되며 Windows 관리자가 SVM에 상주하는 데이터에 액세스하는 데 사용할 수 없습니다.
+
+* IPC$ 공유입니다
++
+IPC$ 공유는 프로그램 간 통신에 필수적인 명명된 파이프를 공유하는 리소스입니다. IPC$ 공유는 컴퓨터의 원격 관리 및 컴퓨터의 공유 리소스를 볼 때 사용됩니다. IPC$ 공유의 공유 설정, 공유 속성 또는 ACL은 변경할 수 없습니다. IPC$ 공유의 이름을 바꾸거나 삭제할 수도 없습니다.
+
+* admin$ 공유
++
+SVM의 원격 관리 중에 admin$ 공유가 사용됩니다. 이 리소스의 경로는 항상 SVM 루트로 연결되는 경로입니다. admin$ 공유에 대한 공유 설정, 공유 속성 또는 ACL은 변경할 수 없습니다. admin$ 공유의 이름을 바꾸거나 삭제할 수도 없습니다.
+
+
+
+
+
+== c$ 기본 공유가 사용되는 방식
+
+c$ 공유는 클러스터 또는 SVM 관리자가 SVM 루트 볼륨에 액세스하고 관리하는 데 사용할 수 있는 관리 공유입니다.
+
+c$ 공유의 특징은 다음과 같습니다.
+
+* 이 공유의 경로는 항상 SVM 루트 볼륨의 경로이며 수정할 수 없습니다.
+* c$ 공유의 기본 ACL은 Administrator/Full Control입니다.
++
+이 사용자는 BUILTIN\administrator입니다. 기본적으로 BUILTIN\ 관리자는 공유에 매핑하고 매핑된 루트 디렉토리에서 파일 및 폴더를 보거나, 만들거나, 수정하거나, 삭제할 수 있습니다. 이 디렉터리의 파일과 폴더를 관리할 때는 주의해야 합니다.
+
+* c$ 공유의 ACL을 변경할 수 있습니다.
+* c$ 공유 설정을 변경하고 속성을 공유할 수 있습니다.
+* c$ 공유를 삭제할 수 없습니다.
+* SVM 관리자는 네임스페이스 접합을 교차하여 매핑된 c$ 공유에서 나머지 SVM 네임스페이스에 액세스할 수 있습니다.
+* c$ 공유는 Microsoft 관리 콘솔을 사용하여 액세스할 수 있습니다.
+
+
+xref:configure-ntfs-windows-security-tab-task.adoc[Windows 보안 탭을 사용하여 고급 NTFS 파일 권한 구성]

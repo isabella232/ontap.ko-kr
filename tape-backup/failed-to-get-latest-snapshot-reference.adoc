@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/failed-to-get-latest-snapshot-reference.html 
+sidebar: sidebar 
+keywords: snapshot, copy, volume, initialized, snapmirror, failed 
+summary: SnapMirror에 의해 볼륨이 초기화되고 있으므로 최신 스냅샷 복사본이 없을 수 있습니다. 
+---
+= 최신 스냅샷을 가져오지 못했습니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+최근 스냅샷을 가져오지 못했습니다
+
+* * 원인 *
++
+SnapMirror에 의해 볼륨이 초기화되고 있으므로 최신 스냅샷 복사본이 없을 수 있습니다.
+
+* * 시정 조치 *
++
+초기화가 완료된 후 다시 시도하십시오.
+
+

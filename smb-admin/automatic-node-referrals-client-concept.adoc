@@ -1,0 +1,17 @@
+---
+permalink: smb-admin/automatic-node-referrals-client-concept.html 
+sidebar: sidebar 
+keywords: referral, client, perspective, windows, dfstuil, exe, utility, monitor, client-side, smb, automatic, how to monitor client-side smb automatic node referral information using a windows client 
+summary: 클라이언트의 관점에서 어떤 조회를 수행하는지 확인하려면 Windows dfsutil.exe 유틸리티를 사용하면 됩니다. 
+---
+= Windows 클라이언트를 사용하여 클라이언트 측 SMB 자동 노드 조회 정보를 모니터링합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클라이언트의 관점에서 어떤 조회를 수행할지 결정하려면 Windows dutil.exe를 사용할 수 있습니다.
+
+Windows 7 이상의 클라이언트에서 사용할 수 있는 RSAT(원격 서버 관리 도구) 키트에는 Dsutil.exe가 포함되어 있습니다. 이 유틸리티를 사용하면 추천 캐시의 내용에 대한 정보를 표시하고 클라이언트가 현재 사용하고 있는 각 추천 정보에 대한 정보를 볼 수 있습니다. 이 유틸리티를 사용하여 클라이언트의 조회 캐시를 지울 수도 있습니다. 자세한 내용은 Microsoft TechNet 라이브러리를 참조하십시오.
+
+http://technet.microsoft.com/en-us/library/["Microsoft TechNet 라이브러리: technet.microsoft.com/en-us/library/"]

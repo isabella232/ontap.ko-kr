@@ -1,0 +1,84 @@
+---
+permalink: data-protection/make-destination-volume-writeable-task.html 
+sidebar: sidebar 
+keywords: destination, volume, writeable, write, serve data, snapmirror, quiesce, pause, abort, transfers 
+summary: 볼륨에서 클라이언트로 데이터를 제공하려면 먼저 대상 볼륨을 쓰기 가능하게 만들어야 합니다. SnapMirror 중지 명령을 사용하여 대상에 대한 예약된 전송을 중지하고, SnapMirror 중단 명령을 사용하여 진행 중인 전송을 중지한 다음, SnapMirror 중단 명령을 사용하여 대상을 쓰기 가능 상태로 만들 수 있습니다. 
+---
+= 대상 볼륨을 쓰기 가능하게 만듭니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+볼륨에서 클라이언트로 데이터를 제공하려면 먼저 대상 볼륨을 쓰기 가능하게 만들어야 합니다. 'napmirror quiesce' 명령을 사용하면 대상에 대한 예약된 전송을 중지하고, 'napmirror abort' 명령을 사용하여 진행 중인 전송을 중지하고, 'napmirror break' 명령을 사용하여 대상을 쓰기 가능하게 만들 수 있습니다.
+
+이 작업은 대상 SVM 또는 타겟 클러스터에서 수행해야 합니다.
+
+.단계
+. 목적지로의 예약된 전송 중지:
++
+'스냅샷 중지-소스-경로_SVM:볼륨|클러스터://SVM/볼륨 _,... -destination-path_SVM: volume|cluster://SVM/volume_,
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+다음 예에서는 svm1의 소스 볼륨 VolA와 sm_backup의 대상 볼륨 VolA_dst 간의 예약된 전송을 중지합니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror quiesce -source-path svm1:volA -destination-path svm_backup:volA_dst
+----
+. 목적지로의 진행 중인 전송을 중지합니다.
++
+'스냅샷 미러 중단 - 소스 경로_SVM: volume_|_cluster://SVM/volume_,... -destination-path_SVM:volume_|_cluster://SVM/volume_,
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+[NOTE]
+====
+SnapMirror 동기식 관계에는 이 단계가 필요하지 않습니다(ONTAP 9.5부터 지원됨).
+
+====
++
+다음 예에서는 svm1의 소스 볼륨 VolA와 sm_backup의 대상 볼륨 VolA_dst 간의 지속적인 전송을 중지합니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror abort -source-path svm1:volA -destination-path svm_backup:volA_dst
+----
+. SnapMirror DR 관계 끊기:
++
+스냅샷/SVM/VOLUME_PATH:VOLUME_|_cluster://SVM/VOLUME_,... -destination-path_SVM:volume_|_cluster://SVM/volume_,
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+다음 예에서는 svm1의 소스 볼륨 VolA와 sm_backup의 대상 볼륨 VolA_dst와 sm_backup의 대상 볼륨 VolA_dst 간의 관계를 다음과 같이 나눕니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror break -source-path svm1:volA -destination-path svm_backup:volA_dst
+----
+
+
+
+
+== ONTAP에서 이 작업을 수행하는 다른 방법
+
+[cols="2"]
+|===
+| 에서 이러한 작업을 수행하려면... | 이 콘텐츠 보기... 
+
+
+| 재설계된 System Manager(ONTAP 9.7 이상에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap/task_dp_serve_data_from_destination.html["SnapMirror 대상에 데이터를 제공합니다"^] 
+
+
+| System Manager Classic(ONTAP 9.7 이하에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap-sm-classic/volume-disaster-recovery/index.html["볼륨 재해 복구 개요"^] 
+|===

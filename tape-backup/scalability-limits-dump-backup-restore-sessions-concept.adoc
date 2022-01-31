@@ -1,0 +1,48 @@
+---
+permalink: tape-backup/scalability-limits-dump-backup-restore-sessions-concept.html 
+sidebar: sidebar 
+keywords: scalability, limites, dump, backup, restore, sessions, maximum, memory, capacities, storage, system 
+summary: 서로 다른 시스템 메모리 용량의 스토리지 시스템에서 동시에 수행할 수 있는 최대 덤프 백업 및 복원 세션 수에 대해 알고 있어야 합니다. 이 최대 개수는 스토리지 시스템의 시스템 메모리에 따라 다릅니다. 
+---
+= 덤프 백업 및 복원 세션에 대한 확장성 제한
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+서로 다른 시스템 메모리 용량의 스토리지 시스템에서 동시에 수행할 수 있는 최대 덤프 백업 및 복원 세션 수에 대해 알고 있어야 합니다. 이 최대 개수는 스토리지 시스템의 시스템 메모리에 따라 다릅니다.
+
+다음 표에 나와 있는 제한은 덤프 또는 복원 엔진에 대한 것입니다. NDMP 세션의 확장성 제한에서 언급한 제한은 엔진 제한값보다 높은 NDMP 서버에 대한 것입니다.
+
+|===
+| 스토리지 시스템의 시스템 메모리입니다 | 총 덤프 백업 및 복원 세션 수입니다 
+
+
+ a| 
+16GB 미만
+ a| 
+4
+
+
+
+ a| 
+16GB보다 크거나 같지만 24GB보다 작습니다
+ a| 
+16
+
+
+
+ a| 
+24GB보다 크거나 같습니다
+ a| 
+32
+
+|===
+[NOTE]
+====
+스토리지 시스템 내에서 데이터를 복제하기 위해 'ndmpcopy' 명령을 사용하는 경우 두 개의 NDMP 세션이 설정됩니다. 하나는 덤프 백업용이고 다른 하나는 덤프 복구용으로 설정됩니다.
+
+====
+'sysconfig-a' 명령(노드 쉘을 통해 사용 가능)을 사용하여 스토리지 시스템의 시스템 메모리를 확보할 수 있습니다. 이 명령 사용에 대한 자세한 내용은 man 페이지를 참조하십시오.
+
+xref:scalability-limits-ndmp-sessions-reference.adoc[NDMP 세션의 확장성 제한]

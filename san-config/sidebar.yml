@@ -1,0 +1,114 @@
+---
+section: san-config
+title: SAN 구성 참조
+entries:
+- title: 개요
+  url: "/san-config/index.html"
+- title: iSCSI 구성에 대한 고려 사항
+  entries:
+  - title: 개요
+    url: "/san-config/iscsi-config-concept.html"
+  - title: 단일 노드로 iSCSI SAN 호스트를 구성하는 방법
+    url: "/san-config/configure-iscsi-san-hosts-single-nodes-reference.html"
+  - title: HA 쌍으로 iSCSI SAN 호스트를 구성하는 방법
+    url: "/san-config/configure-iscsi-san-hosts-ha-pairs-reference.html"
+  - title: iSCSI 구성에서 VLAN을 사용할 때의 이점
+    url: "/san-config/benefits-vlans-iscsi-concept.html"
+- title: FC-NVMe 구성을 위한 고려사항
+  url: "/san-config/fc-nvme-config-concept.html"
+- title: FC 구성에 대한 고려 사항
+  entries:
+  - title: 개요
+    url: "/san-config/fc-config-concept.html"
+  - title: 단일 노드로 FC 및 FC-NVMe SAN 호스트를 구성하는 방법
+    url: "/san-config/configure-fc-nvme-san-hosts-single-nodes-reference.html"
+  - title: FC FC-NVMe SAN 호스트를 HA 쌍으로 구성하는 방법
+    url: "/san-config/configure-fc-nvme-hosts-ha-pairs-reference.html"
+  - title: FC 스위치 구성 모범 사례
+    url: "/san-config/fc-switch-config-best-practices-concept.html"
+  - title: 지원되는 FC 홉 수
+    url: "/san-config/supported-number-fc-hop-counts-reference.html"
+  - title: FC 타겟 포트의 지원 속도입니다
+    url: "/san-config/fc-target-port-supported-speeds-reference.html"
+  - title: FC 타겟 포트 구성 권장 사항
+    url: "/san-config/fc-target-port-config-recommendations-concept.html"
+- title: FC 어댑터를 사용하여 시스템을 관리합니다
+  entries:
+  - title: 개요
+    url: "/san-config/manage-systems-fc-adapters-concept.html"
+  - title: FC 어댑터를 관리하는 명령입니다
+    url: "/san-config/commands-manage-fc-adapters-reference.html"
+  - title: 이니시에이터 모드에 맞게 FC 어댑터를 구성합니다
+    url: "/san-config/configure-fc-adapters-initiator-mode-task.html"
+  - title: FC 어댑터를 타겟 모드로 구성합니다
+    url: "/san-config/configure-fc-adapters-target-mode-task.html"
+  - title: FC 타겟 어댑터에 대한 정보를 표시합니다
+    url: "/san-config/display-fc-target-adapter-task.html"
+  - title: FC 어댑터의 속도를 변경합니다
+    url: "/san-config/change-fc-adapter-speed-task.html"
+  - title: 지원되는 FC 포트
+    url: "/san-config/supported-fc-ports-concept.html"
+  - title: X1133A-R6 어댑터를 사용할 경우 연결 끊김 방지
+    url: "/san-config/prevent-loss-connectivity-x1133a-r6-adapter-concept.html"
+  - title: X1143A-R6 어댑터를 관리합니다
+    entries:
+    - title: 개요
+      url: "/san-config/supported-port-config-x1143a-r6-adapter-concept.html"
+    - title: X1143A-R6 어댑터의 포트 구성 옵션입니다
+      url: "/san-config/port-config-options-x1143a-r6-adapter-concept.html"
+    - title: 포트를 구성합니다
+      url: "/san-config/configure-ports-task.html"
+    - title: UTA2 포트를 CNA 모드에서 FC 모드로 변경합니다
+      url: "/san-config/change-uta2-port-cna-mode-fc-task.html"
+    - title: CNA/UTA2 타겟 어댑터 광 모듈을 변경합니다
+      url: "/san-config/change-cna-uta2-optical-modules-task.html"
+    - title: 어댑터 설정을 봅니다
+      url: "/san-config/view-adapter-settings-capabilities-task.html"
+- title: FCoE 구성 방법
+  entries:
+  - title: 개요
+    url: "/san-config/configure-fcoe-reference.html"
+  - title: FCoE 이니시에이터 및 타겟 조합
+    url: "/san-config/fcoe-initiator-target-combinations-reference.html"
+  - title: FCoE 지원 홉 수
+    url: "/san-config/fcoe-supported-hop-count-reference.html"
+- title: 파이버 채널 및 FCoE 조닝
+  entries:
+  - title: 개요
+    url: "/san-config/fibre-channel-fcoe-zoning-concept.html"
+  - title: World Wide Name 기반 조닝
+    url: "/san-config/world-wide-name-based-zoning-concept.html"
+  - title: 개별 존
+    url: "/san-config/individual-zones-reference.html"
+  - title: 단일 패브릭 조닝
+    url: "/san-config/single-fabric-zoning-reference.html"
+  - title: 이중 패브릭 HA 쌍 조닝
+    url: "/san-config/dual-fabric-ha-pair-zoning-reference.html"
+  - title: Cisco FC 및 FCoE 스위치에 대한 조닝 제한 사항
+    url: "/san-config/zoning-restrictions-cisco-fc-fcoe-switches-reference.html"
+- title: 공유 SAN 구성에 대한 요구사항
+  url: "/san-config/support-shared-san-config-concept.html"
+- title: 다중 경로에 대한 호스트 지원
+  entries:
+  - title: 개요
+    url: "/san-config/host-support-multipathing-concept.html"
+  - title: 호스트 다중 경로 소프트웨어가 필요한 경우
+    url: "/san-config/multipathing-software-required-concept.html"
+  - title: 클러스터의 호스트에서 노드까지 권장되는 경로 수입니다
+    url: "/san-config/recommended-paths-host-nodes-concept.html"
+- title: 구성 제한
+  entries:
+  - title: SAN 구성에서 지원되는 노드 수를 확인합니다
+    url: "/san-config/determine-supported-nodes-task.html"
+  - title: FC 및 FC-NVMe 구성에서 클러스터당 지원되는 호스트 수를 결정합니다
+    url: "/san-config/determine-supported-hosts-fc-nvme-config-task.html"
+  - title: iSCSI 구성에서 지원되는 호스트 수를 확인합니다
+    url: "/san-config/determine-supported-hosts-iscsi-config-task.html"
+  - title: FC 스위치 구성 제한
+    url: "/san-config/fc-switch-config-limits-reference.html"
+  - title: 대기열 길이를 계산합니다
+    url: "/san-config/calculate-queue-depth-task.html"
+  - title: 대기열 깊이를 설정합니다
+    url: "/san-config/set-queue-depth-task.html"
+- title: MetroCluster 환경의 SAN 구성에 대한 고려 사항
+  url: "/san-config/san-config-mcc-concept.html"

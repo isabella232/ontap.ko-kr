@@ -1,0 +1,55 @@
+---
+permalink: system-admin/accessg-node-log-core-dump-mib-files-task.html 
+sidebar: sidebar 
+keywords: service, processor, infrastructure, spi, web, service, node, log, core, dump, mib, file, browser 
+summary: 'SPI(Service Processor Infrastructure) 웹 서비스는 기본적으로 활성화되어 웹 브라우저가 클러스터에 있는 노드의 로그, 코어 덤프 및 MIB 파일에 액세스할 수 있도록 합니다. 노드가 다운된 경우에도 파일이 액세스 가능 상태로 유지됩니다. 단, 해당 노드가 파트너에 의해 인계됩니다.' 
+---
+= 웹 브라우저를 사용하여 노드의 로그, 코어 덤프 및 MIB 파일에 액세스합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Service Processor Infrastructure(S pi) 웹 서비스는 기본적으로 활성화되어 웹 브라우저가 클러스터에 있는 노드의 로그, 코어 덤프 및 MIB 파일에 액세스할 수 있도록 합니다. 노드가 다운된 경우에도 파일이 액세스 가능 상태로 유지됩니다. 단, 해당 노드가 파트너에 의해 인계됩니다.
+
+.무엇을 &#8217;필요로 할거야
+* 클러스터 관리 LIF가 가동되어야 합니다.
++
+클러스터의 관리 LIF나 노드를 사용하여 'pi' 웹 서비스에 액세스할 수 있습니다. 그러나 클러스터 관리 LIF를 사용하는 것이 좋습니다.
+
++
+network interface show 명령은 클러스터에 있는 모든 LIF의 상태를 표시합니다.
+
+* 사용자 계정에 'admin' 역할(기본적으로 'pi' 웹 서비스에 액세스할 수 있는 역할)이 없으면 액세스 제어 역할에 'pi' 웹 서비스에 대한 액세스 권한이 부여되어야 합니다.
++
+'vserver services web access show' 명령은 어떤 역할이 어떤 웹 서비스에 대한 액세스 권한이 부여되어 있는지 보여줍니다.
+
+* "admin" 사용자 계정(기본적으로 "http" 액세스 방법을 포함하는 계정)을 사용하지 않는 경우 사용자 계정은 "http" 액세스 방법으로 설정해야 합니다.
++
+'보안 로그인 표시' 명령은 사용자 계정의 액세스 및 로그인 방법과 액세스 제어 역할을 표시합니다.
+
+* 보안 웹 액세스를 위해 HTTPS를 사용하려면 SSL을 활성화하고 디지털 인증서를 설치해야 합니다.
++
+'system services web show' 명령은 클러스터 수준에서 웹 프로토콜 엔진의 구성을 표시합니다.
+
+
+
+기본적으로 'spi' 웹 서비스가 활성화되어 있으며 서비스를 수동으로 비활성화할 수 있습니다('vserver services web modify -vserver * -name spi -enabled false').
+
+"admin" 역할은 기본적으로 'spi' 웹 서비스에 대한 액세스 권한이 부여되며, 액세스를 수동으로 비활성화할 수 있습니다('services web access delete -vserver_cluster_name_-name spi-role admin').
+
+.단계
+. 다음 형식 중 하나로 웹 브라우저를 'pi' 웹 서비스 URL로 지정합니다.
++
+** "http://_cluster-mgmt-LIF_/spi/`
+** "https://_cluster-mgmt-LIF_/spi/`
++
+클러스터 관리 LIF의 IP 주소는 클러스터 관리 LIF의 IP 주소입니다.
+
+
+
+. 브라우저에서 메시지가 표시되면 사용자 계정 및 암호를 입력합니다.
++
+계정이 인증되면 브라우저는 클러스터에 있는 각 노드의 '/mroot/etc/log/', '/mroot/etc/crash/' 및 '/mroot/etc/mib/' 디렉토리에 대한 링크를 표시합니다.
+
+

@@ -1,0 +1,133 @@
+---
+permalink: data-protection/exclude-lifs-svm-replication-task.html 
+sidebar: sidebar 
+keywords: lifs, network, settings, svm, replication 
+summary: 소스 및 타겟 SVM이 서로 다른 서브넷에 있는 경우 SnapMirror 정책 생성 명령의 -discard-configs 네트워크 옵션을 사용하여 LIF 및 관련 네트워크 설정을 SVM 복제에서 제외할 수 있습니다. 
+---
+= SVM 복제에서 LIF 및 관련 네트워크 설정을 제외합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+소스 및 타겟 SVM이 서로 다른 서브넷에 있는 경우 '스냅샷 정책 생성' 명령의 '-discard-configs network' 옵션을 사용하여 SVM 복제에서 LIF 및 관련 네트워크 설정을 제외할 수 있습니다.
+
+소스 및 타겟 클러스터와 SVM을 피어링해야 합니다.
+
+SVM 복제 관계를 생성할 때 'napmirror create' 명령의 '-identity-preserve' 옵션을 'true'로 설정해야 합니다.
+
+전체 명령 구문은 man 페이지를 참조하십시오.
+
+.단계
+. 대상 SVM 생성:
++
+'vserver create-vserver_SVM_-subtype DP-destination'
+
++
+SVM 이름은 소스 및 타겟 클러스터 전체에서 고유해야 합니다.
+
++
+다음 예에서는 sm_backup이라는 대상 SVM을 생성합니다.
+
++
+[listing]
+----
+cluster_dst:> vserver create -vserver svm_backup -subtype dp-destination
+----
+. 작업 일정 생성:
++
+"작업 일정 cron create-name_job_name_-month_month_-DayOfWeek_day_of_week_-day_day_of_month_-hour_hour_-minute_minute_"
+
++
+월-일-일-주-시-시간의 경우 월, 일, 시 순으로 모두 작업을 실행하도록 지정할 수 있습니다.
+
++
+다음 예에서는 토요일 오전 3시에 실행되는 my_weekly라는 작업 일정을 생성합니다.
+
++
+[listing]
+----
+cluster_dst::> job schedule cron create -name my_weekly -dayofweek "Saturday" -hour 3 -minute 0
+----
+. 사용자 지정 복제 정책 생성:
++
+'스냅샷 정책 생성 - vserver_SVM_-policy_policy_-type async-mirror|vault|mirror-vault-comment_comment_- transfer_rs-priority low|normal-is-network-compression-enabled true|false-discard-configs network'
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+다음 예제에서는 LIF를 제외한 SnapMirror DR에 대한 사용자 지정 복제 정책을 생성합니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror policy create -vserver svm1 -policy DR_exclude_LIFs -type async-mirror -discard-configs network
+----
++
+다음 예에서는 LIF를 제외한 유니파이드 복제에 대한 맞춤형 복제 정책을 생성합니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror policy create -vserver svm1 -policy unified_exclude_LIFs -type mirror-vault -discard-configs network
+----
+. 대상 SVM 또는 대상 클러스터에서 다음 명령을 실행하여 복제 관계를 생성합니다.
++
+'sapmirror create-source-path_SVM_:-destination-path_SVM_:-type DP|XDP-schedule_schedule_-policy_policy_-identity-preserve true|false'입니다
+
++
+[NOTE]
+====
+'-source-path' 및 '-destination-path' 옵션에서 SVM 이름 뒤에 콜론(:)을 입력해야 합니다. 아래 예를 참조하십시오.
+
+====
++
+다음 예제에서는 LIF를 제외한 SnapMirror DR 관계를 생성합니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror create -source-path svm1: -destination-path svm_backup: -type XDP -schedule my_daily -policy DR_exclude_LIFs -identity-preserve true
+----
++
+다음 예제에서는 LIF를 제외한 SnapMirror 통합 복제 관계를 생성합니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror create -source-path svm1: -destination-path svm_backup: -type XDP -schedule my_daily -policy unified_exclude_LIFs -identity-preserve true
+----
+. 대상 SVM 중지:
++
+'vserver stop'
+
++
+'_SVM 이름 _'
+
++
+다음 예는 dv1이라는 대상 SVM을 중지합니다.
+
++
+[listing]
+----
+cluster_dst::> vserver stop -vserver dvs1
+----
+. 대상 SVM 또는 대상 클러스터에서 복제 관계를 초기화합니다.
++
+'스냅샷 초기화-소스-경로_SVM_:-대상-경로_SVM_:'
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+다음 예에서는 소스 'svm1'과 대상 'svm_backup' 간의 관계를 초기화합니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror initialize -source-path svm1: -destination-path svm_backup:
+----
+
+
+재해가 발생할 경우 데이터 액세스를 위해 대상 SVM에서 네트워크 및 프로토콜을 구성해야 합니다.

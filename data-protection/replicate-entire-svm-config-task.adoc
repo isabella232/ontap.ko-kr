@@ -1,0 +1,123 @@
+---
+permalink: data-protection/replicate-entire-svm-config-task.html 
+sidebar: sidebar 
+keywords: replicate, entire, svm, configuration, snapmirror, snap mirror, replication, mirror vault policy, snapshot 
+summary: SnapMirror create 명령의 -identity-preserve true 옵션을 사용하여 전체 SVM 구성을 복제할 수 있습니다. 
+---
+= 전체 SVM 구성을 복제합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'napmirror create' 명령의 '-identity-preserve true' 옵션을 사용하여 전체 SVM 구성을 복제할 수 있습니다.
+
+소스 및 타겟 클러스터와 SVM을 피어링해야 합니다.
+
+전체 명령 구문은 man 페이지를 참조하십시오.
+
+이 워크플로우에서는 이미 기본 정책 또는 사용자 지정 복제 정책을 사용하고 있다고 가정합니다.
+
+ONTAP 9.9.1부터 미러 소산 정책을 사용할 경우 소스 및 타겟 SVM에 서로 다른 스냅샷 정책을 생성할 수 있으며, 소스의 스냅샷 복사본에 의해 대상의 스냅샷 복사본을 덮어쓰지 않습니다. 자세한 내용은 을 참조하십시오 link:snapmirror-svm-replication-concept.html["SnapMirror SVM 복제 이해"].
+
+.단계
+. 대상 SVM 생성:
++
+'vserver create-vserver_SVM_name_-subtype DP-destination'
+
++
+SVM 이름은 소스 및 타겟 클러스터 전체에서 고유해야 합니다.
+
++
+다음 예에서는 sm_backup이라는 대상 SVM을 생성합니다.
+
++
+[listing]
+----
+cluster_dst:> vserver create -vserver svm_backup -subtype dp-destination
+----
+. 복제 작업 스케줄 생성:
++
+"작업 일정 cron create-name_job_name_-month_month_-DayOfWeek_day_of_week_-day_day_of_month_-hour_hour_-minute_minute_"
+
++
+월-일-일-주-시-시간의 경우 월, 일, 시 순으로 모두 작업을 실행하도록 지정할 수 있습니다.
+
++
+다음 예에서는 토요일 오전 3시에 실행되는 my_weekly라는 작업 일정을 생성합니다.
+
++
+[listing]
+----
+cluster_dst::> job schedule cron create -name my_weekly -dayofweek "Saturday" -hour 3 -minute 0
+----
+. 타겟 SVM 또는 타겟 클러스터에서 복제 관계를 생성합니다.
++
+'sapmirror create-source-path_SVM_name_:-destination-path_SVM_name_:-type DP|XDP-schedule_schedule_-policy_policy_-identity-preserve true'
+
++
+[NOTE]
+====
+'-source-path' 및 '-destination-path' 옵션에서 SVM 이름 뒤에 콜론(:)을 입력해야 합니다.
+
+====
++
+다음 예에서는 기본 'MirorAllSnapshots' 정책을 사용하여 SnapMirror DR 관계를 생성합니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror create -source-path svm1: -destination-path svm_backup: -type XDP -schedule my_daily -policy MirrorAllSnapshots -identity-preserve true
+----
++
+다음 예에서는 기본 MirorAndVault 정책을 사용하여 통합 복제 관계를 생성합니다.
+
++
+[listing]
+----
+cluster_dst:> snapmirror create -source-path svm1: -destination-path svm_backup: -type XDP -schedule my_daily -policy MirrorAndVault -identity-preserve true
+----
++
+정책 유형인 '비동기 미러'를 사용하여 사용자 지정 정책을 생성했다고 가정하면 다음 예에서는 SnapMirror DR 관계가 생성됩니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror create -source-path svm1: -destination-path svm_backup: -type XDP -schedule my_daily -policy my_mirrored -identity-preserve true
+----
++
+정책 유형 'Mirror-vault'로 사용자 지정 정책을 생성했다고 가정하면 다음 예에서는 통합 복제 관계를 생성합니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror create -source-path svm1: -destination-path svm_backup: -type XDP -schedule my_daily -policy my_unified -identity-preserve true
+----
+. 대상 SVM 중지:
++
+'vserver stop'
+
++
+'_SVM 이름 _'
+
++
+다음 예는 dv1이라는 대상 SVM을 중지합니다.
+
++
+[listing]
+----
+cluster_dst::> vserver stop -vserver dvs1
+----
+. 대상 SVM 또는 대상 클러스터에서 SVM 복제 관계를 초기화합니다
++
+'스냅샷 초기화-소스-경로_SVM_이름_:-대상-경로_SVM_이름_:'
+
++
+다음 예에서는 소스 SVM, svm1, 대상 SVM, svm_backup 간의 관계를 초기화합니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror initialize -source-path svm1: -destination-path svm_backup:
+----
+

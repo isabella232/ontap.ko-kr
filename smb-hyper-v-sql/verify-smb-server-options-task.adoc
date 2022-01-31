@@ -1,0 +1,78 @@
+---
+permalink: smb-hyper-v-sql/verify-smb-server-options-task.html 
+sidebar: sidebar 
+keywords: verify, cifs, server, option, configured, hyper, v, sql, server, smb 
+summary: 필요한 CIFS 서버 옵션이 Hyper-V 및 SQL Server over SMB의 무중단 운영 요구 사항에 따라 설정 및 구성되었는지 확인해야 합니다. 
+---
+= 필요한 CIFS 서버 옵션이 구성되었는지 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+필요한 CIFS 서버 옵션이 Hyper-V 및 SQL Server over SMB의 무중단 운영 요구 사항에 따라 설정 및 구성되었는지 확인해야 합니다.
+
+.이 작업에 대해
+* SMB 2.x 및 SMB 3.0을 활성화해야 합니다.
+* ODX 복사 오프로드를 사용하여 성능을 향상시키려면 ODX 복사 오프로드를 활성화해야 합니다.
+* Hyper-V over SMB 솔루션에서 원격 VSS 지원 백업 서비스를 사용하는 경우 VSS Shadow Copy 서비스를 활성화해야 합니다(Hyper-V만 해당).
+
+
+.단계
+. 필요한 CIFS 서버 옵션이 SVM(스토리지 가상 시스템)에서 설정되었는지 확인합니다.
++
+.. 권한 수준을 고급으로 설정합니다.
++
+' * set-Privilege advanced * '
+
+.. 다음 명령을 입력합니다.
++
+'* vserver CIFS options show -vserver_vserver_name_ *'
+
++
+다음 옵션은 "참"으로 설정해야 합니다.
+
++
+*** '-SMB2-ENABLED'입니다
+*** '-SMB3-enabled'입니다
+*** '-copy-offload-enabled'
+*** '-shadowcopy -enabled'(Hyper-V만 해당)
+
+
+
+
+. "참"으로 설정되어 있지 않은 옵션이 있는 경우 다음을 수행하십시오.
++
+.. vserver cifs options modify 명령을 사용하여 "true"로 설정합니다.
+.. vserver cifs options show 명령을 사용하여 옵션이 "true"로 설정되어 있는지 확인합니다.
+
+
+. 관리자 권한 레벨로 돌아갑니다.
++
+' * set-privilege admin * '
+
+
+
+다음 명령은 SVM VS1 기반 Hyper-V 구성에 필요한 옵션이 설정되어 있는지 확인합니다. 이 예에서는 옵션 요구 사항을 충족하도록 ODX 복사 오프로드를 활성화해야 합니다.
+
+[listing]
+----
+cluster1::> set -privilege advanced
+Warning: These advanced commands are potentially dangerous; use them
+only when directed to do so by technical support personnel.
+Do you wish to continue? (y or n): y
+
+cluster1::*> vserver cifs options show -vserver vs1 -fields smb2-enabled,smb3-enabled,copy-offload-enabled,shadowcopy-enabled
+vserver smb2-enabled smb3-enabled copy-offload-enabled shadowcopy-enabled
+------- ------------ ------------ -------------------- ------------------
+vs1     true         true         false                true
+
+cluster-1::*> vserver cifs options modify -vserver vs1 -copy-offload-enabled true
+
+cluster-1::*> vserver cifs options show -vserver vs1 -fields copy-offload-enabled
+vserver  copy-offload-enabled
+-------- --------------------
+vs1      true
+
+cluster1::*> set -privilege admin
+----

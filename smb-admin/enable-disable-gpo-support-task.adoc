@@ -1,0 +1,66 @@
+---
+permalink: smb-admin/enable-disable-gpo-support-task.html 
+sidebar: sidebar 
+keywords: enable, disable, group, policy, object, gpo, support, cifs, server, applicable, define, policy, organizational, unit, ou, enable or disable gpo support on a cifs server 
+summary: 'CIFS 서버에서 GPO(그룹 정책 개체) 지원을 설정하거나 해제할 수 있습니다. CIFS 서버에서 GPO 지원을 설정하면 그룹 정책에 정의된 적용 가능한 GPO, 즉 CIFS 서버 컴퓨터 개체가 포함된 OU(조직 구성 단위)에 적용되는 정책이 CIFS 서버에 적용됩니다.' 
+---
+= CIFS 서버에서 GPO 지원을 설정하거나 해제합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+CIFS 서버에서 GPO(그룹 정책 개체) 지원을 설정하거나 해제할 수 있습니다. CIFS 서버에서 GPO 지원을 설정하면 CIFS 서버 컴퓨터 개체가 포함된 OU(조직 구성 단위)에 적용되는 그룹 정책에 정의된 적용 가능한 GPO가 CIFS 서버에 적용됩니다.
+
+[NOTE]
+.이 작업에 대해
+====
+워크그룹 모드에서는 CIFS 서버에서 GPO를 설정할 수 없습니다.
+
+====
+.단계
+. 다음 작업 중 하나를 수행합니다.
++
+|===
+| 원하는 작업 | 명령 입력... 
+
+
+ a| 
+GPO를 활성화합니다
+ a| 
+'vserver cifs group-policy modify -vserver_vserver_name_-status enabled'
+
+
+
+ a| 
+GPO를 비활성화합니다
+ a| 
+'vserver cifs group-policy modify -vserver_vserver_name_-status disabled'
+
+|===
+. GPO 지원이 'vserver cifs group-policy show-vserver+vserver_name_'(SVM CIFS 그룹 정책 표시) 상태로 설정되어 있는지 확인합니다
++
+워크그룹 모드의 CIFS 서버에 대한 그룹 정책 상태는 "사용 안 함"으로 표시됩니다.
+
+
+
+다음 예에서는 SVM(Storage Virtual Machine) VS1 에 대한 GPO 지원을 설정합니다.
+
+[listing]
+----
+cluster1::> vserver cifs group-policy modify -vserver vs1 -status enabled
+
+cluster1::> vserver cifs group-policy show -vserver vs1
+
+            Vserver: vs1
+Group Policy Status: enabled
+----
+xref:supported-gpos-concept.adoc[지원되는 GPO]
+
+xref:requirements-gpos-concept.adoc[GPO를 CIFS 서버와 함께 사용하기 위한 요구 사항]
+
+xref:gpos-updated-server-concept.adoc[CIFS 서버에서 GPO를 업데이트하는 방법]
+
+xref:manual-update-gpo-settings-task.adoc[CIFS 서버에서 GPO 설정을 수동으로 업데이트합니다]
+
+xref:display-gpo-config-task.adoc[GPO 구성에 대한 정보 표시]

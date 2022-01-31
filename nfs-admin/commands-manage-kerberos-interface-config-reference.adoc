@@ -1,0 +1,49 @@
+---
+permalink: nfs-admin/commands-manage-kerberos-interface-config-reference.html 
+sidebar: sidebar 
+keywords: command, manage, nfs, kerberos, interface, configuration 
+summary: NFS Kerberos 인터페이스 구성을 관리하기 위한 특정 ONTAP 명령이 있습니다. 
+---
+= NFS Kerberos 인터페이스 구성을 관리하는 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NFS Kerberos 인터페이스 구성을 관리하기 위한 특정 ONTAP 명령이 있습니다.
+
+[cols="35,65"]
+|===
+
+
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+LIF에서 NFS Kerberos를 사용하도록 설정합니다
+ a| 
+'vserver NFS Kerberos interface enable'
+
+
+
+ a| 
+NFS Kerberos 인터페이스 구성을 표시합니다
+ a| 
+vserver nfs Kerberos interface show를 선택합니다
+
+
+
+ a| 
+NFS Kerberos 인터페이스 구성을 수정합니다
+ a| 
+가상 NFS Kerberos 인터페이스 수정
+
+
+
+ a| 
+LIF에서 NFS Kerberos를 사용하지 않도록 설정합니다
+ a| 
+'vserver NFS Kerberos interface disable'
+
+|===
+자세한 내용은 각 명령에 대한 man 페이지를 참조하십시오.

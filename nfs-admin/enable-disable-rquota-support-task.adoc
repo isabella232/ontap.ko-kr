@@ -1,0 +1,41 @@
+---
+permalink: nfs-admin/enable-disable-rquota-support-task.html 
+sidebar: sidebar 
+keywords: enable, disable, rquota, support 
+summary: 'ONTAP는 원격 할당량 프로토콜 버전 1(rquota v1)을 지원합니다. rquota 프로토콜을 사용하면 NFS 클라이언트가 원격 시스템에서 사용자에 대한 할당량 정보를 얻을 수 있습니다. SVM NFS modify 명령을 사용하여 SVM(스토리지 가상 머신)에서 rquota를 설정할 수 있습니다.' 
+---
+= rquota 지원을 설정하거나 해제합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP는 원격 할당량 프로토콜 버전 1(rquota v1)을 지원합니다. rquota 프로토콜을 사용하면 NFS 클라이언트가 원격 시스템에서 사용자에 대한 할당량 정보를 얻을 수 있습니다. "vserver NFS modify" 명령을 사용하여 SVM(스토리지 가상 시스템)에서 rquota를 설정할 수 있습니다.
+
+기본적으로 rquota는 비활성화되어 있습니다.
+
+.단계
+. 다음 작업 중 하나를 수행합니다.
++
+[cols="2*"]
+|===
+| 원하는 작업 | 다음 명령을 입력합니다... 
+
+
+ a| 
+SVM에 대해 rquota 지원을 설정합니다
+ a| 
+'vserver nfs modify -vserver vserver_name -rquota enable'
+
+
+
+ a| 
+SVM에 대한 rquota 지원을 비활성화합니다
+ a| 
+'vserver nfs modify -vserver vserver_name -rquota disable'
+
+|===
++
+할당량에 대한 자세한 내용은 을 참조하십시오 link:../volumes/index.html["논리적 스토리지 관리"].
+
+

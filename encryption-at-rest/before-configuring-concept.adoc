@@ -1,0 +1,89 @@
+---
+permalink: encryption-at-rest/before-configuring-concept.html 
+sidebar: sidebar 
+keywords: collect, network, information, ontap 9.2, earlier 
+summary: ONTAP 9.2 이하를 사용하는 경우 외부 키 관리를 활성화하기 전에 네트워크 구성 워크시트를 작성해야 합니다. 
+---
+= ONTAP 9.2 및 그 이전 버전에서 네트워크 정보를 수집합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.2 이하를 사용하는 경우 외부 키 관리를 활성화하기 전에 네트워크 구성 워크시트를 작성해야 합니다.
+
+[NOTE]
+====
+ONTAP 9.3부터 시스템은 필요한 모든 네트워크 정보를 자동으로 검색합니다.
+
+====
+[cols="35,35,30"]
+|===
+
+
+| 항목 | 참고 | 값 
+
+
+ a| 
+키 관리 네트워크 인터페이스 이름입니다
+ a| 
+ a| 
+
+
+
+ a| 
+키 관리 네트워크 인터페이스 IP 주소입니다
+ a| 
+노드 관리 LIF의 IP 주소(IPv4 또는 IPv6 형식)입니다
+ a| 
+
+
+
+ a| 
+키 관리 네트워크 인터페이스 IPv6 네트워크 접두사 길이
+ a| 
+IPv6을 사용하는 경우 IPv6 네트워크 접두사 길이입니다
+ a| 
+
+
+
+ a| 
+키 관리 네트워크 인터페이스 서브넷 마스크입니다
+ a| 
+ a| 
+
+
+
+ a| 
+키 관리 네트워크 인터페이스 게이트웨이 IP 주소입니다
+ a| 
+ a| 
+
+
+
+ a| 
+클러스터 네트워크 인터페이스의 IPv6 주소입니다
+ a| 
+키 관리 네트워크 인터페이스에 IPv6을 사용하는 경우에만 필요합니다
+ a| 
+
+
+
+ a| 
+각 KMIP 서버의 포트 번호입니다
+ a| 
+선택 사항. 모든 KMIP 서버의 포트 번호는 동일해야 합니다. 포트 번호를 제공하지 않으면 기본적으로 포트 5696이 설정되며, 이 포트는 KMIP에 대해 IANA(Internet Assigned Numbers Authority)가 할당한 포트입니다.
+ a| 
+
+
+
+ a| 
+키 태그 이름입니다
+ a| 
+선택 사항. 키 태그 이름은 노드에 속한 모든 키를 식별하는 데 사용됩니다. 기본 키 태그 이름은 노드 이름입니다.
+ a| 
+
+|===
+https://www.netapp.com/pdf.html?item=/media/19676-tr-3954.pdf["NetApp 기술 보고서 3954: IBM Tivoli Lifetime Key Manager를 위한 NetApp Storage Encryption 사전 설치 요구사항 및 절차"]
+
+https://www.netapp.com/pdf.html?item=/media/19682-tr-4074.pdf["NetApp 기술 보고서 4074: NetApp Storage Encryption 사전 설치 요구사항 및 SafeNet KeySecure에 대한 절차"]

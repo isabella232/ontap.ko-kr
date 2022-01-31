@@ -1,0 +1,45 @@
+---
+permalink: flexgroup/fast-directory-delete-asynchronous-task.html 
+sidebar: sidebar 
+keywords: perform, directory, delete, files, asynchronous, share, flexvol, flex vol, flexgroup, flex group 
+summary: REST API를 사용하여 디렉토리를 삭제해야 합니다. ONTAP 9.8부터는 volume file async-delete 명령을 사용하여 Linux 및 Windows 클라이언트 공유에서 백그라운드로 파일과 디렉토리를 삭제할 수도 있습니다. FlexVol 볼륨과 FlexGroup 볼륨 모두에 대해 비동기식 삭제를 수행할 수 있습니다. 
+---
+= 파일 및 디렉토리를 비동기적으로 삭제하여 빠른 디렉토리 삭제를 수행합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+REST API를 사용하여 디렉토리를 삭제해야 합니다. ONTAP 9.8부터 "volume file async-delete" 명령을 사용하여 Linux 및 Windows 클라이언트 공유에서 백그라운드로 파일과 디렉토리를 삭제할 수도 있습니다. FlexVol 볼륨과 FlexGroup 볼륨 모두에 대해 비동기식 삭제를 수행할 수 있습니다.
+
+고급 권한 모드를 사용하는 클러스터 관리자 또는 SVM 관리자여야 합니다.
+
+ONTAP 9.9.1부터 시스템 관리자를 사용하여 빠른 디렉토리 삭제를 수행할 수도 있습니다. 자세한 내용은 을 참조하십시오 https://docs.netapp.com/us-en/ontap/task_nas_file_system_analytics_take_corrective_action.html["분석을 기반으로 수정 조치 수행"].
+
+.단계
+. 고급 권한 모드 '-Privilege advance'로 진입한다
+. FlexVol 또는 FlexGroup 볼륨에서 파일 또는 디렉토리를 삭제합니다. 'volume file async-delete start-vserver vserver_name-volume volume_name-path file_path-throttle'
++
+최소 스로틀 값은 10, 최대값은 100,000, 기본값은 5000입니다.
+
++
+다음 예제에서는 d1 이라는 디렉터리에 있는 d2 라는 디렉터리를 삭제합니다.
+
++
+[listing]
+----
+cluster::*>volume file async-delete start -vserver vs1 -volume vol1 -path d1/d2
+----
+. 디렉토리가 삭제되었는지 '이벤트 로그 표시'를 확인합니다
++
+다음 예제에서는 디렉터리가 성공적으로 삭제되었을 때 이벤트 로그의 출력을 보여 줍니다.
+
++
+[listing]
+----
+cluster-cli::*> event log show
+Time                 Node             Severity      Event
+-------------------  ---------------- ------------- --------------------
+MM/DD/YYYY 00:11:11  cluster-vsim     INFORMATIONAL asyncDelete.message.success: Async delete job on path d1/d2 of volume (MSID: 2162149232) was completed.
+----
+

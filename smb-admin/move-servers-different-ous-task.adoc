@@ -1,0 +1,22 @@
+---
+permalink: smb-admin/move-servers-different-ous-task.html 
+sidebar: sidebar 
+keywords: cifs, server, create-process, default, organizational, unit, ou, cn, computer, move cifs servers to different ous 
+summary: 'CIFS 서버 생성 프로세스는 다른 OU를 지정하지 않는 한 설정 중에 기본 OU(조직 구성 단위) CN=컴퓨터를 사용합니다. 설정 후 CIFS 서버를 다른 OU로 이동할 수 있습니다.' 
+---
+= CIFS 서버를 다른 OU로 이동합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+CIFS 서버 생성 프로세스는 다른 OU를 지정하지 않는 한 설정 중에 기본 OU(조직 구성 단위) CN=컴퓨터를 사용합니다. 설정 후 CIFS 서버를 다른 OU로 이동할 수 있습니다.
+
+.단계
+. Windows 서버에서 * Active Directory 사용자 및 컴퓨터 * 트리를 엽니다.
+. SVM(스토리지 가상 머신)에 대한 Active Directory 개체를 찾습니다.
+. 개체를 마우스 오른쪽 단추로 클릭하고 * 이동 * 을 선택합니다.
+. SVM과 연결할 OU를 선택합니다
+
+
+SVM 객체가 선택한 OU에 배치됩니다.

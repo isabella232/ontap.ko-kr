@@ -1,0 +1,77 @@
+---
+permalink: smb-admin/modify-branchcache-config-task.html 
+sidebar: sidebar 
+keywords: modify, configuration, branchcache, service, svm, store, directory, path, hash, maximum, size, operating, mode, version, modify branchcache configurations 
+summary: 해시 저장소 디렉토리 경로 변경, 해시 저장소 최대 디렉토리 크기, 운영 모드 및 지원되는 BranchCache 버전을 포함하여 SVM에서 BranchCache 서비스의 구성을 수정할 수 있습니다. 해시 저장소가 포함된 볼륨의 크기를 늘릴 수도 있습니다. 
+---
+= BranchCache 구성을 수정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+해시 저장소 디렉토리 경로 변경, 해시 저장소 최대 디렉토리 크기, 운영 모드 및 지원되는 BranchCache 버전을 포함하여 SVM에서 BranchCache 서비스의 구성을 수정할 수 있습니다. 해시 저장소가 포함된 볼륨의 크기를 늘릴 수도 있습니다.
+
+.단계
+. 적절한 작업을 수행합니다.
++
+|===
+| 원하는 작업 | 다음을 입력하십시오. 
+
+
+ a| 
+해시 저장소 디렉터리 크기를 수정합니다
+ a| 
+'vserver cifs BranchCache modify -vserver vserver_name -hash-store -max-size{integer[KB|MB|GB|TB|PB]}'
+
+
+
+ a| 
+해시 저장소가 포함된 볼륨의 크기를 늘립니다
+ a| 
+``볼륨 크기 - vserver vserver_name - volume volume_name - new-size new_size [k|m|g|t]' 해시 저장소가 포함된 볼륨이 가득 차면 볼륨의 크기를 늘릴 수 있습니다. 새 볼륨 크기를 숫자로 지정한 다음 단위를 지정할 수 있습니다.
+
+을 참조하십시오 link:../volumes/index.html["논리적 스토리지 관리"] 볼륨 크기 증가에 대한 자세한 내용은 를 참조하십시오.
+
+
+
+ a| 
+해시 저장소 디렉터리 경로를 수정합니다
+ a| 
+'vserver cifs BranchCache modify -vserver vserver_name -hash-store-path path -flush-hash{true|false}' SVM이 SVM 재해 복구 소스인 경우 해시 경로가 루트 볼륨에 있을 수 없습니다. 루트 볼륨이 재해 복구 대상에 복제되지 않기 때문입니다.
+
+BranchCache 해시 경로에는 공백과 유효한 파일 이름 문자가 포함될 수 있습니다.
+
+해시 경로를 수정할 경우 ONTAP가 원래 해시 저장 위치에서 해시를 플러시할지 여부를 지정하는 필수 매개 변수입니다. '-flush-hash' 파라미터에 대해 다음 값을 설정할 수 있습니다.
+
+** "true"를 지정하면 ONTAP는 원래 위치에서 해시를 삭제하고 BranchCache 사용 클라이언트가 새 요청을 수행할 때 새 위치에 새 해시를 만듭니다.
+** false를 지정하면 해시가 플러시되지 않습니다.
++
+이 경우 해시 저장소 경로를 원래 위치로 다시 변경하여 나중에 기존 해시를 다시 사용하도록 선택할 수 있습니다.
+
+
+
+
+
+ a| 
+작동 모드를 변경합니다
+ a| 
+'vserver cifs BranchCache modify -vserver vserver_name -operating-mode{per-share|all-share|disable}'
+
+[NOTE]
+====
+운영 모드를 수정할 때 다음 사항에 주의해야 합니다. - ONTAP는 SMB 세션이 설정될 때 공유에 대한 BranchCache 지원을 알립니다. - BranchCache가 설정된 경우 이미 세션을 설정한 클라이언트는 연결을 끊고 다시 연결하여 이 공유에 캐시된 콘텐츠를 사용해야 합니다.
+
+====
+
+
+ a| 
+BranchCache 버전 지원을 변경합니다
+ a| 
+'vserver cifs BranchCache modify -vserver vserver vserver_name -versions{v1-enable|v2-enable|enable-all}'
+
+|===
+. 'vserver cifs BranchCache show' 명령을 사용하여 구성 변경 사항을 확인합니다.
+
+
+link:../volumes/index.html["논리적 스토리지 관리 가이드"]

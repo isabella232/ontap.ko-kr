@@ -1,0 +1,47 @@
+---
+permalink: smb-hyper-v-sql/licensing-requirements-concept.html 
+sidebar: sidebar 
+keywords: ontap, license, requirement, nondisruptive, hyper, v, smb, sql, server 
+summary: SVM에서 무중단 운영을 위해 SQL Server 또는 Hyper-V over SMB 솔루션을 생성할 때 특정 ONTAP 및 라이센스 요구사항을 알아야 합니다. 
+---
+= ONTAP 및 라이센스 요구 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SVM에서 무중단 운영을 위해 SQL Server 또는 Hyper-V over SMB 솔루션을 생성할 때 특정 ONTAP 및 라이센스 요구사항을 알아야 합니다.
+
+
+
+== ONTAP 버전 요구 사항
+
+* SMB를 통한 Hyper-V
++
+ONTAP는 Windows 2012 이상에서 실행되는 Hyper-V에 대해 SMB 공유를 통한 무중단 운영을 지원합니다.
+
+* SMB를 통한 SQL Server
++
+ONTAP는 Windows 2012 이상에서 실행되는 SQL Server 2012 이상에 대해 SMB 공유를 통한 무중단 운영을 지원합니다.
+
+
+
+SMB 공유에서 무중단 운영을 지원하는 ONTAP, Windows Server 및 SQL Server의 지원되는 버전에 대한 최신 정보는 상호 운용성 매트릭스 를 참조하십시오.
+
+https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"]
+
+
+
+== 라이센스 요구 사항
+
+다음 라이센스가 필요합니다.
+
+* CIFS를 선택합니다
+* FlexClone(SMB를 통한 Hyper-V만 해당)
++
+원격 VSS를 백업에 사용하는 경우 이 라이센스가 필요합니다. 섀도 복사본 서비스는 FlexClone을 사용하여 백업을 만들 때 사용되는 파일의 시점 복사본을 만듭니다.
+
++
+FlexClone 라이센스는 원격 VSS를 사용하지 않는 백업 방법을 사용하는 경우 선택 사항입니다.
+
+

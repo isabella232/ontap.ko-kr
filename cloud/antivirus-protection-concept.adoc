@@ -1,0 +1,17 @@
+---
+permalink: cloud/antivirus-protection-concept.html 
+sidebar: sidebar 
+keywords: antivirus, protection 
+summary: 통합된 바이러스 백신 기능을 사용하여 바이러스나 기타 악성 코드에 의해 데이터가 손상되는 것을 방지할 수 있습니다. Cloud Volumes ONTAP를 사용할 때도 이와 동일한 바이러스 백신 보호 기능을 클라우드에서 사용할 수 있습니다. 
+---
+= 안티바이러스 보호
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+통합된 바이러스 백신 기능을 사용하여 바이러스나 기타 악성 코드에 의해 데이터가 손상되는 것을 방지할 수 있습니다. Cloud Volumes ONTAP를 사용할 때도 이와 동일한 바이러스 백신 보호 기능을 클라우드에서 사용할 수 있습니다.
+
+로컬 서버에 설치된 ONTAP 바이러스 백신 커넥터는 스토리지 시스템과 바이러스 백신 소프트웨어 간의 통신을 처리합니다. Cloud Volumes ONTAP의 경우 ONTAP와 동일한 클라우드에 있는 가상 머신에 바이러스 백신 커넥터를 설치합니다.
+
+link:../antivirus/index.html["안티바이러스 구성"]

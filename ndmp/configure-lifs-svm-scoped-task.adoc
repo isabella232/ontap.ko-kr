@@ -1,0 +1,196 @@
+---
+permalink: ndmp/configure-lifs-svm-scoped-task.html 
+sidebar: sidebar 
+keywords: configure, lifs 
+summary: 데이터와 테이프 리소스 간에 데이터 연결을 설정하고, 관리 SVM과 백업 애플리케이션 간의 연결을 제어하는 데 사용할 LIF를 식별해야 합니다. LIF를 식별한 후 LIF에 대한 방화벽 및 페일오버 정책이 설정되었는지 확인하고 기본 인터페이스 역할을 지정해야 합니다. 
+---
+= LIF를 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+데이터와 테이프 리소스 간에 데이터 연결을 설정하고, 관리 SVM과 백업 애플리케이션 간의 연결을 제어하는 데 사용할 LIF를 식별해야 합니다. LIF를 식별한 후 LIF에 대한 방화벽 및 페일오버 정책이 설정되었는지 확인하고 기본 인터페이스 역할을 지정해야 합니다.
+
+.단계
+. '-role' 매개 변수가 있는 'network interface show' 명령을 사용하여 인터클러스터, 클러스터 관리 및 노드 관리 LIF를 식별합니다.
++
+다음 명령을 실행하면 인터클러스터 LIF가 표시됩니다.
+
++
+[listing]
+----
+cluster1::> network interface show -role intercluster
+
+            Logical           Status     Network            Current       Current Is
+Vserver     Interface         Admin/Oper Address/Mask       Node          Port    Home
+----------- ----------        ---------- ------------------ ------------- ------- ----
+cluster1    IC1               up/up      192.0.2.65/24      cluster1-1    e0a     true
+cluster1    IC2               up/up      192.0.2.68/24      cluster1-2    e0b     true
+----
++
+다음 명령을 실행하면 클러스터 관리 LIF가 표시됩니다.
+
++
+[listing]
+----
+cluster1::> network interface show -role cluster-mgmt
+
+            Logical           Status     Network            Current       Current Is
+Vserver     Interface         Admin/Oper Address/Mask       Node          Port    Home
+----------- ----------        ---------- ------------------ ------------- ------- ----
+cluster1    cluster_mgmt      up/up      192.0.2.60/24      cluster1-2    e0M     true
+----
++
+다음 명령을 실행하면 노드 관리 LIF가 표시됩니다.
+
++
+[listing]
+----
+cluster1::> network interface show -role node-mgmt
+
+            Logical           Status     Network            Current       Current Is
+Vserver     Interface         Admin/Oper Address/Mask       Node          Port    Home
+----------- ----------        ---------- ------------------ ------------  ------  ------
+cluster1    cluster1-1_mgmt1  up/up      192.0.2.69/24      cluster1-1    e0M     true
+            cluster1-2_mgmt1  up/up      192.0.2.70/24      cluster1-2    e0M     true
+----
+. 인터클러스터, 클러스터 관리(클러스터 관리) 및 노드 관리(노드 관리) LIF에 NDMP에 대해 방화벽 정책이 활성화되어 있는지 확인합니다.
++
+.. 'system services firewall policy show' 명령을 사용하여 NDMP에 대해 방화벽 정책이 설정되어 있는지 확인합니다.
++
+다음 명령을 실행하면 클러스터 관리 LIF의 방화벽 정책이 표시됩니다.
+
++
+[listing]
+----
+cluster1::> system services firewall policy show -policy cluster
+
+Vserver     Policy       Service    Allowed
+-------     ------------ ---------- -----------------
+cluster     cluster      dns        0.0.0.0/0
+                         http       0.0.0.0/0
+                         https      0.0.0.0/0
+                        ** ndmp       0.0.0.0/0**
+                         ndmps      0.0.0.0/0
+                         ntp        0.0.0.0/0
+                         rsh        0.0.0.0/0
+                         snmp       0.0.0.0/0
+                         ssh        0.0.0.0/0
+                         telnet     0.0.0.0/0
+10 entries were displayed.
+----
++
+다음 명령을 실행하면 인터클러스터 LIF의 방화벽 정책이 표시됩니다.
+
++
+[listing]
+----
+cluster1::> system services firewall policy show -policy intercluster
+
+Vserver     Policy       Service    Allowed
+-------     ------------ ---------- -------------------
+cluster1    intercluster dns        -
+                         http       -
+                         https      -
+                         **ndmp       0.0.0.0/0, ::/0**
+                         ndmps      -
+                         ntp        -
+                         rsh        -
+                         ssh        -
+                         telnet     -
+9 entries were displayed.
+----
++
+다음 명령을 실행하면 노드 관리 LIF의 방화벽 정책이 표시됩니다.
+
++
+[listing]
+----
+cluster1::> system services firewall policy show -policy mgmt
+
+Vserver     Policy       Service    Allowed
+-------     ------------ ---------- -------------------
+cluster1-1  mgmt         dns        0.0.0.0/0, ::/0
+                         http       0.0.0.0/0, ::/0
+                         https      0.0.0.0/0, ::/0
+                         **ndmp       0.0.0.0/0, ::/0**
+                         ndmps      0.0.0.0/0, ::/0
+                         ntp        0.0.0.0/0, ::/0
+                         rsh        -
+                         snmp       0.0.0.0/0, ::/0
+                         ssh        0.0.0.0/0, ::/0
+                         telnet     -
+10 entries were displayed.
+----
+.. 방화벽 정책이 활성화되지 않은 경우 '-service' 매개 변수를 사용하여 'system services firewall policy modify' 명령을 사용하여 방화벽 정책을 활성화합니다.
++
+다음 명령을 실행하면 인터클러스터 LIF에 대한 방화벽 정책을 사용할 수 있습니다.
+
++
+[listing]
+----
+cluster1::> system services firewall policy modify -vserver cluster1 -policy intercluster -service ndmp 0.0.0.0/0
+----
+
+
+. 모든 LIF에 대해 페일오버 정책이 적절하게 설정되었는지 확인합니다.
++
+.. 클러스터 관리 LIF의 페일오버 정책이 브로드캐스트 도메인 전체에 설정되어 있고, 인터클러스터 및 노드 관리 LIF에 대한 정책이 '네트워크 인터페이스 show-failover' 명령을 사용하여 '로컬 전용'으로 설정되어 있는지 확인합니다.
++
+다음 명령을 실행하면 클러스터 관리, 인터클러스터 및 노드 관리 LIF에 대한 페일오버 정책이 표시됩니다.
+
++
+[listing]
+----
+cluster1::> network interface show -failover
+
+           Logical            Home              Failover              Failover
+Vserver    Interface          Node:Port         Policy                Group
+---------- -----------------  ----------------- --------------------  --------
+cluster    cluster1_clus1     cluster1-1:e0a    local-only            cluster
+                                                     Failover Targets:
+                   	                                 .......
+
+**cluster1   cluster_mgmt       cluster1-1:e0m    broadcast-domain-wide Default**
+                                                     Failover Targets:
+                                                     .......
+           **IC1                 cluster1-1:e0a    local-only           Default**
+                                                     Failover Targets:
+           **IC2                 cluster1-1:e0b    local-only           Default**
+                                                     Failover Targets:
+                                                     .......
+**cluster1-1 cluster1-1_mgmt1   cluster1-1:e0m    local-only            Default**
+                                                     Failover Targets:
+                                                     ......
+**cluster1-2 cluster1-2_mgmt1   cluster1-2:e0m    local-only            Default**
+                                                     Failover Targets:
+                                                     ......
+----
+.. 페일오버 정책이 제대로 설정되지 않은 경우 -failover-policy 매개 변수와 함께 network interface modify 명령을 사용하여 페일오버 정책을 수정합니다.
++
+[listing]
+----
+cluster1::> network interface modify -vserver cluster1 -lif IC1 -failover-policy local-only
+----
+
+
+. 데이터 연결에 필요한 LIF를 'preferred-interface-role' 매개 변수와 함께 'vserver services ndmp modify' 명령을 사용하여 지정합니다.
++
+[listing]
+----
+cluster1::> vserver services ndmp modify -vserver cluster1 -preferred-interface-role intercluster,cluster-mgmt,node-mgmt
+----
+. 'vserver services ndmp show' 명령을 사용하여 클러스터에 대해 기본 인터페이스 역할이 설정되어 있는지 확인합니다.
++
+[listing]
+----
+cluster1::> vserver services ndmp show -vserver cluster1
+
+                             Vserver: cluster1
+                        NDMP Version: 4
+                        .......
+                        .......
+            Preferred Interface Role: intercluster, cluster-mgmt, node-mgmt
+----
+

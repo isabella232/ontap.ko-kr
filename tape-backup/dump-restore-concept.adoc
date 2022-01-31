@@ -1,0 +1,48 @@
+---
+permalink: tape-backup/dump-restore-concept.html 
+sidebar: sidebar 
+keywords: dump, restore, file, write, system, data, disk 
+summary: 덤프 복구는 미리 정의된 프로세스를 사용하여 파일 시스템 데이터를 테이프에서 디스크로 씁니다. 
+---
+= 덤프 복구의 작동 방식
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+덤프 복구는 미리 정의된 프로세스를 사용하여 파일 시스템 데이터를 테이프에서 디스크로 씁니다.
+
+다음 표의 프로세스는 덤프 복구가 작동하는 방식을 보여 줍니다.
+
+[cols="1,4"]
+|===
+| 단계 | 조치 
+
+
+ a| 
+1
+ a| 
+ONTAP는 테이프에서 추출해야 하는 파일을 카탈로그로 작성합니다.
+
+
+
+ a| 
+2
+ a| 
+ONTAP는 디렉토리와 빈 파일을 생성합니다.
+
+
+
+ a| 
+3
+ a| 
+ONTAP는 테이프에서 파일을 읽고 이를 디스크에 쓴 다음 해당 테이프에 대한 사용 권한(ACL 포함)을 설정합니다.
+
+
+
+ a| 
+4
+ a| 
+ONTAP는 지정된 모든 파일이 테이프에서 복사될 때까지 2단계와 3단계를 반복합니다.
+
+|===

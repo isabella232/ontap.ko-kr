@@ -1,0 +1,170 @@
+---
+permalink: tape-backup/commands-manage-node-scoped-ndmp-reference.html 
+sidebar: sidebar 
+keywords: command, manage, node, scoped, ndmp, mode 
+summary: 시스템 서비스 NDMP 명령을 사용하여 노드 레벨에서 NDMP를 관리할 수 있습니다. 이러한 명령 중 일부는 더 이상 사용되지 않으며 향후 주요 릴리즈에서 제거될 예정입니다. 
+---
+= 노드 범위의 NDMP 모드를 관리하는 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'system services ndmp' 명령을 사용하여 노드 레벨에서 NDMP를 관리할 수 있습니다. 이러한 명령 중 일부는 더 이상 사용되지 않으며 향후 주요 릴리즈에서 제거될 예정입니다.
+
+다음 NDMP 명령은 고급 권한 수준에서만 사용할 수 있습니다.
+
+* '시스템 서비스 NDMP 서비스 종료
+* '시스템 서비스 NDMP 서비스 시작'
+* '시스템 서비스 NDMP 서비스 중지'
+* '시스템 서비스 NDMP 로그 시작'
+* 'System services ndmp log stop'(시스템 서비스 NDMP 로그 중지)
+
+
+|===
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+NDMP 서비스를 설정합니다
+ a| 
+'System services NDMP on' *
+
+
+
+ a| 
+NDMP 서비스를 해제합니다
+ a| 
+'시스템 서비스 NDMP 꺼짐' *
+
+
+
+ a| 
+NDMP 구성을 표시합니다
+ a| 
+'system services ndmp show' * 를 참조하십시오
+
+
+
+ a| 
+NDMP 구성을 수정합니다
+ a| 
+'시스템 서비스 NDMP 수정' *
+
+
+
+ a| 
+기본 NDMP 버전을 표시합니다
+ a| 
+'시스템 서비스 NDMP 버전' *
+
+
+
+ a| 
+NDMP 서비스 구성을 표시합니다
+ a| 
+'시스템 서비스 NDMP 서비스 쇼'
+
+
+
+ a| 
+NDMP 서비스 구성을 수정합니다
+ a| 
+'시스템 서비스 NDMP 서비스 수정'
+
+
+
+ a| 
+모든 NDMP 세션을 표시합니다
+ a| 
+'시스템 서비스 NDMP 상태'
+
+
+
+ a| 
+모든 NDMP 세션에 대한 자세한 정보를 표시합니다
+ a| 
+'System services ndmp probe
+
+
+
+ a| 
+지정된 NDMP 세션을 종료합니다
+ a| 
+'시스템 서비스 NDMP kill'
+
+
+
+ a| 
+모든 NDMP 세션을 종료합니다
+ a| 
+'시스템 서비스 NDMP kill-all'
+
+
+
+ a| 
+NDMP 암호를 변경합니다
+ a| 
+'시스템 서비스 NDMP 암호' *
+
+
+
+ a| 
+노드 범위 NDMP 모드를 설정합니다
+ a| 
+'System services NDMP node-scope-mode on' *
+
+
+
+ a| 
+노드 범위 NDMP 모드를 해제합니다
+ a| 
+'System services NDMP node-scope-mode off' *
+
+
+
+ a| 
+노드 범위의 NDMP 모드 상태를 표시합니다
+ a| 
+'System services NDMP node-scope-mode status' *
+
+
+
+ a| 
+모든 NDMP 세션을 강제로 종료합니다
+ a| 
+'시스템 서비스 NDMP 서비스 종료
+
+
+
+ a| 
+NDMP 서비스 데몬을 시작합니다
+ a| 
+'시스템 서비스 NDMP 서비스 시작'
+
+
+
+ a| 
+NDMP 서비스 데몬을 중지합니다
+ a| 
+'시스템 서비스 NDMP 서비스 중지'
+
+
+
+ a| 
+지정된 NDMP 세션에 대해 로깅을 시작합니다
+ a| 
+'시스템 서비스 NDMP 로그 시작' *
+
+
+
+ a| 
+지정된 NDMP 세션에 대한 로깅을 중지합니다
+ a| 
+'System services ndmp log stop' *
+
+|===
+* 이러한 명령은 더 이상 사용되지 않으며 향후 주요 릴리즈에서 제거될 예정입니다.
+
+
+이러한 명령에 대한 자세한 내용은 'system services ndmp' 명령에 대한 man 페이지를 참조하십시오.

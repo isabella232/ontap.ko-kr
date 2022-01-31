@@ -1,0 +1,139 @@
+---
+permalink: performance-admin/adaptive-qos-policy-groups-task.html 
+sidebar: sidebar 
+keywords: use, adaptive, qos, policy, groups 
+summary: 적응형 QoS 정책 그룹을 사용하면 볼륨 크기가 변경될 때 IOPS와 TB|GB의 비율을 유지하면서 처리량 상한 또는 하한 크기를 자동으로 확장할 수 있습니다. 이는 대규모 구축 환경에서 수백 또는 수천 개의 워크로드를 관리할 때 큰 이점입니다. 
+---
+= 적응형 QoS 정책 그룹을 사용합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+adaptive QoS_policy 그룹을 사용하면 볼륨 크기가 변경될 때 IOPS와 TB|GB의 비율을 유지하면서 처리량 상한 또는 하한 크기를 자동으로 확장할 수 있습니다. 이는 대규모 구축 환경에서 수백 또는 수천 개의 워크로드를 관리할 때 큰 이점입니다.
+
+.무엇을 &#8217;필요로 할거야
+* ONTAP 9.3을 실행해야 합니다. 적응형 QoS 정책 그룹은 ONTAP 9.3부터 사용할 수 있습니다.
+* 정책 그룹을 생성하려면 클러스터 관리자여야 합니다.
+
+
+스토리지 개체는 적응형 정책 그룹 또는 비적응 정책 그룹의 구성원일 수 있지만 둘 다 속할 수는 없습니다. 스토리지 오브젝트 및 정책의 SVM은 동일해야 합니다. 스토리지 객체가 온라인 상태여야 합니다.
+
+적응형 QoS 정책 그룹은 항상 공유되지 않습니다. 정의된 처리량 상한 또는 최저값은 각 구성원 워크로드에 개별적으로 적용됩니다.
+
+스토리지 오브젝트 크기에 대한 처리량 제한의 비율은 다음 필드의 상호 작용에 의해 결정됩니다.
+
+* 'expected-IOPS'는 할당된 TB|GB당 예상되는 최소 IOPS입니다.
++
+[NOTE]
+====
+AFF 플랫폼에서만 '예상 IOPS'를 보장할 수 있습니다. 계층화 정책이 "없음"으로 설정되고 클라우드에 블록이 없는 경우에만 FabricPool에 대해 '예상 IOPS'가 보장됩니다. SnapMirror Synchronous 관계에 있지 않은 볼륨에 대해서는 예상 IOPS가 보장됩니다.
+
+====
+* 'peak-IOPS'는 할당 또는 사용된 TB|GB당 가능한 최대 IOPS입니다.
+* 'expected-IOPS-allocation'은 할당된 공간(기본값)이나 사용된 공간을 예상 IOPS에 사용할지 여부를 지정합니다.
++
+[NOTE]
+====
+ONTAP 9.5 이상에서 '예상 IOPS 할당'을 사용할 수 있습니다. ONTAP 9.4 이하 버전에서는 지원되지 않습니다.
+
+====
+* peak-IOPS-allocation은 peak-IOPS를 위해 할당된 공간과 사용된 공간(기본값)을 사용할지 여부를 지정한다.
+* 절대 최소 IOPS는 절대 최소 IOPS의 수입니다. 이 필드는 매우 작은 스토리지 객체와 함께 사용할 수 있습니다. 절대분 IOPS가 계산된 예상 IOPS보다 크면 peak-IOPS와 expected-IOPS를 모두 재정의합니다.
++
+예를 들어, 'expected-IOPS'를 1,000 IOPS/TB로 설정하고 볼륨 크기가 1GB 미만인 경우 계산된 'expected-IOPS'는 IOP가 분수 값이 됩니다. 계산된 피크 IOPS는 이보다 훨씬 적은 비율입니다. 절대-최소-IOPS를 실제 값으로 설정하면 이러한 문제를 방지할 수 있습니다.
+
+* 블록 크기 는 애플리케이션 입출력 블록 크기를 지정합니다. 기본값은 32K입니다. 유효한 값은 8K, 16K, 32K, 64K, any입니다. Any는 블록 크기가 적용되지 않음을 의미합니다.
+
+
+다음 표에 나와 있는 것처럼 세 가지 기본 적응형 QoS 정책 그룹을 사용할 수 있습니다. 이러한 정책 그룹을 볼륨에 직접 적용할 수 있습니다.
+
+|===
+
+
+| 기본 정책 그룹입니다 | 예상 IOPS/TB | 최대 IOPS/TB | 절대 최소 IOPS 
+
+
+ a| 
+"익스트림"
+ a| 
+6,144
+ a| 
+12,288
+ a| 
+1000입니다
+
+
+
+ a| 
+'퍼포먼스'
+ a| 
+2,048
+ a| 
+4,096개
+ a| 
+500입니다
+
+
+
+ a| 
+값
+ a| 
+128
+ a| 
+512
+ a| 
+75를
+
+|===
+.단계
+. 적응형 QoS 정책 그룹을 생성합니다.
++
+'QOS adaptive-policy-group create-policy group_group_-vserver_SVM_-expected-IOPS_number_of_IOPS_/TB|GB-peak-IOPS_number_of_IOPS_/TB|GB-expected-IOPS-allocation-space|used-space-peak-peak-IOPS-allocation-space|used-space-space-absolute-min-64K_K_number_K_number_K_number_K_K_number|K_K_K_number|K_MB|K_
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+[NOTE]
+====
+ONTAP 9.5 이상에서 '-expected-IOPS-allocation' 및 '-block-size를 사용할 수 있다. 이러한 옵션은 ONTAP 9.4 이전 버전에서는 지원되지 않습니다.
+
+====
++
+다음 명령을 실행하면 300 IOPS/TB로 설정된 adpg-app1 Adaptive QoS 정책 그룹, 1,000 IOPS/TB로 설정된 -peak-IOPS, 사용된 공간으로 설정된 -peak-IOPS-allocation, 50 IOPS로 설정된 -absolute-min-IOPS 정책 그룹,
+
++
+[listing]
+----
+cluster1::> qos adaptive-policy-group create -policy group adpg-app1 -vserver vs2 -expected-iops 300iops/tb -peak-iops 1000iops/TB -peak-iops-allocation used-space -absolute-min-iops 50iops
+----
+. 적응형 QoS 정책 그룹을 볼륨에 적용합니다.
++
+'volume create-vserver SVM-volume_volume_-aggregate_aggregate_-size_number_of_TB|GB-QoS-adaptive-policy-group_policy_group_'
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+다음 명령은 Adaptive QoS 정책 그룹 'adpg-app1'을 볼륨 'app1'에 적용합니다.
+
++
+[listing]
+----
+cluster1::> volume create -vserver vs1 -volume app1 -aggregate aggr1 -size 2TB -qos-adaptive-policy-group adpg-app1
+----
++
+다음 명령은 새 볼륨 app4와 기존 볼륨 app5에 기본 적응형 QoS 정책 그룹 "extreme"을 적용합니다. 정책 그룹에 대해 정의된 처리량 상한은 볼륨 app4 및 app5에 개별적으로 적용됩니다.
+
++
+[listing]
+----
+cluster1::> volume create -vserver vs4 -volume app4 -aggregate aggr4 -size 2TB -qos-adaptive-policy-group extreme
+----
++
+[listing]
+----
+cluster1::> volume modify -vserver vs5 -volume app5 -qos-adaptive-policy-group extreme
+----
+

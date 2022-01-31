@@ -1,0 +1,33 @@
+---
+permalink: system-admin/manage-core-dumps-concept.html 
+sidebar: sidebar 
+keywords: manage, core, dump, cluster, administrator, node, panic, configure, attributes, save, display, segment, upload, delete 
+summary: 노드에서 패닉이 발생하면 코어 덤프가 발생하고 기술 지원 부서에서 문제를 해결하는 데 사용할 수 있는 코어 덤프 파일이 시스템에서 생성됩니다. 코어 덤프 속성을 구성하거나 표시할 수 있습니다. 코어 덤프 파일을 저장, 표시, 분할, 업로드 또는 삭제할 수도 있습니다. 
+---
+= 코어 덤프 관리(클러스터 관리자만 해당)
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+노드에서 패닉이 발생하면 코어 덤프가 발생하고 기술 지원 부서에서 문제를 해결하는 데 사용할 수 있는 코어 덤프 파일이 시스템에서 생성됩니다. 코어 덤프 속성을 구성하거나 표시할 수 있습니다. 코어 덤프 파일을 저장, 표시, 분할, 업로드 또는 삭제할 수도 있습니다.
+
+다음과 같은 방법으로 코어 덤프를 관리할 수 있습니다.
+
+* 코어 덤프를 구성하고 구성 설정을 표시합니다
+* 코어 덤프의 기본 정보, 상태 및 속성을 표시합니다
++
+코어 덤프 파일 및 보고서는 노드의 '/mroot/etc/crash/' 디렉토리에 저장됩니다. 시스템 노드 coredump 명령이나 웹 브라우저를 사용하여 디렉토리 컨텐츠를 표시할 수 있다.
+
+* 코어 덤프 콘텐츠를 저장하고 저장된 파일을 지정된 위치 또는 기술 지원에 업로드합니다
++
+ONTAP에서는 테이크오버, 애그리게이트 재배치 또는 반환 중에 코어 덤프 파일의 저장을 시작하지 못합니다.
+
+* 더 이상 필요하지 않은 코어 덤프 파일을 삭제하는 중입니다
+
+
+[NOTE]
+====
+AFF A220, AFF A800, FAS2720, FAS2750 및 이후 시스템은 부팅 장치에 코어 덤프를 저장합니다. 이러한 시스템에서 NVE(NetApp Volume Encryption) 또는 NSE(NetApp Storage Encryption)가 활성화되어 있으면 코어 덤프가 암호화됩니다.
+
+====

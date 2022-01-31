@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/failed-to-lock-snapshot-reference.html 
+sidebar: sidebar 
+keywords: failed, lock, snapshot, deleted, copy 
+summary: 스냅샷 복사본이 사용 중이거나 삭제되었습니다. 
+---
+= 스냅샷을 잠그지 못했습니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+스냅샷을 잠그는 데 실패했습니다
+
+* * 원인 *
++
+스냅샷 복사본이 사용 중이거나 삭제되었습니다.
+
+* * 시정 조치 *
++
+스냅샷 복사본을 다른 작업에서 사용 중인 경우 해당 작업이 완료될 때까지 기다린 다음 백업을 재시도하십시오. 스냅샷 복사본이 삭제된 경우에는 백업을 수행할 수 없습니다.
+
+

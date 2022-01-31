@@ -1,0 +1,55 @@
+---
+permalink: smb-config/index.html 
+sidebar: sidebar 
+keywords:  
+summary: ONTAP 9 CLI 명령을 사용하여 새 SVM이나 기존 SVM에서 새 볼륨 또는 qtree에 포함된 파일에 대한 SMB 클라이언트 액세스를 구성할 수 있습니다. 
+---
+= CLI를 사용한 SMB 구성 개요
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9 CLI 명령을 사용하여 새 SVM이나 기존 SVM에서 새 볼륨 또는 qtree에 포함된 파일에 대한 SMB 클라이언트 액세스를 구성할 수 있습니다.
+
+[NOTE]
+====
+_smb_(서버 메시지 블록)는 CIFS(Common Internet File System) 프로토콜의 최신 방언을 의미합니다. ONTAP CLI(Command-Line Interface) 및 OnCommand 관리 툴에서도 _cifs_가 계속 표시됩니다.
+
+====
+다음과 같은 방법으로 볼륨 또는 qtree에 대한 SMB 액세스를 구성하려면 다음 절차를 사용하십시오.
+
+* SMB 버전 2 이상을 사용하려고 합니다.
+* NFS 클라이언트(멀티 프로토콜 구성 아님)가 아니라 SMB 클라이언트만 지원합니다.
+* NTFS 파일 권한은 새 볼륨을 보호하는 데 사용됩니다.
+* SVM 관리자 권한이 아닌 클러스터 관리자 권한이 있습니다.
++
+SVM 및 LIF를 생성하려면 클러스터 관리자 권한이 필요합니다. SVM 관리자 권한으로 다른 SMB 구성 작업을 수행할 수 있습니다.
+
+* System Manager나 자동화된 스크립팅 도구가 아니라 CLI를 사용하려고 합니다.
++
+System Manager를 사용하여 NAS 다중 프로토콜 액세스를 구성하려면 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap/task_nas_provision_nfs_and_smb.html["NFS와 SMB를 모두 사용하여 Windows 및 Linux 모두에 대해 NAS 스토리지를 프로비저닝합니다"].
+
+* 사용 가능한 모든 옵션을 탐색하는 것이 아니라 모범 사례를 사용하려고 합니다.
++
+명령 구문에 대한 자세한 내용은 CLI 도움말 및 ONTAP man 페이지를 참조하십시오.
+
+
+
+ONTAP SMB 프로토콜 기능 범위에 대한 자세한 내용은 을 참조하십시오 link:../smb-admin/index.html["SMB 참조 개요"].
+
+
+
+== ONTAP에서 이 작업을 수행하는 다른 방법
+
+|===
+
+
+| 에서 이러한 작업을 수행하려면... | 자세한 내용은... 
+
+
+| 재설계된 System Manager(ONTAP 9.7 이상에서 사용 가능) | link:../task_nas_provision_windows_smb.html["SMB를 사용하여 Windows 서버용 NAS 스토리지 용량 할당"] 
+
+
+| System Manager Classic(ONTAP 9.7 이하에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap-sm-classic/smb-config/index.html["SMB 구성 개요"^] 
+|===

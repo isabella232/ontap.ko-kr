@@ -1,0 +1,68 @@
+---
+sidebar: sidebar 
+permalink: networking/decide_whether_to_use_this_network_management_guide-manual.html 
+keywords: ONTAP 9.0 - 9.7, CLI, decide, deciding, find, finding, decide whether to use this network management content, find the right network management, information 
+summary: 이 절차에서는 ONTAP 9.0 - 9.7 릴리즈의 NAS 경로 페일오버 워크플로우에 대해 설명합니다. 
+---
+= 이 네트워크 관리 정보의 사용 여부를 결정합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+이 절차에서는 ONTAP 9.0 - 9.7 릴리즈의 NAS 경로 페일오버 워크플로우에 대해 설명합니다.
+
+다음과 같은 상황에서 이 절차를 사용해야 합니다.
+
+* 네트워크 구성을 간소화하는 워크플로우에서 NAS 경로 페일오버 모범 사례를 사용하려고 합니다.
+* System Manager가 아니라 CLI를 사용하려고 합니다.
+* ONTAP 9.8 이상을 실행하는 새 시스템에서 네트워킹을 구성합니다.
+
+
+9.7 이후 버전의 ONTAP 릴리스를 실행하는 경우 다음을 참조해야 합니다.
+
+* link:https://docs.netapp.com/us-en/ontap/networking/set_up_nas_path_failover_98_and_later_cli.html["ONTAP 9.8 이상의 NAS 경로 페일오버 워크플로우"^]
+
+
+네트워크 관리에 대한 자세한 내용은 다음을 참조하십시오.
+
+* link:https://docs.netapp.com/us-en/ontap/networking-reference/index.html["ONTAP 9 네트워크 관리 참조"^]
+
+
+System Manager를 사용하여 ONTAP 9.7 이상을 위한 네트워크를 구성하려면 다음 문서를 선택해야 합니다.
+
+* link:https://docs.netapp.com/us-en/ontap/["System Manager 문서"^]
+
+
+추가 구성 또는 개념 정보가 필요한 경우 다음 문서 중 하나를 선택해야 합니다.
+
+* 네트워크 구성에 대한 개념적 배경
++
+** link:../concepts/index.html["ONTAP 개념"^]
+
+
+* NAS 파일 액세스
++
+** link:../nfs-admin/index.html["NFS 관리"^]
+** link:../smb-admin/index.html["SMB 관리"^]
+
+
+* SAN 호스트 프로비저닝
++
+** link:../san-admin/index.html["SAN 관리"^]
+
+
+* 명령 참조
++
+** http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"^]
+
+
+* TR(기술 보고서): ONTAP 기술에 대한 추가 정보 및 외부 서비스와의 상호 작용을 포함합니다
++
+** http://www.netapp.com/us/media/tr-4182.pdf["NetApp 기술 보고서 4182: 이더넷 스토리지 설계 고려사항 및 clustered Data ONTAP 구성에 대한 모범 사례"^]
+
+
+

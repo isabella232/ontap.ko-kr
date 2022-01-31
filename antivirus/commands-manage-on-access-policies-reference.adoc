@@ -1,0 +1,111 @@
+---
+permalink: antivirus/commands-manage-on-access-policies-reference.html 
+sidebar: sidebar 
+keywords: commands, manage, on-access, policies 
+summary: 액세스 시 정책을 수정, 비활성화 또는 삭제할 수 있습니다. 정책의 요약 및 세부 정보를 볼 수 있습니다. 
+---
+= 액세스 시 정책을 관리하는 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+액세스 시 정책을 수정, 비활성화 또는 삭제할 수 있습니다. 정책의 요약 및 세부 정보를 볼 수 있습니다.
+
+|===
+
+
+| 원하는 작업 | 다음 명령을 입력합니다... 
+
+
+ a| 
+액세스 시 정책을 수정합니다
+ a| 
+'vserver Vscan on-access-policy modify'를 참조하십시오
+
+
+
+ a| 
+액세스 시 정책을 사용하지 않도록 설정합니다
+ a| 
+'vserver Vscan on-access-policy disable'
+
+
+
+ a| 
+액세스 시 정책을 삭제합니다
+ a| 
+'vserver Vscan on-access-policy delete
+
+
+
+ a| 
+액세스 시 정책에 대한 요약 및 세부 정보를 봅니다
+ a| 
+'vserver vscan on-access-policy show'를 참조하십시오
+
+
+
+ a| 
+제외할 경로 목록에 추가합니다
+ a| 
+'Vscan on-access-policy paths-to-exclude add'를 참조하십시오
+
+
+
+ a| 
+제외할 경로 목록에서 삭제합니다
+ a| 
+"Vscan on-access-policy paths-to-exclude remove(Vscan on-access-policy paths-to
+
+
+
+ a| 
+제외할 경로 목록을 봅니다
+ a| 
+'Vscan on-access-policy paths-to-exclude show
+
+
+
+ a| 
+제외할 파일 확장명 목록에 추가합니다
+ a| 
+'Vscan on-access-policy file-ext-to-exclude add
+
+
+
+ a| 
+제외할 파일 확장명 목록에서 삭제합니다
+ a| 
+'Vscan on-access-policy file-ext-to-exclude remove
+
+
+
+ a| 
+제외할 파일 확장명 목록을 봅니다
+ a| 
+'Vscan on-access-policy file-ext-to-exclude show
+
+
+
+ a| 
+포함할 파일 확장명 목록에 추가합니다
+ a| 
+'Vscan on-access-policy file-ext-to-include add
+
+
+
+ a| 
+포함할 파일 확장명 목록에서 삭제합니다
+ a| 
+'Vscan on-access-policy file-ext-to-include remove
+
+
+
+ a| 
+포함할 파일 확장명 목록을 봅니다
+ a| 
+'Vscan on-access-policy file-ext-to-include show
+
+|===
+이러한 명령에 대한 자세한 내용은 man 페이지를 참조하십시오.

@@ -1,0 +1,73 @@
+---
+sidebar: sidebar 
+permalink: upgrade/task_upgrade_disruptive_automated_cli.html 
+keywords: netapp, ontap, upgrade, nondisruptive, nondisruptively, non-disruptive update, nondisruptive upgrade, upgrade a cluster, shift workload between clusters, hardware platform, configuration, software image, update, update ONTAP, update software, ndu 
+summary: 클러스터에서 ONTAP 버전을 중단 없이 업데이트할 수 있습니다. 
+---
+= CLI를 사용하여 중단 자동화(단일 노드 클러스터만 해당)
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+ONTAP 9.2부터는 단일 노드 클러스터의 자동 업데이트를 수행할 수 있습니다. 단일 노드 클러스터에는 중복성이 없으므로 업데이트가 항상 중단될 수 있습니다.
+
+* 업그레이드 준비 요구 사항을 충족해야 합니다.
++
+.. 이전 ONTAP 소프트웨어 패키지 'cluster image package delete - version previous_package_version'을 삭제한다
+.. 대상 ONTAP 소프트웨어 패키지 '클러스터 이미지 패키지 Get-URL 위치'를 다운로드합니다
++
+[listing]
+----
+cluster1::> cluster image package get -url http://www.example.com/software/9.7/image.tgz
+
+Package download completed.
+Package processing completed.
+----
+.. 소프트웨어 패키지가 클러스터 패키지 리포지토리인 클러스터 이미지 패키지 show-repository에서 사용 가능한지 확인합니다
++
+[listing]
+----
+cluster1::> cluster image package show-repository
+Package Version  Package Build Time
+---------------- ------------------
+9.7              M/DD/YYYY 10:32:15
+----
+.. 클러스터 이미지 검증 - version package_version_number'라는 클러스터 업그레이드가 준비되었는지 확인합니다
++
+[listing]
+----
+cluster1::> cluster image validate -version 9.7
+
+WARNING: There are additional manual upgrade validation checks that must be performed after these automated validation checks have completed...
+----
+.. 검증의 진행 상황 모니터링: 클러스터 이미지 보기 - 업데이트 진행 상황
+.. 검증에서 식별된 모든 필수 조치를 완료하십시오.
+.. 필요한 경우 'cluster image update-version package_version_number-estimate-only' 소프트웨어 업그레이드 견적을 생성합니다
++
+소프트웨어 업그레이드 추정치는 업데이트할 각 구성 요소에 대한 세부 정보와 예상 업그레이드 기간을 표시합니다.
+
+.. 'cluster image update-version package_version_number' 소프트웨어 업그레이드를 수행한다
++
+
+NOTE: 문제가 발생하면 업데이트가 일시 중지되고 수정 조치를 취하라는 메시지가 표시됩니다. 클러스터 image show-update-progress 명령을 사용하여 문제 및 업데이트 진행 상황에 대한 세부 정보를 볼 수 있습니다. 문제를 해결한 후 cluster image resume-update 명령을 사용하여 업데이트를 다시 시작할 수 있습니다.
+
+.. 클러스터 업데이트 진행률 표시: 클러스터 이미지 표시-업데이트-진행률
++
+노드가 업데이트의 일부로 재부팅되며 재부팅 중에 액세스할 수 없습니다.
+
+.. 'AutoSupport invoke-node * -type all-message "finishing_Upgrade""라는 알림을 트리거합니다
++
+클러스터가 메시지를 전송하도록 구성되지 않은 경우 알림 복사본이 로컬에 저장됩니다.
+
+
+
+

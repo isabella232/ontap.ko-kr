@@ -1,0 +1,15 @@
+---
+permalink: volumes/snapshot-copies-flexclone-files-luns-concept.html 
+sidebar: sidebar 
+keywords: how, snapshot copies, work, flexclone files, flexclone luns 
+summary: FlexVol 볼륨에 포함된 상위 파일 및 상위 LUN의 기존 스냅샷 복사본에서 FlexClone 파일과 FlexClone LUN을 생성할 수 있습니다. 
+---
+= FlexClone 파일 및 FlexClone LUN의 Snapshot 복사본 작동 방식
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FlexVol 볼륨에 포함된 상위 파일 및 상위 LUN의 기존 스냅샷 복사본에서 FlexClone 파일과 FlexClone LUN을 생성할 수 있습니다.
+
+하지만 상위 항목과 클론 항목 간의 블록 공유 프로세스가 완료될 때까지 FlexClone 파일 또는 FlexClone LUN이 생성되는 스냅샷 복사본을 수동으로 삭제할 수 없습니다. 백그라운드에서 실행되는 블록 공유 프로세스가 완료될 때까지 스냅샷 복사본은 잠겨 있습니다. 따라서 잠긴 스냅샷 복사본을 삭제하려고 하면 시스템이 일정 시간 후 작업을 다시 시도하라는 메시지를 표시합니다. 이 경우 특정 스냅샷 복사본을 수동으로 삭제하려는 경우, 블록 공유가 완료된 후에 스냅샷 복사본이 삭제되도록 삭제 작업을 계속 재시도해야 합니다.

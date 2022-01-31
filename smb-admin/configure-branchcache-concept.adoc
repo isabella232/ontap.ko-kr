@@ -1,0 +1,15 @@
+---
+permalink: smb-admin/configure-branchcache-concept.html 
+sidebar: sidebar 
+keywords: configure, branchcache, symbolic, server, ontap, command, implement, client, host, cache, server, branch, office, configure branchcache 
+summary: ONTAP 명령을 사용하여 SMB 서버에서 BranchCache를 구성합니다. BranchCache를 구현하려면 클라이언트도 구성해야 하며, 콘텐츠를 캐시하려는 지사의 호스팅된 캐시 서버도 선택적으로 구성해야 합니다. 
+---
+= BranchCache 개요를 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 명령을 사용하여 SMB 서버에서 BranchCache를 구성합니다. BranchCache를 구현하려면 클라이언트도 구성해야 하며, 콘텐츠를 캐시하려는 지사의 호스팅된 캐시 서버도 선택적으로 구성해야 합니다.
+
+공유 단위로 캐싱을 사용하도록 BranchCache를 구성하는 경우 BranchCache 캐싱 서비스를 제공할 SMB 공유에서 BranchCache를 사용하도록 설정해야 합니다.

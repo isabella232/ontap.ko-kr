@@ -1,0 +1,28 @@
+---
+permalink: smb-admin/assign-privileges-concept.html 
+sidebar: sidebar 
+keywords: assign, privilege, direct, local, user, domain, group, capabiltiies, capability, how to assign privileges 
+summary: 로컬 사용자 또는 도메인 사용자에게 직접 권한을 할당할 수 있습니다. 또는 할당된 권한이 해당 사용자에게 부여할 기능과 일치하는 로컬 그룹에 사용자를 할당할 수 있습니다. 
+---
+= 권한을 할당합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+로컬 사용자 또는 도메인 사용자에게 직접 권한을 할당할 수 있습니다. 또는 할당된 권한이 해당 사용자에게 부여할 기능과 일치하는 로컬 그룹에 사용자를 할당할 수 있습니다.
+
+* 생성한 그룹에 권한 집합을 할당할 수 있습니다.
++
+그런 다음 해당 사용자에게 부여할 권한이 있는 사용자를 그룹에 추가합니다.
+
+* 기본 권한이 해당 사용자에게 부여할 권한과 일치하는 미리 정의된 그룹에 로컬 사용자 및 도메인 사용자를 할당할 수도 있습니다.
+
+
+xref:add-privileges-local-domain-users-groups-task.adoc[로컬 또는 도메인 사용자 또는 그룹에 권한 추가]
+
+xref:remove-privileges-local-domain-users-groups-task.adoc[로컬 또는 도메인 사용자 또는 그룹에서 권한을 제거합니다]
+
+xref:reset-privileges-local-domain-users-groups-task.adoc[로컬 또는 도메인 사용자 및 그룹에 대한 권한을 재설정합니다]
+
+xref:configure-bypass-traverse-checking-concept.adoc[통과 확인 우회 구성]

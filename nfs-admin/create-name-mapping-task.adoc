@@ -1,0 +1,53 @@
+---
+permalink: nfs-admin/create-name-mapping-task.html 
+sidebar: sidebar 
+keywords: create, name, mapping 
+summary: vserver name-mapping create 명령을 사용하여 이름 매핑을 생성할 수 있습니다. 이름 매핑을 사용하여 Windows 사용자가 UNIX 보안 스타일 볼륨에 액세스하고 그 반대로 액세스할 수 있습니다. 
+---
+= 이름 매핑을 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'vserver name-mapping create' 명령을 사용하여 이름 매핑을 생성할 수 있습니다. 이름 매핑을 사용하여 Windows 사용자가 UNIX 보안 스타일 볼륨에 액세스하고 그 반대로 액세스할 수 있습니다.
+
+각 SVM에서 ONTAP은 각 방향에 대해 최대 12,500개의 이름 매핑을 지원합니다.
+
+.단계
+. 이름 매핑 생성:
++
+'vserver name-mapping create-vserver vserver_name-direction{KRB-unix|win-unix|unix-win} - position integer-pattern text-replacement text'
+
++
+[NOTE]
+====
+'-pattern' 및 '-replacement' 문은 정규식으로 공식화할 수 있습니다. 또한 '-replacement' 문을 사용하여 null 대체 문자열 ""(공백 문자)를 사용하여 사용자에 대한 매핑을 명시적으로 거부할 수 있습니다. 자세한 내용은 'vserver name-mapping create' man 페이지를 참조하십시오.
+
+====
++
+Windows와 UNIX 간 매핑이 생성될 때 새 매핑이 생성될 때 ONTAP 시스템에 대한 열린 연결이 있는 모든 SMB 클라이언트는 로그아웃했다가 다시 로그인하여 새 매핑을 확인해야 합니다.
+
+
+
+다음 명령을 실행하면 이름이 VS1 인 SVM에 이름 매핑이 생성됩니다. 매핑은 우선 순위 목록의 위치 1에서 UNIX에서 Windows로의 매핑입니다. 매핑은 UNIX 사용자 johnd를 Windows 사용자 ENG\JohnnDoe에 매핑합니다.
+
+[listing]
+----
+vs1::> vserver name-mapping create -vserver vs1 -direction unix-win -position 1 -pattern johnd
+-replacement "ENG\\JohnDoe"
+----
+다음 명령을 실행하면 이름이 VS1 인 SVM에 또 다른 이름 매핑이 생성됩니다. 매핑은 우선 순위 목록의 위치 1에서 Windows에서 UNIX로의 매핑입니다. 여기에는 정규식이 포함됩니다. 매핑은 SVM과 연결된 LDAP 도메인의 사용자에게 도메인 ENG의 모든 CIFS 사용자를 매핑합니다.
+
+[listing]
+----
+vs1::> vserver name-mapping create -vserver vs1 -direction win-unix -position 1 -pattern "ENG\\(.+)"
+-replacement "\1"
+----
+다음 명령을 실행하면 이름이 VS1 인 SVM에 또 다른 이름 매핑이 생성됩니다. 이 패턴에는 이스케이프해야 하는 Windows 사용자 이름의 요소로 ""$"가 포함됩니다. 매핑은 Windows 사용자 ENG\John$ops를 UNIX 사용자 John_ops에 매핑합니다.
+
+[listing]
+----
+vs1::> vserver name-mapping create -direction win-unix -position 1 -pattern ENG\\john\$ops
+-replacement john_ops
+----

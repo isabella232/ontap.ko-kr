@@ -1,0 +1,115 @@
+---
+sidebar: sidebar 
+permalink: networking/create_an_snmp_community_and_assigning_it_to_a_lif.html 
+keywords: create, creation, creating, add, adding, snmp, community, assign, assigning, lif, logical, interface, create an snmp community and assigning it to a lif, snmpwalk, snmpget, snmp community add 
+summary: 관리 스테이션과 SVM 간 인증 메커니즘 역할을 하는 SNMP 커뮤니티를 생성합니다 
+---
+= SNMP 커뮤니티를 생성하여 LIF에 할당합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+SNMPv1 및 SNMPv2c를 사용할 때 관리 스테이션과 SVM(스토리지 가상 머신) 간의 인증 메커니즘 역할을 하는 SNMP 커뮤니티를 생성할 수 있습니다.
+
+데이터 SVM에서 SNMP 커뮤니티를 생성하여 데이터 LIF에서 'snmpwalk', 'snmpget' 등의 명령을 실행할 수 있습니다.
+
+.이 작업에 대해
+* ONTAP를 새로 설치하면 SNMPv1 및 SNMPv2c가 기본적으로 비활성화됩니다.
++
+SNMP 커뮤니티를 생성한 후에는 SNMPv1 및 SNMPv2c가 활성화됩니다.
+
+* ONTAP는 읽기 전용 커뮤니티를 지원합니다.
+* 기본적으로 데이터 LIF에 할당되는 "데이터" 방화벽 정책은 SNMP 서비스를 "설정"으로 설정합니다.
++
+데이터 SVM용 SNMP 사용자를 생성할 때 SNMP 서비스 세트가 "허용"인 새 방화벽 정책을 생성해야 합니다.
+
+* 관리 SVM과 데이터 SVM 모두에 대해 SNMPv1 및 SNMPv2c 사용자를 위한 SNMP 커뮤니티를 생성할 수 있습니다.
+* SVM은 SNMP 표준의 일부가 아니므로 데이터 LIF에 대한 쿼리에는 'smpwalk-v 2c-c snmpNFS 10.238.19.14 1.3.6.1.4.1.789'와 같은 NetApp 루트 OID(1.3.6.1.4.1.789)가 포함되어야 합니다.
+
+
+.단계
+. '시스템 SNMP community add' 명령어를 사용하여 SNMP community를 생성한다. 다음 명령을 실행하면 관리 SVM 클러스터-1에서 SNMP 커뮤니티를 생성하는 방법이 표시됩니다.
++
+....
+system snmp community add -type ro -community-name comty1 -vserver cluster-1
+....
++
+다음 명령을 실행하면 SVM VS1 데이터에 SNMP 커뮤니티를 생성하는 방법이 표시됩니다.
+
++
+....
+system snmp community add -type ro -community-name comty2 -vserver vs1
+....
+. system snmp community show 명령을 사용하여 커뮤니티가 생성되었는지 확인합니다.
++
+다음 명령을 실행하면 SNMPv1 및 SNMPv2c에 대해 생성된 두 개의 커뮤니티가 표시됩니다.
+
++
+....
+system snmp community show
+cluster-1
+rocomty1
+vs1
+rocomty2
+....
+. System services firewall policy'show' 명령어를 이용하여 "data" 방화벽 정책에서 SNMP를 서비스로 허용할 수 있는지 확인한다.
++
+다음 명령을 실행하면 기본 "데이터" 방화벽 정책에서 SNMP 서비스가 허용되지 않습니다(SNMP 서비스는 "관리" 방화벽 정책에서만 허용됨).
+
++
+....
+system services firewall policy show
+Vserver Policy       Service    Allowed
+------- ------------ ---------- -------------------
+cluster-1
+        data
+                     dns        0.0.0.0/0
+                     ndmp       0.0.0.0/0
+                     ndmps      0.0.0.0/0
+cluster-1
+        intercluster
+                     https      0.0.0.0/0
+                     ndmp       0.0.0.0/0
+                     ndmps      0.0.0.0/0
+cluster-1
+        mgmt
+                     dns        0.0.0.0/0
+                     http       0.0.0.0/0
+                     https      0.0.0.0/0
+                     ndmp       0.0.0.0/0
+                     ndmps      0.0.0.0/0
+                     ntp        0.0.0.0/0
+                     snmp       0.0.0.0/0
+                     ssh        0.0.0.0/0
+....
+. '시스템 서비스 방화벽 정책 생성' 명령을 사용하여 'NMP' 서비스를 사용하여 액세스할 수 있는 새 방화벽 정책을 만듭니다.
++
+다음 명령을 실행하면 'data1'이라는 새 데이터 방화벽 정책이 생성되어 'snmp'를 사용할 수 있습니다
+
++
+....
+system services firewall policy create -policy data1 -service snmp -vserver  vs1 -allow-list 0.0.0.0/0
+
+cluster-1::> system services firewall policy show -service snmp
+Vserver  Policy       Service    Allowed
+-------  ------------ ---------- -------------------
+cluster-1
+         mgmt
+                      snmp       0.0.0.0/0
+vs1
+         data1
+                      snmp       0.0.0.0/0
+....
+. firewall-policy 매개 변수와 함께 network interface modify 명령을 사용하여 데이터 LIF에 방화벽 정책을 적용합니다.
++
+다음 명령을 실행하면 새 "data1" 방화벽 정책이 LIF "datalif1"에 할당됩니다.
+
++
+....
+network interface modify -vserver vs1 -lif datalif1 -firewall-policy data1
+....
+

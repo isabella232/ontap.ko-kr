@@ -1,0 +1,76 @@
+---
+permalink: smb-admin/display-list-netbios-aliases-task.html 
+sidebar: sidebar 
+keywords: display, list, netbios, alias, useful, determine, name, smb, client, connection, cifs, server, display the list of netbios aliases on cifs servers 
+summary: NetBIOS 별칭 목록을 표시할 수 있습니다. 이 기능은 SMB 클라이언트가 CIFS 서버에 접속할 수 있는 이름 목록을 확인하려는 경우에 유용할 수 있습니다. 
+---
+= CIFS 서버의 NetBIOS 별칭 목록을 표시합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetBIOS 별칭 목록을 표시할 수 있습니다. 이 기능은 SMB 클라이언트가 CIFS 서버에 접속할 수 있는 이름 목록을 확인하려는 경우에 유용할 수 있습니다.
+
+.단계
+. 다음 작업 중 하나를 수행합니다.
++
+|===
+| 다음에 대한 정보를 표시하려면... | 입력... 
+
+
+ a| 
+CIFS 서버의 NetBIOS 별칭입니다
+ a| 
+'vserver cifs show-display-netbios-aliases'
+
+
+
+ a| 
+자세한 CIFS 서버 정보의 일부로 NetBIOS 별칭 목록입니다
+ a| 
+'vserver cifs show-instance'
+
+|===
++
+다음 예에서는 CIFS 서버의 NetBIOS 별칭에 대한 정보를 표시합니다.
+
++
+'vserver cifs show-display-netbios-aliases'
+
++
+[listing]
+----
+Vserver: vs1
+
+         Server Name: CIFS_SERVER
+         NetBIOS Aliases: ALIAS_1, ALIAS_2, ALIAS_3
+----
++
+다음 예에서는 자세한 CIFS 서버 정보의 일부로 NetBIOS 별칭 목록을 표시합니다.
+
++
+'vserver cifs show-instance'
+
++
+[listing]
+----
+
+                                          Vserver: vs1
+                         CIFS Server NetBIOS Name: CIFS_SERVER
+                    NetBIOS Domain/Workgroup Name: EXAMPLE
+                      Fully Qualified Domain Name: EXAMPLE.COM
+Default Site Used by LIFs Without Site Membership:
+                             Authentication Style: domain
+                CIFS Server Administrative Status: up
+                          CIFS Server Description:
+                          List of NetBIOS Aliases: ALIAS_1, ALIAS_2, ALIAS_3
+----
++
+자세한 내용은 명령에 대한 man 페이지를 참조하십시오.
+
+
+
+xref:add-list-netbios-aliases-server-task.adoc[CIFS 서버에 NetBIOS 별칭 목록을 추가합니다]
+
+xref:commands-manage-servers-reference.adoc[CIFS 서버를 관리하는 명령입니다]

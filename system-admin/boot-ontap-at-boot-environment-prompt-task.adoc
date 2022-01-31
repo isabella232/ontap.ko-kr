@@ -1,0 +1,49 @@
+---
+permalink: system-admin/boot-ontap-at-boot-environment-prompt-task.html 
+sidebar: sidebar 
+keywords: boot, ontap, environment, prompt, current, release, node 
+summary: 노드의 부팅 환경 프롬프트에서 현재 릴리즈 또는 ONTAP의 백업 릴리즈를 부팅할 수 있습니다. 
+---
+= 부팅 환경 프롬프트에서 ONTAP를 부팅합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+노드의 부팅 환경 프롬프트에서 현재 릴리즈 또는 ONTAP의 백업 릴리즈를 부팅할 수 있습니다.
+
+.단계
+. 'system node halt' 명령을 사용하여 스토리지 시스템 프롬프트에서 부팅 환경 프롬프트에 액세스합니다.
++
+스토리지 시스템 콘솔에 부팅 환경 프롬프트가 표시됩니다.
+
+. 부팅 환경 프롬프트에서 다음 명령 중 하나를 입력합니다.
++
+|===
+| 부팅하려면... | 입력... 
+
+
+ a| 
+ONTAP의 현재 릴리즈입니다
+ a| 
+부트 ONTAP
+
+
+
+ a| 
+부팅 장치의 ONTAP 기본 이미지
+ a| 
+boot_primary를 선택합니다
+
+
+
+ a| 
+부팅 장치의 ONTAP 백업 이미지
+ a| 
+boot_backup입니다
+
+|===
++
+어떤 이미지를 사용해야 할지 잘 모를 경우 첫 번째 인스턴스에서 boot_ONTAP을 사용해야 합니다.
+
+

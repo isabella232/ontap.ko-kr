@@ -1,0 +1,65 @@
+---
+permalink: nas-audit/commands-modify-auditing-config-reference.html 
+sidebar: sidebar 
+keywords: commands, modify, audit, configurations 
+summary: 감사 설정을 변경하려면 로그 경로 대상 및 로그 형식 수정, 감사할 이벤트 범주 수정, 로그 파일을 자동으로 저장하는 방법, 저장할 최대 로그 파일 수 지정 등 언제든지 현재 구성을 수정할 수 있습니다. 
+---
+= 감사 구성을 수정하는 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+감사 설정을 변경하려면 로그 경로 대상 및 로그 형식 수정, 감사할 이벤트 범주 수정, 로그 파일을 자동으로 저장하는 방법, 저장할 최대 로그 파일 수 지정 등 언제든지 현재 구성을 수정할 수 있습니다.
+
+[cols=""30"]
+|===
+
+
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+로그 대상 경로를 수정합니다
+ a| 
+'-destination' 매개 변수를 사용하여 vserver audit modify를 수행합니다
+
+
+
+ a| 
+감사할 이벤트 범주를 수정합니다
+ a| 
+'-events' 매개 변수를 사용하여 vserver audit modify를 수행합니다
+
+
+NOTE: 중앙 액세스 정책 스테이징 이벤트를 감사하려면 SVM(Storage Virtual Machine)에서 DAC(Dynamic Access Control) CIFS 서버 옵션을 활성화해야 합니다.
+
+
+
+ a| 
+로그 형식을 수정합니다
+ a| 
+vserver audit modify는 -format 매개 변수를 사용합니다
+
+
+
+ a| 
+내부 로그 파일 크기에 따라 자동 저장을 사용하도록 설정합니다
+ a| 
+'-rotate-size' 파라미터를 사용한 vserver audit modify
+
+
+
+ a| 
+시간 간격에 따라 자동 저장을 사용하도록 설정합니다
+ a| 
+vserver audit modify with the '-rotate-schedule-month', '-rotate-schedule-dayOfWeek', '-rotate-schedule-day', '-rotate-schedule-hour', '-rotate-schedule-minute' 매개 변수를 사용합니다
+
+
+
+ a| 
+저장된 로그 파일의 최대 개수를 지정합니다
+ a| 
+'-rotate-limit' 파라미터를 사용한 vserver audit modify
+
+|===

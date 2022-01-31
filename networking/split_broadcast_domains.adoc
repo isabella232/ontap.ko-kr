@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: networking/split_broadcast_domains.html 
+keywords: split, broadcast, domain, separate, splitting, separating, reachability, port, split a broadcast domain to synchronize the ontap configuration with the physical network topology, unreachable ports, broadcast-domain split, split broadcast domains 
+summary: 브로드캐스트 도메인을 분할하여 ONTAP 9.8 이상의 구성을 물리적 네트워크 토폴로지와 동기화합니다 
+---
+= 브로드캐스트 도메인을 분할합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+물리적 네트워크 연결 또는 스위치 구성을 통해 네트워크 포트 도달 능력이 변경된 경우 또한 단일 브로드캐스트 도메인에 이전에 구성된 네트워크 포트 그룹이 두 개의 서로 다른 도달 가능성 집합으로 분할되어 ONTAP 구성을 물리적 네트워크 토폴로지와 동기화할 수 있습니다.
+
+네트워크 포트 브로드캐스트 도메인이 둘 이상의 접속 가능 집합으로 분할되었는지 확인하려면 'network port reachability show-details' 명령을 사용하고 어느 포트가 서로 연결되지 않는지 확인합니다("Unreachable ports"). 일반적으로 연결할 수 없는 포트 목록은 물리적 및 스위치 구성이 정확한지 확인한 후 다른 브로드캐스트 도메인으로 분할해야 하는 포트 집합을 정의합니다.
+
+브로드캐스트 도메인을 두 개의 브로드캐스트 도메인으로 분할:
+
+....
+network port broadcast-domain split -ipspace <ipspace_name> -broadcast-domain <broadcast_domain_name> -new-broadcast-domain <broadcast_domain_name> -ports <node:port,node:port>
+....
+* IPSpace_name은 브로드캐스트 도메인이 있는 IPSpace의 이름입니다.
+* 브로드캐스트 도메인은 분할될 브로드캐스트 도메인의 이름입니다.
+* 새 브로드캐스트 도메인은 생성되는 새 브로드캐스트 도메인의 이름입니다.
+* 포트란 새 브로드캐스트 도메인에 추가될 노드 이름과 포트입니다.
+

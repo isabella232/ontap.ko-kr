@@ -1,0 +1,41 @@
+---
+permalink: smb-admin/commands-oplocks-volumes-qtrees-reference.html 
+sidebar: sidebar 
+keywords: oplock, client, lock, file, cache, performance, operation, qtree, command, enabling, enable, disabling, disable, volume, commands for enabling or disabling oplocks on volumes and qtrees 
+summary: oplocks를 사용하면 클라이언트가 파일을 잠그고 컨텐츠를 로컬에서 캐시할 수 있으므로 파일 작업의 성능이 향상됩니다. 볼륨 또는 qtree에서 oplocks를 설정하거나 해제하는 명령을 알아야 합니다. 또한 볼륨 및 qtree에서 oplocks를 설정하거나 해제할 수 있는 시기를 알아야 합니다. 
+---
+= 볼륨 및 qtree에서 oplocks를 설정하거나 해제하는 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+oplocks를 사용하면 클라이언트가 파일을 잠그고 컨텐츠를 로컬에서 캐시할 수 있으므로 파일 작업의 성능이 향상됩니다. 볼륨 또는 qtree에서 oplocks를 설정하거나 해제하는 명령을 알아야 합니다. 또한 볼륨 및 qtree에서 oplocks를 설정하거나 해제할 수 있는 시기를 알아야 합니다.
+
+* oplocks는 기본적으로 볼륨에 설정됩니다.
+* 볼륨을 생성할 때는 oplocks를 해제할 수 없습니다.
+* 언제든지 기존 볼륨에서 SVM에 대한 oplocks를 설정하거나 해제할 수 있습니다.
+* SVM에 대해 qtree에서 oplocks를 설정할 수 있습니다.
++
+oplock 모드 설정은 qtree ID 0의 속성으로, 모든 볼륨에 있는 기본 qtree입니다. qtree를 생성할 때 oplock 설정을 지정하지 않으면 qtree가 기본적으로 사용되는 상위 볼륨의 oplock 설정을 상속합니다. 그러나 새 qtree에 oplock 설정을 지정하면 볼륨의 oplock 설정보다 우선합니다.
+
+
+
+|===
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+볼륨 또는 qtree에 oplocks를 설정합니다
+ a| 
+'-oplock-mode' 매개 변수가 'enable'로 설정된 볼륨 qtree oplocks
+
+
+
+ a| 
+볼륨 또는 qtree에서 oplocks를 해제합니다
+ a| 
+'-oplock-mode' 매개 변수가 '사용할 수 있음'으로 설정된 볼륨 qtree oplocks입니다
+
+|===
+xref:monitor-oplock-status-task.adoc[oplock 상태 모니터링]

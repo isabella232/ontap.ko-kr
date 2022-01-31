@@ -1,0 +1,231 @@
+---
+sidebar: sidebar 
+permalink: networking/commands_for_managing_snmp.html 
+keywords: snmp, traps, traphosts, trap, traphost, manage, managing, users, user, configure, configuring, modify, modifying, set, setting, event, command, system snmp, security, options -option-name snmp.enable -option-value on, options -option-name snmp.enable -option-value off, commands for managing snmp, commands for managing snmp v1, v2c, and v3 users, commands for providing contact and location information, commands for managing SNMP communities, command for displaying snmp option values, commands for managing snmp traps and traphosts, commands for managing events related to snmp traps, system snmp, security login create, security snmpusers and security login show -application snmp, security login create, security login delete, security snmpusers and security login show -application snmp, security login modify, system snmp contact, system snmp location, system snmp community add, system snmp community delete, system snmp community show, system snmp show 
+summary: SNMP, SNMP 사용자, 트랩, 트랩 이벤트 및 traphosts를 관리합니다 
+---
+= SNMP 관리를 위한 명령입니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+'시스템 SNMP' 명령어를 이용하여 SNMP, 트랩, Traphosts를 관리할 수 있다. SVM별로 SNMP 사용자를 관리하기 위해 '보안' 명령을 사용할 수 있다. 이벤트 명령을 사용하여 SNMP 트랩과 관련된 이벤트를 관리할 수 있습니다.
+
+
+
+== SNMP를 구성하는 명령입니다
+
+|===
+
+
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+클러스터에서 SNMP를 설정합니다
+ a| 
+'options-option-name snmp.enable-option-value on'입니다
+
+관리(관리) 방화벽 정책에서 SNMP 서비스를 허용해야 합니다. 시스템 서비스 방화벽 policy show 명령을 사용하여 SNMP가 허용되는지 여부를 확인할 수 있습니다.
+
+
+
+ a| 
+클러스터에서 SNMP를 해제합니다
+ a| 
+'options-option-name snmp.enable-option-value off'
+
+|===
+
+
+== SNMP v1, v2c 및 v3 사용자를 관리하는 명령입니다
+
+|===
+
+
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+SNMP 사용자를 구성합니다
+ a| 
+'보안 로그인 생성'
+
+
+
+ a| 
+SNMP 사용자를 표시합니다
+ a| 
+보안 snmpusers 및 보안 로그인 show-application snmp
+
+
+
+ a| 
+SNMP 사용자를 삭제합니다
+ a| 
+'보안 로그인 삭제
+
+
+
+ a| 
+SNMP 사용자에 대한 로그인 방법의 액세스 제어 역할 이름을 수정합니다
+ a| 
+보안 로그인 수정
+
+|===
+
+
+== 연락처 및 위치 정보를 제공하는 명령입니다
+
+|===
+
+
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+클러스터의 연락처 정보를 표시하거나 수정합니다
+ a| 
+'시스템 SNMP 연락처'
+
+
+
+ a| 
+클러스터의 위치 세부 정보를 표시하거나 수정합니다
+ a| 
+'시스템 SNMP 위치'
+
+|===
+
+
+== SNMP 커뮤니티 관리를 위한 명령입니다
+
+|===
+
+
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+SVM이나 클러스터의 모든 SVM에 대해 읽기 전용(ro) 커뮤니티를 추가할 수 있습니다
+ a| 
+'시스템 SNMP 커뮤니티 추가'
+
+
+
+ a| 
+커뮤니티 또는 모든 커뮤니티를 삭제합니다
+ a| 
+시스템 SNMP community delete
+
+
+
+ a| 
+모든 커뮤니티 목록을 표시합니다
+ a| 
+'시스템 SNMP 커뮤니티 쇼'
+
+|===
+SVM은 SNMP 표준의 일부가 아니므로 데이터 LIF에 대한 쿼리에는 'snmpwalk-v 2c-c snmpNFS 10.238.19.14 1.3.6.1.4.1.789'와 같은 NetApp 루트 OID(1.3.6.1.4.1.789)가 포함되어야 합니다.
+
+
+
+== SNMP 옵션 값을 표시하는 명령입니다
+
+|===
+
+
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+클러스터 연락처, 연락처 위치, 클러스터가 트랩을 전송하도록 구성되었는지 여부, 트랩 목록, 커뮤니티 및 액세스 제어 유형 목록을 포함한 모든 SNMP 옵션의 현재 값을 표시합니다
+ a| 
+'시스템 SNMP 쇼'
+
+|===
+
+
+== SNMP 트랩 및 트랩 호스트를 관리하는 명령입니다
+
+|===
+
+
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+클러스터에서 보낸 SNMP 트랩을 설정합니다
+ a| 
+'시스템 SNMP init-init 1'
+
+
+
+ a| 
+클러스터에서 보낸 SNMP 트랩을 해제합니다
+ a| 
+'시스템 SNMP init-init 0'
+
+
+
+ a| 
+클러스터의 특정 이벤트에 대해 SNMP 알림을 수신하는 Traphost를 추가합니다
+ a| 
+'시스템 SNMP traaphost add'
+
+
+
+ a| 
+traphost를 삭제합니다
+ a| 
+'시스템 SNMP traaphost delete
+
+
+
+ a| 
+Traphosts 목록을 표시합니다
+ a| 
+'시스템 SNMP traaphost show'
+
+|===
+
+
+== SNMP 트랩과 관련된 이벤트를 관리하는 명령입니다
+
+|===
+
+
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+SNMP 트랩(기본 제공)이 생성되는 이벤트를 표시합니다
+ a| 
+이벤트 루트쇼
+
+SNMP 관련 이벤트만 보려면 '-snmp-support true' 매개변수를 사용하십시오.
+
+'instance-messagename<message>' 매개 변수를 사용하여 이벤트가 발생한 이유와 수정 조치에 대해 자세히 설명합니다.
+
+개별 SNMP 트랩 이벤트를 특정 트랩 호스트 대상으로 라우팅하는 것은 지원되지 않습니다. 모든 SNMP 트랩 이벤트가 모든 트랩 호스트 대상으로 전송됩니다.
+
+
+
+ a| 
+SNMP 트랩으로 전송된 이벤트 알림인 SNMP 트랩 기록 레코드 목록을 표시합니다
+ a| 
+이벤트 스내피스토리 쇼
+
+
+
+ a| 
+SNMP 트랩 기록 레코드를 삭제합니다
+ a| 
+이벤트 스내피스토리 삭제
+
+|===
+시스템 SNMP, 보안, 이벤트 명령에 대한 자세한 내용은 man 페이지를 참조하십시오. http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"^]

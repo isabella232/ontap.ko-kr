@@ -1,0 +1,51 @@
+---
+permalink: san-admin/manage-portsets-task.html 
+sidebar: sidebar 
+keywords: system manager, san, portsets, create, creating, bind, binding, igroup 
+summary: ONTAP 9.10.1부터 System Manager를 사용하여 포트 세트를 생성하고 igroup에 바인딩할 수 있습니다. System Manager를 사용하여 포트 세트와 관련된 네트워크 인터페이스를 변경하고 포트 세트를 삭제할 수도 있습니다. 
+---
+= 포틀세트를 생성하고 관리합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+또한 link:selective-lun-map-concept.html["선택적 LUN 맵(SLM)"]포트 세트를 사용하여 이니시에이터에서 LUN에 액세스하는 데 사용할 수 있는 LIF를 추가로 제한할 수 있습니다.
+
+ONTAP 9.10.1부터 System Manager를 사용하여 포트 세트를 생성하고 igroup에 바인딩할 수 있습니다. System Manager를 사용하여 포트 세트와 관련된 네트워크 인터페이스를 변경하고 포트 세트를 삭제할 수도 있습니다.
+
+
+
+== 포트셋 및 igroup에 바인딩
+
+포트 세트를 igroup에 바인딩하지 않으면 igroup의 모든 이니시에이터가 LUN과 소유 노드의 HA 파트너를 소유하는 노드의 모든 LIF를 통해 매핑된 LUN에 액세스할 수 있습니다.
+
+9.10.1 이전의 ONTAP 릴리즈에서 포트셋 및 바인드를 작성하려면 을 사용해야 합니다 link:create-port-sets-binding-igroups-task.html["ONTAP CLI 절차"].
+
+. System Manager에서 * Network > Overview > Portsets * 를 클릭하고 * Add * 를 클릭합니다.
+. 새 포트셋 정보를 입력하고 * 추가 * 를 클릭합니다.
+. 호스트 > SAN 이니시에이터 그룹 * 을 클릭합니다.
+. 포트셋 를 새 igroup에 바인딩하려면 * 추가 * 를 클릭합니다.
++
+포트셋 를 기존 igroup에 바인딩하려면 igroup을 선택하고 을 클릭합니다 image:icon_kabob.gif["Kabob 아이콘"]을 클릭한 다음 * 이니시에이터 그룹 편집 * 을 클릭합니다.
+
+
+
+
+
+== 포트셋 관련 네트워크 인터페이스를 변경합니다
+
+. System Manager에서 * Network > Overview > Portsets * 를 클릭합니다.
+. 편집할 포트셋 를 선택하고 를 클릭합니다 image:icon_kabob.gif["Kabob 아이콘"]그런 다음 * 포트 세트 편집 * 을 선택합니다.
+
+
+
+
+== 포트셋 삭제
+
+. System Manager에서 * Network > Overview > Portsets * 를 클릭합니다.
+. 단일 포트셋 를 삭제하려면 를 클릭합니다 image:icon_kabob.gif[""] 그런 다음 * Delete Portsets * 를 선택합니다.
++
+여러 개의 포트 세트를 삭제하려면 포트 세트를 선택하고 * Delete * (삭제 *)를 클릭합니다.
+
+

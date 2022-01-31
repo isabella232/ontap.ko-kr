@@ -1,0 +1,72 @@
+---
+permalink: nfs-config/create-kerberos-config-task.html 
+sidebar: sidebar 
+keywords: enable, kerberos, data, lif 
+summary: SVM NFS Kerberos 인터페이스 설정 명령을 사용하여 데이터 LIF에서 Kerberos를 설정할 수 있습니다. 그러면 SVM에서 NFS에 Kerberos 보안 서비스를 사용할 수 있습니다. 
+---
+= 데이터 LIF에서 Kerberos를 사용하도록 설정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+데이터 LIF에서 Kerberos를 사용하도록 설정하려면 'vserver NFS Kerberos interface enable' 명령을 사용하십시오. 그러면 SVM에서 NFS에 Kerberos 보안 서비스를 사용할 수 있습니다.
+
+Active Directory KDC를 사용하는 경우 사용되는 SPN의 처음 15자는 영역 또는 도메인 내의 SVM에서 고유해야 합니다.
+
+.단계
+. NFS Kerberos 구성 생성:
++
+'vserver NFS Kerberos interface enable-vserver_vserver_name_-lif_logical_interface_-spN_service_principal_name_'
+
++
+ONTAP에서 Kerberos 인터페이스를 활성화하려면 KDC의 SPN에 대한 암호 키가 필요합니다.
+
++
+Microsoft KDC의 경우 KDC에 문의하고 CLI에서 사용자 이름 및 암호 프롬프트가 발급되어 비밀 키를 얻습니다. Kerberos 영역의 다른 OU에 SPN을 만들어야 하는 경우 선택적 '-ou' 매개 변수를 지정할 수 있습니다.
+
++
+비 Microsoft KDC의 경우 다음 두 가지 방법 중 하나를 사용하여 비밀 키를 얻을 수 있습니다.
+
++
+|===
+| 만약... | 다음 매개 변수도 명령에 포함해야 합니다. 
+
+
+ a| 
+KDC에서 직접 키를 검색하려면 KDC 관리자 자격 증명을 사용합니다
+ a| 
+'-admin-username''_kdc_admin_username_'
+
+
+
+ a| 
+KDC 관리자 자격 증명이 없지만 키가 포함된 KDC의 keytab 파일이 있습니다
+ a| 
+'-keytab-Uri '{ftp|http}://'_Uri_'
+
+|===
+. Kerberos가 LIF에서 설정되었는지 확인합니다.
++
+'vserver nfs Kerberos-config show'
+
+. 1단계와 2단계를 반복하여 여러 LIF에서 Kerberos를 사용하도록 설정합니다.
+
+
+다음 명령을 실행하면 OU lab2ou 에서 SPN NFS /ves03-d1.lab.example.com@TEST.LAB.EXAMPLE.COM 와 함께 논리 인터페이스 ves03-d1에서 이름이 VS1 인 SVM에 대한 NFS Kerberos 구성이 생성되고 확인됩니다.
+
+[listing]
+----
+vs1::> vserver nfs kerberos interface enable -lif ves03-d1 -vserver vs2
+-spn nfs/ves03-d1.lab.example.com@TEST.LAB.EXAMPLE.COM -ou "ou=lab2ou"
+
+vs1::>vserver nfs kerberos-config show
+        Logical
+Vserver Interface Address       Kerberos  SPN
+------- --------- -------       --------- -------------------------------
+vs0     ves01-a1
+                  10.10.10.30   disabled  -
+vs2     ves01-d1
+                  10.10.10.40   enabled   nfs/ves03-d1.lab.example.com@TEST.LAB.EXAMPLE.COM
+2 entries were displayed.
+----

@@ -1,0 +1,83 @@
+---
+permalink: system-admin/manage-banner-reference.html 
+sidebar: sidebar 
+keywords: manage, banner, svm, cluster, configure 
+summary: 클러스터 또는 SVM 레벨에서 배너를 관리할 수 있습니다. 배너 메시지가 정의되지 않은 모든 SVM에 대해 클러스터에 구성된 배너도 사용됩니다. 이후에 SVM을 위해 생성된 배너는 해당 SVM을 위한 클러스터 배너보다 우선합니다. 
+---
+= 배너 관리
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클러스터 또는 SVM 레벨에서 배너를 관리할 수 있습니다. 배너 메시지가 정의되지 않은 모든 SVM에 대해 클러스터에 구성된 배너도 사용됩니다. 이후에 SVM을 위해 생성된 배너는 해당 SVM을 위한 클러스터 배너보다 우선합니다.
+
+.선택
+* 클러스터 레벨에서 배너 관리:
++
+|===
+| 원하는 작업 | 그러면... 
+
+
+ a| 
+모든 CLI 로그인 세션에 대해 표시할 배너를 생성합니다
+ a| 
+클러스터 레벨 배너 설정:
+
+"* 보안 로그인 배너 modify -vserver_cluster_name_{[-message "text"]|[_-Uri ftp_or_http_addr_]} *
+
+
+
+ a| 
+모든(클러스터 및 SVM) 로그인의 배너를 제거합니다
+ a| 
+배너를 빈 문자열(""")로 설정합니다.
+
+"* 보안 로그인 배너 수정 - vserver* - 메시지 ""*"
+
+
+
+ a| 
+SVM 관리자가 생성한 배너를 재정의합니다
+ a| 
+SVM 배너 메시지를 수정합니다.
+
+"* 보안 로그인 배너 수정 - vserver_svm_name_{[-message "_text_"]|[-Uri_ftp_or_http_addr_]} *
+
+|===
+* SVM 레벨에서 배너 관리
++
+SVM 컨텍스트에서 '-vserver_svm_name_'을 지정할 필요가 없습니다.
+
++
+|===
+| 원하는 작업 | 그러면... 
+
+
+ a| 
+클러스터 관리자가 제공하는 배너를 SVM용 다른 배너로 재정의합니다
+ a| 
+SVM을 위한 배너 생성:
+
+"* 보안 로그인 배너 modify -vserver_svm_name_{[-message "text"]|[-Uri ftp_or_http_addr]} *
+
+
+
+ a| 
+SVM에 대한 배너가 표시되지 않도록 클러스터 관리자가 제공하는 배너를 표시하지 않습니다
+ a| 
+SVM 배너를 SVM용 빈 문자열로 설정합니다.
+
+"* 보안 로그인 배너 수정 - vserver_svm_name_ - 메시지 ""*"
+
+
+
+ a| 
+SVM에서 현재 SVM 레벨 배너를 사용하는 경우 클러스터 레벨 배너를 사용합니다
+ a| 
+SVM 배너를 "-" 로 설정한다.
+
+"* 보안 로그인 배너 modify -vserver_svm_name_-message "-" * "
+
+|===
+

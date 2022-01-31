@@ -1,0 +1,45 @@
+---
+permalink: tape-backup/delete-restartable-contexts-task.html 
+sidebar: sidebar 
+keywords: delete, restartable, contents, backup, context 
+summary: 컨텍스트를 다시 시작하지 않고 백업을 시작하려면 컨텍스트를 삭제할 수 있습니다. 
+---
+= 재시작 가능한 컨텍스트를 삭제합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+컨텍스트를 다시 시작하지 않고 백업을 시작하려면 컨텍스트를 삭제할 수 있습니다.
+
+SVM 이름과 컨텍스트 ID를 제공하여 "vserver services ndmp restable-backup delete" 명령을 사용하여 재시작 가능한 컨텍스트를 삭제할 수 있습니다.
+
+.단계
+. 재시작 가능한 컨텍스트 삭제:
++
+'* vserver services ndmp restarable-backup delete-vserver_vserver-name_-context-id_context_identifier_*'.
+
++
+[listing]
+----
+cluster::> vserver services ndmpd restartable-backup show
+Vserver     Context Identifier                   Is Cleanup Pending?
+----------- ------------------------------------ -------------------
+vserver1    330e6739-0179-11e6-a299-005056bb4bc9 false
+vserver1    481025c1-0179-11e6-a299-005056bb4bc9 false
+vserver2    5cf10132-0179-11e6-a299-005056bb4bc9 false
+3 entries were displayed.
+
+cluster::>
+cluster::> vserver services ndmp restartable-backup delete -vserver vserver1 -context-id 481025c1-0179-11e6-a299-005056bb4bc9
+
+cluster::> vserver services ndmpd restartable-backup show
+Vserver     Context Identifier                   Is Cleanup Pending?
+----------- ------------------------------------ -------------------
+vserver1    330e6739-0179-11e6-a299-005056bb4bc9 false
+vserver2    5cf10132-0179-11e6-a299-005056bb4bc9 false
+3 entries were displayed.
+
+cluster::>"
+----
+

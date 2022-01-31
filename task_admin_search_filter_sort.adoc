@@ -1,0 +1,114 @@
+---
+sidebar: sidebar 
+permalink: task_admin_search_filter_sort.html 
+keywords: system manager, netapp, ontap, administration, search, filter, sort, objects, operations, search syntax, global search, narrow results, filter syntax, search string, sort order 
+summary: System Manager를 사용하면 다양한 구성 요소를 검색한 다음 정렬하고 필터링할 수 있습니다. 
+---
+= System Manager에서 정보를 검색, 필터링 및 정렬합니다
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+System Manager에서 다양한 작업 및 개체를 검색할 수 있습니다. 특정 항목에 대한 테이블 데이터를 검색할 수도 있습니다.
+
+System Manager에서는 두 가지 유형의 검색을 제공합니다.
+
+* <<Global searching>>
++
+각 페이지 상단의 필드에 검색 인수를 입력하면 System Manager가 인터페이스 전체를 검색하여 일치하는 항목을 찾습니다. 그런 다음 결과를 정렬하고 필터링할 수 있습니다.
+
+* <<Table-grid searching>>
++
+ONTAP 9.8부터 표 눈금 맨 위의 필드에 검색 인수를 입력하면, System Manager에서는 해당 테이블의 열과 행만 검색하여 일치하는 항목을 찾습니다.
+
+
+
+
+
+== 전체 검색
+
+System Manager의 각 페이지 맨 위에서 글로벌 검색 필드를 사용하여 인터페이스에서 다양한 개체와 작업을 검색할 수 있습니다. 예를 들어 이름, 탐색기 열(왼쪽)에서 사용할 수 있는 페이지, "볼륨 추가" 또는 "라이센스 추가"와 같은 다양한 작업 항목, 외부 도움말 항목에 대한 링크를 기준으로 다양한 개체를 검색할 수 있습니다. 결과를 필터링하고 정렬할 수도 있습니다.
+
+
+NOTE: 더 나은 결과를 얻으려면 로그인한 후 1분, 개체를 생성, 수정 또는 삭제한 후 5분 후에 검색, 필터링 및 정렬을 수행합니다.
+
+
+
+=== 검색 결과를 가져오는 중입니다
+
+검색은 대/소문자를 구분하지 않습니다. 필요한 페이지, 작업 또는 주제를 찾기 위해 다양한 텍스트 문자열을 입력할 수 있습니다. 최대 20개의 결과가 나열됩니다. 더 많은 결과가 검색되면 * 더 보기 * 를 클릭하여 모든 결과를 볼 수 있습니다. 다음 예에서는 일반적인 검색을 설명합니다.
+
+|===
+
+
+| 검색 유형입니다 | 샘플 검색 문자열 | 검색 결과의 예 
+
+
+| 개체 이름별 | 볼륨 _ | 스토리지 VM의 vol_LUN_dest: svm0(볼륨)/vol/vol...est1/스토리지 VM의 LUN: svm0(LUN) svm0:vol_LUN_dest1 역할: 대상(관계) 
+
+
+| 인터페이스 내 위치별 | 볼륨 | 볼륨 추가(작업) 보호 – 개요(페이지) 삭제된 볼륨 복구(도움말) 
+
+
+| 행동별 | 추가 | 볼륨 추가(작업) 네트워크 – 개요(페이지) 볼륨 및 LUN 확장(도움말) 
+
+
+| 도움말 콘텐츠별 | 산 | 스토리지 – 개요(페이지) SAN 개요(도움말) 데이터베이스를 위한 SAN 스토리지 용량 할당(도움말) 
+|===
+
+
+=== 검색 결과 필터링
+
+다음 예와 같이 필터를 사용하여 결과의 범위를 좁힐 수 있습니다.
+
+|===
+
+
+| 필터 | 구문 | 샘플 검색 문자열 
+
+
+| 개체 유형별 | type>:<objectName> | 볼륨: vol_2 
+
+
+| 개체 크기별 | type><size-symbol><number><units> | LUN < 500MB 
+
+
+| 손상된 디스크로 | "디스크 파손" 또는 "디스크 상태가 좋지 않음" | 디스크가 정상 상태가 아닙니다 
+
+
+| 네트워크 인터페이스 | IP 주소> | 172.22.108.21 
+|===
+
+
+=== 검색 결과 정렬
+
+모든 검색 결과를 볼 때 알파벳 순으로 정렬됩니다. 을 클릭하여 결과를 정렬할 수 있습니다 image:icon_filter.gif["필터링 메뉴"] 결과를 정렬할 방법을 선택합니다.
+
+
+
+== 표-그리드 검색
+
+ONTAP 9.8부터 System Manager가 테이블 그리드 형식으로 정보를 표시할 때마다 테이블 상단에 검색 단추가 나타납니다.
+
+검색 * 을 클릭하면 검색 인수를 입력할 수 있는 텍스트 필드가 나타납니다. System Manager는 전체 테이블을 검색하여 검색 인수와 일치하는 텍스트를 포함하는 행만 표시합니다.
+
+별표(*)를 문자 대신 "와일드카드" 문자로 사용할 수 있습니다. 예를 들어, 'vol *'을 검색하면 다음 항목이 포함된 행이 제공됩니다.
+
+* Vol_122_D9
+* vol_LUN_dest1
+* vol2866
+* 볼륨1
+* Volum_dest_765
+* 볼륨
+* VOLUME_new4
+* 볼륨 9987
+

@@ -1,0 +1,20 @@
+---
+permalink: smb-admin/requirements-gpos-concept.html 
+sidebar: sidebar 
+keywords: group, policy, object, gpo, smb, server, system, requirement, requirements for using gpos with your smb server 
+summary: 'SMB 서버에서 GPO(그룹 정책 개체)를 사용하려면 시스템이 여러 요구 사항을 충족해야 합니다.' 
+---
+= SMB 서버에 GPO를 사용하기 위한 요구 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMB 서버에서 GPO(그룹 정책 개체)를 사용하려면 시스템이 여러 요구 사항을 충족해야 합니다.
+
+* SMB는 클러스터에서 라이센스가 있어야 합니다.
+* SMB 서버는 Windows Active Directory 도메인에 구성 및 가입해야 합니다.
+* SMB 서버 관리자 상태는 켜져야 합니다.
+* GPO를 구성하고 SMB 서버 컴퓨터 개체가 포함된 Windows Active Directory OU(조직 단위)에 적용해야 합니다.
+* SMB 서버에서 GPO 지원을 활성화해야 합니다.
+

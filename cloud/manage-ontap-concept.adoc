@@ -1,0 +1,25 @@
+---
+permalink: cloud/manage-ontap-concept.html 
+sidebar: sidebar 
+keywords: manage, ontap, cloud 
+summary: '자체 데이터 센터에서든 클라우드에서든 동일한 인터페이스를 사용하여 스토리지를 관리할 수 있습니다. ONTAP 즉, 클라우드에서 ONTAP을 관리하는 방법을 이미 잘 알고 있는 것입니다. 또한, NetApp Cloud Manager는 Cloud Volumes ONTAP를 구축 및 시작하기 위한 사용이 간편한 최신 그래픽 인터페이스입니다. Cloud Volumes ONTAP 또는 Cloud Volumes Service의 고급 관리를 수행해야 하는 경우가 있습니다. System Manager, CLI(Command Line Interface) 또는 REST API를 사용하여 이 작업을 수행할 수 있습니다.' 
+---
+= 클라우드에서 ONTAP 관리
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+자체 데이터 센터에서든 클라우드에서든 동일한 인터페이스를 사용하여 스토리지를 관리할 수 있습니다. ONTAP 즉, 클라우드에서 ONTAP을 관리하는 방법을 이미 잘 알고 있는 것입니다. 또한, NetApp Cloud Manager는 Cloud Volumes ONTAP를 구축 및 시작하기 위한 사용이 간편한 최신 그래픽 인터페이스입니다. Cloud Volumes ONTAP 또는 Cloud Volumes Service의 고급 관리를 수행해야 하는 경우가 있습니다. System Manager, CLI(Command Line Interface) 또는 REST API를 사용하여 이 작업을 수행할 수 있습니다.
+
+* System Manager * 는 Cloud Volumes ONTAP 또는 Cloud Volumes Service 시스템에서 실행되어 관리 작업을 수행할 수 있습니다.
+
+* ONTAP CLI * 를 사용하면 모든 관리 명령을 실행할 수 있으며 고급 작업 또는 CLI 사용에 더 익숙한 경우에 적합합니다. SSH(Secure Shell)를 사용하여 CLI에 연결합니다.
+
+* ONTAP REST API * 를 사용하여 클라우드 볼륨을 생성 및 관리하고 프로비저닝 스크립트와 툴을 개발할 수 있습니다. 웹 사용자 인터페이스를 통해 사용할 수 있는 ONTAP 기능은 REST API를 통해서도 사용할 수 있습니다. 일부 상황에서는 이 프로그래밍 방식 인터페이스가 특히 개발자가 Cloud Manager 작업과 관련된 프로세스를 자동화할 수 있기 때문에 더욱 유용합니다.
+
+https://docs.netapp.com/us-en/occm/task_connecting_to_otc.html#connecting-to-oncommand-system-manager["Cloud Volumes ONTAP에 연결 중입니다"]
+
+https://cloud.netapp.com/blog/cloud-automation-with-cloud-volumes-ontap-rest["Cloud Volumes ONTAP 및 REST를 사용한 클라우드 자동화"]
+
+https://docs.netapp.com/us-en/occm/api.html["Cloud Manager REST API를 사용하여"]

@@ -1,0 +1,23 @@
+---
+sidebar: sidebar 
+permalink: networking/configure_failover_groups_and_policies_for_lifs_overview.html 
+keywords: lif, failover, fail, over, target, automatic, automatically, port, link, failure, group, broadcast, domain, lif failover is the automatic migration of a lif to a different network port in response to a link failure, configure failover groups and policies for lifs overview, network interface show -failover 
+summary: LIF 페일오버는 링크 장애에 대한 응답으로 LIF를 다른 네트워크 포트로 자동 마이그레이션합니다 
+---
+= 개요
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+LIF 페일오버는 LIF의 현재 포트에서 링크 장애가 발생할 경우 LIF가 다른 네트워크 포트로 자동 마이그레이션되는 것을 의미합니다. 이 기능은 SVM에 대한 연결을 위한 고가용성을 제공하는 핵심 구성요소입니다. LIF 페일오버를 구성하려면 페일오버 그룹을 생성하고, 페일오버 그룹을 사용하도록 LIF를 수정하고, 페일오버 정책을 지정해야 합니다.
+
+페일오버 그룹에는 클러스터에 있는 하나 이상의 노드의 네트워크 포트 세트(물리적 포트, VLAN 및 인터페이스 그룹)가 포함됩니다. 페일오버 그룹에 있는 네트워크 포트는 LIF에 사용할 수 있는 페일오버 타겟을 정의합니다. 페일오버 그룹은 클러스터 관리, 노드 관리, 인터클러스터 및 NAS 데이터 LIF가 할당될 수 있습니다.
+
+
+IMPORTANT: LIF가 유효한 페일오버 대상이 없이 구성되면 LIF가 페일오버를 시도할 때 중단이 발생합니다. "network interface show-failover" 명령을 사용하여 페일오버 구성을 확인할 수 있습니다.
+
+브로드캐스트 도메인을 생성하면 동일한 네트워크 포트를 포함하는 동일한 이름의 페일오버 그룹이 자동으로 생성됩니다. 이 페일오버 그룹은 시스템에서 자동으로 관리됩니다. 즉, 포트가 브로드캐스트 도메인에서 추가되거나 제거될 때 포트가 이 페일오버 그룹에서 자동으로 추가 또는 제거됩니다. 이 기능은 고유한 페일오버 그룹을 관리하지 않으려는 관리자에게 효율적으로 제공됩니다.

@@ -1,0 +1,71 @@
+---
+permalink: nas-audit/additional-information-reference.html 
+sidebar: sidebar 
+keywords: additional information 
+summary: CIFS 클라이언트 액세스를 성공적으로 테스트한 후에는 고급 CIFS 구성을 수행하거나 SAN 액세스를 추가할 수 있습니다. NFS 클라이언트 액세스를 성공적으로 테스트한 후 고급 NFS 구성을 수행하거나 SAN 액세스를 추가할 수 있습니다. 프로토콜 액세스가 완료되면 SVM의 루트 볼륨을 보호해야 합니다. 
+---
+= 추가 정보를 찾을 수 있는 위치
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+CIFS 클라이언트 액세스를 성공적으로 테스트한 후에는 고급 CIFS 구성을 수행하거나 SAN 액세스를 추가할 수 있습니다. NFS 클라이언트 액세스를 성공적으로 테스트한 후 고급 NFS 구성을 수행하거나 SAN 액세스를 추가할 수 있습니다. 프로토콜 액세스가 완료되면 SVM의 루트 볼륨을 보호해야 합니다.
+
+
+
+== SMB 구성
+
+다음을 사용하여 CIFS 액세스를 추가로 구성할 수 있습니다.
+
+* link:../smb-admin/index.html["SMB 관리"]
++
+SMB 프로토콜을 사용하여 파일 액세스를 구성 및 관리하는 방법에 대해 설명합니다.
+
+* https://www.netapp.com/us/media/tr-4191.pdf["NetApp 기술 보고서 4191: clustered Data ONTAP 8.2 Windows 파일 서비스에 대한 모범 사례 가이드를 참조하십시오"]
++
+SMB 구현 및 기타 Windows 파일 서비스 기능에 대한 간략한 개요와 ONTAP의 권장 사항 및 기본 문제 해결 정보를 제공합니다.
+
+* https://www.netapp.com/us/media/tr-3740.pdf["NetApp 기술 보고서 3740: Data ONTAP의 SMB 2 차세대 CIFS 프로토콜"]
++
+SMB 2 기능, 구성 세부 정보 및 ONTAP에서의 구축에 대해 설명합니다.
+
+
+
+
+
+== NFS 구성
+
+다음을 사용하여 NFS 액세스를 추가로 구성할 수 있습니다.
+
+* link:../nfs-admin/index.html["NFS 관리"]
++
+NFS 프로토콜을 사용하여 파일 액세스를 구성 및 관리하는 방법에 대한 설명은 에 나와 있습니다.
+
+* https://www.netapp.com/us/media/tr-4067.pdf["NetApp 기술 보고서 4067: NFS 모범 사례 및 구축 가이드"]
++
+NFSv3 및 NFSv4 운영 가이드 역할을 하며 NFSv4를 중심으로 ONTAP 운영 체제에 대한 개요를 제공합니다.
+
+* https://www.netapp.com/pdf.html?item=/media/16328-tr-4668pdf.pdf["NetApp 기술 보고서 4668: 이름 서비스 모범 사례 가이드"]
++
+인증을 위해 LDAP, NIS, DNS 및 로컬 사용자 및 그룹 파일을 구성할 때 고려해야 할 사항과 제한 사항, 권장 사항 및 사항에 대한 포괄적인 목록을 제공합니다.
+
+* https://www.netapp.com/pdf.html?item=/media/19384-tr-4616.pdf["NetApp 기술 보고서 4616: ONTAP에서 Microsoft Active Directory와 NFS Kerberos"]
+* https://www.netapp.com/pdf.html?item=/media/19423-tr-4835.pdf["NetApp 기술 보고서 4835: ONTAP에서 LDAP를 구성하는 방법"]
+* https://www.netapp.com/us/media/tr-3580.pdf["NetApp 기술 보고서 3580: NFSv4 향상 및 모범 사례 가이드 Data ONTAP 구축"]
++
+에서는 ONTAP를 실행하는 시스템에 접속된 AIX, Linux 또는 Solaris 클라이언트에서 NFSv4 구성 요소를 구축하는 동안 따라야 하는 Best Practice를 설명합니다.
+
+
+
+
+
+== 루트 볼륨 보호
+
+SVM에서 프로토콜을 구성한 후에는 루트 볼륨이 보호되는지 확인해야 합니다.
+
+* link:../data-protection/index.html["데이터 보호"]
++
+NAS 지원 SVM에 대한 NetApp의 모범 사례인 SVM 루트 볼륨을 보호하기 위해 로드 공유 미러를 생성하는 방법에 대해 설명합니다. 또한, 로드 공유 미러에서 SVM 루트 볼륨을 프로모션하여 볼륨 장애 또는 손실로부터 빠르게 복구하는 방법을 설명합니다.
+
+

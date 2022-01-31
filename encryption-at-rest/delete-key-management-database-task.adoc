@@ -1,0 +1,68 @@
+---
+permalink: encryption-at-rest/delete-key-management-database-task.html 
+sidebar: sidebar 
+keywords: transitioning, onboard key management, external key management 
+summary: 외부 키 관리에서 온보드 키 관리로 전환하려면 외부 키 관리 구성을 삭제해야 온보드 키 관리를 활성화할 수 있습니다. 
+---
+= 외부 키 관리에서 온보드 키 관리로 전환합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+외부 키 관리에서 온보드 키 관리로 전환하려면 외부 키 관리 구성을 삭제해야 온보드 키 관리를 활성화할 수 있습니다.
+
+.무엇을 &#8217;필요로 할거야
+* 하드웨어 기반 암호화의 경우 모든 FIPS 드라이브 또는 SED의 데이터 키를 기본값으로 재설정해야 합니다.
++
+link:return-seds-unprotected-mode-task.html["FIPS 드라이브 또는 SED를 보호되지 않는 모드로 되돌리는 중입니다"]
+
+* 모든 외부 키 관리자 연결을 삭제해야 합니다.
++
+link:remove-external-key-server-93-later-task.html["외부 키 관리자 연결을 삭제하는 중입니다"]
+
+* 이 작업을 수행하려면 클러스터 관리자여야 합니다.
+
+
+.단계
+. 클러스터의 외부 키 관리 구성을 삭제합니다.
++
+보안 키 관리자 삭제 - KMIP 구성
+
++
+[cols="25,75"]
+|===
+
+
+| 이 ONTAP 버전의 경우... | 이 명령 사용... 
+
+
+ a| 
+ONTAP 9.6 이상
+ a| 
+'보안 키 관리자 외부 비활성화 - vserver admin_SVM'
+
+
+
+ a| 
+ONTAP 9.5 이하
+ a| 
+보안 키 관리자 삭제 - KMIP 구성
+
+|===
++
+[NOTE]
+====
+전체 명령 구문은 man 페이지를 참조하십시오. 명령의 ONTAP 9.6 버전은 고급 권한 레벨이 필요합니다.
+
+====
++
+다음 ONTAP 9.6 명령은 'cluster1'에 대한 외부 키 관리 구성을 삭제합니다.
+
++
+[listing]
+----
+cluster1::> set -privilege advanced
+cluster1::> security key-manager external disable
+----
+

@@ -1,0 +1,122 @@
+---
+permalink: upgrade/task_identifying_current_cluster_activity.html 
+sidebar: sidebar 
+keywords: ontap, upgrade, cluster, activity, running, jobs, stop, shutdown, active, cifs, sessions 
+summary: 무중단 업그레이드를 수행하기 전에 지속적으로 사용할 수 없는 CIFS 세션을 식별하여 올바르게 종료해야 합니다. 
+---
+= 현재 클러스터 활동을 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+을 사용하지 않는 경우 link:https://aiq.netapp.com/["Active IQ"] Upgrade Advisor - 업그레이드하기 전에 실행 중인 작업이 없는지, 지속적으로 사용할 수 없는 CIFS 세션이 종료되었는지 수동으로 확인해야 합니다.
+
+
+
+== 실행 중인 작업이 없는지 확인합니다
+
+ONTAP 소프트웨어를 업그레이드하기 전에 클러스터 작업의 상태를 확인해야 합니다. 애그리게이트, 볼륨, NDMP(덤프 또는 복원) 또는 스냅샷 작업(예: 생성, 삭제, 이동, 수정, 복제, 및 마운트 작업)이 실행 중이거나 대기 중입니다. 작업이 성공적으로 완료되도록 하거나 대기열에 있는 항목을 중지해야 합니다.
+
+. 실행 중이거나 대기 중인 집계, 볼륨 또는 스냅샷 작업의 목록을 검토하십시오
++
+[listing]
+----
+cluster1::> job show
+                            Owning
+Job ID Name                 Vserver    Node           State
+------ -------------------- ---------- -------------- ----------
+8629   Vol Reaper           cluster1   -              Queued
+       Description: Vol Reaper Job
+8630   Certificate Expiry Check
+                            cluster1   -              Queued
+       Description: Certificate Expiry Check
+.
+.
+.
+----
+. 실행 중인 작업이 있는 경우 작업이 성공적으로 완료될 수 있도록 합니다.
+. 대기열에 있는 집계, 볼륨 또는 스냅샷 복사 작업 중 'job delete-id job_id'를 삭제합니다
++
+[listing]
+----
+cluster1::> job delete -id 8629
+----
+. 집계, 볼륨 또는 스냅샷 작업이 실행 중이거나 대기 중인지 확인합니다. 'job show'
++
+이 예에서는 실행 중인 작업과 대기열에 있는 작업이 모두 삭제되었습니다.
+
++
+[listing]
+----
+cluster1::> job show
+                            Owning
+Job ID Name                 Vserver    Node           State
+------ -------------------- ---------- -------------- ----------
+9944   SnapMirrorDaemon_7_2147484678
+                            cluster1   node1          Dormant
+       Description: Snapmirror Daemon for 7_2147484678
+18377  SnapMirror Service Job
+                            cluster1   node0          Dormant
+       Description: SnapMirror Service Job
+2 entries were displayed
+----
+
+
+
+
+== 종료해야 하는 활성 CIFS 세션을 식별합니다
+
+ONTAP 소프트웨어를 업그레이드하기 전에 지속적으로 사용할 수 없는 CIFS 세션을 식별하여 정상적으로 종료해야 합니다.
+
+Hyper-V 또는 Microsoft SQL Server 클라이언트가 SMB 3.0 프로토콜을 사용하여 액세스하는 지속적으로 사용 가능한 CIFS 공유는 업그레이드하기 전에 종료할 필요가 없습니다.
+
+. 계속 사용할 수 없는 설정된 CIFS 세션을 식별합니다. 'vserver cifs session show-Continuously-available Yes-instance'
++
+이 명령은 무중단 가용성이 없는 CIFS 세션에 대한 자세한 정보를 표시합니다. ONTAP 업그레이드를 진행하기 전에 종료해야 합니다.
+
++
+[listing]
+----
+cluster1::> vserver cifs session show -continuously-available Yes -instance
+
+                        Node: node1
+                     Vserver: vs1
+                  Session ID: 1
+               Connection ID: 4160072788
+Incoming Data LIF IP Address: 198.51.100.5
+      Workstation IP address: 203.0.113.20
+    Authentication Mechanism: NTLMv2
+                Windows User: CIFSLAB\user1
+                   UNIX User: nobody
+                 Open Shares: 1
+                  Open Files: 2
+                  Open Other: 0
+              Connected Time: 8m 39s
+                   Idle Time: 7m 45s
+            Protocol Version: SMB2_1
+      Continuously Available: No
+1 entry was displayed.
+----
+. 필요한 경우, 식별된 각 CIFS 세션에 대해 열려 있는 파일을 확인하십시오: 'vserver cifs session file show-session-id session_ID'
++
+[listing]
+----
+cluster1::> vserver cifs session file show -session-id 1
+
+Node:       node1
+Vserver:    vs1
+Connection: 4160072788
+Session:    1
+File    File      Open Hosting                               Continuously
+ID      Type      Mode Volume          Share                 Available
+------- --------- ---- --------------- --------------------- ------------
+1       Regular   rw   vol10           homedirshare          No
+Path: \TestDocument.docx
+2       Regular   rw   vol10           homedirshare          No
+Path: \file1.txt
+2 entries were displayed.
+----
+
+
+xref:concept_considerations_for_session_oriented_protocols.adoc[세션 지향 프로토콜에 대한 고려 사항]

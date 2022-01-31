@@ -1,0 +1,54 @@
+---
+permalink: system-admin/configure-access-web-services-task.html 
+sidebar: sidebar 
+keywords: configure, access, web, services, http, https, svm 
+summary: '웹 서비스에 대한 액세스를 구성하면 권한 있는 사용자가 HTTP 또는 HTTPS를 사용하여 클러스터의 서비스 콘텐츠 또는 SVM(스토리지 가상 머신)에 액세스할 수 있습니다.' 
+---
+= 웹 서비스에 대한 액세스를 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+웹 서비스에 대한 액세스를 구성하면 권한 있는 사용자가 HTTP 또는 HTTPS를 사용하여 클러스터의 서비스 콘텐츠 또는 SVM(스토리지 가상 머신)에 액세스할 수 있습니다.
+
+.단계
+. 방화벽이 설정된 경우 웹 서비스에 사용될 LIF의 방화벽 정책에 HTTP 또는 HTTPS 액세스가 설정되어 있는지 확인합니다.
++
+[NOTE]
+====
+'system services firewall show' 명령을 사용하여 방화벽이 활성화되어 있는지 확인할 수 있습니다.
+
+====
++
+.. 방화벽 정책에 HTTP 또는 HTTPS가 설정되어 있는지 확인하려면 'system services firewall policy show' 명령을 사용합니다.
++
+시스템 서비스 방화벽 정책의 '-service' 매개 변수를 'http' 또는 'https'로 설정하여 해당 정책이 웹 액세스를 지원할 수 있도록 합니다.
+
+.. HTTP 또는 HTTPS를 지원하는 방화벽 정책이 웹 서비스를 제공하는 LIF와 연결되어 있는지 확인하려면 '-firewall-policy' 매개 변수와 함께 'network interface show' 명령을 사용하십시오.
++
+'network interface modify' 명령을 '-firewall-policy' 매개 변수와 함께 사용하여 LIF에 방화벽 정책을 적용합니다.
+
+
+
+. 클러스터 수준 웹 프로토콜 엔진을 구성하고 웹 서비스 콘텐츠를 액세스할 수 있도록 하려면 'system services web modify' 명령을 사용합니다.
+. 보안 웹 서비스(HTTPS)를 사용하려는 경우 '보안 SSL 수정' 명령을 사용하여 SSL을 활성화하고 클러스터 또는 SVM에 대한 디지털 인증서 정보를 제공합니다.
+. 클러스터 또는 SVM에 대한 웹 서비스를 활성화하려면 'vserver services web modify' 명령을 사용하십시오.
++
+클러스터 또는 SVM에 대해 활성화할 각 서비스에 대해 이 단계를 반복해야 합니다.
+
+. 클러스터 또는 SVM에서 웹 서비스에 액세스하는 역할을 승인하려면 'vserver services web access create' 명령을 사용하십시오.
++
+액세스 권한을 부여하는 역할이 이미 있어야 합니다. 'Security login role show' 명령어를 사용해 기존 역할을 표시하거나, 'ecurity login role create' 명령어를 사용해 새로운 역할을 생성할 수 있다.
+
+. 웹 서비스에 액세스할 수 있는 권한을 가진 역할의 경우, '보안 로그인 표시' 명령의 출력을 확인하여 사용자가 올바른 액세스 방법을 사용하도록 구성해야 합니다.
++
+ONTAP API 웹 서비스('ontapi')에 액세스하려면 사용자가 "ontapi" 액세스 방법으로 구성해야 합니다. 다른 모든 웹 서비스에 액세스하려면 사용자가 http 액세스 방법으로 구성되어야 합니다.
+
++
+[NOTE]
+====
+'보안 로그인 생성' 명령을 사용하여 사용자의 액세스 방법을 추가합니다.
+
+====
+

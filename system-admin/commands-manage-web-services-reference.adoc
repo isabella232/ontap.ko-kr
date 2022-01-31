@@ -1,0 +1,57 @@
+---
+permalink: system-admin/commands-manage-web-services-reference.html 
+sidebar: sidebar 
+keywords: command, manage, web, service, vserver, svm, storage, virtual. machine 
+summary: 'SVM 서비스 웹 명령을 사용하여 클러스터 또는 SVM(스토리지 가상 머신)의 웹 서비스 가용성을 관리할 수 있습니다. SVM 서비스 웹 액세스 명령을 사용하여 웹 서비스에 대한 역할의 액세스를 제어합니다.' 
+---
+= 웹 서비스 관리를 위한 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'vserver services web' 명령을 사용하여 클러스터나 SVM(스토리지 가상 머신)의 웹 서비스 가용성을 관리할 수 있습니다. 'vserver services web access' 명령을 사용하여 웹 서비스에 대한 역할의 액세스를 제어합니다.
+
+|===
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+클러스터 또는 SVM을 위한 웹 서비스 구성:
+
+* 웹 서비스를 활성화 또는 비활성화합니다
+* 웹 서비스에 액세스하는 데 HTTPS만 사용할 수 있는지 여부를 지정합니다
+
+ a| 
+가상 서버 서비스 웹 수정
+
+
+
+ a| 
+클러스터 또는 anSVM을 위한 웹 서비스의 구성 및 가용성을 표시합니다
+ a| 
+가상 서버 서비스 웹 쇼
+
+
+
+ a| 
+클러스터 또는 SVM에서 웹 서비스에 액세스하는 역할을 승인합니다
+ a| 
+'vserver services web access create'
+
+
+
+ a| 
+클러스터 또는 anSVM에서 웹 서비스에 액세스하도록 승인된 역할을 표시합니다
+ a| 
+'vserver services web access show'
+
+
+
+ a| 
+클러스터 또는 SVM에서 웹 서비스에 대한 역할 액세스 방지
+ a| 
+'vserver services web access delete'(가상 서버 서비스 웹 액세스 삭제)
+
+|===
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"]

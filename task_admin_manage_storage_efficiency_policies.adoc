@@ -1,0 +1,38 @@
+---
+sidebar: sidebar 
+permalink: task_admin_manage_storage_efficiency_policies.html 
+keywords: netapp, ontap, storage, efficiency, policy, configuration, balance 
+summary: ONTAP 9.8부터 비 AFF 시스템에서 스토리지 VM의 효율성 정책을 관리할 수 있습니다. 
+---
+= 스토리지 효율성 정책 관리
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+ONTAP 9.8부터 System Manager를 사용하여 FAS 시스템의 스토리지 VM에 대한 효율성 정책을 설정, 해제, 추가, 편집 또는 삭제할 수 있습니다.
+
+
+NOTE: AFF 시스템에서는 이 기능을 사용할 수 없습니다.
+
+.단계
+. 스토리지 > 스토리지 VM * 을 선택합니다
+. 효율성 정책을 관리할 스토리지 VM을 선택합니다.
+. 설정 * 탭에서 을 선택합니다 image:icon_arrow.gif["파란색_오른쪽 화살표"] 효율성 정책 * 섹션에서 해당 스토리지 VM의 효율성 정책이 표시됩니다.
+
+
+다음 작업을 수행할 수 있습니다.
+
+* * 상태 열에서 전환 버튼을 클릭하여 효율성 정책을 활성화 또는 비활성화합니다.
+* * 추가 + * 를 클릭하여 효율성 정책을 추가합니다.
+* * 편집 * 을 클릭하여 효율성 정책을 편집합니다 image:icon_kabob.gif["케밥 아이콘"] 정책 이름 오른쪽에 있는 * Edit * 를 선택합니다.
+* * 삭제 * 를 클릭하여 효율성 정책을 삭제합니다 image:icon_kabob.gif["케밥 아이콘"] 정책 이름 오른쪽에 있는 * 삭제 * 를 선택합니다.
+

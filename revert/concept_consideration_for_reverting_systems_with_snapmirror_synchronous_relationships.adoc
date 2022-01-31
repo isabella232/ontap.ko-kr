@@ -1,0 +1,29 @@
+---
+permalink: revert/concept_consideration_for_reverting_systems_with_snapmirror_synchronous_relationships.html 
+sidebar: sidebar 
+keywords: ontap, revert, reverting, reversion, considerations, snapmirror, synchronous, relationships 
+summary: ONTAP 9.6에서 ONTAP 9.5로 되돌리기 전에 SnapMirror Synchronous 관계에 대한 고려 사항을 숙지해야 합니다. 
+---
+= SnapMirror Synchronous 관계로 시스템을 되돌릴 때의 고려 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.6에서 ONTAP 9.5로 되돌리기 전에 SnapMirror Synchronous 관계에 대한 고려 사항을 숙지해야 합니다.
+
+되돌리기 전에 SnapMirror Synchronous 관계가 있는 경우 다음 단계를 수행해야 합니다.
+
+* 소스 볼륨에서 NFSv4 또는 SMB를 사용하여 데이터를 제공하는 SnapMirror Synchronous 관계를 삭제해야 합니다.
++
+ONTAP 9.5는 NFSv4 및 SMB를 지원하지 않습니다.
+
+* 미러 미러 계단식 배열 배포에서 SnapMirror Synchronous 관계를 모두 삭제해야 합니다.
++
+ONTAP 9.5의 SnapMirror Synchronous 관계에는 미러 계단식 배열 배포가 지원되지 않습니다.
+
+* 되돌리기 중에 ONTAP 9.5의 공통 스냅샷 복사본을 사용할 수 없는 경우 되돌리기 후 SnapMirror Synchronous 관계를 초기화해야 합니다.
++
+ONTAP 9.6으로 2시간 업그레이드한 후 ONTAP 9.5의 공통 Snapshot 복사본이 ONTAP 9.6의 공통 Snapshot 복사본으로 자동으로 대체됩니다. 따라서 ONTAP 9.5의 공통 스냅샷 복사본을 사용할 수 없는 경우 되돌린 후 SnapMirror Synchronous 관계를 재동기화할 수 없습니다.
+
+

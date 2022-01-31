@@ -1,0 +1,28 @@
+---
+section: error-messages
+title: EMS 구성
+entries:
+- title: 개요
+  url: "/error-messages/index.html"
+- title: System Manager로 EMS 이벤트 알림을 구성합니다
+  url: "/error-messages/configure-ems-notifications-sm-task.html"
+- title: CLI로 EMS 이벤트 알림을 설정한다
+  entries:
+  - title: 워크플로우
+    url: "/error-messages/config-workflow-task.html"
+  - title: 이벤트 알림을 보낼 위치를 결정합니다
+    url: "/error-messages/decide-send-event-notifications-task.html"
+  - title: 이메일 알림을 보내도록 EMS 이벤트를 구성합니다
+    url: "/error-messages/configure-ems-events-send-email-task.html"
+  - title: 알림을 syslog 서버로 전달하도록 EMS 이벤트를 구성합니다
+    url: "/error-messages/configure-ems-events-notifications-syslog-task.html"
+  - title: 이벤트 알림을 수신하도록 SNMP traaphosts를 구성합니다
+    url: "/error-messages/configure-snmp-traphosts-event-notifications-task.html"
+  - title: 알림을 REST API 서버로 전달하도록 중요한 EMS 이벤트를 구성합니다
+    url: "/error-messages/configure-webhooks-event-notifications-task.html"
+- title: 더 이상 사용되지 않는 EMS 이벤트 매핑을 업데이트합니다
+  entries:
+  - title: EMS 이벤트 매핑 모델
+    url: "/error-messages/ems-routing-notifications-models-concept.html"
+  - title: 사용되지 않는 ONTAP 명령에서 EMS 이벤트 매핑을 업데이트합니다
+    url: "/error-messages/convert-ems-routing-to-notifications-task.html"

@@ -1,0 +1,25 @@
+---
+permalink: smb-admin/index.html 
+sidebar: sidebar 
+keywords: smb, cifs, protocol, file, access, overview 
+summary: SMB 프로토콜에 사용할 수 있는 ONTAP 파일 액세스 기능 CIFS 서버를 설정하고, 공유를 생성하고, Microsoft 서비스를 설정할 수 있습니다. 계획 지침과 자세한 구현 지침이 포함되어 있습니다. 
+---
+= SMB 참조 개요
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMB 프로토콜에서 ONTAP 파일 액세스 기능을 사용할 수 있습니다. CIFS 서버를 설정하고, 공유를 생성하고, Microsoft 서비스를 설정할 수 있습니다.
+
+[NOTE]
+====
+_smb_(서버 메시지 블록)는 CIFS(Common Internet File System) 프로토콜의 최신 방언을 의미합니다. ONTAP CLI(Command-Line Interface) 및 OnCommand 관리 툴에서도 _cifs_가 계속 표시됩니다.
+
+====
+다음과 같은 상황에서 이러한 절차를 사용해야 합니다.
+
+* ONTAP SMB 프로토콜 기능의 범위를 이해하려고 합니다.
+* 기본적인 SMB 구성이 아닌, 덜 일반적인 구성 및 유지 관리 작업을 수행해야 합니다.
+* System Manager나 자동화된 스크립팅 도구가 아니라 CLI(Command-Line Interface)를 사용하려는 경우
+

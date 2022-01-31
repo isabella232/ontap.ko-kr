@@ -1,0 +1,24 @@
+---
+permalink: system-admin/node-cluster-config-backed-up-automatically-concept.html 
+sidebar: sidebar 
+keywords: node, cluster, configuration, backup, up, automatically 
+summary: 세 개의 별도 일정으로 클러스터 및 노드 구성 백업 파일이 자동으로 생성되어 클러스터의 노드 간에 복제됩니다. 
+---
+= 노드 및 클러스터 구성을 자동으로 백업하는 방법
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+세 개의 별도 일정으로 클러스터 및 노드 구성 백업 파일이 자동으로 생성되어 클러스터의 노드 간에 복제됩니다.
+
+구성 백업 파일은 다음 일정에 따라 자동으로 생성됩니다.
+
+* 8시간마다
+* 매일
+* 매주
+
+
+이 각 시점에서 노드의 구성 백업 파일이 클러스터의 정상 상태인 각 노드에 생성됩니다. 이러한 모든 노드 구성 백업 파일은 복제된 클러스터 구성과 함께 단일 클러스터 구성 백업 파일에서 수집되고 클러스터의 하나 이상의 노드에 저장됩니다.
+
+단일 노드 클러스터(Data ONTAP Edge 시스템 포함)의 경우 소프트웨어 설치 중에 구성 백업 대상을 지정할 수 있습니다. 설정 후 ONTAP 명령을 사용하여 이러한 설정을 수정할 수 있습니다.

@@ -1,0 +1,32 @@
+---
+permalink: san-admin/remove-lif-from-portset-task.html 
+sidebar: sidebar 
+keywords: remove, san, lif, port, set 
+summary: 삭제하거나 이동하려는 LIF가 포트 세트에 있는 경우 LIF를 삭제하거나 이동하기 전에 포트 세트에서 LIF를 제거해야 합니다. 
+---
+= 포트 세트에서 SAN LIF를 제거합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+삭제하거나 이동하려는 LIF가 포트 세트에 있는 경우 LIF를 삭제하거나 이동하기 전에 포트 세트에서 LIF를 제거해야 합니다.
+
+다음 절차의 1단계는 하나의 LIF가 포트 세트에 있는 경우에만 수행해야 합니다. 포트 세트가 이니시에이터 그룹에 바인딩되어 있는 경우 포트 세트의 마지막 LIF를 제거할 수 없습니다. 그렇지 않으면 포트 세트에 여러 LIF가 있는 경우 2단계부터 시작할 수 있습니다.
+
+.단계
+. 포트 세트에 하나의 LIF만 있는 경우 'lun igroup unbind' 명령을 사용하여 이니시에이터 그룹에서 포트 세트를 바인딩 해제합니다.
++
+[NOTE]
+====
+이니시에이터 그룹을 포트 세트에서 바인딩 해제하면 이니시에이터 그룹의 모든 이니시에이터가 모든 네트워크 인터페이스의 이니시에이터 그룹에 매핑된 모든 타겟 LUN에 액세스할 수 있습니다.
+
+====
++
+'cluster1::> lun igroup unbind-vserver vs1-igroup ig1'
+
+. 'lun 포트셋 제거' 명령을 사용하여 포트 세트에서 LIF를 제거합니다.
++
+'cluster1::> port set remove-vserver vs1-포트셋 PS1-port-name liff 1'
+
+

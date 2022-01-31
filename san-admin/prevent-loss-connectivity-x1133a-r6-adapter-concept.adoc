@@ -1,0 +1,17 @@
+---
+permalink: san-admin/prevent-loss-connectivity-x1133a-r6-adapter-concept.html 
+sidebar: sidebar 
+keywords: how to, prevent, loss of connectivity,  using,  x1133a-r6 adapter 
+summary: 별도의 X1133A-R6 HBA에 대한 중복 경로를 사용하여 시스템을 구성하면 포트 장애 시 연결이 끊어지지 않습니다. 
+---
+= X1133A-R6 어댑터를 사용할 경우 연결 끊김 방지
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+별도의 X1133A-R6 HBA에 대한 중복 경로를 사용하여 시스템을 구성하면 포트 장애 시 연결이 끊어지지 않습니다.
+
+X1133A-R6 HBA는 2개의 2포트 쌍으로 구성된 4포트, 16Gb FC 어댑터입니다. X1133A-R6 어댑터는 타겟 모드 또는 이니시에이터 모드로 구성할 수 있습니다. 각 2포트 쌍은 단일 ASIC에서 지원됩니다(예: ASIC 1의 포트 1과 포트 2, ASIC 2의 포트 3과 포트 4). 단일 ASIC의 두 포트는 타겟 모드나 이니시에이터 모드에서 동일한 모드로 작동하도록 구성해야 합니다. ASIC에서 쌍을 지원하는 데 오류가 발생하면 페어의 두 포트가 모두 오프라인 상태가 됩니다.
+
+이러한 접속 구성 손실을 방지하려면 X1133A-R6 HBA를 분리하는 이중 경로 또는 HBA의 다른 ASIC에서 지원되는 포트에 대한 이중 경로를 사용하여 시스템을 구성합니다.

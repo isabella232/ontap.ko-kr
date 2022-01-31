@@ -1,0 +1,61 @@
+---
+section: cloud
+title: ONTAP와 클라우드
+entries:
+- title: 개요
+  url: "/cloud/index.html"
+- title: 데이터 보호와 클라우드
+  entries:
+  - title: 개요
+    url: "/cloud/data-protection-cloud-concept.html"
+  - title: 데이터 복제
+    url: "/cloud/data-replication-concept.html"
+  - title: 고가용성
+    url: "/cloud/high-availability-concept.html"
+  - title: 유휴 데이터의 암호화
+    url: "/cloud/encryption-data-at-rest-concept.html"
+  - title: 안티바이러스 보호
+    url: "/cloud/antivirus-protection-concept.html"
+- title: 전체 워크로드를 클라우드로 이동
+  entries:
+  - title: 프로토콜을 지원합니다
+    url: "/cloud/storage-protocols-concept.html"
+    entries:
+    - title: NFS 및 SMB로 파일 공유
+      url: "/cloud/file-sharing-nfs-smb-concept.html"
+    - title: iSCSI
+      url: "/cloud/iscsi-concept.html"
+  - title: AutoSupport 및 Active IQ 디지털 자문업체
+    url: "/cloud/autosupport-active-iq-digital-advisor-concept.html"
+  - title: 스토리지 VM
+    url: "/cloud/storage-vms-concept.html"
+  - title: FlexGroup 볼륨
+    url: "/cloud/flexgroup-volumes-concept.html"
+- title: 클라우드 내의 성능 및 효율성
+  entries:
+  - title: 개요
+    url: "/cloud/performance-efficiency-concept.html"
+  - title: FabricPool
+    url: "/cloud/fabricpool-concept.html"
+  - title: 스토리지 효율성
+    url: "/cloud/storage-efficiency-concept.html"
+- title: 클라우드에서 ONTAP 관리
+  entries:
+  - title: 개요
+    url: "/cloud/manage-ontap-concept.html"
+  - title: 이벤트 및 성능 모니터링
+    url: "/cloud/event-performance-monitoring-concept.html"
+  - title: 볼륨 관리
+    url: "/cloud/volume-management-concept.html"
+  - title: 볼륨 이동
+    url: "/cloud/volume-move-concept.html"
+  - title: ONTAP 업데이트
+    url: "/cloud/ontap-updates-concept.html"
+- title: 요구사항에 빠르게 대응할 수 있습니다
+  entries:
+  - title: NetApp 클라우드 데이터 감지
+    url: "/cloud/data-sense-concept.html"
+  - title: 데이터 주권
+    url: "/cloud/data-sovereignty-concept.html"
+  - title: SnapLock WORM 스토리지
+    url: "/cloud/snaplock-worm-storage-concept.html"

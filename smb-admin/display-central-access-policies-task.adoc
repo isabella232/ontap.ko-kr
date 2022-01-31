@@ -1,0 +1,99 @@
+---
+permalink: smb-admin/display-central-access-policies-task.html 
+sidebar: sidebar 
+keywords: display, detail, information, central, access, policies, policy, define, active, directory, display, central, access, cifs, server, group, policy, objects, gpo, display information about central access policies 
+summary: 'Active Directory에 정의된 중앙 액세스 정책에 대한 자세한 정보를 표시할 수 있습니다. GPO(그룹 정책 개체)를 통해 CIFS 서버에 적용되는 중앙 액세스 정책에 대한 정보를 표시할 수도 있습니다.' 
+---
+= 중앙 액세스 정책에 대한 정보를 표시합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Active Directory에 정의된 중앙 액세스 정책에 대한 자세한 정보를 표시할 수 있습니다. GPO(그룹 정책 개체)를 통해 CIFS 서버에 적용되는 중앙 액세스 정책에 대한 정보를 표시할 수도 있습니다.
+
+기본적으로 다음 정보가 표시됩니다.
+
+* SVM 이름
+* 중앙 액세스 정책의 이름입니다
+* SID
+* 설명
+* 생성 시간
+* 수정 시간
+* 구성원 규칙
+
+
+[NOTE]
+====
+CIFS 서버는 GPO를 지원하지 않으므로 워크그룹 모드의 CIFS 서버는 표시되지 않습니다.
+
+====
+.단계
+. 다음 작업 중 하나를 수행하여 중앙 액세스 정책에 대한 정보를 표시합니다.
++
+|===
+| 모든 중앙 액세스 정책에 대한 정보를 표시하려면... | 명령 입력... 
+
+
+ a| 
+Active Directory에 정의되어 있습니다
+ a| 
+'vserver cifs group-policy central-access-policy show-defined-vserver_vserver_name_'
+
+
+
+ a| 
+CIFS 서버에 적용됩니다
+ a| 
+'vserver cifs group-policy central-access-policy show-applied-vserver_vserver_name_'
+
+|===
+
+
+다음 예에서는 Active Directory에 정의된 모든 중앙 액세스 정책에 대한 정보를 표시합니다.
+
+[listing]
+----
+cluster1::> vserver cifs group-policy central-access-policy show-defined
+
+Vserver  Name                 SID
+-------- -------------------- -----------------------------------------------
+vs1      p1                   S-1-17-3386172923-1132988875-3044489393-3993546205
+       Description: policy #1
+     Creation Time: Tue Oct 22 09:34:13 2013
+ Modification Time: Wed Oct 23 08:59:15 2013
+      Member Rules: r1
+
+vs1      p2                   S-1-17-1885229282-1100162114-134354072-822349040
+       Description: policy #2
+     Creation Time: Tue Oct 22 10:28:20 2013
+ Modification Time: Thu Oct 31 10:25:32 2013
+      Member Rules: r1
+                    r2
+----
+다음 예에서는 클러스터의 SVM(스토리지 가상 머신)에 적용되는 모든 중앙 액세스 정책에 대한 정보를 표시합니다.
+
+[listing]
+----
+cluster1::> vserver cifs group-policy central-access-policy show-applied
+
+Vserver    Name                 SID
+-------- -------------------- -----------------------------------------------
+vs1      p1                   S-1-17-3386172923-1132988875-3044489393-3993546205
+       Description: policy #1
+     Creation Time: Tue Oct 22 09:34:13 2013
+ Modification Time: Wed Oct 23 08:59:15 2013
+      Member Rules: r1
+
+vs1      p2                   S-1-17-1885229282-1100162114-134354072-822349040
+       Description: policy #2
+     Creation Time: Tue Oct 22 10:28:20 2013
+ Modification Time: Thu Oct 31 10:25:32 2013
+      Member Rules: r1
+                    r2
+----
+xref:secure-file-access-dynamic-access-control-concept.adoc[DAC(Dynamic Access Control)를 사용하여 파일 액세스 보안]
+
+xref:display-gpo-config-task.adoc[GPO 구성에 대한 정보 표시]
+
+xref:display-central-access-policy-rules-task.adoc[중앙 액세스 정책 규칙에 대한 정보 표시]

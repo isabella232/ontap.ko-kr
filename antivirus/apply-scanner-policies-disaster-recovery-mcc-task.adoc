@@ -1,0 +1,86 @@
+---
+permalink: antivirus/apply-scanner-policies-disaster-recovery-mcc-task.html 
+sidebar: sidebar 
+keywords: apply, scanner policies, metrocluster, configurations 
+summary: 스캐너 정책은 스캐너 풀이 활성 상태인지 여부를 결정합니다. MetroCluster 구성에서 각 클러스터의 기본 및 보조 스캐너 풀에 스캐너 정책을 적용해야 합니다. 
+---
+= MetroCluster 구성에서 스캐너 정책을 적용합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+스캐너 정책은 스캐너 풀이 활성 상태인지 여부를 결정합니다. MetroCluster 구성에서 각 클러스터의 기본 및 보조 스캐너 풀에 스캐너 정책을 적용해야 합니다.
+
+.이 작업에 대해
+* 스캐너 풀에는 하나의 스캐너 정책만 적용할 수 있습니다.
+* 클러스터에서 모든 SVM에 대해 스캐너 풀을 생성한 경우 각 SVM에 개별적으로 스캐너 정책을 적용해야 합니다.
+
+
+.단계
+. 스캐너 정책 적용:
++
+'vserver vscan scanner -pool apply -policy -vserver data_SVM -scanner -pool scanner_pool -scanner -policy primary | secondary|idle -cluster cluster_to_apply_policy_on'
+
++
+스캐너 정책은 다음 값 중 하나를 가질 수 있습니다.
+
++
+** "기본"은 스캐너 풀이 활성화되도록 지정합니다.
+** '2차'는 기본 스캐너 풀에 Vscan 서버가 연결되어 있지 않은 경우에만 스캐너 풀이 활성화되도록 지정합니다.
+** "유휴"는 스캐너 풀이 비활성 상태라고 지정합니다.
+
+
++
+[NOTE]
+====
+운영 SVM이 포함된 클러스터에서 모든 스캐너 정책을 적용해야 합니다.
+
+====
++
+다음 명령은 MetroCluster 구성에서 각 클러스터의 기본 및 보조 스캐너 풀에 스캐너 정책을 적용합니다.
+
++
+[listing]
+----
+cluster1::>vserver vscan scanner-pool apply-policy -vserver cifssvm1
+-scanner-pool pool1_for_site1 -scanner-policy primary -cluster cluster1
+
+cluster1::>vserver vscan scanner-pool apply-policy -vserver cifssvm1
+-scanner-pool pool2_for_site1 -scanner-policy secondary -cluster cluster1
+
+cluster1::>vserver vscan scanner-pool apply-policy -vserver cifssvm1
+-scanner-pool pool1_for_site2 -scanner-policy primary -cluster cluster2
+
+cluster1::>vserver vscan scanner-pool apply-policy -vserver cifssvm1
+-scanner-pool pool2_for_site2 -scanner-policy secondary -cluster cluster2
+----
+. 스캐너 풀이 활성화되었는지 확인합니다.
++
+'vserver vscan scanner -pool show -vserver data_SVM|cluster_admin_SVM-scanner -pool scanner_pool'
+
++
+전체 옵션 목록은 명령에 대한 man 페이지를 참조하십시오.
+
++
+다음 명령을 실행하면 스캐너 풀 'pool1'에 대한 세부 정보가 표시됩니다.
+
++
+[listing]
+----
+cluster1::> vserver vscan scanner-pool show -vserver cifssvm1 -scanner-pool pool1_for_site1
+
+                                    Vserver: cifssvm1
+                               Scanner Pool: pool1_for_site1
+                             Applied Policy: primary
+                             Current Status: on
+         Cluster on Which Policy Is Applied: cluster1
+                  Scanner Pool Config Owner: vserver
+       List of IPs of Allowed Vscan Servers:
+List of Host Names of Allowed Vscan Servers: scan1
+                   List of Privileged Users: cifs\u1,cifs\u2
+----
++
+SVM에서 활성 스캐너 풀을 보려면 'vserver vscan scanner -pool show -active' 명령을 사용하십시오. 전체 명령 구문은 명령에 대한 man 페이지를 참조하십시오.
+
+

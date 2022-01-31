@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/tape-record-size-must-be-range-reference.html 
+sidebar: sidebar 
+keywords: tape, record, size, 4kb, 256kb, backup, restore, operation, blocking, factor 
+summary: 백업 또는 복원 작업에 대해 지정된 차단 계수가 허용 범위 내에 있지 않습니다. 
+---
+= 테이프 레코드 크기는 4KB에서 256KB 사이여야 합니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+테이프 레코드 크기는 4KB에서 256KB 사이여야 합니다
+
+* * 원인 *
++
+백업 또는 복원 작업에 대해 지정된 차단 계수가 허용 범위 내에 있지 않습니다.
+
+* * 시정 조치 *
++
+4KB ~ 256KB 범위의 차단 계수를 지정합니다.
+
+

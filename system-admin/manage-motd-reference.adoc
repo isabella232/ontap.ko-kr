@@ -1,0 +1,169 @@
+---
+permalink: system-admin/manage-motd-reference.html 
+sidebar: sidebar 
+keywords: manage, motd, message, day, cluster, svm, administrator 
+summary: '클러스터 또는 SVM 레벨에서 하루 중 메시지(MOTD)를 관리할 수 있습니다. 기본적으로 클러스터에 구성된 MOTD도 모든 SVM에 대해 활성화됩니다. 또한 SVM별로 MOTD를 구성할 수 있습니다. 클러스터 관리자가 각 SVM에 대해 클러스터 레벨 MOTD를 설정하거나 해제할 수 있습니다.' 
+---
+= MOTD 관리
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클러스터 또는 SVM 레벨에서 하루 중 메시지(MOTD)를 관리할 수 있습니다. 기본적으로 클러스터에 구성된 MOTD도 모든 SVM에 대해 활성화됩니다. 또한 SVM별로 MOTD를 구성할 수 있습니다. 클러스터 관리자가 각 SVM에 대해 클러스터 레벨 MOTD를 설정하거나 해제할 수 있습니다.
+
+.선택
+* 클러스터 레벨에서 MOTD 관리:
++
+|===
+| 원하는 작업 | 그러면... 
+
+
+ a| 
+기존 MOTD가 없는 경우 모든 로그인에 대해 MOTD를 생성합니다
+ a| 
+클러스터 레벨 MOTD 설정:
+
+"* 보안 로그인 motd modify -vserver_cluster_name_{[-message"_text_"]|[-Uri_ftp_or_http_addr_]} *
+
+
+
+ a| 
+SVM 레벨의 MOD가 구성되지 않은 경우 모든 로그인에 대해 MOTD를 변경합니다
+ a| 
+클러스터 레벨 MOTD 수정:
+
+"* 보안 로그인 motd modify -vserver_cluster_name_{[-message"_text_"]}|[-Uri ftp_or_http_addr]} *
+
+
+
+ a| 
+SVM 레벨의 MOD가 구성되지 않은 경우 모든 로그인에 대해 MOTD를 제거합니다
+ a| 
+클러스터 수준 MOTD를 빈 문자열("")로 설정합니다.
+
+"* 보안 로그인 motd modify -vserver_cluster_name_- 메시지""*"
+
+
+
+ a| 
+SVM 레벨의 MOTD를 사용하는 대신 모든 SVM에 클러스터 레벨 MOTD를 표시하도록 하십시오
+ a| 
+클러스터 레벨 MOTD를 설정한 다음 클러스터 레벨 MOTD를 사용하도록 설정한 상태에서 모든 SVM 레벨 MOD를 빈 문자열로 설정합니다.
+
+.. "* 보안 로그인 motd modify -vserver_cluster_name_{[-message"_text_"]|[-Uri_ftp_or_http_addr_]} *
+.. "* 보안 로그인 motd 수정 {-vserver!"_cluster_name_"} - 메시지 ""-is-cluster-message-enabled true *"
+
+
+
+
+ a| 
+선택한 SVM에 대해서만 MOTD를 표시하고 클러스터 레벨 MOTD는 사용하지 않습니다
+ a| 
+클러스터 레벨 MOTD를 빈 문자열로 설정한 다음 선택한 SVM에 대해 SVM 레벨 MOD를 설정합니다.
+
+.. "* 보안 로그인 motd modify -vserver_cluster_name_- 메시지""*"
+.. "* 보안 로그인 motd modify -vserver_svm_name_{[-message"_text_"]|[-Uri_ftp_or_http_addr_]} *
++
+필요에 따라 각 SVM에 대해 이 단계를 반복할 수 있습니다.
+
+
+
+
+
+ a| 
+모든 SVM(데이터 및 관리) SVM에 동일한 SVM 레벨 MOTD를 사용합니다
+ a| 
+클러스터 및 모든 SVM에서 동일한 MOTD를 사용하도록 설정:
+
+"* 보안 로그인 motd modify_-vserver_ * {[-message"_text_"]|[-Uri_ftp_or_http_addr_]} *
+
+[NOTE]
+====
+대화식 모드를 사용하는 경우 CLI에서 클러스터와 각 SVM에 대해 MOTD를 개별적으로 입력하라는 메시지가 표시됩니다. 메시지가 표시되면 각 인스턴스에 동일한 MOTD를 붙여 넣을 수 있습니다.
+
+====
+
+
+ a| 
+모든 SVM에 선택적으로 클러스터 레벨 MOTD를 사용할 수 있지만 클러스터 로그인에 MOTD를 표시하지 않으려는 경우
+ a| 
+클러스터 레벨 MOTD를 설정하되, 클러스터에 대해 해당 표시를 해제합니다.
+
+"* 보안 로그인 motd modify -vserver_cluster_name_{[-message"_text_"]|[-Uri_ftp_or_http_addr_]} -is-cluster-message-enabled false *
+
+
+
+ a| 
+일부 SVM에만 클러스터 레벨 및 SVM 레벨 MOD가 모두 있는 경우 클러스터에서 모든 MOD와 SVM 수준을 제거합니다
+ a| 
+MOTD에 대해 빈 문자열을 사용하도록 클러스터와 모든 SVM 설정:
+
+"* 보안 로그인 motd modify -vserver* -메시지""*"
+
+
+
+ a| 
+비어 있지 않은 문자열이 있는 SVM, 다른 SVM이 빈 문자열을 사용하고, 클러스터 레벨에서 다른 MOTD를 사용하는 SVM에 대해서만 MOTD를 수정합니다
+ a| 
+확장 쿼리를 사용하여 MOTD를 선택적으로 수정합니다.
+
+"* 보안 로그인 motd 수정 {-vserver!"_cluster_name_"-message!""} {[-message "_text_"]|[-Uri_ftp_or_http_addr_]} * '
+
+
+
+ a| 
+텍스트가 여러 줄로 분할되어 있는 경우에도 특정 텍스트(예: ""January"" 다음에 ""2015"")를 포함하는 모든 MOD를 단일 또는 여러 줄 메시지로 표시합니다
+ a| 
+쿼리를 사용하여 MOD 표시:
+
+"* 보안 로그인 motd show-message*"JANUARY"\*** "2015"**
+
+
+
+ a| 
+여러 줄 또는 연속된 줄 바꿈(라인 끝 또는 OLs라고도 함)을 포함하는 MOTD를 대화형으로 만듭니다.
+ a| 
+대화형 모드에서 스페이스바를 누른 다음 Enter 키를 눌러 MOTD 입력을 종료하지 않고 빈 줄을 만듭니다.
+
+|===
+* SVM 레벨에서 MOTD 관리:
++
+SVM 컨텍스트에서 '-vserver_svm_name_'을 지정할 필요가 없습니다.
+
++
+|===
+| 원하는 작업 | 그러면... 
+
+
+ a| 
+SVM에 기존 SVM 레벨 MOTD가 있는 경우 다른 SVM 레벨 MOTD를 사용하십시오
+ a| 
+SVM 레벨 MOTD 수정:
+
+"* 보안 로그인 motd modify -vserver_svm_name_{[-message"_text_"]|[-Uri_ftp_or_http_addr_]} *
+
+
+
+ a| 
+SVM에 SVM 레벨 MOTD가 이미 있는 경우 SVM에 클러스터 레벨 MOTD만 사용하십시오
+ a| 
+SVM 레벨 MOTD를 빈 문자열로 설정한 다음, 클러스터 관리자에게 SVM을 위한 클러스터 레벨 MOTD를 사용하도록 요청하십시오.
+
+.. "* 보안 로그인 motd modify -vserver_svm_name_- 메시지 ""*"
+.. (클러스터 관리자의 경우) `* security login motd modify -vserver_svm_name_-is-cluster-message -enabled true *
+
+
+
+
+ a| 
+클러스터 레벨 및 SVM 레벨 MOD가 모두 SVM에 대해 현재 표시된 경우 SVM에 MOTD가 표시되지 않습니다
+ a| 
+SVM 레벨 MOTD를 빈 문자열로 설정한 다음, 클러스터 관리자가 SVM에 대해 클러스터 레벨 MOTD를 사용하지 않도록 설정하게 합니다.
+
+.. "* 보안 로그인 motd modify -vserver_svm_name_- 메시지 ""*"
+.. (클러스터 관리자의 경우) `* security login mott modify -vserver_svm_name_-is-cluster-message -enabled false * '
+
+
+|===
+

@@ -1,0 +1,70 @@
+---
+permalink: encryption-at-rest/enable-cluster-fips-compliant-mode-task.html 
+sidebar: sidebar 
+keywords: enabling, cluster-wide, fips-compliant mode, kmip, server, connections 
+summary: 보안 구성 수정 명령을 -is-FIPS 지원 옵션과 함께 사용하여 사용 중인 데이터에 대해 클러스터 차원의 FIPS 호환 모드를 설정할 수 있습니다. 이렇게 하면 클러스터가 KMIP 서버에 연결할 때 FIPS 모드에서 OpenSSL을 사용하게 됩니다. 
+---
+= KMIP 서버 연결을 위해 클러스터 차원의 FIPS 호환 모드를 지원합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'보안 구성 수정' 명령을 -FIPS 사용' 옵션과 함께 사용하면 전송 중인 데이터에 대해 클러스터 차원의 FIPS 호환 모드를 사용할 수 있습니다. 이렇게 하면 클러스터가 KMIP 서버에 연결할 때 FIPS 모드에서 OpenSSL을 사용하게 됩니다.
+
+.무엇을 &#8217;필요로 할거야
+* 스토리지 컨트롤러는 FIPS 호환 모드로 구성해야 합니다.
+* 모든 KMIP 서버는 TLSv1.2를 지원해야 합니다. TLSv1.2는 클러스터 차원의 FIPS 호환 모드가 활성화된 경우 KMIP 서버에 대한 연결을 완료해야 합니다.
+
+
+클러스터 전반의 FIPS 호환 모드를 사용하도록 설정하면 클러스터에서 TLS1.2 및 FIPS 인증 암호 그룹만 자동으로 사용됩니다. 클러스터 차원의 FIPS 호환 모드는 기본적으로 해제되어 있습니다.
+
+클러스터 전체 보안 구성을 수정한 후에는 클러스터 노드를 수동으로 재부팅해야 합니다.
+
+.단계
+. 권한 수준을 고급으로 설정합니다.
++
+세트 프리빌리지 고급
+
+. TLSv1.2가 지원되는지 확인합니다.
++
+'보안 설정 표시 - 지원 - 프로토콜'
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+[listing]
+----
+cluster1::> security config show
+          Cluster                                              Cluster Security
+Interface FIPS Mode  Supported Protocols     Supported Ciphers Config Ready
+--------- ---------- ----------------------- ----------------- ----------------
+SSL       false      TLSv1.2, TLSv1.1, TLSv1 ALL:!LOW:         yes
+                                             !aNULL:!EXP:
+                                             !eNULL
+----
+. 클러스터 전체 FIPS 호환 모드 사용:
++
+보안 설정 수정 - FIPS 활성화 True-Interface SSL
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
+. 클러스터 노드를 수동으로 재부팅합니다.
+. 클러스터 차원에서 FIPS 호환 모드가 활성화되어 있는지 확인합니다.
++
+'보안 구성 쇼'
+
++
+[listing]
+----
+cluster1::> security config show
+          Cluster                                              Cluster Security
+Interface FIPS Mode  Supported Protocols     Supported Ciphers Config Ready
+--------- ---------- ----------------------- ----------------- ----------------
+SSL       true       TLSv1.2, TLSv1.1        ALL:!LOW:         yes
+                                             !aNULL:!EXP:
+                                             !eNULL:!RC4
+----
+

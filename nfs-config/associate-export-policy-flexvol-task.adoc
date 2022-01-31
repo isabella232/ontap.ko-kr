@@ -1,0 +1,38 @@
+---
+permalink: nfs-config/associate-export-policy-flexvol-task.html 
+sidebar: sidebar 
+keywords: assign, export, policy, volume 
+summary: SVM에 포함된 각 볼륨은 클라이언트의 볼륨 데이터 액세스 엑스포트 규칙이 포함된 엑스포트 정책과 연결되어야 합니다. 
+---
+= 볼륨에 엑스포트 정책을 할당합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SVM에 포함된 각 볼륨은 클라이언트의 볼륨 데이터 액세스 엑스포트 규칙이 포함된 엑스포트 정책과 연결되어야 합니다.
+
+볼륨을 생성할 때 또는 볼륨을 생성한 후 언제든지 엑스포트 정책을 볼륨에 연결할 수 있습니다. 하나의 정책을 여러 볼륨에 연결할 수 있지만 하나의 엑스포트 정책을 볼륨에 연결할 수 있습니다.
+
+.단계
+. 볼륨을 생성할 때 엑스포트 정책을 지정하지 않은 경우 볼륨에 엑스포트 정책을 할당합니다.
++
+'volume modify -vserver_vserver_name_-volume_volume_name_-policy_export_policy_name_'
+
+. 정책이 볼륨에 할당되었는지 확인합니다.
++
+'volume show-volume_volume_name_-fields policy'입니다
+
+
+
+다음 명령은 SVM VS1 볼륨 vol1에 엑스포트 정책 NFS_policy를 할당하고 할당을 확인합니다.
+
+[listing]
+----
+cluster::> volume modify -v1server vs1 -volume vol1 -policy nfs_policy
+
+cluster::>volume show -volume vol -fields policy
+vserver volume       policy
+------- ------------ ----------------
+vs1     vol1         nfs_policy
+----

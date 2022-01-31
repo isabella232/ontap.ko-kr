@@ -1,0 +1,15 @@
+---
+permalink: s3-config/workflow-concept.html 
+sidebar: sidebar 
+keywords: s3, configuration, workflow 
+summary: S3 구성에는 물리적 스토리지 및 네트워킹 요구사항을 평가한 다음, 목표에 맞는 워크플로우를 선택해야 합니다. 즉, 새 SVM 또는 기존 SVM에 대한 S3 액세스를 구성하거나, 이미 S3 액세스용으로 완전히 구성된 기존 SVM에 버킷 및 사용자를 추가해야 합니다. 
+---
+= S3 구성 워크플로우
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+S3 구성에는 물리적 스토리지 및 네트워킹 요구사항을 평가한 다음, 특정 목적에 맞는 워크플로우 선택, 즉 새 SVM 또는 기존 SVM에 대한 S3 액세스 구성, 또는 이미 S3 액세스용으로 완전히 구성된 기존 SVM에 버킷 및 사용자 추가 등이 포함됩니다.
+
+image::../media/s3-config-pg-workflow.png[S3 구성 페이지 워크플로우]

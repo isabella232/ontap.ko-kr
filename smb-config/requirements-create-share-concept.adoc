@@ -1,0 +1,56 @@
+---
+permalink: smb-config/requirements-create-share-concept.html 
+sidebar: sidebar 
+keywords: creating, create, smb, share, requirement, path, properties, property, home, directories, directory, requirements and considerations for creating an smb share 
+summary: SMB 공유를 생성하기 전에 공유 경로 및 공유 속성, 특히 홈 디렉토리에 대한 요구 사항을 이해해야 합니다. 
+---
+= SMB 공유를 생성하기 위한 요구 사항 및 고려 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMB 공유를 생성하기 전에 공유 경로 및 공유 속성, 특히 홈 디렉토리에 대한 요구 사항을 이해해야 합니다.
+
+SMB 공유를 생성하려면 클라이언트가 액세스할 디렉토리 경로 구조('vserver cifs share create' 명령의 '-path' 옵션 사용)를 지정해야 합니다. 디렉토리 경로는 SVM 네임스페이스에서 생성한 볼륨 또는 qtree의 접합 경로에 해당합니다. 공유를 생성하기 전에 디렉토리 경로 및 해당 접속 경로가 있어야 합니다.
+
+공유 경로에는 다음과 같은 요구 사항이 있습니다.
+
+* 디렉터리 경로 이름은 최대 255자까지 지정할 수 있습니다.
+* 경로 이름에 공백이 있으면 전체 문자열을 따옴표로 묶어야 합니다(예: "/new volume/mount here").
+* 공유의 UNC 경로('\\servername\sharename\filepath')에 256자 이상(UNC 경로의 초기 ""\\" 제외)이 포함되어 있으면 Windows 속성 상자의 * Security * 탭을 사용할 수 없습니다.
++
+이것은 ONTAP 문제가 아니라 Windows 클라이언트 문제입니다. 이 문제를 방지하려면 256자를 초과하는 UNC 경로를 사용하여 공유를 생성하지 마십시오.
+
+
+
+공유 속성 기본값은 다음과 같이 변경할 수 있습니다.
+
+* 모든 주식의 기본 초기 속성은 oplocks, 탐색 가능, 변경 및 이전 버전 사용 입니다.
+* 공유를 생성할 때 공유 속성을 지정하는 것은 선택 사항입니다.
++
+그러나 공유를 생성할 때 공유 속성을 지정하면 기본값이 사용되지 않습니다. 공유를 만들 때 '-share-properties' 매개 변수를 사용하는 경우 쉼표로 구분된 목록을 사용하여 공유에 적용할 모든 공유 속성을 지정해야 합니다.
+
+* 홈 디렉토리 공유를 지정하려면 홈 디렉토리 속성을 사용합니다.
++
+이 기능을 사용하면 연결된 사용자와 변수 집합을 기반으로 서로 다른 디렉토리에 매핑되는 공유를 구성할 수 있습니다. 사용자별로 별도의 공유를 생성할 필요 없이 몇 가지 홈 디렉토리 매개 변수를 사용하여 단일 공유를 구성하여 엔트리 포인트(공유)와 해당 홈 디렉토리(SVM의 디렉토리) 간의 사용자 관계를 정의할 수 있습니다.
+
++
+[NOTE]
+====
+공유를 생성한 후에는 이 속성을 추가하거나 제거할 수 없습니다.
+
+====
+
+
+홈 디렉토리 공유에는 다음과 같은 요구 사항이 있습니다.
+
+* SMB 홈 디렉토리를 생성하기 전에 'vserver cifs home-directory search-path add' 명령을 사용하여 적어도 하나의 홈 디렉토리 검색 경로를 추가해야 합니다.
+* '-share-properties' 파라미터의 homed디렉토리 값으로 지정된 홈 디렉토리 공유에는 공유 이름에 '%w'(Windows 사용자 이름) 동적 변수가 포함되어야 합니다.
++
+공유 이름에는 "%d"(도메인 이름) 동적 변수(예: "%d/%w") 또는 공유 이름의 정적 부분(예: " home1_%w")이 추가로 포함될 수 있습니다.
+
+* 관리자 또는 사용자가 공유를 사용하여 다른 사용자의 홈 디렉토리에 연결하는 경우('vserver cifs home-directory modify' 명령 옵션 사용) 동적 공유 이름 패턴 앞에는 물결표('~')가 와야 합니다.
+
+
+link:../smb-admin/index.html["SMB 관리"] 그리고 'vserver cifs share' man 페이지에 추가 정보가 있습니다.

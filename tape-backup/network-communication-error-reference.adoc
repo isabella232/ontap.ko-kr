@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/network-communication-error-reference.html 
+sidebar: sidebar 
+keywords: network, communication, error, remote, tape, three, way, connection 
+summary: NDMP 3-way 연결에서 원격 테이프에 대한 통신이 실패했습니다. 
+---
+= 네트워크 통신 오류입니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+네트워크 통신 오류
+
+* * 원인 *
++
+NDMP 3-way 연결에서 원격 테이프에 대한 통신이 실패했습니다.
+
+* * 시정 조치 *
++
+원격 Mover에 대한 네트워크 연결을 확인하십시오.
+
+

@@ -1,0 +1,58 @@
+---
+permalink: san-admin/backup-lun-host-backup-system-task.html 
+sidebar: sidebar 
+keywords: back up, lun, through, host, backup, system 
+summary: 스냅샷 복사본의 클론 복제된 LUN을 호스트 백업 시스템의 소스 데이터로 사용할 수 있습니다. 
+---
+= 호스트 백업 시스템을 통해 LUN을 백업합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+스냅샷 복사본의 클론 복제된 LUN을 호스트 백업 시스템의 소스 데이터로 사용할 수 있습니다.
+
+운영 LUN이 존재하고 애플리케이션 서버의 WWPN 또는 이니시에이터 노드 이름을 포함하는 igroup에 매핑되어야 합니다. LUN도 포맷되고 호스트에서 액세스할 수 있어야 합니다
+
+.단계
+. 호스트 파일 시스템 버퍼의 내용을 디스크에 저장합니다.
++
+호스트 운영 체제에서 제공하는 명령을 사용하거나 SnapDrive for Windows 또는 SnapDrive for UNIX를 사용할 수 있습니다. 이 단계를 SAN 백업 사전 처리 스크립트의 일부로 지정할 수도 있습니다.
+
+. "volume snapshot create" 명령을 사용하여 운영 LUN의 스냅샷 복사본을 생성합니다.
++
+'볼륨 스냅샷 생성 - vserver vs0 - volume vol3 - snapshot vol3_snapshot - comment '단일 스냅샷' - foreground false'
+
+. 'volume file clone create' 명령을 사용하여 운영 LUN의 클론을 생성합니다.
++
+'볼륨 파일 클론 생성 - vserver vs3-volume vol3-source-path lun1-snapshot-name snap_vol3-destination-path lun1_backup'
+
+. 'lun igroup create' 명령을 사용하여 백업 서버의 WWPN을 포함하는 igroup을 생성합니다.
++
+'LUN igroup create-vserver vs3-igroup si.3-protocol fc-OSType windows-initiator 10:00:00:00:C9:73:5b:91'
+
+. 3단계에서 생성한 LUN 클론을 백업 호스트에 매핑하려면 'lun mapping create' 명령을 사용하십시오.
++
+'LUN 매핑 create-vserver vs3-volume vol3-lun lun1_backup-igroup ni3'
+
++
+이 단계를 SAN 백업 애플리케이션의 사후 처리 스크립트에 포함하도록 선택할 수 있습니다.
+
+. 호스트에서 새 LUN을 검색하고 호스트에서 파일 시스템을 사용할 수 있도록 설정합니다.
++
+이 단계를 SAN 백업 애플리케이션의 사후 처리 스크립트에 포함하도록 선택할 수 있습니다.
+
+. SAN 백업 애플리케이션을 사용하여 백업 호스트에서 테이프로 LUN 클론의 데이터를 백업합니다.
+. 'lun modify' 명령을 사용하여 LUN 클론을 오프라인 상태로 전환합니다.
++
+'lun modify -vserver vs3 -path /vol/vol3/lun1_backup-state offline
+
+. LUN delete를 사용하여 LUN 클론을 제거합니다.
++
+'lun delete -vserver vs3-volume vol3-lun lun1_backup'을 선택합니다
+
+. 'volume snapshot delete' 명령을 사용하여 스냅샷 복사본을 제거합니다.
++
+'볼륨 스냅샷 삭제 - vserver vs3 - volume vol3 - snapshot vol3_snapshot'
+
+

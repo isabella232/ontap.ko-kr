@@ -1,0 +1,37 @@
+---
+sidebar: sidebar 
+permalink: task_object_provision_add_s3_users_groups.html 
+keywords: netapp, ontap, S3, storage, VM, storage VM, add, edit, user, users, group, group policy 
+summary: 스토리지 VM을 편집하여 사용자를 추가하고 사용자를 그룹에 추가합니다. 
+---
+= S3 사용자 및 그룹 추가
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+스토리지 VM을 편집하여 사용자를 추가하고 사용자를 그룹에 추가합니다.
+
+.단계
+. 스토리지 VM 편집: * 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 클릭한 다음 * 설정 * 을 클릭하고 을 클릭합니다 image:icon_pencil.gif["연필 아이콘"] S3 아래.
+. 사용자 추가: * 사용자 * 를 클릭한 다음 * 추가 * 를 클릭합니다.
++
+.. 이름을 입력하고 * 저장 * 을 클릭합니다.
+.. 액세스 키와 암호 키를 저장해야 하며 S3 클라이언트에서 액세스할 수 있습니다.
+
+
+. 원하는 경우 그룹을 추가합니다. * Groups * (그룹 *)를 클릭한 다음 * Add * (추가 *)를 클릭합니다.
++
+.. 그룹 이름을 입력하고 사용자 목록에서 선택합니다.
+.. 기존 그룹 정책을 선택하거나 지금 추가하거나 나중에 정책을 추가할 수 있습니다.
+
+
+

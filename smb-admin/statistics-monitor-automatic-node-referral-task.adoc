@@ -1,0 +1,98 @@
+---
+permalink: smb-admin/statistics-monitor-automatic-node-referral-task.html 
+sidebar: sidebar 
+keywords: smb, connection, refer, monitor, automatic, node, referral, extent, locating, locate, host, redistribute, lif, local, access, cifs, use statistics to monitor automatic node referral activity 
+summary: 참조되는 SMB 연결의 수를 확인하려면 statistics 명령을 사용하여 자동 노드 조회 작업을 모니터링할 수 있습니다. 조회를 모니터링하면 공유를 호스팅하는 노드에서 자동 조회가 접속을 찾는 범위와 CIFS 서버의 공유에 대한 로컬 액세스를 더 잘 제공할 수 있도록 데이터 LIF를 재분산해야 하는지 여부를 확인할 수 있습니다. 
+---
+= 통계를 사용하여 자동 노드 조회 활동을 모니터링합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMB 연결 조회 수를 확인하려면 '통계' 명령어를 사용해 자동 노드 조회 활동을 모니터링할 수 있다. 조회를 모니터링하면 공유를 호스팅하는 노드에서 자동 조회가 접속을 찾는 범위와 CIFS 서버의 공유에 대한 로컬 액세스를 더 잘 제공할 수 있도록 데이터 LIF를 재분산해야 하는지 여부를 확인할 수 있습니다.
+
+"CIFS" 객체는 SMB 자동 노드 조회를 모니터링할 때 유용한 고급 권한 수준의 여러 카운터를 제공합니다.
+
+* 'node_referral_발급'
++
+공유 루트의 노드와 다른 노드에서 호스팅되는 LIF를 사용하여 클라이언트가 연결된 후 공유 루트 노드에 대한 조회를 실행한 클라이언트 수입니다.
+
+* 'node_referral_local
++
+공유 루트를 호스팅하는 동일한 노드에서 호스팅되는 LIF를 사용하여 연결된 클라이언트의 수입니다. 로컬 액세스는 일반적으로 최적의 성능을 제공합니다.
+
+* 'node_referral_not_possible'
++
+공유 루트의 노드와 다른 노드에서 호스팅되는 LIF를 사용하여 연결한 후 공유 루트를 호스팅하는 노드에 아직 위탁하지 않은 클라이언트 수입니다. 이는 공유 루트의 노드에 대한 활성 데이터 LIF를 찾을 수 없기 때문입니다.
+
+* 'node_referral_remote
++
+공유 루트를 호스팅하는 노드와 다른 노드에서 호스팅되는 LIF를 사용하여 연결된 클라이언트 수입니다. 원격 액세스로 인해 성능이 저하될 수 있습니다.
+
+
+
+특정 기간(샘플)에 대한 데이터를 수집 및 확인하여 스토리지 가상 시스템(SVM)에 대한 자동 노드 참조 통계를 모니터링할 수 있습니다. 데이터 수집을 중지하지 않으면 샘플의 데이터를 볼 수 있습니다. 데이터 수집을 중지하면 고정된 샘플이 제공됩니다. 데이터 수집을 중지하지 않으면 이전 쿼리와 비교하는 데 사용할 수 있는 업데이트된 데이터를 가져올 수 있습니다. 비교를 통해 성능 추세를 파악할 수 있습니다.
+
+[NOTE]
+====
+'통계' 명령을 통해 수집한 정보를 평가하고 사용하려면 사용자 환경에서 클라이언트의 분포를 이해해야 합니다.
+
+====
+.단계
+. 권한 수준을 Advanced:'Set-Privilege advanced'로 설정합니다
+. '통계' 명령어를 이용하여 자동 노드 조회 통계를 볼 수 있다.
++
+이 예제에서는 샘플링된 기간에 대한 데이터를 수집하고 확인하여 자동 노드 참조 통계를 보여 줍니다.
+
++
+.. 'stantics start-object cifs-instance vs1-sample-id sample1' 컬렉션을 시작합니다
++
+[listing]
+----
+Statistics collection is being started for Sample-id: sample1
+----
+.. 원하는 수집 시간이 경과할 때까지 기다립니다.
+.. '스타티틱스 스톱-시료-ID 삼ple1' 컬렉션을 중단한다
++
+[listing]
+----
+Statistics collection is being stopped for Sample-id: sample1
+----
+.. 자동 노드 참조 통계: 'stattics show -sample-id sample1-counter * node *'를 봅니다
++
+[listing]
+----
+Object: cifs
+Instance: vs1
+Start-time: 2/4/2013 19:27:02
+End-time: 2/4/2013 19:30:11
+Cluster: cluster1
+
+    Counter                                             Value
+    ----------------------------- ---------------------------
+    node_name                                          node1
+    node_referral_issued                                    0
+    node_referral_local                                     1
+    node_referral_not_possible                              2
+    node_referral_remote                                    2
+    ...
+
+    node_name                                          node2
+    node_referral_issued                                    2
+    node_referral_local                                     1
+    node_referral_not_possible                              0
+    node_referral_remote                                    2
+    ...
+----
++
+SVM VS1에 참여하는 모든 노드의 카운터를 출력합니다. 이 예에서는 자동 노드 조회 통계와 관련된 출력 필드만 제공합니다.
+
+
+
+. admin 권한 수준으로 복귀:'et-Privilege admin'입니다
+
+
+xref:display-statistics-task.adoc[통계를 표시합니다]
+
+link:../performance-config/index.html["성능 모니터링 설정"]

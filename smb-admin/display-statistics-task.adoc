@@ -1,0 +1,89 @@
+---
+permalink: smb-admin/display-statistics-task.html 
+sidebar: sidebar 
+keywords: display, various, statistic, cifs, smb, audit, branchcache, has, monitor, performance, diagnose, issue 
+summary: CIFS 및 SMB, 감사 및 BranchCache 해시에 대한 통계를 비롯한 다양한 통계를 표시하여 성능을 모니터링하고 문제를 진단할 수 있습니다. 
+---
+= 통계를 표시합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+CIFS 및 SMB, 감사 및 BranchCache 해시에 대한 통계를 비롯한 다양한 통계를 표시하여 성능을 모니터링하고 문제를 진단할 수 있습니다.
+
+객체에 대한 정보를 표시하려면 먼저 '통계 시작' 및 '통계 중지' 명령을 사용하여 데이터 샘플을 수집해야 합니다.
+
+.단계
+. 권한 수준을 Advanced:'Set-Privilege advanced'로 설정합니다
+. 다음 작업 중 하나를 수행합니다.
++
+|===
+| 에 대한 통계를 표시하려면... | 입력... 
+
+
+ a| 
+모든 SMB 버전
+ a| 
+'통계 표시 - 객체 CIFS'
+
+
+
+ a| 
+SMB 1.0
+ a| 
+'스타티틱스 쇼-객체 SMB1'
+
+
+
+ a| 
+SMB 2.x 및 SMB 3.0
+ a| 
+'스타티틱스 쇼 오브젝트 SMB2'
+
+
+
+ a| 
+노드의 CIFS 하위 시스템입니다
+ a| 
+'스타티틱스 쇼-객체 nblade_cifs'
+
+
+
+ a| 
+멀티프로토콜 감사
+ a| 
+'스타티틱스 쇼-객체 감사_ng'
+
+
+
+ a| 
+BranchCache 해시 서비스입니다
+ a| 
+'스타티틱스 쇼-객체 해시드'
+
+
+
+ a| 
+다이나믹 DNS
+ a| 
+'통계 표시 - 오브젝트 DDNS_UPDATE'
+
+|===
++
+자세한 내용은 각 명령에 대한 man 페이지를 참조하십시오.
+
+. admin 권한 수준으로 복귀:'et-Privilege admin'입니다
+
+
+xref:determine-statistics-objects-counters-available-task.adoc[사용할 수 있는 통계 개체 및 카운터 결정]
+
+xref:monitor-signed-session-statistics-task.adoc[SMB 서명 세션 통계 모니터링]
+
+xref:display-branchcache-statistics-task.adoc[BranchCache 통계 표시]
+
+xref:statistics-monitor-automatic-node-referral-task.adoc[통계를 사용하여 자동 노드 조회 활동을 모니터링합니다]
+
+link:../smb-hyper-v-sql/index.html["Microsoft Hyper-V 및 SQL Server를 위한 SMB 구성"]
+
+link:../performance-config/index.html["성능 모니터링 설정"]

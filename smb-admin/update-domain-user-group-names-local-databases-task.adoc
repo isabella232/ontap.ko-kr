@@ -1,0 +1,94 @@
+---
+permalink: smb-admin/update-domain-user-group-names-local-databases-task.html 
+sidebar: sidebar 
+keywords: add, domain, users, groups, cifs, server, local, register, database, manual, update, update domain user and group names in local databases 
+summary: CIFS 서버의 로컬 그룹에 도메인 사용자 및 그룹을 추가할 수 있습니다. 이러한 도메인 개체는 클러스터의 로컬 데이터베이스에 등록됩니다. 도메인 개체의 이름이 변경된 경우 로컬 데이터베이스를 수동으로 업데이트해야 합니다. 
+---
+= 로컬 데이터베이스에서 도메인 사용자 및 그룹 이름을 업데이트합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+CIFS 서버의 로컬 그룹에 도메인 사용자 및 그룹을 추가할 수 있습니다. 이러한 도메인 개체는 클러스터의 로컬 데이터베이스에 등록됩니다. 도메인 개체의 이름이 변경된 경우 로컬 데이터베이스를 수동으로 업데이트해야 합니다.
+
+도메인 이름을 업데이트할 SVM(스토리지 가상 시스템)의 이름을 지정해야 합니다.
+
+.단계
+. 권한 수준을 Advanced:'Set-Privilege advanced'로 설정합니다
+. 적절한 작업을 수행합니다.
++
+|===
+| 도메인 사용자 및 그룹을 업데이트하려면 다음을 수행합니다. | 이 명령 사용... 
+
+
+ a| 
+성공적으로 업데이트되었지만 업데이트에 실패한 도메인 사용자 및 그룹을 표시합니다
+ a| 
+'vserver cifs users-and-groups update-names-vserver_vserver_name_'
+
+
+
+ a| 
+성공적으로 업데이트된 도메인 사용자 및 그룹을 표시합니다
+ a| 
+'vserver cifs users-and-groups update-names-vserver_vserver_name_-display-failed-only false'
+
+
+
+ a| 
+업데이트에 실패한 도메인 사용자 및 그룹만 표시합니다
+ a| 
+'vserver cifs users-and-groups update-names-vserver_vserver_name_-display-failed-only true'
+
+
+
+ a| 
+업데이트에 대한 모든 상태 정보를 표시하지 않습니다
+ a| 
+'vserver cifs users-and-groups update-names-vserver_vserver_name_-suppress-all-output TRUE'
+
+|===
+. admin 권한 수준으로 복귀:'et-Privilege admin'입니다
+
+
+다음 예에서는 스토리지 가상 머신(SVM, 이전의 Vserver) VS1 과 관련된 도메인 사용자 및 그룹의 이름을 업데이트합니다. 마지막 업데이트 시 업데이트해야 할 종속 이름 체인이 있습니다.
+
+[listing]
+----
+cluster1::> set -privilege advanced
+Warning: These advanced commands are potentially dangerous; use them
+only when directed to do so by technical support personnel.
+Do you wish to continue? (y or n): y
+
+cluster1::*> vserver cifs users-and-groups update-names -vserver vs1
+
+   Vserver:           vs1
+   SID:               S-1-5-21-123456789-234565432-987654321-12345
+   Domain:            EXAMPLE1
+   Out-of-date Name:  dom_user1
+   Updated Name:      dom_user2
+   Status:            Successfully updated
+
+   Vserver:           vs1
+   SID:               S-1-5-21-123456789-234565432-987654322-23456
+   Domain:            EXAMPLE2
+   Out-of-date Name:  dom_user1
+   Updated Name:      dom_user2
+   Status:            Successfully updated
+
+   Vserver:           vs1
+   SID:               S-1-5-21-123456789-234565432-987654321-123456
+   Domain:            EXAMPLE1
+   Out-of-date Name:  dom_user3
+   Updated Name:      dom_user4
+   Status:            Successfully updated; also updated SID "S-1-5-21-123456789-234565432-987654321-123457"
+                      to name "dom_user5"; also updated SID "S-1-5-21-123456789-234565432-987654321-123458"
+                      to name "dom_user6"; also updated SID "S-1-5-21-123456789-234565432-987654321-123459"
+                      to name "dom_user7"; also updated SID "S-1-5-21-123456789-234565432-987654321-123460"
+                      to name "dom_user8"
+
+The command completed successfully. 7 Active Directory objects have been updated.
+
+cluster1::*> set -privilege admin
+----

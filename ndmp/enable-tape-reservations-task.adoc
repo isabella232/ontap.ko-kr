@@ -1,0 +1,41 @@
+---
+permalink: ndmp/enable-tape-reservations-task.html 
+sidebar: sidebar 
+keywords: enable, tape, reservation 
+summary: NDMP 백업 작업을 위해 테이프 드라이브가 백업 애플리케이션에서 사용하도록 예약되어 있는지 확인해야 합니다. 
+---
+= 테이프 예약을 활성화합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NDMP 백업 작업을 위해 테이프 드라이브가 백업 애플리케이션에서 사용하도록 예약되어 있는지 확인해야 합니다.
+
+예약 설정은 백업 애플리케이션에 따라 다르며, 이러한 설정은 동일한 드라이브를 사용하는 백업 애플리케이션과 노드 또는 서버와 일치해야 합니다. 올바른 예약 설정은 백업 애플리케이션의 공급업체 설명서를 참조하십시오.
+
+.단계
+. options -option -name tape.예약 -option -value persistent 명령을 사용하여 예약을 활성화합니다.
++
+다음 명령을 실행하면 '영구적' 값을 가진 예약이 활성화됩니다.
+
++
+[listing]
+----
+cluster1::> options -option-name tape.reservations -option-value persistent
+2 entries were modified.
+----
+. options tape.enervations 명령을 사용하여 모든 노드에서 예약이 활성화되었는지 확인한 다음 출력을 검토합니다.
++
+[listing]
+----
+cluster1::> options tape.reservations
+
+cluster1-1
+    tape.reservations                 persistent
+
+cluster1-2
+    tape.reservations                 persistent
+2 entries were displayed.
+----
+

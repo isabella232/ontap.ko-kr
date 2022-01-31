@@ -1,0 +1,46 @@
+---
+permalink: smb-admin/commands-manage-symbolic-link-mappings-reference.html 
+sidebar: sidebar 
+keywords: ontap, command, managing, manage, symbol, link, map, commands for managing symbolic link mappings 
+summary: 심볼 링크 매핑을 관리하기 위한 특정 ONTAP 명령이 있습니다. 
+---
+= 심볼 링크 매핑을 관리하는 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+심볼 링크 매핑을 관리하기 위한 특정 ONTAP 명령이 있습니다.
+
+|===
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+심볼 링크 매핑을 생성합니다
+ a| 
+'vserver cifs symlink create
+
+
+
+ a| 
+심볼 링크 매핑에 대한 정보를 표시합니다
+ a| 
+'vserver cifs symlink show'
+
+
+
+ a| 
+심볼 링크 매핑을 수정합니다
+ a| 
+'vserver cifs symlink modify'
+
+
+
+ a| 
+심볼 링크 매핑을 삭제합니다
+ a| 
+'vserver cifs symlink delete
+
+|===
+자세한 내용은 각 명령에 대한 man 페이지를 참조하십시오.

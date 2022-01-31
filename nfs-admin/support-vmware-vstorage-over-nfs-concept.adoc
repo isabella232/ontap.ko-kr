@@ -1,0 +1,52 @@
+---
+permalink: nfs-admin/support-vmware-vstorage-over-nfs-concept.html 
+sidebar: sidebar 
+keywords: support, vmware, vStorage, nfs 
+summary: 'ONTAP는 NFS 환경에서 특정 VMware VAAI(vStorage APIs for Array Integration) 기능을 지원합니다.' 
+---
+= VMware vStorage over NFS 지원
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP는 NFS 환경에서 특정 VMware VAAI(vStorage APIs for Array Integration) 기능을 지원합니다.
+
+
+
+== 지원되는 기능
+
+지원되는 기능은 다음과 같습니다.
+
+* 복사본 오프로드
++
+ESXi 호스트에서 호스트를 사용하지 않고 소스 및 대상 데이터 저장소 위치 간에 직접 VMDK(가상 머신 또는 가상 머신 디스크)를 복제할 수 있습니다. 이렇게 하면 ESXi 호스트 CPU 주기와 네트워크 대역폭이 절약됩니다. 복제 오프로드는 소스 볼륨이 스파스 상태인 경우 공간 효율성을 유지합니다.
+
+* 공간 예약
++
+VMDK 파일용 공간을 예약하여 스토리지 공간을 보장합니다.
+
+
+
+
+
+== 제한 사항
+
+VMware vStorage over NFS에는 다음과 같은 제한 사항이 있습니다.
+
+* 다음과 같은 경우 복사 오프로드 작업이 실패할 수 있습니다.
++
+** 소스 또는 타겟 볼륨에서 웨이브다리미를 실행하는 동안 일시적으로 볼륨이 오프라인 상태가 되기 때문입니다
+** 소스 또는 타겟 볼륨을 이동하는 동안
+** 소스 또는 타겟 LIF를 이동하는 동안
+** Takeover 또는 Giveback 작업을 수행하는 동안
+** 스위치오버 또는 스위치백 작업을 수행하는 동안
+
+
+* 다음 시나리오에서 파일 핸들 형식의 차이로 인해 서버 측 복제가 실패할 수 있습니다.
++
+Qtree를 내보낸 적이 없는 SVM으로 현재 또는 이전에 qtree를 내보낸 SVM에서 데이터를 복사하려고 합니다. 이러한 제한 사항을 해결하려면 대상 SVM에서 qtree를 하나 이상 내보낼 수 있습니다.
+
+
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/What_VAAI_offloaded_operations_are_supported_by_Data_ONTAP%3F["Data ONTAP에서 지원하는 VAAI 오프로드 작업은 무엇입니까?"]

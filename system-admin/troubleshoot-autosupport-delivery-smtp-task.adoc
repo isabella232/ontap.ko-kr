@@ -1,0 +1,148 @@
+---
+permalink: system-admin/troubleshoot-autosupport-delivery-smtp-task.html 
+sidebar: sidebar 
+keywords: troubleshoot, autosupport, deliver, system, smtp, settings, resolve, problem 
+summary: 시스템이 SMTP를 통해 AutoSupport 메시지를 전달할 수 없는 경우 여러 설정을 확인하여 문제를 해결할 수 있습니다. 
+---
+= SMTP를 통한 AutoSupport 메시지 전달 문제를 해결합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+시스템이 SMTP를 통해 AutoSupport 메시지를 전달할 수 없는 경우 여러 설정을 확인하여 문제를 해결할 수 있습니다.
+
+기본 네트워크 연결 및 DNS 조회를 확인해야 합니다.
+
+* 노드 관리 LIF가 운영 및 관리 상태이어야 합니다.
+* 클러스터 관리 LIF(노드의 LIF가 아님)에서 동일한 서브넷에 있는 기능 호스트를 ping할 수 있어야 합니다.
+* 클러스터 관리 LIF에서 서브넷 외부의 기능 호스트를 Ping할 수 있어야 합니다.
+* IP 주소가 아닌 호스트의 이름을 사용하여 클러스터 관리 LIF에서 서브넷 외부의 기능 호스트를 Ping할 수 있어야 합니다.
+
+
+다음 단계는 AutoSupport에서 메시지를 생성할 수 있지만 SMTP를 통해 메시지를 전달할 수 없는 경우를 위한 것입니다.
+
+오류가 발생하거나 이 절차의 단계를 완료할 수 없는 경우 다음 단계로 진행하기 전에 문제를 확인하고 해결하십시오.
+
+별도로 지정하지 않는 한 모든 명령은 ONTAP 명령줄 인터페이스에 입력됩니다.
+
+.단계
+. 노드 관리 LIF의 상태를 확인합니다.
++
+'* 네트워크 인터페이스 show-home-node local-role node-mgmt-fields vserver, lif, status-oper, status-admin, address, role *
+
++
+'돌격대'와 '상태-관리자' 필드는 '위로'가 되어야 합니다.
+
+. 나중에 사용할 수 있도록 SVM 이름, LIF 이름 및 LIF IP 주소를 기록합니다.
+. DNS가 올바르게 설정 및 구성되었는지 확인합니다.
++
+``vserver services name-service dns show *’’를 참조하십시오
+
+. AutoSupport에서 사용하도록 구성된 모든 서버를 표시합니다.
++
+``시스템 노드 AutoSupport 표시 필드 메일-호스트*’
+
++
+표시된 모든 서버 이름을 기록합니다.
+
+. 이전 단계에서 표시한 각 서버 및 'upport.netapp.com` 에 대해 노드에서 서버 또는 URL에 연결할 수 있는지 확인합니다.
++
+'* network traceroute-node local-destination_server_name_*'
+
++
+이러한 경로 중 하나라도 작동하지 않는 경우, 대부분의 타사 네트워크 클라이언트에 있는 ""traceroute"" 또는 ""tracert""" 유틸리티를 사용하여 클러스터와 동일한 서브넷의 작동 호스트에서 동일한 경로를 시도해 보십시오. 이렇게 하면 문제가 네트워크 구성에 있는지 또는 클러스터 구성에 있는지 여부를 확인할 수 있습니다.
+
+. 메일 호스트로 지정된 호스트에 로그인하고 SMTP 요청을 처리할 수 있는지 확인합니다.
++
+``netstat-Aan|grep 25 *’
+
++
+수신 SMTP 포트 번호는 25입니다.
+
++
+다음 텍스트와 유사한 메시지가 표시됩니다.
+
++
+[listing]
+----
+ff64878c tcp        0      0  *.25    *.*    LISTEN.
+----
+. 다른 호스트에서 메일 호스트의 SMTP 포트로 텔넷 세션을 엽니다.
++
+'* telnet_mailhost_25 * '
+
++
+다음 텍스트와 유사한 메시지가 표시됩니다.
+
++
+[listing]
+----
+
+220 filer.yourco.com Sendmail 4.1/SMI-4.1 ready at Thu, 30 Nov 2014 10:49:04 PST
+----
+. 텔넷 프롬프트에서 메일 호스트로부터 메시지를 전달할 수 있는지 확인합니다.
++
+' * HELO_DOMAIN_NAME_ * '
+
++
+(* 메일 보낸 사람: _ your_email_address_ *)
+
++
+(* RCPT to:\autosupport@netapp.com *)
+
++
+domain_name은 네트워크의 도메인 이름입니다.
+
++
+Relaying이 denied로 되어 있는 오류가 반환되면 메일 호스트에서 relaying이 활성화되지 않습니다. 시스템 관리자에게 문의하십시오.
+
+. 텔넷 프롬프트에서 테스트 메시지를 보냅니다.
++
+' * 데이터 * '
+
++
+``시험대상자: 시험 *’ ``이것은 시험이다 *’
+
++
+`. * '
+
++
+[NOTE]
+====
+줄의 마지막 기간(.)을 직접 입력해야 합니다. 이 기간은 메일 호스트에 메시지가 완료되었음을 나타냅니다.
+
+====
++
+오류가 반환되면 메일 호스트가 올바르게 구성되지 않은 것입니다. 시스템 관리자에게 문의하십시오.
+
+. ONTAP 명령줄 인터페이스에서 AutoSupport 테스트 메시지를 액세스 권한이 있는 신뢰할 수 있는 전자 메일 주소로 보냅니다.
++
+'* 시스템 노드 AutoSupport invoke-node local-type test*'
+
+. 시도의 순서 번호를 찾습니다.
++
+``시스템 노드 AutoSupport 이력 표시 노드 로컬 대상 SMTP*'
+
++
+타임 스탬프를 기준으로 시도 순서 번호를 찾습니다. 가장 최근에 시도한 시도일 것입니다.
+
+. 테스트 메시지 시도에 대한 오류를 표시합니다.
++
+'* system node AutoSupport history show -node local -seq -num seq_num -fields error *
+
++
+표시된 오류가 '로그인 거부'인 경우 SMTP 서버가 클러스터 관리 LIF의 전송 요청을 수락하지 않습니다. 전송 프로토콜로 HTTPS 사용을 변경하지 않으려면 사이트 네트워크 관리자에게 문의하여 이 문제를 해결할 SMTP 게이트웨이를 구성하십시오.
+
++
+이 테스트가 성공했지만 mailto:autosupport@netapp.com 으로 전송된 동일한 메시지가 없으면 모든 SMTP 메일 호스트에서 SMTP 릴레이가 활성화되어 있는지 확인하거나 HTTPS를 전송 프로토콜로 사용하십시오.
+
++
+로컬로 관리되는 전자 메일 계정에 대한 메시지도 성공하지 못한 경우 SMTP 서버가 다음 두 특성을 모두 사용하여 첨부 파일을 전달하도록 구성되었는지 확인합니다.
+
++
+** "7z" 접미사
+** "application/x-7x-compressed" MIME 형식.
+
+
+

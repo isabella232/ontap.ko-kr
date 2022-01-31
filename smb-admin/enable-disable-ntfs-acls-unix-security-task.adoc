@@ -1,0 +1,22 @@
+---
+permalink: smb-admin/enable-disable-ntfs-acls-unix-security-task.html 
+sidebar: sidebar 
+keywords: enable, disable, presentation, ntfs, acl, smb, client, unix, security-style, data, volume, enable or disable the presentation of ntfs acls for unix security-style data 
+summary: 'UNIX 보안 스타일 데이터(UNIX 보안 스타일 볼륨 및 UNIX 효과적인 보안이 포함된 혼합 보안 스타일 볼륨)를 위해 SMB 클라이언트에 NTFS ACL 표시를 활성화 또는 비활성화할 수 있습니다.' 
+---
+= UNIX 보안 스타일 데이터에 대한 NTFS ACL 표시를 활성화 또는 비활성화합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+UNIX 보안 스타일 데이터(UNIX 보안 스타일 볼륨 및 UNIX 효과적인 보안이 포함된 혼합 보안 스타일 볼륨)를 위해 SMB 클라이언트에 NTFS ACL 표시를 활성화 또는 비활성화할 수 있습니다.
+
+이 옵션을 설정하면 ONTAP는 효율적인 UNIX 보안 스타일을 사용하는 볼륨의 파일 및 폴더를 NTFS ACL을 갖는 것으로 SMB 클라이언트에 제공합니다. 이 옵션을 비활성화하면 볼륨이 SMB 클라이언트에 FAT 볼륨으로 표시됩니다. 기본값은 NTFS ACL을 SMB 클라이언트에 제공하는 것입니다.
+
+.단계
+. 권한 수준을 Advanced:'Set-Privilege advanced'로 설정합니다
+. UNIX NTFS ACL 옵션 설정을 구성합니다. 'vserver cifs options modify -vserver_vserver_name_-is-unix-NT-acl-enabled{true|false}'
+. 옵션이 원하는 값('vserver cifs options show -vserver_vserver_name_')으로 설정되어 있는지 확인합니다
+. admin 권한 수준으로 복귀:'et-Privilege admin'입니다
+

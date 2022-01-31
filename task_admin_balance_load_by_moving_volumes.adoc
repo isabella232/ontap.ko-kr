@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: task_admin_balance_load_by_moving_volumes.html 
+keywords: netapp, ontap, administration, balance, load, moving, move, volumes, volumes, utilization, storage, file, system, analytics, File System Analytics 
+summary: ONTAP 9.8부터 System Manager를 사용하여 볼륨을 다른 계층으로 이동하여 스토리지 로드의 균형을 맞추거나 성능을 향상할 수 있습니다. 
+---
+= 볼륨을 다른 계층으로 이동하여 로드 밸런싱
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+ONTAP 9.8부터 System Manager를 사용하여 볼륨을 다른 계층으로 이동하여 로드 밸런싱을 수행할 수 있습니다.
+
+ONTAP 9.9.1부터 활성 및 비활성 데이터 스토리지의 분석을 기반으로 볼륨을 이동할 수도 있습니다. 자세한 내용은 을 참조하십시오 link:concept_nas_file_system_analytics_overview.html["파일 시스템 분석 개요"].
+
+.단계
+. 스토리지 > 볼륨 * 을 클릭합니다.
+. 이동할 볼륨을 선택한 다음 * 이동 * 을 클릭합니다.
+. 볼륨 또는 볼륨을 이동할 기존 계층(애그리게이트)을 선택합니다.
+

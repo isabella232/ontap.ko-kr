@@ -1,0 +1,28 @@
+---
+permalink: smb-admin/storage-system-provides-null-session-access-concept.html 
+sidebar: sidebar 
+keywords: null, session, share, require, authentication, client, ip, address, map, storage, system, how the storage system provides null session access 
+summary: null 세션 공유는 인증이 필요하지 않으므로 null 세션 액세스가 필요한 클라이언트의 IP 주소가 스토리지 시스템에 매핑되어야 합니다. 
+---
+= 스토리지 시스템에서 null 세션 액세스를 제공하는 방법
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+null 세션 공유는 인증이 필요하지 않으므로 null 세션 액세스가 필요한 클라이언트의 IP 주소가 스토리지 시스템에 매핑되어야 합니다.
+
+기본적으로 매핑되지 않은 null 세션 클라이언트는 공유 열거형과 같은 특정 ONTAP 시스템 서비스에 액세스할 수 있지만 스토리지 시스템 데이터에 액세스하지 못하도록 제한됩니다.
+
+[NOTE]
+====
+ONTAP는 '–restricting-anonymous' 옵션을 사용하여 Windows RestrictAnonymous 레지스트리 설정 값을 지원합니다. 이렇게 하면 매핑되지 않은 null 사용자가 시스템 리소스를 보거나 액세스할 수 있는 범위를 제어할 수 있습니다. 예를 들어 공유 열거를 사용하지 않도록 설정하고 IPC$ 공유(숨겨진 명명된 파이프 공유)에 액세스할 수 있습니다. 'vserver cifs options modify' 및 'vserver cifs options'에 man page가 표시되어 '–restrict-anonymous' 옵션에 대한 자세한 정보를 제공합니다.
+
+====
+달리 구성하지 않는 한 null 세션을 통해 스토리지 시스템 액세스를 요청하는 로컬 프로세스를 실행하는 클라이언트는 ""Everyone""과 같은 제한적이지 않은 그룹의 구성원입니다. 선택한 스토리지 시스템 리소스에 대해 null 세션 액세스를 제한하려면 모든 null 세션 클라이언트가 속한 그룹을 생성해야 합니다. 이 그룹을 생성하면 스토리지 시스템 액세스를 제한하고 null 세션 클라이언트에 적용되는 스토리지 시스템 리소스 권한을 설정할 수 있습니다.
+
+ONTAP는 'vserver name-mapping' 명령 세트에서 null 사용자 세션을 사용하여 스토리지 시스템 리소스에 액세스할 수 있는 클라이언트의 IP 주소를 지정하는 매핑 구문을 제공합니다. Null 사용자에 대한 그룹을 생성한 후에는 null 세션에만 적용되는 스토리지 시스템 리소스 및 리소스 권한에 대한 액세스 제한을 지정할 수 있습니다. Null 사용자는 익명 로그온으로 식별됩니다. Null 사용자는 홈 디렉토리에 액세스할 수 없습니다.
+
+매핑된 IP 주소에서 스토리지 시스템을 액세스하는 모든 null 사용자에게 매핑된 사용자 권한이 부여됩니다. null 사용자로 매핑된 스토리지 시스템에 대한 무단 액세스를 방지하려면 적절한 예방 조치를 고려하십시오. 최대한의 보호를 위해, IP 주소 "스포크"의 가능성을 제거하기 위해, 별도의 네트워크에 null 사용자 스토리지 시스템 액세스를 필요로 하는 모든 클라이언트와 스토리지 시스템을 배치하십시오.
+
+xref:configure-access-restrictions-anonymous-users-task.adoc[익명 사용자에 대한 액세스 제한 구성]

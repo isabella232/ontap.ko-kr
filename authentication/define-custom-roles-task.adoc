@@ -1,0 +1,63 @@
+---
+permalink: authentication/define-custom-roles-task.html 
+sidebar: sidebar 
+keywords: define, custom roles 
+summary: 보안 로그인 역할 생성 명령을 사용하여 사용자 지정 역할을 정의할 수 있습니다. 역할에 연결할 기능을 정확하게 조합하기 위해 필요한 만큼 명령을 실행할 수 있습니다. 
+---
+= 사용자 지정 역할을 정의합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'Security login role create' 명령을 사용하여 사용자 지정 역할을 정의할 수 있습니다. 역할에 연결할 기능을 정확하게 조합하기 위해 필요한 만큼 명령을 실행할 수 있습니다.
+
+이 작업을 수행하려면 클러스터 관리자여야 합니다.
+
+.이 작업에 대해
+* 사전 정의되거나 사용자 지정되거나 관계 없이 역할은 ONTAP 명령 또는 명령 디렉터리에 대한 액세스를 허용하거나 거부합니다.
++
+명령 디렉토리(예: 볼륨)는 관련 명령 및 명령 하위 디렉토리 그룹입니다. 이 절차에서 설명한 경우를 제외하고 명령 디렉터리에 대한 액세스 권한을 부여하거나 거부하면 디렉터리 및 해당 하위 디렉터리의 각 명령에 대한 액세스 권한이 부여되거나 거부됩니다.
+
+* 특정 명령 액세스 또는 하위 디렉토리 액세스는 상위 디렉토리 액세스보다 우선합니다.
++
+역할이 명령 디렉토리로 정의된 후 특정 명령이나 상위 디렉토리의 하위 디렉토리에 대해 다른 액세스 수준으로 다시 정의된 경우 명령 또는 하위 디렉토리에 지정된 액세스 수준이 상위 명령의 액세스 수준을 재정의합니다.
+
+
+
+[NOTE]
+====
+"admin" 클러스터 관리자만 사용할 수 있는 명령 또는 명령 디렉토리에 대한 액세스를 제공하는 SVM 관리자 역할을 할당할 수 없습니다. 예를 들어, 'security' 명령 디렉토리입니다.
+
+====
+.단계
+. 사용자 지정 역할 정의:
++
+'Security login role create -vserver SVM_name -role role -cmddirname command_or_directory_name -access access_level -query'
+
++
+전체 명령 구문은 을 참조하십시오 link:config-worksheets-reference.html["워크시트"].
+
++
+다음 명령을 실행하면 'volume' 명령 디렉토리의 명령에 대한 'vol_role' 역할이 전체 액세스되고 'volume snapshot' 하위 디렉토리의 명령에 대한 읽기 전용 액세스가 부여됩니다.
+
++
+[listing]
+----
+cluster1::>security login role create -role vol_role -cmddirname "volume" -access all
+
+cluster1::>security login role create -role vol_role -cmddirname "volume snapshot" -access readonly
+----
++
+다음 명령어를 통해 'storage' 명령 디렉토리의 명령에 대한 'vm_storage' 역할 읽기 전용 액세스, 'storage encryption' 하위 디렉토리의 명령에 대한 액세스 권한 없음, 'storage aggregate offline' 비내장 명령에 대한 전체 액세스 권한을 부여한다.
+
++
+[listing]
+----
+cluster1::>security login role create -role SVM_storage -cmddirname "storage" -access readonly
+
+cluster1::>security login role create -role SVM_storage -cmddirname "storage encryption" -access none
+
+cluster1::>security login role create -role SVM_storage -cmddirname "storage aggregate plex offline" -access all
+----
+

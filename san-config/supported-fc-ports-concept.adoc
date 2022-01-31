@@ -1,0 +1,42 @@
+---
+permalink: san-config/supported-fc-ports-concept.html 
+sidebar: sidebar 
+keywords: supported, fc, ports 
+summary: FC용으로 구성된 온보드 FC 포트 및 CNA/UTA2 포트 수는 컨트롤러 모델에 따라 다릅니다. FC 포트는 지원되는 FC 타겟 확장 어댑터 또는 FC SFP+ 어댑터로 구성된 추가 UTA2 카드를 통해서도 사용할 수 있습니다. 
+---
+= 지원되는 FC 포트
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FC용으로 구성된 온보드 FC 포트 및 CNA/UTA2 포트 수는 컨트롤러 모델에 따라 다릅니다. FC 포트는 지원되는 FC 타겟 확장 어댑터 또는 FC SFP+ 어댑터로 구성된 추가 UTA2 카드를 통해서도 사용할 수 있습니다.
+
+
+
+== 온보드 FC, UTA 및 UTA2 포트
+
+* 온보드 포트는 타겟 또는 이니시에이터 FC 포트로 개별적으로 구성할 수 있습니다.
+* 온보드 FC 포트의 수는 컨트롤러 모델에 따라 다릅니다.
++
+를 클릭합니다 https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"] 각 컨트롤러 모델의 온보드 FC 포트 전체 목록이 포함되어 있습니다.
+
+* FC 포트는 X1150A-R6 확장 어댑터를 통해 FAS2240 시스템에서만 사용할 수 있습니다.
++
+FAS2220 및 FAS2520 시스템은 FC를 지원하지 않습니다.
+
+
+
+
+
+== 타겟 확장 어댑터 FC 포트
+
+* 사용 가능한 타겟 확장 어댑터는 컨트롤러 모델에 따라 다릅니다.
++
+를 클릭합니다 https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"] 각 컨트롤러 모델에 대한 대상 확장 어댑터의 전체 목록이 포함되어 있습니다.
+
+* 일부 FC 확장 어댑터의 포트는 공장에서 이니시에이터 또는 타겟으로 구성되며 변경할 수 없습니다.
++
+다른 포트는 온보드 FC 포트와 마찬가지로 타겟 또는 이니시에이터 FC 포트로 개별적으로 구성할 수 있습니다. 전체 목록은 에서 확인할 수 있습니다 https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"].
+
+

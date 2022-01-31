@@ -1,0 +1,21 @@
+---
+sidebar: sidebar 
+permalink: smbc/smbc_admin_what_happens_during_an_automatic_unplanned_failover.html 
+keywords:  
+summary: '자동 비계획 장애 조치(AUFO) 작업은 운영 클러스터가 다운되거나 격리될 때 발생합니다. 이 경우 보조 클러스터가 운영 클러스터로 변환되어 클라이언트 서비스가 시작됩니다.' 
+---
+= 계획되지 않은 페일오버 작업을 자동으로 수행합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+자동 비계획 장애 조치(AUFO) 작업은 운영 클러스터가 다운되거나 격리될 때 발생합니다. 이 경우 보조 클러스터가 운영 클러스터로 변환되어 클라이언트 서비스가 시작됩니다. 이 작업은 ONTAP 중재자의 도움을 받아 수행됩니다.
+
+
+NOTE: 예기치 않은 자동 페일오버 후에는 입출력 경로가 손실되지 않도록 호스트 LUN 입출력 경로를 재검색해야 합니다.
+
+'napmirror failover show' 명령을 사용하여 자동 비계획 페일오버 상태를 모니터링할 수 있습니다.

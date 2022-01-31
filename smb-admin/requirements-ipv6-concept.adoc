@@ -1,0 +1,32 @@
+---
+permalink: smb-admin/requirements-ipv6-concept.html 
+sidebar: sidebar 
+keywords: ipv6, smb, cifs, server, version, ontap, smb, support, license, requirement, requirements for using ipv6 
+summary: SMB 서버에서 IPv6를 사용하려면 먼저 IPv6를 지원하는 ONTAP 및 SMB 버전과 라이센스 요구 사항이 무엇인지 알아야 합니다. 
+---
+= IPv6을 사용하기 위한 요구 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMB 서버에서 IPv6를 사용하려면 먼저 IPv6를 지원하는 ONTAP 및 SMB 버전과 라이센스 요구 사항이 무엇인지 알아야 합니다.
+
+
+
+== ONTAP 라이센스 요구 사항
+
+SMB 라이센스가 있는 경우 IPv6에 대한 특수 라이센스가 필요하지 않습니다.
+
+
+
+== SMB 프로토콜 버전 요구 사항
+
+* SVM의 경우 ONTAP는 모든 버전의 SMB 프로토콜에서 IPv6를 지원합니다.
+
+
+[NOTE]
+====
+IPv6를 통한 NBNS(NetBIOS 이름 서비스)는 지원되지 않습니다.
+
+====

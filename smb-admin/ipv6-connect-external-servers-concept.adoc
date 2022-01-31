@@ -1,0 +1,53 @@
+---
+permalink: smb-admin/ipv6-connect-external-servers-concept.html 
+sidebar: sidebar 
+keywords: create, configuration, requirement, aware, cifs, server, ipv6, connection, external, server, how cifs servers use ipv6 to connect to external servers 
+summary: 요구 사항을 충족하는 구성을 생성하려면 CIFS 서버가 외부 서버에 연결할 때 IPv6을 사용하는 방법을 알고 있어야 합니다. 
+---
+= CIFS 서버가 IPv6를 사용하여 외부 서버에 연결하는 방법
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+요구 사항을 충족하는 구성을 생성하려면 CIFS 서버가 외부 서버에 연결할 때 IPv6을 사용하는 방법을 알고 있어야 합니다.
+
+* 원본 주소 선택
++
+외부 서버에 연결하려고 시도하면 선택한 소스 주소는 대상 주소와 같은 유형이어야 합니다. 예를 들어, IPv6 주소에 연결하는 경우 CIFS 서버를 호스팅하는 SVM(스토리지 가상 머신)에는 소스 주소로 사용할 IPv6 주소가 있는 데이터 LIF 또는 관리 LIF가 있어야 합니다. 마찬가지로, SVM을 IPv4 주소에 연결할 경우 소스 주소로 사용할 IPv4 주소가 있는 데이터 LIF 또는 관리 LIF가 있어야 합니다.
+
+* DNS를 사용하여 동적으로 검색된 서버의 경우 서버 검색은 다음과 같이 수행됩니다.
++
+** 클러스터에서 IPv6이 비활성화되어 있으면 IPv4 서버 주소만 검색됩니다.
+** 클러스터에서 IPv6이 활성화되어 있으면 IPv4 및 IPv6 서버 주소가 모두 검색됩니다. 주소가 속한 서버의 적합성과 IPv6 또는 IPv4 데이터 또는 관리 LIF의 가용성에 따라 두 유형 중 하나를 사용할 수 있습니다. 동적 서버 검색은 도메인 컨트롤러 및 LSA, NETLOGON, Kerberos 및 LDAP와 같은 관련 서비스를 검색하는 데 사용됩니다.
+
+
+* DNS 서버 연결
++
+DNS 서버에 연결할 때 SVM이 IPv6을 사용하는지 여부는 DNS 이름 서비스 구성에 따라 달라집니다. DNS 서비스가 IPv6 주소를 사용하도록 구성된 경우 IPv6를 사용하여 연결합니다. 필요한 경우 DNS 이름 서비스 구성에서 IPv4 주소를 사용하여 DNS 서버에 대한 연결이 계속 IPv4 주소를 사용하도록 할 수 있습니다. DNS 이름 서비스를 구성할 때 IPv4 및 IPv6 주소의 조합을 지정할 수 있습니다.
+
+* LDAP 서버 접속 구성
++
+LDAP 서버에 연결할 때 SVM이 IPv6을 사용하는지 여부는 LDAP 클라이언트 구성에 따라 달라집니다. LDAP 클라이언트가 IPv6 주소를 사용하도록 구성된 경우 IPv6를 사용하여 연결됩니다. 필요한 경우 LDAP 클라이언트 구성에서 IPv4 주소를 사용하여 LDAP 서버에 대한 연결이 계속 IPv4 주소를 사용하도록 할 수 있습니다. LDAP 클라이언트 구성을 구성할 때 IPv4 및 IPv6 주소의 조합을 지정할 수 있습니다.
+
++
+[NOTE]
+====
+LDAP 클라이언트 구성은 UNIX 사용자, 그룹 및 넷그룹 이름 서비스에 대해 LDAP를 구성할 때 사용됩니다.
+
+====
+* NIS 서버 접속
++
+NIS 서버에 연결할 때 SVM이 IPv6을 사용하는지 여부는 NIS 이름 서비스 구성에 따라 달라집니다. NIS 서비스가 IPv6 주소를 사용하도록 구성된 경우 IPv6를 사용하여 연결합니다. 필요한 경우 NIS 이름 서비스 구성에서 IPv4 주소를 사용하여 NIS 서버에 대한 연결이 계속 IPv4 주소를 사용하도록 할 수 있습니다. NIS 이름 서비스를 구성할 때 IPv4 및 IPv6 주소의 조합을 지정할 수 있습니다.
+
++
+[NOTE]
+====
+NIS 이름 서비스는 UNIX 사용자, 그룹, 넷그룹 및 호스트 이름 객체를 저장하고 관리하는 데 사용됩니다.
+
+====
+
+
+xref:enable-ipv6-task.adoc[SMB를 위한 IPv6 사용(클러스터 관리자만 해당)]
+
+xref:monitor-display-ipv6-sessions-task.adoc[IPv6 SMB 세션에 대한 정보 모니터링 및 표시]

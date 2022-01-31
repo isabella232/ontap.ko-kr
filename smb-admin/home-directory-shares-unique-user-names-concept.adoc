@@ -1,0 +1,28 @@
+---
+permalink: smb-admin/home-directory-shares-unique-user-names-concept.html 
+sidebar: sidebar 
+keywords: careful, assign, unique, user, name, creating, create, home, directory, share, windows, user, name, unix, variable, generate, dynamic, share, map, home directory shares require unique user names 
+summary: '%w(Windows 사용자 이름) 또는 %u(UNIX 사용자 이름) 변수를 사용하여 홈 디렉토리 공유를 생성할 때 고유한 사용자 이름을 지정하여 동적으로 공유를 생성할 수 있습니다. 공유 이름이 사용자 이름에 매핑됩니다.' 
+---
+= 홈 디렉토리 공유에는 고유한 사용자 이름이 필요합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+공유를 동적으로 생성하려면 "%w"(Windows 사용자 이름) 또는 "%u"(UNIX 사용자 이름) 변수를 사용하여 홈 디렉토리 공유를 생성할 때 고유한 사용자 이름을 지정해야 합니다. 공유 이름이 사용자 이름에 매핑됩니다.
+
+정적 공유 이름과 사용자 이름이 같을 때 다음 두 가지 문제가 발생할 수 있습니다.
+
+* 사용자가 net view 명령을 사용하여 클러스터의 공유를 나열하면 동일한 사용자 이름의 공유 두 개가 표시됩니다.
+* 사용자가 해당 공유 이름에 연결하면 사용자는 항상 정적 공유에 연결되어 있으며 동일한 이름으로 홈 디렉토리 공유에 액세스할 수 없습니다.
+
+
+예를 들어 "administrator"라는 이름의 공유가 있고 "administrator" Windows 사용자 이름이 있습니다. 홈 디렉토리 공유를 만들고 해당 공유에 연결하면 ""administrator"" 홈 디렉토리 공유가 아니라 ""administrator"" 정적 공유에 연결됩니다.
+
+다음 단계를 수행하여 중복된 공유 이름으로 문제를 해결할 수 있습니다.
+
+* 사용자의 홈 디렉토리 공유와 더 이상 충돌하지 않도록 정적 공유의 이름을 바꿉니다.
+* 사용자에게 더 이상 정적 공유 이름과 충돌하지 않도록 새 사용자 이름을 제공합니다.
+* '%w' 매개 변수를 사용하는 대신 ""home""과 같은 정적 이름으로 CIFS 홈 디렉토리 공유를 생성하여 공유 이름과 충돌하지 않도록 합니다.
+

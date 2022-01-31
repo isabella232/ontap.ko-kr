@@ -1,0 +1,36 @@
+---
+permalink: flexgroup/shrink-flexgroup-volume-task.html 
+sidebar: sidebar 
+keywords: reduce, size, flexgroup, volume, flex group, resize, shrink, shrinking, autosize 
+summary: ONTAP 9.6부터 FlexGroup 볼륨의 크기를 현재 크기보다 작은 값으로 조정하여 볼륨에서 사용되지 않는 공간을 확보할 수 있습니다. FlexGroup 볼륨의 크기를 줄일 경우 ONTAP는 모든 FlexGroup 구성요소의 크기를 자동으로 조정합니다. 
+---
+= FlexGroup 볼륨의 크기를 줄입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.6부터 FlexGroup 볼륨의 크기를 현재 크기보다 작은 값으로 조정하여 볼륨에서 사용되지 않는 공간을 확보할 수 있습니다. FlexGroup 볼륨의 크기를 줄일 경우 ONTAP는 모든 FlexGroup 구성요소의 크기를 자동으로 조정합니다.
+
+.단계
+. FlexGroup 볼륨의 크기를 줄입니다: 'volume size - vserver vserver_name - volume fg_name - size new_size'
++
+new_size는 FlexGroup 볼륨의 크기입니다. 현재 크기보다 작은 값을 지정하거나 FlexGroup 볼륨의 현재 크기를 줄이는 음수 값을 지정할 수 있습니다.
+
++
+[NOTE]
+====
+볼륨('볼륨 자동 크기 조정' 명령)에 대해 자동 축소가 활성화된 경우 최소 자동 크기 조정이 볼륨의 새 크기로 설정됩니다.
+
+====
++
+[listing]
+----
+cluster1::> volume size -vserver svm1 -volume volX -size 10TB
+----
++
+[listing]
+----
+cluster1::> volume size -vserver svm1 -volume volX -size -5TB
+----
+

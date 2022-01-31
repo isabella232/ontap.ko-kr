@@ -1,0 +1,129 @@
+---
+permalink: flexcache/create-volume-task.html 
+sidebar: sidebar 
+keywords: creating, flexcache, volume, flex cache, performance, remote cluster, data access, tls encryption, peer permission, 
+summary: 핫 객체에 액세스할 때 성능을 개선하기 위해 동일한 클러스터에 FlexCache 볼륨을 생성할 수 있습니다. 여러 위치에 데이터 센터가 있는 경우 원격 클러스터에 FlexCache 볼륨을 생성하여 데이터 액세스를 가속할 수 있습니다. 
+---
+= FlexCache 볼륨을 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+핫 객체에 액세스할 때 성능을 개선하기 위해 동일한 클러스터에 FlexCache 볼륨을 생성할 수 있습니다. 여러 위치에 데이터 센터가 있는 경우 원격 클러스터에 FlexCache 볼륨을 생성하여 데이터 액세스를 가속할 수 있습니다.
+
+FlexCache 볼륨은 항상 FlexVol 볼륨이며 FlexGroup 볼륨은 아닙니다.
+
+ONTAP 9.7부터 FlexGroup 볼륨은 FlexCache 관계의 시작에서도 지원됩니다.
+
+.단계
+. 생성할 FlexCache 볼륨이 다른 클러스터에 있는 경우 클러스터 피어 관계를 생성합니다.
++
+.. 대상 클러스터에서 데이터 보호 소스 클러스터와 피어 관계를 생성합니다. + 'cluster peer create-generate-passphrase-Offer-expiration MM/DD/YYYY HH:MM:SS|1...7일|1...168시간 - peer-addrs peer_LIF_IPs-initial-allowed-vserver-peer svm_name...| * -IPSpace IPSpace_name
++
+ONTAP 9.6부터는 클러스터 피어 관계를 만들 때 TLS 암호화가 기본적으로 활성화됩니다. TLS 암호화는 오리진과 FlexCache 볼륨 간의 인터클러스터 통신에 지원됩니다. 필요한 경우 클러스터 피어 관계에 대해 TLS 암호화를 비활성화할 수도 있습니다.
+
++
+[listing]
+----
+cluster02::> cluster peer create -generate-passphrase -offer-expiration 2days -initial-allowed-vserver-peers *
+
+                     Passphrase: UCa+6lRVICXeL/gq1WrK7ShR
+                Expiration Time: 6/7/2017 08:16:10 EST
+  Initial Allowed Vserver Peers: *
+            Intercluster LIF IP: 192.140.112.101
+              Peer Cluster Name: Clus_7ShR (temporary generated)
+
+Warning: make a note of the passphrase - it cannot be displayed again.
+----
+.. 소스 클러스터에서 대상 클러스터에 대한 소스 클러스터를 인증합니다. + 'cluster peer create-peer-addrs peer_LIF_ips-IPSpace IPSpace'
++
+[listing]
+----
+cluster01::> cluster peer create -peer-addrs 192.140.112.101,192.140.112.102
+
+Notice: Use a generated passphrase or choose a passphrase of 8 or more characters.
+        To ensure the authenticity of the peering relationship, use a phrase or sequence of characters that would be hard to guess.
+
+Enter the passphrase:
+Confirm the passphrase:
+
+Clusters cluster02 and cluster01 are peered.
+----
+
+
+. FlexCache 볼륨이 원본 볼륨과 다른 SVM에 있는 경우 애플리케이션으로서 "FlexCache"와 SVM 피어 관계를 생성합니다.
++
+.. SVM이 다른 클러스터에 있는 경우 피어링 SVM에 대한 SVM 권한을 생성합니다. + 'vserver peer permission create-peer-cluster cluster cluster_name-vserver svm-name-applications FlexCache'
++
+다음 예에서는 모든 로컬 SVM에 적용되는 SVM 피어 권한을 생성하는 방법을 보여줍니다.
+
++
+[listing]
+----
+cluster1::> vserver peer permission create -peer-cluster cluster2 -vserver "*" -applications flexcache
+
+Warning: This Vserver peer permission applies to all local Vservers. After that no explict
+"vserver peer accept" command required for Vserver peer relationship creation request
+from peer cluster "cluster2" with any of the local Vservers. Do you want to continue? {y|n}: y
+----
+.. SVM 피어 관계를 생성합니다. + 'vserver peer create -vserver local_SVM-peer-vserver remote_SVM-peer cluster cluster cluster_name -applications FlexCache'
+
+
+. FlexCache 볼륨 생성:
++
+'volume FlexCache create-vserver cache_svm-volume cache_vol_name-auto-provision-as FlexGroup-size vol_size-origin-vserver origin_svm-origin-volume origin_vol_name'
+
++
+다음 예에서는 FlexCache 볼륨을 생성하고 프로비저닝할 기존 애그리게이트를 자동으로 선택합니다.
+
++
+[listing]
+----
+cluster1::> volume flexcache create -vserver vs_1 -volume fc1 -auto-provision-as flexgroup -origin-volume vol_1 -size 160MB -origin-vserver vs_1
+[Job 443] Job succeeded: Successful
+----
++
+다음 예에서는 FlexCache 볼륨을 생성하고 접합 경로를 설정합니다.
+
++
+[listing]
+----
+cluster1::> flexcache create -vserver vs34 -volume fc4 -aggr-list aggr34,aggr43 -origin-volume origin1 -size 400m -junction-path /fc4
+[Job 903] Job succeeded: Successful
+----
+. FlexCache 볼륨과 원본 볼륨에서 FlexCache 관계를 확인합니다.
++
+.. 클러스터에서 FlexCache 관계를 봅니다. + 'volume FlexCache show'
++
+[listing]
+----
+cluster1::> volume flexcache show
+Vserver Volume      Size       Origin-Vserver Origin-Volume Origin-Cluster
+------- ----------- ---------- -------------- ------------- --------------
+vs_1    fc1         160MB      vs_1           vol_1           cluster1
+----
+.. 오리진 클러스터의 모든 FlexCache 관계 보기: + 'volume FlexCache origin show-caches'
++
+[listing]
+----
+cluster::> volume flexcache origin show-caches
+Origin-Vserver Origin-Volume   Cache-Vserver    Cache-Volume   Cache-Cluster
+-------------- --------------- ---------------  -------------- ---------------
+vs0            ovol1           vs1              cfg1           clusA
+vs0            ovol1           vs2              cfg2           clusB
+vs_1           vol_1           vs_1             fc1            cluster1
+----
+
+
+
+
+
+
+== 결과
+
+FlexCache 볼륨이 성공적으로 생성되었습니다. 클라이언트는 FlexCache 볼륨의 연결 경로를 사용하여 볼륨을 마운트할 수 있습니다.
+
+link:../peering/index.html["클러스터 및 SVM 피어링"]
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"]

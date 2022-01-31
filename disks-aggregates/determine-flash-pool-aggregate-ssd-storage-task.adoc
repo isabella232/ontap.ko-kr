@@ -1,0 +1,25 @@
+---
+permalink: disks-aggregates/determine-flash-pool-aggregate-ssd-storage-task.html 
+sidebar: sidebar 
+keywords: determine, flash pool, aggregate, ssd storage pool 
+summary: SSD 스토리지 풀을 사용하여 캐시를 제공할 때는 Flash Pool 애그리게이트를 개별 SSD를 사용할 때와 다르게 관리합니다. 
+---
+= Flash Pool Aggregate가 SSD 스토리지 풀을 사용하고 있는지 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SSD 스토리지 풀에서 기존 HDD 애그리게이트에 하나 이상의 할당 유닛을 추가하여 Flash Pool 애그리게이트를 구성할 수 있습니다.
+
+SSD 스토리지 풀을 사용하여 캐시를 제공할 때는 Flash Pool 애그리게이트를 개별 SSD를 사용할 때와 다르게 관리합니다.
+
+.단계
+. RAID 그룹별 애그리게이트 드라이브 표시:
++
+'Storage aggregate show-status_aggr_name_'
+
++
+Aggregate가 하나 이상의 SSD 스토리지 풀을 사용하는 경우 SSD RAID 그룹의 '위치' 열에 대한 값이 '공유'로 표시되고 RAID 그룹 이름 옆에 스토리지 풀 이름이 표시됩니다.
+
+

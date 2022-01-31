@@ -1,0 +1,45 @@
+---
+permalink: smb-admin/commands-manage-share-acls-reference.html 
+sidebar: sidebar 
+keywords: command, managing, manage, smb, access, control, list, acl, creating, create, display, modify, deleting, delete, command for managing smb share access control lists 
+summary: 'SMB ACL(액세스 제어 목록)을 관리하기 위한 명령을 알아야 합니다. 여기에는 ACL 생성, 표시, 수정 및 삭제가 포함됩니다.' 
+---
+= SMB 공유 액세스 제어 목록을 관리하는 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMB ACL(액세스 제어 목록)을 관리하기 위한 명령을 알아야 합니다. 여기에는 ACL 생성, 표시, 수정 및 삭제가 포함됩니다.
+
+|===
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+새 ACL을 생성합니다
+ a| 
+'vserver cifs share access-control create'
+
+
+
+ a| 
+ACL을 표시합니다
+ a| 
+'vserver cifs share access-control show'를 참조하십시오
+
+
+
+ a| 
+ACL을 수정합니다
+ a| 
+'vserver cifs share access-control modify'를 참조하십시오
+
+
+
+ a| 
+ACL을 삭제한다
+ a| 
+'vserver cifs share access-control delete'
+
+|===

@@ -1,0 +1,58 @@
+---
+permalink: encryption-at-rest/remove-external-key-server-93-later-task.html 
+sidebar: sidebar 
+keywords: deleting, external key manager, connection 
+summary: 서버가 더 이상 필요하지 않은 경우 노드에서 KMIP 서버를 분리할 수 있습니다. 예를 들어, 볼륨 암호화로 전환할 때 KMIP 서버를 분리할 수 있습니다. 
+---
+= 외부 키 관리자 연결을 제거합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+서버가 더 이상 필요하지 않은 경우 노드에서 KMIP 서버를 분리할 수 있습니다. 예를 들어, 볼륨 암호화로 전환할 때 KMIP 서버를 분리할 수 있습니다.
+
+이 작업을 수행하려면 클러스터 또는 SVM 관리자여야 합니다.
+
+HA 쌍의 한 노드에서 KMIP 서버를 분리하면 시스템이 모든 클러스터 노드에서 서버의 연결을 자동으로 끊습니다.
+
+[NOTE]
+====
+KMIP 서버를 분리한 후 외부 키 관리를 계속 사용하려면 다른 KMIP 서버를 사용하여 인증 키를 제공할 수 있어야 합니다.
+
+====
+.단계
+. 현재 노드에서 KMIP 서버를 분리합니다.
++
+[cols="35,65"]
+|===
+
+
+| 이 ONTAP 버전의 경우... | 이 명령 사용... 
+
+
+ a| 
+ONTAP 9.6 이상
+ a| 
+'Security key-manager external remove-servers-vserver SVM-key-servers host_name|ip_address:port,...
+
+
+
+ a| 
+ONTAP 9.5 이하
+ a| 
+'Security key-manager delete-address key_management_server_ipaddress
+
+|===
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+다음 ONTAP 9.6 명령은 첫 번째 이름이 k1인 'cluster1'의 외부 키 관리 서버 2대에 대한 연결을 비활성화하며, 두 번째 주소는 IP 주소가 10.0.0.20인 기본 포트 5696에서 수신, 포트 24482에서 수신 대기 중입니다.
+
++
+[listing]
+----
+clusterl::> security key-manager external remove-servers -vserver cluster-1 -key-servers ks1,10.0.0.20:24482
+----
+

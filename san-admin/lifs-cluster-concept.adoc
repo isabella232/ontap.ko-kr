@@ -1,0 +1,24 @@
+---
+permalink: san-admin/lifs-cluster-concept.html 
+sidebar: sidebar 
+keywords: considerations, lifs, cluster, san environments 
+summary: SAN 환경에서는 특정 LIF 고려 사항을 알고 있어야 합니다. 
+---
+= 클러스터 SAN 환경의 LIF 고려 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SAN 환경에서는 특정 LIF 고려 사항을 알고 있어야 합니다.
+
+* SAN은 LIF에 대한 자동 페일오버를 지원하지 않으므로 SAN iSCSI 또는 FC 환경의 클러스터에 대해 다중 경로 I/O(MPIO)와 비대칭 논리 유닛 액세스(ALUA)를 사용해야 합니다.
+* 매핑된 LUN과 노드의 HA 파트너를 호스팅하는 각 노드에 적절한 프로토콜의 SAN LIF를 하나 이상 구성해야 합니다.
++
+노드당 두 개의 LIF를 구성할 수 있으며, FC와 함께 사용되는 각 패브릭과 iSCSI용 이더넷 네트워크를 각각 하나씩 구성할 수 있습니다.
+
+* 일부 옵션은 iSCSI 또는 FC에 적용되지 않습니다.
++
+예를 들어, FC에 IP 주소를 사용할 수 없습니다.
+
+

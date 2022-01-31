@@ -1,0 +1,56 @@
+---
+permalink: snaplock/index.html 
+sidebar: sidebar 
+keywords: decide, archive, compliance, snaplock, unmodified, file, worm, storage, snap lock, mirror, unmirror. license, compliance clock, regulatory, governance, rules, govern 
+summary: NetApp SnapLock 기술을 사용하면 규정 및 거버넌스 목적으로 수정되지 않은 형식으로 파일을 보존할 수 있습니다. 
+---
+= 아카이브 및 규정 준수 개요
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp SnapLock 기술을 사용하면 규정 및 거버넌스 목적으로 수정되지 않은 형식으로 파일을 보존할 수 있습니다. 파일 및 스냅샷 복사본을 ""한 번 쓰기, 여러 번 읽기"(WORM) 스토리지에 커밋하는 방법과 WORM 보호 데이터에 대한 보존 기간을 설정하는 방법을 보여 줍니다.
+
+다음과 같은 방법으로 SnapLock와 작업하려면 다음 절차를 사용해야 합니다.
+
+* System Manager나 자동화된 스크립팅 도구가 아니라 ONTAP CLI(Command-Line Interface)를 사용하려는 경우
++
+SnapLock 기술은 제한적이지만 중요한 집합을 System Manager에서 사용할 수 있습니다. SnapLock 라이센스를 설치하고, 규정 준수 시계를 설정하고, SnapLock 애그리게이트 및 볼륨을 생성하고, SnapLock 볼륨을 구성할 수 있습니다.
+
+* SnapLock 구성에서 MetroCluster 감사 로그 볼륨을 호스팅하기 위해 규정 준수 또는 엔터프라이즈 애그리게이트를 생성하려는 경우, 다음과 같은 제한 사항이 있습니다.
++
+** SnapLock Enterprise는 미러링된 Aggregate 및 미러링되지 않은 Aggregate에서 지원됩니다.
+** SnapLock 규정 준수는 미러링되지 않은 애그리게이트에서만 지원됩니다.
++
+모든 MetroCluster 구성은 미러링된 애그리게이트를 지원합니다. 를 참조하십시오 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["ONTAP 릴리즈 노트"] MetroCluster 구성에서 미러링되지 않은 애그리게이트를 지원하는지 확인하려면 다음을 확인하십시오.
+
+
+
+* FabricPool와 함께 SnapLock 엔터프라이즈 Aggregate를 사용하기를 원합니다.
++
+ONTAP 9.8부터 SnapLock 엔터프라이즈 애그리게이트는 에서 지원됩니다 link:https://docs.netapp.com/us-en/ontap/fabricpool/index.html["FabricPool"].
+
+* SAN LUN을 사용하고 있지 않습니다
++
+SnapLock 볼륨에서는 SAN LUN이 지원되지 않습니다. 기존 기술을 사용하여 SAN LUN을 SnapLock 볼륨으로 이동할 수 있지만 이 작업은 지원되지 않으며 SnapLock 볼륨에서 SAN LUN을 포함하는 다른 작업은 지원되지 않습니다.
+
+* SMTape를 사용하고 있지 않습니다.
++
+SMTape는 SnapLock에서 지원되지 않습니다.
+
+* 어레이 LUN에 대한 규정 준수 애그리게이트를 생성하지 않습니다.
++
+SnapLock 규정 준수 애그리게이트는 어레이 LUN을 지원하지 않습니다.
+
+* SyncMirror 옵션을 사용하여 준수 애그리게이트를 생성하지 않습니다.
++
+SnapLock 규정 준수 애그리게이트는 SyncMirror 플렉스를 지원하지 않습니다.
+
+
+
+[NOTE]
+====
+SSD 및 Flash Pool 애그리게이트는 ONTAP 9.1부터 SnapLock에서 지원됩니다.
+
+====

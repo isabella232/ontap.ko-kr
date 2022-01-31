@@ -1,0 +1,31 @@
+---
+permalink: san-admin/lun-access-virtualized-environment-concept.html 
+sidebar: sidebar 
+keywords: how, lun, access, works, virtualized, environment, single, svm, cluster, active or optimized path, multiple 
+summary: '가상화 환경에서 LIF는 호스트(클라이언트)가 최적화되고 최적화되지 않은 경로를 통해 LUN에 액세스할 수 있도록 지원합니다.' 
+---
+= 가상화된 환경에서 LUN 액세스가 작동하는 방식
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+가상화 환경에서 LIF는 호스트(클라이언트)가 최적화되고 최적화되지 않은 경로를 통해 LUN에 액세스할 수 있도록 지원합니다.
+
+LIF는 SVM을 물리적 포트에 연결하는 논리 인터페이스입니다. 여러 SVM에 동일한 포트에 여러 LIF가 존재할 수 있지만, LIF는 하나의 SVM에 속합니다. SVM LIF를 통해 LUN에 액세스할 수 있습니다.
+
+다음 예제에서 호스트 1은 SVM-1의 LIF1.1 및 LIF1.2에 연결하여 lun1에 액세스합니다. LIF1.1에서는 물리적 포트 노드 1:0c 및 LIF1.2가 노드 2:0c를 사용합니다. LIF1.1 및 LIF1.2는 SVM-1에만 속합니다. 노드 1 또는 노드 2에서 SVM-1을 위해 새 LUN을 생성하는 경우 동일한 LIF를 사용할 수 있습니다. 새 SVM이 생성되면 양쪽 노드에서 물리적 포트 0c 또는 0d를 사용하여 새 LIF를 생성할 수 있습니다.
+
+image::../media/bsag-c-mode-1-lif-belongs-1-vs.gif[lun1에 대한 SVM 액세스]
+
+물리적 포트는 여러 SVM을 지원하는 여러 LIF를 지원할 수 있습니다. LIF는 특정 SVM과 연계되기 때문에 클러스터 노드는 수신되는 데이터 트래픽을 올바른 SVM으로 전송할 수 있습니다. 다음 예에서는 각 노드에서 물리적 포트 0c를 사용하여 1에서 4까지의 각 노드에 SVM-2용 LIF가 있습니다. 호스트 1은 SVM-1의 LIF1.1 및 LIF1.2에 연결하여 lun1에 액세스합니다. 호스트 2는 SVM-2의 LIFF2-1 및 LIFF2-2에 연결하여 LUN2에 액세스합니다. 두 SVM 모두 노드 1과 2에서 물리적 포트 0c를 공유합니다. SVM-2에는 호스트 2에서 LUN 3 및 4에 액세스하는 데 사용하는 추가 LIF가 있습니다. 이러한 LIF는 노드 3 및 4에서 물리적 포트 0c를 사용합니다. 여러 SVM이 노드의 물리적 포트를 공유할 수 있습니다.
+
+image::../media/bsag-c-mode-multiple-lifs-vservers.gif[노드 2에서 2개의 vserver를 위한 LIF 2개]
+
+활성 또는 최적화된 경로에서 데이터 트래픽은 클러스터 네트워크를 통해 이동되지 않으며 LUN으로 가장 직접적인 경로를 이동합니다. lun1에 대한 액티브 또는 최적화 경로는 물리적 포트 0c를 사용하여 노드 1의 LIF1.1을 통해 이루어집니다. 호스트 2에는 물리적 포트 0c와 노드 4, LIF2.4에 대한 다른 경로를 공유하는 노드 1, LIF2.1에 대한 경로가 하나, 즉 물리적 포트 0c를 사용하는 활성 또는 최적화된 경로가 2개 있습니다.
+
+image::../media/bsag-c-mode-unoptimized-path.gif[최적화된 경로의 예]
+
+활성 또는 최적화되지 않은 경로(간접) 경로에서 데이터 트래픽은 클러스터 네트워크를 통해 이동합니다. 이 문제는 호스트에서 활성 또는 최적화된 경로를 모두 사용하여 트래픽을 처리할 수 없는 경우에만 발생합니다. 호스트 2에서 SVM-2 LIF2.4로의 경로가 손실된 경우, lun3 및 LUN4에 대한 액세스가 클러스터 네트워크를 통과합니다. 호스트 2에서의 액세스는 노드 3에서 LIF2.3을 사용합니다. 그런 다음 트래픽이 클러스터 네트워크 스위치에 유입되어 lun3 및 lun4에 액세스하기 위해 노드 4에 백업됩니다. 그런 다음 클러스터 네트워크 스위치를 통해 다시 이동한 다음 LIF2.3을 통해 호스트 2로 돌아갑니다. LIF2.4의 경로가 복원되거나 노드 4의 다른 물리적 포트에서 SVM-2에 대한 새 LIF가 설정될 때까지 액티브 또는 최적화되지 않은 경로가 사용됩니다.
+
+image::../media/bsag-c-mode-optimized-path.gif[최적화되지 않은 경로의 예]

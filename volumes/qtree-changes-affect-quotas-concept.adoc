@@ -1,0 +1,13 @@
+---
+permalink: volumes/qtree-changes-affect-quotas-concept.html 
+sidebar: sidebar 
+keywords: how, qtree, changes, affect, quotas 
+summary: qtree의 보안 스타일을 삭제, 이름 바꾸기 또는 변경할 때 현재 적용된 할당량에 따라 ONTAP에서 적용하는 할당량이 변경될 수 있습니다. 
+---
+= Qtree 변경이 할당량에 미치는 영향 개요
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+qtree의 보안 스타일을 삭제, 이름 바꾸기 또는 변경할 때 현재 적용된 할당량에 따라 ONTAP에서 적용하는 할당량이 변경될 수 있습니다.

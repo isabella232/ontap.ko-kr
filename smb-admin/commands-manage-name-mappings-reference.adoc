@@ -1,0 +1,72 @@
+---
+permalink: smb-admin/commands-manage-name-mappings-reference.html 
+sidebar: sidebar 
+keywords: ontap, command, managing, manage, name, mapping 
+summary: 이름 매핑을 관리하기 위한 특정 ONTAP 명령이 있습니다. 
+---
+= 이름 매핑을 관리하는 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이름 매핑을 관리하기 위한 특정 ONTAP 명령이 있습니다.
+
+|===
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+이름 매핑을 생성합니다
+ a| 
+'vserver name-mapping create'
+
+
+
+ a| 
+특정 위치에 이름 매핑을 삽입합니다
+ a| 
+'vserver name-mapping insert'
+
+
+
+ a| 
+이름 매핑을 표시합니다
+ a| 
+'vserver name-mapping show'
+
+
+
+ a| 
+두 이름 매핑의 위치를 교환합니다
+
+[NOTE]
+====
+이름 매핑이 IP 한정자 항목으로 구성된 경우에는 스왑이 허용되지 않습니다.
+
+==== a| 
+'vserver name-mapping swap'
+
+
+
+ a| 
+이름 매핑을 수정합니다
+ a| 
+'vserver name-mapping modify'입니다
+
+
+
+ a| 
+이름 매핑을 삭제합니다
+ a| 
+'vserver name-mapping delete
+
+
+
+ a| 
+올바른 이름 매핑을 확인합니다
+ a| 
+'vserver security file-directory show-Effective-permissions-vserver vs1-win-user-name user1-path/-share-name SH1'
+
+|===
+자세한 내용은 각 명령에 대한 man 페이지를 참조하십시오.

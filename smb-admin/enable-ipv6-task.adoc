@@ -1,0 +1,27 @@
+---
+permalink: smb-admin/enable-ipv6-task.html 
+sidebar: sidebar 
+keywords: ipv6, network, enable, cluster, setup, administrator, smb, enable ipv6 for smb, cluster administrator only 
+summary: 클러스터 설정 중에 IPv6 네트워크가 활성화되지 않습니다. SMB용 IPv6를 사용하려면 클러스터 설정이 완료된 후 클러스터 관리자가 IPv6을 사용하도록 설정해야 합니다. 클러스터 관리자가 IPv6을 사용하도록 설정하면 전체 클러스터에 대해 설정됩니다. 
+---
+= SMB용 IPv6 사용(클러스터 관리자만 해당)
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클러스터 설정 중에 IPv6 네트워크가 활성화되지 않습니다. SMB용 IPv6를 사용하려면 클러스터 설정이 완료된 후 클러스터 관리자가 IPv6을 사용하도록 설정해야 합니다. 클러스터 관리자가 IPv6을 사용하도록 설정하면 전체 클러스터에 대해 설정됩니다.
+
+.단계
+. IPv6 사용:'네트워크 옵션 IPv6 수정 사용 참'을 선택합니다
++
+클러스터에서 IPv6 사용 및 IPv6 LIF 구성에 대한 자세한 내용은 _Network Management Guide_를 참조하십시오.
+
++
+IPv6이 활성화되었습니다. SMB 액세스를 위한 IPv6 데이터 LIF를 구성할 수 있습니다.
+
+
+
+xref:monitor-display-ipv6-sessions-task.adoc[IPv6 SMB 세션에 대한 정보 모니터링 및 표시]
+
+link:../networking/index.html["네트워크 관리"]

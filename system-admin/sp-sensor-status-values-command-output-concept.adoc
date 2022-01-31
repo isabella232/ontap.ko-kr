@@ -1,0 +1,267 @@
+---
+permalink: system-admin/sp-sensor-status-values-command-output-concept.html 
+sidebar: sidebar 
+keywords: understand, discrete, sp, sensor, status, values, command, output, cli, hexedecimal, format 
+summary: 개별 센서에는 임계값이 없습니다. SP CLI 시스템 센서의 명령 출력에서 Current 열 아래에 표시되는 이 값은 실제 의미가 없으므로 SP에서 무시됩니다. system sensors 명령 출력의 Status 열에는 개별 센서의 상태 값이 16진수 형식으로 표시됩니다. 
+---
+= 시스템 센서 명령 출력의 개별 SP 센서 상태 값 정보
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+개별 센서에는 임계값이 없습니다. SP CLI의 system sensors 명령 출력에서 Current 열 아래에 표시되는 이 값은 실제 의미가 없으므로 SP에서 무시됩니다. '시스템 센서' 명령어 출력의 '상태' 열에는 개별 센서의 상태 값이 16진수 형식으로 표시됩니다.
+
+개별 센서의 예로 팬 센서, 전원 공급 장치(PSU) 장애 센서 및 시스템 장애 센서가 있습니다. 개별 센서의 특정 목록은 플랫폼에 따라 다릅니다.
+
+대부분의 개별 센서의 상태 값을 해석하는 데 도움이 되도록 SP CLI의 시스템 센서의 get ' sensor_name ' 명령을 사용할 수 있습니다. 다음 예는 개별 센서 CPU0_Error 및 IO_Slot1_Present에 대한 시스템 센서의 get' sensor_name을 입력한 결과를 보여줍니다.
+
+[listing]
+----
+SP node1> system sensors get CPU0_Error
+Locating sensor record...
+Sensor ID              : CPU0_Error (0x67)
+ Entity ID             : 7.97
+ Sensor Type (Discrete): Temperature
+ States Asserted       : Digital State
+                         [State Deasserted]
+----
+[listing]
+----
+SP node1> system sensors get IO_Slot1_Present
+Locating sensor record...
+Sensor ID              : IO_Slot1_Present (0x74)
+ Entity ID             : 11.97
+ Sensor Type (Discrete): Add-in Card
+ States Asserted       : Availability State
+                        [Device Present]
+----
+'system sensor_name' 명령은 대부분의 개별 센서의 상태 정보를 표시하지만 System_FW_Status, System_Watchdog, PSU1_Input_Type 및 PSU2_Input_Type 개별 센서의 상태 정보는 제공하지 않습니다. 다음 정보를 사용하여 이러한 센서의 상태 값을 해석할 수 있습니다.
+
+
+
+== System_FW_Status를 선택합니다
+
+System_FW_Status 센서의 상태는 0xAABB 형태로 나타납니다. AA와 BB의 정보를 조합하여 센서의 상태를 확인할 수 있습니다.
+
+AA는 다음 값 중 하나일 수 있습니다.
+
+|===
+| 값 | 센서의 상태입니다 
+
+
+ a| 
+01
+ a| 
+시스템 펌웨어 오류입니다
+
+
+
+ a| 
+02
+ a| 
+시스템 펌웨어가 중단됩니다
+
+
+
+ a| 
+04
+ a| 
+시스템 펌웨어 진행률이 표시됩니다
+
+|===
+BB는 다음 값 중 하나일 수 있습니다.
+
+|===
+| 값 | 센서의 상태입니다 
+
+
+ a| 
+00
+ a| 
+시스템 소프트웨어가 올바르게 종료되었습니다
+
+
+
+ a| 
+01
+ a| 
+메모리 초기화가 진행 중입니다
+
+
+
+ a| 
+02
+ a| 
+NVMEM 초기화 진행 중(NVMEM이 있을 경우)
+
+
+
+ a| 
+04
+ a| 
+메모리 컨트롤러 허브(MCH) 값 복원(NVMEM이 있을 경우)
+
+
+
+ a| 
+05
+ a| 
+사용자가 설치를 시작했습니다
+
+
+
+ a| 
+13
+ a| 
+운영 체제 또는 로더 부팅 중
+
+
+
+ a| 
+1F
+ a| 
+BIOS가 시작하는 중입니다
+
+
+
+ a| 
+20
+ a| 
+로더가 실행 중입니다
+
+
+
+ a| 
+21
+ a| 
+로더가 기본 BIOS 펌웨어를 프로그래밍하는 중입니다. 시스템 전원을 끄지 않아야 합니다.
+
+
+
+ a| 
+22
+ a| 
+로더가 대체 BIOS 펌웨어를 프로그래밍하는 중입니다. 시스템 전원을 끄지 않아야 합니다.
+
+
+
+ a| 
+2F
+ a| 
+ONTAP가 실행 중입니다
+
+
+
+ a| 
+60
+ a| 
+SP가 시스템 전원을 껐습니다
+
+
+
+ a| 
+61
+ a| 
+SP가 시스템의 전원을 켜왔습니다
+
+
+
+ a| 
+62
+ a| 
+SP가 시스템을 재설정했습니다
+
+
+
+ a| 
+63
+ a| 
+SP watchdog 전원 사이클
+
+
+
+ a| 
+64
+ a| 
+SP watchdog 콜드 리셋
+
+|===
+예를 들어, System_FW_Status 센서 상태가 0x042F일 경우 "시스템 펌웨어 진행(04), ONTAP 실행 중(2F)"을 의미합니다.
+
+
+
+== System_Watchdog(시스템 감시 장치
+
+System_Watchdog 센서는 다음 상태 중 하나일 수 있습니다.
+
+* * 0x0080 *
++
+이 센서의 상태는 변경되지 않았습니다
+
+
+
+|===
+| 값 | 센서의 상태입니다 
+
+
+ a| 
+0x0081
+ a| 
+타이머 중단
+
+
+
+ a| 
+0x0180
+ a| 
+타이머가 만료되었습니다
+
+
+
+ a| 
+0x0280
+ a| 
+하드 리셋
+
+
+
+ a| 
+0x0480
+ a| 
+전원을 끕니다
+
+
+
+ a| 
+0x0880)을 참조하십시오
+ a| 
+전원을 껐다 켜십시오
+
+|===
+예를 들어, System_Watchdog 센서 상태 0x0880은 watchdog 시간 초과가 발생하고 시스템의 전원 주기가 수행됨을 의미합니다.
+
+
+
+== PSU1_Input_Type 및 PSU2_Input_Type
+
+직류(DC) 전원 공급 장치의 경우 PSU1_Input_Type 및 PSU2_Input_Type 센서가 적용되지 않습니다. 교류(AC) 전원 공급 장치의 경우 센서 상태는 다음 값 중 하나일 수 있습니다.
+
+|===
+| 값 | 센서의 상태입니다 
+
+
+ a| 
+0x01 xx
+ a| 
+220V PSU 유형
+
+
+
+ a| 
+0x02 xx
+ a| 
+110V PSU 유형
+
+|===
+예를 들어 PSU1_Input_Type 센서 상태 0x0280은 PSU 유형이 110V임을 센서가 보고하는 것을 의미합니다.

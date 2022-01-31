@@ -1,0 +1,19 @@
+---
+permalink: san-admin/view-adapter-settings-capabilities-task.html 
+sidebar: sidebar 
+keywords: view, adapter, settings 
+summary: '통합 타겟 어댑터(X1143A-R6)의 설정을 보려면 시스템 하드웨어 Unified-connect show 명령을 실행하여 컨트롤러의 모든 모듈을 표시해야 합니다.' 
+---
+= 어댑터 설정을 봅니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+통합 타겟 어댑터(X1143A-R6)의 설정을 보려면 컨트롤러의 모든 모듈을 표시하려면 'system hardware unified-connect show' 명령을 실행해야 합니다.
+
+.단계
+. 케이블을 연결하지 않고 컨트롤러를 부팅합니다.
+. 'system hardware unified-connect show' 명령어를 실행하여 포트 구성 및 모듈을 확인할 수 있다.
+. CNA 및 포트를 구성하기 전에 포트 정보를 확인합니다.
+

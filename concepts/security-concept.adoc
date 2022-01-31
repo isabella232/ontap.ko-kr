@@ -1,0 +1,13 @@
+---
+permalink: concepts/security-concept.html 
+sidebar: sidebar 
+keywords: security 
+summary: ONTAP는 표준 방법을 사용하여 클라이언트 및 관리자의 스토리지 액세스를 보호하고 바이러스로부터 보호합니다. 사용되지 않는 데이터의 암호화 및 WORM 스토리지의 고급 기술을 사용할 수 있습니다. 
+---
+= 보안
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP는 표준 방법을 사용하여 클라이언트 및 관리자의 스토리지 액세스를 보호하고 바이러스로부터 보호합니다. 사용되지 않는 데이터의 암호화 및 WORM 스토리지의 고급 기술을 사용할 수 있습니다.

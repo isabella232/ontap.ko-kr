@@ -1,0 +1,72 @@
+---
+permalink: encryption-at-rest/restore-external-encryption-keys-93-later-task.html 
+sidebar: sidebar 
+keywords: restoring, external key management, encryption keys 
+summary: 외부 키 관리 암호화 키를 수동으로 복원하고 다른 노드로 '푸시'할 수 있습니다. 클러스터 키를 생성할 때 일시적으로 중단했던 노드를 다시 시작하는 경우 이 작업을 수행할 수 있습니다. 
+---
+= 외부 키 관리 암호화 키를 복원합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+외부 키 관리 암호화 키를 수동으로 복원하고 다른 노드로 "푸시"할 수 있습니다. 클러스터 키를 생성할 때 일시적으로 중단했던 노드를 다시 시작하는 경우 이 작업을 수행할 수 있습니다.
+
+이 작업을 수행하려면 클러스터 또는 SVM 관리자여야 합니다.
+
+ONTAP 9.6 이상에서는 '보안 키 관리자 키 쿼리 노드_이름' 명령을 사용하여 키를 복원해야 하는지 확인할 수 있습니다.
+
+ONTAP 9.5 이전 버전에서는 '보안 키 관리자 키 표시' 명령을 사용하여 키를 복원해야 하는지 확인할 수 있습니다.
+
+.단계
+. ONTAP 9.8 이상을 실행 중이고 루트 볼륨이 암호화된 경우 다음을 수행합니다.
++
+ONTAP 9.7 이하를 실행 중이거나 ONTAP 9.8 이상을 실행 중이고 루트 볼륨이 암호화되지 않은 경우 이 단계를 건너뜁니다.
+
++
+.. bootargs:+'setenv kmip.init.ipaddr <ip-address>'+'etenv kmip.init.netmask <netmask>'+'etenv kmip.init.gateway <gateway>'+'setenv kmip.init.interface e0M'+'boot_ONTAP'을 설정합니다
+.. 노드를 부팅 메뉴로 부팅하고 '(11) Configure node for external key management' 옵션을 선택합니다.
+.. 프롬프트에 따라 관리 인증서를 입력합니다.
++
+모든 관리 인증서 정보를 입력하면 시스템이 부팅 메뉴로 돌아갑니다.
+
+.. 부팅 메뉴에서 '(1) Normal Boot' 옵션을 선택합니다.
+
+
+. 키 복원:
++
+[cols="35,65"]
+|===
+
+
+| 이 ONTAP 버전의 경우... | 이 명령 사용... 
+
+
+ a| 
+ONTAP 9.6 이상
+ a| 
+'Security key-manager external restore-vserver SVM-node-key-server host_name|ip_address:port-key-id key_id-key-tag key_tag'
+
+
+
+ a| 
+ONTAP 9.5 이하
+ a| 
+'Security key-manager restore-node-address ip_address-key-id key_id-key-tag key_tag
+
+|===
++
+[NOTE]
+====
+노드(node)는 기본적으로 모든 노드로 설정됩니다. 전체 명령 구문은 man 페이지를 참조하십시오. 온보드 키 관리가 활성화된 경우 이 명령은 지원되지 않습니다.
+
+====
++
+다음 ONTAP 9.6 명령은 외부 키 관리 인증 키를 "cluster1"의 모든 노드에 복원합니다.
+
++
+[listing]
+----
+clusterl::> security key-manager external restore
+----
+

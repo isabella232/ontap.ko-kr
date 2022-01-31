@@ -1,0 +1,43 @@
+---
+permalink: nfs-admin/fpolicy-first-read-first-write-filters-concept.html 
+sidebar: sidebar 
+keywords: fpolicy, first, read, write, filter, work, nfs 
+summary: FPolicy가 읽기/쓰기 작업이 있는 외부 FPolicy 서버를 사용하여 모니터링되는 이벤트로 사용되는 경우 NFS 클라이언트에서 읽기/쓰기 요청의 트래픽이 많을 때 응답 시간이 오래 됩니다. NFS 클라이언트의 경우 FPolicy에서 첫 번째 읽기 및 첫 번째 쓰기 필터를 사용하므로 FPolicy 알림의 수가 줄어들고 성능이 향상됩니다. 
+---
+= FPolicy를 먼저 읽고 첫 번째 쓰기 필터가 NFS에서 작동하는 방식
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FPolicy가 읽기/쓰기 작업이 있는 외부 FPolicy 서버를 사용하여 모니터링되는 이벤트로 사용되는 경우 NFS 클라이언트에서 읽기/쓰기 요청의 트래픽이 많을 때 응답 시간이 오래 됩니다. NFS 클라이언트의 경우 FPolicy에서 첫 번째 읽기 및 첫 번째 쓰기 필터를 사용하므로 FPolicy 알림의 수가 줄어들고 성능이 향상됩니다.
+
+NFS에서 클라이언트는 해당 핸들을 페치하여 파일에서 I/O를 수행합니다. 이 핸들은 서버와 클라이언트의 재부팅 후에도 유효합니다. 따라서 클라이언트는 핸들을 캐시하고 핸들을 다시 검색하지 않고 요청을 보낼 수 있습니다. 일반 세션에서 많은 읽기/쓰기 요청이 파일 서버로 전송됩니다. 이러한 모든 요청에 대해 알림이 생성되는 경우 다음과 같은 문제가 발생할 수 있습니다.
+
+* 추가 알림 처리 및 응답 시간 증가로 인한 로드 증가
+* 서버가 모든 알림의 영향을 받지 않더라도 FPolicy 서버에 많은 수의 알림이 전송됩니다.
+
+
+클라이언트에서 특정 파일에 대한 첫 번째 읽기/쓰기 요청을 받으면 캐시 항목이 생성되고 읽기/쓰기 횟수가 증가합니다. 이 요청은 첫 번째 읽기/쓰기 작업으로 표시되며 FPolicy 이벤트가 생성됩니다. NFS 클라이언트에 대한 FPolicy 필터를 계획하고 생성하기 전에 FPolicy 필터 작동 방식에 대한 기본 사항을 이해해야 합니다.
+
+* First-read: 첫 번째 읽기에 대한 클라이언트 읽기 요청을 필터링합니다.
++
+NFS 이벤트에 이 필터를 사용하면 '-file-session-io-grouping-count' 및 '-file-session-io-grouping-duration' 설정에 따라 FPolicy가 처리되는 첫 번째 읽기 요청이 결정됩니다.
+
+* First-write: 첫 번째 쓰기에 대한 클라이언트 쓰기 요청을 필터링합니다.
++
+NFS 이벤트에 이 필터를 사용하면 '-file-session-io-grouping-count' 및 '-file-session-io-grouping-duration' 설정에 따라 FPolicy가 처리하는 첫 번째 쓰기 요청이 결정됩니다.
+
+
+
+다음 옵션은 NFS 서버 데이터베이스에 추가됩니다.
+
+[listing]
+----
+
+
+file-session-io-grouping-count: Number of I/O Ops on a File to Be Clubbed and Considered as One Session
+for Event Generation
+file-session-io-grouping-duration: Duration for Which I/O Ops on a File to Be Clubbed and Considered as
+One Session for Event Generation
+----

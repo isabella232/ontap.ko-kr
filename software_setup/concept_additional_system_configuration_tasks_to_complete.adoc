@@ -1,0 +1,62 @@
+---
+permalink: software_setup/concept_additional_system_configuration_tasks_to_complete.html 
+sidebar: sidebar 
+keywords: ontap, software, setup, additional, system, configuration, tasks 
+summary: '클러스터를 설정한 후에는 System Manager 또는 ONTAP CLI\(Command-Line Interface)를 사용하여 클러스터를 계속 구성할 수 있습니다.' 
+---
+= 완료해야 할 추가 시스템 구성 작업
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클러스터를 설정한 후에는 System Manager 또는 ONTAP CLI(Command-Line Interface)를 사용하여 클러스터를 계속 구성할 수 있습니다.
+
+[cols="2*"]
+|===
+| 시스템 구성 작업 | 리소스 
+
+
+ a| 
+네트워킹 구성:
+
+* 브로드캐스트 도메인을 생성합니다
+* 서브넷을 생성합니다
+* IP 공백을 만듭니다
+
+ a| 
+link:../networking/set_up_nas_path_failover_98_and_later_cli.html["네트워크 설정"]
+
+
+
+ a| 
+서비스 프로세서를 설정합니다
+ a| 
+link:../system-admin/index.html["시스템 관리"]
+
+
+
+ a| 
+집계를 배치합니다
+ a| 
+link:../disks-aggregates/index.html["디스크 및 애그리게이트 관리"]
+
+
+
+ a| 
+데이터 스토리지 가상 시스템(SVM) 생성 및 구성
+ a| 
+link:../nfs-config/index.html["NFS 구성"]
+
+link:../smb-config/index.html["SMB 구성"]
+
+link:../san-admin/index.html["SAN 관리"]
+
+
+
+ a| 
+이벤트 알림을 구성합니다
+ a| 
+link:../error-messages/config-workflow-task.html["EMS 구성"]
+
+|===

@@ -1,0 +1,32 @@
+---
+permalink: error-messages/configure-ems-events-send-email-task.html 
+sidebar: sidebar 
+keywords: configuring, important, ems, events, send, email, notifications 
+summary: 가장 중요한 이벤트의 이메일 알림을 수신하려면 중요한 활동을 나타내는 이벤트에 대한 이메일 메시지를 보내도록 EMS를 구성해야 합니다. 
+---
+= e-메일 알림을 보내도록 중요한 EMS 이벤트를 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+가장 중요한 이벤트의 이메일 알림을 수신하려면 중요한 활동을 나타내는 이벤트에 대한 이메일 메시지를 보내도록 EMS를 구성해야 합니다.
+
+클러스터에서 DNS를 구성하여 이메일 주소를 확인해야 합니다.
+
+ONTAP 명령줄에 명령을 입력하여 클러스터가 실행 중일 때마다 이 작업을 수행할 수 있습니다.
+
+.단계
+. 이벤트 SMTP 메일 서버 설정을 구성합니다.
++
+'event config modify-mail-server mailhost.your_domain-mail-from cluster_admin@your_domain'
+
+. 이벤트 알림을 위한 e-메일 대상 생성:
++
+'이벤트 알림 대상 create-name storage-admins-email@your_domain'으로 이메일을 보냅니다
+
+. e-메일 알림을 보내도록 중요한 이벤트를 구성합니다.
++
+이벤트 알림 create-filter-name important-events-destinations storage-admins입니다
+
+

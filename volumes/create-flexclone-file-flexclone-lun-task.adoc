@@ -1,0 +1,47 @@
+---
+permalink: volumes/create-flexclone-file-flexclone-lun-task.html 
+sidebar: sidebar 
+keywords: create, flexclone file, flexclone lun 
+summary: 볼륨 파일 클론 생성 명령을 사용하여 FlexVol 볼륨 또는 FlexClone 볼륨에 있는 파일 및 LUN의 공간 효율적이고 시간 효율적인 클론을 생성할 수 있습니다. 
+---
+= FlexClone 파일 또는 FlexClone LUN을 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'volume file clone create' 명령을 사용하여 FlexVol 볼륨이나 FlexClone 볼륨에 있는 파일 및 LUN의 공간 효율적이고 시간 효율적인 클론을 생성할 수 있습니다.
+
+.무엇을 &#8217;필요로 할거야
+* FlexClone 라이센스가 클러스터에 설치되어 있어야 합니다.
+* 하위 LUN 클론 복제나 하위 파일 클론 복제에 여러 블록 범위를 사용하는 경우 블록 번호가 중복되지 않아야 합니다.
+* 적응형 압축이 활성화된 볼륨에 대해 하위 LUN 또는 하위 파일을 생성하는 경우 블록 범위가 잘못 정렬되어서는 안 됩니다.
++
+즉, 소스 시작 블록 번호와 대상 시작 블록 번호는 짝수로 정렬되거나 홀수로 정렬되어야 합니다.
+
+
+
+클러스터 관리자가 할당한 권한에 따라 SVM 관리자가 FlexClone 파일 및 FlexClone LUN을 생성할 수 있습니다.
+
+클론 생성 및 수정 시 FlexClone 파일 및 FlexClone LUN에 대한 자동 삭제 설정을 지정할 수 있습니다. 자동 삭제 설정은 기본적으로 해제되어 있습니다.
+
+'volume file clone create' 명령을 '-overwrite-destination' 매개 변수로 사용하여 클론을 생성할 때 기존 FlexClone 파일 또는 FlexClone LUN을 덮어쓸 수 있습니다.
+
+노드가 최대 분할 로드에 도달하면 FlexClone 파일 및 FlexClone LUN 생성 요청을 일시적으로 중단하고 "EBUSY" 오류 메시지를 표시합니다. 노드의 분할 부하가 최대 아래로 떨어지면 노드에서 FlexClone 파일 및 FlexClone LUN 생성 요청을 다시 수락합니다. 생성 요청을 다시 시도하기 전에 노드에 클론을 생성할 수 있는 용량이 있을 때까지 기다려야 합니다.
+
+.단계
+. 'volume file clone create' 명령을 사용하여 FlexClone 파일 또는 FlexClone LUN을 생성합니다.
++
+다음 예에서는 볼륨 vol1에서 상위 파일 file1_source의 FlexClone 파일 file1_clone을 생성하는 방법을 보여 줍니다.
+
++
+[listing]
+----
+cluster1::> volume file clone create -vserver vs0 -volume vol1 -source-path /file1_source -destination-path /file1_clone
+----
++
+이 명령 사용에 대한 자세한 내용은 man 페이지를 참조하십시오.
+
+
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"]

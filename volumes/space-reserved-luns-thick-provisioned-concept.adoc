@@ -1,0 +1,66 @@
+---
+permalink: volumes/space-reserved-luns-thick-provisioned-concept.html 
+sidebar: sidebar 
+keywords: configuration, settings, space-reserved, files, luns with thick-provisioned volumes 
+summary: 이 FlexVol 볼륨 및 파일 또는 LUN 구성 조합을 사용하면 스토리지 효율성 기술을 사용할 수 있으며 공간이 사전에 충분히 할당되므로 여유 공간을 능동적으로 모니터링할 필요가 없습니다. 
+---
+= 일반 프로비저닝된 볼륨이 있는 공간 예약 파일 또는 LUN에 대한 구성 설정입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 FlexVol 볼륨 및 파일 또는 LUN 구성 조합을 사용하면 스토리지 효율성 기술을 사용할 수 있으며 공간이 사전에 충분히 할당되므로 여유 공간을 능동적으로 모니터링할 필요가 없습니다.
+
+일반 프로비저닝을 사용하여 볼륨에서 공간 예약 파일 또는 LUN을 구성하려면 다음 설정이 필요합니다.
+
+[cols="2*"]
+|===
+| 볼륨 설정 | 값 
+
+
+ a| 
+보장
+ a| 
+볼륨
+
+
+
+ a| 
+부분 예약
+ a| 
+100
+
+
+
+ a| 
+스냅숏 예비 공간입니다
+ a| 
+모두
+
+
+
+ a| 
+스냅샷 자동 삭제
+ a| 
+선택 사항
+
+
+
+ a| 
+자동 확장
+ a| 
+선택 사항: 사용하도록 설정한 경우 애그리게이트 가용 공간을 능동적으로 모니터링해야 합니다.
+
+|===
+[cols="2*"]
+|===
+| 파일 또는 LUN 설정 | 값 
+
+
+ a| 
+공간 예약
+ a| 
+활성화됨
+
+|===

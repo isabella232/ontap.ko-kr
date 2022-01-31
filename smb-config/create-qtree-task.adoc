@@ -1,0 +1,48 @@
+---
+permalink: smb-config/create-qtree-task.html 
+sidebar: sidebar 
+keywords: create, qtree, contain, data, specify, properties, property, volume, command, create a qtree 
+summary: Qtree 생성을 통해 데이터를 포함할 수 있으며 볼륨 qtree 생성 명령을 사용하여 속성을 지정할 수 있습니다. 
+---
+= qtree를 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'volume qtree create' 명령을 사용하여 데이터를 포함하는 qtree를 생성하고 해당 속성을 지정할 수 있습니다.
+
+.시작하기 전에
+* SVM과 새 qtree가 포함될 볼륨이 이미 존재해야 합니다.
+* SVM 보안 스타일은 NTFS여야 하며 SMB를 설정하고 실행해야 합니다.
+
+
+.단계
+. qtree:'volume qtree create-vserver vserver_name{-volume volume_name-qtree qtree_name|-qtree-path qtree path qtree path}-security-style NTFS'를 생성합니다
++
+볼륨과 qtree를 별도의 인수로 지정하거나 qtree 경로 인수를 '/vol/volume_name/_qtree_name' 형식으로 지정할 수 있습니다.
+
+. qtree가 'volume qtree show-vserver vserver_name{-volume volume_name-qtree qtree qtree_name|-qtree-path qtree path}' 접합 경로로 생성되었는지 확인합니다
+
+
+다음 예에서는 junction path '/vol/data1'이 있는 SVM vs1.example.com 에 qt01이라는 이름의 qtree를 생성합니다.
+
+[listing]
+----
+cluster1::> volume qtree create -vserver vs1.example.com -qtree-path /vol/data1/qt01 -security-style ntfs
+[Job 1642] Job succeeded: Successful
+
+cluster1::> volume qtree show -vserver vs1.example.com -qtree-path /vol/data1/qt01
+
+                      Vserver Name: vs1.example.com
+                       Volume Name: data1
+                        Qtree Name: qt01
+  Actual (Non-Junction) Qtree Path: /vol/data1/qt01
+                    Security Style: ntfs
+                       Oplock Mode: enable
+                  Unix Permissions: ---rwxr-xr-x
+                          Qtree Id: 2
+                      Qtree Status: normal
+                     Export Policy: default
+        Is Export Policy Inherited: true
+----

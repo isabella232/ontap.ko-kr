@@ -1,0 +1,13 @@
+---
+permalink: san-admin/effect-moving-copying-lun-snapshot-copies-concept.html 
+sidebar: sidebar 
+keywords: effect, moving, copying, lun, snapshot copies 
+summary: 스냅샷 복사본이 볼륨의 생성됩니다. 따라서 LUN을 다른 볼륨으로 복제하거나 이동하는 경우 이동한 LUN 또는 LUN 복사본은 대상 볼륨의 데이터 보호 체계에 포함됩니다. 타겟 볼륨에 대해 설정된 스냅샷 복사본이 없는 경우 해당 볼륨에 대한 LUN 또는 LUN 복사본의 스냅샷 복사본이 생성되지 않습니다. 
+---
+= LUN을 스냅샷 복사본에서 이동 또는 복사하는 효과 개요
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+스냅샷 복사본은 볼륨 레벨에서 생성됩니다. LUN을 다른 볼륨으로 복사 또는 이동하는 경우 대상 볼륨의 스냅샷 복사본 정책이 복사 또는 이동 볼륨에 적용됩니다. 타겟 볼륨에 대한 스냅샷 복사본이 설정되지 않으면 이동되거나 복사된 LUN의 스냅샷 복사본이 생성되지 않습니다.

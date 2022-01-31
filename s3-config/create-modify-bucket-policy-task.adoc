@@ -1,0 +1,81 @@
+---
+permalink: s3-config/create-modify-bucket-policy-task.html 
+sidebar: sidebar 
+keywords: modify, bucket, policy 
+summary: 기본 버킷 정책에 액세스 규칙을 추가할 수 있습니다. 접근 제어의 범위는 포함된 버킷이므로 하나의 버킷이 있을 때 가장 적합합니다. 
+---
+= 버킷 정책을 수정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+기본 버킷 정책에 액세스 규칙을 추가할 수 있습니다. 접근 제어의 범위는 포함된 버킷이므로 하나의 버킷이 있을 때 가장 적합합니다.
+
+S3 서버와 버킷을 포함하는 S3 기반 SVM이 이미 존재해야 합니다.
+
+새 사용자와 그룹에 대한 새 문을 추가하거나 기존 문의 특성을 수정할 수 있습니다. 더 많은 옵션은 'vserver object-store-server bucket policy' man 페이지를 참조하십시오.
+
+.단계
+. 버킷 정책에 구문 추가:
++
+'vserver object-store-server bucket policy add-statement-vserver svm_name-bucket bucket_name-effect{allow|deny}-action object_store_actions-principal user_and_group_names-resource object_store_resources[-sid text][-index integer]'
+
++
+다음 매개 변수는 액세스 권한을 정의합니다.
+
++
+[cols="2*"]
+|===
+
+
+ a| 
+효과
+ a| 
+이 문은 액세스를 허용하거나 거부할 수 있습니다
+
+
+
+ a| 
+액션
+ a| 
+모든 작업을 의미하는 ' * '를 지정하거나, GetObject, PutObject, DeleteObject, ListBucket, GetBuckketAcl, GetObjectAcl 중 하나 이상의 목록을 지정할 수 있습니다. ListBuckketMultpartUploads, ListMultipartUploadParts를 참조하십시오.
+
+
+
+ a| 
+``원자’’
+ a| 
+하나 이상의 S3 사용자 또는 그룹 목록
+
+** 최대 10명의 사용자 또는 그룹을 지정할 수 있습니다.
+** S3 Group을 지정한 경우 Group/group_name 형태의 그룹이어야 한다
+** '*'는 공개 액세스를 의미하도록 지정할 수 있습니다. 즉, 액세스 키와 비밀 키 없이 액세스할 수 있습니다.
+** 보안 주체가 지정되지 않은 경우 SVM의 모든 S3 사용자에게 액세스 권한이 부여됩니다.
+
+
+
+
+ a| 
+'-resource'
+ a| 
+버킷과 버킷에 포함된 모든 물체 와일드카드 문자 ' * '와 '?'입니다 리소스를 지정하기 위한 정규식을 구성하는 데 사용할 수 있습니다.
+
+|===
++
+선택적으로 '-sid' 옵션을 사용하여 텍스트 문자열을 주석으로 지정할 수 있습니다.
+
+
+
+다음 예에서는 오브젝트 저장소 서버 사용자 user1의 readme 폴더에 대한 액세스를 허용하는 것을 지정하는 SVM svm1.example.com 및 buck1에 대한 오브젝트 저장소 서버 버킷 정책 문을 생성합니다.
+
+[listing]
+----
+cluster1::> vserver object-store-server bucket policy statement create -vserver svm1.example.com -bucket bucket1 -effect allow -action GetObject,PutObject,DeleteObject,ListBucket -principal user1 -resource bucket1/readme/* -sid "fullAccessToReadmeForUser1"
+----
+다음 예에서는 오브젝트 저장소 서버 그룹 group1에 대한 모든 오브젝트에 대한 액세스를 허용하도록 지정하는 SVM svm1.example.com 및 buck1에 대한 오브젝트 저장소 서버 버킷 정책 문을 생성합니다.
+
+[listing]
+----
+cluster1::> vserver object-store-server bucket policy statement create -vserver svm1.example.com -bucket bucket1 -effect allow -action GetObject,PutObject,DeleteObject,ListBucket -principal group/group1 -resource bucket1/* -sid "fullAccessForGroup1"
+----

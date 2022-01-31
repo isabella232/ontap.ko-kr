@@ -1,0 +1,37 @@
+---
+permalink: nas-audit/audit-symlinks-hard-links-concept.html 
+sidebar: sidebar 
+keywords: considerations, audit, symlinks, hard links 
+summary: symlink 및 hard link를 감사할 때는 몇 가지 고려 사항을 염두에 두어야 합니다. 
+---
+= Symlink 및 하드 링크를 감사할 때의 고려 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+symlink 및 hard link를 감사할 때는 몇 가지 고려 사항을 염두에 두어야 합니다.
+
+감사 레코드에는 "ObjectName" 태그에서 식별되는 감사 객체의 경로를 비롯하여 감사 중인 객체에 대한 정보가 포함되어 있습니다. symlink와 hard link의 path가 ObjectName 태그에 기록되는 방식을 알고 있어야 합니다.
+
+
+
+== Symlink
+
+Symlink는 대상 오브젝트의 위치에 대한 포인터가 포함된 별도의 inode가 있는 파일이며, 대상이라고 합니다. symlink를 통해 개체에 액세스할 때 ONTAP는 자동으로 symlink를 해석하고 볼륨의 대상 개체에 대한 실제 정규 프로토콜 무관 경로를 따릅니다.
+
+다음 예제 출력에는 둘 다 target.txt라는 파일을 가리키는 두 개의 symlink가 있습니다. 심볼 링크 중 하나는 상대 symlink로, 다른 하나는 절대 symlink입니다. symlink 중 하나가 감사되는 경우 audit event의 ObjectName 태그에 "target.txt" 파일의 경로가 포함됩니다.
+
+[listing]
+----
+[root@host1 audit]# ls -l
+total 0
+lrwxrwxrwx 1 user1 group1 37 Apr  2 10:09 softlink_fullpath.txt -> /data/audit/target.txt
+lrwxrwxrwx 1 user1 group1 10 Apr  2 09:54 softlink.txt -> target.txt
+-rwxrwxrwx 1 user1 group1 16 Apr  2 10:05 target.txt
+----
+
+
+== 하드 링크
+
+하드 링크는 파일 시스템의 기존 파일과 이름을 연결하는 디렉토리 항목입니다. 하드 링크는 원본 파일의 inode 위치를 가리킵니다. ONTAP에서 symlink를 해석하는 방법과 마찬가지로 ONTAP는 하드 링크를 해석하고 볼륨의 대상 개체에 대한 실제 정규 경로를 따릅니다. 하드 링크 개체에 대한 액세스가 감사되면 감사 이벤트는 하드 링크 경로가 아닌 ObjectName 태그에 이 절대 정규 경로를 기록합니다.

@@ -1,0 +1,64 @@
+---
+permalink: encryption-at-rest/return-self-encrypting-disks-keys-not-available-task.html 
+sidebar: sidebar 
+keywords: returning, fips, drive, sed, service, authentication, keys, lost 
+summary: FIPS 드라이브 또는 SED가 영구적으로 인증 키를 분실하여 KMIP 서버에서 검색할 수 없는 경우, 시스템은 FIPS 드라이브 또는 SED를 파손된 것으로 처리합니다. 디스크의 데이터에 액세스하거나 복구할 수 없지만 SED의 사용되지 않은 공간을 데이터에 다시 사용할 수 있도록 하는 단계를 수행할 수 있습니다. 
+---
+= 인증 키가 손실되면 FIPS 드라이브 또는 SED를 서비스에 반환합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FIPS 드라이브 또는 SED가 영구적으로 인증 키를 분실하여 KMIP 서버에서 검색할 수 없는 경우, 시스템은 FIPS 드라이브 또는 SED를 파손된 것으로 처리합니다. 디스크의 데이터에 액세스하거나 복구할 수 없지만 SED의 미사용 공간을 데이터에 다시 사용할 수 있도록 하는 단계를 수행할 수 있습니다.
+
+이 작업을 수행하려면 클러스터 관리자여야 합니다.
+
+FIPS 드라이브 또는 SED의 인증 키가 영구적으로 손실되어 복구할 수 없는 경우에만 이 프로세스를 사용해야 합니다.
+
+.단계
+. FIPS 드라이브 또는 SED를 서비스 상태로 되돌리기:
++
+[cols="25,75"]
+|===
+
+
+| SED가 다음과 같은 경우 | 다음 단계 사용... 
+
+
+ a| 
+FIPS 호환 모드가 아니거나 FIPS 호환 모드에서는 FIPS 키를 사용할 수 없습니다
+ a| 
+.. 깨진 디스크 정리: + 'storage encryption disk sanitize -disk disk_id'
+.. 권한 수준을 advanced:+'et-Privilege advanced로 설정합니다
+.. 삭제된 디스크의 장애를 해제합니다: + '스토리지 디스크 불합격 - 스페어 TRUE - DISK DISK_ID'
+.. 디스크에 소유자가 있는지 확인합니다: +'스토리지 디스크 표시 - disk disk_id'
+.. 디스크에 소유자가 없는 경우 하나를 할당한 다음 다시 디스크의 장애를 해제합니다. + '스토리지 디스크 할당 - 소유자 노드 - disk disk_id'
++
+'storage disk unfail-spare true-disk disk_id'
+
+.. 디스크가 이제 스페어이고 Aggregate에서 다시 사용할 준비가 되었는지 확인합니다. + 'storage disk show -disk disk_id'
+
+
+
+
+ a| 
+FIPS 준수 모드에서는 FIPS 키를 사용할 수 없으며 SED에는 레이블에 인쇄된 PSID가 있습니다
+ a| 
+.. 디스크 레이블에서 디스크의 PSID를 가져옵니다.
+.. 권한 수준을 advanced:+'et-Privilege advanced로 설정합니다
+.. 디스크를 출하 시 구성된 설정으로 재설정합니다. + '저장소 암호화 디스크 복원 - 원본-상태-디스크 disk_id -psid disk_physical_secure_id'
+.. 삭제된 디스크의 장애를 해제합니다: + '스토리지 디스크 불합격 - 스페어 TRUE - DISK DISK_ID'
+.. 디스크에 소유자가 있는지 확인합니다: +'스토리지 디스크 표시 - disk disk_id'
+.. 디스크에 소유자가 없는 경우 하나를 할당한 다음 다시 디스크의 장애를 해제합니다. + '스토리지 디스크 할당 - 소유자 노드 - disk disk_id'
++
+'storage disk unfail-spare true-disk disk_id'
+
+.. 디스크가 이제 스페어이고 Aggregate에서 다시 사용할 준비가 되었는지 확인합니다. + 'storage disk show -disk disk_id'
+
+
+|===
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
+

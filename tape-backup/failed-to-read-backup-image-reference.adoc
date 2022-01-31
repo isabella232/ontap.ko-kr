@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/failed-to-read-backup-image-reference.html 
+sidebar: sidebar 
+keywords: restore, operation, failed, read, backup, image, corrupt 
+summary: 테이프가 손상되었습니다. 
+---
+= 백업 이미지를 읽지 못했습니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+백업 이미지를 읽지 못했습니다
+
+* * 원인 *
++
+테이프가 손상되었습니다.
+
+* * 시정 조치 *
++
+테이프가 손상된 경우 복원 작업을 수행할 수 없습니다.
+
+

@@ -1,0 +1,35 @@
+---
+permalink: nfs-admin/nfsv40-functionality-supported-concept.html 
+sidebar: sidebar 
+keywords: nfsv4.0, functionality, support, ontap 
+summary: ONTAP는 SPKM3 및 LIPKEY 보안 메커니즘을 제외한 NFSv4.0의 모든 필수 기능을 지원합니다. 
+---
+= ONTAP에서 지원하는 NFSv4.0 기능
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP는 SPKM3 및 LIPKEY 보안 메커니즘을 제외한 NFSv4.0의 모든 필수 기능을 지원합니다.
+
+지원되는 NFSv4 기능은 다음과 같습니다.
+
+* * 복합 *
++
+클라이언트가 단일 RPC(원격 프로시저 호출) 요청에서 여러 파일 작업을 요청할 수 있습니다.
+
+* * 파일 위임 *
++
+서버가 읽기 및 쓰기 액세스를 위해 일부 유형의 클라이언트에 파일 제어를 위임할 수 있도록 합니다.
+
+* * 의사 fs *
++
+NFSv4 서버에서 스토리지 시스템의 마운트 지점을 결정하는 데 사용됩니다. NFSv4에는 마운트 프로토콜이 없습니다.
+
+* * 잠금 *
++
+임대 기반. NFSv4에는 별도의 NLM(Network Lock Manager) 또는 NSM(Network Status Monitor) 프로토콜이 없습니다.
+
+
+
+NFSv4.0 프로토콜에 대한 자세한 내용은 RFC 3530을 참조하십시오.

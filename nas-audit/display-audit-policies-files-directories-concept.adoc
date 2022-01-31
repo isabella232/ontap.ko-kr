@@ -1,0 +1,13 @@
+---
+permalink: nas-audit/display-audit-policies-files-directories-concept.html 
+sidebar: sidebar 
+keywords: display, information, audit policies, files and directories 
+summary: '파일 및 디렉터리에 적용된 감사 정책에 대한 정보를 표시하면 지정된 파일 및 폴더에 적절한 SACL(시스템 액세스 제어 목록)이 설정되어 있는지 확인할 수 있습니다.' 
+---
+= 파일 및 디렉토리에 적용된 감사 정책에 대한 정보를 표시합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+파일 및 디렉터리에 적용된 감사 정책에 대한 정보를 표시하면 지정된 파일 및 폴더에 적절한 SACL(시스템 액세스 제어 목록)이 설정되어 있는지 확인할 수 있습니다.

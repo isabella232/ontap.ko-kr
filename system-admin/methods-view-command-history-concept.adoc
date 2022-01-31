@@ -1,0 +1,38 @@
+---
+permalink: system-admin/methods-view-command-history-concept.html 
+sidebar: sidebar 
+keywords: method, view, command, history, reissue, command 
+summary: 각 CLI 세션은 해당 세션에서 실행된 모든 명령의 기록을 유지합니다. 현재 사용 중인 세션의 명령 기록을 볼 수 있습니다. 명령을 다시 실행할 수도 있습니다. 
+---
+= 명령 기록을 보고 명령을 재실행하는 방법
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+각 CLI 세션은 해당 세션에서 실행된 모든 명령의 기록을 유지합니다. 현재 사용 중인 세션의 명령 기록을 볼 수 있습니다. 명령을 다시 실행할 수도 있습니다.
+
+명령어 이력을 보기 위해 'history' 명령어를 사용할 수 있다.
+
+명령을 재발급하려면 다음 인수 중 하나와 함께 "redo" 명령을 사용할 수 있습니다.
+
+* 이전 명령의 일부와 일치하는 문자열입니다
++
+예를 들어, 실행한 유일한 'volume' 명령이 'volume show'인 경우 'redo volume' 명령을 사용하여 명령을 다시 실행할 수 있습니다.
+
+* history 명령으로 나열한 이전 명령의 숫자 ID
++
+예를 들어, 'redo 4' 명령을 사용하여 기록 목록에서 네 번째 명령을 다시 실행할 수 있습니다.
+
+* 기록 목록의 끝에서 음수 오프셋
++
+예를 들어, redo-2 명령을 사용하여 이전에 두 명령을 실행한 명령을 다시 실행할 수 있습니다.
+
+
+
+예를 들어, 명령 기록 끝에서 세 번째 명령을 다시 실행하려면 다음 명령을 입력합니다.
+
+[listing]
+----
+cluster1::> redo -3
+----

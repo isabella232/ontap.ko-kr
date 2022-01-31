@@ -1,0 +1,20 @@
+---
+permalink: san-admin/index.html 
+sidebar: sidebar 
+keywords: decide, san, administration, host, provisioning, iscsi, fc, nvme 
+summary: 이 정보는 기본적인 SAN 호스트 프로비저닝을 설명합니다. 
+---
+= CLI를 사용한 SAN 관리 개요
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+다음 절차에 따라 기본 SAN 호스트 프로비저닝을 수행합니다. iSCSI 및 FC 프로토콜을 사용하여 LUN, igroup, 그리고 NVMe/FC 프로토콜을 사용하여 네임스페이스 및 서브시스템을 구성하고 관리할 수 있습니다.
+
+다음과 같은 상황에서 이러한 절차를 사용해야 합니다.
+
+* ONTAP SAN 호스트 프로비저닝 기능의 범위를 이해하려고 합니다.
+* 기본적인 SAN 구성이 아닌, 덜 일반적인 구성 및 유지보수 작업을 수행하려는 경우
+* System Manager나 자동화된 스크립팅 도구가 아니라 CLI(Command-Line Interface)를 사용하려는 경우
+

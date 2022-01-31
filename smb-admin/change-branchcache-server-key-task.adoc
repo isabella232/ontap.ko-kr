@@ -1,0 +1,42 @@
+---
+permalink: smb-admin/change-branchcache-server-key-task.html 
+sidebar: sidebar 
+keywords: change, branchcache, server, key, modify, configuration, storage, virtual, machine, svm, change the branchcache server key 
+summary: 'SVM(스토리지 가상 시스템)에서 BranchCache 구성을 수정하고 다른 서버 키를 지정하여 BranchCache 서버 키를 변경할 수 있습니다.' 
+---
+= BranchCache 서버 키를 변경합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SVM(스토리지 가상 시스템)에서 BranchCache 구성을 수정하고 다른 서버 키를 지정하여 BranchCache 서버 키를 변경할 수 있습니다.
+
+여러 서버가 동일한 파일에 BranchCache 데이터를 제공하는 경우 클라이언트는 동일한 서버 키를 사용하는 모든 서버의 해시를 사용할 수 있도록 서버 키를 특정 값으로 설정할 수 있습니다.
+
+서버 키를 변경할 때는 해시 캐시도 플러시해야 합니다. 해시를 플러싱한 후 ONTAP는 BranchCache 사용 클라이언트가 새 요청을 할 때 새 해시를 생성합니다.
+
+.단계
+. 'vserver cifs BranchCache modify -vserver vserver_name -server -key text -flush -hash true' 명령을 사용하여 서버 키를 변경합니다
++
+새 서버 키를 구성할 때는 -flush-hash를 지정하고 값을 true로 설정해야 합니다.
+
+. 'vserver cifs BranchCache show' 명령을 사용하여 BranchCache 구성이 올바른지 확인합니다.
+
+
+다음 예에서는 공백이 포함된 새 서버 키를 설정하고 SVM VS1 의 해시 캐시를 플러시합니다.
+
+[listing]
+----
+cluster1::> vserver cifs branchcache modify -vserver vs1 -server-key "new vserver secret" -flush-hashes true
+
+cluster1::> vserver cifs branchcache show -vserver vs1
+
+                                 Vserver: vs1
+          Supported BranchCache Versions: enable_all
+                      Path to Hash Store: /hash_data
+          Maximum Size of the Hash Store: 20GB
+Encryption Key Used to Secure the Hashes: -
+        CIFS BranchCache Operating Modes: per_share
+----
+xref:reasons-invalidates-branchcache-hashes-concept.adoc[ONTAP가 BranchCache 해시를 무효화하는 이유]

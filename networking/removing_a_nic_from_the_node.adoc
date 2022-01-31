@@ -1,0 +1,50 @@
+---
+sidebar: sidebar 
+permalink: networking/removing_a_nic_from_the_node.html 
+keywords: delete, deleting, remove, removing, nic, network, interface, card, slot, maintenance, faulty, error, bad, failed, fail, node, remove a faulty NIC from its slot or move the NIC to another slot for maintenance purposes, removing a nic from the node on ontap 9.8 or later, controller-replacement, network displaced-vlans, displaced-vlans show, displaced-vlans restore, 
+summary: ONTAP 9.8 이상에서는 유지 관리를 위해 결함이 있는 NIC를 슬롯에서 제거하거나 NIC를 다른 슬롯으로 이동합니다 
+---
+= ONTAP 9.8 이상의 노드에서 NIC 분리
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+이 항목은 ONTAP 9.8 이상에 적용됩니다. 유지 관리를 위해 결함이 있는 NIC를 슬롯에서 제거하거나 NIC를 다른 슬롯으로 이동해야 할 수 있습니다.
+
+.단계
+. 노드 전원을 끕니다.
+. 슬롯에서 NIC를 물리적으로 분리합니다.
+. 노드의 전원을 켭니다.
+. 포트가 삭제되었는지 확인합니다.
++
+....
+network port show
+....
++
+
+NOTE: ONTAP는 모든 인터페이스 그룹에서 포트를 자동으로 제거합니다. 포트가 인터페이스 그룹의 유일한 구성원인 경우 인터페이스 그룹이 삭제됩니다.
+
+. 포트에 구성된 VLAN이 있으면 포트가 교체된 것입니다. 다음 명령을 사용하여 교체된 VLAN을 볼 수 있습니다.
++
+....
+cluster controller-replacement network displaced-vlans show
+....
++
+
+NOTE: dissplac된 interface show, dissplac된-vlan show, dissplac된-vLANs restore 명령은 고유하며 클러스터 컨트롤러 교체 네트워크로 시작하는 정규화된 명령 이름이 필요하지 않습니다.
+
+. 이러한 VLAN은 삭제되지만 다음 명령을 사용하여 복원할 수 있습니다.
++
+....
+displaced-vlans restore
+....
+. 포트에 LIF가 구성되어 있는 경우 ONTAP는 동일한 브로드캐스트 도메인의 다른 포트에 있는 LIF에 대한 새 홈 포트를 자동으로 선택합니다. 동일한 파일러에 적절한 홈 포트가 없으면 해당 LIF가 교체된 것으로 간주됩니다. 다음 명령을 사용하여 교체된 LIF를 볼 수 있습니다.
++
+디시퍼인터페이스 쇼
+
+. 새 포트가 같은 노드의 브로드캐스트 도메인에 추가되면 LIF의 홈 포트가 자동으로 복원됩니다. 또는 네트워크 인터페이스 modify-home-port-home-node를 사용하여 홈 포트를 설정하거나 교체된 인터페이스 restore 명령을 사용할 수 있습니다.
+

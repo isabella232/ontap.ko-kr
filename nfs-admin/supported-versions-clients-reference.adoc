@@ -1,0 +1,58 @@
+---
+permalink: nfs-admin/supported-versions-clients-reference.html 
+sidebar: sidebar 
+keywords: appendix, support, nfs, version, client 
+summary: 네트워크에서 NFS를 사용하려면 먼저 ONTAP가 지원하는 NFS 버전과 클라이언트를 알아야 합니다. 
+---
+= 부록: 지원되는 NFS 버전 및 클라이언트
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+네트워크에서 NFS를 사용하려면 먼저 ONTAP가 지원하는 NFS 버전과 클라이언트를 알아야 합니다.
+
+ONTAP는 다음과 같은 주요 및 부 NFS 프로토콜 버전을 지원합니다.
+
+[cols="2*"]
+|===
+| 버전 | 기본적으로 사용됩니다 
+
+
+ a| 
+NFSv3
+ a| 
+예
+
+
+
+ a| 
+NFSv4.0
+ a| 
+예, ONTAP 9.9.1부터 시작합니다
+
+
+
+ a| 
+NFSv4.1
+ a| 
+예, ONTAP 9.9.1부터 시작합니다
+
+
+
+ a| 
+NFSv4.2
+ a| 
+예, ONTAP 9.9.1부터 시작합니다
+
+
+
+ a| 
+pNFS를 사용합니다
+ a| 
+아니요
+
+|===
+ONTAP가 지원하는 NFS 클라이언트에 대한 최신 정보는 상호 운용성 매트릭스 를 참조하십시오.
+
+https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"]

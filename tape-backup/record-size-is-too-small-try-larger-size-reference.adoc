@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/record-size-is-too-small-try-larger-size-reference.html 
+sidebar: sidebar 
+keywords: tape, record, size, small, restore, operation, blocking, factor, backup 
+summary: 복구 작업에 지정된 차단 계수가 백업 중에 사용된 차단 요소보다 작습니다. 
+---
+= 테이프 레코드 크기가 너무 작습니다. 더 큰 크기로 시도하십시오.
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+테이프 레코드 크기가 너무 작습니다. 더 큰 사이즈를 시도해 보세요
+
+* * 원인 *
++
+복구 작업에 지정된 차단 계수가 백업 중에 사용된 차단 요소보다 작습니다.
+
+* * 시정 조치 *
++
+백업 중에 지정된 것과 동일한 차단 계수를 사용합니다.
+
+

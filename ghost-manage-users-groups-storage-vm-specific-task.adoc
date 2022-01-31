@@ -1,0 +1,13 @@
+---
+permalink: -vm-specific-task.html 
+sidebar: sidebar 
+keywords: system manager, windows, unix, host-specific, host, users, groups, add user, delete user, edit user, enable user, disable user, add group, edit group, delete group, group privileges, members, privileges, local user, domain user, domain group, change user password 
+summary: ONTAP 9.10.1부터 System Manager를 사용하여 UNIX 또는 Windows 호스트별 사용자 및 그룹을 관리할 수 있습니다. 
+---
+= System Manager로 호스트별 사용자 및 그룹을 관리합니다
+:icons: font
+:imagesdir: media/
+
+
+[role="lead"]
+ONTAP 9.10.1부터 System Manager를 사용하여 UNIX 또는 Windows 호스트별 사용자 및 그룹을 관리할 수 있습니다. 이 주제에 대해 자세히 읽어보십시오 xref:manage-users-groups-host-specific-task.adoc[여기].

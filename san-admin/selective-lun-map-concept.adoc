@@ -1,0 +1,19 @@
+---
+permalink: san-admin/selective-lun-map-concept.html 
+sidebar: sidebar 
+keywords: select, lun, map 
+summary: 'SLM(Selective LUN Map)은 호스트에서 LUN으로의 경로 수를 줄입니다. SLM 기능을 통해 새 LUN 맵이 생성되면 LUN 및 해당 HA 파트너를 소유하는 노드의 경로를 통해서만 LUN에 액세스할 수 있습니다.' 
+---
+= 선택적 LUN 맵 개요
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SLM(Selective LUN Map)은 호스트에서 LUN으로의 경로 수를 줄입니다. SLM 기능을 통해 새 LUN 맵이 생성되면 LUN 및 해당 HA 파트너를 소유하는 노드의 경로를 통해서만 LUN에 액세스할 수 있습니다.
+
+SLM은 호스트당 단일 igroup을 관리할 수 있도록 하며, 포트셋 조작 또는 LUN 재매핑이 필요하지 않은 무중단 LUN 이동 작업도 지원합니다.
+
+이전 버전의 ONTAP와 마찬가지로 Portset을 SLM과 함께 사용하여 특정 타겟에 대한 액세스를 특정 이니시에이터에 제한할 수 있습니다. 포트 세트와 함께 SLM을 사용하는 경우 LUN을 소유한 노드의 HA 파트너와 해당 노드의 포트셋 LIF 세트에서 LUN에 액세스할 수 있습니다.
+
+SLM은 모든 새로운 LUN 맵에서 기본적으로 활성화됩니다.

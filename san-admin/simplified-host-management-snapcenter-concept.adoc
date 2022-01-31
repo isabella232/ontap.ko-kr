@@ -1,0 +1,17 @@
+---
+permalink: san-admin/simplified-host-management-snapcenter-concept.html 
+sidebar: sidebar 
+keywords: snapcenter, host management, simplified 
+summary: SnapCenter 소프트웨어를 사용하면 iSCSI 및 FC 스토리지와 관련된 일부 관리 및 데이터 보호 작업을 단순화할 수 있습니다. SnapCenter는 Windows 및 UNIX 호스트용 선택적 관리 패키지입니다. 
+---
+= SnapCenter를 통한 호스트 관리 단순화
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapCenter 소프트웨어를 사용하면 iSCSI 및 FC 스토리지와 관련된 일부 관리 및 데이터 보호 작업을 단순화할 수 있습니다. SnapCenter는 Windows 및 UNIX 호스트용 선택적 관리 패키지입니다.
+
+SnapCenter 소프트웨어를 사용하면 여러 스토리지 시스템 간에 분산될 수 있는 스토리지 풀에서 가상 디스크를 쉽게 생성하고 스토리지 프로비저닝 작업을 자동화하며 호스트 데이터에 일치하는 스냅샷 복사본에서 스냅샷 복사본 및 클론을 생성하는 프로세스를 단순화할 수 있습니다.
+
+SnapCenter에 대한 자세한 내용은 NetApp 제품 설명서를 참조하십시오.

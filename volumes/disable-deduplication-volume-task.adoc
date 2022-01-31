@@ -1,0 +1,41 @@
+---
+permalink: volumes/disable-deduplication-volume-task.html 
+sidebar: sidebar 
+keywords: disabling, deduplication, volume 
+summary: 사후 처리 중복제거 및 인라인 중복제거는 볼륨에 독립적으로 비활성화할 수 있습니다. 
+---
+= 볼륨에서 중복 제거를 해제합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+사후 처리 중복제거 및 인라인 중복제거는 볼륨에 독립적으로 비활성화할 수 있습니다.
+
+현재 볼륨에서 활성화되어 있는 볼륨 효율성 작업('볼륨 효율성 중지')을 중지합니다
+
+볼륨에 대한 데이터 압축을 활성화한 경우 'volume Efficiency off' 명령을 실행하면 데이터 압축이 비활성화됩니다.
+
+.선택
+* 'volume Efficiency off' 명령을 사용하면 후처리 중복 제거와 인라인 중복 제거를 모두 비활성화할 수 있습니다.
++
+다음 명령을 실행하면 볼륨 VolA에서 사후 처리 중복제거 및 인라인 중복제거가 모두 비활성화됩니다.
+
++
+'볼륨 효율성 꺼짐 - vserver vs1 - 볼륨 VolA'
+
+* 후처리 중복 제거를 비활성화하려면 '-policy' 옵션을 '인라인만'으로 설정하고 '볼륨 효율성 수정' 명령을 사용하십시오. 하지만 인라인 중복제거는 계속 사용할 수 있습니다.
++
+다음 명령을 실행하면 사후 처리 중복제거가 비활성화되지만 볼륨 VolA에서는 인라인 중복제거가 계속 활성화되어 있습니다.
+
++
+'볼륨 효율성 수정 - vserver vs1-volume vola-policy inline-only'
+
+* 인라인 중복 제거만 비활성화하려면 '-inline-deduplication' 옵션을 'false'로 설정한 상태에서 'volume Efficiency modify' 명령을 사용합니다.
++
+다음 명령을 실행하면 볼륨 VolA에서 인라인 중복제거만 해제됩니다.
+
++
+'볼륨 효율성 수정 - vserver vs1-volume vola-inline-deduplication false'
+
+

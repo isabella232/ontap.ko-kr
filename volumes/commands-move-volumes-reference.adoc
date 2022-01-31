@@ -1,0 +1,68 @@
+---
+permalink: volumes/commands-move-volumes-reference.html 
+sidebar: sidebar 
+keywords: commands, moving, volumes, to move 
+summary: 볼륨 이동을 관리하기 위한 특정 ONTAP 명령이 있습니다. 
+---
+= 볼륨 이동을 위한 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+볼륨 이동을 관리하기 위한 특정 ONTAP 명령이 있습니다.
+
+[cols="2*"]
+|===
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+활성 볼륨 이동 작업을 중단합니다.
+ a| 
+'볼륨 이동 중단'
+
+
+
+ a| 
+한 Aggregate에서 다른 aggregate로 이동하는 볼륨의 상태를 표시합니다.
+ a| 
+'볼륨 이동 쇼'
+
+
+
+ a| 
+한 Aggregate에서 다른 Aggregate로 볼륨을 이동하기 시작합니다.
+ a| 
+볼륨 이동 시작
+
+
+
+ a| 
+볼륨 이동을 위한 타겟 애그리게이트를 관리합니다.
+ a| 
+'볼륨 이동 대상-집계'
+
+
+
+ a| 
+이동 작업의 컷오버를 트리거합니다.
+ a| 
+'볼륨 이동 트리거-컷오버
+
+
+
+ a| 
+기본값이 적절하지 않은 경우 클라이언트 액세스가 차단되는 시간을 변경합니다.
+ a| 
+'-cutover-window' 매개 변수를 사용하여 볼륨 이동 시작 또는 볼륨 이동 수정. 볼륨 이동 수정 명령은 고급 명령이고 -cutover-window는 고급 매개 변수입니다.
+
+
+
+ a| 
+클라이언트 액세스가 차단된 시간 동안 볼륨 이동 작업을 완료할 수 없는 경우 시스템에서 어떤 작업을 수행하는지 확인합니다.
+ a| 
+'-cutover-action' 매개 변수를 사용하여 볼륨 이동 시작 또는 볼륨 이동 수정 볼륨 이동 수정 명령은 고급 명령이고 -cutover-action은 고급 매개 변수입니다.
+
+|===
+자세한 내용은 각 명령에 대한 man 페이지를 참조하십시오.

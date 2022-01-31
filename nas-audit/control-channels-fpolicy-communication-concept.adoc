@@ -1,0 +1,13 @@
+---
+permalink: nas-audit/control-channels-fpolicy-communication-concept.html 
+sidebar: sidebar 
+keywords: control channels, fpolicy, communication 
+summary: 'FPolicy는 스토리지 가상 머신(SVM)에 참여하는 각 노드의 데이터 LIF에서 외부 FPolicy 서버에 대한 제어 채널 연결을 시작합니다. FPolicy는 제어 채널을 사용하여 파일 알림을 전송합니다. 따라서 FPolicy 서버는 SVM 토폴로지를 기준으로 여러 개의 제어 채널 연결을 볼 수 있습니다.' 
+---
+= FPolicy 통신에는 제어 채널이 어떻게 사용됩니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FPolicy는 스토리지 가상 머신(SVM)에 참여하는 각 노드의 데이터 LIF에서 외부 FPolicy 서버에 대한 제어 채널 연결을 시작합니다. FPolicy는 제어 채널을 사용하여 파일 알림을 전송합니다. 따라서 FPolicy 서버는 SVM 토폴로지를 기준으로 여러 개의 제어 채널 연결을 볼 수 있습니다.

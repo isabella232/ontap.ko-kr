@@ -1,0 +1,21 @@
+---
+permalink: smb-admin/use-cases-storage-level-access-guard-concept.html 
+sidebar: sidebar 
+keywords: storage-level, access, guard, additional, security, storage, level, visible, administrator, client, side, desktop, revoke, user, beneficial, use cases for using storage-level access guard 
+summary: Storage-Level Access Guard는 클라이언트 측에서 볼 수 없는 스토리지 수준에서 추가 보안을 제공하므로 사용자 또는 관리자가 데스크톱에서 해당 보안을 취소할 수 없습니다. 스토리지 레벨에서 액세스를 제어하는 기능이 유용하다고 볼 수 있는 특정 사용 사례가 있습니다. 
+---
+= Storage-Level Access Guard 사용 사례
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Storage-Level Access Guard는 클라이언트 측에서 볼 수 없는 스토리지 수준에서 추가 보안을 제공하므로 사용자 또는 관리자가 데스크톱에서 해당 보안을 취소할 수 없습니다. 스토리지 레벨에서 액세스를 제어하는 기능이 유용하다고 볼 수 있는 특정 사용 사례가 있습니다.
+
+이 기능의 일반적인 사용 사례는 다음과 같습니다.
+
+* 스토리지 수준에서 모든 사용자의 액세스를 감사 및 제어하여 지적 재산권을 보호합니다
+* 은행 및 거래 그룹을 비롯한 금융 서비스 기업을 위한 스토리지
+* 정부 서비스 및 개별 부서용 개별 파일 스토리지
+* 모든 학생 파일을 보호하는 대학
+

@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/invalid-backup-image-magic-number-reference.html 
+sidebar: sidebar 
+keywords: invalid, backup, image, magic, number, smtape, retry, operation, restore 
+summary: 백업 이미지 매직 번호가 잘못되었습니다. 
+---
+= 백업 이미지 매직 번호가 잘못되었습니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+백업 이미지 마술 번호가 잘못되었습니다
+
+* * 원인 *
++
+백업 이미지가 SMTape가 아닙니다.
+
+* * 시정 조치 *
++
+백업 이미지가 SMTape가 아닌 경우 SMTape 백업이 있는 테이프를 사용하여 작업을 재시도하십시오.
+
+

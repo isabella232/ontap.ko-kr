@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/failed-to-load-new-tape-reference.html 
+sidebar: sidebar 
+keywords: failed, load, new, tape, error, drive, media 
+summary: 테이프 드라이브 또는 미디어에 오류가 있습니다. 
+---
+= 새 테이프를 로드하지 못했습니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+새 테이프를 로드하지 못했습니다
+
+* * 원인 *
++
+테이프 드라이브 또는 미디어에 오류가 있습니다.
+
+* * 시정 조치 *
++
+테이프를 교체하고 작업을 다시 시도하십시오.
+
+

@@ -1,0 +1,108 @@
+---
+permalink: san-admin/change-uta2-port-cna-mode-fc-task.html 
+sidebar: sidebar 
+keywords: change, uta2, port, cna mode, fc mode 
+summary: 'UTA2 포트를 CNA(Converged Network Adapter) 모드에서 FC(Fibre Channel) 모드로 변경하여 FC 이니시에이터 및 FC 타겟 모드를 지원해야 합니다. 포트를 네트워크에 연결하는 물리적 미디어를 변경해야 하는 경우 CNA 모드에서 FC 모드로 속성을 변경해야 합니다.' 
+---
+= UTA2 포트를 CNA 모드에서 FC 모드로 변경합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+UTA2 포트를 CNA(Converged Network Adapter) 모드에서 FC(Fibre Channel) 모드로 변경하여 FC 이니시에이터 및 FC 타겟 모드를 지원해야 합니다. 포트를 네트워크에 연결하는 물리적 미디어를 변경해야 하는 경우 CNA 모드에서 FC 모드로 속성을 변경해야 합니다.
+
+.단계
+. 어댑터를 오프라인 상태로 전환:
++
+'network fcp adapter modify -node_node_name_-adapter_adapter_name_-status-admin down'
+
+. 포트 모드를 변경합니다.
++
+'ucadmin modify -node_node_name_-adapter_adapter_name_-mode fcp'
+
+. 노드를 재부팅한 다음 어댑터를 온라인 상태로 전환합니다.
++
+'network fcp adapter modify -node_node_name_-adapter_adapter_name_-status-admin up
+
+. 필요에 따라 관리자 또는 VIF 관리자에게 포트를 삭제하거나 제거하도록 알립니다.
++
+** 포트가 LIF의 홈 포트로 사용되고, 인터페이스 그룹(ifgrp) 또는 호스트 VLAN의 구성원인 경우 관리자는 다음을 수행해야 합니다.
++
+... LIF를 이동하거나, ifgrp에서 포트를 제거하거나, VLAN을 각각 삭제합니다.
+... 'network port delete' 명령어를 실행해 포트를 수동으로 삭제한다.
++
+'network port delete' 명령이 실패하면 관리자가 오류를 해결한 다음 명령을 다시 실행해야 합니다.
+
+
+
+** 포트가 LIF의 홈 포트로 사용되지 않고, ifgrp의 구성원이 아니며 VLAN을 호스팅하지 않는 경우, VIF 관리자는 재부팅 시 기록에서 포트를 제거해야 합니다.
++
+VIF 관리자가 포트를 제거하지 않는 경우, 관리자는 재부팅 후 'network port delete' 명령을 사용하여 수동으로 제거해야 합니다.
+
+
+
++
+[listing]
+----
+net-f8040-34::> network port show
+
+    Node: net-f8040-34-01
+                                                      Speed(Mbps) Health
+    Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
+    --------- ------------ ---------------- ---- ---- ----------- --------
+    ...
+    e0i       Default      Default          down 1500  auto/10    -
+    e0f       Default      Default          down 1500  auto/10    -
+    ...
+
+    net-f8040-34::> ucadmin show
+                              Current  Current    Pending  Pending    Admin
+    Node            Adapter   Mode     Type       Mode     Type       Status
+    ------------    -------   -------  ---------  -------  ---------  -----------
+    net-f8040-34-01   0e       cna      target     -        -          offline
+    net-f8040-34-01   0f       cna      target     -        -          offline
+    ...
+
+    net-f8040-34::> network interface create -vs net-f8040-34 -lif m -role
+node-mgmt-home-node net-f8040-34-01 -home-port e0e -address 10.1.1.1
+-netmask 255.255.255.0
+
+
+    net-f8040-34::> network interface show -fields home-port, curr-port
+
+    vserver lif                   home-port curr-port
+    ------- --------------------- --------- ---------
+    Cluster net-f8040-34-01_clus1 e0a       e0a
+    Cluster net-f8040-34-01_clus2 e0b       e0b
+    Cluster net-f8040-34-01_clus3 e0c       e0c
+    Cluster net-f8040-34-01_clus4 e0d       e0d
+    net-f8040-34
+            cluster_mgmt          e0M       e0M
+    net-f8040-34
+            m                     e0e       e0i
+    net-f8040-34
+            net-f8040-34-01_mgmt1 e0M       e0M
+    7 entries were displayed.
+
+    net-f8040-34::> ucadmin modify local 0e fc
+
+    Warning: Mode on adapter 0e and also adapter 0f will be changed to fc.
+    Do you want to continue? {y|n}: y
+    Any changes will take effect after rebooting the system. Use the
+"system node reboot" command to reboot.
+
+    net-f8040-34::> reboot local
+      (system node reboot)
+
+    Warning: Are you sure you want to reboot node "net-f8040-34-01"?
+    {y|n}: y
+----
+. 올바른 SFP+가 설치되었는지 확인합니다.
++
+네트워크 FCP 어댑터 show-instance-node-adapter입니다
+
++
+CNA의 경우 10Gb 이더넷 SFP를 사용해야 합니다. FC의 경우 노드에서 구성을 변경하기 전에 8Gb SFP 또는 16Gb SFP를 사용해야 합니다.
+
+

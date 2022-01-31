@@ -1,0 +1,68 @@
+---
+permalink: smb-admin/configure-guest-unix-user-task.html 
+sidebar: sidebar 
+keywords: configuring, configure, guest, unix, user, untrusted, domain, map, connect, cifs, server, configure the guest unix user 
+summary: '게스트 UNIX 사용자 옵션을 구성하면 신뢰할 수 없는 도메인에서 로그인하는 사용자가 게스트 UNIX 사용자에게 매핑되고 CIFS 서버에 연결할 수 있습니다. 또는 신뢰할 수 없는 도메인의 사용자 인증에 실패하도록 하려면 게스트 UNIX 사용자를 구성하지 않아야 합니다. 기본값은 신뢰할 수 없는 도메인의 사용자가 CIFS 서버에 접속할 수 없도록 하는 것입니다(게스트 UNIX 계정이 구성되지 않음).' 
+---
+= 게스트 UNIX 사용자를 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+게스트 UNIX 사용자 옵션을 구성하면 신뢰할 수 없는 도메인에서 로그인하는 사용자가 게스트 UNIX 사용자에게 매핑되고 CIFS 서버에 연결할 수 있습니다. 또는 신뢰할 수 없는 도메인의 사용자 인증에 실패하도록 하려면 게스트 UNIX 사용자를 구성하지 않아야 합니다. 기본값은 신뢰할 수 없는 도메인의 사용자가 CIFS 서버에 접속할 수 없도록 하는 것입니다(게스트 UNIX 계정이 구성되지 않음).
+
+게스트 UNIX 계정을 구성할 때 다음 사항을 염두에 두어야 합니다.
+
+* CIFS 서버가 홈 도메인 또는 신뢰할 수 있는 도메인 또는 로컬 데이터베이스에 대한 도메인 컨트롤러에 대해 사용자를 인증할 수 없고 이 옵션이 설정된 경우 CIFS 서버는 사용자를 게스트 사용자로 간주하고 지정된 UNIX 사용자에게 매핑합니다.
+* 이 옵션을 null 문자열로 설정하면 게스트 UNIX 사용자가 비활성화됩니다.
+* SVM(Storage Virtual Machine) 이름 서비스 데이터베이스 중 하나에서 게스트 UNIX 사용자로 사용할 UNIX 사용자를 생성해야 합니다.
+* 게스트 사용자로 로그인한 사용자는 자동으로 CIFS 서버에 있는 BUILTIN\guests 그룹의 구성원입니다.
+* 'homedirs-public' 옵션은 인증된 사용자에게만 적용됩니다. 게스트 사용자로 로그인한 사용자는 홈 디렉토리가 없으며 다른 사용자의 홈 디렉토리에 액세스할 수 없습니다.
+
+
+.단계
+. 다음 작업 중 하나를 수행합니다.
++
+|===
+| 원하는 작업 | 입력... 
+
+
+ a| 
+게스트 UNIX 사용자를 구성합니다
+ a| 
+'vserver cifs options modify-guest-unix-user_unix_name_'
+
+
+
+ a| 
+게스트 UNIX 사용자를 비활성화합니다
+ a| 
+'vserver cifs options modify-guest-unix-user'''
+
+|===
++
+'vserver cifs options modify-guest-unix-user pcuser'
+
+. 게스트 UNIX 사용자가 올바르게 구성되었는지 확인합니다. 'vserver cifs options show -vserver_vserver_name_'
++
+다음 예에서는 기본 UNIX 사용자와 SVM VS1 게스트 UNIX 사용자 모두 UNIX 사용자 ""pcuser""를 사용하도록 구성되어 있습니다.
+
++
+'vserver cifs options show -vserver vs1'을 선택합니다
+
++
+[listing]
+----
+
+Vserver: vs1
+
+  Client Session Timeout : 900
+  Default Unix Group     : -
+  Default Unix User      : pcuser
+  Guest Unix User        : pcuser
+  Read Grants Exec       : disabled
+  Read Only Delete       : disabled
+  WINS Servers           : -
+----
+

@@ -1,0 +1,13 @@
+---
+permalink: manage-portsets-task.html 
+sidebar: sidebar 
+keywords: san, portsets, create, creating, bind, binding, igroup 
+summary: ONTAP 9.10.1부터 System Manager를 사용하여 포트 세트를 생성하고 igroup에 바인딩할 수 있습니다. System Manager를 사용하여 포트 세트와 관련된 네트워크 인터페이스를 변경하고 포트 세트를 삭제할 수도 있습니다. 
+---
+= 포틀세트를 생성하고 관리합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+또한 link:selective-lun-map-concept.html["선택적 LUN 맵(SLM)"]포트 세트를 사용하여 이니시에이터에서 LUN에 액세스하는 데 사용할 수 있는 LIF를 추가로 제한할 수 있습니다. 이 주제에 대해 자세히 알아보십시오 .

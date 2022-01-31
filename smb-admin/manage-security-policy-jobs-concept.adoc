@@ -1,0 +1,27 @@
+---
+permalink: smb-admin/manage-security-policy-jobs-concept.html 
+sidebar: sidebar 
+keywords: security, policy, job, exist, circumstance, modify, security, task, assign, condition, modify, modification, add, remove, removing, delete, deleting, considerations when managing security policy jobs 
+summary: 특정 상황에서 보안 정책 작업이 있는 경우 해당 보안 정책 또는 해당 정책에 할당된 작업을 수정할 수 없습니다. 정책을 수정할 수 있는 조건이나 수정할 수 없는 조건을 이해해야 정책을 수정할 수 있습니다. 정책 수정에는 정책에 할당된 작업을 추가, 제거 또는 수정하고 정책을 삭제 또는 수정하는 작업이 포함됩니다. 
+---
+= 보안 정책 작업을 관리할 때의 고려 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+특정 상황에서 보안 정책 작업이 있는 경우 해당 보안 정책 또는 해당 정책에 할당된 작업을 수정할 수 없습니다. 정책을 수정할 수 있는 조건이나 수정할 수 없는 조건을 이해해야 정책을 수정할 수 있습니다. 정책 수정에는 정책에 할당된 작업을 추가, 제거 또는 수정하고 정책을 삭제 또는 수정하는 작업이 포함됩니다.
+
+해당 정책에 대한 작업이 있고 해당 작업이 다음 상태인 경우 해당 정책에 할당된 보안 정책 또는 작업을 수정할 수 없습니다.
+
+* 작업이 실행 중이거나 진행 중입니다.
+* 작업이 일시 중지되었습니다.
+* 작업이 재개되고 실행 중 상태입니다.
+* 작업이 다른 노드로 장애 조치를 기다리는 경우
+
+
+다음 상황에서 보안 정책에 대한 작업이 있는 경우 해당 보안 정책 또는 해당 정책에 할당된 작업을 성공적으로 수정할 수 있습니다.
+
+* 정책 작업이 중지되었습니다.
+* 정책 작업이 성공적으로 완료되었습니다.
+

@@ -1,0 +1,39 @@
+---
+sidebar: sidebar 
+permalink: smbc/smbc_install_creating_a_consistency_group_relationship.html 
+keywords: SM-BC, SMBC, consistency group, create, constituent 
+summary: 동기식 일관성 그룹 관계도 설정하는 SnapMirror 일관성 그룹을 생성해야 합니다. 
+---
+= 일관성 그룹 관계를 생성합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+동기식 정합성 보장 그룹 관계도 설정하는 SM-BC 정합성 보장 그룹을 생성해야 합니다.
+
+
+NOTE: 이 워크플로는 ONTAP 9.8 및 9.9.1의 사용자에게 적용됩니다. ONTAP 9.10.1부터 이러한 ONTAP CLI 명령을 사용하는 경우에도 일관성 그룹을 생성하는 데 계속 사용할 수 있지만, System Manager 또는 ONTAP REST API를 사용하여 일관성 그룹을 관리하는 것이 좋습니다.
+
+다음과 같은 사전 요구 사항 및 제한 사항이 적용됩니다.
+
+* 클러스터 또는 스토리지 VM 관리자여야 합니다
+* SnapMirror Synchronous 라이센스가 있어야 합니다
+* 대상 볼륨은 DP 유형이어야 합니다
+* 운영 및 2차 스토리지 VM은 피어링된 관계에 있어야 합니다
+* 일관성 그룹의 모든 구성 볼륨은 단일 스토리지 VM에 있어야 합니다
+* ASA 클러스터와 비 ASA 클러스터 간에 SM-BC 정합성 보장 그룹 관계를 설정할 수 없습니다
+* 일관성 그룹의 이름은 고유해야 합니다
+
+
+타겟 클러스터에서 일관성 그룹 관계를 생성해야 합니다. 'napmirror create' 명령어의 'cg-item-mappings' 파라미터를 사용하면 최대 12개의 구성요소를 매핑할 수 있습니다.
+
+.단계
+. 일관성 그룹 및 구성 관계 생성 이 예에서는 구성 볼륨 vol1과 vol2가 포함된 CG_src와 구성 볼륨 vol1_dr 및 vol2_dr이 있는 CG_dist라는 두 개의 정합성 보장 그룹을 생성합니다.
++
+대상 경로 VS1_DST:/CG/CG_DST-item-mapping-vol_src1:@vol_dst1, vol_src2:@vol_srst2:@vol_dst2 - policy AutomatedFailOver
+
+

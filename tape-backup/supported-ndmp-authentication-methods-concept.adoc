@@ -1,0 +1,21 @@
+---
+permalink: tape-backup/supported-ndmp-authentication-methods-concept.html 
+sidebar: sidebar 
+keywords: ndmp, authentication, method, requests, plaintext, challenge 
+summary: NDMP 연결 요청을 허용하는 인증 방법을 지정할 수 있습니다. ONTAP는 스토리지 시스템에 대한 NDMP 액세스를 인증하는 두 가지 방법인 일반 텍스트 및 본인 확인 방법을 지원합니다. 
+---
+= 지원되는 NDMP 인증 방법입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NDMP 연결 요청을 허용하는 인증 방법을 지정할 수 있습니다. ONTAP는 스토리지 시스템에 대한 NDMP 액세스를 인증하는 두 가지 방법인 일반 텍스트 및 본인 확인 방법을 지원합니다.
+
+노드 범위 NDMP 모드에서는 기본적으로 본인 확인 및 일반 텍스트가 모두 설정됩니다. 그러나 챌린지를 비활성화할 수는 없습니다. 일반 텍스트를 사용하거나 사용하지 않도록 설정할 수 있습니다. 일반 텍스트 인증 방법에서는 로그인 암호가 일반 텍스트로 전송됩니다.
+
+SVM(스토리지 가상 시스템) 범위의 NDMP 모드에서는 기본적으로 인증 방법이 본인 확인 방법입니다. 노드 범위 NDMP 모드와 달리 이 모드에서는 일반 텍스트 및 본인 확인 인증 방법을 모두 사용하거나 사용하지 않도록 설정할 수 있습니다.
+
+xref:user-authentication-node-scoped-ndmp-mode-concept.adoc[노드 범위 NDMP 모드의 사용자 인증]
+
+xref:user-authentication-svm-scoped-ndmp-mode-concept.adoc[SVM 범위의 NDMP 모드에서 사용자 인증]

@@ -1,0 +1,57 @@
+---
+permalink: san-admin/register-svm-isns-server-task.html 
+sidebar: sidebar 
+keywords: register, svm, isns, server 
+summary: 'vserver iSCSI iSNS 명령을 사용하여 iSNS 서버에 등록할 SVM(스토리지 가상 머신)을 구성할 수 있습니다.' 
+---
+= iSNS 서버를 사용하여 SVM을 등록합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+"vserver iSCSI iSNS" 명령을 사용하여 iSNS 서버에 등록할 SVM(스토리지 가상 시스템)을 구성할 수 있습니다.
+
+'vserver iscsi iSNS create' 명령은 iSNS 서버에 등록할 SVM을 구성합니다. SVM은 iSNS 서버를 구성하거나 관리할 수 있는 명령을 제공하지 않습니다. iSNS 서버를 관리하려면 공급업체에서 제공하는 iSNS 서버 관리 도구 또는 인터페이스를 사용할 수 있습니다.
+
+.단계
+. iSNS 서버에서 iSNS 서비스가 작동 가능하고 서비스를 사용할 수 있는지 확인합니다.
+. 데이터 포트에 SVM 관리 LIF를 생성합니다.
++
+'network interface create -vserver_SVM_name_-lif_lif_name_-role data-protocol none-home-node_home_node_name_-home-port_home_home_home_port_-address_-netmask_network_mask_'
+
+. SVM에 iSCSI 서비스가 없는 경우 생성합니다.
++
+'vserver iscsi create-vserver_SVM_name_'
+
+. iSCSI 서비스가 성공적으로 생성되었는지 확인합니다.
++
+'iscsi show -vserver_SVM_name _'
+
+. SVM에 대한 기본 경로가 있는지 확인합니다.
++
+'network route show -vserver_SVM_name _'
+
+. SVM에 대한 기본 경로가 없는 경우 기본 경로를 생성합니다.
++
+'network route create-vserver_SVM_name_-destination_destination_-gateway_gateway_'
+
+. iSNS 서비스에 등록할 SVM을 구성합니다.
++
+'vserver iSCSI iSNS create -vserver_SVM_name_-address_ip_address_'
+
++
+IPv4 및 IPv6 주소 제품군이 모두 지원됩니다. iSNS 서버의 주소 제품군은 SVM 관리 LIF의 주소 제품군과 같아야 합니다.
+
++
+예를 들어, IPv6 주소를 사용하여 anSVM 관리 LIF를 IPv4 주소와 함께 iSNS 서버에 연결할 수 없습니다.
+
+. iSNS 서비스가 실행 중인지 확인합니다.
++
+'vserver iscsi iSNS show -vserver_SVM_name _'
+
+. iSNS 서비스가 실행되고 있지 않으면 다음을 시작합니다.
++
+'vserver iscsi iSNS start -vserver_SVM_name_'
+
+

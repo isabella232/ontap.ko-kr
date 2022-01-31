@@ -1,0 +1,67 @@
+---
+permalink: volumes/manage-aggregate-level-deduplication-aff-task.html 
+sidebar: sidebar 
+keywords: manage, aggregate-level, inline, deduplication, aff systems 
+summary: Aggregate 레벨의 데이터 중복 제거를 통해 동일한 애그리게이트에 속한 볼륨 전체에서 중복 블록을 제거할 수 있습니다. ONTAP 9.2부터는 AFF 시스템에서 애그리게이트 레벨의 중복제거 인라인을 수행할 수 있습니다. 이 기능은 새로 생성된 모든 볼륨과 볼륨 인라인 중복제거가 활성화되어 있는 모든 업그레이드된 볼륨에 대해 기본적으로 활성화됩니다. 
+---
+= AFF 시스템에서 애그리게이트 레벨의 인라인 중복제거를 관리합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Aggregate 레벨의 데이터 중복 제거를 통해 동일한 애그리게이트에 속한 볼륨 전체에서 중복 블록을 제거할 수 있습니다. ONTAP 9.2부터는 AFF 시스템에서 애그리게이트 레벨의 중복제거 인라인을 수행할 수 있습니다. 이 기능은 새로 생성된 모든 볼륨과 볼륨 인라인 중복제거가 활성화되어 있는 모든 업그레이드된 볼륨에 대해 기본적으로 활성화됩니다.
+
+중복제거 작업은 디스크에 데이터를 쓰기 전에 중복 블록을 제거합니다. '속도 보장'이 '없음'으로 설정된 볼륨만 집계 수준 인라인 데이터 중복 제거에 참여할 수 있습니다. AFF 시스템의 기본 설정입니다.
+
+[NOTE]
+====
+애그리게이트 레벨 인라인 중복제거는 교차 볼륨 인라인 중복제거라고도 합니다.
+
+====
+.단계
+. AFF 시스템에서 애그리게이트 레벨의 인라인 중복제거 관리
++
+[cols="2*"]
+|===
+| 원하는 작업 | 이 명령을 사용합니다 
+
+
+ a| 
+애그리게이트 레벨 인라인 중복제거 지원
+ a| 
+'볼륨 효율성 수정 - vserver vserver_name - volume vol_name - cross-volume-inline-dedupe true'
+
+
+
+ a| 
+애그리게이트 레벨 인라인 중복제거를 사용하지 않도록 설정합니다
+ a| 
+'볼륨 효율성 수정 - vserver vserver_name - volume vol_name - cross-volume-inline-dedupe FALSE'
+
+
+
+ a| 
+애그리게이트 레벨의 인라인 중복제거 상태를 표시합니다
+ a| 
+'볼륨 효율성 구성 - 볼륨 vol_name'
+
+|===
+
+
+다음 명령을 실행하면 애그리게이트 레벨 인라인 중복제거 상태가 표시됩니다.
+
+[listing]
+----
+
+wfit-8020-03-04::> volume efficiency config -volume choke0_wfit_8020_03_0
+Vserver:                                      vs0
+Volume:                                       choke0_wfit_8020_03_0
+Schedule:                                     -
+Policy:                                       choke_VE_policy
+Compression:                                  true
+Inline Compression:                           true
+Inline Dedupe:                                true
+Data Compaction:                              true
+Cross Volume Inline Deduplication:            false
+----

@@ -1,0 +1,110 @@
+---
+permalink: authentication/predefined-roles-cluster-administrators-concept.html 
+sidebar: sidebar 
+keywords: predefined roles, cluster administrators 
+summary: 클러스터 관리자를 위한 사전 정의된 역할은 대부분의 요구사항을 충족해야 합니다. 필요에 따라 사용자 지정 역할을 만들 수 있습니다. 기본적으로 클러스터 관리자에는 사전 정의된 관리자 역할이 할당됩니다. 
+---
+= 클러스터 관리자를 위한 사전 정의된 역할
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클러스터 관리자를 위한 사전 정의된 역할은 대부분의 요구사항을 충족해야 합니다. 필요에 따라 사용자 지정 역할을 만들 수 있습니다. 기본적으로 클러스터 관리자에게는 미리 정의된 "admin" 역할이 할당됩니다.
+
+다음 표에는 클러스터 관리자를 위한 사전 정의된 역할이 나와 있습니다.
+
+|===
+
+
+| 이 역할은... | 이 수준의 액세스 권한... | 명령 또는 명령 디렉토리로 이동합니다 
+
+
+ a| 
+관리자
+ a| 
+모두
+ a| 
+모든 명령 디렉토리(기본값)
+
+
+
+ a| 
+AutoSupport
+ a| 
+모두
+ a| 
+* '세트'
+* '시스템 노드 AutoSupport
+
+
+
+
+ a| 
+없음
+ a| 
+기타 모든 명령 디렉토리(기본값)
+
+
+
+ a| 
+백업
+ a| 
+모두
+ a| 
+'vserver services ndmp'
+
+
+
+ a| 
+읽기 전용
+ a| 
+'볼륨'
+
+
+
+ a| 
+없음
+ a| 
+기타 모든 명령 디렉토리(기본값)
+
+
+
+ a| 
+읽기 전용
+ a| 
+모두
+ a| 
+* '보안 로그인 비밀번호
+* '세트'
+
+
+
+
+ a| 
+없음
+ a| 
+'보안'
+
+
+
+ a| 
+읽기 전용
+ a| 
+기타 모든 명령 디렉토리(기본값)
+
+
+
+ a| 
+없음
+ a| 
+없음
+ a| 
+모든 명령 디렉토리(기본값)
+
+|===
+[NOTE]
+====
+AutoSupport 역할은 AutoSupport OnDemand가 사용하는 미리 정의된 AutoSupport 계정에 할당됩니다. ONTAP에서는 AutoSupport 계정을 수정하거나 삭제할 수 없습니다. 또한 ONTAP에서는 다른 사용자 계정에 'AutoSupport' 역할을 할당할 수 없습니다.
+
+====

@@ -1,0 +1,31 @@
+---
+permalink: disks-aggregates/raid-protection-levels-disks-concept.html 
+sidebar: sidebar 
+keywords: raid, protection, levels, disks 
+summary: ONTAP는 Aggregate에 대해 3가지 레벨의 RAID 보호를 지원합니다. RAID 보호 수준에 따라 디스크 장애 시 데이터 복구에 사용할 수 있는 패리티 디스크 수가 결정됩니다. 
+---
+= 디스크의 RAID 보호 수준
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP는 Aggregate에 대해 3가지 레벨의 RAID 보호를 지원합니다. RAID 보호 수준에 따라 디스크 장애 시 데이터 복구에 사용할 수 있는 패리티 디스크 수가 결정됩니다.
+
+RAID 보호 기능을 사용하면 RAID 그룹에 데이터 디스크 장애가 있는 경우 ONTAP가 장애가 발생한 디스크를 스페어 디스크로 교체하고 패리티 데이터를 사용하여 장애가 발생한 디스크의 데이터를 재구성할 수 있습니다.
+
+* RAID4
++
+RAID4 보호 기능을 사용하면 ONTAP는 하나의 스페어 디스크를 사용하여 RAID 그룹 내에서 장애가 발생한 디스크 중 하나에서 데이터를 교체 및 재구성할 수 있습니다.
+
+* RAID-DP
++
+RAID-DP 보호를 통해 ONTAP는 최대 2개의 예비 디스크를 사용하여 RAID 그룹 내에서 동시에 장애가 발생한 최대 2개의 디스크에서 데이터를 교체 및 재구성할 수 있습니다.
+
+* RAID-TEC
++
+RAID-TEC 보호를 통해 ONTAP는 최대 3개의 예비 디스크를 사용하여 RAID 그룹 내에서 동시에 장애가 발생한 최대 3개의 디스크에서 데이터를 교체 및 재구성할 수 있습니다.
+
+
+
+http://www.netapp.com/us/media/tr-3437.pdf["NetApp 기술 보고서 3437: 스토리지 서브시스템 복원력 가이드"]

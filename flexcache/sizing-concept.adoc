@@ -1,0 +1,40 @@
+---
+permalink: flexcache/sizing-concept.html 
+sidebar: sidebar 
+keywords: guidelines, sizing, flexcache, volume 
+summary: 볼륨 프로비저닝을 시작하기 전에 FlexCache 볼륨의 제한을 알고 있어야 합니다. 
+---
+= FlexCache 볼륨 크기 조정 지침
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+볼륨 프로비저닝을 시작하기 전에 FlexCache 볼륨의 제한을 알고 있어야 합니다.
+
+FlexVol 볼륨의 크기 제한은 원본 볼륨에 적용됩니다. FlexCache 볼륨의 크기는 원본 볼륨보다 작거나 같을 수 있습니다. FlexCache 볼륨 크기에 대한 모범 사례는 원본 볼륨 크기의 10% 이상이어야 합니다.
+
+또한 FlexCache 볼륨에 대한 다음과 같은 추가 제한도 알고 있어야 합니다.
+
+[cols="55,15,15,15"]
+|===
+
+
+| 제한 | ONTAP 9.5-9.6 | ONTAP 9.7 | ONTAP 9.8 이상 
+
+
+| 원본 볼륨에서 생성할 수 있는 최대 FlexCache 볼륨 수입니다 | 10 | 10 | 100 
+
+
+| 노드당 권장되는 최대 오리진 볼륨 수입니다 | 10 | 100 | 100 
+
+
+| 노드당 권장되는 최대 FlexCache 볼륨 수입니다 | 10 | 100 | 100 
+
+
+| 노드당 FlexCache 볼륨에 권장되는 최대 FlexGroup 구성 수 | 40 | 800 | 800 
+
+
+| 노드당 FlexCache 볼륨당 최대 구성요소 수 | 32 | 32 | 32 
+|===
+https://mysupport.netapp.com/NOW/products/interoperability["NetApp 상호 운용성"]

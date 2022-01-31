@@ -1,0 +1,21 @@
+---
+sidebar: sidebar 
+permalink: task_manage_automatic_firmware_fixes_and_updates.html 
+keywords: system manager, netapp, ontap, upgrade, nondisruptive, firmware 
+summary: '디스크, 디스크 쉘프, DQP(Disk Qualification Package), SP(서비스 프로세서) 또는 BMC(Baseboard Management Controller)와 같이 클러스터에서 지원되는 장치에 업데이트된 펌웨어를 적용할 수 있습니다.' 
+---
+= 펌웨어를 업데이트합니다
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+System Manager를 사용하면 디스크, 디스크 쉘프, DQP(Disk Qualification Package), 서비스 프로세서(SP) 또는 BMC(Baseboard Management Controller)와 같이 클러스터에서 지원되는 장치에 펌웨어 업데이트를 적용할 수 있습니다. 펌웨어 업데이트에 대해 자세히 알아보십시오 xref:task_admin_update_firmware.adoc[여기].

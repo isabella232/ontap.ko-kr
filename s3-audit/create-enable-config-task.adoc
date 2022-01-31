@@ -1,0 +1,59 @@
+---
+permalink: s3-audit/create-enable-config-task.html 
+sidebar: sidebar 
+keywords: consistency groups, consistency group, application protection, parent, child, configure 
+summary: S3 감사를 구현하려면 먼저 S3 기반 SVM에서 영구 오브젝트 저장소 감사 구성을 생성한 다음 구성을 활성화합니다. 
+---
+= S3 감사 구성을 생성하고 설정합니다
+
+
+[role="lead"]
+S3 감사를 구현하려면 먼저 S3 기반 SVM에서 영구 오브젝트 저장소 감사 구성을 생성한 다음 구성을 활성화합니다.
+
+.무엇을 &#8217;필요로 할거야
+* S3 지원 SVM:
+* Aggregate에서 볼륨을 스테이징할 수 있는 충분한 공간입니다.
+
+
+감사 구성은 감사하려는 S3 버킷을 포함하는 각 SVM에 필요합니다. 신규 또는 기존 S3 서버에서 S3 감사를 활성화할 수 있습니다. 감사 구성은 * vserver object-store-server audit delete * 명령을 통해 제거될 때까지 S3 환경에서 지속됩니다.
+
+S3 감사 구성은 감사를 위해 선택한 SVM의 모든 버킷에 적용됩니다. 감사 가능 SVM에는 감사되고 감사되지 않은 버킷이 포함될 수 있습니다.
+
+로그 크기 또는 일정에 따라 자동 로그 회전에 대해 S3 감사를 구성하는 것이 좋습니다. 자동 로그 회전을 구성하지 않으면 기본적으로 모든 로그 파일이 유지됩니다. vserver object-store-server audit rotate -log * 명령을 사용하여 S3 로그 파일을 수동으로 회전할 수도 있습니다.
+
+SVM이 SVM 재해 복구 소스인 경우 타겟 경로가 루트 볼륨에 있을 수 없습니다.
+
+.절차를 참조하십시오
+. 감사 구성을 생성하여 로그 크기 또는 일정에 따라 감사 로그를 회전합니다.
++
+[cols="2,4"]
+|===
+| 감사 로그를 회전하려면... | 입력... 
+
+
+| 로그 크기 | 'vserver object-store-server audit create-vserver_svm_name_-destination_path_[[- events]{data{vbar} management},...] {[-rotate-limit_integer_]{vbar}[-retention-duration[_integer_d][_integer_h][_integer_m]]}[-rotate-size{_integer_[KB{vbar}MB{vbar}GB{vbar}TB{vbar}PB]}]']' 
+
+
+| 일정  a| 
+'vserver object-store-server audit create-vserver_svm_name_-destination path[[- events]{data{vbar} management},...] {[-rotate-limit_integer_]{vbar}[-retention-duration[_integerd_][_integerh_][_integerm_]}[-rotate-schedule -month_chron_month_][-rotate_schedule -DayOfWeek_chron_dayOfWeek_] [-rotate_dayron_dayron_dayron_dayron_dayron_dayron_dayron_dayron_dayron_dayron_dayron_dayron_dayron_dayron_month
+
+시간 기반 감사 로그 회전을 구성하려면 '-rotate-schedule-minute' 매개 변수가 필요합니다.
+
+|===
+. S3 감사 활성화:
++
+'vserver object-store-server audit enable-vserver_svm_name_'
+
+
+
+다음 예제에서는 크기 기반 회전을 사용하여 모든 S3 이벤트(기본값)를 감사하는 감사 구성을 만듭니다. 로그는 /audit_log 디렉토리에 저장됩니다. 로그 파일 크기 제한은 200MB입니다. 로그 크기가 200MB에 도달하면 로그가 회전합니다.
+
+'cluster1::> vserver audit create - vserver vs1-destination/audit_log-rotate-size 200MB'
+
+다음 예제에서는 크기 기반 회전을 사용하여 모든 S3 이벤트(기본값)를 감사하는 감사 구성을 만듭니다. 로그 파일 크기 제한은 100MB(기본값)이며, 로그 삭제 전 5일 동안 보존됩니다.
+
+'cluster1::> vserver audit create - vserver vs1-destination/audit_log-retention-duration 5d0h0m'
+
+다음 예제에서는 시간 기반 회전을 사용하여 S3 관리 이벤트와 중앙 액세스 정책 스테이징 이벤트를 감사하는 감사 구성을 만듭니다. 감사 로그는 매월 오후 12시 30분에 순환됩니다 일주일 내내. 로그 회전 제한은 5입니다.
+
+'cluster1:> vserver audit create - vserver vs1-destination/audit_log-events management-rotate-schedule -month all-rotate-schedule -dayOfWeek all-rotate-schedule-hour 12-rotate-schedule-minute 30-rotate-limit 5'

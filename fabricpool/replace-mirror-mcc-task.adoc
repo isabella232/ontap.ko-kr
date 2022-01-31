@@ -1,0 +1,77 @@
+---
+permalink: fabricpool/replace-mirror-mcc-task.html 
+sidebar: sidebar 
+keywords: replacing, fabricpool, mirror, metrocluster, configuration 
+summary: FabricPool 미러에 저장된 객체 중 하나가 제거되거나 MetroCluster 구성에서 영구적으로 사용할 수 없게 되는 경우 미러가 아직 미러가 아닌 경우 손상된 객체 저장소를 FabricPool 미러에서 제거할 수 있습니다. 그런 다음 새 오브젝트 저장소 미러를 FabricPool에 추가합니다. 
+---
+= MetroCluster 구성에서 FabricPool 미러를 교체합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FabricPool 미러에 저장된 객체 중 하나가 제거되거나 MetroCluster 구성에서 영구적으로 사용할 수 없게 되는 경우 미러가 아직 미러가 아닌 경우 손상된 객체 저장소를 FabricPool 미러에서 제거할 수 있습니다. 그런 다음 새 오브젝트 저장소 미러를 FabricPool에 추가합니다.
+
+.단계
+. 손상된 오브젝트 저장소가 아직 미러가 아닌 경우 'Storage aggregate object-store modify' 명령을 사용하여 미러를 저장합니다.
++
+[listing]
+----
+storage aggregate object-store modify -aggregate -aggregate fp_aggr1_A01 -name mcc1_ostore1 -mirror-type mirror
+----
+. 'Storage aggregate object-store unmirror' 명령을 사용하여 FabricPool에서 오브젝트 저장소 미러를 제거합니다.
++
+[listing]
+----
+storage aggregate object-store unmirror -aggregate <aggregate name> -name mcc1_ostore1
+----
+. "force-Tiering-on-MetroCluster true" 옵션을 사용하여 'Storage aggregate object-store modify"를 사용하여 미러 데이터 저장소를 제거한 후 운영 데이터 저장소에서 계층화를 강제로 다시 시작할 수 있습니다.
++
+미러가 없으면 MetroCluster 구성의 복제 요구 사항에 방해가 됩니다.
+
++
+[listing]
+----
+storage aggregate object-store modify -aggregate <aggregate name> -name mcc1_ostore1 -force-tiering-on-metrocluster true
+----
+. 'Storage aggregate object-store config create' 명령을 사용하여 대체 오브젝트 저장소를 생성합니다.
++
+[listing]
+----
+storage aggregate object-store config create -object-store-name mcc1_ostore3 -cluster clusterA -provider-type SGWS -server <SGWS-server-1> -container-name <SGWS-bucket-1> -access-key <key> -secret-password <password> -encrypt <true|false> -provider <provider-type> -is-ssl-enabled <true|false> ipspace <IPSpace>
+----
+. 'Storage aggregate object-store mirror' 명령을 사용하여 FabricPool 미러에 객체 저장소 미러를 추가합니다.
++
+[listing]
+----
+storage aggregate object-store mirror -aggregate aggr1 -name mcc1_ostore3-mc
+----
+. 'storage aggregate object-store show' 명령을 사용하여 오브젝트 저장소 정보를 표시합니다.
++
+[listing]
+----
+storage aggregate object-store show -fields mirror-type,is-mirror-degraded
+----
++
+[listing]
+----
+aggregate      object-store-name mirror-type     is-mirror-degraded
+-------------- ----------------- ------------- ------------------
+aggr1          mcc1_ostore1-mc    primary           -
+               mcc1_ostore3-mc    mirror          true
+----
+. 'storage aggregate object-store show-resync-status' 명령을 사용하여 미러 재동기화 상태를 모니터링합니다.
++
+[listing]
+----
+storage aggregate object-store show-resync-status -aggregate aggr1
+----
++
+[listing]
+----
+                                                  Complete
+      Aggregate    Primary        Mirror          Percentage
+      ---------    -----------    ----------      ----------
+      aggr1        mcc1_ostore1-mc mcc1_ostore3-mc   40%
+----
+

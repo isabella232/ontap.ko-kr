@@ -1,0 +1,19 @@
+---
+permalink: volumes/rename-qtree-affects-quotas-concept.html 
+sidebar: sidebar 
+keywords: how, renaming, qtree, affects, quotas 
+summary: ONTAP를 사용하여 qtree의 이름을 변경하면 해당 qtree의 할당량 규칙이 자동으로 업데이트됩니다. CIFS 또는 NFS 클라이언트를 사용하여 qtree의 이름을 바꾸는 경우 해당 qtree에 대한 할당량 규칙을 업데이트해야 합니다. 
+---
+= Qtree 이름을 변경하면 할당량에 미치는 영향이 변경됩니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP를 사용하여 qtree의 이름을 변경하면 해당 qtree의 할당량 규칙이 자동으로 업데이트됩니다. CIFS 또는 NFS 클라이언트를 사용하여 qtree의 이름을 바꾸는 경우 해당 qtree에 대한 할당량 규칙을 업데이트해야 합니다.
+
+[NOTE]
+====
+CIFS 또는 NFS 클라이언트를 사용하여 qtree의 이름을 바꾸고 할당량을 다시 초기화하기 전에 해당 qtree의 할당량 규칙을 새 이름으로 업데이트하지 않으면 qtree에 할당량이 적용되지 않고 qtree -- Qtree와 사용자 또는 그룹 할당량 목록을 사용하면 파생 할당량으로 변환될 수 있습니다.
+
+====

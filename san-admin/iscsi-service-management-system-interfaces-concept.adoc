@@ -1,0 +1,31 @@
+---
+permalink: san-admin/iscsi-service-management-system-interfaces-concept.html 
+sidebar: sidebar 
+keywords: iscsi, service, management 
+summary: 'SVM iSCSI 인터페이스 활성화 또는 SVM iSCSI 인터페이스 비활성화 명령을 사용하여 SVM(스토리지 가상 머신)의 iSCSI 논리 인터페이스에서 iSCSI 서비스의 가용성을 관리할 수 있습니다.' 
+---
+= iSCSI 서비스 관리
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+"vserver iSCSI interface enable" 또는 "vserver iscsi interface disable" 명령을 사용하여 SVM(스토리지 가상 시스템)의 iSCSI 논리 인터페이스에서 iSCSI 서비스의 가용성을 관리할 수 있습니다.
+
+기본적으로 iSCSI 서비스는 모든 iSCSI 논리 인터페이스에서 활성화됩니다.
+
+
+
+== 호스트에서 iSCSI를 구현하는 방법
+
+iSCSI는 하드웨어 또는 소프트웨어를 사용하여 호스트에서 구현할 수 있습니다.
+
+다음 방법 중 하나로 iSCSI를 구현할 수 있습니다.
+
+* 호스트의 표준 이더넷 인터페이스를 사용하는 이니시에이터 소프트웨어 사용
+* iSCSI HBA(호스트 버스 어댑터)를 통해: iSCSI HBA가 호스트 운영 체제에 로컬 디스크가 있는 SCSI 디스크 어댑터로 나타납니다.
+* TCP/IP 처리를 오프로드하는 TOE(TCP Offload Engine) 어댑터 사용
++
+iSCSI 프로토콜 처리는 호스트 소프트웨어에 의해 계속 수행됩니다.
+
+

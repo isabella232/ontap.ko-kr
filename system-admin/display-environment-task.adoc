@@ -1,0 +1,17 @@
+---
+permalink: system-admin/display-environment-task.html 
+sidebar: sidebar 
+keywords: display, environmental, information, sensors 
+summary: 센서를 통해 시스템의 환경 구성요소를 모니터링할 수 있습니다. 환경 센서에 대해 표시할 수 있는 정보에는 유형, 이름, 상태, 값 및 임계값 경고가 포함됩니다. 
+---
+= 환경 정보를 표시합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+센서를 통해 시스템의 환경 구성요소를 모니터링할 수 있습니다. 환경 센서에 대해 표시할 수 있는 정보에는 유형, 이름, 상태, 값 및 임계값 경고가 포함됩니다.
+
+.단계
+. 환경 센서에 대한 정보를 표시하려면 'system node environment sensors show' 명령을 사용합니다.
+

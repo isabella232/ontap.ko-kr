@@ -1,0 +1,56 @@
+---
+permalink: smb-admin/add-ntfs-dacl-entries-security-descriptor-task.html 
+sidebar: sidebar 
+keywords: add, dacl, discretionary, access, control, list, access, control, entries, aces, ntfs, security, descriptor, acls, add ntfs dacl access control entries to the ntfs security 
+summary: 'NTFS 보안 설명자에 DACL(임의 액세스 제어 목록) ACE(액세스 제어 항목)를 추가하는 것은 파일이나 폴더에 NTFS ACL을 구성하고 적용하는 두 번째 단계입니다. 각 항목은 액세스가 허용되거나 거부된 개체를 식별하고 ACE에 정의된 파일 또는 폴더에 대해 개체가 수행할 수 있거나 수행할 수 없는 작업을 정의합니다.' 
+---
+= NTFS DACL 액세스 제어 항목을 NTFS 보안 설명자에 추가합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NTFS 보안 설명자에 DACL(임의 액세스 제어 목록) ACE(액세스 제어 항목)를 추가하는 것은 파일이나 폴더에 NTFS ACL을 구성하고 적용하는 두 번째 단계입니다. 각 항목은 액세스가 허용되거나 거부된 개체를 식별하고 ACE에 정의된 파일 또는 폴더에 대해 개체가 수행할 수 있거나 수행할 수 없는 작업을 정의합니다.
+
+보안 설명자의 DACL에 하나 이상의 ACE를 추가할 수 있습니다.
+
+보안 설명자에 기존 ACE가 있는 DACL이 포함된 경우 명령은 새 ACE를 DACL에 추가합니다. 보안 설명자에 DACL이 포함되어 있지 않으면 명령에서 DACL을 생성하고 새 ACE를 추가합니다.
+
+'-account' 매개 변수에 지정된 계정에 대해 허용 또는 거부할 권한을 지정하여 DACL 항목을 선택적으로 사용자 지정할 수 있습니다. 권한을 지정할 수 있는 세 가지 상호 배타적인 방법이 있습니다.
+
+* 권한
+* 고급 권한
+* 원시 권한(고급 권한)
+
+
+[NOTE]
+====
+DACL 항목에 대한 권한을 지정하지 않으면 기본값은 "모든 권한"으로 설정됩니다.
+
+====
+선택적으로 상속 적용 방법을 지정하여 DACL 항목을 사용자 지정할 수 있습니다.
+
+선택적 매개 변수의 값은 Storage-Level Access Guard에서 무시됩니다. 자세한 내용은 man 페이지를 참조하십시오.
+
+.단계
+. 보안 설명자에 DACL 항목을 추가합니다. 'vserver security file -directory NTFS DACL add -vserver vserver_name -ntfs -sd sd sd_name -access -type {allow | deny} -account name_or_SIDoptional_parameters'
++
+'vserver security file-directory NTFS DACL add-NTFS-SD SD1-access-type deny-account domain\joe-rights full-control-apply-to this-folder-vserver-vs1'
+
+. DACL 항목이 올바른지 확인합니다. 'vserver security file-directory NTFS DACL show -vserver vserver_name -ntfs -sd sd sd_name -access-type{allow|deny} -account name_or_SID'
++
+'vserver security file-directory NTFS DACL show -vserver vs1-ntfs-sd SD1-access-type deny-account domain\joe'
+
++
+[listing]
+----
+                       Vserver: vs1
+             Security Descriptor Name: sd1
+                        Allow or Deny: deny
+                  Account Name or SID: DOMAIN\joe
+                        Access Rights: full-control
+               Advanced Access Rights: -
+                             Apply To: this-folder
+                        Access Rights: full-control
+----
+

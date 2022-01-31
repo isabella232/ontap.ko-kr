@@ -1,0 +1,41 @@
+---
+permalink: data-protection/update-replication-relationship-manual-task.html 
+sidebar: sidebar 
+keywords: update, replication, relationship, manual, snap mirror, snapmirror, synchronous 
+summary: 소스 볼륨이 이동되었기 때문에 업데이트에 실패하면 복제 관계를 수동으로 업데이트해야 할 수 있습니다. 
+---
+= 복제 관계를 수동으로 업데이트합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+소스 볼륨이 이동되었기 때문에 업데이트에 실패하면 복제 관계를 수동으로 업데이트해야 할 수 있습니다.
+
+SnapMirror는 복제 관계를 수동으로 업데이트할 때까지 이동된 소스 볼륨에서 전송을 중단합니다.
+
+ONTAP 9.5부터는 SnapMirror Synchronous 관계가 지원됩니다. 소스 볼륨과 타겟 볼륨이 항상 이 관계에서 동기화되지만, 보조 클러스터의 뷰는 매시간 기준으로 운영 클러스터와 동기화됩니다. 대상에서 시점 데이터를 보려면 '스냅샷 업데이트' 명령을 실행하여 수동 업데이트를 수행해야 합니다.
+
+.단계
+. 복제 관계를 수동으로 업데이트합니다.
++
+'스냅샷 업데이트 - 소스 경로_SVM: volume_|_cluster://SVM/volume_,... -destination-path_SVM: volume|cluster://SVM/volume_,
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+[NOTE]
+====
+이 명령은 타겟 SVM 또는 타겟 클러스터에서 실행해야 합니다. 소스 및 타겟에 공통 스냅샷 복사본이 존재하지 않으면 명령이 실패합니다. '스냅샷 초기화'를 사용하여 관계를 다시 초기화합니다.
+
+====
++
+다음 예에서는 svm1의 소스 볼륨 VolA와 sm_backup의 대상 볼륨 VolA_dst 간의 관계를 업데이트합니다.
+
++
+[listing]
+----
+cluster_src::> snapmirror update -source-path svm1:volA -destination-path svm_backup:volA_dst
+----
+

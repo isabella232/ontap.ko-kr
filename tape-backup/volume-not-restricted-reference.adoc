@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/volume-not-restricted-reference.html 
+sidebar: sidebar 
+keywords: volume, restricted, restored, destination 
+summary: 데이터가 복원되는 대상 볼륨은 제한되지 않습니다. 
+---
+= 볼륨이 제한되지 않았습니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+볼륨이 제한되지 않음
+
+* * 원인 *
++
+데이터가 복원되는 대상 볼륨은 제한되지 않습니다.
+
+* * 시정 조치 *
++
+볼륨을 제한하고 복원 작업을 다시 시도하십시오.
+
+

@@ -1,0 +1,225 @@
+---
+permalink: snaplock/snaplock-concept.html 
+sidebar: sidebar 
+keywords: snaplock, worm, storage, compliance, enterprise, mode, sec, rule, 17a, license 
+summary: SnapLock는 WORM 스토리지를 사용하여 규정 및 거버넌스 목적으로 수정되지 않은 형태로 파일을 유지하는 조직을 위한 고성능 규정 준수 솔루션입니다. 단일 라이센스를 사용하면 SnapLock를 엄격한 규정 준수 모드로 사용하여 SEC Rule 17a-4 및 느슨한 엔터프라이즈 모드와 같은 외부 규정을 충족함으로써 디지털 자산 보호를 위해 내부적으로 규정된 규정을 준수할 수 있습니다. 
+---
+= SnapLock란
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapLock는 WORM 스토리지를 사용하여 규정 및 거버넌스 목적으로 수정되지 않은 형태로 파일을 유지하는 조직을 위한 고성능 규정 준수 솔루션입니다. 단일 라이센스를 사용하면 SnapLock를 엄격한_규정 준수 모드 _ 에서 사용하여 SEC Rule 17a-4 및 L느슨한_엔터프라이즈 모드 _ 와 같은 외부 규정을 충족함으로써 디지털 자산 보호를 위해 내부적으로 규정된 규정을 준수할 수 있습니다.
+
+
+
+== 규정 준수 모드와 엔터프라이즈 모드의 차이점
+
+SnapLock 규정 준수 및 엔터프라이즈 모드는 각 모드에서 WORM 파일을 보호하는 수준에 따라 크게 다릅니다.
+
+* 규정 준수 모드 WORM 파일은 디스크 레벨에서 보호됩니다.
++
+Compliance-mode Aggregate가 포함된 디스크는 다시 초기화할 수 없습니다.
+
+* 엔터프라이즈 모드 WORM 파일은 파일 레벨에서 보호됩니다.
+
+
+이와 관련된 차이점은 각 모드가 파일 삭제를 얼마나 엄격하게 관리하는가에 있습니다.
+
+* 규정 준수 모드 WORM 파일은 보존 기간 동안 삭제할 수 없습니다.
+* 엔터프라이즈 모드 WORM 파일은 규정 준수 관리자가 Audited_privileged delete_procedure를 사용하여 보존 기간 동안 삭제할 수 있습니다.
+
+
+보존 기간이 경과하면 더 이상 필요하지 않은 파일을 삭제할 책임이 있습니다. 파일이 규정 준수 모드이든 엔터프라이즈 모드이든 WORM에 커밋되면 보존 기간이 만료된 후에도 수정할 수 없습니다.
+
+보존 기간 중 또는 이후에 WORM 파일을 이동할 수 없습니다. WORM 파일을 복사할 수 있지만 WORM 특성이 유지되지 않습니다.
+
+다음 표에는 SnapLock 규정 준수와 엔터프라이즈 모드의 차이점이 나와 있습니다.
+
+|===
+
+
+| 제공합니다 | SnapLock 규정 준수 | SnapLock 엔터프라이즈 
+
+
+ a| 
+권한이 있는 삭제
+ a| 
+아니요
+ a| 
+예
+
+
+
+ a| 
+디스크를 다시 초기화합니다
+ a| 
+아니요
+ a| 
+예
+
+
+
+ a| 
+보존 기간 동안 SnapLock 애그리게이트 및 볼륨을 제거합니다
+ a| 
+아니요
+ a| 
+예
+
+
+
+ a| 
+애그리게이트 또는 볼륨의 이름을 바꿉니다
+ a| 
+아니요
+ a| 
+예
+
+
+
+ a| 
+비NetApp 디스크
+ a| 
+아니요
+ a| 
+예(FlexArray 가상화 사용)
+
+
+
+ a| 
+감사 로깅을 위해 SnapLock 볼륨을 사용합니다
+ a| 
+예
+ a| 
+예, ONTAP 9.5부터 시작합니다
+
+
+
+ a| 
+단일 파일 SnapRestore
+ a| 
+아니요
+ a| 
+예
+
+
+
+ a| 
+SnapRestore
+ a| 
+아니요
+ a| 
+예
+
+
+
+ a| 
+플랙스클론
+ a| 
+SnapLock 볼륨의 클론을 생성할 수는 있지만 SnapLock 볼륨의 파일은 복제할 수 없습니다.
+ a| 
+SnapLock 볼륨의 클론을 생성할 수는 있지만 SnapLock 볼륨의 파일은 복제할 수 없습니다.
+
+
+
+ a| 
+LUN을 클릭합니다
+ a| 
+아니요
+ a| 
+아니요
+
+
+
+ a| 
+SMTape
+ a| 
+아니요
+ a| 
+아니요
+
+
+
+ a| 
+MetroCluster 구성
+ a| 
+SnapLock 규정 준수 또는 엔터프라이즈 애그리게이트는 MetroCluster 구성에서 SnapLock 감사 로그 볼륨을 호스팅할 수 있으며, 다음과 같은 제한 사항이 있습니다.
+
+* SnapLock Enterprise는 미러링된 Aggregate 및 미러링되지 않은 Aggregate에서 지원됩니다.
+* SnapLock 규정 준수는 미러링되지 않은 애그리게이트에서만 지원됩니다.
+
+
+모든 MetroCluster 구성은 미러링된 애그리게이트를 지원합니다. MetroCluster 구성에서 미러링되지 않은 애그리게이트를 지원하는지 확인하려면 ONTAP 릴리즈 노트를 참조하십시오.
+
+https://library.netapp.com/ecmdocs/ECMLP2492508/html/frameset.html["ONTAP 9 릴리즈 노트"]
+ a| 
+아니요
+
+
+
+ a| 
+SnapLock 애그리게이트에서 Fabric Pool 지원
+ a| 
+아니요
+ a| 
+예, ONTAP 9.8부터 시작합니다
+
+[NOTE]
+====
+FabricPool에서 퍼블릭 또는 프라이빗 클라우드로 계층화하는 데이터는 클라우드 관리자가 삭제할 수 있으므로 SnapLock에서 더 이상 보호되지 않습니다.
+
+====
+|===
+
+
+== MetroCluster 구성 및 규정 준수 클럭
+
+MetroCluster 구성에는 VCC(Volume Compliance Clock)와 SCC(System Compliance Clock)라는 두 가지 준수 클록 메커니즘이 사용됩니다. VCC 및 SCC는 모든 SnapLock 구성에 사용할 수 있습니다. 노드에 새 볼륨을 생성할 때 해당 노드에 있는 SCC의 현재 값으로 VCC가 초기화됩니다. 볼륨이 생성된 후에는 항상 VCC를 통해 볼륨 및 파일 보존 시간을 추적합니다.
+
+볼륨이 다른 사이트에 복제되면 해당 VCC도 복제됩니다. 예를 들어, 사이트 A에서 사이트 B로 볼륨 전환이 발생하면 사이트 A의 SCC가 사이트 A가 오프라인이 되면 사이트 B에서 VCC가 계속 업데이트됩니다.
+
+사이트 A가 다시 온라인 상태가 되고 볼륨 스위치백을 수행하면 볼륨의 VCC가 계속 업데이트되는 동안 사이트 A SCC 클록이 다시 시작됩니다. 스위치오버 및 스위치백 작업과 관계없이 VCC가 지속적으로 업데이트되기 때문에 파일 보존 시간은 SCC 클럭에 의존하지 않고 늘어나지 않습니다.
+
+
+
+== WORM에 파일 커밋 중
+
+애플리케이션을 사용하여 NFS 또는 CIFS를 통해 WORM에 파일을 커밋하거나 SnapLock 자동 커밋 기능을 사용하여 파일을 WORM에 자동으로 커밋할 수 있습니다. _WORM 추가 가능 파일_을 사용하여 로그 정보와 같이 점증적으로 기록된 데이터를 보존할 수 있습니다.
+
+
+
+== 데이터 보호
+
+SnapLock는 대부분의 규정 준수 요구사항을 충족하는 데이터 보호 방법을 지원합니다.
+
+* SnapLock for SnapVault를 사용하여 2차 스토리지에서 WORM 상태로 스냅샷 복사본을 보호할 수 있습니다.
+* SnapMirror를 사용하여 재해 복구를 위해 WORM 파일을 다른 지리적 위치에 복제할 수 있습니다.
+
+
+
+
+== 스토리지 효율성
+
+ONTAP 9.9.1부터 SnapLock은 데이터 컴팩션, 볼륨 간 중복제거, SnapLock 볼륨 및 애그리게이트를 위한 적응형 압축과 같은 스토리지 효율성 기능을 지원합니다.
+
+
+
+== 7-Mode 전환
+
+7-Mode 전환 도구의 CBT(Copy-Based Transition) 기능을 사용하여 SnapLock 볼륨을 7-Mode에서 ONTAP로 마이그레이션할 수 있습니다. 대상 볼륨의 SnapLock 모드인 Compliance 또는 Enterprise는 소스 볼륨의 SnapLock 모드와 일치해야 합니다. CFT(Copy-Free Transition)를 사용하여 SnapLock 볼륨을 마이그레이션할 수는 없습니다.
+
+
+
+== 암호화
+
+ONTAP는 스토리지 미디어의 용도 변경, 반환, 잘못된 위치 변경 또는 도난 시 유휴 데이터를 읽을 수 없도록 소프트웨어 및 하드웨어 기반 암호화 기술을 모두 제공합니다.
+
+* 법적 고지 사항: * NetApp은 자체 암호화 드라이브 또는 볼륨의 SnapLock 보호 WORM 파일이 인증 키가 손실되거나 실패한 인증 시도 횟수가 지정된 제한을 초과하여 드라이브가 영구적으로 잠기는 경우 이를 복구할 수 있다고 보장할 수 없습니다. 인증 실패에 대한 책임은 사용자에게 있습니다.
+
+[NOTE]
+====
+ONTAP 9.2부터는 SnapLock 애그리게이트에서 암호화된 볼륨이 지원됩니다.
+
+====

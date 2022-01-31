@@ -1,0 +1,61 @@
+---
+permalink: nfs-admin/commands-manage-ldap-client-config-reference.html 
+sidebar: sidebar 
+keywords: command, manage, ldap, client, configuration 
+summary: LDAP 클라이언트 구성을 관리하기 위한 특정 ONTAP 명령이 있습니다. 
+---
+= LDAP 클라이언트 구성을 관리하는 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+LDAP 클라이언트 구성을 관리하기 위한 특정 ONTAP 명령이 있습니다.
+
+[NOTE]
+====
+SVM 관리자는 클러스터 관리자가 생성한 LDAP 클라이언트 구성을 수정하거나 삭제할 수 없습니다.
+
+====
+[cols="35,65"]
+|===
+
+
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+LDAP 클라이언트 구성을 생성합니다
+ a| 
+'vserver services name-service ldap client create'
+
+
+
+ a| 
+LDAP 클라이언트 구성을 표시합니다
+ a| 
+'vserver services name-service ldap client show'
+
+
+
+ a| 
+LDAP 클라이언트 구성을 수정합니다
+ a| 
+'vserver services name-service ldap client modify'를 참조하십시오
+
+
+
+ a| 
+LDAP 클라이언트 바인딩 암호를 변경합니다
+ a| 
+'vserver services name-service ldap client modify-bind-password'
+
+
+
+ a| 
+LDAP 클라이언트 구성을 삭제합니다
+ a| 
+'vserver services name-service ldap client delete'
+
+|===
+자세한 내용은 각 명령에 대한 man 페이지를 참조하십시오.

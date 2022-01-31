@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/tape-write-failed-reference.html 
+sidebar: sidebar 
+keywords: tape, write, failed, backup, corrupted 
+summary: 백업에 사용된 테이프가 손상되었습니다. 
+---
+= 테이프 쓰기에 실패했습니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+테이프 쓰기가 실패했습니다
+
+* * 원인 *
++
+백업에 사용된 테이프가 손상되었습니다.
+
+* * 시정 조치 *
++
+테이프를 교체하고 백업 작업을 다시 시도하십시오.
+
+

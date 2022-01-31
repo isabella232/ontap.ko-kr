@@ -1,0 +1,19 @@
+---
+permalink: smb-admin/restore-directories-that-contain-junctions-concept.html 
+sidebar: sidebar 
+keywords: guideline, version, restore, folder, junction, point, guidelines for restoring directories that contain junctions 
+summary: 이전 버전을 사용하여 교차점이 포함된 폴더를 복원할 때 유의해야 할 몇 가지 지침이 있습니다. 
+---
+= 교차점이 포함된 디렉토리 복원 지침
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이전 버전을 사용하여 교차점이 포함된 폴더를 복원할 때 유의해야 할 몇 가지 지침이 있습니다.
+
+이전 버전을 사용하여 정션 포인트인 하위 폴더가 있는 폴더를 복원할 때 "액세스 거부" 오류로 인해 복구가 실패할 수 있습니다.
+
+복원하려는 폴더에 '-parent' 옵션과 함께 'vol show' 명령을 사용하여 교차점이 있는지 여부를 확인할 수 있습니다. 또한 'vserver security trace' 명령을 사용하여 파일 및 폴더 액세스 문제에 대한 자세한 로그를 생성할 수 있습니다.
+
+xref:create-manage-data-volumes-nas-namespaces-concept.adoc[NAS 네임스페이스에서 데이터 볼륨 생성 및 관리]

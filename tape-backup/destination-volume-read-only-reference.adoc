@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/destination-volume-read-only-reference.html 
+sidebar: sidebar 
+keywords: destination, volume, read, only, restore, operation 
+summary: 복구 작업이 시도되는 경로는 읽기 전용입니다. 
+---
+= 대상 볼륨이 읽기 전용입니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+대상 볼륨이 읽기 전용입니다
+
+* * 원인 *
++
+복구 작업이 시도되는 경로는 읽기 전용입니다.
+
+* * 시정 조치 *
++
+데이터를 다른 위치로 복원해 보십시오.
+
+

@@ -1,0 +1,44 @@
+---
+permalink: nfs-config/create-kerberos-realm-config-task.html 
+sidebar: sidebar 
+keywords: create, nfs, kerberos, realm, configuration 
+summary: ONTAP가 사용자 환경에서 외부 Kerberos 서버에 액세스하도록 하려면 먼저 기존 Kerberos 영역을 사용하도록 SVM을 구성해야 합니다. 이렇게 하려면 Kerberos KDC 서버의 구성 값을 수집한 다음 vserver NFS Kerberos 영역 생성 명령을 사용하여 SVM에서 Kerberos 영역 구성을 생성해야 합니다. 
+---
+= NFS Kerberos 영역 구성을 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP가 사용자 환경에서 외부 Kerberos 서버에 액세스하도록 하려면 먼저 기존 Kerberos 영역을 사용하도록 SVM을 구성해야 합니다. 이렇게 하려면 Kerberos KDC 서버에 대한 구성 값을 수집한 다음 "vserver NFS Kerberos realm create" 명령을 사용하여 SVM에서 Kerberos 영역 구성을 생성해야 합니다.
+
+클러스터 관리자는 인증 문제를 방지하기 위해 스토리지 시스템, 클라이언트 및 KDC 서버에서 NTP를 구성해야 합니다. 클라이언트와 서버 간의 시간 차이(클럭 편중)는 인증 실패의 일반적인 원인입니다.
+
+.단계
+. Kerberos 관리자에게 문의하여 "vserver NFS Kerberos realm create" 명령을 제공하는 적절한 구성 값을 확인하십시오.
+. SVM에서 Kerberos 영역 구성 생성:
++
+"vserver NFS Kerberos 영역 create -vserver_vserver_name_-realm_realm_name__{AD_KDC_server_values|AD_KDC_server_values}_-comment "_text_"
+
+. Kerberos 영역 구성이 성공적으로 생성되었는지 확인합니다.
++
+가상 NFS Kerberos 영역 표시
+
+
+
+다음 명령을 실행하면 Microsoft Active Directory 서버를 KDC 서버로 사용하는 SVM VS1 용 NFS Kerberos 영역 구성이 생성됩니다. Kerberos 영역은 AUTH.EXAMPLE.COM 입니다. Active Directory 서버의 이름은 ad-1이고 IP 주소는 10.10.8.14입니다. 허용되는 시간 편중은 300초(기본값)입니다. KDC 서버의 IP 주소는 10.10.8.14이고 포트 번호는 88(기본값)입니다. "Microsoft Kerberos 구성"이 주석입니다.
+
+[listing]
+----
+vs1::> vserver nfs kerberos realm create -vserver vs1 -realm AUTH.EXAMPLE.COM -adserver-name ad-1
+-adserver-ip 10.10.8.14 -clock-skew 300 -kdc-ip 10.10.8.14 -kdc-port 88 -kdc-vendor Microsoft
+-comment "Microsoft Kerberos config"
+----
+다음 명령을 실행하면 MIT KDC를 사용하는 SVM VS1 용 NFS Kerberos 영역 구성이 생성됩니다. Kerberos 영역은 SECURITY.EXAMPLE.COM 입니다. 허용되는 시간 편중은 300초입니다. KDC 서버의 IP 주소는 10.10.9.1이고 포트 번호는 88입니다. KDC 공급업체는 UNIX 공급업체를 나타내는 기타 벤더입니다. 관리 서버의 IP 주소는 10.10.9.1이고 포트 번호는 749(기본값)입니다. 암호 서버의 IP 주소는 10.10.9.1이고 포트 번호는 464(기본값)입니다. "UNIX Kerberos 구성"이 주석입니다.
+
+[listing]
+----
+vs1::> vserver nfs kerberos realm create -vserver vs1 -realm SECURITY.EXAMPLE.COM. -clock-skew 300
+-kdc-ip 10.10.9.1 -kdc-port 88 -kdc-vendor Other -adminserver-ip 10.10.9.1 -adminserver-port 749
+-passwordserver-ip 10.10.9.1 -passwordserver-port 464 -comment "UNIX Kerberos config"
+----

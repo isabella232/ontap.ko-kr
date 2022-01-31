@@ -1,0 +1,106 @@
+---
+permalink: smb-hyper-v-sql/verify-domain-accounts-map-default-unix-user-task.html 
+sidebar: sidebar 
+keywords: verfiy, domain, account, default, unix, server, smb, share, user 
+summary: Hyper-V 및 SQL Server는 도메인 계정을 사용하여 지속적으로 사용 가능한 공유에 대한 SMB 연결을 생성합니다. 연결을 성공적으로 생성하려면 컴퓨터 계정이 UNIX 사용자에게 성공적으로 매핑되어야 합니다. 이 작업을 수행하는 가장 편리한 방법은 컴퓨터 계정을 기본 UNIX 사용자에게 매핑하는 것입니다. 
+---
+= 도메인 계정이 기본 UNIX 사용자에게 매핑되는지 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Hyper-V 및 SQL Server는 도메인 계정을 사용하여 지속적으로 사용 가능한 공유에 대한 SMB 연결을 생성합니다. 연결을 성공적으로 생성하려면 컴퓨터 계정이 UNIX 사용자에게 성공적으로 매핑되어야 합니다. 이 작업을 수행하는 가장 편리한 방법은 컴퓨터 계정을 기본 UNIX 사용자에게 매핑하는 것입니다.
+
+Hyper-V 및 SQL Server는 도메인 컴퓨터 계정을 사용하여 SMB 연결을 만듭니다. 또한 SQL Server는 도메인 사용자 계정을 서비스 계정으로 사용하여 SMB 연결을 만듭니다.
+
+SVM(스토리지 가상 시스템)을 생성하면 ONTAP는 UID가 65534인 ""pcuser"""와 GID가 65534인 ""pcuser""" 그룹을 자동으로 생성하고 기본 사용자를 ""pcuser"" 그룹에 추가합니다. 클러스터를 Data ONTAP 8.2로 업그레이드하기 전에 존재했던 SVM에서 SMB를 통한 Hyper-V 솔루션을 구성하는 경우 기본 사용자 및 그룹이 없을 수 있습니다. 그렇지 않으면 CIFS 서버의 기본 UNIX 사용자를 구성하기 전에 생성해야 합니다.
+
+.단계
+. 기본 UNIX 사용자가 있는지 확인합니다.
++
+'* vserver CIFS options show -vserver_vserver_name_ *'
+
+. 기본 사용자 옵션이 설정되지 않은 경우 기본 UNIX 사용자로 지정할 수 있는 UNIX 사용자가 있는지 확인합니다.
++
+'* vserver services unix-user show -vserver_vserver_name_*'
+
+. 기본 사용자 옵션이 설정되어 있지 않고 기본 UNIX 사용자로 지정할 수 있는 UNIX 사용자가 없는 경우 기본 UNIX 사용자 및 기본 그룹을 생성하고 기본 사용자를 그룹에 추가합니다.
++
+일반적으로 기본 사용자에게는 사용자 이름 ""pcuser""가 지정되며 UID가 65534로 지정되어야 합니다. 기본 그룹에는 일반적으로 그룹 이름 ""pcuser""가 지정됩니다. 그룹에 할당된 GID는 65534여야 합니다.
+
++
+.. 기본 그룹: + `* vserver services unix-group create -vserver_vserver_name_-name pcuser -id 65534 * '을 생성합니다
+.. 기본 사용자를 생성하고 기본 사용자를 기본 그룹에 추가합니다. + " * vserver services UNIX - user create - vserver_vserver_name_ - user pcuser -id 65534 - primary-gid 65534 * '
+.. 기본 사용자 및 기본 그룹이 올바르게 구성되었는지 확인합니다. + " * vserver services unix-user show -vserver_vserver_name_ * "+" * vserver services unix-group show -vserver_vserver_name_ -n구성원 * "
+
+
+. CIFS 서버의 기본 사용자가 구성되지 않은 경우 다음을 수행합니다.
++
+.. 기본 사용자를 구성합니다.
++
+`* vserver cifs options modify -vserver* vserver_name* -default-unix-user pcuser*'
+
+.. 기본 UNIX 사용자가 올바르게 구성되었는지 확인합니다.
++
+'* vserver CIFS options show -vserver_vserver_name_ *'
+
+
+
+. 애플리케이션 서버의 컴퓨터 계정이 기본 사용자에게 올바르게 매핑되었는지 확인하려면 SVM에 상주하는 공유에 드라이브를 매핑하고 "vserver cifs session show" 명령을 사용하여 Windows 사용자를 UNIX 사용자 매핑으로 확인합니다.
++
+이 명령 사용에 대한 자세한 내용은 man 페이지를 참조하십시오.
+
+
+
+다음 명령을 실행하면 CIFS 서버의 기본 사용자가 설정되지 않은 것으로 확인되지만 ""pcuser""" 사용자 및 ""pcuser"" 그룹이 있는 것으로 결정됩니다. ""pcuser"" 사용자는 SVM VS1 에서 CIFS 서버의 기본 사용자로 할당됩니다.
+
+[listing]
+----
+cluster1::> vserver cifs options show
+
+Vserver: vs1
+
+  Client Session Timeout : 900
+  Default Unix Group     : -
+  Default Unix User      : -
+  Guest Unix User        : -
+  Read Grants Exec       : disabled
+  Read Only Delete       : disabled
+  WINS Servers           : -
+
+
+
+cluster1::> vserver services unix-user show
+          User            User   Group  Full
+Vserver   Name            ID     ID     Name
+--------- --------------- ------ ------ ----------------
+vs1       nobody          65535  65535  -
+vs1       pcuser          65534  65534  -
+vs1       root            0      1      -
+
+cluster1::> vserver services unix-group show -members
+Vserver        Name                ID
+vs1            daemon              1
+       Users: -
+vs1            nobody              65535
+       Users: -
+vs1            pcuser              65534
+       Users: -
+vs1            root                0
+       Users: -
+
+cluster1::> vserver cifs options modify -vserver vs1 -default-unix-user pcuser
+
+cluster1::> vserver cifs options show
+
+Vserver: vs1
+
+  Client Session Timeout : 900
+  Default Unix Group     : -
+  Default Unix User      : pcuser
+  Guest Unix User        : -
+  Read Grants Exec       : disabled
+  Read Only Delete       : disabled
+  WINS Servers           : -
+----

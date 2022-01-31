@@ -1,0 +1,103 @@
+---
+permalink: san-admin/restore-single-lun-snapvault-backup-task.html 
+sidebar: sidebar 
+keywords: ontap 9.2, restore, single, lun, snapvault backup 
+summary: 단일 LUN을 새 위치 또는 원래 위치로 복구할 수 있습니다. SnapVault 2차 볼륨의 스냅샷 복사본에서 복원할 수 있습니다. LUN을 원래 위치로 복구하려면 먼저 LUN을 새 위치로 복원한 다음 복사합니다. 
+---
+= SnapVault 백업에서 단일 LUN을 복원합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+단일 LUN을 새 위치 또는 원래 위치로 복구할 수 있습니다. SnapVault 2차 볼륨의 스냅샷 복사본에서 복원할 수 있습니다. LUN을 원래 위치로 복구하려면 먼저 LUN을 새 위치로 복원한 다음 복사합니다.
+
+.무엇을 &#8217;필요로 할거야
+* SnapVault 관계를 초기화하고 SnapVault 보조 볼륨에 복원할 적절한 스냅샷 복사본을 포함해야 합니다.
+* SnapVault 2차 볼륨을 포함하는 SVM(스토리지 가상 머신)에는 LUN 복사본에 액세스하는 데 사용되는 호스트에서 액세스할 수 있는 원하는 SAN 프로토콜을 갖춘 하나 이상의 LIF가 있어야 합니다.
+* SnapVault SVM에 igroup이 이미 있어야 합니다.
+
+
+이 프로세스에는 SnapVault 2차 볼륨의 스냅샷 복사본에서 읽기-쓰기 볼륨 클론을 생성하는 작업이 포함됩니다. 클론에서 LUN을 직접 사용하거나 필요에 따라 LUN 콘텐츠를 원래 LUN 위치로 다시 복제할 수 있습니다.
+
+클론의 LUN의 경로와 일련 번호가 원래 LUN과 다릅니다. 영구 예약은 유지되지 않습니다.
+
+.단계
+. 'napmirror show' 명령을 실행하여 SnapVault 백업이 포함된 보조 볼륨을 확인합니다.
++
+[listing]
+----
+cluster::> snapmirror show
+
+Source         Dest     Mirror  Relation  Total             Last
+Path     Type  Path     State   Status    Progress  Healthy Updated
+-------- ---- --------- ------- --------- --------- ------- -------
+vserverA:srcvolA
+         XDP  vserverB:dstvolB
+                        Snapmirrored
+                                Idle       -         true    -
+----
+. 'volume snapshot show' 명령을 실행하여 LUN을 복원할 스냅샷 복사본을 식별합니다.
++
+[listing]
+----
+cluster::> volume snapshot show
+
+Vserver  Volume  Snapshot               State Size   Total% Used%
+-------- ------- ---------------------- ----- ------ ------ -----
+vserverB
+         dstvolB
+                 snap2.2013-02-10_0010  valid  124KB     0%    0%
+                 snap1.2013-02-10_0015 valid  112KB     0%    0%
+                 snap2.2013-02-11_0010  valid  164KB     0%    0%
+----
+. 'volume clone create' 명령을 실행하여 원하는 스냅샷 복사본에서 읽기-쓰기 클론을 생성합니다.
++
+볼륨 클론은 SnapVault 백업과 동일한 애그리게이트에 생성됩니다. 클론을 저장할 공간이 Aggregate에 있어야 합니다.
+
++
+[listing]
+----
+cluster::> volume clone create -vserver vserverB
+  -flexclone dstvolB_clone -type RW -parent-volume dstvolB
+  -parent-snapshot daily.2013-02-10_0010
+[Job 108] Job succeeded: Successful
+----
+. 'lun show' 명령을 실행하여 볼륨 클론의 LUN을 나열합니다.
++
+[listing]
+----
+cluster::> lun show -vserver vserverB -volume dstvolB_clone
+
+Vserver   Path                      State   Mapped   Type
+--------- ------------------------  ------- -------- --------
+vserverB  /vol/dstvolB_clone/lun_A  online  unmapped windows
+vserverB  /vol/dstvolB_clone/lun_B  online  unmapped windows
+vserverB  /vol/dstvolB_clone/lun_C  online  unmapped windows
+
+3 entries were displayed.
+----
+. 원하는 호스트에 대한 igroup이 SnapVault 백업을 포함하는 SVM에 이미 없으면 'igroup create' 명령을 실행하여 igroup을 생성합니다.
++
+이 예는 iSCSI 프로토콜을 사용하는 Windows 호스트에 대한 igroup을 생성합니다.
+
++
+[listing]
+----
+cluster::> igroup create -vserver vserverB -igroup temp_igroup
+  -protocol iscsi -ostype windows
+  -initiator iqn.1991-05.com.microsoft:hostA
+----
+. 'lun mapping create' 명령을 실행하여 원하는 LUN 복사본을 igroup에 매핑합니다.
++
+[listing]
+----
+cluster::> lun mapping create -vserver vserverB
+  -path /vol/dstvolB_clone/lun_C -igroup temp_igroup
+----
+. 호스트를 LUN에 연결하고 필요에 따라 LUN의 컨텐츠를 액세스합니다.
++
+LUN은 읽기/쓰기이며 원래 LUN 대신 사용할 수 있습니다. LUN 일련 번호가 다르므로 호스트는 이 일련 번호를 원본과 다른 LUN으로 해석합니다.
+
+. 호스트에서 복제 프로그램을 사용하여 LUN 컨텐츠를 원래 LUN에 다시 복제합니다.
+

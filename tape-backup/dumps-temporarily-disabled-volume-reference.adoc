@@ -1,0 +1,30 @@
+---
+permalink: tape-backup/dumps-temporarily-disabled-volume-reference.html 
+sidebar: sidebar 
+keywords: ndmp, dump, backup, temporarily, disable, volume, snapmirror, resync, operation 
+summary: SnapMirror 중단 또는 SnapMirror 재동기화 작업의 일부인 SnapMirror 대상 볼륨에서 NDMP 덤프 백업이 시도됩니다. 
+---
+= 볼륨에 대해 일시적으로 비활성화된 덤프를 다시 시도하십시오
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+볼거리가 일시적으로 부피를 사용할 수 없게 되었습니다. 다시 시도하십시오
+
+* * 원인 *
++
+NDMP 덤프 백업은 '스냅샷 중단' 또는 '스냅샷 재동기화' 작업의 일부인 SnapMirror 대상 볼륨에서 시도됩니다.
+
+* * 시정 조치 *
++
+'스냅샷 미러 중단' 또는 '스냅샷 미러 재동기화' 작업이 완료될 때까지 기다린 다음 덤프 작업을 수행합니다.
+
++
+[NOTE]
+====
+SnapMirror 대상 볼륨의 상태가 읽기/쓰기에서 읽기 전용으로 또는 읽기 전용에서 읽기/쓰기로 변경될 때마다 기본 백업을 수행해야 합니다.
+
+====
+

@@ -1,0 +1,78 @@
+---
+permalink: smb-admin/determine-clients-connected-encrypted-task.html 
+sidebar: sidebar 
+keywords: display, information, connect, smb, session, determine, client, encrypt, smb, connection, helpful, determining, session, desire, security, setting, determine whether client are connected using encrypted smb sessions 
+summary: 연결된 SMB 세션에 대한 정보를 표시하여 클라이언트가 암호화된 SMB 연결을 사용하는지 여부를 확인할 수 있습니다. 이 방법은 SMB 클라이언트 세션이 원하는 보안 설정과 연결되어 있는지 여부를 확인하는 데 유용합니다. 
+---
+= 클라이언트가 암호화된 SMB 세션을 사용하여 연결되어 있는지 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+연결된 SMB 세션에 대한 정보를 표시하여 클라이언트가 암호화된 SMB 연결을 사용하는지 여부를 확인할 수 있습니다. 이 방법은 SMB 클라이언트 세션이 원하는 보안 설정과 연결되어 있는지 여부를 확인하는 데 유용합니다.
+
+SMB 클라이언트 세션은 다음 세 가지 암호화 수준 중 하나를 가질 수 있습니다.
+
+* "암호화되지 않음"
++
+SMB 세션이 암호화되지 않았습니다. SVM(스토리지 가상 시스템) 레벨 또는 공유 레벨 암호화가 구성되지 않았습니다.
+
+* 부분적으로 암호화되었습니다
++
+트리 연결이 발생하면 암호화가 시작됩니다. 공유 수준 암호화가 구성됩니다. SVM 레벨 암호화가 활성화되지 않았습니다.
+
+* '암호화됨'
++
+SMB 세션이 완전히 암호화됩니다. SVM 레벨 암호화가 활성화됩니다. 공유 수준 암호화가 활성화되어 있거나 활성화되어 있지 않을 수 있습니다. SVM 레벨 암호화 설정이 공유 레벨 암호화 설정보다 우선합니다.
+
+
+
+.단계
+. 다음 작업 중 하나를 수행합니다.
++
+|===
+| 에 대한 정보를 표시하려면... | 명령 입력... 
+
+
+ a| 
+지정된 SVM의 세션에 대해 지정된 암호화 설정을 갖는 세션
+ a| 
+'vserver cifs session show -vserver_vserver_name_{encrypted|sPartially-encrypted|encrypted}-instance'
+
+
+
+ a| 
+지정된 SVM에서 특정 세션 ID의 암호화 설정입니다
+ a| 
+'vserver cifs session show -vserver_vserver_name_-session-id_integer_-instance'
+
+|===
+
+
+다음 명령을 실행하면 세션 ID가 2인 SMB 세션에서 암호화 설정을 비롯한 자세한 세션 정보가 표시됩니다.
+
+[listing]
+----
+cluster1::> vserver cifs session show -vserver vs1 -session-id 2 -instance
+                        Node: node1
+                     Vserver: vs1
+                  Session ID: 2
+               Connection ID: 3151274158
+Incoming Data LIF IP Address: 10.2.1.1
+                 Workstation: 10.1.1.2
+    Authentication Mechanism: Kerberos
+                Windows User: DOMAIN\joe
+                   UNIX User: pcuser
+                 Open Shares: 1
+                  Open Files: 1
+                  Open Other: 0
+              Connected Time: 10m 43s
+                   Idle Time: 1m 19s
+            Protocol Version: SMB3
+      Continuously Available: No
+           Is Session Signed: true
+       User Authenticated as: domain-user
+                NetBIOS Name: CIFS_ALIAS1
+       SMB Encryption Status: Unencrypted
+----

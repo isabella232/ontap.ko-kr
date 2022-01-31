@@ -1,0 +1,31 @@
+---
+permalink: tape-backup/smtape-capabilities-concept.html 
+sidebar: sidebar 
+keywords: smtap, capabilities, snapshot, copy, preservation, deduplication, compression, restored, volume, backup, restore 
+summary: Snapshot 복사본 백업, 증분 및 차등 백업, 복원된 볼륨에 대한 중복 제거 및 압축 기능 보존, 테이프 시딩 등의 SMTape 기능은 테이프 백업 및 복원 작업을 최적화하는 데 도움이 됩니다. 
+---
+= SMTape 기능
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Snapshot 복사본 백업, 증분 및 차등 백업, 복원된 볼륨에 대한 중복 제거 및 압축 기능 보존, 테이프 시딩 등의 SMTape 기능은 테이프 백업 및 복원 작업을 최적화하는 데 도움이 됩니다.
+
+SMTape는 다음과 같은 기능을 제공합니다.
+
+* 재해 복구 솔루션을 제공합니다
+* 증분 및 차등 백업을 지원합니다
+* 스냅샷 복사본을 백업합니다
+* 중복 제거된 볼륨을 백업 및 복원하고 복원된 볼륨에서 중복 제거를 유지할 수 있습니다
+* 압축된 볼륨을 백업하고 복원된 볼륨의 압축을 유지합니다
+* 테이프 시딩을 활성화합니다
+
+
+SMTape는 4KB에서 256KB 사이의 4KB의 배수로 차단 계수를 지원합니다.
+
+[NOTE]
+====
+최대 2개의 주요 연속 ONTAP 릴리즈에서만 생성된 볼륨에 데이터를 복원할 수 있습니다.
+
+====

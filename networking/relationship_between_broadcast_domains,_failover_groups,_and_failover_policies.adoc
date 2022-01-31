@@ -1,0 +1,74 @@
+---
+sidebar: sidebar 
+permalink: networking/relationship_between_broadcast_domains.html 
+keywords: relationship, broadcast, domain, failover, fail, over, group, policy, policies, relationship between broadcast domains, failover groups, and failover policies, comparing broadcast domains, failover groups, and failover policies, port failover, network interface show -failover, decide which lif failover policy to use, failover policy decision tree, default failover policies by lif type, sfo-partner-only 
+summary: 브로드캐스트 도메인, 페일오버 그룹 및 페일오버 정책이 함께 작동하여 장애 발생 시 어느 포트가 대체할지 결정합니다 
+---
+= 브로드캐스트 도메인, 페일오버 그룹 및 페일오버 정책 간의 관계
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+브로드캐스트 도메인, 페일오버 그룹 및 페일오버 정책이 함께 작동하여 LIF가 구성된 노드 또는 포트에 장애가 발생할 경우 어떤 포트가 대체할지 결정합니다.
+
+브로드캐스트 도메인은 동일한 계층 2 이더넷 네트워크에서 연결할 수 있는 모든 포트를 나열합니다. 포트 중 하나에서 전송된 이더넷 브로드캐스트 패킷은 브로드캐스트 도메인의 다른 모든 포트에서 표시됩니다. LIF가 브로드캐스트 도메인의 다른 포트로 페일오버되더라도 원래 포트에서 연결할 수 있는 모든 로컬 및 원격 호스트에 연결할 수 있으므로 브로드캐스트 도메인의 이러한 공통 도달 가능성 특성이 LIF에 중요합니다.
+
+페일오버 그룹은 브로드캐스트 도메인 내에서 LIF 페일오버 커버리지를 제공하는 포트를 정의합니다. 각 브로드캐스트 도메인에는 모든 포트가 포함된 하나의 페일오버 그룹이 있습니다. 브로드캐스트 도메인의 모든 포트가 포함된 이 페일오버 그룹이 LIF에 대한 기본 페일오버 그룹이며 권장되는 페일오버 그룹입니다. 브로드캐스트 도메인 내에서 동일한 링크 속도를 갖는 포트의 페일오버 그룹과 같이 사용자가 정의하는 작은 하위 집합을 사용하여 페일오버 그룹을 생성할 수 있습니다.
+
+페일오버 정책은 노드 또는 포트가 다운될 때 LIF가 페일오버 그룹의 포트를 사용하는 방법을 결정합니다. 페일오버 정책을 페일오버 그룹에 적용되는 필터 유형으로 고려하십시오. LIF의 페일오버 타겟(LIF가 페일오버가 가능한 포트 세트)은 브로드캐스트 도메인의 LIF 페일오버 그룹에 LIF의 페일오버 정책을 적용하여 결정됩니다.
+
+다음 CLI 명령을 사용하여 LIF의 페일오버 타겟을 볼 수 있습니다.
+
+....
+network interface show -failover
+....
+LIF 유형에 기본 페일오버 정책을 사용하는 것이 좋습니다.
+
+
+
+== 사용할 LIF 페일오버 정책을 결정합니다
+
+권장 기본 페일오버 정책을 사용할지, LIF 유형 및 환경에 따라 정책을 변경할지 결정합니다.
+
+
+
+=== 페일오버 정책 결정 트리
+
+image:LIF_failover_decision_tree.png["LIF 페일오버 의사결정 트리 이미지"]
+
+
+
+=== LIF 유형별 기본 페일오버 정책
+
+[cols="25,25,50"]
+|===
+
+
+| LIF 유형입니다 | 기본 페일오버 정책입니다 | 설명 
+
+
+| BGP LIF | 사용 안 함 | LIF가 다른 포트로 페일오버되지 않습니다. 
+
+
+| 클러스터 LIF | 로컬 전용 | LIF는 같은 노드의 포트로만 페일오버됩니다. 
+
+
+| 클러스터 관리 LIF | 브로드캐스트 도메인 전체에 적용됩니다 | LIF는 클러스터의 모든 노드에 있는 동일한 브로드캐스트 도메인의 포트로 페일오버됩니다. 
+
+
+| 인터클러스터 LIF | 로컬 전용 | LIF는 같은 노드의 포트로만 페일오버됩니다. 
+
+
+| NAS 데이터 LIF | 시스템 정의 | LIF가 HA 파트너가 아닌 다른 노드 하나로 페일오버합니다. 
+
+
+| 노드 관리 LIF | 로컬 전용 | LIF는 같은 노드의 포트로만 페일오버됩니다. 
+
+
+| SAN 데이터 LIF | 사용 안 함 | LIF가 다른 포트로 페일오버되지 않습니다. 
+|===
+'fo 파트너 전용' 페일오버 정책은 기본이 아니라, LIF가 홈 노드 또는 SFO 파트너의 포트로 페일오버되도록 하려는 경우에만 사용할 수 있습니다.

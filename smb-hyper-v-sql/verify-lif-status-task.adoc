@@ -1,0 +1,102 @@
+---
+permalink: smb-hyper-v-sql/verify-lif-status-task.html 
+sidebar: sidebar 
+keywords: verify, lif, status, storage, virtual, machine, hyper, v, sql, server, smb, configuration, cluster 
+summary: 'Hyper-V와 SQL Server over SMB 구성을 통해 SVM(스토리지 가상 시스템)을 구성하여 클러스터의 각 노드에 LIF를 갖는 일상적인 작업을 수행하는 경우에도 일부 LIF는 다른 노드의 포트로 이동할 수 있습니다. LIF 상태를 확인하고 필요한 수정 조치를 취해야 합니다.' 
+---
+= LIF 상태를 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Hyper-V와 SQL Server over SMB 구성을 통해 SVM(스토리지 가상 시스템)을 구성하여 클러스터의 각 노드에 LIF를 갖는 일상적인 작업을 수행하는 경우에도 일부 LIF는 다른 노드의 포트로 이동할 수 있습니다. LIF 상태를 확인하고 필요한 수정 조치를 취해야 합니다.
+
+원활한 무중단 운영 지원을 제공하려면 클러스터의 각 노드에 SVM을 위한 LIF가 하나 이상 있어야 하며 모든 LIF가 홈 포트와 연결되어야 합니다. 구성된 LIF 중 일부가 현재 홈 포트에 연결되어 있지 않으면 포트 문제를 해결한 다음 LIF를 홈 포트로 되돌려야 합니다.
+
+.단계
+. SVM을 위해 구성된 LIF 정보 표시:
++
+'* 네트워크 인터페이스 show -vserver_vserver_name_*'
+
++
+이 예에서 ""lif1"은 홈 포트에 없습니다.
+
++
+네트워크 인터페이스 show-vserver vs1
+
++
+[listing]
+----
+
+            Logical    Status     Network          Current    Current Is
+Vserver     Interface  Admin/Oper Address/Mask     Node       Port    Home
+----------- ---------- ---------- ---------------- ---------- ------- ----
+vs1
+            lif1         up/up    10.0.0.128/24    node2      e0d     false
+            lif2         up/up    10.0.0.129/24    node2      e0d     true
+----
+. 일부 LIF가 홈 포트에 없는 경우 다음 단계를 수행하십시오.
++
+.. 각 LIF에서 LIF의 홈 포트가 무엇인지 확인합니다.
++
+'* 네트워크 인터페이스 show -vserver_vserver_name_-lif_lif_name_-fields home-node, home-port *
+
++
+'* network interface show -vserver vs1-lif lif lif1-fields home-node, home-port * '
+
++
+[listing]
+----
+
+vserver lif  home-node  home-port
+------- ---- ---------- ---------
+vs1     lif1 node1      e0d
+----
+.. 각 LIF에서 LIF의 홈 포트가 작동하는지 확인합니다.
++
+'* 네트워크 포트 show-node_node_name_-port_port_- 필드 포트, 링크 *
+
++
+'network port show-node node1-port e0d-fields port, link
+
++
+[listing]
+----
+
+node       port link
+---------- ---- ----
+node1      e0d  up
+----
++
+이 예에서는 "lif1"을 홈 포트인 node1:e0d로 다시 마이그레이션해야 합니다.
+
+
+
+. LIF가 연결되어야 하는 홈 포트 네트워크 인터페이스가 'UP' 상태가 아닌 경우, 해당 인터페이스가 UP 상태가 되도록 문제를 해결하십시오.
+. 필요한 경우 LIF를 홈 포트로 되돌립니다.
++
+'* 네트워크 인터페이스 되돌리기 - vserver_vserver_name_-lif_lif_name_*'
+
++
+'* 네트워크 인터페이스 되돌리기 - vserver vs1-lif lif liff li1*'
+
+. 클러스터의 각 노드에 SVM을 위한 액티브 LIF가 있는지 확인합니다.
++
+'* 네트워크 인터페이스 show -vserver_vserver_name_*'
+
++
+'* 네트워크 인터페이스 show-vserver vs1*'
+
++
+[listing]
+----
+
+            Logical    Status     Network          Current    Current Is
+Vserver     Interface  Admin/Oper Address/Mask     Node       Port    Home
+----------- ---------- ---------- ---------------- ---------- ------- ----
+vs1
+            lif1         up/up    10.0.0.128/24    node1      e0d     true
+            lif2         up/up    10.0.0.129/24    node2      e0d     true
+----
+

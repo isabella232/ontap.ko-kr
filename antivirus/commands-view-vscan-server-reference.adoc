@@ -1,0 +1,40 @@
+---
+permalink: antivirus/commands-view-vscan-server-reference.html 
+sidebar: sidebar 
+keywords: commands, view, vscan, server, connection, status 
+summary: vserver Vscan connection-status show 명령을 사용하여 Vscan 서버 연결 상태에 대한 요약 및 세부 정보를 볼 수 있습니다. 
+---
+= Vscan 서버 연결 상태를 보기 위한 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'vserver vscan connection-status show' 명령을 사용하여 Vscan 서버 연결 상태에 대한 요약 및 세부 정보를 볼 수 있습니다.
+
+|===
+
+
+| h | 원하는 작업  a| 
+다음 명령을 입력합니다...
+
+
+
+ a| 
+Vscan 서버 연결 요약 보기
+ a| 
+'vserver vscan connection-status show'
+ a| 
+Vscan 서버 연결에 대한 세부 정보를 봅니다
+
+
+
+ a| 
+'vserver vscan connection-status show-all'을 선택합니다
+ a| 
+연결된 Vscan 서버에 대한 세부 정보를 봅니다
+ a| 
+'vserver Vscan connection-status show-connected'(가상 Vscan 연결 상태 표시 - 연결됨
+
+|===
+이러한 명령에 대한 자세한 내용은 man 페이지를 참조하십시오.

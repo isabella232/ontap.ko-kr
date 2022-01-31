@@ -1,0 +1,77 @@
+---
+permalink: nfs-admin/commands-manage-nis-domain-config-reference.html 
+sidebar: sidebar 
+keywords: command, manage, nis, domain, configuration 
+summary: NIS 도메인 구성을 관리하기 위한 특정 ONTAP 명령이 있습니다. 
+---
+= NIS 도메인 구성을 관리하는 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NIS 도메인 구성을 관리하기 위한 특정 ONTAP 명령이 있습니다.
+
+[cols="35,65"]
+|===
+
+
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+NIS 도메인 구성을 생성합니다
+ a| 
+'vserver services name-service nis-domain create'를 참조하십시오
+
+
+
+ a| 
+NIS 도메인 구성을 표시합니다
+ a| 
+'vserver services name-service NIS-domain show'를 참조하십시오
+
+
+
+ a| 
+NIS 도메인 구성의 바인딩 상태를 표시합니다
+ a| 
+'vserver services name-service nis-domain show-bound'
+
+
+
+ a| 
+NIS 통계를 표시합니다
+ a| 
+고급 권한 수준 이상에서 사용할 수 있는 SVM 서비스 이름 서비스 NIS-도메인 표시-통계.
+
+
+
+ a| 
+NIS 통계를 지웁니다
+ a| 
+고급 권한 수준 이상에서 사용할 수 있는 SVM 서비스 이름 서비스 NIS-도메인 지우기-통계.
+
+
+
+ a| 
+NIS 도메인 구성을 수정합니다
+ a| 
+'vserver services name-service NIS-domain modify'를 참조하십시오
+
+
+
+ a| 
+NIS 도메인 구성을 삭제합니다
+ a| 
+'vserver services name-service nis-domain delete'
+
+
+
+ a| 
+호스트 별 넷그룹 검색에 대한 캐싱을 설정합니다
+ a| 
+고급 권한 수준 이상에서 사용할 수 있는 'vserver services name-service NIS-domain netgroup-database config modify'입니다.
+
+|===
+자세한 내용은 각 명령에 대한 man 페이지를 참조하십시오.

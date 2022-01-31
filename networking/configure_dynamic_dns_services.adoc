@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: networking/configure_dynamic_dns_services.html 
+keywords: dns, service, services, configuration, configure, configuring, set, up, setup, nfs, smb, cifs, active, directory, statistics, configure dns services for the svm before creating an nfs or smb server, ddns, vserver services name-service dns dynamic-update modify, vserver services name-service dns dynamic-update show 
+summary: NFS 또는 SMB 서버를 생성하기 전에 SVM을 위한 DNS 서비스를 구성합니다 
+---
+= 동적 DNS 서비스를 구성합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Active Directory 통합 DNS 서버가 DNS에 있는 NFS 또는 SMB 서버의 DNS 레코드를 동적으로 등록하도록 하려면 SVM에서 DDNS(동적 DNS)를 구성해야 합니다.
+
+SVM에서 DNS 이름 서비스를 구성해야 합니다. 보안 DDNS를 사용하는 경우 Active Directory 통합 DNS 이름 서버를 사용해야 하며 SVM을 위해 NFS 또는 SMB 서버 또는 Active Directory 계정을 생성해야 합니다.
+
+지정된 FQDN은 고유해야 합니다.
+
+
+NOTE: DDNS 업데이트에 대한 RFC 규칙을 준수하지 않는 SVM FQDN의 구성 오류를 방지하려면 RFC와 호환되는 FQDN 이름을 사용합니다.
+
+.단계
+. SVM에서 DDNS 구성:
++
+'vserver services name-service dns dynamic-update modify -vserver_vserver_name_-is-enabled_true_[-use-secure{true|false}-vserver-FQDN_FQDN_used_for_dns_updates_'
+
++
+'vserver services name-service dns dynamic-update modify -vserver_vs1_-is-enabled_true_-use-secure_true_-vserver-FQDN _vs1.example.com_`
+
++
+별표는 사용자 지정 FQDN의 일부로 사용할 수 없습니다. 예를 들어, '* .netapp.com'은(는) 유효하지 않습니다.
+
+. DDNS 구성이 올바른지 확인합니다.
++
+'vserver services name-service dns dynamic-update show'
+
++
+....
+Vserver  Is-Enabled Use-Secure Vserver FQDN      TTL
+-------- ---------- ---------- ----------------- -------
+vs1      true       true       vs1.example.com   24h
+....
+

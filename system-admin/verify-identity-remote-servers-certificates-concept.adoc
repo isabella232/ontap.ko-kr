@@ -1,0 +1,20 @@
+---
+permalink: system-admin/verify-identity-remote-servers-certificates-concept.html 
+sidebar: sidebar 
+keywords: verify, identity, remote, servers, certificate 
+summary: ONTAP는 보안 인증서 기능을 지원하여 원격 서버의 ID를 확인합니다. 
+---
+= 인증서 개요를 사용하여 원격 서버의 ID를 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP는 보안 인증서 기능을 지원하여 원격 서버의 ID를 확인합니다.
+
+ONTAP 소프트웨어는 다음과 같은 디지털 인증서 기능 및 프로토콜을 사용하여 보안 연결을 지원합니다.
+
+* OCSP(온라인 인증서 상태 프로토콜)는 SSL 및 TLS(전송 계층 보안) 연결을 사용하여 ONTAP 서비스에서 디지털 인증서 요청 상태를 검증합니다. 이 기능은 기본적으로 비활성화되어 있습니다.
+* 신뢰할 수 있는 루트 인증서의 기본 집합은 ONTAP 소프트웨어에 포함되어 있습니다.
+* KMIP(Key Management Interoperability Protocol) 인증서를 통해 클러스터 및 KMIP 서버를 상호 인증할 수 있습니다.
+

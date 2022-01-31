@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: concept_quotas_overview.html 
+keywords: netapp, ontap, quotas, quota, managing, resources, qtree, qtrees, disk space, hard quota, soft quota 
+summary: 할당량을 통해 사용자, 그룹 또는 qtree가 사용하는 파일 수와 디스크 공간을 제한하거나 추적할 수 있습니다. 할당량은 특정 볼륨 또는 qtree에 적용됩니다. 
+---
+= 할당량을 사용하여 리소스를 관리합니다
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+ONTAP 9.7부터 System Manager를 사용하여 사용량 할당량을 구성 및 관리할 수 있습니다.
+
+ONTAP CLI를 사용하여 사용 할당량을 구성 및 관리하는 경우 를 참조하십시오 link:../volumes/index.html["논리적 스토리지 관리 가이드"].
+
+OnCommand 9.7 및 이전 릴리즈용 기존 ONTAP System Manager를 사용하여 사용 할당량을 구성 및 관리하는 경우 릴리즈에 대한 내용은 다음을 참조하십시오.
+
+* link:http://docs.netapp.com/us-en/ontap-sm-classic//online-help-96-97/index.html["ONTAP 9.6 및 9.7 문서"]
+* link:https://mysupport.netapp.com/documentation/docweb/index.html?productID=62686&language=en-US["ONTAP 9.5 문서"]
+* link:https://mysupport.netapp.com/documentation/docweb/index.html?productID=62594&language=en-US["ONTAP 9.4 문서"]
+* link:https://mysupport.netapp.com/documentation/docweb/index.html?productID=62579&language=en-US["ONTAP 9.3 문서"]
+* link:https://mysupport.netapp.com/documentation/docweb/index.html?productID=62499&language=en-US&archive=true["ONTAP 9.2 보관 문서"]
+* link:https://mysupport.netapp.com/documentation/docweb/index.html?productID=62320&language=en-US&archive=true["ONTAP 9.0 보관 문서"]
+
+
+
+
+== 할당량 개요
+
+할당량을 통해 사용자, 그룹 또는 qtree가 사용하는 파일 수와 디스크 공간을 제한하거나 추적할 수 있습니다. 할당량은 특정 볼륨 또는 qtree에 적용됩니다.
+
+할당량을 사용하여 볼륨의 리소스 사용량을 추적하고 제한할 수 있으며 리소스 사용량이 특정 레벨에 도달하면 알림을 제공할 수 있습니다.
+
+할당량은 소프트 또는 하드일 수 있습니다. 소프트 할당량을 사용하면 ONTAP에서 지정된 제한을 초과할 때 알림을 보내고, 하드 할당량을 사용하면 지정된 제한을 초과할 때 쓰기 작업이 성공하지 못합니다.

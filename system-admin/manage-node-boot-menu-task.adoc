@@ -1,0 +1,142 @@
+---
+permalink: system-admin/manage-node-boot-menu-task.html 
+sidebar: sidebar 
+keywords: system, manager, manage, node, boot, menu, configuration, problems, password, reset, initialize, disks, restore, device 
+summary: 부팅 메뉴를 사용하여 노드의 구성 문제를 해결하고, admin 암호를 재설정하고, 디스크를 초기화하고, 노드 구성을 재설정하고, 노드 구성 정보를 부팅 장치로 복원할 수 있습니다. 
+---
+= 부팅 메뉴를 사용하여 노드를 관리합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+부팅 메뉴를 사용하여 노드의 구성 문제를 해결하고, admin 암호를 재설정하고, 디스크를 초기화하고, 노드 구성을 재설정하고, 노드 구성 정보를 부팅 장치로 복원할 수 있습니다.
+
+
+NOTE: HA 쌍이 를 사용 중인 경우 xref:../encryption-at-rest/support-storage-encryption-concept.html[SAS 또는 NVMe 드라이브(SED, NSE, FIPS) 암호화], 항목의 지침을 따라야 합니다 xref:../encryption-at-rest/return-seds-unprotected-mode-task.html[FIPS 드라이브 또는 SED를 보호되지 않는 모드로 되돌리는 중입니다] 시스템을 초기화하기 전에 HA 쌍 내의 모든 드라이브(부팅 옵션 4 또는 9) 이렇게 하지 않을 경우 드라이브를 용도 변경할 경우 향후의 데이터 손실이 발생할 수 있습니다.
+
+.단계
+. 노드를 재부팅하여 시스템 프롬프트에서 'system node reboot' 명령을 사용하여 부팅 메뉴에 액세스합니다.
++
+노드가 재부팅 프로세스를 시작합니다.
+
+. 재부팅 프로세스 중에 메시지가 표시되면 Ctrl-C를 눌러 부팅 메뉴를 표시합니다.
++
+부팅 메뉴에 대한 다음 옵션이 노드에 표시됩니다.
+
++
+[listing]
+----
+(1) Normal Boot.
+(2) Boot without /etc/rc.
+(3) Change password.
+(4) Clean configuration and initialize all disks.
+(5) Maintenance mode boot.
+(6) Update flash from backup config.
+(7) Install new software first.
+(8) Reboot node.
+(9) Configure Advanced Drive Partitioning
+Selection (1-9)?
+----
++
+[NOTE]
+====
+부트 메뉴 옵션(2) /etc/rc 없이 부팅은 사용되지 않으며 시스템에 영향을 주지 않습니다.
+
+====
+. 해당 번호를 입력하여 다음 옵션 중 하나를 선택합니다.
++
+[cols="35,65"]
+|===
+| 대상... | 선택... 
+
+
+ a| 
+정상 모드에서 노드를 계속 부팅합니다
+ a| 
+1) 정상 부팅
+
+
+
+ a| 
+"admin" 계정 암호이기도 한 노드의 암호를 변경합니다
+ a| 
+3) 암호 변경
+
+
+
+ a| 
+노드의 디스크를 초기화하고 노드의 루트 볼륨을 생성합니다
+ a| 
+구성을 청소하고 모든 디스크를 초기화합니다
+
+[NOTE]
+====
+이 메뉴 옵션은 노드 디스크의 모든 데이터를 지우고 노드 구성을 공장 출하시 기본 설정으로 재설정합니다.
+
+====
+노드가 클러스터에서 제거되고(결합되지 않음) 다른 클러스터에 결합되지 않은 후에만 이 메뉴 항목을 선택하십시오.
+
+내부 또는 외부 디스크 쉘프가 있는 노드의 경우 내부 디스크의 루트 볼륨이 초기화됩니다. 내부 디스크 쉘프가 없는 경우, 외부 디스크의 루트 볼륨이 초기화됩니다.
+
+내부 또는 외부 디스크 쉘프가 있는 FlexArray 가상화를 실행하는 시스템의 경우 어레이 LUN이 초기화되지 않습니다. 내부 또는 외부 쉘프의 모든 네이티브 디스크가 초기화됩니다.
+
+어레이 LUN만 사용하고 내부 또는 외부 디스크 쉘프가 없는 FlexArray 가상화를 실행하는 시스템의 경우, 스토리지 어레이 LUN의 루트 볼륨이 초기화됩니다. 자세한 내용은 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-flexarray/pdfs/sidebar/Installing_FlexArray.pdf["FlexArray를 설치하는 중입니다"].
+
+초기화하려는 노드에 루트 데이터 파티셔닝을 위한 디스크가 있는 경우, 노드를 초기화하기 전에 디스크를 파티셔닝하지 않아야 합니다. 참조: * 9) 고급 드라이브 파티셔닝 구성 * 및 link:../disks-aggregates/index.html["디스크 및 애그리게이트 관리"].
+
+
+
+ a| 
+Aggregate 및 디스크 유지보수 작업을 수행하고 자세한 Aggregate 및 디스크 정보를 얻습니다.
+ a| 
+유지 관리 모드 부팅
+
+'halt' 명령어를 이용하여 Maintenance Mode를 종료한다.
+
+
+
+ a| 
+노드의 루트 볼륨에서 PC CompactFlash 카드와 같은 부팅 장치로 구성 정보를 복원합니다
+ a| 
+6) 백업 구성에서 플래시를 업데이트합니다
+
+ONTAP는 일부 노드 구성 정보를 부팅 장치에 저장합니다. 노드가 재부팅되면 부팅 디바이스의 정보가 노드의 루트 볼륨에 자동으로 백업됩니다. 부팅 장치가 손상되거나 교체해야 하는 경우 이 메뉴 옵션을 사용하여 노드의 루트 볼륨에서 부팅 장치로 구성 정보를 복원해야 합니다.
+
+
+
+ a| 
+노드에 새 소프트웨어를 설치합니다
+ a| 
+새 소프트웨어를 먼저 설치합니다
+
+부팅 장치의 ONTAP 소프트웨어에 루트 볼륨에 사용할 스토리지 배열에 대한 지원이 포함되지 않은 경우, 이 메뉴 옵션을 사용하여 스토리지 배열을 지원하는 소프트웨어 버전을 얻고 노드에 설치할 수 있습니다.
+
+이 메뉴 옵션은 루트 볼륨이 설치되지 않은 노드에 최신 버전의 ONTAP 소프트웨어를 설치하는 경우에만 사용됩니다. ONTAP를 업그레이드하려면 이 메뉴 옵션을 사용합니다.
+
+
+
+ a| 
+노드를 재부팅합니다
+ a| 
+8) 노드를 재부팅합니다
+
+
+
+ a| 
+모든 디스크의 파티션을 해제하고 해당 소유권 정보를 제거하거나 구성을 청소하고 전체 또는 분할된 디스크로 시스템을 초기화합니다
+ a| 
+9) 고급 드라이브 파티셔닝을 구성합니다
+
+ONTAP 9.2부터 고급 드라이브 파티셔닝 옵션은 루트 데이터 또는 루트 데이터 데이터 파티셔닝에 구성된 디스크를 위한 추가 관리 기능을 제공합니다. 부팅 옵션 9에서 다음 옵션을 사용할 수 있습니다.
+
+[listing]
+----
+(9a) Unpartition all disks and remove their ownership information.
+(9b) Clean configuration and initialize system with partitioned disks.
+(9c) Clean configuration and initialize system with whole disks.
+(9d) Reboot the node.
+(9e) Return to main boot menu.
+----
+|===
+

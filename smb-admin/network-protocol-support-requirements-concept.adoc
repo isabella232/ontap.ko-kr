@@ -1,0 +1,27 @@
+---
+permalink: smb-admin/network-protocol-support-requirements-concept.html 
+sidebar: sidebar 
+keywords: network, protocol, requirement, implement, ontap, branchcache, support, network protocol support requirement 
+summary: ONTAP BranchCache를 구축하기 위한 네트워크 프로토콜 요구 사항을 알고 있어야 합니다. 
+---
+= 네트워크 프로토콜 지원 요구 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP BranchCache를 구축하기 위한 네트워크 프로토콜 요구 사항을 알고 있어야 합니다.
+
+SMB 2.1 이상을 사용하여 IPv4 및 IPv6 네트워크에서 ONTAP BranchCache 기능을 구현할 수 있습니다.
+
+BranchCache 구축에 사용되는 모든 CIFS 서버 및 지사 시스템에는 SMB 2.1 이상 프로토콜이 설정되어 있어야 합니다. SMB 2.1에는 클라이언트가 BranchCache 환경에 참여할 수 있도록 하는 프로토콜 확장이 있습니다. BranchCache 지원을 제공하는 최소 SMB 프로토콜 버전입니다. SMB 2.1은 BranchCache 버전 1을 지원합니다.
+
+BranchCache 버전 2를 사용하려면 SMB 3.0이 지원되는 최소 버전입니다. BranchCache 2 구축에 사용되는 모든 CIFS 서버 및 지사 시스템에는 SMB 3.0 이상이 활성화되어 있어야 합니다.
+
+일부 클라이언트가 SMB 2.1만 지원하고 일부 클라이언트가 SMB 3.0을 지원하는 원격 사무소가 있는 경우 CIFS 서버에 BranchCache 1과 BranchCache 2를 모두 지원하는 BranchCache 구성을 구현할 수 있습니다.
+
+[NOTE]
+====
+Microsoft BranchCache 기능은 HTTP/HTTPS 및 SMB 프로토콜을 파일 액세스 프로토콜로 사용하는 것을 지원하지만 ONTAP BranchCache는 SMB의 사용만 지원합니다.
+
+====

@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: task_san_reestablish_original_relationship_after_unplanned_failover.html 
+keywords: netapp, ontap, System Manager, System Manager, ONTAP Mediator, failure, failover, unplanned failover, storage system, relationship, protection relationship, cluster, source cluster 
+summary: ONTAP은 ONTAP 중재자를 사용하여 운영 스토리지 시스템에서 장애가 발생하는 시기를 감지하고 보조 스토리지 시스템에 대한 계획되지 않은 자동 페일오버를 실행합니다. 
+---
+= 계획되지 않은 페일오버 후에 원래 보호 관계를 다시 설정합니다
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+ONTAP은 ONTAP 중재자를 사용하여 운영 스토리지 시스템에서 장애가 발생하는 시기를 감지하고 보조 스토리지 시스템에 대한 계획되지 않은 자동 페일오버를 실행합니다. System Manager를 사용하면 원래 소스 클러스터가 다시 온라인 상태일 때 관계를 반대로 하고 원래 보호 관계를 다시 설정할 수 있습니다.
+
+.단계
+. 보호 > 관계 * 로 이동하고 관계 상태가 "InSync"로 표시될 때까지 기다립니다.
+. 원래 소스 클러스터에서 작업을 재개하려면 을 클릭합니다 image:icon_kabob.gif["Kabob 아이콘"] 를 클릭하고 * 페일오버 * 를 선택합니다.
+

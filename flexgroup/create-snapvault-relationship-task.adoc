@@ -1,0 +1,103 @@
+---
+permalink: flexgroup/create-snapvault-relationship-task.html 
+sidebar: sidebar 
+keywords: create, snapvault, relationship, flexgroup, volumes 
+summary: SnapVault 관계를 구성하고 관계에 SnapVault 정책을 할당하여 SnapVault 백업을 생성할 수 있습니다. 
+---
+= FlexGroup 볼륨에 대한 SnapVault 관계를 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapVault 관계를 구성하고 관계에 SnapVault 정책을 할당하여 SnapVault 백업을 생성할 수 있습니다.
+
+FlexGroup 볼륨에 대한 SnapVault 관계를 생성할 때 고려해야 할 사항에 대해 알고 있어야 합니다.
+
+.단계
+. 소스 FlexGroup 볼륨과 구성 요소 수가 동일한 dP 유형의 대상 FlexGroup 볼륨을 생성합니다.
++
+.. 소스 클러스터에서 소스 FlexGroup 볼륨의 구성요소 수('volume show-volume volume_name * -is-f성분 TRUE')를 결정합니다
++
+[listing]
+----
+cluster1::> volume show  -volume src* -is-constituent true
+Vserver   Volume       Aggregate    State      Type       Size  Available Used%
+--------- ------------ ------------ ---------- ---- ---------- ---------- -----
+vss       src          -            online     RW         400TB   172.86GB  56%
+vss       src__0001    Aggr_cmode   online     RW         25GB    10.86TB   56%
+vss       src__0002    aggr1        online     RW         25TB    10.86TB   56%
+vss       src__0003    Aggr_cmode   online     RW         25TB    10.72TB   57%
+vss       src__0004    aggr1        online     RW         25TB    10.73TB   57%
+vss       src__0005    Aggr_cmode   online     RW         25TB    10.67TB   57%
+vss       src__0006    aggr1        online     RW         25TB    10.64TB   57%
+vss       src__0007    Aggr_cmode   online     RW         25TB    10.63TB   57%
+...
+----
+.. 대상 클러스터에서 소스 FlexGroup 볼륨과 동일한 수의 구성 요소와 함께 dP 유형의 대상 FlexGroup 볼륨을 생성합니다.
++
+[listing]
+----
+cluster2::> volume create -vserver vsd -aggr-list aggr1,aggr2 -aggr-list-multiplier 8 -size 400TB -type DP dst
+
+Warning: The FlexGroup volume "dst" will be created with the following number of constituents of size 25TB: 16.
+Do you want to continue? {y|n}: y
+[Job 766] Job succeeded: Successful
+----
+.. 대상 클러스터에서 대상 FlexGroup 볼륨에 있는 구성 요소 수('volume show-volume volume volume_name * -is-f성분 TRUE')를 확인합니다
++
+[listing]
+----
+cluster2::> volume show  -volume dst* -is-constituent true
+Vserver   Volume       Aggregate    State      Type       Size  Available Used%
+--------- ------------ ------------ ---------- ---- ---------- ---------- -----
+vsd       dst          -            online     RW         400TB   172.86GB  56%
+vsd       dst__0001    Aggr_cmode   online     RW         25GB    10.86TB   56%
+vsd       dst__0002    aggr1        online     RW         25TB    10.86TB   56%
+vsd       dst__0003    Aggr_cmode   online     RW         25TB    10.72TB   57%
+vsd       dst__0004    aggr1        online     RW         25TB    10.73TB   57%
+vsd       dst__0005    Aggr_cmode   online     RW         25TB    10.67TB   57%
+vsd       dst__0006    aggr1        online     RW         25TB    10.64TB   57%
+vsd       dst__0007    Aggr_cmode   online     RW         25TB    10.63TB   57%
+...
+----
+
+
+. 작업 일정 생성:'작업 일정 cron create-name job_name-month month-DayOfWeek day_of_week-day day_of_month-hour-minute'입니다
++
+월-일-일-주-시-시간의 경우 월, 일, 시 순으로 모두 작업을 실행하도록 지정할 수 있습니다.
+
++
+다음 예에서는 토요일 오전 3시에 실행되는 my_weekly라는 작업 일정을 생성합니다.
+
++
+[listing]
+----
+cluster1::> job schedule cron create -name my_weekly -dayofweek "Saturday" -hour 3 -minute 0
+----
+. SnapVault 정책을 생성한 다음 SnapVault 정책에 대한 규칙을 정의합니다.
++
+.. SnapVault 관계를 위한 '볼트' 유형의 사용자 정의 정책을 작성합니다: '스냅샷 정책 생성 - vserver svm_name - policy_name - type vault'
+.. 초기화 및 업데이트 작업 중에 전송할 스냅샷 복제본을 결정하는 SnapVault 정책의 규칙을 정의합니다. '스냅샷 미러 정책 add-rule-vserver svm_name-policy_for_rule-snapmirror-label snapmirror-keep retention_count-schedule'
+
+
++
+사용자 지정 정책을 만들지 않는 경우 SnapVault 관계에 대해 "XDPDefault" 정책을 지정해야 합니다.
+
+. SnapVault 관계를 생성합니다. 'sapmirror create-source-path src_svm:src_flexgroup-destination-path dest_svm:dest_flexgroup-type xDP-schedule_name-policy XDPDefault'
++
+ONTAP 9.4 이하 버전에서는, 정책이 '스냅샷 생성' 명령으로 지정되지 않으면 기본적으로 'irorAllSnapshots' 정책이 사용됩니다. ONTAP 9.5에서는 '스냅샷 생성' 명령으로 정책을 지정하지 않으면 기본적으로 'MirorAndVault' 정책이 사용됩니다.
+
++
+[listing]
+----
+cluster2::> snapmirror create -source-path vss:srcFG -destination-path vsd:dstFG -type XDP -schedule Daily -policy XDPDefault
+----
+. 대상 클러스터에서 기본 전송:스냅샷 미러 초기화-대상-경로 dest_svm:dest_flexgroup'을 수행하여 SnapVault 관계를 초기화합니다
++
+[listing]
+----
+cluster2::> snapmirror initialize -destination-path vsd:dst
+Operation is queued: snapmirror initialize of destination "vsd:dst".
+----
+

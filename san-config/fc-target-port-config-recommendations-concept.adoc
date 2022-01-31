@@ -1,0 +1,132 @@
+---
+permalink: san-config/fc-target-port-config-recommendations-concept.html 
+sidebar: sidebar 
+keywords: fc, target, port, configuration, recommendations 
+summary: 최상의 성능과 가용성을 얻으려면 권장되는 FC 타겟 포트 구성을 사용해야 합니다. 
+---
+= FC 타겟 포트 구성 권장 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+최상의 성능과 가용성을 얻으려면 권장되는 FC 타겟 포트 구성을 사용해야 합니다.
+
+다음 표에는 온보드 FC 및 FC-NVMe 타겟 포트에 대한 기본 포트 사용 순서가 나와 있습니다. 확장 어댑터의 경우 동일한 ASIC를 연결에 사용하지 않도록 FC 포트를 분산해야 합니다. 기본 슬롯 순서는 에 나와 있습니다 https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"] 컨트롤러에서 사용하는 ONTAP 소프트웨어 버전입니다.
+
+FC-NVMe는 다음 모델에서 지원됩니다.
+
+* AFF A300
++
+[NOTE]
+====
+AFF A300 온보드 포트는 FC-NVMe를 지원하지 않습니다.
+
+====
+* AFF A700
+* AFF A700s를 참조하십시오
+* AFF A800
+
+
+[NOTE]
+====
+FAS22xx 및 FAS2520 시스템에는 온보드 FC 포트가 없으며 애드온 어댑터를 지원하지 않습니다.
+
+====
+[cols="3*"]
+|===
+| 컨트롤러 | 공유 ASIC가 있는 포트 쌍 | 대상 포트 수: 기본 설정 포트 
+
+
+ a| 
+FAS9000, AFF A700, AFF A700s 및 AFF A800
+ a| 
+없음
+ a| 
+모든 데이터 포트는 확장 어댑터에 있습니다. 을 참조하십시오 https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"] 를 참조하십시오.
+
+
+
+ a| 
+8080, 8060 및 8040
+ a| 
+0e+0f
+
+0g + 0h
+ a| 
+1:0e
+
+0e, 0g
+
+3:0e, 0g, 0h입니다
+
+4:0e, 0g, 0f, 0h입니다
+
+
+
+ a| 
+FAS8200 및 AFF A300
+ a| 
+0g + 0h
+ a| 
+1:0g
+
+2:0g, 0h
+
+
+
+ a| 
+8020
+ a| 
+0C + 0d
+ a| 
+1:0c
+
+2:0c, 0d
+
+
+
+ a| 
+62xx
+ a| 
+0A + 0b
+
+0C + 0d
+ a| 
+1:0a
+
+2:0a, 0c
+
+3:0a, 0c, 0b
+
+4:0a, 0c, 0b, 0d
+
+
+
+ a| 
+32xx
+ a| 
+0C + 0d
+ a| 
+1:0c
+
+2:0c, 0d
+
+
+
+ a| 
+FAS2554, FAS2552, FAS2600 시리즈, FAS2720, FAS2750, AFF A200 및 AFF A220
+ a| 
+0C + 0d
+
+0e+0f
+ a| 
+1:0c
+
+2:0c, 0e
+
+0c, 0e, 0d
+
+4:0c, 0e, 0d, 0f
+
+|===

@@ -1,0 +1,33 @@
+---
+permalink: smb-admin/windows-hosts-version-requirements-concept.html 
+sidebar: sidebar 
+keywords: ontap, branch, office, windows, host, version, requirement, configure, branchcache, ontap and windows hosts version requirements 
+summary: BranchCache를 구성하려면 ONTAP 및 지점 Windows 호스트가 특정 버전 요구 사항을 충족해야 합니다. 
+---
+= ONTAP 및 Windows 호스트 버전 요구 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+BranchCache를 구성하려면 ONTAP 및 지점 Windows 호스트가 특정 버전 요구 사항을 충족해야 합니다.
+
+BranchCache를 구성하기 전에 클러스터 및 참여하는 지사 클라이언트의 ONTAP 버전이 SMB 2.1 이상을 지원하고 BranchCache 기능을 지원해야 합니다. Hosted Cache 모드를 구성하는 경우 캐시 서버에 지원되는 호스트를 사용해야 합니다.
+
+BranchCache 1은 다음 ONTAP 버전 및 Windows 호스트에서 지원됩니다.
+
+* 콘텐츠 서버: ONTAP 기반의 SVM(스토리지 가상 시스템
+* 캐시 서버: Windows Server 2008 R2 또는 Windows Server 2012 이상
+* 피어 또는 클라이언트: Windows 7 Enterprise, Windows 7 Ultimate, Windows 8, Windows Server 2008 R2 또는 Windows Server 2012 이상
+
+
+BranchCache 2는 다음 ONTAP 버전 및 Windows 호스트에서 지원됩니다.
+
+* 콘텐츠 서버: ONTAP 기반의 SVM
+* 캐시 서버: Windows Server 2012 이상
+* 피어 또는 클라이언트: Windows 8 또는 Windows Server 2012 이상
+
+
+BranchCache를 지원하는 Windows 클라이언트에 대한 최신 정보는 상호 운용성 매트릭스 를 참조하십시오.
+
+http://mysupport.netapp.com/matrix["mysupport.netapp.com/matrix"]

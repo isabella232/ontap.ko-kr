@@ -1,0 +1,36 @@
+---
+permalink: system-admin/modify-node-attributes-task.html 
+sidebar: sidebar 
+keywords: modify, node, attributes, owner, information, location, asset, tag, eligibility, cluster 
+summary: 필요에 따라 노드의 특성을 수정할 수 있습니다. 수정할 수 있는 속성에는 노드의 소유자 정보, 위치 정보, 자산 태그 및 클러스터에 참여할 자격이 포함됩니다. 
+---
+= 노드 특성을 수정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+필요에 따라 노드의 특성을 수정할 수 있습니다. 수정할 수 있는 속성에는 노드의 소유자 정보, 위치 정보, 자산 태그 및 클러스터에 참여할 자격이 포함됩니다.
+
+클러스터의 참여 자격은 system node modify 또는 cluster modify 명령의 ``–eligibility' 매개 변수를 사용하여 고급 권한 수준에서 수정할 수 있습니다. 노드의 적격성을 "false"로 설정하면 클러스터에서 노드가 비활성화됩니다.
+
+[NOTE]
+====
+로컬에서 노드 자격을 수정할 수 없습니다. 다른 노드에서 수정해야 합니다. 클러스터 HA 구성을 사용하여 노드 링도 수정할 수 없습니다.
+
+====
+[NOTE]
+====
+노드 구성 복원 또는 노드 유지 보수 연장 등의 경우를 제외하고 노드의 적격성을 'false'로 설정하지 않아야 합니다. 노드에 대한 SAN 및 NAS 데이터 액세스는 노드가 부적격 상태일 때 영향을 받을 수 있습니다.
+
+====
+.단계
+. 'system node modify' 명령을 사용하여 노드의 특성을 수정합니다.
+
+
+다음 명령을 실행하면 ""node1"" 노드의 특성이 수정됩니다. 노드 소유자가 ""Joe Smith""로 설정되고 자산 태그가 ""js1234""로 설정됩니다.
+
+[listing]
+----
+cluster1::> system node modify -node node1 -owner "Joe Smith" -assettag js1234
+----

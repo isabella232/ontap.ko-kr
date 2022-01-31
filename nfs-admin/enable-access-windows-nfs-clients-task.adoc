@@ -1,0 +1,37 @@
+---
+permalink: nfs-admin/enable-access-windows-nfs-clients-task.html 
+sidebar: sidebar 
+keywords: enable, access, windows, nfs, clients 
+summary: 'ONTAP는 Windows NFSv3 클라이언트에서 파일 액세스를 지원합니다. 즉, NFSv3 지원 기능이 있는 Windows 운영 체제를 실행하는 클라이언트에서 이제 클러스터의 NFSv3 내보내기에 대한 파일에 액세스할 수 있습니다. 이 기능을 성공적으로 사용하려면 SVM(스토리지 가상 시스템)을 올바르게 구성하고 특정 요구사항과 제한사항을 숙지해야 합니다.' 
+---
+= Windows NFS 클라이언트에 대한 액세스를 설정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP는 Windows NFSv3 클라이언트에서 파일 액세스를 지원합니다. 즉, NFSv3 지원 기능이 있는 Windows 운영 체제를 실행하는 클라이언트에서 이제 클러스터의 NFSv3 내보내기에 대한 파일에 액세스할 수 있습니다. 이 기능을 성공적으로 사용하려면 SVM(스토리지 가상 시스템)을 올바르게 구성하고 특정 요구사항과 제한사항을 숙지해야 합니다.
+
+SVM에서 NFSv3을 활성화해야 합니다.
+
+기본적으로 Windows NFSv3 클라이언트 지원은 비활성화되어 있습니다.
+
+Windows NFSv3 클라이언트는 NSM(Network Status Monitor) 프로토콜을 지원하지 않습니다. 따라서 스토리지 페일오버 및 볼륨 이동 작업 중에 Windows NFSv3 클라이언트 세션이 중단될 수 있습니다.
+
+.단계
+. Windows NFSv3 클라이언트 지원 설정:
++
+'vserver nfs modify -vserver vserver_name -v3 -ms -dos -client enabled'
+
+. Windows NFSv3 클라이언트를 지원하는 모든 SVM에서 '-enable-ejukeep박스' 및 '-v3-connection-drop' 매개 변수 'vserver nfs modify -vserver_name -enable-ejukeep박스 false-v3-connection-drop disabled'를 해제합니다
++
+이제 Windows NFSv3 클라이언트가 스토리지 시스템에 내보내기를 마운트할 수 있습니다.
+
+. 각 Windows NFSv3 클라이언트가 '-o mtype=hard' 옵션을 지정하여 하드 마운트를 사용하는지 확인합니다.
++
+이 작업은 안정적인 마운트를 보장하기 위해 필요합니다.
+
++
+mount-o mtype=hard\\10.53.33.10\vol\vol1 z:\"
+
+

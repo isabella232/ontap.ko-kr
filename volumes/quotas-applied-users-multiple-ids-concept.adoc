@@ -1,0 +1,23 @@
+---
+permalink: volumes/quotas-applied-users-multiple-ids-concept.html 
+sidebar: sidebar 
+keywords: how, quotas are applied, users, multiple ids 
+summary: 사용자는 여러 ID로 나타낼 수 있습니다. ID 목록을 할당량 타겟으로 지정하여 이러한 사용자에 대한 단일 사용자 할당량을 설정할 수 있습니다. 이러한 ID가 소유한 파일은 사용자 할당량의 제한을 받습니다. 
+---
+= ID가 여러 개인 사용자에게 할당량을 적용하는 방법
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+사용자는 여러 ID로 나타낼 수 있습니다. ID 목록을 할당량 타겟으로 지정하여 이러한 사용자에 대한 단일 사용자 할당량을 설정할 수 있습니다. 이러한 ID가 소유한 파일은 사용자 할당량의 제한을 받습니다.
+
+사용자에게 UNIX UID 20과 Windows ID Corp\John_Smith 및 engineering\jsmith가 있다고 가정합니다. 이 사용자의 경우 할당량 대상이 UID 및 Windows ID의 목록인 할당량을 지정할 수 있습니다. 이 사용자가 스토리지 시스템에 쓸 때 지정된 할당량은 쓰기 작업이 UID 20, Corp\John_Smith 또는 engineering\jsmith에서 시작되었는지 여부에 관계없이 적용됩니다.
+
+[NOTE]
+====
+별도의 할당량 파일 항목은 ID가 동일한 사용자에게 속하더라도 별도의 타겟으로 간주됩니다. 예를 들어 동일한 사용자에 대해 UID 20을 1GB 디스크 공간으로 제한하는 할당량 하나와 Corp\John_Smith를 2GB의 디스크 공간으로 제한하는 할당량 하나를 지정할 수 있습니다. 두 ID 모두 동일한 사용자를 나타내더라도 마찬가지입니다. ONTAP는 UID 20과 Corp\John_Smith에 각각 할당량을 적용합니다.
+
+이 경우 동일한 사용자가 사용하는 다른 ID에 제한이 적용되더라도 엔지니어링\jsmith에는 제한이 적용되지 않습니다.
+
+====

@@ -1,0 +1,15 @@
+---
+permalink: fabricpool/workflow-concept.html 
+sidebar: sidebar 
+keywords: fabricpool, management workflow 
+summary: FabricPool 워크플로 다이어그램을 사용하여 구성 및 관리 작업을 계획할 수 있습니다. 
+---
+= FabricPool 관리 워크플로우
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FabricPool 워크플로 다이어그램을 사용하여 구성 및 관리 작업을 계획할 수 있습니다.
+
+image::../media/fabricpool-management-workflow.gif[FabricPool 관리 워크플로우]

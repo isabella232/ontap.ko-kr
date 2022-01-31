@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: networking/delete_a_broadcast_domain97.html 
+keywords: 'delete, deleting, remove, removing, broadcast, domain, delete a broadcast domain, delete unnecessary broadcast domains; this moves associated ports to the "default" IPspace' 
+summary: '불필요한 브로드캐스트 도메인을 삭제합니다. 그러면 연결된 포트가 "기본" IPspace로 이동합니다' 
+---
+= 브로드캐스트 도메인을 삭제합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+브로드캐스트 도메인이 더 이상 필요하지 않으면 삭제할 수 있습니다. 이렇게 하면 해당 브로드캐스트 도메인과 연결된 포트가 "기본" IPspace로 이동합니다.
+
+삭제할 브로드캐스트 도메인에 연결된 서브넷, 네트워크 인터페이스 또는 SVM이 없어야 합니다.
+
+.이 작업에 대해
+* 시스템에서 생성한 "클러스터" 브로드캐스트 도메인은 삭제할 수 없습니다.
+* 브로드캐스트 도메인을 삭제하면 브로드캐스트 도메인과 관련된 모든 페일오버 그룹이 제거됩니다.
+
+
+브로드캐스트 도메인 삭제:
+
+....
+network port broadcast-domain delete -broadcast-domain <broadcast_domain_name> [-ipspace <ipspace_name>]
+....
+다음 명령을 실행하면 IPspace ipspac1에서 브로드캐스트 도메인 bcast1이 삭제됩니다.
+
+....
+network port broadcast-domain delete -broadcast-domain <bcast1> -ipspace <ipspace1>
+....

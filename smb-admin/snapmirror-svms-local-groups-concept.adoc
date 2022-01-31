@@ -1,0 +1,15 @@
+---
+permalink: smb-admin/snapmirror-svms-local-groups-concept.html 
+sidebar: sidebar 
+keywords: aware, guideline, configure, snapmirror, volume, svm, contain, local, group, guidelines for using snapmirror on svms that contain local groups 
+summary: 로컬 그룹이 포함된 SVM이 소유한 볼륨에 SnapMirror를 구성할 때는 지침을 숙지해야 합니다. 
+---
+= 로컬 그룹이 포함된 SVM에서 SnapMirror 사용 지침
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+로컬 그룹이 포함된 SVM이 소유한 볼륨에 SnapMirror를 구성할 때는 지침을 숙지해야 합니다.
+
+SnapMirror에서 다른 SVM으로 복제된 파일, 디렉토리 또는 공유에 적용된 ACE의 로컬 그룹은 사용할 수 없습니다. SnapMirror 기능을 사용하여 다른 SVM의 볼륨에 DR 미러를 생성하고 볼륨에 로컬 그룹에 ACE가 있는 경우 ACE는 미러에서 유효하지 않습니다. 데이터를 다른 SVM으로 복제하면 데이터가 다른 로컬 도메인에 효과적으로 교차합니다. 로컬 사용자 및 그룹에 부여되는 사용 권한은 원래 생성된 SVM의 범위 내에서만 유효합니다.

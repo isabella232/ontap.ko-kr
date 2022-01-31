@@ -1,0 +1,66 @@
+---
+sidebar: sidebar 
+permalink: networking/display_lif_failover_targets.html 
+keywords: display, view, show, lif, logical, interface, failover, fail, over, target, display lif failover targets, verify the failover policy and failover group configuration for a lif, network interface show 
+summary: LIF의 페일오버 정책과 페일오버 그룹 구성을 확인합니다 
+---
+= LIF 페일오버 타겟을 표시합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+페일오버 정책과 LIF의 페일오버 그룹이 올바르게 구성되었는지 확인해야 할 수 있습니다. 페일오버 규칙의 구성 오류를 방지하기 위해 단일 LIF 또는 모든 LIF의 페일오버 목표를 표시할 수 있습니다.
+
+LIF 페일오버 타겟을 디스플레이하면 다음을 확인할 수 있습니다.
+
+* LIF가 올바른 페일오버 그룹 및 페일오버 정책으로 구성되었는지 여부를 나타냅니다
+* 페일오버 타겟 포트의 결과 목록이 각 LIF에 적합한지 여부
+* 데이터 LIF의 페일오버 목표가 관리 포트(e0M)가 아닌지 여부
+
+
+network interface show 명령의 페일오버 옵션을 사용하여 LIF의 페일오버 타겟을 표시합니다.
+
+다음 명령을 실행하면 2노드 클러스터의 모든 LIF에 대한 페일오버 타겟에 대한 정보가 표시됩니다. 페일오버 타겟 행은 해당 LIF에 대한 노드 포트 조합의 (우선 순위) 목록을 표시합니다.
+
+....
+network interface show -failover
+         Logical       Home                  Failover        Failover
+Vserver  Interface     Node:Port             Policy          Group
+-------- ------------- --------------------- --------------- ---------
+Cluster
+         node1_clus1   node1:e0a             local-only      Cluster
+                       Failover Targets: node1:e0a,
+                                         node1:e0b
+         node1_clus2   node1:e0b             local-only      Cluster
+                       Failover Targets: node1:e0b,
+                                         node1:e0a
+         node2_clus1   node2:e0a             local-only      Cluster
+                       Failover Targets: node2:e0a,
+                                         node2:e0b
+         node2_clus2   node2:e0b             local-only      Cluster
+                       Failover Targets: node2:e0b,
+                                         node2:e0a
+cluster1
+         cluster_mgmt  node1:e0c             broadcast-domain-wide
+                                                             Default
+                       Failover Targets: node1:e0c,
+                                         node1:e0d,
+                                         node2:e0c,
+                                         node2:e0d
+         node1_mgmt1   node1:e0c             local-only      Default
+                       Failover Targets: node1:e0c,
+                                         node1:e0d
+         node2_mgmt1   node2:e0c             local-only      Default
+                       Failover Targets: node2:e0c,
+                                         node2:e0d
+vs1
+         data1         node1:e0e             system-defined  bcast1
+                       Failover Targets: node1:e0e,
+                                         node1:e0f,
+                                         node2:e0e,
+                                         node2:e0f
+....

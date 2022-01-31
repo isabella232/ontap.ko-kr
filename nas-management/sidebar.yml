@@ -1,0 +1,45 @@
+---
+section: nas-management
+title: NAS 스토리지 관리
+url: "/nas-management/index.html"
+entries:
+- title: System Manager로 NAS 프로토콜을 관리합니다
+  entries:
+  - title: NAS 스토리지 개요
+    url: "/concept_nas_provision_overview.html"
+  - title: VMware 데이터 저장소
+    url: "/task_san_provision_vmware.html"
+  - title: 홈 디렉토리
+    url: "/task_nas_provision_home_directories.html"
+  - title: Linux 서버
+    url: "/task_nas_provision_linux_nfs.html"
+  - title: 엑스포트 정책
+    url: "/task_nas_provision_export_policies.html"
+  - title: 지원합니다
+    url: "/task_nas_provision_windows_smb.html"
+  - title: Windows와 Linux를 모두 지원합니다
+    url: "/task_nas_provision_nfs_and_smb.html"
+  - title: Kerberos를 통한 클라이언트 액세스 보안
+    url: "/task_nas_secure_client_access_with_kerberos.html"
+  - title: 이름 서비스를 사용하여 클라이언트 액세스 제공
+    url: "/task_nas_provide_client_access_with_name_services.html"
+  - title: 디렉토리 및 파일을 관리합니다
+    url: "/task_nas_manage_directories_files.html"
+  - title: 호스트별 사용자 및 그룹을 관리합니다
+    url: "/manage-users-groups-host-specific-task.html"
+  - title: NFS 활성 클라이언트를 모니터링합니다
+    url: "/task_nas_monitor_nfs_active_clients.html"
+  - title: NAS 스토리지를 설정합니다
+    entries:
+    - title: Linux 서버를 활성화합니다
+      url: "/task_nas_enable_linux_nfs.html"
+    - title: Windows 서버를 활성화합니다
+      url: "/task_nas_enable_windows_smb.html"
+    - title: Windows와 Linux를 모두 활성화합니다
+      url: "/task_nas_enable_nfs_and_smb.html"
+- section: nfs-config
+- section: nfs-admin
+- section: nfs-rdma
+- section: smb-config
+- section: smb-admin
+- section: smb-hyper-v-sql

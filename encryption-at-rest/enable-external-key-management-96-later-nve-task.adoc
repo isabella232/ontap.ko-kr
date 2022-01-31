@@ -1,0 +1,118 @@
+---
+permalink: encryption-at-rest/enable-external-key-management-96-later-nve-task.html 
+sidebar: sidebar 
+keywords: enabling, external key management, ontap 9.6, later, nve 
+summary: 하나 이상의 KMIP 서버를 사용하여 클러스터에서 암호화된 데이터에 액세스하는 데 사용하는 키를 보호할 수 있습니다. ONTAP 9.6부터는 하나 이상의 KMIP 서버를 사용하여 특정 SVM이 암호화된 데이터에 액세스하는 데 사용하는 키를 보호할 수 있습니다. 
+---
+= ONTAP 9.6 이상(NVE)에서 외부 키 관리 지원
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+하나 이상의 KMIP 서버를 사용하여 클러스터에서 암호화된 데이터에 액세스하는 데 사용하는 키를 보호할 수 있습니다. ONTAP 9.6부터는 하나 이상의 KMIP 서버를 사용하여 특정 SVM이 암호화된 데이터에 액세스하는 데 사용하는 키를 보호할 수 있습니다.
+
+.무엇을 &#8217;필요로 할거야
+* KMIP SSL 클라이언트 및 서버 인증서를 설치해야 합니다.
+* 이 작업을 수행하려면 클러스터 또는 SVM 관리자여야 합니다.
+* 키 관리자를 구성하기 전에 MetroCluster 환경을 구성해야 합니다.
+
+
+최대 4개의 KMIP 서버를 클러스터 또는 SVM에 연결할 수 있습니다. 이중화 및 재해 복구를 위해 최소 2대의 서버를 사용하는 것이 좋습니다.
+
+외부 키 관리 범위에 따라 주요 관리 서버가 클러스터의 모든 SVM을 보호할지 또는 선택한 SVM에만 안전할지 여부가 결정됩니다.
+
+* 클러스터 범위 _ 를 사용하여 클러스터의 모든 SVM에 대한 외부 키 관리를 구성할 수 있습니다. 클러스터 관리자는 서버에 저장된 모든 키에 액세스할 수 있습니다.
+* ONTAP 9.6부터는 _SVM SCOPE_를 사용하여 클러스터의 데이터 SVM을 위한 외부 키 관리를 구성할 수 있습니다. 이는 각 테넌트가 서로 다른 SVM(또는 SVM 세트)을 사용하여 데이터를 제공하는 멀티테넌트 환경에 가장 적합합니다. 지정된 테넌트의 SVM 관리자만 해당 테넌트의 키에 액세스할 수 있습니다.
+* 멀티테넌트 환경의 경우 다음 명령을 사용하여 _MT_EK_MGMT_에 대한 라이센스를 설치합니다.
++
+'System license add-license-code <MT_EK_MGMT license code>'
+
++
+전체 명령 구문은 명령에 대한 man 페이지를 참조하십시오.
+
+
+
+동일한 클러스터에서 두 범위를 모두 사용할 수 있습니다. SVM용으로 키 관리 서버를 구성한 경우 ONTAP에서는 이러한 서버만 사용하여 키를 보호합니다. 그렇지 않으면 ONTAP는 클러스터에 구성된 키 관리 서버로 키를 보호합니다.
+
+클러스터 범위에서 온보드 키 관리를 구성하고 SVM 범위에서 외부 키 관리를 구성할 수 있습니다. 'Security key-manager key migrate' 명령을 사용하여 클러스터 범위의 온보드 키 관리에서 SVM 범위의 외부 키 관리자로 키를 마이그레이션할 수 있습니다.
+
+.단계
+. 클러스터의 Key Manager 접속 구성:
++
+'Security key-manager external enable - vserver admin_SVM-key-servers host_name | ip_address: port,... -client-cert client_certificate-server-ca-cert server_CA_certificates'를 참조하십시오
+
++
+[NOTE]
+====
+보안 키 관리자 외부 활성화 명령은 보안 키 관리자 설정 명령을 대체합니다. 클러스터 로그인 프롬프트에서 명령을 실행하면 '_admin_SVM_'이(가) 현재 클러스터의 admin SVM으로 기본 설정됩니다. 클러스터 범위를 구성하려면 클러스터 관리자여야 합니다. 'Security key-manager external modify' 명령어를 실행하여 외부 키 관리 설정을 변경할 수 있다.
+
+====
++
+다음 명령을 실행하면 외부 키 서버가 3개인 'cluster1'에 대한 외부 키 관리가 활성화됩니다. 첫 번째 키 서버는 호스트 이름과 포트를 사용하여 지정되고, 두 번째 키는 IP 주소와 기본 포트를 사용하여 지정되며, 세 번째 키는 IPv6 주소와 포트를 사용하여 지정됩니다.
+
++
+[listing]
+----
+clusterl::> security key-manager external enable -vserver cluster1 -key-servers ks1.local:15696,10.0.0.10,[fd20:8b1e:b255:814e:32bd:f35c:832c:5a09]:1234 -client-cert AdminVserverClientCert -server-ca-certs AdminVserverServerCaCert
+----
+. SVM을 위한 키 관리자 구성:
++
+'Security key-manager external enable - vserver SVM-key-servers host_name | ip_address: port,... -client-cert client_certificate-server-ca-cert server_CA_certificates'를 참조하십시오
+
++
+[NOTE]
+====
+SVM 로그인 프롬프트에서 명령을 실행하면 기본적으로 'VM'이 현재 SVM으로 설정됩니다. SVM 범위를 구성하려면 클러스터 또는 SVM 관리자여야 합니다. 'Security key-manager external modify' 명령어를 실행하여 외부 키 관리 설정을 변경할 수 있다.
+
+====
++
+다음 명령을 실행하면 기본 포트 5696에서 단일 키 서버가 수신 대기하는 'vm1'에 대한 외부 키 관리가 활성화됩니다.
+
++
+[listing]
+----
+svm1l::> security key-manager external enable -vserver svm1 -key-servers keyserver.svm1.com -client-cert SVM1ClientCert -server-ca-certs SVM1ServerCaCert
+----
+. 추가 SVM에 대해 마지막 단계를 반복합니다.
++
+[NOTE]
+====
+또한 'Security key-manager external add-servers' 명령을 사용하여 추가 SVM을 구성할 수도 있습니다. 보안 키 관리자 외부 서버 명령은 보안 키 관리자 추가 명령을 대체합니다. 전체 명령 구문은 man 페이지를 참조하십시오.
+
+====
+. 구성된 모든 KMIP 서버가 연결되어 있는지 확인합니다.
++
+'Security key-manager external show-status-node node_name'입니다
+
++
+[NOTE]
+====
+보안 키-관리자 외부 show-status 명령은 보안 키-관리자 show-status 명령을 대체합니다. 전체 명령 구문은 man 페이지를 참조하십시오.
+
+====
++
+[listing]
+----
+cluster1::> security key-manager external show-status
+
+Node  Vserver  Key Server                                     Status
+----  -------  ---------------------------------------        -------------
+node1
+      svm1
+               keyserver.svm1.com:5696                        available
+      cluster1
+               10.0.0.10:5696                                 available
+               fd20:8b1e:b255:814e:32bd:f35c:832c:5a09:1234   available
+               ks1.local:15696                                available
+node2
+      svm1
+               keyserver.svm1.com:5696                        available
+      cluster1
+               10.0.0.10:5696                                 available
+               fd20:8b1e:b255:814e:32bd:f35c:832c:5a09:1234   available
+               ks1.local:15696                                available
+
+8 entries were displayed.
+----
+

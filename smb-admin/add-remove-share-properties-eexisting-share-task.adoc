@@ -1,0 +1,86 @@
+---
+permalink: smb-admin/add-remove-share-properties-eexisting-share-task.html 
+sidebar: sidebar 
+keywords: customize, exist, smb, share, add, remove, removing, properties, useful, configuration, changing, change, requirement, environment, add or remove share properties on an existing smb share 
+summary: 공유 속성을 추가하거나 제거하여 기존 SMB 공유를 사용자 지정할 수 있습니다. 이 기능은 환경의 변화하는 요구 사항에 맞게 공유 구성을 변경하려는 경우에 유용합니다. 
+---
+= 기존 SMB 공유에서 공유 속성을 추가하거나 제거합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+공유 속성을 추가하거나 제거하여 기존 SMB 공유를 사용자 지정할 수 있습니다. 이 기능은 환경의 변화하는 요구 사항에 맞게 공유 구성을 변경하려는 경우에 유용합니다.
+
+수정할 속성이 있는 공유가 있어야 합니다.
+
+공유 속성 추가 지침:
+
+* 쉼표로 구분된 목록을 사용하여 하나 이상의 공유 속성을 추가할 수 있습니다.
+* 이전에 지정한 공유 속성은 그대로 유지됩니다.
++
+새로 추가된 속성은 기존 공유 속성 목록에 추가됩니다.
+
+* 공유에 이미 적용된 공유 속성에 새 값을 지정하면 새로 지정한 값이 원래 값을 대체합니다.
+* 'vserver cifs share properties add' 명령을 사용하여 공유 속성을 제거할 수 없습니다.
++
+'vserver cifs share properties remove' 명령을 사용하여 공유 속성을 제거할 수 있습니다.
+
+
+
+공유 속성 제거 지침:
+
+* 쉼표로 구분된 목록을 사용하여 하나 이상의 공유 속성을 제거할 수 있습니다.
+* 이전에 지정했지만 제거하지 않은 공유 속성은 그대로 유지됩니다.
+
+
+.단계
+. 적절한 명령을 입력합니다.
++
+|===
+| 원하는 작업 | 명령 입력... 
+
+
+ a| 
+공유 속성 추가
+ a| 
+'+vserver cifs 공유 속성 add-vserver_vserver_name_-share-name_share_name_-share-properties_,...+'
+
+
+
+ a| 
+공유 속성을 제거합니다
+ a| 
+'+vserver CIFS 공유 속성 remove-vserver_vserver_name_-share-name_share_name_-share-properties_properties_,...+'
+
+|===
+. 공유 속성 설정을 확인합니다. 'vserver cifs share show -vserver vserver_name -share-name share_name'
+
+
+다음 명령을 실행하면 SVM VS1 에서 "shhowsnapshot" 공유 속성이 "share1"이라는 공유에 추가됩니다.
+
+[listing]
+----
+cluster1::> vserver cifs share properties add -vserver vs1 -share-name share1 -share-properties showsnapshot
+
+cluster1::> vserver cifs share show -vserver vs1
+Vserver    Share   Path      Properties   Comment    ACL
+---------  ------  --------  ----------   --------   -----------
+vs1        share1  /share1   oplocks      -          Everyone / Full Control
+                             browsable
+                             changenotify
+                             showsnapshot
+----
+다음 명령을 실행하면 SVM VS1 의 "shay2"라는 공유에서 탐색 가능한 공유 속성이 제거됩니다.
+
+[listing]
+----
+cluster1::> vserver cifs share properties remove -vserver vs1 -share-name share2 -share-properties browsable
+
+cluster1::> vserver cifs share show -vserver vs1
+Vserver    Share   Path      Properties   Comment    ACL
+---------  ------  --------  ----------   --------   -----------
+vs1        share2  /share2   oplocks      -          Everyone / Full Control
+                             changenotify
+----
+xref:commands-manage-shares-reference.adoc[SMB 공유를 관리하는 명령입니다]

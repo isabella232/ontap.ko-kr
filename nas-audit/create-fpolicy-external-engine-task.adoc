@@ -1,0 +1,65 @@
+---
+permalink: nas-audit/create-fpolicy-external-engine-task.html 
+sidebar: sidebar 
+keywords: create, fpolicy, external engine 
+summary: 'FPolicy 구성을 생성하려면 외부 엔진을 생성해야 합니다. 외부 엔진은 FPolicy가 외부 FPolicy 서버에 대한 연결을 만들고 관리하는 방법을 정의합니다. 구성에서 내부 ONTAP 엔진(기본 외부 엔진)을 간단한 파일 차단에 사용하는 경우 별도의 FPolicy 외부 엔진을 구성하지 않아도 되며 이 단계를 수행할 필요가 없습니다.' 
+---
+= FPolicy 외부 엔진을 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FPolicy 구성을 생성하려면 외부 엔진을 생성해야 합니다. 외부 엔진은 FPolicy가 외부 FPolicy 서버에 대한 연결을 만들고 관리하는 방법을 정의합니다. 구성에서 내부 ONTAP 엔진(기본 외부 엔진)을 간단한 파일 차단에 사용하는 경우 별도의 FPolicy 외부 엔진을 구성하지 않아도 되며 이 단계를 수행할 필요가 없습니다.
+
+외부 엔진 워크시트를 작성해야 합니다.
+
+외부 엔진이 MetroCluster 구성에 사용되는 경우 소스 사이트에 있는 FPolicy 서버의 IP 주소를 1차 서버로 지정해야 합니다. 대상 사이트에 있는 FPolicy 서버의 IP 주소를 2차 서버로 지정해야 합니다.
+
+.단계
+. 'vserver FPolicy external-engine create' 명령을 사용하여 FPolicy 외부 엔진을 생성합니다.
++
+다음 명령을 실행하면 SVM(스토리지 가상 시스템)vs1.example.com 에서 외부 엔진이 생성됩니다. FPolicy 서버와의 외부 통신에는 인증이 필요하지 않습니다.
+
++
+'vserver FPolicy external-engine create-vserver-name vs1.example.com -engine-name engine.1-primary-servers 10.1.1.2, 10.1.1.3-port 6789-SSL-option no-auth'
+
+. 'vserver FPolicy external-engine show' 명령을 사용하여 FPolicy 외부 엔진 구성을 확인하십시오.
++
+다음 명령을 실행하면 SVM vs1.example.com 에 구성된 모든 외부 엔진에 대한 정보가 표시됩니다.
+
++
+'vserver FPolicy policy external-engine show -vserver vs1.example.com'을 참조하십시오
+
++
+[listing]
+----
+
+                                Primary        Secondary          External
+Vserver            Engine       Servers        Servers       Port Engine Type
+---------------    -----------  -------------- ----------- ------ -----------
+vs1.example.com    engine1      10.1.1.2,      -             6789 synchronous
+                                10.1.1.3
+----
++
+다음 명령을 실행하면 SVM vs1.example.com 의 ""엔진1" 외부 엔진에 대한 자세한 정보가 표시됩니다.
+
++
+'vserver FPolicy policy external-engine show -vserver vs1.example.com -engine-name engine11'을 참조하십시오
+
++
+[listing]
+----
+
+                              Vserver: vs1.example.com
+                               Engine: engine1
+              Primary FPolicy Servers: 10.1.1.2, 10.1.1.3
+       Port Number of FPolicy Service: 6789
+            Secondary FPolicy Servers: -
+                 External Engine Type: synchronous
+SSL Option for External Communication: no-auth
+           FQDN or Custom Common Name: -
+         Serial Number of Certificate: -
+                Certificate Authority: -
+----
+

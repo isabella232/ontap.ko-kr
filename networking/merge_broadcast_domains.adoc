@@ -1,0 +1,28 @@
+---
+sidebar: sidebar 
+permalink: networking/merge_broadcast_domains.html 
+keywords: merge, combine, broadcast, domain, reachability, merge broadcast domains, merge the ports from one broadcast domain into an existing broadcast domain 
+summary: 하나의 브로드캐스트 도메인의 포트를 기존 브로드캐스트 도메인으로 병합합니다 
+---
+= 브로드캐스트 도메인을 병합합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+물리적 네트워크 연결 또는 스위치 구성을 통해 네트워크 포트 도달 능력이 변경되었고 이전에 여러 브로드캐스트 도메인에 구성된 두 개의 네트워크 포트 그룹이 이제 모두 공유 도달 가능 상태로 변경된 경우 두 개의 브로드캐스트 도메인을 병합하여 ONTAP 구성을 물리적 네트워크 토폴로지와 동기화할 수 있습니다.
+
+여러 브로드캐스트 도메인이 하나의 접속 가능 세트에 속하는지 확인하려면 "network port reachability show -details" 명령을 사용하고 다른 브로드캐스트 도메인에서 구성된 포트가 실제로 서로 연결되어 있는지("예상치 못한 포트") 확인하십시오. 일반적으로 예기치 않은 포트 목록은 물리적 및 스위치 구성이 정확한지 확인한 후 브로드캐스트 도메인에 병합되어야 하는 포트 집합을 정의합니다.
+
+한 브로드캐스트 도메인의 포트를 기존 브로드캐스트 도메인으로 병합:
+
+....
+network port broadcast-domain merge -ipspace <ipspace_name> -broadcast-domain <broadcast_domain_name> -into-broadcast-domain <broadcast_domain_name>
+....
+* IPSpace_name은 브로드캐스트 도메인이 있는 IPSpace의 이름입니다.
+* '-broadcast-domain'은 통합될 브로드캐스트 도메인의 이름입니다.
+* '-브로드캐스트-도메인'은 추가 포트를 받을 브로드캐스트 도메인의 이름입니다.
+

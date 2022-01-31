@@ -1,0 +1,81 @@
+---
+sidebar: sidebar 
+permalink: networking/configure_vlans_over_physical_ports.html 
+keywords: configure, configuration, configuring, setup, setting, set, up, vlan, virtual, local, area, network, physical, port, logical, segmentation, configure vlans over physical ports, vlans provide logical segmentation of networks, create a vlan, network port vlan create, delete a vlan, network port vlan delete 
+summary: VLAN은 네트워크의 논리적 세분화를 제공합니다 
+---
+= 물리적 포트를 통해 VLAN을 구성합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+VLAN은 물리적 경계에 정의된 기존 브로드캐스트 도메인이 아닌 스위치 포트 기반으로 정의된 별도의 브로드캐스트 도메인을 생성하여 네트워크를 논리적으로 세분화하는 기능을 제공합니다.
+
+VLAN은 여러 물리적 네트워크 세그먼트에 걸쳐 있을 수 있습니다. VLAN에 속한 엔드스테이션은 기능 또는 애플리케이션에 의해 관련된다.
+
+예를 들어, VLAN의 최종 스테이션은 엔지니어링 및 회계 등의 부서 또는 릴리스1 및 릴리스2와 같은 프로젝트별로 그룹화할 수 있습니다. 최종 스테이션의 물리적 근접성이 VLAN에 반드시 필요한 것은 아니므로, 최종 스테이션을 지리적으로 분산시키고 스위치 네트워크에 브로드캐스트 도메인을 포함할 수 있습니다.
+
+VLAN에 대한 정보를 생성, 삭제 또는 표시하여 VLAN을 관리할 수 있습니다.
+
+
+NOTE: 스위치의 네이티브 VLAN과 ID가 동일한 네트워크 인터페이스에 VLAN을 생성해서는 안 됩니다. 예를 들어, 네트워크 인터페이스 e0b가 네이티브 VLAN 10에 있는 경우 해당 인터페이스에 VLAN e0b-10을 생성할 수 없습니다.
+
+
+
+== VLAN을 생성합니다
+
+'network port vlan create' 명령을 사용하여 동일한 네트워크 도메인 내에서 별도의 브로드캐스트 도메인을 유지 관리하기 위한 VLAN을 생성할 수 있습니다.
+
+네트워크 관리자가 다음 요구 사항이 충족되었음을 확인해야 합니다.
+
+* 네트워크에 배포된 스위치는 IEEE 802.1Q 표준을 준수하거나 공급업체별로 VLAN을 구현해야 합니다.
+* 여러 VLAN을 지원하려면 하나 이상의 VLAN에 속하도록 최종 스테이션을 정적으로 구성해야 합니다.
+* VLAN이 클러스터 LIF를 호스팅하는 포트에 연결되어 있지 않습니다.
+* VLAN이 클러스터 IPspace에 할당된 포트에 연결되어 있지 않습니다.
+* VLAN은 구성원 포트가 없는 인터페이스 그룹 포트에 생성되지 않습니다.
+
+
+하드웨어 문제나 소프트웨어 구성 오류를 해결하지 않고 성능 저하 포트에 VLAN 포트를 생성하려면 네트워크 포트 수정 명령의 '-ignore-health-status' 매개 변수를 true로 설정해야 합니다.
+
+VLAN을 생성하면 클러스터에 있는 지정된 노드의 네트워크 포트에 VLAN이 연결됩니다.
+
+처음으로 포트를 통해 VLAN을 구성할 때 포트가 다운되어 일시적으로 네트워크 연결이 끊길 수 있습니다. 이후에 동일한 포트에 VLAN을 추가해도 포트 상태는 영향을 받지 않습니다.
+
+
+NOTE: 스위치의 네이티브 VLAN과 ID가 동일한 네트워크 인터페이스에 VLAN을 생성해서는 안 됩니다. 예를 들어, 네트워크 인터페이스 e0b가 네이티브 VLAN 10에 있는 경우 해당 인터페이스에 VLAN e0b-10을 생성할 수 없습니다.
+
+.단계
+. 'network port vlan create' 명령어를 사용하여 VLAN을 생성한다.
+. VLAN을 생성할 때는 VLAN-name이나 port, vlan-id 옵션을 지정해야 합니다. VLAN 이름은 포트 이름(또는 인터페이스 그룹)과 네트워크 스위치 VLAN 식별자의 조합으로, 사이에 하이픈을 사용합니다. 예를 들어, "e0c-24"와 "e1c-80"은 유효한 VLAN 이름입니다.
+
+
+다음 예에서는 노드 cluster-1-01의 네트워크 포트 e1c에 연결된 VLAN e1c-80을 생성하는 방법을 보여 줍니다.
+
+....
+network port vlan create -node cluster-1-01 -vlan-name e1c-80
+....
+ONTAP 9.8부터 VLAN은 생성 후 1분 정도 적절한 브로드캐스트 도메인에 자동으로 배치됩니다. ONTAP가 이 작업을 수행하지 않고 수동으로 VLAN을 브로드캐스트 도메인에 배치하려는 경우 "VLAN create" 명령의 일부로 '-skip-broadcast-domain-placement' 매개 변수를 지정합니다.
+
+이 명령에 대한 자세한 내용은 을 참조하십시오 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"^].
+
+
+
+== VLAN을 삭제한다
+
+NIC를 슬롯에서 제거하기 전에 VLAN을 삭제해야 할 수 있습니다. VLAN을 삭제하면 해당 VLAN을 사용하는 모든 페일오버 규칙 및 그룹에서 자동으로 제거됩니다.
+
+VLAN에 연결된 LIF가 없는지 확인합니다.
+
+포트에서 마지막 VLAN을 삭제하면 네트워크에서 일시적으로 연결이 끊길 수 있습니다.
+
+VLAN을 삭제하려면 network port vlan delete 명령을 사용한다.
+
+다음 예에서는 노드 cluster-1-01의 네트워크 포트 e1c에서 VLAN e1c-80을 삭제하는 방법을 보여 줍니다.
+
+....
+network port vlan delete -node cluster-1-01 -vlan-name e1c-80
+....

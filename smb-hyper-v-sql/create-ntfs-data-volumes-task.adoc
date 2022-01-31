@@ -1,0 +1,53 @@
+---
+permalink: smb-hyper-v-sql/create-ntfs-data-volumes-task.html 
+sidebar: sidebar 
+keywords: create, ntfs, data, volume, storage, virutal, machine, svm, smb, application, server, volume, configuration 
+summary: 'Hyper-V 또는 SQL Server over SMB 애플리케이션 서버에서 사용할 수 있도록 지속적으로 사용 가능한 공유를 구성하려면 먼저 SVM(스토리지 가상 머신)에 NTFS 데이터 볼륨을 생성해야 합니다. 볼륨 구성 워크시트를 사용하여 데이터 볼륨을 생성합니다.' 
+---
+= NTFS 데이터 볼륨을 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Hyper-V 또는 SQL Server over SMB 애플리케이션 서버에서 사용할 수 있도록 지속적으로 사용 가능한 공유를 구성하려면 먼저 SVM(스토리지 가상 머신)에 NTFS 데이터 볼륨을 생성해야 합니다. 볼륨 구성 워크시트를 사용하여 데이터 볼륨을 생성합니다.
+
+데이터 볼륨을 사용자 지정하는 데 사용할 수 있는 선택적 매개 변수가 있습니다. 볼륨 사용자 지정에 대한 자세한 내용은 를 참조하십시오 link:link:../volumes/index.html["논리적 스토리지 관리"].
+
+데이터 볼륨을 생성할 때 다음을 포함하는 볼륨 내에 교차점을 생성해서는 안 됩니다.
+
+* ONTAP에서 섀도 복사본을 만드는 Hyper-V 파일입니다
+* SQL Server를 사용하여 백업되는 SQL Server 데이터베이스 파일입니다
+
+
+[NOTE]
+====
+혼합 또는 UNIX 보안 스타일을 사용하는 볼륨을 실수로 만든 경우 볼륨을 NTFS 보안 스타일 볼륨으로 변경한 다음 이 볼륨을 직접 사용하여 무중단 운영을 위해 지속적으로 사용 가능한 공유를 생성할 수 없습니다. Hyper-V 및 SQL Server over SMB의 무중단 운영은 구성에 사용된 볼륨이 NTFS 보안 스타일 볼륨으로 만들어지지 않는 한 제대로 작동하지 않습니다. 볼륨을 삭제하고 NTFS 보안 스타일로 볼륨을 다시 생성해야 합니다. 또는 Windows 호스트에서 볼륨을 매핑하고 볼륨 상단에 ACL을 적용하고 볼륨의 모든 파일 및 폴더에 ACL을 전파할 수 있습니다.
+
+====
+.단계
+. 적절한 명령을 입력하여 데이터 볼륨을 생성합니다.
++
+[cols="1, 4"]
+|===
+| SVM에서 루트 볼륨 보안 유형이 인 볼륨을 생성하려는 경우... | 명령 입력... 
+
+
+ a| 
+NTFS입니다
+ a| 
+'* volume create-vserver_vserver_name_-volume_volume_name_-aggregate_aggregate_name_-size 정수 [KB{vbar}MB{vbar}GB{vbar}TB{vbar}PB]-junction-path_path_ *'
+
+
+
+ a| 
+NTFS가 아닙니다
+ a| 
+'* volume create-vserver_vserver_name_-volume_volume_name_-aggregate_aggregate_name_-size integer [KB{vbar}MB{vbar}GB{vbar}TB{vbar}PB]-security-style NTFS-junction-path *'
+
+|===
+. 볼륨 구성이 올바른지 확인합니다.
++
+'* volume show -vserver_vserver_name_-volume_volume_name_*'
+
+

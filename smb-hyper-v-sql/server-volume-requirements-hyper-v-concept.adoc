@@ -1,0 +1,56 @@
+---
+permalink: smb-hyper-v-sql/server-volume-requirements-hyper-v-concept.html 
+sidebar: sidebar 
+keywords: smb, cifs, server, volume, requirements, hyper, v, configuration, nondisruptive, operation 
+summary: 무중단 운영을 위해 SMB를 통한 Hyper-V 구성을 생성할 때 특정 SMB 서버 및 볼륨 요구사항을 알고 있어야 합니다. 
+---
+= SMB를 통한 Hyper-V의 SMB 서버 및 볼륨 요구 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+무중단 운영을 위해 SMB를 통한 Hyper-V 구성을 생성할 때 특정 SMB 서버 및 볼륨 요구사항을 알고 있어야 합니다.
+
+
+
+== SMB 서버 요구 사항
+
+* SMB 3.0을 활성화해야 합니다.
++
+이 기능은 기본적으로 활성화되어 있습니다.
+
+* 기본 UNIX 사용자 CIFS 서버 옵션은 유효한 UNIX 사용자 계정으로 구성해야 합니다.
++
+애플리케이션 서버는 SMB 연결을 생성할 때 컴퓨터 계정을 사용합니다. 모든 SMB 액세스를 위해서는 Windows 사용자가 UNIX 사용자 계정 또는 기본 UNIX 사용자 계정에 성공적으로 매핑되어야 하므로 ONTAP는 애플리케이션 서버의 컴퓨터 계정을 기본 UNIX 사용자 계정에 매핑할 수 있어야 합니다.
+
+* 자동 노드 조회를 비활성화해야 합니다(이 기능은 기본적으로 비활성화되어 있습니다).
++
+Hyper-V 시스템 파일 이외의 데이터에 액세스하기 위해 자동 노드 조회를 사용하려면 해당 데이터에 대해 별도의 SVM을 생성해야 합니다.
+
+* Kerberos 및 NTLM 인증은 SMB 서버가 속한 도메인에서 모두 허용되어야 합니다.
++
+ONTAP는 원격 VSS에 대한 Kerberos 서비스를 광고하지 않으므로 NTLM을 허용하도록 도메인을 설정해야 합니다.
+
+* 섀도 복사본 기능이 활성화되어 있어야 합니다.
++
+이 기능은 기본적으로 활성화되어 있습니다.
+
+* 섀도 복사본을 만들 때 섀도 복사본 서비스가 사용하는 Windows 도메인 계정은 SMB 서버 로컬 BUILTIN\Administrators 또는 BUILTIN\Backup Operators 그룹의 구성원이어야 합니다.
+
+
+
+
+== 볼륨 요구 사항
+
+* 가상 머신 파일을 저장하는 데 사용되는 볼륨은 NTFS 보안 스타일 볼륨으로 만들어야 합니다.
++
+지속적으로 사용 가능한 SMB 연결을 사용하여 애플리케이션 서버에 NDO를 제공하려면 공유가 포함된 볼륨이 NTFS 볼륨이어야 합니다. 또한 항상 NTFS 볼륨이어야 합니다. 혼합 보안 스타일 볼륨 또는 UNIX 보안 스타일 볼륨을 NTFS 보안 스타일 볼륨으로 변경하고 SMB 공유를 통해 NDO에 직접 사용할 수는 없습니다. 혼합 보안 스타일 볼륨을 NTFS 보안 스타일 볼륨으로 변경하고 SMB 공유를 통해 NDO에 사용하려면 ACL을 볼륨 상단에 수동으로 배치하고 해당 ACL을 포함된 모든 파일 및 폴더에 전파해야 합니다. 그렇지 않으면 소스 또는 대상 볼륨이 처음에 혼합 또는 UNIX 보안 스타일 볼륨으로 생성된 후 나중에 NTFS 보안 스타일로 변경된 경우 가상 머신 마이그레이션 또는 데이터베이스 파일 내보내기 및 가져오기가 다른 볼륨으로 이동될 수 있습니다.
+
+* 섀도 복사본 작업이 성공하려면 볼륨에 충분한 공간이 있어야 합니다.
++
+사용 가능한 공간은 섀도 복사본 백업 세트에 포함된 공유 내에 포함된 모든 파일, 디렉토리 및 하위 디렉토리에 사용되는 결합된 공간보다 최소한 크거나 같아야 합니다. 이 요구 사항은 자동 복구를 사용하는 섀도우 복제본에만 적용됩니다.
+
+
+
+http://technet.microsoft.com/en-us/library/["Microsoft TechNet 라이브러리: technet.microsoft.com/en-us/library/"]

@@ -1,0 +1,177 @@
+---
+sidebar: sidebar 
+permalink: s3-snapmirror/create-remote-mirror-new-bucket-task.html 
+keywords: 'create a mirror relationship for a new bucket (remote cluster), protect new s3 buckets, remote cluster, mirror relationship, new buckets, new bucket requirements, mirror data to a remote cluster, snapmirror buckets, snapmirror relationship storage vm, new buckets in storage vm, destination clusters, source cluster, mirror data, peering, storage vm add users, snapmirror protection bucket, create snapmirror policy' 
+summary: 새 S3 버킷을 생성할 때 원격 클러스터의 S3 SnapMirror 타겟으로 즉시 보호할 수 있습니다. 
+---
+= 새 버킷에 대한 미러 관계 생성(원격 클러스터)
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:toc-position: content
+
+
+[role="lead"]
+새 S3 버킷을 생성할 때 원격 클러스터의 S3 SnapMirror 타겟으로 즉시 보호할 수 있습니다.
+
+.필요한 것
+* ONTAP 버전, 라이센스 및 S3 서버 구성에 대한 요구사항이 완료되었습니다.
+* 소스 클러스터와 대상 클러스터 간에 피어링 관계가 있으며, 소스 및 대상 스토리지 VM 간에 피어링 관계가 있습니다.
+* 소스 및 대상 VM에 CA 인증서가 필요합니다. 자체 서명된 CA 인증서 또는 외부 CA 공급업체에서 서명한 인증서를 사용할 수 있습니다.
+
+
+소스 시스템과 대상 시스템 모두에서 작업을 수행해야 합니다.
+
+
+
+== System Manager 절차
+
+. 이 스토리지 VM의 첫 번째 S3 SnapMirror 관계인 경우, 소스 및 대상 스토리지 VM 모두에 대해 루트 사용자 키가 있는지 확인하고 그렇지 않은 경우 다시 생성하십시오.
++
+.. 스토리지 > 스토리지 VM * 을 클릭한 다음 스토리지 VM을 선택합니다.
+.. 설정 * 탭에서 을 클릭합니다 image:icon_pencil.gif["편집 아이콘"] S3 * 타일에서.
+.. 사용자 * 탭에서 루트 사용자에 대한 액세스 키가 있는지 확인합니다.
+.. 없는 경우 을 클릭합니다 image:icon_kabob.gif["추가 아이콘"] 루트 * 옆에 있는 * 키 재생성 * 을 클릭합니다. 키가 이미 있는 경우 키를 다시 생성하지 마십시오.
+
+
+. 스토리지 VM을 편집하여 사용자를 추가하고 소스 및 대상 스토리지 VM 모두에서 사용자를 그룹에 추가하려면 다음을 수행합니다.
++
+스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 클릭한 다음 * 설정 * 을 클릭하고 을 클릭합니다 image:icon_pencil.gif["편집 아이콘"] S3 아래.
+
++
+을 참조하십시오 link:../task_object_provision_add_s3_users_groups.html["S3 사용자 및 그룹 추가"] 를 참조하십시오.
+
+. 기존 S3 SnapMirror 정책이 없고 기본 정책을 사용하지 않으려는 경우 소스 클러스터에서 S3 SnapMirror 정책을 생성합니다.
++
+.. 보호 > 개요 * 를 클릭한 다음 * 로컬 정책 설정 * 을 클릭합니다.
+.. 을 클릭합니다 image:../media/icon_arrow.gif["오른쪽 화살표"] 보호 정책 * 옆에 있는 * 추가 * 를 클릭합니다.
++
+*** 정책 이름과 설명을 입력합니다.
+*** 정책 범위, 클러스터 또는 SVM을 선택합니다
+*** S3 SnapMirror 관계에 대해 * Continuous * 를 선택합니다.
+*** 스로틀 * 및 * 복구 지점 목표 * 값을 입력합니다.
+
+
+
+
+. SnapMirror 보호를 통해 버킷 생성:
++
+.. 스토리지 > 버킷 * 을 클릭한 다음 * 추가 * 를 클릭합니다. 사용 권한 확인은 선택 사항이지만 사용하는 것이 좋습니다.
+.. 이름을 입력하고 스토리지 VM을 선택한 다음 크기를 입력한 다음 * 추가 옵션 * 을 클릭합니다.
+.. 사용 권한 * 에서 * 추가 * 를 클릭합니다.
++
+*** * Principal * 및 * Effect * - 사용자 그룹 설정에 해당하는 값을 선택하거나 기본값을 그대로 사용합니다.
+*** * Actions * - GetObject, PutObject, DeleteObject, ListBucket, GetBuckketAcl, GetObjectAcl, ListBuckketMultipartUploads, ListMultiPartUploadParts 등의 값이 표시되는지 확인합니다
+*** * 리소스 * - 기본값(_bucketname, bucketname_/ *) 또는 필요한 기타 값을 사용합니다.
++
+을 참조하십시오 link:../task_object_provision_manage_bucket_access.html["버킷에 대한 사용자 액세스를 관리합니다"] 이 필드에 대한 자세한 내용은 를 참조하십시오.
+
+
+
+.. 보호 * 에서 * SnapMirror(ONTAP 또는 클라우드) 활성화 * 를 선택합니다. 그런 다음 다음 다음 값을 입력합니다.
++
+*** 목적지
++
+**** * 대상: ONTAP 시스템 *
+**** * 클러스터 *: 원격 클러스터를 선택합니다.
+**** * 스토리지 VM *: 원격 클러스터에서 스토리지 VM을 선택합니다.
+**** * S3 서버 CA 인증서 *: _source_certificate의 내용을 복사하여 붙여 넣습니다.
+
+
+*** 출처
++
+**** * S3 서버 CA 인증서: * destination_certificate의 내용을 복사하여 붙여 넣습니다.
+
+
+
+
+
+
+
+
+외부 CA 공급업체에서 서명한 인증서를 사용하는 경우 * 대상에서 동일한 인증서 사용 * 을 선택합니다.
+
+Destination Settings * 를 클릭하면 버킷 이름, 용량 및 성능 서비스 레벨의 기본값 대신 사용자 정의 값을 입력할 수도 있습니다.
+
+Save * 를 클릭하면 소스 스토리지 VM에 새 버킷이 생성되고 대상 스토리지 VM이 생성된 새 버킷으로 미러링됩니다.
+
+
+
+== CLI 절차
+
+. 이 SVM에서 최초의 S3 SnapMirror 관계인 경우, 소스 및 타겟 SVM 모두에 대해 루트 사용자 키가 있는지 확인하고, 없을 경우 다시 생성하십시오.
++
+'vserver object-store-server user show'를 선택합니다
+
++
+루트 사용자에 대한 액세스 키가 있는지 확인합니다. 없는 경우 다음을 입력합니다.
+
++
+'vserver object-store-server user reenate-keys-vserver svm_name-user_root_'
+
++
+키가 이미 있는 경우 키를 다시 생성하지 마십시오.
+
+. 소스 및 타겟 SVM 모두에 버킷 생성:
++
+'vserver object-store-server bucket create-vserver svm_name-bucket bucket_name[-size_integer_[KB|MB|GB|TB|PB][-comment_text_][_additional_options_]'
+
+. 소스 및 타겟 SVM의 기본 버킷 정책에 액세스 규칙을 추가합니다.
++
+'vserver object-store-server bucket policy add-statement-vserver_svm_name_-bucket_bucket_name_-effect{allow|deny}-action_object_store_actions_-principal_user_and_group_names_-resource_object_store_resources_[-sid_text_][-index_integer_][-index_integer_
+
++
+.예
+[listing]
+----
+src_cluster::> vserver object-store-server bucket policy add-statement -bucket test-bucket -effect allow -action GetObject,PutObject,DeleteObject,ListBucket,GetBucketAcl,GetObjectAcl,ListBucketMultipartUploads,ListMultipartUploadParts -principal - -resource test-bucket, test-bucket /*
+----
+. 소스 SVM에서 기존 정책이 없는 경우 S3 SnapMirror 정책을 생성합니다. 기본 정책('스냅샷 미러 정책 생성 - vserver_svm_name_-policy policy_name - type continuous[-RPO_integer_][-throttle_throttle_type_][-comment_text_][_additional_options_])를 사용하지 않습니다
++
+매개 변수:
+
++
+** '연속'을 입력합니다. S3 SnapMirror 관계에 대한 정책 유형만 입력하면 됩니다(필수).
+** '-RPO' – 복구 시점 목표의 시간을 초 단위로 지정합니다(선택 사항).
+** '-throttle' – 처리량/대역폭의 상한값을 킬로바이트/초 단위로 지정합니다(선택 사항).
++
+.예
+[listing]
+----
+src_cluster::> snapmirror policy create -vserver vs0 -type continuous -rpo 0 -policy test-policy
+----
+
+
+. 소스 및 타겟 클러스터의 관리 SVM에 CA 서버 인증서 설치:
++
+.. 소스 클러스터에서 _destination_s3 서버 인증서에 서명한 CA 인증서를 설치합니다. '보안 인증서 설치 유형 server-ca-vserver_src_admin_svm_-cert-name_dest_server_certificate_'
+.. 대상 클러스터에서 _source_s3 서버 인증서에 서명한 CA 인증서를 설치합니다. '보안 인증서 설치 유형 server-ca-vserver_dest_admin_svm_-cert-name_src_server_certificate_'
++
+외부 CA 공급업체에서 서명한 인증서를 사용하는 경우, 소스 및 대상 관리 SVM에 동일한 인증서를 설치합니다.
+
++
+자세한 내용은 보안 인증서 설치 man 페이지를 참조하십시오.
+
+
+
+. 소스 SVM에서 S3 SnapMirror 관계를 생성합니다.
++
+'스냅미러 create-source-path_src_svm_name_:/bucket/_bucket_name_-destination-path_dest_peer_svm_name_:/bucket/_bucket_name_,...} [-policy policy_name]'입니다
+
++
+생성한 정책을 사용하거나 기본값을 사용할 수 있습니다.
+
++
+.예
+[listing]
+----
+src_cluster::> snapmirror create -source-path vs0-src:/bucket/test-bucket -destination-path vs1-dest:bucket/test-bucket-mirror -policy test-policy
+----
+. 미러링이 활성 상태인지 확인합니다. '스냅샷 표시 - 정책 유형 연속 필드 상태'
+

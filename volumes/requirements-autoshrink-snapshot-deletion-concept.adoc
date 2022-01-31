@@ -1,0 +1,19 @@
+---
+permalink: volumes/requirements-autoshrink-snapshot-deletion-concept.html 
+sidebar: sidebar 
+keywords: requirements, enabling, autoshrink, automatic, snapshot copy, deletion 
+summary: 자동 축소 기능은 특정 구성 요구사항이 충족되면 자동 스냅샷 복사본 삭제와 함께 사용할 수 있습니다. 
+---
+= 자동 축소와 자동 스냅샷 복사본 삭제를 둘 다 사용하기 위한 요구 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+자동 축소 기능은 특정 구성 요구사항이 충족되면 자동 스냅샷 복사본 삭제와 함께 사용할 수 있습니다.
+
+자동 축소 기능과 자동 스냅샷 복사본 삭제를 모두 사용하려면 구성이 다음 요구사항을 충족해야 합니다.
+
+* 스냅샷 복사본을 삭제하기 전에 볼륨 크기를 늘리도록 ONTAP를 구성해야 합니다('-space-mgmt-try-first' 옵션은 volume_grow'로 설정해야 함).
+* 자동 스냅샷 복사본 삭제 트리거는 볼륨 충만이어야 합니다('트리거' 매개 변수를 '볼륨'으로 설정해야 함).
+

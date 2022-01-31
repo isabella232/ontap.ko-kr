@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/failed-to-allocate-memory-reference.html 
+sidebar: sidebar 
+keywords: allocate, memory, failed, run, out 
+summary: 시스템의 메모리가 부족합니다. 
+---
+= 메모리를 할당하지 못했습니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+메모리를 할당하지 못했습니다
+
+* * 원인 *
++
+시스템의 메모리가 부족합니다.
+
+* * 시정 조치 *
++
+시스템 사용량이 너무 많으면 나중에 작업을 다시 시도하십시오.
+
+

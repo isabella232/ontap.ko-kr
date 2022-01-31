@@ -1,0 +1,96 @@
+---
+permalink: smb-admin/precompute-branchcache-hashes-specified-paths-task.html 
+sidebar: sidebar 
+keywords: configure, branchcache, service, pre-compute, hash, file, directory, structure, compute, branchcache-enabled share non-peak hours, pre-compute branchcache hashes on specified paths 
+summary: BranchCache 서비스를 구성하여 단일 파일, 디렉토리 또는 디렉토리 구조의 모든 파일에 대한 해시를 사전 계산할 수 있습니다. 이 방법은 사용량이 많지 않은 시간 동안 BranchCache 사용 공유의 데이터에 대한 해시를 계산할 때 유용합니다. 
+---
+= 지정된 경로에 대한 BranchCache 해시 사전 계산
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+BranchCache 서비스를 구성하여 단일 파일, 디렉토리 또는 디렉토리 구조의 모든 파일에 대한 해시를 사전 계산할 수 있습니다. 이 방법은 사용량이 많지 않은 시간 동안 BranchCache 사용 공유의 데이터에 대한 해시를 계산할 때 유용합니다.
+
+해시 통계를 표시하기 전에 데이터 샘플을 수집하려면 '통계 시작' 및 '통계 중지' 옵션 명령을 사용해야 합니다.
+
+* 사전 컴퓨팅 해시를 계산할 스토리지 가상 시스템(SVM)과 경로를 지정해야 합니다.
+* 또한 해시를 재귀적으로 계산할 것인지 여부를 지정해야 합니다.
+* 해시를 재귀적으로 계산하려는 경우 BranchCache 서비스는 지정된 경로 아래의 전체 디렉토리 트리를 탐색한 다음 각 대상 객체에 대한 해시를 계산합니다.
+
+
+.단계
+. 원하는 대로 사전 계산 해시:
++
+|===
+| 에서 해시를 사전 계산하려는 경우... | 명령 입력... 
+
+
+ a| 
+단일 파일 또는 디렉토리입니다
+ a| 
+'vserver cifs BranchCache hash-create-vserver vserver_name-path path-recurse false
+
+
+
+ a| 
+디렉토리 구조의 모든 파일에 반복적으로 존재합니다
+ a| 
+'vserver cifs BranchCache hash-create-vserver vserver_name-path absolute_path-recurse true'
+
+|===
+. '통계' 명령을 사용하여 해시가 계산되는지 확인합니다.
++
+.. 원하는 SVM 인스턴스에 대한 'hashd' 객체 통계 표시: 'stattisics show-object hashd-instance vserver_name'
+.. 명령을 반복하여 생성된 해시 수가 증가하는지 확인합니다.
+
+
+
+
+다음 예에서는 경로 '/data'와 SVM VS1 의 모든 포함된 파일 및 하위 디렉토리에 해시를 생성합니다.
+
+[listing]
+----
+cluster1::> vserver cifs branchcache hash-create -vserver vs1 -path /data -recurse true
+
+cluster1::> statistics show -object hashd -instance vs1
+Object: hashd
+Instance: vs1
+Start-time: 9/6/2012 19:09:54
+End-time: 9/6/2012 19:11:15
+Cluster: cluster1
+
+    Counter                                                     Value
+    -------------------------------- --------------------------------
+    branchcache_hash_created                                       85
+    branchcache_hash_files_replaced                                 0
+    branchcache_hash_rejected                                       0
+    branchcache_hash_store_bytes                                    0
+    branchcache_hash_store_size                                     0
+    instance_name                                                vs1
+    node_name                                                  node1
+    node_uuid
+                                11111111-1111-1111-1111-111111111111
+    process_name                                                   -
+
+cluster1::> statistics show -object hashd -instance vs1
+Object: hashd
+Instance: vs1
+Start-time: 9/6/2012 19:09:54
+End-time: 9/6/2012 19:11:15
+Cluster: cluster1
+
+    Counter                                                     Value
+    -------------------------------- --------------------------------
+    branchcache_hash_created                                       92
+    branchcache_hash_files_replaced                                 0
+    branchcache_hash_rejected                                       0
+    branchcache_hash_store_bytes                                    0
+    branchcache_hash_store_size                                     0
+    instance_name                                                vs1
+    node_name                                                  node1
+    node_uuid
+                                11111111-1111-1111-1111-111111111111
+    process_name                                                   -
+----
+link:../performance-config/index.html["성능 모니터링 설정"]

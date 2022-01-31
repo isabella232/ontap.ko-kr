@@ -1,0 +1,15 @@
+---
+permalink: volumes/volume-snapmirror-flexclone-files-luns-concept.html 
+sidebar: sidebar 
+keywords: how, volume, snapmirror, works, files, flexclone luns 
+summary: FlexClone 파일 및 FlexClone LUN과 함께 사용되는 volume SnapMirror는 클론 복제된 엔터티가 한 번만 복제되므로 공간 절약 효과를 유지하는 데 도움이 됩니다. 
+---
+= volume SnapMirror가 FlexClone 파일 및 FlexClone LUN과 작동하는 방식
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FlexClone 파일 및 FlexClone LUN과 함께 사용되는 volume SnapMirror는 클론 복제된 엔터티가 한 번만 복제되므로 공간 절약 효과를 유지하는 데 도움이 됩니다.
+
+FlexVol 볼륨이 volume SnapMirror 소스이고 FlexClone 파일 또는 FlexClone LUN이 포함된 경우 volume SnapMirror는 공유된 물리적 블록과 소량의 메타데이터만 볼륨 SnapMirror 타겟으로 전송합니다. 대상은 물리적 블록의 복사본을 하나만 저장하고 이 블록은 상위 엔티티와 클론 복제된 엔터티 간에 공유됩니다. 따라서 대상 볼륨은 소스 볼륨의 정확한 복제본이며 대상 볼륨의 모든 클론 파일 또는 LUN은 동일한 물리적 블록을 공유합니다.

@@ -1,0 +1,22 @@
+---
+section: object-storage-management
+title: S3 오브젝트 스토리지 관리
+url: "/object-storage-management/index.html"
+entries:
+- title: System Manager를 이용한 S3 구성
+  entries:
+  - title: 오브젝트 스토리지 개요
+    url: "/concept_object_provision_overview.html"
+  - title: S3 서버를 활성화합니다
+    url: "/task_object_provision_enable_s3_server.html"
+  - title: 버킷을 프로비저닝합니다
+    url: "/task_object_provision_buckets.html"
+  - title: S3 사용자 및 그룹 추가
+    url: "/task_object_provision_add_s3_users_groups.html"
+  - title: 버킷 액세스를 관리합니다
+    url: "/task_object_provision_manage_bucket_access.html"
+  - title: 스토리지 VM 액세스를 관리합니다
+    url: "/task_object_provision_manage_svm_access.html"
+- section: s3-config
+- section: s3-snapmirror
+- section: s3-audit

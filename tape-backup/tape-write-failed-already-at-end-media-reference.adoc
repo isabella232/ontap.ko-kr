@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/tape-write-failed-already-at-end-media-reference.html 
+sidebar: sidebar 
+keywords: tape, write, failed, new, end, media, space, backup 
+summary: 테이프에 공간이 부족하여 백업을 완료할 수 없습니다. 
+---
+= 테이프 쓰기 실패 - 새 테이프가 이미 미디어 끝에 있습니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+테이프 쓰기 실패 - 새 테이프가 이미 미디어 끝에 있습니다
+
+* * 원인 *
++
+테이프에 공간이 부족하여 백업을 완료할 수 없습니다.
+
+* * 시정 조치 *
++
+테이프를 교체하고 백업을 다시 시도하십시오.
+
+

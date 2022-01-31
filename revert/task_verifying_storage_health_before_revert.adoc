@@ -1,0 +1,67 @@
+---
+permalink: revert/task_verifying_storage_health_before_revert.html 
+sidebar: sidebar 
+keywords: ontap, revert, verify, verifying, storage, health, before, revert, reverting 
+summary: 클러스터를 업그레이드, 복원 또는 다운그레이드하기 전과 다운그레이드한 후에는 디스크, 애그리게이트 및 볼륨의 상태를 확인해야 합니다. 
+---
+= 되돌리기 전에 스토리지 상태를 확인하십시오
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클러스터를 되돌리거나 다운그레이드하기 전후에 디스크, 애그리게이트 및 볼륨의 상태를 확인해야 합니다.
+
+. 디스크 상태 확인:
++
+[cols="2*"]
+|===
+| 확인하려면... | 수행할 작업... 
+
+
+ a| 
+손상된 디스크
+ a| 
+.. 깨진 디스크를 표시합니다:'스토리지 디스크 표시 상태 파단'
+.. 손상된 디스크를 제거하거나 교체합니다.
+
+
+
+
+ a| 
+유지보수 또는 재구성이 진행 중인 디스크
+ a| 
+.. 유지 보수, 보류 중 또는 재구성 상태의 디스크를 표시합니다. 스토리지 디스크 상태 유지 관리
+
+
+
+
+| 보류 중 | 재구성 중... 유지보수 또는 재구성 작업이 완료될 때까지 기다린 후 계속 진행하십시오. 를 누릅니다 
+|===
+. 스토리지 Aggregate의 'Storage aggregate show-state! online'을 비롯한 물리적 스토리지와 논리적 스토리지의 상태를 표시하여 모든 애그리게이트가 온라인 상태인지 확인합니다
++
+이 명령은 _not_online 인 애그리게이트를 표시합니다. 모든 애그리게이트는 주요 리버전을 수행하기 전과 후에 온라인 상태여야 합니다.
+
++
+[listing]
+----
+cluster1::> storage aggregate show -state !online
+There are no entries matching your query.
+----
+. "volume show-state! online"이라는 볼륨을 표시하여 모든 볼륨이 온라인 상태인지 확인합니다
++
+모든 볼륨은 주요 재버전을 수행하기 전과 후에 온라인 상태여야 합니다.
+
++
+[listing]
+----
+cluster1::> volume show -state !online
+There are no entries matching your query.
+----
+. '볼륨 표시 - 불일치 true'라는 일관성 없는 볼륨이 없는지 확인합니다
++
+일관되지 않은 볼륨이 반환되는 경우 먼저 NetApp Support에 문의해야 합니다.
+
+
+
+link:../disks-aggregates/index.html["디스크 및 애그리게이트 관리"]

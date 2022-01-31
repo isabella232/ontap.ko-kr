@@ -1,0 +1,17 @@
+---
+permalink: tape-backup/dump-volume-access-type-changes-concept.html 
+sidebar: sidebar 
+keywords: snapmirror, snapvault, secondary, volume, access, type, change, baseline, tape, backup 
+summary: SnapMirror 대상 볼륨 또는 SnapVault 보조 볼륨의 상태가 읽기/쓰기에서 읽기 전용으로 또는 읽기 전용에서 읽기/쓰기로 변경되면 기본 테이프 백업 또는 복원 작업을 수행해야 합니다. 
+---
+= 볼륨 액세스 유형이 변경될 때 덤프가 작동하는 방식
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapMirror 대상 볼륨 또는 SnapVault 보조 볼륨의 상태가 읽기/쓰기에서 읽기 전용으로 또는 읽기 전용에서 읽기/쓰기로 변경되면 기본 테이프 백업 또는 복원 작업을 수행해야 합니다.
+
+SnapMirror 타겟 및 SnapVault 보조 볼륨은 읽기 전용 볼륨입니다. 이러한 볼륨에 대해 테이프 백업 및 복원 작업을 수행할 경우 볼륨이 읽기 전용에서 읽기/쓰기 또는 읽기/쓰기에서 읽기 전용으로 상태가 변경될 때마다 기본 백업 또는 복원 작업을 수행해야 합니다.
+
+link:../concepts/index.html["ONTAP 개념"]

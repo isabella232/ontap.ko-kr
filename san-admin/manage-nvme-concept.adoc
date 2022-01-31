@@ -1,0 +1,17 @@
+---
+permalink: san-admin/manage-nvme-concept.html 
+sidebar: sidebar 
+keywords: manage, nvme 
+summary: ONTAP 9.4부터는 NVMe/FC가 지원됩니다. ONTAP 9.5부터 NVMe를 지원하려면 라이센스가 필요합니다. ONTAP 9.4에서 NVMe를 사용하는 경우 ONTAP 9.5로 업그레이드한 후 라이센스를 취득하기 위한 90일 유예 기간이 제공됩니다. 
+---
+= NVMe 관리
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.4부터는 NVMe/FC가 지원됩니다. ONTAP 9.5부터 NVMe를 지원하려면 라이센스가 필요합니다. ONTAP 9.4에서 NVMe를 사용하는 경우 ONTAP 9.5로 업그레이드한 후 라이센스를 취득하기 위한 90일 유예 기간이 제공됩니다.
+
+다음 명령을 사용하여 라이센스를 설정할 수 있습니다.
+
+'System license add-license-code_NVMe_license_key_'

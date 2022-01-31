@@ -1,0 +1,51 @@
+---
+permalink: smb-hyper-v-sql/remote-vss-concepts-concept.html 
+sidebar: sidebar 
+keywords: remove, vss, concepts, volume, shadow, copy, service, hyper, v, smb, configuration 
+summary: 'SMB를 통한 Hyper-V 구성의 백업 서비스에서 원격 VSS(Volume Shadow Copy Service)를 사용하는 방법을 이해하는 데 필요한 특정 개념을 이해해야 합니다.' 
+---
+= 원격 VSS 개념
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMB를 통한 Hyper-V 구성의 백업 서비스에서 원격 VSS(Volume Shadow Copy Service)를 사용하는 방법을 이해하는 데 필요한 특정 개념을 이해해야 합니다.
+
+* * VSS(Volume Shadow Copy Service) *
++
+특정 시점에 특정 볼륨에 있는 데이터의 백업 복사본 또는 스냅샷을 생성하는 데 사용되는 Microsoft 기술입니다. VSS는 데이터 서버, 백업 애플리케이션 및 스토리지 관리 소프트웨어 사이에서 조정을 수행하여 일관된 백업의 생성 및 관리를 지원합니다.
+
+* * 원격 VSS(원격 볼륨 섀도 복사본 서비스) *
++
+SMB 3.0 공유를 통해 데이터에 액세스할 수 있는 특정 시점의 데이터 정합성 보장 상태에 있는 데이터의 공유 기반 백업 복사본을 생성하는 데 사용되는 Microsoft 기술입니다. 볼륨 섀도 복사본 서비스 _ 라고도 합니다.
+
+* * 섀도 복사본 *
++
+공유에 포함된 중복 데이터 집합을 적절하게 정의된 즉시 사용합니다. 섀도우 복제본은 데이터의 일관된 시점 백업을 생성하는 데 사용되므로 시스템이나 애플리케이션에서 원래 볼륨의 데이터를 계속 업데이트할 수 있습니다.
+
+* * 섀도 복사본 세트 *
++
+한 공유에 해당하는 각 섀도 복사본을 포함하는 하나 이상의 섀도 복사본 모음입니다. 섀도우 복제본 세트 내의 섀도우 복제본은 동일한 작업에서 백업해야 하는 모든 공유를 나타냅니다. VSS 지원 애플리케이션의 VSS 클라이언트는 세트에 포함할 섀도우 복제본을 식별합니다.
+
+* * 섀도우 복제본 세트 자동 복구 *
++
+섀도우 복제본이 포함된 복제본 디렉토리가 시점 정합성이 보장되는 원격 VSS 지원 백업 애플리케이션에 대한 백업 프로세스의 일부입니다. 백업을 시작할 때 애플리케이션의 VSS 클라이언트는 백업 예약된 데이터(Hyper-V의 경우 가상 머신 파일)에서 소프트웨어 체크포인트를 생성하도록 애플리케이션을 트리거합니다. 그러면 VSS 클라이언트가 응용 프로그램을 계속할 수 있습니다. 섀도우 복제본 세트가 생성된 후 원격 VSS는 섀도우 복제본 세트를 쓰기 가능하게 만들고 쓰기 가능한 복제본을 애플리케이션에 노출합니다. 애플리케이션은 앞서 생성한 소프트웨어 체크포인트를 사용하여 자동 복구를 수행하여 섀도우 복제본 세트를 백업할 준비를 합니다. 자동 복구는 체크포인트가 생성된 이후 파일 및 디렉토리의 변경 사항을 언롤링함으로써 섀도우 복제본을 정합성 보장 상태로 만듭니다. 자동 복구는 VSS 지원 백업을 위한 선택적 단계입니다.
+
+* * 섀도 복사본 ID *
++
+섀도우 복제본을 고유하게 식별하는 GUID입니다.
+
+* * 섀도 복사본 세트 ID *
++
+동일한 서버에 대한 섀도우 복제본 ID의 컬렉션을 고유하게 식별하는 GUID입니다.
+
+* * Hyper-V * 용 SnapManager
++
+Microsoft Windows Server 2012 Hyper-V의 백업 및 복원 작업을 자동화하고 단순화하는 소프트웨어입니다 SnapManager for Hyper-V는 원격 VSS와 자동 복구를 사용하여 SMB 공유를 통해 Hyper-V 파일을 백업합니다.
+
+
+
+xref:nondisruptive-operations-glossary-concept.adoc[SMB를 통한 Hyper-V 및 SQL Server의 무중단 운영에 대한 주요 개념입니다]
+
+xref:share-based-backups-remote-vss-concept.adoc[원격 VSS와 공유 기반 백업]

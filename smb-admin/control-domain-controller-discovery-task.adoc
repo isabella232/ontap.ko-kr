@@ -1,0 +1,50 @@
+---
+permalink: smb-admin/control-domain-controller-discovery-task.html 
+sidebar: sidebar 
+keywords: ontap, modify, default, process, domain, controller, dc, enable, limit, site, pool, performance, improvement, environment, manage, manage domain controller discovery 
+summary: 'ONTAP 9.3부터는 DC(도메인 컨트롤러)가 검색되는 기본 프로세스를 수정할 수 있습니다. 이렇게 하면 사이트 또는 기본 DC 풀로 검색을 제한할 수 있으며, 이는 환경에 따라 성능 개선을 초래할 수 있습니다.' 
+---
+= 도메인 컨트롤러 검색을 관리합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.3부터는 DC(도메인 컨트롤러)가 검색되는 기본 프로세스를 수정할 수 있습니다. 이렇게 하면 사이트 또는 기본 DC 풀로 검색을 제한할 수 있으며, 이는 환경에 따라 성능 개선을 초래할 수 있습니다.
+
+기본적으로 동적 검색 프로세스는 기본 DC, 로컬 사이트의 모든 DC 및 모든 원격 DC를 포함하여 사용 가능한 모든 DC를 검색합니다. 이 구성을 사용하면 특정 환경에서 인증 및 공유 액세스에 지연 시간이 발생할 수 있습니다. 사용하려는 DC 풀을 이미 결정했거나 원격 DC가 부적절하거나 액세스할 수 없는 경우 검색 방법을 변경할 수 있습니다.
+
+ONTAP 9.3 이상 릴리즈에서는 "cifs domain discovered-servers" 명령의 discovery-mode 매개 변수를 사용하여 다음 검색 옵션 중 하나를 선택할 수 있습니다.
+
+* 도메인의 모든 DC가 검색됩니다.
+* 로컬 사이트의 DC만 검색됩니다.
++
+이 모드를 사용하려면 SMB 서버의 'default-site' 매개 변수를 정의해야 합니다.
+
+* 서버 검색은 수행되지 않으며, SMB 서버 구성은 기본 DC에만 의존합니다.
++
+이 모드를 사용하려면 먼저 SMB 서버의 기본 DC를 정의해야 합니다.
+
+
+
+.단계
+. 원하는 검색 옵션을 지정합니다. 'vserver cifs domain discovered-servers discovery-mode modify -vserver_vserver_name_-mode{all|site|none}'
++
+'모드' 파라미터 옵션:
+
++
+** 모두
++
+사용 가능한 모든 DC를 검색합니다(기본값).
+
+** '사이트'입니다
++
+사이트에 대한 DC 검색을 제한합니다.
+
+** "없음"
++
+검색을 수행하지 않고 기본 DC만 사용하십시오.
+
+
+
+

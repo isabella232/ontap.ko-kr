@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/smtape-engine-concept.html 
+sidebar: sidebar 
+keywords: smtape, disaster, recovery, solution, blocks, data, tape, qtree, subtree, volume, license, baseline, differential, incremental, backup 
+summary: SMTape는 데이터 블록을 테이프로 백업하는 ONTAP의 재해 복구 솔루션입니다. SMTape를 사용하여 테이프에 볼륨 백업을 수행할 수 있습니다. 그러나 qtree 또는 하위 트리 레벨에서 백업을 수행할 수 없습니다. SMTape는 기본 백업, 차등 백업 및 증분 백업을 지원합니다. SMTape에는 라이센스가 필요하지 않습니다. 
+---
+= FlexVol 볼륨용 SMTape 엔진 정보
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMTape는 데이터 블록을 테이프로 백업하는 ONTAP의 재해 복구 솔루션입니다. SMTape를 사용하여 테이프에 볼륨 백업을 수행할 수 있습니다. 그러나 qtree 또는 하위 트리 레벨에서 백업을 수행할 수 없습니다. SMTape는 기본 백업, 차등 백업 및 증분 백업을 지원합니다. SMTape에는 라이센스가 필요하지 않습니다.
+
+NDMP 호환 백업 애플리케이션을 사용하여 SMTape 백업 및 복구 작업을 수행할 수 있습니다. SMTape를 선택하면 스토리지 가상 시스템(SVM) 범위 NDMP 모드에서만 백업 및 복원 작업을 수행할 수 있습니다.
+
+[NOTE]
+====
+SMTape 백업 또는 복구 세션이 진행 중일 때는 되돌리기 프로세스가 지원되지 않습니다. 세션이 완료될 때까지 기다리거나 NDMP 세션을 중단해야 합니다.
+
+====
+SMTape를 사용하여 255개의 스냅샷 복사본을 백업할 수 있습니다. 이후의 기본, 증분 또는 차등 백업에서는 이전의 백업된 스냅샷 복사본을 삭제해야 합니다.
+
+기준 복원을 수행하기 전에 데이터가 복원되는 볼륨은 DP 유형이어야 하며 이 볼륨은 제한된 상태여야 합니다. 성공적으로 복구되면 이 볼륨이 자동으로 온라인 상태가 됩니다. 백업을 수행한 순서대로 이 볼륨에 대해 이후의 증분 또는 차등 복원을 수행할 수 있습니다.

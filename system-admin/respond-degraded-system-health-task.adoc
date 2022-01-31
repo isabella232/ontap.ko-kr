@@ -1,0 +1,33 @@
+---
+permalink: system-admin/respond-degraded-system-health-task.html 
+sidebar: sidebar 
+keywords: respond, degraded, system, health, status, show, alerts, corrective, probable, cause 
+summary: 시스템 상태가 저하되면 경고를 표시하고, 가능한 원인 및 수정 조치를 읽고, 저하된 하위 시스템에 대한 정보를 표시하고, 문제를 해결할 수 있습니다. 억제된 알림도 표시되어 이를 수정하고 확인되었는지 확인할 수 있습니다. 
+---
+= 저하된 시스템 상태에 응답합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+시스템 상태가 성능 저하 상태일 때 경고를 표시하고 가능한 원인 및 수정 조치를 읽으면서 저하된 서브시스템에 대한 정보를 표시하고 문제를 해결할 수 있습니다. 억제된 알림도 표시되어 이를 수정하고 확인되었는지 확인할 수 있습니다.
+
+AutoSupport 메시지 또는 EMS 이벤트를 보거나 '시스템 상태' 명령을 사용하여 알림이 생성되었는지 확인할 수 있습니다.
+
+.단계
+. 'system health alert show' 명령을 사용하면 시스템 상태를 훼손하는 경고를 볼 수 있습니다.
+. 경고의 가능한 원인, 가능한 영향 및 수정 조치를 읽고 문제를 해결할 수 있는지 또는 추가 정보가 필요한지 확인하십시오.
+. 자세한 정보가 필요하면 'system health alert show-instance' 명령을 사용하여 경고에 사용할 수 있는 추가 정보를 확인하십시오.
+. '-ACKNOWLEDGE' 매개 변수와 함께 'system health alert modify' 명령을 사용하여 특정 경고를 작업 중임을 나타냅니다.
+. 경고의 "수정 조치" 필드에 설명된 대로 문제를 해결하기 위해 수정 조치를 취합니다.
++
+수정 조치에는 시스템 재부팅이 포함될 수 있습니다.
+
++
+문제가 해결되면 경고가 자동으로 지워집니다. 하위 시스템에 다른 경고가 없으면 하위 시스템의 상태가 'OK'로 바뀝니다. 모든 서브시스템의 상태가 정상이면 전체 시스템 상태가 정상(OK)으로 바뀝니다.
+
+. 'system status show' 명령을 사용하여 시스템 상태가 'OK'인지 확인합니다.
++
+시스템 상태가 '정상'이 아닌 경우 이 절차를 반복합니다.
+
+

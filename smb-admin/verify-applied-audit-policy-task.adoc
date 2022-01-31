@@ -1,0 +1,50 @@
+---
+permalink: smb-admin/verify-applied-audit-policy-task.html 
+sidebar: sidebar 
+keywords: verify, audit, policy, confirm, file, folder, storage, virtual, machine, svm, applied, apply, security, desire, verify the applied audit policy 
+summary: '감사 정책을 확인하여 보안 정책을 적용한 SVM(스토리지 가상 시스템)의 파일 또는 폴더에 원하는 감사 보안 설정이 있는지 확인할 수 있습니다.' 
+---
+= 적용된 감사 정책을 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+감사 정책을 확인하여 보안 정책을 적용한 SVM(스토리지 가상 시스템)의 파일 또는 폴더에 원하는 감사 보안 설정이 있는지 확인할 수 있습니다.
+
+'vserver security file-directory show' 명령을 사용하여 감사 정책 정보를 표시합니다. 표시할 파일 또는 폴더 감사 정책 정보를 가진 데이터의 경로와 데이터가 들어 있는 SVM의 이름을 제공해야 합니다.
+
+.단계
+. 감사 정책 설정 표시: 'vserver security file-directory show -vserver_vserver_name_-path_path_'
+
+
+다음 명령을 실행하면 SVM VS1 경로의 ""/Corp" 경로에 적용된 감사 정책 정보가 표시됩니다. 경로에 성공 및 성공/실패 SACL 항목이 모두 적용됩니다.
+
+[listing]
+----
+cluster::> vserver security file-directory show -vserver vs1 -path /corp
+
+                Vserver: vs1
+              File Path: /corp
+         Security Style: ntfs
+        Effective Style: ntfs
+         DOS Attributes: 10
+ DOS Attributes in Text: ----D---
+Expanded Dos Attributes: -
+           Unix User Id: 0
+          Unix Group Id: 0
+         Unix Mode Bits: 777
+ Unix Mode Bits in Text: rwxrwxrwx
+                   ACLs: NTFS Security Descriptor
+                         Control:0x8014
+                         Owner:DOMAIN\Administrator
+                         Group:BUILTIN\Administrators
+                         SACL - ACEs
+                           ALL-DOMAIN\Administrator-0x100081-OI|CI|SA|FA
+                           SUCCESSFUL-DOMAIN\user1-0x100116-OI|CI|SA
+                         DACL - ACEs
+                           ALLOW-BUILTIN\Administrators-0x1f01ff-OI|CI
+                           ALLOW-BUILTIN\Users-0x1f01ff-OI|CI
+                           ALLOW-CREATOR OWNER-0x1f01ff-OI|CI
+                           ALLOW-NT AUTHORITY\SYSTEM-0x1f01ff-OI|CI
+----

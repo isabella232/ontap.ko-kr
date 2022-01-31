@@ -1,0 +1,37 @@
+---
+permalink: disks-aggregates/add-storage-ssd-pool-task.html 
+sidebar: sidebar 
+keywords: add, ssd, storage, tool 
+summary: 'SSD(Solid State Drive)를 SSD 스토리지 풀에 추가하면 스토리지 풀의 물리적 크기 및 사용 가능한 크기와 할당 유닛 크기가 증가합니다. 더 큰 할당 유닛 크기는 Flash Pool 애그리게이트에 이미 할당된 할당 유닛에도 영향을 미칩니다.' 
+---
+= SSD 스토리지 풀에 SSD를 추가합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SSD(Solid State Drive)를 SSD 스토리지 풀에 추가하면 스토리지 풀의 물리적 크기 및 사용 가능한 크기와 할당 유닛 크기가 증가합니다. 더 큰 할당 유닛 크기는 Flash Pool 애그리게이트에 이미 할당된 할당 유닛에도 영향을 미칩니다.
+
+이 작업으로 인해 HA 쌍의 캐시 제한이 초과되지 않는지 확인해야 합니다. ONTAP에서는 SSD 스토리지 풀에 SSD를 추가할 때 캐시 한도를 초과하지 않도록 방지할 수 없으며 그렇게 할 경우 새로 추가된 스토리지 용량을 사용할 수 없게 될 수 있습니다.
+
+기존 SSD 스토리지 풀에 SSD를 추가할 경우, SSD는 스토리지 풀에서 기존 SSD를 소유한 동일한 HA 쌍 중 하나 또는 둘 다 소유해야 합니다. HA Pair의 노드 중 하나에서 소유하는 SSD를 추가할 수 있습니다.
+
+스토리지 풀에 추가하는 SSD의 크기는 스토리지 풀에서 현재 사용되는 디스크와 같아야 합니다.
+
+.단계
+. * 선택 사항: * 스토리지 풀에 대한 현재 할당 유닛 크기 및 사용 가능한 스토리지를 봅니다.
++
+'storage pool show -instance_sp_name_'
+
+. 사용 가능한 SSD 찾기:
++
+'스토리지 디스크 표시 - 컨테이너형 스페어형 SSD'
+
+. 스토리지 풀에 SSD를 추가합니다.
++
+스토리지 풀 add-storage-pool sp_name-disk-list_disk1, disk2…_
+
++
+이 작업을 수행하면 시스템에서 어떤 Flash Pool 애그리게이트의 크기가 증가하게 되며, 이에 따라 작업을 확인하라는 메시지가 표시됩니다.
+
+

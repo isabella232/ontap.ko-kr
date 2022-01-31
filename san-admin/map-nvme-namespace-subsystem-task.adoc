@@ -1,0 +1,39 @@
+---
+permalink: san-admin/map-nvme-namespace-subsystem-task.html 
+sidebar: sidebar 
+keywords: map, nvme, namespace, subsystem 
+summary: NVMe를 사용할 때는 네임스페이스를 하위 시스템에 매핑해야 합니다. 
+---
+= NVMe 네임스페이스를 하위 시스템에 매핑합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NVMe를 사용할 때는 네임스페이스를 하위 시스템에 매핑해야 합니다.
+
+.무엇을 &#8217;필요로 할거야
+* NVMe를 위해 SVM을 구성해야 합니다.
+* NVMe 네임스페이스 및 서브시스템을 만들어야 합니다.
+
+
+네임스페이스는 단일 하위 시스템에만 매핑할 수 있습니다.
+
+.단계
+. 호스트에서 NQN을 가져옵니다.
+. 호스트 NQN을 하위 시스템에 추가합니다.
++
+"vserver NVMe 하위 시스템 호스트 add -vserver_SVM_name_-subsystem_subsystem_name_-host-nqn_Host_NQN_:subsystem._subsystem_name_"
+
+. 네임스페이스를 하위 시스템에 매핑합니다.
++
+'vserver NVMe 하위 시스템 맵 add -vserver_SVM_name_-subsystem_subsystem_name_-path_path_'
+
+. 네임스페이스가 하위 시스템에 매핑되어 있는지 확인합니다.
++
+'vserver NVMe namespace show -vserver_SVM_name_-instance'
+
++
+하위 시스템은 연결된 하위 시스템으로 나열되어야 합니다.
+
+

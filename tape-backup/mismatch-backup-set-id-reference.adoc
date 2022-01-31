@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/mismatch-backup-set-id-reference.html 
+sidebar: sidebar 
+keywords: mismatch, backup, set, id, tap, restore, operation 
+summary: 테이프 변경 중에 로드된 테이프는 백업 세트의 일부가 아닙니다. 
+---
+= 백업 세트 ID가 일치하지 않습니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+백업 세트 ID의 mismatch
+
+* * 원인 *
++
+테이프 변경 중에 로드된 테이프는 백업 세트의 일부가 아닙니다.
+
+* * 시정 조치 *
++
+올바른 테이프를 로드하고 작업을 재시도하십시오.
+
+

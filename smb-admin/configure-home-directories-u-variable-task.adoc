@@ -1,0 +1,136 @@
+---
+permalink: smb-admin/configure-home-directories-u-variable-task.html 
+sidebar: sidebar 
+keywords: 'create, home, directory, configuration, designate, share, name, variable, user, windows, dynamic, configure, configure home directories using the %u variable' 
+summary: '%w 변수를 사용하여 공유 이름을 지정하는 홈 디렉토리 구성을 생성할 수 있지만 %u 변수를 사용하여 홈 디렉토리 공유의 상대 경로를 지정할 수 있습니다. 그런 다음 사용자는 홈 디렉토리의 실제 이름 또는 경로를 인식하지 않고 Windows 사용자 이름을 사용하여 생성된 동적 공유를 사용하여 홈 공유에 연결할 수 있습니다.' 
+---
+= %u 변수를 사용하여 홈 디렉토리를 구성하십시오
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'%w' 변수를 사용하여 공유 이름을 지정하는 홈 디렉토리 구성을 만들 수 있지만 '%u' 변수를 사용하여 홈 디렉토리 공유의 상대 경로를 지정할 수 있습니다. 그런 다음 사용자는 홈 디렉토리의 실제 이름 또는 경로를 인식하지 않고 Windows 사용자 이름을 사용하여 생성된 동적 공유를 사용하여 홈 공유에 연결할 수 있습니다.
+
+.단계
+. 사용자의 홈 디렉토리를 포함할 qtree를 생성합니다: 'volume qtree create-vserver vserver_name-qtree-path qtree_path'
+. qtree가 올바른 보안 유형인 'volume qtree show'를 사용하는지 확인합니다
+. Qtree에서 원하는 보안 스타일을 사용하지 않는 경우 'volume qtree security' 명령을 사용하여 보안 스타일을 변경하십시오.
+. 홈 디렉토리 공유 추가: "+vserver cifs share create-vserver vserver-share-name%w-path%u-share-properties homed디렉토리,...]+"
++
+'-vserver''vserver'는 검색 경로를 추가할 SVM(CIFS 지원 스토리지 가상 머신)을 지정합니다.
+
++
+'-share-name '%w'는 홈 디렉토리 공유 이름을 지정합니다. 공유 이름은 각 사용자가 홈 디렉토리에 접속하고 _windows_user_name_ 형식으로 작성될 때 동적으로 생성됩니다.
+
++
+[NOTE]
+====
+'-share-name' 옵션에도 '%u' 변수를 사용할 수 있습니다. 이렇게 하면 매핑된 UNIX 사용자 이름을 사용하는 상대 공유 경로가 생성됩니다.
+
+====
++
+'-path '%u'는 홈 디렉토리의 상대 경로를 지정합니다. 상대 경로는 각 사용자가 홈 디렉토리에 접속하고 _Mapped_UNIX_USER_NAME_ 형식으로 작성될 때 동적으로 생성됩니다.
+
++
+[NOTE]
+====
+이 옵션의 값에는 정적 요소도 포함될 수 있습니다. 예: 'ENG/%u'.
+
+====
++
+'-share-properties' + homed디렉토리 \[,...\]+'는 해당 공유의 공유 속성을 지정합니다. homedir 값을 지정해야 합니다. 쉼표로 구분된 목록을 사용하여 추가 공유 속성을 지정할 수 있습니다.
+
+. 'vserver cifs share show' 명령을 사용하여 공유에 원하는 구성이 있는지 확인합니다.
+. 홈 디렉토리 검색 경로 'vserver cifs home-directory search-path add-vserver vserver-path path path' 추가
++
+'-vserver''vserver'는 검색 경로를 추가할 CIFS 지원 SVM을 지정합니다.
+
++
+path는 검색경로에 대한 절대 디렉토리 경로를 지정합니다.
+
+. 'vserver cifs home-directory search-path show' 명령을 사용하여 검색 경로를 성공적으로 추가했는지 확인합니다.
+. UNIX 사용자가 없으면 'vserver services UNIX -user create' 명령을 사용하여 UNIX 사용자를 생성합니다.
++
+[NOTE]
+====
+사용자를 매핑하기 전에 Windows 사용자 이름을 매핑할 UNIX 사용자 이름이 있어야 합니다.
+
+====
+. "vserver name-mapping create -vserver vserver_name -direction win -unix -priority integer -pattern windows_user_name -replacement unix_user_name" 명령을 사용하여 UNIX 사용자에 대한 Windows 사용자의 이름 매핑을 생성합니다
++
+[NOTE]
+====
+Windows 사용자를 UNIX 사용자에게 매핑하는 이름 매핑이 이미 있는 경우 매핑 단계를 수행할 필요가 없습니다.
+
+====
++
+Windows 사용자 이름이 해당 UNIX 사용자 이름으로 매핑됩니다. Windows 사용자가 홈 디렉토리 공유에 접속하면 디렉토리 이름이 UNIX 사용자 이름과 일치한다는 것을 인식하지 않고 동적으로 생성된 홈 디렉토리에 Windows 사용자 이름에 해당하는 공유 이름을 연결합니다.
+
+. 홈 디렉토리가 있는 사용자의 경우 홈 디렉토리를 포함하도록 지정된 qtree 또는 볼륨에 해당 디렉토리를 생성합니다.
++
+예를 들어, 생성하려는 디렉토리가 ""unixuser1""인 사용자의 매핑된 UNIX 사용자 이름과 함께 "/vol/vol1/users" 경로를 사용하여 qtree를 생성한 경우 "/vol/vol1/users/unixuser1" 경로를 사용하여 디렉토리를 생성할 수 있습니다.
+
++
+/home1 에 마운트된 ""home1" 볼륨을 생성한 경우 "/home1/unixuser1" 경로를 사용하여 디렉토리를 생성합니다.
+
+. 드라이브를 매핑하거나 UNC 경로를 사용하여 연결하여 사용자가 홈 공유에 성공적으로 연결할 수 있는지 확인합니다.
++
+예를 들어, 사용자 mydomain\user1이 UNIX 사용자 unixuser1에 매핑되고 SVM VS1에 있는 10단계에서 생성한 디렉토리에 연결하려는 경우 user1은 UNC 경로 "\\VS1\user1"을 사용하여 연결됩니다.
+
+
+
+다음 예제의 명령은 다음과 같은 설정으로 홈 디렉토리 구성을 만듭니다.
+
+* 공유 이름은 %W입니다
+* 상대 홈 디렉토리 경로는 %u입니다
+* 홈 디렉토리 /home1 을 포함하는 데 사용되는 검색 경로는 UNIX 보안 스타일로 구성된 볼륨입니다.
+* SVM VS1 에서 구성이 생성됩니다.
+
+
+사용자가 Windows 호스트 또는 Windows 및 UNIX 호스트 모두에서 홈 디렉토리에 액세스할 때 이 유형의 홈 디렉토리 구성을 사용할 수 있으며 파일 시스템 관리자는 UNIX 기반 사용자 및 그룹을 사용하여 파일 시스템에 대한 액세스를 제어할 수 있습니다.
+
+[listing]
+----
+cluster::> vserver cifs share create -vserver vs1 -share-name %w -path %u ‑share-properties oplocks,browsable,changenotify,homedirectory
+
+cluster::> vserver cifs share show -vserver vs1 -share-name %u
+
+                      Vserver: vs1
+                        Share: %w
+     CIFS Server NetBIOS Name: VS1
+                         Path: %u
+             Share Properties: oplocks
+                               browsable
+                               changenotify
+                               homedirectory
+           Symlink Properties: enable
+      File Mode Creation Mask: -
+ Directory Mode Creation Mask: -
+                Share Comment: -
+                    Share ACL: Everyone / Full Control
+File Attribute Cache Lifetime: -
+                  Volume Name: -
+                Offline Files: manual
+Vscan File-Operations Profile: standard
+
+cluster::> vserver cifs home-directory search-path add -vserver vs1 ‑path /home1
+
+cluster::> vserver cifs home-directory search-path show -vserver vs1
+Vserver     Position Path
+----------- -------- -----------------
+vs1         1        /home1
+
+cluster::> vserver name-mapping create -vserver vs1 -direction win-unix ‑position 5 -pattern user1 -replacement unixuser1
+
+cluster::> vserver name-mapping show -pattern user1
+Vserver        Direction Position
+-------------- --------- --------
+vs1            win-unix  5        Pattern: user1
+                              Replacement: unixuser1
+----
+xref:create-home-directory-config-w-d-variables-task.adoc[%w 및 %d 변수를 사용하여 홈 디렉토리 설정을 작성합니다]
+
+xref:home-directory-config-concept.adoc[추가 홈 디렉토리 구성]
+
+xref:display-user-home-directory-path-task.adoc[SMB 사용자의 홈 디렉토리 경로에 대한 정보 표시]

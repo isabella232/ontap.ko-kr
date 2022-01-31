@@ -1,0 +1,81 @@
+---
+permalink: s3-config/create-svm-s3-task.html 
+sidebar: sidebar 
+keywords: create, svm, s3 
+summary: S3는 SVM에서 다른 프로토콜과 공존할 수 있지만, 네임스페이스와 워크로드를 격리하기 위해 새 SVM을 생성할 수 있습니다. 
+---
+= S3를 위해 SVM을 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+S3는 SVM에서 다른 프로토콜과 공존할 수 있지만, 네임스페이스와 워크로드를 격리하기 위해 새 SVM을 생성할 수 있습니다.
+
+이 SVM에서 S3 오브젝트 스토리지만 제공하는 경우 S3 서버는 DNS 구성이 필요하지 않습니다. 그러나 다른 프로토콜을 사용하는 경우 SVM에서 DNS를 구성할 수 있습니다.
+
+.단계
+. S3 라이센스가 클러스터에서 라이센스되었는지 확인합니다.
++
+'System license show-package s3'을 선택합니다
+
++
+그렇지 않은 경우 영업 담당자에게 문의하십시오.
+
+. SVM 생성:
++
+'vserver create-vserver svm_name-rootvolume root_volume_name-aggregate aggregate_name-rootvolume-security-style UNIX-language C. UTF-8-IPSpace IPSpace_name'을 선택합니다
+
++
+** '-rootvolume-security-style' 옵션에 UNIX 설정을 사용합니다.
+** 기본 C. UTF-8 '-language' 옵션을 사용합니다.
+** IPSpace 설정은 선택 사항입니다.
+
+
+. 새로 생성한 SVM의 구성 및 상태 확인:
++
+'vserver show-vserver svm_name'을 선택합니다
+
++
+'Vserver 작동 상태' 필드에는 '실행 중' 상태가 표시되어야 합니다. 초기화 중 상태가 표시되는 경우 루트 볼륨 생성 등 일부 중간 작업이 실패한 것으로, SVM을 삭제하고 다시 생성해야 합니다.
+
+
+
+다음 명령은 IPspace에서 데이터 액세스를 위한 SVM을 생성합니다. spaceba:
+
+[listing]
+----
+cluster-1::> vserver create -vserver svm1.example.com -rootvolume root_svm1 -aggregate aggr1 -rootvolume-security-style unix -language C.UTF-8 -ipspace ipspaceA
+
+[Job 2059] Job succeeded:
+Vserver creation completed
+----
+다음 명령을 실행하면 루트 볼륨 1GB 단위로 SVM이 생성되고 자동으로 시작되어 '실행 중' 상태에 있음을 알 수 있습니다. 루트 볼륨에는 규칙을 포함하지 않는 기본 엑스포트 정책이 있으므로 생성 시 루트 볼륨을 내보내지 않습니다. 기본적으로 vsadmin 사용자 계정은 생성되고 '잠김' 상태입니다. vsadmin 역할이 기본 vsadmin 사용자 계정에 할당됩니다.
+
+[listing]
+----
+cluster-1::> vserver show -vserver svm1.example.com
+                                    Vserver: svm1.example.com
+                               Vserver Type: data
+                            Vserver Subtype: default
+                               Vserver UUID: b8375669-19b0-11e5-b9d1-00a0983d9736
+                                Root Volume: root_svm1
+                                  Aggregate: aggr1
+                                 NIS Domain: -
+                 Root Volume Security Style: unix
+                                LDAP Client: -
+               Default Volume Language Code: C.UTF-8
+                            Snapshot Policy: default
+                                    Comment:
+                               Quota Policy: default
+                List of Aggregates Assigned: -
+ Limit on Maximum Number of Volumes allowed: unlimited
+                        Vserver Admin State: running
+                  Vserver Operational State: running
+   Vserver Operational State Stopped Reason: -
+                          Allowed Protocols: nfs, cifs
+                       Disallowed Protocols: -
+                           QoS Policy Group: -
+                                Config Lock: false
+                               IPspace Name: ipspaceA
+----

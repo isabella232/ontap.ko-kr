@@ -1,0 +1,29 @@
+---
+indexpage:
+  tiles:
+  - title: 시작하십시오
+    links:
+    - title: ONTAP 개념 개요
+      url: "/../concepts/index.html"
+    - title: ONTAP 및 클라우드 개요
+      url: "/../cloud/index.html"
+  - title: 데모 자습서
+    links:
+    - title: NetApp TechCommTV(YouTube)의 ONTAP 비디오
+      url: https://www.youtube.com/playlist?list=PLdXI3bZJEw7mUoa7zAGfAywdhpOojhCOs
+    - title: ONTAP 실습 랩 시험 사용(기존 고객용)
+      url: https://handsonlabs.netapp.com/catalog
+    - title: 시험 구동이 포함된 NetApp 제품 시험 사용(신규 고객의 경우)
+      url: https://www.netapp.com/test-drives
+  - title: 커뮤니티 블로그
+    links:
+    - title: NetApp 커뮤니티
+      url: http://community.netapp.com/
+    - title: NetApp 불화
+      url: https://discord.gg/NetApp
+  - title: 더 많은 리소스
+    links:
+    - title: ONTAP 9 가이드 지원
+      url: https://mysupport.netapp.com/site/products/all/details/ontap9/guideme-tab?categoryName=dataprotection-ontap9&contentName=snapmirror
+    - title: NetApp 기술 자료
+      url: https://kb.netapp.com/

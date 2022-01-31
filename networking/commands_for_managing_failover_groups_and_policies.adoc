@@ -1,0 +1,82 @@
+---
+sidebar: sidebar 
+permalink: networking/commands_for_managing_failover_groups_and_policies.html 
+keywords: manage, managing, failover, fail, over, group, policy, policies, groups, commands for managing failover groups and policies, network interface failover-groups, network interface modify, network interface failover-groups add-targets, network interface failover-groups remove-targets, network interface failover-groups modify, network interface modify -failover-group -failover-policy, network interface failover-groups show, rename, delete 
+summary: 페일오버 그룹을 관리합니다 
+---
+= 페일오버 그룹 및 정책을 관리하는 명령입니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+네트워크 인터페이스 페일오버 그룹 명령을 사용하여 페일오버 그룹을 관리할 수 있습니다. 'network interface modify' 명령을 사용하여 LIF에 적용되는 페일오버 그룹 및 페일오버 정책을 관리할 수 있습니다.
+
+|===
+
+
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+페일오버 그룹에 네트워크 포트를 추가합니다
+ a| 
+네트워크 인터페이스 페일오버 그룹 추가 타겟
+
+
+
+ a| 
+페일오버 그룹에서 네트워크 포트를 제거합니다
+ a| 
+네트워크 인터페이스 페일오버 그룹 제거 대상
+
+
+
+ a| 
+페일오버 그룹의 네트워크 포트를 수정합니다
+ a| 
+네트워크 인터페이스 페일오버 그룹 수정
+
+
+
+ a| 
+현재 페일오버 그룹을 표시합니다
+ a| 
+네트워크 인터페이스 페일오버 그룹들이 보여줌
+
+
+
+ a| 
+LIF에서 페일오버를 구성합니다
+ a| 
+네트워크 인터페이스 수정-페일오버-그룹-페일오버-정책
+
+
+
+ a| 
+각 LIF에서 사용 중인 페일오버 그룹 및 페일오버 정책을 표시합니다
+ a| 
+네트워크 인터페이스 보기 필드 장애 조치 그룹 장애 조치 정책
+
+
+
+ a| 
+페일오버 그룹의 이름을 바꿉니다
+ a| 
+네트워크 인터페이스 페일오버 그룹 이름 바꾸기
+
+
+
+ a| 
+페일오버 그룹을 삭제합니다
+ a| 
+네트워크 인터페이스 페일오버 그룹 삭제
+
+|===
+
+NOTE: 페일오버 그룹을 수정하여 클러스터의 모든 LIF에 유효한 페일오버 목표를 제공하지 않으면 LIF에서 페일오버를 시도할 때 운영 중단이 발생할 수 있습니다.
+
+자세한 내용은 네트워크 인터페이스 페일오버 그룹 및 네트워크 인터페이스 수정 명령에 대한 man 페이지를 참조하십시오.

@@ -1,0 +1,27 @@
+---
+permalink: tape-backup/unable-lock-snapshot-needed-dump-reference.html 
+sidebar: sidebar 
+keywords: lock, unable, snapshot, dump, copy 
+summary: 백업에 지정된 스냅샷 복사본을 사용할 수 없습니다. 
+---
+= 덤프에 필요한 스냅샷을 잠글 수 없습니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+"덤프에 필요한 스냅샷을 잠글 수 없습니다.
+
+* * 원인 *
++
+백업에 지정된 스냅샷 복사본을 사용할 수 없습니다.
+
+* * 시정 조치 *
++
+다른 스냅샷 복사본으로 백업을 재시도하십시오.
+
++
+'스냅 목록' 명령을 사용하여 사용 가능한 스냅샷 복사본 목록을 봅니다.
+
+

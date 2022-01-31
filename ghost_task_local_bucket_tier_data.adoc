@@ -1,0 +1,23 @@
+---
+sidebar: sidebar 
+permalink: task_local_bucket_tier_data.html 
+keywords: netapp, ontap, ONTAP 9.8, ONTAP S3, S3, data, cloud, tier, tiering, tiers, bucket, buckets, VM, storage VM, storage, object, object storage, volume 
+summary: ONTAP 9.8부터 ONTAP S3를 사용하여 데이터를 로컬 오브젝트 스토리지에 계층화할 수 있습니다. 
+---
+= 데이터를 로컬 버킷에 계층화
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+ONTAP 9.8부터 ONTAP S3를 사용하여 데이터를 로컬 오브젝트 스토리지에 계층화할 수 있습니다.
+
+자세한 내용을 보려면 을 클릭합니다 link:task_cloud_local_bucket_tier_data.html["여기"].

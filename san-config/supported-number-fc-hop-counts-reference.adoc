@@ -1,0 +1,37 @@
+---
+permalink: san-config/supported-number-fc-hop-counts-reference.html 
+sidebar: sidebar 
+keywords: supported, number, fc, hop counts 
+summary: 호스트와 스토리지 시스템 간에 지원되는 최대 FC 홉 수는 스위치 공급업체와 FC 구성에 대한 스토리지 시스템 지원에 따라 다릅니다. 
+---
+= 지원되는 FC 홉 수
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+호스트와 스토리지 시스템 간에 지원되는 최대 FC 홉 수는 스위치 공급업체와 FC 구성에 대한 스토리지 시스템 지원에 따라 다릅니다.
+
+홉 수는 이니시에이터(호스트)와 타겟(스토리지 시스템) 사이의 경로에 있는 스위치의 수로 정의됩니다. Cisco는 이 값을 SAN fabric_의 _DIAMETER로 지칭하기도 합니다.
+
+[cols="2*"]
+|===
+| 공급업체를 전환합니다 | 지원되는 홉 수입니다 
+
+
+ a| 
+모든 정보를 제공합니다
+ a| 
+7 FCoE용 FC5의 경우
+
+
+
+ a| 
+Cisco의
+ a| 
+7 FC5의 경우 최대 3개의 스위치가 FCoE 스위치일 수 있습니다.
+
+|===
+http://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Brocade/san_download.shtml#scale["NetApp 다운로드: Brocade 확장성 매트릭스 문서"]
+
+http://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/download.shtml#scale["NetApp 다운로드: Cisco Scalability Matrix Documents"]

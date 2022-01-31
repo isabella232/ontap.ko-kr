@@ -1,0 +1,21 @@
+---
+permalink: nfs-admin/ontap-support-nfsv41-concept.html 
+sidebar: sidebar 
+keywords: ontap, support, nfsv4.1 
+summary: ONTAP 9.8부터는 NFSv4.1이 활성화된 경우 기본적으로 nconnect 기능을 사용할 수 있습니다. 
+---
+= NFSv4.1을 위한 ONTAP 지원
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.8부터는 NFSv4.1이 활성화된 경우 기본적으로 nconnect 기능을 사용할 수 있습니다.
+
+이전 버전의 NFS 클라이언트 구축에서는 마운트와 단일 TCP 연결만 사용합니다. ONTAP에서 단일 TCP 연결은 IOPS 증가에 따라 병목 현상을 일으킬 수 있습니다. 그러나 nconnect 지원 클라이언트는 단일 NFS 마운트와 연결된 여러 개의 TCP 연결(최대 16개)을 가질 수 있습니다. 이러한 NFS 클라이언트는 라운드 로빈 방식으로 여러 TCP 연결에서 파일 작업을 멀티플렉싱하므로 사용 가능한 네트워크 대역폭에서 더 높은 처리량을 얻을 수 있습니다. nConnect는 NFSv3 및 NFSv4.1 마운트에 대해서만 권장됩니다.
+
+nconnect가 클라이언트 버전에서 지원되는지 확인하려면 NFS 클라이언트 설명서를 참조하십시오.
+
+NFSv4.1은 ONTAP 9.9.1 이상에서 기본적으로 활성화되어 있습니다. 이전 릴리즈에서는 SVM(스토리지 가상 머신)에서 NFS 서버를 생성할 때 '-v4.1' 옵션을 지정하고 이를 '사용'으로 설정하여 사용할 수 있습니다.
+
+ONTAP는 NFSv4.1 디렉토리 및 파일 레벨 위임을 지원하지 않습니다.

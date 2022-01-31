@@ -1,0 +1,30 @@
+---
+permalink: performance-admin/active-iq-digital-advisor-view-performance-concept.html 
+sidebar: sidebar 
+keywords: use, active iq digital advisor, view, system, performance 
+summary: AutoSupport 원격 측정을 NetApp에 보내는 모든 ONTAP 시스템에서 광범위한 성능 및 용량 데이터를 볼 수 있습니다.Active IQ는 System Manager에서 볼 수 있는 것보다 더 오랜 기간 동안의 시스템 성능을 보여줍니다. 
+---
+= Active IQ 디지털 어드바이저를 사용하여 시스템 성능을 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+AutoSupport 원격 측정을 NetApp에 보내는 모든 ONTAP 시스템에서 광범위한 성능 및 용량 데이터를 볼 수 있습니다.Active IQ는 System Manager에서 볼 수 있는 것보다 더 오랜 기간 동안의 시스템 성능을 보여줍니다.
+
+CPU 활용률, 지연 시간, IOPS, 프로토콜별 IOPS, 네트워크 처리량을 보여주는 그래프를 볼 수 있습니다. 다른 도구에서 분석할 수 있도록 이 데이터를 .csv 형식으로 다운로드할 수도 있습니다.
+
+이 성능 데이터 외에도 Active IQ은 워크로드별 스토리지 효율성을 제공하고 해당 효율성을 해당 유형의 워크로드에 대한 예상 효율성과 비교할 수 있습니다. 용량 추세를 보고 특정 기간에 추가해야 할 추가 스토리지 양을 예측할 수 있습니다
+
+[NOTE]
+====
+* 스토리지 효율성은 기본 대시보드 왼쪽의 고객, 클러스터 및 노드 레벨에서 사용할 수 있습니다.
+* 성능은 메인 대시보드 왼쪽의 클러스터 및 노드 레벨에서 사용할 수 있습니다.
+
+
+====
+https://docs.netapp.com/us-en/active-iq/["Active IQ 디지털 자문 문서"]
+
+https://tv.netapp.com/category/videos/active-iq["Active IQ 디지털 자문 비디오 재생 목록"]
+
+https://aiq.netapp.com/["Active IQ 웹 포털"]

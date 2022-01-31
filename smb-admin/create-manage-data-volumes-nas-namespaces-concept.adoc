@@ -1,0 +1,13 @@
+---
+permalink: smb-admin/create-manage-data-volumes-nas-namespaces-concept.html 
+sidebar: sidebar 
+keywords: manage, file, access, nas, envionment, manage, data, volume, junction, point, storage, virtual, machine, svm, plan, namespace, architecture, creating, create, mount, display, cifs, create and manage data volumes in nas namespaces 
+summary: 'NAS 환경에서 파일 액세스를 관리하려면 SVM(스토리지 가상 머신)에서 데이터 볼륨과 접합 지점을 관리해야 합니다. 여기에는 네임스페이스 아키텍처 계획, 접합 지점을 사용하거나 사용하지 않는 볼륨 생성, 볼륨 마운트 또는 마운트 해제, 데이터 볼륨 및 NFS 서버 또는 CIFS 서버 네임스페이스에 대한 정보 표시 등이 포함됩니다.' 
+---
+= NAS 네임스페이스에서 데이터 볼륨 생성 및 관리 개요
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NAS 환경에서 파일 액세스를 관리하려면 SVM(스토리지 가상 머신)에서 데이터 볼륨과 접합 지점을 관리해야 합니다. 여기에는 네임스페이스 아키텍처 계획, 접합 지점을 사용하거나 사용하지 않는 볼륨 생성, 볼륨 마운트 또는 마운트 해제, 데이터 볼륨 및 NFS 서버 또는 CIFS 서버 네임스페이스에 대한 정보 표시 등이 포함됩니다.

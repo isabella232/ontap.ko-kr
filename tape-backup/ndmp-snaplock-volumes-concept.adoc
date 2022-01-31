@@ -1,0 +1,15 @@
+---
+permalink: tape-backup/ndmp-snaplock-volumes-concept.html 
+sidebar: sidebar 
+keywords: ndmp, snaplock, volumes, worm, write, once, read, many, snaplock, volume, recovery 
+summary: '규제가 적용되는 데이터의 여러 복제본을 생성하면 중복 복구 시나리오를 사용할 수 있으며, NDMP 덤프 및 복구를 사용하면 SnapLock 볼륨에서 소스 파일의 WORM(Write Once, Read Many) 특성을 보존할 수 있습니다.' 
+---
+= SnapLock 볼륨이 있는 NDMP 정보
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+규제가 적용되는 데이터의 여러 복제본을 생성하면 중복 복구 시나리오를 사용할 수 있으며, NDMP 덤프 및 복구를 사용하면 SnapLock 볼륨에서 소스 파일의 WORM(Write Once, Read Many) 특성을 보존할 수 있습니다.
+
+SnapLock 볼륨의 파일에 있는 WORM 속성은 데이터를 백업, 복원 및 복사할 때 유지되지만 WORM 속성은 SnapLock 볼륨으로 복원할 때만 적용됩니다. SnapLock 볼륨의 백업이 SnapLock 볼륨 이외의 볼륨으로 복원되는 경우 WORM 속성은 유지되지만 무시되며 ONTAP에서 적용되지 않습니다.

@@ -1,0 +1,28 @@
+---
+permalink: volumes/change-security-style-qtree-affects-quotas-concept.html 
+sidebar: sidebar 
+keywords: how, changing, security, style of a qtree, affects, user quotas 
+summary: 'NTFS 또는 혼합 보안 스타일을 사용하여 qtree에 ACL(액세스 제어 목록)을 적용할 수 있지만 UNIX 보안 스타일을 사용하지는 않습니다. 따라서 qtree의 보안 스타일을 변경하면 할당량이 계산되는 방식에 영향을 줄 수 있습니다. Qtree의 보안 스타일을 변경한 후에는 항상 할당량을 다시 초기화해야 합니다.' 
+---
+= Qtree의 보안 스타일을 변경하면 사용자 할당량에 미치는 영향
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NTFS 또는 혼합 보안 스타일을 사용하여 qtree에 ACL(액세스 제어 목록)을 적용할 수 있지만 UNIX 보안 스타일을 사용하지는 않습니다. 따라서 qtree의 보안 스타일을 변경하면 할당량이 계산되는 방식에 영향을 줄 수 있습니다. Qtree의 보안 스타일을 변경한 후에는 항상 할당량을 다시 초기화해야 합니다.
+
+qtree의 보안 스타일을 NTFS 또는 MIXED에서 UNIX로 변경하면 해당 qtree의 파일에 대한 모든 ACL이 무시되고 UNIX 사용자 ID에 대해 파일 사용량이 청구됩니다.
+
+Qtree의 보안 스타일을 UNIX에서 혼합 또는 NTFS로 변경하면 이전에 숨겨진 ACL이 표시됩니다. 또한 무시된 모든 ACL이 다시 유효해지고 NFS 사용자 정보가 무시됩니다. 이전에 ACL이 없는 경우 할당량 계산에 NFS 정보가 계속 사용됩니다.
+
+[NOTE]
+====
+qtree의 보안 스타일을 변경한 후 UNIX 사용자와 Windows 사용자 모두의 할당량 사용이 올바르게 계산되도록 하려면 해당 qtree가 포함된 볼륨의 할당량을 다시 초기화해야 합니다.
+
+====
+다음 예에서는 qtree의 보안 유형이 변경되어 다른 사용자가 특정 qtree의 파일 사용에 대해 청구되는 방법을 보여줍니다.
+
+NTFS 보안이 qtree A에 적용되고 있고 ACL이 Windows 사용자 Corp\Joe에게 5MB 파일의 소유권을 부여한다고 가정합니다. 사용자 Corp\Joe는 qtree A에 대해 5MB의 디스크 공간 사용량을 청구합니다
+
+이제 qtree A의 보안 스타일을 NTFS에서 UNIX로 변경합니다. 할당량을 다시 초기화하면 Windows 사용자 Corp\Joe가 더 이상 이 파일에 대해 청구되지 않습니다. 대신 파일의 UID에 해당하는 UNIX 사용자에게 해당 파일에 대한 비용이 청구됩니다. UID는 Corp\Joe 또는 루트 사용자에게 매핑된 UNIX 사용자일 수 있습니다.

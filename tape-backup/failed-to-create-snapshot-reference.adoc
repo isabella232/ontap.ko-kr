@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/failed-to-create-snapshot-reference.html 
+sidebar: sidebar 
+keywords: failed, create, snapshot, volume, maximum, copy 
+summary: 볼륨에 이미 최대 수의 스냅샷 복사본이 포함되어 있습니다. 
+---
+= 스냅샷을 생성하지 못했습니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+스냅샷을 만들지 못했습니다
+
+* * 원인 *
++
+볼륨에 이미 최대 수의 스냅샷 복사본이 포함되어 있습니다.
+
+* * 시정 조치 *
++
+일부 스냅샷 복사본을 삭제한 후 백업 작업을 재시도하십시오.
+
+

@@ -1,0 +1,51 @@
+---
+permalink: nas-audit/commands-modify-fpolicy-config-reference.html 
+sidebar: sidebar 
+keywords: commands, modify, fpolicy, configurations 
+summary: FPolicy 외부 엔진, 이벤트, 범위 및 정책을 수정할 수 있습니다. 
+---
+= FPolicy 구성을 수정하는 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FPolicy 구성은 구성을 구성하는 요소를 수정하여 수정할 수 있습니다. 외부 엔진, FPolicy 이벤트, FPolicy 범위 및 FPolicy 정책을 수정할 수 있습니다. FPolicy 정책을 사용하거나 사용하지 않도록 설정할 수도 있습니다. FPolicy 정책을 사용하지 않도록 설정하면 해당 정책에 대한 파일 모니터링이 중단됩니다.
+
+구성을 수정하기 전에 FPolicy 정책을 비활성화하는 것이 좋습니다.
+
+[cols="35,65"]
+|===
+
+
+| 수정하려는 경우... | 이 명령 사용... 
+
+
+ a| 
+외부 엔진
+ a| 
+'가상 FPolicy 정책 외부 - 엔진 수정'
+
+
+
+ a| 
+이벤트
+ a| 
+'SVM FPolicy 정책 이벤트 수정
+
+
+
+ a| 
+범위
+ a| 
+'SVM FPolicy 정책 범위 수정'
+
+
+
+ a| 
+정책
+ a| 
+'가상 서버 FPolicy 정책 수정'
+
+|===
+자세한 내용은 명령에 대한 man 페이지를 참조하십시오.

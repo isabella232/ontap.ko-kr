@@ -1,0 +1,143 @@
+---
+permalink: data-protection/convert-snapmirror-version-flexible-task.html 
+sidebar: sidebar 
+keywords: convert, exist, dp-type, relationship, xdp 
+summary: 기존 DP 유형 관계를 XDP로 쉽게 변환하여 버전에 상관없이 유연한 SnapMirror를 활용할 수 있습니다. 
+---
+= 기존 DP 유형 관계를 XDP로 변환합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+기존 DP 유형 관계를 XDP로 쉽게 변환하여 버전에 상관없이 유연한 SnapMirror를 활용할 수 있습니다.
+
+SnapMirror는 기존 DP 유형 관계를 XDP로 자동 변환하지 않습니다. 관계를 변환하려면 기존 관계를 분리 및 삭제하고 새로운 XDP 관계를 생성한 다음 관계를 다시 동기화해야 합니다. 배경 정보는 을 참조하십시오 link:version-flexible-snapmirror-default-concept.html["XDP는 DP를 SnapMirror 기본값으로 바꿉니다"].
+
+[NOTE]
+====
+SnapMirror 관계 유형을 DP에서 XDP로 변환한 후에는 자동 크기 조정 및 공간 보장과 같은 공간 관련 설정이 더 이상 대상에 복제되지 않습니다.
+
+====
+.단계
+. 기존 DP 유형 관계 중지:
++
+'스냅샷 중지-소스-경로_SVM:볼륨_|_클러스터://SVM/볼륨 _,... -destination-path_SVM:volume_|_cluster://SVM/volume_,
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+[NOTE]
+====
+이 명령은 타겟 SVM 또는 타겟 클러스터에서 실행해야 합니다.
+
+====
++
+다음 예에서는 svm1의 소스 볼륨 VolA와 sm_backup의 대상 볼륨 VolA_dst 간의 관계를 설정합니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror quiesce -source-path svm1:volA -destination-path svm_backup:volA_dst
+----
+. 기존 DP 유형 관계 끊기:
++
+스냅샷/SVM/VOLUME_PATH:VOLUME_|_cluster://SVM/VOLUME_,... -destination-path_SVM:volume_|_cluster://SVM/volume_,
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+[NOTE]
+====
+이 명령은 타겟 SVM 또는 타겟 클러스터에서 실행해야 합니다.
+
+====
++
+다음 예에서는 svm1의 소스 볼륨 VolA와 sm_backup의 대상 볼륨 VolA_dst의 관계를 나눕니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror break -source-path svm1:volA -destination-path svm_backup:volA_dst
+----
+. 타겟 볼륨에서 스냅샷 복사본의 자동 삭제 비활성화:
++
+'볼륨 스냅샷 자동 삭제 수정 - vserver_SVM_-volume_volume_-enabled false'
+
++
+다음 예에서는 대상 볼륨 'VolA_DST'에서 스냅샷 복사본 자동 삭제를 사용하지 않도록 설정합니다.
+
++
+[listing]
+----
+cluster_dst::> volume snapshot autodelete modify -vserver svm_backup -volume volA_dst -enabled false
+----
+. 기존 DP 유형 관계 삭제:
++
+'스냅샷 삭제 - 소스 경로 - SVM: volume_|_cluster://SVM/volume_,... -destination-path_SVM:volume_|_cluster://SVM/volume_,
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+[NOTE]
+====
+이 명령은 타겟 SVM 또는 타겟 클러스터에서 실행해야 합니다.
+
+====
++
+다음 예에서는 svm1의 소스 볼륨 VolA와 sm_backup의 대상 볼륨 VolA_dst 간의 관계를 삭제합니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror delete -source-path svm1:volA -destination-path svm_backup:volA_dst
+----
+. 새로운 XDP 유형 관계 생성:
++
+'스냅샷 생성 - 소스 경로 - SVM: volume_|_cluster://SVM/volume_,... -destination-path_SVM:volume_|_cluster://SVM/volume_,... -type XDP-schedule_schedule_-policy_policy_'
+
++
+새 관계는 동일한 소스 볼륨과 타겟 볼륨을 사용해야 합니다. 전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+[NOTE]
+====
+이 명령은 타겟 SVM 또는 타겟 클러스터에서 실행해야 합니다.
+
+====
++
+다음 예에서는 기본 MirorAllSnapshots 정책을 사용하여 svm1의 소스 볼륨 "VolA"와 sVM_backup의 대상 볼륨 "VolA_DST" 간에 SnapMirror DR 관계를 생성합니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror create -source-path svm1:volA -destination-path svm_backup:volA_dst
+-type XDP -schedule my_daily -policy MirrorAllSnapshots
+----
+. 소스 및 대상 볼륨 재동기화:
++
+'스냅샷 재동기화 - 소스 경로_SVM:볼륨_|_클러스터://SVM/볼륨 _,... -destination-path_SVM:volume_|_cluster://SVM/volume_,
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+[NOTE]
+====
+이 명령은 타겟 SVM 또는 타겟 클러스터에서 실행해야 합니다. 재동기화에는 기본 전송이 필요하지 않지만 시간이 오래 걸릴 수 있습니다. 사용량이 적은 시간에 재동기화를 실행할 수 있습니다.
+
+====
++
+다음 예에서는 svm1의 소스 볼륨 VolA와 sm_backup의 대상 볼륨 VolA_dst 간의 관계를 재동기화한다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror resync -source-path svm1:volA -destination-path svm_backup:volA_dst
+----
+
+
+'snapmirror show' 명령을 사용하여 SnapMirror 관계가 생성되었는지 확인합니다. 전체 명령 구문은 man 페이지를 참조하십시오.

@@ -1,0 +1,40 @@
+---
+permalink: smb-hyper-v-sql/configure-vss-shadow-copy-directory-depth-task.html 
+sidebar: sidebar 
+keywords: configure, vss, shadow, copy, directory, depth, hyper, v, smb, share 
+summary: 필요에 따라 SMB 공유 내에서 섀도우 복제본을 생성할 디렉토리의 최대 깊이를 구성할 수 있습니다. 이 매개 변수는 ONTAP에서 섀도 복사본을 만들어야 하는 하위 디렉터리의 최대 수준을 수동으로 제어하려는 경우에 유용합니다. 
+---
+= VSS 섀도우 복제본 디렉토리 깊이 구성(SMB 공유를 통한 Hyper-V의 경우)
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+필요에 따라 SMB 공유 내에서 섀도우 복제본을 생성할 디렉토리의 최대 깊이를 구성할 수 있습니다. 이 매개 변수는 ONTAP에서 섀도 복사본을 만들어야 하는 하위 디렉터리의 최대 수준을 수동으로 제어하려는 경우에 유용합니다.
+
+VSS 섀도우 복제본 기능을 활성화해야 합니다.
+
+기본값은 최대 5개의 하위 디렉토리에 대한 섀도우 복제본을 생성하는 것입니다. 이 값이 '0'으로 설정되면 ONTAP는 모든 하위 디렉토리에 대한 섀도우 복제본을 만듭니다.
+
+[NOTE]
+====
+섀도우 복제본 세트 디렉토리 깊이에 5개 이상의 하위 디렉토리나 모든 하위 디렉토리가 포함되도록 지정할 수 있지만 섀도우 복제본 세트 생성이 60초 이내에 완료되어야 한다는 Microsoft 요구 사항이 있습니다. 이 시간 내에 완료할 수 없는 경우 섀도우 복제본 세트 생성이 실패합니다. 선택한 섀도 복사본 디렉토리 깊이로 인해 생성 시간이 시간 제한을 초과하지 않아야 합니다.
+
+====
+.단계
+. 권한 수준을 고급으로 설정합니다.
++
+' * set-Privilege advanced * '
+
+. VSS 섀도우 복제본 디렉토리 깊이를 원하는 레벨로 설정합니다.
++
+``vserver cifs options modify -vserver_vserver_name_-shadowcopy -dir -depth integer*'
+
++
+``vserver cifs options modify -vserver vs1-shadowcopy -dir-depth 6 *'
+
+. 관리자 권한 레벨로 돌아갑니다.
++
+' * set-privilege admin * '
+
+

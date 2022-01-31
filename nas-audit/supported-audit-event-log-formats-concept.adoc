@@ -1,0 +1,15 @@
+---
+permalink: nas-audit/supported-audit-event-log-formats-concept.html 
+sidebar: sidebar 
+keywords:  
+summary: 변환된 감사 이벤트 로그에 지원되는 파일 형식은 evtx 및 XML 파일 형식입니다. 
+---
+= 지원되는 감사 이벤트 로그 형식은 무엇입니까
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+변환된 감사 이벤트 로그에 지원되는 파일 형식은 evtx 및 XML 파일 형식입니다.
+
+감사 구성을 만들 때 파일 형식의 유형을 지정할 수 있습니다. 기본적으로 ONTAP는 바이너리 로그를 'evtx' 파일 형식으로 변환합니다.

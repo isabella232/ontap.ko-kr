@@ -1,0 +1,15 @@
+---
+permalink: smb-admin/configure-ldap-over-tls-task.html 
+sidebar: sidebar 
+keywords: configure, ldap, tls, export, copy, self-signed, root, ca, certificate, install, svm, configure ldap over tls 
+summary: TLS를 통해 LDAP를 구성하려면 자체 서명된 루트 CA 인증서 복사본을 내보내고, 내보낸 파일을 사용하여 자체 서명된 루트 CA 인증서를 설치한 다음 SVM에서 TLS를 통해 LDAP를 활성화해야 합니다. 
+---
+= TLS를 통해 LDAP를 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+TLS를 통해 LDAP를 구성하려면 자체 서명된 루트 CA 인증서 복사본을 내보내고, 내보낸 파일을 사용하여 자체 서명된 루트 CA 인증서를 설치한 다음 SVM에서 TLS를 통해 LDAP를 활성화해야 합니다.
+
+link:../system-admin/index.html["시스템 관리"]

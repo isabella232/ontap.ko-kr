@@ -1,0 +1,106 @@
+---
+permalink: smb-admin/configure-nis-ldap-name-services-svm-task.html 
+sidebar: sidebar 
+keywords: smb, access, map, unix, user, perform, data, ntfs, security-style, volume, windows, correspond, unix, information, nis, ldap, directory, store, name, configure nis or ldap name services on the svm 
+summary: SMB 액세스를 사용하면 NTFS 보안 스타일 볼륨에서 데이터에 액세스할 때도 UNIX 사용자에 대한 사용자 매핑이 항상 수행됩니다. 정보가 NIS 또는 LDAP 디렉토리 저장소에 저장되어 있는 해당 UNIX 사용자에게 Windows 사용자를 매핑하거나 이름 매핑에 LDAP를 사용하는 경우 SMB 설정 중에 이러한 이름 서비스를 구성해야 합니다. 
+---
+= SVM에서 NIS 또는 LDAP 네임 서비스를 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMB 액세스를 사용하면 NTFS 보안 스타일 볼륨에서 데이터에 액세스할 때도 UNIX 사용자에 대한 사용자 매핑이 항상 수행됩니다. 정보가 NIS 또는 LDAP 디렉토리 저장소에 저장되어 있는 해당 UNIX 사용자에게 Windows 사용자를 매핑하거나 이름 매핑에 LDAP를 사용하는 경우 SMB 설정 중에 이러한 이름 서비스를 구성해야 합니다.
+
+네임 서비스 데이터베이스 구성을 네임 서비스 인프라에 맞게 사용자 지정해야 합니다.
+
+SVM은 이름 서비스 ns-switch 데이터베이스를 사용하여 지정된 이름 서비스 데이터베이스의 소스를 조회하는 순서를 결정합니다. ns-switch 소스는 "파일", "NIS" 또는 "LDAP" 중 어떤 조합도 가능합니다. 그룹 데이터베이스의 경우 ONTAP는 구성된 모든 소스에서 그룹 구성원 자격을 얻은 다음 통합된 그룹 구성원 정보를 사용하여 액세스 검사를 수행합니다. UNIX 그룹 정보를 가져올 때 이러한 소스 중 하나를 사용할 수 없는 경우 ONTAP에서 전체 UNIX 자격 증명을 가져올 수 없으며 이후의 액세스 검사에 실패할 수 있습니다. 따라서 항상 ns-switch 설정에서 그룹 데이터베이스에 대해 모든 ns-switch 소스가 구성되어 있는지 확인해야 합니다.
+
+기본값은 SMB 서버가 모든 Windows 사용자를 로컬 'passwd' 데이터베이스에 저장된 기본 UNIX 사용자에게 매핑하도록 하는 것입니다. 기본 구성을 사용하려면 NIS 또는 LDAP UNIX 사용자 및 그룹 이름 서비스 구성 또는 LDAP 사용자 매핑은 SMB 액세스에 대해 선택 사항입니다.
+
+.단계
+. UNIX 사용자, 그룹 및 넷그룹 정보가 NIS 이름 서비스를 통해 관리되는 경우 NIS 이름 서비스를 구성합니다.
++
+.. 'vserver services name-service ns-switch show' 명령을 사용하여 이름 서비스의 현재 순서를 확인합니다.
++
+이 예에서는 NIS를 이름 서비스 소스로 사용할 수 있는 세 개의 데이터베이스(group, passwd, netgroup)가 파일(file)만 소스로 사용하고 있습니다.
+
++
+'vserver services name-service ns-switch show-vserver vs1'
+
++
+[listing]
+----
+
+                                               Source
+Vserver         Database       Enabled         Order
+--------------- ------------   ---------       ---------
+vs1             hosts          true            dns,
+                                               files
+vs1             group          true            files
+vs1             passwd         true            files
+vs1             netgroup       true            files
+vs1             namemap        true            files
+----
++
+그룹 및 암호 데이터베이스에 NIS 소스를 추가하고 선택적으로 넷그룹 데이터베이스에 추가해야 합니다.
+
+.. 'vserver services name-service ns-switch modify' 명령을 사용하여 이름 서비스 ns-switch 데이터베이스 순서를 원하는 대로 조정합니다.
++
+최상의 성능을 위해 SVM에서 네임 서비스를 구성하려는 경우를 제외하고 네임 서비스 데이터베이스에 네임 서비스를 추가할 수 없습니다.
+
++
+둘 이상의 이름 서비스 데이터베이스에 대한 구성을 수정하는 경우 수정할 각 이름 서비스 데이터베이스에 대해 명령을 별도로 실행해야 합니다.
+
++
+이 예에서 NIS와 파일은 그룹 데이터베이스와 암호 데이터베이스의 소스로 구성됩니다. 나머지 이름 서비스 데이터베이스는 변경되지 않습니다.
+
++
+'vserver services name-service ns-switch modify -vserver vs1 -database group -sources nis, files''vserver services name-service ns-switch modify -vserver vs1-database passwd-sources nis, files'
+
+.. 'vserver services name-service ns-switch show' 명령을 사용하여 이름 서비스의 순서가 올바른지 확인합니다.
++
+'vserver services name-service ns-switch show-vserver vs1'
+
++
+[listing]
+----
+
+                                               Source
+Vserver         Database       Enabled         Order
+--------------- ------------   ---------       ---------
+vs1             hosts          true            dns,
+                                               files
+vs1             group          true            nis,
+                                               files
+vs1             passwd         true            nis,
+                                               files
+vs1             netgroup       true            files
+vs1             namemap        true            files
+----
+.. NIS 이름 서비스 구성을 생성합니다. + 'vserver services name-service NIS-domain create-vserver_vserver_name_-domain_NIS_domain_name_-servers_NIS_server_IPaddress_,... -active true+'입니다
++
+'vserver services name-service NIS-domain create-vserver vs1-domain example.com -servers 10.0.0.60 -active true'
+
++
+[NOTE]
+====
+ONTAP 9.2부터, 필드 '-NIS-SERS'는 필드 '-SERVers'를 대체합니다. 이 새 필드는 NIS 서버의 호스트 이름 또는 IP 주소를 사용할 수 있습니다.
+
+====
+.. NIS 이름 서비스가 올바르게 구성되어 활성화되어 있는지 확인합니다. 'vserver services name-service nis-domain show vserver_vserver_name_'
++
+'vserver services name-service nis-domain show vserver vs1'
+
++
+[listing]
+----
+
+Vserver       Domain              Active Server
+------------- ------------------- ------ ---------------
+vs1           example.com         true   10.0.0.60
+----
+
+
+. UNIX 사용자, 그룹 및 넷그룹 정보 또는 이름 매핑이 LDAP 이름 서비스에 의해 관리되는 경우 찾은 정보를 사용하여 LDAP 이름 서비스를 구성합니다 link:../nfs-admin/index.html["NFS 관리"].
+

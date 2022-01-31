@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: smbc/smbc_troubleshoot_sm_delete_fails_in_takeover_state.html 
+keywords: troubleshooting, SM-BC, SMBC, SnapMirror, delete, takeover, consistency group 
+summary: 클러스터에 ONTAP 9.9.1이 설치된 경우 SM-BC 정합성 보장 그룹 관계가 Takeover 상태에 있을 때 'napmirror delete' 명령을 실행하면 실패합니다. 
+---
+= takover 상태에서 SnapMirror 삭제 작업이 실패합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+클러스터에 ONTAP 9.9.1이 설치된 경우 SM-BC 정합성 보장 그룹 관계가 Takeover 상태에 있을 때 'napmirror delete' 명령을 실행하면 실패합니다.
+
+....
+C2_cluster::> snapmirror delete  vs1:/cg/dd
+
+Error: command failed: RPC: Couldn't make connection
+....
+SM-BC 관계에 있는 노드가 Takeover 상태에 있는 경우 "-force" 옵션을 true로 설정하여 SnapMirror 삭제 및 릴리즈 작업을 수행합니다.
+
+....
+C2_cluster::> snapmirror delete  vs1:/cg/dd -force true
+
+Warning: The relationship between source "vs0:/cg/ss" and destination
+         "vs1:/cg/dd" will be deleted, however the items of the destination
+         Consistency Group might not be made writable, deletable, or modifiable
+         after the operation. Manual recovery might be required.
+Do you want to continue? {y|n}: y
+Operation succeeded: snapmirror delete for the relationship with destination "vs1:/cg/dd".
+....

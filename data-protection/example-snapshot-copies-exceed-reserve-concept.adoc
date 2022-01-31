@@ -1,0 +1,35 @@
+---
+permalink: data-protection/example-snapshot-copies-exceed-reserve-concept.html 
+sidebar: sidebar 
+keywords: delete, protected, files, less file space 
+summary: 블록을 사용한 파일을 삭제해도 스냅샷 복사본은 블록을 가리킵니다. 이 때문에 스냅샷 복사본 예약이 모두 소모되면 직관적인 결과가 발생하여 전체 파일 시스템을 삭제하면 사용 중인 파일 시스템보다 사용 가능한 공간이 적어질 수 있습니다. 
+---
+= 보호된 파일을 삭제하면 예상보다 파일 공간이 줄어들 수 있습니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+블록을 사용한 파일을 삭제해도 스냅샷 복사본은 블록을 가리킵니다. 이 때문에 스냅샷 복사본 예약이 모두 소모되면 직관적인 결과가 발생하여 전체 파일 시스템을 삭제하면 사용 중인 파일 시스템보다 사용 가능한 공간이 적어질 수 있습니다.
+
+다음 예제를 고려해 보십시오. 파일을 삭제하기 전에 'df' 명령 출력은 다음과 같습니다.
+
+[listing]
+----
+
+Filesystem          kbytes  used    avail  capacity
+/vol/vol0/          3000000 3000000 0       100%
+/vol/vol0/.snapshot 1000000 500000  500000   50%
+----
+전체 파일 시스템을 삭제하고 볼륨의 스냅샷 복사본을 만든 후 df 명령을 실행하면 다음 출력이 생성됩니다.
+
+[listing]
+----
+
+Filesystem          kbytes  used    avail  capacity
+/vol/vol0/          3000000 2500000 500000   83%
+/vol/vol0/.snapshot 1000000 3500000 0       350%
+----
+출력에서 볼 수 있듯이, 삭제 전에 사용된 0.5GB와 함께 활성 파일 시스템에서 이전에 사용한 전체 3GB가 스냅샷 복사본에 의해 사용되고 있습니다.
+
+스냅샷 복사본에서 사용하는 디스크 공간이 이제 스냅샷 복사본 예비공간을 초과하므로 활성 파일용으로 예약된 공간에 2.5GB의 "s pills" 오버플로가 남아 있어 3GB가 예상되는 파일의 여유 공간이 0.5GB로 남습니다.

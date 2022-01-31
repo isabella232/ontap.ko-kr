@@ -1,0 +1,15 @@
+---
+permalink: nas-audit/perform-security-traces-task.html 
+sidebar: sidebar 
+keywords: perform, security traces 
+summary: 보안 추적을 수행하려면 보안 추적 필터를 만들고, 필터 기준을 확인하고, 필터 기준과 일치하는 SMB 또는 NFS 클라이언트에 액세스 요청을 생성하고, 결과를 확인해야 합니다. 
+---
+= 보안 추적 개요를 수행합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+보안 추적을 수행하려면 보안 추적 필터를 만들고, 필터 기준을 확인하고, 필터 기준과 일치하는 SMB 또는 NFS 클라이언트에 액세스 요청을 생성하고, 결과를 확인해야 합니다.
+
+보안 필터를 사용하여 추적 정보를 캡처한 후 필터를 수정하고 다시 사용하거나 더 이상 필요하지 않은 경우 비활성화할 수 있습니다. 필터 추적 결과를 보고 분석한 후 더 이상 필요하지 않은 경우 삭제할 수 있습니다.

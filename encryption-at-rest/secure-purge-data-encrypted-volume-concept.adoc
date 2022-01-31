@@ -1,0 +1,52 @@
+---
+permalink: encryption-at-rest/secure-purge-data-encrypted-volume-concept.html 
+sidebar: sidebar 
+keywords: secure, purge, scrub, data, encrypted, volume, nve, netapp 
+summary: ONTAP 9.4부터 보안 제거를 사용하여 NVE 지원 볼륨에서 데이터를 중단 없이 스크럽할 수 있습니다. 암호화된 볼륨에 데이터를 스크럽하면 블록이 덮어써졌을 때 데이터 추적이 남아 있거나 비어 있는 테넌트의 데이터를 안전하게 삭제하기 위한 '필지'와 같은 물리적 미디어에서 데이터를 복구할 수 없습니다. 
+---
+= 암호화된 볼륨 개요에서 데이터를 안전하게 제거합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.4부터 보안 제거를 사용하여 NVE 지원 볼륨에서 데이터를 중단 없이 스크럽할 수 있습니다. 암호화된 볼륨에 데이터를 스크러빙하면 물리적 미디어에서 데이터를 복구할 수 없습니다. 예를 들어, 블록 덮어쓰기 시 데이터 추적이 남아 있거나 비어 있는 테넌트의 데이터를 안전하게 삭제하기 위해 "스필지"가 남아 있을 수 있습니다.
+
+Secure Purge는 NVE 지원 볼륨에서 이전에 삭제된 파일에 대해서만 작동합니다. 암호화되지 않은 볼륨은 스크럽 할 수 없습니다. 온보드 키 관리자가 아닌 KMIP 서버를 사용하여 키를 제공해야 합니다.
+
+ONTAP 버전에 따라 퍼지 기능을 다르게 보호합니다.
+
+* ONTAP 9.8 이상:
++
+** 보안 삭제는 MetroCluster 및 FlexGroup에서 지원됩니다.
+** 제거할 볼륨이 SnapMirror 관계의 소스인 경우 보안 제거를 수행하기 위해 SnapMirror 관계를 중단할 필요가 없습니다.
+** 재암호화 방법은 SnapMirror 데이터 보호를 사용하는 볼륨과 SnapMirror 데이터 보호(DP)를 사용하지 않는 볼륨 또는 SnapMirror 확장 데이터 보호를 사용하는 볼륨의 경우에 다릅니다.
++
+*** 기본적으로 SnapMirror 데이터 보호(DP) 모드를 사용하는 볼륨은 볼륨 이동 다시 암호화 방법을 사용하여 데이터를 다시 암호화합니다.
+*** 기본적으로 SnapMirror 데이터 보호 또는 XDP(SnapMirror Extended Data Protection) 모드를 사용하는 볼륨을 사용하지 않는 볼륨은 데이터 이동 없이 재암호화 방법을 사용합니다.
+*** 이러한 기본값은 'secure purge re-encryption-method[volume-move|in-place-키를 다시 입력하다]' 명령을 사용하여 변경할 수 있습니다.
+
+
+** 기본적으로 FlexVol 볼륨의 모든 스냅샷 복사본은 보안 삭제 작업 중에 자동으로 삭제됩니다. 기본적으로 FlexGroup 볼륨 및 SnapMirror 데이터 보호를 사용하는 볼륨의 스냅샷은 안전한 삭제 작업 중에 자동으로 삭제되지 않습니다. 이러한 기본값은 'Secure purge delete-all-snapshots[true|false]'를 사용하여 변경할 수 있습니다. 명령.
+
+
+* ONTAP 9.7 및 그 이전:
++
+** 보안 퍼지는 다음을 지원하지 않습니다.
++
+*** 플랙스클론
+*** SnapVault
+*** FabricPool
+
+
+** 제거할 볼륨이 SnapMirror 관계의 소스인 경우 볼륨을 제거하려면 SnapMirror 관계를 해제해야 합니다.
++
+볼륨에서 사용 중인 스냅샷 복사본이 있는 경우 볼륨을 제거하려면 먼저 스냅샷 복사본을 해제해야 합니다. 예를 들어, FlexClone 볼륨을 상위 볼륨에서 분할해야 할 수 있습니다.
+
+
+
+* 보안 제거 기능을 성공적으로 호출하면 새 키를 사용하여 남아 있는 비퍼지된 데이터를 다시 암호화하는 볼륨 이동이 트리거됩니다.
++
+이동된 볼륨은 현재 애그리게이트에 있습니다. 이전 키는 자동으로 삭제되므로 삭제된 데이터를 스토리지 미디어에서 복구할 수 없습니다.
+
+

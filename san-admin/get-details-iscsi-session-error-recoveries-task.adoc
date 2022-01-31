@@ -1,0 +1,39 @@
+---
+permalink: san-admin/get-details-iscsi-session-error-recoveries-task.html 
+sidebar: sidebar 
+keywords: get, more, details, iscsi, session, error, recoveries 
+summary: iSCSI 세션 오류 복구 수준을 높이면 iSCSI 오류 복구에 대한 자세한 정보를 얻을 수 있습니다. 높은 오류 복구 레벨을 사용하면 iSCSI 세션 성능이 약간 저하될 수 있습니다. 
+---
+= iSCSI 세션 오류 복구에 대한 자세한 내용을 확인하십시오
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+iSCSI 세션 오류 복구 수준을 높이면 iSCSI 오류 복구에 대한 자세한 정보를 얻을 수 있습니다. 높은 오류 복구 레벨을 사용하면 iSCSI 세션 성능이 약간 저하될 수 있습니다.
+
+기본적으로 ONTAP는 iSCSI 세션에 대해 오류 복구 레벨 0을 사용하도록 구성됩니다. 오류 복구 레벨 1 또는 2에 대해 검증된 이니시에이터를 사용하는 경우 오류 복구 레벨을 증가하도록 선택할 수 있습니다. 수정된 세션 오류 복구 수준은 새로 생성된 세션에만 영향을 미치며 기존 세션에는 영향을 미치지 않습니다.
+
+ONTAP 9.4부터 iSCSI show와 iSCSI modify 명령에서는 max-error-recovery-level 옵션이 지원되지 않습니다.
+
+.단계
+. 고급 모드 진입:
++
+세트 프리빌리지 고급
+
+. "iscsi show" 명령을 사용하여 현재 설정을 확인합니다.
++
+'iscsi show -vserver vs3 -fields max-error-recovery-level'
+
++
+[listing]
+----
+vserver max-error-recovery-level
+------- ------------------------
+vs3     0
+----
+. iSCSI modify 명령을 사용하여 오류 복구 수준을 변경합니다.
++
+'iscsi modify -vserver vs3 -max-error-recovery-level 2'
+
+

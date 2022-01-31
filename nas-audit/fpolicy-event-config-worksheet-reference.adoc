@@ -1,0 +1,78 @@
+---
+permalink: nas-audit/fpolicy-event-config-worksheet-reference.html 
+sidebar: sidebar 
+keywords: complete, fpolicy event configuration, worksheet 
+summary: 이 워크시트를 사용하여 FPolicy 이벤트 구성 프로세스 중에 필요한 값을 기록할 수 있습니다. 매개 변수 값이 필요한 경우 FPolicy 이벤트를 구성하기 전에 매개 변수에 사용할 값을 결정해야 합니다. 
+---
+= FPolicy 이벤트 구성 워크시트를 작성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 워크시트를 사용하여 FPolicy 이벤트 구성 프로세스 중에 필요한 값을 기록할 수 있습니다. 매개 변수 값이 필요한 경우 FPolicy 이벤트를 구성하기 전에 매개 변수에 사용할 값을 결정해야 합니다.
+
+각 매개 변수 설정을 FPolicy 이벤트 구성에 포함할지 여부를 기록한 다음 포함하려는 매개 변수의 값을 기록해야 합니다.
+
+[cols="40,20,20,20"]
+|===
+
+
+| 정보 유형입니다 | 필수 요소입니다 | 포함 | 당신의 가치 
+
+
+ a| 
+스토리지 가상 시스템(SVM) 이름
+ a| 
+예
+ a| 
+예
+ a| 
+
+
+
+ a| 
+이벤트 이름입니다
+ a| 
+예
+ a| 
+예
+ a| 
+
+
+
+ a| 
+프로토콜
+ a| 
+아니요
+ a| 
+ a| 
+
+
+
+ a| 
+파일 작업
+ a| 
+아니요
+ a| 
+ a| 
+
+
+
+ a| 
+필터
+ a| 
+아니요
+ a| 
+ a| 
+
+
+
+ a| 
+볼륨 작업입니다
+ a| 
+아니요
+ a| 
+ a| 
+
+|===

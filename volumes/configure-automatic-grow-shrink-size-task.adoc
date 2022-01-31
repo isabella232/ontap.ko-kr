@@ -1,0 +1,39 @@
+---
+permalink: volumes/configure-automatic-grow-shrink-size-task.html 
+sidebar: sidebar 
+keywords: configure, volumes, automatically, grow, shrink, size 
+summary: FlexVol 볼륨이 현재 필요한 공간에 따라 자동으로 확장 및 축소되도록 구성할 수 있습니다. 자동 증가를 통해 aggregate에서 공간을 더 많이 제공할 경우 볼륨 공간이 부족해지는 것을 방지할 수 있습니다. 자동 축소는 볼륨이 필요한 크기보다 커지는 것을 방지하여 Aggregate의 공간을 다른 볼륨에서 사용할 수 있도록 합니다. 
+---
+= 크기를 자동으로 확대 및 축소하도록 볼륨을 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FlexVol 볼륨이 현재 필요한 공간에 따라 자동으로 확장 및 축소되도록 구성할 수 있습니다. 자동 증가를 통해 aggregate에서 공간을 더 많이 제공할 경우 볼륨 공간이 부족해지는 것을 방지할 수 있습니다. 자동 축소는 볼륨이 필요한 크기보다 커지는 것을 방지하여 Aggregate의 공간을 다른 볼륨에서 사용할 수 있도록 합니다.
+
+FlexVol 볼륨이 온라인 상태여야 합니다.
+
+자동 축소는 자동 증가 와 함께 사용할 경우에만 변화하는 공간 요구를 충족할 수 있으며 단독으로 사용할 수는 없습니다. 자동 축소가 활성화되면 ONTAP는 볼륨의 축소 동작을 자동으로 관리하여 자동 증가 및 자동 축소 작업이 무한 루프를 방지합니다.
+
+볼륨이 증가하면 포함할 수 있는 최대 파일 수가 자동으로 증가할 수 있습니다. 볼륨이 축소되면 포함할 수 있는 최대 파일 수가 변경되지 않고 그대로 남아 있으며 볼륨은 현재 최대 파일 수에 해당하는 크기보다 자동으로 축소될 수 없습니다. 따라서 볼륨을 원래 크기로 자동 축소하지 못할 수 있습니다.
+
+기본적으로 볼륨을 확장할 수 있는 최대 크기는 자동 확장이 설정된 크기의 120%입니다. 볼륨이 이보다 더 크게 증가할 수 있도록 해야 하는 경우 볼륨에 대한 최대 크기를 적절하게 설정해야 합니다.
+
+.단계
+. 크기를 자동으로 확대 및 축소하도록 볼륨 구성:
++
+'볼륨 자동 크기 조정 - vserver vserver_namevol_name - mode grow_shrink
+
++
+다음 명령을 실행하면 test2라는 볼륨에 대한 자동 크기 변경이 설정됩니다. 볼륨이 60% 차면 축소하기 시작하도록 구성됩니다. 기본값은 확장이 시작되는 시기 및 최대 크기에 사용됩니다.
+
++
+[listing]
+----
+cluster1::> volume autosize -vserver vs2 test2 -shrink-threshold-percent 60
+vol autosize: Flexible volume "vs2:test2" autosize settings UPDATED.
+
+Volume modify successful on volume: test2
+----
+

@@ -1,0 +1,62 @@
+---
+permalink: nfs-admin/enable-disable-nfsv4-acls-task.html 
+sidebar: sidebar 
+keywords: enable, disable, nfsv4, acls 
+summary: NFSv4 ACL을 설정하거나 해제하려면 -v4.0-acl 및 -v4.1-acl 옵션을 수정할 수 있습니다. 이러한 옵션은 기본적으로 비활성화되어 있습니다. 
+---
+= NFSv4 ACL을 설정하거나 해제합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NFSv4 ACL을 설정하거나 해제하려면 '-v4.0-acl' 및 '-v4.1-acl' 옵션을 수정할 수 있습니다. 이러한 옵션은 기본적으로 비활성화되어 있습니다.
+
+'-v4.0-acl' 또는 '-v4.1-acl' 옵션은 NFSv4 ACL의 설정 및 보기를 제어하지만 액세스 검사를 위해 이러한 ACL의 적용을 제어하지 않습니다.
+
+.단계
+. 다음 작업 중 하나를 수행합니다.
++
+[cols="30,70"]
+|===
+
+
+| 원하는 작업 | 그러면... 
+
+
+ a| 
+NFSv4.0 ACL을 설정합니다
+ a| 
+다음 명령을 입력합니다.
+
+'vserver nfs modify -vserver vserver_name -v4.0 -acl enabled'
+
+
+
+ a| 
+NFSv4.0 ACL을 해제합니다
+ a| 
+다음 명령을 입력합니다.
+
+'vserver nfs modify -vserver vserver_name -v4.0 -acl disabled'
+
+
+
+ a| 
+NFSv4.1 ACL을 활성화합니다
+ a| 
+다음 명령을 입력합니다.
+
+'vserver nfs modify -vserver vserver_name -v4.1 -acl enabled'
+
+
+
+ a| 
+NFSv4.1 ACL을 해제합니다
+ a| 
+다음 명령을 입력합니다.
+
+'vserver nfs modify -vserver vserver_name -v4.1 -acl disabled'
+
+|===
+

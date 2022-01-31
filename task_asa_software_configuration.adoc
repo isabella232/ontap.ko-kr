@@ -1,0 +1,98 @@
+---
+sidebar: sidebar 
+permalink: task_asa_software_configuration.html 
+keywords: all san array, asa, san, array, software, configuration, configure, configuring, setup, set up, limitations, restrictions, nvme, mcc ip, persistent ports, host, settings, utilities, ways to identify 
+summary: 다음 절차에 따라 System Manager를 사용하여 모든 SAN 어레이를 구성하십시오. 
+---
+= 모든 SAN 어레이 소프트웨어 구성
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+다음 절차에 따라 System Manager를 사용하여 모든 SAN 어레이를 구성하십시오.
+
+
+
+== 모든 SAN 어레이 구성이 지원됩니다
+
+NetApp All SAN 어레이(ASA)는 검증된 AFF NetApp 플랫폼을 기반으로 하는 All-Flash SAN 전용 솔루션입니다.
+
+ASA 플랫폼은 2노드 스위치 클러스터 또는 스위치가 없는 클러스터에서 사용할 수 있으며 FC 또는 iSCSI에 맞게 구성할 수 있으며 다중 경로에 대칭 액티브-액티브를 사용할 수 있습니다. 모든 경로가 액티브/최적화되어 있으므로 스토리지 페일오버 시 호스트는 I/O를 재개하기 위해 페일오버 경로의 ALUA 전환을 기다릴 필요가 없습니다 그러면 페일오버 시간이 단축됩니다.
+
+
+NOTE: ONTAP 9.9.1을 사용하면 이제 고객은 AFF ASA 구성을 최대 12개 노드로 확장할 수 있습니다. ASA는 ONTAP 9.7 이상에서 지원됩니다. 지원되는 구성은 에 나와 있습니다 link:http://mysupport.netapp.com/matrix/["NetApp 상호 운용성 매트릭스 툴"].
+
+link:http://www.netapp.com/us/media/tr-4515.pdf["NetApp 기술 보고서 4515: ONTAP AFF All SAN 어레이 시스템"]
+ 
+
+
+
+== ASA를 설정합니다
+
+모든 SAN 어레이(ASA)는 비 ASA 시스템과 동일한 설정 절차를 따릅니다.
+
+System Manager는 클러스터를 초기화하고, 로컬 계층을 생성하고, 프로토콜을 구성하고, ASA에 대한 스토리지를 프로비저닝하는 데 필요한 절차를 안내합니다. 의 단계를 참조하십시오 xref:task_configure_ontap.html[ONTAP를 구성합니다].
+
+
+
+== ASA 제한 사항 및 제한 사항
+
+ONTAP 9.9.1 이전의 AFF ASA(All SAN 어레이) 컨트롤러 사용에 대한 제한 사항 및 제한 사항을 숙지해야 합니다.
+
+ASA는 NVMe-oF 프로토콜을 지원하지 않습니다.
+
+
+NOTE: ONTAP 9.9.1에서는 이제 AFF ASA 시스템에서 NVMe-oF 프로토콜 지원을 사용할 수 있습니다.
+
+AFF ASA(All SAN 어레이) 컨트롤러에 대해 설정된 테스트를 통해 지원되는 최대 구성 제한을 사용해야 합니다. 안정적인 작동을 위해 에 나와 있는 현재 테스트 및 지원되는 제한을 초과해서는 안 됩니다 link:https://hwu.netapp.com/["NetApp Hardware Universe를 참조하십시오"].
+
+참고: ONTAP 9.9.1을 사용하면 이제 고객은 AFF ASA 구성을 최대 12개 노드로 확장할 수 있습니다. 또한 고객은 이제 ASA를 지원하는 AFF 플랫폼에 8노드 MCC IP 구성을 구축할 수 있습니다.
+
+
+
+== 영구 포트 지원
+
+ONTAP 9.8부터는 FC 프로토콜을 사용하도록 구성된 모든 SAN 어레이(ASA)에서 영구 포트가 기본적으로 사용하도록 설정됩니다. 영구 포트는 FC에만 사용할 수 있으며 WWPN(World Wide Port Name)으로 식별되는 영역 구성원이 필요합니다.
+
+영구 포트는 HA 파트너의 해당 물리적 포트에 섀도 LIF를 생성하여 테이크오버의 영향을 줄입니다. 노드가 되면 파트너 노드의 섀도 LIF는 WWPNe를 포함하여 원래 LIF의 ID를 가정합니다. 가져온 오버 노드의 경로 상태가 장애 발생으로 변경되기 전에 섀도우 LIF는 호스트 MPIO 스택에 대한 Active/Optimized 경로로 표시되고 I/O가 이동됩니다. 따라서 스토리지 페일오버 작업 중에도 호스트가 항상 동일한 수의 경로를 타겟으로 인식하기 때문에 I/O 중단이 줄어듭니다.
+
+영구 포트의 경우 HA 쌍 내에서 다음과 같은 FCP 포트 특성이 동일해야 합니다.
+
+* FCP 포트의 개수
+* FCP 포트 이름
+* FCP 포트의 속도입니다
+* FCP LIF WWPN 기반 조닝
+
+
+HA Pair 내에서 동일 특성이 아닌 경우, 다음과 같은 EMS 메시지가 발생한다.
+
+"EMS: scsiblade.lif.persistent.ports.fcp.init.error`
+
+영구 포트에 대한 자세한 내용은 를 참조하십시오 link:http://www.netapp.com/us/media/tr-4080.pdf["NetApp 기술 보고서 4080: 확장형 SAN ONTAP 9에 대한 모범 사례"].
+
+
+
+== ASA 호스트 설정 및 유틸리티
+
+모든 SAN 어레이(ASA)를 설정하기 위한 호스트 설정은 다른 모든 SAN 호스트의 호스트 설정과 동일합니다.
+
+를 다운로드할 수 있습니다 link:https://mysupport.netapp.com/NOW/cgi-bin/software["NetApp 호스트 유틸리티 소프트웨어"] 지원 사이트의 특정 호스트에 대해.
+
+
+
+== ASA 시스템을 식별하는 방법
+
+ASA 시스템은 System Manager를 사용하거나 CLI(ONTAP Command Line Interface)를 사용하여 식별할 수 있습니다.
+
+System Manager 대시보드에서 * 클러스터 > 개요 * 를 클릭한 다음 시스템 노드를 선택합니다. Personality * 는 * All SAN Array * 로 표시됩니다.
+
+CLI에서 SAN config show 명령을 사용할 수 있습니다. "All SAN Array" 값은 ASA 시스템의 경우 TRUE를 반환합니다.

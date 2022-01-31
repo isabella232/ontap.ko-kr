@@ -1,0 +1,21 @@
+---
+permalink: san-config/fc-switch-config-best-practices-concept.html 
+sidebar: sidebar 
+keywords: fc, switch, configuration, best, practices 
+summary: 최상의 성능을 얻으려면 FC 스위치를 구성할 때 특정 모범 사례를 고려해야 합니다. 
+---
+= FC 스위치 구성 모범 사례
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+최상의 성능을 얻으려면 FC 스위치를 구성할 때 특정 모범 사례를 고려해야 합니다.
+
+고정 링크 속도 설정은 FC 스위치 구성의 모범 사례이며, 특히 대규모 패브릭의 경우 패브릭 리빌드에 최고의 성능을 제공하고 시간을 크게 단축할 수 있기 때문에 그렇습니다. 자동 협상은 유연성이 높지만 FC 스위치 구성이 예전처럼 수행하지 않기 때문에 전체적인 패브릭 구성 시퀀스의 시간이 길어집니다.
+
+Fabric에 연결된 모든 스위치는 NPIV(N_Port ID Virtualization)를 지원해야 하며 NPIV를 설정해야 합니다. ONTAP는 NPIV를 사용하여 패브릭에 FC 대상을 제공합니다.
+
+지원되는 환경에 대한 자세한 내용은 를 참조하십시오 https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"].
+
+FC 및 iSCSI 모범 사례는 를 참조하십시오 http://www.netapp.com/us/media/tr-4080.pdf["확장 가능한 SAN-ONTAP 9에 대한 모범 사례"].

@@ -1,0 +1,30 @@
+---
+permalink: smb-admin/configure-roaming-profiles-task.html 
+sidebar: sidebar 
+keywords: automatic, user, profile, available, log, computer, network, configure, roam, active, directory, mmc, snap-in, configuring, roam, windows, server, administration, center, configure roam profile 
+summary: 사용자가 네트워크의 컴퓨터에 로그온할 때 자동으로 사용자 프로필을 사용할 수 있도록 하려면 Active Directory 사용자 및 컴퓨터 MMC 스냅인을 통해 로밍 프로필을 구성할 수 있습니다. Windows Server 2012에서 로밍 프로필을 구성하는 경우 Active Directory 관리 센터를 사용할 수 있습니다. 
+---
+= 로밍 프로필을 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+사용자가 네트워크의 컴퓨터에 로그온할 때 자동으로 사용자 프로필을 사용할 수 있도록 하려면 Active Directory 사용자 및 컴퓨터 MMC 스냅인을 통해 로밍 프로필을 구성할 수 있습니다. Windows Server 2012에서 로밍 프로필을 구성하는 경우 Active Directory 관리 센터를 사용할 수 있습니다.
+
+.단계
+. Windows 서버에서 Active Directory 사용자 및 컴퓨터 MMC(또는 Windows 2012 이상 서버의 Active Directory 관리 센터)를 엽니다.
+. 로밍 프로필을 구성할 사용자를 찾습니다.
+. 사용자를 마우스 오른쪽 단추로 클릭하고 * 속성 * 을 클릭합니다.
+. 프로필 * 탭에서 사용자의 로밍 프로필을 저장할 공유의 프로파일 경로를 입력한 다음 '%username%'을(를) 입력합니다.
++
+예를 들어, 프로파일 경로는 다음과 같습니다: '\\vs1.example.com\profiles\%username%`. 사용자가 처음 로그인하면 '%username%'이(가) 사용자 이름으로 대체됩니다.
+
++
+[NOTE]
+====
+'\\vs1.example.com\profiles\%username%` 경로에서 'profiles'는 SVM(Storage Virtual Machine) VS1 공유에 대한 공유 이름이며 모든 사람에게 모든 권한이 부여됩니다.
+
+====
+. 확인 * 을 클릭합니다.
+

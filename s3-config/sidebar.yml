@@ -1,0 +1,66 @@
+---
+section: s3-config
+title: CLI를 사용한 S3 구성
+entries:
+- title: 개요
+  url: "/s3-config/index.html"
+- title: ONTAP 9에서 S3 지원
+  entries:
+  - title: ONTAP S3 아키텍처 및 사용 사례
+    url: "/s3-config/s3-support-concept.html"
+  - title: S3 오브젝트 스토리지를 위한 ONTAP 버전 지원
+    url: "/s3-config/ontap-version-support-s3-concept.html"
+  - title: ONTAP S3가 지원되는 작업
+    url: "/s3-config/ontap-s3-supported-actions-reference.html"
+  - title: ONTAP S3 상호 운용성
+    url: "/s3-config/ontap-s3-interoperability-concept.html"
+- title: S3 구성 프로세스 정보
+  entries:
+  - title: 워크플로우
+    url: "/s3-config/workflow-concept.html"
+  - title: 물리적 스토리지 요구사항을 평가합니다
+    url: "/s3-config/assess-physical-storage-requirements-task.html"
+  - title: 네트워킹 요구 사항을 평가합니다
+    url: "/s3-config/assess-networking-requirements-task.html"
+  - title: 새 S3 스토리지 용량을 프로비저닝할 위치를 결정합니다
+    url: "/s3-config/where-provision-storage-capacity-task.html"
+- title: SVM에 대한 S3 액세스를 구성합니다
+  entries:
+  - title: S3를 위해 SVM을 생성합니다
+    url: "/s3-config/create-svm-s3-task.html"
+  - title: SVM에서 CA 인증서를 생성하고 설치합니다
+    url: "/s3-config/create-install-ca-certificate-svm-task.html"
+  - title: S3 서비스 데이터 정책을 생성합니다
+    url: "/s3-config/create-s3-service-data-policy-task.html"
+  - title: 데이터 LIF 생성
+    url: "/s3-config/create-data-lifs-task.html"
+  - title: 원격 FabricPool 계층화에 대한 인터클러스터 LIF를 생성합니다
+    url: "/s3-config/create-intercluster-lifs-remote-fabricpool-tiering-task.html"
+  - title: S3 오브젝트 저장소 서버를 생성합니다
+    url: "/s3-config/create-s3-object-store-server-task.html"
+- title: S3 지원 SVM에 스토리지 용량 추가
+  entries:
+  - title: 버킷을 만듭니다
+    url: "/s3-config/create-bucket-task.html"
+  - title: S3 사용자를 생성합니다
+    url: "/s3-config/create-s3-user-task.html"
+  - title: S3 그룹을 생성하거나 수정합니다
+    url: "/s3-config/create-modify-groups-task.html"
+  - title: 액세스 정책 문을 만들거나 수정합니다
+    entries:
+    - title: 버킷 및 오브젝트 저장소 서버 정책에 대해 설명합니다
+      url: "/s3-config/create-modify-bucket-policy-statements-task.html"
+    - title: 버킷 정책을 수정합니다
+      url: "/s3-config/create-modify-bucket-policy-task.html"
+    - title: 오브젝트 저장소 서버 정책을 만들거나 수정합니다
+      url: "/s3-config/create-modifyi-object-store-server-policy-task.html"
+  - title: S3 오브젝트 스토리지에 대한 클라이언트 액세스 지원
+    entries:
+    - title: 원격 FabricPool 계층화에 대해 ONTAP S3 액세스를 설정합니다
+      url: "/s3-config/enable-ontap-s3-access-remote-fabricpool-task.html"
+    - title: 로컬 FabricPool 계층화에 대해 ONTAP S3 액세스를 설정합니다
+      url: "/s3-config/enable-ontap-s3-access-local-fabricpool-task.html"
+    - title: S3 애플리케이션에서 클라이언트 액세스 설정
+      url: "/s3-config/enable-client-access-from-s3-app-task.html"
+- title: 스토리지 서비스 정의
+  url: "/s3-config/storage-service-definitions-reference.html"

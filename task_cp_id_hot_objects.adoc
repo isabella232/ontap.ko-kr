@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: task_cp_id_hot_objects.html 
+keywords: netapp, ontap, cluster, performance, identify, hot, volumes, objects, hot volumes, hot data, headroom, frequently accessed volumes, frequently accessed data, IOPS, latency, throughput, accelerate cluster performance, improve performance, cluster performance 
+summary: '자주 액세스하는 볼륨(핫 볼륨) 및 데이터(핫 오브젝트)를 식별하여 클러스터 성능을 가속화할 수 있습니다.' 
+---
+= 핫 볼륨 및 기타 개체를 식별합니다
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+자주 액세스하는 볼륨(핫 볼륨) 및 데이터(핫 오브젝트)를 식별하여 클러스터 성능을 가속화합니다.
+
+.단계
+. 스토리지 > 볼륨 * 을 클릭합니다.
+. 자주 액세스하는 볼륨 및 데이터를 보려면 IOPS, 지연 시간 및 처리량 열을 필터링합니다.
+

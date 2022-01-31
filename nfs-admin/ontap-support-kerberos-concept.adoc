@@ -1,0 +1,33 @@
+---
+permalink: nfs-admin/ontap-support-kerberos-concept.html 
+sidebar: sidebar 
+keywords: ontap, support, kerberos 
+summary: 'Kerberos는 클라이언트/서버 응용 프로그램에 대해 강력한 보안 인증을 제공합니다. 인증을 통해 사용자 및 프로세스 ID를 서버에 확인할 수 있습니다. ONTAP 환경에서 Kerberos는 SVM(스토리지 가상 머신)과 NFS 클라이언트 간에 인증을 제공합니다.' 
+---
+= Kerberos에 대한 ONTAP 지원
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Kerberos는 클라이언트/서버 응용 프로그램에 대해 강력한 보안 인증을 제공합니다. 인증을 통해 사용자 및 프로세스 ID를 서버에 확인할 수 있습니다. ONTAP 환경에서 Kerberos는 SVM(스토리지 가상 머신)과 NFS 클라이언트 간에 인증을 제공합니다.
+
+ONTAP 9에서는 다음과 같은 Kerberos 기능이 지원됩니다.
+
+* 무결성 검사를 통한 Kerberos 5 인증(krb5i)
++
+Krb5i는 체크섬을 사용하여 클라이언트와 서버 간에 전송되는 각 NFS 메시지의 무결성을 확인합니다. 이는 보안상의 이유(예: 데이터가 무단 변경되지 않도록 보장) 및 데이터 무결성을 위해(예: 불안정한 네트워크에서 NFS를 사용할 때 데이터 손상을 방지) 모두에 유용합니다.
+
+* Kerberos 5 개인 정보 확인 인증(krb5p)
++
+Krb5p는 체크섬을 사용하여 클라이언트와 서버 사이의 모든 트래픽을 암호화합니다. 이는 보다 안전하며 부하가 더 많이 발생합니다.
+
+* 128비트 및 256비트 AES 암호화
++
+AES(Advanced Encryption Standard)는 전자 데이터의 보안을 위한 암호화 알고리즘입니다. ONTAP는 이제 Kerberos에서 128비트 키(AES-128) 및 AES(256비트 키(AES-256) 암호화)를 사용하여 AES를 지원하므로 보안을 더욱 강화할 수 있습니다.
+
+* SVM 레벨 Kerberos 영역 구성
++
+이제 SVM 관리자가 SVM 레벨에서 Kerberos 영역 구성을 생성할 수 있습니다. 즉, SVM 관리자는 더 이상 Kerberos 영역 구성을 위해 클러스터 관리자에 의존하지 않고 다중 테넌시 환경에서 개별 Kerberos 영역 구성을 생성할 수 있습니다.
+
+

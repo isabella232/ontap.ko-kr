@@ -1,0 +1,72 @@
+---
+sidebar: sidebar 
+permalink: volumes/manage-volumes-task.html 
+keywords: system manager, volume, volumes, add, edit, resize, size, delete, clone, copy, offline, online, quota, enable quota, disable quota, export policy, mount path, move, cloud tier settings, cloud tier, cloud aggregate, storage 
+summary: System Manager로 볼륨 목록을 표시한 후 다양한 작업을 수행하여 볼륨을 관리할 수 있습니다. 
+---
+= 볼륨 관리
+
+
+[role="lead"]
+System Manager에 볼륨 목록을 표시한 후 다양한 작업을 수행하여 볼륨을 관리할 수 있습니다.
+
+.단계
+. System Manager에서 * 스토리지 > 볼륨 * 을 클릭합니다.
++
+볼륨 목록이 표시됩니다.
+
+. 다음을 수행할 수 있습니다.
+
+
+[cols="25,75"]
+|===
+
+
+| 이 작업을 수행하려면... | 다음 작업 수행... 
+
+
+ a| 
+볼륨을 추가합니다
+ a| 
+을 클릭합니다 image:../media/icon_add_blue_bg.gif["추가 아이콘"]. 을 참조하십시오 link:../task_admin_add_a_volume.html["볼륨을 추가합니다"].
+
+
+
+ a| 
+여러 볼륨을 관리합니다
+ a| 
+볼륨 옆의 확인란을 선택합니다.
+
+* 을 클릭합니다 image:../media/icon_delete_with_can_white_bg.gif["삭제 아이콘"] 선택한 볼륨을 삭제합니다.
+* 을 클릭합니다 image:../media/icon_protect.gif["보호 아이콘"] 선택한 볼륨에 보호 정책을 할당하려면
+* 을 클릭합니다 image:../media/icon-more-kebab-white-bg.gif["추가 아이콘"] 선택한 모든 볼륨에 대해 수행할 다음 작업 중 하나를 선택합니다.
++
+** 할당량을 설정합니다
+** 오프라인 상태로 전환
+** 이동
+** 삭제된 볼륨 표시
+
+
+
+
+
+
+ a| 
+단일 볼륨 관리
+ a| 
+볼륨 옆에 있는 을 클릭합니다 image:../media/icon_kabob.gif["케밥 아이콘"]그런 다음 수행할 다음 다음 작업 중 하나를 선택합니다.
+
+* 편집
+* 크기 조정(ONTAP 9.10.1부터 온라인 볼륨 및 DP FlexVol 볼륨에만 해당)
+* 삭제
+* 복제
+* 오프라인 상태로 전환(또는 온라인 상태로 전환)
+* 할당량 활성화(또는 할당량 비활성화)
+* 내보내기 정책을 편집합니다
+* 마운트 경로 편집
+* 이동
+* 클라우드 계층 설정을 편집합니다
+* 보호
+
+
+|===

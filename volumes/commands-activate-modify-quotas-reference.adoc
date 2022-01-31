@@ -1,0 +1,47 @@
+---
+permalink: volumes/commands-activate-modify-quotas-reference.html 
+sidebar: sidebar 
+keywords: commands to, activate, modify, quotas 
+summary: 볼륨 할당량 명령을 사용하여 할당량 상태를 변경하고 할당량의 메시지 로깅을 구성할 수 있습니다. 
+---
+= 할당량을 설정 및 수정하는 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'볼륨 할당량' 명령을 사용하여 할당량 상태를 변경하고 할당량의 메시지 로깅을 구성할 수 있습니다.
+
+[cols="2*"]
+|===
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+할당량 설정(_initializing_otas라고도 함)
+ a| 
+볼륨 할당량 설정
+
+
+
+ a| 
+기존 할당량 크기 조정
+ a| 
+볼륨 할당량 크기 조정
+
+
+
+ a| 
+할당량을 해제합니다
+ a| 
+볼륨 할당량이 꺼졌습니다
+
+
+
+ a| 
+할당량에 대한 메시지 로깅 변경, 할당량 설정, 할당량 해제 또는 기존 할당량 크기 조정
+ a| 
+볼륨 할당량 수정
+
+|===
+자세한 내용은 각 명령에 대한 man 페이지를 참조하십시오.

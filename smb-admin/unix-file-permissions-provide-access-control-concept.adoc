@@ -1,0 +1,40 @@
+---
+permalink: smb-admin/unix-file-permissions-provide-access-control-concept.html 
+sidebar: sidebar 
+keywords: flexvol, volume, security, style, ntfs, unix, mixed, access, data, smb, regardless, access, effective, how unix file permissions provide access control when accessing files over smb 
+summary: FlexVol 볼륨은 NTFS, UNIX 또는 MIXED의 세 가지 보안 유형 중 하나를 가질 수 있습니다. 보안 스타일에 관계없이 SMB를 통해 데이터에 액세스할 수 있지만 UNIX의 효율적인 보안을 통해 데이터에 액세스하려면 적절한 UNIX 파일 권한이 필요합니다. 
+---
+= UNIX 파일 권한이 SMB를 통해 파일에 액세스할 때 액세스 제어를 제공하는 방법
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FlexVol 볼륨은 NTFS, UNIX 또는 MIXED의 세 가지 보안 유형 중 하나를 가질 수 있습니다. 보안 스타일에 관계없이 SMB를 통해 데이터에 액세스할 수 있지만 UNIX의 효율적인 보안을 통해 데이터에 액세스하려면 적절한 UNIX 파일 권한이 필요합니다.
+
+SMB를 통해 데이터에 액세스할 때 사용자가 요청된 작업을 수행할 수 있는 권한이 있는지 여부를 결정할 때 여러 액세스 제어가 사용됩니다.
+
+* 권한 내보내기
++
+SMB 액세스에 대한 내보내기 권한 구성은 선택 사항입니다.
+
+* 공유 권한
+* 파일 권한
++
+사용자가 작업을 수행하려는 데이터에 다음 유형의 파일 권한이 적용될 수 있습니다.
+
++
+** NTFS입니다
+** Unix NFSv4 ACL
+** UNIX 모드 비트
+
+
+
+
+NFSv4 ACL 또는 UNIX 모드 비트 세트가 있는 데이터의 경우 데이터에 대한 파일 액세스 권한을 결정하는 데 UNIX 스타일 권한이 사용됩니다. SVM 관리자는 사용자가 원하는 작업을 수행할 권한을 갖도록 적절한 파일 권한을 설정해야 합니다.
+
+[NOTE]
+====
+혼합 보안 형식 볼륨의 데이터는 NTFS 또는 UNIX의 효과적인 보안 스타일을 가질 수 있습니다. 데이터에 UNIX 유효 보안 스타일이 있는 경우 데이터에 대한 파일 액세스 권한을 결정할 때 NFSv4 사용 권한 또는 UNIX 모드 비트가 사용됩니다.
+
+====

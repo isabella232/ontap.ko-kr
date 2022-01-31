@@ -1,0 +1,49 @@
+---
+permalink: fabricpool/display-mirror-details-task.html 
+sidebar: sidebar 
+keywords: display, fabricpool, mirror, details 
+summary: FabricPool 미러에 대한 세부 정보를 표시하여 구성에 있는 오브젝트 저장소 및 객체 저장소 미러가 운영 오브젝트 저장소와 동기화되어 있는지 여부를 확인할 수 있습니다. 
+---
+= FabricPool 미러 세부 정보를 표시합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FabricPool 미러에 대한 세부 정보를 표시하여 구성에 있는 오브젝트 저장소 및 객체 저장소 미러가 운영 오브젝트 저장소와 동기화되어 있는지 여부를 확인할 수 있습니다.
+
+.단계
+. 'storage aggregate object-store show' 명령을 사용하여 FabricPool 미러에 대한 정보를 표시합니다.
++
+이 예제에서는 FabricPool 미러에 저장된 운영 및 미러 객체에 대한 세부 정보를 표시합니다.
+
++
+[listing]
+----
+cluster1::> storage aggregate object-store show
+----
++
+[listing]
+----
+Aggregate      Object Store Name Availability    Mirror Type
+-------------- ----------------- -------------   ----------
+aggr1          my-store-1        available       primary
+               my-store-2        available       mirror
+----
++
+이 예에서는 재동기화 작업으로 인한 미러 성능 저하 여부를 비롯하여 FabricPool 미러에 대한 세부 정보를 표시합니다.
+
++
+[listing]
+----
+cluster1::> storage aggregate object-store show -fields mirror-type,is-mirror-degraded
+----
++
+[listing]
+----
+aggregate      object-store-name mirror-type     is-mirror-degraded
+-------------- ----------------- ------------- ------------------
+aggr1          my-store-1        primary           -
+               my-store-2        mirror          false
+----
+

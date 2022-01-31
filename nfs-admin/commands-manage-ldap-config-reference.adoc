@@ -1,0 +1,49 @@
+---
+permalink: nfs-admin/commands-manage-ldap-config-reference.html 
+sidebar: sidebar 
+keywords: command, manage, ldap, configuration 
+summary: LDAP 구성을 관리하기 위한 특정 ONTAP 명령이 있습니다. 
+---
+= LDAP 구성을 관리하는 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+LDAP 구성을 관리하기 위한 특정 ONTAP 명령이 있습니다.
+
+[cols="35,65"]
+|===
+
+
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+LDAP 구성을 생성합니다
+ a| 
+'vserver services name-service ldap create'
+
+
+
+ a| 
+LDAP 구성을 표시합니다
+ a| 
+'vserver services name-service ldap show'
+
+
+
+ a| 
+LDAP 구성을 수정합니다
+ a| 
+'vserver services name-service ldap modify'를 참조하십시오
+
+
+
+ a| 
+LDAP 구성을 삭제합니다
+ a| 
+'vserver services name-service ldap delete'
+
+|===
+자세한 내용은 각 명령에 대한 man 페이지를 참조하십시오.

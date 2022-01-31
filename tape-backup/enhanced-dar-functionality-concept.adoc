@@ -1,0 +1,15 @@
+---
+permalink: tape-backup/enhanced-dar-functionality-concept.html 
+sidebar: sidebar 
+keywords: dar, functionality, direct, access, recovery, files, nt, stream 
+summary: '디렉토리 DAR 및 파일 및 NT 스트림의 DAR에 향상된 직접 액세스 복구(DAR) 기능을 사용할 수 있습니다. 기본적으로 향상된 DAR 기능은 활성화되어 있습니다.' 
+---
+= 향상된 DAR 기능은 무엇입니까
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+디렉토리 DAR 및 파일 및 NT 스트림의 DAR에 향상된 직접 액세스 복구(DAR) 기능을 사용할 수 있습니다. 기본적으로 향상된 DAR 기능은 활성화되어 있습니다.
+
+향상된 DAR 기능을 사용하도록 설정하면 오프셋 맵을 생성하여 테이프에 기록해야 하기 때문에 백업 성능에 영향을 줄 수 있습니다. 노드 범위 및 SVM(스토리지 가상 머신) 범위 NDMP 모드 모두에서 향상된 DAR를 설정하거나 해제할 수 있습니다.

@@ -1,0 +1,205 @@
+---
+permalink: smb-admin/display-file-security-ntfs-style-volumes-task.html 
+sidebar: sidebar 
+keywords: display, information, file, directory, security, ntfs, security-style, volume, style, effective, permission, applied, apply, information, dos, attribute, result, validate, security, configuration, troubleshoot, issues, display information about file security on ntfs security-style volumes 
+summary: 'NTFS 보안 스타일 볼륨의 파일 및 디렉터리 보안에 대한 정보(보안 스타일 및 효과적인 보안 스타일, 적용되는 권한, DOS 속성 정보 등)를 표시할 수 있습니다. 결과를 사용하여 보안 구성을 확인하거나 파일 액세스 문제를 해결할 수 있습니다.' 
+---
+= NTFS 보안 스타일 볼륨의 파일 보안에 대한 정보를 표시합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NTFS 보안 스타일 볼륨의 파일 및 디렉터리 보안에 대한 정보(보안 스타일 및 효과적인 보안 스타일, 적용되는 권한, DOS 속성 정보 등)를 표시할 수 있습니다. 결과를 사용하여 보안 구성을 확인하거나 파일 액세스 문제를 해결할 수 있습니다.
+
+SVM(스토리지 가상 시스템)의 이름과 파일 또는 폴더 보안 정보를 표시할 데이터의 경로를 제공해야 합니다. 출력을 요약 양식 또는 상세 목록으로 표시할 수 있습니다.
+
+* NTFS 보안 스타일 볼륨 및 qtree는 파일 액세스 권한을 결정할 때 NTFS 파일 권한과 Windows 사용자 및 그룹만 사용하므로 UNIX 관련 출력 필드에는 표시 전용 UNIX 파일 권한 정보가 포함됩니다.
+* ACL 출력은 NTFS 보안이 설정된 파일 및 폴더에 대해 표시됩니다.
+* 볼륨 루트 또는 qtree에서 Storage-Level Access Guard 보안을 구성할 수 있으므로 Storage-Level Access Guard가 구성된 볼륨 또는 qtree 경로의 출력에는 일반 파일 ACL과 Storage-Level Access Guard ACL이 모두 표시될 수 있습니다.
+* 또한 동적 액세스 제어가 지정된 파일 또는 디렉터리 경로에 대해 구성된 경우 이 출력에는 동적 액세스 제어 ACE에 대한 정보도 표시됩니다.
+
+
+.단계
+. 파일 및 디렉터리 보안 설정을 원하는 수준으로 표시합니다.
++
+|===
+| 정보를 표시하려면... | 다음 명령을 입력합니다... 
+
+
+ a| 
+요약 양식
+ a| 
+'vserver security file-directory show -vserver_vserver_name_-path_path_'
+
+
+
+ a| 
+세부 정보가 확장됩니다
+ a| 
+'vserver security file-directory show -vserver_vserver_name_-path_path_-expand-mask true'
+
+|===
+
+
+다음 예제는 SVM VS1 경로의 /vol4" 보안 정보를 보여줍니다.
+
+[listing]
+----
+cluster::> vserver security file-directory show -vserver vs1 -path /vol4
+
+                                 Vserver: vs1
+                               File Path: /vol4
+                       File Inode Number: 64
+                          Security Style: ntfs
+                         Effective Style: ntfs
+                          DOS Attributes: 10
+                  DOS Attributes in Text: ----D---
+                 Expanded Dos Attributes: -
+                            Unix User Id: 0
+                           Unix Group Id: 0
+                          Unix Mode Bits: 777
+                  Unix Mode Bits in Text: rwxrwxrwx
+                                    ACLs: NTFS Security Descriptor
+                                          Control:0x8004
+                                          Owner:BUILTIN\Administrators
+                                          Group:BUILTIN\Administrators
+                                          DACL - ACEs
+                                          ALLOW-Everyone-0x1f01ff
+                                          ALLOW-Everyone-0x10000000-OI|CI|IO
+----
+다음 예에서는 SVM VS1 경로의 /data/engineering에 대한 확장된 마스크와 함께 보안 정보를 표시합니다.
+
+[listing]
+----
+cluster::> vserver security file-directory show -vserver vs1 -path -path /data/engineering -expand-mask true
+
+                Vserver: vs1
+              File Path: /data/engineering
+      File Inode Number: 5544
+         Security Style: ntfs
+        Effective Style: ntfs
+         DOS Attributes: 10
+ DOS Attributes in Text: ----D---
+Expanded Dos Attributes: 0x10
+     ...0 .... .... .... = Offline
+     .... ..0. .... .... = Sparse
+     .... .... 0... .... = Normal
+     .... .... ..0. .... = Archive
+     .... .... ...1 .... = Directory
+     .... .... .... .0.. = System
+     .... .... .... ..0. = Hidden
+     .... .... .... ...0 = Read Only
+           Unix User Id: 0
+          Unix Group Id: 0
+         Unix Mode Bits: 777
+ Unix Mode Bits in Text: rwxrwxrwx
+                   ACLs: NTFS Security Descriptor
+                         Control:0x8004
+
+                             1... .... .... .... = Self Relative
+                             .0.. .... .... .... = RM Control Valid
+                             ..0. .... .... .... = SACL Protected
+                             ...0 .... .... .... = DACL Protected
+                             .... 0... .... .... = SACL Inherited
+                             .... .0.. .... .... = DACL Inherited
+                             .... ..0. .... .... = SACL Inherit Required
+                             .... ...0 .... .... = DACL Inherit Required
+                             .... .... ..0. .... = SACL Defaulted
+                             .... .... ...0 .... = SACL Present
+                             .... .... .... 0... = DACL Defaulted
+                             .... .... .... .1.. = DACL Present
+                             .... .... .... ..0. = Group Defaulted
+                             .... .... .... ...0 = Owner Defaulted
+
+                         Owner:BUILTIN\Administrators
+                         Group:BUILTIN\Administrators
+                         DACL - ACEs
+                           ALLOW-Everyone-0x1f01ff
+                             0... .... .... .... .... .... .... .... = Generic Read
+                             .0.. .... .... .... .... .... .... .... = Generic Write
+                             ..0. .... .... .... .... .... .... .... = Generic Execute
+                             ...0 .... .... .... .... .... .... .... = Generic All
+                             .... ...0 .... .... .... .... .... .... = System Security
+                             .... .... ...1 .... .... .... .... .... = Synchronize
+                             .... .... .... 1... .... .... .... .... = Write Owner
+                             .... .... .... .1.. .... .... .... .... = Write DAC
+                             .... .... .... ..1. .... .... .... .... = Read Control
+                             .... .... .... ...1 .... .... .... .... = Delete
+                             .... .... .... .... .... ...1 .... .... = Write Attributes
+                             .... .... .... .... .... .... 1... .... = Read Attributes
+                             .... .... .... .... .... .... .1.. .... = Delete Child
+                             .... .... .... .... .... .... ..1. .... = Execute
+                             .... .... .... .... .... .... ...1 .... = Write EA
+                             .... .... .... .... .... .... .... 1... = Read EA
+                             .... .... .... .... .... .... .... .1.. = Append
+                             .... .... .... .... .... .... .... ..1. = Write
+                             .... .... .... .... .... .... .... ...1 = Read
+
+                           ALLOW-Everyone-0x10000000-OI|CI|IO
+                             0... .... .... .... .... .... .... .... = Generic Read
+                             .0.. .... .... .... .... .... .... .... = Generic Write
+                             ..0. .... .... .... .... .... .... .... = Generic Execute
+                             ...1 .... .... .... .... .... .... .... = Generic All
+                             .... ...0 .... .... .... .... .... .... = System Security
+                             .... .... ...0 .... .... .... .... .... = Synchronize
+                             .... .... .... 0... .... .... .... .... = Write Owner
+                             .... .... .... .0.. .... .... .... .... = Write DAC
+                             .... .... .... ..0. .... .... .... .... = Read Control
+                             .... .... .... ...0 .... .... .... .... = Delete
+                             .... .... .... .... .... ...0 .... .... = Write Attributes
+                             .... .... .... .... .... .... 0... .... = Read Attributes
+                             .... .... .... .... .... .... .0.. .... = Delete Child
+                             .... .... .... .... .... .... ..0. .... = Execute
+                             .... .... .... .... .... .... ...0 .... = Write EA
+                             .... .... .... .... .... .... .... 0... = Read EA
+                             .... .... .... .... .... .... .... .0.. = Append
+                             .... .... .... .... .... .... .... ..0. = Write
+                             .... .... .... .... .... .... .... ...0 = Read
+----
+다음 예에서는 SVM VS1 에서 경로 '/datavol1'이 있는 볼륨에 대한 Storage-Level Access Guard 보안 정보를 비롯한 보안 정보를 표시합니다.
+
+[listing]
+----
+cluster::> vserver security file-directory show -vserver vs1 -path /datavol1
+
+                Vserver: vs1
+              File Path: /datavol1
+      File Inode Number: 77
+         Security Style: ntfs
+        Effective Style: ntfs
+         DOS Attributes: 10
+ DOS Attributes in Text: ----D---
+Expanded Dos Attributes: -
+           Unix User Id: 0
+          Unix Group Id: 0
+         Unix Mode Bits: 777
+ Unix Mode Bits in Text: rwxrwxrwx
+                   ACLs: NTFS Security Descriptor
+                         Control:0x8004
+                         Owner:BUILTIN\Administrators
+                         Group:BUILTIN\Administrators
+                         DACL - ACEs
+                           ALLOW-Everyone-0x1f01ff
+                           ALLOW-Everyone-0x10000000-OI|CI|IO
+
+
+                         Storage-Level Access Guard security
+                         SACL (Applies to Directories):
+                           AUDIT-EXAMPLE\Domain Users-0x120089-FA
+                           AUDIT-EXAMPLE\engineering-0x1f01ff-SA
+                         DACL (Applies to Directories):
+                           ALLOW-EXAMPLE\Domain Users-0x120089
+                           ALLOW-EXAMPLE\engineering-0x1f01ff
+                           ALLOW-NT AUTHORITY\SYSTEM-0x1f01ff
+                         SACL (Applies to Files):
+                           AUDIT-EXAMPLE\Domain Users-0x120089-FA
+                           AUDIT-EXAMPLE\engineering-0x1f01ff-SA
+                         DACL (Applies to Files):
+                           ALLOW-EXAMPLE\Domain Users-0x120089
+                           ALLOW-EXAMPLE\engineering-0x1f01ff
+                           ALLOW-NT AUTHORITY\SYSTEM-0x1f01ff
+----
+xref:display-file-security-mixed-style-volumes-task.adoc[혼합 보안 형식 볼륨의 파일 보안에 대한 정보 표시]
+
+xref:display-file-security-unix-style-volumes-task.adoc[UNIX 보안 스타일 볼륨의 파일 보안에 대한 정보 표시]

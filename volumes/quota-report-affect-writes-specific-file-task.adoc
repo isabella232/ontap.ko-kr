@@ -1,0 +1,36 @@
+---
+permalink: volumes/quota-report-affect-writes-specific-file-task.html 
+sidebar: sidebar 
+keywords: use, quota report, determine, quotas limit, writes, specific file 
+summary: 특정 파일 경로와 함께 volume quota report 명령을 사용하여 파일에 대한 쓰기 작업에 영향을 주는 할당량 한도를 결정할 수 있습니다. 이렇게 하면 어떤 할당량이 쓰기 작업을 방해하는지 이해하는 데 도움이 됩니다. 
+---
+= 할당량 보고서를 사용하여 특정 파일에 대한 쓰기를 제한하는 할당량을 결정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+특정 파일 경로와 함께 volume quota report 명령을 사용하여 파일에 대한 쓰기 작업에 영향을 주는 할당량 한도를 결정할 수 있습니다. 이렇게 하면 어떤 할당량이 쓰기 작업을 방해하는지 이해하는 데 도움이 됩니다.
+
+.단계
+. path 매개 변수와 함께 volume quota report 명령을 사용합니다.
+
+
+다음 예제에서는 FlexVol 볼륨 vol2의 qtree Q1 내에 있는 파일 1에 쓸 때 적용되는 할당량을 결정하는 명령 및 출력을 보여 줍니다.
+
+[listing]
+----
+cluster1:> volume quota report -vserver vs0 -volume vol2 -path /vol/vol2/q1/file1
+Virtual Server: vs0
+                                    ----Disk----  ----Files-----   Quota
+Volume   Tree      Type    ID        Used  Limit    Used   Limit   Specifier
+-------  --------  ------  -------  -----  -----  ------  ------   ---------
+vol2     q1        tree    jsmith     1MB  100MB       2   10000   q1
+vol2     q1        group   eng        1MB  700MB       2   70000
+vol2               group   eng        1MB  700MB       6   70000   *
+vol2               user    corp\jsmith
+                                      1MB   50MB       1       -   *
+vol2     q1        user    corp\jsmith
+                                      1MB   50MB       1       -
+5 entries were displayed.
+----

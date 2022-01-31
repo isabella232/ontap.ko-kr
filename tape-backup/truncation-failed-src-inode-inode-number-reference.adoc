@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/truncation-failed-src-inode-inode-number-reference.html 
+sidebar: sidebar 
+keywords: truncation, failed, src, inode, number, delete, file, restore 
+summary: 파일 inode는 파일이 복원될 때 삭제됩니다. 
+---
+= src inode <inode number>… 에 대한 잘라내기에 실패했습니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+"src inode <inode number>에 대한 잘림 실패. 오류 <오류 번호>. inode를 건너뜁니다
+
+* * 원인 *
++
+파일 inode는 파일이 복원될 때 삭제됩니다.
+
+* * 시정 조치 *
++
+해당 볼륨을 사용하기 전에 볼륨의 복원 작업이 완료될 때까지 기다립니다.
+
+

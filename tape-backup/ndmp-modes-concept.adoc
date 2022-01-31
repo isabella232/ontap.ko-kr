@@ -1,0 +1,23 @@
+---
+permalink: tape-backup/ndmp-modes-concept.html 
+sidebar: sidebar 
+keywords: ndmp, mode, operation, backup, restore, node, level, svm 
+summary: '지금까지는 노드 수준에서나 SVM(스토리지 가상 시스템) 레벨에서 테이프 백업 및 복원 작업을 수행하도록 선택할 수 있습니다. SVM 레벨에서 이러한 작업을 성공적으로 수행하려면 SVM에서 NDMP 서비스를 사용하도록 설정해야 합니다.' 
+---
+= NDMP 작업 모드에 대해 설명합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+지금까지는 노드 수준에서나 SVM(스토리지 가상 시스템) 레벨에서 테이프 백업 및 복원 작업을 수행하도록 선택할 수 있습니다. SVM 레벨에서 이러한 작업을 성공적으로 수행하려면 SVM에서 NDMP 서비스를 사용하도록 설정해야 합니다.
+
+Data ONTAP 8.2에서 Data ONTAP 8.3으로 업그레이드할 경우 8.2에서 사용되는 NDMP 작업 모드는 업그레이드 후에도 8.2에서 8.3으로 유지됩니다.
+
+Data ONTAP 8.2 이상을 사용하여 새 클러스터를 설치하는 경우 NDMP는 기본적으로 SVM 범위의 NDMP 모드에 있습니다. 노드 범위 NDMP 모드에서 테이프 백업 및 복구 작업을 수행하려면 노드 범위 NDMP 모드를 명시적으로 설정해야 합니다.
+
+xref:commands-manage-node-scoped-ndmp-reference.adoc[노드 범위의 NDMP 모드를 관리하는 명령입니다]
+
+xref:manage-node-scoped-ndmp-mode-concept.adoc[FlexVol 볼륨에 대한 노드 범위 NDMP 모드 관리]
+
+xref:manage-svm-scoped-ndmp-mode-concept.adoc[FlexVol 볼륨에 대한 SVM 범위 NDMP 모드 관리]

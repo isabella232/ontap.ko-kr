@@ -1,0 +1,17 @@
+---
+permalink: volumes/space-display-quota-report-unix-client-concept.html 
+sidebar: sidebar 
+keywords: difference, space usage, displayed, quota report, unix client 
+summary: FlexVol 볼륨 또는 qtree에 대한 할당량 보고서에 표시되는 사용된 디스크 공간의 값은 동일한 볼륨 또는 qtree에 대해 UNIX 클라이언트가 표시하는 값과 다를 수 있습니다. 사용 값의 차이는 볼륨 또는 qtree의 데이터 블록을 계산하기 위한 할당량 보고서 및 UNIX 명령이 이어지는 방법의 차이로 인해 나타납니다. 
+---
+= 할당량 보고서 및 UNIX 클라이언트 개요로 표시되는 공간 사용량 차이
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FlexVol 볼륨 또는 qtree에 대한 할당량 보고서에 표시되는 사용된 디스크 공간의 값은 동일한 볼륨 또는 qtree에 대해 UNIX 클라이언트가 표시하는 값과 다를 수 있습니다. 사용 값의 차이는 볼륨 또는 qtree의 데이터 블록을 계산하기 위한 할당량 보고서 및 UNIX 명령이 이어지는 방법의 차이로 인해 나타납니다.
+
+예를 들어, 볼륨에 데이터가 기록되지 않은 빈 데이터 블록이 있는 파일이 포함된 경우 볼륨에 대한 할당량 보고서에서 공간 사용량을 보고하는 동안 빈 데이터 블록이 계산되지 않습니다. 그러나 볼륨이 UNIX 클라이언트에 마운트되어 있고 파일이 "ls" 명령의 출력으로 표시되면 빈 데이터 블록도 공간 사용량에 포함됩니다. 따라서 "ls" 명령은 할당량 보고서에 표시되는 공간 사용량과 비교하여 더 큰 파일 크기를 표시합니다.
+
+마찬가지로 할당량 보고서에 표시되는 공간 사용량 값도 "df", "du"와 같은 UNIX 명령의 결과로 표시되는 값과 다를 수 있습니다.

@@ -1,0 +1,68 @@
+---
+permalink: smb-admin/configure-required-encryption-concept.html 
+sidebar: sidebar 
+keywords: smb, encryption, data, transfer, security, enhancement, enable, disable, server, configure, desire, share-by-share, basis, property, setting, configure, configure required smb encryption on smb servers for data transfer over smb 
+summary: SMB를 통한 데이터 전송을 위한 SMB 암호화는 SMB 서버에서 활성화 또는 비활성화할 수 있는 향상된 보안 기능입니다. 공유 속성 설정을 통해 공유별로 원하는 SMB 암호화 설정을 구성할 수도 있습니다. 
+---
+= SMB를 통한 데이터 전송을 위해 SMB 서버에 필요한 SMB 암호화 구성 개요
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMB를 통한 데이터 전송을 위한 SMB 암호화는 SMB 서버에서 활성화 또는 비활성화할 수 있는 향상된 보안 기능입니다. 공유 속성 설정을 통해 공유별로 원하는 SMB 암호화 설정을 구성할 수도 있습니다.
+
+기본적으로 SVM(스토리지 가상 머신)에서 SMB 서버를 생성할 때 SMB 암호화가 사용되지 않습니다. SMB 암호화를 통해 제공되는 향상된 보안을 활용하려면 이 기능을 활성화해야 합니다.
+
+암호화된 SMB 세션을 생성하려면 SMB 클라이언트가 SMB 암호화를 지원해야 합니다. Windows Server 2012 및 Windows 8부터 시작되는 Windows 클라이언트는 SMB 암호화를 지원합니다.
+
+SVM의 SMB 암호화는 두 가지 설정을 통해 제어됩니다.
+
+* SVM의 기능을 지원하는 SMB 서버 보안 옵션
+* 공유 단위로 SMB 암호화 설정을 구성하는 SMB 공유 속성입니다
+
+
+SVM의 모든 데이터에 액세스하려면 암호화를 사용할지, 선택한 공유에서만 데이터에 액세스하려면 SMB 암호화가 필요한지 여부를 결정할 수 있습니다. SVM 레벨 설정이 공유 레벨 설정보다 우선합니다.
+
+효과적인 SMB 암호화 구성은 두 가지 설정의 조합에 따라 달라지며 다음 표에 설명되어 있습니다.
+
+|===
+| SMB 서버 SMB 암호화가 활성화되었습니다 | 공유 암호화 데이터 설정이 활성화되었습니다 | 서버측 암호화 동작 
+
+
+ a| 
+참
+ a| 
+거짓
+ a| 
+SVM의 모든 공유에 대해 서버 레벨 암호화가 활성화됩니다. 이 구성을 사용하면 전체 SMB 세션에 대해 암호화가 수행됩니다.
+
+
+
+ a| 
+참
+ a| 
+참
+ a| 
+공유 레벨 암호화와 관계없이 SVM의 모든 공유에 대해 서버 레벨 암호화가 활성화됩니다. 이 구성을 사용하면 전체 SMB 세션에 대해 암호화가 수행됩니다.
+
+
+
+ a| 
+거짓
+ a| 
+참
+ a| 
+특정 공유에 대해 공유 수준 암호화가 설정됩니다. 이 구성을 사용하면 트리 연결로부터 암호화가 수행됩니다.
+
+
+
+ a| 
+거짓
+ a| 
+거짓
+ a| 
+암호화가 활성화되지 않았습니다.
+
+|===
+암호화를 지원하지 않는 SMB 클라이언트는 암호화가 필요한 SMB 서버 또는 공유에 연결할 수 없습니다.

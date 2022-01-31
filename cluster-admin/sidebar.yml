@@ -1,0 +1,52 @@
+---
+section: cluster-admin
+title: 클러스터 관리
+url: "/cluster-admin/index.html"
+entries:
+- title: System Manager를 이용한 클러스터 관리
+  entries:
+  - title: 관리 개요
+    url: "/concept_administration_overview.html"
+  - title: 새로운 기능 활성화
+    url: "/task_admin_enable_new_features.html"
+  - title: 지원 케이스를 보고 제출합니다
+    url: "/task_admin_view_submit_support_cases.html"
+  - title: Active IQ 디지털 자문으로 위험 모니터링
+    url: "/task_admin_monitor_risks.html"
+  - title: 하드웨어 구성을 보고 문제를 확인합니다
+    url: "/task_admin_troubleshoot_hardware_problems.html"
+  - title: 디스크를 로컬 계층에 추가합니다
+    url: "/task_admin_add_disks_to_local_tier.html"
+  - title: 노드 관리
+    entries:
+    - title: 노드를 재부팅, 종료, 테이크오버하고 돌려제공합니다
+      url: "/task_admin_manage_nodes.html"
+    - title: 클러스터에 노드 추가
+      url: "/task_admin_add_nodes_to_cluster.html"
+- section: system-admin
+- section: disks-aggregates
+- title: System Manager를 사용하여 FabricPool 계층 관리
+  entries:
+  - title: FabricPool 개요
+    url: "/concept_cloud_overview.html"
+  - title: 클라우드에 연결을 추가합니다
+    url: "/task_add_connection_to_cloud.html"
+  - title: 데이터를 클라우드에 계층화
+    url: "/task_cloud_tier_data.html"
+  - title: FabricPool 라이센스를 설치합니다
+    url: "/cloud-install-fabricpool-task.html"
+  - title: 데이터를 로컬 버킷에 계층화
+    url: "/task_cloud_local_bucket_tier_data.html"
+  - title: 계층화 오브젝트 태그 생성
+    url: "/task_cloud_create_tiering_object_tags.html"
+  - title: 비활성 데이터 보고를 활성화합니다
+    url: "/task_cloud_enable_inactive_data_reporting.html"
+- section: fabricpool
+- section: svm-migrate
+- section: high-availability
+- title: System Manager를 통한 REST API 관리
+  entries:
+  - title: REST 로그 개요
+    url: "/concept_rest_overview.html"
+  - title: REST API 로그에 액세스합니다
+    url: "/task_rest_access_log.html"

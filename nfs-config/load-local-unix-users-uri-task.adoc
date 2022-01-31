@@ -1,0 +1,56 @@
+---
+permalink: nfs-config/load-local-unix-users-uri-task.html 
+sidebar: sidebar 
+keywords: load, local, unix, users, uri 
+summary: 'SVM에서 개별 로컬 UNIX 사용자를 수동으로 생성하는 대신 로컬 UNIX 사용자 목록을 URI(Uniform Resource Identifier)에서 SVM으로 로드하여 작업을 단순화할 수 있습니다(vserver services name-service unix-user load-from-Uri).' 
+---
+= URI에서 로컬 UNIX 사용자를 로드합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SVM에서 개별 로컬 UNIX 사용자를 수동으로 생성하는 대신 로컬 UNIX 사용자 목록을 URI(Uniform Resource Identifier)에서 SVM으로 로드하여 작업을 단순화할 수 있습니다('vserver services name-service unix-user load-from-Uri').
+
+.단계
+. 로드할 로컬 UNIX 사용자 목록이 포함된 파일을 생성합니다.
++
+파일은 UNIX '/etc/passwd' 형식의 사용자 정보를 포함해야 합니다.
+
++
+'_user_name:password:user_ID:group_ID:full_name_'
+
++
+명령에서는 '_PASSWORD_' 필드 값과 '_FULL_NAME_' 필드 뒤에 있는 필드 값('_HOME_DIRECTORY_' 및 '_shell_')이 삭제됩니다.
+
++
+지원되는 최대 파일 크기는 2.5MB입니다.
+
+. 목록에 중복 정보가 없는지 확인합니다.
++
+목록에 중복 항목이 포함되어 있으면 목록을 로드하지 못하고 오류 메시지가 표시됩니다.
+
+. 파일을 서버에 복사합니다.
++
+스토리지 시스템에서 HTTP, HTTPS, FTP 또는 FTPS를 통해 서버에 연결할 수 있어야 합니다.
+
+. 파일의 URI를 확인합니다.
++
+URI는 파일이 있는 위치를 나타내기 위해 스토리지 시스템에 제공하는 주소입니다.
+
+. 로컬 UNIX 사용자 목록이 포함된 파일을 URI에서 SVM으로 로드합니다.
++
+'vserver services name-service unix-user load-from-Uri-vserver_vserver_name_-Uri{ftp|http|ftps|https}://_Uri_-overwrite{true|false}'
+
++
+'-overwrite'{'true'|'false'}는 엔트리를 덮어쓸지 여부를 지정합니다. 기본값은 false 입니다.
+
+
+
+다음 명령을 실행하면 URI '+ftp://ftp.example.com/passwd+` 에서 이름이 VS1 인 SVM으로 로컬 UNIX 사용자 목록이 로드됩니다. SVM의 기존 사용자는 URI의 정보로 덮어써지지 않습니다.
+
+[listing]
+----
+node::> vserver services name-service unix-user load-from-uri -vserver vs1
+-uri ftp://ftp.example.com/passwd -overwrite false
+----

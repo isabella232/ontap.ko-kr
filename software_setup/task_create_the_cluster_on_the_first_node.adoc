@@ -1,0 +1,65 @@
+---
+permalink: software_setup/task_create_the_cluster_on_the_first_node.html 
+sidebar: sidebar 
+keywords: ontap, software, setup, create, cluster, first, node, autosupport, CLI 
+summary: '클러스터 설정 마법사를 사용하여 첫 번째 노드에서 클러스터를 생성합니다. 이 마법사를 사용하면 노드를 연결하는 클러스터 네트워크를 구성할 수 있습니다.\(클러스터가 2개 이상의 노드로 구성된 경우\), 클러스터 관리 스토리지 가상 시스템 \(SVM\)을 생성하고, 기능 라이센스 키를 추가한 다음, 첫 번째 노드의 노드 관리 인터페이스를 생성할 수 있습니다.' 
+---
+= 첫 번째 노드에서 클러스터를 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클러스터 설정 마법사를 사용하여 첫 번째 노드에서 클러스터를 생성합니다. 이 마법사를 사용하면 노드를 연결하는 클러스터 네트워크를 구성하고, 클러스터 관리 스토리지 가상 시스템(SVM)을 생성하고, 기능 라이센스 키를 추가하고, 첫 번째 노드의 노드 관리 인터페이스를 생성할 수 있습니다.
+
+. 클러스터에 추가할 모든 노드의 전원을 켭니다. 이 작업은 클러스터 설정을 검색하는 데 필요합니다.
+. 첫 번째 노드의 콘솔에 연결합니다.
++
+노드가 부팅된 다음 콘솔에서 클러스터 설정 마법사가 시작됩니다.
+
++
+[listing]
+----
+Welcome to the cluster setup wizard....
+----
+. AutoSupport 설명을 확인합니다.
++
+[listing]
+----
+Type yes to confirm and continue {yes}: yes
+----
++
+
+NOTE: AutoSupport는 기본적으로 사용하도록 설정되어 있습니다.
+
+. 화면의 지침에 따라 노드에 IP 주소를 할당합니다.
+. GUI 마법사를 사용하여 설치를 수행하는 경우, 웹 브라우저에서 설정을 완료하려면 지침을 따르십시오. CLI 마법사를 사용하여 설치를 수행하는 경우 Enter 키를 눌러 계속합니다.
++
+[listing]
+----
+Use your web browser to complete cluster setup by accessing
+https://10.63.11.29
+
+Otherwise, press Enter to complete cluster setup using the
+command line interface:
+
+Do you want to create a new cluster or join an existing cluster? {create, join}:
+----
+. 새 클러스터 'create'를 생성합니다
+. 시스템 기본값을 그대로 사용하거나 값을 직접 입력합니다.
+. 설치가 완료된 후 ONTAP CLI 명령 'cluster show'를 입력하여 클러스터에 로그인하여 클러스터가 활성 상태이고 첫 번째 노드가 정상 상태인지 확인합니다
++
+다음 예에서는 첫 번째 노드(cluster1-01)가 정상이고 참여할 자격이 있는 클러스터를 보여 줍니다.
+
++
+[listing]
+----
+cluster1::> cluster show
+Node                  Health  Eligibility
+--------------------- ------- ------------
+cluster1-01           true    true
+----
++
+"cluster setup" 명령을 사용하여 클러스터 설정 마법사에 액세스하여 SVM 또는 노드 SVM에 대해 입력한 값을 변경할 수 있습니다.
+
+

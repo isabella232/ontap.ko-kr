@@ -1,0 +1,31 @@
+---
+permalink: data-protection/vol-placement-criteria-svm-dest-reference.html 
+sidebar: sidebar 
+keywords: snapmirror, svm, replication, disaster recovery, aggregate, volume 
+summary: 소스 SVM에서 타겟 SVM으로 볼륨을 복제할 때 애그리게이트 선택 기준을 파악하는 것이 중요합니다. 
+---
+= 타겟 SVM에 볼륨을 배치할 기준
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+소스 SVM에서 타겟 SVM으로 볼륨을 복제할 때 애그리게이트 선택 기준을 파악하는 것이 중요합니다.
+
+애그리게이트는 다음 기준에 따라 선택됩니다.
+
+* 볼륨은 항상 비루트 애그리게이트에 배치되어 있습니다.
+* 사용 가능한 여유 공간과 애그리게이트에 이미 호스팅되는 볼륨의 수를 기준으로 비 루트 애그리게이트를 선택합니다.
++
+여유 공간이 더 많은 애그리게이트를 사용하고 더 적은 볼륨을 우선 순위로 지정합니다. 가장 높은 우선순위를 가진 애그리게이트는 선택됩니다.
+
+* FabricPool 애그리게이트에서 소스 볼륨은 동일한 계층화-정책을 사용하여 대상의 FabricPool 애그리게이트에 배치됩니다.
+* 소스 SVM의 볼륨이 Flash Pool 애그리게이트에 있는 경우, 그러한 애그리게이트와 사용 가능한 공간이 충분할 경우, 타겟 SVM의 Flash Pool 애그리게이트에 볼륨을 배치하면 됩니다.
+* 복제된 볼륨의 '-space-보증' 옵션이 'volume'으로 설정된 경우 사용 가능한 공간이 볼륨 크기보다 큰 애그리게이트만 고려됩니다.
+* 소스 볼륨 크기에 따라 복제 중에 타겟 SVM에서 볼륨 크기가 자동으로 커집니다.
++
+대상 SVM에서 크기를 사전 예약하려면 볼륨 크기를 조정해야 합니다. 소스 SVM을 기반으로 하는 타겟 SVM에서 볼륨 크기가 자동으로 축소되지 않습니다.
+
+
+
+한 Aggregate에서 다른 Aggregate로 볼륨을 이동할 경우, 대상 SVM에서 'volume move' 명령을 사용할 수 있습니다.

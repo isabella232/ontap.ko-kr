@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/failed-to-delete-snapshot-reference.html 
+sidebar: sidebar 
+keywords: failed, delete, snapshot, auto, copy, operations 
+summary: 자동 스냅샷 복사본이 다른 작업에서 사용 중이므로 삭제할 수 없습니다. 
+---
+= 스냅샷을 삭제하지 못했습니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+스냅샷을 삭제하지 못했습니다
+
+* * 원인 *
++
+자동 스냅샷 복사본이 다른 작업에서 사용 중이므로 삭제할 수 없습니다.
+
+* * 시정 조치 *
++
+스냅샷 복사본의 상태를 확인하려면 'snap' 명령을 사용합니다. 스냅샷 복사본이 필요하지 않은 경우 수동으로 삭제합니다.
+
+

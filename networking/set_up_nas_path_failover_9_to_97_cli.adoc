@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: networking/set_up_nas_path_failover_9_to_97_cli.html 
+keywords: 'set up nas path failover (ontap 9.0 - 9.7 cli), setup nas path failover, nas path failover, nas path failover workflow' 
+summary: ONTAP 9.0 - 9.7 NAS 경로 페일오버 워크플로우에 오신 것을 환영합니다 
+---
+= CLI를 사용하여 NAS 경로 페일오버 설정(ONTAP 9.0 - 9.7)
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+이 워크플로우는 ONTAP 9.0-9.7에 대한 NAS 경로 페일오버를 설정하는 네트워킹 구성 단계를 안내합니다. 이 워크플로에서는 다음을 가정합니다.
+
+* 네트워크 구성을 간소화하는 NAS 경로 페일오버 모범 사례를 사용하려고 합니다.
+* System Manager가 아니라 CLI를 사용하려고 합니다.
+* ONTAP 9.0에서 9.7을 실행하는 새 시스템에서 네트워킹을 구성하고 있습니다.
+
+
+9.7 이후 버전의 ONTAP 릴리즈를 실행하는 경우 ONTAP 9.8 이상에 대해 NAS 경로 페일오버 절차를 사용해야 합니다.
+
+* xref:set_up_nas_path_failover_98_and_later_cli.adoc[ONTAP 9.8 이상 NAS 경로 페일오버 워크플로우]
+
+
+네트워크 구성 요소 및 관리에 대한 자세한 내용을 보려면 네트워크 관리 참조 자료를 사용해야 합니다.
+
+* xref:networking_reference.adoc[네트워크 관리 개요]
+

@@ -1,0 +1,76 @@
+---
+permalink: smb-admin/list-supported-privileges-reference.html 
+sidebar: sidebar 
+keywords: ontap, predefined, support, privilege, local, group, add, user, exist, domain, list of supported privileges 
+summary: ONTAP에는 지원되는 권한이 미리 정의되어 있습니다. 미리 정의된 특정 로컬 그룹에는 이러한 권한 중 일부가 기본적으로 추가됩니다. 또한 미리 정의된 그룹에서 권한을 추가하거나 제거하거나 새 로컬 사용자 또는 그룹을 만들고 만든 그룹 또는 기존 도메인 사용자 및 그룹에 권한을 추가할 수도 있습니다. 
+---
+= 지원되는 권한 목록입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP에는 지원되는 권한이 미리 정의되어 있습니다. 미리 정의된 특정 로컬 그룹에는 이러한 권한 중 일부가 기본적으로 추가됩니다. 또한 미리 정의된 그룹에서 권한을 추가하거나 제거하거나 새 로컬 사용자 또는 그룹을 만들고 만든 그룹 또는 기존 도메인 사용자 및 그룹에 권한을 추가할 수도 있습니다.
+
+다음 표에는 SVM(스토리지 가상 시스템)에서 지원되는 권한이 나열되어 있으며 할당된 권한이 있는 BUILTIN 그룹 목록이 제공됩니다.
+
+|===
+| 권한 이름입니다 | 기본 보안 설정입니다 | 설명 
+
+
+ a| 
+'세TcbPrivilege'입니다
+ a| 
+없음
+ a| 
+운영 체제의 일부로 작동합니다
+
+
+
+ a| 
+'BackupPrivilege'입니다
+ a| 
+'BUILTIN\Administrators', 'BUILTIN\Backup Operators'
+ a| 
+파일 및 디렉토리를 백업하고 모든 ACL을 재정의합니다
+
+
+
+ a| 
+스저장창고특권
+ a| 
+'BUILTIN\Administrators', 'BUILTIN\Backup Operators'
+ a| 
+파일 및 디렉토리를 복원하고 모든 ACL을 재정의하면 유효한 사용자 또는 그룹 SID가 파일 소유자로 설정됩니다
+
+
+
+ a| 
+'새테이크오너선프리빌리지'
+ a| 
+'BUILTIN\Administrators'
+ a| 
+파일 또는 기타 개체의 소유권을 가져옵니다
+
+
+
+ a| 
+'보안 권한'
+ a| 
+'BUILTIN\Administrators'
+ a| 
+감사 관리\n\n보안 로그 보기, 덤프 및 지우기가 포함됩니다.
+
+
+
+ a| 
+'스변경NotifyPrivilege'입니다
+ a| 
+'BUILTIN\Administrators', 'BUILTIN\Backup Operators', 'BUILTIN\Power Users', 'BUILTIN\Users', 'Everyone'
+ a| 
+통과 무시 검사\n이 권한이 있는 사용자는 폴더, symlink 또는 교차로를 통과할 수 있는 통과(x) 권한이 필요하지 않습니다.
+
+|===
+xref:manage-local-privileges-concept.adoc[로컬 권한 관리]
+
+xref:configure-bypass-traverse-checking-concept.adoc[통과 확인 우회 구성]

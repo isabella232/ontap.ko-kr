@@ -1,0 +1,67 @@
+---
+permalink: smb-admin/commands-manage-shares-reference.html 
+sidebar: sidebar 
+keywords: vserver, cifs, properties, property, command, manage, smb, share, command for managing smb shares 
+summary: SVM CIFS 공유 및 SVM CIFS 공유 속성 명령을 사용하여 SMB 공유를 관리할 수 있습니다. 
+---
+= SMB 공유를 관리하는 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+"vserver cifs share" 및 "vserver cifs share properties" 명령을 사용하여 SMB 공유를 관리할 수 있습니다.
+
+|===
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+SMB 공유를 생성합니다
+ a| 
+'vserver cifs share create
+
+
+
+ a| 
+SMB 공유를 표시합니다
+ a| 
+'vserver cifs share show'를 선택합니다
+
+
+
+ a| 
+SMB 공유를 수정합니다
+ a| 
+'vserver cifs share modify'를 선택합니다
+
+
+
+ a| 
+SMB 공유를 삭제합니다
+ a| 
+'vserver cifs share delete
+
+
+
+ a| 
+기존 공유에 공유 속성을 추가합니다
+ a| 
+'vserver cifs share properties add'를 선택합니다
+
+
+
+ a| 
+기존 공유에서 공유 속성을 제거합니다
+ a| 
+'vserver cifs share properties remove(가상 CIFS 공유 속성 제거
+
+
+
+ a| 
+공유 속성에 대한 정보를 표시합니다
+ a| 
+'vserver cifs share properties show'를 선택합니다
+
+|===
+자세한 내용은 각 명령에 대한 man 페이지를 참조하십시오.

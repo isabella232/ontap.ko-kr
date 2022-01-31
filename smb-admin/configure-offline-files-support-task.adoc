@@ -1,0 +1,127 @@
+---
+permalink: smb-admin/configure-offline-files-support-task.html 
+sidebar: sidebar 
+keywords: configure, offline, file, support, ontap, cli, smb, modify, exist, smb, share, manual, default, setting, configure offline files support on smb shares using the cli 
+summary: SMB 공유를 생성할 때 또는 언제든지 기존 SMB 공유를 수정하여 오프라인 파일 4개 설정 중 하나를 지정하여 ONTAP CLI를 사용하여 오프라인 파일 지원을 구성할 수 있습니다. 수동 오프라인 파일 지원은 기본 설정입니다. 
+---
+= CLI를 사용하여 SMB 공유에서 오프라인 파일 지원을 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMB 공유를 생성할 때 또는 언제든지 기존 SMB 공유를 수정하여 오프라인 파일 4개 설정 중 하나를 지정하여 ONTAP CLI를 사용하여 오프라인 파일 지원을 구성할 수 있습니다. 수동 오프라인 파일 지원은 기본 설정입니다.
+
+오프라인 파일 지원을 구성할 때 다음 네 가지 오프라인 파일 설정 중 하나를 선택할 수 있습니다.
+
+|===
+| 설정 | 설명 
+
+
+ a| 
+"없음"
+ a| 
+Windows 클라이언트가 이 공유의 모든 파일을 캐싱하지 않습니다.
+
+
+
+ a| 
+수동
+ a| 
+Windows 클라이언트의 사용자가 캐시할 파일을 수동으로 선택할 수 있습니다.
+
+
+
+ a| 
+문서
+ a| 
+Windows 클라이언트가 오프라인 액세스를 위해 사용자가 사용하는 사용자 문서를 캐시할 수 있도록 합니다.
+
+
+
+ a| 
+프로그램
+ a| 
+Windows 클라이언트가 오프라인 액세스를 위해 사용자가 사용하는 프로그램을 캐시에 저장하도록 허용합니다. 클라이언트는 공유를 사용할 수 있는 경우에도 오프라인 모드에서 캐시된 프로그램 파일을 사용할 수 있습니다.
+
+|===
+오프라인 파일 설정은 하나만 선택할 수 있습니다. 기존 SMB 공유에서 오프라인 파일 설정을 수정하면 새 오프라인 파일 설정이 원래 설정으로 대체됩니다. 기존의 다른 SMB 공유 구성 설정 및 공유 속성은 제거 또는 교체되지 않습니다. 이러한 구성 작업은 명시적으로 제거 또는 변경될 때까지 유효합니다.
+
+.단계
+. 적절한 작업을 수행합니다.
++
+|===
+| 에서 오프라인 파일을 구성하려면... | 명령 입력... 
+
+
+ a| 
+새로운 SMB 공유
+ a| 
+'vserver cifs share create - vserver vserver_name -share-name share_name -path path -offline-files{none|manual|documents|programs}'
+
+
+
+ a| 
+기존 SMB 공유입니다
+ a| 
+'vserver cifs share modify -vserver vserver_name -share-name share_name -offline-files{none|manual|documents|programs}'
+
+|===
+. SMB 공유 구성이 올바른지 확인합니다. 'vserver cifs share show -vserver vserver_name -share-name share_name -instance'
+
+
+다음 명령을 실행하면 오프라인 파일이 "문서"로 설정된 "data1"이라는 SMB 공유가 생성됩니다.
+
+[listing]
+----
+cluster1::> vserver cifs share create -vserver vs1 -share-name data1 -path /data1 -comment "Offline files" -offline-files documents
+
+cluster1::> vserver cifs share show -vserver vs1 -share-name data1 -instance
+
+                          Vserver: vs1
+                            Share: data1
+         CIFS Server NetBIOS Name: VS1
+                             Path: /data1
+                 Share Properties: oplocks
+                                   browsable
+                                   changenotify
+               Symlink Properties: enable
+          File Mode Creation Mask: -
+     Directory Mode Creation Mask: -
+                    Share Comment: Offline files
+                        Share ACL: Everyone / Full Control
+    File Attribute Cache Lifetime: -
+                      Volume Name: -
+                    Offline Files: documents
+    Vscan File-Operations Profile: standard
+Maximum Tree Connections on Share: 4294967295
+       UNIX Group for File Create: -
+----
+다음 명령을 실행하면 오프라인 파일 설정을 '수동'으로 변경하고 파일 및 디렉토리 모드 생성 마스크에 대한 값을 추가하여 "data1"이라는 기존 SMB 공유가 수정됩니다.
+
+[listing]
+----
+cluster1::> vserver cifs share modify -vserver vs1 -share-name data1 -offline-files manual -file-umask 644 -dir-umask 777
+
+cluster1::> vserver cifs share show -vserver vs1 -share-name data1 -instance
+
+                          Vserver: vs1
+                            Share: data1
+         CIFS Server NetBIOS Name: VS1
+                             Path: /data1
+                 Share Properties: oplocks
+                                   browsable
+                                   changenotify
+               Symlink Properties: enable
+          File Mode Creation Mask: 644
+     Directory Mode Creation Mask: 777
+                    Share Comment: Offline files
+                        Share ACL: Everyone / Full Control
+    File Attribute Cache Lifetime: -
+                      Volume Name: -
+                    Offline Files: manual
+    Vscan File-Operations Profile: standard
+Maximum Tree Connections on Share: 4294967295
+       UNIX Group for File Create: -
+----
+xref:add-remove-share-properties-eexisting-share-task.adoc[기존 SMB 공유에서 공유 속성 추가 또는 제거]

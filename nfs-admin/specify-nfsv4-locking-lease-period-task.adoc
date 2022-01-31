@@ -1,0 +1,30 @@
+---
+permalink: nfs-admin/specify-nfsv4-locking-lease-period-task.html 
+sidebar: sidebar 
+keywords: specify, nfsv4, lock, lease, period 
+summary: 'NFSv4 잠금 임대 기간(즉, ONTAP가 클라이언트에 잠금을 최종적으로 부여하는 기간)을 지정하려면 -v4-lease-seconds 옵션을 수정할 수 있습니다. 리스 기간이 짧을수록 서버 복구 속도가 빨라지며 리스 기간이 길면 매우 많은 양의 클라이언트를 처리하는 서버에 유용합니다.' 
+---
+= NFSv4 잠금 임대 기간을 지정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NFSv4 잠금 임대 기간(즉, ONTAP가 클라이언트에 잠금을 부여하는 기간)을 지정하려면 '-v4-lease-seconds' 옵션을 수정할 수 있습니다. 리스 기간이 짧을수록 서버 복구 속도가 빨라지며 리스 기간이 길면 매우 많은 양의 클라이언트를 처리하는 서버에 유용합니다.
+
+기본적으로 이 옵션은 30으로 설정되어 있습니다. 이 옵션의 최소값은 10입니다. 이 옵션의 최대값은 'locking.lease_seconds' 옵션으로 설정할 수 있는 locking grace 기간입니다.
+
+.단계
+. 권한 수준을 고급으로 설정합니다.
++
+세트 프리빌리지 고급
+
+. 다음 명령을 입력합니다.
++
+'vserver nfs modify -vserver vserver_name -v4-lease-seconds number_of_seconds'
+
+. 관리자 권한 레벨로 돌아갑니다.
++
+'Set-Privilege admin'입니다
+
+

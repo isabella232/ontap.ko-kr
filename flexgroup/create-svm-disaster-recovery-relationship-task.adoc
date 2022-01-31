@@ -1,0 +1,79 @@
+---
+permalink: flexgroup/create-svm-disaster-recovery-relationship-task.html 
+sidebar: sidebar 
+keywords: create, svm, disaster, recovery, relationship, flexgroup, volume, flex group, flexclone, flex clone 
+summary: 'ONTAP 9.9.1부터 FlexGroup 볼륨을 사용하여 SVM 재해 복구(SVM DR) 관계를 생성할 수 있습니다. SVM DR 관계는 SVM 구성과 데이터를 동기화 및 복제하여 재해 발생 시 FlexGroups를 복구하는 이중화 및 기능을 제공합니다. SVM DR에는 SnapMirror 라이센스가 필요합니다.' 
+---
+= FlexGroup 볼륨에 대한 SVM 재해 복구 관계를 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.9.1부터 FlexGroup 볼륨을 사용하여 SVM 재해 복구(SVM DR) 관계를 생성할 수 있습니다. SVM DR 관계는 SVM 구성과 데이터를 동기화 및 복제하여 재해 발생 시 FlexGroups를 복구하는 이중화 및 기능을 제공합니다. SVM DR에는 SnapMirror 라이센스가 필요합니다.
+
+FlexGroup SVM DR 관계를 생성할 수 없는 경우 조건에 주의해야 합니다.
+
+* FlexClone FlexGroup 구성이 있습니다
+* FlexGroup 볼륨에는 FabricPool 구성이 포함되어 있습니다
+* FlexGroup 볼륨은 팬아웃 또는 계단식 관계의 일부입니다
+
+
+.이 작업에 대해
+* 두 클러스터의 모든 노드는 SVM DR 지원을 추가한 노드(ONTAP 9.9.1 이상)와 동일한 ONTAP 버전을 실행해야 합니다.
+* 1차 사이트와 2차 사이트 간의 SVM DR 관계는 상태가 양호해야 하며, FlexGroup 볼륨을 지원할 수 있는 1차 및 2차 SVM 모두에 충분한 공간이 있어야 합니다.
+
+
+SVM DR 관계 생성에 대한 자세한 내용은 를 참조하십시오 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-dap/GUID-C6D7E4F1-76F0-44E7-909E-04BA68AE77A8.html?cp=7_3_5["SnapMirror SVM 복제 관리"].
+
+.단계
+. 필요한 구성 요소 수로 운영 사이트에 FlexGroup 볼륨을 생성합니다.
++
+link:create-task.html["FlexGroup 볼륨을 생성하는 중입니다"].
+
+. 보조 사이트에서 'sapmirror update-destination-path destination_svm_name: - source-path source_svm_name:'을(를) 업데이트하십시오
+. 2차 사이트에서 SnapMirror 관계가 정상인지 '스냅샷 표시'인지 확인합니다
++
+[listing]
+----
+cluster2::> snapmirror show
+                                                                       Progress
+Source            Destination Mirror  Relationship   Total             Last
+Path        Type  Path        State   Status         Progress  Healthy Updated
+----------- ---- ------------ ------- -------------- --------- ------- --------
+vs1:        XDP  vs1_dst:     Snapmirrored
+                                      Idle           -         true    -
+----
+. 보조 사이트에서 새 FlexGroup 볼륨과 해당 구성 요소 '스냅샷 표시-확장'이 있는지 확인합니다
++
+[listing]
+----
+cluster2::> snapmirror show -expand
+                                                                       Progress
+Source            Destination Mirror  Relationship   Total             Last
+Path        Type  Path        State   Status         Progress  Healthy Updated
+----------- ---- ------------ ------- -------------- --------- ------- --------
+vs1:        XDP  vs1_dst:     Snapmirrored
+                                      Idle           -         true    -
+vs1:fg_src  XDP  vs1_dst:fg_src
+                              Snapmirrored
+                                      Idle           -         true    -
+vs1:fg_src__0001
+            XDP  vs1_dst:fg_src__0001
+                              Snapmirrored
+                                      Idle           -         true    -
+vs1:fg_src__0002
+            XDP  vs1_dst:fg_src__0002
+                              Snapmirrored
+                                      Idle           -         true    -
+vs1:fg_src__0003
+            XDP  vs1_dst:fg_src__0003
+                              Snapmirrored
+                                      Idle           -         true    -
+vs1:fg_src__0004
+            XDP  vs1_dst:fg_src__0004
+                              Snapmirrored
+                                      Idle           -         true    -
+6 entries were displayed.
+----
+

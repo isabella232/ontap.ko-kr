@@ -1,0 +1,49 @@
+---
+permalink: disks-aggregates/configure-auto-assignment-disk-ownership-task.html 
+sidebar: sidebar 
+keywords: configure, automatic, assignment, disk ownership 
+summary: 디스크 스택, 쉘프 또는 베이에 따라 디스크 소유권을 자동으로 할당하도록 ONTAP를 구성할 수 있습니다. 구성된 경우, 자동 디스크 소유권 할당은 시스템 초기화 후 10분, 정상적인 시스템 작동 중에는 5분 간격으로 수행됩니다. 
+---
+= 디스크 소유권 자동 할당을 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+디스크 스택, 쉘프 또는 베이에 따라 디스크 소유권을 자동으로 할당하도록 ONTAP를 구성할 수 있습니다. 구성된 경우, 자동 디스크 소유권 할당은 시스템 초기화 후 10분, 정상적인 시스템 작동 중에는 5분 간격으로 수행됩니다.
+
+.무엇을 &#8217;필요로 할거야
+* 시스템은 자동 디스크 소유권 요구 사항을 준수해야 합니다.
+* 소유권이 서로 달라야 하는 스택 또는 쉘프가 여러 개인 경우, 각 스택 또는 쉘프에 대해 자동 소유권 할당이 작동하도록 각 스택 또는 쉘프에 디스크 하나를 수동으로 할당해야 합니다.
+* 엔트리 레벨 플랫폼에만 베이 자동 할당 정책을 사용합니다. 기본이 아닌 플랫폼에 bay autoconfigure-policy를 사용하려 하면 실패한다.
+
+
+기본값 자동 할당 정책의 동작은 시스템 모델에 따라 다릅니다. 기본형 모델의 경우 기본정책은 베이 정책과 같습니다. 다른 모든 시스템에 대해서는 압정 방침과 동등합니다.
+
+.단계
+. 자동 디스크 할당 구성:
++
+'스토리지 디스크 옵션 modify-autoassign-policy_autoconfigure_policy_-node_node_name_'
+
++
+** 스택 또는 루프 수준에서 자동 소유권을 구성하려면 '_autoassign_policy_'로 'stack'을 사용합니다.
+** shelf 레벨에서 자동 소유권을 구성하려면 '_autoconfigure_policy_'로 'shelf'를 사용합니다.
+** 베이 수준에서 자동 소유권을 구성하려면 '_autoconfigure_policy_'로 'bay'를 사용합니다.
+
+
+. 디스크의 자동 할당 설정을 확인합니다.
++
+'스토리지 디스크 옵션 표시'
+
++
+[listing]
+----
+cluster1::> storage disk option show
+
+Node           BKg. FW. Upd.  Auto Copy     Auto Assign    Auto
+                                                           Assign Policy
+-------------  -------------  ------------  -------------  --------
+cluster1-1     on             on            on             default
+cluster1-2     on             on            on             default
+----
+

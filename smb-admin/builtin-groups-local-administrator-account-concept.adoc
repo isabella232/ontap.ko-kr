@@ -1,0 +1,24 @@
+---
+permalink: smb-admin/builtin-groups-local-administrator-account-concept.html 
+sidebar: sidebar 
+keywords: guideline, mind, builtin, group, local, administrator, account, delete, guidelines for using builtin groups and the local administrator account 
+summary: BUILTIN 그룹 및 로컬 관리자 계정을 사용할 때 유의해야 할 몇 가지 지침이 있습니다. 예를 들어 로컬 관리자 계정의 이름을 바꿀 수는 있지만 이 계정은 삭제할 수 없습니다. 
+---
+= BUILTIN 그룹 및 로컬 관리자 계정 사용에 대한 지침
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+BUILTIN 그룹 및 로컬 관리자 계정을 사용할 때 유의해야 할 몇 가지 지침이 있습니다. 예를 들어 로컬 관리자 계정의 이름을 바꿀 수는 있지만 이 계정은 삭제할 수 없습니다.
+
+* Administrator 계정의 이름을 바꿀 수는 있지만 삭제할 수는 없습니다.
+* 관리자 계정은 BUILTIN\Administrators 그룹에서 제거할 수 없습니다.
+* BUILTIN 그룹은 이름을 바꿀 수 있지만 삭제할 수 없습니다.
++
+BUILTIN 그룹의 이름을 바꾼 후 잘 알려진 이름으로 다른 로컬 개체를 만들 수 있지만 개체에 새 RID가 할당됩니다.
+
+* 로컬 게스트 계정이 없습니다.
+
+
+xref:builtin-groups-default-privileges-reference.adoc[사전 정의된 BUILTIN 그룹 및 기본 권한]

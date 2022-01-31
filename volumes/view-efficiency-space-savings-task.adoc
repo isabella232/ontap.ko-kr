@@ -1,0 +1,38 @@
+---
+permalink: volumes/view-efficiency-space-savings-task.html 
+sidebar: sidebar 
+keywords: view space savings with deduplication, view space savings with data compression, view space savings 
+summary: volume show 명령을 사용하면 볼륨에서 중복제거 및 데이터 압축을 통해 절약 공간을 실현할 수 있습니다. 
+---
+= 효율성 공간 절약 효과 확인
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'volume show' 명령을 사용하면 볼륨에서 중복제거 및 데이터 압축을 통해 절약 공간을 실현할 수 있습니다.
+
+볼륨에서 실현된 공간 절약 효과를 계산할 때는 스냅샷 복사본의 공간 절약 효과가 포함되지 않습니다. 중복 제거를 사용해도 볼륨 할당량은 영향을 받지 않습니다. 할당량은 논리적 레벨에서 보고되며 변경되지 않습니다.
+
+.단계
+. 'volume show' 명령을 사용하면 중복제거 및 데이터 압축을 통해 볼륨에서 실현된 공간 절약 효과를 볼 수 있습니다.
+
+
+다음 명령을 사용하면 볼륨 VolA에서 중복 제거 및 데이터 압축을 사용하여 얻은 공간 절약 효과를 볼 수 있습니다. 'volume show -vserver vs1 -volume vola
+
+[listing]
+----
+cluster1::> volume show -vserver vs1 -volume VolA
+
+                                 Vserver Name: vs1
+                                  Volume Name: VolA
+																											...
+            Space Saved by Storage Efficiency: 115812B
+       Percentage Saved by Storage Efficiency: 97%
+                 Space Saved by Deduplication: 13728B
+            Percentage Saved by Deduplication: 81%
+                Space Shared by Deduplication: 1028B
+                   Space Saved by Compression: 102084B
+        Percentage Space Saved by Compression: 97%
+																											...
+----

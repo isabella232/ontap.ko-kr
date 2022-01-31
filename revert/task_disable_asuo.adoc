@@ -1,0 +1,18 @@
+---
+permalink: revert/task_disable_asuo.html 
+sidebar: sidebar 
+keywords: ontap, revert, reversion, reverting, two-node, 2-node, four-node, 4-node, metrocluster, mcc, configurations 
+summary: '2노드 또는 4노드 MetroCluster 구성을 되돌리기 전에 자동 비계획 전환 \(AUSO\)을 해제해야 합니다.' 
+---
+= 2노드 및 4노드 MetroCluster 구성을 되돌리기 전에 계획되지 않은 자동 스위치오버를 해제합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+2노드 또는 4노드 MetroCluster 구성을 되돌리기 전에 자동 UNPLANNED 절체(AUSO)를 비활성화해야 합니다.
+
+. MetroCluster의 두 클러스터 모두에서 'MetroCluster modify-auto-switchover-failure-domain auso-disabled'라는 예기치 않은 자동 전환을 비활성화합니다
+
+
+https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_install_configure_mediator.html["MetroCluster 관리 및 재해 복구"]

@@ -1,0 +1,17 @@
+---
+permalink: disks-aggregates/hot-spare-disks-work-concept.html 
+sidebar: sidebar 
+keywords: hot, spare disks, work 
+summary: 핫 스페어 디스크는 스토리지 시스템에 할당되어 사용할 준비가 되었지만 RAID 그룹에서 사용되지 않으며 데이터를 보유하지 않는 디스크입니다. 
+---
+= 핫 스페어 디스크의 작동 방식
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+핫 스페어 디스크는 스토리지 시스템에 할당되어 사용할 준비가 되었지만 RAID 그룹에서 사용되지 않으며 데이터를 보유하지 않는 디스크입니다.
+
+RAID 그룹 내에서 디스크 장애가 발생하면 장애가 발생한 디스크를 교체하기 위해 핫 스페어 디스크가 RAID 그룹에 자동으로 할당됩니다. 장애가 발생한 디스크의 데이터는 RAID 패리티 디스크의 백그라운드에서 핫 스페어 교체 디스크에 재구성됩니다. 재구성 작업이 '/etc/message' 파일에 기록되고 AutoSupport 메시지가 전송된다.
+
+사용 가능한 핫 스페어 디스크의 크기가 오류 발생 디스크와 동일하지 않은 경우 다음으로 큰 크기의 디스크를 선택한 다음 교체할 디스크의 크기에 맞게 크기를 축소합니다.

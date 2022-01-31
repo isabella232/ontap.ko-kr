@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/destination-qtree-read-only-reference.html 
+sidebar: sidebar 
+keywords: destination, qtree, read, only, restore 
+summary: 복원이 시도되는 qtree는 읽기 전용입니다. 
+---
+= 타겟 qtree는 읽기 전용입니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+"대상 qtree는 읽기 전용입니다.
+
+* * 원인 *
++
+복원이 시도되는 qtree는 읽기 전용입니다.
+
+* * 시정 조치 *
++
+데이터를 다른 위치로 복원해 보십시오.
+
+

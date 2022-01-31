@@ -1,0 +1,314 @@
+---
+section: networking
+title: 네트워크 관리
+entries:
+- title: System Manager로 네트워크를 관리합니다
+  entries:
+  - title: 개요
+    url: "/network-manage-overview-concept.html"
+  - title: 네트워크를 보고 관리합니다
+    url: "/concept_admin_viewing_managing_network.html"
+  - title: 배선 문제를 자동으로 감지합니다
+    url: "/auto-detect-wiring-issues-task.html"
+  - title: 보고할 네트워크 데이터를 다운로드합니다
+    url: "/concept_admin_downloading_data_report.html"
+- title: CLI를 사용하여 NAS 경로 페일오버 설정
+  entries:
+  - title: ONTAP 9.8 이상
+    entries:
+    - title: ONTAP 9.8 이상을 위한 NAS 경로 페일오버 정보
+      url: "/networking/set_up_nas_path_failover_98_and_later_cli.html"
+    - title: 워크플로우 NAS 경로 페일오버
+      entries:
+      - title: 개요
+        url: "/networking/workflow__nas_path_failover_overview_auto.html"
+      - title: NAS 경로 페일오버 구성을 위한 워크시트입니다
+        url: "/networking/worksheet_for_nas_path_failover_configuration_auto.html"
+      - title: IPspace 생성
+        url: "/networking/create_ipspaces.html"
+      - title: 브로드캐스트 도메인을 이동합니다
+        url: "/networking/move_broadcast_domains.html"
+      - title: 수리 포트 도달 가능성
+        url: "/networking/repair_port_reachability.html"
+      - title: SVM을 생성합니다
+        url: "/networking/create_svms.html"
+      - title: LIF를 생성합니다
+        url: "/networking/create_lifs.html"
+      - title: DNS 서비스를 구성합니다
+        url: "/networking/configure_dns_services_auto.html"
+  - title: ONTAP 9.7 이하
+    entries:
+    - title: NAS 경로 페일오버 설정(ONTAP 9.0 - 9.7 CLI)
+      url: "/networking/set_up_nas_path_failover_9_to_97_cli.html"
+    - title: 워크플로우 NAS 경로 페일오버
+      entries:
+      - title: 개요
+        url: "/networking/workflow__nas_path_failover_overview_manual.html"
+      - title: NAS 경로 페일오버 구성을 위한 워크시트입니다
+        url: "/networking/worksheet_for_nas_path_failover_configuration_manual.html"
+      - title: IPspace 생성
+        url: "/networking/create_ipspaces.html"
+      - title: 브로드캐스트 도메인에 사용할 수 있는 포트를 결정합니다
+        url: "/networking/determine_which_ports_can_be_used_for_a_broadcast_domains.html"
+      - title: 브로드캐스트 도메인에서 포트를 제거합니다
+        url: "/networking/remove_ports_from_a_broadcast_domain.html"
+      - title: 브로드캐스트 도메인을 만듭니다
+        url: "/networking/create_a_broadcast_domain.html"
+      - title: 서브넷을 생성합니다
+        url: "/networking/create_a_subnet.html"
+      - title: SVM을 생성합니다
+        url: "/networking/create_svms.html"
+      - title: LIF를 생성합니다
+        url: "/networking/create_lifs.html"
+      - title: DNS 서비스를 구성합니다
+        url: "/networking/configure_dns_services_manual.html"
+      - title: 동적 DNS 서비스를 구성합니다
+        url: "/networking/configure_dynamic_dns_services.html"
+- title: CLI를 사용하여 네트워크를 관리합니다
+  entries:
+  - title: 네트워크 관리 개요
+    url: "/networking/networking_reference.html"
+  - title: 업그레이드 고려 사항
+    entries:
+    - title: 릴리스별 네트워크 기능
+      url: "/networking/network_features_by_release.html"
+    - title: ONTAP 9.8 이상으로 업그레이드한 후 네트워킹 구성을 확인합니다
+      url: "/networking/verify_your_network_configuration.html"
+  - title: 클러스터의 네트워킹 구성 요소
+    entries:
+    - title: 개요
+      url: "/networking/networking_components_of_a_cluster_overview.html"
+    - title: 네트워크 케이블 연결 지침
+      url: "/networking/network_cabling_guidelines.html"
+    - title: 브로드캐스트 도메인, 페일오버 그룹 및 페일오버 정책 간의 관계
+      url: "/networking/relationship_between_broadcast_domains.html"
+  - title: 네트워크 포트 구성(클러스터 관리자만 해당)
+    entries:
+    - title: 개요
+      url: "/networking/configure_network_ports_@cluster_administrators_only@_overview.html"
+    - title: 물리적 포트를 결합하여 인터페이스 그룹을 생성합니다
+      url: "/networking/combine_physical_ports_to_create_interface_groups.html"
+    - title: 물리적 포트를 통해 VLAN을 구성합니다
+      url: "/networking/configure_vlans_over_physical_ports.html"
+    - title: 네트워크 포트 속성을 수정합니다
+      url: "/networking/modify_network_port_attributes.html"
+    - title: 인터페이스 그룹 포트에 대한 MTU 설정을 수정합니다
+      url: "/networking/modify_mtu_setting_for_interface_group_ports.html"
+    - title: 네트워크 포트의 상태를 모니터링합니다
+      url: "/networking/monitor_the_health_of_network_ports.html"
+    - title: ONTAP 9.8 이상에서 네트워크 포트의 연결 상태를 모니터링합니다
+      url: "/networking/monitor_the_reachability_of_network_ports.html"
+    - title: 10GbE 연결을 위해 40GbE NIC 포트를 여러 10GbE 포트로 변환합니다
+      url: "/networking/convert_40gbe_nic_ports_into_multiple_10gbe_ports_for_10gbe_connectivity.html"
+    - title: ONTAP 9.7 이전 버전의 노드에서 NIC 제거
+      url: "/networking/remove_a_nic_from_the_node_97.html"
+    - title: ONTAP 9.8 이상의 노드에서 NIC 분리
+      url: "/networking/removing_a_nic_from_the_node.html"
+  - title: IPspace 구성(클러스터 관리자만 해당)
+    entries:
+    - title: 개요
+      url: "/networking/configure_ipspaces_@cluster_administrators_only@_overview.html"
+    - title: IPspace 사용 예
+      url: "/networking/example_of_using_ipspaces.html"
+    - title: IPspace의 표준 속성
+      url: "/networking/standard_properties_of_ipspaces.html"
+    - title: IPspace 생성
+      url: "/networking/create_ipspaces_01.html"
+    - title: IPspace를 표시합니다
+      url: "/networking/display_ipspaces.html"
+    - title: IPspace 삭제
+      url: "/networking/delete_an_ipspace.html"
+  - title: 브로드캐스트 도메인 구성(클러스터 관리자만 해당)
+    entries:
+    - title: ONTAP 9.8 이상
+      entries:
+      - title: ONTAP 9.8 이상의 브로드캐스트 도메인 정보
+        url: "/networking/configure_broadcast_domains_@cluster_administrators_only@_overview.html"
+      - title: 브로드캐스트 도메인 사용 예
+        url: "/networking/example_of_using_broadcast_domains.html"
+      - title: 브로드캐스트 도메인에서 포트를 추가하거나 제거합니다
+        url: "/networking/add_or_remove_ports_from_a_broadcast_domain.html"
+      - title: 브로드캐스트 도메인을 분할합니다
+        url: "/networking/split_broadcast_domains.html"
+      - title: 브로드캐스트 도메인을 병합합니다
+        url: "/networking/merge_broadcast_domains.html"
+      - title: 브로드캐스트 도메인의 포트에 대한 MTU 값을 변경합니다
+        url: "/networking/change_the_mtu_value_for_ports_in_a_broadcast_domain.html"
+      - title: 브로드캐스트 도메인을 표시합니다
+        url: "/networking/display_broadcast_domains.html"
+      - title: 브로드캐스트 도메인을 삭제합니다
+        url: "/networking/delete_a_broadcast_domain.html"
+    - title: ONTAP 9.7 이하
+      entries:
+      - title: ONTAP 9.7 이전 버전의 브로드캐스트 도메인 정보
+        url: "/networking/configure_broadcast_domains_97_overview.html"
+      - title: 브로드캐스트 도메인 사용 예
+        url: "/networking/example_of_using_broadcast_domains_97.html"
+      - title: 브로드캐스트 도메인을 만듭니다
+        url: "/networking/create_a_broadcast_domain97.html"
+      - title: 브로드캐스트 도메인에서 포트를 추가하거나 제거합니다
+        url: "/networking/add_or_remove_ports_from_a_broadcast_domain97.html"
+      - title: 브로드캐스트 도메인을 분할합니다
+        url: "/networking/split_broadcast_domains97.html"
+      - title: 브로드캐스트 도메인을 병합합니다
+        url: "/networking/merge_broadcast_domains97.html"
+      - title: 브로드캐스트 도메인의 포트에 대한 MTU 값을 변경합니다
+        url: "/networking/change_the_mtu_value_for_ports_in_a_broadcast_domain97.html"
+      - title: 브로드캐스트 도메인을 표시합니다
+        url: "/networking/display_broadcast_domains97.html"
+      - title: 브로드캐스트 도메인을 삭제합니다
+        url: "/networking/delete_a_broadcast_domain97.html"
+  - title: LIF에 대한 페일오버 그룹 및 정책을 구성합니다
+    entries:
+    - title: 개요
+      url: "/networking/configure_failover_groups_and_policies_for_lifs_overview.html"
+    - title: 페일오버 그룹을 생성합니다
+      url: "/networking/create_a_failover_group.html"
+    - title: LIF에서 페일오버 설정을 구성합니다
+      url: "/networking/configure_failover_settings_on_a_lif.html"
+    - title: 페일오버 그룹 및 정책을 관리하는 명령입니다
+      url: "/networking/commands_for_managing_failover_groups_and_policies.html"
+  - title: 서브넷 구성(클러스터 관리자만 해당)
+    entries:
+    - title: 개요
+      url: "/networking/configure_subnets_@cluster_administrators_only@_overview.html"
+    - title: 서브넷을 생성합니다
+      url: "/networking/create_a_subnet.html"
+    - title: 서브넷에서 IP 주소를 추가하거나 제거합니다
+      url: "/networking/add_or_remove_ip_addresses_from_a_subnet.html"
+    - title: 서브넷 속성을 변경합니다
+      url: "/networking/change_subnet_properties.html"
+    - title: 서브넷을 표시합니다
+      url: "/networking/display_subnets.html"
+    - title: 서브넷을 삭제합니다
+      url: "/networking/delete_a_subnet.html"
+  - title: LIF 구성(클러스터 관리자만 해당)
+    entries:
+    - title: 개요
+      url: "/networking/configure_lifs_@cluster_administrators_only@_overview.html"
+    - title: LIF가 포트 유형과 호환됩니다
+      url: "/networking/lif_compatibility_with_port_types.html"
+    - title: ONTAP 9.5 이전 버전에서 LIF 역할
+      url: "/networking/lif_roles95.html"
+    - title: LIF 및 서비스 정책을 확인하십시오
+      url: "/networking/lifs_and_service_policies96.html"
+    - title: LIF 서비스 정책을 구성합니다
+      url: "/networking/configure_lif_service_policies.html"
+    - title: LIF를 생성합니다
+      url: "/networking/create_a_lif.html"
+    - title: LIF를 수정합니다
+      url: "/networking/modify_a_lif.html"
+    - title: LIF 마이그레이션
+      url: "/networking/migrate_a_lif.html"
+    - title: LIF를 홈 포트로 되돌립니다
+      url: "/networking/revert_a_lif_to_its_home_port.html"
+    - title: ONTAP 9.8 이상 - 잘못 구성된 클러스터 LIF에서 복구합니다
+      url: "/networking/recover_from_an_incorrectly_configured_cluster_lif.html"
+    - title: LIF를 삭제합니다
+      url: "/networking/delete_a_lif.html"
+    - title: 가상 IP(VIP) LIF를 구성합니다
+      url: "/networking/configure_virtual_ip_@vip@_lifs.html"
+  - title: 호스트 이름 확인을 구성합니다
+    entries:
+    - title: 개요
+      url: "/networking/configure_host-name_resolution_overview.html"
+    - title: 호스트 이름 확인을 위해 DNS를 구성합니다
+      url: "/networking/configure_dns_for_host-name_resolution.html"
+    - title: 호스트 테이블 관리(클러스터 관리자만 해당)
+      url: "/networking/manage_the_hosts_table_@cluster_administrators_only@.html"
+  - title: 사용자 트래픽을 최적화하기 위해 네트워크 로드 밸런싱(클러스터 관리자만 해당)
+    entries:
+    - title: 개요
+      url: "/networking/balance_network_loads_to_optimize_user_traffic_@cluster_administrators_only@_overview.html"
+    - title: DNS 로드 균형 조정 작동 방식
+      url: "/networking/how_dns_load_balancing_works.html"
+    - title: DNS 부하 분산 영역을 만듭니다
+      url: "/networking/create_a_dns_load_balancing_zone.html"
+    - title: 로드 밸런싱 영역에서 LIF를 추가 또는 제거합니다
+      url: "/networking/add_or_remove_a_lif_from_a_load_balancing_zone.html"
+  - title: 네트워크 보안
+    entries:
+    - title: FIPS(Federal Information Processing Standards)를 사용하여 네트워크 보안 구성
+      url: "/networking/configure_network_security_using_federal_information_processing_standards_@fips@.html"
+    - title: 유선 암호화를 통해 IP 보안(IPsec)을 구성합니다
+      url: "/networking/configure_ip_security_@ipsec@_over_wire_encryption.html"
+    - title: LIF의 방화벽 정책을 구성합니다
+      url: "/networking/configure_firewall_policies_for_lifs.html"
+    - title: 방화벽 서비스 및 정책을 관리하는 명령입니다
+      url: "/networking/commands_for_managing_firewall_service_and_policies.html"
+  - title: QoS 표시 구성(클러스터 관리자만 해당)
+    entries:
+    - title: 개요
+      url: "/networking/configure_qos_marking_@cluster_administrators_only@_overview.html"
+    - title: UC 규정 준수를 위한 DSCP 표시
+      url: "/networking/dscp_marking_for_uc_compliance.html"
+    - title: QoS 표시 값을 수정합니다
+      url: "/networking/modify_qos_marking_values.html"
+    - title: QoS 표시 값을 표시합니다
+      url: "/networking/display_qos_marking_values.html"
+  - title: 클러스터에서 SNMP 관리(클러스터 관리자만 해당)
+    entries:
+    - title: 개요
+      url: "/networking/manage_snmp_on_the_cluster_@cluster_administrators_only@_overview.html"
+    - title: MIB란 무엇입니까
+      url: "/networking/what_mibs_are.html"
+    - title: SNMP 트랩
+      url: "/networking/snmp_traps.html"
+    - title: SNMP 커뮤니티를 생성한 후 LIF에 할당합니다
+      url: "/networking/create_an_snmp_community_and_assigning_it_to_a_lif.html"
+    - title: 클러스터에서 SNMPv3 사용자를 구성합니다
+      url: "/networking/configure_snmpv3_users_in_a_cluster.html"
+    - title: SNMP 알림을 수신하도록 traphosts를 구성합니다
+      url: "/networking/configure_traphosts_to_receive_snmp_notifications.html"
+    - title: SNMP 관리를 위한 명령입니다
+      url: "/networking/commands_for_managing_snmp.html"
+  - title: SVM에서 라우팅 관리
+    entries:
+    - title: 개요
+      url: "/networking/manage_routing_in_an_svm_overview.html"
+    - title: 정적 배관을 작성합니다
+      url: "/networking/create_a_static_route.html"
+    - title: 다중 경로 라우팅 활성화
+      url: "/networking/enable_multipath_routing.html"
+    - title: 정적 경로를 삭제합니다
+      url: "/networking/delete_a_static_route.html"
+    - title: 라우팅 정보를 표시합니다
+      url: "/networking/display_routing_information.html"
+    - title: 라우팅 테이블에서 동적 경로를 제거합니다
+      url: "/networking/remove_dynamic_routes_from_routing_tables.html"
+  - title: 스토리지 시스템에서 ONTAP 포트 사용
+    entries:
+    - title: 개요
+      url: "/networking/ontap_port_usage_on_a_storage_system_overview.html"
+    - title: ONTAP 내부 포트
+      url: "/networking/ontap_internal_ports.html"
+  - title: 네트워크 정보를 봅니다
+    entries:
+    - title: 개요
+      url: "/networking/view_network_information_overview.html"
+    - title: 네트워크 포트 정보를 표시합니다
+      url: "/networking/display_network_port_information_@cluster_administrators_only@.html"
+    - title: VLAN에 대한 정보 표시(클러스터 관리자만 해당)
+      url: "/networking/display_information_about_a_vlan_@cluster_administrators_only@.html"
+    - title: 인터페이스 그룹 정보 표시(클러스터 관리자만 해당)
+      url: "/networking/display_interface_group_information_@cluster_administrators_only@.html"
+    - title: LIF 정보를 표시합니다
+      url: "/networking/display_lif_information.html"
+    - title: 라우팅 정보를 표시합니다
+      url: "/networking/display_routing_information_01.html"
+    - title: DNS 호스트 테이블 항목 표시(클러스터 관리자만 해당)
+      url: "/networking/display_dns_host_table_entries_@cluster_administrators_only@.html"
+    - title: DNS 도메인 구성을 표시합니다
+      url: "/networking/display_dns_domain_configurations.html"
+    - title: 페일오버 그룹에 대한 정보를 표시합니다
+      url: "/networking/display_information_about_failover_groups.html"
+    - title: LIF 페일오버 타겟을 표시합니다
+      url: "/networking/display_lif_failover_targets.html"
+    - title: 로드 밸런싱 영역에 LIF를 표시합니다
+      url: "/networking/display_lifs_in_a_load_balancing_zone.html"
+    - title: 클러스터 연결을 표시합니다
+      url: "/networking/display_cluster_connections.html"
+    - title: 네트워크 문제를 진단하는 명령입니다
+      url: "/networking/commands_for_diagnosing_network_problems.html"
+    - title: 인접 검색 프로토콜과의 네트워크 연결을 표시합니다
+      url: "/networking/display_network_connectivity_with_neighbor_discovery_protocols.html"

@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: task_nas_provision_export_policies.html 
+keywords: netapp, ontap, file, access, control, using, export, policies, manage access, linux client, NFS server 
+summary: 내보내기 정책을 사용하여 NFS 서버에 대한 Linux 클라이언트 액세스를 설정합니다 
+---
+= 내보내기 정책을 사용하여 액세스를 관리합니다
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+내보내기 정책을 사용하여 NFS 서버에 대한 Linux 클라이언트 액세스를 설정합니다.
+
+이 절차는 에 대한 엑스포트 정책을 생성하거나 수정합니다 link:task_nas_enable_linux_nfs.html["기존 NFS 지원 스토리지 VM"].
+
+.단계
+. System Manager에서 * 스토리지 * > * 볼륨 * 을 클릭합니다.
+. NFS 지원 볼륨을 클릭하고 * More * 를 클릭합니다.
+. Edit Export Policy * 를 클릭한 다음 * Select an existing policy * 또는 * Add a new policy * 를 클릭합니다.
+

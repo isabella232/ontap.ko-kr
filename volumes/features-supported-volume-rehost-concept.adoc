@@ -1,0 +1,26 @@
+---
+permalink: volumes/features-supported-volume-rehost-concept.html 
+sidebar: sidebar 
+keywords: features, do not support, volume rehost 
+summary: 볼륨 재호스트를 지원하지 않는 특정 기능이 있습니다. 
+---
+= 볼륨 재호스트를 지원하지 않는 기능입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+볼륨 재호스트를 지원하지 않는 특정 기능이 있습니다.
+
+다음 기능은 볼륨 재호스트를 지원하지 않습니다.
+
+* VDR 설정
+* MetroCluster 구성
+* SnapLock 볼륨
+* NVE(NetApp Volume Encryption) 볼륨
++
+볼륨 암호화 키는 SVM 키에 따라 다릅니다. 볼륨이 다른 SVM으로 이동하고 소스 또는 타겟 SVM에서 멀티테넌트 키 구성이 활성화된 경우 볼륨 및 SVM 키가 일치하지 않습니다.
+
+* FlexGroup 볼륨
+* 클론 볼륨
+

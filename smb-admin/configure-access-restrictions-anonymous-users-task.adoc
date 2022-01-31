@@ -1,0 +1,50 @@
+---
+permalink: smb-admin/configure-access-restrictions-anonymous-users-task.html 
+sidebar: sidebar 
+keywords: anonymous, unauthenticated, user, information, network, cifs, server, option, configure, access, restriction, user, configure access restrictions for anonymous users 
+summary: '기본적으로 인증되지 않은 익명 사용자(null 사용자라고도 함)는 네트워크의 특정 정보에 액세스할 수 있습니다. CIFS 서버 옵션을 사용하여 익명 사용자에 대한 액세스 제한을 구성할 수 있습니다.' 
+---
+= 익명 사용자의 액세스 제한을 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+기본적으로 인증되지 않은 익명 사용자(_null user_ 라고도 함)는 네트워크의 특정 정보에 액세스할 수 있습니다. CIFS 서버 옵션을 사용하여 익명 사용자에 대한 액세스 제한을 구성할 수 있습니다.
+
+익명 제한 CIFS 서버 옵션은 Windows의 RestrictAnonymous 레지스트리 항목에 해당합니다.
+
+익명 사용자는 사용자 이름 및 세부 정보, 계정 정책 및 공유 이름을 포함하여 네트워크의 Windows 호스트에서 특정 유형의 시스템 정보를 나열하거나 열거할 수 있습니다. 다음 세 가지 액세스 제한 설정 중 하나를 지정하여 익명 사용자에 대한 액세스를 제어할 수 있습니다.
+
+|===
+| 값 | 설명 
+
+
+ a| 
+무제한(기본값)
+ a| 
+익명 사용자에 대한 액세스 제한을 지정하지 않습니다.
+
+
+
+ a| 
+번호 매기기
+ a| 
+익명 사용자에 대해서만 열거를 제한하도록 지정합니다.
+
+
+
+ a| 
+"접근 불가"
+ a| 
+익명 사용자에 대한 액세스가 제한되도록 지정합니다.
+
+|===
+.단계
+. 권한 수준을 Advanced:'Set-Privilege advanced'로 설정합니다
+. 익명 제한 설정: 'vserver cifs options modify -vserver_vserver_name_-restrict-anonymous{no-restriction|no-enumeration|no-access}'를 구성합니다
+. 옵션이 원하는 값('vserver cifs options show -vserver_vserver_name_')으로 설정되어 있는지 확인합니다
+. admin 권한 수준으로 복귀:'et-Privilege admin'입니다
+
+
+xref:server-options-reference.adoc[사용 가능한 SMB 서버 옵션]

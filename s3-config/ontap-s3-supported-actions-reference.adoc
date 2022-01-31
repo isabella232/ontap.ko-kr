@@ -1,0 +1,86 @@
+---
+permalink: s3-config/ontap-s3-supported-actions-reference.html 
+sidebar: sidebar 
+keywords: ontap s3, supported, actions 
+summary: ONTAP S3가 지원되는 작업. 
+---
+= ONTAP S3가 지원되는 작업
+:icons: font
+:imagesdir: ../media/
+
+
+
+
+== 버킷 작업
+
+별표가 표시된 작업은 S3 REST API가 아닌 ONTAP에서 지원됩니다
+
+* 삭제 버킷 *
+* DeleteBucketPolicy * 를 참조하십시오
+* GetBuckketAcl
+* 머리버킷
+* ListBucket
+* PutBucket *
+
+
+
+
+== 오브젝트 작업
+
+ONTAP 9.9.1부터 ONTAP S3는 오브젝트 메타데이터 및 태그 지정을 지원합니다.
+
+* PutObject 및 CreateMultpartUpload는 이제 "x-amz-meta-<key>"를 사용하는 키 값 쌍을 포함합니다
++
+예: ' x-amz-meta-project: ONTAP_S3'.
+
+* GetObject 를 참조하십시오. 이제 HeadObject 가 사용자 정의 메타데이터를 반환합니다.
+* 메타데이터와 달리 태그는 다음을 사용하여 오브젝트와 독립적으로 읽을 수 있습니다.
++
+** PutObjectTagging
+** GetObjectTagging
+** DeleteObjectTagging 을 선택합니다
+
+
+
+
+지원되는 개체 작업:
+
+* PutObject 를 선택합니다
+* PutObjectTagging(ONTAP 9.9.1로 시작)
+* GetObject 를 참조하십시오
+* GetObjectAcl
+* GetObjectTagging(ONTAP 9.9.1로 시작)
+* DeleteObject 를 클릭합니다
+* 삭제 ObjectTagging(ONTAP 9.9.1로 시작)
+* HeadObject 를 선택합니다
+* ListObjects 를 선택합니다
+* ListObjectsV2
+* 목록 파트
+* 업로드 파트
+* AbortMultipartUpload 를 클릭합니다
+* CompleteMultipartUpload를 클릭합니다
+* CreateMultptUpload 를 클릭합니다
+* ListMultipartUpload 를 클릭합니다
+
+
+
+
+== 그룹 정책
+
+이러한 작업은 S3에 한정되지 않으며 일반적으로 IAM(Identity and Management) 프로세스와 연결됩니다. ONTAP는 이러한 명령을 지원하지만 IAM REST API는 사용하지 않습니다.
+
+* 정책을 생성합니다
+* AttachGroup 정책
+
+
+
+
+== 사용자 관리
+
+이러한 작업은 S3에 한정되지 않으며 일반적으로 IAM 프로세스와 연관됩니다.
+
+* CreateUser 를 선택합니다
+* DeleteUser 를 클릭합니다
+* 그룹 생성
+* 삭제 그룹
+

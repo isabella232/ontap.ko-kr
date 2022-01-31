@@ -1,0 +1,95 @@
+---
+permalink: revert/concept_revert_paths.html 
+sidebar: sidebar 
+keywords: ontap, downgrade, revert, paths 
+summary: 되돌릴 수 있는 ONTAP 버전은 현재 노드에서 실행 중인 ONTAP 버전에 따라 달라집니다. 
+---
+= 복원 경로
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+되돌릴 수 있는 ONTAP 버전은 현재 노드에서 실행 중인 ONTAP 버전에 따라 달라집니다. 'system image show' 명령을 사용하여 각 노드에서 실행 중인 ONTAP 버전을 확인할 수 있습니다.
+
+[cols="2*"]
+|===
+| 복구할 수 있는 대상... | 대상... 
+
+
+ a| 
+ONTAP 9.10.1
+ a| 
+ONTAP 9.9.1
+
+
+
+ a| 
+ONTAP 9.10.0
+| ONTAP 9.9.1 
+
+
+ a| 
+ONTAP 9.9.1 또는 9.9.0
+ a| 
+ONTAP 9.8
+
+
+
+ a| 
+ONTAP 9.8
+ a| 
+ONTAP 9.7
+
+
+
+ a| 
+ONTAP 9.7
+ a| 
+ONTAP 9.6
+
+
+
+ a| 
+ONTAP 9.6
+ a| 
+ONTAP 9.5
+
+
+
+ a| 
+ONTAP 9.5
+ a| 
+ONTAP 9.4
+
+
+
+ a| 
+ONTAP 9.4
+ a| 
+ONTAP 9.3
+
+
+
+ a| 
+ONTAP 9.3
+ a| 
+ONTAP 9.2
+
+
+
+ a| 
+ONTAP 9.2
+ a| 
+ONTAP 9.1
+
+
+
+ a| 
+ONTAP 9.1 또는 ONTAP 9
+ a| 
+Data ONTAP 8.3.x
+
+|===
+
+NOTE: ONTAP 9.1에서 9.0으로 변경해야 하는 경우 을 따라야 합니다 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2876873["다운그레이드 프로세스"] 여기에 문서화되었습니다.

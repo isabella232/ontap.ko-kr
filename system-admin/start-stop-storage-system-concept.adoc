@@ -1,0 +1,15 @@
+---
+permalink: system-admin/start-stop-storage-system-concept.html 
+sidebar: sidebar 
+keywords: start, stop, node, cli, ontap, troubleshoot, sp 
+summary: 유지보수 또는 문제 해결을 위해 노드를 시작하거나 중지해야 할 수 있습니다. ONTAP CLI, 부팅 환경 프롬프트 또는 SP CLI에서 이 작업을 수행할 수 있습니다. 
+---
+= 노드 개요 시작 또는 중지
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+유지보수 또는 문제 해결을 위해 노드를 시작하거나 중지해야 할 수 있습니다. ONTAP CLI, 부팅 환경 프롬프트 또는 SP CLI에서 이 작업을 수행할 수 있습니다.
+
+SP CLI 명령 'system power off' 또는 'system power cycle'을 사용하여 노드를 끄거나 전원을 껐다 켜면 노드(또는 _dirty shutdown_)가 비정상적으로 종료될 수 있으며 ONTAP 'system node halt' 명령을 사용한 정상 종료를 대신할 수 없습니다.

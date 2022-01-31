@@ -1,0 +1,54 @@
+---
+permalink: s3-config/assess-physical-storage-requirements-task.html 
+sidebar: sidebar 
+keywords: assess, physical, storage, requirements 
+summary: 클라이언트용 S3 스토리지를 프로비저닝하기 전에 새 오브젝트 저장소를 위한 기존 Aggregate의 공간이 충분한지 확인해야 합니다. 존재하지 않는 경우 디스크를 기존 애그리게이트에 추가하거나 원하는 유형의 새 애그리게이트를 생성할 수 있습니다. 
+---
+= 물리적 스토리지 요구사항을 평가합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클라이언트용 S3 스토리지를 프로비저닝하기 전에 새 오브젝트 저장소를 위한 기존 Aggregate의 공간이 충분한지 확인해야 합니다. 존재하지 않는 경우 디스크를 기존 애그리게이트에 추가하거나 원하는 유형의 새 애그리게이트를 생성할 수 있습니다.
+
+S3 기반 SVM에서 S3 버킷을 생성할 때 FlexGroup 볼륨이 자동으로 생성되어 버킷을 지원합니다. ONTAP Select에서 기본 애그리게이트와 FlexGroup 구성요소를 자동으로(기본값) 선택할 수도 있고, 기본 애그리게이트와 FlexGroup 구성요소를 직접 선택할 수도 있습니다.
+
+Aggregate 및 FlexGroup 구성 요소(예: 기본 디스크에 특정한 성능 요구 사항이 있는 경우)를 지정하려는 경우, 애그리게이트 구성이 FlexGroup 볼륨 프로비저닝을 위한 모범 사례 지침을 준수해야 합니다.
+
+link:../flexgroup/index.html["FlexGroup 볼륨 관리"]
+
+https://www.netapp.com/pdf.html?item=/media/17251-tr4571apdf.pdf["NetApp 기술 보고서 4571-A: NetApp ONTAP FlexGroup 볼륨 모범 사례"]
+
+ONTAP S3 서버를 사용하여 성능 계층과 동일한 클러스터에 로컬 FabricPool 용량 계층을 생성할 수 있습니다. 예를 들어, SSD 디스크가 한 HA 쌍에 연결되어 있고 _cold_data를 다른 HA 쌍의 HDD 디스크에 계층화하려는 경우 이 방법이 유용할 수 있습니다. 이 사용 사례에서 로컬 용량 계층이 포함된 S3 서버와 버킷은 성능 계층과 다른 HA 쌍이어야 합니다. 1노드 및 2노드 클러스터에서는 로컬 계층화가 지원되지 않습니다.
+
+.단계
+. 기존 애그리게이트에서 사용 가능한 공간 표시:
++
+'스토리지 집계 쇼'
+
++
+공간이 충분한 Aggregate가 있는 경우 S3 구성의 이름을 기록합니다.
+
++
+[listing]
+----
+cluster-1::> storage aggregate show
+Aggregate     Size Available Used% State   #Vols  Nodes  RAID Status
+--------- -------- --------- ----- ------- ------ ------ -----------
+aggr_0     239.0GB   11.13GB   95% online       1 node1  raid_dp,
+                                                         normal
+aggr_1     239.0GB   11.13GB   95% online       1 node1  raid_dp,
+                                                         normal
+aggr_2     239.0GB   11.13GB   95% online       1 node2  raid_dp,
+                                                         normal
+aggr_3     239.0GB   11.13GB   95% online       1 node2  raid_dp,
+                                                         normal
+aggr_4     239.0GB   238.9GB   95% online       5 node3  raid_dp,
+                                                         normal
+aggr_5     239.0GB   239.0GB   95% online       4 node4  raid_dp,
+                                                         normal
+6 entries were displayed.
+----
+. 충분한 공간이 있는 애그리게이트가 없는 경우 'Storage aggregate add-disks' 명령을 사용하여 기존 애그리게이트에 디스크를 추가하거나 'Storage aggregate create' 명령을 사용하여 새로운 애그리게이트를 생성합니다.
+

@@ -1,0 +1,18 @@
+---
+sidebar: sidebar 
+permalink: smbc/smbc_install_high_level_deployment_workflow.html 
+keywords: SM-BC, SMBC, workflow, install 
+summary: 다음 워크플로우를 사용하여 SnapMirror 비즈니스 연속성 솔루션을 설치하고 구현할 수 있습니다. 
+---
+= 고급 배포 워크플로
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+다음 워크플로우를 사용하여 SnapMirror 비즈니스 연속성 솔루션을 설치하고 구현할 수 있습니다.
+
+image:smbc_install_workflow.png["에서는 SM-BC 설치 및 설정 워크플로우를 보여 줍니다."]

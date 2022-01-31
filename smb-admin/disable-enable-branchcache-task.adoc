@@ -1,0 +1,59 @@
+---
+permalink: smb-admin/disable-enable-branchcache-task.html 
+sidebar: sidebar 
+keywords: disable, branchcache, storage, virtual, machine, svm, changing, change, operating, mode, disable, operate, per-share, automatic, disable or enable branchcache 
+summary: 'BranchCache 운영 모드를 사용 안 함으로 변경하여 SVM(스토리지 가상 시스템)에서 BranchCache를 사용하지 않도록 설정할 수 있습니다. 운영 모드를 변경하여 BranchCache 서비스를 공유당 제공하거나 모든 공유에 자동으로 제공하여 언제든지 BranchCache를 활성화할 수 있습니다.' 
+---
+= BranchCache를 비활성화하거나 활성화합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+BranchCache 운영 모드를 사용 안 함으로 변경하여 SVM(스토리지 가상 시스템)에서 BranchCache를 사용하지 않도록 설정할 수 있습니다. 운영 모드를 변경하여 BranchCache 서비스를 공유당 제공하거나 모든 공유에 자동으로 제공하여 언제든지 BranchCache를 활성화할 수 있습니다.
+
+.단계
+. 적절한 명령을 실행합니다.
++
+|===
+| 원하는 작업 | 그런 다음 다음을 입력합니다. 
+
+
+ a| 
+BranchCache를 비활성화합니다
+ a| 
+'vserver cifs BranchCache modify -vserver vserver_name -operating-mode disable'
+
+
+
+ a| 
+공유당 BranchCache를 설정합니다
+ a| 
+'vserver cifs BranchCache modify -vserver vserver_name -operating-mode per-share'
+
+
+
+ a| 
+모든 공유에 대해 BranchCache를 사용하도록 설정합니다
+ a| 
+'vserver cifs BranchCache modify -vserver vserver_name -operating-mode all-공유'
+
+|===
+. BranchCache 작동 모드가 'vserver cifs BranchCache show -vserver vserver vserver_name' 설정으로 구성되어 있는지 확인합니다
+
+
+다음 예에서는 SVM VS1 에서 BranchCache를 사용하지 않도록 설정합니다.
+
+[listing]
+----
+cluster1::> vserver cifs branchcache modify -vserver vs1 -operating-mode disable
+
+cluster1::> vserver cifs branchcache show -vserver vs1
+
+                                 Vserver: vs1
+          Supported BranchCache Versions: enable_all
+                      Path to Hash Store: /hash_data
+          Maximum Size of the Hash Store: 20GB
+Encryption Key Used to Secure the Hashes: -
+        CIFS BranchCache Operating Modes: disable
+----

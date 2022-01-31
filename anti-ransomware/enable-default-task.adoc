@@ -1,0 +1,45 @@
+---
+sidebar: sidebar 
+permalink: anti-ransomware/enable-default-task.html 
+keywords: system manager, cli, enable, anti-ransomware, anti ransomware, antiransom, antiransomware, default, volumes, configure, storage volumes, enable anti-ransomware in system manager, modify, storage VM, SVM, create 
+summary: 'ONTAP 9.10.1.1부터는 학습 모드에서 새로운 볼륨이 기본적으로 안티 랜섬웨어에 대해 활성화되도록 스토리지 VM(SVM)을 구성할 수 있습니다.' 
+---
+= 새로운 볼륨에서 기본적으로 안티 랜섬웨어를 활성화하십시오
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:toc-position: content
+
+
+[role="lead"]
+ONTAP 9.10.1.1부터는 학습 모드에서 새로운 볼륨이 기본적으로 안티 랜섬웨어에 대해 활성화되도록 스토리지 VM(SVM)을 구성할 수 있습니다.
+
+.필요한 것
+* 보안 및 규정 준수 번들에서 설치된 멀티 테넌트 암호화 키 관리(MT_EK_MGMT) 라이센스입니다.
+
+
+새로운 볼륨은 기본적으로 비활성화된 모드에서 랜섬웨어 방지 모드를 사용하여 생성되지만 System Manager 및 CLI에서 이 설정을 변경할 수 있습니다. 기본적으로 활성화되어 있는 볼륨은 학습 모드에서 안티 랜섬웨어로 설정됩니다.
+
+
+
+== System Manager 절차
+
+. 스토리지 > 스토리지 VM * 을 클릭한 다음 기본 안티바이러스 스토리지 VM을 선택합니다.
+. [보안 * 섹션의 * 설정 * 탭에서] 을 클릭합니다 image:icon_pencil.gif["펜 아이콘"] Anti-랜섬웨어 * 상자에서 확인란을 선택하여 NAS 볼륨의 랜섬웨어 방지 기능을 활성화합니다.
+
+
+
+
+== CLI 절차
+
+. 새 볼륨에서 기본적으로 안티 랜섬웨어를 활성화하려면 기존 SVM을 수정하십시오. 'vserver modify -vserver_svm_name_-anti-랜섬웨어-default-volume-state dry-run'
++
+또한 CLI에서 새로운 볼륨에 대해 기본적으로 안티 랜섬웨어를 지원하는 새 SVM을 생성할 수 있습니다. 'vserver create-vserver svm_name-anti-랜섬웨어-default-volume-state dry-run[_other parameters as needed_]'
+
+

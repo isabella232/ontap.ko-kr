@@ -1,0 +1,52 @@
+---
+permalink: smb-admin/reset-privileges-local-domain-users-groups-task.html 
+sidebar: sidebar 
+keywords: reset, privilege, local, domain, user, group, modification, reset privilege for local or domain users and groups 
+summary: 로컬 또는 도메인 사용자 및 그룹에 대한 권한을 재설정할 수 있습니다. 이 기능은 로컬 또는 도메인 사용자 또는 그룹에 대한 권한을 수정한 후 해당 수정 사항이 더 이상 필요 또는 필요하지 않을 때 유용합니다. 
+---
+= 로컬 또는 도메인 사용자 및 그룹에 대한 권한을 재설정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+로컬 또는 도메인 사용자 및 그룹에 대한 권한을 재설정할 수 있습니다. 이 기능은 로컬 또는 도메인 사용자 또는 그룹에 대한 권한을 수정한 후 해당 수정 사항이 더 이상 필요 또는 필요하지 않을 때 유용합니다.
+
+로컬 또는 도메인 사용자 또는 그룹에 대한 권한을 재설정하면 해당 개체에 대한 권한 항목이 제거됩니다.
+
+.단계
+. 로컬 또는 도메인 사용자 또는 그룹에 대한 권한을 재설정합니다. 'vserver cifs users-and-groups privilege reset-privilege-vserver_name_-user-or-group-name_name_'
+. 객체에 대한 권한이 재설정되었는지 확인합니다. 'vserver cifs users-and-groups privilege show -vserver_vserver_name_-user-or-group-name_name_'
+
+
+다음 예에서는 스토리지 가상 머신(SVM, 이전 명칭 Vserver) VS1 에서 사용자 "'cifs_server\sue'"에 대한 권한을 재설정합니다. 기본적으로 일반 사용자는 자신의 계정과 연결된 권한이 없습니다.
+
+[listing]
+----
+cluster1::> vserver cifs users-and-groups privilege show
+Vserver   User or Group Name    Privileges
+--------- --------------------- ---------------
+vs1       CIFS_SERVER\sue       SeTcbPrivilege
+                                SeTakeOwnershipPrivilege
+
+cluster1::> vserver cifs users-and-groups privilege reset-privilege -vserver vs1 -user-or-group-name CIFS_SERVER\sue
+
+cluster1::> vserver cifs users-and-groups privilege show
+This table is currently empty.
+----
+다음 예제에서는 ""BUILTIN\Administrators" 그룹에 대한 권한을 다시 설정하여 권한 항목을 효과적으로 제거합니다.
+
+[listing]
+----
+cluster1::> vserver cifs users-and-groups privilege show
+Vserver   User or Group Name       Privileges
+--------- ------------------------ -------------------
+vs1       BUILTIN\Administrators   SeRestorePrivilege
+                                   SeSecurityPrivilege
+                                   SeTakeOwnershipPrivilege
+
+cluster1::> vserver cifs users-and-groups privilege reset-privilege -vserver vs1 -user-or-group-name BUILTIN\Administrators
+
+cluster1::> vserver cifs users-and-groups privilege show
+This table is currently empty.
+----

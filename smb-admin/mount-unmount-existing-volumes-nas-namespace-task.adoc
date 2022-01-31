@@ -1,0 +1,75 @@
+---
+permalink: smb-admin/mount-unmount-existing-volumes-nas-namespace-task.html 
+sidebar: sidebar 
+keywords: volume, mount, nas, namespace, configure, client, access, data, contain, storage, virtual, machine, svm, junction, point, mount, unmount, mount or unmount existing volumes in the nas namespace 
+summary: 'SVM(스토리지 가상 시스템) 볼륨에 포함된 데이터에 대한 NAS 클라이언트 액세스를 구성하려면 먼저 NAS 네임스페이스에 볼륨을 마운트해야 합니다. 볼륨이 현재 마운트되지 않은 경우 볼륨을 연결 지점에 마운트할 수 있습니다. 볼륨을 마운트 해제할 수도 있습니다.' 
+---
+= NAS 네임스페이스에서 기존 볼륨을 마운트 또는 마운트 해제합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SVM(스토리지 가상 시스템) 볼륨에 포함된 데이터에 대한 NAS 클라이언트 액세스를 구성하려면 먼저 NAS 네임스페이스에 볼륨을 마운트해야 합니다. 볼륨이 현재 마운트되지 않은 경우 볼륨을 연결 지점에 마운트할 수 있습니다. 볼륨을 마운트 해제할 수도 있습니다.
+
+볼륨을 마운트 해제하고 오프라인으로 전환하면 연결 지점 내의 모든 데이터에 액세스할 수 없게 됩니다. 이때 마운트 해제된 볼륨의 네임스페이스 내에 있는 접합 지점의 데이터를 포함한 모든 데이터는 NAS 클라이언트에서 액세스할 수 없게 됩니다.
+
+[NOTE]
+====
+볼륨에 대한 NAS 클라이언트 액세스를 중단하려면 볼륨을 마운트 해제하는 것만으로는 충분하지 않습니다. 볼륨을 오프라인 상태로 만들거나 다른 단계를 수행하여 클라이언트측 파일 핸들 캐시가 무효화되도록 해야 합니다. 자세한 내용은 다음 기술 자료 문서를 참조하십시오. https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/NFSv3_clients_still_have_access_to_a_volume_after_being_removed_from_the_namespace_in_ONTAP[NFSv3 클라이언트는 ONTAP의 네임스페이스에서 제거된 후에도 볼륨에 계속 액세스할 수 있습니다.
+
+====
+볼륨을 마운트 해제하고 오프라인으로 전환하면 볼륨 내의 데이터가 손실되지 않습니다. 또한 마운트 해제된 볼륨 내의 볼륨이나 디렉토리 및 연결 지점에 생성된 기존 볼륨 내보내기 정책 및 SMB 공유가 보존됩니다. 마운트 해제된 볼륨을 다시 마운트하면 NAS 클라이언트가 기존 엑스포트 정책과 SMB 공유를 사용하여 볼륨 내에 포함된 데이터에 액세스할 수 있습니다.
+
+.단계
+. 원하는 작업을 수행합니다.
++
+|===
+| 원하는 작업 | 명령 입력... 
+
+
+ a| 
+볼륨을 마운트합니다
+ a| 
+'volume mount-vserver_svm_name_-volume_volume_name_-junction-path_junction_path_'
+
+
+
+ a| 
+볼륨을 마운트 해제합니다
+ a| 
+'볼륨 마운트 해제 - vserver_svm_name_-volume_volume_name_volume offline-vserver_svm_name_-volume_volume_name_'
+
+|===
+. 볼륨이 원하는 마운트 상태에 있는지 확인합니다. 'volume show -vserver_vserver_name_-volume_volume_name_-fields state, junction-path, junction-active'
+
+
+다음 예에서는 SVM VS1 상에 있는 "sales"라는 볼륨을 교차점 "/sales"에 마운트합니다.
+
+[listing]
+----
+cluster1::> volume mount -vserver vs1 -volume sales -junction-path /sales
+
+cluster1::> volume show -vserver vs1 state,junction-path,junction-active
+
+vserver   volume     state     junction-path   junction-active
+--------- ---------- -------- --------------- ----------------
+vs1       data       online    /data           true
+vs1       home4      online    /eng/home       true
+vs1       sales      online    /sales          true
+----
+다음 예에서는 SVM VS1 에 있는 "data" 볼륨을 마운트 해제 및 오프라인으로 전환합니다.
+
+[listing]
+----
+cluster1::> volume unmount -vserver vs1 -volume data
+cluster1::> volume offline -vserver vs1 -volume data
+
+cluster1::> volume show -vserver vs1 -fields state,junction-path,junction-active
+
+vserver   volume     state     junction-path   junction-active
+--------- ---------- --------- --------------- ---------------
+vs1       data       offline   -               -
+vs1       home4      online    /eng/home       true
+vs1       sales      online    /sales          true
+----

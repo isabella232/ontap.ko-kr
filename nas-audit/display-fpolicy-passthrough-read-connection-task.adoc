@@ -1,0 +1,104 @@
+---
+permalink: nas-audit/display-fpolicy-passthrough-read-connection-task.html 
+sidebar: sidebar 
+keywords: display, information, fpolicy, passthrough-read, connection status 
+summary: '클러스터에서 FPolicy 패스스루 읽기 연결 상태에 대한 정보를 외부 FPolicy 서버(FPolicy 서버)에 표시하거나 지정된 SVM(스토리지 가상 머신)에 대한 정보를 표시할 수 있습니다. 이 정보를 통해 패스스루 읽기 데이터 연결이 있는 FPolicy 서버와 패스스루 읽기 연결이 끊어진 FPolicy 서버를 확인할 수 있습니다.' 
+---
+= 패스스루 읽기 연결 상태에 대한 정보를 표시합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클러스터에서 FPolicy 패스스루 읽기 연결 상태에 대한 정보를 외부 FPolicy 서버(FPolicy 서버)에 표시하거나 지정된 SVM(스토리지 가상 머신)에 대한 정보를 표시할 수 있습니다. 이 정보를 통해 패스스루 읽기 데이터 연결이 있는 FPolicy 서버와 패스스루 읽기 연결이 끊어진 FPolicy 서버를 확인할 수 있습니다.
+
+매개 변수를 지정하지 않으면 다음 정보가 표시됩니다.
+
+* SVM 이름
+* FPolicy 정책 이름입니다
+* 노드 이름
+* FPolicy 서버 IP 주소입니다
+* FPolicy 패스스루 - 읽기 연결 상태입니다
+
+
+클러스터 또는 특정 SVM에서 FPolicy 연결에 대한 정보를 표시하는 것 외에도 명령 매개 변수를 사용하여 명령 출력을 다른 기준으로 필터링할 수 있습니다.
+
+나열된 정책에 대한 자세한 정보를 표시하려면 '-instance' 매개 변수를 지정할 수 있습니다. 또는 '-fields' 매개 변수를 사용하여 명령 출력에 표시된 필드만 표시할 수 있습니다. 당신은 `?'를 입력할 수 있습니다 '-fields' 매개 변수 뒤에 사용할 수 있는 필드를 찾습니다.
+
+.단계
+. 적절한 명령을 사용하여 노드와 FPolicy 서버 사이의 연결 상태에 대한 필터링된 정보를 표시합니다.
++
+[cols="35,65"]
+|===
+
+
+| 연결 상태 정보를 표시하려면... | 명령 입력... 
+
+
+ a| 
+FPolicy 패스스루 - 클러스터에 대한 읽기 연결 상태입니다
+ a| 
+'vserver FPolicy show-passthrough-read-connection'을 선택합니다
+
+
+
+ a| 
+FPolicy 패스스루 - 지정된 SVM에 대한 연결 상태를 읽습니다
+ a| 
+'vserver FPolicy show -passthrough -read-connection -vserver vserver vserver_name'을 선택합니다
+
+
+
+ a| 
+FPolicy 패스스루 - 지정된 정책에 대한 연결 상태를 읽습니다
+ a| 
+'vserver FPolicy show-passthrough-read-connection-policy-name policy_name'을 선택합니다
+
+
+
+ a| 
+지정된 정책에 대한 FPolicy 패스쓰루 세부 연결 상태입니다
+ a| 
+'vserver FPolicy show-passthrough-read-connection-policy-name policy_name-instance'
+
+
+
+ a| 
+FPolicy 패스스루 - 지정한 상태에 대한 연결 상태를 읽습니다
+ a| 
+'vserver FPolicy show-passthrough-read-connection-policy-name policy_name-server-status' 서버 상태는 다음 중 하나일 수 있습니다.
+
+** '연결됨'
+** "연결 안 됨"
+
+
+|===
+
+
+다음 명령을 실행하면 클러스터의 모든 FPolicy 서버에서 패스스루 읽기 연결에 대한 정보가 표시됩니다.
+
+[listing]
+----
+cluster1::> vserver fpolicy show-passthrough-read-connection
+                                            FPolicy           Server
+Vserver          Policy Name   Node         Server            Status
+---------------  ------------- ------------ ----------------- --------------
+vs2.example.com  pol_cifs_2    FPolicy-01   2.2.2.2           disconnected
+vs1.example.com  pol_cifs_1    FPolicy-01   1.1.1.1           connected
+----
+다음 명령을 실행하면 ""pol_cifs_1" 정책에 구성된 FPolicy 서버의 패스스루 읽기 연결에 대한 자세한 정보가 표시됩니다.
+
+[listing]
+----
+cluster1::> vserver fpolicy show-passthrough-read-connection -policy-name pol_cifs_1 -instance
+
+                                             Node: FPolicy-01
+                                          Vserver: vs1.example.com
+                                           Policy: pol_cifs_1
+                                           Server: 1.1.1.1
+                Session ID of the Control Channel: 8cef052e-2502-11e3-88d4-123478563412
+                                    Server Status: connected
+      Time Passthrough Read Channel was Connected: 9/24/2013 10:17:45
+   Time Passthrough Read Channel was Disconnected: -
+Reason for Passthrough Read Channel Disconnection: none
+----

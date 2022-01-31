@@ -1,0 +1,81 @@
+---
+permalink: smb-admin/builtin-groups-default-privileges-reference.html 
+sidebar: sidebar 
+keywords: assign, membership, local, user, domain, predefined, builtin, ontap, predefined builtin groups and default privileges 
+summary: ONTAP에서 제공하는 미리 정의된 BUILTIN 그룹 집합에 로컬 사용자 또는 도메인 사용자의 구성원을 할당할 수 있습니다. 사전 정의된 그룹에는 사전 정의된 권한이 할당됩니다. 
+---
+= 사전 정의된 BUILTIN 그룹 및 기본 권한
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP에서 제공하는 미리 정의된 BUILTIN 그룹 집합에 로컬 사용자 또는 도메인 사용자의 구성원을 할당할 수 있습니다. 사전 정의된 그룹에는 사전 정의된 권한이 할당됩니다.
+
+다음 표에는 미리 정의된 그룹이 설명되어 있습니다.
+
+|===
+| 미리 정의된 BUILTIN 그룹 | 기본 권한 
+
+
+ a| 
+"BUILTIN\Administrators" RID 544
+
+처음 만들어지면 500여 개 계정을 없앤다고 하면 자동으로 이 그룹의 회원이 됩니다. SVM(Storage Virtual Machine)이 도메인에 가입되면 domain\Domain Admins 그룹이 그룹에 추가됩니다. SVM이 도메인을 벗어나면 domain\Domain Admins 그룹이 그룹에서 제거됩니다.
+ a| 
+* 'BackupPrivilege'입니다
+* 스저장창고특권
+* '보안 권한'
+* '새테이크오너선프리빌리지'
+* '스변경NotifyPrivilege'입니다
+
+
+
+
+ a| 
+"BUILTIN\Power Users" RID 547
+
+이 그룹을 처음 만들 때 구성원이 없습니다. 이 그룹의 구성원은 다음과 같은 특성을 갖습니다.
+
+* 로컬 사용자 및 그룹을 생성하고 관리할 수 있습니다.
+* 자체 또는 다른 개체를 'BUILTIN\Administrators' 그룹에 추가할 수 없습니다.
+
+ a| 
+'스변경NotifyPrivilege'입니다
+
+
+
+ a| 
+``BUILTIN\Backup Operators’ RID 551
+
+이 그룹을 처음 만들 때 구성원이 없습니다. 이 그룹의 구성원은 백업 의도로 열린 파일 또는 폴더에 대한 읽기 및 쓰기 권한을 재정의할 수 있습니다.
+ a| 
+* 'BackupPrivilege'입니다
+* 스저장창고특권
+* '스변경NotifyPrivilege'입니다
+
+
+
+
+ a| 
+"BUILTIN\Users" RID 545
+
+처음 만들어도 이 그룹에는 인증된 사용자 특별 그룹 외에 구성원이 없습니다. SVM이 도메인에 가입되면 이 그룹에 domain\Domain Users" 그룹이 추가됩니다. SVM이 도메인을 벗어나면 이 그룹에서 "도메인 사용자" 그룹이 제거됩니다.
+ a| 
+'스변경NotifyPrivilege'입니다
+
+
+
+ a| 
+모든 사람의 ID S-1-0입니다
+
+이 그룹에는 게스트(익명 사용자 제외)를 포함한 모든 사용자가 포함됩니다. 이 그룹은 묵시적 멤버십을 가진 암시적 그룹입니다.
+ a| 
+'스변경NotifyPrivilege'입니다
+
+|===
+xref:builtin-groups-local-administrator-account-concept.adoc[BUILTIN 그룹 및 로컬 관리자 계정 사용에 대한 지침]
+
+xref:list-supported-privileges-reference.adoc[지원되는 권한 목록입니다]
+
+xref:configure-bypass-traverse-checking-concept.adoc[통과 확인 우회 구성]

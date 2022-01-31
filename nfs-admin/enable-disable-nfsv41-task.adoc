@@ -1,0 +1,36 @@
+---
+permalink: nfs-admin/enable-disable-nfsv41-task.html 
+sidebar: sidebar 
+keywords: enable, disable, nfsv4.1 
+summary: v4.1 옵션을 수정하여 NFSv4.1을 설정 또는 해제할 수 있습니다. 따라서 NFSv4.1 프로토콜을 사용하여 클라이언트에 파일을 액세스할 수 있습니다. ONTAP 9.9.1에서는 NFSv4.1이 기본적으로 활성화되어 있지만 이전 릴리즈에서는 기본적으로 사용되지 않습니다. 
+---
+= NFSv4.1을 설정 또는 해제합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'-v4.1' 옵션을 수정하여 NFSv4.1을 설정 또는 해제할 수 있습니다. 따라서 NFSv4.1 프로토콜을 사용하여 클라이언트에 파일을 액세스할 수 있습니다. ONTAP 9.9.1에서는 NFSv4.1이 기본적으로 활성화되어 있지만 이전 릴리즈에서는 기본적으로 사용되지 않습니다.
+
+.단계
+. 다음 작업 중 하나를 수행합니다.
++
+[cols="2*"]
+|===
+| 원하는 작업 | 다음 명령을 입력합니다... 
+
+
+ a| 
+NFSv4.1을 활성화하십시오
+ a| 
+'vserver nfs modify -vserver vserver_name -v4.1 enabled'
+
+
+
+ a| 
+NFSv4.1을 비활성화하십시오
+ a| 
+'vserver nfs modify -vserver vserver_name -v4.1 disabled'
+
+|===
+

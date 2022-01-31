@@ -1,0 +1,13 @@
+---
+permalink: san-admin/recommended-mtu-config-fcoe-jumbo-frames-concept.html 
+sidebar: sidebar 
+keywords: recommended, mtu, configurations,  fcoe, jumbo, frames 
+summary: 'FCoE(Fibre Channel over Ethernet)의 경우 CNA의 이더넷 어댑터 부분에 대한 점보 프레임을 9000 MTU로 구성해야 합니다. CNA의 FCoE 어댑터 부분에 대한 점보 프레임은 1500 MTU 이상으로 구성해야 합니다. 이니시에이터, 타겟 및 모든 중재 스위치가 점보 프레임을 지원하고 점보 프레임에 맞게 구성된 경우에만 점보 프레임을 구성합니다.' 
+---
+= FCoE 점보 프레임에 대한 권장 MTU 구성
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FCoE(Fibre Channel over Ethernet)의 경우 CNA의 이더넷 어댑터 부분에 대한 점보 프레임을 9000 MTU로 구성해야 합니다. CNA의 FCoE 어댑터 부분에 대한 점보 프레임은 1500 MTU 이상으로 구성해야 합니다. 이니시에이터, 타겟 및 모든 중재 스위치가 점보 프레임을 지원하고 점보 프레임에 맞게 구성된 경우에만 점보 프레임을 구성합니다.

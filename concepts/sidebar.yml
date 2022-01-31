@@ -1,0 +1,94 @@
+---
+section: concepts
+title: ONTAP 개념
+entries:
+- title: 개요
+  url: "/concepts/index.html"
+- title: ONTAP 플랫폼
+  url: "/concepts/introducing-data-management-software-concept.html"
+- title: 클러스터 스토리지
+  url: "/concepts/cluster-storage-concept.html"
+- title: 고가용성 쌍
+  url: "/concepts/high-availability-pairs-concept.html"
+- title: AutoSupport 및 Active IQ 디지털 자문업체
+  url: "/concepts/autosupport-active-iq-digital-advisor-concept.html"
+- title: 네트워크 아키텍처
+  entries:
+  - title: 개요
+    url: "/concepts/network-connectivity-concept.html"
+  - title: 논리 포트
+    url: "/concepts/logical-ports-concept.html"
+  - title: 업계 표준 네트워크 기술 지원
+    url: "/concepts/support-industry-standard-technologies-concept.html"
+  - title: RDMA 를 참조하십시오
+    url: "/concepts/rdma-concept.html"
+- title: 클라이언트 프로토콜
+  url: "/concepts/client-protocols-concept.html"
+- title: 디스크와 애그리게이트
+  entries:
+  - title: 개요
+    url: "/concepts/disks-aggregates-concept.html"
+  - title: Aggregate 및 RAID 그룹
+    url: "/concepts/aggregates-raid-groups-concept.html"
+  - title: 루트 데이터 파티셔닝
+    url: "/concepts/root-data-partitioning-concept.html"
+- title: 볼륨, Qtree, 파일 및 LUN
+  url: "/concepts/volumes-qtrees-files-luns-concept.html"
+- title: 스토리지 가상화
+  entries:
+  - title: 개요
+    url: "/concepts/storage-virtualization-concept.html"
+  - title: SVM 사용 사례
+    url: "/concepts/svm-use-cases-concept.html"
+  - title: 클러스터 및 SVM 관리
+    url: "/concepts/cluster-svm-administrators-concept.html"
+  - title: 네임스페이스 및 교차점
+    url: "/concepts/namespaces-junction-points-concept.html"
+- title: 경로 페일오버
+  entries:
+  - title: 개요
+    url: "/concepts/path-failover-concept.html"
+  - title: NAS 경로 페일오버
+    url: "/concepts/nas-path-failover-concept.html"
+  - title: SAN 경로 페일오버
+    url: "/concepts/san-path-failover-concept.html"
+- title: 로드 밸런싱
+  url: "/concepts/load-balancing-concept.html"
+- title: 복제
+  entries:
+  - title: Snapshot 복사본
+    url: "/concepts/snapshot-copies-concept.html"
+  - title: SnapMirror 재해 복구 및 데이터 전송
+    url: "/concepts/snapmirror-disaster-recovery-data-transfer-concept.html"
+  - title: 오브젝트 스토리지에 SnapMirror Cloud 백업
+    url: "/concepts/snapmirror-cloud-backups-object-store-concept.html"
+  - title: SnapVault 아카이빙
+    url: "/concepts/snapvault-archiving-concept.html"
+  - title: 클라우드 백업 및 기존 백업 지원
+    url: "/concepts/cloud-backup-support-traditional-backups-concept.html"
+  - title: MetroCluster 지속적인 가용성
+    url: "/concepts/mcc-config-concept.html"
+- title: 스토리지 효율성
+  entries:
+  - title: 씬 프로비저닝
+    url: "/concepts/thin-provisioning-concept.html"
+  - title: 중복 제거
+    url: "/concepts/deduplication-concept.html"
+  - title: 압축
+    url: "/concepts/compression-concept.html"
+  - title: FlexClone 볼륨, 파일 및 LUN을 사용할 수 있습니다
+    url: "/concepts/flexclone-volumes-files-luns-concept.html"
+- title: 보안
+  entries:
+  - title: 클라이언트 인증 및 권한 부여
+    url: "/concepts/client-access-storage-concept.html"
+  - title: 관리자 인증 및 RBAC
+    url: "/concepts/administrator-authentication-rbac-concept.html"
+  - title: 바이러스 검사
+    url: "/concepts/virus-scanning-concept.html"
+  - title: 암호화
+    url: "/concepts/encryption-concept.html"
+  - title: WORM 스토리지
+    url: "/concepts/snaplock-archiving-compliance-concept.html"
+- title: 애플리케이션 인식 데이터 관리
+  url: "/concepts/application-aware-data-management-concept.html"

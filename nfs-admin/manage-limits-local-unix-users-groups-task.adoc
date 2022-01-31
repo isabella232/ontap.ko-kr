@@ -1,0 +1,55 @@
+---
+permalink: nfs-admin/manage-limits-local-unix-users-groups-task.html 
+sidebar: sidebar 
+keywords: manage, limit, local, unix, user, group 
+summary: 로컬 UNIX 사용자 및 그룹에 대한 제한을 관리하기 위한 특정 ONTAP 명령이 있습니다. 클러스터 관리자는 이러한 명령을 사용하여 과도한 수의 로컬 UNIX 사용자 및 그룹과 관련된 것으로 여겨지는 클러스터의 성능 문제를 해결할 수 있습니다. 
+---
+= 로컬 UNIX 사용자 및 그룹에 대한 제한을 관리합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+로컬 UNIX 사용자 및 그룹에 대한 제한을 관리하기 위한 특정 ONTAP 명령이 있습니다. 클러스터 관리자는 이러한 명령을 사용하여 과도한 수의 로컬 UNIX 사용자 및 그룹과 관련된 것으로 여겨지는 클러스터의 성능 문제를 해결할 수 있습니다.
+
+이러한 명령은 클러스터 관리자가 고급 권한 수준에서 사용할 수 있습니다.
+
+.단계
+. 다음 작업 중 하나를 수행합니다.
++
+[cols="2*"]
+|===
+| 원하는 작업 | 명령 사용... 
+
+
+ a| 
+로컬 UNIX 사용자 제한에 대한 정보를 표시합니다
+ a| 
+'vserver services unix-user max-limit show'를 선택합니다
+
+
+
+ a| 
+로컬 UNIX 그룹 제한에 대한 정보를 표시합니다
+ a| 
+'vserver services unix-group max-limit show'를 선택합니다
+
+
+
+ a| 
+로컬 UNIX 사용자 제한을 수정합니다
+ a| 
+'vserver services unix-user max-limit modify'를 참조하십시오
+
+
+
+ a| 
+로컬 UNIX 그룹 제한을 수정합니다
+ a| 
+'vserver services unix-group max-limit modify'를 참조하십시오
+
+|===
++
+자세한 내용은 각 명령에 대한 man 페이지를 참조하십시오.
+
+

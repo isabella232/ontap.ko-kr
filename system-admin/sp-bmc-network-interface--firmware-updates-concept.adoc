@@ -1,0 +1,35 @@
+---
+permalink: system-admin/sp-bmc-network-interface--firmware-updates-concept.html 
+sidebar: sidebar 
+keywords: sp, bmc, network, interface, firmware, update 
+summary: 버전 1.5, 2.5, 3.1 이상을 실행하는 SP에서 ONTAP에서 트리거되는 SP 펌웨어 업데이트는 SP 네트워크 인터페이스를 통해 IP 기반 파일 전송 메커니즘을 사용할 수 있도록 지원합니다. 
+---
+= SP/BMC가 펌웨어 업데이트에 네트워크 인터페이스를 사용하는 경우
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+버전 1.5, 2.5, 3.1 이상을 실행하는 SP에서 ONTAP에서 트리거되는 SP 펌웨어 업데이트는 SP 네트워크 인터페이스를 통해 IP 기반 파일 전송 메커니즘을 사용할 수 있도록 지원합니다.
+
+[NOTE]
+====
+이 항목은 SP와 BMC 모두에 적용됩니다.
+
+====
+네트워크 인터페이스를 통한 SP 펌웨어 업데이트가 직렬 인터페이스를 통한 업데이트보다 빠릅니다. SP 펌웨어를 업데이트하는 동안 유지 관리 시간이 줄어들며 ONTAP 작업도 중단되지 않습니다. 이 기능을 지원하는 SP 버전은 ONTAP에 포함되어 있습니다. 또한 NetApp Support 사이트에서 제공되며 호환되는 ONTAP 버전을 실행 중인 컨트롤러에 설치할 수 있습니다.
+
+SP 버전 1.5, 2.5, 3.1 이상을 실행하는 경우 다음과 같은 펌웨어 업그레이드 동작이 적용됩니다.
+
+* ONTAP에서 _automatically_triggered인 SP 펌웨어 업데이트는 기본적으로 업데이트를 위한 네트워크 인터페이스를 사용합니다. 그러나 다음 조건 중 하나가 발생할 경우 SP 자동 업데이트는 펌웨어 업데이트를 위한 직렬 인터페이스를 사용하도록 전환됩니다.
++
+** SP 네트워크 인터페이스가 구성되지 않았거나 사용할 수 없습니다.
+** IP 기반 파일 전송에 실패했습니다.
+** SP API 서비스가 해제되었습니다.
+
+
+
+
+실행 중인 SP 버전에 관계없이 SP CLI에서 트리거된 SP 펌웨어 업데이트는 항상 SP 네트워크 인터페이스를 사용하여 업데이트합니다.
+
+https://mysupport.netapp.com/site/downloads/firmware/system-firmware-diagnostics["NetApp 다운로드: 시스템 펌웨어 및 진단"]

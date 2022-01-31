@@ -1,0 +1,25 @@
+---
+permalink: data-protection/manage-local-snapshot-copies-concept.html 
+sidebar: sidebar 
+keywords: manage, local, snapshot, copy, storage, performance overhead, copies, image, restore, flexvol, flexgroup 
+summary: 스냅샷 복사본은 볼륨의 읽기 전용 시점 이미지입니다. 이 이미지는 마지막 스냅샷 복사본 이후 파일의 변경사항만 기록하므로 최소한의 스토리지 공간만 사용하고 무시할 만한 성능 오버헤드를 발생시킵니다. 
+---
+= 로컬 스냅샷 복사본 관리 개요
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+스냅샷 복사본 _ 은(는) 볼륨의 읽기 전용 시점 이미지입니다. 이 이미지는 마지막 스냅샷 복사본 이후 파일의 변경사항만 기록하므로 최소한의 스토리지 공간만 사용하고 무시할 만한 성능 오버헤드를 발생시킵니다.
+
+스냅샷 복사본을 사용하여 볼륨의 전체 콘텐츠를 복원하거나 개별 파일 또는 LUN을 복구할 수 있습니다. 스냅샷 복사본은 볼륨의 디렉토리 '.snapshot'에 저장됩니다.
+
+ONTAP 9.3 이전 버전에서는 볼륨에 최대 255개의 스냅샷 복사본이 포함될 수 있습니다. ONTAP 9.4 이상에서 FlexVol 볼륨은 최대 1023개의 스냅샷 복사본을 포함할 수 있습니다.
+
+[NOTE]
+====
+ONTAP 9.8부터 FlexGroup 볼륨은 1023개의 Snapshot 복사본을 포함할 수 있습니다. 자세한 내용은 _ 스냅샷 복사본을 사용하여 FlexGroup 볼륨 보호 _ 을(를) 참조하십시오.
+
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-fg-mgmt/GUID-45B9499B-686A-4872-B3D9-89B05FF1C0F9.html["스냅샷 복사본을 사용하여 FlexGroup 볼륨 보호"]
+
+====

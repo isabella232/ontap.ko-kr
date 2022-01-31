@@ -1,0 +1,37 @@
+---
+permalink: antivirus/run-on-demand-task-immediately-task.html 
+sidebar: sidebar 
+keywords: run, on-demand, task, immediately 
+summary: 일정을 할당했는지 여부에 관계없이 필요 시 작업을 즉시 실행할 수 있습니다. 
+---
+= 필요 시 작업을 즉시 실행합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+일정을 할당했는지 여부에 관계없이 필요 시 작업을 즉시 실행할 수 있습니다.
+
+SVM에서 스캔을 활성화해야 합니다.
+
+.단계
+. 필요 시 작업을 즉시 실행합니다.
++
+'vserver vscan on-demand-task run-vserver data_SVM-task-name task_name'
+
++
+다음 명령어를 수행하면 vs1 VM에서 Task1이라는 온액세스 작업이 실행됩니다.
+
++
+[listing]
+----
+cluster1::> vserver vscan on-demand-task run -vserver vs1 -task-name Task1
+[Job 161]: Vscan On-Demand job is queued. Use the "job show -id 161" command to view the status.
+----
++
+[NOTE]
+====
+job show 명령을 사용하여 작업의 상태를 볼 수 있습니다. 작업 일시정지 및 작업 재개 명령을 사용하여 작업을 일시정지 및 재시작하거나 작업 중지 명령을 사용하여 작업을 종료할 수 있습니다.
+
+====
+

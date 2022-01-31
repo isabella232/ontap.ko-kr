@@ -1,0 +1,32 @@
+---
+permalink: smb-admin/directory-case-sensitivity-share-multiprotocol-concept.html 
+sidebar: sidebar 
+keywords: create, share, svm, naming, name, scheme, distinguish, directory, difference, share, path, ensure, client, connect, desire, directory, path, directory case-sensitivity requirements when creating shares in a multiprotocol environment 
+summary: 8.3 명명 체계가 사용되는 SVM에서 공유를 생성하여 이름 간 사례만 차이가 나는 디렉토리 이름을 구별할 경우, 클라이언트가 원하는 디렉토리 경로에 연결되도록 공유 경로에 8.3 이름을 사용해야 합니다. 
+---
+= 다중 프로토콜 환경에서 공유를 생성할 때 디렉토리 대/소문자 구분 요구 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+8.3 명명 체계가 사용되는 SVM에서 공유를 생성하여 이름 간 사례만 차이가 나는 디렉토리 이름을 구별할 경우, 클라이언트가 원하는 디렉토리 경로에 연결되도록 공유 경로에 8.3 이름을 사용해야 합니다.
+
+다음 예에서는 Linux 클라이언트에 ""testdir"" 및 ""testdir""이라는 이름의 디렉토리 두 개가 생성되었습니다. 디렉토리가 포함된 볼륨의 연결 경로는 `/home'입니다. 첫 번째 출력은 Linux 클라이언트에서 출력되고 두 번째 출력은 SMB 클라이언트에서 출력됩니다.
+
+[listing]
+----
+ ls -l
+drwxrwxr-x 2 user1 group1   4096 Apr 17 11:23 testdir
+drwxrwxr-x 2 user1 group1   4096 Apr 17 11:24 TESTDIR
+----
+[listing]
+----
+dir
+
+ Directory of Z:\
+
+04/17/2015  11:23 AM    <DIR>          testdir
+04/17/2015  11:24 AM    <DIR>          TESTDI~1
+----
+두 번째 디렉토리에 공유를 생성할 때 공유 경로에 8.3 이름을 사용해야 합니다. 이 예에서 첫 번째 디렉토리의 공유 경로는 "/home/testdir"이고 두 번째 디렉토리의 공유 경로는 "/home/TESTDI~1"입니다.

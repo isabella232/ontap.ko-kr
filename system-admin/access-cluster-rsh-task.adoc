@@ -1,0 +1,72 @@
+---
+permalink: system-admin/access-cluster-rsh-task.html 
+sidebar: sidebar 
+keywords: access, cluster, rsh, cluster, administrative, task, secure, protocol 
+summary: RSH 요청을 클러스터에 발행하여 관리 작업을 수행할 수 있습니다. RSH는 보안 프로토콜이 아니며 기본적으로 비활성화되어 있습니다. 
+---
+= RSH를 사용하여 클러스터에 액세스합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+RSH 요청을 클러스터에 발행하여 관리 작업을 수행할 수 있습니다. RSH는 보안 프로토콜이 아니며 기본적으로 비활성화되어 있습니다.
+
+RSH를 사용하여 클러스터에 액세스하려면 다음 조건을 충족해야 합니다.
+
+* RSH를 액세스 방법으로 사용하도록 구성된 클러스터 로컬 사용자 계정이 있어야 합니다.
++
+'보안 로그인' 명령어의 '-application' 파라미터는 사용자 계정에 대한 접속 방식을 지정한다. 자세한 내용은 보안 로그인 man 페이지를 참조하십시오.
+
+* RSH 요청이 방화벽을 통과할 수 있도록 클러스터 또는 노드 관리 LIF에서 사용하는 관리 방화벽 정책에서 RSH가 이미 활성화되어 있어야 합니다.
++
+기본적으로 RSH는 비활성화되어 있습니다. system services firewall policy show 명령을 `-service rsh' 매개 변수와 함께 사용하면 방화벽 정책에서 RSH가 활성화되었는지 여부가 표시됩니다. 자세한 내용은 시스템 서비스 방화벽 정책 man 페이지를 참조하십시오.
+
+* IPv6 연결을 사용하는 경우 IPv6가 이미 클러스터에서 구성 및 활성화되어 있어야 하며, 방화벽 정책이 이미 IPv6 주소로 구성되어 있어야 합니다.
++
+network options ipv6 show 명령을 실행하면 IPv6의 활성화 여부가 표시됩니다. 'system services firewall policy show' 명령은 방화벽 정책을 표시합니다.
+
+
+
+.이 작업에 대해
+* RSH는 보안 프로토콜이 아닙니다.
++
+SSH를 사용하여 클러스터에 액세스하는 것을 고려해야 합니다. SSH는 보안 원격 셸 및 대화형 네트워크 세션을 제공합니다.
+
+* ONTAP는 노드당 최대 50개의 동시 RSH 세션을 지원한다.
++
+클러스터 관리 LIF가 노드에 상주하는 경우 이 제한을 노드 관리 LIF와 공유합니다.
+
++
+들어오는 연결의 비율이 초당 10보다 높을 경우 서비스가 60초 동안 일시적으로 비활성화됩니다.
+
+
+
+.단계
+. 관리 호스트에서 다음 명령을 입력합니다.
++
+'* rsh_hostname_or_ip_-l_username:passwordcommand_ *'
+
++
+'_hostname_or_ip_'은 클러스터 관리 LIF 또는 노드 관리 LIF의 호스트 이름 또는 IP 주소입니다. 클러스터 관리 LIF를 사용하는 것이 좋습니다. IPv4 또는 IPv6 주소를 사용할 수 있습니다.
+
++
+'_command_'는 RSH를 통해 실행하려는 명령입니다.
+
+
+
+다음 예에서는 RSH 액세스를 사용하여 설정된 ""Joe""라는 사용자가 "cluster show" 명령을 실행하도록 RSH 요청을 실행하는 방법을 보여줍니다.
+
+[listing]
+----
+
+admin_host$ rsh 10.72.137.28 -l joe:password cluster show
+
+Node                  Health  Eligibility
+--------------------- ------- ------------
+node1                 true    true
+node2                 true    true
+2 entries were displayed.
+
+admin_host$
+----

@@ -1,0 +1,81 @@
+---
+permalink: data-protection/convert-volume-svm-replication-task.html 
+sidebar: sidebar 
+keywords: convert, volume, replication, relationships, svm 
+summary: '소스의 각 볼륨(루트 볼륨 제외)이 복제되고 있는 경우, 볼륨을 소유하는 SVM(스토리지 가상 머신) 간의 복제 관계를 SVM(스토리지 가상 머신) 간에 복제 관계로 전환할 수 있습니다. 소스(루트 볼륨 포함)의 각 볼륨의 이름은 대상의 볼륨과 동일합니다.' 
+---
+= 볼륨 복제 관계를 SVM 복제 관계로 전환
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+소스의 각 볼륨(루트 볼륨 제외)이 복제되고 있는 경우, 볼륨을 소유하는 SVM(스토리지 가상 머신) 간의 복제 관계를 SVM(스토리지 가상 머신) 간에 복제 관계로 전환할 수 있습니다. 소스(루트 볼륨 포함)의 각 볼륨의 이름은 대상의 볼륨과 동일합니다.
+
+필요한 경우 SnapMirror 관계가 유휴 상태일 때 'volume rename' 명령을 사용하여 대상 볼륨의 이름을 바꿉니다.
+
+.단계
+. 타겟 SVM 또는 타겟 클러스터에서 소스 볼륨과 타겟 볼륨을 다시 동기화하려면 다음 명령을 실행합니다.
++
+'sapmirror resync-source-path_SVM:volume_-destination-path_SVM:volume_-type DP|XDP-schedule_schedule_-policy_policy_'
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+[NOTE]
+====
+재동기화에는 기본 전송이 필요하지 않지만 시간이 오래 걸릴 수 있습니다. 사용량이 적은 시간에 재동기화를 실행할 수 있습니다.
+
+====
++
+다음 예에서는 svm1의 소스 볼륨 VolA와 sm_backup의 대상 볼륨 VolA의 관계를 재동기화했습니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror resync -source-path svm1:volA -destination-path svm_backup:volA
+----
+. 에 설명된 대로 소스 및 타겟 SVM 간에 SVM 복제 관계를 생성합니다 link:replicate-entire-svm-config-task.html["SVM 구성 복제"].
++
+복제 관계를 생성할 때 'napmirror create' 명령의 '-identity-preserve true' 옵션을 사용해야 합니다.
+
+. 대상 SVM 중지:
++
+'vserver stop-vserver_SVM_'
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+다음 예에서는 대상 SVM의 VM_BACKUP을 중지합니다.
+
++
+[listing]
+----
+cluster_dst::> vserver stop svm_backup
+----
+. 타겟 SVM 또는 타겟 클러스터에서 다음 명령을 실행하여 소스 및 타겟 SVM을 다시 동기화하십시오.
++
+'s냅미러 재동기화-source-path_SVM_:-destination-path_SVM_:-type DP|XDP-schedule_schedule_-policy_policy_'
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+[NOTE]
+====
+'-source-path' 및 '-destination-path' 옵션에서 SVM 이름 뒤에 콜론(:)을 입력해야 합니다. 아래 예를 참조하십시오.
+
+재동기화에는 기본 전송이 필요하지 않지만 시간이 오래 걸릴 수 있습니다. 사용량이 적은 시간에 재동기화를 실행할 수 있습니다.
+
+====
++
+다음 예에서는 소스 SVM의 vm1과 대상 SVM의 vm_backup 간의 관계를 재동기화했습니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror resync -source-path svm1: -destination-path svm_backup:
+----
+

@@ -1,0 +1,113 @@
+---
+permalink: smb-admin/commands-manage-servers-reference.html 
+sidebar: sidebar 
+keywords: command, creating, create, display, modify, stop, start, deleting, delete 
+summary: 생성, 표시, 수정, 중지, 시작 명령을 알아야 합니다. CIFS 서버를 삭제하는 중입니다. 또한 서버를 재설정 및 재검색, 컴퓨터 계정 암호 변경 또는 재설정, 컴퓨터 계정 암호 변경 예약, NetBIOS 별칭 추가 또는 제거 등의 명령도 있습니다. 
+---
+= CIFS 서버를 관리하는 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+생성, 표시, 수정, 중지, 시작 명령을 알아야 합니다. CIFS 서버를 삭제하는 중입니다. 또한 서버를 재설정 및 재검색, 컴퓨터 계정 암호 변경 또는 재설정, 컴퓨터 계정 암호 변경 예약, NetBIOS 별칭 추가 또는 제거 등의 명령도 있습니다.
+
+|===
+
+
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+CIFS 서버를 생성합니다
+ a| 
+'vserver cifs create
+
+
+
+ a| 
+CIFS 서버에 대한 정보를 표시합니다
+ a| 
+'vserver cifs show'
+
+
+
+ a| 
+CIFS 서버를 수정합니다
+ a| 
+'vserver cifs modify(가상 CIFS 수정)
+
+
+
+ a| 
+CIFS 서버를 다른 도메인으로 이동합니다
+ a| 
+'vserver cifs modify(가상 CIFS 수정)
+
+
+
+ a| 
+CIFS 서버를 중지합니다
+ a| 
+'vserver cifs stop'
+
+
+
+ a| 
+CIFS 서버를 시작합니다
+ a| 
+'vserver cifs start'를 선택합니다
+
+
+
+ a| 
+CIFS 서버를 삭제합니다
+ a| 
+'vserver cifs delete
+
+
+
+ a| 
+CIFS 서버의 서버를 재설정하고 다시 검색합니다
+ a| 
+'vserver cifs domain discovered - servers reset-servers'
+
+
+
+ a| 
+CIFS 서버의 시스템 계정 암호를 변경합니다
+ a| 
+'vserver cifs domain password change'를 선택합니다
+
+
+
+ a| 
+CIFS 서버의 시스템 계정 암호를 재설정합니다
+ a| 
+'vserver cifs domain password change'를 선택합니다
+
+
+
+ a| 
+CIFS 서버의 시스템 계정에 대한 자동 암호 변경을 예약합니다
+ a| 
+'vserver cifs domain password schedule modify'를 참조하십시오
+
+
+
+ a| 
+CIFS 서버에 대한 NetBIOS 별칭을 추가합니다
+ a| 
+'vserver cifs add-netbios-aliases'
+
+
+
+ a| 
+CIFS 서버에 대한 NetBIOS 별칭을 제거합니다
+ a| 
+'vserver cifs remove-netbios-aliases'
+
+|===
+자세한 내용은 각 명령에 대한 man 페이지를 참조하십시오.
+
+link:local-users-groups-when-deleting-servers-concept.html["CIFS 서버를 삭제할 때 로컬 사용자 및 그룹이 어떻게 됩니까"]

@@ -1,0 +1,28 @@
+---
+permalink: san-admin/delete-nvme-fc-service-task.html 
+sidebar: sidebar 
+keywords: delete, nvme, service, svm 
+summary: '필요한 경우 스토리지 가상 시스템(SVM)에서 NVMe 서비스를 삭제할 수 있습니다.' 
+---
+= SVM에서 NVMe 서비스를 삭제합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+필요한 경우 스토리지 가상 시스템(SVM)에서 NVMe 서비스를 삭제할 수 있습니다.
+
+.단계
+. 권한 설정을 고급으로 변경합니다.
++
+세트 프리빌리지 고급
+
+. SVM에서 NVMe 서비스를 중지합니다.
++
+'vserver NVMe modify-status-admin down'
+
+. NVMe 서비스를 삭제합니다.
++
+'vserver NVMe delete
+
+

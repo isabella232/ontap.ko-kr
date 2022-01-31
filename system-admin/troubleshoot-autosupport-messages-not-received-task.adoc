@@ -1,0 +1,112 @@
+---
+permalink: system-admin/troubleshoot-autosupport-messages-not-received-task.html 
+sidebar: sidebar 
+keywords: troubleshoot, autosupport, messagem receive, deliver, generate 
+summary: 시스템에서 AutoSupport 메시지를 보내지 않는 경우 AutoSupport에서 메시지를 생성할 수 없거나 메시지를 전달할 수 없기 때문에 메시지를 보낼 수 있는지 여부를 확인할 수 있습니다. 
+---
+= 메시지가 수신되지 않을 경우 AutoSupport 문제를 해결합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+시스템에서 AutoSupport 메시지를 보내지 않는 경우 AutoSupport에서 메시지를 생성할 수 없거나 메시지를 전달할 수 없기 때문에 메시지를 보낼 수 있는지 여부를 확인할 수 있습니다.
+
+.단계
+. System node AutoSupport history show 명령을 사용하여 메시지의 delivery 상태를 확인한다.
+. 상태를 읽습니다.
++
+[cols="25,75"]
+|===
+| 이 상태입니다 | 의미합니다 
+
+
+ a| 
+초기화 중입니다
+ a| 
+수집 프로세스가 시작됩니다. 이 상태가 일시적일 경우 모든 것이 좋습니다. 그러나 이 상태가 지속되면 문제가 있는 것입니다.
+
+
+
+ a| 
+수집 실패
+ a| 
+AutoSupport가 스풀 디렉터리에 AutoSupport 콘텐츠를 만들 수 없습니다. 'system node AutoSupport history show-detail' 명령어를 입력하여 AutoSupport가 수집하려는 정보를 확인할 수 있다.
+
+
+
+ a| 
+수집 중입니다
+ a| 
+AutoSupport가 AutoSupport 콘텐츠를 수집하고 있습니다. 'system node AutoSupport manifest show' 명령어를 입력하여 AutoSupport가 수집하는 정보를 확인할 수 있다.
+
+
+
+ a| 
+대기열에 있습니다
+ a| 
+AutoSupport 메시지는 전달 대기 상태이지만 아직 전달되지 않았습니다.
+
+
+
+ a| 
+전송 중입니다
+ a| 
+AutoSupport가 현재 메시지를 전달하고 있습니다.
+
+
+
+ a| 
+전송됨 - 성공했습니다
+ a| 
+AutoSupport가 메시지를 성공적으로 전달했습니다. 'system node AutoSupport history show-delivery' 명령어를 입력하여 AutoSupport가 메시지를 전달한 위치를 확인할 수 있다.
+
+
+
+ a| 
+무시
+ a| 
+AutoSupport에 메시지의 대상이 없습니다. 'system node AutoSupport history show-delivery' 명령어를 입력하여 전달 세부 정보를 볼 수 있다.
+
+
+
+ a| 
+다시 대기 중입니다
+ a| 
+AutoSupport가 메시지를 전달하려고 했지만 시도가 실패했습니다. 따라서 AutoSupport는 다른 시도를 위해 메시지를 배달 대기열에 다시 배치했습니다. System node AutoSupport history show 명령을 입력하여 오류를 확인할 수 있다.
+
+
+
+ a| 
+전송 - 실패
+ a| 
+AutoSupport가 지정된 횟수만큼 메시지를 배달하지 못하여 메시지 전달 시도를 중지했습니다. System node AutoSupport history show 명령을 입력하여 오류를 확인할 수 있다.
+
+
+
+ a| 
+OnDemand - 무시
+ a| 
+AutoSupport 메시지가 처리되었지만 AutoSupport OnDemand 서비스에서 무시하도록 선택했습니다.
+
+|===
+. 다음 작업 중 하나를 수행합니다.
++
+|===
+| 이 상태를 표시합니다 | 이렇게 하십시오 
+
+
+ a| 
+초기화 또는 수집 실패
+ a| 
+AutoSupport에서 메시지를 생성할 수 없으므로 기술 지원 부서에 문의하십시오.
+
+
+
+ a| 
+무시, 다시 대기 중 또는 전송에 실패했습니다
+ a| 
+AutoSupport에서 메시지를 전달할 수 없으므로 SMTP, HTTP 또는 HTTPS에 대해 대상이 올바르게 구성되었는지 확인합니다.
+
+|===
+

@@ -1,0 +1,40 @@
+---
+permalink: smb-admin/configure-lifetime-metadata-cache-entries-task.html 
+sidebar: sidebar 
+keywords: configure, lifetime, smb, metadata, cache, entries, optimise, environment, configure the lifetime of smb metadata cache entries 
+summary: SMB 메타데이터 캐시 항목의 수명을 구성하여 사용자 환경에서 SMB 메타데이터 캐시 성능을 최적화할 수 있습니다. 기본값은 10초입니다. 
+---
+= SMB 메타데이터 캐시 항목의 수명을 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMB 메타데이터 캐시 항목의 수명을 구성하여 사용자 환경에서 SMB 메타데이터 캐시 성능을 최적화할 수 있습니다. 기본값은 10초입니다.
+
+SMB 메타데이터 캐시 기능을 활성화해야 합니다. SMB 메타데이터 캐싱이 설정되어 있지 않으면 SMB 캐시 TTL 설정이 사용되지 않습니다.
+
+.단계
+. 원하는 작업을 수행합니다.
++
+|===
+| 다음과 같은 경우 SMB 메타데이터 캐시 항목의 수명을 구성하려는 경우 | 명령 입력... 
+
+
+ a| 
+공유를 생성합니다
+ a| 
+'vserver cifs share-create-vserver_vserver_name_-share-name_share_name_-path_path_-attribute-cache-tl[integer][integerm]'
+
+
+
+ a| 
+기존 공유를 수정합니다
+ a| 
+'vserver cifs share-modify-vserver_vserver_name_-share-name_share_name_-attribute-cache-tl[integerh][integerm][integer]'
+
+|===
++
+공유를 생성하거나 수정할 때 추가 공유 구성 옵션과 속성을 지정할 수 있습니다. 자세한 내용은 man 페이지를 참조하십시오.
+
+

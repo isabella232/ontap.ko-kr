@@ -1,0 +1,65 @@
+---
+permalink: flexcache/global-file-locking-task.html 
+sidebar: sidebar 
+keywords: global file locking, flexcache, relationship 
+summary: 가용성에 대한 정합성을 보장하려면 FlexCache 볼륨에 대해 글로벌 파일 잠금을 설정할 수 있습니다. 
+---
+= 글로벌 파일 잠금을 설정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.10.1부터 전역 파일 잠금을 적용하여 모든 관련 캐시 파일에 대한 읽기를 방지할 수 있습니다.
+
+기본적으로 FlexCache 볼륨은 일관성보다 가용성이 더 유리합니다. 글로벌 파일 잠금이 없으면 오리진에 대한 수정 사항이 FlexCache 볼륨으로 배포되지만 동시에 업데이트되지 않을 수 있습니다. 글로벌 파일 잠금은 가용성에 따른 볼륨 전체의 일관성을 지원합니다. 글로벌 파일 잠금이 활성화된 경우 모든 FlexCache 볼륨이 온라인 상태가 될 때까지 오리진에 대한 수정 사항이 일시 중단됩니다.
+
+
+NOTE: FlexCache 볼륨이 오프라인 상태일 때 일시 중지 및 수정 시간 초과로 인해 캐시와 원본 간 연결의 안정성을 제어할 수 있는 경우에만 전역 파일 잠금을 활성화해야 합니다.
+
+글로벌 파일 잠금에서는 오리진이 포함된 클러스터와 모든 연결된 캐시에서 ONTAP 9.9.1 이상을 실행해야 합니다. 글로벌 파일 잠금은 새 FlexCache 볼륨 또는 기존 볼륨에 대해 활성화할 수 있습니다. 명령은 한 볼륨에서 실행할 수 있으며 연결된 모든 볼륨에 적용됩니다.
+
+전역 파일 잠금을 설정하려면 고급 권한 수준이어야 합니다.
+
+글로벌 파일 잠금을 설정하는 프로세스는 오리진에 기존 캐시가 있는지 여부에 따라 달라집니다.
+
+* <<enable-gfl-new>>
+* <<enable-gfl-existing>>
+
+
+
+
+== 새 FlexCache 볼륨에서 글로벌 파일 잠금을 설정합니다
+
+.단계
+. TRUE로 설정된 '-is-global-file-locking'으로 FlexCache 볼륨 생성:
++
+'Volume FlexCache create volume_volume_name_-is-global-file-locking-enabled true
+
++
+기본값은 '-is-global-file-locking'입니다. 이후에 볼륨에 대해 볼륨 FlexCache 생성 명령을 실행할 때는 ''true'로 설정된 '-is-global-file-locking enabled'로 전달해야 합니다.
+
+
+
+
+
+== 기존 FlexCache 볼륨에서 글로벌 파일 잠금을 설정합니다
+
+.단계
+. 글로벌 파일 잠금은 원본 볼륨에서 설정해야 합니다.
+. 오리진에는 다른 기존 관계(예: SnapMirror)를 포함할 수 없습니다. 기존의 모든 관계는 분리되어야 합니다. 명령을 실행할 때 모든 캐시 및 볼륨이 연결되어 있어야 합니다. 연결 상태를 확인하려면 다음을 실행합니다.
++
+볼륨 FlexCache 연결 상태 표시
+
++
+나열된 모든 볼륨의 상태가 ""연결됨"으로 표시되어야 합니다. 자세한 내용은 을 참조하십시오 link:flexcache\view-connection-status-origin-task.html["FlexCache 관계 상태 보기"] 또는 .
+
+. 캐시에 글로벌 파일 잠금 설정:
++
+'volume FlexCache origin config show/modify -volume_volume_name_-is-global-file-locking-enabled true
+
+
+
+9.9.1 이전의 ONTAP 버전으로 되돌릴 경우 먼저 오리진 및 연결된 캐시에서 글로벌 파일 잠금을 해제해야 합니다. 다음을 실행하여 관리할 수 있습니다.
+
+Volume FlexCache prepare-to-downgrade-disable-feature-set 9.10.0'을 참조하십시오

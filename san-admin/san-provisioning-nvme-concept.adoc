@@ -1,0 +1,26 @@
+---
+permalink: san-admin/san-provisioning-nvme-concept.html 
+sidebar: sidebar 
+keywords: san, provisioning, nvme 
+summary: ONTAP 9.4부터는 SAN 환경에서 NVMe/FC가 지원됩니다. 스토리지 관리자는 NVMe/FC를 사용하여 네임스페이스와 서브시스템을 프로비저닝한 다음 네임스페이스를 하위 시스템에 매핑할 수 있습니다. 이는 LUN이 FC 및 iSCSI의 igroup에 용량 할당 및 매핑된 방식과 비슷합니다. 
+---
+= NVMe를 이용한 SAN 프로비저닝
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.4부터는 SAN 환경에서 NVMe/FC가 지원됩니다. 스토리지 관리자는 NVMe/FC를 사용하여 네임스페이스와 서브시스템을 프로비저닝한 다음 네임스페이스를 하위 시스템에 매핑할 수 있습니다. 이는 LUN이 FC 및 iSCSI의 igroup에 용량 할당 및 매핑된 방식과 비슷합니다.
+
+NVMe 네임스페이스는 논리 블록으로 포맷될 수 있는 비휘발성 메모리의 양입니다. 네임스페이스는 FC 및 iSCSI 프로토콜을 위한 LUN과 동일하며 NVMe 서브시스템은 igroup과 유사합니다. NVMe 하위 시스템을 이니시에이터와 연결할 수 있으므로 연결된 이니시에이터가 하위 시스템 내의 네임스페이스에 액세스할 수 있습니다.
+
+[NOTE]
+====
+기능에서도 유사하지만, NVMe 네임스페이스는 LUN에서 지원되는 모든 기능을 지원하지 않습니다.
+
+====
+ONTAP 9.5부터 NVMe를 사용한 호스트 데이터 액세스를 지원하려면 라이센스가 필요합니다. ONTAP 9.4에서 NVMe를 사용하는 경우 ONTAP 9.5로 업그레이드한 후 라이센스를 취득하기 위한 90일 유예 기간이 제공됩니다. 다음 명령을 사용하여 라이센스를 설정할 수 있습니다.
+
+'System license add-license-code_NVMe_license_key_'
+
+http://www.netapp.com/us/media/tr-4684.pdf["NetApp 기술 보고서 4684: NVMe/FC를 사용하여 최신 SAN 구현 및 구성"]

@@ -1,0 +1,41 @@
+---
+permalink: performance-admin/check-iscsi-tcp-read-write-size-task.html 
+sidebar: sidebar 
+keywords: check, iscsi, tcp, read, write, size 
+summary: iSCSI의 경우 TCP 읽기 또는 쓰기 크기를 확인하여 크기 설정이 성능 문제를 생성하고 있는지 확인할 수 있습니다. 크기가 문제의 원인이면 수정할 수 있습니다. 
+---
+= iSCSI TCP 읽기/쓰기 크기를 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+iSCSI의 경우 TCP 읽기/쓰기 크기를 확인하여 크기 설정이 성능 문제를 생성하고 있는지 확인할 수 있습니다. 크기가 문제의 원인이면 수정할 수 있습니다.
+
+이 작업에는 고급 권한 레벨 명령이 필요합니다.
+
+.단계
+. 고급 권한 레벨로 변경:
++
+세트 프리빌리지 고급
+
+. TCP 윈도우 크기 설정을 확인합니다.
++
+'vserver iscsi show-vserv, er_vserver_name_-instance'
+
+. TCP 창 크기 설정을 수정합니다.
++
+'vserver iscsi modify -vserver_vserver_name_-tcp-window-size_integer_'
+
+. 관리 권한으로 돌아가기:
++
+'Set-Privilege admin'입니다
+
+
+
+다음 예에서는 'VM1'의 TCP 윈도우 크기를 131,400바이트로 변경합니다.
+
+[listing]
+----
+cluster1::*> vserver iscsi modify -vserver vs1 -tcp-window-size 131400
+----

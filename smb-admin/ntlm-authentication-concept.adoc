@@ -1,0 +1,15 @@
+---
+permalink: smb-admin/ntlm-authentication-concept.html 
+sidebar: sidebar 
+keywords: ntlm, client, authentication, using, use, challenge, response, protocol, knowledge, user-specific, secret, based, password, ntlm authentication 
+summary: NTLM 클라이언트 인증은 암호를 기반으로 사용자별 비밀번호에 대한 공유 지식을 기반으로 하는 본인 확인 응답 프로토콜을 사용하여 수행됩니다. 
+---
+= NTLM 인증
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NTLM 클라이언트 인증은 암호를 기반으로 사용자별 비밀번호에 대한 공유 지식을 기반으로 하는 본인 확인 응답 프로토콜을 사용하여 수행됩니다.
+
+사용자가 로컬 Windows 사용자 계정을 사용하여 SMB 연결을 만들면 NTLMv2를 사용하여 CIFS 서버에서 로컬로 인증이 수행됩니다.

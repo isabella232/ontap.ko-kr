@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/read-socket-received-eof-reference.html 
+sidebar: sidebar 
+keywords: communicate, remote, tape, ndmp, three, connection, end, file, mark, read, socket, eof 
+summary: NDMP 3방향 연결에서 원격 테이프와 파일 끝 표시에 도달하려고 했습니다. 
+---
+= 소켓 수신 EOF를 판독합니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+Read Socket Received EOF(읽기 소켓 수신 EOF)
+
+* * 원인 *
++
+NDMP 3방향 연결에서 원격 테이프와 파일 끝 표시에 도달하려고 했습니다. 블록 크기가 더 큰 백업 이미지에서 3방향 복원을 시도할 수 있습니다.
+
+* * 시정 조치 *
++
+올바른 블록 크기를 지정하고 복구 작업을 재시도하십시오.
+
+

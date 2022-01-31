@@ -1,0 +1,12 @@
+---
+layout: landing-page 
+sidebar: sidebar 
+permalink: introduction-concepts/index.html 
+summary: 소개 및 개념 
+---
+= 소개 및 개념
+:hardbreaks:
+:linkattrs: 
+:imagesdir: ./media/
+
+

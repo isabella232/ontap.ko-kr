@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: networking/what_mibs_are.html 
+keywords: 'introducing, introduction, overview, mib, management information base, text, structure, netapp.mib, what mibs are, introducing management information bases (mibs), snmp objects and traps, object identifiers, oids, traps.dat' 
+summary: 'MIB(Management Information Base) 소개' 
+---
+= MIB란 무엇입니까
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+MIB(Management Information Base)는 SNMP 객체 및 트랩을 설명하는 텍스트 파일입니다.
+
+MIB는 스토리지 시스템의 관리 데이터 구조를 설명하며 OID(객체 식별자)가 포함된 계층적 네임스페이스를 사용합니다. 각 OID는 SNMP를 사용하여 읽을 수 있는 변수를 식별합니다.
+
+MIB는 구성 파일이 아니며 ONTAP는 이러한 파일을 읽지 않기 때문에 MIB 기능은 MIB의 영향을 받지 않습니다. ONTAP는 다음과 같은 MIB 파일을 제공합니다.
+
+* NetApp 맞춤형 MIB('NetApp.MIB')
+
+
+ONTAP는 IPv6(RFC 2465), TCP(RFC 4022), UDP(RFC 4113) 및 IPv4 및 IPv6 데이터를 모두 표시하는 ICMP(RFC 2466) MIB를 지원합니다.
+
+또한 ONTAP는 "trap.dat" 파일에서 OID(개체 식별자)와 개체 약식 이름 간의 짧은 상호 참조를 제공합니다.
+
+
+NOTE: ONTAP MIB 및 traps.dat 파일의 최신 버전은 NetApp Support 사이트에서 확인할 수 있습니다. 그러나 지원 사이트에 있는 이러한 파일의 버전이 ONTAP 버전의 SNMP 기능과 일치하지 않을 수도 있습니다. 이러한 파일은 최신 ONTAP 버전에서 SNMP 기능을 평가하는 데 도움이 됩니다.

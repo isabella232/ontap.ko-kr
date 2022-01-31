@@ -1,0 +1,13 @@
+---
+permalink: authentication/enable-nis-ldap-users-access-cluster-task.html 
+sidebar: sidebar 
+keywords: configure, ldap, nis, server access 
+summary: LDAP 또는 NIS 계정이 SVM에 액세스하려면 먼저 SVM에 대한 LDAP 또는 NIS 서버 액세스를 구성해야 합니다. 스위치 기능을 사용하면 LDAP 또는 NIS를 대체 이름 서비스 소스로 사용할 수 있습니다. 
+---
+= LDAP 또는 NIS 서버 액세스 개요를 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+LDAP 또는 NIS 계정이 SVM에 액세스하려면 먼저 SVM에 대한 LDAP 또는 NIS 서버 액세스를 구성해야 합니다. 스위치 기능을 사용하면 LDAP 또는 NIS를 대체 이름 서비스 소스로 사용할 수 있습니다.

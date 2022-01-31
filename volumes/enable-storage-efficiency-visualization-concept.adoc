@@ -1,0 +1,56 @@
+---
+permalink: volumes/enable-storage-efficiency-visualization-concept.html 
+sidebar: sidebar 
+keywords: enable, storage, efficiency, visualization 
+summary: 스토리지 aggregate show-Efficiency 명령을 사용하면 시스템에 있는 모든 애그리게이트의 스토리지 효율성에 대한 정보를 표시할 수 있습니다. 
+---
+= 스토리지 효율성 시각화 지원
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'storage aggregate show-Efficiency' 명령을 사용하면 시스템에 있는 모든 애그리게이트의 스토리지 효율성에 대한 정보를 표시할 수 있습니다.
+
+'Storage aggregate show-Efficiency' 명령에는 명령 옵션을 전달하여 호출할 수 있는 세 가지 보기가 있습니다.
+
+
+
+== 기본 보기
+
+기본 보기에는 각 애그리게이트의 전체 비율이 표시됩니다.
+
+'cluster1::> storage aggregate show-Efficiency'
+
+
+
+== 상세보기
+
+'-details' 명령 옵션으로 상세도를 호출한다. 이 보기에는 다음이 표시됩니다.
+
+* 각 애그리게이트의 전체 효율성 비율
+* Snapshot 복사본이 없는 전체 비율
+* 볼륨 중복제거, 볼륨 압축, 스냅샷 복사본, 클론, 데이터 컴팩션, 데이터 컴팩션 등의 효율성 기술을 위한 비율 분할 애그리게이트 인라인 중복제거 를 참조하십시오.
+
+
+'cluster1::> storage aggregate show-Efficiency-details'
+
+
+
+== 고급 보기
+
+고급 보기는 상세 보기와 유사하며 논리적 및 물리적 사용 세부 정보를 표시합니다. 이제 효율성 기술을 별도로 표시하도록 보기가 향상되었습니다.
+
+고급 권한 수준에서 이 명령을 실행해야 합니다. Set-Privilege advanced 명령을 사용하여 Advanced 권한으로 전환합니다.
+
+명령 프롬프트가 'cluster::: *>'로 바뀝니다.
+
+'cluster1::> set-Privilege advanced'
+
+'-advanced' 명령 옵션으로 고급 보기를 호출합니다.
+
+'cluster1:: * > storage aggregate show-Efficiency-advanced'
+
+단일 Aggregate의 비율을 보려면 '-aggregate<이름>' 명령을 개별적으로 호출합니다. 이 명령은 admin 레벨 및 advanced 권한 레벨에서 실행할 수 있습니다.
+
+'cluster1::> storage aggregate show-Efficiency-aggregate aggr1'

@@ -1,0 +1,92 @@
+---
+permalink: system-admin/configure-sp-bmc-network-manually-task.html 
+sidebar: sidebar 
+keywords: configure, sp, bmc, network, manually, ip, address 
+summary: SP에 자동 네트워크 구성이 설정되어 있지 않은 경우 IP 주소를 사용하여 SP에 액세스할 수 있도록 노드의 SP 네트워크를 수동으로 구성해야 합니다. 
+---
+= SP/BMC 네트워크를 수동으로 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SP에 자동 네트워크 구성이 설정되어 있지 않은 경우 IP 주소를 사용하여 SP에 액세스할 수 있도록 노드의 SP 네트워크를 수동으로 구성해야 합니다.
+
+SP에 대해 IPv6 연결을 사용하려면 ONTAP에 대해 IPv6가 이미 구성 및 설정되어 있어야 합니다. 네트워크 옵션 IPv6 명령은 ONTAP의 IPv6 설정을 관리합니다.
+
+[NOTE]
+====
+이 태스크는 SP와 BMC 모두에 적용됩니다.
+
+====
+SP에서 IPv4, IPv6 또는 둘 다를 사용하도록 구성할 수 있습니다. SP IPv4 구성은 정적 및 DHCP 주소 할당을 지원하며, SP IPv6 구성은 정적 주소 지정만 지원합니다.
+
+SP 자동 네트워크 구성이 설정된 경우 개별 노드에 대해 SP 네트워크를 수동으로 구성할 필요가 없으며 'system service-processor network modify' 명령을 사용하면 SP 네트워크 인터페이스만 설정하거나 해제할 수 있습니다.
+
+.단계
+. 'system service-processor network modify' 명령어를 사용하여 노드에 대한 SP 네트워크를 설정한다.
++
+** '-address-family' 매개변수는 SP의 IPv4 또는 IPv6 구성을 수정할지 여부를 지정합니다.
+** '-enable' 파라미터는 지정된 IP 주소 제품군의 네트워크 인터페이스를 활성화한다.
+** '-DHCP' 매개변수는 DHCP 서버의 네트워크 구성을 사용할지 또는 사용자가 제공하는 네트워크 주소를 사용할지 여부를 지정합니다.
++
+IPv4를 사용하는 경우에만 DHCP('-DHCP'를 'v4'로 설정)를 활성화할 수 있습니다. IPv6 구성에 대해 DHCP를 활성화할 수 없습니다.
+
+** '-ip-address' 매개 변수는 SP의 공용 IP 주소를 지정합니다.
++
+서브넷에 할당된 주소를 사용하여 SP 네트워크를 수동으로 구성하려고 하면 경고 메시지가 표시됩니다. 경고를 무시하고 수동 주소 할당을 계속하면 주소가 중복 할당될 수 있습니다.
+
+** '-netmask' 매개변수는 SP의 넷마스크를 지정합니다(IPv4를 사용하는 경우).
+** prefix-length 매개 변수는 SP에 대한 서브넷 마스크의 네트워크 접두사-길이를 지정합니다(IPv6를 사용하는 경우).
+** '-gateway' 매개변수는 SP의 게이트웨이 IP 주소를 지정합니다.
+
+
+. 1단계를 반복하여 클러스터의 나머지 노드에 대해 SP 네트워크를 구성합니다.
+. SP 네트워크 구성을 표시하고 '–instance' 또는 '–field setup-status' 매개 변수를 사용하여 'system service-processor network show' 명령을 사용하여 SP 설정 상태를 확인합니다.
++
+노드의 SP 설정 상태는 다음 중 하나일 수 있습니다.
+
++
+** '설정 안 됨' -- 구성되지 않음
+** '성공' -- 구성에 성공했습니다
+** 진행 중 -- 구성이 진행 중입니다
+** 실패 -- 구성에 실패했습니다
+
+
+
+
+다음 예에서는 노드의 SP에서 IPv4를 사용하도록 구성하고 SP를 사용하도록 설정하며 SP 네트워크 구성을 표시하여 설정을 확인합니다.
+
+[listing]
+----
+
+cluster1::> system service-processor network modify -node local
+-address-family IPv4 -enable true -ip-address 192.168.123.98
+-netmask 255.255.255.0 -gateway 192.168.123.1
+
+cluster1::> system service-processor network show -instance -node local
+
+                               Node: node1
+                       Address Type: IPv4
+                  Interface Enabled: true
+                     Type of Device: SP
+                             Status: online
+                        Link Status: up
+                        DHCP Status: none
+                         IP Address: 192.168.123.98
+                        MAC Address: ab:cd:ef:fe:ed:02
+                            Netmask: 255.255.255.0
+       Prefix Length of Subnet Mask: -
+         Router Assigned IP Address: -
+              Link Local IP Address: -
+                 Gateway IP Address: 192.168.123.1
+                  Time Last Updated: Thu Apr 10 17:02:13 UTC 2014
+                        Subnet Name: -
+Enable IPv6 Router Assigned Address: -
+            SP Network Setup Status: succeeded
+    SP Network Setup Failure Reason: -
+
+1 entries were displayed.
+
+cluster1::>
+----

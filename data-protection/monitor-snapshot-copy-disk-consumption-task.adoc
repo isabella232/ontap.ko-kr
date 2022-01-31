@@ -1,0 +1,28 @@
+---
+permalink: data-protection/monitor-snapshot-copy-disk-consumption-task.html 
+sidebar: sidebar 
+keywords: monitor, snapshot, copy, disk, consumption 
+summary: df 명령을 사용하여 스냅샷 복사본 디스크 소비를 모니터링할 수 있습니다. 명령은 활성 파일 시스템의 사용 가능한 공간과 스냅샷 복사본 예약 공간을 표시합니다. 
+---
+= 스냅샷 복사본 디스크 사용량을 모니터링합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+"df" 명령을 사용하여 스냅샷 복사본 디스크 소비를 모니터링할 수 있습니다. 명령은 활성 파일 시스템의 사용 가능한 공간과 스냅샷 복사본 예약 공간을 표시합니다.
+
+.단계
+. 스냅샷 복사본 디스크 사용: df를 표시합니다
++
+다음 예는 스냅샷 복사본 디스크 소비를 보여 줍니다.
+
++
+[listing]
+----
+cluster1::> df
+Filesystem          kbytes  used    avail  capacity
+/vol/vol0/          3000000 3000000 0       100%
+/vol/vol0/.snapshot 1000000 500000  500000   50%
+----
+

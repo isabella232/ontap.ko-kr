@@ -1,0 +1,82 @@
+---
+permalink: volumes/commands-manage-flexvol-volumes-reference.html 
+sidebar: sidebar 
+keywords: commands for, managing, flexvol, volumes, manage 
+summary: ONTAP CLI를 사용하여 FlexVol 볼륨을 관리하는 특정 명령이 있습니다. 
+---
+= FlexVol 볼륨을 관리하는 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP CLI를 사용하여 FlexVol 볼륨을 관리하는 특정 명령이 있습니다.
+
+[cols="2*"]
+|===
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+볼륨을 온라인으로 설정합니다
+ a| 
+온라인 볼륨
+
+
+
+ a| 
+볼륨의 크기를 변경합니다
+ a| 
+볼륨 크기
+
+
+
+ a| 
+볼륨과 연결된 애그리게이트를 확인합니다
+ a| 
+'볼륨 쇼'
+
+
+
+ a| 
+SVM(스토리지 가상 시스템)의 모든 볼륨에서 관련 애그리게이트 결정
+ a| 
+'volume show-vserver-fields aggregate'
+
+
+
+ a| 
+볼륨의 형식을 확인합니다
+ a| 
+'볼륨 표시-필드 블록-유형'입니다
+
+
+
+ a| 
+교차점을 사용하여 볼륨을 다른 볼륨에 마운트합니다
+ a| 
+'볼륨 마운트'입니다
+
+
+
+ a| 
+볼륨을 제한 상태로 설정합니다
+ a| 
+볼륨 제한
+
+
+
+ a| 
+볼륨 이름을 바꿉니다
+ a| 
+볼륨 이름 바꾸기
+
+
+
+ a| 
+볼륨을 오프라인 상태로 전환합니다
+ a| 
+'볼륨 오프라인'
+
+|===
+자세한 내용은 각 명령에 대한 man 페이지를 참조하십시오.

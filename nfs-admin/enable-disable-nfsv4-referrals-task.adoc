@@ -1,0 +1,62 @@
+---
+permalink: nfs-admin/enable-disable-nfsv4-referrals-task.html 
+sidebar: sidebar 
+keywords:  
+summary: 'v4 -fsid -change 및 -v4.0 -referral 또는 -v4.1 -referral 옵션을 설정하여 스토리지 가상 머신 \(SVM\)에서 NFSv4 조회를 설정할 수 있습니다. NFSv4 조회를 설정하면 이 기능을 지원하는 NFSv4 클라이언트에 대한 데이터 액세스 속도가 빨라집니다.' 
+---
+= NFSv4 조회를 설정하거나 해제합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'-v4-fsid-change' 및 '-v4.0-referral' 또는 '-v4.1-referral' 옵션을 활성화하여 스토리지 가상 시스템(SVM)에서 NFSv4 조회를 설정할 수 있습니다. NFSv4 조회를 설정하면 이 기능을 지원하는 NFSv4 클라이언트에 대한 데이터 액세스 속도가 빨라집니다.
+
+NFS 조회를 설정하려면 먼저 parallel NFS를 해제해야 합니다. 동시에 둘 다 활성화할 수 없습니다.
+
+.단계
+. 권한 수준을 고급으로 설정합니다.
++
+세트 프리빌리지 고급
+
+. 다음 작업 중 하나를 수행합니다.
++
+[cols="35,65"]
+|===
+
+
+| 원하는 작업 | 명령 입력... 
+
+
+ a| 
+NFSv4 조회를 설정합니다
+ a| 
+'vserver nfs modify -vserver vserver_name -v4 -fsid -change enabled''vserver nfs modify -vserver vserver vserver_name -v4.0 -referral enabled'
+
+
+
+ a| 
+NFSv4 조회를 해제합니다
+ a| 
+'vserver nfs modify -vserver vserver_name -v4.0 -referral disabled'
+
+
+
+ a| 
+NFSv4.1 조회를 사용하도록 설정합니다
+ a| 
+'vserver nfs modify -vserver vserver_name -v4 -fsid -change enabled''vserver nfs modify -vserver vserver vserver_name -v4.1 -referral enabled'
+
+
+
+ a| 
+NFSv4.1 조회를 비활성화합니다
+ a| 
+'vserver nfs modify -vserver vserver_name -v4.1 -referral disabled'
+
+|===
+. 관리자 권한 레벨로 돌아갑니다.
++
+'Set-Privilege admin'입니다
+
+

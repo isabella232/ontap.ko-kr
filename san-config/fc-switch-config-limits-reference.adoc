@@ -1,0 +1,27 @@
+---
+permalink: san-config/fc-switch-config-limits-reference.html 
+sidebar: sidebar 
+keywords: fc, switch, configuration, limits 
+summary: 파이버 채널 스위치에는 포트, 포트 그룹, 블레이드 및 스위치별로 지원되는 로그인 수를 포함한 최대 구성 제한이 있습니다. 지원되는 제한은 스위치 벤더에서 문서로 제공합니다. 
+---
+= FC 스위치 구성 제한
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+파이버 채널 스위치에는 포트, 포트 그룹, 블레이드 및 스위치별로 지원되는 로그인 수를 포함한 최대 구성 제한이 있습니다. 지원되는 제한은 스위치 벤더에서 문서로 제공합니다.
+
+각 FC 논리 인터페이스(LIF)는 FC 스위치 포트에 로그인합니다. 노드에서 단일 타겟의 총 로그인 수는 LIF 수에 기본 물리적 포트의 로그인 수 1을 더한 값과 같습니다. 로그인 또는 기타 구성 값에 대한 스위치 공급업체의 구성 제한을 초과하지 마십시오. 또한 NPIV가 활성화된 가상화 환경에서 호스트 측에서 사용되는 초기자에 대해서도 마찬가지입니다. 솔루션에서 사용 중인 타겟 또는 이니시에이터에 대한 스위치 공급업체의 로그인 구성 제한을 초과하지 마십시오.
+
+
+
+== Brocade 스위치 제한
+
+Brocade 스위치에 대한 구성 제한은 _ Brocade 확장성 지침 _ 에서 확인할 수 있습니다.
+
+
+
+== Cisco Systems 스위치 제한
+
+에서 Cisco 스위치에 대한 구성 제한을 찾을 수 있습니다 http://www.cisco.com/en/US/products/ps5989/products_installation_and_configuration_guides_list.html["Cisco 구성 제한"] 사용 중인 Cisco 스위치 소프트웨어 버전에 대한 안내서입니다.

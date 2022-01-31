@@ -1,0 +1,49 @@
+---
+permalink: volumes/delete-snapshot-copies-automatic-task.html 
+sidebar: sidebar 
+keywords: delete, snapshot, copies, automatically, flexclone luns 
+summary: 스냅샷 복사본 및 FlexClone LUN을 자동으로 삭제하는 정책을 정의하고 설정할 수 있습니다. 스냅샷 복사본 및 FlexClone LUN을 자동으로 삭제하면 공간 사용률을 관리하는 데 도움이 됩니다. 
+---
+= 스냅샷 복사본을 자동으로 삭제합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+스냅샷 복사본 및 FlexClone LUN을 자동으로 삭제하는 정책을 정의하고 설정할 수 있습니다. 스냅샷 복사본 및 FlexClone LUN을 자동으로 삭제하면 공간 사용률을 관리하는 데 도움이 됩니다.
+
+읽기-쓰기 볼륨의 스냅샷 복사본과 읽기-쓰기 상위 볼륨의 FlexClone LUN을 자동으로 삭제할 수 있습니다. 예를 들어, SnapMirror 대상 볼륨과 같이 읽기 전용 볼륨에서 스냅샷 복사본의 자동 삭제를 설정할 수 없습니다.
+
+.단계
+. '볼륨 스냅샷 자동 삭제 수정' 명령을 사용하여 스냅샷 복사본을 자동으로 삭제하는 정책을 정의하고 설정합니다.
++
+이 명령으로 요구사항에 맞는 정책을 정의하는 데 사용할 수 있는 매개 변수에 대한 자세한 내용은 '볼륨 스냅샷 자동 삭제 수정' man 페이지를 참조하십시오.
+
++
+다음 명령을 실행하면 스냅샷 복사본이 자동으로 삭제되며 vs0.example.com SVM(Storage Virtual Machine)의 일부인 vol3 볼륨에 대한 trigger를 'snap_reserve'로 설정합니다.
+
++
+[listing]
+----
+cluster1::> volume snapshot autodelete modify -vserver vs0.example.com
+-volume vol3 -enabled true -trigger snap_reserve
+----
++
+다음 명령을 사용하면 vs0.example.com SVM(스토리지 가상 머신)의 일부인 vol3 볼륨에 대해 자동 삭제하도록 표시된 FlexClone LUN과 스냅샷 복사본을 자동으로 삭제할 수 있습니다.
+
++
+[listing]
+----
+cluster1::> volume snapshot autodelete modify -vserver vs0.example.com
+-volume vol3 -enabled true -trigger volume -commitment try -delete-order
+oldest_first -destroy-list lun_clone,file_clone
+----
++
+[NOTE]
+====
+애그리게이트 레벨 스냅샷 복사본은 볼륨 레벨 스냅샷 복사본과 다르며 ONTAP에서 자동으로 관리합니다. 애그리게이트 스냅샷 복사본을 삭제하는 옵션은 항상 활성화되어 있으며 공간 활용률 관리에 도움이 됩니다.
+
+Aggregate에 대해 trigger 매개 변수를 'snap_reserve'로 설정하면 예약된 공간이 임계값 용량을 넘어설 때까지 스냅샷 복사본이 유지됩니다. 따라서 trigger 매개 변수가 snap_reserve로 설정되어 있지 않더라도 해당 스냅샷 복사본이 자동으로 삭제되기 때문에 명령에서 Snapshot 복사본이 사용하는 공간은 "0"으로 표시됩니다. 또한 애그리게이트의 스냅샷 복사본이 사용하는 공간은 사용 가능한 것으로 간주되며 명령의 사용 가능한 공간 매개 변수에 포함됩니다.
+
+====
+

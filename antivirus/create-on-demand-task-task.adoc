@@ -1,0 +1,71 @@
+---
+permalink: antivirus/create-on-demand-task-task.html 
+sidebar: sidebar 
+keywords: create, on-demand, task 
+summary: 온디맨드 작업은 온디맨드 스캔의 범위를 정의합니다. 스캔할 파일의 최대 크기, 스캔에 포함할 파일의 확장명 및 경로, 스캔에서 제외할 파일의 확장명 및 경로를 지정할 수 있습니다. 하위 디렉터리의 파일은 기본적으로 스캔됩니다. 
+---
+= 주문형 작업을 만듭니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+온디맨드 작업은 온디맨드 스캔의 범위를 정의합니다. 스캔할 파일의 최대 크기, 스캔에 포함할 파일의 확장명 및 경로, 스캔에서 제외할 파일의 확장명 및 경로를 지정할 수 있습니다. 하위 디렉터리의 파일은 기본적으로 스캔됩니다.
+
+.단계
+. 필요 시 작업 만들기:
++
+server_vscan_schedule -max -file -size_max_size_of_files_to_scan -exclude_extensions -include_ext_ext_ext_extensions -vserver_file_to_scan_exclude_file_directory_directory_directory_directory_directory -report -exclude_file_max_max_max_file_to_recursion_ext_ext_ext_ext_ext_ext_ext_ext_ext_ext_ext_ext_exclude_ext_ext_file_file_exclude_file_file_file_file_file_file_file_file_file_file 파일의 vserver_exclude_file_file_file_file_file_file_file_
+
++
+** '-file-ext-to-exclude' 설정은 '-file-ext-to-include' 설정보다 우선합니다.
+** 확장자가 없는 파일을 스캔하려면 '-scan-files-with-no-ext'를 true로 설정합니다. 전체 옵션 목록은 명령에 대한 man 페이지를 참조하십시오.
+
+
++
+다음 명령어를 수행하면 vs1 VM에 Task1이라는 온액세스 작업이 생성됩니다.
+
++
+[listing]
+----
+cluster1::> vserver vscan on-demand-task create -vserver vs1 -task-name Task1 -scan-paths "/vol1/","/vol2/cifs/" -report-directory "/report" -schedule daily -max-file-size 5GB -paths-to-exclude "/vol1/cold-files/" -file-ext-to-include "vmdk?","mp*" -file-ext-to-exclude "mp3","mp4" -scan-files-with-no-ext false
+[Job 126]: Vscan On-Demand job is queued. Use the "job show -id 126" command to view the status.
+----
++
+[NOTE]
+====
+job show 명령을 사용하여 작업의 상태를 볼 수 있습니다. 작업 일시정지 및 작업 재개 명령을 사용하여 작업을 일시정지 및 재시작하거나 작업 중지 명령을 사용하여 작업을 종료할 수 있습니다.
+
+====
+. 주문형 작업이 생성되었는지 확인합니다. 'vserver vscan on-demand-task show-instance data_SVM-task-name task_name'
++
+전체 옵션 목록은 명령에 대한 man 페이지를 참조하십시오.
+
++
+다음 명령을 실행하면 'Task1' 작업에 대한 세부 정보가 표시됩니다.
+
++
+[listing]
+----
+cluster1::> vserver vscan on-demand-task show -instance vs1 -task-name Task1
+
+                           Vserver: vs1
+                         Task Name: Task1
+                List of Scan Paths: /vol1/, /vol2/cifs/
+             Report Directory Path: /report
+                      Job Schedule: daily
+Max File Size Allowed for Scanning: 5GB
+            File Paths Not to Scan: /vol1/cold-files/
+       File Extensions Not to Scan: mp3, mp4
+           File Extensions to Scan: vmdk?, mp*
+      Scan Files with No Extension: false
+           Request Service Timeout: 5m
+                    Cross Junction: true
+               Directory Recursion: true
+                     Scan Priority: low
+                  Report Log Level: info
+        Expiration Time for Report: -
+----
+
+
+작업을 실행하도록 예약하기 전에 SVM에서 스캔을 활성화해야 합니다.

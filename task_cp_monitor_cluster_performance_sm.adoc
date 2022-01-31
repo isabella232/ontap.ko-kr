@@ -1,0 +1,37 @@
+---
+sidebar: sidebar 
+permalink: task_cp_monitor_cluster_performance_sm.html 
+keywords: netapp, ontap, cluster, performance, monitor, monitoring, system manager, cluster performance, dashboard, health, capacity, IOPS, throughput, network configuration, alert, notification, HA pair, metrics, node, cpu, cpus 
+summary: System Manager의 대시보드를 사용하여 클러스터의 성능을 모니터링합니다. 
+---
+= System Manager를 사용하여 클러스터 성능을 모니터링합니다
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+System Manager 대시보드에서 시스템에 대한 정보를 확인하여 클러스터 성능을 모니터링할 수 있습니다.
+
+대시보드에는 중요한 알림, 스토리지 계층 및 볼륨의 효율성 및 용량, 클러스터에서 사용 가능한 노드, HA Pair의 노드 상태, 가장 활성화된 애플리케이션 및 개체에 대한 정보가 표시됩니다. 클러스터 또는 노드의 성능 메트릭과
+
+대시보드를 통해 다음 정보를 확인할 수 있습니다.
+
+* * 상태 *: 클러스터가 얼마나 양호합니까?
+* * 용량 *: 클러스터에서 사용할 수 있는 용량은 무엇입니까?
+* * 성능 *: 지연 시간, IOPS 및 처리량을 기준으로 클러스터의 성능은 어떻습니까?
+* * 네트워크 *: 포트, 인터페이스 및 스토리지 VM과 같은 호스트 및 스토리지 객체로 네트워크를 구성하는 방법은 무엇입니까?
+
+
+Health and Capacity(상태 및 용량) 개요에서 을(를) 클릭할 수 있습니다 image:icon_arrow.gif["추가 정보 화살표 아이콘"] 추가 정보를 보고 작업을 수행합니다.
+
+성과 개요에서는 시간, 일, 주, 월 또는 연도를 기준으로 메트릭을 볼 수 있습니다.
+
+네트워크 개요에서 네트워크의 각 개체 수가 표시됩니다(예: "8개의 NVMe/FC 포트"). 번호를 클릭하여 각 네트워크 개체에 대한 세부 정보를 볼 수 있습니다.

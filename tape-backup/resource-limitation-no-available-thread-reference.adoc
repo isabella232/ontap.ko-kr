@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/resource-limitation-no-available-thread-reference.html 
+sidebar: sidebar 
+keywords: resource, limitations, no, available, thread, local, tape, ip, maximum 
+summary: 현재 사용 중인 최대 활성 로컬 테이프 입출력 스레드 수입니다. 최대 16개의 활성 로컬 테이프 드라이브를 사용할 수 있습니다. 
+---
+= 리소스 제한: 사용 가능한 스레드가 없습니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+자원 제한: 사용 가능한 스레드가 없습니다
+
+* * 원인 *
++
+현재 사용 중인 최대 활성 로컬 테이프 입출력 스레드 수입니다. 최대 16개의 활성 로컬 테이프 드라이브를 사용할 수 있습니다.
+
+* * 시정 조치 *
++
+새 백업 또는 복원 작업을 시작하기 전에 일부 테이프 작업이 완료될 때까지 기다립니다.
+
+

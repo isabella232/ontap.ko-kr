@@ -1,0 +1,26 @@
+---
+permalink: disks-aggregates/sanitization-not-performed-concept.html 
+sidebar: sidebar 
+keywords: disks, disk sanitization, unsupported disk sanitization, disk sanitization process 
+summary: 일부 디스크 유형에서는 디스크 삭제가 지원되지 않습니다. 또한 디스크 삭제를 수행할 수 없는 경우도 있습니다. 
+---
+= 디스크 삭제를 수행할 수 없는 경우
+
+
+[role="lead"]
+일부 디스크 유형에서는 디스크 삭제가 지원되지 않습니다. 또한 디스크 삭제를 수행할 수 없는 경우도 있습니다.
+
+* 일부 SSD 부품 번호에서는 지원되지 않습니다.
++
+디스크 삭제를 지원하는 SSD 부품 번호에 대한 자세한 내용은 를 참조하십시오 https://hwu.netapp.com/["Hardware Universe"^].
+
+* HA Pair 시스템의 경우 Takeover 모드에서 지원되지 않습니다.
+* 읽기 가능성 또는 쓰기 가능성 문제로 인해 실패한 디스크에서는 이 작업을 수행할 수 없습니다.
+* ATA 드라이브에서 포맷 단계를 수행하지 않습니다.
+* 랜덤 패턴을 사용하는 경우 한 번에 100개 이상의 디스크에서 수행할 수 없습니다.
+* 어레이 LUN에서는 지원되지 않습니다.
+* 동일한 ESH 쉘프에 있는 두 SES 디스크를 동시에 삭제하는 경우 콘솔에 해당 셸프에 대한 액세스에 대한 오류가 표시됩니다. 또한 완전 삭제 기간 동안 쉘프 경고는 보고되지 않습니다.
++
+하지만 해당 쉘프에 대한 데이터 액세스는 중단되지 않습니다.
+
+

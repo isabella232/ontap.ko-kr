@@ -1,0 +1,250 @@
+---
+permalink: element-replication/index.html 
+sidebar: sidebar 
+keywords: decide, replication, netapp element software, ontap, business continuity, element, system, snapmirror, replicate, snapshot, copies, volume 
+summary: SnapMirror를 사용하여 Element 볼륨의 스냅샷 복사본을 ONTAP 대상에 복제하여 Element 시스템에서 비즈니스 연속성을 보장할 수 있습니다. 
+---
+= NetApp Element 소프트웨어와 ONTAP 간 복제 개요
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapMirror를 사용하여 Element 볼륨의 스냅샷 복사본을 ONTAP 대상에 복제하여 Element 시스템에서 비즈니스 연속성을 보장할 수 있습니다. Element 사이트에서 재해가 발생할 경우 ONTAP 시스템에서 클라이언트로 데이터를 제공하고 서비스가 복원되면 Element 시스템을 다시 활성화할 수 있습니다.
+
+ONTAP 9.4부터는 ONTAP 노드에서 생성된 LUN의 스냅샷 복사본을 Element 시스템으로 복제할 수 있습니다. Element 사이트에서 운영 중단 중에 LUN을 생성했거나, LUN을 사용하여 ONTAP에서 Element 소프트웨어로 데이터를 마이그레이션할 수 있습니다.
+
+다음과 같은 경우 Element to ONTAP 백업으로 작업해야 합니다.
+
+* 사용 가능한 모든 옵션을 탐색하는 것이 아니라 모범 사례를 사용하려고 합니다.
+* System Manager나 자동화된 스크립팅 도구가 아니라 ONTAP CLI(Command-Line Interface)를 사용하려는 경우
+* iSCSI를 사용하여 클라이언트에 데이터를 제공하고 있습니다.
+
+
+추가 구성 또는 개념 정보가 필요한 경우 다음 설명서를 참조하십시오.
+
+* 요소 설정
++
+https://docs.netapp.com/us-en/element-software/index.html["NetApp Element 소프트웨어 설명서"^]
+
+* SnapMirror 개념 및 구성
++
+link:../data-protection/index.html["데이터 보호 개요"]
+
+
+
+
+
+== Element와 ONTAP 간의 복제에 대해 설명합니다
+
+ONTAP 9.3부터 SnapMirror를 사용하여 요소 볼륨의 스냅샷 복사본을 ONTAP 대상에 복제할 수 있습니다. Element 사이트에서 재해가 발생할 경우 ONTAP 시스템에서 클라이언트로 데이터를 제공하고 서비스가 복원되면 Element 소스 볼륨을 다시 활성화할 수 있습니다.
+
+ONTAP 9.4부터는 ONTAP 노드에서 생성된 LUN의 스냅샷 복사본을 Element 시스템으로 복제할 수 있습니다. Element 사이트에서 운영 중단 중에 LUN을 생성했거나, LUN을 사용하여 ONTAP에서 Element 소프트웨어로 데이터를 마이그레이션할 수 있습니다.
+
+
+
+=== 데이터 보호 관계의 유형입니다
+
+SnapMirror는 두 가지 유형의 데이터 보호 관계를 제공합니다. 각 유형에 대해 SnapMirror는 관계를 초기화하거나 업데이트하기 전에 Element 소스 볼륨의 스냅샷 복사본을 생성합니다.
+
+* DR(재해 복구)_데이터 보호 관계의 경우 대상 볼륨에 SnapMirror에서 생성한 스냅샷 복사본만 포함되어 있으므로 운영 사이트에서 재해가 발생해도 데이터를 계속 제공할 수 있습니다.
+* 장기적인 retention_data 보호 관계에서 타겟 볼륨에는 Element 소프트웨어가 생성한 시점 Snapshot 복사본과 SnapMirror에서 생성한 스냅샷 복사본이 포함됩니다. 예를 들어, 20년 동안 생성된 월별 스냅샷 복사본을 보존할 수 있습니다.
+
+
+
+
+=== 기본 정책
+
+SnapMirror를 처음 호출하면 소스 볼륨에서 대상 볼륨으로 _baseline transfer_를 수행합니다. _SnapMirror 정책_은 기준 및 모든 업데이트의 내용을 정의합니다.
+
+데이터 보호 관계를 생성할 때 기본 또는 사용자 지정 정책을 사용할 수 있습니다. policy type_은 포함할 스냅샷 복사본과 유지할 복사본 수를 결정합니다.
+
+아래 표에는 기본 정책이 나와 있습니다. 기존의 DR 관계를 형성하려면 "짜르라페스트" 정책을 사용하십시오. MirorAndVault 또는 Unified7년 정책을 사용하여 동일한 대상 볼륨에 DR 및 장기 보존을 구성하는 통합 복제 관계를 생성합니다.
+
+[cols="25,25,50"]
+|===
+
+
+| 정책 | 정책 유형 | 업데이트 동작 
+
+
+ a| 
+대칭 복사
+ a| 
+비동기식 - 미러
+ a| 
+SnapMirror에서 생성한 스냅샷 복사본을 전송합니다.
+
+
+
+ a| 
+MirrorAndVault를 선택합니다
+ a| 
+대칭 복사 - 볼트
+ a| 
+SnapMirror 레이블 " 매일" 또는 ""매주""가 있는 경우, SnapMirror에서 생성한 스냅샷 복사본과 마지막 업데이트 이후 생성된 최근 스냅샷 복사본을 전송합니다.
+
+
+
+ a| 
+Unified7년
+ a| 
+대칭 복사 - 볼트
+ a| 
+SnapMirror 레이블 ""일일", ""주간" 또는 " 월간""에 따라 SnapMirror에서 생성한 스냅샷 복사본과 마지막 업데이트 이후 생성된 최근 Snapshot 복사본을 전송합니다.
+
+|===
+[NOTE]
+====
+사용할 정책에 대한 지침을 포함하여 SnapMirror 정책에 대한 전체 배경 정보는 을 참조하십시오 link:../data-protection/index.html["데이터 보호"].
+
+====
+
+
+=== SnapMirror 레이블 이해
+
+"미러 볼트" 정책 유형의 모든 정책에는 복제할 스냅샷 복사본을 지정하는 규칙이 있어야 합니다. 예를 들어 "매일" 규칙은 SnapMirror 레이블 "매일"에 할당된 스냅샷 복사본만 복제해야 함을 나타냅니다. Element Snapshot 복사본을 구성할 때 SnapMirror 레이블을 할당합니다.
+
+
+
+=== Element 소스 클러스터에서 ONTAP 대상 클러스터로 복제
+
+SnapMirror를 사용하여 Element 볼륨의 스냅샷 복사본을 ONTAP 대상 시스템으로 복제할 수 있습니다. Element 사이트에서 재해가 발생할 경우 ONTAP 시스템에서 클라이언트로 데이터를 제공하고 서비스가 복원되면 Element 소스 볼륨을 다시 활성화할 수 있습니다.
+
+Element 볼륨은 ONTAP LUN과 거의 동일합니다. SnapMirror는 Element 소프트웨어와 ONTAP 간의 데이터 보호 관계가 초기화될 때 Element 볼륨의 이름을 사용하여 LUN을 생성합니다. LUN이 Element to ONTAP 복제에 대한 요구사항을 충족하는 경우 SnapMirror는 데이터를 기존 LUN에 복제합니다.
+
+복제 규칙은 다음과 같습니다.
+
+* ONTAP 볼륨은 하나의 요소 볼륨에서만 데이터를 포함할 수 있습니다.
+* ONTAP 볼륨에서 여러 요소 볼륨으로 데이터를 복제할 수는 없습니다.
+
+
+
+
+=== ONTAP 소스 클러스터에서 Element 대상 클러스터로 복제
+
+ONTAP 9.4부터는 ONTAP 시스템에서 생성된 LUN의 스냅샷 복사본을 Element 볼륨으로 복제할 수 있습니다.
+
+* Element 소스와 ONTAP 대상 간에 SnapMirror 관계가 이미 있는 경우, 소스에서 데이터를 제공하는 동안 생성된 LUN은 소스가 재활성화되면 자동으로 복제됩니다.
+* 그렇지 않으면 ONTAP 소스 클러스터와 Element 대상 클러스터 간에 SnapMirror 관계를 생성하고 초기화해야 합니다.
+
+
+복제 규칙은 다음과 같습니다.
+
+* 복제 관계에는 ""비동기 미러"" 유형의 정책이 있어야 합니다.
++
+'미러 볼트' 유형의 정책은 지원되지 않습니다.
+
+* iSCSI LUN만 지원됩니다.
+* ONTAP 볼륨에서 Element 볼륨으로 둘 이상의 LUN을 복제할 수 없습니다.
+* ONTAP 볼륨에서 여러 요소 볼륨으로 LUN을 복제할 수는 없습니다.
+
+
+
+
+=== 필수 구성 요소
+
+Element와 ONTAP 간의 데이터 보호 관계를 구성하기 전에 다음 작업을 완료해야 합니다.
+
+* Element 클러스터는 NetApp Element 소프트웨어 버전 10.1 이상을 실행해야 합니다.
+* ONTAP 클러스터는 ONTAP 9.3 이상을 실행해야 합니다.
+* ONTAP 클러스터에서 SnapMirror 라이센스가 있어야 합니다.
+* 예상 데이터 전송을 처리할 수 있을 정도로 큰 볼륨을 Element 및 ONTAP 클러스터에 구성해야 합니다.
+* "미러 볼트" 정책 유형을 사용하는 경우, Element 스냅샷 복사본을 복제하기 위해 SnapMirror 레이블을 구성해야 합니다.
++
+[NOTE]
+====
+Element 소프트웨어 웹 UI에서만 이 작업을 수행할 수 있습니다. 자세한 내용은 를 참조하십시오 link:https://docs.netapp.com/us-en/element-software/index.html["NetApp Element 소프트웨어 설명서"]
+
+====
+* 포트 5010을 사용할 수 있는지 확인해야 합니다.
+* 대상 볼륨을 이동해야 할 수 있다고 예상하는 경우 소스와 대상 간에 전체 메시 연결이 존재하는지 확인해야 합니다. Element 소스 클러스터의 모든 노드는 ONTAP 대상 클러스터의 모든 노드와 통신할 수 있어야 합니다.
+
+
+
+
+=== 지원 세부 정보
+
+다음 표에는 Element to ONTAP 백업에 대한 지원 세부 정보가 나와 있습니다.
+
+[cols="25,75"]
+|===
+
+
+| 리소스 또는 기능 | 지원 세부 정보 
+
+
+ a| 
+SnapMirror를 참조하십시오
+ a| 
+* SnapMirror 복원 기능은 지원되지 않습니다.
+* 무르알스냅샷, XDPDefault 정책은 지원되지 않습니다.
+* "볼트" 정책 유형은 지원되지 않습니다.
+* 시스템 정의 규칙 ""ALL_SOURCE_SNAPSHOTS""는 지원되지 않습니다.
+* "미러 볼트" 정책 유형은 Element 소프트웨어에서 ONTAP로의 복제에 대해서만 지원됩니다. ONTAP에서 Element 소프트웨어로 복제하려면 ""비동기 미러""를 사용하십시오.
+* 스냅샷 정책 추가 규칙의 '-schedule' 및 '-prefix' 옵션은 지원되지 않습니다.
+* 냅미러 재동기화를 위한 '-preserve' 및 '-quick-resync' 옵션은 지원되지 않습니다.
+* 스토리지 효율성이 유지되지 않습니다.
+* 팬아웃 및 캐스케이드 데이터 보호 구축은 지원되지 않습니다.
+
+
+
+
+ a| 
+ONTAP
+ a| 
+* ONTAP Select는 ONTAP 9.4 및 Element 10.3부터 지원됩니다.
+* Cloud Volumes ONTAP는 ONTAP 9.5 및 Element 11.0부터 지원됩니다.
+
+
+
+
+ a| 
+요소
+ a| 
+* 볼륨 크기 제한은 8TiB입니다.
+* 볼륨 블록 크기는 512바이트여야 합니다. 4K 바이트 블록 크기는 지원되지 않습니다.
+* 볼륨 크기는 1MiB의 배수여야 합니다.
+* 볼륨 특성은 보존되지 않습니다.
+* 복제할 스냅샷 복사본의 최대 수는 30개입니다.
+
+
+
+
+ a| 
+네트워크
+ a| 
+* 전송당 단일 TCP 연결이 허용됩니다.
+* Element 노드는 IP 주소로 지정해야 합니다. DNS 호스트 이름 조회가 지원되지 않습니다.
+* IPspace는 지원되지 않습니다.
+
+
+
+
+ a| 
+SnapLock
+ a| 
+SnapLock 볼륨은 지원되지 않습니다.
+
+
+
+ a| 
+FlexGroup
+ a| 
+FlexGroup 볼륨은 지원되지 않습니다.
+
+
+
+ a| 
+SVM DR
+ a| 
+SVM DR 구성의 ONTAP 볼륨은 지원되지 않습니다.
+
+
+
+ a| 
+MetroCluster
+ a| 
+MetroCluster 구성의 ONTAP 볼륨은 지원되지 않습니다.
+
+|===

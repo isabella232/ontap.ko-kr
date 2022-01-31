@@ -1,0 +1,167 @@
+---
+permalink: snaplock/set-default-retention-period-task.html 
+sidebar: sidebar 
+keywords: snaplock, volume, command, modify, retention, period, file, set, default 
+summary: volume SnapLock modify 명령을 사용하여 SnapLock 볼륨의 파일에 대한 기본 보존 기간을 설정할 수 있습니다. 
+---
+= 기본 보존 기간을 설정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'volume SnapLock modify' 명령을 사용하여 SnapLock 볼륨의 파일에 대한 기본 보존 기간을 설정할 수 있습니다.
+
+SnapLock 볼륨이 온라인 상태여야 합니다.
+
+다음 표에는 기본 보존 기간 옵션에 사용할 수 있는 값이 나와 있습니다.
+
+[NOTE]
+====
+기본 보존 기간은 최소 보존 기간보다 크거나 같고 최대 보존 기간보다 작거나 같아야 합니다(\<=).
+
+====
+|===
+| 값 | 단위 | 참고 
+
+
+ a| 
+0-65535
+ a| 
+초
+ a| 
+
+
+
+ a| 
+0-24
+ a| 
+시간
+ a| 
+
+
+
+ a| 
+0-365일
+ a| 
+일
+ a| 
+
+
+
+ a| 
+0-12로 설정합니다
+ a| 
+개월
+ a| 
+
+
+
+ a| 
+0-70입니다
+ a| 
+년
+ a| 
+
+
+
+ a| 
+최대
+ a| 
+-
+ a| 
+최대 보존 기간을 사용합니다.
+
+
+
+ a| 
+최소
+ a| 
+-
+ a| 
+최소 보존 기간을 사용합니다.
+
+
+
+ a| 
+무한대
+ a| 
+-
+ a| 
+파일을 영구적으로 보존합니다.
+
+
+
+ a| 
+지정되지 않음
+ a| 
+-
+ a| 
+절대 보존 기간이 설정될 때까지 파일을 보존합니다.
+
+|===
+최대 및 최소 보존 기간의 값과 범위는 해당되지 않는 최대 및 최소 보존 기간을 제외하고 동일합니다. 이 작업에 대한 자세한 내용은 을 참조하십시오 link:set-retention-period-task.html["보존 시간 개요를 설정합니다"].
+
+'volume SnapLock show' 명령을 사용하여 볼륨에 대한 보존 기간 설정을 볼 수 있습니다. 자세한 내용은 명령에 대한 man 페이지를 참조하십시오.
+
+[NOTE]
+====
+파일이 WORM 상태로 커밋된 후에는 보존 기간을 늘릴 수 있지만 줄일 수는 없습니다.
+
+====
+.단계
+. SnapLock 볼륨에 있는 파일의 기본 보존 기간을 설정합니다.
++
+'* volume SnapLock modify -vserver_SVM_name_-volume_volume_name_-default-retention-period_default_retention_period_-minimum-retention-period_min_retention_period_-maximum-retention-period_max_retention_period_ *'
+
++
+전체 옵션 목록은 명령에 대한 man 페이지를 참조하십시오.
+
++
+[NOTE]
+====
+다음 예에서는 최소 및 최대 보존 기간이 이전에 수정되지 않은 것으로 가정합니다.
+
+====
++
+다음 명령을 실행하면 Compliance 또는 Enterprise 볼륨의 기본 보존 기간이 20일로 설정됩니다.
+
++
+[listing]
+----
+cluster1::> volume snaplock modify -vserver vs1 -volume vol1 -default-retention-period 20days
+----
++
+다음 명령을 실행하면 Compliance 볼륨의 기본 보존 기간이 70년으로 설정됩니다.
+
++
+[listing]
+----
+cluster1::> volume snaplock modify -vserver vs1 -volume vol1 -maximum-retention-period 70years
+----
++
+다음 명령을 실행하면 엔터프라이즈 볼륨의 기본 보존 기간이 10년으로 설정됩니다.
+
++
+[listing]
+----
+cluster1::> volume snaplock modify -vserver vs1 -volume vol1 -default-retention-period max -maximum-retention-period 10years
+----
++
+다음 명령을 실행하면 엔터프라이즈 볼륨의 기본 보존 기간이 10일로 설정됩니다.
+
++
+[listing]
+----
+cluster1::> volume snaplock modify -vserver vs1 -volume vol1 -minimum-retention-period 10days
+cluster1::> volume snaplock modify -vserver vs1 -volume vol1 -default-retention-period min
+----
++
+다음 명령을 실행하면 Compliance 볼륨의 기본 보존 기간이 무한으로 설정됩니다.
+
++
+[listing]
+----
+cluster1::> volume snaplock modify -vserver vs1 -volume vol1 -default-retention-period infinite -maximum-retention-period infinite
+----
+

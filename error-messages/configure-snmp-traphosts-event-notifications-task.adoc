@@ -1,0 +1,38 @@
+---
+permalink: error-messages/configure-snmp-traphosts-event-notifications-task.html 
+sidebar: sidebar 
+keywords: configuring, snmp, traphosts, receive, event notifications 
+summary: SNMP traaphost에서 이벤트 알림을 수신하려면 traphost를 구성해야 합니다. 
+---
+= 이벤트 알림을 수신하도록 SNMP traaphosts를 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SNMP traaphost에서 이벤트 알림을 수신하려면 traphost를 구성해야 합니다.
+
+.무엇을 &#8217;필요로 할거야
+* 클러스터에서 SNMP 및 SNMP 트랩을 활성화해야 합니다.
++
+[NOTE]
+====
+SNMP 및 SNMP 트랩은 기본적으로 사용하도록 설정됩니다.
+
+====
+* traphost 이름을 확인하기 위해 클러스터에서 DNS를 구성해야 합니다.
+
+
+이벤트 알림(SNMP 트랩)을 받도록 구성된 SNMP 트랩 호스트가 아직 없는 경우 이를 추가해야 합니다.
+
+ONTAP 명령줄에 명령을 입력하여 클러스터가 실행 중일 때마다 이 작업을 수행할 수 있습니다.
+
+.단계
+. 환경에 이벤트 알림을 수신하도록 구성된 SNMP traaphost가 아직 없는 경우 다음 중 하나를 추가하십시오.
++
+'System snmp traphost add-peer-address snmp_traphost_name'입니다
+
++
+기본적으로 SNMP에서 지원하는 모든 이벤트 알림은 SNMP traphost로 전달됩니다.
+
+

@@ -1,0 +1,21 @@
+---
+permalink: volumes/run-efficiency-operations-scheduling-task.html 
+sidebar: sidebar 
+keywords: run, modify, scheduling, efficiency, operations, deduplication, data, compression 
+summary: 볼륨 효율성 수정 명령을 사용하여 볼륨에 대한 중복제거 또는 데이터 압축 작업의 예약을 수정할 수 있습니다. 일정 및 볼륨 효율성 정책의 구성 옵션은 상호 배타적입니다. 
+---
+= 일정을 사용하여 효율성 작업을 실행합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'volume Efficiency modify' 명령을 사용하면 볼륨에 대한 중복제거 또는 데이터 압축 작업의 예약을 수정할 수 있습니다. 일정 및 볼륨 효율성 정책의 구성 옵션은 상호 배타적입니다.
+
+.단계
+. 'volume Efficiency modify' 명령을 사용하여 볼륨에 대한 중복제거 또는 데이터 압축 작업의 일정을 수정합니다.
+
+
+다음 명령을 실행하면 VolA의 효율성 작업 예약이 월요일부터 금요일까지 오후 11시에 실행되도록 수정됩니다.
+
+'볼륨 효율성 수정 - vserver vs1-volume vola-schedule mon - 금@23'

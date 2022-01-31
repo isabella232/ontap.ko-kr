@@ -1,0 +1,29 @@
+---
+permalink: smb-admin/roaming-profiles-store-user-profiles-concept.html 
+sidebar: sidebar 
+keywords: ontap, support, storing, store, windows, roam, profile, cifs, server, associate, storage, virtual, machine, svm, configuring, configure, automatic, resource, availability, available, regardless, use roaming profiles to store user profiles centrally on a cifs server associated with the svm 
+summary: 'ONTAP는 SVM(스토리지 가상 머신)과 연결된 CIFS 서버에 Windows 로밍 프로필을 저장할 수 있도록 지원합니다. 사용자 로밍 프로파일을 구성하면 사용자가 로그인하는 위치에 관계없이 자동 리소스 사용 가능 여부 등의 이점이 제공됩니다. 또한 로밍 프로필은 사용자 프로필의 관리 및 관리를 간소화합니다.' 
+---
+= 로밍 프로필을 사용하여 SVM 개요와 관련된 SMB 서버에 사용자 프로필을 중앙에서 저장합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP는 SVM(스토리지 가상 머신)과 연결된 CIFS 서버에 Windows 로밍 프로필을 저장할 수 있도록 지원합니다. 사용자 로밍 프로파일을 구성하면 사용자가 로그인하는 위치에 관계없이 자동 리소스 사용 가능 여부 등의 이점이 제공됩니다. 또한 로밍 프로필은 사용자 프로필의 관리 및 관리를 간소화합니다.
+
+로밍 사용자 프로필에는 다음과 같은 이점이 있습니다.
+
+* 자동 리소스 가용성
++
+사용자가 Windows 8, Windows 7, Windows 2000 또는 Windows XP를 실행하는 네트워크의 컴퓨터에 로그인하면 사용자의 고유한 프로필을 자동으로 사용할 수 있습니다. 사용자는 네트워크에서 사용하는 각 컴퓨터에 프로파일을 만들 필요가 없습니다.
+
+* 간편한 컴퓨터 교체
++
+사용자 프로파일 정보는 모두 네트워크에서 별도로 유지되므로 사용자의 프로파일을 새 대체 컴퓨터에 쉽게 다운로드할 수 있습니다. 사용자가 새 컴퓨터에 처음 로그인하면 사용자 프로필의 서버 복사본이 새 컴퓨터에 복사됩니다.
+
+
+
+xref:offline-files-allow-caching-concept.adoc[오프라인 파일을 사용하여 오프라인 사용을 위해 파일 캐싱을 허용합니다]
+
+xref:folder-redirection-store-data-concept.adoc[폴더 리디렉션을 사용하여 CIFS 서버에 데이터를 저장합니다]

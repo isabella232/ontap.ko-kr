@@ -1,0 +1,59 @@
+---
+permalink: smb-hyper-v-sql/enable-disable-vss-shadow-copies-backups-task.html 
+sidebar: sidebar 
+keywords: enable, disable, vss, aware, backup, hyper, v, virtual, machine, files, smb, shares, shadow, copy 
+summary: VSS 인식 백업 애플리케이션을 사용하여 SMB 공유에 저장된 Hyper-V 가상 머신 파일을 백업하는 경우 VSS 섀도우 복제본을 설정해야 합니다. VSS 인식 백업 애플리케이션을 사용하지 않는 경우 VSS 섀도우 복제본을 비활성화할 수 있습니다. 기본값은 VSS 섀도우 복제본을 설정하는 것입니다. 
+---
+= SMB 백업을 통해 Hyper-V에 대한 VSS 섀도우 복제본을 설정하거나 해제합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VSS 인식 백업 애플리케이션을 사용하여 SMB 공유에 저장된 Hyper-V 가상 머신 파일을 백업하는 경우 VSS 섀도우 복제본을 설정해야 합니다. VSS 인식 백업 애플리케이션을 사용하지 않는 경우 VSS 섀도우 복제본을 비활성화할 수 있습니다. 기본값은 VSS 섀도우 복제본을 설정하는 것입니다.
+
+언제든지 VSS 섀도우 복제본을 설정하거나 해제할 수 있습니다.
+
+.단계
+. 권한 수준을 고급으로 설정합니다.
++
+' * set-Privilege advanced * '
+
+. 다음 작업 중 하나를 수행합니다.
++
+|===
+| VSS 섀도우 복제본을 만들려는 경우... | 명령 입력... 
+
+
+ a| 
+활성화됨
+ a| 
+``vserver cifs options modify -vserver_vserver_name_-shadowcopy -enabled true *'
+
+
+
+ a| 
+사용 안 함
+ a| 
+'* vserver cifs options modify -vserver_vserver_name_-shadowcopy -enabled false *
+
+|===
+. 관리자 권한 레벨로 돌아갑니다.
++
+' * set-privilege admin * '
+
+
+
+다음 명령을 실행하면 SVM VS1 에서 VSS 섀도우 복제본이 활성화됩니다.
+
+[listing]
+----
+cluster1::> set -privilege advanced
+Warning: These advanced commands are potentially dangerous; use them
+only when directed to do so by technical support personnel.
+Do you wish to continue? (y or n): y
+
+cluster1::*> vserver cifs options modify -vserver vs1 -shadowcopy-enabled true
+
+cluster1::*> set -privilege admin
+----

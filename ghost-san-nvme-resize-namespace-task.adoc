@@ -1,0 +1,12 @@
+---
+permalink: san-nvme-resize-namespace-task.html 
+sidebar: sidebar 
+keywords: nvme, increase, decrease, resize, namespace, resizing, increasing, decreasing 
+summary: ONTAP 9.10.1부터 ONTAP CLI를 사용하여 NVMe 네임스페이스의 크기를 늘리거나 줄일 수 있습니다. System Manager를 사용하여 NVMe 네임스페이스의 크기를 늘릴 수 있습니다. 
+---
+= 네임스페이스 크기 조정
+:icons: font
+:imagesdir: ../media/
+
+
+ONTAP 9.10.1부터 ONTAP CLI를 사용하여 NVMe 네임스페이스의 크기를 늘리거나 줄일 수 있습니다. System Manager를 사용하여 NVMe 네임스페이스의 크기를 늘릴 수 있습니다. 이 항목에 대한 자세한 내용을 확인할 수 있습니다 xref:./nvme/resize-namespace-task.adoc[여기].

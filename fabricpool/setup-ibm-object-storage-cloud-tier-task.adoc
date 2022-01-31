@@ -1,0 +1,39 @@
+---
+permalink: fabricpool/setup-ibm-object-storage-cloud-tier-task.html 
+sidebar: sidebar 
+keywords: setting up, ibm cloud, object storage, cloud tier 
+summary: ONTAP 9.5 이상을 실행 중인 경우 IBM 클라우드 오브젝트 스토리지를 FabricPool의 클라우드 계층으로 설정할 수 있습니다. 
+---
+= IBM 클라우드 오브젝트 스토리지를 클라우드 계층으로 설정
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.5 이상을 실행 중인 경우 IBM 클라우드 오브젝트 스토리지를 FabricPool의 클라우드 계층으로 설정할 수 있습니다.
+
+.단계
+. '-provider-type ''ibm_cos' 매개 변수를 사용하여 'storage aggregate object-store config create' 명령을 사용하여 IBM Cloud Object Storage 구성 정보를 지정합니다.
++
+** ONTAP가 제공된 정보로 IBM 클라우드 오브젝트 스토리지에 액세스할 수 없으면 'STOage Aggregate object-store config create' 명령이 실패합니다.
+** '-access-key' 매개 변수를 사용하여 IBM 클라우드 오브젝트 스토리지 오브젝트 저장소에 대한 요청을 승인하는 액세스 키를 지정할 수 있습니다.
+** '-secret-password' 매개 변수를 사용하여 IBM Cloud Object Storage 개체 저장소에 대한 요청을 인증하는 암호(비밀 액세스 키)를 지정합니다.
+** IBM 클라우드 오브젝트 스토리지 암호가 변경된 경우 ONTAP에 저장된 해당 암호를 즉시 업데이트해야 합니다.
++
+이렇게 하면 ONTAP에서 IBM 클라우드 오브젝트 스토리지의 데이터를 중단 없이 액세스할 수 있습니다.
+
+
+
++
+[listing]
+----
+storage aggregate object-store config create
+-object-store-name MyIBM -provider-type IBM_COS
+-server s3.us-east.objectstorage.softlayer.net
+-container-name my-ibm-cos-bucket -access-key DXJRXHPXHYXA9X31X3JX
+----
+. 'storage aggregate object-store config show' 명령을 사용하여 IBM Cloud Object Storage 구성 정보를 표시하고 확인합니다.
++
+'storage aggregate object-store config modify' 명령을 사용하면 FabricPool에 대한 IBM 클라우드 오브젝트 스토리지 구성 정보를 수정할 수 있습니다.
+
+

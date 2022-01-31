@@ -1,0 +1,75 @@
+---
+permalink: encryption-at-rest/rekey-encrypted-volume-task.html 
+sidebar: sidebar 
+keywords: changing, encryption key, volume encryption rekey start, command 
+summary: 볼륨의 암호화 키를 정기적으로 변경하는 것이 가장 좋은 방법입니다. ONTAP 9.3부터 볼륨 암호화 키를 다시 입력하다 start 명령을 사용하여 암호화 키를 변경할 수 있습니다. 
+---
+= 볼륨 암호화 키를 다시 입력하다 시작 명령을 사용하여 볼륨에 대한 암호화 키를 변경합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+볼륨의 암호화 키를 정기적으로 변경하는 것이 가장 좋은 방법입니다. ONTAP 9.3부터는 '볼륨 암호화 키 다시 시작' 명령을 사용하여 암호화 키를 변경할 수 있습니다.
+
+키를 다시 입력하다 이전 키로 되돌릴 수 없습니다. 작업 중에 성능 문제가 발생하면 '볼륨 암호화 일시 중지' 명령을 실행하여 작업을 일시 중지하고 '볼륨 암호화 다시 시작' 명령을 실행하여 작업을 다시 시작할 수 있습니다.
+
+키를 다시 입력하다 새 쓰기 및 해당 읽기에서 새 키가 사용됩니다. 그렇지 않으면 읽기에서 이전 키를 사용합니다.
+
+[NOTE]
+====
+SnapLock 볼륨을 다시 입력하다
+
+====
+.단계
+. 암호화 키 변경:
++
+'볼륨 암호화 키 다시 시작 - SVM_NAME - volume volume volume_name'
+
++
+다음 명령을 실행하면 SVM의 vol1에 대한 암호화 키가 VS1 로 변경됩니다.
+
++
+[listing]
+----
+cluster1::> volume encryption rekey start -vserver vs1 -volume vol1
+----
+. 키를 다시 입력하다
++
+볼륨 암호화 키를 다시 입력하다
+
++
+전체 명령 구문은 명령에 대한 man 페이지를 참조하십시오.
+
++
+다음 명령을 실행하면 키를 다시 입력하다
+
++
+[listing]
+----
+cluster1::> volume encryption rekey show
+
+Vserver   Volume   Start Time           Status
+-------   ------   ------------------   ---------------------------
+vs1       vol1     9/18/2017 17:51:41   Phase 2 of 2 is in progress.
+----
+. 키를 다시 입력하다
++
+볼륨 쇼는 암호화된 사실이다
+
++
+전체 명령 구문은 명령에 대한 man 페이지를 참조하십시오.
+
++
+다음 명령을 실행하면 암호화된 볼륨이 'cluster1'에 표시됩니다.
+
++
+[listing]
+----
+cluster1::> volume show -is-encrypted true
+
+Vserver  Volume  Aggregate  State  Type  Size  Available  Used
+-------  ------  ---------  -----  ----  -----  --------- ----
+vs1      vol1    aggr2     online    RW  200GB    160.0GB  20%
+----
+

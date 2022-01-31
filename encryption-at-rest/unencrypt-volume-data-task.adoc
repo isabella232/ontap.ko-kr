@@ -1,0 +1,57 @@
+---
+permalink: encryption-at-rest/unencrypt-volume-data-task.html 
+sidebar: sidebar 
+keywords: unencrypting, volume, data 
+summary: 볼륨 이동 시작 명령을 사용하여 볼륨 데이터를 이동하거나 암호화 해제할 수 있습니다. 
+---
+= 볼륨 데이터의 암호화를 해제합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+볼륨 이동 시작 명령을 사용하여 볼륨 데이터를 이동하거나 암호화 해제할 수 있습니다.
+
+이 작업을 수행하려면 클러스터 관리자이거나 클러스터 관리자가 권한을 위임한 SVM 관리자여야 합니다.
+
+link:delegate-volume-encryption-svm-administrator-task.html["볼륨 이동 명령을 실행하는 위임 권한"]
+
+.단계
+. 암호화된 기존 볼륨을 이동하고 볼륨의 데이터를 암호화 해제합니다.
++
+'volume move start-vserver SVM_name-volume volume_name-destination-aggregate aggregate_name-encrypt-destination false'
+
++
+전체 명령 구문은 명령에 대한 man 페이지를 참조하십시오.
+
++
+다음 명령을 실행하면 이름이 "vol1"인 기존 볼륨이 대상 애그리게이트 "aggr3"으로 이동하고 볼륨의 데이터 암호화를 해제합니다.
+
++
+[listing]
+----
+cluster1::> volume move start -vserver vs1 -volume vol1 -destination-aggregate aggr3 -encrypt-destination false
+----
++
+볼륨에 대한 암호화 키가 삭제됩니다. 볼륨의 데이터가 암호화되지 않습니다.
+
+. 볼륨에 암호화가 비활성화되어 있는지 확인합니다.
++
+볼륨 표시 암호화
+
++
+전체 명령 구문은 명령에 대한 man 페이지를 참조하십시오.
+
++
+다음 명령을 실행하면 'cluster1'의 볼륨이 암호화되는지 여부가 표시됩니다.
+
++
+[listing]
+----
+cluster1::> volume show -encryption
+
+Vserver  Volume   Aggregate   State    Encryption State
+-------  ------   ---------   -----    ----------------
+vs1      vol1     aggr1       online   none
+----
+

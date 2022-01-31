@@ -1,0 +1,23 @@
+---
+permalink: smb-hyper-v-sql/nondisruptive-operations-meaning-concept.html 
+sidebar: sidebar 
+keywords: nondisruptive, operations, hyper, v, sql, server, smb, storage, infrastructure, application 
+summary: SMB를 통한 Hyper-V 및 SQL Server의 무중단 운영은 애플리케이션 서버와 포함된 가상 머신 또는 데이터베이스를 온라인 상태로 유지하고 다양한 관리 작업 중에 지속적인 가용성을 제공할 수 있는 기능의 조합을 의미합니다. 여기에는 스토리지 인프라의 계획된 다운타임과 계획되지 않은 다운타임이 모두 포함됩니다. 
+---
+= Hyper-V 및 SQL Server over SMB의 무중단 운영은 무엇을 의미하는지
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMB를 통한 Hyper-V 및 SQL Server의 무중단 운영은 애플리케이션 서버와 포함된 가상 머신 또는 데이터베이스를 온라인 상태로 유지하고 다양한 관리 작업 중에 지속적인 가용성을 제공할 수 있는 기능의 조합을 의미합니다. 여기에는 스토리지 인프라의 계획된 다운타임과 계획되지 않은 다운타임이 모두 포함됩니다.
+
+SMB를 통해 애플리케이션 서버에서 지원되는 무중단 운영은 다음과 같습니다.
+
+* 계획된 테이크오버 및 반환
+* 계획되지 않은 테이크오버
+* 업그레이드
+* 계획된 애그리게이트 재배치(ARL)
+* LIF 마이그레이션 및 페일오버
+* 계획된 볼륨 이동
+

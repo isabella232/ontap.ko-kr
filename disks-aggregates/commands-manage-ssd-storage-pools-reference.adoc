@@ -1,0 +1,55 @@
+---
+permalink: disks-aggregates/commands-manage-ssd-storage-pools-reference.html 
+sidebar: sidebar 
+keywords: commands, manage, ssd, storage, pools 
+summary: ONTAP에서는 SSD 스토리지 풀을 관리하기 위한 스토리지 풀 명령을 제공합니다. 
+---
+= SSD 스토리지 풀을 관리하는 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP는 SSD 스토리지 풀 관리를 위한 '스토리지 풀' 명령을 제공합니다.
+
+|===
+
+
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+스토리지 풀에서 애그리게이트에 제공하는 스토리지 용량을 표시합니다
+ a| 
+스토리지 풀 show-aggregate를 선택합니다
+
+
+
+ a| 
+두 RAID 유형(할당 유닛 데이터 크기)의 전체 캐시 용량에 추가되는 캐시의 양을 표시합니다.
+ a| 
+'Storage pool show-instance'를 선택합니다
+
+
+
+ a| 
+스토리지 풀의 디스크를 표시합니다
+ a| 
+스토리지 풀 쇼 디스크
+
+
+
+ a| 
+스토리지 풀에 대해 할당되지 않은 할당 유닛을 표시합니다
+ a| 
+'Storage pool show-available-capacity'를 표시합니다
+
+
+
+ a| 
+스토리지 풀의 하나 이상의 할당 유닛에 대한 소유권을 한 HA 파트너에서 다른 HA 파트너로 변경합니다
+ a| 
+'스토리지 풀 재할당'을 선택합니다
+
+|===
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"]

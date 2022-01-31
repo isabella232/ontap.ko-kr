@@ -1,0 +1,52 @@
+---
+permalink: ndmp/verify-tape-device-connections-task.html 
+sidebar: sidebar 
+keywords: verify, tape, device, connection 
+summary: 모든 드라이브와 미디어 체인저가 ONTAP에 디바이스로 표시되는지 확인해야 합니다. 
+---
+= 테이프 디바이스 연결을 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+모든 드라이브와 미디어 체인저가 ONTAP에 디바이스로 표시되는지 확인해야 합니다.
+
+.단계
+. 'storage tape show' 명령을 사용하여 모든 드라이브와 미디어 체인저에 대한 정보를 봅니다.
++
+[listing]
+----
+cluster1::> storage tape show
+
+Node: cluster1-01
+Device ID               Device Type     Description                     Status
+----------------------  --------------  ------------------------------  --------
+sw4:10.11               tape drive      HP LTO-3                        normal
+0b.125L1                media changer   HP MSL G3 Series                normal
+0d.4                    tape drive      IBM LTO 5 ULT3580               normal
+0d.4L1                  media changer   IBM 3573-TL                     normal
+...
+----
+. 테이프 드라이브가 표시되지 않으면 문제를 해결합니다.
+. 미디어 체인저가 표시되지 않는 경우 'storage tape show -media-changer' 명령을 사용하여 미디어 체인저에 대한 정보를 확인한 후 문제를 해결하십시오.
++
+[listing]
+----
+cluster1::> storage tape show-media-changer
+
+Media Changer: sw4:10.11L1
+  Description: PX70-TL
+         WWNN: 2:00a:000e11:10b919
+         WWPN: 2:00b:000e11:10b919
+Serial Number: 00FRU7800000_LL1
+
+       Errors: -
+
+Paths:
+Node                      Initiator  Alias    Device State              Status
+------------------------  ---------  -------  ------------------------  --------
+cluster1-01               2b         mc0      in-use                    normal
+...
+----
+

@@ -1,0 +1,17 @@
+---
+permalink: nfs-admin/smb-access-nfs-clients-concept.html 
+sidebar: sidebar 
+keywords: ontap, grant, smb, file, access, nfs, client 
+summary: 'ONTAP는 Windows NT 파일 시스템(NTFS) 보안 의미를 사용하여 NFS 클라이언트의 UNIX 사용자가 NTFS 권한이 있는 파일에 액세스할 수 있는지 여부를 결정합니다.' 
+---
+= ONTAP가 NFS 클라이언트에서 SMB 파일 액세스를 허용하는 방법
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP는 Windows NT 파일 시스템(NTFS) 보안 의미를 사용하여 NFS 클라이언트의 UNIX 사용자가 NTFS 권한이 있는 파일에 액세스할 수 있는지 여부를 결정합니다.
+
+ONTAP는 사용자의 UNIX UID(사용자 ID)를 SMB 자격 증명으로 변환한 다음 SMB 자격 증명을 사용하여 사용자에게 파일에 대한 액세스 권한이 있는지 확인합니다. SMB 자격 증명은 일반적으로 사용자의 Windows 사용자 이름인 기본 SID(보안 식별자)와 사용자가 구성원인 Windows 그룹에 해당하는 하나 이상의 그룹 SID로 구성됩니다.
+
+프로세스가 도메인 컨트롤러에 접속하기 때문에 ONTAP가 UNIX UID를 SMB 자격 증명으로 변환하는 데 걸리는 시간은 수십 밀리초에서 수백 밀리초로 지정할 수 있습니다. ONTAP는 UID를 SMB 자격 증명에 매핑하고 자격 증명 캐시에 매핑을 입력하여 변환으로 인한 검증 시간을 줄입니다.

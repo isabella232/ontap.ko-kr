@@ -1,0 +1,47 @@
+---
+permalink: san-admin/delete-lif-san-environment-task.html 
+sidebar: sidebar 
+keywords: delete, lif, san, environment 
+summary: LIF를 삭제하기 전에 LIF에 연결된 호스트가 다른 경로를 통해 LUN에 액세스할 수 있는지 확인해야 합니다. 
+---
+= SAN 환경에서 LIF를 삭제합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+LIF를 삭제하기 전에 LIF에 연결된 호스트가 다른 경로를 통해 LUN에 액세스할 수 있는지 확인해야 합니다.
+
+삭제하려는 LIF가 포트 세트의 구성원인 경우 LIF를 삭제하려면 먼저 포트 세트에서 LIF를 제거해야 합니다.
+
+.단계
+. 삭제할 LIF와 현재 포트의 이름을 확인합니다.
++
+'network interface show – vserver_vserver_name _'
+
+. LIF를 삭제합니다.
++
+네트워크 인터페이스 삭제
+
++
+'network interface delete-vserver vs1-lif lif liff li1'
+
+. LIF를 삭제했는지 확인합니다.
++
+네트워크 인터페이스 쇼
+
++
+네트워크 인터페이스 show-vserver vs1
+
++
+[listing]
+----
+
+Logical Status     Network                     Current   Current Is
+Vserver Interface  Admin/Oper Address/Mask     Node      Port    Home
+------- ---------- ---------- ---------------- --------- ------- ----
+vs1
+        lif2       up/up      192.168.2.72/24  node-01   e0b     true
+        lif3       up/up      192.168.2.73/24  node-01   e0b     true
+----
+

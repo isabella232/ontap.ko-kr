@@ -1,0 +1,46 @@
+---
+permalink: smb-admin/reasons-creating-local-users-groups-concept.html 
+sidebar: sidebar 
+keywords: creating, create, local, user, group, storage, virtual, machine, svm, access, smb, domain, controllers, dc, assign, privilege, workgroup, server, reasons for creating local users and local groups 
+summary: 'SVM(스토리지 가상 시스템)에서 로컬 사용자 및 로컬 그룹을 생성하는 데는 여러 가지 이유가 있습니다. 예를 들어 DC(도메인 컨트롤러)를 사용할 수 없거나, 로컬 그룹을 사용하여 권한을 할당하거나, SMB 서버가 작업 그룹에 있는 경우 로컬 사용자 계정을 사용하여 SMB 서버에 액세스할 수 있습니다.' 
+---
+= 로컬 사용자 및 로컬 그룹을 만드는 이유
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SVM(스토리지 가상 시스템)에서 로컬 사용자 및 로컬 그룹을 생성하는 데는 여러 가지 이유가 있습니다. 예를 들어 DC(도메인 컨트롤러)를 사용할 수 없거나, 로컬 그룹을 사용하여 권한을 할당하거나, SMB 서버가 작업 그룹에 있는 경우 로컬 사용자 계정을 사용하여 SMB 서버에 액세스할 수 있습니다.
+
+다음과 같은 이유로 하나 이상의 로컬 사용자 계정을 만들 수 있습니다.
+
+* SMB 서버가 작업 그룹에 있고 도메인 사용자를 사용할 수 없습니다.
++
+로컬 사용자는 작업 그룹 구성에 필요합니다.
+
+* 도메인 컨트롤러를 사용할 수 없는 경우 SMB 서버를 인증하고 로그인할 수 있어야 합니다.
++
+로컬 사용자는 도메인 컨트롤러가 다운되었을 때 NTLM 인증을 사용하여 SMB 서버를 인증할 수 있으며, 네트워크 문제로 인해 SMB 서버가 도메인 컨트롤러에 접속할 수 없게 되는 경우
+
+* 로컬 사용자에게 _사용자 권한 관리_ 권한을 할당하려고 합니다.
++
+_User Rights Management_ 는 SMB 서버 관리자가 SVM에 대한 사용자 및 그룹의 권한을 제어할 수 있는 기능입니다. 사용자 계정에 권한을 할당하거나 해당 권한이 있는 로컬 그룹의 구성원으로 만들어 사용자에게 권한을 할당할 수 있습니다.
+
+
+
+다음과 같은 이유로 하나 이상의 로컬 그룹을 만들 수 있습니다.
+
+* SMB 서버가 작업 그룹에 있고 도메인 그룹을 사용할 수 없습니다.
++
+로컬 그룹은 작업 그룹 구성에 필요하지 않지만 로컬 작업 그룹 사용자에 대한 액세스 권한을 관리하는 데 유용할 수 있습니다.
+
+* 공유 및 파일 액세스 제어를 위해 로컬 그룹을 사용하여 파일 및 폴더 리소스에 대한 액세스를 제어하려는 경우
+* Customized_User Rights Management_Privileges를 사용하여 로컬 그룹을 생성하려고 합니다.
++
+일부 기본 제공 사용자 그룹에는 사전 정의된 권한이 있습니다. 사용자 지정된 권한 집합을 할당하려면 로컬 그룹을 생성하고 해당 그룹에 필요한 권한을 할당할 수 있습니다. 그런 다음 로컬 사용자, 도메인 사용자 및 도메인 그룹을 로컬 그룹에 추가할 수 있습니다.
+
+
+
+xref:local-user-authentication-concept.adoc[로컬 사용자 인증의 작동 방식]
+
+xref:local-privileges-concept.adoc[어떤 로컬 권한이 있는지 확인합니다]

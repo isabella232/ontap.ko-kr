@@ -1,0 +1,21 @@
+---
+permalink: smb-admin/client-performance-traditional-lease-oplocks-concept.html 
+sidebar: sidebar 
+keywords: traditional, oplocks, opportunistic, locks, lease, smb, client, client-side, read-ahead, file-sharing, write-behind, information, access, reducing, reduce, network, traffic, improve client performance with traditional and lease oplocks 
+summary: '기존 oplocks(기회 잠금) 및 리스 oplocks는 특정 파일 공유 시나리오에서 SMB 클라이언트가 미리 읽기, 쓰기 후 및 잠금 정보의 클라이언트측 캐싱을 수행할 수 있도록 합니다. 그러면 클라이언트는 해당 파일에 액세스해야 한다는 사실을 서버에 정기적으로 알려주지 않고 파일을 읽거나 파일에 쓸 수 있습니다. 이렇게 하면 네트워크 트래픽이 줄어들어 성능이 향상됩니다.' 
+---
+= 기존 및 리스 oplocks 개요를 통해 클라이언트 성능 향상
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+기존 oplocks(기회 잠금) 및 리스 oplocks는 특정 파일 공유 시나리오에서 SMB 클라이언트가 미리 읽기, 쓰기 후 및 잠금 정보의 클라이언트측 캐싱을 수행할 수 있도록 합니다. 그러면 클라이언트는 해당 파일에 액세스해야 한다는 사실을 서버에 정기적으로 알려주지 않고 파일을 읽거나 파일에 쓸 수 있습니다. 이렇게 하면 네트워크 트래픽이 줄어들어 성능이 향상됩니다.
+
+리스 oplocks는 SMB 2.1 프로토콜 이상에서 사용할 수 있는 향상된 형태의 oplocks입니다. 리스 oplocks를 사용하면 클라이언트가 자체적으로 시작된 여러 SMB에서 클라이언트 캐싱 상태를 확보하고 유지할 수 있습니다.
+
+oplocks는 다음 두 가지 방법으로 제어할 수 있습니다.
+
+* 공유를 생성할 때 공유 속성에 의해 'vserver cifs share create' 명령을 사용하거나 생성 후 'vserver share properties' 명령을 사용합니다.
+* qtree가 생성될 때 'volume qtree create' 명령을 사용하거나 생성 후 'volume qtree oplock' 명령을 사용하여 qtree 속성에 의해 생성됩니다.
+

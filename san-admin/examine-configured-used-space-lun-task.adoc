@@ -1,0 +1,37 @@
+---
+permalink: san-admin/examine-configured-used-space-lun-task.html 
+sidebar: sidebar 
+keywords: examine, configured, used, space, lun 
+summary: LUN에 사용된 구성된 공간과 실제 공간을 알면 공간 재확보, 데이터가 포함된 예약된 공간의 양, LUN에 사용된 실제 크기와 비교하여 재확보된 공간을 확인할 수 있습니다. 
+---
+= LUN의 구성 및 사용 공간을 검사합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+LUN에 사용된 구성된 공간과 실제 공간을 알면 공간 재확보, 데이터가 포함된 예약된 공간의 양, LUN에 사용된 실제 크기와 비교하여 재확보된 공간을 확인할 수 있습니다.
+
+.단계
+. 구성된 공간과 LUN에 사용된 실제 공간을 비교하여 확인합니다.
++
+LUN show
+
++
+다음 예에서는 vs3 스토리지 가상 시스템(SVM)에서 LUN이 사용하는 실제 공간과 구성된 공간을 비교하여 보여줍니다.
+
++
+'lun show -vserver vs3 - 필드 경로, 크기, 사용된 크기, 공간 예약
+
++
+[listing]
+----
+vserver path                    size    space-reserve size-used
+------- -----------------       ------- ------------- ---------
+vs3     /vol/vol0/lun1          50.01GB disabled      25.00GB
+vs3     /vol/vol0/lun1_backup   50.01GB disabled      32.15GB
+vs3     /vol/vol0/lun2          75.00GB disabled      0B
+vs3     /vol/volspace/lun0      5.00GB  enabled       4.50GB
+4 entries were displayed.
+----
+

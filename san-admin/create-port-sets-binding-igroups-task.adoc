@@ -1,0 +1,44 @@
+---
+permalink: san-admin/create-port-sets-binding-igroups-task.html 
+sidebar: sidebar 
+keywords: create, port, sets, binding, igroups, port sets 
+summary: 'SLM(Selective LUN Map)을 사용하는 것 외에도 포트 세트를 생성하고 포트 세트를 igroup에 바인딩하여 이니시에이터가 LUN에 액세스하는 데 사용할 수 있는 LIF를 추가로 제한할 수 있습니다. 포트 세트를 igroup에 바인딩하지 않으면 igroup의 모든 이니시에이터가 LUN과 소유 노드의 HA 파트너를 소유하는 노드의 모든 LIF를 통해 매핑된 LUN에 액세스할 수 있습니다.' 
+---
+= 포트 세트를 생성하고 포트 세트에 igroup을 바인딩합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SLM(Selective LUN Map)을 사용하는 것 외에도 포트 세트를 생성하고 포트 세트를 igroup에 바인딩하여 이니시에이터가 LUN에 액세스하는 데 사용할 수 있는 LIF를 추가로 제한할 수 있습니다. 포트 세트를 igroup에 바인딩하지 않으면 igroup의 모든 이니시에이터가 LUN과 소유 노드의 HA 파트너가 소유하는 노드의 모든 LIF를 통해 매핑된 LUN에 액세스할 수 있습니다.
+
+LIF가 하나 이상, igroup 하나가 있어야 합니다.
+
+인터페이스 그룹을 사용하지 않는 경우 iSCSI와 FC 모두에서 중복성을 위해 두 개의 LIF가 권장됩니다. 인터페이스 그룹에서는 LIF가 하나만 권장됩니다.
+
+노드에 LIF가 2개 이상 있고 특정 이니시에이터를 LIF의 하위 집합으로 제한하려는 경우 SLM에 포트 세트를 사용하는 것이 좋습니다. 포트 세트가 없으면 LUN과 소유 노드의 HA 파트너가 있는 노드를 통해 LUN에 액세스할 수 있는 모든 이니시에이터가 노드의 모든 타겟에 액세스할 수 있습니다.
+
+.단계
+. 적절한 LIF가 포함된 포트 세트를 생성합니다.
++
+' create-vserver_vserver_name_-포트셋_이름_-protocol_protocol_-port-name_port_name_'
+
++
+FC를 사용하는 경우 프로토콜 매개변수를 FCP로 지정합니다. iSCSI를 사용하는 경우 프로토콜 매개변수를 iSCSI로 지정합니다.
+
+. igroup을 포트 세트에 바인드합니다.
++
+'lun igroup bind -vserver_vserver_name_-igroup_igroup_name_-포트셋_포트셋_이름_
+
+. 포트 세트와 LIF가 올바른지 확인합니다.
++
+' show-vserver_vserver_name_'
+
++
+[listing]
+----
+Vserver   Portset   Protocol Port Names    Igroups
+--------- --------- -------- ------------- --------
+vs3       portset0  iscsi    lif0,lif1     igroup1
+----
+

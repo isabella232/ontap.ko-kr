@@ -1,0 +1,45 @@
+---
+permalink: smb-admin/share-naming-requirements-concept.html 
+sidebar: sidebar 
+keywords: ontap, share, naming, name, requirement, mind, creating, create, smb, server, smb share naming requirements 
+summary: SMB 서버에서 SMB 공유를 생성할 때는 ONTAP 공유 이름 지정 요구 사항을 염두에 두어야 합니다. 
+---
+= SMB 공유 이름 지정 요구 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMB 서버에서 SMB 공유를 생성할 때는 ONTAP 공유 이름 지정 요구 사항을 염두에 두어야 합니다.
+
+ONTAP의 공유 명명 규칙은 Windows의 명명 규칙과 동일하며 다음과 같은 요구 사항을 포함합니다.
+
+* 각 공유의 이름은 SMB 서버에 대해 고유해야 합니다.
+* 공유 이름은 대/소문자를 구분하지 않습니다.
+* 최대 공유 이름 길이는 80자입니다.
+* 유니코드 공유 이름이 지원됩니다.
+* $ 문자로 끝나는 공유 이름은 숨겨진 공유입니다.
+* admin$, ipc$ 및 c$ 관리 공유는 모든 CIFS 서버에 자동으로 생성되며 예약된 공유 이름입니다.
+* 공유를 생성할 때 공유 이름 ONTAP_admin$을(를) 사용할 수 없습니다.
+* 공백이 포함된 공유 이름이 지원됩니다.
++
+** 공유 이름의 첫 문자 또는 마지막 문자로 공백을 사용할 수 없습니다.
+** 공백이 포함된 공유 이름은 따옴표로 묶어야 합니다.
++
+[NOTE]
+====
+작은따옴표는 공유 이름의 일부로 간주되며 따옴표 대신 사용할 수 없습니다.
+
+====
+
+
+* SMB 공유의 이름을 지정할 경우 다음과 같은 특수 문자가 지원됩니다.
++
+! @#$%&'_-. (){}
+
+* SMB 공유의 이름을 지정할 때 다음 특수 문자는 지원되지 않습니다.
++
+** "/\:;|<>,? * =
+
+
+

@@ -1,0 +1,26 @@
+---
+permalink: san-admin/enable-block-access-specific-host-task.html 
+sidebar: sidebar 
+keywords: enable, block, access, specific, host 
+summary: 이니시에이터가 타겟에 액세스할 수 있도록 특정 호스트에서 블록 액세스를 설정해야 합니다. 
+---
+= 특정 호스트에 대해 블록 액세스를 설정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이니시에이터가 타겟에 액세스할 수 있도록 특정 호스트에서 블록 액세스를 설정해야 합니다.
+
+.무엇을 &#8217;필요로 할거야
+* SVM에서 호스트와 LIF 간 네트워크 연결이 있어야 합니다.
+* FC 또는 iSCSI 서비스가 켜져 있고 작동 중이어야 합니다.
+* 이니시에이터 그룹(igroup)에 매핑된 LUN이 있어야 합니다.
+
+
+.단계
+. 호스트 설명서의 단계를 따라 특정 호스트에서 블록 액세스를 설정합니다.
+. Host Utilities를 사용하여 FC 또는 iSCSI 매핑을 완료하고 호스트에서 LUN을 검색할 수 있습니다.
+
+
+https://docs.netapp.com/us-en/ontap-sanhost/index.html["ONTAP SAN 호스트 구성"]

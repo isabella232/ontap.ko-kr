@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/tape-read-error-reference.html 
+sidebar: sidebar 
+keywords: tape, read, error, complete, backup, damaged 
+summary: 테이프 드라이브가 손상되었거나 테이프에 전체 백업이 포함되어 있지 않습니다. 
+---
+= 테이프 읽기 오류입니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+"테이프 읽기 오류"
+
+* * 원인 *
++
+테이프 드라이브가 손상되었거나 테이프에 전체 백업이 포함되어 있지 않습니다.
+
+* * 시정 조치 *
++
+테이프 드라이브가 손상된 경우 다른 테이프 드라이브를 사용하십시오. 테이프에 전체 백업이 포함되어 있지 않으면 데이터를 복원할 수 없습니다.
+
+

@@ -1,0 +1,53 @@
+---
+permalink: smb-admin/enable-disable-oplocks-when-creating-shares-task.html 
+sidebar: sidebar 
+keywords: oplock, client, lock, file, cache, content, local, performance, operation, storage, virtual, machine, svm, circumstance, disable, share-by-share, basis, enable, disable, enable or disable oplocks when creating smb shares 
+summary: 'oplocks를 사용하면 클라이언트가 파일을 잠그고 컨텐츠를 로컬에서 캐시할 수 있으므로 파일 작업의 성능이 향상됩니다. oplocks는 스토리지 가상 시스템(SVM)에 상주하는 SMB 공유에 설정됩니다. 경우에 따라 oplocks를 해제할 수 있습니다. 공유별로 oplocks를 설정하거나 해제할 수 있습니다.' 
+---
+= SMB 공유를 생성할 때 oplocks를 설정하거나 해제합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+oplocks를 사용하면 클라이언트가 파일을 잠그고 컨텐츠를 로컬에서 캐시할 수 있으므로 파일 작업의 성능이 향상됩니다. oplocks는 스토리지 가상 시스템(SVM)에 상주하는 SMB 공유에 설정됩니다. 경우에 따라 oplocks를 해제할 수 있습니다. 공유별로 oplocks를 설정하거나 해제할 수 있습니다.
+
+공유가 포함된 볼륨에 oplocks가 설정되어 있지만 해당 공유에 대한 oplock 공유 속성이 비활성화되어 있으면 해당 공유에 대해 oplocks가 해제됩니다. 공유에서 oplocks를 비활성화하면 볼륨 oplock 설정보다 우선적으로 적용됩니다. 공유에서 oplocks를 비활성화하면 임시 oplocks와 리스 oplocks가 모두 비활성화됩니다.
+
+쉼표로 구분된 목록을 사용하여 oplock 공유 속성을 지정하는 것 외에도 다른 공유 속성을 지정할 수 있습니다. 다른 공유 매개 변수를 지정할 수도 있습니다.
+
+.단계
+. 해당 작업을 수행합니다.
++
+|===
+| 원하는 작업 | 그러면... 
+
+
+ a| 
+공유를 생성하는 동안 공유에 oplocks를 설정합니다
+ a| 
+'+vserver cifs share create -vserver_vserver_name_-share-name share_name -path path_to_share-share-properties [oplocks,...]+' 명령을 입력합니다
+
+[NOTE]
+====
+공유에서 oplocks, browable, changentify의 기본 공유 속성만 사용하려면 SMB 공유를 생성할 때 '-share-properties' 매개 변수를 지정하지 않아도 됩니다. 기본값 이외의 공유 속성을 조합하려면 해당 공유에 사용할 공유 속성 목록과 함께 '-share-properties' 매개 변수를 지정해야 합니다.
+
+====
+
+
+ a| 
+공유를 생성하는 동안 공유에 oplocks를 사용하지 않도록 설정합니다
+ a| 
+'+vserver cifs share create-vserver_vserver_name_-share-name_share_name_-path_to_share_-share-properties[other_share_property,...]+' 명령을 입력합니다
+
+[NOTE]
+====
+oplocks를 해제할 때는 공유를 생성할 때 공유 속성 목록을 지정해야 하지만 "oplocks" 속성을 지정해서는 안 됩니다.
+
+====
+|===
+
+
+xref:enable-disable-oplocks-existing-shares-task.adoc[기존 SMB 공유에서 oplocks 설정 또는 해제]
+
+xref:monitor-oplock-status-task.adoc[oplock 상태 모니터링]

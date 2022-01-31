@@ -1,0 +1,21 @@
+---
+permalink: volumes/link-unix-windows-names-quotas-concept.html 
+sidebar: sidebar 
+keywords: how to, link, unix, windows, names, quotas 
+summary: 혼합 환경에서는 Windows 사용자 또는 UNIX 사용자로 로그인할 수 있습니다. 사용자 UNIX ID와 Windows ID가 동일한 사용자를 나타내도록 할당량을 구성할 수 있습니다. 
+---
+= 할당량에 대해 UNIX 및 Windows 이름을 연결하는 방법
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+혼합 환경에서는 Windows 사용자 또는 UNIX 사용자로 로그인할 수 있습니다. 사용자 UNIX ID와 Windows ID가 동일한 사용자를 나타내도록 할당량을 구성할 수 있습니다.
+
+Windows 사용자 이름에 대한 할당량은 다음 두 조건이 모두 충족되면 UNIX 사용자 이름으로 매핑되거나 그 반대로 매핑됩니다.
+
+* 사용자 할당 규칙에서 사용자 매핑 매개변수가 "ON"으로 설정됩니다.
+* 사용자 이름은 'vserver name-mapping' 명령으로 매핑되었습니다.
+
+
+UNIX와 Windows 이름이 함께 매핑되면 할당량 사용을 결정하는 동일한 사람으로 간주됩니다.

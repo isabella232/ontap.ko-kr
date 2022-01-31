@@ -1,0 +1,128 @@
+---
+permalink: flexgroup/provision-automatically-task.html 
+sidebar: sidebar 
+keywords: provision, flexgroup, volume, automatic, create, flex group, aggregate, space 
+summary: FlexGroup 볼륨을 자동으로 프로비저닝할 수 있습니다. ONTAP는 애그리게이트를 자동으로 선택하여 FlexGroup 볼륨을 생성하고 구성합니다. 최적의 성능을 위한 모범 사례를 기준으로 애그리게이트를 선택할 수 있습니다. 
+---
+= FlexGroup 볼륨을 자동으로 프로비저닝합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FlexGroup 볼륨을 자동으로 프로비저닝할 수 있습니다. ONTAP는 애그리게이트를 자동으로 선택하여 FlexGroup 볼륨을 생성하고 구성합니다. 최적의 성능을 위한 모범 사례를 기준으로 애그리게이트를 선택할 수 있습니다.
+
+클러스터의 각 노드에는 적어도 하나의 Aggregate가 있어야 합니다.
+
+[NOTE]
+====
+ONTAP 9.5에서 FabricPool용 FlexGroup 볼륨을 생성하려면 각 노드에 FabricPool인 Aggregate가 하나 이상 있어야 합니다.
+
+====
+ONTAP에서는 각 노드에서 사용 가능한 용량이 가장 큰 두 개의 애그리게이트를 선택하여 FlexGroup 볼륨을 생성합니다. 두 개의 애그리게이트를 사용할 수 없는 경우, ONTAP는 노드당 하나의 애그리게이트를 선택하여 FlexGroup 볼륨을 생성합니다.
+
+.단계
+. FlexGroup 볼륨 프로비저닝:
++
+|===
+
+
+| 사용 중인 경우... | 이 명령 사용... 
+
+
+ a| 
+ONTAP 9.2 이상
+ a| 
+''volume create-vserver svm_name-volume FG_vol_name – auto-provision-as FlexGroup-size FG_size[–encrypt true][-qos-policy-group qos_policy_group_name][-support-c계층화 true]' ONTAP 9.5부터 FabricPool용 FlexGroup 볼륨을 생성할 수 있습니다. FabricPool에서 FlexGroup 볼륨을 자동으로 프로비저닝하려면 '-support-Tiering' 매개 변수를 'true'로 설정해야 합니다. 볼륨 보장은 FabricPool에 대해 항상 "없음"으로 설정되어야 합니다. FlexGroup 볼륨에 대한 계층화 정책 및 계층화 최소 냉각 기간을 지정할 수도 있습니다.
+
+link:../disks-aggregates/index.html["디스크 및 애그리게이트 관리"]
+
+ONTAP 9.3부터 FlexGroup 볼륨에 대한 처리량 한도(QoS Max)를 지정하여 FlexGroup 볼륨에서 처리할 수 있는 성능 리소스를 제한할 수 있습니다. ONTAP 9.4부터 FlexGroup 볼륨에 대한 처리량 층(QoS Min) 및 적응형 QoS를 지정할 수 있습니다.
+
+link:../performance-admin/index.html["성능 관리"]
+
+ONTAP 9.2부터 FlexGroup 볼륨에서 암호화를 사용하려면 '-encrypt' 매개 변수를 'true'로 설정할 수 있습니다. 암호화된 볼륨을 만들려면 볼륨 암호화 라이센스와 키 관리자를 설치해야 합니다.
+
+[NOTE]
+====
+생성 시 FlexGroup 볼륨에서 암호화를 활성화해야 합니다. 기존 FlexGroup 볼륨에서는 암호화를 설정할 수 없습니다.
+
+====
+link:../encryption-at-rest/index.html["유휴 데이터의 암호화"]
+
+
+
+ a| 
+ONTAP 9.1
+ a| 
+'volume FlexGroup deploy-vserver svm_name-size fg_size
+
+|===
++
+"size" 매개 변수는 FlexGroup 볼륨의 크기를 KB, MB, GB, TB 또는 PB 단위로 지정합니다.
+
++
+다음 예에서는 ONTAP 9.2에서 400TB 크기의 FlexGroup 볼륨을 프로비저닝하는 방법을 보여 줍니다.
+
++
+[listing]
+----
+cluster-1::> volume create -vserver vs0 -volume fg –auto-provision-as flexgroup -size 400TB
+Warning: The FlexGroup "fg" will be created with the following number of constituents of size 25TB: 16.
+The constituents will be created on the following aggregates: aggr1,aggr2
+Do you want to continue? {y|n}: y
+[Job 34] Job succeeded: Successful
+----
++
+다음 예에서는 처리량 상한에 대한 QoS 정책 그룹을 생성하는 방법과 FlexGroup 볼륨에 적용하는 방법을 보여 줍니다.
+
++
+[listing]
+----
+cluster1::> qos policy-group create -policy group pg-vs1 -vserver vs1 -max-throughput 5000iops
+----
++
+[listing]
+----
+cluster-1::> volume create -vserver vs0 -volume fg –auto-provision-as flexgroup -size 400TB -qos-policy-group pg-vs1
+Warning: The FlexGroup "fg" will be created with the following number of constituents of size 25TB: 16.
+The constituents will be created on the following aggregates: aggr1,aggr2
+Do you want to continue? {y|n}: y
+[Job 34] Job succeeded: Successful
+----
++
+다음 예에서는 ONTAP 9.5에서 FabricPool의 Aggregate에 400TB 크기의 FlexGroup 볼륨을 프로비저닝하는 방법을 보여 줍니다.
+
++
+[listing]
+----
+cluster-1::> volume create -vserver vs0 -volume fg –auto-provision-as flexgroup -size 400TB -support-tiering true -tiering-policy auto
+Warning: The FlexGroup "fg" will be created with the following number of constituents of size 25TB: 16.
+The constituents will be created on the following aggregates: aggr1,aggr2
+Do you want to continue? {y|n}: y
+[Job 34] Job succeeded: Successful
+----
++
+FlexGroup 볼륨은 클러스터의 각 노드에 8개의 구성요소를 통해 생성됩니다. 각 노드에서 가장 큰 두 Aggregate 사이에 균등하게 분산됩니다.
+
++
+FlexGroup 볼륨은 AFF 시스템을 제외하고 '볼륨' 공간 보장으로 생성됩니다. AFF 시스템의 경우 FlexGroup 볼륨은 'none' 공간 보장으로 생성됩니다.
+
+. "volume mount -vserver vserver_name -volume vol_name -junction-path junction_path" 접합 경로로 FlexGroup 볼륨을 마운트합니다
++
+[listing]
+----
+cluster1::> volume mount -vserver vs0 -volume fg2 -junction-path /fg2
+----
+
+
+클라이언트에서 FlexGroup 볼륨을 마운트해야 합니다.
+
+ONTAP 9.6 이하 버전을 실행 중이고 SVM(스토리지 가상 시스템)에 NFSv3 및 NFSv4가 모두 구성되어 있는 경우 클라이언트에서 FlexGroup 볼륨을 마운트하지 못할 수 있습니다. 이러한 경우 클라이언트에서 FlexGroup 볼륨을 마운트할 때 NFS 버전을 명시적으로 지정해야 합니다.
+
+[listing]
+----
+# mount -t nfs -o vers=3 192.53.19.64:/fg2 /mnt/fg2
+# ls /mnt/fg2
+file1  file2
+----

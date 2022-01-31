@@ -1,0 +1,23 @@
+---
+sidebar: sidebar 
+permalink: task_nvme_provision_vmware.html 
+keywords: netapp, ontap, SAN, provision, provisioning, overview, iSCSI protocol, FC protocol, FCP, storage, LUN, initiator group, igroup, FC host WWp, host node name, FC switch, host-side adapter, world-wide port name, Ethernet network adapter, NIC, TCP offload engine, TOE card, software initiator, converged network adapter, CNA, HBA, host bust adapter, iSCSI qualified name, IQN 
+summary: iSCSI 및 FC 프로토콜을 사용하여 SAN 환경에 스토리지를 제공할 수 있습니다. 
+---
+= NVMe 스토리지 프로비저닝
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+NVMe(Non-Volatile Memory Express) 프로토콜을 사용하여 SAN 환경에 스토리지를 제공할 수 있습니다. NVMe 프로토콜은 솔리드 스테이트 스토리지의 성능을 위해 최적화되어 있습니다.
+
+자세한 내용을 보려면 을 클릭합니다 link:concept_nvme_provision_overview.html["여기"].

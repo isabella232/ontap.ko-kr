@@ -1,0 +1,31 @@
+---
+permalink: flexcache/typical-deployments-concept.html 
+sidebar: sidebar 
+keywords: typical, flexcache, deployments, performance, acceleration, hot volumes, cross-cluster, data, distribution 
+summary: 'FlexCache 볼륨은 일반적으로 읽기 집약적인 워크로드에 사용됩니다. 동일한 클러스터에 FlexCache 볼륨이 있으면 자주 액세스하는 데이터 또는 "핫 객체"의 성능을 가속화할 수 있습니다. 또한 FlexCache 볼륨을 사용하여 여러 클러스터에 데이터를 분산하여 WAN 대기 시간을 줄일 수 있습니다.' 
+---
+= 일반적인 FlexCache 구축
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FlexCache 볼륨은 일반적으로 읽기 집약적인 워크로드에 사용됩니다. 동일한 클러스터에 FlexCache 볼륨이 있으면 자주 액세스하는 데이터 또는 ""핫 객체""의 성능을 가속화할 수 있습니다. 또한 FlexCache 볼륨을 사용하여 여러 클러스터에 데이터를 분산하여 WAN 대기 시간을 줄일 수 있습니다.
+
+AFF, FAS 또는 ONTAP Select 시스템으로 FlexCache를 구축할 수 있습니다. ONTAP 9.6부터 FlexCache 배포도 Cloud Volumes ONTAP에서 지원됩니다.
+
+
+
+== 핫 볼륨을 위한 성능 가속화
+
+LAN 배포에서 FlexCache 볼륨은 원본 클러스터와 동일한 클러스터에 있습니다. FlexCache 볼륨은 원본 볼륨과 동일한 SVM에 배치하거나 원본 볼륨과 다른 SVM에 위치할 수 있습니다.
+
+FlexCache 볼륨은 CPU 집약적인 워크로드에 사용되어 사용량이 많은 파일 서버에서 작업을 오프로드하고 시스템 리소스를 사용하지 않습니다. 모든 캐시 시스템에서 데이터 액세스 로드를 공유하므로 서로 다른 FlexCache 볼륨에 해당하는 여러 마운트 지점을 사용하여 네트워크 지연 시간을 줄일 수 있습니다. 이러한 유형의 LAN 배포는 과부하 스토리지 시스템의 작업 부하를 줄입니다.
+
+
+
+== 클러스터 간 데이터 배포
+
+WAN 구축 시 FlexCache 볼륨은 데이터 센터에서 멀리 떨어져 있으며 원본 볼륨과 다른 클러스터에 있습니다. 클라이언트가 데이터를 요청하면 FlexCache 볼륨이 자주 사용하는 데이터를 캐싱하여 최종 사용자가 정보에 더 빠르게 액세스할 수 있도록 합니다. 이러한 유형의 WAN 구축은 원격 클라이언트의 평균 액세스 시간을 줄입니다.
+
+FlexCache 볼륨은 원격 사무소와 최대한 가까운 위치에 배치됩니다. 그런 다음 클라이언트 요청이 FlexCache 볼륨으로 명시적으로 전달됩니다. 유효한 데이터가 캐시에 있는 경우 해당 데이터가 클라이언트에 직접 제공됩니다. 데이터가 캐시에 없는 경우 데이터는 원본 시스템에서 WAN을 통해 검색되어 FlexCache 볼륨에 캐싱된 다음 클라이언트에 제공됩니다.

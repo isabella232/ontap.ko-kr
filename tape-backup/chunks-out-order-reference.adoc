@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/chunks-out-order-reference.html 
+sidebar: sidebar 
+keywords: chunk, out, order, correct, backup, tape 
+summary: 백업 테이프가 올바른 순서로 복구되지 않습니다. 
+---
+= 청크가 순서가 아닙니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+"덩어리가 오르지 않았습니다.
+
+* * 원인 *
++
+백업 테이프가 올바른 순서로 복구되지 않습니다.
+
+* * 시정 조치 *
++
+복구 작업을 재시도하고 올바른 순서로 테이프를 로드합니다.
+
+

@@ -1,0 +1,46 @@
+---
+permalink: san-admin/delete-all-existing-snapshot-copies-volume-task.html 
+sidebar: sidebar 
+keywords: ontap 9.2, delete, one, more, existing, snapshot, copies, from, volume 
+summary: 볼륨에서 기존 스냅샷 복사본을 하나 이상 수동으로 삭제할 수 있습니다. 볼륨에 공간이 더 필요한 경우 이 작업을 수행할 수 있습니다. 
+---
+= 볼륨에서 기존 스냅샷 복사본을 하나 이상 삭제합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+볼륨에서 기존 스냅샷 복사본을 하나 이상 수동으로 삭제할 수 있습니다. 볼륨에 공간이 더 필요한 경우 이 작업을 수행할 수 있습니다.
+
+.단계
+. 'volume snapshot show' 명령을 사용하여 삭제할 스냅샷 복사본을 확인합니다.
++
+[listing]
+----
+cluster::> volume snapshot show -vserver vs3 -volume vol3
+
+                                                ---Blocks---
+Vserver  Volume  Snapshot                Size   Total% Used%
+-------- ------- ----------------------- -----  ------ -----
+vs3      vol3
+                 snap1.2013-05-01_0015   100KB   0%    38%
+                 snap1.2013-05-08_0015   76KB   0%    32%
+                 snap2.2013-05-09_0010   76KB   0%    32%
+                 snap2.2013-05-10_0010   76KB   0%    32%
+                 snap3.2013-05-10_1005   72KB   0%    31%
+                 snap3.2013-05-10_1105   72KB   0%    31%
+                 snap3.2013-05-10_1205   72KB   0%    31%
+                 snap3.2013-05-10_1305   72KB   0%    31%
+                 snap3.2013-05-10_1405   72KB   0%    31%
+                 snap3.2013-05-10_1505   72KB   0%    31%
+10 entries were displayed.
+----
+. 'volume snapshot delete' 명령을 사용하여 모든 스냅샷 복사본을 삭제합니다.
++
+[listing]
+----
+cluster::> volume snapshot delete -vserver vs3 -volume vol3 *
+
+10 entries were acted on.
+----
+

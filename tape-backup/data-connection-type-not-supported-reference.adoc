@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/data-connection-type-not-supported-reference.html 
+sidebar: sidebar 
+keywords: data, connection, type, control, connections, network, address, type 
+summary: '노드 범위 NDMP 모드에서는 설정된 NDMP 데이터 연결이 NDMP 제어 연결과 동일한 네트워크 주소 유형(IPv4 또는 IPv6)이어야 합니다.' 
+---
+= ["IPv6"|"IPv4"] 제어 연결에서는 데이터 연결 유형 ["NDMP4_ADDR_TCP_IPv6"] 이(가) 지원되지 않습니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+["IPv6"|"IPv4"] 제어 연결에 대해 Data 연결 유형 ["NDMP4_ADDR_TCP_IPv6"] 지원되지 않습니다
+
+* * 원인 *
++
+노드 범위 NDMP 모드에서는 설정된 NDMP 데이터 연결이 NDMP 제어 연결과 동일한 네트워크 주소 유형(IPv4 또는 IPv6)이어야 합니다.
+
+* * 시정 조치 *
++
+백업 애플리케이션 공급업체에 문의하십시오.
+
+

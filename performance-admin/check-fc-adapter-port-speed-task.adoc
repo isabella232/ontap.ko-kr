@@ -1,0 +1,45 @@
+---
+permalink: performance-admin/check-fc-adapter-port-speed-task.html 
+sidebar: sidebar 
+keywords: check, fc, adapter, port, speed 
+summary: 어댑터 대상 포트 속도는 성능을 최적화하기 위해 연결된 장치의 속도와 일치해야 합니다. 포트가 autonegotiation으로 설정된 경우 테이크오버 및 반환 또는 기타 중단이 발생한 후 다시 연결하는 데 시간이 더 오래 걸릴 수 있습니다. 
+---
+= FC 어댑터의 포트 속도를 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+어댑터 대상 포트 속도는 성능을 최적화하기 위해 연결된 장치의 속도와 일치해야 합니다. 포트가 autonegotiation으로 설정된 경우 테이크오버 및 반환 또는 기타 중단이 발생한 후 다시 연결하는 데 시간이 더 오래 걸릴 수 있습니다.
+
+이 어댑터를 홈 포트로 사용하는 모든 LIF는 오프라인 상태여야 합니다.
+
+.단계
+. 어댑터를 오프라인 상태로 전환:
++
+'network fcp adapter modify -node_nodename_-adapter_adapter_-state_down_'
+
+. 포트 어댑터의 최대 속도를 확인합니다.
++
+FCP 어댑터 show-instance(FCP 어댑터 show-instance)
+
+. 필요한 경우 포트 속도를 변경합니다.
++
+'network fcp adapter modify -node_nodename_-adapter_adapter_-speed{1|2|4|8|10|16|auto}'
+
+. 어댑터를 온라인으로 전환합니다.
++
+'network fcp adapter modify -node_nodename_-adapter_adapter_ - state up'
+
+. 어댑터에 있는 모든 LIF를 온라인으로 전환합니다.
++
+'network interface modify -vserver * -lif * {-home-node node1 -home-port e0c} -status -admin up'
+
+
+
+다음 예에서는 node1의 어댑터 0d의 포트 속도를 2Gbps로 변경합니다.
+
+[listing]
+----
+cluster1::> network fcp adapter modify -node node1 -adapter 0d -speed 2
+----

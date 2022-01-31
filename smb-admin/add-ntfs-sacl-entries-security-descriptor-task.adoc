@@ -1,0 +1,54 @@
+---
+permalink: smb-admin/add-ntfs-sacl-entries-security-descriptor-task.html 
+sidebar: sidebar 
+keywords: add, sacl, system, access, control, list, entires, aces, ntfs, audit, policies, policy, file, folder, svm, add ntfs sacl access control entries to the ntfs security descriptor 
+summary: 'SACL(시스템 액세스 제어 목록) ACE(액세스 제어 항목)를 NTFS 보안 설명자에 추가하는 것은 SVM의 파일 또는 폴더에 대한 NTFS 감사 정책을 생성하는 두 번째 단계입니다. 각 항목은 감사하려는 사용자 또는 그룹을 식별합니다. SACL 항목은 성공한 액세스 시도 또는 실패한 액세스 시도를 감사할지 여부를 정의합니다.' 
+---
+= NTFS SACL 액세스 제어 항목을 NTFS 보안 설명자에 추가합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SACL(시스템 액세스 제어 목록) ACE(액세스 제어 항목)를 NTFS 보안 설명자에 추가하는 것은 SVM의 파일 또는 폴더에 대한 NTFS 감사 정책을 생성하는 두 번째 단계입니다. 각 항목은 감사하려는 사용자 또는 그룹을 식별합니다. SACL 항목은 성공한 액세스 시도 또는 실패한 액세스 시도를 감사할지 여부를 정의합니다.
+
+보안 설명자의 SACL에 하나 이상의 ACE를 추가할 수 있습니다.
+
+보안 설명자에 기존 ACE가 있는 SACL이 포함된 경우 이 명령은 새 ACE를 SACL에 추가합니다. 보안 설명자에 SACL이 포함되어 있지 않으면 명령에서 SACL을 만들고 새 ACE를 추가합니다.
+
+'-account' 매개 변수에 지정된 계정의 성공 또는 실패 이벤트에 대해 감사할 권한을 지정하여 SACL 항목을 구성할 수 있습니다. 권한을 지정할 수 있는 세 가지 상호 배타적인 방법이 있습니다.
+
+* 권한
+* 고급 권한
+* 원시 권한(고급 권한)
+
+
+[NOTE]
+====
+SACL 항목에 대한 권한을 지정하지 않으면 기본 설정은 "모든 권한"입니다.
+
+====
+"apply to" 매개 변수를 사용하여 상속을 적용하는 방법을 지정하여 SACL 항목을 선택적으로 사용자 지정할 수 있습니다. 이 매개 변수를 지정하지 않으면 기본적으로 이 SACL 항목을 이 폴더, 하위 폴더 및 파일에 적용합니다.
+
+.단계
+. 보안 설명자에 SACL 항목을 추가합니다. 'vserver security file-directory NTFS SACL add -vserver vserver_name -ntfs -sd sd sd_name -access -type {failure | success} -account name_or_SIDoptional_parameters'
++
+'vserver security file-directory NTFS SACL add-NTFS-SD SD1-access-type failure-account domain\joe-rights full-control-apply-to this-folder-vserver-vs1'
+
+. SACL 항목이 올바른지 확인합니다. 'vserver security file-directory NTFS SACL show -vserver vserver_name -ntfs -sd sd sd_name -access -type {failure | success} -account name_or_SID'
++
+'vserver security file-directory NTFS SACL show -vserver vs1-NTFS-SD SD1-access-type deny-account domain\joe'
+
++
+[listing]
+----
+                                  Vserver: vs1
+                        Security Descriptor Name: sd1
+         Access type for Specified Access Rights: failure
+                             Account Name or SID: DOMAIN\joe
+                                   Access Rights: full-control
+                          Advanced Access Rights: -
+                                        Apply To: this-folder
+                                   Access Rights: full-control
+----
+

@@ -1,0 +1,28 @@
+---
+permalink: san-admin/flexclone-luns-protect-your-data-concept.html 
+sidebar: sidebar 
+keywords: use, flexclone, luns, protect, your, data 
+summary: FlexClone LUN은 활성 볼륨 또는 스냅샷 복사본에 있는 다른 LUN의 쓰기 가능한 시점 복사본입니다. 클론 및 상위 항목은 서로 영향을 주지 않고 독립적으로 수정할 수 있습니다. 
+---
+= FlexClone LUN을 사용하여 데이터 보호 개요를 제공합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FlexClone LUN은 활성 볼륨 또는 스냅샷 복사본에 있는 다른 LUN의 쓰기 가능한 시점 복사본입니다. 클론 및 상위 항목은 서로 영향을 주지 않고 독립적으로 수정할 수 있습니다.
+
+FlexClone LUN은 처음에 부모 LUN과 공간을 공유합니다. 기본적으로 FlexClone LUN은 상위 LUN의 공간 예약 속성을 상속합니다. 예를 들어, 상위 LUN이 공간이 예약되지 않은 경우 FlexClone LUN도 기본적으로 공간이 예약되지 않습니다. 그러나 공간 예약 LUN인 상위에서 공간 예약 FlexClone LUN을 생성할 수 있습니다.
+
+LUN을 클론 복제할 때 블록 공유는 백그라운드에서 수행되며 블록 공유가 완료될 때까지 볼륨 스냅샷 복사본을 생성할 수 없습니다.
+
+'볼륨 스냅샷 자동 삭제 수정' 명령을 사용하여 FlexClone LUN 자동 삭제 기능을 사용하도록 볼륨을 구성해야 합니다. 그렇지 않으면 FlexClone LUN이 자동으로 삭제되지만 FlexClone 자동 삭제에 대해 볼륨이 구성되지 않은 경우 FlexClone LUN이 삭제되지 않습니다.
+
+FlexClone LUN을 생성할 때 FlexClone LUN 자동 삭제 기능은 기본적으로 해제되어 있습니다. FlexClone LUN을 자동으로 삭제하려면 먼저 모든 FlexClone LUN에서 수동으로 활성화해야 합니다. 반씩 볼륨 프로비저닝을 사용하고 이 옵션으로 제공되는 "'최선 노력'' 쓰기 보장을 원하는 경우, _ALL_FlexClone LUN을 자동 삭제할 수 있도록 해야 합니다.
+
+[NOTE]
+====
+스냅샷 복사본에서 FlexClone LUN을 생성하면 공간 효율적인 백그라운드 프로세스를 통해 스냅샷 복사본에서 LUN이 자동으로 분리되므로 LUN이 스냅샷 복사본에 계속 종속되거나 추가 공간을 사용하지 않습니다. 이 백그라운드 스플릿이 완료되지 않고 이 스냅샷 복사본이 자동으로 삭제된 경우 해당 FlexClone LUN에 대한 FlexClone 자동 삭제 기능을 비활성화한 경우에도 해당 FlexClone LUN이 삭제됩니다. 백그라운드 분열이 완료된 후에는 스냅샷 복사본이 삭제되더라도 FlexClone LUN이 삭제되지 않습니다.
+
+====
+link:../volumes/index.html["논리적 스토리지 관리"]

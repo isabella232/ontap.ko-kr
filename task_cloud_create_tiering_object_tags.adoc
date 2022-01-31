@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: task_cloud_create_tiering_object_tags.html 
+keywords: netapp, ontap, System Manager, cloud, tier, tiers, volume, volumes, FabricPool, Fabric Pool, non-FabricPool, data, data management, tags, objects, object tags, tiering, 
+summary: ONTAP 9.8부터 System Manager를 사용하여 개체 태그를 만들면 계층화 개체를 쉽게 분류하고 정렬할 수 있으므로 데이터를 보다 쉽게 관리할 수 있습니다. FabricPool 볼륨과 비 FabricPool 볼륨 모두에 태그를 설정할 수 있으며, 비 FabricPool 볼륨을 FabricPool 볼륨으로 변환하면 태그가 유지됩니다. 
+---
+= 객체를 계층화하기 위한 태그를 생성합니다
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+ONTAP 9.8부터 System Manager를 사용하여 개체 태그를 만들면 계층화 개체를 쉽게 분류하고 정렬할 수 있으므로 데이터를 보다 쉽게 관리할 수 있습니다. FabricPool에 연결된 StorageGRID 볼륨에서만 태그를 설정할 수 있습니다. 이러한 태그는 볼륨 이동 중에 유지됩니다.
+
+.단계
+. Storage > Tiers > Volumes * 로 이동합니다.
+. 태그를 지정할 볼륨을 찾고 * 태그를 입력하려면 클릭 * 을 선택합니다.
+

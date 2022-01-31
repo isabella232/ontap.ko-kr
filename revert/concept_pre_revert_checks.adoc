@@ -1,0 +1,49 @@
+---
+permalink: revert/concept_pre_revert_checks.html 
+sidebar: sidebar 
+keywords: ontap, revert, reverting, revision, plan, planning, pre-checks 
+summary: 환경에 따라 복원을 시작하기 전에 특정 요소를 고려해야 합니다. 
+---
+= 되돌리기 전 점검
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+환경에 따라 되돌리기 전에 특정 요인을 고려해야 합니다. 먼저 아래 표를 검토하여 어떤 특별 고려 사항을 고려해야 하는지 확인하십시오.
+
+[cols="2*"]
+|===
+| 스스로에게 물어보십시오. | 답변이 * 예 * 인 경우 다음을 수행하십시오. 
+
+
+| 클러스터에서 SnapMirror가 실행 중입니까?  a| 
+* xref:concept_consideration_for_reverting_systems_with_snapmirror_synchronous_relationships.html[SnapMirror Synchronous 관계로 시스템을 되돌릴 때의 고려 사항을 검토합니다]
+* xref:concept_reversion_requirements_for_snapmirror_and_snapvault_relationships.html[SnapMirror 및 SnapVault 관계에 대한 개정 요구사항을 검토합니다]
+
+
+
+
+| 클러스터에서 SnapLock가 실행 중입니까? | xref:task_setting_autocommit_periods_for_snaplock_volumes_before_reverting.html[자동 커밋 기간을 설정합니다] 
+
+
+| FlexClone 볼륨 분할이 있습니까? | xref:task_reverting_the_physical_block_sharing_in_split_flexclone_volumes.html[물리적 블록 공유를 반대로 수행합니다] 
+
+
+| FlexGroup 볼륨이 있습니까? | xref:task_disabling_qtrees_in_flexgroup_volumes_before_reverting.html[qtree 기능을 비활성화합니다] 
+
+
+| 작업 그룹 모드에 CIFS 서버가 있습니까? | xref:task_identifying_and_moving_cifs_servers_in_workgroup_mode.html[워크그룹 모드에서 CIFS 서버를 이동 또는 삭제합니다] 
+
+
+| 중복 제거된 볼륨이 있습니까? | xref:task_reverting_systems_with_deduplicated_volumes.html[볼륨에 충분한 여유 공간이 있는지 확인합니다] 
+
+
+| 2~4노드 MetroCluster 구성이 있습니까? | xref:task_disable_asuo.html[예기치 않은 자동 전환을 비활성화합니다] 
+
+
+| Snapshot 복사본이 있습니까? | xref:task_preparing_snapshot_copies_before_reverting.html[Snapshop 복제본 준비] 
+
+
+| ONTAP 8.3.x로 되돌리겠습니까? | xref:identify-user-sha2-hash-user-accounts.html[SHA-2 해시 기능을 사용하는 사용자 계정을 식별합니다] 
+|===

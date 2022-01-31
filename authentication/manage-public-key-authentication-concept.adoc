@@ -1,0 +1,45 @@
+---
+permalink: authentication/manage-public-key-authentication-concept.html 
+sidebar: sidebar 
+keywords: associate, public key, administrator account 
+summary: SSH 공개 키 인증의 경우 계정에서 SVM에 액세스할 수 있으려면 먼저 공개 키를 관리자 계정과 연결해야 합니다. 보안 로그인 공개 키 만들기 명령을 사용하여 키를 관리자 계정에 연결할 수 있습니다. 
+---
+= 공개 키를 관리자 계정에 연결합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SSH 공개 키 인증의 경우 계정에서 SVM에 액세스할 수 있으려면 먼저 공개 키를 관리자 계정과 연결해야 합니다. 'Security login publickey create' 명령어를 이용하여 관리자 계정에 키를 연결할 수 있다.
+
+.무엇을 &#8217;필요로 할거야
+* SSH 키를 생성해야 합니다.
+* 이 작업을 수행하려면 클러스터 또는 SVM 관리자여야 합니다.
+
+
+암호 및 SSH 공개 키로 SSH를 통해 계정을 인증하면 먼저 공개 키로 계정이 인증됩니다.
+
+.단계
+. 공개 키를 관리자 계정에 연결:
++
+'보안 로그인 공개 키 생성 - vserver SVM_name -username user_name -index index -publickey certificate -comment
+
++
+전체 명령 구문은 을 참조하십시오 link:config-worksheets-reference.html["워크시트"].
+
++
+link:config-worksheets-reference.html["공개 키를 사용자 계정과 연결"]
+
++
+다음 명령을 실행하면 SVM 관리자 계정 'engData1'의 vmadmin1과 공용 키가 연결됩니다. 공개 키에는 인덱스 번호 5가 할당됩니다.
+
++
+[listing]
+----
+cluster1::>security login publickey create -vserver engData1 -username svmadmin1 -index 5 -publickey
+"ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAIEAspH64CYbUsDQCdW22JnK6J
+/vU9upnKzd2zAk9C1f7YaWRUAFNs2Qe5lUmQ3ldi8AD0Vfbr5T6HZPCixNAIza
+FciDy7hgnmdj9eNGedGr/JNrftQbLD1hZybX+72DpQB0tYWBhe6eDJ1oPLob
+ZBGfMlPXh8VjeU44i7W4+s0hG0E=tsmith@publickey.example.com"
+----
+

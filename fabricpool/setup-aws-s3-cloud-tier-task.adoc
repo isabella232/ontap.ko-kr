@@ -1,0 +1,48 @@
+---
+permalink: fabricpool/setup-aws-s3-cloud-tier-task.html 
+sidebar: sidebar 
+keywords: setting up, aws, s3, cloud tier 
+summary: 'ONTAP 9.2 이상을 실행 중인 경우 AWS S3를 FabricPool의 클라우드 계층으로 설정할 수 있습니다. ONTAP 9.5 이상을 실행 중인 경우 FabricPool용 AWS C2S(상용 클라우드 서비스)를 설정할 수 있습니다.' 
+---
+= AWS S3를 클라우드 계층으로 설정
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.2 이상을 실행 중인 경우 AWS S3를 FabricPool의 클라우드 계층으로 설정할 수 있습니다. ONTAP 9.5 이상을 실행 중인 경우 FabricPool용 AWS C2S(상용 클라우드 서비스)를 설정할 수 있습니다.
+
+.단계
+. '-provider-type ''AWS_S3' 파라미터를 사용하여 'storage aggregate object-store config create' 명령을 사용하여 AWS S3 구성 정보를 지정합니다.
++
+** C2S 액세스에 대한 자격 증명을 얻으려면 '-auth-type ''cap' 매개 변수를 사용합니다.
++
+auth-type의 cap 매개 변수를 사용할 때는 '-cap-url' 매개 변수를 사용하여 C2S 액세스에 대한 임시 자격 증명을 요청하기 위한 전체 URL을 지정해야 합니다.
+
+** ONTAP가 제공된 정보로 AWS S3에 액세스할 수 없으면 'Storage aggregate object-store config create' 명령이 실패합니다.
+** '-access-key' 매개 변수를 사용하여 AWS S3 오브젝트 저장소에 대한 요청 권한을 부여하기 위한 액세스 키를 지정할 수 있습니다.
+** '-secret-password' 매개 변수를 사용하여 AWS S3 오브젝트 저장소 요청을 인증하는 암호(비밀 액세스 키)를 지정합니다.
+** AWS S3 암호가 변경되면 ONTAP에 저장된 해당 암호를 즉시 업데이트해야 합니다.
++
+이렇게 하면 ONTAP에서 AWS S3의 데이터에 중단 없이 액세스할 수 있습니다.
+
++
+[listing]
+----
+cluster1::> storage aggregate object-store config create
+-object-store-name my_aws_store -provider-type AWS_S3
+-server s3.amazonaws.com -container-name my-aws-bucket
+-access-key DXJRXHPXHYXA9X31X3JX
+----
++
+[listing]
+----
+cluster1::> storage aggregate object-store config create -object-store-name my_c2s_store -provider-type AWS_S3 -auth-type CAP -cap-url https://123.45.67.89/api/v1/credentials?agency=XYZ&mission=TESTACCT&role=S3FULLACCESS -server my-c2s-s3server-fqdn -container my-c2s-s3-bucket
+----
+
+
+. 'Storage aggregate object-store config show' 명령을 사용하여 AWS S3 구성 정보를 표시하고 확인합니다.
++
+'Storage aggregate object-store config modify' 명령을 사용하면 FabricPool의 AWS S3 구성 정보를 수정할 수 있습니다.
+
+

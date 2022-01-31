@@ -1,0 +1,101 @@
+---
+permalink: smb-admin/display-file-security-unix-style-volumes-task.html 
+sidebar: sidebar 
+keywords: display, information, file, directory, security, unix, security-style, volume, style, effective, permission, applied, apply, owner, group, result, validate, configuration, troubleshoot, access, issues, display information about file security on unix security-style volumes 
+summary: 'UNIX 보안 스타일 볼륨의 파일 및 디렉터리 보안에 대한 정보(보안 스타일 및 효과적인 보안 스타일, 적용되는 사용 권한, UNIX 소유자 및 그룹에 대한 정보 등)를 표시할 수 있습니다. 결과를 사용하여 보안 구성을 확인하거나 파일 액세스 문제를 해결할 수 있습니다.' 
+---
+= UNIX 보안 스타일 볼륨의 파일 보안에 대한 정보를 표시합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+UNIX 보안 스타일 볼륨의 파일 및 디렉터리 보안에 대한 정보(보안 스타일 및 효과적인 보안 스타일, 적용되는 사용 권한, UNIX 소유자 및 그룹에 대한 정보 등)를 표시할 수 있습니다. 결과를 사용하여 보안 구성을 확인하거나 파일 액세스 문제를 해결할 수 있습니다.
+
+SVM(스토리지 가상 시스템)의 이름과 파일 또는 디렉토리 보안 정보를 표시할 데이터의 경로를 제공해야 합니다. 출력을 요약 양식 또는 상세 목록으로 표시할 수 있습니다.
+
+* UNIX 보안 스타일 볼륨 및 qtree는 파일 액세스 권한을 결정할 때 모드 비트 또는 NFSv4 ACL 중 하나의 UNIX 파일 권한만 사용합니다.
+* NFSv4 보안이 설정된 파일 및 폴더에 대해서만 ACL 출력이 표시됩니다.
++
+모드 비트 권한만 적용된 UNIX 보안을 사용하는 파일 및 디렉토리의 경우 이 필드는 비어 있습니다(NFSv4 ACL 없음).
+
+* NFSv4 보안 설명자의 경우 ACL 출력의 소유자 및 그룹 출력 필드는 적용되지 않습니다.
++
+NTFS 보안 설명자에만 의미가 있습니다.
+
+* SVM에 CIFS 서버가 구성된 경우 UNIX 볼륨 또는 qtree에서 Storage-Level Access Guard 보안이 지원되므로 '-path' 매개 변수에 지정된 볼륨 또는 qtree에 적용된 Storage-Level Access Guard 보안에 대한 정보가 출력에 포함될 수 있습니다.
+
+
+.단계
+. 파일 및 디렉터리 보안 설정을 원하는 수준으로 표시합니다.
++
+|===
+| 정보를 표시하려면... | 다음 명령을 입력합니다... 
+
+
+ a| 
+요약 양식
+ a| 
+'vserver security file-directory show -vserver_vserver_name_-path_path_'
+
+
+
+ a| 
+세부 정보가 확장됩니다
+ a| 
+'vserver security file-directory show -vserver_vserver_name_-path_path_-expand-mask true'
+
+|===
+
+
+다음 예제는 SVM VS1 경로의 / home 경로에 대한 보안 정보를 표시합니다.
+
+[listing]
+----
+cluster1::> vserver security file-directory show -vserver vs1 -path /home
+
+                                  Vserver: vs1
+                                File Path: /home
+                        File Inode Number: 9590
+                           Security Style: unix
+                          Effective Style: unix
+                           DOS Attributes: 10
+                   DOS Attributes in Text: ----D---
+                  Expanded Dos Attributes: -
+                             Unix User Id: 0
+                            Unix Group Id: 1
+                           Unix Mode Bits: 700
+                   Unix Mode Bits in Text: rwx------
+                                     ACLs: -
+----
+다음 예에서는 SVM VS1 경로의 / home 경로에 대한 보안 정보를 확장된 마스크 형식으로 표시합니다.
+
+[listing]
+----
+cluster1::> vserver security file-directory show -vserver vs1 -path /home -expand-mask true
+
+                                 Vserver: vs1
+                               File Path: /home
+                       File Inode Number: 9590
+                          Security Style: unix
+                         Effective Style: unix
+                          DOS Attributes: 10
+                  DOS Attributes in Text: ----D---
+                 Expanded Dos Attributes: 0x10
+                      ...0 .... .... .... = Offline
+                      .... ..0. .... .... = Sparse
+                      .... .... 0... .... = Normal
+                      .... .... ..0. .... = Archive
+                      .... .... ...1 .... = Directory
+                      .... .... .... .0.. = System
+                      .... .... .... ..0. = Hidden
+                      .... .... .... ...0 = Read Only
+                            Unix User Id: 0
+                           Unix Group Id: 1
+                          Unix Mode Bits: 700
+                  Unix Mode Bits in Text: rwx------
+                                    ACLs: -
+----
+xref:display-file-security-ntfs-style-volumes-task.adoc[NTFS 보안 스타일 볼륨의 파일 보안에 대한 정보 표시]
+
+xref:display-file-security-mixed-style-volumes-task.adoc[혼합 보안 형식 볼륨의 파일 보안에 대한 정보 표시]

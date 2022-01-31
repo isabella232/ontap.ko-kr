@@ -1,0 +1,33 @@
+---
+permalink: smb-admin/deploy-offline-files-concept.html 
+sidebar: sidebar 
+keywords: important, guideline, understand, deploy, offline, file, home, directory, share, showsnapshot, property, set, home, directories, directory, guidelines for deploying offline files 
+summary: 홈 디렉토리에 showsnapshot 공유 속성이 설정된 홈 디렉토리 공유에 오프라인 파일을 배포할 때 이해해야 하는 몇 가지 중요한 지침이 있습니다. 
+---
+= 오프라인 파일 배포 지침
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+홈 디렉토리에 'showsnapshot' 공유 속성이 설정된 홈 디렉토리 공유에 오프라인 파일을 배포할 때 이해해야 하는 몇 가지 중요한 지침이 있습니다.
+
+오프라인 파일이 구성된 홈 디렉토리 공유에 'showsnapshot' 공유 속성이 설정되어 있으면 Windows 클라이언트는 사용자의 홈 디렉토리에 있는 '~snapshot' 폴더 아래에 있는 모든 스냅샷 복사본을 캐시합니다.
+
+다음 중 하나가 참인 경우 Windows 클라이언트는 홈 디렉토리 아래에 있는 모든 스냅샷 복사본을 캐시합니다.
+
+* 사용자가 클라이언트에서 홈 디렉토리를 오프라인으로 사용할 수 있도록 합니다.
++
+홈 디렉토리에 있는 '~snapshot' 폴더의 내용이 포함되어 오프라인으로 사용할 수 있습니다.
+
+* 사용자는 '내 문서'와 같은 폴더를 CIFS 서버 공유에 있는 홈 디렉토리의 루트로 리디렉션하도록 폴더 리디렉션을 구성합니다.
++
+일부 Windows 클라이언트는 리디렉션된 폴더를 자동으로 오프라인으로 사용할 수 있도록 만들 수 있습니다. 폴더가 홈 디렉토리의 루트로 리디렉션되면 "~snapshot" 폴더가 캐시된 오프라인 콘텐츠에 포함됩니다.
+
+
+
+[NOTE]
+====
+"~snapshot" 폴더가 오프라인 파일에 포함된 오프라인 파일 배포를 피해야 합니다. "~snapshot" 폴더의 스냅샷 복사본에는 ONTAP이 스냅샷 복사본을 생성한 시점의 볼륨에 있는 모든 데이터가 포함됩니다. 따라서 "~snapshot" 폴더의 오프라인 복사본을 만들면 클라이언트에서 상당한 로컬 스토리지가 사용되며 오프라인 파일 동기화 중에 네트워크 대역폭이 소모되고 오프라인 파일을 동기화하는 데 걸리는 시간이 늘어납니다.
+
+====

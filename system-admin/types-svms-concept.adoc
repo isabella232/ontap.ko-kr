@@ -1,0 +1,44 @@
+---
+permalink: system-admin/types-svms-concept.html 
+sidebar: sidebar 
+keywords: types, svm, data, acces, resources, admin, node, system 
+summary: 클러스터는 4가지 SVM 유형으로 구성되어 클러스터와 리소스, 클라이언트 및 애플리케이션에 대한 데이터 액세스를 관리하는 데 도움이 됩니다. 
+---
+= SVM의 유형
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클러스터는 4가지 SVM 유형으로 구성되어 클러스터와 리소스, 클라이언트 및 애플리케이션에 대한 데이터 액세스를 관리하는 데 도움이 됩니다.
+
+클러스터에는 다음과 같은 SVM 유형이 포함됩니다.
+
+* SVM 관리
++
+클러스터 설정 프로세스에서 클러스터용 SVM 관리자를 자동으로 생성합니다. admin SVM은 클러스터를 나타냅니다.
+
+* 노드 SVM
++
+노드가 클러스터에 결합될 때 노드 SVM이 생성되고, 노드 SVM은 클러스터의 개별 노드를 나타냅니다.
+
+* 시스템 SVM(고급)
++
+IPspace에서 클러스터 레벨 통신을 위해 시스템 SVM이 자동으로 생성됩니다.
+
+* 데이터 SVM
++
+데이터 SVM은 SVM을 제공하는 데이터를 나타냅니다. 클러스터 설정 후 클러스터 관리자는 데이터 SVM을 생성하고 볼륨을 이러한 SVM에 추가하여 클러스터에서 데이터를 쉽게 액세스할 수 있도록 해야 합니다.
+
++
+클러스터에서 클라이언트에 데이터를 제공하려면 하나 이상의 데이터 SVM이 있어야 합니다.
+
+
+
+[NOTE]
+====
+달리 지정되지 않은 경우 SVM이란 용어는 데이터(데이터 지원) SVM을 의미합니다.
+
+CLI에서 SVM은 vserver로 표시됩니다.
+
+====

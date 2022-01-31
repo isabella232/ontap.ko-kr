@@ -1,0 +1,91 @@
+---
+indexpage:
+  tiles:
+  - title: 시작하십시오
+    links:
+    - title: 시스템 관리 개요(System Manager)
+      url: "/../concept_administration_overview.html"
+    - title: 시스템 관리 개요(CLI)
+      url: "/../system-admin/index.html"
+    - title: 디스크 및 애그리게이트 관리 개요
+      url: "/../disks-aggregates/index.html"
+    - title: FabricPool 개요
+      url: "/../fabricpool/index.html"
+    - title: 고가용성 개요
+      url: "/../high-availability/index.html"
+  - title: 디스크와 애그리게이트
+    links:
+    - title: 애그리게이트 확장 워크플로우
+      url: "/../disks-aggregates/aggregate-expansion-workflow-concept.html"
+    - title: 디스크의 RAID 보호 수준
+      url: "/../disks-aggregates/raid-protection-levels-disks-concept.html"
+    - title: 애그리게이트를 위한 기본 RAID 정책
+      url: "/../disks-aggregates/default-raid-policies-aggregates-concept.html"
+    - title: 디스크를 완전 살균합니다
+      url: "/../disks-aggregates/sanitize-disk-maintenance-mode-task.html"
+    - title: Flash Pool 애그리게이트 개요입니다
+      url: "/../disks-aggregates/flash-pool-aggregate-caching-policies-concept.html"
+  - title: FabricPool 계층
+    links:
+    - title: System Manager로 계층화를 지원합니다
+      url: "/../task_cloud_tier_data.html"
+    - title: CLI를 사용하여 계층화를 설정합니다
+      url: "/../fabricpool/prepare-config-task.html"
+    - title: System Manager로 비활성 데이터 보고를 활성화합니다
+      url: "/../task_cloud_enable_inactive_data_reporting.html"
+    - title: CLI를 사용하여 비활성 데이터 보고를 활성화합니다
+      url: "/../fabricpool/determine-data-inactive-reporting-task.html"
+    - title: 고려 사항 및 요구 사항
+      url: "/../fabricpool/requirements-concept.html"
+  - title: 클러스터 노드
+    links:
+    - title: System Manager로 관리
+      url: "/../task_admin_manage_nodes.html"
+    - title: CLI를 사용하여 관리합니다
+      url: "/../system-admin/display-node-attributes-task.html"
+    - title: 부팅 메뉴를 사용하여 관리합니다
+      url: "/../system-admin/manage-node-boot-menu-task.html"
+    - title: 노드를 종료합니다
+      url: "/../system-admin/shut-down-node-task.html"
+  - title: 고가용성
+    links:
+    - title: 하드웨어 지원 테이크오버의 작동 방식
+      url: "/../high-availability/ha_how_hardware-assisted_takeover_works.html"
+    - title: 자동 테이크오버 및 반환의 작동 방식
+      url: "/../high-availability/ha_how_automatic_takeover_and_giveback_works.html"
+    - title: 테이크오버 및 반환 테스트
+      url: "/../high-availability/ha_test_takeover_giveback.html"
+  - title: 클러스터를 관리하는 방법
+    links:
+    - title: 봅니다
+      url: "/../concept_administration_overview.html"
+    - title: CLI 사용
+      url: "/../system-admin/command-line-interface-concept.html"
+    - title: REST API 사용
+      url: https://docs.netapp.com/us-en/ontap-automation/index.html
+  - title: 일상적 관리
+    links:
+    - title: System Manager로 클러스터 시간을 관리합니다
+      url: "/../software_setup/task_synchronize_the_system_time_across_the_cluster.html"
+    - title: CLI를 사용하여 클러스터 시간을 관리합니다
+      url: "/../system-admin/manage-cluster-time-concept.html"
+    - title: System Manager로 새로운 기능을 설정합니다
+      url: "/../task_admin_enable_new_features.html"
+    - title: CLI를 사용하여 새 기능을 사용하도록 설정합니다
+      url: "/../system-admin/manage-licenses-concept.html"
+    - title: System Manager로 지원 케이스를 보고 제출합니다
+      url: "/../task_admin_view_submit_support_cases.html"
+    - title: CLI를 사용한 AutoSupport 및 Active IQ 개요
+      url: "/../system-admin/autosupport-active-iq-digital-advisor-concept.html"
+  - title: SVM 마이그레이션(ONTAP 9.10.1의 새로운 기능)
+    links:
+    - title: 개요
+      url: /../svm-migrate/index.html"
+    - title: SVM 마이그레이션
+      url: /../svm-migrate/migrate-svm-task.html"
+    - title: 볼륨 마이그레이션을 모니터링합니다
+      url: /../svm-migrate/monitor-volume-task.html"
+  - title: 더 많은 리소스
+    links:
+    - title: 'TR-4598: FabricPool 모범 사례'
+      url: https://www.netapp.com/pdf.html?item=/media/17239-tr4598.pdf

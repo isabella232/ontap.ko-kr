@@ -1,0 +1,59 @@
+---
+permalink: smb-hyper-v-sql/snapmanager-hyper-v-remote-backups-concept.html 
+sidebar: sidebar 
+keywords: snapmanager, hyper, v, remote, manage, vss, backup, smb 
+summary: SnapManager for Hyper-V를 사용하여 원격 VSS 기반 백업 서비스를 관리할 수 있습니다. SnapManager for Hyper-V 관리 백업 서비스를 사용하면 공간 효율적인 백업 세트를 생성할 수 있다는 이점이 있습니다. 
+---
+= SnapManager for Hyper-V가 SMB를 통해 Hyper-V에 대한 원격 VSS 기반 백업을 관리하는 방법
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapManager for Hyper-V를 사용하여 원격 VSS 기반 백업 서비스를 관리할 수 있습니다. SnapManager for Hyper-V 관리 백업 서비스를 사용하면 공간 효율적인 백업 세트를 생성할 수 있다는 이점이 있습니다.
+
+Hyper-V 관리 백업을 위한 SnapManager 최적화 기능은 다음과 같습니다.
+
+* ONTAP와 SnapDrive의 통합은 SMB 공유 위치를 검색할 때 성능을 최적화합니다.
++
+ONTAP는 공유가 상주하는 볼륨의 이름을 SnapDrive에 제공합니다.
+
+* SnapManager for Hyper-V는 섀도우 복제본 서비스를 복제해야 하는 SMB 공유의 가상 머신 파일 목록을 지정합니다.
++
+가상 머신 파일의 타겟 목록을 제공함으로써 섀도우 복제본 서비스는 공유에 있는 모든 파일의 섀도우 복제본을 생성할 필요가 없습니다.
+
+* SVM(스토리지 가상 시스템)은 복원에 사용할 SnapManager for Hyper-V의 스냅샷 복사본을 유지합니다.
++
+백업 단계가 없습니다. 백업은 공간 효율적인 스냅샷 복사본입니다.
+
+
+
+SnapManager for Hyper-V는 다음 프로세스를 사용하여 SMB를 통한 Hyper-V의 백업 및 복원 기능을 제공합니다.
+
+. 섀도 복사본 작업을 준비하는 중입니다
++
+SnapManager for Hyper-V 애플리케이션의 VSS 클라이언트는 섀도우 복제본 세트를 설정합니다. VSS 클라이언트는 섀도 복사본 세트에 포함할 공유에 대한 정보를 수집하고 이 정보를 ONTAP에 제공합니다. 세트에는 하나 이상의 섀도 복사본이 포함될 수 있으며 하나의 섀도 복사본은 하나의 공유에 해당합니다.
+
+. 섀도 복사본 세트 생성(자동 복구가 사용되는 경우)
++
+섀도 복사본 세트에 포함된 모든 공유에서 ONTAP는 섀도 복사본을 만들고 섀도 복사본을 쓰기 가능하게 만듭니다.
+
+. 섀도우 복제본 세트를 노출합니다
++
+ONTAP에서 섀도우 복제본을 생성한 후 SnapManager for Hyper-V에 노출되므로 애플리케이션의 VSS 작성기가 자동 복구를 수행할 수 있습니다.
+
+. 섀도우 복제본 세트를 자동으로 복구합니다
++
+섀도우 복제본 세트를 생성하는 동안 백업 세트에 포함된 파일에 대한 활성 변경이 발생하는 기간이 있습니다. 애플리케이션의 VSS 작성자는 섀도우 복제본을 업데이트하여 백업 전에 정합성이 완벽하게 보장되는 상태인지 확인해야 합니다.
+
++
+[NOTE]
+====
+자동 복구를 수행하는 방법은 애플리케이션에 따라 다릅니다. 원격 VSS가 이 단계에 없습니다.
+
+====
+. 섀도 복사본 세트 완료 및 정리
++
+VSS 클라이언트는 자동 복구를 완료한 후 ONTAP에 알립니다. 섀도 복사본 세트는 읽기 전용으로 만들어져 백업할 준비가 된 상태입니다. 백업에 SnapManager for Hyper-V를 사용할 경우 스냅샷 복사본의 파일은 백업이 되므로, 백업 단계의 경우 백업 세트의 공유가 포함된 모든 볼륨에 대해 스냅샷 복사본이 생성됩니다. 백업이 완료되면 CIFS 서버에서 섀도우 복제본 세트가 제거됩니다.
+
+

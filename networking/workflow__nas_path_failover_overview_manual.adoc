@@ -1,0 +1,23 @@
+---
+sidebar: sidebar 
+permalink: networking/workflow__nas_path_failover_overview_manual.html 
+keywords: introducing, introduction, overview, workflow, nas path, failover, fail, over, workflow for nas path failover, nas path failover overview, nas failover workflow diagram, multipathing 
+summary: ONTAP 9.0-9.7에 대한 NAS 경로 페일오버 구성 
+---
+= 개요
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+기본 네트워킹 개념에 이미 익숙한 경우 NAS 경로 페일오버 구성에 대한 이 "실습" 워크플로우를 검토하여 네트워크 설정 시간을 절약할 수 있습니다.
+
+NAS LIF는 현재 포트에서 링크 장애가 발생하면 작동 가능한 네트워크 포트로 자동 마이그레이션됩니다. 네트워크가 수평인 경우 ONTAP 기본값을 사용하여 경로 페일오버를 관리할 수 있습니다. 그렇지 않으면 이 워크플로의 단계에 따라 경로 페일오버를 구성해야 합니다.
+
+image:workflow_nas_failover2.png["NAS 페일오버 워크플로우 다이어그램"]
+
+
+NOTE: SAN LIF는 마이그레이션되지 않습니다(링크 장애 후 수동으로 이동하지 않는 경우). 대신 호스트의 다중 경로 기술은 트래픽을 다른 LIF로 전환합니다. 자세한 내용은 을 참조하십시오 link:../san-admin/index.html["SAN 관리"^].

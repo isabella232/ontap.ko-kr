@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: networking/remove_a_nic_from_the_node_97.html 
+keywords: delete, deleting, remove, removing, nic, network, interface, card, slot, maintenance, faulty, error, bad, failed, fail, node, removing a nic from the node on ontap 9.7 or earlier, network port delete, network port show, remove a faulty nic from its slot or move the nic to another slot for maintenance purposes 
+summary: ONTAP 9.7 및 이전 버전에서는 유지 관리를 위해 결함이 있는 NIC를 슬롯에서 제거하거나 NIC를 다른 슬롯으로 이동합니다 
+---
+= ONTAP 9.7 이전 버전의 노드에서 NIC 제거
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+이 항목은 ONTAP 9.7 이하에 적용됩니다. 유지 관리를 위해 결함이 있는 NIC를 슬롯에서 제거하거나 NIC를 다른 슬롯으로 이동해야 할 수 있습니다.
+
+.시작하기 전에
+* NIC 포트에서 호스팅되는 모든 LIF가 마이그레이션되거나 삭제되어야 합니다.
+* NIC 포트는 모든 LIF의 홈 포트가 될 수 없습니다.
+* NIC에서 포트를 삭제하려면 고급 권한이 있어야 합니다.
+
+
+.단계
+. NIC에서 포트를 삭제합니다.
++
+네트워크 포트 삭제
+
+. 포트가 삭제되었는지 확인합니다.
++
+네트워크 포트 쇼
+
+. 네트워크 포트 show 명령의 출력에 여전히 삭제된 포트가 표시되는 경우 1단계를 반복합니다.
+

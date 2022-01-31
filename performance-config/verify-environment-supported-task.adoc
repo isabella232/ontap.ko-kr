@@ -1,0 +1,48 @@
+---
+permalink: performance-config/verify-environment-supported-task.html 
+sidebar: sidebar 
+keywords: verify, vnware, environment, supported 
+summary: Active IQ Unified Manager를 성공적으로 설치하려면 VMware 환경이 필요한 요구 사항을 충족하는지 확인해야 합니다. 
+---
+= 사용 중인 VMware 환경이 지원되는지 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Active IQ Unified Manager를 성공적으로 설치하려면 VMware 환경이 필요한 요구 사항을 충족하는지 확인해야 합니다.
+
+.단계
+. VMware 인프라가 Unified Manager 설치를 위한 사이징 요구 사항을 충족하는지 확인합니다.
+. 상호 운용성 매트릭스 로 이동하여 지원되는 구성 요소 조합이 있는지 확인하십시오.
++
+** ONTAP 버전입니다
+** ESXi 운영 체제 버전입니다
+** VMware vCenter Server 버전입니다
+** VMware Tools 버전입니다
+** 브라우저 유형 및 버전
+
+
++
+[NOTE]
+====
+를 클릭합니다 http://mysupport.netapp.com/matrix["상호 운용성 매트릭스"] 에는 Unified Manager에 대해 지원되는 구성이 나와 있습니다.
+
+====
+. 선택한 설정의 설정 이름을 클릭합니다.
++
+해당 구성에 대한 세부 정보가 구성 세부 정보 창에 표시됩니다.
+
+. 다음 탭의 정보를 검토합니다.
++
+** 참고
++
+에는 사용자의 구성에 특정한 중요한 경고 및 정보가 나와 있습니다.
+
+** 정책 및 지침
++
+모든 구성에 대한 일반 지침을 제공합니다.
+
+
+
+

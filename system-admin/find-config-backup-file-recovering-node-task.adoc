@@ -1,0 +1,42 @@
+---
+permalink: system-admin/find-config-backup-file-recovering-node-task.html 
+sidebar: sidebar 
+keywords: configuration, backup, file, recovering, node, remote, url, cluster 
+summary: 원격 URL 또는 클러스터의 노드에 있는 구성 백업 파일을 사용하여 노드 구성을 복구할 수 있습니다. 
+---
+= 노드 복구에 사용할 구성 백업 파일을 찾습니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+원격 URL 또는 클러스터의 노드에 있는 구성 백업 파일을 사용하여 노드 구성을 복구할 수 있습니다.
+
+클러스터 또는 노드 구성 백업 파일을 사용하여 노드 구성을 복원할 수 있습니다.
+
+.단계
+. 구성을 복원해야 하는 노드에서 구성 백업 파일을 사용할 수 있도록 합니다.
++
+|===
+| 구성 백업 파일이 있는 경우... | 그러면... 
+
+
+ a| 
+원격 URL에서
+ a| 
+고급 권한 레벨의 '시스템 구성 백업 다운로드' 명령을 사용하여 복구 노드로 다운로드합니다.
+
+
+
+ a| 
+클러스터에 있는 노드
+ a| 
+.. 복구 노드의 구성이 포함된 클러스터에서 사용 가능한 구성 백업 파일 목록을 보려면 고급 권한 수준에서 'system configuration backup show' 명령을 사용하십시오.
+.. 확인한 구성 백업 파일이 복구 노드에 없으면 'system configuration backup copy' 명령을 사용하여 복구 노드에 복사합니다.
+
+
+|===
++
+이전에 클러스터를 다시 생성한 경우 클러스터를 재생성한 후에 생성된 구성 백업 파일을 선택해야 합니다. 클러스터를 재생성하기 전에 생성된 구성 백업 파일을 사용해야 하는 경우 노드를 복구한 후에 클러스터를 다시 생성해야 합니다.
+
+

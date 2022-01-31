@@ -1,0 +1,133 @@
+---
+permalink: upgrade/concept_upgrade_paths.html 
+sidebar: sidebar 
+keywords: ontap, upgrade, paths 
+summary: 업그레이드할 수 있는 ONTAP 버전은 현재 노드에서 실행 중인 ONTAP 버전에 따라 다릅니다. 
+---
+= 업그레이드할 수 있는 ONTAP 버전은 무엇입니까?
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+업그레이드할 수 있는 ONTAP 버전은 하드웨어 플랫폼 및 현재 노드에서 실행 중인 ONTAP 버전에 따라 다릅니다. 을 참조하십시오 https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"] 플랫폼이 업그레이드를 지원하는지 확인하려면 다음을 수행합니다.
+
+현재 ONTAP 버전을 확인하려면:
+
+* System Manager에서 * Cluster > Overview * 를 클릭합니다.
+* CLI에서 'system image show' 명령어를 사용한다.
+
+
+이전 ONTAP 버전(예: 9.3)에서 ONTAP 업그레이드를 계획하는 경우, 동일한 ONTAP 릴리스 제품군의 최신 패치 릴리즈로 먼저 업그레이드한 다음 다음으로 지원되는 주요 릴리즈로 업그레이드하는 것이 좋습니다. 이렇게 하면 업그레이드하기 전에 이전 버전의 모든 문제가 해결됩니다.
+
+예를 들어, 시스템에서 ONTAP 9.3P9를 실행 중이고 9.9.1로 업그레이드할 계획인 경우, 모든 주요 ONTAP 버전에서 9.3P9 -> 9.3P21 -> 9.7 -> 9.9.1을 사용하는 권장 경로는 다음과 같습니다. 최신 패치 릴리스를 사용하십시오.
+
+[cols="2*"]
+|===
+| 업그레이드할 수 있는 대상... | 대상... 
+
+
+ a| 
+ONTAP 9.10.0
+ a| 
+ONTAP 9.10.1
+
+
+
+ a| 
+ONTAP 9.9.1
+ a| 
+ONTAP 9.10.0, 9.10.1
+
+
+
+ a| 
+ONTAP 9.9.0
+ a| 
+ONTAP 9.9.1
+
+
+
+ a| 
+ONTAP 9.8
+ a| 
+ONTAP 9.9.0, 9.9.1, 9.10.1
+
+
+
+ a| 
+ONTAP 9.7
+ a| 
+ONTAP 9.8 또는 9.9.1
+
+
+
+ a| 
+ONTAP 9.6
+ a| 
+ONTAP 9.7 또는 9.8
+
+
+
+ a| 
+ONTAP 9.5
+ a| 
+ONTAP 9.6, 9.7 또는 9.9.1
+
+* 참고: * ONTAP 9.5에서 9.9.1로 직접 업그레이드하는 경우 ONTAP 9.7 및 9.9.1용 소프트웨어 이미지를 다운로드해야 합니다. 자동 업그레이드 프로세스는 백그라운드에서 9.7 이미지를 사용하여 9.9.1로 업데이트를 완료합니다. 프로세스 중에 여러 번 재부팅해야 합니다.
+
+
+
+ a| 
+ONTAP 9.4
+ a| 
+ONTAP 9.5
+
+
+
+ a| 
+ONTAP 9.3
+ a| 
+ONTAP 9.4, 9.5 또는 9.7
+
+* 참고: * ONTAP 9.3에서 9.7로 직접 업그레이드하는 경우 ONTAP 9.5 및 9.7용 소프트웨어 이미지를 다운로드해야 합니다. 자동 업그레이드 프로세스는 백그라운드에서 9.5 이미지를 사용하여 9.7로 업데이트를 완료합니다. 프로세스 중에 여러 번 재부팅해야 합니다.
+
+
+
+ a| 
+ONTAP 9.2
+ a| 
+ONTAP 9.3
+
+
+
+ a| 
+ONTAP 9.1
+ a| 
+ONTAP 9.2 또는 9.3
+
+
+
+ a| 
+ONTAP 9
+ a| 
+ONTAP 9.1
+
+
+
+ a| 
+Data ONTAP 8.3.x
+ a| 
+ONTAP 9 또는 9.1
+
+
+
+ a| 
+Data ONTAP 8.2.x 이하
+
+* 참고: * Data ONTAP 8.3.x 이전 버전을 실행 중인 경우에는 ONTAP 9 또는 9.1로 직접 업그레이드할 수 없습니다. 먼저 Data ONTAP 8.3.x로 업그레이드한 다음 ONTAP 9 또는 9.1로 업그레이드해야 합니다.
+ a| 
+Data ONTAP 8.3.x
+
+|===

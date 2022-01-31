@@ -1,0 +1,52 @@
+---
+permalink: element-replication/initialize-replication-relationship-task.html 
+sidebar: sidebar 
+keywords: initialize, replication, relationship 
+summary: 모든 관계 유형에 대해 초기화는 기본 전송을 수행합니다. 즉, 소스 볼륨의 스냅샷 복사본을 만든 다음 해당 복사본과 대상 볼륨에 참조하는 모든 데이터 블록을 전송합니다. 
+---
+= 복제 관계를 초기화합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+모든 관계 유형에 대해 초기화는 _baseline transfer_: 소스 볼륨의 스냅샷 복사본을 생성한 다음 해당 복사본과 타겟 볼륨이 참조하는 모든 데이터 블록을 전송합니다.
+
+.시작하기 전에
+* 복제할 볼륨이 포함된 Element 노드를 ONTAP에서 액세스할 수 있어야 합니다.
+* SnapMirror 복제에 대해 Element 볼륨이 활성화되어 있어야 합니다.
+* "미러 볼트" 정책 유형을 사용하는 경우, Element 스냅샷 복사본을 복제하기 위해 SnapMirror 레이블을 구성해야 합니다.
+
+
+요소 소스 경로는 "_hostip:_/lun/_name_" 형식으로 지정해야 합니다. 여기서 ""lun"은 실제 문자열 ""lun""이고 "_name_"은 요소 볼륨의 이름입니다.
+
+초기화에는 시간이 오래 걸릴 수 있습니다. 사용량이 적은 시간에 기준 전송을 실행할 수 있습니다.
+
+[NOTE]
+====
+어떤 이유로든 ONTAP 소스에서 요소 대상으로 관계를 초기화하지 못할 경우 문제를 해결한 후에도(예: 잘못된 LUN 이름) 계속 실패합니다. 해결 방법은 다음과 같습니다.
+
+. 관계를 삭제합니다.
+. Element 대상 볼륨을 삭제합니다.
+. 새 Element 대상 볼륨을 생성합니다.
+. ONTAP 소스에서 요소 대상 볼륨으로의 새 관계를 생성하고 초기화합니다.
+
+
+====
+.단계
+. 복제 관계 초기화:
++
+'스냅샷 초기화-소스-경로_호스트 팁:_/LUN/_이름_-대상-경로_SVM:볼륨|클러스터://SVM/볼륨 _'
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+다음 예에서는 IP 주소 10.0.0.11의 소스 볼륨 0005와 'VM_BACKUP'의 대상 볼륨 VolA_DST 사이의 관계를 초기화합니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror initialize -source-path 10.0.0.11:/lun/0005 -destination-path svm_backup:volA_dst
+----
+

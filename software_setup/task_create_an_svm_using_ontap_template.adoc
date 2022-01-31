@@ -1,0 +1,166 @@
+---
+permalink: software_setup/task_create_an_svm_using_ontap_template.html 
+sidebar: sidebar 
+keywords: ontap, software, setup, provision, svm, preconfigured, template 
+summary: ONTAP 9.3부터는 사전 구성된 템플릿을 사용하여 SVM을 생성하고 프로비저닝할 수 있습니다. 템플릿에 정의된 매개 변수의 값을 입력해야 합니다. 
+---
+= 사전 구성된 ONTAP 템플릿을 사용하여 SVM 프로비저닝
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.3부터는 사전 구성된 템플릿을 사용하여 SVM을 생성하고 프로비저닝할 수 있습니다. 템플릿에 정의된 매개 변수의 값을 입력해야 합니다.
+
+필요한 모든 기능 라이센스가 클러스터에 설치되어 있어야 합니다.
+
+VserverEnvironmentSetup 템플릿은 SVM 구성에 사용할 수 있는 사전 구성된 템플릿입니다. VserverEnvironmentSetup 템플릿을 사용하면 다음 구성을 설정할 수 있습니다.
+
+* SVM의 보안 스타일, 언어 설정 및 IPspace
+* 프로토콜
+* 데이터 LIF
+* 네트워크 경로
+* DNS 구성
+* Active Directory 구성
+* NIS 구성
+* LDAP 클라이언트 및 서버 구성
+* CIFS 서버
+
+
+VserverEnvironmentSetup 템플릿은 읽기 전용 템플릿입니다. 이 템플릿의 기본 매개 변수 값은 수정할 수 없습니다. 템플릿에 있는 매개 변수의 기본값을 수정하려면 템플릿을 복사한 다음 매개 변수의 기본값을 수정해야 합니다.
+
+.단계
+. SVM을 생성 및 구성하기 위해 템플릿에서 정의된 매개변수의 값을 보고 기록해 둡니다. 'template parameter show
++
+[listing]
+----
+cluster1::> template parameter show
+
+  Template: VserverEnvironmentSetup
+Permission: readonly
+                                 Default      Read
+Parameter           Type         Value        Only Description
+------------------- ------------ ------------ ---- ----------------------------
+vserver             string       -            no   Vserver Name
+security_style      string       unix         no   Vserver Security Style
+language            string       C.UTF-8      no   Vserver Language
+ipspace             string       Default      no   Vserver IPSpace
+protocols           enum         -            no   Protocols to configure
+   Allowed Values: nfs, cifs, iscsi, fcp
+data_lif            array of lifInfoStruct
+                                 -            yes  Data LIF Info Struct
+data_lif[#].ipaddr  IPAddress    -            no   IP Addr
+data_lif[#].netmask IPAddress    -            no   NetMask
+data_lif[#].protocol
+                    string       -            no   LIF Protocol
+data_lif[#].homenode
+                    string       -            no   Node Name
+data_lif[#].homeport
+                    string       -            no   Port
+gateway             array of IPAddress
+                                 -            yes  Gateway
+gateway[#]          IPAddress                 no   Gateway
+search_domain       string       -            no   Search Domain
+dns_server          string       -            no   DNS IP Addresses List
+ad_admin_name       string       -            no   AD Admin Name
+ad_admin_passwd     string       ***          no   AD Admin Passwd
+ad_domain           string       -            no   AD Domain
+ad_ou               string       CN=Computers no   Organizational Name
+wg_name             string       -            no   WG Name
+nis_domain          string       -            no   NIS Domains
+nis_ipaddr          string       -            no   NIS IP Address
+ldap_server         string       -            no   LDAP Server IP
+ldap_base_dn        string       -            no   LDAP Base DN
+client_config       string       -            no   LDAP Client Config
+cifs_server         string       -            no   CIFS Server Name
+26 entries were displayed.
+----
+. 템플릿에 있는 매개 변수의 기본값을 수정하려면 기존 템플릿을 사용자 지정합니다.
++
+.. 템플릿 복사:
++
+'template copy-name template_name-destination_name new_template_name'
+
++
+[listing]
+----
+cluster1::> template copy -name VserverEnvironmentSetup -destination-name template1
+----
++
+새 템플릿은 읽기/쓰기 템플릿입니다.
+
+.. 변경할 매개 변수의 기본값을 수정합니다.
++
+'template parameter modify -template_name -name parameter_name -default-value new_default_value'
+
++
+[listing]
+----
+cluster1::> template parameter modify -template template1 -name security_style -default-value ntfs
+----
+
+
+. 템플릿에서 매개 변수의 값을 지정하여 SVM 프로비저닝:
++
+템플릿 프로비전-이름 템플릿_이름
+
++
+[listing]
+----
+cluster-1::> template provision -name template1
+	    Press Ctrl+C to abort.
+	    ********************
+	    * Setup of vserver *
+	    ********************
+	    Vserver Name: vs0
+	    Vserver Language [C.UTF-8]:
+	    Vserver Security Style [ntfs]:
+	    Vserver IPSpace [Default]:
+
+	    ******************************
+	    * Setup of network.interface *
+	    ******************************
+	    Enter number of instances for object network.interface: 2
+	    (1/2)LIF Protocol: nfs
+	    (1/2)IP Addr: 1.1.1.1
+	    (1/2)NetMask: 255.255.255.0
+	    (1/2)Node Name: node1-vsim1
+	    (1/2)Port: e0c
+	    (2/2)LIF Protocol: nfs
+	    (2/2)IP Addr: 1.1.1.1
+	    (2/2)NetMask: 255.255.255.0
+	    (2/2)Node Name: node1-vsim1
+	    (2/2)Port: e0c
+
+	    ***************************
+	    * Setup of network.routes *
+	    ***************************
+	    Enter number of instances for object network.routes: 1
+	    (1/1)Gateway: 1.1.1.1
+
+	    ***********************
+	    * Setup of access.dns *
+	    ***********************
+	    Search Domain: netapp.com
+	    DNS IP Addresses List: 1.1.1.1
+
+	    *************************
+	    * Setup of security.nis *
+	    *************************
+	    NIS Domains: netapp.com
+	    NIS IP Address: 1.1.1.1
+
+	    *********************
+	    * Setup of security *
+	    *********************
+	    LDAP Client Config: ldapconfig
+	    LDAP Server IP: 1.1.1.1
+	    LDAP Base DN: dc=examplebasedn
+
+	    **********************
+	    * Setup of protocols *
+	    **********************
+	    Protocols to configure: nfs
+	    [Job 15] Configuring vserver for vs0 (100%)
+----
+

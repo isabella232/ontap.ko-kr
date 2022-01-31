@@ -1,0 +1,37 @@
+---
+permalink: smb-hyper-v-sql/health-monitoring-nondisruptive-operation-concept.html 
+sidebar: sidebar 
+keywords: health, monitoring, nondisruptive, operation, status, healthy, ndo, hyper, v, sql, server, recovery, cluster, system 
+summary: '상태 모니터링 에서는 클러스터 전체의 시스템 상태에 대한 정보를 제공합니다. 상태 모니터는 SMB 구성을 통해 Hyper-V 및 SQL Server를 모니터링하여 애플리케이션 서버에 대한 무중단 운영(NDO)을 보장합니다. 상태가 성능 저하인 경우 가능한 원인 및 권장 복구 조치를 포함하여 문제에 대한 세부 정보를 볼 수 있습니다.' 
+---
+= 상태 모니터링을 사용하여 무중단 운영 상태가 정상인지 확인하십시오
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+상태 모니터링 에서는 클러스터 전체의 시스템 상태에 대한 정보를 제공합니다. 상태 모니터는 SMB 구성을 통해 Hyper-V 및 SQL Server를 모니터링하여 애플리케이션 서버에 대한 무중단 운영(NDO)을 보장합니다. 상태가 성능 저하인 경우 가능한 원인 및 권장 복구 조치를 포함하여 문제에 대한 세부 정보를 볼 수 있습니다.
+
+여러 개의 상태 모니터가 있습니다. ONTAP는 개별 상태 모니터의 전체 시스템 상태와 상태를 모두 모니터링합니다. 노드 연결 상태 모니터에는 CIFS-NDO 서브시스템이 포함되어 있습니다. 모니터에는 특정 물리적 조건으로 인해 운영 중단이 발생할 수 있는 경우 알림을 트리거하는 상태 정책이 있으며, 중단 상태가 있을 경우 알림을 생성하고 수정 조치에 대한 정보를 제공합니다. SMB 구성을 통한 NDO의 경우 다음 두 가지 조건에 대한 경고가 생성됩니다.
+
+|===
+| 경고 ID | 심각도입니다 | 조건 
+
+
+ a| 
+``HaNotReadyCifsNdo_Alert*’
+ a| 
+전공
+ a| 
+노드에서 애그리게이트에서 볼륨에 호스팅되는 하나 이상의 파일이 장애 발생 시 지속성을 약속하는 지속적으로 사용 가능한 SMB 공유를 통해 열렸습니다. 파트너와의 HA 관계는 구성되지 않았거나 상태가 아닙니다.
+
+
+
+ a| 
+'* NoStandbyLifcifsNdo_Alert * '
+ a| 
+경미합니다
+ a| 
+SVM(스토리지 가상 머신)은 노드를 통해 SMB를 통해 데이터를 능동적으로 제공하고, 지속적으로 사용 가능한 공유를 통해 지속적으로 열려 있는 SMB 파일이 있지만, 해당 파트너 노드가 SVM을 위한 활성 데이터 LIF를 노출하지 않습니다.
+
+|===

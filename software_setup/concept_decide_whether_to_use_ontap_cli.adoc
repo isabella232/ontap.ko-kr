@@ -1,0 +1,30 @@
+---
+permalink: software_setup/concept_decide_whether_to_use_ontap_cli.html 
+sidebar: sidebar 
+keywords: ontap, software, setup, deciding, decide, if, whether, use, cli, cluster, System Manager, IPv6, HA, root volumes, FlexArray 
+summary: 사용 중인 System Manager 버전에서 지원되지 않는 경우 ONTAP CLI를 사용하여 초기 클러스터 설정을 수행해야 합니다. 
+---
+= 클러스터 설정에 System Manager를 사용할지, ONTAP CLI를 사용할지 결정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP CLI를 사용하여 새 클러스터를 설정할 수 있지만 가능하면 System Manager를 사용하여 클러스터 설정 프로세스를 간소화하는 것이 좋습니다. 사용 중인 버전의 System Manager에서 계획된 ONTAP 구축에 대한 초기 클러스터 설정을 지원하지 않는 경우에만 다음 절차를 사용하십시오.
+
+System Manager 지원 요구사항은 다음과 같습니다.
+
+* 클러스터 설정은 단일 노드 및 HA 쌍에 대해서만 지원됩니다
+* CLI를 사용하여 노드 관리를 수동으로 설정할 경우 System Manager는 IPv4만 지원하며 IPv6를 지원하지 않습니다. 그러나 자동 할당된 IP 주소와 Windows 검색을 사용하여 DHCP를 사용하여 하드웨어 설정을 완료한 후 System Manager를 시작하면 System Manager에서 IPv6 관리 주소를 구성할 수 있습니다.
++
+ONTAP 9.6 이하 버전에서는 IPv6 네트워킹이 필요한 배포를 지원하지 않습니다.
+
+* MetroCluster 설정은 각 사이트에 2개의 노드가 있는 MetroCluster IP 구성을 지원합니다.
++
+ONTAP 9.7 이하에서는 System Manager가 MetroCluster 구성에 대한 새로운 클러스터 설정을 지원하지 않습니다.
+
+
+
+비 NetApp 디스크에서 FlexArray를 구성할 경우 ONTAP CLI를 사용하여 어레이 LUN에 루트 볼륨을 구성한 다음 클러스터 설정 마법사를 사용하여 클러스터를 설정해야 합니다. 자세한 내용은 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap-flexarray/install/concept_flexarray_virtualization_technology_overview_using_array_luns_for_storage.html["FlexArray 가상화 설치 및 요구 사항"] 문서화:
+
+이러한 절차를 수행하기 전에 플랫폼 모델의 설치 및 설정 지침에 따라 새 스토리지 시스템을 설치하고, 케이블로 연결하고, 전원을 켜야 합니다. 를 참조하십시오 https://docs.netapp.com/us-en/ontap-systems/index.html["AFF and FAS 설명서"].

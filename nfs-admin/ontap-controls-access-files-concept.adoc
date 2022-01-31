@@ -1,0 +1,27 @@
+---
+permalink: nfs-admin/ontap-controls-access-files-concept.html 
+sidebar: sidebar 
+keywords: ontap, control, access, file 
+summary: ONTAP는 사용자가 지정하는 인증 기반 및 파일 기반 제한 사항에 따라 파일에 대한 액세스를 제어합니다. 
+---
+= ONTAP에서 파일 액세스를 제어하는 방법 개요
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP는 사용자가 지정하는 인증 기반 및 파일 기반 제한 사항에 따라 파일에 대한 액세스를 제어합니다.
+
+클라이언트가 스토리지 시스템에 접속하여 파일을 액세스하는 경우 ONTAP는 다음 두 가지 작업을 수행해야 합니다.
+
+* 인증
++
+ONTAP는 신뢰할 수 있는 소스로 ID를 확인하여 클라이언트를 인증해야 합니다. 또한 클라이언트의 인증 유형은 클라이언트가 내보내기 정책을 구성할 때 데이터에 액세스할 수 있는지 여부를 결정하는 데 사용할 수 있는 방법 중 하나입니다(CIFS의 경우 선택 사항).
+
+* 권한 부여
++
+ONTAP는 사용자의 자격 증명을 파일 또는 디렉터리에 구성된 권한과 비교하고 제공할 액세스 유형(있는 경우)을 확인하여 사용자를 승인해야 합니다.
+
+
+
+파일 액세스 제어를 제대로 관리하려면 ONTAP가 NIS, LDAP 및 Active Directory 서버와 같은 외부 서비스와 통신해야 합니다. CIFS 또는 NFS를 사용하여 파일 액세스를 위한 스토리지 시스템을 구성하려면 ONTAP의 환경에 따라 적절한 서비스를 설정해야 합니다.

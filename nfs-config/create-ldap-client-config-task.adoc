@@ -1,0 +1,186 @@
+---
+permalink: nfs-config/create-ldap-client-config-task.html 
+sidebar: sidebar 
+keywords: create, ldap, client, configuration 
+summary: ONTAP가 사용자 환경의 외부 LDAP 서버에 액세스하도록 하려면 먼저 스토리지 시스템에서 LDAP 클라이언트를 설정해야 합니다. 
+---
+= LDAP 클라이언트 구성을 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP가 사용자 환경의 외부 LDAP 서버에 액세스하도록 하려면 먼저 스토리지 시스템에서 LDAP 클라이언트를 설정해야 합니다.
+
+AD-DOMAIN Resolved 목록의 처음 세 개 서버 중 하나가 가동되어 데이터를 제공해야 합니다. 그렇지 않으면 이 작업이 실패합니다.
+
+[NOTE]
+====
+서버가 여러 대 있고 그 중 두 대 이상의 서버가 어느 시점에서든 다운되었습니다.
+
+====
+.단계
+. "vserver services name-service ldap client create" 명령에 대한 적절한 구성 값을 확인하려면 LDAP 관리자에게 문의하십시오.
++
+.. LDAP 서버에 대한 도메인 기반 또는 주소 기반 연결을 지정합니다.
++
+AD-DOMAIN과 -SERS 옵션은 상호 배타적입니다.
+
++
+*** Active Directory 도메인에서 LDAP 서버 검색을 설정하려면 '-ad-domain' 옵션을 사용합니다.
++
+'-preferred-ad-servers' 옵션을 사용하여 쉼표로 구분된 목록에서 IP 주소로 하나 이상의 기본 Active Directory 서버를 지정할 수 있습니다. 클라이언트를 생성한 후 'vserver services name-service ldap client modify' 명령을 사용하여 이 목록을 수정할 수 있습니다.
+
+*** 쉼표로 구분된 목록에서 IP 주소로 하나 이상의 LDAP 서버(AD 또는 UNIX)를 지정하려면 '-servers' 옵션을 사용합니다.
++
+[NOTE]
+====
+ONTAP 9.2에서는 '-servers' 옵션이 사용되지 않습니다. ONTAP 9.2부터 '-ldap-servers' 필드는 '-servers' 필드를 대체합니다. 이 새 필드는 LDAP 서버의 호스트 이름 또는 IP 주소를 사용할 수 있습니다.
+
+====
+
+
+.. 기본 또는 사용자 지정 LDAP 스키마를 지정합니다.
++
+대부분의 LDAP 서버는 ONTAP에서 제공하는 기본 읽기 전용 스키마를 사용할 수 있습니다. 그렇지 않으면 기본 스키마를 사용하는 것이 좋습니다. 이 경우 기본 스키마(읽기 전용)를 복사한 다음 복사본을 수정하여 고유한 스키마를 만들 수 있습니다.
+
++
+기본 스키마:
+
++
+*** MS-AD-BIS
++
+RFC-2307bis를 기반으로 하는 이 방식은 대부분의 표준 Windows 2012 이상 LDAP 구축에 선호되는 LDAP 스키마입니다.
+
+*** AD-IDMU
++
+UNIX용 Active Directory ID 관리를 기반으로 하는 이 스키마는 대부분의 Windows 2008, Windows 2012 이상 AD 서버에 적합합니다.
+
+*** AD-SFU
++
+UNIX용 Active Directory 서비스를 기반으로 하는 이 스키마는 대부분의 Windows 2003 및 이전 AD 서버에 적합합니다.
+
+*** RFC-2307
++
+RFC-2307(_LDAP를 네트워크 정보 서비스로 사용하는 접근 방식_)에 따라 이 스키마는 대부분의 UNIX AD 서버에 적합합니다.
+
+
+
+.. 바인딩 값을 선택합니다.
++
+*** '-min-bind-level{anonymous|simple|sasl}'은 최소 bind authentication level을 지정한다.
++
+기본값은 ' * anonymous * '입니다.
+
+*** '-bind-dn_ldap_DN_'은 바인딩 사용자를 지정합니다.
++
+Active Directory 서버의 경우 계정(domain\user) 또는 보안 주체(user@domain.com) 양식에서 사용자를 지정해야 합니다. 그렇지 않으면 고유 이름(CN=user, DC=domain, DC=com) 형식으로 사용자를 지정해야 합니다.
+
+*** '-BIND-PASSWORD_PASSWORD_'는 바인딩 암호를 지정합니다.
+
+
+.. 필요한 경우 세션 보안 옵션을 선택합니다.
++
+LDAP 서버에서 필요한 경우 LDAP 서명 및 봉인 또는 TLS를 통한 LDAP를 활성화할 수 있습니다.
+
++
+*** '--세션-보안{none|sign|seal}'
++
+서명('사인', 데이터 무결성), 서명 및 봉인('씰', 데이터 무결성 및 암호화) 또는 둘 다('없음', 서명 또는 봉인 없음)을 사용할 수 있습니다. 기본값은 '없음'입니다.
+
++
+또한 서명과 봉인 바인딩이 실패할 경우 바인딩 인증을 ' * anonymous * ' 또는 ' * simple * '로 되돌리지 않으려면 '-min-bind-level' {'s ASL'}을 설정해야 합니다.
+
+*** '-use-start-tls'{'true'|'false'}
++
+'* true*'로 설정되어 있고 LDAP 서버가 이를 지원하는 경우 LDAP 클라이언트는 서버에 암호화된 TLS 연결을 사용합니다. 기본값은 ' * FALSE * '입니다. 이 옵션을 사용하려면 LDAP 서버의 자체 서명된 루트 CA 인증서를 설치해야 합니다.
+
++
+[NOTE]
+====
+SVM에 CIFS 서버가 도메인에 추가되고 LDAP 서버가 CIFS 서버의 홈 도메인의 도메인 컨트롤러 중 하나인 경우 'vserver cifs security modify' 명령을 사용하여 '-session-security-for-ad-ldap' 옵션을 수정할 수 있습니다.
+
+====
+
+
+.. 포트, 쿼리 및 기준 값을 선택합니다.
++
+기본값을 사용하는 것이 좋지만 LDAP 관리자에게 해당 값이 사용자 환경에 적합한지 확인해야 합니다.
+
++
+*** '-port_port_'는 LDAP 서버 포트를 지정합니다.
++
+기본값은 389입니다.
+
++
+Start TLS를 사용하여 LDAP 연결을 보호하려면 기본 포트 389를 사용해야 합니다. 시작 TLS는 LDAP 기본 포트 389를 통한 일반 텍스트 연결로 시작되고 해당 연결은 TLS로 업그레이드됩니다. 포트를 변경하면 Start TLS가 실패합니다.
+
+*** '-query-timeout_integer_'는 쿼리 시간 제한(초)을 지정합니다.
++
+허용 범위는 1 ~ 10초입니다. 기본값은 3초입니다.
+
+*** `-base-dn_ldap_dn_'은 기본 DN을 지정합니다.
++
+필요한 경우 여러 값을 입력할 수 있습니다(예: LDAP 조회 추적을 사용하는 경우). 기본값은 ""(root)입니다.
+
+*** '-base-scope'{'base'|'onelel'|'ubtree'}는 기본 검색 범위를 지정합니다.
++
+기본값은 'Subtree'입니다.
+
+*** '-referral-enabled'{'true'|'false'}는 LDAP 조회 추적 활성화 여부를 지정합니다.
++
+ONTAP 9.5부터 LDAP 조회 응답이 기본 LDAP 서버에 반환되어 원하는 레코드가 참조된 LDAP 서버에 있음을 나타내는 경우 ONTAP LDAP 클라이언트가 다른 LDAP 서버에 조회 요청을 참조할 수 있습니다. 기본값은 ' * FALSE * '입니다.
+
++
+참조된 LDAP 서버에 있는 레코드를 검색하려면 LDAP 클라이언트 구성의 일부로 참조된 레코드의 기본 dn을 기본 dn에 추가해야 합니다.
+
+
+
+
+
+. SVM에서 LDAP 클라이언트 구성 생성:
++
+'vserver services name -service ldap client create -vserver_vserver_name_ -client -config_client_config_name_ { -servers_ldap_server_list_| -ad -domain_domain_ -preferred -ad -servers_preferred_server_list_-schema_schema_ -port 389 -query -timeout 3 -min -bind -bind -level{anonymous_level{anonymous_enn_enn_name} subscope | anonymous_name | ssn_enn_enn_enabled | subscope | anonymous_name | ssn_name | ldap_name | subscope | ldap_name | ldap_name | ss
+
++
+[NOTE]
+====
+LDAP 클라이언트 구성을 생성할 때 SVM 이름을 제공해야 합니다.
+
+====
+. LDAP 클라이언트 구성이 성공적으로 생성되었는지 확인합니다.
++
+'vserver services name-service ldap client show-client-config client_config_name'
+
+
+
+다음 명령을 실행하면 SVM VS1 이 LDAP용 Active Directory 서버와 함께 작동할 수 있도록 이름이 ldap1인 새 LDAP 클라이언트 구성이 생성됩니다.
+
+[listing]
+----
+cluster1::> vserver services name-service ldap client create -vserver vs1 -client-config ldapclient1 –ad-domain addomain.example.com -schema AD-SFU -port 389 -query-timeout 3 -min-bind-level simple -base-dn DC=addomain,DC=example,DC=com -base-scope subtree -preferred-ad-servers 172.17.32.100
+----
+다음 명령을 실행하면 서명 및 봉인이 필요한 LDAP용 Active Directory 서버와 SVM VS1 VS1 에 대해 ldap1 이라는 새 LDAP 클라이언트 구성이 생성됩니다.
+
+[listing]
+----
+cluster1::> vserver services name-service ldap client create -vserver vs1 -client-config ldapclient1 –ad-domain addomain.example.com -schema AD-SFU -port 389 -query-timeout 3 -min-bind-level sasl -base-dn DC=addomain,DC=example,DC=com -base-scope subtree -preferred-ad-servers 172.17.32.100 -session-security seal
+----
+다음 명령을 실행하면 LDAP 조회 추적이 필요한 LDAP용 Active Directory 서버와 SVM VS1 VS1 을 위한 ldap1이라는 새 LDAP 클라이언트 구성이 생성됩니다.
+
+[listing]
+----
+cluster1::> vserver services name-service ldap client create -vserver vs1 -client-config ldapclient1 –ad-domain addomain.example.com -schema AD-SFU -port 389 -query-timeout 3 -min-bind-level sasl -base-dn "DC=adbasedomain,DC=example1,DC=com; DC=adrefdomain,DC=example2,DC=com" -base-scope subtree -preferred-ad-servers 172.17.32.100 -referral-enabled true
+----
+다음 명령을 실행하면 기본 DN을 지정하여 SVM V1에 대해 ldap1이라는 LDAP 클라이언트 구성이 수정됩니다.
+
+[listing]
+----
+cluster1::> vserver services name-service ldap client modify -vserver vs1 -client-config ldap1 -base-dn CN=Users,DC=addomain,DC=example,DC=com
+----
+다음 명령을 실행하면 조회 추적을 활성화하여 SVM VS1 용 ldap1이라는 LDAP 클라이언트 구성이 수정됩니다.
+
+[listing]
+----
+cluster1::> vserver services name-service ldap client modify -vserver vs1 -client-config ldap1 -base-dn "DC=adbasedomain,DC=example1,DC=com; DC=adrefdomain,DC=example2,DC=com"  -referral-enabled true
+----

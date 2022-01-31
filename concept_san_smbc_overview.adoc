@@ -1,0 +1,56 @@
+---
+sidebar: sidebar 
+permalink: concept_san_smbc_overview.html 
+keywords: netapp, ontap, system manager, san, san protocol, all san array, asa, aff, cluster, clusters, ha cluster, ha pair, lun, volume, volumes, protect, failover, fail over, snapmirror, snapMirror business continuity, iscsi, fcp, protocols, smbc, mirror clones, server, VM, data protection, protection, mediator, rhel 7.6 or 7.8, centos 8.0 or 8.1, license, synchronous, synchronous replication, consistency groups 
+summary: 'ONTAP 9.8부터 System Manager를 사용하여 투명한 애플리케이션 장애 조치를 위해 LUN을 보호할 수 있으므로, AFF 클러스터 2개 또는 ASA(All SAN Array) 클러스터 2개를 사용할 때 비즈니스 연속성을 위해 애플리케이션을 자동으로 페일오버할 수 있습니다.' 
+---
+= SnapMirror 비즈니스 연속성 개요
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+ONTAP 9.8부터 System Manager를 사용하여 투명한 애플리케이션 장애 조치를 위해 LUN을 보호할 수 있으므로, AFF 클러스터 2개 또는 ASA(All SAN Array) 클러스터 2개를 사용할 때 비즈니스 연속성을 위해 애플리케이션을 자동으로 페일오버할 수 있습니다. 클러스터는 혼합될 수 없으며 2개의 AFF 클러스터 또는 2개의 ASA 클러스터로 구성되어야 합니다. 비즈니스 연속성 보호는 iSCSI 및 FCP 프로토콜을 지원합니다.
+
+SnapMirror 비즈니스 연속성은 다음과 같은 이점을 제공합니다.
+
+* 비즈니스 크리티컬 애플리케이션의 페일오버 자동화
+* 종속 쓰기 순서 일관성을 위해 정합성 보장 그룹을 사용하여 애플리케이션 관리를 간소화합니다
+* 각 애플리케이션에 대해 장애 조치를 테스트하는 기능
+* 애플리케이션 가용성에 영향을 주지 않고 미러 클론을 즉시 생성
+
+
+image:workflow_san_snapmirror_business_continuity.png["SnapMirror 비즈니스 연속성 워크플로우"]
+
+
+
+== 요구 사항
+
+SnapMirror 비즈니스 연속성에 필요한 요구사항은 다음과 같습니다.
+
+* 2노드 HA 클러스터만 해당 – AFF 또는 ASA 혼용 없음.
+* ONTAP 중재자 설치를 위해 RHEL 7.6 또는 7.8 또는 CentOS 8.0 또는 8.1을 실행하는 서버 또는 VM
+* 데이터 보호 또는 프리미엄 번들 라이센스
+
+
+
+
+== 지원
+
+SnapMirror 비즈니스 연속성은 다음에 대한 지원을 제공합니다.
+
+* 동기식 복제
+* SAN 프로토콜 – FCP 또는 iSCSI
+* 각각 최대 12개의 볼륨을 포함하는 최대 5개의 일관성 그룹
+* 일관성 그룹을 포함하여 HA 쌍당 총 80개의 동기식 동시 관계
+
+
+image:workflow_san_snapmirror_synchronous.png["SnapMirror 동기식 워크플로"]

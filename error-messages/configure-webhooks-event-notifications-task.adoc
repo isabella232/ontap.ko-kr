@@ -1,0 +1,102 @@
+---
+permalink: error-messages/configure-webhooks-event-notifications-task.html 
+sidebar: sidebar 
+keywords: configure, important, ems, events, receive, email, notifications, forward, rest, api, webhook 
+summary: REST API 서버에서 이벤트 알림을 받으려면 REST API webhook 지원을 구성해야 합니다. 
+---
+= 알림을 REST API 서버로 전달하도록 중요한 EMS 이벤트를 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+REST API 서버에서 이벤트 알림을 받으려면 REST API webhook 지원을 구성해야 합니다.
+
+.시작하기 전에
+* EMS 이벤트를 수신할 수 있는 REST API/webhook 지원 서버가 필요합니다.
+* REST API 서버는 서버측 또는 클라이언트측 보안 인증서를 활용할 수 있습니다.
+* 인증서 구성은 대상에 따라 결정됩니다. 대상을 기반으로 하는 인증서 구성에 대한 개요는 다음을 참조하십시오.
++
+** * http *: - 관련 인증서가 없습니다
+** *https*: - ONTAP 시스템에서 서버 인증서를 확인합니다. 선택적으로 ONTAP 시스템에서 서버가 확인할 클라이언트 인증서를 보내도록 구성할 수 있습니다.
+
+
+* 클라이언트 측 인증서에는 소스 ONTAP 시스템에 설치할 수 있는 개인 키와 인증서가 모두 필요합니다.
+
+
+
+NOTE: 클라이언트 및 서버 인증서 REST API를 모두 앞으로 구성하는 경우 클라이언트측 인증서를 사용하려면 서버 측 인증서가 필요합니다. 따라서 클라이언트쪽 지침에 따라 두 가지 인증 방법을 모두 사용해야 합니다.
+
+
+
+== HTTP REST API forward 구성
+
+ONTAP 명령줄에 명령을 입력하여 클러스터가 실행 중일 때마다 이 작업을 수행할 수 있습니다.
+
+.단계
+. 필터에 대한 새 대상 'restapi-EMS' 목적지를 작성하십시오. '중요 이벤트':
++
+이벤트 알림 목적지 create-name restapi-ems-rest-api-url\http://<url_to_rest_api_server>`
+
+. 중요 이벤트 필터를 새 restapi-EMS 대상과 연결하는 알림을 생성합니다.
++
+이벤트 알림 create-filter-name important-events-destinations reapi-EMS
+
+
+
+
+
+== 서버 인증서 HTTPS REST API 전달을 구성합니다
+
+이 절차에서는 서버 측 개인 키와 공개 인증서를 이미 생성했다고 가정합니다. 또한 ONTAP에 설치할 수 있는 루트 인증서가 있다고 가정합니다.
+
+.단계
+. REST API 서버에 적절한 서버 개인 키와 공용 인증서를 설치합니다.
++
+
+NOTE: 특정 지침은 서버에 따라 다릅니다.
+
+. ONTAP에 서버 루트 인증서를 설치합니다.
++
+보안 인증서설치형 server-ca
+
++
+명령을 실행하면 공용 인증서가 쿼리됩니다.
+
+. 필터 '중요 이벤트'의 'restapi-EMS' 대상을 생성합니다.
++
+서버측 인증서를 사용하려면 HTTPS 구성표를 사용해야 합니다.
+
++
+이벤트 알림 목적지 create-name restapi-ems-rest-api-url\https://<url_to_rest_api_server>`
+
+. 중요 이벤트 필터를 새 restapi-EMS 대상과 연결하는 알림을 생성합니다.
++
+이벤트 알림 create-filter-name important-events-destinations reapi-EMS
+
+
+
+
+
+== 클라이언트 인증서 HTTPS REST API 전달을 구성합니다
+
+클라이언트 인증서 사용은 선택 사항이며 서버에 의한 클라이언트 인증이 필요한 경우에만 필요합니다. 이 절차에서는 클라이언트 개인 키와 공개 인증서를 이전에 생성했다고 가정합니다.
+
+.단계
+. REST API 서버에 적절한 루트 및 중간 인증서를 설치하여 클라이언트 인증서를 검증합니다.
+. ONTAP에 클라이언트 인증서를 설치합니다.
++
+보안 인증서 설치형 클라이언트
+
++
+이 명령을 실행하면 개인 키와 공용 인증서를 쿼리합니다.
+
+. 필터 '중요 이벤트'의 'restapi-EMS' 대상을 생성합니다.
++
+이벤트 알림 목적지 create-name restapi-EMS-REST-API-URL https://<url_to_rest_api_server>[] -certificate-authority <클라이언트 인증서의 발급자> -certificate-serial <클라이언트 인증서의 직렬>'
+
+. 중요 이벤트 필터를 새 restapi-EMS 대상과 연결하는 알림을 생성합니다.
++
+이벤트 알림 create-filter-name important-events-destinations reapi-EMS
+
+

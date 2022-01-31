@@ -1,0 +1,56 @@
+---
+permalink: smb-admin/enable-disable-odx-task.html 
+sidebar: sidebar 
+keywords: enable, disable, odx, storage, virtual, machine, svm, default, support, copy, offload, smb, enable, enable or disable odx 
+summary: '스토리지 가상 시스템(SVM)에서 ODX를 사용하거나 사용하지 않도록 설정할 수 있습니다. 기본적으로 SMB 3.0도 사용하도록 설정된 경우 ODX 복사 오프로드를 지원합니다.' 
+---
+= ODX를 설정 또는 해제합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+스토리지 가상 시스템(SVM)에서 ODX를 사용하거나 사용하지 않도록 설정할 수 있습니다. 기본적으로 SMB 3.0도 사용하도록 설정된 경우 ODX 복사 오프로드를 지원합니다.
+
+SMB 3.0을 활성화해야 합니다.
+
+SMB 3.0을 비활성화하면 ONTAP도 SMB ODX를 비활성화합니다. SMB 3.0을 다시 설정하는 경우 SMB ODX를 수동으로 다시 설정해야 합니다.
+
+.단계
+. 권한 수준을 Advanced:'Set-Privilege advanced'로 설정합니다
+. 다음 작업 중 하나를 수행합니다.
++
+|===
+| ODX 복사 오프로드 기능을 사용하려면... | 명령 입력... 
+
+
+ a| 
+활성화됨
+ a| 
+'vserver cifs options modify -vserver vserver_name -copy -offload -enabled true'
+
+
+
+ a| 
+사용 안 함
+ a| 
+'vserver cifs options modify -vserver vserver_name -copy -offload -enabled false'
+
+|===
+. admin 권한 수준으로 복귀:'et-Privilege admin'입니다
+
+
+다음 예에서는 SVM VS1 에서 ODX 복사 오프로드를 활성화합니다.
+
+[listing]
+----
+cluster1::> set -privilege advanced
+Warning: These advanced commands are potentially dangerous; use them
+only when directed to do so by technical support personnel.
+Do you wish to continue? (y or n): y
+
+cluster1::*> vserver cifs options modify -vserver vs1 -copy-offload-enabled true
+
+cluster1::*> set -privilege admin
+----
+xref:server-options-reference.adoc[사용 가능한 SMB 서버 옵션]

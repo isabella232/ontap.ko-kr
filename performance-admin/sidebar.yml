@@ -1,0 +1,82 @@
+---
+section: performance-admin
+title: CLI를 통한 성능 관리
+entries:
+- title: 개요
+  url: "/performance-admin/index.html"
+- title: 성능을 모니터링합니다
+  entries:
+  - title: 워크플로우
+    url: "/performance-admin/monitor-workflow-task.html"
+  - title: 사용 중인 VMware 환경이 지원되는지 확인합니다
+    url: "/performance-admin/verify-environment-supported-task.html"
+  - title: Active IQ Unified Manager 워크시트
+    url: "/performance-admin/worksheet-reference.html"
+  - title: Active IQ Unified Manager를 설치합니다
+    entries:
+    - title: Active IQ Unified Manager 다운로드 및 배포
+      url: "/performance-admin/download-deploying-unified-manager-task.html"
+    - title: 초기 Active IQ Unified Manager 설정을 구성합니다
+      url: "/performance-admin/configure-initial-unified-manager-settings-task.html"
+  - title: 모니터링할 클러스터를 지정합니다
+    url: "/performance-admin/specify-clusters-monito-task.html"
+  - title: 기본 모니터링 작업을 설정합니다
+    entries:
+    - title: 매일 모니터링을 수행합니다
+      url: "/performance-admin/perform-daily-monitoring-task.html"
+    - title: 매주 및 매월 성과 추세를 사용하여 성과 문제를 식별합니다
+      url: "/performance-admin/weekly-monthly-performance-trends-identify-issues-task.html"
+    - title: 성능 임계값을 사용하여 이벤트 알림을 생성합니다
+      url: "/performance-admin/performance-thresholds-generate-event-task.html"
+    - title: 성능 임계값을 설정합니다
+      url: "/performance-admin/set-performance-thresholds-task.html"
+    - title: 알림을 추가합니다
+      url: "/performance-admin/add-alerts-task.html"
+  - title: Active IQ Unified Manager의 성능 문제를 식별합니다
+    url: "/performance-admin/identify-performance-issues-unified-manager-task.html"
+- title: Active IQ 디지털 어드바이저를 사용하여 시스템 성능을 확인합니다
+  url: "/performance-admin/active-iq-digital-advisor-view-performance-concept.html"
+- title: 성능 문제 관리
+  entries:
+  - title: 워크플로우
+    url: "/performance-admin/identify-resolve-issues-workflow-task.html"
+  - title: 기본 인프라 검사를 수행합니다
+    entries:
+    - title: 스토리지 시스템의 프로토콜 설정을 확인합니다
+      entries:
+      - title: NFS TCP 최대 전송 크기를 확인합니다
+        url: "/performance-admin/check-nfs-tcp-read-write-size-task.html"
+      - title: iSCSI TCP 읽기/쓰기 크기를 확인합니다
+        url: "/performance-admin/check-iscsi-tcp-read-write-size-task.html"
+      - title: CIFS 다중통신 설정을 점검하십시오
+        url: "/performance-admin/check-smb-multiplex-settings-task.html"
+      - title: FC 어댑터의 포트 속도를 확인합니다
+        url: "/performance-admin/check-fc-adapter-port-speed-task.html"
+    - title: 데이터 스위치의 네트워크 설정을 확인합니다
+      url: "/performance-admin/check-network-settings-data-switches-task.html"
+    - title: 스토리지 시스템에서 MTU 네트워크 설정을 확인합니다
+      url: "/performance-admin/check-network-settings-task.html"
+    - title: 디스크 처리량 및 지연 시간 확인
+      url: "/performance-admin/check-disk-response-times-task.html"
+    - title: 노드 간 처리량과 지연 시간을 확인합니다
+      url: "/performance-admin/measure-latency-throughput-nodes-task.html"
+  - title: 워크로드 관리
+    entries:
+    - title: 남은 성능 용량을 확인합니다
+      url: "/performance-admin/identify-remaining-performance-capacity-task.html"
+    - title: 트래픽이 높은 클라이언트 또는 파일을 식별합니다
+      url: "/performance-admin/identify-most-active-instance-task.html"
+    - title: QoS로 처리량 보장
+      entries:
+      - title: 개요
+        url: "/performance-admin/guarantee-throughput-qos-task.html"
+      - title: 처리량 플로어 v2를 활성화 또는 비활성화합니다
+        url: "/performance-admin/enable-disable-throughput-floors-v2-task.html"
+      - title: 스토리지 QoS 워크플로우
+        url: "/performance-admin/qos-workflow-concept.html"
+      - title: QoS를 사용하여 처리량 한도를 설정합니다
+        url: "/performance-admin/set-throughput-ceiling-qos-task.html"
+      - title: QoS를 사용하여 처리량 기반 설정
+        url: "/performance-admin/set-throughput-floor-qos-task.html"
+      - title: 적응형 QoS 정책 그룹을 사용합니다
+        url: "/performance-admin/adaptive-qos-policy-groups-task.html"

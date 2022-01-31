@@ -1,0 +1,32 @@
+---
+permalink: s3-config/enable-ontap-s3-access-remote-fabricpool-task.html 
+sidebar: sidebar 
+keywords: enable, ontap s3, access, remote, fabricpool tiering 
+summary: 'ONTAP S3를 원격 FabricPool 용량(클라우드) 계층으로 사용하려면 ONTAP S3 관리자가 원격 ONTAP 클러스터 관리자에게 S3 서버 구성에 대한 정보를 제공해야 합니다.' 
+---
+= 원격 FabricPool 계층화에 대해 ONTAP S3 액세스를 설정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP S3를 원격 FabricPool 용량(클라우드) 계층으로 사용하려면 ONTAP S3 관리자가 원격 ONTAP 클러스터 관리자에게 S3 서버 구성에 대한 정보를 제공해야 합니다.
+
+FabricPool 클라우드 계층을 구성하려면 다음 S3 서버 정보가 필요합니다.
+
+* 서버 이름(FQDN)
+* 버킷 이름
+* CA 인증서
+* 액세스 키
+* 암호(암호 액세스 키)
+
+
+또한 다음과 같은 네트워킹 구성이 필요합니다.
+
+* DNS 서버에 S3 서버의 FQDN 이름과 LIF의 IP 주소를 포함하여 admin SVM용으로 구성된 원격 ONTAP S3 서버의 호스트 이름에 대한 항목이 있어야 합니다.
+* 클러스터 피어링이 필요하지 않더라도 로컬 및 원격 클러스터 모두에 인터클러스터 LIF를 구성해야 합니다.
+
+
+ONTAP S3를 클라우드 계층으로 구성하는 방법에 대한 FabricPool 설명서를 참조하십시오.
+
+link:../fabricpool/index.html["FabricPool를 사용하여 스토리지 계층 관리"]

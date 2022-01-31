@@ -1,0 +1,58 @@
+---
+permalink: nfs-admin/control-nfs-requests-nonreserved-ports-task.html 
+sidebar: sidebar 
+keywords: control, nfs, request, nonreserved, port 
+summary: mount-rootonly 옵션을 설정하여 예약되지 않은 포트에서 NFS 마운트 요청을 거부할 수 있습니다. 예약되지 않은 포트의 모든 NFS 요청을 거부하려면 -nfs-rootonly 옵션을 설정하면 됩니다. 
+---
+= 예약되지 않은 포트에서 NFS 요청 제어
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'-mount-rootonly' 옵션을 설정하여 예약되지 않은 포트에서 NFS 마운트 요청을 거부할 수 있습니다. 예약되지 않은 포트의 모든 NFS 요청을 거부하려면 '-nfs-rootonly' 옵션을 설정합니다.
+
+기본적으로 '-mount-rootonly' 옵션은 'enabled'입니다.
+
+기본적으로 '-nfs-rootonly' 옵션은 '사용 안 함'입니다.
+
+이러한 옵션은 NULL 프로시저에는 적용되지 않습니다.
+
+.단계
+. 다음 작업 중 하나를 수행합니다.
++
+[cols="35,65"]
+|===
+
+
+| 원하는 작업 | 명령 입력... 
+
+
+ a| 
+예약되지 않은 포트에서 NFS 마운트 요청을 허용합니다
+ a| 
+'vserver nfs modify -vserver vserver_name -mount -rootonly disabled'
+
+
+
+ a| 
+예약되지 않은 포트에서 NFS 마운트 요청을 거부합니다
+ a| 
+'vserver nfs modify -vserver vserver_name -mount -rootonly enabled'
+
+
+
+ a| 
+예약되지 않은 포트에서 모든 NFS 요청을 허용합니다
+ a| 
+'vserver nfs modify -vserver vserver_name -nfs-rootonly disabled'
+
+
+
+ a| 
+예약되지 않은 포트의 모든 NFS 요청을 거부합니다
+ a| 
+'vserver nfs modify -vserver vserver_name -nfs-rootonly enabled'
+
+|===
+

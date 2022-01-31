@@ -1,0 +1,20 @@
+---
+permalink: smb-admin/enable-disable-access-based-enumeration-client-task.html 
+sidebar: sidebar 
+keywords: enable, disable, access-based, enumeration, abe, smb, share, windows, client, configure, setting, cifs, server, enable or disable access-based enumeration from a windows client 
+summary: 'Windows 클라이언트에서 SMB 공유에 대해 ABE(액세스 기반 열거)를 설정하거나 해제할 수 있습니다. 그러면 CIFS 서버에 연결하지 않고도 이 공유 설정을 구성할 수 있습니다.' 
+---
+= Windows 클라이언트에서 액세스 기반 열거를 사용하거나 사용하지 않도록 설정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Windows 클라이언트에서 SMB 공유에 대해 ABE(액세스 기반 열거)를 설정하거나 해제할 수 있습니다. 그러면 CIFS 서버에 연결하지 않고도 이 공유 설정을 구성할 수 있습니다.
+
+.단계
+. ABE를 지원하는 Windows 클라이언트에서 'abecmd[/enable|/disable][/server cifs_server_name]{/all|share_name}' 명령을 입력합니다
++
+"abecmd" 명령에 대한 자세한 내용은 Windows 클라이언트 설명서를 참조하십시오.
+
+

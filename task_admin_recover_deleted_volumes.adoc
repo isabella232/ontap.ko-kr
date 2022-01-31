@@ -1,0 +1,48 @@
+---
+sidebar: sidebar 
+permalink: task_admin_recover_deleted_volumes.html 
+keywords: netapp, ontap, administration, recover, recovering, recovery, deleted, undelete, volume, volumes, recover deleted volume, SVM, storage VM, vserver, FlexVol volume, purging volume, volume retention time, deleting a volume 
+summary: 하나 이상의 FlexVol 볼륨을 실수로 삭제한 경우 이러한 볼륨을 복구할 수 있습니다. 볼륨을 삭제하여 볼륨을 영구적으로 삭제할 수도 있습니다. 
+---
+= 삭제된 볼륨을 복구합니다
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+하나 이상의 FlexVol 볼륨을 실수로 삭제한 경우, System Manager를 사용하여 해당 볼륨을 복구할 수 있습니다. ONTAP 9.8부터 System Manager를 사용하여 FlexGroup 볼륨을 복구할 수도 있습니다. 볼륨을 삭제하여 볼륨을 영구적으로 삭제할 수도 있습니다.
+
+스토리지 VM 레벨에서 볼륨 보존 시간을 설정할 수 있습니다. 기본적으로 볼륨 보존 시간은 12시간으로 설정됩니다.
+
+
+
+== 삭제된 볼륨 선택
+
+.단계
+. 스토리지 > 볼륨 * 을 클릭합니다.
+. 자세히 > 삭제된 볼륨 표시 * 를 클릭합니다.
+. 볼륨을 선택하고 원하는 작업을 클릭하여 볼륨을 복구하거나 영구적으로 삭제합니다.
+
+
+
+
+== 볼륨 구성을 재설정합니다
+
+볼륨을 삭제하면 볼륨과 연결된 구성이 삭제됩니다. 볼륨을 복구해도 모든 구성이 재설정되지 않습니다. 볼륨을 원래 상태로 되돌리기 위해 볼륨을 복구한 후 다음 작업을 수동으로 수행합니다.
+
+.단계
+. 볼륨 이름을 바꿉니다.
+. 연결 경로(NAS)를 설정합니다.
+. 볼륨의 LUN(SAN)에 대한 매핑을 생성합니다.
+. 스냅샷 정책 및 엑스포트 정책을 볼륨과 연결합니다.
+. 볼륨에 대한 새 할당량 정책 규칙을 추가합니다.
+. 볼륨에 대한 QoS 정책을 추가합니다.
+

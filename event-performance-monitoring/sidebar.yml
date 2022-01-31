@@ -1,0 +1,38 @@
+---
+section: event-performance-monitoring
+title: 이벤트 및 성능 모니터링
+url: "/event-performance-monitoring/index.html"
+entries:
+- title: System Manager로 클러스터 성능을 봅니다
+  entries:
+  - title: 클러스터 성능 개요
+    url: "/concept_cluster_performance_overview.html"
+  - title: 대시보드 투어
+    url: "/task_cp_dashboard_tour.html"
+  - title: 핫 객체를 식별합니다
+    url: "/task_cp_id_hot_objects.html"
+  - title: QoS를 수정합니다
+    url: "/task_admin_modify_qos.html"
+- title: System Manager를 사용하여 클러스터 성능을 모니터링합니다
+  url: "/task_cp_monitor_cluster_performance_sm.html"
+- section: performance-config
+- section: performance-admin
+- title: Unified Manager로 클러스터 성능 모니터링
+  url: "/task_cp_monitor_cluster_performance_um.html"
+- title: Cloud Insights로 클러스터 성능 모니터링
+  url: "/task_cp_monitor_cluster_performance_ci.html"
+- title: 파일 시스템 분석
+  entries:
+  - title: 개요
+    url: "/concept_nas_file_system_analytics_overview.html"
+  - title: 파일 시스템 분석 설정
+    url: "/task_nas_file_system_analytics_enable.html"
+  - title: 파일 시스템 작업을 봅니다
+    url: "/task_nas_file_system_analytics_view.html"
+  - title: 활동 추적을 활성화합니다
+    url: "/file-system-analytics/activity-tracking-task.html"
+  - title: 분석을 기반으로 수정 조치 수행
+    url: "/task_nas_file_system_analytics_take_corrective_action.html"
+  - title: 고려 사항
+    url: "/file-system-analytics/considerations-concept.html"
+- section: error-messages

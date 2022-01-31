@@ -1,0 +1,129 @@
+---
+permalink: system-admin/access-cluster-ssh-task.html 
+sidebar: sidebar 
+keywords: access, ssh, cluster, administrative, task 
+summary: 클러스터에 SSH 요청을 실행하여 관리 작업을 수행할 수 있습니다. SSH는 기본적으로 사용하도록 설정됩니다. 
+---
+= SSH를 사용하여 클러스터에 액세스합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클러스터에 SSH 요청을 실행하여 관리 작업을 수행할 수 있습니다. SSH는 기본적으로 사용하도록 설정됩니다.
+
+.무엇을 &#8217;필요로 할거야
+* 'sh'를 액세스 방법으로 사용하도록 구성된 사용자 계정이 있어야 합니다.
++
+'보안 로그인' 명령어의 '-application' 파라미터는 사용자 계정에 대한 접속 방식을 지정한다. '보안 로그인' man 페이지에는 추가 정보가 포함되어 있습니다.
+
+* AD(Active Directory) 도메인 사용자 계정을 사용하여 클러스터에 액세스하는 경우 CIFS 지원 SVM(스토리지 가상 머신)을 통해 클러스터의 인증 터널을 설정했을 수 있습니다. 또한 AD 도메인 사용자 계정도 액세스 방법으로 "sh"를 사용하고 인증 방법으로 "domain"을 사용하여 클러스터에 추가되어야 합니다.
+* IPv6 연결을 사용하는 경우 IPv6가 이미 클러스터에서 구성 및 활성화되어 있어야 하며, 방화벽 정책이 이미 IPv6 주소로 구성되어 있어야 합니다.
++
+network options ipv6 show 명령을 실행하면 IPv6의 활성화 여부가 표시됩니다. 'system services firewall policy show' 명령은 방화벽 정책을 표시합니다.
+
+
+
+.이 작업에 대해
+* OpenSSH 5.7 이상 클라이언트를 사용해야 합니다.
+* SSH v2 프로토콜만 지원되며 SSH v1은 지원되지 않습니다.
+* ONTAP는 노드당 최대 64개의 동시 SSH 세션을 지원합니다.
++
+클러스터 관리 LIF가 노드에 상주하는 경우 이 제한을 노드 관리 LIF와 공유합니다.
+
++
+들어오는 연결의 비율이 초당 10보다 높을 경우 서비스가 60초 동안 일시적으로 비활성화됩니다.
+
+* ONTAP는 SSH에 대해 AES 및 3DES 암호화 알고리즘(_ciphers _ 라고도 함)만 지원합니다.
++
+AES는 키 길이가 128, 192 및 256비트인 경우 지원됩니다. 3DES는 원래 DES와 마찬가지로 키 길이가 56비트이지만 세 번 반복됩니다.
+
+* FIPS 모드가 켜져 있는 경우 SSH 클라이언트는 연결이 성공할 수 있도록 Elliptic Curve Digital Signature Algorithm(ECDSA) 공개 키 알고리즘과 협상해야 합니다.
+* Windows 호스트에서 ONTAP CLI에 액세스하려는 경우 PuTTY와 같은 타사 유틸리티를 사용할 수 있습니다.
+* Windows AD 사용자 이름을 사용하여 ONTAP에 로그인하는 경우 ONTAP에서 AD 사용자 이름과 도메인 이름을 만들 때 사용한 대문자나 소문자를 동일하게 사용해야 합니다.
++
+AD 사용자 이름과 도메인 이름은 대소문자를 구분하지 않습니다. 그러나 ONTAP 사용자 이름은 대/소문자를 구분합니다. ONTAP에서 생성된 사용자 이름과 AD에서 생성된 사용자 이름 간의 케이스 불일치로 인해 로그인 오류가 발생합니다.
+
+* ONTAP 9.3부터 로컬 관리자 계정에 대한 SSH 다단계 인증을 활성화할 수 있습니다.
++
+SSH 다단계 인증을 사용하면 공개 키와 암호를 사용하여 사용자를 인증할 수 있습니다.
+
+* ONTAP 9.4부터 LDAP 및 NIS 원격 사용자에 대한 SSH 다중 인증을 설정할 수 있습니다.
+
+
+.단계
+. 관리 호스트에서 'sh' 명령을 다음 형식 중 하나로 입력합니다.
++
+** '* ssh_username@hostname_or_ip_[_command_] *'
+** '* ssh-l_username hostname_or_ip_[_command_] * '
+
+
+
+
+AD 도메인 사용자 계정을 사용하는 경우 '_username_'을 '_domainname\\AD_accountname_'(도메인 이름 뒤에 이중 백슬래시를 사용하여) 또는 '"_domainname\AD_accountname_"'(큰따옴표로 묶고 도메인 이름 뒤에 백슬래시를 하나씩 붙여야 합니다) 형식으로 지정해야 합니다.
+
+'_hostname_or_ip_'은 클러스터 관리 LIF 또는 노드 관리 LIF의 호스트 이름 또는 IP 주소입니다. 클러스터 관리 LIF를 사용하는 것이 좋습니다. IPv4 또는 IPv6 주소를 사용할 수 있습니다.
+
+SSH-Interactive 세션에는 '_command_'가 필요하지 않습니다.
+
+다음 예에서는 사용자 계정 ""Joe""가 클러스터 관리 LIF가 10.72.137.28인 클러스터에 액세스하는 SSH 요청을 발행하는 방법을 보여줍니다.
+
+[listing]
+----
+$ ssh joe@10.72.137.28
+Password:
+cluster1::> cluster show
+Node                  Health  Eligibility
+--------------------- ------- ------------
+node1                 true    true
+node2                 true    true
+2 entries were displayed.
+----
+[listing]
+----
+$ ssh -l joe 10.72.137.28 cluster show
+Password:
+Node                  Health  Eligibility
+--------------------- ------- ------------
+node1                 true    true
+node2                 true    true
+2 entries were displayed.
+----
+다음 예에서는 "DOMAIN1" 도메인의 사용자 계정 ""John""이 클러스터 관리 LIF가 10.72.137.28인 클러스터에 액세스하기 위한 SSH 요청을 실행할 수 있는 방법을 보여줍니다.
+
+[listing]
+----
+$ ssh DOMAIN1\\john@10.72.137.28
+Password:
+cluster1::> cluster show
+Node                  Health  Eligibility
+--------------------- ------- ------------
+node1                 true    true
+node2                 true    true
+2 entries were displayed.
+----
+[listing]
+----
+$ ssh -l "DOMAIN1\john" 10.72.137.28 cluster show
+Password:
+Node                  Health  Eligibility
+--------------------- ------- ------------
+node1                 true    true
+node2                 true    true
+2 entries were displayed.
+----
+다음 예에서는 사용자 계정 ""Joe""가 클러스터 관리 LIF가 10.72.137.32인 클러스터에 액세스하는 SSH MFA 요청을 발행하는 방법을 보여줍니다.
+
+[listing]
+----
+$ ssh joe@10.72.137.32
+Authenticated with partial success.
+Password:
+cluster1::> cluster show
+Node                  Health  Eligibility
+--------------------- ------- ------------
+node1                 true    true
+node2                 true    true
+2 entries were displayed.
+----
+link:../authentication/index.html["관리자 인증 및 RBAC"]

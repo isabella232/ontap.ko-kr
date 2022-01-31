@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: high-availability/ha_commands_for_enabling_and_disabling_storage_failover.html 
+keywords: ontap, high, availability, ha, pair, commands, enabling, disabling, storage, failover 
+summary: 스토리지 페일오버를 설정 및 해제하는 명령입니다 
+---
+= 스토리지 페일오버를 설정 및 해제하는 명령입니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+다음 명령을 사용하여 스토리지 페일오버 기능을 설정 및 해제합니다.
+
+|===
+
+
+| 원하는 작업 | 이 명령 사용... 
+
+
+| 테이크오버가 사용되도록 설정합니다 | '스토리지 장애 조치 수정 사용 True-node nodename' 
+
+
+| 테이크오버를 사용하지 않도록 설정합니다 | 'Storage failover modify -enabled false-node nodename'을 선택합니다 
+|===
+
+NOTE: 유지보수 절차의 일부로 필요한 경우에만 스토리지 페일오버를 해제해야 합니다. 스토리지 페일오버를 비활성화할지 여부에 대해 궁금한 사항이 있는 경우 NetApp 지원에 문의하십시오.

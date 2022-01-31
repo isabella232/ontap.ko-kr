@@ -1,0 +1,92 @@
+---
+sidebar: sidebar 
+permalink: task_admin_expand_storage.html 
+keywords: system manager, expand, expanding, add, adding, add LUN to existing volume, storage, increase storage, increase size of LUN, increase size of volume, more capacity, storage capacity 
+summary: 호스트에서 더 많은 공간을 사용할 수 있도록 볼륨 또는 LUN의 크기를 늘릴 수 있습니다. ONTAP 9.8부터 System Manager를 사용하여 기존 볼륨에 LUN을 추가할 수 있습니다. 
+---
+= 스토리지를 확장합니다
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+System Manager를 사용하면 호스트에서 더 많은 공간을 사용할 수 있도록 볼륨 또는 LUN의 크기를 늘릴 수 있습니다. LUN 크기는 포함된 볼륨의 크기를 초과할 수 없습니다.
+
+* <<Increase the size of a volume>>
+* <<Increase the size of a LUN>>
+
+
+또한 기존 볼륨에 LUN을 추가할 수도 있습니다. ONTAP 9.7 또는 9.8과 함께 System Manager를 사용할 때는 프로세스가 다릅니다
+
+* <<Add a LUN to an existing volume (ONTAP 9.7)>>
+* <<Add a LUN to an existing volume (ONTAP 9.8)>>
+
+
+또한 ONTAP 9.8부터 System Manager를 사용하여 기존 볼륨에 LUN을 추가할 수 있습니다.
+
+
+
+== 볼륨 크기를 늘립니다
+
+.단계
+. 스토리지 > 볼륨 * 을 클릭합니다.
+. 크기를 늘릴 볼륨의 이름 위에 마우스를 놓습니다.
+. 을 클릭합니다 image:icon_kabob.gif["Kabob 아이콘"].
+. 편집 * 을 선택합니다.
+. 용량 값을 늘립니다.
+
+
+
+
+== LUN의 크기를 늘립니다
+
+.단계
+. 스토리지 > LUN * 을 클릭합니다.
+. 크기를 늘릴 LUN 이름 위로 마우스를 가져갑니다.
+. 을 클릭합니다 image:icon_kabob.gif["Kabob 아이콘"].
+. 편집 * 을 선택합니다.
+. 용량 값을 늘립니다.
+
+
+
+
+== 기존 볼륨에 LUN 추가(ONTAP 9.7)
+
+ONTAP 9.7과 함께 System Manager를 사용하여 기존 볼륨에 LUN을 추가하려면 먼저 클래식 보기로 전환해야 합니다.
+
+.단계
+. ONTAP 9.7에서 System Manager에 로그인합니다.
+. 클래식 보기 * 를 클릭합니다.
+. 스토리지 > LUN > 생성 * 을 선택합니다
+. LUN을 생성할 세부 정보를 지정합니다.
+. LUN을 추가할 기존 볼륨 또는 qtree를 지정합니다.
+
+
+
+
+== 기존 볼륨에 LUN 추가(ONTAP 9.8)
+
+ONTAP 9.8부터 System Manager를 사용하여 이미 LUN이 하나 이상 있는 기존 볼륨에 LUN을 추가할 수 있습니다.
+
+.단계
+. 스토리지 > LUN * 을 클릭합니다.
+. 추가 + * 를 클릭합니다.
+. Add LUNs * 창에서 필드를 작성합니다.
+. 추가 옵션 * 을 선택합니다.
+. Group with related LUNs * 확인란을 선택합니다.
+. 드롭다운 필드에서 다른 LUN을 추가할 볼륨에 있는 LUN을 선택합니다.
+. 나머지 필드를 작성합니다. 호스트 매핑 * 의 경우 라디오 버튼 중 하나를 클릭합니다.
++
+** * 기존 이니시에이터 그룹 * 목록에서 기존 그룹을 선택할 수 있습니다.
+** * 새 이니시에이터 그룹 * 필드에 새 그룹을 입력할 수 있습니다.
+
+
+

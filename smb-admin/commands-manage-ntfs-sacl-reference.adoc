@@ -1,0 +1,46 @@
+---
+permalink: smb-admin/commands-manage-ntfs-sacl-reference.html 
+sidebar: sidebar 
+keywords: ontap, command, managing, manage, managing, sacl, access, control, entries, aces, ntfs, exist, modify, deleting, delete, display, commands for managing ntfs sacl access control entries 
+summary: 'SACL ACE(액세스 제어 항목)를 관리하기 위한 특정 ONTAP 명령이 있습니다. 언제든지 ACE를 NTFS SACL에 추가할 수 있습니다. SACL의 ACE에 대한 정보를 수정, 삭제 및 표시하여 기존 NTFS SACL을 관리할 수도 있습니다.' 
+---
+= NTFS SACL 액세스 제어 항목을 관리하는 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SACL ACE(액세스 제어 항목)를 관리하기 위한 특정 ONTAP 명령이 있습니다. 언제든지 ACE를 NTFS SACL에 추가할 수 있습니다. SACL의 ACE에 대한 정보를 수정, 삭제 및 표시하여 기존 NTFS SACL을 관리할 수도 있습니다.
+
+|===
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+ACE를 만들어 NTFS SACL에 추가합니다
+ a| 
+'vserver security file-directory NTFS SACL add'
+
+
+
+ a| 
+NTFS SACL에서 기존 ACE를 수정합니다
+ a| 
+'vserver security file-directory NTFS SACL modify'를 참조하십시오
+
+
+
+ a| 
+NTFS SACL의 기존 ACE에 대한 정보를 표시합니다
+ a| 
+'vserver security file-directory NTFS SACL show'
+
+
+
+ a| 
+NTFS SACL에서 기존 ACE를 제거합니다
+ a| 
+'vserver security file-directory NTFS SACL remove'
+
+|===
+자세한 내용은 'vserver security file-directory NTFS SACL' 명령에 대한 man 페이지를 참조하십시오.

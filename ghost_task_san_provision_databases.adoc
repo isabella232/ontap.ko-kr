@@ -1,0 +1,15 @@
+---
+sidebar: sidebar 
+permalink: task_san_provision_databases.html 
+keywords: netapp, ontap, san, storage, provision, databases 
+summary: System Manager는 현재 SAN용 데이터베이스 프로비저닝을 지원하지 않습니다. 
+---
+= 데이터베이스를 위한 SAN 스토리지 프로비저닝
+
+
+
+
+== 데이터베이스를 위한 SAN 스토리지 프로비저닝
+
+[role="lead"]
+System Manager는 현재 SAN용 데이터베이스 프로비저닝을 지원하지 않습니다. ONTAP SAN 지원에 대한 자세한 내용은 를 참조하십시오 link:concept_san_provision_overview.html["SAN 스토리지 용량 할당"].

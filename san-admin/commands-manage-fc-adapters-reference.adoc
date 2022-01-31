@@ -1,0 +1,117 @@
+---
+permalink: san-admin/commands-manage-fc-adapters-reference.html 
+sidebar: sidebar 
+keywords: commands, managing, fc, adapters 
+summary: FC 명령을 사용하여 스토리지 컨트롤러에 대한 FC 타겟 어댑터, FC 이니시에이터 어댑터 및 온보드 FC 어댑터를 관리할 수 있습니다. FC 프로토콜과 FC-NVMe 프로토콜을 위해 FC 어댑터를 관리하는 데 동일한 명령이 사용됩니다. 
+---
+= FC 어댑터를 관리하는 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FC 명령을 사용하여 스토리지 컨트롤러에 대한 FC 타겟 어댑터, FC 이니시에이터 어댑터 및 온보드 FC 어댑터를 관리할 수 있습니다. FC 프로토콜과 FC-NVMe 프로토콜을 위해 FC 어댑터를 관리하는 데 동일한 명령이 사용됩니다.
+
+FC 이니시에이터 어댑터 명령은 노드 레벨에서만 작동합니다. FC Initiator Adapter 명령을 사용하려면 먼저 'run-node_node_name_' 명령을 사용해야 합니다.
+
+
+
+== FC 타겟 어댑터를 관리하는 명령입니다
+
+[cols="2*"]
+|===
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+노드에 FC 어댑터 정보를 표시합니다
+ a| 
+네트워크 FCP 어댑터가 표시됩니다
+
+
+
+ a| 
+FC 타겟 어댑터 매개 변수를 수정합니다
+ a| 
+네트워크 FCP 어댑터 수정
+
+
+
+ a| 
+FC 프로토콜 트래픽 정보를 표시합니다
+ a| 
+'run-node_node_name_sysstat -f'
+
+
+
+ a| 
+FC 프로토콜이 실행된 시간을 표시합니다
+ a| 
+'run-node_node_name_uptime'
+
+
+
+ a| 
+어댑터 구성 및 상태를 표시합니다
+ a| 
+'run-node_node_name_sysconfig-v_adapter_'
+
+
+
+ a| 
+설치된 확장 카드와 구성 오류가 있는지 확인합니다
+ a| 
+'run-node_node_name_sysconfig-ac'
+
+
+
+ a| 
+명령에 대한 man 페이지를 봅니다
+ a| 
+man_command_name _
+
+|===
+
+
+== FC 이니시에이터 어댑터를 관리하는 명령입니다
+
+[cols="2*"]
+|===
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+노드의 모든 이니시에이터 및 해당 어댑터에 대한 정보를 표시합니다
+ a| 
+'run-node_node_name_storage show adapter'입니다
+
+
+
+ a| 
+어댑터 구성 및 상태를 표시합니다
+ a| 
+'run-node_node_name_sysconfig-v_adapter_'
+
+
+
+ a| 
+설치된 확장 카드와 구성 오류가 있는지 확인합니다
+ a| 
+'run-node_node_name_sysconfig-ac'
+
+|===
+
+
+== 온보드 FC 어댑터를 관리하는 명령입니다
+
+[cols="2*"]
+|===
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+온보드 FC 포트의 상태를 표시합니다
+ a| 
+'run-node_node_name_system hardware unified-connect show
+
+|===

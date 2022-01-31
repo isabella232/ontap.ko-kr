@@ -1,0 +1,45 @@
+---
+permalink: data-protection/initialize-replication-relationship-task.html 
+sidebar: sidebar 
+keywords: initialize, replication, relationship, snapmirror, snap mirror, synchronous, transfer, snapshot copy, 
+summary: 모든 관계 유형에 대해 초기화는 기본 전송을 수행합니다. 즉, 소스 볼륨의 스냅샷 복사본을 만든 다음 해당 복사본과 대상 볼륨에 참조하는 모든 데이터 블록을 전송합니다. 그렇지 않으면 전송 내용이 정책에 따라 달라집니다. 
+---
+= 복제 관계를 초기화합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+모든 관계 유형에 대해 초기화는 _baseline transfer_: 소스 볼륨의 스냅샷 복사본을 생성한 다음 해당 복사본과 타겟 볼륨이 참조하는 모든 데이터 블록을 전송합니다. 그렇지 않으면 전송 내용이 정책에 따라 달라집니다.
+
+소스 및 타겟 클러스터와 SVM을 피어링해야 합니다.
+
+link:../peering/index.html["클러스터 및 SVM 피어링"]
+
+초기화에는 시간이 오래 걸릴 수 있습니다. 사용량이 적은 시간에 기준 전송을 실행할 수 있습니다.
+
+ONTAP 9.5부터는 SnapMirror Synchronous 관계가 지원됩니다.
+
+.단계
+. 복제 관계 초기화:
++
+'스냅샷 초기화 - 소스 경로 - SVM:볼륨 _ | _ 클러스터://SVM/볼륨 _,... -destination-path_SVM:volume_|_cluster://SVM/volume_,
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+[NOTE]
+====
+이 명령은 타겟 SVM 또는 타겟 클러스터에서 실행해야 합니다.
+
+====
++
+다음 예에서는 svm1의 소스 볼륨 VolA와 sm_backup의 대상 볼륨 VolA_dst 간의 관계를 초기화합니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror initialize -source-path svm1:volA -destination-path svm_backup:volA_dst
+----
+

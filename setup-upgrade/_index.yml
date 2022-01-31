@@ -1,0 +1,39 @@
+---
+indexpage:
+  tiles:
+  - title: 시작하십시오
+    links:
+    - title: ONTAP를 설정합니다
+      url: "/../software_setup/concept_decide_whether_to_use_ontap_cli.html"
+    - title: ONTAP를 업그레이드합니다
+      url: "/../upgrade/index.html"
+    - title: ONTAP를 되돌립니다
+      url: "/../revert/index.html"
+  - title: 클러스터 설정
+    links:
+    - title: System Manager로 클러스터 설정
+      url: "/../task_configure_ontap.html"
+    - title: CLI를 사용하여 클러스터 설정
+      url: "/../software_setup/concept_set_up_the_cluster.html"
+  - title: 클러스터를 업그레이드합니다
+    links:
+    - title: 업그레이드 경로
+      url: "/../upgrade/concept_upgrade_paths.html"
+    - title: System Manager로 무중단 업그레이드 자동화
+      url: "/../upgrade/task_upgrade_andu_sm.html"
+    - title: CLI를 통한 무중단 업그레이드 자동화
+      url: "/../upgrade/task_upgrade_andu_cli.html"
+    - title: 펌웨어를 업데이트합니다
+      url: "/../task_admin_update_firmware.html"
+  - title: 클러스터를 되돌립니다
+    links:
+    - title: 되돌리기 경로
+      url: "/../revert/concept_revert_paths.html"
+    - title: CLI를 사용하여 클러스터를 되돌립니다
+      url: "/../revert/task_reverting_an_ontap_cluster.html"
+  - title: 더 많은 리소스
+    links:
+    - title: NetApp TechCommTV에서 새로운 클러스터 비디오에 ONTAP를 구성합니다
+      url: https://www.youtube.com/watch?v=6WjyADPXDZ0
+    - title: Active IQ는 스토리지 업그레이드 - NeApp 블로그 에 도움을 줍니다
+      url: https://www.youtube.com/watch?v=6WjyADPXDZ0

@@ -1,0 +1,56 @@
+---
+permalink: smb-admin/enable-disable-local-users-groups-task.html 
+sidebar: sidebar 
+keywords: enable, disable, local, user, group, smb, access, storage, virtual, machine, svm, functionality, default, enable or disable local users and groups 
+summary: 'SVM(스토리지 가상 머신)에서 SMB 액세스를 위해 로컬 사용자 및 그룹을 설정하거나 해제할 수 있습니다. 로컬 사용자 및 그룹 기능은 기본적으로 활성화되어 있습니다.' 
+---
+= 로컬 사용자 및 그룹을 설정하거나 해제합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SVM(스토리지 가상 머신)에서 SMB 액세스를 위해 로컬 사용자 및 그룹을 설정하거나 해제할 수 있습니다. 로컬 사용자 및 그룹 기능은 기본적으로 활성화되어 있습니다.
+
+SMB 공유 및 NTFS 파일 권한을 구성할 때 로컬 사용자 및 그룹을 사용할 수 있으며 SMB 연결을 생성할 때 로컬 사용자를 인증에 사용할 수도 있습니다. 로컬 사용자를 인증에 사용하려면 로컬 사용자 및 그룹 인증 옵션도 활성화해야 합니다.
+
+.단계
+. 권한 수준을 Advanced:'Set-Privilege advanced'로 설정합니다
+. 다음 작업 중 하나를 수행합니다.
++
+|===
+| 로컬 사용자 및 그룹을 사용하려는 경우... | 명령 입력... 
+
+
+ a| 
+활성화됨
+ a| 
+'vserver cifs options modify -vserver_vserver_name_-is-local-users-and-groups-enabled true'
+
+
+
+ a| 
+사용 안 함
+ a| 
+'vserver cifs options modify -vserver_vserver_name_-is-local-users-and-groups-enabled false'
+
+|===
+. admin 권한 수준으로 복귀:'et-Privilege admin'입니다
+
+
+다음 예에서는 SVM VS1 에서 로컬 사용자 및 그룹 기능을 사용하도록 설정합니다.
+
+[listing]
+----
+cluster1::> set -privilege advanced
+Warning: These advanced commands are potentially dangerous; use them
+only when directed to do so by technical support personnel.
+Do you wish to continue? (y or n): y
+
+cluster1::*> vserver cifs options modify -vserver vs1 -is-local-users-and-groups-enabled true
+
+cluster1::*> set -privilege admin
+----
+xref:enable-disable-local-user-authentication-task.adoc[로컬 사용자 인증 활성화 또는 비활성화]
+
+xref:enable-disable-local-user-accounts-task.adoc[로컬 사용자 계정 활성화 또는 비활성화]

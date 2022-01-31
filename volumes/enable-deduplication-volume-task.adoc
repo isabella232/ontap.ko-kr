@@ -1,0 +1,52 @@
+---
+permalink: volumes/enable-deduplication-volume-task.html 
+sidebar: sidebar 
+keywords: enable, deduplication, volume 
+summary: FlexVol 볼륨에서 중복 제거를 활성화하여 스토리지 효율성을 달성할 수 있습니다. AFF 또는 Flash Pool 애그리게이트에 있는 볼륨의 모든 볼륨과 인라인 중복제거에서 사후 처리 중복제거를 사용할 수 있습니다. 다른 유형의 볼륨에서 인라인 중복제거를 활성화하려면 기술 지원 부서에 문의해야 합니다. 
+---
+= 볼륨에 대해 중복 제거를 설정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FlexVol 볼륨에서 중복 제거를 활성화하여 스토리지 효율성을 달성할 수 있습니다. AFF 또는 Flash Pool 애그리게이트에 있는 볼륨의 모든 볼륨과 인라인 중복제거에서 사후 처리 중복제거를 사용할 수 있습니다. 다른 유형의 볼륨에서 인라인 중복제거를 활성화하려면 기술 지원 부서에 문의해야 합니다.
+
+FlexVol 볼륨의 경우 볼륨 및 애그리게이트에서 중복제거 메타데이터를 위한 충분한 여유 공간이 있는지 확인해야 합니다. 중복제거 메타데이터는 애그리게이트에서 최소한의 여유 공간만 필요로 합니다. 이 양은 중복제거된 애그리게이트에 있는 모든 FlexVol 볼륨 또는 데이터 구성요소의 총 물리적 데이터 양의 3%입니다. 각 FlexVol 볼륨 또는 데이터 구성요소에는 전체 물리적 데이터가 차지하는 여유 공간의 4%가 필요하므로 총 7%가 됩니다.
+
+[NOTE]
+====
+ONTAP 9.2부터는 AFF 시스템에서 인라인 중복제거가 기본적으로 활성화되어 있습니다.
+
+====
+.선택
+* 'volume Efficiency on' 명령을 사용하여 사후 처리 중복제거를 활성화합니다.
++
+다음 명령을 실행하면 볼륨 VolA에서 사후 처리 중복제거가 활성화됩니다.
+
++
+'vserver vs1-volume vola의 볼륨 효율성'
+
+* 'volume Efficiency on' 명령 다음에 '-inline-deduplication' 옵션을 'true'로 설정하여 후처리 중복 제거와 인라인 중복 제거를 모두 사용할 수 있도록 하십시오.
++
+다음 명령을 실행하면 볼륨 VolA에서 사후 처리 중복제거 및 인라인 중복제거가 모두 활성화됩니다.
+
++
+'vserver vs1-volume vola의 볼륨 효율성'
+
++
+'볼륨 효율성 수정 - vserver vs1-volume vola-inline-dedupe true'
+
+* 'volume Efficiency on' 명령과 'volume Efficiency modify' 명령을 차례로 사용하고 '-inline-deduplication' 옵션을 true로 설정하고 '-policy' 옵션을 'inline-only'로 설정하여 인라인 중복 제거만 활성화합니다.
++
+다음 명령을 실행하면 볼륨 VolA에서 인라인 중복제거만 활성화됩니다.
+
++
+'vserver vs1-volume vola의 볼륨 효율성'
+
++
+'볼륨 효율성 수정 - vserver vs1-volume vola-policy inline-only-inline-dedupe true'
+
+
+
+볼륨 효율성 설정인 '볼륨 효율성 표시 인스턴스'를 확인하여 설정이 변경되었는지 확인합니다

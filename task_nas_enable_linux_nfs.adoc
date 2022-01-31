@@ -1,0 +1,54 @@
+---
+sidebar: sidebar 
+permalink: task_nas_enable_linux_nfs.html 
+keywords: ontap, netapp, provision nas storage, linux, enable, nfs, modify storage VM, configure DNS, configure name server, configure Kerberos 
+summary: 스토리지 VM을 수정하여 Linux 클라이언트에 데이터를 제공할 NFS 서버를 설정합니다. 
+---
+= NFS를 사용하여 Linux 서버용 NAS 스토리지를 설정합니다
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+스토리지 VM을 수정하여 Linux 클라이언트에 데이터를 제공할 NFS 서버를 설정합니다.
+
+이 절차를 통해 기존 스토리지 VM을 사용할 수 있습니다. 사용자 환경에 필요한 인증 또는 보안 서비스에 대해 구성 세부 정보를 사용할 수 있다고 가정합니다.
+
+image:workflow_nas_enable_linux_nfs.gif["NFS를 사용하여 Linux 서버에 NAS를 설정하기 위한 워크플로우 다이어그램"]
+
+.단계
+. 기존 VM에서 NFS 사용: * 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 선택한 다음 * 설정 * 을 클릭하고 을 클릭합니다 image:icon_gear.gif["설정 아이콘"] 아래 * NFS *.
+. 스토리지 VM 루트 볼륨의 엑스포트 정책을 엽니다.
++
+.. 스토리지 > 볼륨 * 을 클릭하고 스토리지 VM의 루트 볼륨(기본값: _volume-name__root)을 선택한 다음 * 정책 내보내기 * 아래에 표시되는 정책을 클릭합니다.
+.. 규칙을 추가하려면 * 추가 * 를 클릭합니다.
++
+*** 클라이언트 사양 = 0.0.0.0/0
+*** 액세스 프로토콜 = NFS
+*** 액세스 세부 정보 = UNIX 읽기 전용
+
+
+
+
+. 호스트 이름 확인을 위해 DNS 구성: * 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 선택한 다음 * 설정 * 을 클릭하고 을 클릭합니다 image:icon_gear.gif["설정 아이콘"] DNS * 아래.
+. 필요에 따라 이름 서비스를 구성합니다.
++
+.. 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 선택한 다음 * 설정 * 을 클릭하고 for 를 클릭합니다 image:icon_gear.gif["설정 아이콘"] LDAP 또는 NIS를 선택합니다.
+.. 이름 서비스 스위치 파일에 변경 내용을 포함합니다. 을 클릭합니다 image:icon_pencil.gif["편집 아이콘"] 이름 서비스 스위치 타일에서
+
+
+. 필요한 경우 Kerberos 구성:
++
+.. 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 선택한 다음 * 설정 * 을 클릭합니다.
+.. 을 클릭합니다 image:icon_arrow.gif["화살표 아이콘"] Kerberos 타일에서 * 추가 * 를 클릭합니다.
+
+
+

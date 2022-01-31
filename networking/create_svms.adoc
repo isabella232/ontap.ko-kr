@@ -1,0 +1,96 @@
+---
+sidebar: sidebar 
+permalink: networking/create_svms.html 
+keywords: create, creation, creating, add, adding, svm, storage, virtual, machine, create svms, create storage virtual machines, create an svm to serve data to clients 
+summary: SVM을 생성하여 클라이언트에 데이터 제공 
+---
+= SVM을 생성합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+SVM을 생성하여 고객에게 데이터를 제공해야 합니다.
+
+.시작하기 전에
+* 이 작업을 수행하려면 클러스터 관리자여야 합니다.
+* SVM 루트 볼륨에 있을 보안 스타일을 알아야 합니다.
++
+이 SVM에서 Hyper-V 또는 SQL Server over SMB 솔루션을 구축하려는 경우 루트 볼륨에 NTFS 보안 스타일을 사용해야 합니다. Hyper-V 파일 또는 SQL 데이터베이스 파일이 포함된 볼륨은 만들 때 NTFS 보안으로 설정되어야 합니다. 루트 볼륨 보안 스타일을 NTFS로 설정하면 실수로 UNIX 또는 혼합 보안 스타일 데이터 볼륨을 만들지 않아도 됩니다.
+
+
+
+.단계
+. SVM 루트 볼륨을 포함할 Aggregate를 결정합니다.
++
+'스토리지 집계 show-has-mroot false'
+
++
+루트 볼륨을 포함할 최소 1GB의 여유 공간이 있는 애그리게이트를 선택해야 합니다. SVM에서 NAS 감사를 구성하려면 감사가 활성화된 경우 감사 스테이징 볼륨을 생성하는 데 사용 중인 추가 공간이 있어야 하며 루트 애그리게이트에 최소 3GB의 여유 공간이 있어야 합니다.
+
++
+
+NOTE: 기존 SVM에서 NAS 감사가 이미 활성화되어 있는 경우 애그리게이트 생성이 성공적으로 완료된 직후 애그리게이트의 스테이징 볼륨이 생성됩니다.
+
+. SVM 루트 볼륨을 생성할 애그리게이트의 이름을 기록합니다.
+. SVM을 생성할 때 언어를 지정할 계획이고 사용할 값을 모르는 경우 지정할 언어의 값을 식별하고 기록하십시오.
++
+"vserver create-language?
+
+. SVM을 생성할 때 스냅샷 정책을 지정할 계획이고 정책 이름을 모를 경우 사용 가능한 정책을 나열하고 사용할 스냅샷 정책의 이름을 식별하고 기록합니다.
++
+' 볼륨 스냅샷 정책 표시 - vserver <vserver_name>'
+
+. SVM을 생성할 때 할당량 정책을 지정할 계획이고 정책 이름을 모를 경우, 사용 가능한 정책을 나열하고 사용할 할당량 정책의 이름을 식별하고 기록합니다.
++
+'볼륨 할당량 정책 표시 - vserver <vserver_name>'
+
+. SVM 생성:
++
+'vserver create-vserver <vserver_name> -aggregate <aggregate_name> -rootvolume <root_volume_name> -rootvolume -security-style{unix|NTFS|MIXED} [-IPSpace<hIPspace_name>] [-language <language>] [-snapshot-snapshot-policy <snapshot_policy_name>] [-quota-policy <quota_policy_policy_name>] 주석] [- comment>
+
++
+....
+vserver create -vserver vs1 -aggregate aggr3 -rootvolume vs1_root ‑rootvolume-security-style ntfs -ipspace ipspace1 -language en_US.UTF-8
+....
++
+([Job 72] Job Succeeded: Vserver creation completed.
+
+. SVM 구성이 올바른지 확인합니다.
++
+'vserver show-vserver vs1'
+
++
+....
+Vserver: vs1
+Vserver Type: data
+Vserver Subtype: default
+Vserver UUID: 11111111-1111-1111-1111-111111111111
+Root Volume: vs1_root
+Aggregate: aggr3
+NIS Domain: -
+Root Volume Security Style: ntfs
+LDAP Client: -
+Default Volume Language Code: en_US.UTF-8
+Snapshot Policy: default
+Comment:
+Quota Policy: default
+List of Aggregates Assigned: -
+Limit on Maximum Number of Volumes allowed: unlimited
+Vserver Admin State: running
+Vserver Operational State: running
+Vserver Operational State Stopped Reason: -
+Allowed Protocols: nfs, cifs, ndmp
+Disallowed Protocols: fcp, iscsi
+QoS Policy Group: -
+Config Lock: false
+IPspace Name: ipspace1
+Is Vserver Protected: false
+....
++
+이 예제에서 명령은 IPspace "ipspace1"에서 "vs1"이라는 SVM을 생성합니다. 루트 볼륨의 이름은 "VS1_root"이며 NTFS 보안 스타일로 aggr3에 생성됩니다.
+
+

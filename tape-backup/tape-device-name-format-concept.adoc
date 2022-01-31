@@ -1,0 +1,102 @@
+---
+permalink: tape-backup/tape-device-name-format-concept.html 
+sidebar: sidebar 
+keywords: tape, device, name, format, rewind, type, alias, compression 
+summary: 각 테이프 디바이스에는 정의된 형식으로 표시되는 관련 이름이 있습니다. 형식은 장치 유형, 되감기 유형, 별칭 및 압축 유형에 대한 정보를 포함합니다. 
+---
+= 테이프 디바이스 이름 형식입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+각 테이프 디바이스에는 정의된 형식으로 표시되는 관련 이름이 있습니다. 형식은 장치 유형, 되감기 유형, 별칭 및 압축 유형에 대한 정보를 포함합니다.
+
+테이프 디바이스 이름의 형식은 다음과 같습니다.
+
+Rwind_type의 'st'alias_number'compression_type입니다
+
+rewind_type은 되감기 유형입니다.
+
+다음 목록에서는 다양한 되감기 유형 값을 설명합니다.
+
+* * r *
++
+ONTAP는 테이프 파일 쓰기를 완료한 후 테이프를 되감습니다.
+
+* * nr *
++
+ONTAP는 테이프 파일 쓰기를 완료한 후 테이프를 되감지 않습니다. 동일한 테이프에 여러 개의 테이프 파일을 쓰려면 이 되감기 유형을 사용해야 합니다.
+
+* * ur *
++
+이것은 언로드/다시 로드 되감기 유형입니다. 이 되감기 유형을 사용하면 테이프 라이브러리가 테이프 파일의 끝에 도달하면 테이프를 언로드한 다음 다음 다음 테이프가 있으면 로드합니다.
+
++
+다음과 같은 경우에만 이 되감기 유형을 사용해야 합니다.
+
++
+** 이 장치와 연결된 테이프 드라이브가 테이프 라이브러리에 있거나 라이브러리 모드에 있는 미디어 체인저에 있습니다.
+** 이 장치와 연결된 테이프 드라이브가 스토리지 시스템에 연결되어 있습니다.
+** 수행 중인 작업에 충분한 테이프를 이 테이프 드라이브에 대해 정의된 라이브러리 테이프 시퀀스에서 사용할 수 있습니다.
+
+
+
+
+[NOTE]
+====
+되감기 안 함 장치를 사용하여 테이프를 녹음하는 경우 테이프를 읽기 전에 테이프를 되감아야 합니다.
+
+====
+'t'는 테이프 드라이브의 표준 지정입니다.
+
+alias_number는 ONTAP가 테이프 드라이브에 할당하는 별칭입니다. ONTAP가 새 테이프 드라이브를 감지하면 ONTAP가 테이프 드라이브에 별칭을 할당합니다.
+
+compression_type은 테이프의 데이터 밀도와 압축 유형을 나타내는 드라이브별 코드입니다.
+
+다음 목록에는 압축 유형 의 다양한 값이 설명되어 있습니다.
+
+* * A *
++
+최고의 압축
+
+* * 시간 *
++
+높은 압축
+
+* m *
++
+중간 압축
+
+* * l * 를 선택합니다
++
+낮은 압축
+
+
+
+nrst0a는 가장 높은 압축을 사용하여 테이프 드라이브 0에 되감기 안 함 장치를 지정합니다.
+
+다음 예는 HP Ultrium 2-SCSI와 연결된 테이프 장치를 보여줍니다.
+
+[listing]
+----
+
+           Tape drive (fc202_6:2.126L1)  HP      Ultrium 2-SCSI
+    rst0l  -  rewind device,        format is: HP (200GB)
+    nrst0l -  no rewind device,     format is: HP (200GB)
+    urst0l -  unload/reload device, format is: HP (200GB)
+    rst0m  -  rewind device,        format is: HP (200GB)
+    nrst0m -  no rewind device,     format is: HP (200GB)
+    urst0m -  unload/reload device, format is: HP (200GB)
+    rst0h  -  rewind device,        format is: HP (200GB)
+    nrst0h -  no rewind device,     format is: HP (200GB)
+    urst0h -  unload/reload device, format is: HP (200GB)
+    rst0a  -  rewind device,        format is: HP (400GB w/comp)
+    nrst0a -  no rewind device,     format is: HP (400GB w/comp)
+    urst0a -  unload/reload device, format is: HP (400GB w/comp)
+----
+다음 목록에서는 위의 예제에서 약어를 설명합니다.
+
+* GB -- 기가바이트. 테이프의 용량입니다.
+* w/comp -- 압축을 사용하면 테이프 용량이 압축 상태로 표시됩니다.
+

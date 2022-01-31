@@ -1,0 +1,105 @@
+---
+permalink: revert/task_download_and_install_ontap_software_image.html 
+sidebar: sidebar 
+keywords: ontap, software, image, download, downloading, install, installing 
+summary: 먼저 ONTAP 소프트웨어를 다운로드한 다음 설치할 수 있습니다. 
+---
+= ONTAP 소프트웨어 이미지를 다운로드하고 설치합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+먼저 NetApp Support 사이트에서 ONTAP 소프트웨어를 다운로드한 다음 설치할 수 있습니다.
+
+
+
+== 소프트웨어 이미지를 다운로드합니다
+
+ONTAP 9.4 이상을 다운그레이드하거나 되돌리려면 NetApp Support 사이트에서 로컬 폴더로 ONTAP 소프트웨어 이미지를 복사할 수 있습니다. 다운그레이드를 수행하거나 ONTAP 9.3 이전 버전으로 되돌리려면 ONTAP 소프트웨어 이미지를 네트워크의 HTTP 서버 또는 FTP 서버로 복사해야 합니다.
+
+다음과 같은 중요 정보를 확인해야 합니다.
+
+* 소프트웨어 이미지는 플랫폼 모델에 따라 다릅니다.
++
+클러스터에 맞는 올바른 이미지를 얻어야 합니다. 플랫폼 모델의 소프트웨어 이미지, 펌웨어 버전 정보 및 최신 펌웨어는 NetApp Support 사이트에서 제공됩니다.
+
+* 소프트웨어 이미지에는 특정 버전의 ONTAP가 릴리스되었을 때 사용할 수 있는 최신 버전의 시스템 펌웨어가 포함되어 있습니다.
+* ONTAP 9.5 이상 버전에서 NetApp 볼륨 암호화가 포함된 시스템을 다운그레이드하는 경우, NetApp 볼륨 암호화가 포함된 비제한 국가의 ONTAP 소프트웨어 이미지를 다운로드해야 합니다.
++
+제한된 국가의 ONTAP 소프트웨어 이미지를 사용하여 NetApp 볼륨 암호화를 사용하여 시스템을 다운그레이드하거나 되돌릴 경우 시스템에서 패닉이 발생하고 볼륨에 대한 액세스 권한이 사라집니다.
+
++
+.. 에서 대상 ONTAP 소프트웨어를 찾습니다 link:http://mysupport.netapp.com/NOW/cgi-bin/software["소프트웨어 다운로드"] NetApp Support 사이트의 영역입니다.
+.. 소프트웨어 이미지를 복사합니다.
++
+*** ONTAP 9.3 이전 버전의 경우 NetApp Support 사이트에서 이미지가 제공되는 HTTP 서버 또는 FTP 서버의 디렉토리로 소프트웨어 이미지(예: 93_q_image.tgz)를 복사합니다.
+*** ONTAP 9.4 이상의 경우 NetApp Support 사이트에서 이미지가 제공되는 HTTP 서버 또는 FTP 서버의 디렉토리 또는 로컬 폴더로 소프트웨어 이미지(예: 97_q_image.tgz)를 복사합니다.
+
+
+
+
+
+
+
+
+== 소프트웨어 이미지를 설치합니다
+
+클러스터 노드에 타겟 소프트웨어 이미지를 설치해야 합니다.
+
+* ONTAP 9.5 이상 버전에서 NetApp 볼륨 암호화로 시스템을 다운그레이드하거나 되돌릴 경우, NetApp 볼륨 암호화를 포함하는 제한되지 않은 국가에 대한 ONTAP 소프트웨어 이미지를 다운로드해야 합니다.
++
+제한된 국가의 ONTAP 소프트웨어 이미지를 사용하여 NetApp 볼륨 암호화를 사용하여 시스템을 다운그레이드하거나 되돌릴 경우 시스템에서 패닉이 발생하고 볼륨에 대한 액세스 권한이 사라집니다.
+
++
+.. "Set-Privilege advanced"라는 메시지가 나타나면 * y * 를 입력하여 권한 수준을 advanced로 설정합니다
++
+고급 프롬프트('*>')가 나타납니다.
+
+.. 노드에 소프트웨어 이미지를 설치합니다.
++
+이 명령은 모든 노드에 소프트웨어 이미지를 동시에 다운로드하고 설치합니다. 각 노드에서 이미지를 한 번에 하나씩 다운로드하여 설치하려면 -background 매개 변수를 지정하지 마십시오.
+
++
+*** 비 MetroCluster 구성 또는 2노드 MetroCluster 구성('시스템 노드 이미지 업데이트 -node * -package location-replace-package true-SetDefault true-background true')을 다운그레이드하거나 되돌리는 경우
++
+이 명령은 확장 쿼리를 사용하여 대체 이미지로 설치된 대상 소프트웨어 이미지를 노드의 기본 이미지로 변경합니다.
+
+*** 4노드 또는 8노드 MetroCluster 구성을 다운로드 또는 되돌리는 경우 두 클러스터 모두에서 'system node image update-node * -package location-replace-package true-background true-SetDefault false' 명령을 실행해야 합니다
++
+이 명령은 확장 쿼리를 사용하여 각 노드에 대체 이미지로 설치된 대상 소프트웨어 이미지를 변경합니다.
+
+
+
+.. 메시지가 나타나면 y를 입력하여 계속합니다.
+.. S/system node image show-update-progress-node * 라는 각 노드에 소프트웨어 이미지가 다운로드되어 설치되어 있는지 확인합니다
++
+이 명령은 소프트웨어 이미지 다운로드 및 설치의 현재 상태를 표시합니다. 모든 노드에서 실행 상태 종료 와 종료 상태 가 성공 으로 보고될 때까지 이 명령을 계속 실행해야 합니다.
+
++
+시스템 노드 이미지 업데이트 명령이 실패하고 오류 또는 경고 메시지가 표시될 수 있습니다. 오류 또는 경고를 해결한 후에는 명령을 다시 실행할 수 있습니다.
+
++
+이 예는 소프트웨어 이미지가 다운로드되어 두 노드에 성공적으로 설치되는 2노드 클러스터를 보여줍니다.
+
++
+[listing]
+----
+cluster1::*> system node image show-update-progress -node *
+There is no update/install in progress
+Status of most recent operation:
+        Run Status:     Exited
+        Exit Status:    Success
+        Phase:          Run Script
+        Exit Message:   After a clean shutdown, image2 will be set as the default boot image on node0.
+There is no update/install in progress
+Status of most recent operation:
+        Run Status:     Exited
+        Exit Status:    Success
+        Phase:          Run Script
+        Exit Message:   After a clean shutdown, image2 will be set as the default boot image on node1.
+2 entries were acted on.
+----
+
+
+

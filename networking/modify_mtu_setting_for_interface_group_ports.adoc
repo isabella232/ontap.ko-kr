@@ -1,0 +1,54 @@
+---
+sidebar: sidebar 
+permalink: networking/modify_mtu_setting_for_interface_group_ports.html 
+keywords: modify, modifying, change, changing, mtu, modify mtu setting for interface group ports, modify the mtu of the broadcast domain 
+summary: 브로드캐스트 도메인의 MTU를 수정합니다 
+---
+= 인터페이스 그룹 포트에 대한 MTU 설정을 수정합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+인터페이스 그룹에 대한 MTU 설정을 수정하려면 브로드캐스트 도메인의 MTU를 수정해야 합니다.
+
+VLAN MTU 크기는 기본 인터페이스 그룹 및 물리적 포트의 브로드캐스트 도메인 MTU와 일치해야 합니다. VLAN에 다른 VLAN 설정이 필요한 경우 기본 브로드캐스트 도메인에 지정된 크기를 초과해서는 안 됩니다.
+
+.단계
+. 브로드캐스트 도메인 설정을 수정합니다.
++
+'broadcast-domain modify-broadcast-domain_broadcast_domain_name_-MTU_MTU_setting_'
+
++
+다음과 같은 경고 메시지가 표시됩니다.
+
++
+....
+Warning: Changing broadcast domain settings will cause a momentary data-serving interruption.
+Do you want to continue? {y|n}: y
+....
+. 계속하려면 y를 입력하십시오.
+. MTU 설정이 올바르게 수정되었는지 확인합니다.
++
+넷 포트 쇼
+
+
+
+....
+net port show
+(network port show)
+Node: vsim-01
+                                                              Ignore
+                                         Speed(Mbps) Health   Health
+Port IPspace Broadcast Domain  Link  MTU Admin/Oper  Status   Status
+---- ------- ----------------  ---- ---- ----------- -------- ------
+a0a  Default Default-1         up   1300 auto/1000   healthy  false
+e0a  Default Default-1         up   1300 auto/1000   healthy  false
+e0b  Default Default           up   1500 auto/1000   healthy  false
+e0c  Default Default           up   1500 auto/1000   healthy  false
+e0d  Default Default           up   1500 auto/1000   healthy  false
+5 entries were displayed.
+....

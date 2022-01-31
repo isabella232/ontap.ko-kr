@@ -1,0 +1,15 @@
+---
+permalink: tape-backup/dump-when-flexvol-volume-is-full-concept.html 
+sidebar: sidebar 
+keywords: dump, flexvol, volume, full 
+summary: 증분 덤프 백업 작업을 수행하기 전에 FlexVol 볼륨에 충분한 여유 공간이 있는지 확인해야 합니다. 
+---
+= FlexVol 볼륨이 꽉 찼을 때 덤프가 작동하는 방식
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+증분 덤프 백업 작업을 수행하기 전에 FlexVol 볼륨에 충분한 여유 공간이 있는지 확인해야 합니다.
+
+작업이 실패하면 Flex Vol 볼륨의 크기를 늘리거나 스냅샷 복사본을 삭제하여 사용 가능한 공간을 늘려야 합니다. 그런 다음 증분 백업 작업을 다시 수행합니다.

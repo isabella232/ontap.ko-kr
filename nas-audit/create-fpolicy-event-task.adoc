@@ -1,0 +1,36 @@
+---
+permalink: nas-audit/create-fpolicy-event-task.html 
+sidebar: sidebar 
+keywords: creating, fpolicy event 
+summary: FPolicy 정책 구성을 생성하는 과정에서 FPolicy 이벤트를 생성해야 합니다. 이벤트가 생성될 때 FPolicy 정책에 이벤트를 연결합니다. 이벤트는 모니터링하고 필터링할 파일 액세스 이벤트와 모니터링할 프로토콜을 정의합니다. 
+---
+= FPolicy 이벤트를 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FPolicy 정책 구성을 생성하는 과정에서 FPolicy 이벤트를 생성해야 합니다. 이벤트가 생성될 때 FPolicy 정책에 이벤트를 연결합니다. 이벤트는 모니터링하고 필터링할 파일 액세스 이벤트와 모니터링할 프로토콜을 정의합니다.
+
+FPolicy 이벤트 워크시트를 작성해야 합니다.
+
+.단계
+. 'vserver FPolicy event create' 명령을 사용하여 FPolicy 이벤트를 생성합니다.
++
+'vserver FPolicy policy event create-vserver-name vs1.example.com -event-name event1 -protocol cifs-file-operations open, close, read, write'
+
+. 'vserver FPolicy event show' 명령을 사용하여 FPolicy 이벤트 구성을 확인하십시오.
++
+'vserver FPolicy policy event show - vserver vs1.example.com'을 참조하십시오
+
++
+[listing]
+----
+
+                  Event               File                    Is Volume
+Vserver           Name      Protocols Operations    Filters   Operation
+---------------   --------- --------- ------------- --------- ------------
+vs1.example.com   event1    cifs      open, close,  -         false
+                                      read, write
+----
+

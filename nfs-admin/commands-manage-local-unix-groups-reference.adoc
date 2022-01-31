@@ -1,0 +1,70 @@
+---
+permalink: nfs-admin/commands-manage-local-unix-groups-reference.html 
+sidebar: sidebar 
+keywords: command, manage, local, unix, group 
+summary: 로컬 UNIX 그룹을 관리하기 위한 특정 ONTAP 명령이 있습니다. 
+---
+= 로컬 UNIX 그룹을 관리하는 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+로컬 UNIX 그룹을 관리하기 위한 특정 ONTAP 명령이 있습니다.
+
+[cols="35,65"]
+|===
+
+
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+로컬 UNIX 그룹을 생성합니다
+ a| 
+'vserver services name-service unix-group create'를 참조하십시오
+
+
+
+ a| 
+로컬 UNIX 그룹에 사용자를 추가합니다
+ a| 
+'vserver services name-service unix-group adduser'
+
+
+
+ a| 
+URI에서 로컬 UNIX 그룹을 로드합니다
+ a| 
+가상 서버 서비스 이름 서비스 unix-group load-from-Uri
+
+
+
+ a| 
+로컬 UNIX 그룹을 표시합니다
+ a| 
+'vserver services name-service unix-group show'를 참조하십시오
+
+
+
+ a| 
+로컬 UNIX 그룹을 수정합니다
+ a| 
+'vserver services name-service unix-group modify'를 참조하십시오
+
+
+
+ a| 
+로컬 UNIX 그룹에서 사용자를 삭제합니다
+ a| 
+'vserver services name-service unix-group deluser'
+
+
+
+ a| 
+로컬 UNIX 그룹을 삭제합니다
+ a| 
+'vserver services name-service unix-group delete'
+
+|===
+자세한 내용은 각 명령에 대한 man 페이지를 참조하십시오.

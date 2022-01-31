@@ -1,0 +1,41 @@
+---
+permalink: system-admin/log-files-sent-autosupport-messages-concept.html 
+sidebar: sidebar 
+keywords: log, files, autosupport, message, technical, support, staff 
+summary: AutoSupport 메시지에는 기술 지원 직원이 최근 시스템 작업을 검토할 수 있도록 하는 몇 가지 주요 로그 파일이 포함될 수 있습니다. 
+---
+= AutoSupport 메시지로 전송된 로그 파일
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+AutoSupport 메시지에는 기술 지원 직원이 최근 시스템 작업을 검토할 수 있도록 하는 몇 가지 주요 로그 파일이 포함될 수 있습니다.
+
+로그 파일 하위 시스템이 활성화된 경우 모든 유형의 AutoSupport 메시지에 다음 로그 파일이 포함될 수 있습니다.
+
+|===
+| 로그 파일 | 파일에 포함된 데이터의 양입니다 
+
+
+ a| 
+* '/mroot/etc/log/mlog/' 디렉토리에서 파일을 기록합니다
+* 메시지 로그 파일입니다
+
+ a| 
+마지막 AutoSupport 메시지 이후 로그에 추가된 새 줄만 지정된 최대값까지 추가됩니다. 이렇게 하면 AutoSupport 메시지에 중복되지 않는 고유한 관련 데이터가 포함됩니다.
+
+(파트너의 로그 파일은 예외입니다. 파트너의 경우 허용되는 최대 데이터가 포함됩니다.)
+
+
+
+ a| 
+* '/mroot/etc/log/shelflog/' 디렉토리의 로그 파일
+* '/mroot/etc/log/acp/' 디렉토리의 로그 파일
+* EMS(Event Management System) 로그 데이터
+
+ a| 
+지정된 최대값까지의 최근 데이터 줄.
+
+|===
+AutoSupport 메시지의 내용은 ONTAP 릴리스 간에 변경될 수 있습니다.

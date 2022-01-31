@@ -1,0 +1,83 @@
+---
+permalink: system-admin/positional-parameters-concept.html 
+sidebar: sidebar 
+keywords: understand, positional, parameters, cli, command, input, query 
+summary: ONTAP CLI의 위치 매개 변수 기능을 활용하여 명령 입력의 효율성을 높일 수 있습니다. 명령을 쿼리하여 명령의 위치 매개 변수를 식별할 수 있습니다. 
+---
+= 위치 매개변수 정보
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP CLI의 위치 매개 변수 기능을 활용하여 명령 입력의 효율성을 높일 수 있습니다. 명령을 쿼리하여 명령의 위치 매개 변수를 식별할 수 있습니다.
+
+
+
+== 위치 매개 변수란 무엇입니까
+
+* 위치 매개 변수는 매개 변수 값을 지정하기 전에 매개 변수 이름을 지정할 필요가 없는 매개 변수입니다.
+* "*_command_name?_*" 출력에 표시된 것과 같이 명령 입력에서 상대 시퀀스를 동일한 명령에서 다른 위치 매개변수와 관찰하는 한 위치 매개 변수를 위치 매개 변수와 함께 사용할 수 있습니다.
+* 위치 매개 변수는 명령에 대한 필수 매개 변수이거나 선택적 매개 변수일 수 있습니다.
+* 매개 변수는 한 명령에 대한 위치일 수 있지만 다른 명령에는 위치 지정되지 않을 수 있습니다.
+
+
+[NOTE]
+====
+특히 위치 매개 변수가 명령에서 선택 항목이거나 선택 매개 변수가 앞에 나열되는 경우에는 스크립트의 위치 매개 변수 기능을 사용하지 않는 것이 좋습니다.
+
+====
+
+
+== 위치 매개 변수를 식별합니다
+
+'*_command_name?_*' 명령 출력에서 위치 매개변수를 식별할 수 있습니다. 위치 매개 변수에는 다음 형식 중 하나로 매개 변수 이름을 둘러싸는 대괄호가 있습니다.
+
+* ['_-parameter_name_']'_parameter_value_'는 위치 매개 변수를 나타냅니다.
+* [['_-parameter_name_']'_parameter_value_']는 위치 매개 변수를 선택적으로 표시합니다.
+
+
+예를 들어, '*_command_name?_*' 출력에 다음과 같이 표시될 경우 매개 변수는 표시되는 명령의 위치 입니다.
+
+* '[-lif]<lif-name>'
+* '[[-lif]<lif-name>]'
+
+
+그러나 다음과 같이 표시될 경우 매개 변수는 표시되는 명령의 위치 이외의 매개 변수입니다.
+
+* '-lif<lif-name>'
+* '[-lif<lif-name>]'
+
+
+
+
+== 위치 매개 변수 사용 예
+
+다음 예제에서 ' *_volume create?_ * ' 출력에서는 '-volume', '-aggregate', '-size' 명령의 위치를 나타내는 세 개의 매개 변수가 표시됩니다.
+
+[listing]
+----
+cluster1::> volume create ?
+   -vserver <vserver name>                Vserver Name
+   [-volume] <volume name>                Volume Name
+   [-aggregate] <aggregate name>          Aggregate Name
+  [[-size] {<integer>[KB|MB|GB|TB|PB]}]   Volume Size
+  [ -state {online|restricted|offline|force-online|force-offline|mixed} ]
+                                          Volume State (default: online)
+  [ -type {RW|DP|DC} ]                    Volume Type (default: RW)
+  [ -policy <text> ]                      Export Policy
+  [ -user <user name> ]                   User ID
+  ...
+  [ -space-guarantee|-s {none|volume} ]   Space Guarantee Style (default: volume)
+  [ -percent-snapshot-space <percent> ]   Space Reserved for Snapshot Copies
+  ...
+----
+다음 예에서는 positional parameter 기능을 이용하지 않고 'volume create' 명령을 지정합니다.
+
+'cluster1::> volume create-vserver svm1-volume vol1-aggregate * aggr1-size 1g * - percent-snapshot-space 0'
+
+다음 예제에서는 위치 매개 변수 기능을 사용하여 명령 입력의 효율성을 높입니다. 'volume create' 명령에서 위치 매개 변수가 위치 매개 변수와 비위치 매개 변수가 서로 연결되어 있으며 위치 매개 변수 값은 매개 변수 이름 없이 지정됩니다. 위치 매개변수는 '* volume create?*' 출력에 표시된 것과 동일한 순서로 지정됩니다. 즉, -volume의 값은 -size의 앞에 차례로 지정된 -aggregate의 값 앞에 지정됩니다.
+
+'cluster1::> 볼륨 create * vol2 * aggr1 * * 1g * -vserver svm1-percent-snapshot-space 0'
+
+'cluster1::> volume create -vserver svm1 * vol3 * -snapshot-policy default * aggr1 * -nvfail off * 1g * -space-보증 없음'

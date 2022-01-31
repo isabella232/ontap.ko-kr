@@ -1,0 +1,54 @@
+---
+permalink: disks-aggregates/create-flash-pool-aggregate-physical-ssds-task.html 
+sidebar: sidebar 
+keywords: create, flash, pool, aggregate, physical, ssds 
+summary: 'HDD RAID 그룹으로 구성된 기존 애그리게이트에서 기능을 사용하도록 설정한 다음, 해당 애그리게이트에 SSD RAID 그룹을 하나 이상 추가하여 Flash Pool 애그리게이트를 생성할 수 있습니다. 그 결과 SSD RAID 그룹(SSD 캐시)과 HDD RAID 그룹의 두 RAID 그룹 세트가 해당 애그리게이트에 있게 됩니다.' 
+---
+= 물리적 SSD를 사용하여 Flash Pool 애그리게이트를 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+HDD RAID 그룹으로 구성된 기존 애그리게이트에서 기능을 사용하도록 설정한 다음, 해당 애그리게이트에 SSD RAID 그룹을 하나 이상 추가하여 Flash Pool 애그리게이트를 생성할 수 있습니다. 그 결과 SSD RAID 그룹(SSD 캐시)과 HDD RAID 그룹의 두 RAID 그룹 세트가 해당 애그리게이트에 있게 됩니다.
+
+.무엇을 &#8217;필요로 할거야
+* Flash Pool 애그리게이트로 변환하려면 HDD로 구성된 유효한 애그리게이트를 식별해야 합니다.
+* Aggregate와 연결된 볼륨의 쓰기 캐싱 적격성을 확인하고 자격 문제를 해결하기 위해 필요한 단계를 완료해야 합니다.
+* 추가할 SSD를 결정해야 하며, 이러한 SSD는 Flash Pool 애그리게이트를 생성할 노드에서 소유해야 합니다.
+* 추가할 SSD와 HDD의 체크섬 유형을 애그리게이트 내에 결정해야 합니다.
+* SSD RAID 그룹에 추가할 SSD 수와 최적의 RAID 그룹 크기를 결정해야 합니다.
++
+SSD 캐시에 더 적은 RAID 그룹을 사용하면 필요한 패리티 디스크 수가 감소하지만, RAID 그룹이 클수록 RAID-DP가 필요합니다.
+
+* SSD 캐시에 사용할 RAID 레벨을 결정해야 합니다.
+* 시스템의 최대 캐시 크기를 확인하고 애그리게이트에 SSD 캐시를 추가할 때 캐시 크기를 초과하지 않는지 확인해야 합니다.
+* Flash Pool 애그리게이트는 구성 요구사항에 익숙해야 합니다.
+
+
+SSD 캐시를 애그리게이트에 추가하여 Flash Pool 애그리게이트를 생성한 후에는 SSD 캐시를 제거하여 애그리게이트를 다시 원래 구성으로 전환할 수 없습니다.
+
+기본적으로 SSD 캐시의 RAID 레벨은 HDD RAID 그룹의 RAID 레벨과 같습니다. 첫 번째 SSD RAID 그룹을 추가할 때 "raidtype" 옵션을 지정하여 이 기본 선택을 재정의할 수 있습니다.
+
+.단계
+. 애그리게이트를 Flash Pool 애그리게이트로 사용할 수 있는 것으로 표시:
++
+'Storage aggregate modify -aggregate_aggr_name_-hybrid-enabled true'
+
++
+이 단계가 성공하지 못할 경우 타겟 Aggregate에 대한 쓰기 캐싱 적격성을 결정합니다.
+
+. '스토리지 애그리게이트 추가' 명령을 사용하여 애그리게이트에 SSD를 추가합니다.
++
+ID를 기준으로 또는 disskcount와 dissktype 매개 변수를 사용하여 SSD를 지정할 수 있습니다.
+
++
+HDD와 SSD의 체크섬 유형이 동일하지 않거나, 애그리게이팅이 혼합 체크섬 애그리게이트인 경우 'checksumstyle' 매개 변수를 사용하여 애그리게이트에 추가할 디스크의 체크섬 유형을 지정해야 합니다.
+
++
+"raidtype" 매개 변수를 사용하여 SSD 캐시에 다른 RAID 유형을 지정할 수 있습니다.
+
++
+캐시 RAID 그룹 크기를 사용 중인 RAID 유형의 기본값과 다르게 하려면 '-cache-raid-group-size' 매개 변수를 사용하여 캐시 RAID 그룹 크기를 변경해야 합니다.
+
+

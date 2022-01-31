@@ -1,0 +1,38 @@
+---
+permalink: san-admin/iscsi-authentication-concept.html 
+sidebar: sidebar 
+keywords: how, iscsi, authentication, works 
+summary: iSCSI 세션의 초기 단계 중에 이니시에이터는 iSCSI 세션을 시작하기 위해 스토리지 시스템에 로그인 요청을 보냅니다. 그러면 스토리지 시스템에서 로그인 요청을 허용하거나 거부하거나 로그인이 필요하지 않음을 확인합니다. 
+---
+= iSCSI 인증의 작동 방식
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+iSCSI 세션의 초기 단계 중에 이니시에이터는 iSCSI 세션을 시작하기 위해 스토리지 시스템에 로그인 요청을 보냅니다. 그러면 스토리지 시스템에서 로그인 요청을 허용하거나 거부하거나 로그인이 필요하지 않음을 확인합니다.
+
+iSCSI 인증 방법은 다음과 같습니다.
+
+* CHAP(Challenge Handshake Authentication Protocol) -- 초기자는 CHAP 사용자 이름 및 암호를 사용하여 로그인합니다.
++
+CHAP 암호를 지정하거나 16진수 암호 암호를 생성할 수 있습니다. CHAP 사용자 이름과 암호는 두 가지 유형이 있습니다.
+
++
+** 인바운드 -- 스토리지 시스템이 이니시에이터를 인증합니다.
++
+CHAP 인증을 사용하는 경우 인바운드 설정이 필요합니다.
+
+** 아웃바운드 -- 초기자가 스토리지 시스템을 인증할 수 있도록 하는 선택적 설정입니다.
++
+스토리지 시스템에서 인바운드 사용자 이름과 암호를 정의한 경우에만 아웃바운드 설정을 사용할 수 있습니다.
+
+
+
+* deny -- 스토리지 시스템에 대한 액세스가 거부됩니다.
+* 없음 -- 스토리지 시스템은 이니시에이터에 대한 인증을 요구하지 않습니다.
+
+
+이니시에이터 목록과 해당 인증 방법을 정의할 수 있습니다. 이 목록에 없는 이니시에이터에 적용되는 기본 인증 방법을 정의할 수도 있습니다.
+
+https://www.netapp.com/pdf.html?item=/media/19668-tr-3441.pdf["Data ONTAP를 사용하는 Windows 다중 경로 옵션: Fibre Channel 및 iSCSI"]

@@ -1,0 +1,79 @@
+---
+permalink: flexgroup/reverse-snapmirror-relationship-task.html 
+sidebar: sidebar 
+keywords: reverse, snapmirror, relation, flexgroup, volume, disaster, recovery 
+summary: 재해로 인해 SnapMirror 관계의 소스 FlexGroup 볼륨이 비활성화되면 소스 FlexGroup 볼륨을 복구하거나 교체하는 동안 대상 FlexGroup 볼륨을 사용하여 데이터를 제공할 수 있습니다. 소스 FlexGroup 볼륨이 온라인 상태가 되면 원래 소스 FlexGroup 볼륨을 읽기 전용 타겟으로 설정하고 SnapMirror 관계를 반대로 전환할 수 있습니다. 
+---
+= 재해 복구 중에 FlexGroup 볼륨 간 SnapMirror 관계를 바꿉니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+재해로 인해 SnapMirror 관계의 소스 FlexGroup 볼륨이 비활성화되면 소스 FlexGroup 볼륨을 복구하거나 교체하는 동안 대상 FlexGroup 볼륨을 사용하여 데이터를 제공할 수 있습니다. 소스 FlexGroup 볼륨이 온라인 상태가 되면 원래 소스 FlexGroup 볼륨을 읽기 전용 타겟으로 설정하고 SnapMirror 관계를 반대로 전환할 수 있습니다.
+
+대상 볼륨에 대한 활성 할당량 규칙이 비활성화되고 재동기화가 수행되기 전에 할당량 규칙이 삭제됩니다.
+
+"volume quota policy rule create" 및 "volume quota modify" 명령을 사용하여 재동기화 작업이 완료된 후 할당량 규칙을 생성하고 다시 활성화할 수 있습니다.
+
+.단계
+. 원래 대상 FlexGroup 볼륨에서 소스 FlexGroup 볼륨과 대상 FlexGroup 볼륨 간의 데이터 보호 미러 관계를 제거합니다. 'sapmirror delete -destination-path svm_name: volume_name'
++
+[listing]
+----
+cluster2::> snapmirror delete -destination-path vsd:dst
+----
+. 원본 소스 FlexGroup 볼륨에서 소스 FlexGroup 볼륨에서 'sapmirror release-destination-path svm_name:volume_name-relationship-info-only' 관계 정보를 제거합니다
++
+SnapMirror 관계를 삭제한 후에는 재동기화 작업을 시도하기 전에 소스 FlexGroup 볼륨에서 관계 정보를 제거해야 합니다.
+
++
+[listing]
+----
+cluster1::> snapmirror release -destination-path vsd:dst -relationship-info-only true
+----
+. 새 대상 FlexGroup 볼륨에서 미러 관계를 생성합니다. 'napmirror create-source-path src_svm_name:volume_name-destination-path dst_svm_name:volume_name-type XDP-policy MirrorAllSnapshots'
++
+[listing]
+----
+cluster1::> snapmirror create -source-path vsd:dst -destination-path vss:src -type XDP -policy MirrorAllSnapshots
+----
+. 새 대상 FlexGroup 볼륨에서 소스 FlexGroup 'sapmirror resync-source-path svm_name:volume_name'을 다시 동기화합니다
++
+[listing]
+----
+cluster1::> snapmirror resync -source-path vsd:dst
+----
+. SnapMirror 전송, '스냅샷 표시-확장'을 모니터링합니다
++
+[listing]
+----
+cluster2::> snapmirror show -expand
+                                                                       Progress
+Source            Destination Mirror  Relationship   Total             Last
+Path        Type  Path        State   Status         Progress  Healthy Updated
+----------- ---- ------------ ------- -------------- --------- ------- --------
+vsd:dst       XDP  vss:src        Snapmirrored
+                                      Idle           -         true    -
+vss:dst__0001 XDP  vss:src__0001  Snapmirrored
+                                      Idle           -         true    -
+vsd:dst__0002 XDP  vss:src__0002  Snapmirrored
+                                      Idle           -         true    -
+vsd:dst__0003 XDP  vss:src__0003  Snapmirrored
+                                      Idle           -         true    -
+vsd:dst__0004 XDP  vss:src__0004  Snapmirrored
+                                      Idle           -         true    -
+vsd:dst__0005 XDP  vss:src__0005  Snapmirrored
+                                      Idle           -         true    -
+vsd:dst__0006 XDP  vss:src__0006  Snapmirrored
+                                      Idle           -         true    -
+vsd:dst__0007 XDP  vss:src__0007  Snapmirrored
+                                      Idle           -         true    -
+vsd:dst__0008 XDP  vss:src__0008  Snapmirrored
+                                      Idle           -         true    -
+...
+----
++
+각 구성요소의 SnapMirror 관계 상태는 재동기화가 성공했음을 나타내는 '스냅샷 미러링'으로 표시됩니다.
+
+

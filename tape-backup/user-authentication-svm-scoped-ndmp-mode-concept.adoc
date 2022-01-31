@@ -1,0 +1,25 @@
+---
+permalink: tape-backup/user-authentication-svm-scoped-ndmp-mode-concept.html 
+sidebar: sidebar 
+keywords: user, authentication, svm, ndmp, node, vsadmin, backup, role, storage, virutal, machine, user 
+summary: 'SVM(스토리지 가상 시스템) 범위의 NDMP 모드에서는 NDMP 사용자 인증이 역할 기반 액세스 제어와 통합됩니다. SVM 맥락에서 NDMP 사용자는 "vsadmin" 또는 "vsadmin-backup" 역할을 수행해야 합니다. 클러스터 컨텍스트에서 NDMP 사용자는 "admin" 또는 "backup" 역할을 가지고 있어야 합니다.' 
+---
+= SVM 범위의 NDMP 모드에서 사용자 인증
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SVM(스토리지 가상 시스템) 범위의 NDMP 모드에서는 NDMP 사용자 인증이 역할 기반 액세스 제어와 통합됩니다. SVM 맥락에서 NDMP 사용자는 ""vsadmin" 또는 ""vsadmin-backup" 역할을 가져야 합니다. 클러스터 컨텍스트에서 NDMP 사용자는 ""admin" 또는 ""backup" 역할이 있어야 합니다.
+
+이러한 사전 정의된 역할을 제외하고, 사용자 지정 역할과 연결된 사용자 계정은 명령 디렉토리에 ""vserver services ndmp"" 폴더가 있고 폴더의 액세스 수준이 ""none""이 아닌 경우 NDMP 인증에 사용할 수 있습니다. 이 모드에서는 역할 기반 액세스 제어를 통해 생성된 특정 사용자 계정에 대해 NDMP 암호를 생성해야 합니다. admin 또는 백업 역할의 클러스터 사용자는 노드 관리 LIF, 클러스터 관리 LIF 또는 인터클러스터 LIF에 액세스할 수 있습니다. vsadmin-backup 또는 vsadmin 역할의 사용자는 해당 SVM의 데이터 LIF에만 액세스할 수 있습니다. 따라서 사용자의 역할에 따라 백업 및 복원 작업에 사용할 수 있는 볼륨 및 테이프 디바이스의 가용성이 달라집니다.
+
+이 모드는 NIS 및 LDAP 사용자에 대한 사용자 인증도 지원합니다. 따라서 NIS 및 LDAP 사용자는 공통 사용자 ID 및 암호를 사용하여 여러 SVM에 액세스할 수 있습니다. 그러나 NDMP 인증은 Active Directory 사용자를 지원하지 않습니다.
+
+이 모드에서는 사용자 계정이 SSH 애플리케이션 및 ""사용자 암호" 인증 방법과 연결되어 있어야 합니다.
+
+xref:commands-manage-svm-scoped-ndmp-reference.adoc[SVM 범위의 NDMP 모드를 관리하는 명령입니다]
+
+link:../system-admin/index.html["시스템 관리"]
+
+link:../concepts/index.html["ONTAP 개념"]

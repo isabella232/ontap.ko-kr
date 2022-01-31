@@ -1,0 +1,83 @@
+---
+permalink: data-protection/create-load-sharing-mirror-task.html 
+sidebar: sidebar 
+keywords: create, initialize, load-sharing, mirror, relationship 
+summary: '클러스터의 각 루트 볼륨에 대해 LSM(Load-sharing mirror)을 생성해야 합니다. HA 쌍의 파트너 노드 또는 다른 HA 쌍 등 루트 볼륨이 포함된 노드 이외의 노드에 LSM을 생성할 수 있습니다. 2노드 클러스터의 경우, root volume이 있는 노드의 파트너 상에서 LSM을 생성해야 한다.' 
+---
+= 로드 공유 미러 관계를 생성하고 초기화합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클러스터에서 NAS 데이터를 제공하는 각 SVM 루트 볼륨에 대해 LSM(로드 공유 미러)을 생성해야 합니다. HA 쌍의 파트너 노드 또는 다른 HA 쌍 등 루트 볼륨이 포함된 노드 이외의 노드에 LSM을 생성할 수 있습니다. 2노드 클러스터의 경우 SVM 루트 볼륨이 있는 노드의 파트너에 LSM을 생성해야 합니다.
+
+동일한 노드에서 LSM을 생성하고 해당 노드를 사용할 수 없는 경우, 단일 장애 지점이 있으며, 클라이언트가 데이터에 계속 액세스할 수 있도록 하기 위한 두 번째 복제본이 없습니다. 그러나 루트 볼륨이 포함된 노드 이외의 노드 또는 다른 HA 쌍에서 LSM을 생성할 경우, 중단 시에도 데이터에 액세스할 수 있습니다.
+
+예를 들어, 3개 노드에 루트 볼륨이 있는 4노드 클러스터의 경우:
+
+* HA 1 노드 1의 루트 볼륨의 경우 HA 2 노드 1 또는 HA 2 노드 2에 LSM을 생성한다.
+* HA 1 노드 2의 루트 볼륨의 경우 HA 2 노드 1 또는 HA 2 노드 2에 LSM을 생성한다.
+* HA 2 노드 1의 루트 볼륨의 경우 HA 1 노드 1 또는 HA 1 노드 2에 LSM을 생성한다.
+
+
+.단계
+. LSM의 대상 볼륨을 생성한다.
++
+'volume create-vserver_SVM_-volume volume-aggregate_aggregate_-type DP-size'
+
++
+대상 볼륨의 크기는 루트 볼륨보다 크거나 같아야 합니다.
+
++
+루트 및 대상 볼륨에 접미사를 지정하는 것이 가장 좋습니다. 예를 들어, '_root' 및 '_m1' 등이 있습니다.
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+다음 예에서는 "cluster_src"에 루트 볼륨 svm1_root에 대한 로드 공유 미러 볼륨을 생성합니다.
+
++
+[listing]
+----
+cluster_src:> volume create -vserver svm1 -volume svm1_m1 -aggregate aggr_1 -size 1gb -state online -type DP
+----
+. 에 설명된 대로 복제 작업 스케줄을 생성합니다 link:create-replication-job-schedule-task.html["복제 작업 스케줄 생성"].
+. SVM 루트 볼륨과 LSM의 대상 볼륨 간에 로드 공유 미러 관계를 생성합니다.
++
+'sapmirror create-source-path_SVM:volume_|_cluster://SVM/volume_-destination-path_SVM:volume_|_cluster://SVM/volume_-type LS-schedule_schedule_'
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+다음 예에서는 루트 볼륨 'vm1_root'와 로드 공유 미러 볼륨 'svm1_m1' 간에 로드 공유 미러 관계를 생성합니다.
+
++
+[listing]
+----
+cluster_src::> snapmirror create -source-path svm1:svm1_root -destination-path svm1:svm1_m1 -type LS -schedule hourly
+----
++
+부하 공유 미러의 유형 속성이 DP에서 LS로 변경됩니다.
+
+. 로드 공유 미러 초기화:
++
+'스냅미러 initialize-ls-set-source-path_SVM:volume_|_cluster://SVM/volume_'
+
++
+초기화에는 시간이 오래 걸릴 수 있습니다. 사용량이 적은 시간에 기준 전송을 실행할 수 있습니다.
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+다음 예에서는 루트 볼륨 'svm1_root'에 대한 로드 공유 미러를 초기화합니다.
+
++
+[listing]
+----
+cluster_src::> snapmirror initialize-ls-set -source-path svm1:svm1_root
+----
+

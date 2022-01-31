@@ -1,0 +1,92 @@
+---
+permalink: system-admin/manage-banner-motd-concept.html 
+sidebar: sidebar 
+keywords: manage, banner, motd, clu, user, svm, storage, virtual, machine, cluster 
+summary: 'ONTAP를 사용하면 클러스터의 CLI 사용자 또는 SVM(Storage Virtual Machine)에게 관리 정보를 전달하기 위해 로그인 배너 또는 오늘의 메시지(MOTD)를 구성할 수 있습니다.' 
+---
+= 배너 및 MOTD 개요를 관리합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP를 사용하면 클러스터의 CLI 사용자 또는 SVM(Storage Virtual Machine)에게 관리 정보를 전달하기 위해 로그인 배너 또는 오늘의 메시지(MOTD)를 구성할 수 있습니다.
+
+사용자에게 암호 등의 인증 프롬프트가 표시되기 전에 콘솔 세션(클러스터 액세스만 해당) 또는 SSH 세션(클러스터 또는 SVM 액세스를 위한)에 배너가 표시됩니다. 예를 들어, 배너를 사용하면 시스템에 로그인하려는 사람에게 다음과 같은 경고 메시지를 표시할 수 있습니다.
+
+[listing]
+----
+$ ssh admin@cluster1-01
+
+This system is for authorized users only. Your IP Address has been logged.
+
+Password:
+
+----
+MOTD는 사용자를 인증한 후 클러스터 셸 프롬프트가 나타나기 전에 콘솔 세션(클러스터 액세스만 해당) 또는 SSH 세션(클러스터 또는 SVM 액세스용)에 표시됩니다. 예를 들어 MOTD를 사용하여 인증된 사용자만 볼 수 있는 다음과 같은 환영 메시지 또는 정보 메시지를 표시할 수 있습니다.
+
+[listing]
+----
+$ ssh admin@cluster1-01
+
+Password:
+
+Greetings. This system is running ONTAP 9.0.
+Your user name is 'admin'. Your last login was Wed Apr 08 16:46:53 2015 from 10.72.137.28.
+
+----
+다음과 같은 방법으로 '보안 로그인 배너 수정' 또는 '보안 로그인 motd 수정' 명령을 사용하여 배너 또는 MOTD의 내용을 만들거나 수정할 수 있습니다.
+
+* CLI를 대화형으로 사용하거나 대화형으로 사용하지 않고 배너 또는 MOTD에 사용할 텍스트를 지정할 수 있습니다.
++
+'-message' 또는 '-Uri' 매개 변수 없이 명령을 사용할 때 실행되는 대화형 모드에서는 메시지에 줄 끝(line end)이라고도 함)을 사용할 수 있습니다.
+
++
+메시지 문자열을 지정하기 위해 '-message' 매개 변수를 사용하는 비대화형 모드는 줄 바꿈을 지원하지 않습니다.
+
+* 배너 또는 MOTD에 사용할 FTP 또는 HTTP 위치에서 콘텐츠를 업로드할 수 있습니다.
+* 동적 콘텐츠를 표시하도록 MOTD를 구성할 수 있습니다.
++
+동적으로 표시되도록 MOTD를 구성할 수 있는 예는 다음과 같습니다.
+
++
+** 클러스터 이름, 노드 이름 또는 SVM 이름
+** 클러스터 날짜 및 시간입니다
+** 로그인한 사용자의 이름입니다
+** 클러스터의 모든 노드에서 사용자에 대한 마지막 로그인
+** 로그인 장치 이름 또는 IP 주소입니다
+** 운영 체제 이름입니다
+** 소프트웨어 릴리스 버전
+** 효과적인 클러스터 버전 문자열 '보안 로그인 모트 수정' man 페이지는 MOTD가 동적으로 생성된 컨텐츠를 표시할 수 있도록 하는 데 사용할 수 있는 이스케이프 시퀀스를 설명합니다.
+
+
++
+배너는 동적 콘텐츠를 지원하지 않습니다.
+
+
+
+클러스터 또는 SVM 레벨에서 배너 및 MOTD를 관리할 수 있습니다.
+
+* 배너에는 다음과 같은 사실이 적용됩니다.
++
+** 배너 메시지가 정의되지 않은 모든 SVM에 대해 클러스터에 구성된 배너도 사용됩니다.
+** 각 SVM에 대해 SVM 레벨 배너를 구성할 수 있습니다.
++
+클러스터 레벨 배너가 구성된 경우 해당 SVM에 대한 SVM 레벨 배너에 의해 재정의됩니다.
+
+
+
+* 다음 사항이 MOTD에 적용됩니다.
++
+** 기본적으로 클러스터에 구성된 MOTD도 모든 SVM에 대해 활성화됩니다.
+** 또한 SVM별로 MOTD를 구성할 수 있습니다.
++
+이 경우 SVM에 로그인하면 클러스터 레벨에 정의된 MOD와 SVM 레벨에서 정의된 MOD가 두 개 표시됩니다.
+
+** 클러스터 관리자가 SVM별로 클러스터 레벨 MOTD를 활성화 또는 비활성화할 수 있습니다.
++
+클러스터 관리자가 SVM에 대해 클러스터 레벨 MOTD를 비활성화하면 SVM에 로그인한 사용자에게 클러스터 레벨 MOTD가 표시되지 않습니다.
+
+
+
+

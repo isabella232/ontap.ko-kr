@@ -1,0 +1,38 @@
+---
+permalink: upgrade/task_verifying_the_san_configuration_after_an_upgrade.html 
+sidebar: sidebar 
+keywords: ontap, upgrade, post, after, san, verify 
+summary: SAN 환경에서 업그레이드하는 경우, 업그레이드를 완료한 후 LIF에 연결된 각 이니시에이터가 LIF에 성공적으로 다시 연결되었는지 확인해야 합니다. 
+---
+= 업그레이드 후 SAN 구성을 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SAN 환경에서 업그레이드하는 경우, 업그레이드를 완료한 후 LIF에 연결된 각 이니시에이터가 LIF에 성공적으로 다시 연결되었는지 확인해야 합니다.
+
+. 각 이니시에이터가 올바른 LIF에 연결되어 있는지 확인합니다.
++
+이니시에이터 목록을 업그레이드 준비 중에 수행한 목록과 비교해야 합니다.
+
++
+[cols="2*"]
+|===
+| 대상... | 입력... 
+
+
+ a| 
+iSCSI
+ a| 
+'iSCSI initiator show-fields igroup, initiator-name, tpgroup'
+
+
+
+ a| 
+FC
+ a| 
+'fcp initiator show-fields igroup, WWPN, lif'
+
+|===
+

@@ -1,0 +1,43 @@
+---
+permalink: system-admin/view-default-certificates-tls-based-applications-task.html 
+sidebar: sidebar 
+keywords: view, default, certificates, tls, applications, transport 
+summary: 'ONTAP 9.2부터 ONTAP는 TLS(전송 계층 보안)를 사용하는 ONTAP 응용 프로그램에 대해 신뢰할 수 있는 루트 인증서 기본 집합을 제공합니다.' 
+---
+= TLS 기반 응용 프로그램에 대한 기본 인증서를 봅니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.2부터 ONTAP는 TLS(전송 계층 보안)를 사용하는 ONTAP 응용 프로그램에 대해 신뢰할 수 있는 루트 인증서 기본 집합을 제공합니다.
+
+기본 인증서는 생성 중 또는 ONTAP 9.2로 업그레이드 도중에만 관리 SVM에 설치됩니다.
+
+현재 클라이언트 역할을 하고 인증서 검증이 필요한 애플리케이션은 AutoSupport, EMS, LDAP, 감사 로깅, FabricPool입니다. 및 KMIP
+
+인증서가 만료되면 사용자에게 인증서 삭제를 요청하는 EMS 메시지가 호출됩니다. 기본 인증서는 고급 권한 수준에서만 삭제할 수 있습니다.
+
+[NOTE]
+====
+기본 인증서를 삭제하면 일부 ONTAP 응용 프로그램이 예상대로 작동하지 않을 수 있습니다(예: AutoSupport 및 감사 로깅).
+
+====
+.단계
+. security certificate show 명령을 사용하여 admin SVM에 설치된 기본 인증서를 볼 수 있습니다.
++
+'* security certificate show -vserver –type server-ca*'
+
++
+[listing]
+----
+
+fas2552-2n-abc-3::*> security certificate show -vserver fas2552-2n-abc-3 -type server-ca
+Vserver    Serial Number   Common Name                            Type
+---------- --------------- -------------------------------------- ------------
+fas2552-2n-abc-3
+           01              AAACertificateServices                 server-ca
+    Certificate Authority: AAA Certificate Services
+          Expiration Date: Sun Dec 31 18:59:59 2028
+----
+

@@ -1,0 +1,20 @@
+---
+sidebar: sidebar 
+permalink: networking/view_network_information_overview.html 
+keywords: overview, introduction, introducing, view, show, display, network, information, ports, LIFs, routes, failover rules, failover groups, firewall rules, DNS, NIS, connections, view network information overview, network information 
+summary: 포트, LIF, 라우트, 페일오버 규칙, 페일오버 그룹 관련 정보 보기 방화벽 규칙, DNS, NIS 및 연결 
+---
+= 개요
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+포트, LIF, 경로, 페일오버 규칙, 페일오버 그룹 등과 관련된 정보를 볼 수 있습니다. 방화벽 규칙, DNS, NIS 및 연결
+
+이 정보는 네트워킹 설정을 재구성하거나 클러스터 문제를 해결하는 데 유용할 수 있습니다.
+
+클러스터 관리자는 사용 가능한 모든 네트워킹 정보를 볼 수 있습니다. SVM 관리자는 할당된 SVM과 관련된 정보만 볼 수 있습니다.

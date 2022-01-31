@@ -1,0 +1,47 @@
+---
+permalink: nfs-admin/commands-manage-kerberos-realm-config-reference.html 
+sidebar: sidebar 
+keywords: command, manage, nfs, kerberos, realm, configuration 
+summary: NFS Kerberos 영역 구성을 관리하기 위한 특정 ONTAP 명령이 있습니다. 
+---
+= NFS Kerberos 영역 구성을 관리하는 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NFS Kerberos 영역 구성을 관리하기 위한 특정 ONTAP 명령이 있습니다.
+
+[cols="35,65"]
+|===
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+NFS Kerberos 영역 구성을 생성합니다
+ a| 
+'vserver NFS Kerberos 영역 생성'
+
+
+
+ a| 
+NFS Kerberos 영역 구성을 표시합니다
+ a| 
+가상 NFS Kerberos 영역 표시
+
+
+
+ a| 
+NFS Kerberos 영역 구성을 수정합니다
+ a| 
+가상 NFS Kerberos 영역 수정
+
+
+
+ a| 
+NFS Kerberos 영역 구성을 삭제합니다
+ a| 
+'vserver NFS Kerberos 영역 삭제'
+
+|===
+자세한 내용은 각 명령에 대한 man 페이지를 참조하십시오.

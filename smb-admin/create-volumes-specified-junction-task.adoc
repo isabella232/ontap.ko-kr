@@ -1,0 +1,53 @@
+---
+permalink: smb-admin/create-volumes-specified-junction-task.html 
+sidebar: sidebar 
+keywords: specify, junction, point, create, data, volume, resultant, automatic, mount, configure, nas, access, create data volumes with specified junction points 
+summary: 데이터 볼륨을 생성할 때 교차점을 지정할 수 있습니다. 결과 볼륨은 교차점에 자동으로 마운트되며 NAS 액세스를 위해 즉시 구성할 수 있습니다. 
+---
+= 지정된 교차점으로 데이터 볼륨을 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+데이터 볼륨을 생성할 때 교차점을 지정할 수 있습니다. 결과 볼륨은 교차점에 자동으로 마운트되며 NAS 액세스를 위해 즉시 구성할 수 있습니다.
+
+볼륨을 생성할 애그리게이트가 이미 존재해야 합니다.
+
+[NOTE]
+====
+다음 문자는 접합 경로에 사용할 수 없습니다. *#"><|? \
+
+또한 접합 경로 길이는 255자를 초과할 수 없습니다.
+
+====
+.단계
+. "volume create-vserver_name_-volume_volume_name_-aggregate_aggregate_name_-size{integer[KB|MB|GB|TB|PB]}-security-style{NTFS|UNIX|MIXED}-junction-path_junction_path_"를 사용하여 볼륨을 생성합니다
++
+접합 경로는 루트(/)로 시작해야 하며 디렉터리와 접합된 볼륨을 모두 포함할 수 있습니다. 접합 경로에는 볼륨의 이름을 포함할 필요가 없습니다. 접합 경로는 볼륨 이름과 무관합니다.
+
++
+볼륨 보안 스타일을 지정하는 것은 선택 사항입니다. 보안 스타일을 지정하지 않으면 ONTAP에서 SVM(스토리지 가상 머신)의 루트 볼륨에 적용되는 것과 동일한 보안 스타일로 볼륨을 생성합니다. 그러나 루트 볼륨의 보안 스타일이 만드는 데이터 볼륨에 적용할 보안 스타일이 아닐 수 있습니다. 문제 해결이 어려운 파일 액세스 문제를 최소화하기 위해 볼륨을 생성할 때 보안 스타일을 지정하는 것이 좋습니다.
+
++
+교차경로는 대/소문자를 구분하지 않고 /eng은 /eng과 같습니다. CIFS 공유를 생성하는 경우 Windows는 연결 경로를 대/소문자를 구분하는 것처럼 처리합니다. 예를 들어, junction이 /eng인 경우 CIFS 공유의 경로는 /eng가 아니라 /eng로 시작해야 합니다.
+
++
+데이터 볼륨을 사용자 지정하는 데 사용할 수 있는 여러 가지 선택적 매개 변수가 있습니다. 자세한 내용은 볼륨 만들기 명령에 대한 man 페이지를 참조하십시오.
+
+. 볼륨이 원하는 접합 지점 'volume show-vserver_vserver_name_-volume_volume_name_-junction'을 사용하여 생성되었는지 확인합니다
+
+
+다음 예에서는 junction path "/eng/home"이 있는 SVM VS1 상에 ""home4""라는 이름의 볼륨을 생성합니다.
+
+[listing]
+----
+cluster1::> volume create -vserver vs1 -volume home4 -aggregate aggr1 -size 1g -junction-path /eng/home
+[Job 1642] Job succeeded: Successful
+
+cluster1::> volume show -vserver vs1 -volume home4 -junction
+                  Junction                 Junction
+Vserver   Volume  Active   Junction Path   Path Source
+--------- ------- -------- --------------- -----------
+vs1       home4   true     /eng/home       RW_volume
+----

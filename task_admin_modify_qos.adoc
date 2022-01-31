@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: task_admin_modify_qos.html 
+keywords: netapp, ontap, modify, modifying, qos, custom, disable, enable, quality, service 
+summary: ONTAP 9.8부터는 스토리지 용량 할당 시 QoS가 기본적으로 사용하도록 설정됩니다. 프로비저닝 프로세스 중에 또는 나중에 QoS를 비활성화하거나 사용자 지정 QoS 정책을 선택할 수 있습니다. 
+---
+= QoS를 수정합니다
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+ONTAP 9.8부터는 스토리지 용량 할당 시 QoS가 기본적으로 사용하도록 설정됩니다. 프로비저닝 프로세스 중에 QoS를 비활성화하거나 사용자 지정 QoS 정책을 선택할 수 있습니다. 스토리지에 프로비저닝된 후 QoS를 수정할 수도 있습니다.
+
+.단계
+. System Manager에서 * Storage * 를 클릭하고 * Volumes * 를 선택합니다.
+. QoS를 수정하려는 볼륨 옆의 을 클릭합니다 image:icon_kabob.gif["메뉴 아이콘"] 를 클릭하고 * 편집 * 을 선택합니다.
+

@@ -1,0 +1,63 @@
+---
+permalink: system-admin/manage-licenses-concept.html 
+sidebar: sidebar 
+keywords: manage, license, enable, add, record, software, entitlement, keys, codes, risk, usage, cluster, administrator, nlf 
+summary: '라이센스는 하나 이상의 소프트웨어 사용 권한의 기록입니다. ONTAP 8.2 ~ ONTAP 9.9.1에서는 라이센스가 28자 문자열로 전달되고 ONTAP 기능당 키가 하나씩 있습니다. ONTAP 9.2에서는 FabricPool와 같은 클러스터 전체 기능 전용 NLF(NetApp 라이센스 파일)라는 새로운 라이센스 형식이 도입되었습니다.' 
+---
+= 라이센스 관리 개요(클러스터 관리자만 해당)
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+라이센스는 하나 이상의 소프트웨어 사용 권한의 기록입니다. ONTAP 8.2 ~ ONTAP 9.9.1에서는 라이센스 키가 28자 문자열로 전달되고 ONTAP 기능당 키가 하나씩 있습니다. ONTAP 9.2에서는 FabricPool와 같은 클러스터 전체 기능 전용 NLF(NetApp 라이센스 파일)라는 새로운 라이센스 키 형식이 도입되었습니다.
+
+ONTAP 9.10.1부터 모든 라이센스는 NLF로 제공됩니다. NLF 라이센스는 구매에 따라 하나 이상의 ONTAP 기능을 활성화할 수 있습니다. 시스템(컨트롤러) 일련 번호를 검색하여 NetApp Support 사이트에서 NLF 라이센스를 검색할 수 있습니다.
+
+초기 또는 애드온 소프트웨어 주문에 대한 라이센스는 NetApp Support 사이트 * My Support * > * Software Licenses * (로그인 필요)에서 확인할 수 있습니다. 소프트웨어 라이센스 페이지에서 라이센스 키를 찾을 수 없는 경우 영업 담당자 또는 지원 담당자에게 문의하십시오.
+
+ONTAP를 사용하면 다음과 같은 방법으로 기능 라이센스를 관리할 수 있습니다.
+
+* 설치된 사용권에 대한 정보 표시('시스템 사용권 표시')
+* 클러스터에서 라이센스가 필요한 패키지와 현재 라이센스 상태를 표시합니다('시스템 라이센스 상태 표시').
+* 클러스터 또는 일련 번호를 지정한 노드에서 라이센스 삭제('시스템 라이센스 삭제')
+* 만료되었거나 사용되지 않은 라이센스 표시 또는 제거('시스템 라이센스 정리')
+
+
+ONTAP를 사용하면 다음과 같은 방법으로 기능 사용 및 라이센스 소유 권한 위험을 모니터링할 수 있습니다.
+
+* 노드별로 클러스터의 기능 사용 요약 표시('system feature-usage show-summary')
++
+요약에는 기능이 사용된 주 수, 기능이 사용된 마지막 날짜 및 시간과 같은 카운터 정보가 포함됩니다.
+
+* 노드별 및 주별로 클러스터의 기능 사용 상태 표시('system feature-usage show-history')
++
+기능 사용 상태는 '사용 안 함', '설정' 또는 '사용 중'일 수 있습니다. 사용정보가 없을 경우, 상태가 Not-Available로 표시됩니다.
+
+* 각 라이선스 패키지에 대한 라이선스 소유 권한 위험 상태 표시('시스템 라이선스 자격 - 위험 표시')
++
+위험 상태는 낮음, 중간, 높음, 무허가 또는 미지의 상태가 될 수 있습니다. 위험 상태는 AutoSupport 메시지에도 포함됩니다. 라이센스 소유 권한 위험은 기본 라이센스 패키지에 적용되지 않습니다.
+
++
+라이센스 사용 권한 위험은 다음을 포함하되 이에 국한되지 않는 다양한 요소를 사용하여 평가합니다.
+
++
+** 각 패키지의 라이센스 상태입니다
+** 각 라이센스의 유형, 만료 상태 및 클러스터 전체에서 라이센스의 균일성
+** 라이센스 패키지와 관련된 기능에 대한 사용 평가 프로세스에서 클러스터에 라이센스 사용 권한 위험이 있다고 판단하면 명령 출력에서도 수정 조치를 제안합니다.
+
+
+
+
+[NOTE]
+====
+참고: ONTAP 9.10.1은 System Manager 또는 CLI를 사용하여 28자의 라이센스 키도 지원합니다. 그러나 기능용으로 NLF 라이센스가 설치되어 있는 경우 동일한 기능에 대해 NLF 라이센스 위에 28자의 라이센스 키를 설치할 수 없습니다. System Manager를 사용하여 NLF 또는 라이센스 키를 설치하는 방법에 대한 자세한 내용은 " 새 기능 사용 "을 참조하십시오.
+
+====
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/What_are_Data_ONTAP_8.2_and_8.3_licensing_overview_and_references%3F["Data ONTAP 8.2 및 8.3 라이센스 개요 및 참조 자료는 무엇입니까?"]
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_verify_Data_ONTAP_Software_Entitlements_and_related_License_Keys_using_the_Support_Site["지원 사이트를 통해 Data ONTAP 소프트웨어 사용 권한 및 관련 라이센스 키를 확인하는 방법"]
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/FAQ%3A_Licensing_updates_in_Data_ONTAP_9.2["FAQ: Data ONTAP 9.2의 라이선스 업데이트"]
+
+http://mysupport.netapp.com/licensing/ontapentitlementriskstatus["NetApp: Data ONTAP 자격 위험 상태"]

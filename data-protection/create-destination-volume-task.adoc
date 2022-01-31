@@ -1,0 +1,31 @@
+---
+permalink: data-protection/create-destination-volume-task.html 
+sidebar: sidebar 
+keywords: create, destination, volume 
+summary: 대상에서 volume create 명령을 사용하여 대상 볼륨을 생성할 수 있습니다. 대상 볼륨의 크기는 소스 볼륨보다 크거나 같아야 합니다. 
+---
+= 대상 볼륨을 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+대상에서 'volume create' 명령을 사용하여 대상 볼륨을 생성할 수 있습니다. 대상 볼륨의 크기는 소스 볼륨보다 크거나 같아야 합니다.
+
+.단계
+. 대상 볼륨 생성:
++
+'volume create-vserver_SVM_-volume volume-aggregate_aggregate_-type DP-size_size_'
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+다음 예에서는 이름이 "VolA_DST"인 2GB 대상 볼륨을 생성합니다.
+
++
+[listing]
+----
+cluster_dst::> volume create -vserver SVM_backup -volume volA_dst -aggregate node01_aggr -type DP -size 2GB
+----
+

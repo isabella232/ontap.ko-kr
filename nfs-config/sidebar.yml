@@ -1,0 +1,126 @@
+---
+section: nfs-config
+title: CLI를 사용하여 NFS를 구성합니다
+entries:
+- title: 개요
+  url: "/nfs-config/index.html"
+- title: 워크플로우
+  url: "/nfs-config/workflow-concept.html"
+- title: 준비
+  entries:
+  - title: 물리적 스토리지 요구사항을 평가합니다
+    url: "/nfs-config/assess-physical-storage-requirements-task.html"
+  - title: 네트워킹 요구 사항을 평가합니다
+    url: "/nfs-config/assess-networking-requirements-task.html"
+  - title: 새 NFS 스토리지 용량을 프로비저닝할 위치를 결정합니다
+    url: "/nfs-config/where-provision-storage-capacity-task.html"
+  - title: NFS 구성 정보 수집을 위한 워크시트입니다
+    url: "/nfs-config/worksheet-reference.html"
+- title: SVM에 대한 NFS 액세스를 구성합니다
+  entries:
+  - title: SVM을 생성합니다
+    url: "/nfs-config/create-svms-data-access-task.html"
+  - title: SVM에서 NFS 프로토콜이 활성화되어 있는지 확인합니다
+    url: "/nfs-config/verify-protocol-enabled-svm-task.html"
+  - title: SVM 루트 볼륨의 엑스포트 정책을 엽니다
+    url: "/nfs-config/open-export-policy-svm-root-volume-task.html"
+  - title: NFS 서버를 생성합니다
+    url: "/nfs-config/create-server-task.html"
+  - title: LIF를 생성합니다
+    url: "/nfs-config/create-lif-task.html"
+  - title: 호스트 이름 확인을 위해 DNS를 활성화합니다
+    url: "/nfs-config/configure-dns-host-name-resolution-task.html"
+  - title: 이름 서비스 구성
+    entries:
+    - title: 개요
+      url: "/nfs-config/configure-name-services-concept.html"
+    - title: 이름 서비스 스위치 테이블을 구성합니다
+      url: "/nfs-config/configure-name-service-switch-table-task.html"
+    - title: 로컬 UNIX 사용자 및 그룹을 구성합니다
+      entries:
+      - title: 개요
+        url: "/nfs-config/configure-local-unix-users-groups-concept.html"
+      - title: 로컬 UNIX 사용자를 생성합니다
+        url: "/nfs-config/create-local-unix-user-task.html"
+      - title: URI에서 로컬 UNIX 사용자를 로드합니다
+        url: "/nfs-config/load-local-unix-users-uri-task.html"
+      - title: 로컬 UNIX 그룹을 생성합니다
+        url: "/nfs-config/create-local-unix-group-task.html"
+      - title: 로컬 UNIX 그룹에 사용자를 추가합니다
+        url: "/nfs-config/add-user-local-unix-group-task.html"
+      - title: URI에서 로컬 UNIX 그룹을 로드합니다
+        url: "/nfs-config/load-local-unix-groups-uri-task.html"
+    - title: 넷그룹으로 작업합니다
+      entries:
+      - title: 개요
+        url: "/nfs-config/work-netgroups-task.html"
+      - title: 넷그룹을 SVM에 로드
+        url: "/nfs-config/load-netgroups-svms-task.html"
+      - title: 넷그룹 정의의 상태를 확인합니다
+        url: "/nfs-config/verify-status-netgroup-definitions-task.html"
+    - title: NIS 도메인 구성을 생성합니다
+      url: "/nfs-config/create-nis-domain-config-task.html"
+    - title: LDAP를 사용합니다
+      entries:
+      - title: 개요
+        url: "/nfs-config/using-ldap-concept.html"
+      - title: 새 LDAP 클라이언트 스키마를 생성합니다
+        url: "/nfs-config/create-new-ldap-client-schema-task.html"
+      - title: SVM에 자체 서명된 루트 CA 인증서를 설치합니다
+        url: "/nfs-config/install-self-signed-root-ca-certificate-svm-task.html"
+      - title: LDAP 클라이언트 구성을 생성합니다
+        url: "/nfs-config/create-ldap-client-config-task.html"
+      - title: LDAP 클라이언트 구성을 SVM과 연결합니다
+        url: "/nfs-config/enable-ldap-svms-task.html"
+      - title: 이름 서비스 스위치 테이블에서 LDAP 소스를 확인합니다
+        url: "/nfs-config/configure-svms-ldap-task.html"
+  - title: 강력한 보안을 위해 NFS와 Kerberos 사용
+    entries:
+    - title: 개요
+      url: "/nfs-config/kerberos-nfs-strong-security-concept.html"
+    - title: Kerberos 구성에 대한 권한을 확인합니다
+      url: "/nfs-config/verify-permissions-kerberos-config-task.html"
+    - title: NFS Kerberos 영역 구성을 생성합니다
+      url: "/nfs-config/create-kerberos-realm-config-task.html"
+    - title: NFS Kerberos 허용 암호화 유형을 구성합니다
+      url: "/nfs-config/configure-kerberos-permitted-encryption-types-task.html"
+    - title: 데이터 LIF에서 Kerberos를 사용하도록 설정합니다
+      url: "/nfs-config/create-kerberos-config-task.html"
+- title: NFS 지원 SVM에 스토리지 용량 추가
+  entries:
+  - title: 개요
+    url: "/nfs-config/add-storage-capacity-nfs-enabled-svm-concept.html"
+  - title: 엑스포트 정책을 생성합니다
+    url: "/nfs-config/create-export-policy-task.html"
+  - title: 엑스포트 정책에 규칙 추가
+    url: "/nfs-config/add-rule-export-policy-task.html"
+  - title: 볼륨 또는 qtree 스토리지 컨테이너를 생성합니다
+    entries:
+    - title: 볼륨을 생성합니다
+      url: "/nfs-config/create-volume-task.html"
+    - title: qtree를 생성합니다
+      url: "/nfs-config/create-qtree-task.html"
+  - title: 내보내기 정책을 사용하여 NFS 액세스를 보호합니다
+    entries:
+    - title: 개요
+      url: "/nfs-config/export-policies-concept.html"
+    - title: 내보내기 규칙의 처리 순서를 관리합니다
+      url: "/nfs-config/set-export-rules-index-number-task.html"
+    - title: 볼륨에 엑스포트 정책을 할당합니다
+      url: "/nfs-config/associate-export-policy-flexvol-task.html"
+    - title: qtree에 엑스포트 정책을 할당합니다
+      url: "/nfs-config/assign-export-policy-qtree-task.html"
+  - title: 클러스터에서 NFS 클라이언트 액세스를 확인합니다
+    url: "/nfs-config/verify-client-access-from-cluster-task.html"
+  - title: 클라이언트 시스템에서 NFS 액세스를 테스트합니다
+    url: "/nfs-config/test-access-client-systems-task.html"
+- title: 추가 정보를 찾을 수 있는 위치
+  url: "/nfs-config/additional-information-reference.html"
+- title: ONTAP 내보내기는 7-Mode 내보내기와는 어떻게 다릅니까
+  entries:
+  - title: 개요
+    url: "/nfs-config/exports-differ-concept.html"
+  - title: 7-Mode 및 ONTAP의 엑스포트 비교
+    url: "/nfs-config/comparison-exports-7-mode-concept.html"
+  - title: ONTAP 엑스포트 정책의 예
+    url: "/nfs-config/examples-export-policies-concept.html"

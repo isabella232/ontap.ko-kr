@@ -1,0 +1,62 @@
+---
+permalink: smb-admin/display-group-memberships-local-users-task.html 
+sidebar: sidebar 
+keywords: display, information, local, group, user, belong, folder, determine, access, file, useful, troubleshoot, display information about group memberships for local users 
+summary: 로컬 사용자가 속한 로컬 그룹에 대한 정보를 표시할 수 있습니다. 이 정보를 사용하여 파일 및 폴더에 대한 사용자의 액세스 권한을 결정할 수 있습니다. 이 정보는 사용자가 파일 및 폴더에 대해 가질 액세스 권한을 결정하거나 파일 액세스 문제를 해결할 때 유용할 수 있습니다. 
+---
+= 로컬 사용자의 그룹 구성원 자격에 대한 정보를 표시합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+로컬 사용자가 속한 로컬 그룹에 대한 정보를 표시할 수 있습니다. 이 정보를 사용하여 파일 및 폴더에 대한 사용자의 액세스 권한을 결정할 수 있습니다. 이 정보는 사용자가 파일 및 폴더에 대해 가질 액세스 권한을 결정하거나 파일 액세스 문제를 해결할 때 유용할 수 있습니다.
+
+명령을 사용자 지정하여 표시할 정보만 표시할 수 있습니다.
+
+.단계
+. 다음 작업 중 하나를 수행합니다.
++
+|===
+| 원하는 작업 | 명령 입력... 
+
+
+ a| 
+지정된 로컬 사용자의 로컬 사용자 구성원 정보를 표시합니다
+ a| 
+'vserver cifs users-and-groups local-user show-membership-user-name_user_name_'
+
+
+
+ a| 
+이 로컬 사용자가 구성원인 로컬 그룹의 로컬 사용자 구성원 정보를 표시합니다
+ a| 
+'vserver cifs users-and-groups local-user show-membership_group_name_'
+
+
+
+ a| 
+지정된 SVM(스토리지 가상 머신)과 연결된 로컬 사용자의 사용자 구성원 정보를 표시합니다.
+ a| 
+'vserver cifs users-and-groups local-user show-membership-vserver_vserver_name_'
+
+
+
+ a| 
+지정된 SVM의 모든 로컬 사용자에 대한 세부 정보를 표시합니다
+ a| 
+'vserver cifs users-and-groups local-user show-membership-instance-vserver_vserver_name_'
+
+|===
+
+
+다음 예에서는 SVM VS1 상의 모든 로컬 사용자에 대한 구성원 정보를 표시합니다. 사용자 "'cifs_server\Administrator'"는 "'BUILTIN\Administrators'" 그룹의 구성원이고 "'cifs_server\sue'"는 "'cifs_server\G1"" 그룹의 구성원입니다.
+
+[listing]
+----
+cluster1::> vserver cifs users-and-groups local-user show-membership -vserver vs1
+Vserver    User Name                    Membership
+---------- ---------------------------- ------------------------
+vs1        CIFS_SERVER\Administrator    BUILTIN\Administrators
+           CIFS_SERVER\sue              CIFS_SERVER\g1
+----

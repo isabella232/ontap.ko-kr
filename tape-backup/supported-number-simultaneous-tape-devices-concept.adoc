@@ -1,0 +1,22 @@
+---
+permalink: tape-backup/supported-number-simultaneous-tape-devices-concept.html 
+sidebar: sidebar 
+keywords: supported, number, simultaneoud, tape, devices, fibre, channel, scsi, sas, attachments, router, devices 
+summary: 'ONTAP는 Fibre Channel, SCSI 또는 SAS 접속 장치를 혼합하여 각 스토리지 시스템(노드당)에 대해 최대 64개의 동시 테이프 드라이브 접속, 16개의 미디어 체인저 및 16개의 브리지 또는 라우터 디바이스를 지원합니다.' 
+---
+= 지원되는 동시 테이프 디바이스 수입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP는 Fibre Channel, SCSI 또는 SAS 접속 장치를 혼합하여 각 스토리지 시스템(노드당)에 대해 최대 64개의 동시 테이프 드라이브 접속, 16개의 미디어 체인저 및 16개의 브리지 또는 라우터 디바이스를 지원합니다.
+
+테이프 드라이브 또는 미디어 체인저는 물리적 또는 가상 테이프 라이브러리 또는 독립 실행형 디바이스의 디바이스일 수 있습니다.
+
+[NOTE]
+====
+스토리지 시스템에서 64개의 테이프 드라이브 연결을 감지할 수 있지만 동시에 수행할 수 있는 최대 백업 및 복구 세션 수는 백업 엔진의 확장성 제한에 따라 달라집니다.
+
+====
+xref:scalability-limits-dump-backup-restore-sessions-concept.adoc[덤프 백업 및 복원 세션에 대한 확장성 제한]

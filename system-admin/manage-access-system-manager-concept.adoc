@@ -1,0 +1,17 @@
+---
+permalink: system-admin/manage-access-system-manager-concept.html 
+sidebar: sidebar 
+keywords: manage, access, ontap, system, manager, enable, disable, web, browser, log 
+summary: 웹 브라우저의 System Manager 액세스를 사용하거나 사용하지 않도록 설정할 수 있습니다. System Manager 로그도 볼 수 있습니다. 
+---
+= System Manager에 대한 액세스를 관리하는 방법
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+웹 브라우저에서 System Manager에 액세스할 수 있도록 설정하거나 해제할 수 있습니다. System Manager 로그도 볼 수 있습니다.
+
+vserver services web modify -name sysmgr -vserver_cluster_name_ -enabled "["true"|"false"]를 사용하여 System Manager에 대한 웹 브라우저의 액세스를 제어할 수 있습니다.
+
+System Manager 로깅은 System Manager에 액세스할 때 클러스터 관리 LIF를 호스팅하는 노드의 '/mroot/etc/log/mgmtg.log' 파일에 기록됩니다. 브라우저를 사용하여 로그 파일을 볼 수 있습니다. System Manager 로그는 AutoSupport 메시지에도 포함되어 있습니다.

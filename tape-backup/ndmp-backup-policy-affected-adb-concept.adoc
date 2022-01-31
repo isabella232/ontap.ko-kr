@@ -1,0 +1,21 @@
+---
+permalink: tape-backup/ndmp-backup-policy-affected-adb-concept.html 
+sidebar: sidebar 
+keywords: ndmp, backup, policy, adb, aggregate, balancer, analysis, user, statistics, usage, percentage 
+summary: 'ADB(자동 데이터 밸런서)가 활성화되면 밸런서는 애그리게이트의 사용 통계를 분석하여 구성된 상위 임계값 사용 비율을 초과한 애그리게이트를 식별합니다.' 
+---
+= ADB 동안 NDMP 백업 정책이 영향을 받는 방식
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ADB(자동 데이터 밸런서)가 활성화되면 밸런서는 애그리게이트의 사용 통계를 분석하여 구성된 상위 임계값 사용 비율을 초과한 애그리게이트를 식별합니다.
+
+임계값을 초과한 애그리게이트를 식별한 후, 밸런서는 클러스터의 다른 노드에 있는 애그리게이트로 이동할 수 있는 볼륨을 식별하고 해당 볼륨을 이동하려고 시도합니다. 이 상황은 DMA(Data Management Application)가 CAB을 인식하지 못하는 경우 사용자가 백업 정책을 다시 구성하고 기본 백업 작업을 실행해야 하기 때문에 이 볼륨에 대해 구성된 백업 정책에 영향을 줍니다.
+
+[NOTE]
+====
+DMA가 CAB을 인식하며 특정 인터페이스를 사용하여 백업 정책을 구성한 경우 ADB는 영향을 받지 않습니다.
+
+====

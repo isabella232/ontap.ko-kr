@@ -1,0 +1,21 @@
+---
+permalink: smb-admin/configure-security-styles-svm-root-volumes-task.html 
+sidebar: sidebar 
+keywords: configure, storage, virtual, machine, svm, root, volume, security, style, permission, configure security styles on svm root volumes 
+summary: 'SVM(Storage Virtual Machine) 루트 볼륨 보안 스타일을 구성하여 SVM의 루트 볼륨에서 데이터에 사용되는 권한의 유형을 결정할 수 있습니다.' 
+---
+= SVM 루트 볼륨에 보안 스타일을 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SVM(Storage Virtual Machine) 루트 볼륨 보안 스타일을 구성하여 SVM의 루트 볼륨에서 데이터에 사용되는 권한의 유형을 결정할 수 있습니다.
+
+.단계
+. 보안 스타일을 정의하려면 '-rootvolume-security-style' 매개 변수와 함께 'vserver create' 명령을 사용하십시오.
++
+루트 볼륨 보안 스타일에 사용할 수 있는 옵션은 UNIX, NTFS 또는 혼합 입니다.
+
+. 생성한 SVM의 루트 볼륨 보안 스타일('vserver show -vserver_vserver_name_')을 포함하여 구성을 표시하고 확인합니다
+

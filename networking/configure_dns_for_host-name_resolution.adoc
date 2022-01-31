@@ -1,0 +1,112 @@
+---
+sidebar: sidebar 
+permalink: networking/configure_dns_for_host-name_resolution.html 
+keywords: configure, configuring, configuration, setup, set, setting, dns, local, remote, host, name, host-name, resolution, configure dns for host-name resolution, nsswitch.conf, configure an svm and data lifs for host-name resolution using an external dns server, vserver services name-service dns, vserver services name-service dns create, network interface modify -lif lifname -dns-zone, network interface create -lif lifname -dns-zone, vserver services name-service dns check, configure the name service switch table for host-name resolution 
+summary: DNS를 사용하여 호스트 정보에 대한 로컬 또는 원격 소스에 액세스합니다 
+---
+= 호스트 이름 확인을 위해 DNS를 구성합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+DNS를 사용하여 로컬 또는 원격 소스에 액세스하여 호스트 정보를 확인할 수 있습니다. 이러한 소스 중 하나 또는 둘 다에 액세스하려면 DNS를 구성해야 합니다.
+
+ONTAP는 클라이언트에 대한 적절한 액세스를 제공하기 위해 호스트 정보를 조회해야 합니다. 호스트 정보를 얻기 위해 ONTAP가 로컬 또는 외부 DNS 서비스에 액세스하도록 이름 서비스를 구성해야 합니다.
+
+ONTAP는 UNIX 시스템의 '/etc/nsswitch.conf' 파일에 해당하는 테이블에 이름 서비스 구성 정보를 저장합니다.
+
+
+
+== 외부 DNS 서버를 사용하여 호스트 이름 확인을 위해 SVM 및 데이터 LIF를 구성합니다
+
+SVM에서 DNS를 사용하도록 설정하려면 'vserver services name-service dns' 명령을 사용하고, 호스트 이름 확인을 위해 DNS를 사용하도록 구성할 수 있습니다. 호스트 이름은 외부 DNS 서버를 사용하여 확인됩니다.
+
+호스트 이름 조회에 사이트 전체 DNS 서버를 사용할 수 있어야 합니다.
+
+단일 장애 지점을 방지하려면 둘 이상의 DNS 서버를 구성해야 합니다. DNS 서버 이름을 하나만 입력하면 'vserver services name-service dns create' 명령이 경고를 보냅니다.
+
+네트워크 관리 가이드에는 SVM에서 동적 DNS를 구성하는 방법에 대한 정보가 포함되어 있습니다.
+
+.단계
+. SVM에서 DNS 활성화:
++
+....
+vserver services name-service dns create -vserver vserver_name -domains domain_name - name-servers ip_addresses -state enabled
+....
++
+다음 명령을 실행하면 SVM VS1 에서 외부 DNS 서버 서버가 활성화됩니다.
+
++
+....
+vserver services name-service dns create -vserver <vs1.example.com> -domains <example.com> -name-servers <192.0.2.201,192.0.2.202> -state <enabled>
+....
++
+
+NOTE: vserver services name-service dns create 명령은 자동 구성 검증을 수행하고 ONTAP가 이름 서버에 연결할 수 없는 경우 오류 메시지를 보고합니다.
+
+. SVM이 소유하는 LIF에서 DNS 설정:
++
+|===
+
+
+| 있는 경우 | 다음 명령을 사용합니다. 
+
+
+ a| 
+기존 LIF 존-이름을 수정합니다
+ a| 
+네트워크 인터페이스 수정-lif lifname-dns-zone
+
+
+
+ a| 
+새 LIF 존 이름을 생성합니다
+ a| 
+네트워크 인터페이스 create-lif lifname-dns-zone
+
+|===
++
+....
+vserver services name-service dns create -vserver <vs1> -domains <example.com> -name-servers <192.0.2.201, 192.0.2.202> -state <enabled> network interface modify -lif <datalif1> -dns-zone <zonename.whatever.com>
+....
+. 'vserver services name-service dns check' 명령어를 이용하여 이름 서버의 상태를 확인한다.
++
+....
+vserver services name-service dns check -vserver vs1.example.com
+VserverName       Server     Status    Status Details
+----------------  ---------- -------   --------------------------
+vs1.example.com   10.0.0.50  up        Response time (msec): 2
+vs1.example.com   10.0.0.51  up        Response time (msec): 2
+....
+
+
+
+
+== 호스트 이름 확인을 위해 이름 서비스 스위치 테이블을 구성합니다
+
+ONTAP가 로컬 또는 외부 이름 서비스에 문의하여 호스트 정보를 검색할 수 있도록 이름 서비스 스위치 테이블을 올바르게 구성해야 합니다.
+
+사용자 환경에서 호스트 매핑에 사용할 이름 서비스를 결정해야 합니다.
+
+.단계
+. 이름 서비스 스위치 테이블에 필요한 항목을 추가합니다.
++
+....
+vserver services name-service <ns-switch> create -vserver <vserver_name> -database <database_name> -source <source_names>
+....
+. 이름 서비스 스위치 테이블에 원하는 순서대로 필요한 항목이 포함되어 있는지 확인합니다.
++
+....
+vserver services name-service <ns-switch> show -vserver <vserver_name>
+....
+
+
+다음 예에서는 SVM VS1 에서 먼저 로컬 호스트 파일을 사용하도록 이름 서비스 스위치 테이블에 항목을 생성한 다음 외부 DNS 서버를 사용하여 호스트 이름을 확인합니다.
+
+....
+vserver services name-service ns-switch create -vserver vs1 -database hosts -sources files dns
+....

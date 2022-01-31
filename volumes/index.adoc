@@ -1,0 +1,19 @@
+---
+permalink: volumes/index.html 
+sidebar: sidebar 
+keywords: decide, logical, storage, management, overview, flexvol, volume, manage, create, flexclone, deduplication compression, cli 
+summary: ONTAP CLI를 사용하면 FlexVol 볼륨을 생성 및 관리하고, FlexClone 기술을 사용하여 볼륨, 파일 및 LUN의 효율적인 복사본을 생성하고, qtree 및 할당량을 생성하고, 중복제거 및 압축과 같은 효율성 기능을 관리할 수 있습니다. 
+---
+= CLI를 통한 논리적 스토리지 관리 개요
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP CLI를 사용하면 FlexVol 볼륨을 생성 및 관리하고, FlexClone 기술을 사용하여 볼륨, 파일 및 LUN의 효율적인 복사본을 생성하고, qtree 및 할당량을 생성하고, 중복제거 및 압축과 같은 효율성 기능을 관리할 수 있습니다.
+
+다음과 같은 상황에서 이러한 절차를 사용해야 합니다.
+
+* ONTAP FlexVol의 볼륨 기능 및 스토리지 효율성 기능에 대해 알고 싶어 합니다.
+* System Manager나 자동화된 스크립팅 도구가 아니라 CLI(Command-Line Interface)를 사용하려는 경우
+

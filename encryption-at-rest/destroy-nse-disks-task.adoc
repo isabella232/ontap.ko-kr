@@ -1,0 +1,86 @@
+---
+permalink: encryption-at-rest/destroy-nse-disks-task.html 
+sidebar: sidebar 
+keywords: destroy, fips, drive, sed, psid, physical secure ID, nrd plus 
+summary: FIPS 드라이브 또는 SED에 있는 데이터를 영구적으로 액세스할 수 없게 하고 드라이브를 다시 사용할 필요가 없는 경우 스토리지 암호화 디스크 폐기 명령을 사용하여 디스크를 폐기할 수 있습니다. 
+---
+= FIPS 드라이브 또는 SED를 제거합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FIPS 드라이브 또는 SED에 있는 데이터를 영구적으로 액세스할 수 없게 하고 드라이브를 다시 사용할 필요가 없는 경우 '저장소 암호화 디스크 폐기' 명령을 사용하여 디스크를 폐기할 수 있습니다.
+
+이 작업을 수행하려면 클러스터 관리자여야 합니다.
+
+FIPS 드라이브 또는 SED를 제거할 때 시스템은 디스크 암호화 키를 알 수 없는 임의 값으로 설정하고 드라이브를 복구할 수 없도록 잠급니다. 이렇게 하면 디스크가 사실상 사용할 수 없게 되고 디스크에 있는 데이터에 영구적으로 액세스할 수 없게 됩니다. 그러나 디스크 레이블에 인쇄된 PSID(Physical Secure ID)를 사용하여 디스크를 공장 출하시 구성된 설정으로 재설정할 수 있습니다. 자세한 내용은 을 참조하십시오 link:return-self-encrypting-disks-keys-not-available-task.html["인증 키가 손실된 경우 FIPS 드라이브 또는 SED를 서비스에 반환합니다"].
+
+[NOTE]
+====
+Non-Returnable Disk Plus 서비스(NRD Plus)가 없는 경우 FIPS 드라이브 또는 SED를 폐기해서는 안 됩니다. 디스크를 폐기하면 보증이 무효화됩니다.
+
+====
+.단계
+. 보존해야 하는 데이터를 다른 디스크의 aggregate에 마이그레이션합니다.
+. 제거할 FIPS 드라이브 또는 SED의 Aggregate 삭제:
++
+'Storage aggregate delete-aggregate aggregate_name'을 선택합니다
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+[listing]
+----
+cluster1::> storage aggregate delete -aggregate aggr1
+----
+. 제거할 FIPS 드라이브 또는 SED의 디스크 ID 식별:
++
+스토리지 암호화 디스크 표시
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+[listing]
+----
+cluster1::> storage encryption disk show
+Disk    Mode Data Key ID
+-----   ---- ----------------------------------------------------------------
+0.0.0   data F1CB30AFF1CB30B00101000000000000A68B167F92DD54196297159B5968923C
+0.0.1   data F1CB30AFF1CB30B00101000000000000A68B167F92DD54196297159B5968923C
+1.10.2  data F1CB30AFF1CB30B00101000000000000CF0EFD81EA9F6324EA97B369351C56AC
+[...]
+----
+. 디스크 폐기:
++
+'Storage encryption disk destroy - disk disk_id'
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+[NOTE]
+====
+계속하기 전에 확인 문구를 입력하라는 메시지가 표시됩니다. 화면에 표시된 대로 정확하게 구문을 입력합니다.
+
+====
++
+[listing]
+----
+cluster1::> storage encryption disk destroy -disk 1.10.2
+
+Warning: This operation will cryptographically destroy 1 spare or broken
+         self-encrypting disks on 1 node.
+         You cannot reuse destroyed disks unless you revert
+         them to their original state using the PSID value.
+         To continue, enter
+          destroy disk
+         :destroy disk
+
+Info: Starting destroy on 1 disk.
+      View the status of the operation by using the
+      "storage encryption disk show-status" command.
+----
+

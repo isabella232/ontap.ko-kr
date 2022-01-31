@@ -1,0 +1,51 @@
+---
+permalink: smb-admin/add-list-netbios-aliases-server-task.html 
+sidebar: sidebar 
+keywords: smb, client, connect, cifs, server, alias, create, list, netbios, add, add a list of netbios aliases to the cifs server 
+summary: SMB 클라이언트가 별칭을 사용하여 CIFS 서버에 접속하도록 하려면 NetBIOS 별칭 목록을 생성하거나 NetBIOS 별칭의 기존 목록에 NetBIOS 별칭을 추가할 수 있습니다. 
+---
+= CIFS 서버에 NetBIOS 별칭 목록을 추가합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMB 클라이언트가 별칭을 사용하여 CIFS 서버에 접속하도록 하려면 NetBIOS 별칭 목록을 생성하거나 NetBIOS 별칭의 기존 목록에 NetBIOS 별칭을 추가할 수 있습니다.
+
+.이 작업에 대해
+* NetBIOS 별칭 이름은 최대 15자까지 지정할 수 있습니다.
+* CIFS 서버에서 최대 200개의 NetBIOS 별칭을 구성할 수 있습니다.
+* 다음 문자는 허용되지 않습니다.
++
+@# * ()=+[]|;:",<>\/?
+
+
+
+.단계
+. NetBIOS 별칭: + 'vserver cifs add-netbios-alias-vserver_vserver_name_-NetBIOS-alias_netbios_alias_,...'를 추가합니다
++
+'vserver cifs add-netbios-alias-vserver vs1-netbios-alias alias_1, alias_2, alias_3'
+
++
+** 쉼표로 구분된 목록을 사용하여 하나 이상의 NetBIOS 별칭을 지정할 수 있습니다.
+** 지정된 NetBIOS 별칭이 기존 목록에 추가됩니다.
+** 목록이 현재 비어 있는 경우 새 NetBIOS 별칭 목록이 생성됩니다.
+
+
+. NetBIOS 별칭이 올바르게 추가되었는지 확인합니다. 'vserver cifs show -vserver vserver_name -display -netbios -aliases'
++
+'vserver cifs show-vserver vs1-display-netbios-aliases'
+
++
+[listing]
+----
+Vserver: vs1
+
+         Server Name: CIFS_SERVER
+         NetBIOS Aliases: ALIAS_1, ALIAS_2, ALIAS_3
+----
+
+
+xref:remove-netbios-aliases-from-list-task.adoc[NetBIOS 별칭 목록에서 NetBIOS 별칭을 제거합니다]
+
+xref:display-list-netbios-aliases-task.adoc[CIFS 서버에서 NetBIOS 별칭 목록을 표시합니다]

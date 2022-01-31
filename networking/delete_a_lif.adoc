@@ -1,0 +1,56 @@
+---
+sidebar: sidebar 
+permalink: networking/delete_a_lif.html 
+keywords: 'remove a lif, destroy a lif, delete, deleting, remove, removing, logical, interface, lif, delete a lif, delete a network interface (lif) that is no longer required, network interface delete' 
+summary: '더 이상 필요하지 않은 네트워크 인터페이스(LIF)를 삭제합니다' 
+---
+= LIF를 삭제합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+더 이상 필요하지 않은 네트워크 인터페이스(LIF)를 삭제할 수 있습니다.
+
+삭제할 LIF는 사용 중이 아니어야 합니다.
+
+.단계
+. 다음 명령을 사용하여 삭제할 LIF를 관리 목적으로 사용 중지하도록 표시합니다.
++
+....
+network interface modify -vserver vserver_name -lif lif_name -status-admin down
+....
+. "network interface delete" 명령을 사용하여 하나 또는 모든 LIF를 삭제합니다.
++
+[cols="30,70"]
+|===
+
+
+| 삭제하려면... | 명령 입력... 
+
+
+ a| 
+특정 LIF
+ a| 
+'network interface delete -vserver vserver_name -lif lif_name'
+
+
+
+ a| 
+모든 LIF
+ a| 
+'network interface delete-vserver vserver_name-lif *'
+
+|===
++
+다음 명령을 실행하면 LIF mgmtd LIF가 삭제됩니다. 2:
+
++
+....
+network interface delete -vserver vs1 -lif mgmtlif2
+....
+. LIF가 삭제되었는지 확인하려면 'network interface show' 명령을 사용하십시오.
+

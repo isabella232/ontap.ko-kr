@@ -1,0 +1,95 @@
+---
+permalink: performance-admin/identify-remaining-performance-capacity-task.html 
+sidebar: sidebar 
+keywords: identify, remaining, performance, capacity 
+summary: '성능 용량(여유 공간)은 리소스의 워크로드 성능이 지연 시간의 영향을 받기 전에 노드나 애그리게이트에 배치할 수 있는 작업의 양을 측정합니다. 클러스터에서 사용 가능한 성능 용량을 파악하면 워크로드를 프로비저닝하고 조정할 수 있습니다.' 
+---
+= 남은 성능 용량을 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+성능 용량, 즉_FLO여유_는 리소스의 워크로드 성능이 지연 시간의 영향을 받기 전에 노드나 애그리게이트에 배치할 수 있는 작업의 양을 측정합니다. 클러스터에서 사용 가능한 성능 용량을 파악하면 워크로드를 프로비저닝하고 조정할 수 있습니다.
+
+이 작업에는 고급 권한 레벨 명령이 필요합니다.
+
+'-object' 옵션에 다음 값을 사용하여 여유 공간 통계를 수집하고 표시할 수 있습니다.
+
+* CPU의 경우 resource_refLO여유_cpu'입니다.
+* Aggregate의 경우 RESOURCE_LOBLO여유_aggr입니다.
+
+
+System Manager 및 Active IQ Unified Manager를 사용하여 이 작업을 완료할 수도 있습니다.
+
+.단계
+. 고급 권한 레벨로 변경:
++
+세트 프리빌리지 고급
+
+. 실시간 여유 공간 통계 수집 시작:
++
+'통계 시작 – object resource_refo여유_cpu|aggr'
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
+. 실시간 여유 공간 통계 정보 표시:
++
+'tortistics show-object resource_fre여유_cpu|aggr'
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
+. 관리 권한으로 돌아가기:
++
+'Set-Privilege admin'입니다
+
+
+
+다음 예제에는 클러스터 노드의 평균 사용 시간 여유 공간 통계가 표시됩니다.
+
+Optimal_point_Utilization 카운터에서 Current_Utilization 카운터를 빼서 노드에 대해 사용 가능한 성능 용량을 계산할 수 있습니다. 이 예에서는 CPU_sti2520-213의 사용률 용량이 -14%(72%-86%)로, 이는 CPU가 지난 1시간 동안 평균 초과 사용되었음을 나타냅니다.
+
+같은 정보를 더 오랜 기간 평균한 값으로 얻기 위해 'ewma_daily', 'ewma_weekly', 'ewma_monthly'를 지정할 수도 있습니다.
+
+[listing]
+----
+sti2520-2131454963690::*> statistics show -object resource_headroom_cpu -raw -counter ewma_hourly
+  (statistics show)
+
+Object: resource_headroom_cpu
+Instance: CPU_sti2520-213
+Start-time: 2/9/2016 16:06:27
+End-time: 2/9/2016 16:06:27
+Scope: sti2520-213
+
+    Counter                                                     Value
+    -------------------------------- --------------------------------
+    ewma_hourly                                                     -
+                         current_ops                             4376
+                     current_latency                            37719
+                 current_utilization                               86
+                   optimal_point_ops                             2573
+               optimal_point_latency                             3589
+           optimal_point_utilization                               72
+     optimal_point_confidence_factor                                1
+
+Object: resource_headroom_cpu
+Instance: CPU_sti2520-214
+Start-time: 2/9/2016 16:06:27
+End-time: 2/9/2016 16:06:27
+Scope: sti2520-214
+
+    Counter                                                     Value
+    -------------------------------- --------------------------------
+    ewma_hourly                                                     -
+                         current_ops                                0
+                     current_latency                                0
+                 current_utilization                                0
+                   optimal_point_ops                                0
+               optimal_point_latency                                0
+           optimal_point_utilization                               71
+     optimal_point_confidence_factor                                1
+2 entries were displayed.
+----

@@ -1,0 +1,37 @@
+---
+permalink: volumes/disable-data-compression-volume-task.html 
+sidebar: sidebar 
+keywords: disable data compression 
+summary: 볼륨 효율성 수정 명령을 사용하여 볼륨에 대한 데이터 압축을 비활성화할 수 있습니다. 
+---
+= 볼륨에 대한 데이터 압축을 비활성화합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'volume Efficiency modify' 명령을 사용하면 볼륨에 대한 데이터 압축을 비활성화할 수 있습니다.
+
+사후 압축 기능을 비활성화하려면 먼저 볼륨에 대해 인라인 압축을 비활성화해야 합니다.
+
+.단계
+. 현재 볼륨에서 활성화되어 있는 볼륨 효율성 작업을 중지합니다.
++
+볼륨 효율성 중지
+
+. 데이터 압축 해제:
++
+볼륨 효율성 수정
+
++
+압축된 기존 데이터가 볼륨에 압축된 상태로 남아 있습니다. 볼륨에 들어오는 새 쓰기만 압축되지 않습니다.
+
+
+
+다음 명령을 실행하면 볼륨 VolA에 대한 인라인 압축이 비활성화됩니다.
+
+'볼륨 효율성 수정 - vserver vs1-volume vola-inline-compression false'
+
+다음 명령을 실행하면 볼륨 VolA에 대해 사후 처리 압축 및 인라인 압축이 모두 비활성화됩니다.
+
+'볼륨 효율성 수정 - vserver vs1-volume vola-compression false-inline-compression false'

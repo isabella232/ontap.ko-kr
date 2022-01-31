@@ -1,0 +1,27 @@
+---
+sidebar: sidebar 
+permalink: task_admin_manage_nodes.html 
+keywords: netapp, ontap, administration, manage, nodes, node, reboot, shutdown, shut, down, takeover, take over, giveback, give, back, node workload, HA partner, managing a cluster, switch node workload, managing nodes 
+summary: '노드를 재부팅하거나 종료하기 전에 노드의 워크로드를 HA 파트너(테이크오버)로 전환해야 합니다.' 
+---
+= 노드를 재부팅, 종료, 테이크오버하고 돌려제공합니다
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+노드를 재부팅하거나 종료하기 전에 노드의 워크로드를 HA 파트너(테이크오버)로 전환해야 합니다.
+
+.단계
+. 클러스터 > 개요 * 를 클릭합니다.
+. 노드 * 에서 를 클릭합니다 image:icon_kabob.gif["메뉴 아이콘"].
+. 노드를 클릭하고 원하는 작업을 선택합니다.
+

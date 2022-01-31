@@ -1,0 +1,72 @@
+---
+permalink: nas-audit/create-fpolicy-policy-task.html 
+sidebar: sidebar 
+keywords: create, fpolicy, policy 
+summary: 'FPolicy 정책을 생성할 때 외부 엔진과 하나 이상의 이벤트를 정책에 연결합니다. 또한 이 정책은 필수 선별 작업이 필요한지 여부, FPolicy 서버가 SVM(스토리지 가상 머신)의 데이터에 액세스할 수 있는 권한이 있는지 여부 및 오프라인 파일에 대한 패스스루 읽기를 사용할 수 있는지 여부도 지정합니다.' 
+---
+= FPolicy 정책을 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FPolicy 정책을 생성할 때 외부 엔진과 하나 이상의 이벤트를 정책에 연결합니다. 또한 이 정책은 필수 선별 작업이 필요한지 여부, FPolicy 서버가 SVM(스토리지 가상 머신)의 데이터에 액세스할 수 있는 권한이 있는지 여부 및 오프라인 파일에 대한 패스스루 읽기를 사용할 수 있는지 여부도 지정합니다.
+
+.무엇을 &#8217;필요로 할거야
+* FPolicy 정책 워크시트를 작성해야 합니다.
+* FPolicy 서버를 사용하도록 정책을 구성하려는 경우 외부 엔진이 존재해야 합니다.
+* FPolicy 정책과 연관하려는 FPolicy 이벤트가 하나 이상 있어야 합니다.
+* 권한이 있는 데이터 액세스를 구성하려면 SVM에 CIFS 서버가 있어야 합니다.
+
+
+.단계
+. FPolicy 정책을 생성합니다.
++
+"vserver FPolicy policy create-vserver-name vserver_name-policy-name policy_name-engine_name-events event_name,... [-is-mandatory{true|false}] [-allow-privileged-access{yes|no}] [-privileged-user-name domain\user_name] [-is-passstrough-read-enabled{true|false}]
+
++
+** FPolicy 정책에 하나 이상의 이벤트를 추가할 수 있습니다.
+** 기본적으로 필수 스크리닝이 활성화됩니다.
+** '-allow-privileged-access' 파라미터를 'yes'로 설정하여 권한 있는 액세스를 허용하려면 권한 있는 액세스에 대한 권한 있는 사용자 이름도 구성해야 합니다.
+** '-is-passthrough-read-enabled' 매개 변수를 'true'로 설정하여 패스스루 읽기를 구성하려면 권한이 있는 데이터 액세스도 구성해야 합니다.
++
+다음 명령을 실행하면 이벤트1, 외부 엔진 엔진 엔진 엔진 엔진 엔진 엔진 엔진 엔진 엔진 엔진 엔진 엔진 엔진 엔진1 등의 정책1이 생성됩니다. 이 정책은 정책 구성에서 'vserver FPolicy policy create - vserver vs1.example.com -policy -name policy1 -events event1 - engine engine 1'이라는 기본값을 사용합니다
+
++
+다음 명령을 실행하면 이벤트2, 외부 엔진 엔진 엔진 엔진 엔진 엔진 엔진 엔진 엔진 엔진 엔진 엔진 엔진 엔진 엔진 엔진 엔진 엔진 엔진 등의 정책2가 생성됩니다. 이 정책은 지정된 사용자 이름을 사용하여 권한 있는 액세스를 사용하도록 구성됩니다. 패스스루 읽기가 활성화된 경우:
+
++
+'vserver FPolicy policy create - vserver vs1.example.com - policy -name policy2 - event2 - event2 - engine engine 2 - allow-privileged-access yes-privileged-user-name example\archive_acct-is-passthrough-read-enabled true'
+
++
+다음 명령은 ""event3""이라는 이벤트가 연결된 ""네이티브e1""이라는 정책을 만듭니다. 이 정책은 네이티브 엔진을 사용하며 정책 구성에서 기본값을 사용합니다.
+
++
+'vserver FPolicy policy create-vserver vs1.example.com -policy-name naive1-event3-engine native'
+
+
+
+. 'vserver FPolicy show' 명령을 사용하여 FPolicy 정책 구성을 확인하십시오.
++
+다음 명령을 실행하면 다음 정보를 비롯하여 세 가지 구성된 FPolicy 정책에 대한 정보가 표시됩니다.
+
++
+** 정책과 연결된 SVM
+** 정책과 연결된 외부 엔진입니다
+** 정책과 관련된 이벤트입니다
+** 필수 스크리닝이 필요한지 여부
+** 특별 권한 액세스가 'vserver FPolicy show'인지 여부
+
+
++
+[listing]
+----
+
+   Vserver       Policy     Events    Engine    Is Mandatory  Privileged
+                 Name                                         Access
+--------------   ---------  --------- --------- ------------  -----------
+vs1.example.com  policy1    event1    engine1   true          no
+vs1.example.com  policy2    event2    engine2   true          yes
+vs1.example.com  native1    event3    native    true          no
+----
+

@@ -1,0 +1,26 @@
+---
+permalink: volumes/delete-volume-efficiency-policy-task.html 
+sidebar: sidebar 
+keywords: delete, volume, efficiency, policy 
+summary: 볼륨 효율성 정책 삭제 명령을 사용하여 볼륨 효율성 정책을 삭제할 수 있습니다. 
+---
+= 볼륨 효율성 정책을 삭제합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'volume Efficiency policy delete' 명령을 사용하면 볼륨 효율성 정책을 삭제할 수 있습니다.
+
+삭제할 정책이 볼륨과 연결되어 있지 않은지 확인해야 합니다.
+
+[NOTE]
+====
+inline-only_와 _default_predefined 효율성 정책은 삭제할 수 없습니다.
+
+====
+.단계
+. 볼륨 효율성 정책을 삭제하려면 'volume Efficiency policy delete' 명령을 사용하십시오.
+
+
+다음 명령을 실행하면 policy1:'볼륨 효율성 정책 삭제 - vserver vs1-policy policy1'이라는 볼륨 효율성 정책이 삭제됩니다

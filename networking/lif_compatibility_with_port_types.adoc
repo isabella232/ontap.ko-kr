@@ -1,0 +1,51 @@
+---
+sidebar: sidebar 
+permalink: networking/lif_compatibility_with_port_types.html 
+keywords: lif, compatibility, port, types, lif compatibility with port types 
+summary: LIF는 다양한 포트 유형을 지원하는 다양한 특성을 가질 수 있습니다 
+---
+= LIF가 포트 유형과 호환됩니다
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+LIF는 다양한 포트 유형을 지원하는 다양한 특성을 가질 수 있습니다.
+
+
+NOTE: 인터클러스터 및 관리 LIF가 동일한 서브넷에 구성된 경우 관리 트래픽이 외부 방화벽에 의해 차단될 수 있으며 AutoSupport 및 NTP 연결이 실패할 수 있습니다. 'network interface modify -vserver_vserver name_-lif_인터클러스터 LIF_-status-admin up|down' 명령을 실행하여 인터클러스터 LIF를 전환하여 시스템을 복구할 수 있습니다. 그러나 이 문제를 방지하려면 인터클러스터 LIF 및 관리 LIF를 다른 서브넷에 설정해야 합니다.
+
+[cols="30,70"]
+|===
+
+
+| LIF | 설명 
+
+
+| 데이터 LIF | 스토리지 가상 시스템(SVM)과 연결되고 클라이언트와 통신하는 데 사용되는 LIF 한 포트에 여러 개의 데이터 LIF가 존재할 수 있습니다. 이러한 인터페이스는 전체 클러스터에서 마이그레이션하거나 페일오버할 수 있습니다. 방화벽 정책을 관리 LIF로 수정하여 SVM 관리 LIF로 사용할 수 있습니다. NIS, LDAP, Active Directory, WINS 및 DNS 서버에 설정된 세션에서 데이터 LIF를 사용합니다. 
+
+
+| 클러스터 LIF | 클러스터 내 노드 간에 클러스터 간 트래픽을 전송하는 데 사용되는 LIF. 클러스터 LIF는 항상 클러스터 포트에 생성해야 합니다. 클러스터 LIF는 동일한 노드의 클러스터 포트 간에 페일오버할 수 있으며 원격 노드로 마이그레이션하거나 페일오버할 수 없습니다. 새 노드가 클러스터에 연결되면 IP 주소가 자동으로 생성됩니다. 그러나 IP 주소를 클러스터 LIF에 수동으로 할당하려면 새 IP 주소가 기존 클러스터 LIF와 동일한 서브넷 범위에 있어야 합니다. 
+
+
+| 클러스터 관리 LIF | LIF는 전체 클러스터에 대한 단일 관리 인터페이스를 제공합니다. 클러스터 관리 LIF는 클러스터의 모든 노드로 페일오버할 수 있습니다. 클러스터 또는 인터클러스터 포트로 페일오버할 수 없습니다 
+
+
+| 인터클러스터 LIF | 클러스터 간 통신, 백업 및 복제에 사용되는 LIF. 클러스터 피어링을 설정하려면 먼저 클러스터의 각 노드에 대한 인터클러스터 LIF를 생성해야 합니다. 이러한 LIF는 동일한 노드의 포트로만 페일오버할 수 있습니다. 클러스터의 다른 노드로 마이그레이션하거나 페일오버할 수 없습니다. 
+
+
+| 노드 관리 LIF | LIF는 클러스터의 특정 노드를 관리하기 위한 전용 IP 주소를 제공합니다. 노드 관리 LIF는 클러스터를 생성하거나 결합할 때 생성됩니다. 이러한 LIF는 클러스터에서 노드에 액세스할 수 없을 때와 같이 시스템 유지 관리에 사용됩니다. 
+
+
+| VIP LIF | VIP LIF는 VIP 포트에 생성된 모든 데이터 LIF입니다. 자세한 내용은 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap/networking/configure_virtual_ip_@vip@_lifs.html["가상 IP(VIP) LIF를 구성합니다"^]. 
+|===
+|===
+
+
+|  | 데이터 LIF | 클러스터 LIF | 노드 관리 LIF | 클러스터 관리 LIF | 인터클러스터 LIF 
+
+
+| 기본 트래픽 유형 | NFS 서버, CIFS 서버, NIS 클라이언트, Active Directory, LDAP, WINS, DNS 클라이언트 및 서버, iSCSI 및 FC 서버 | 클러스터 내 | SSH 서버, HTTPS 서버, NTP 클라이언트, SNMP, AutoSupport 클라이언트, DNS 클라이언트, 소프트웨어 업데이트 로드 중 | SSH 서버, HTTPS 서버 | 클러스터 간 복제 
+|===

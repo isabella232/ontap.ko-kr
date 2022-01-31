@@ -1,0 +1,33 @@
+---
+permalink: encryption-at-rest/delegate-volume-encryption-svm-administrator-task.html 
+sidebar: sidebar 
+keywords: delegating, authority, run, volume move, command 
+summary: 볼륨 이동 명령을 사용하여 기존 볼륨을 암호화하거나, 암호화된 볼륨을 이동하거나, 볼륨을 암호화 해제할 수 있습니다. 클러스터 관리자는 볼륨 이동 명령을 직접 실행하거나 SVM 관리자에게 명령을 실행할 권한을 위임할 수 있습니다. 
+---
+= 볼륨 이동 명령을 실행하는 권한을 위임합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'volume move' 명령을 사용하여 기존 볼륨을 암호화하거나, 암호화된 볼륨을 이동하거나, 볼륨을 암호화 해제할 수 있습니다. 클러스터 관리자는 'volume move' 명령을 직접 실행하거나 SVM 관리자에게 명령을 실행할 권한을 위임할 수 있습니다.
+
+기본적으로 SVM 관리자는 볼륨 이동 권한이 없는 'vsadmin' 역할이 할당됩니다. SVM 관리자가 '볼륨 이동' 명령을 실행할 수 있도록 SVM 관리자에게 'vsadmin-volume' 역할을 할당해야 합니다.
+
+.단계
+. '볼륨 이동' 명령을 실행하는 권한을 위임합니다.
++
+'보안 로그인 수정 - vserver SVM_name -user -or -group -name user_or_group_name -application application application -AuthMethod authentication_method -role vsadmin -volume'
+
++
+전체 명령 구문은 명령에 대한 man 페이지를 참조하십시오.
+
++
+다음 명령을 실행하면 SVM 관리자 권한이 'volume move' 명령을 실행할 수 있습니다.
+
++
+[listing]
+----
+cluster1::>security login modify -vserver engData -user-or-group-name SVM-admin -application ssh -authmethod domain -role vsadmin-volume
+----
+

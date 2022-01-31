@@ -1,0 +1,39 @@
+---
+permalink: system-admin/commands-manage-mount-points-nodes-reference.html 
+sidebar: sidebar 
+keywords: command, manage, mount, point, nodes, spi, web, service, root, volume, root 
+summary: SPI 웹 서비스는 노드의 로그 파일 또는 코어 파일에 대한 액세스 요청이 있을 경우 한 노드에서 다른 노드의 루트 볼륨으로 마운트 지점을 자동으로 생성합니다. 마운트 지점을 수동으로 관리할 필요는 없지만 시스템 노드 루트 마운트 명령을 사용하면 관리할 수 있습니다. 
+---
+= 노드의 마운트 지점을 관리하는 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'pi' 웹 서비스는 노드의 로그 파일 또는 코어 파일에 대한 액세스 요청이 있을 경우 한 노드에서 다른 노드의 루트 볼륨으로 마운트 지점을 자동으로 생성합니다. 마운트 지점을 수동으로 관리할 필요는 없지만 'system node root-mount' 명령을 사용하면 됩니다.
+
+|===
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+한 노드에서 다른 노드의 루트 볼륨으로 마운트 지점을 수동으로 생성합니다
+ a| 
+'시스템 노드 root-mount create' 하나의 노드만 다른 노드로 존재할 수 있다.
+
+
+
+ a| 
+마운트 지점이 생성된 시간과 현재 상태를 포함하여 클러스터의 노드에 기존 마운트 지점을 표시합니다
+ a| 
+'system node root-mount show'
+
+
+
+ a| 
+한 노드에서 다른 노드의 루트 볼륨으로 마운트 지점을 삭제하고 마운트 지점에 대한 연결을 강제로 닫습니다
+ a| 
+'시스템 노드 root-mount delete
+
+|===
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"]

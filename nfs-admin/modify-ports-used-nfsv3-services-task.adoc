@@ -1,0 +1,118 @@
+---
+permalink: nfs-admin/modify-ports-used-nfsv3-services-task.html 
+sidebar: sidebar 
+keywords: modify, port, nfsv3, service 
+summary: 스토리지 시스템의 NFS 서버에서는 마운트 데몬, Network Lock Manager 등의 서비스를 사용하여 특정 기본 네트워크 포트를 통해 NFS 클라이언트와 통신합니다. 대부분의 NFS 환경에서 기본 포트는 올바르게 작동하고 수정할 필요가 없지만, NFSv3 환경에서 다른 NFS 네트워크 포트를 사용하려는 경우에는 변경할 수 있습니다. 
+---
+= NFSv3 서비스에 사용되는 포트를 수정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+스토리지 시스템의 NFS 서버에서는 마운트 데몬, Network Lock Manager 등의 서비스를 사용하여 특정 기본 네트워크 포트를 통해 NFS 클라이언트와 통신합니다. 대부분의 NFS 환경에서 기본 포트는 올바르게 작동하고 수정할 필요가 없지만, NFSv3 환경에서 다른 NFS 네트워크 포트를 사용하려는 경우에는 변경할 수 있습니다.
+
+스토리지 시스템에서 NFS 포트를 변경하려면 모든 NFS 클라이언트가 시스템에 다시 연결해야 하므로 먼저 이 정보를 사용자에게 전달해야 합니다.
+
+각 SVM(스토리지 가상 머신)에 대해 NFS 마운트 데몬, Network Lock Manager, Network Status Monitor, NFS 할당량 데몬 서비스에서 사용하는 포트를 설정할 수 있습니다. 포트 번호 변경은 TCP 및 UDP를 통해 데이터에 액세스하는 NFS 클라이언트에 영향을 줍니다.
+
+NFSv4 및 NFSv4.1의 포트는 변경할 수 없습니다.
+
+.단계
+. 권한 수준을 고급으로 설정합니다.
++
+세트 프리빌리지 고급
+
+. NFS에 대한 액세스 해제:
++
+'vserver nfs modify -vserver vserver_name -access false'
+
+. 특정 NFS 서비스의 NFS 포트를 설정합니다.
++
+'vserver nfs modify -vserver vserver vserver_namenfs_port_parameterport_number'
+
++
+[cols="3*"]
+|===
+| NFS 포트 매개 변수입니다 | 설명 | 기본 포트입니다 
+
+
+ a| 
+'- mountd-port'입니다
+ a| 
+NFS 마운트 데몬입니다
+ a| 
+635
+
+
+
+ a| 
+``NLM-PORT’
+ a| 
+네트워크 잠금 관리자
+ a| 
+4045
+
+
+
+ a| 
+'-NSM-port'입니다
+ a| 
+네트워크 상태 모니터
+ a| 
+4046
+
+
+
+ a| 
+``rquotad-port’’
+ a| 
+NFS 할당량 데몬입니다
+ a| 
+4049
+
+|===
++
+기본 포트 이외에 허용되는 포트 번호 범위는 1024 ~ 65535입니다. 각 NFS 서비스는 고유한 포트를 사용해야 합니다.
+
+. NFS에 대한 액세스 설정:
++
+'vserver nfs modify -vserver vserver_name -access TRUE'
+
+. 'network connections listening show' 명령어를 이용하여 포트 번호 변화를 확인한다.
+. 관리자 권한 레벨로 돌아갑니다.
++
+'Set-Privilege admin'입니다
+
+
+
+다음 명령을 실행하면 이름이 VS1 인 SVM에서 NFS 마운트 데몬 포트가 1113으로 설정됩니다.
+
+[listing]
+----
+vs1::> set -privilege advanced
+Warning: These advanced commands are potentially dangerous; use
+         them only when directed to do so by NetApp personnel.
+Do you want to continue? {y|n}: y
+
+vs1::*> vserver nfs modify -vserver vs1 -access false
+
+vs1::*> vserver nfs modify -vserver vs1 -mountd-port 1113
+
+vs1::*> vserver nfs modify -vserver vs1 -access true
+
+vs1::*> network connections listening show
+Vserver Name     Interface Name:Local Port        Protocol/Service
+---------------- -------------------------------  ----------------
+Node: cluster1-01
+Cluster          cluster1-01_clus_1:7700          TCP/ctlopcp
+vs1              data1:4046                       TCP/sm
+vs1              data1:4046                       UDP/sm
+vs1              data1:4045                       TCP/nlm-v4
+vs1              data1:4045                       UDP/nlm-v4
+vs1              data1:1113                       TCP/mount
+vs1              data1:1113                       UDP/mount
+....
+
+vs1::*> set -privilege admin
+----

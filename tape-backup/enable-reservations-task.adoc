@@ -1,0 +1,33 @@
+---
+permalink: tape-backup/enable-reservations-task.html 
+sidebar: sidebar 
+keywords: enable, disable, tape, reservation, turn, on 
+summary: Tape.예약 옵션을 사용하여 ONTAP에서 테이프 디바이스 예약을 관리하는 방법을 제어할 수 있습니다. 기본적으로 테이프 예약이 해제되어 있습니다. 
+---
+= 테이프 예약 활성화 또는 비활성화
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Tape.예약 옵션을 사용하여 ONTAP에서 테이프 디바이스 예약을 관리하는 방법을 제어할 수 있습니다. 기본적으로 테이프 예약이 해제되어 있습니다.
+
+테이프 예약 옵션을 활성화하면 테이프 드라이브, 미디어 체인저, 브리지 또는 라이브러리가 제대로 작동하지 않을 경우 문제가 발생할 수 있습니다. 테이프 명령이 디바이스를 사용하는 다른 스토리지 시스템이 없을 때 디바이스가 예약된다는 것을 보고하는 경우 이 옵션을 해제해야 합니다.
+
+.단계
+. SCSI 예약/해제 메커니즘 또는 SCSI 영구 보존 명령을 사용하여 테이프 예약을 비활성화하려면 다음 명령을 클러스터 쉘에 입력합니다.
++
+"* 옵션 -옵션 -이름 테이프.예약 -옵션 -값{scsi|persistent|off} *"
+
++
+SCSI Reserve/Release mechanism을 선택한다.
+
++
+'영구'는 SCSI 영구 예약을 선택합니다.
+
++
+OFF는 테이프 예약을 비활성화합니다.
+
+
+
+xref:tape-reservations-concept.adoc[테이프 예약이란]

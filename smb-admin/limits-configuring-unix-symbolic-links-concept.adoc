@@ -1,0 +1,51 @@
+---
+permalink: smb-admin/limits-configuring-unix-symbolic-links-concept.html 
+sidebar: sidebar 
+keywords: limit, configuring, configure, unix, symbolic, link, smb, access, limits when configuring unix symbolic links for smb access 
+summary: SMB 액세스를 위해 UNIX 심볼 링크를 구성할 때 특정 제한 사항을 알고 있어야 합니다. 
+---
+= SMB 액세스에 대한 UNIX 심볼 링크를 구성할 때의 제한
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMB 액세스를 위해 UNIX 심볼 링크를 구성할 때 특정 제한 사항을 알고 있어야 합니다.
+
+|===
+| 제한 | 설명 
+
+
+ a| 
+45
+ a| 
+CIFS 서버 이름에 FQDN을 사용할 때 지정할 수 있는 CIFS 서버 이름의 최대 길이입니다.
+
+[NOTE]
+====
+또는 CIFS 서버 이름을 NetBIOS 이름으로 지정할 수 있습니다. 이 이름은 15자로 제한됩니다.
+
+====
+
+
+ a| 
+80
+ a| 
+공유 이름의 최대 길이입니다.
+
+
+
+ a| 
+256
+ a| 
+심볼 링크를 생성할 때 또는 기존 심볼 링크의 UNIX 경로를 수정할 때 지정할 수 있는 UNIX 경로의 최대 길이입니다. UNIX 경로는 ""/"(슬래시)로 시작하고 ""/""로 끝나야 합니다. 시작 및 끝 슬래시는 모두 256자 제한의 일부로 계산됩니다.
+
+
+
+ a| 
+256
+ a| 
+심볼 링크를 생성하거나 기존 심볼 링크의 CIFS 경로를 수정할 때 지정할 수 있는 CIFS 경로의 최대 길이입니다. CIFS 경로는 ""/"(슬래시)로 시작하고 ""/""로 끝나야 합니다. 시작 및 끝 슬래시는 모두 256자 제한의 일부로 계산됩니다.
+
+|===
+xref:create-symbolic-link-mappings-task.adoc[SMB 공유에 대한 심볼 링크 매핑 생성]

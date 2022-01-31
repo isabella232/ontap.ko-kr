@@ -1,0 +1,26 @@
+---
+permalink: smb-admin/unsupported-windows-features-reference.html 
+sidebar: sidebar 
+keywords: cifs, network, aware, windows, feature, ontap, support, unsupported windows features 
+summary: 네트워크에서 CIFS를 사용하기 전에 ONTAP에서 지원하지 않는 특정 Windows 기능을 알고 있어야 합니다. 
+---
+= 지원되지 않는 Windows 기능입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+네트워크에서 CIFS를 사용하기 전에 ONTAP에서 지원하지 않는 특정 Windows 기능을 알고 있어야 합니다.
+
+ONTAP는 다음 Windows 기능을 지원하지 않습니다.
+
+* 암호화된 파일 시스템(EFS)
+* 변경 저널에서 NTFS(NT File System) 이벤트 로깅
+* Microsoft FRS(파일 복제 서비스)
+* Microsoft Windows 인덱싱 서비스
+* HSM(Hierarchical Storage Management)을 통한 원격 스토리지
+* Windows 클라이언트의 할당량 관리
+* Windows 할당량 의미 체계입니다
+* LMHOSTS 파일입니다
+* NTFS 네이티브 압축
+

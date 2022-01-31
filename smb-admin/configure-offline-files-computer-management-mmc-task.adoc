@@ -1,0 +1,40 @@
+---
+permalink: smb-admin/configure-offline-files-computer-management-mmc-task.html 
+sidebar: sidebar 
+keywords: permit, user, cache, file, local, offline, configure, computer management, mmc, microsoft, management, console, configure offline files support on smb shares by using the computer management mmc 
+summary: '사용자가 오프라인에서 사용할 수 있도록 로컬로 파일을 캐시하도록 허용하려면 컴퓨터 관리 MMC(Microsoft Management Console)를 사용하여 오프라인 파일 지원을 구성할 수 있습니다.' 
+---
+= 컴퓨터 관리 MMC를 사용하여 SMB 공유에서 오프라인 파일 지원을 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+사용자가 오프라인에서 사용할 수 있도록 로컬로 파일을 캐시하도록 허용하려면 컴퓨터 관리 MMC(Microsoft Management Console)를 사용하여 오프라인 파일 지원을 구성할 수 있습니다.
+
+.단계
+. Windows 서버에서 MMC를 열려면 Windows 탐색기에서 로컬 컴퓨터 아이콘을 마우스 오른쪽 단추로 클릭한 다음 * 관리 * 를 선택합니다.
+. 왼쪽 패널에서 * 컴퓨터 관리 * 를 선택합니다.
+. 작업 * > * 다른 컴퓨터에 연결 * 을 선택합니다.
++
+컴퓨터 선택 대화 상자가 나타납니다.
+
+. CIFS 서버의 이름을 입력하거나 * Browse * 를 클릭하여 CIFS 서버를 찾습니다.
++
+CIFS 서버의 이름이 SVM(Storage Virtual Machine) 호스트 이름과 같으면 SVM 이름을 입력합니다. CIFS 서버 이름이 SVM 호스트 이름과 다른 경우 CIFS 서버의 이름을 입력합니다.
+
+. 확인 * 을 클릭합니다.
+. 콘솔 트리에서 * 시스템 도구 * > * 공유 폴더 * 를 클릭합니다.
+. 공유 * 를 클릭합니다.
+. 결과 창에서 공유를 마우스 오른쪽 버튼으로 클릭합니다.
+. 속성 * 을 클릭합니다.
++
+선택한 공유의 속성이 표시됩니다.
+
+. 일반 * 탭에서 * 오프라인 설정 * 을 클릭합니다.
++
+오프라인 설정 대화 상자가 나타납니다.
+
+. 필요에 따라 오프라인 사용 가능성 옵션을 구성합니다.
+. 확인 * 을 클릭합니다.
+

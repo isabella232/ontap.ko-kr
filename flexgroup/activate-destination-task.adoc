@@ -1,0 +1,75 @@
+---
+permalink: flexgroup/activate-destination-task.html 
+sidebar: sidebar 
+keywords: activate, destination, flexgroup, volume 
+summary: 데이터 손상, 실수로 인한 삭제 또는 오프라인 상태와 같은 이벤트로 인해 소스 FlexGroup 볼륨에서 데이터를 처리할 수 없는 경우 소스 FlexGroup 볼륨의 데이터를 복구할 때까지 대상 FlexGroup 볼륨을 활성화하여 데이터 액세스를 제공해야 합니다. 앞으로 SnapMirror 데이터 전송을 중지하고 SnapMirror 관계를 끊는 작업이 활성화 됩니다. 
+---
+= 대상 FlexGroup 볼륨을 활성화합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+데이터 손상, 실수로 인한 삭제 또는 오프라인 상태와 같은 이벤트로 인해 소스 FlexGroup 볼륨에서 데이터를 처리할 수 없는 경우 소스 FlexGroup 볼륨의 데이터를 복구할 때까지 대상 FlexGroup 볼륨을 활성화하여 데이터 액세스를 제공해야 합니다. 앞으로 SnapMirror 데이터 전송을 중지하고 SnapMirror 관계를 끊는 작업이 활성화 됩니다.
+
+대상 클러스터에서 이 작업을 수행해야 합니다.
+
+.단계
+. FlexGroup 볼륨 SnapMirror 관계에 대한 향후 전송을 해제합니다. 'napmirror quiesdest_svm:dest_flexgroup'
++
+[listing]
+----
+cluster2::> snapmirror quiesce -destination-path vsd:dst
+----
+. FlexGroup 볼륨 SnapMirror 관계를 끊습니다: 'napmirror break dest_svm: dest_flexgroup'
++
+[listing]
+----
+cluster2::> snapmirror break -destination-path vsd:dst
+----
+. SnapMirror 관계의 '스냅샷 표시-확장' 상태를 봅니다
++
+[listing]
+----
+cluster2::> snapmirror show -expand
+                                                                       Progress
+Source            Destination Mirror  Relationship   Total             Last
+Path        Type  Path        State   Status         Progress  Healthy Updated
+----------- ---- ------------ ------- -------------- --------- ------- --------
+vss:s       XDP  vsd:dst        Broken-off
+                                      Idle           -         true    -
+vss:s__0001 XDP  vsd:dst__0001  Broken-off
+                                      Idle           -         true    -
+vss:s__0002 XDP  vsd:dst__0002  Broken-off
+                                      Idle           -         true    -
+vss:s__0003 XDP  vsd:dst__0003  Broken-off
+                                      Idle           -         true    -
+vss:s__0004 XDP  vsd:dst__0004  Broken-off
+                                      Idle           -         true    -
+vss:s__0005 XDP  vsd:dst__0005  Broken-off
+                                      Idle           -         true    -
+vss:s__0006 XDP  vsd:dst__0006  Broken-off
+                                      Idle           -         true    -
+vss:s__0007 XDP  vsd:dst__0007  Broken-off
+                                      Idle           -         true    -
+vss:s__0008 XDP  vsd:dst__0008  Broken-off
+                                      Idle           -         true    -
+...
+----
++
+각 구성요소의 SnapMirror 관계 상태는 '부분-오프'입니다.
+
+. 대상 FlexGroup 볼륨이 읽기/쓰기인지 확인합니다. 'volume show -vserver svm_name'
++
+[listing]
+----
+cluster2::> volume show -vserver vsd
+Vserver   Volume       Aggregate    State      Type       Size  Available Used%
+--------- ------------ ------------ ---------- ---- ---------- ---------- -----
+vsd       dst          -            online     **RW**          2GB     1.54GB   22%
+vsd       d2           -            online     DP          2GB     1.55GB   22%
+vsd       root_vs0     aggr1        online     RW        100MB    94.02MB    5%
+3 entries were displayed.
+----
+. 대상 FlexGroup 볼륨으로 클라이언트를 리디렉션합니다.
+

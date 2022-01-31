@@ -1,0 +1,35 @@
+---
+permalink: tape-backup/failed-to-initialize-tape-reference.html 
+sidebar: sidebar 
+keywords: failed, initialize, tape, smtape, blocking, factor, corrupt, damaged, restore 
+summary: 테이프를 초기화하지 못했습니다. 
+---
+= 테이프를 초기화하지 못했습니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+테이프 초기화 실패
+
+* * 원인 *
++
+다음 이유 중 하나로 인해 이 오류 메시지가 나타날 수 있습니다.
+
++
+** 백업 이미지가 SMTape가 아닙니다.
+** 지정된 테이프 차단 계수가 올바르지 않습니다.
+** 테이프가 손상되었거나 손상되었습니다.
+** 복원을 위해 잘못된 테이프가 로드되었습니다.
+
+
+* * 시정 조치 *
++
+** 백업 이미지가 SMTape가 아닌 경우 SMTape 백업이 있는 테이프를 사용하여 작업을 재시도하십시오.
+** 차단 계수가 올바르지 않은 경우 올바른 차단 계수를 지정하고 작업을 재시도하십시오.
+** 테이프가 손상된 경우 복원 작업을 수행할 수 없습니다.
+** 잘못된 테이프가 로드된 경우 올바른 테이프를 사용하여 작업을 재시도하십시오.
+
+
+

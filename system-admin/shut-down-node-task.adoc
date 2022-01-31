@@ -1,0 +1,70 @@
+---
+permalink: system-admin/shut-down-node-task.html 
+sidebar: sidebar 
+keywords: shut, down, node, unresponsive, support, personnel, direct, troubleshoot 
+summary: 노드가 응답하지 않거나 지원 담당자가 문제 해결 작업의 일부로 종료하도록 안내하는 경우 노드를 종료할 수 있습니다. 
+---
+= 노드를 종료합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+노드가 응답하지 않거나 지원 담당자가 문제 해결 작업의 일부로 종료하도록 안내하는 경우 노드를 종료할 수 있습니다.
+
+.단계
+. 클러스터에 4개 이상의 노드가 포함된 경우 종료할 노드에 epsilon이 포함되지 않는지 확인합니다.
++
+.. 권한 수준을 고급으로 설정합니다.
++
+' * set-Privilege advanced * '
+
+.. 어떤 노드에 epsilon가 있는지 확인합니다.
++
+``클러스터 쇼 *’
+
++
+다음 예에서는 ""node1""에 epsilon 이 있음을 보여 줍니다.
+
++
+[listing]
+----
+cluster1::*> cluster show
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  ------------
+node1                true    true          true
+node2                true    true          false
+node3                true    true          false
+node4                true    true          false
+4 entries were displayed.
+----
+.. 종료할 노드에 epsilon가 있으면 노드에서 epsilon을 제거합니다.
++
+' * cluster modify -node_node_name_-epsilon FALSE * '
+
+.. epsilon을 계속 가동되는 다른 노드에 할당합니다.
++
+' * cluster modify -node_node_name_-epsilon TRUE * '
+
+.. 관리자 권한 레벨로 돌아갑니다.
++
+' * set-privilege admin * '
+
+
+
+. 'system node halt' 명령어를 사용하여 노드를 종료한다.
++
+'-skip-lif-migration' 매개 변수를 지정하지 않으면 명령이 종료되기 전에 데이터 및 클러스터 관리 LIF를 다른 노드로 동기식으로 마이그레이션합니다. LIF 마이그레이션이 실패하거나 시간이 초과되면 종료 프로세스가 중단되고 ONTAP에 LIF 마이그레이션 실패를 나타내는 오류가 표시됩니다.
+
++
+'-dump' 매개 변수를 모두 사용하여 종료로 코어 덤프를 수동으로 트리거할 수 있습니다.
+
++
+다음 예에서는 하드웨어 유지 보수를 위해 ""node1""이라는 노드를 종료합니다.
+
++
+[listing]
+----
+cluster1::> system node halt -node node1 -reason 'hardware maintenance'
+----
+

@@ -1,0 +1,35 @@
+---
+permalink: data-protection/check-available-snapshot-reserve.html 
+sidebar: sidebar 
+keywords: modify, snapshot, copy, reserve 
+summary: 'volume show' 명령을 사용하여 'shapshot-reserve-available' 매개 변수를 사용하여 볼륨에 사용 가능한 스냅샷 복사본 예약 공간의 양을 확인할 수 있습니다. 
+---
+= 볼륨에서 사용 가능한 스냅샷 복사본 예약 공간을 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'volume show' 명령을 사용하여 'shapshot-reserve-available' 매개 변수를 사용하여 볼륨에 사용 가능한 스냅샷 복사본 예약 공간의 양을 확인할 수 있습니다.
+
+.단계
+. 볼륨에서 사용 가능한 스냅샷 복사본 예약 공간을 확인합니다.
++
+'vol show -vserver_SVM_-volume_volume_-fields snapshot-reserve-available'
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+다음 예에서는 "vol1"에 대해 사용 가능한 스냅샷 복사본 예약 공간을 표시합니다.
+
++
+[listing]
+----
+cluster1::> vol show -vserver vs0 -volume vol1 -fields snapshot-reserve-available
+
+vserver volume snapshot-reserve-available
+------- ------ --------------------------
+vs0     vol1   4.84GB
+----
+

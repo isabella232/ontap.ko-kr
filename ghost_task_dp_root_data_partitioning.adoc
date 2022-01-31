@@ -1,0 +1,21 @@
+---
+sidebar: sidebar 
+permalink: task_dp_root_data_partitioning.html 
+keywords: netapp, ontap, root, data, partitioning, adp 
+summary: 모든 노드에는 스토리지 시스템 구성 파일에 대한 루트 애그리게이트가 있어야 합니다. 루트 애그리게이트에는 데이터 애그리게이트의 RAID 유형이 있습니다 
+---
+= 루트 데이터 파티셔닝
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+System Manager에서는 루트 데이터 또는 루트 데이터 데이터 파티셔닝을 지원하지 않습니다. 루트 데이터 또는 루트 데이터 파티셔닝에 대한 자세한 내용은 을 참조하십시오 link:../disks-aggregates/index.html["디스크 및 애그리게이트 관리"].

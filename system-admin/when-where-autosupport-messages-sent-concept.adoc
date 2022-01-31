@@ -1,0 +1,155 @@
+---
+permalink: system-admin/when-where-autosupport-messages-sent-concept.html 
+sidebar: sidebar 
+keywords: active, iq, autosupport, messages, email, manual, scheduled, event, triggered 
+summary: 'AutoSupport는 메시지 유형에 따라 다른 수신자에게 메시지를 보냅니다. AutoSupport에서 메시지를 보내는 시기와 위치를 이해하면 전자 메일을 통해 받는 메시지를 이해하거나 Active IQ(이전의 My AutoSupport) 웹 사이트에서 볼 수 있습니다.' 
+---
+= AutoSupport 메시지가 전송되는 시기 및 위치
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+AutoSupport는 메시지 유형에 따라 다른 수신자에게 메시지를 보냅니다. AutoSupport에서 메시지를 보내는 시기와 위치를 이해하면 전자 메일을 통해 받는 메시지를 이해하거나 Active IQ(이전의 My AutoSupport) 웹 사이트에서 볼 수 있습니다.
+
+별도로 지정하지 않는 한 다음 표의 설정은 'system node AutoSupport modify' 명령의 매개 변수입니다.
+
+
+
+== 이벤트가 트리거된 메시지입니다
+
+시스템에서 수정 조치가 필요한 이벤트가 발생하면 AutoSupport는 자동으로 이벤트 트리거 메시지를 전송합니다.
+
+|===
+| 메시지가 전송될 때 | 메시지가 전송되는 위치입니다 
+
+
+ a| 
+AutoSupport는 EMS에서 트리거 이벤트에 응답합니다
+ a| 
+"to"와 "noteto"에 지정된 주소. (서비스에 영향을 주는 중요 이벤트만 전송됩니다.)
+
+'-PARTNER-ADDRESS'에 명시된 주소
+
+기술 지원, 만약 '-support'가 'enable'로 설정되어 있으면
+
+|===
+
+
+== 예약된 메시지입니다
+
+AutoSupport는 정기적으로 여러 메시지를 자동으로 보냅니다.
+
+|===
+| 메시지가 전송될 때 | 메시지가 전송되는 위치입니다 
+
+
+ a| 
+매일(기본적으로 오전 12:00 사이에 전송됨 오전 1시 로그 메시지로 사용)
+ a| 
+'-PARTNER-ADDRESS'에 명시된 주소
+
+기술 지원, 만약 '-support'가 'enable'로 설정되어 있으면
+
+
+
+ a| 
+매일(기본적으로 오전 12:00 사이에 전송됨 오전 1시 성능 메시지로서 -perf 매개 변수가 true로 설정되어 있으면
+ a| 
+'파트너 주소'에 지정된 주소
+
+기술 지원, 만약 '-support'가 'enable'로 설정되어 있으면
+
+
+
+ a| 
+매주(기본적으로 일요일 오전 12:00 사이에 전송됨 및 오전 1:00)
+ a| 
+'-PARTNER-ADDRESS'에 명시된 주소
+
+기술 지원, 만약 '-support'가 'enable'로 설정되어 있으면
+
+|===
+
+
+== 수동으로 트리거된 메시지입니다
+
+AutoSupport 메시지를 수동으로 시작하거나 다시 보낼 수 있습니다.
+
+|===
+| 메시지가 전송될 때 | 메시지가 전송되는 위치입니다 
+
+
+ a| 
+'system node AutoSupport invoke' 명령어를 이용하여 수동으로 메시지를 시작한다
+ a| 
+System node AutoSupport invoke 명령에 '-Uri' 파라미터를 사용하여 URI를 지정하면 해당 URI로 메시지가 전송됩니다.
+
+만약 '-Uri'를 생략하면 '-to', '-partner-address'에 지정된 주소로 메시지가 전송됩니다. 이 메시지는 '-support'가 'enable'로 설정되어 있는 경우 기술 지원부에도 전송됩니다.
+
+
+
+ a| 
+'system node AutoSupport invoke-core-upload' 명령어를 이용하여 수동으로 메시지를 시작한다
+ a| 
+System node AutoSupport invoke-core-upload 명령에서 '-Uri' 매개 변수를 사용하여 URI를 지정하면 해당 URI로 메시지가 전송되고 core dump 파일이 URI로 업로드된다.
+
+system node AutoSupport invoke-core-upload 명령에서 -uri를 생략하면 기술 지원 부서에 메시지가 전송되고 코어 덤프 파일이 기술 지원 사이트에 업로드됩니다.
+
+두 시나리오 모두 '-support'가 'enable'로 설정되어 있고 'transport'가 'https' 또는 'http'로 설정되어 있어야 합니다.
+
+코어 덤프 파일의 크기가 크기 때문에 '-to' 및 '-partner-addresses' 매개 변수에 지정된 주소로 메시지가 전송되지 않습니다.
+
+
+
+ a| 
+'system node AutoSupport invoke-performance-archive' 명령어를 사용하여 수동으로 메시지를 시작한다
+ a| 
+System node AutoSupport invoke-performance-archive 명령에서 '-Uri' 매개 변수를 사용하여 URI를 지정하면 해당 URI로 메시지가 전송되고 성능 아카이브 파일이 URI로 업로드됩니다.
+
+System node AutoSupport invoke-performance-archive에서 -Uri를 생략하면 기술 지원 부서에 메시지가 전송되고 성능 아카이브 파일이 기술 지원 사이트에 업로드됩니다.
+
+두 시나리오 모두 '-support'가 'enable'로 설정되어 있고 'transport'가 'https' 또는 'http'로 설정되어 있어야 합니다.
+
+대용량 성능 아카이브 파일로 인해 '-to' 및 '-partner-addresses' 매개 변수에 지정된 주소로 메시지가 전송되지 않습니다.
+
+
+
+ a| 
+'시스템 노드 AutoSupport history retransmit' 명령어를 이용하여 수동으로 과거 메시지를 재전송한다
+ a| 
+System node AutoSupport history retransmit 명령의 '-Uri' 파라미터에 지정하는 URI에만 해당
+
+|===
+
+
+== 기술 지원 부서에서 트리거하는 메시지
+
+기술 지원 부서는 AutoSupport OnDemand 기능을 사용하여 AutoSupport로부터 메시지를 요청할 수 있습니다.
+
+|===
+| 메시지가 전송될 때 | 메시지가 전송되는 위치입니다 
+
+
+ a| 
+AutoSupport가 새 AutoSupport 메시지를 생성하기 위한 전달 지침을 얻는 경우
+ a| 
+'-PARTNER-ADDRESS'에 명시된 주소
+
+기술 지원인 -support가 enable로 설정되어 있고 -transport가 https로 설정되어 있으면
+
+
+
+ a| 
+AutoSupport가 지난 AutoSupport 메시지를 다시 보내기 위한 전달 지침을 얻는 경우
+ a| 
+기술 지원인 -support가 enable로 설정되어 있고 -transport가 https로 설정되어 있으면
+
+
+
+ a| 
+AutoSupport가 코어 덤프 또는 성능 아카이브 파일을 업로드하는 새 AutoSupport 메시지를 생성하기 위한 전달 지침을 얻는 경우
+ a| 
+기술 지원인 -support가 enable로 설정되어 있고 -transport가 https로 설정되어 있으면. 코어 덤프 또는 성능 아카이브 파일이 기술 지원 사이트에 업로드됩니다.
+
+|===

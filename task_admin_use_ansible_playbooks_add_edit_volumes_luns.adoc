@@ -1,0 +1,138 @@
+---
+sidebar: sidebar 
+permalink: task_admin_use_ansible_playbooks_add_edit_volumes_luns.html 
+keywords: system manager, administration, ansible, playbook, add, edit, volume, lun 
+summary: ONTAP 9.9.1부터 볼륨 또는 LUN을 추가하거나 편집하려는 경우 시스템 관리자와 함께 Ansible 플레이북을 사용할 수 있습니다. 
+---
+= Ansible 플레이북을 사용하여 볼륨 또는 LUN을 추가 또는 편집합니다
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+ONTAP 9.9.1부터 볼륨 또는 LUN을 추가하거나 편집하려는 경우 시스템 관리자와 함께 Ansible 플레이북을 사용할 수 있습니다.
+
+이 기능을 사용하면 동일한 구성을 여러 번 사용하거나 볼륨 또는 LUN을 추가 또는 편집할 때 약간 변경된 동일한 구성을 사용할 수 있습니다.
+
+
+
+== Ansible Playbook을 사용하거나 사용하지 않도록 설정합니다
+
+System Manager에서 Ansible Playbook 사용을 설정하거나 해제할 수 있습니다.
+
+.단계
+. System Manager에서 클러스터 설정 페이지의 UI 설정으로 이동합니다.
++
+* 클러스터 > 설정 *
+
+. UI 설정 * 에서 슬라이더 스위치를 "사용" 또는 "사용 안 함"으로 변경합니다.
+
+
+
+
+== 볼륨 구성을 Ansible Playbook에 저장합니다
+
+볼륨 구성을 생성하거나 수정할 때 구성을 Ansible Playbook 파일로 저장할 수 있습니다.
+
+.단계
+. 볼륨 추가 또는 편집:
++
+볼륨 > 추가 * (또는 * 볼륨 > 편집 *)
+
+. 볼륨의 구성 값을 지정하거나 편집합니다.
+. 구성을 Ansible Playbook 파일에 저장하려면 * Save to Ansible Playbook * 을 선택하십시오.
++
+다음 파일이 포함된 zip 파일이 다운로드됩니다.
+
++
+** (* variable.YAML *): 볼륨을 추가하거나 편집하기 위해 입력 또는 수정한 값입니다.
+** ' * volumeAdd.YAML * '(또는 ' * volumeEdit.YAML * '): 'variable.YAML' 파일에서 입력을 읽을 때 값을 생성하거나 수정하는 데 필요한 테스트 케이스.
+
+
+
+
+
+
+== LUN 구성을 Ansible 플레이북에 저장합니다
+
+LUN 구성을 생성하거나 수정할 때 구성을 Ansible Playbook 파일로 저장할 수 있습니다.
+
+.단계
+. LUN 추가 또는 편집:
++
+LUN > 추가 * (또는 * LUN > 편집 *)
+
+. LUN의 구성 값을 지정하거나 편집합니다.
+. 구성을 Ansible Playbook 파일에 저장하려면 * Save to Ansible Playbook * 을 선택하십시오.
++
+다음 파일이 포함된 zip 파일이 다운로드됩니다.
+
++
+** ' * variable.YAML *': LUN 추가 또는 편집을 위해 입력하거나 수정한 값입니다.
+** ' * lunAdd.YAML * '(또는 ' * lunEdit.YAML * '): 'variable.YAML' 파일에서 입력을 읽을 때 값을 생성하거나 수정하는 데 필요한 테스트 케이스.
+
+
+
+
+
+
+== 글로벌 검색 결과에서 Ansible Playbook 파일을 다운로드합니다
+
+글로벌 검색을 수행할 때 Ansible Playbook 파일을 다운로드할 수 있습니다.
+
+.단계
+. 검색 필드에 "볼륨" 또는 "LUN" 또는 "플레이북"을 입력합니다.
+. “Volume Management(Ansible Playbook)” 또는 “LUN Management(Ansible Playbook)”라는 검색 결과를 찾습니다.
+. 을 클릭합니다 image:icon_download.gif["다운로드 아이콘"] Ansible Playbook 파일을 다운로드합니다.
+
+
+
+
+== Ansible Playbook 파일 사용
+
+Ansible Playbook 파일을 수정하고 실행하여 볼륨 및 LUN의 구성을 지정할 수 있습니다.
+
+두 개의 파일을 사용하여 작업을 수행합니다("추가" 또는 "편집").
+
+[cols="20,40,40"]
+|===
+
+
+| 원하는 작업 | 이 변수 파일 사용... | 이 실행 파일 사용... 
+
+
+| 볼륨을 추가합니다 | '볼륨만다변형 YAML' | Valueadd.YAML 
+
+
+| 볼륨을 편집합니다 | 'volumeEdit-variable.YAML' | 'volumeEdit.YAML' 
+
+
+| LUN을 추가합니다 | '음주변수.YAML' | 오찬 YAML 
+
+
+| LUN을 편집합니다 | 오찬-변수.YAML | 오찬.요아ML 
+|===
+.단계
+. 변수 파일을 수정합니다.
++
+파일에는 볼륨 또는 LUN을 구성하는 데 사용되는 다양한 값이 들어 있습니다.
+
++
+** 값을 변경하지 않으면 코멘트를 남겨둡니다.
+** 값을 수정할 경우 메모를 제거합니다.
+
+
+. 연결된 실행 파일을 실행합니다.
++
+실행 파일에는 변수 파일에서 입력을 읽을 때 값을 만들거나 수정하는 데 필요한 테스트 사례가 들어 있습니다.
+
+. 사용자 로그인 자격 증명을 입력합니다.
+

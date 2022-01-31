@@ -1,0 +1,88 @@
+---
+permalink: encryption-at-rest/return-seds-unprotected-mode-task.html 
+sidebar: sidebar 
+keywords: returning, fips, drive, unprotected, mode 
+summary: 노드에 대한 인증 키 ID가 기본값이 아닌 값으로 설정된 경우에만 FIPS 드라이브 또는 SED가 무단 액세스로부터 보호됩니다. 스토리지 암호화 디스크 수정 명령을 사용하여 키 ID를 기본값으로 설정하여 FIPS 드라이브 또는 SED를 보호되지 않는 모드로 되돌릴 수 있습니다. 
+---
+= FIPS 드라이브 또는 SED를 보호되지 않는 모드로 되돌립니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+노드에 대한 인증 키 ID가 기본값이 아닌 값으로 설정된 경우에만 FIPS 드라이브 또는 SED가 무단 액세스로부터 보호됩니다. '스토리지 암호화 디스크 수정' 명령을 사용하여 키 ID를 기본값으로 설정하면 FIPS 드라이브 또는 SED를 보호되지 않는 모드로 되돌릴 수 있습니다.
+
+HA 쌍이 암호화 SAS 또는 NVMe 드라이브(SED, NSE, FIPS)를 사용 중인 경우 시스템을 초기화하기 전에 HA 쌍 내의 모든 드라이브에 대해 이 프로세스를 따라야 합니다(부팅 옵션 4 또는 9). 이렇게 하지 않을 경우 드라이브를 용도 변경할 경우 향후의 데이터 손실이 발생할 수 있습니다.
+
+이 작업을 수행하려면 클러스터 관리자여야 합니다.
+
+.단계
+. 권한 수준을 고급으로 설정합니다.
++
+세트 프리빌리지 고급
+
+. FIPS 드라이브가 FIPS 준수 모드에서 실행 중인 경우 노드에 대한 FIPS 인증 키 ID를 기본 MSID 0x0으로 다시 설정합니다.
++
+'Storage encryption disk modify -disk_disk_id_-FIPS-key-id 0x0'
+
++
+'보안 키 관리자 쿼리' 명령을 사용하여 키 ID를 볼 수 있습니다.
+
++
+[listing]
+----
+cluster1::> storage encryption disk modify -disk 2.10.11 -fips-key-id 0x0
+
+Info: Starting modify on 14 disks.
+      View the status of the operation by using the
+      storage encryption disk show-status command.
+----
++
+다음 명령을 사용하여 작업이 성공했는지 확인합니다.
+
++
+'스토리지 암호화 디스크 표시 상태'입니다
+
++
+숫자가 같을 때까지 show-status 명령을 반복합니다. "디스크 시작" 및 "디스크 완료" 숫자가 동일하면 작업이 완료됩니다.
+
++
+[listing]
+----
+cluster1:: storage encryption disk show-status
+
+            FIPS    Latest   Start               Execution   Disks   Disks Disks
+Node        Support Request  Timestamp           Time (sec)  Begun   Done  Successful
+-------     ------- -------- ------------------  ---------- ------ ------  ----------
+cluster1    true    modify   1/18/2022 15:29:38    3           14     5         5
+1 entry was displayed.
+----
+. 노드의 데이터 인증 키 ID를 기본 MSID 0x0으로 다시 설정합니다.
++
+'Storage encryption disk modify -disk_disk_id_-data-key-id 0x0
+
++
+SAS 또는 NVMe 드라이브를 보호되지 않는 모드로 반환하든 관계없이 '-data-key-id' 값은 0x0으로 설정되어야 합니다.
+
++
+'보안 키 관리자 쿼리' 명령을 사용하여 키 ID를 볼 수 있습니다.
+
++
+[listing]
+----
+cluster1::> storage encryption disk modify -disk 2.10.11 -data-key-id 0x0
+
+Info: Starting modify on 14 disks.
+      View the status of the operation by using the
+      storage encryption disk show-status command.
+----
++
+다음 명령을 사용하여 작업이 성공했는지 확인합니다.
+
++
+'스토리지 암호화 디스크 표시 상태'입니다
+
++
+숫자가 같을 때까지 show-status 명령을 반복합니다. "디스크 시작" 및 "디스크 완료" 숫자가 동일하면 작업이 완료됩니다.
+
+

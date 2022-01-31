@@ -1,0 +1,22 @@
+---
+sidebar: sidebar 
+permalink: networking/get_more_information.html 
+keywords: documentation, release notes, videos, technical reports, knowledgebase articles, community, forums, get more information, find more information about ontap 9.8 and later networking 
+summary: ONTAP 9.8 이상의 네트워킹에 대한 자세한 내용을 확인하십시오 
+---
+= 자세한 정보를 확인하십시오
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+다양한 리소스, 설명서 및 포럼을 통해 도움을 얻고 더 많은 정보를 찾을 수 있습니다.
+
+* https://docs.netapp.com/ontap-9/index.jsp["문서화"^] – 이 릴리스 및 이전 릴리스에 대한 릴리즈 노트 및 가이드.
+* https://www.youtube.com/user/NetAppTechCommTV/["NetApp 기술 커뮤니케이션"^] NetApp 비디오:
+* https://www.netapp.com/["NetApp 리소스"^] – 기술 보고서 및 기술 자료 문서.
+* https://community.netapp.com/["NetApp 커뮤니티"^] – NetApp 제품 및 솔루션 포럼
+

@@ -1,0 +1,214 @@
+---
+sidebar: sidebar 
+permalink: networking/configure_ip_security_@ipsec@_over_wire_encryption.html 
+keywords: 'ipsec, security, internet protocol, on wire, in transit, encrypt, encryption, secure, configure ip security (ipsec) over wire encryption, ensure data is continuously secure and encrypted, ipsec protocol, enable ipsec on the cluster, security ipsec config show, ipsec enabled, ipsec config modify, ipsec config show, security ipsec policy create, protocols, local-ports, remote-ports, define the security policy database (spd), use ipsec identities, subnet configuration, allow all clients configuration, ipsec statistics' 
+summary: 전송 중에도 데이터를 지속적으로 보호하고 암호화하기 위해 ONTAP는 전송 모드에서 IPsec 프로토콜을 사용합니다 
+---
+= 유선 암호화를 통해 IP 보안(IPsec)을 구성합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+ONTAP 9.8부터 ONTAP는 전송 모드에서 IPsec 프로토콜을 사용하여 전송 중에도 데이터를 지속적으로 보호하고 암호화합니다. IPsec은 NFS, iSCSI 및 SMB 프로토콜을 포함한 모든 IP 트래픽에 대한 데이터 암호화를 제공합니다. IPsec은 iSCSI 트래픽에 대해 전송 중인 유일한 암호화 옵션을 제공합니다.
+
+ONTAP 9.10.1부터 사전 공유 키(PSK) 또는 인증서를 사용하여 IPsec을 통한 인증을 수행할 수 있습니다. 이전에는 PSK만 IPsec에서 지원되었습니다.
+
+IPsec을 구성한 후 클라이언트와 ONTAP 간의 네트워크 트래픽은 재생 및 MITM(Man-in-the-Middle) 공격에 대한 예방 조치로 보호됩니다.
+
+NetApp SnapMirror 및 클러스터 피어링 트래픽 암호화의 경우, 클러스터 피어링 암호화(CPE)의 경우, 전송 계층 보안(TLS)은 IPsec을 통해 유선 연결을 통한 보안 전송을 위해 권장됩니다. 이는 TLS가 IPsec보다 나은 성능을 제공하기 때문입니다.
+
+클러스터에서 IPsec 기능이 활성화되어 있는 동안 네트워크는 보호할 대상 트래픽을 일치시키고 트래픽이 흐를 수 있도록 보호 세부 정보(예: 암호 그룹 및 인증 방법)를 지정하기 위해 SPD(보안 정책 데이터베이스) 항목이 필요합니다. 각 클라이언트에도 해당 SPD 항목이 필요합니다. SPD 요구 사항은 PSK와 인증 인증 방법 모두에 필요합니다.
+
+
+
+== 클러스터에서 IPsec을 활성화합니다
+
+전송 중에도 데이터가 지속적으로 안전하게 암호화되도록 클러스터에서 IPsec을 활성화할 수 있습니다.
+
+.단계
+. IPsec이 이미 활성화되어 있는지 확인:
++
+'보안 IPsec 구성 표시'
+
++
+결과에 "IPsec 사용: 거짓"이 포함된 경우 다음 단계를 진행합니다.
+
+. IPsec 활성화:
++
+보안 IPsec config modify -is -enabled true
+
+. 검색 명령을 다시 실행합니다.
++
+'보안 IPsec 구성 표시'
+
++
+그 결과에는 이제 "IPsec 사용: 참"이 포함됩니다.
+
+
+
+
+
+== 인증서 인증을 사용하여 IPsec 정책 생성을 준비하는 중입니다
+
+인증을 위해 사전 공유 키 PSK만 사용하고 인증서 인증을 사용하지 않는 경우 이 단계를 건너뛸 수 있습니다.
+
+인증을 위해 인증서를 사용하는 IPsec 정책을 만들기 전에 다음 필수 구성 요소가 충족되는지 확인해야 합니다.
+
+* ONTAP와 클라이언트 모두 최종 엔터티(ONTAP 또는 클라이언트) 인증서를 양쪽 모두에서 확인할 수 있도록 타사의 CA 인증서를 설치해야 합니다
+* 정책에 참여하는 ONTAP LIF에 대해 인증서가 설치됩니다
+
+
+
+NOTE: ONTAP LIF는 인증서를 공유할 수 있습니다. 인증서와 LIF 간 일대일 매핑은 필요하지 않습니다.
+
+.단계
+. ONTAP 자체 서명 루트 CA의 경우처럼 ONTAP 측 CA와 클라이언트측 CA를 포함하여 상호 인증 중에 사용되는 모든 CA 인증서를 ONTAP 인증서 관리에 설치해야 합니다. * Sample 명령 * 'cluster:::> security certificate install -vserver svm_name -type server-ca-cert -name my_ca_cert'
+. 설치된 CA가 인증 중에 IPsec CA 검색 경로 내에 있는지 확인하려면 "security IPsec ca-certificate add" 명령을 사용하여 IPsec 모듈에 ONTAP 인증서 관리 CA를 추가합니다. * sample command * 'cluster:::> security ipsec ca-certificate add-vserver svm_name-ca-certs my_ca_cert'를 입력합니다
+. ONTAP LIF에서 사용할 인증서를 생성하고 설치합니다. 이 인증서의 발급자 CA가 이미 ONTAP에 설치되어 있고 IPsec에 추가되어야 합니다. * Sample 명령 * 'cluster:::> security certificate install -vserver svm_name -type server-cert -name my_nfs_server_cert'
+
+
+ONTAP의 인증서에 대한 자세한 내용은 ONTAP 9 설명서의 보안 인증서 명령을 참조하십시오.
+
+
+
+== 보안 정책 데이터베이스(SPD) 정의
+
+IPsec은 네트워크에서 트래픽이 흐르도록 허용하기 전에 SPD 항목을 필요로 합니다. PSK 또는 인증서를 인증에 사용하는지에 관계없이 적용됩니다.
+
+.단계
+. '보안 IPsec 정책 만들기' 명령을 사용하여 다음을 수행합니다.
++
+.. IPsec 전송에 참여할 IP 주소의 ONTAP IP 주소 또는 서브넷을 선택합니다.
+.. ONTAP IP 주소에 연결할 클라이언트 IP 주소를 선택합니다.
++
+
+NOTE: 클라이언트는 미리 공유된 키(PSK)가 있는 인터넷 키 교환 버전 2(IKEv2)를 지원해야 합니다.
+
+.. 선택 사항. 보호할 상위 계층 프로토콜(UDP, TCP, ICMP 등), 로컬 포트 번호 및 원격 포트 번호를 선택합니다. 이에 해당하는 파라미터는 프로토콜, 로컬 포트, 원격 포트 등으로 구성되어 있다.
++
+ONTAP IP 주소와 클라이언트 IP 주소 사이의 모든 트래픽을 보호하려면 이 단계를 건너뜁니다. 모든 트래픽을 보호하는 것이 기본값입니다.
+
+.. 원하는 인증 방법에 대한 auth-method 매개 변수에 PSK 또는 PKI를 입력합니다.
++
+... PSK를 입력한 경우 다른 모든 옵션 매개변수를 완료한 후 <ENTER> 키를 눌러 미리 공유된 키를 입력하고 확인합니다.
+... PKI를 입력하는 경우 cert-name, local-identity, remote-identity 매개변수도 입력해야 합니다. 원격 측 인증서의 ID를 알 수 없거나 여러 클라이언트 ID가 예상되는 경우 특수 단어 "모두"를 입력합니다.
+
+
+
+
+
+
+....
+security ipsec policy create -vserver <vs1> -name <test34> -local-ip-subnets <192.168.134.34/32> -remote-ip-subnets <192.168.134.44/32>
+Enter the preshared key for IPsec Policy _test34_ on Vserver _vs1_:
+....
+....
+security ipsec policy create -vserver vs1 -name test34 -local-ip-subnets 192.168.134.34/32 -remote-ip-subnets 192.168.134.44/32 -local-ports 2049 -protocols tcp -auth-method PKI -cert-name my_nfs_server_cert -local-identity CN=netapp.ipsec.lif1.vs0 -remote-identity ANYTHING
+....
+ONTAP와 클라이언트 모두 일치하는 IPsec 정책을 설정하고 인증 자격 증명(PSK 또는 인증서)이 양쪽 모두에 적용될 때까지 IP 트래픽은 클라이언트와 서버 간에 흐를 수 없습니다. 자세한 내용은 클라이언트 측의 IPsec 구성을 참조하십시오.
+
+
+
+== IPsec ID를 사용합니다
+
+미리 공유된 키 인증 방법의 경우 IPSEC 클라이언트(예: Libreswan)에서 요구하지 않는 한 ID는 선택 사항입니다. PKI/인증서 인증 방법의 경우 로컬 및 원격 ID가 모두 필수입니다. ID는 각 측의 인증서 내에서 인증되고 확인 프로세스에 사용되는 ID를 지정합니다. 원격 ID를 알 수 없거나 다른 ID가 많을 수 있는 경우 특수성을 '무엇이든'로 사용하십시오.
+
+ONTAP 내에서 SPD 항목을 수정하거나 SPD 정책을 생성하는 동안 ID를 지정합니다. SPD는 IP 주소 또는 문자열 형식 ID 이름일 수 있습니다.
+
+기존 SPD의 ID 설정을 수정하려면 다음 명령을 사용합니다.
+
+보안 IPsec 정책 수정
+
+'보안 IPsec 정책 수정 - vserver_vs1_-name_test34_-local-identity_192.168.134.34_-remote-identity _client.fooboo.com_`
+
+
+
+== IPsec 다중 클라이언트 구성
+
+적은 수의 클라이언트가 IPsec을 활용해야 하는 경우 각 클라이언트에 대해 단일 SPD 항목을 사용하는 것이 충분합니다. 하지만 수백 또는 수천 개의 클라이언트가 IPsec을 활용해야 하는 경우 NetApp은 IPsec 다중 클라이언트 구성을 사용할 것을 권장합니다.
+
+ONTAP는 IPsec을 사용하여 여러 네트워크의 여러 클라이언트를 단일 SVM IP 주소에 연결할 수 있도록 지원합니다. 다음 방법 중 하나를 사용하여 이 작업을 수행할 수 있습니다.
+
+* * 서브넷 구성 *
++
+특정 서브넷의 모든 클라이언트(예: 192.168.134.0/24)가 단일 SPD 정책 항목을 사용하여 단일 SVM IP 주소에 연결할 수 있도록 하려면 서브넷 형태로 "remote-ip-subnets"를 지정해야 합니다. 또한 올바른 클라이언트 측 ID로 'remote-identity' 필드를 지정해야 합니다.
+
+
+
+
+NOTE: 서브넷 구성에서 단일 정책 항목을 사용하는 경우 해당 서브넷의 IPsec 클라이언트는 IPsec ID 및 미리 공유된 키(PSK)를 공유합니다. 그러나 인증서 인증에서는 그렇지 않습니다. 인증서를 사용할 때 각 클라이언트는 고유한 인증서 또는 공유 인증서를 사용하여 인증할 수 있습니다. ONTAP IPsec은 로컬 트러스트 저장소에 설치된 CA를 기반으로 인증서의 유효성을 검사합니다. ONTAP는 CRL(인증서 해지 목록) 검사도 지원합니다.
+
+* * 모든 클라이언트 구성 허용 *
++
+소스 IP 주소와 관계없이 클라이언트가 SVM IPsec 지원 IP 주소에 연결할 수 있도록 하려면 "remote-ip-subnets" 필드를 지정할 때 "0.0.0.0/0" 와일드 카드를 사용합니다.
+
++
+또한 올바른 클라이언트 측 ID로 'remote-identity' 필드를 지정해야 합니다. 인증서 인증에는 아무 것도 입력할 수 있습니다.
+
++
+또한 0.0.0.0/0 와일드 카드를 사용할 때는 사용할 특정 로컬 또는 원격 포트 번호를 구성해야 합니다. 예를 들어, 'NFS 포트 2049'가 있습니다.
+
++
+.단계
+.. 다음 명령 중 하나를 사용하여 여러 클라이언트에 대해 IPsec을 구성합니다.
++
+... 여러 IPsec 클라이언트를 지원하기 위해 * 서브넷 구성 * 을 사용하는 경우:
++
+'보안 IPsec 정책 생성 - vserver_vserver_name_-name_policy_name_-local-ip-subnets_ipsec_ip_address /32_-remote-ip_subnets_ip_address/subnet_-local-identity_local_id_-remote-identity_remote_id_'
+
++
+'보안 IPsec 정책 생성 - vserver_vs1_-name_subnet134_-local-ip-subnet134_-local_192.168.134.34 /32_-remote-ip-subnets_192.168.134.0 /24_-local-identity_ontaity_-remote-identity_client_side_identity_'
+
+... 를 사용하여 여러 IPsec 클라이언트를 지원하는 모든 클라이언트 구성 * 허용 을 사용하는 경우:
++
+'보안 IPsec 정책 생성 - vserver_vserver_name_-name_policy_name_-local-ip-subnets_ipsec_ip_address /32_-remote-ip-subnets_0.0.0.0/0_-local-ports_port_number_-local-identity_local_id_-remote_identity_remote_id_'입니다
+
++
+'보안 IPsec 정책 생성 - vserver_vs1_-name_test35_-local-ip-subnets_ipsec_ip_address/32_-remote-ip-subnets_0.0.0.0/0_-local-ports_2049_-local-identity_side_identity_-remote-identity_client_side_identity_'입니다
+
+
+
+
+
+
+
+
+
+== IPsec 통계
+
+협상을 통해 ONTAP SVM IP 주소와 클라이언트 IP 주소 간에 IKE SA(Security Association)라는 보안 채널을 설정할 수 있습니다. IPsec SAS는 실제 데이터 암호화 및 암호 해독 작업을 수행할 수 있도록 두 엔드포인트 모두에 설치됩니다.
+
+통계 명령을 사용하여 IPsec SAS 및 IKE SAS의 상태를 확인할 수 있습니다.
+
+IKE SA 샘플 명령:
+
+SECURN IPSEC SHOW-Ikesasa-NODE_H호스팅_NODE_NAME_FOR_svm_ip_'
+
+IPsec SA 샘플 명령 및 출력:
+
+SECURN IPSEC show -ipsecsa -node_hosting_node_name_for_svm_ip _'
+
+....
+cluster1::> security ipsec show-ikesa -node cluster1-node1
+            Policy Local           Remote
+Vserver     Name   Address         Address         Initator-SPI     State
+----------- ------ --------------- --------------- ---------------- -----------
+vs1         test34
+                   192.168.134.34  192.168.134.44  c764f9ee020cec69 ESTABLISHED
+....
+IPsec SA 샘플 명령 및 출력:
+
+....
+security ipsec show-ipsecsa -node hosting_node_name_for_svm_ip
+
+cluster1::> security ipsec show-ipsecsa -node cluster1-node1
+            Policy  Local           Remote          Inbound  Outbound
+Vserver     Name    Address         Address         SPI      SPI      State
+----------- ------- --------------- --------------- -------- -------- ---------
+vs1         test34
+                    192.168.134.34  192.168.134.44  c4c5b3d6 c2515559 INSTALLED
+....

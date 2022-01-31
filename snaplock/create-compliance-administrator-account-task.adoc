@@ -1,0 +1,33 @@
+---
+permalink: snaplock/create-compliance-administrator-account-task.html 
+sidebar: sidebar 
+keywords: create, snaplock, administrator, support, cluster, svm, compliance 
+summary: 권한 있는 삭제를 수행하려면 SnapLock 관리자 권한이 있어야 합니다. 이러한 권한은 vsadmin-SnapLock 역할에 정의되어 있습니다. 해당 역할이 아직 할당되지 않은 경우 클러스터 관리자에게 SnapLock 관리자 역할을 가진 SVM 관리자 계정을 만들도록 요청할 수 있습니다. 
+---
+= SnapLock 관리자 계정을 만듭니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+권한 있는 삭제를 수행하려면 SnapLock 관리자 권한이 있어야 합니다. 이러한 권한은 vsadmin-SnapLock 역할에 정의되어 있습니다. 해당 역할이 아직 할당되지 않은 경우 클러스터 관리자에게 SnapLock 관리자 역할을 가진 SVM 관리자 계정을 만들도록 요청할 수 있습니다.
+
+.무엇을 &#8217;필요로 할거야
+* 이 작업을 수행하려면 클러스터 관리자여야 합니다.
+* 보안 연결(SSH, 콘솔 또는 ZAPI)에 로그인해야 합니다.
+
+
+.단계
+. SnapLock 관리자 역할을 사용하여 SVM 관리자 계정을 생성합니다.
++
+'* 보안 로그인 create-vserver_SVM_name_-user-or-group-name_user_or_group_name_-application_application_-AuthMethod_authentication_method_-role_role_-comment_comment_*'
+
++
+다음 명령을 실행하면 사전 정의된 "vsadmin-snaplock" 역할을 사용하여 SVM 관리자 계정 'napLockAdmin'에서 암호를 사용하여 'VM1'에 액세스할 수 있습니다.
+
++
+[listing]
+----
+cluster1::> security login create -vserver SVM1 -user-or-group-name SnapLockAdmin -application ssh -authmethod password -role vsadmin-snaplock
+----
+

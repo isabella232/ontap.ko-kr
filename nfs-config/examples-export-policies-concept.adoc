@@ -1,0 +1,223 @@
+---
+permalink: nfs-config/examples-export-policies-concept.html 
+sidebar: sidebar 
+keywords: examples, ontap, export, policies, implementation, 7-mode 
+summary: 내보내기 정책의 예를 검토하여 ONTAP에서 내보내기 정책의 작동 방식을 보다 잘 이해할 수 있습니다. 
+---
+= ONTAP 엑스포트 정책의 예
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+내보내기 정책의 예를 검토하여 ONTAP에서 내보내기 정책의 작동 방식을 보다 잘 이해할 수 있습니다.
+
+
+
+== 7-Mode 내보내기의 ONTAP 구현 예
+
+다음 예에서는 '/etc/export' 파일에 나타나는 7-Mode 내보내기를 보여 줍니다.
+
+[listing]
+----
+/vol/vol1 -sec=sys,ro=@readonly_netgroup,rw=@readwrite_netgroup1:
+@readwrite_netgroup2:@rootaccess_netgroup,root=@rootaccess_netgroup
+----
+이 내보내기를 클러스터된 내보내기 정책으로 복제하려면 세 개의 엑스포트 규칙을 사용하여 엑스포트 정책을 생성한 다음 볼륨 vol1에 엑스포트 정책을 할당해야 합니다.
+
+|===
+| 규칙 | 요소 | 값 
+
+
+ a| 
+규칙 1
+ a| 
+'-clientmatch'(클라이언트 사양)
+ a| 
+'@readonly_netgroup'
+
+
+
+ a| 
+'-ruleindex'(규칙 목록에 있는 내보내기 규칙의 위치)
+ a| 
+"1"
+
+
+
+ a| 
+'-프로토콜'
+ a| 
+'NFS'입니다
+
+
+
+ a| 
+'-rorule'(읽기 전용 액세스 허용)
+ a| 
+Sys(AUTH_SYS로 인증받은 클라이언트)
+
+
+
+ a| 
+'-rwrule'(읽기-쓰기 액세스 허용)
+ a| 
+"안 돼.
+
+
+
+ a| 
+'-superuser'(슈퍼유저 액세스 허용)
+ a| 
+'없음'(root_squashed_to anon)
+
+
+
+ a| 
+규칙 2
+ a| 
+'-clientmatch'
+ a| 
+'@rootaccess_netgroup'
+
+
+
+ a| 
+룰레인덱스
+ a| 
+2
+
+
+
+ a| 
+'-프로토콜'
+ a| 
+'NFS'입니다
+
+
+
+ a| 
+'-rorule'
+ a| 
+'스'입니다
+
+
+
+ a| 
+'-rwrule'
+ a| 
+'스'입니다
+
+
+
+ a| 
+'-슈퍼유저'
+ a| 
+'스'입니다
+
+
+
+ a| 
+규칙 3
+ a| 
+'-clientmatch'
+ a| 
+'@readwrite_netgroup1, @readwrite_netgroup2'
+
+
+
+ a| 
+룰레인덱스
+ a| 
+3
+
+
+
+ a| 
+'-프로토콜'
+ a| 
+'NFS'입니다
+
+
+
+ a| 
+'-rorule'
+ a| 
+'스'입니다
+
+
+
+ a| 
+'-rwrule'
+ a| 
+'스'입니다
+
+
+
+ a| 
+'-슈퍼유저'
+ a| 
+"없음"
+
+|===
+. exp_vol1이라는 엑스포트 정책을 생성합니다.
++
+'vserver export-policy create-vserver NewSVM-policyname exp_vol1'
+
+. 기본 명령에 다음 매개 변수를 사용하여 세 개의 규칙을 생성합니다.
++
+** 기본 명령: + 'vserver export-policy rule create-vserver NewSVM-policyname exp_vol1'
+** 규칙 매개 변수: + ``clientmatch@readonly_netgroup-ruleindex 1-protocol nfs-rorule sys-rwrule never-superuser none'+'-clientmatch@rootaccess_netgroup-rindex 2-protocol nfs-rorule_rule_rule_rule -clientmatch@readwrite_wrule_wrule -rrulule_nfs -rrrrrrule_none
+
+
+. 볼륨 vol1에 정책을 할당합니다.
++
+'volume modify -vserver NewSVM-volume vol1-policy exp_vol1'
+
+
+
+
+
+== 7-Mode 엑스포트 통합의 예
+
+다음 예에서는 10개의 qtree당 한 줄이 포함된 7-Mode '/etc/export' 파일을 보여 줍니다.
+
+[listing]
+----
+
+/vol/vol1/q_1472 -sec=sys,rw=host1519s,root=host1519s
+/vol/vol1/q_1471 -sec=sys,rw=host1519s,root=host1519s
+/vol/vol1/q_1473 -sec=sys,rw=host1519s,root=host1519s
+/vol/vol1/q_1570 -sec=sys,rw=host1519s,root=host1519s
+/vol/vol1/q_1571 -sec=sys,rw=host1519s,root=host1519s
+/vol/vol1/q_2237 -sec=sys,rw=host2057s,root=host2057s
+/vol/vol1/q_2238 -sec=sys,rw=host2057s,root=host2057s
+/vol/vol1/q_2239 -sec=sys,rw=host2057s,root=host2057s
+/vol/vol1/q_2240 -sec=sys,rw=host2057s,root=host2057s
+/vol/vol1/q_2241 -sec=sys,rw=host2057s,root=host2057s
+----
+ONTAP에서는 각 qtree에 대해 -clientmatch host1519s 등의 규칙이 있는 정책 또는 -clientmatch host2057s 등의 규칙이 있는 정책 중 하나가 필요합니다.
+
+. exp_vol1q1 및 exp_vol1q2라는 두 개의 엑스포트 정책을 생성합니다.
++
+** 'vserver export-policy create-vserver NewSVM-policyname exp_vol1q1'
+** 'vserver export-policy create-vserver NewSVM-policyname exp_vol1q2'
+
+
+. 각 정책에 대한 규칙 생성:
++
+** 'vserver export-policy rule create-vserver newSVM-policyname exp_vol1q1-clientmatch host1519s-rwrule sys-superuser sys'
+** 'vserver export-policy rule create-vserver newSVM-policyname exp_vol1q2-clientmatch host1519s-rwrule sys-superuser sys'
+
+
+. qtree에 정책을 적용합니다.
++
+** '볼륨 qtree modify -vserver NewSVM-qtree-path /vol/vol1/q_1472-export-policy exp_vol1q1'
+** [다음 4 qtree...]
+** '볼륨 qtree modify -vserver NewSVM-qtree-path /vol/vol1/q_2237 -export-policy exp_vol1q2'
+** [다음 4 qtree...]
+
+
+
+
+나중에 이러한 호스트에 대해 추가 qtree를 추가해야 하는 경우 동일한 엑스포트 정책을 사용합니다.

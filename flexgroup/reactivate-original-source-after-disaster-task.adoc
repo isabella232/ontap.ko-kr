@@ -1,0 +1,53 @@
+---
+permalink: flexgroup/reactivate-original-source-after-disaster-task.html 
+sidebar: sidebar 
+keywords: reactivate, original, source, flexgroup, volume, disaster 
+summary: 소스 FlexGroup 볼륨을 사용할 수 있게 되면 원래 소스 및 원래 대상 FlexGroup 볼륨을 재동기화할 수 있습니다. 대상 FlexGroup 볼륨의 새 데이터가 손실됩니다. 
+---
+= 재해 발생 후 원본 FlexGroup 볼륨을 다시 활성화합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+소스 FlexGroup 볼륨을 사용할 수 있게 되면 원래 소스 및 원래 대상 FlexGroup 볼륨을 재동기화할 수 있습니다. 대상 FlexGroup 볼륨의 새 데이터가 손실됩니다.
+
+대상 볼륨에 대한 활성 할당량 규칙이 비활성화되고 재동기화가 수행되기 전에 할당량 규칙이 삭제됩니다.
+
+"volume quota policy rule create" 및 "volume quota modify" 명령을 사용하여 재동기화 작업이 완료된 후 할당량 규칙을 생성하고 다시 활성화할 수 있습니다.
+
+.단계
+. 대상 클러스터에서 FlexGroup 볼륨 SnapMirror 관계를 재동기화합니다. 'sapmirror resync-destination-path dst_svm:dest_flexgroup'
+. SnapMirror 관계의 '스냅샷 표시-확장' 상태를 봅니다
++
+[listing]
+----
+cluster2::> snapmirror show -expand
+                                                                       Progress
+Source            Destination Mirror  Relationship   Total             Last
+Path        Type  Path        State   Status         Progress  Healthy Updated
+----------- ---- ------------ ------- -------------- --------- ------- --------
+vss:s       XDP  vsd:dst        Snapmirrored
+                                      Idle           -         true    -
+vss:s__0001 XDP  vsd:dst__0001  Snapmirrored
+                                      Idle           -         true    -
+vss:s__0002 XDP  vsd:dst__0002  Snapmirrored
+                                      Idle           -         true    -
+vss:s__0003 XDP  vsd:dst__0003  Snapmirrored
+                                      Idle           -         true    -
+vss:s__0004 XDP  vsd:dst__0004  Snapmirrored
+                                      Idle           -         true    -
+vss:s__0005 XDP  vsd:dst__0005  Snapmirrored
+                                      Idle           -         true    -
+vss:s__0006 XDP  vsd:dst__0006  Snapmirrored
+                                      Idle           -         true    -
+vss:s__0007 XDP  vsd:dst__0007  Snapmirrored
+                                      Idle           -         true    -
+vss:s__0008 XDP  vsd:dst__0008  Snapmirrored
+                                      Idle           -         true    -
+...
+----
++
+각 구성요소의 SnapMirror 관계 상태는 '스냅샷 미러링'입니다.
+
+

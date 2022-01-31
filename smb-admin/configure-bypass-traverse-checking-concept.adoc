@@ -1,0 +1,74 @@
+---
+permalink: smb-admin/configure-bypass-traverse-checking-concept.html 
+sidebar: sidebar 
+keywords: bypass, traverse, user, privilege, permission, directory, allow, check, configure, storage, virtual, machine, svm, configure bypass traverse checking 
+summary: '통과 확인 무시 사용자 권한(권한이라고도 함)은 사용자가 이동 중인 디렉터리에 대한 권한이 없더라도 경로 내의 모든 디렉터리를 파일로 이동할 수 있는지 여부를 결정합니다. 통과 확인을 허용 또는 허용하지 않을 경우 어떤 일이 발생하는지, 그리고 SVM(스토리지 가상 시스템)에서 사용자에 대한 통과 확인을 건너뛰도록 구성하는 방법을 이해해야 합니다.' 
+---
+= 우회 횡단 검사 개요 구성
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+통과 확인 무시 사용자 권한(_privilege_라고도 함)은 사용자가 이동 중인 디렉터리에 대한 권한이 없더라도 경로 내의 모든 디렉터리를 파일로 이동할 수 있는지 여부를 결정합니다. 통과 확인을 허용 또는 허용하지 않을 경우 어떤 일이 발생하는지, 그리고 SVM(스토리지 가상 시스템)에서 사용자에 대한 통과 확인을 건너뛰도록 구성하는 방법을 이해해야 합니다.
+
+
+
+== 우회 통과 확인을 허용 또는 허용하지 않을 때 발생하는 현상
+
+* 허용되는 경우 사용자가 파일에 액세스하려고 할 때 ONTAP는 파일에 대한 액세스 허용 또는 거부 여부를 결정할 때 중간 디렉토리에 대한 통과 권한을 확인하지 않습니다.
+* 허용되지 않는 경우 ONTAP는 파일 경로에 있는 모든 디렉토리에 대해 트래버스(실행) 권한을 확인합니다.
++
+중간 디렉토리에 ""X""(통과 권한)이 없으면 ONTAP는 해당 파일에 대한 액세스를 거부합니다.
+
+
+
+
+
+== 우회 통과 검사를 구성합니다
+
+ONTAP CLI를 사용하거나 이 사용자 권한으로 Active Directory 그룹 정책을 구성하여 통과 통과 확인 바이패스를 구성할 수 있습니다.
+
+'eChangeNotifyPrivilege' 권한은 사용자가 횡단 확인을 우회할 수 있는지 여부를 제어합니다.
+
+* SVM의 로컬 SMB 사용자 또는 그룹 또는 도메인 사용자 또는 그룹에 추가하면 통과 확인을 건너뛸 수 있습니다.
+* SVM의 로컬 SMB 사용자 또는 그룹 또는 도메인 사용자 또는 그룹에서 제거하면 통과 확인을 건너뛸 수 없습니다.
+
+
+기본적으로 SVM의 다음 BUILTIN 그룹에는 횡단 확인을 건너뛸 수 있는 권한이 있습니다.
+
+* 'BUILTIN\Administrators'
+* 'BUILTIN\Power Users'
+* 'BUILTIN\Backup Operators'
+* 'BUILTIN\Users'
+* '모든 사람'
+
+
+이러한 그룹 중 하나의 구성원이 통과 확인을 건너뛰도록 허용하지 않으려면 그룹에서 이 권한을 제거해야 합니다.
+
+CLI를 사용하여 SVM에서 로컬 SMB 사용자 및 그룹에 대한 통과 검사를 구성할 때 다음 사항을 염두에 두어야 합니다.
+
+* 사용자 지정 로컬 또는 도메인 그룹의 구성원이 통과 확인을 건너뛰도록 하려면 해당 그룹에 'eChangeNotifyPrivilege' 권한을 추가해야 합니다.
+* 개별 로컬 또는 도메인 사용자가 횡단 검사를 무시하도록 허용하고 해당 권한이 있는 그룹의 구성원이 아닌 경우 해당 사용자 계정에 'eChangeNotifyPrivilege' 권한을 추가할 수 있습니다.
+* 언제든지 'ChangeNotifyPrivilege' 권한을 제거하여 로컬 또는 도메인 사용자 또는 그룹에 대한 통과 확인을 사용하지 않도록 설정할 수 있습니다.
++
+[NOTE]
+====
+지정된 로컬 또는 도메인 사용자 또는 그룹에 대한 우회 트래버스 검사를 비활성화하려면 "Everyone" 그룹에서 'ChangeNotifyPrivilege' 권한도 제거해야 합니다.
+
+====
+
+
+xref:allow-users-groups-bypass-directory-traverse-task.adoc[사용자 또는 그룹이 디렉토리 통과 확인을 생략하도록 허용합니다]
+
+xref:disallow-users-groups-bypass-directory-traverse-task.adoc[사용자 또는 그룹이 디렉터리 트래버스 검사를 건너뛰는 것을 허용하지 않습니다]
+
+xref:configure-character-mappings-file-name-translation-task.adoc[볼륨에 대한 SMB 파일 이름 변환에 대한 문자 매핑 구성]
+
+xref:secure-file-access-share-acls-concept.adoc[SMB 공유 ACL을 사용하여 파일 액세스 보안]
+
+xref:secure-file-access-file-permissions-concept.adoc[파일 권한을 사용하여 파일 액세스 보안]
+
+xref:list-supported-privileges-reference.adoc[지원되는 권한 목록입니다]
+
+xref:manage-local-privileges-concept.adoc[로컬 권한 관리]

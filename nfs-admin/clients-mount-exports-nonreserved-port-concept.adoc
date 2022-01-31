@@ -1,0 +1,15 @@
+---
+permalink: nfs-admin/clients-mount-exports-nonreserved-port-concept.html 
+sidebar: sidebar 
+keywords: Consideration, client, mount, nfs, export, nonreserved, port 
+summary: 마운트-루트만 옵션은 사용자가 루트로 로그인한 경우에도 예약되지 않은 포트를 사용하여 NFS 내보내기를 마운트하는 클라이언트를 지원해야 하는 스토리지 시스템에서 해제되어야 합니다. 이러한 클라이언트에는 Hummingbird 클라이언트와 Solaris NFS/IPv6 클라이언트가 포함됩니다. 
+---
+= 예약되지 않은 포트를 사용하여 NFS 내보내기를 마운트하는 클라이언트에 대한 고려 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'-mount-rootonly' 옵션은 사용자가 루트로 로그인한 경우에도 예약되지 않은 포트를 사용하여 NFS 내보내기를 마운트하는 클라이언트를 지원해야 하는 스토리지 시스템에서 해제되어야 합니다. 이러한 클라이언트에는 Hummingbird 클라이언트와 Solaris NFS/IPv6 클라이언트가 포함됩니다.
+
+'-mount-rootonly' 옵션이 설정된 경우 ONTAP는 예약되지 않은 포트를 사용하는 NFS 클라이언트가 허용되지 않습니다. 즉, 번호가 1,023보다 큰 포트를 사용하여 NFS 내보내기를 마운트할 수 있습니다.

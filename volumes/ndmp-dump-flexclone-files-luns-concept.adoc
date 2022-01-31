@@ -1,0 +1,21 @@
+---
+permalink: volumes/ndmp-dump-flexclone-files-luns-concept.html 
+sidebar: sidebar 
+keywords: how, ndmp, works, flexclone files, flexclone luns 
+summary: NDMP는 FlexClone 파일 및 FlexClone LUN과 함께 논리적 레벨에서 작동합니다. 모든 FlexClone 파일 또는 LUN은 별도의 파일 또는 LUN으로 백업됩니다. 
+---
+= NDMP가 FlexClone 파일 및 FlexClone LUN과 작동하는 방식
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NDMP는 FlexClone 파일 및 FlexClone LUN과 함께 논리적 레벨에서 작동합니다. 모든 FlexClone 파일 또는 LUN은 별도의 파일 또는 LUN으로 백업됩니다.
+
+NDMP 서비스를 사용하여 FlexClone 파일 또는 FlexClone LUN이 포함된 qtree 또는 FlexVol 볼륨을 백업할 경우 상위 항목과 클론 항목 간의 블록 공유는 유지되지 않으며 클론 엔터티가 별도의 파일 또는 LUN으로 테이프에 백업됩니다. 공간 절약이 손실됩니다. 따라서 백업 중인 테이프에 확장된 양의 데이터를 저장할 충분한 공간이 있어야 합니다. 복원할 때 모든 FlexClone 파일과 FlexClone LUN이 별도의 물리적 파일 및 LUN으로 복원됩니다. 볼륨에서 중복 제거를 활성화하여 블록 공유 이점을 복원할 수 있습니다.
+
+[NOTE]
+====
+FlexVol 볼륨의 기존 스냅샷 복사본에서 FlexClone 파일 및 FlexClone LUN을 생성하는 경우 백그라운드에서 실행되는 블록 공유 프로세스가 완료될 때까지 볼륨을 테이프로 백업할 수 없습니다. 블록 공유 프로세스가 진행 중일 때 볼륨에 NDMP를 사용하면 일정 시간 후에 작업을 다시 시도하라는 메시지가 표시됩니다. 이러한 경우 블록 공유가 완료된 후 성공적으로 테이프 백업 작업을 다시 시도해야 합니다.
+
+====

@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/ndmp-management-flexgroup-concept.html 
+sidebar: sidebar 
+keywords: understand, ndmp, flexgroup, volume, flexvol 
+summary: ONTAP 9.7부터는 FlexGroup 볼륨에서 NDMP가 지원됩니다. 
+---
+= FlexGroup 볼륨용 NDMP 정보
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.7부터는 FlexGroup 볼륨에서 NDMP가 지원됩니다.
+
+ONTAP 9.7부터는 ndmpcopy 명령이 FlexVol 볼륨과 FlexGroup 볼륨 간의 데이터 전송에 지원됩니다.
+
+ONTAP 9.7에서 이전 버전으로 되돌릴 경우 이전 전송의 증분 전송 정보가 유지되지 않으므로 되돌리기 후 기본 복사를 수행해야 합니다.
+
+ONTAP 9.8부터는 FlexGroup 볼륨에서 다음 NDMP 기능이 지원됩니다.
+
+* 확장자 클래스 0x2050의 ndmp_snap_recover 메시지는 FlexGroup 볼륨에서 개별 파일을 복구하는 데 사용할 수 있습니다.
+* FlexGroup 볼륨에 대해 NDMP RBE(재시작 가능한 백업 확장)가 지원됩니다.
+* FlexGroup 볼륨에 대해 환경 변수 exclude 및 multi_subtree_names가 지원됩니다.
+

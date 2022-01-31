@@ -1,0 +1,37 @@
+---
+permalink: tape-backup/restore-7-mode-clustered-ontap-concept.html 
+sidebar: sidebar 
+keywords: tape, backup, restore, support, data, 7 mode, storage, system 
+summary: 7-Mode에서 운영 중인 스토리지 시스템이나 ONTAP를 실행 중인 스토리지 시스템에서 백업된 데이터를 7-Mode로 운영 중이거나 ONTAP를 실행 중인 스토리지 시스템으로 복구할 수 있습니다. 
+---
+= 7-Mode에서 작동하는 Data ONTAP와 ONTAP 간의 테이프 백업 및 복원 지원
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+7-Mode에서 운영 중인 스토리지 시스템이나 ONTAP를 실행 중인 스토리지 시스템에서 백업된 데이터를 7-Mode로 운영 중이거나 ONTAP를 실행 중인 스토리지 시스템으로 복구할 수 있습니다.
+
+7-Mode에서 작동하는 Data ONTAP와 ONTAP 간에는 다음 테이프 백업 및 복원 작업이 지원됩니다.
+
+* ONTAP를 실행하는 스토리지 시스템에 연결된 테이프 드라이브에 7-Mode 볼륨 백업
+* 7-Mode 시스템에 연결된 테이프 드라이브에 ONTAP 볼륨 백업
+* ONTAP를 실행하는 스토리지 시스템에 연결된 테이프 드라이브에서 7-Mode 볼륨의 백업 데이터 복원
+* 7-Mode 시스템에 연결된 테이프 드라이브에서 ONTAP 볼륨의 백업 데이터 복원
+* 7-Mode 볼륨을 ONTAP 볼륨으로 복원
++
+[NOTE]
+====
+....
+-   A 7-Mode LUN is restored as a LUN on an ONTAP volume.
+-   You should retain the ONTAP LUN identifiers when restoring a 7-Mode LUN to an existing ONTAP LUN.
+....
+====
+* ONTAP 볼륨을 7-Mode 볼륨으로 복원
++
+[NOTE]
+====
+ONTAP LUN은 7-Mode 볼륨에서 일반 파일로 복원됩니다.
+
+====
+

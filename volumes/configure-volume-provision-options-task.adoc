@@ -1,0 +1,60 @@
+---
+permalink: volumes/configure-volume-provision-options-task.html 
+sidebar: sidebar 
+keywords: configure, volume, provisioning, options 
+summary: 씬 프로비저닝, 일반 프로비저닝 또는 반씩 프로비저닝을 위해 볼륨을 구성할 수 있습니다. 
+---
+= 볼륨 프로비저닝 옵션을 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+씬 프로비저닝, 일반 프로비저닝 또는 반씩 프로비저닝을 위해 볼륨을 구성할 수 있습니다.
+
+'-space-slo' 옵션을 'thick'으로 설정하면 다음과 같은 이점이 있습니다.
+
+* 전체 볼륨이 Aggregate에 사전 할당됩니다. 볼륨의 '-space-보증' 옵션을 구성하려면 'volume create' 또는 'volume modify' 명령을 사용할 수 없습니다.
+* 덮어쓰기에 필요한 공간의 100%가 예약됩니다. 볼륨의 '-fractional-reserve' 옵션을 구성하려면 'volume modify' 명령을 사용할 수 없습니다
+
+
+'-space-slo' 옵션을 'EMI-thick'으로 설정하면 다음과 같은 이점이 있습니다.
+
+* 전체 볼륨이 Aggregate에 사전 할당됩니다. 볼륨의 '-space-보증' 옵션을 구성하려면 'volume create' 또는 'volume modify' 명령을 사용할 수 없습니다.
+* 덮어쓰기용으로 예약된 공간이 없습니다. 'volume modify' 명령을 사용하여 볼륨의 '-fractional-reserve' 옵션을 구성할 수 있습니다.
+* 스냅샷 복사본을 자동으로 삭제할 수 있습니다.
+
+
+.단계
+. 볼륨 프로비저닝 옵션 구성:
++
+'volume create-vserver_vserver_name_-volume_volume_name_-aggregate_aggregate_name_-space-slo none|thick|semi-thick-space-보증 없음|볼륨'
+
++
+'-space-보증' 옵션은 AFF 시스템과 비 AFF DP 볼륨에 대해 기본적으로 '없음'으로 설정됩니다. 그렇지 않으면 볼륨(volume)으로 기본 설정됩니다. 기존 FlexVol 볼륨의 경우 'volume modify' 명령을 사용하여 프로비저닝 옵션을 구성합니다.
+
++
+다음 명령은 씬 프로비저닝을 위해 SVM VS1 에서 vol1을 구성합니다.
+
++
+[listing]
+----
+cluster1::> volume create –vserver vs1 -volume vol1 -space-guarantee none
+----
++
+다음 명령을 실행하면 일반 프로비저닝을 위해 SVM VS1 vol1에 대해 vol1이 구성됩니다.
+
++
+[listing]
+----
+cluster1::> volume create –vserver vs1 -volume vol1 -space-slo thick
+----
++
+다음 명령을 실행하면 반씩 프로비저닝을 위해 SVM VS1 vol1에 대해 vol1이 구성됩니다.
+
++
+[listing]
+----
+cluster1::> volume create –vserver vs1 -volume vol1 -space-slo semi-thick
+----
+

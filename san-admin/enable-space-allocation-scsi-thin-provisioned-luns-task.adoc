@@ -1,0 +1,31 @@
+---
+permalink: san-admin/enable-space-allocation-scsi-thin-provisioned-luns-task.html 
+sidebar: sidebar 
+keywords: enable, space, allocation, scsi, thinly, provisioned luns 
+summary: 공간 할당 옵션을 Enabled로 설정하면 ONTAP는 볼륨에 공간이 부족하고 볼륨의 LUN이 쓰기를 허용할 수 없을 때 호스트에 알립니다. 또한 이 옵션을 사용하면 호스트가 데이터를 삭제할 때 ONTAP에서 자동으로 공간을 재확보할 수 있습니다. 
+---
+= SCSI 씬 프로비저닝된 LUN에 대한 공간 할당을 설정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'pace-allocation' 옵션을 'enabled'로 설정하면 ONTAP는 볼륨의 공간이 부족하고 볼륨의 LUN이 쓰기를 허용할 수 없을 때 호스트에 알립니다. 또한 이 옵션을 사용하면 호스트가 데이터를 삭제할 때 ONTAP에서 자동으로 공간을 재확보할 수 있습니다.
+
+기본적으로 'pace-allocation' 옵션은 'disabled'로 설정되어 있으며, 공간 할당을 활성화하려면 LUN을 오프라인 상태로 전환해야 합니다. 공간 할당을 설정한 후에는 호스트에서 검색을 수행해야 호스트에서 공간 할당이 설정되었음을 인식할 수 있습니다.
+
+.단계
+. '-space-allocation' 파라미터를 'ENABLED'로 설정한다.
++
+'lun modify -vserver_vserver_name_-volume_volume_name_-lun_lun_name_-space-allocation enabled
+
+. 공간 할당이 설정되었는지 확인합니다.
++
+'lun show -vserver_vserver_name_-volume_volume_name_-lun_lun_name_-fields space-allocation
+
+. LUN을 온라인 상태로 전환:
++
+'lun modify -vserver_vserver_name_-volume_volume_name_-lun_lun_name_-state online
+
+. 호스트에서 모든 디스크를 재검색하여 '-space-allocation' 옵션의 변경 사항이 올바르게 검색되었는지 확인합니다.
+

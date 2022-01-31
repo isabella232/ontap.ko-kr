@@ -1,0 +1,118 @@
+---
+permalink: tape-backup/transfer-data-ndmpcopy-task.html 
+sidebar: sidebar 
+keywords: transfer, data, ndmpcopy, incremental, full, qtree, directory, files, v4, ndmp 
+summary: ndmpcopy 명령은 NDMP v4를 지원하는 스토리지 시스템 간에 데이터를 전송합니다. 전체 및 증분 데이터 전송을 모두 수행할 수 있습니다. 전체 또는 부분 볼륨, Qtree, 디렉토리 또는 개별 파일을 전송할 수 있습니다. 
+---
+= ndmpcopy를 사용하여 데이터 전송 개요
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ndmpcopy nodeswell 명령은 NDMP v4를 지원하는 스토리지 시스템 간에 데이터를 전송합니다. 전체 및 증분 데이터 전송을 모두 수행할 수 있습니다. 전체 또는 부분 볼륨, Qtree, 디렉토리 또는 개별 파일을 전송할 수 있습니다.
+
+ONTAP 8.x 및 이전 릴리즈를 사용하면 증분 전송은 최대 2개의 레벨(전체 백업 1개 및 최대 2개의 증분 백업)으로 제한됩니다.
+
+ONTAP 9.0 이상 릴리즈부터 증분 전송은 최대 9개 레벨(전체 백업 1개 및 증분 백업 9개)으로 제한됩니다.
+
+소스 및 대상 스토리지 시스템의 nodeswell 명령줄에서 ndmpcopy를 실행하거나 데이터 전송 소스 또는 대상이 아닌 스토리지 시스템을 실행할 수 있습니다. 또한 데이터 전송의 소스와 대상 모두에 대해 단일 스토리지 시스템에서 ndmpcopy를 실행할 수 있습니다.
+
+ndmpcopy 명령에서 소스 및 대상 스토리지 시스템의 IPv4 또는 IPv6 주소를 사용할 수 있습니다. 경로 형식은 "/vserver_name/volume_name\[path\]"입니다.
+
+.단계
+. 소스 및 대상 스토리지 시스템에서 NDMP 서비스를 설정합니다.
++
+|===
+
+
+| 의 소스 또는 대상에서 데이터 전송을 수행하는 경우... | 다음 명령을 사용합니다... 
+
+
+ a| 
+SVM 범위의 NDMP 모드입니다
+ a| 
+'vserver services ndmp on'
+
+[NOTE]
+====
+admin SVM에서 NDMP 인증의 경우 사용자 계정은 admin이고 사용자 역할은 admin 또는 backup입니다. 데이터 SVM에서 사용자 계정은 vsadmin이고 사용자 역할은 vsadmin 또는 vsadmin-backup입니다.
+
+====
+
+
+ a| 
+노드 범위의 NDMP 모드입니다
+ a| 
+'System services NDMP on'(시스템 서비스 NDMP 켜기)
+
+|===
+. 노드 쉘에서 'ndmpcopy' 명령을 사용하여 스토리지 시스템 내부 또는 스토리지 시스템 간에 데이터 전송:
++
+'*::> 시스템 노드 실행 노드 <node_name><ndmpcopy [options] source_ip:source_path destination_ip:destination_path[-mcs{inet|inet6}][-mcd {inet|inet6}] *
+
++
+[NOTE]
+====
+DNS 이름은 ndmpcopy에서 지원되지 않습니다. 소스 및 대상의 IP 주소를 제공해야 합니다. 루프백 주소(127.0.0.1)는 소스 IP 주소 또는 대상 IP 주소에 대해 지원되지 않습니다.
+
+====
++
+** "ndmpcopy" 명령은 다음과 같이 제어 연결의 주소 모드를 결정합니다.
++
+*** 제어 연결의 주소 모드는 제공된 IP 주소에 해당합니다.
+*** '-mcs' 및 '-mcd' 옵션을 사용하여 이러한 규칙을 재정의할 수 있습니다.
+
+
+** 소스 또는 타겟이 ONTAP 시스템인 경우 NDMP 모드(노드 범위 또는 SVM 범위)에 따라 타겟 볼륨에 액세스할 수 있는 IP 주소를 사용하십시오.
+** 'source_path'와 'destination_path'는 볼륨, qtree, 디렉토리 또는 파일의 세밀한 수준까지 가는 절대 경로 이름입니다.
+** '-mcs'는 소스 스토리지 시스템에 대한 제어 접속의 기본 주소 지정 모드를 지정합니다.
++
+inet은 IPv4 주소 모드를 나타내며 inet6은 IPv6 주소 모드를 나타냅니다.
+
+** '-MCD'는 대상 저장소 시스템에 대한 제어 연결에 대해 기본 주소 지정 모드를 지정합니다.
++
+inet은 IPv4 주소 모드를 나타내며 inet6은 IPv6 주소 모드를 나타냅니다.
+
+** '-MD'는 소스와 대상 스토리지 시스템 간의 데이터 전송을 위한 기본 주소 지정 모드를 지정합니다.
++
+inet은 IPv4 주소 모드를 나타내며 inet6은 IPv6 주소 모드를 나타냅니다.
+
++
+ndmpcopy 명령에서 '-md' 옵션을 사용하지 않으면 데이터 연결의 주소 지정 모드가 다음과 같이 결정됩니다.
+
++
+*** 제어 연결에 지정된 주소 중 하나가 IPv6 주소이면 데이터 연결의 주소 모드는 IPv6입니다.
+*** 제어 연결에 지정된 두 주소가 모두 IPv4 주소이면 ndmpcopy 명령이 먼저 데이터 연결에 대한 IPv6 주소 모드를 시도합니다.
++
+이 명령이 실패하면 IPv4 주소 모드를 사용합니다.
+
++
+[NOTE]
+====
+IPv6 주소가 지정된 경우 대괄호로 묶어야 합니다.
+
+====
++
+이 샘플 명령은 소스 경로('source_path')에서 대상 경로('Destination_path')로 데이터를 마이그레이션합니다.
+
++
+[listing]
+----
+> ndmpcopy -sa admin:<ndmp_password> -da admin:<ndmp_password>
+ -st md5 -dt md5 192.0.2.129:/<src_svm>/<src_vol> 192.0.2.131:/<dst_svm>/<dst_vol>
+----
++
+이 샘플 명령은 IPv6 주소 모드를 사용할 제어 연결과 데이터 연결을 명시적으로 설정합니다.
+
++
+[listing]
+----
+> ndmpcopy -sa admin:<ndmp_password> -da admin:<ndmp_password> -st md5 -dt md5 -mcs inet6 -mcd inet6 -md
+ inet6 [2001:0db8:1:1:209:6bff:feae:6d67]:/<src_svm>/<src_vol> [2001:0ec9:1:1:200:7cgg:gfdf:7e78]:/<dst_svm>/<dst_vol>
+----
+
+
+
+
+

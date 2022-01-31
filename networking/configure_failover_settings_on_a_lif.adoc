@@ -1,0 +1,71 @@
+---
+sidebar: sidebar 
+permalink: networking/configure_failover_settings_on_a_lif.html 
+keywords: configure, configuring, configuration, setup, set, up, failover, fail, over, group, policy, lif, configure failover settings on a lif, broadcast-domain-wide, system-defined, local-only, sfo-partner-only, disabled, network interface modify -vserver <vserver_name> -lif <lif_name> -failover-policy <failover_policy> -failover-group <failover_group>, examples of configuring failover settings and disabling failover 
+summary: LIF가 특정 네트워크 포트 그룹으로 페일오버되도록 구성합니다 
+---
+= LIF에서 페일오버 설정을 구성합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+페일오버 정책과 페일오버 그룹을 LIF에 적용하여 LIF를 특정 네트워크 포트 그룹으로 페일오버할 수 있습니다. LIF가 다른 포트로 페일오버되지 않도록 설정할 수도 있습니다.
+
+.이 작업에 대해
+* LIF가 생성되면 LIF 페일오버가 기본적으로 활성화되며 사용 가능한 타겟 포트 목록은 LIF 유형 및 서비스 정책에 따라 기본 페일오버 그룹 및 페일오버 정책에 따라 결정됩니다.
++
+9.5부터 LIF를 사용할 수 있는 네트워크 서비스를 정의하는 LIF의 서비스 정책을 지정할 수 있습니다. 일부 네트워크 서비스에서는 LIF에 페일오버 제한을 적용합니다.
+
++
+
+NOTE: LIF의 서비스 정책이 페일오버를 더욱 제한하는 방식으로 변경되면 LIF의 페일오버 정책이 시스템에 의해 자동으로 업데이트됩니다.
+
+* network interface modify 명령에서 -failover -group 및 -failover -policy 매개 변수의 값을 지정하여 LIF의 페일오버 동작을 수정할 수 있습니다.
+* LIF가 수정되어 LIF에 유효한 페일오버 타겟이 없게 되면 경고 메시지가 표시됩니다.
++
+유효한 페일오버 목표가 없는 LIF가 페일오버를 시도하면 운영 중단이 발생할 수 있습니다.
+
+* 다음 목록에서는 -failover-policy 설정이 페일오버 그룹에서 선택한 타겟 포트에 미치는 영향에 대해 설명합니다.
++
+** 브로드캐스트 도메인 전체에 적용되는 것은 페일오버 그룹의 모든 노드에 있는 모든 포트에 적용됩니다.
+** '시스템 정의'는 LIF 홈 노드의 포트와 클러스터의 다른 노드(일반적으로 SFO가 아닌 파트너)에만 적용됩니다.
+** '로컬 전용'은 LIF의 홈 노드에 있는 포트에만 적용됩니다.
+** 'fo 파트너 전용'은 LIF 홈 노드와 SFO 파트너에 있는 포트에만 적용됩니다.
+** "사용 안 함"은 LIF가 페일오버 대상으로 구성되지 않았음을 나타냅니다.
++
+
+NOTE: SAN 프로토콜에 대한 논리 인터페이스는 페일오버를 지원하지 않으므로 이러한 LIF는 항상 사용하지 않도록 설정됩니다.
+
+
+
+
+
+기존 인터페이스에 대한 페일오버 설정을 구성합니다.
+
+....
+network interface modify -vserver <vserver_name> -lif <lif_name> -failover-policy <failover_policy> -failover-group <failover_group>
+....
+
+
+== 페일오버 설정 구성 및 페일오버 해제의 예
+
+다음 명령은 페일오버 정책을 브로드캐스트 도메인 전체에 설정하고 페일오버 그룹 fg3의 포트를 SVM vs3의 LIF data1의 페일오버 타겟으로 사용합니다.
+
+....
+network interface modify -vserver vs3 -lif data1 failover-policy broadcast-domain-wide - failover-group fg3
+
+network interface show -vserver vs3 -lif * -fields failover-group,failover-policy
+
+vserver lif             failover-policy       failover-group
+------- -------------- ---------------        --------------
+vs3     data1          broadcast-domain-wide  fg3
+....
+다음 명령을 실행하면 SVM vs3에서 LIF 데이터 1의 페일오버가 사용되지 않습니다.
+
+....
+network interface modify -vserver vs3 -lif data1 failover-policy disabled
+....

@@ -1,0 +1,54 @@
+---
+permalink: system-admin/customize-show-command-output-concept.html 
+sidebar: sidebar 
+keywords: method, customizing, show, command, output, fields 
+summary: show 명령과 함께 –instance 매개 변수를 사용하면 출력이 길어 필요한 것보다 많은 정보를 포함할 수 있습니다. show 명령의 –fields 매개 변수를 사용하면 지정한 정보만 표시할 수 있습니다. 
+---
+= 필드를 사용하여 show 명령 출력을 사용자 지정하는 방법
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+' –instance' 매개 변수를 'show' 명령과 함께 사용하여 세부 정보를 표시하면 출력이 길어 필요한 것보다 많은 정보를 포함할 수 있습니다. 'show' 명령의 '–fields' 매개 변수를 사용하면 지정한 정보만 표시할 수 있습니다.
+
+예를 들어, 볼륨 표시 인스턴스를 실행하면 여러 개의 정보 화면이 표시될 수 있습니다. 'volume show –fields'(_fieldname[, fieldname...]_)를 사용하여 지정된 필드만 포함되도록 출력을 사용자 지정할 수 있습니다(항상 표시되는 기본 필드 외에). 당신은 ``필드’’를 사용할 수 있습니다 'show' 명령에 유효한 필드를 표시합니다.
+
+다음 예제는 '–instance' 매개변수와 '–fields' 매개변수의 출력 차이를 보여줍니다.
+
+[listing]
+----
+cluster1::> volume show -instance
+
+                                   Vserver Name: cluster1-1
+                                    Volume Name: vol0
+                                 Aggregate Name: aggr0
+                                    Volume Size: 348.3GB
+                             Volume Data Set ID: -
+                      Volume Master Data Set ID: -
+                                   Volume State: online
+                                    Volume Type: RW
+                                   Volume Style: flex
+                                         ...
+                          Space Guarantee Style: volume
+                      Space Guarantee in Effect: true
+                                         ...
+Press <space> to page down, <return> for next line, or 'q' to quit...
+...
+cluster1::>
+
+cluster1::> volume show -fields space-guarantee,space-guarantee-enabled
+
+vserver  volume space-guarantee space-guarantee-enabled
+-------- ------ --------------- -----------------------
+cluster1-1 vol0   volume          true
+cluster1-2 vol0   volume          true
+vs1      root_vol
+                  volume          true
+vs2      new_vol
+                  volume          true
+vs2      root_vol
+                  volume          true
+...
+cluster1::>
+----

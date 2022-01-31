@@ -1,0 +1,302 @@
+---
+permalink: peering/configure-intercluster-lifs-use-ports-own-networks-task.html 
+sidebar: sidebar 
+keywords: configure, intercluster, LIFs  custom, ipspaces 
+summary: 사용자 지정 IPspace에서 인터클러스터 LIF를 구성할 수 있습니다. 멀티 테넌트 환경에서 복제 트래픽을 분리할 수 있습니다. 
+---
+= 사용자 지정 IPspace에서 인터클러스터 LIF를 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+사용자 지정 IPspace에서 인터클러스터 LIF를 구성할 수 있습니다. 멀티 테넌트 환경에서 복제 트래픽을 분리할 수 있습니다.
+
+사용자 지정 IPspace를 생성하는 경우 시스템은 시스템 SVM(스토리지 가상 머신)을 해당 IPspace의 시스템 개체에 대한 컨테이너 역할을 합니다. 새 SVM을 새 IPspace의 모든 인터클러스터 LIF의 컨테이너로 사용할 수 있습니다. 새 SVM은 사용자 지정 IPspace와 동일한 이름을 갖습니다.
+
+.단계
+. 클러스터의 포트 나열:
++
+네트워크 포트 쇼
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+다음 예에서는 "cluster01"의 네트워크 포트를 보여줍니다.
+
++
+[listing]
+----
+
+cluster01::> network port show
+                                                             Speed (Mbps)
+Node   Port      IPspace      Broadcast Domain Link   MTU    Admin/Oper
+------ --------- ------------ ---------------- ----- ------- ------------
+cluster01-01
+       e0a       Cluster      Cluster          up     1500   auto/1000
+       e0b       Cluster      Cluster          up     1500   auto/1000
+       e0c       Default      Default          up     1500   auto/1000
+       e0d       Default      Default          up     1500   auto/1000
+       e0e       Default      Default          up     1500   auto/1000
+       e0f       Default      Default          up     1500   auto/1000
+cluster01-02
+       e0a       Cluster      Cluster          up     1500   auto/1000
+       e0b       Cluster      Cluster          up     1500   auto/1000
+       e0c       Default      Default          up     1500   auto/1000
+       e0d       Default      Default          up     1500   auto/1000
+       e0e       Default      Default          up     1500   auto/1000
+       e0f       Default      Default          up     1500   auto/1000
+----
+. 클러스터에서 맞춤형 IPspace 생성:
++
+네트워크 IPspace 생성 - IPSpace_IPSpace_
+
++
+다음 예에서는 사용자 지정 IPspace "IPSpace-IC1"을 생성합니다.
+
++
+[listing]
+----
+cluster01::> network ipspace create -ipspace ipspace-IC1
+----
+. 인터클러스터 통신 전용으로 사용할 수 있는 포트를 확인합니다.
++
+네트워크 인터페이스 보기 필드 홈 포트, 통화 포트
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+다음 예제는 포트 e0e 및 e0f에 LIF가 할당되지 않음을 보여줍니다.
+
++
+[listing]
+----
+
+cluster01::> network interface show -fields home-port,curr-port
+vserver lif                  home-port curr-port
+------- -------------------- --------- ---------
+Cluster cluster01_clus1   e0a       e0a
+Cluster cluster01_clus2   e0b       e0b
+Cluster cluster02_clus1   e0a       e0a
+Cluster cluster02_clus2   e0b       e0b
+cluster01
+        cluster_mgmt         e0c       e0c
+cluster01
+        cluster01-01_mgmt1   e0c       e0c
+cluster01
+        cluster01-02_mgmt1   e0c       e0c
+----
+. 기본 브로드캐스트 도메인에서 사용 가능한 포트를 제거합니다.
++
+네트워크 포트 브로드캐스트-도메인 제거-포트-브로드캐스트-도메인 기본 포트 포트
+
++
+포트는 한 번에 둘 이상의 브로드캐스트 도메인에 있을 수 없습니다. 전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+다음 예에서는 기본 브로드캐스트 도메인에서 포트 "e0e" 및 "e0f"를 제거합니다.
+
++
+[listing]
+----
+cluster01::> network port broadcast-domain remove-ports -broadcast-domain Default -ports
+cluster01-01:e0e,cluster01-01:e0f,cluster01-02:e0e,cluster01-02:e0f
+----
+. 포트가 기본 브로드캐스트 도메인에서 제거되었는지 확인합니다.
++
+네트워크 포트 쇼
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+다음 예에서는 기본 브로드캐스트 도메인에서 포트 "e0e"와 "e0f"가 제거되었음을 보여 줍니다.
+
++
+[listing]
+----
+cluster01::> network port show
+                                                       Speed (Mbps)
+Node   Port    IPspace   Broadcast Domain Link   MTU    Admin/Oper
+------ ------- --------- --------------- ----- ------- ------------
+cluster01-01
+       e0a     Cluster    Cluster          up    9000  auto/1000
+       e0b     Cluster    Cluster          up    9000  auto/1000
+       e0c     Default    Default          up    1500  auto/1000
+       e0d     Default    Default          up    1500  auto/1000
+       e0e     Default    -                up    1500  auto/1000
+       e0f     Default    -                up    1500  auto/1000
+       e0g     Default    Default          up    1500  auto/1000
+cluster01-02
+       e0a     Cluster    Cluster          up    9000  auto/1000
+       e0b     Cluster    Cluster          up    9000  auto/1000
+       e0c     Default    Default          up    1500  auto/1000
+       e0d     Default    Default          up    1500  auto/1000
+       e0e     Default    -                up    1500  auto/1000
+       e0f     Default    -                up    1500  auto/1000
+       e0g     Default    Default          up    1500  auto/1000
+----
+. 사용자 지정 IPspace에서 브로드캐스트 도메인 생성:
++
+'network port broadcast-domain create-IPSpace_IPSpace_-broadcast-domain_broadcast_domain_-mtu_mtu_-ports_ports_'
+
++
+다음 예에서는 IPspace 'IPSpace-IC1'에 브로드캐스트 도메인 'IPSpace-IC1-BD'를 생성합니다.
+
++
+[listing]
+----
+cluster01::> network port broadcast-domain create -ipspace ipspace-IC1 -broadcast-domain
+ipspace-IC1-bd -mtu 1500 -ports cluster01-01:e0e,cluster01-01:e0f,
+cluster01-02:e0e,cluster01-02:e0f
+----
+. 브로드캐스트 도메인이 생성되었는지 확인합니다.
++
+네트워크 포트 브로드캐스트 도메인 쇼
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+[listing]
+----
+cluster01::> network port broadcast-domain show
+IPspace Broadcast                                         Update
+Name    Domain Name    MTU  Port List                     Status Details
+------- ----------- ------  ----------------------------- --------------
+Cluster Cluster       9000
+                            cluster01-01:e0a              complete
+                            cluster01-01:e0b              complete
+                            cluster01-02:e0a              complete
+                            cluster01-02:e0b              complete
+Default Default       1500
+                            cluster01-01:e0c              complete
+                            cluster01-01:e0d              complete
+                            cluster01-01:e0f              complete
+                            cluster01-01:e0g              complete
+                            cluster01-02:e0c              complete
+                            cluster01-02:e0d              complete
+                            cluster01-02:e0f              complete
+                            cluster01-02:e0g              complete
+ipspace-IC1
+        ipspace-IC1-bd
+                      1500
+                            cluster01-01:e0e              complete
+                            cluster01-01:e0f              complete
+                            cluster01-02:e0e              complete
+                            cluster01-02:e0f              complete
+----
+. 시스템 SVM에 대한 인터클러스터 LIF를 생성한 후 이를 브로드캐스트 도메인에 할당합니다.
++
+|===
+| 옵션을 선택합니다 | 설명 
+
+
+ a| 
+* ONTAP 9.6 이상: *
+ a| 
+'network interface create-vserver_system_SVM_-lif_LIF_name_-service-policy default-인터클러스터-home-node_node_-home-port_port_-address_port_ip_-netmask_mask_'
+
+
+
+ a| 
+* ONTAP 9.5 및 이전 버전의 경우: *
+ a| 
+'network interface create-vserver_system_SVM_-lif_LIF_name_-role l인터클러스터-home-node_node_-home-port_port_-address_port_ip_-netmask_mask_'
+
+|===
++
+LIF는 홈 포트가 할당된 브로드캐스트 도메인에서 생성됩니다. 브로드캐스트 도메인에는 브로드캐스트 도메인과 동일한 이름의 기본 페일오버 그룹이 있습니다. 전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+다음 예에서는 브로드캐스트 도메인 IPSpace-IC1-BD에 인터클러스터 LIF 'cluster01_icl01' 및 'cluster01_icl02'를 생성합니다.
+
++
+[listing]
+----
+cluster01::> network interface create -vserver ipspace-IC1 -lif cluster01_icl01 -service-
+policy default-intercluster -home-node cluster01-01 -home-port e0e -address 192.168.1.201
+-netmask 255.255.255.0
+
+cluster01::> network interface create -vserver ipspace-IC1 -lif cluster01_icl02 -service-
+policy default-intercluster -home-node cluster01-02 -home-port e0e -address 192.168.1.202
+-netmask 255.255.255.0
+----
+. 인터클러스터 LIF가 생성되었는지 확인합니다.
++
+|===
+| 옵션을 선택합니다 | 설명 
+
+
+ a| 
+* ONTAP 9.6 이상: *
+ a| 
+네트워크 인터페이스 show-service-policy default-인터클러스터
+
+
+
+ a| 
+* ONTAP 9.5 및 이전 버전의 경우: *
+ a| 
+네트워크 인터페이스 show-role 인터클러스터(network interface show-role 인터클러스터)
+
+|===
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+[listing]
+----
+cluster01::> network interface show -service-policy default-intercluster
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+ipspace-IC1
+            cluster01_icl01
+                       up/up      192.168.1.201/24   cluster01-01  e0e     true
+            cluster01_icl02
+                       up/up      192.168.1.202/24   cluster01-02  e0f     true
+----
+. 인터클러스터 LIF가 중복되는지 확인합니다.
++
+|===
+| 옵션을 선택합니다 | 설명 
+
+
+ a| 
+* ONTAP 9.6 이상: *
+ a| 
+네트워크 인터페이스 show-service-policy default-인터클러스터-failover를 선택합니다
+
+
+
+ a| 
+* ONTAP 9.5 및 이전 버전의 경우: *
+ a| 
+네트워크 인터페이스 show-role 인터클러스터-failover를 참조하십시오
+
+|===
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+다음 예에서는 SVM e0e 포트의 인터클러스터 LIF 'cluster01_icl01' 및 'cluster01_icl02'가 e0f 포트로 페일오버된 것을 보여줍니다.
+
++
+[listing]
+----
+cluster01::> network interface show -service-policy default-intercluster –failover
+         Logical         Home                  Failover        Failover
+Vserver  Interface       Node:Port             Policy          Group
+-------- --------------- --------------------- --------------- --------
+ipspace-IC1
+         cluster01_icl01 cluster01-01:e0e   local-only      intercluster01
+                            Failover Targets:  cluster01-01:e0e,
+                                               cluster01-01:e0f
+         cluster01_icl02 cluster01-02:e0e   local-only      intercluster01
+                            Failover Targets:  cluster01-02:e0e,
+                                               cluster01-02:e0f
+----
+

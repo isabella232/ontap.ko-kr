@@ -1,0 +1,42 @@
+---
+permalink: san-admin/transition-config-concept.html 
+sidebar: sidebar 
+keywords: considerations, transitioning, san, configurations, capabilities, restrictions, transitioned, luns 
+summary: SAN 환경에서는 7-Mode 볼륨을 ONTAP로 전환하는 동안 서비스 중단이 필요합니다. 전환을 완료하려면 호스트를 종료해야 합니다. 전환 후에는 ONTAP에서 데이터 제공을 시작하기 전에 호스트 구성을 업데이트해야 합니다. 
+---
+= SAN 구성을 전환하기 위한 고려 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SAN 환경에서는 7-Mode 볼륨을 ONTAP로 전환하는 동안 서비스 중단이 필요합니다. 전환을 완료하려면 호스트를 종료해야 합니다. 전환 후에는 ONTAP에서 데이터 제공을 시작하기 전에 호스트 구성을 업데이트해야 합니다
+
+호스트를 종료하고 전환을 완료할 수 있는 유지 관리 기간을 예약해야 합니다.
+
+
+
+== 전환된 LUN의 기능 및 제한
+
+7-Mode에서 운영되는 Data ONTAP에서 ONTAP로 전환된 LUN에는 LUN 관리 방식에 영향을 주는 특정 기능과 제한 사항이 있습니다.
+
+전환된 LUN에서 다음을 수행할 수 있습니다.
+
+* 'lun show' 명령을 사용하여 LUN을 확인합니다
+* 'transition 7-mode show' 명령을 사용하여 7-Mode 볼륨에서 전환된 LUN의 인벤토리를 확인합니다
+* 7-Mode 스냅샷 복사본에서 볼륨을 복원합니다
++
+볼륨을 복원하면 스냅샷 복사본에 캡처된 모든 LUN이 전환됩니다
+
+* '스냅샷 복원 파일' 명령을 사용하여 7-Mode 스냅샷 복사본에서 단일 LUN을 복원합니다
+* 7-Mode 스냅샷 복사본에서 LUN의 클론을 생성합니다
+* 7-Mode 스냅샷 복사본에 캡처되어 있는 LUN의 다양한 블록을 복원합니다
+* 7-Mode 스냅샷 복사본을 사용하여 볼륨의 FlexClone을 생성합니다
+
+
+전환된 LUN에서는 다음을 수행할 수 없습니다.
+
+* 볼륨에 캡처된 스냅샷 복사본 지원 LUN 클론에 액세스합니다
+
+
+link:https://docs.netapp.com/us-en/ontap-7mode-transition/copy-based/index.html["복사 기반 전환"]

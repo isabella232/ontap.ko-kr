@@ -1,0 +1,57 @@
+---
+sidebar: sidebar 
+permalink: task_dp_prepare_mirror.html 
+keywords: netapp, ontap, snapshot copy, snapshots, configure lifs, intercluster lifs, pairing nodes, peering nodes, mirror, vault, snapvault,  snapmirror, network interface, intercluster, intercluster interface, HA pair, node, replicate, remote cluster, generate passphrase, SVM peer relationship, storage VM peer, intercluster setting, peer cluster 
+summary: 데이터 백업 및 재해 복구를 위해 데이터를 원격 클러스터로 복제하여 보호할 수 있습니다. 
+---
+= 미러링 및 보관 준비
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+데이터 백업 및 재해 복구를 위해 데이터를 원격 클러스터로 복제하여 보호할 수 있습니다.
+
+몇 가지 기본 보호 정책을 사용할 수 있습니다. 사용자 지정 정책을 사용하려면 보호 정책을 만들어야 합니다.
+
+image:workflow_dp_prepare_mirror.gif["미러링 및 보관을 위한 작업 흐름도"]
+
+.단계
+. 로컬 클러스터에서 * 보호 > 개요 * 를 클릭합니다.
+. 클러스터 간 설정 * 을 확장합니다. 네트워크 인터페이스 추가 * 를 클릭하고 클러스터에 대한 인터클러스터 네트워크 인터페이스를 추가합니다.
++
+원격 클러스터에서 이 단계를 반복합니다.
+
+. 원격 클러스터에서 * 보호 > 개요 * 를 클릭합니다. 을 클릭합니다 image:icon_kabob.gif["메뉴 옵션 아이콘"] Cluster 피어 섹션에서 * Generate Passphrase * 를 클릭합니다.
+. 생성된 암호를 복사하여 로컬 클러스터에 붙여넣습니다.
+. 로컬 클러스터의 클러스터 피어에서 * 피어 클러스터 * 를 클릭하고 로컬 및 원격 클러스터를 피어로 지정합니다.
+. 필요에 따라 스토리지 VM 피어에서 를 클릭합니다 image:icon_kabob.gif["메뉴 옵션 아이콘"] 그리고 스토리지 VM을 피어로 하기 위해 * 피어 스토리지 VM * 을 선택합니다.
+. 볼륨 보호 * 를 클릭하여 볼륨을 보호합니다. LUN을 보호하려면 * 스토리지 > LUN * 을 클릭하고 보호할 LUN을 선택한 다음 을 클릭합니다 image:icon_protect.gif["Alt = 보호 단추"].
++
+필요한 데이터 보호 유형에 따라 보호 정책을 선택합니다.
+
+. 볼륨 및 LUN이 로컬 클러스터에서 제대로 보호되었는지 확인하려면 * 스토리지 > 볼륨 * 또는 * 스토리지 > LUN * 을 클릭하고 볼륨/LUN 보기를 확장합니다.
+
+
+
+
+== ONTAP에서 이 작업을 수행하는 다른 방법
+
+[cols="2"]
+|===
+| 에서 이러한 작업을 수행하려면... | 이 콘텐츠 보기... 
+
+
+| System Manager Classic(ONTAP 9.7 이하에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap-sm-classic/volume-disaster-prep/index.html["볼륨 재해 복구 준비 개요"^] 
+
+
+| ONTAP 명령줄 인터페이스입니다 | link:https://docs.netapp.com/us-en/ontap/peering/create-cluster-relationship-93-later-task.html["클러스터 피어 관계 생성(ONTAP 9.3 이상)"^] 
+|===

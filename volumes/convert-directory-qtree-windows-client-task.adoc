@@ -1,0 +1,37 @@
+---
+permalink: volumes/convert-directory-qtree-windows-client-task.html 
+sidebar: sidebar 
+keywords: convert, directory to a qtree, using, windows client 
+summary: Windows 클라이언트를 사용하여 디렉토리를 qtree로 변환하려면 디렉토리 이름을 바꾸고 스토리지 시스템에 qtree를 생성한 다음 디렉토리 내용을 qtree로 이동합니다. 
+---
+= Windows 클라이언트를 사용하여 디렉토리를 qtree로 변환합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Windows 클라이언트를 사용하여 디렉토리를 qtree로 변환하려면 디렉토리 이름을 바꾸고 스토리지 시스템에서 qtree를 생성한 다음 디렉토리 콘텐츠를 qtree로 이동합니다.
+
+이 절차를 수행하려면 Windows 탐색기를 사용해야 합니다. Windows 명령줄 인터페이스 또는 DOS 프롬프트 환경에서는 사용할 수 없습니다.
+
+.단계
+. Windows 탐색기를 엽니다.
+. 변경할 디렉토리의 폴더 표현을 클릭합니다.
++
+[NOTE]
+====
+디렉토리는 포함하는 볼륨의 루트에 있어야 합니다.
+
+====
+. 파일 * 메뉴에서 * 이름 바꾸기 * 를 선택하여 이 디렉터리에 다른 이름을 지정합니다.
+. 스토리지 시스템에서 'volume qtree create' 명령을 사용하여 디렉토리의 원래 이름으로 새 qtree를 생성합니다.
+. Windows 탐색기에서 이름이 바뀐 디렉토리 폴더를 열고 폴더 안의 파일을 선택합니다.
+. 이러한 파일을 새 qtree의 폴더 표시로 끕니다.
++
+[NOTE]
+====
+이동하는 폴더에 포함된 하위 폴더가 많을수록 이동 작업이 오래 걸립니다.
+
+====
+. 파일 * 메뉴에서 * 삭제 * 를 선택하여 이름이 바뀐 지금 비어 있는 디렉토리 폴더를 삭제합니다.
+

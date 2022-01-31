@@ -1,0 +1,19 @@
+---
+permalink: tape-backup/tape-devices-concept.html 
+sidebar: sidebar 
+keywords: tape, device, representation, combination, rewind, type, compression, capability, drive 
+summary: 테이프 디바이스는 테이프 드라이브를 나타냅니다. 테이프 드라이브의 되감기 유형과 압축 기능의 특정 조합입니다. 
+---
+= 테이프 장치 개요
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+테이프 디바이스는 테이프 드라이브를 나타냅니다. 테이프 드라이브의 되감기 유형과 압축 기능의 특정 조합입니다.
+
+테이프 디바이스는 되감기 유형과 압축 기능의 각 조합에 대해 생성됩니다. 따라서 테이프 드라이브 또는 테이프 라이브러리에는 여러 개의 테이프 디바이스가 연결될 수 있습니다. 테이프를 이동, 쓰기 또는 읽을 테이프 디바이스를 지정해야 합니다.
+
+스토리지 시스템에 테이프 드라이브 또는 테이프 라이브러리를 설치할 때 ONTAP는 테이프 드라이브 또는 테이프 라이브러리와 연결된 테이프 디바이스를 생성합니다.
+
+ONTAP는 테이프 드라이브 및 테이프 라이브러리를 감지하고 논리적 번호 및 테이프 디바이스를 할당합니다. ONTAP는 파이버 채널, SAS 및 병렬 SCSI 테이프 드라이브와 라이브러리가 인터페이스 포트에 연결될 때 이를 감지합니다. ONTAP는 인터페이스가 활성화되어 있을 때 이러한 드라이브를 감지합니다.

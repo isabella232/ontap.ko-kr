@@ -1,0 +1,34 @@
+---
+permalink: smb-config/create-keytab-files-authentication-concept.html 
+sidebar: sidebar 
+keywords: begin, ontap, support, svm, authentication, active, directory, ad, server, keytab, file, administrator, generate, uniform, resource, identifier, uri, supplied, supply, vserver, cifs, command, kerberos, create keytab files for smb authentication 
+summary: 'ONTAP 9.7부터 ONTAP는 keytab 파일을 사용하여 AD(Active Directory) 서버에서 SVM 인증을 지원합니다. AD 관리자는 keytab 파일을 생성하여 ONTAP 관리자가 이 파일을 URI(Uniform Resource Identifier)로 사용할 수 있도록 합니다. 이 URI는 SVM CIFS 명령에 AD 도메인과의 Kerberos 인증이 필요한 경우에 제공됩니다.' 
+---
+= SMB 인증을 위한 keytab 파일을 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.7부터 ONTAP는 keytab 파일을 사용하여 AD(Active Directory) 서버에서 SVM 인증을 지원합니다. AD 관리자는 keytab 파일을 생성하여 ONTAP 관리자가 이를 URI(Uniform Resource Identifier)로 사용할 수 있도록 합니다. 이 URI는 'vserver cifs' 명령에 AD 도메인과의 Kerberos 인증이 필요한 경우에 제공됩니다.
+
+AD 관리자는 표준 Windows Server "ktpass" 명령을 사용하여 keytab 파일을 만들 수 있습니다. 이 명령은 인증이 필요한 기본 도메인에서 실행해야 합니다. "ktpass" 명령은 기본 도메인 사용자에 대해서만 keytab 파일을 생성하는 데 사용할 수 있으며, trusted-domain 사용자를 사용하여 생성된 키는 지원되지 않습니다.
+
+Keytab 파일은 특정 ONTAP 관리자 사용자를 위해 생성됩니다. admin 사용자의 암호가 변경되지 않는 한, 특정 암호화 유형 및 도메인에 대해 생성된 키는 변경되지 않습니다. 따라서 admin 사용자의 암호를 변경할 때마다 새 keytab 파일이 필요합니다.
+
+지원되는 암호화 유형은 다음과 같습니다.
+
+* AES256-SHA1
+* DES-CBC-MD5
++
+[NOTE]
+====
+ONTAP는 DES-CBC-CRC 암호화 유형을 지원하지 않습니다.
+
+====
+* RC4-HMAC
+
+
+AES256은 가장 높은 암호화 유형으로, ONTAP 시스템에서 활성화된 경우 사용해야 합니다.
+
+keytab 파일은 admin 암호를 지정하거나 임의로 생성된 암호를 사용하여 생성할 수 있습니다. 그러나 언제든지 한 개의 암호 옵션만 사용할 수 있습니다. AD 서버에서는 키 탭 파일 내의 키를 해독하기 위해 관리자 사용자 고유의 개인 키가 필요하기 때문입니다. 특정 관리자에 대한 개인 키를 변경하면 keytab 파일이 무효화됩니다.

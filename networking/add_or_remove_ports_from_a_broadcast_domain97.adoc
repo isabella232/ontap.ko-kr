@@ -1,0 +1,87 @@
+---
+sidebar: sidebar 
+permalink: networking/add_or_remove_ports_from_a_broadcast_domain97.html 
+keywords: adding, add, create, creating, remove, removing, delete, deleting, port, broadcast, domain, reachability, repair, physical, switch, configuration, manually add or remove ports from a broadcast domain, network port broadcast-domain add-ports, network port broadcast-domain remove-ports, examples of adding and removing ports 
+summary: 브로드캐스트 도메인에서 포트를 수동으로 추가 및 제거할 필요는 없으며, 이 방법은 권장되지 않습니다 
+---
+= 브로드캐스트 도메인에서 포트를 추가하거나 제거합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+브로드캐스트 도메인을 처음 만들 때 네트워크 포트를 추가하거나 이미 존재하는 브로드캐스트 도메인에 포트를 추가하거나 제거할 수 있습니다. 따라서 클러스터의 모든 포트를 효율적으로 사용할 수 있습니다.
+
+.시작하기 전에
+* 브로드캐스트 도메인에 추가할 포트는 다른 브로드캐스트 도메인에 속하지 않아야 합니다.
+* 인터페이스 그룹에 이미 속해 있는 포트는 브로드캐스트 도메인에 개별적으로 추가할 수 없습니다.
+
+
+네트워크 포트를 추가하거나 제거할 때 다음 규칙이 적용됩니다.
+
+|===
+
+
+| 포트를 추가할 때... | 포트를 제거할 때... 
+
+
+| 포트는 네트워크 포트, VLAN 또는 인터페이스 그룹(ifgrp)일 수 있습니다. | 해당 없음 
+
+
+| 포트는 브로드캐스트 도메인의 시스템 정의 페일오버 그룹에 추가됩니다. | 브로드캐스트 도메인의 모든 페일오버 그룹에서 포트가 제거됩니다. 
+
+
+| 포트의 MTU가 브로드캐스트 도메인에서 설정된 MTU 값으로 업데이트됩니다. | 포트의 MTU는 변경되지 않습니다. 
+
+
+| 포트의 IPspace가 브로드캐스트 도메인의 IPspace 값으로 업데이트됩니다. | 포트는 브로드캐스트 도메인 속성이 없는 '기본' IPspace로 이동됩니다. 
+|===
+
+NOTE: network port ifgrp remove-port 명령을 사용하여 interface group의 마지막 member port를 제거하면 broadcast domain에서 빈 interface group port가 허용되지 않기 때문에 broadcast domain에서 interface group port를 제거한다.
+
+.단계
+. network port show 명령을 사용하여 브로드캐스트 도메인에 현재 할당되거나 할당되지 않은 포트를 표시합니다.
+. 브로드캐스트 도메인에서 네트워크 포트 추가 또는 제거:
++
+[cols="40,60"]
+|===
+
+
+| 원하는 작업 | 사용... 
+
+
+ a| 
+브로드캐스트 도메인에 포트를 추가합니다
+ a| 
+네트워크 포트 브로드캐스트 도메인 추가 포트
+
+
+
+ a| 
+브로드캐스트 도메인에서 포트를 제거합니다
+ a| 
+네트워크 포트 브로드캐스트 도메인 제거 포트
+
+|===
+
+
+이러한 명령에 대한 자세한 내용은 을 참조하십시오 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"^].
+
+
+
+== 포트 추가 및 제거의 예
+
+다음 명령을 실행하면 노드 클러스터 -1-01의 포트 e0g 및 노드 클러스터 -1-02의 포트 e0g가 기본 IPspace의 브로드캐스트 도메인 bcast1에 추가됩니다.
+
+'cluster-1::> network port broadcast-domain add-ports-broadcast-domain bcast1-ports cluster-1-01:e0g, cluster1-02:e0g'
+
+다음 명령을 실행하면 클러스터 IPspace의 브로드캐스트 도메인 클러스터에 클러스터 포트 2개가 추가됩니다.
+
+'cluster-1::> network port broadcast-domain add-ports-broadcast-domain Cluster-ports cluster-2-03:e0f, cluster2-04:e0f-IPSpace Cluster'
+
+다음 명령은 기본 IPspace의 브로드캐스트 도메인 bcast1에서 노드 cluster1-01의 포트 e0e를 제거합니다.
+
+'cluster-1::> network port broadcast-domain remove-ports-broadcast-domain bcast1-ports cluster-1-01:e0e'

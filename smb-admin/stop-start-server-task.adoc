@@ -1,0 +1,59 @@
+---
+permalink: smb-admin/stop-start-server-task.html 
+sidebar: sidebar 
+keywords: stop, cifs, server, svm, perform, task, user, access, data, smb, share, restart, protocol, storage, virtual, machine, stop or start the cifs server 
+summary: '사용자가 SMB 공유를 통해 데이터에 액세스하지 않는 상태에서 작업을 수행할 때 유용할 수 있는 SVM에서 CIFS 서버를 중지할 수 있습니다. CIFS 서버를 시작하여 SMB 액세스를 재시작할 수 있습니다. CIFS 서버를 중지하면 스토리지 가상 시스템(SVM)에서 허용되는 프로토콜도 수정할 수 있습니다.' 
+---
+= CIFS 서버를 중지하거나 시작합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+사용자가 SMB 공유를 통해 데이터에 액세스하지 않는 상태에서 작업을 수행할 때 유용할 수 있는 SVM에서 CIFS 서버를 중지할 수 있습니다. CIFS 서버를 시작하여 SMB 액세스를 재시작할 수 있습니다. CIFS 서버를 중지하면 스토리지 가상 시스템(SVM)에서 허용되는 프로토콜도 수정할 수 있습니다.
+
+.단계
+. 다음 작업 중 하나를 수행합니다.
++
+|===
+| 원하는 작업 | 명령 입력... 
+
+
+ a| 
+CIFS 서버를 중지합니다
+ a| 
+'vserver cifs stop-vserver_vserver_name_[-foreground{true|false}]'
+
+
+
+ a| 
+CIFS 서버를 시작합니다
+ a| 
+'vserver cifs start -vserver_vserver_name_[-foreground{true|false}]'
+
+|===
++
+'-foreground'는 포그라운드와 배경에서 명령을 실행할지 여부를 지정합니다. 이 매개 변수를 입력하지 않으면 true로 설정되고 포그라운드에서 명령이 실행됩니다.
+
+. 'vserver cifs show' 명령을 사용하여 CIFS 서버 관리 상태가 올바른지 확인합니다.
+
+
+다음 명령은 SVM VS1 에서 CIFS 서버를 시작합니다.
+
+[listing]
+----
+cluster1::> vserver start -vserver vs1
+
+cluster1::> vserver cifs show -vserver vs1
+
+                                          Vserver: vs1
+                         CIFS Server NetBIOS Name: VS1
+                    NetBIOS Domain/Workgroup Name: DOMAIN
+                      Fully Qualified Domain Name: DOMAIN.LOCAL
+Default Site Used by LIFs Without Site Membership:
+                             Authentication Style: domain
+                CIFS Server Administrative Status: up
+----
+xref:display-discovered-servers-task.adoc[검색된 서버에 대한 정보 표시]
+
+xref:reset-rediscovering-servers-task.adoc[서버 재설정 및 재검색]

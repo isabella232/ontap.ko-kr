@@ -1,0 +1,49 @@
+---
+permalink: nas-audit/delete-security-trace-records-task.html 
+sidebar: sidebar 
+keywords: delete, security trace records 
+summary: 필터 추적 레코드를 사용하여 파일 액세스 보안을 확인하거나 SMB 또는 NFS 클라이언트 액세스 문제를 해결하면 보안 추적 로그에서 보안 추적 레코드를 삭제할 수 있습니다. 
+---
+= 보안 추적 레코드를 삭제합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+필터 추적 레코드를 사용하여 파일 액세스 보안을 확인하거나 SMB 또는 NFS 클라이언트 액세스 문제를 해결하면 보안 추적 로그에서 보안 추적 레코드를 삭제할 수 있습니다.
+
+보안 추적 레코드를 삭제하려면 먼저 레코드의 시퀀스 번호를 알아야 합니다.
+
+[NOTE]
+====
+각 SVM(스토리지 가상 머신)에는 최대 128개의 추적 레코드를 저장할 수 있습니다. SVM에서 최대값을 선택하면 새 트레이스 레코드가 추가될 때 가장 오래된 트레이스 레코드가 자동으로 삭제됩니다. 이 SVM에서 트레이스 레코드를 수동으로 삭제하지 않을 경우 최대 한도에 도달한 후 ONTAP에서 가장 오래된 트레이스 결과를 자동으로 삭제하여 새 결과를 얻을 수 있는 공간을 만들 수 있습니다.
+
+====
+.단계
+. 삭제할 레코드의 시퀀스 번호를 식별합니다.
++
+'vserver security trace trace -result show -vserver vserver_name -instance'
+
+. 보안 추적 레코드를 삭제합니다.
++
+'vserver security trace trace -result delete -node node_name -vserver vserver_name -seqnum integer'
+
++
+'vserver security trace trace-result delete-vserver vs1-node node1-seqnum 999'
+
++
+** '-node ''node_name'은 삭제하려는 권한 추적 이벤트가 발생한 클러스터 노드의 이름입니다.
++
+필수 매개 변수입니다.
+
+** '-vserver''vserver_name'은 삭제할 권한 추적 이벤트가 발생한 SVM의 이름입니다.
++
+필수 매개 변수입니다.
+
+** '-seqnum' 정수 는 삭제하려는 로그 이벤트의 시퀀스 번호입니다.
++
+필수 매개 변수입니다.
+
+
+
+

@@ -1,0 +1,12 @@
+---
+section: nfs-rdma
+title: RDMA를 통해 NFS를 관리합니다
+entries:
+- title: 개요
+  url: "/nfs-rdma/index.html"
+- title: NIC 구성
+  url: "/nfs-rdma/configure-nics-task.html"
+- title: LIF 구성
+  url: "/nfs-rdma/configure-lifs-task.html"
+- title: NFS 구성을 수정합니다
+  url: "/nfs-rdma/configure-nfs-task.html"

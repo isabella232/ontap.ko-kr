@@ -1,0 +1,32 @@
+---
+sidebar: sidebar 
+permalink: register_active_iq.html 
+keywords: register with active iq, active iq, register, log on, log in, support contract 
+summary: System Manager의 특정 측정값에 시스템의 스토리지 용량이 반영됩니다. 
+---
+= Active IQ에 등록하십시오
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+* NetApp Active IQ * 는 NetApp의 능동적 관리 및 최적화를 단순화하는 디지털 자문가입니다.
+
+Active IQ은 지원 계약이 유효한 모든 NetApp 고객에게 제공됩니다. 지원 계정을 만들려면 다음으로 이동하십시오.
+
+* link:https://mysupport.netapp.com/eservice/public/now.do["mysupport.netapp.com/eservice/public/now.do"]
+
+
+Active IQ에 대한 자세한 내용:
+
+* link:https://www.netapp.com/services/support/active-iq/["www.netapp.com/services/support/active-iq/"]
+* link:https://mysupport.netapp.com/site/info/aboutAIQ["mysupport.netapp.com/site/info/aboutAIQ"]
+

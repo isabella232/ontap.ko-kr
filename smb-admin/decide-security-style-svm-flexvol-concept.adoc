@@ -1,0 +1,46 @@
+---
+permalink: smb-admin/decide-security-style-svm-flexvol-concept.html 
+sidebar: sidebar 
+keywords: security, style, volume, factor, primary, administrator, manage, file, system, type, secondary, service, access, data, how to decide which security style to use on svms 
+summary: 볼륨에 사용할 보안 스타일을 결정하는 데 도움이 되도록 두 가지 요소를 고려해야 합니다. 기본 요소는 파일 시스템을 관리하는 관리자 유형입니다. 2차 요소는 볼륨의 데이터에 액세스하는 사용자 또는 서비스의 유형입니다. 
+---
+= SVM에 사용할 보안 유형을 결정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+볼륨에 사용할 보안 스타일을 결정하는 데 도움이 되도록 두 가지 요소를 고려해야 합니다. 기본 요소는 파일 시스템을 관리하는 관리자 유형입니다. 2차 요소는 볼륨의 데이터에 액세스하는 사용자 또는 서비스의 유형입니다.
+
+볼륨에 보안 스타일을 구성할 때는 최상의 보안 스타일을 선택하고 사용 권한 관리 문제를 피하기 위해 환경의 요구 사항을 고려해야 합니다. 다음 고려 사항을 통해 결정을 내릴 수 있습니다.
+
+|===
+| 보안 스타일 | 다음 경우에 선택... 
+
+
+ a| 
+Unix
+ a| 
+* 파일 시스템은 UNIX 관리자가 관리합니다.
+* 대부분의 사용자는 NFS 클라이언트입니다.
+* 데이터에 액세스하는 애플리케이션은 UNIX 사용자를 서비스 계정으로 사용합니다.
+
+
+
+
+ a| 
+NTFS입니다
+ a| 
+* 파일 시스템은 Windows 관리자가 관리합니다.
+* 대부분의 사용자는 SMB 클라이언트입니다.
+* 데이터에 액세스하는 응용 프로그램은 Windows 사용자를 서비스 계정으로 사용합니다.
+
+
+
+
+ a| 
+혼합
+ a| 
+파일 시스템은 UNIX 관리자와 Windows 관리자 모두에서 관리되며 사용자는 NFS 클라이언트와 SMB 클라이언트로 구성됩니다.
+
+|===

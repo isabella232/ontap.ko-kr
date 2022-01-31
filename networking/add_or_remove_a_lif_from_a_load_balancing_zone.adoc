@@ -1,0 +1,54 @@
+---
+sidebar: sidebar 
+permalink: networking/add_or_remove_a_lif_from_a_load_balancing_zone.html 
+keywords: lif, adding, add, create, creating, remove, removing, delete, deleting, load, balancing, zone, dns, svm, storage, virtual, add or remove a LIF from a load balancing zone, machine, add a lif, remove a single lif, remove all lifs 
+summary: 'SVM(스토리지 가상 머신)의 DNS 로드 밸런싱 영역에서 LIF 추가 또는 제거' 
+---
+= 로드 밸런싱 영역에서 LIF를 추가 또는 제거합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+SVM(가상 머신)의 DNS 로드 밸런싱 영역에서 LIF를 추가하거나 제거할 수 있습니다. 로드 밸런싱 영역에서 모든 LIF를 동시에 제거할 수도 있습니다.
+
+.시작하기 전에
+* 로드 밸런싱 존의 모든 LIF는 동일한 SVM에 속해야 합니다.
+* LIF는 하나의 DNS 로드 밸런싱 존에 포함될 수 있습니다.
+* LIF가 다른 서브넷에 속한 경우 각 서브넷에 대한 페일오버 그룹을 설정해야 합니다.
+
+
+관리 다운 상태인 LIF는 DNS 로드 밸런싱 영역에서 일시적으로 제거됩니다. LIF가 관리 설정 상태로 돌아가면 LIF가 DNS 로드 밸런싱 존에 자동으로 추가됩니다.
+
+LIF를 로드 밸런싱 존에 추가하거나 LIF에서 제거합니다.
+
+[cols="30,70"]
+|===
+
+
+| 원하는 작업 | 입력... 
+
+
+ a| 
+LIF를 추가합니다
+ a| 
+네트워크 인터페이스 modify -vserver vserver_name -lif lif_name -dns-zone zone zone_name 예: network interface modify -vserver vs1 -lif data1 -dns-zone cifs.company.com
+
+
+
+ a| 
+단일 LIF를 제거합니다
+ a| 
+네트워크 인터페이스 modify -vserver vserver_name -lif lif_name -dns -zone none 예: network interface modify -vserver vs1 -lif data1 -dns -zone none
+
+
+
+ a| 
+모든 LIF를 제거합니다
+ a| 
+네트워크 인터페이스 modify -vserver vserver_name -lif * -dns -zone none 예: network interface modify -vserver vs0 -lif * -dns-zone none 해당 영역에서 SVM의 모든 LIF를 제거하여 로드 밸런싱 영역에서 SVM을 제거할 수 있습니다.
+
+|===

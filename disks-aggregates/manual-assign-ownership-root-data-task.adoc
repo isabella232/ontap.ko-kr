@@ -1,0 +1,56 @@
+---
+permalink: disks-aggregates/manual-assign-ownership-root-data-task.html 
+sidebar: sidebar 
+keywords: manual, assign, disks, root-data partitioning 
+summary: '루트 데이터 파티셔닝의 경우 HA 쌍이 총체적으로 소유하는 3개의 엔터티(컨테이너 디스크 및 2개의 파티션)가 있습니다.' 
+---
+= 루트 데이터 파티셔닝으로 디스크를 수동으로 할당합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+루트 데이터 파티셔닝의 경우 HA 쌍이 총체적으로 소유하는 3개의 엔터티(컨테이너 디스크 및 2개의 파티션)가 있습니다.
+
+컨테이너 디스크와 두 파티션이 모두 HA 쌍의 노드 중 하나에 의해 소유되는 한 HA 쌍의 같은 노드에 의해 소유될 필요는 없습니다. 그러나 Aggregate에서 파티션을 사용하는 경우 Aggregate를 소유한 동일한 노드에서 소유해야 합니다.
+
+.단계
+. 파티션된 디스크의 현재 소유권을 표시합니다.
++
+스토리지 디스크 show-disk_disk_name_-partition-ownership입니다
+
+. CLI 권한 수준을 고급으로 설정합니다.
++
+세트 프리빌리지 고급
+
+. 소유권을 할당할 소유권 엔티티에 따라 적절한 명령을 입력합니다.
++
+|===
+
+
+| 다음에 대한 소유권을 할당하려면... | 이 명령 사용... 
+
+
+ a| 
+컨테이너 디스크
+ a| 
+'스토리지 디스크 할당 - DISK_NAME - owner owner_name'
+
+
+
+ a| 
+데이터 파티션
+ a| 
+'storage disk assign-disk disk_name - owner owner_name - data true'
+
+
+
+ a| 
+루트 파티션입니다
+ a| 
+'storage disk assign-disk disk_name - owner owner_name - root true'
+
+|===
+
+
+이미 소유된 소유권 요소가 있으면 '-force' 옵션을 포함해야 합니다.

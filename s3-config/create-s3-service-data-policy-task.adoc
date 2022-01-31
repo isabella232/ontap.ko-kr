@@ -1,0 +1,33 @@
+---
+permalink: s3-config/create-s3-service-data-policy-task.html 
+sidebar: sidebar 
+keywords: create, s3, service, data, policy 
+summary: S3 데이터 및 관리 서비스에 대한 서비스 정책을 생성할 수 있습니다. LIF에서 S3 데이터 트래픽을 활성화하려면 S3 서비스 데이터 정책이 필요합니다. 
+---
+= S3 서비스 데이터 정책을 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+S3 데이터 및 관리 서비스에 대한 서비스 정책을 생성할 수 있습니다. LIF에서 S3 데이터 트래픽을 활성화하려면 S3 서비스 데이터 정책이 필요합니다.
+
+데이터 LIF 및 인터클러스터 LIF를 사용하는 경우 S3 서비스 데이터 정책이 필요합니다. 로컬 계층화 사용 사례에서 클러스터 LIF를 사용하는 경우에는 필요하지 않습니다.
+
+LIF에 서비스 정책을 지정한 경우, 이 정책을 사용하여 LIF에 대한 기본 역할, 페일오버 정책 및 데이터 프로토콜 목록을 구성합니다.
+
+SVM 및 LIF에 여러 프로토콜을 구성할 수 있지만 오브젝트 데이터를 제공할 때 S3가 유일한 프로토콜이 되도록 하는 것이 좋습니다.
+
+.단계
+. 권한 설정을 고급으로 변경합니다.
++
+세트 프리빌리지 고급
+
+. 서비스 데이터 정책 생성:
++
+'network interface service-policy create-vserver svm_name-policy_name-services data-core, data-s3-server'
+
++
+ONTAP S3을 활성화하는 데 필요한 서비스는 데이터 코어(Data-Core) 및 데이터-S3-서버(Data-S3-Server) 서비스뿐입니다. 단, 다른 서비스는 필요에 따라 포함할 수 있습니다.
+
+

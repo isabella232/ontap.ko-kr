@@ -1,0 +1,112 @@
+---
+permalink: s3-config/ontap-s3-interoperability-concept.html 
+sidebar: sidebar 
+keywords: ontap s3, interoperability 
+summary: ONTAP S3 서버는 일반적으로 이 표에 명시된 경우를 제외하고 다른 ONTAP 기능과 상호 작용합니다. 
+---
+= ONTAP S3 상호 운용성
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP S3 서버는 일반적으로 이 표에 명시된 경우를 제외하고 다른 ONTAP 기능과 상호 작용합니다.
+
+[cols="3*"]
+|===
+| 피처 영역 | 지원 | 지원되지 않습니다 
+
+
+ a| 
+Cloud Volumes ONTAP
+ a| 
+ONTAP 9.9.1 이상 릴리즈의 Azure 클라이언트
+ a| 
+ONTAP 9.8 및 이전 릴리스의 모든 클라이언트용 Cloud Volumes ONTAP
+
+
+
+ a| 
+데이터 보호
+ a| 
+* Cloud Sync
+
+ a| 
+* 삭제 코딩
+* 정보 수명 주기 관리
+* MetroCluster
+* NDMP
+* 오브젝트 버전 관리
+* SMTape
+* SnapLock
+* SnapMirror를 참조하십시오
+* SnapMirror 클라우드
+* SVM 재해 복구
+* SyncMirror
+* 사용자가 생성한 스냅샷 복사본
+* 웜
+
+
+
+
+ a| 
+암호화
+ a| 
+* NetApp 애그리게이트 암호화(NAE)
+* NetApp 볼륨 암호화(NVE)
+* NSE(NetApp 스토리지 암호화)
+* TLS/SSL
+
+ a| 
+* 슬래그
+
+
+
+
+ a| 
+스토리지 효율성
+ a| 
+* 중복 제거
+* 압축
+* 컴팩션
+
+ a| 
+* 애그리게이트 레벨의 효율성
+* ONTAP S3 버킷을 포함하는 FlexGroup 볼륨의 볼륨 클론
+
+
+
+
+ a| 
+스토리지 가상화
+ a| 
+-
+ a| 
+NetApp FlexArray 가상화
+
+
+
+ a| 
+서비스 품질(QoS)
+ a| 
+* QoS 최대(천장)
+* 최소 QoS(층)
+
+ a| 
+-
+
+
+
+ a| 
+추가 기능
+ a| 
+-
+ a| 
+* 감사
+* FlexCache 볼륨
+* FPolicy를 참조하십시오
+* Qtree
+* 할당량
+
+
+|===

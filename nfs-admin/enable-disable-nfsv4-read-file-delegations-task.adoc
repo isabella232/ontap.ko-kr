@@ -1,0 +1,66 @@
+---
+permalink: nfs-admin/enable-disable-nfsv4-read-file-delegations-task.html 
+sidebar: sidebar 
+keywords: enable, disable, nfsv4, read, file, delegation 
+summary: NFSv4 읽기 파일 위임을 설정하거나 해제하려면 -v4.0-read-delegation 또는 -v4.1-read-delegation 옵션을 수정할 수 있습니다. 읽기 파일 위임을 사용하면 파일 열기 및 닫기와 관련된 메시지 오버헤드를 상당 정도 제거할 수 있습니다. 
+---
+= NFSv4 읽기 파일 위임을 설정하거나 해제합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NFSv4 읽기 파일 위임을 설정하거나 해제하려면 ''-v4.0-read-delegation' 또는 '-v4.1-read-delegation' 옵션을 수정할 수 있습니다. 읽기 파일 위임을 사용하면 파일 열기 및 닫기와 관련된 메시지 오버헤드를 상당 정도 제거할 수 있습니다.
+
+기본적으로 읽기 파일 위임은 사용되지 않습니다.
+
+읽기 파일 위임을 설정할 경우 서버 재부팅 또는 재시작, 클라이언트 재부팅 또는 재시작, 네트워크 파티션 발생 후 서버와 클라이언트에서 위임을 복구해야 한다는 단점이 있습니다.
+
+.단계
+. 다음 작업 중 하나를 수행합니다.
++
+[cols="35,65"]
+|===
+
+
+| 원하는 작업 | 그러면... 
+
+
+ a| 
+NFSv4 읽기 파일 위임을 설정합니다
+ a| 
+다음 명령을 입력합니다.
+
+'vserver nfs modify -vserver vserver_name -v4.0 -read-delegation enabled'
+
+
+
+ a| 
+NFSv4.1 읽기 파일 위임을 사용하도록 설정합니다
+ a| 
+다음 명령을 입력합니다.
+
++ 'vserver NFS modify -vserver vserver_name -v4.1 -read-delegation enabled'
+
+
+
+ a| 
+NFSv4 읽기 파일 위임을 해제합니다
+ a| 
+다음 명령을 입력합니다.
+
+'vserver nfs modify -vserver vserver_name -v4.0 -read-delegation disabled'
+
+
+
+ a| 
+NFSv4.1 읽기 파일 위임을 사용하지 않도록 설정합니다
+ a| 
+다음 명령을 입력합니다.
+
+'vserver nfs modify -vserver vserver_name -v4.1 -read-delegation disabled'
+
+|===
+
+
+파일 위임 옵션은 변경되자마자 적용됩니다. NFS를 재부팅하거나 다시 시작할 필요가 없습니다.

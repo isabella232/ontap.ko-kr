@@ -1,0 +1,145 @@
+---
+permalink: smb-admin/display-file-security-mixed-style-volumes-task.html 
+sidebar: sidebar 
+keywords: display, information, file, directory, security, mix, security-style, volume, style, unix, owner, group, result, troubleshoot, display information about file security, on mixed security-style volumes 
+summary: 보안 스타일 및 효과적인 보안 스타일, 적용되는 사용 권한, UNIX 소유자 및 그룹에 대한 정보 등 혼합 보안 스타일 볼륨에 대한 파일 및 디렉터리 보안에 대한 정보를 표시할 수 있습니다. 결과를 사용하여 보안 구성을 확인하거나 파일 액세스 문제를 해결할 수 있습니다. 
+---
+= 혼합 보안 형식 볼륨의 파일 보안에 대한 정보를 표시합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+보안 스타일 및 효과적인 보안 스타일, 적용되는 사용 권한, UNIX 소유자 및 그룹에 대한 정보 등 혼합 보안 스타일 볼륨에 대한 파일 및 디렉터리 보안에 대한 정보를 표시할 수 있습니다. 결과를 사용하여 보안 구성을 확인하거나 파일 액세스 문제를 해결할 수 있습니다.
+
+SVM(스토리지 가상 시스템)의 이름과 파일 또는 폴더 보안 정보를 표시할 데이터의 경로를 제공해야 합니다. 출력을 요약 양식 또는 상세 목록으로 표시할 수 있습니다.
+
+* 혼합 보안 스타일 볼륨 및 qtree에는 모드 비트 또는 NFSv4 ACL, NTFS 파일 권한을 사용하는 일부 파일 및 디렉토리 등 UNIX 파일 권한을 사용하는 일부 파일 및 폴더가 포함될 수 있습니다.
+* 혼합 보안 형식 볼륨의 최상위 수준에는 UNIX 또는 NTFS의 효과적인 보안이 있을 수 있습니다.
+* ACL 출력은 NTFS 또는 NFSv4 보안이 설정된 파일 및 폴더에만 표시됩니다.
++
+모드 비트 권한만 적용된 UNIX 보안을 사용하는 파일 및 디렉토리의 경우 이 필드는 비어 있습니다(NFSv4 ACL 없음).
+
+* ACL 출력의 소유자 및 그룹 출력 필드는 NTFS 보안 설명자의 경우에만 적용됩니다.
+* 볼륨 루트 또는 qtree의 효과적인 보안 스타일이 UNIX인 경우에도 스토리지 레벨 액세스 가드 보안을 혼합 보안 스타일 볼륨 또는 qtree로 구성할 수 있으므로 Storage-Level Access Guard가 구성된 볼륨 또는 qtree 경로의 출력에는 UNIX 파일 사용 권한과 Storage-Level Access Guard ACL이 모두 표시될 수 있습니다.
+* 명령에 입력한 경로가 NTFS 유효 보안을 사용하는 데이터인 경우 해당 파일 또는 디렉토리 경로에 동적 액세스 제어가 구성되어 있으면 동적 액세스 제어 ACE에 대한 정보도 출력에 표시됩니다.
+
+
+.단계
+. 파일 및 디렉터리 보안 설정을 원하는 수준으로 표시합니다.
++
+|===
+| 정보를 표시하려면... | 다음 명령을 입력합니다... 
+
+
+ a| 
+요약 양식
+ a| 
+'vserver security file-directory show -vserver vserver_name -path path path'
+
+
+
+ a| 
+세부 정보가 확장됩니다
+ a| 
+'vserver security file-directory show -vserver vserver_name -path path path -expand-mask true'
+
+|===
+
+
+다음 예에서는 SVM VS1 경로 '/projects'에 대한 보안 정보를 확장된 마스크 형식으로 표시합니다. 이 혼합 보안 방식 경로에는 UNIX의 효과적인 보안이 있습니다.
+
+[listing]
+----
+cluster1::> vserver security file-directory show -vserver vs1 -path /projects -expand-mask true
+
+                Vserver: vs1
+              File Path: /projects
+      File Inode Number: 78
+         Security Style: mixed
+        Effective Style: unix
+         DOS Attributes: 10
+ DOS Attributes in Text: ----D---
+Expanded Dos Attributes: 0x10
+     ...0 .... .... .... = Offline
+     .... ..0. .... .... = Sparse
+     .... .... 0... .... = Normal
+     .... .... ..0. .... = Archive
+     .... .... ...1 .... = Directory
+     .... .... .... .0.. = System
+     .... .... .... ..0. = Hidden
+     .... .... .... ...0 = Read Only
+           Unix User Id: 0
+          Unix Group Id: 1
+         Unix Mode Bits: 700
+ Unix Mode Bits in Text: rwx------
+                   ACLs: -
+----
+다음 예제는 SVM VS1 경로 '/data'에 대한 보안 정보를 보여줍니다. 이 혼합 보안 방식 경로에는 NTFS의 효과적인 보안이 있습니다.
+
+[listing]
+----
+cluster1::> vserver security file-directory show -vserver vs1 -path /data
+
+                                 Vserver: vs1
+                               File Path: /data
+                       File Inode Number: 544
+                          Security Style: mixed
+                         Effective Style: ntfs
+                          DOS Attributes: 10
+                  DOS Attributes in Text: ----D---
+                 Expanded Dos Attributes: -
+                            Unix User Id: 0
+                           Unix Group Id: 0
+                          Unix Mode Bits: 777
+                  Unix Mode Bits in Text: rwxrwxrwx
+                                    ACLs: NTFS Security Descriptor
+                                          Control:0x8004
+                                          Owner:BUILTIN\Administrators
+                                          Group:BUILTIN\Administrators
+                                          DACL - ACEs
+                                            ALLOW-Everyone-0x1f01ff
+                                            ALLOW-Everyone-0x10000000-OI|CI|IO
+----
+다음 예에서는 SVM VS1 경로의 '/datavol5' 경로에 있는 볼륨에 대한 보안 정보를 표시합니다. 이러한 혼합 보안 유형의 최상위 수준에는 UNIX의 효과적인 보안이 있습니다. 이 볼륨에는 Storage-Level Access Guard 보안이 있습니다.
+
+[listing]
+----
+cluster1::> vserver security file-directory show -vserver vs1 -path /datavol5
+                Vserver: vs1
+              File Path: /datavol5
+      File Inode Number: 3374
+         Security Style: mixed
+        Effective Style: unix
+         DOS Attributes: 10
+ DOS Attributes in Text: ----D---
+Expanded Dos Attributes: -
+           Unix User Id: 0
+          Unix Group Id: 0
+         Unix Mode Bits: 755
+ Unix Mode Bits in Text: rwxr-xr-x
+                   ACLs: Storage-Level Access Guard security
+                         SACL (Applies to Directories):
+                           AUDIT-EXAMPLE\Domain Users-0x120089-FA
+                           AUDIT-EXAMPLE\engineering-0x1f01ff-SA
+                           AUDIT-EXAMPLE\market-0x1f01ff-SA
+                         DACL (Applies to Directories):
+                           ALLOW-BUILTIN\Administrators-0x1f01ff
+                           ALLOW-CREATOR OWNER-0x1f01ff
+                           ALLOW-EXAMPLE\Domain Users-0x120089
+                           ALLOW-EXAMPLE\engineering-0x1f01ff
+                           ALLOW-EXAMPLE\market-0x1f01ff
+                         SACL (Applies to Files):
+                           AUDIT-EXAMPLE\Domain Users-0x120089-FA
+                           AUDIT-EXAMPLE\engineering-0x1f01ff-SA
+                           AUDIT-EXAMPLE\market-0x1f01ff-SA
+                         DACL (Applies to Files):
+                           ALLOW-BUILTIN\Administrators-0x1f01ff
+                           ALLOW-CREATOR OWNER-0x1f01ff
+                           ALLOW-EXAMPLE\Domain Users-0x120089
+                           ALLOW-EXAMPLE\engineering-0x1f01ff
+                           ALLOW-EXAMPLE\market-0x1f01ff
+----
+xref:display-file-security-ntfs-style-volumes-task.adoc[NTFS 보안 스타일 볼륨의 파일 보안에 대한 정보 표시]
+
+xref:display-file-security-unix-style-volumes-task.adoc[UNIX 보안 스타일 볼륨의 파일 보안에 대한 정보 표시]

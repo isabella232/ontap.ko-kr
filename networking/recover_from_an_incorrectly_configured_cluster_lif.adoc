@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: networking/recover_from_an_incorrectly_configured_cluster_lif.html 
+keywords: misconfigured, misconfigurations, incorrect, incorrectly, switch, switches, switched, cable, physical, wiring, wired, reachability, port, cluster, ontap 9.8 and later, recover from an incorrectly configured cluster lif, how to identify and correct a cluster that has been misconfigured, cluster create, network port, reachability show -detail, reset the home port 
+summary: 잘못 구성된 클러스터를 식별하고 수정하는 방법 
+---
+= ONTAP 9.8 이상: 잘못 구성된 클러스터 LIF에서 복구합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+클러스터 네트워크가 스위치에 케이블로 연결되어 있지만 클러스터 IPspace에 구성된 모든 포트가 클러스터 IPspace에 구성된 다른 포트에 연결할 수 있는 것은 아닙니다.
+
+전환된 클러스터에서 클러스터 네트워크 인터페이스(LIF)가 잘못된 포트에 구성되어 있거나 클러스터 포트가 잘못된 네트워크에 연결되어 있는 경우 "cluster create" 명령이 실패하고 다음 오류가 표시될 수 있습니다.
+
+....
+Not all local cluster ports have reachability to one another.
+Use the "network port reachability show -detail" command for more details.
+....
+'network port show' 명령의 결과는 클러스터 LIF로 구성된 포트에 연결되어 있기 때문에 클러스터 IPspace에 여러 포트가 추가된다는 것을 보여줄 수 있습니다. 그러나 네트워크 포트 내외보기(reachability show-detail) 명령의 결과는 어떤 포트가 서로 연결되지 않은 지 보여준다.
+
+클러스터 LIF로 구성된 다른 포트에 연결할 수 없는 포트에 구성된 클러스터 LIF에서 복구하려면 다음 단계를 수행하십시오.
+
+.단계
+. 클러스터 LIF의 홈 포트를 올바른 포트로 재설정합니다.
++
+....
+net port modify -home-port
+....
+. 클러스터 LIF가 구성되어 있지 않은 포트를 클러스터 브로드캐스트 도메인에서 제거합니다.
++
+....
+net port broadcast-domain remove-ports
+....
+. 클러스터를 생성합니다.
++
+....
+cluster create
+....
+
+
+클러스터 생성을 완료하면 시스템이 올바른 구성을 감지하고 포트를 올바른 브로드캐스트 도메인에 배치합니다.

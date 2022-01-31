@@ -1,0 +1,157 @@
+---
+permalink: smb-config/create-lif-task.html 
+sidebar: sidebar 
+keywords: lif, ip, address, associate, physical, logical, port, component, failure, migrate, communicate, network, create a lif 
+summary: LIF는 물리적 포트 또는 논리적 포트와 연결된 IP 주소입니다. 구성요소 장애가 발생할 경우 LIF가 다른 물리적 포트로 페일오버되거나 마이그레이션되어 네트워크와 계속 통신할 수 있습니다. 
+---
+= LIF를 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+LIF는 물리적 포트 또는 논리적 포트와 연결된 IP 주소입니다. 구성요소 장애가 발생할 경우 LIF가 다른 물리적 포트로 페일오버되거나 마이그레이션되어 네트워크와 계속 통신할 수 있습니다.
+
+.시작하기 전에
+* 기본 물리적 또는 논리적 네트워크 포트가 관리 'UP' 상태로 구성되어 있어야 합니다.
+* 서브넷 이름을 사용하여 LIF에 대한 IP 주소 및 네트워크 마스크 값을 할당하려는 경우, 서브넷이 이미 존재해야 합니다.
++
+서브넷에는 동일한 계층 3 서브넷에 속하는 IP 주소 풀이 포함되어 있습니다. 네트워크 서브넷 만들기 명령을 사용하여 만듭니다.
+
+* LIF가 처리하는 트래픽 유형을 지정하는 메커니즘이 변경되었습니다. ONTAP 9.5 이전 버전의 경우 LIF는 역할을 사용하여 처리할 트래픽 유형을 지정합니다. ONTAP 9.6부터 LIF는 서비스 정책을 사용하여 처리할 트래픽 유형을 지정합니다.
+
+
+.이 작업에 대해
+* 동일한 네트워크 포트에서 IPv4 및 IPv6 LIF를 모두 생성할 수 있습니다.
+* 클러스터에 LIF가 많은 경우 'network interface capacity show' 명령을 사용하여 클러스터에서 지원되는 LIF 용량과 각 노드에서 지원되는 LIF 용량을 확인할 수 있습니다 (고급 권한 수준에서).
+* ONTAP 9.7부터 동일한 서브넷에 있는 SVM에 대한 다른 LIF가 이미 있는 경우 LIF의 홈 포트를 지정할 필요가 없습니다. ONTAP는 동일한 서브넷에 이미 구성된 다른 LIF와 동일한 브로드캐스트 도메인에 있는 지정된 홈 노드에서 랜덤 포트를 자동으로 선택합니다.
+
+
+ONTAP 9.4부터는 FC-NVMe가 지원됩니다. FC-NVMe LIF를 생성하는 경우 다음 사항을 알아야 합니다.
+
+* NVMe 프로토콜은 LIF가 생성된 FC 어댑터에서 지원되어야 합니다.
+* FC-NVMe는 데이터 LIF에서 유일한 데이터 프로토콜일 수 있습니다.
+* SAN을 지원하는 모든 SVM(스토리지 가상 머신)에서 관리 트래픽을 처리하는 하나의 LIF를 구성해야 합니다.
+* NVMe LIF 및 네임스페이스는 동일한 노드에서 호스팅되어야 합니다.
+* SVM당 하나의 NVMe LIF에서 데이터 트래픽을 처리할 수 있습니다
+
+
+.단계
+. LIF 생성:
++
+'network interface create-vserver vserver_name-lif lif_name-role data-protocol cifs-home-node node_name-home-port port port_name{-address ip_address-netmask ip_address|-subnet-name subnet_name} - firewall-policy data-auto-revert{true|false}'입니다
+
++
+|===
+
+
+| * ONTAP 9.5 이하 * 
+
+
+ a| 
+'network interface create-vserver vserver_name-lif lif_name-role data-protocol cifs-home-node node_name-home-port port port_name{-address ip_address-netmask ip_address|-subnet-name subnet_name} - firewall-policy data-auto-revert{true|false}'입니다
+
+|===
++
+|===
+
+
+| * ONTAP 9.6 이상 * 
+
+
+ a| 
+'network interface create-vserver vserver_name-lif lif_name-service-policy service_policy_name-home-node node_name-home-port port_name{-address ip_address-netmask ip_address|-subnet-name subnet_name subnet_name}-firewall-policy data-auto-revert{true|false}'입니다
+
+|===
++
+** 서비스 정책(ONTAP 9.6부터)을 사용하여 LIF를 생성할 때는 '-role' 매개 변수가 필요하지 않습니다.
+** LIF를 생성할 때 '-data-protocol' 매개 변수를 지정해야 하며 나중에 데이터 LIF를 삭제 및 다시 생성하지 않고 수정할 수 없습니다.
++
+서비스 정책(ONTAP 9.6부터)을 사용하여 LIF를 생성할 때는 '-data-protocol' 매개 변수가 필요하지 않습니다.
+
+** 홈 노드는 LIF에서 네트워크 인터페이스 되돌리기 명령을 실행할 때 LIF가 반환하는 노드입니다.
++
+또한 LIF가 '-auto-revert' 옵션을 사용하여 홈 노드 및 홈 포트로 자동으로 되돌아가는지 여부를 지정할 수도 있습니다.
+
+** '-home-port'는 LIF에서 '네트워크 인터페이스 되돌리기' 명령을 실행하면 LIF가 반환되는 물리적 또는 논리적 포트입니다.
+** IP 주소는 '-address' 및 '-netmask' 옵션을 사용하여 지정하거나 '-subnet_name' 옵션을 사용하여 서브넷에서 할당을 활성화할 수 있습니다.
+** 서브넷을 사용하여 IP 주소와 네트워크 마스크를 제공하면, 서브넷에 정의된 서브넷이 해당 서브넷을 사용하여 LIF를 생성할 때 해당 게이트웨이에 대한 기본 경로가 SVM에 자동으로 추가됩니다.
+** 서브넷을 사용하지 않고 수동으로 IP 주소를 할당하는 경우 다른 IP 서브넷에 클라이언트 또는 도메인 컨트롤러가 있는 경우 게이트웨이에 대한 기본 라우트를 구성해야 할 수 있습니다. '네트워크 라우트 생성' man 페이지에는 SVM 내에서 정적 라우트를 생성하는 정보가 포함되어 있습니다.
+** '-firewall-policy' 옵션의 경우 LIF 역할과 동일한 기본 data를 사용합니다.
++
+필요에 따라 나중에 사용자 지정 방화벽 정책을 만들고 추가할 수 있습니다.
+
+** '-자동 되돌리기'를 사용하면 시작, 관리 데이터베이스의 상태 변경 또는 네트워크 연결이 이루어지는 시기에 데이터 LIF가 홈 노드로 자동 복구되는지 여부를 지정할 수 있습니다. 기본 설정은 false로 설정되어 있지만 사용자 환경의 네트워크 관리 정책에 따라 false로 설정할 수 있습니다.
+
+
+. LIF가 성공적으로 생성되었는지 확인합니다.
++
+네트워크 인터페이스 쇼
+
+. 구성된 IP 주소에 연결할 수 있는지 확인합니다.
++
+|===
+
+
+| 다음을 확인하려면... | 사용... 
+
+
+ a| 
+IPv4 주소입니다
+ a| 
+네트워크 핑
+
+
+
+ a| 
+IPv6 주소입니다
+ a| 
+네트워크 핑6
+
+|===
+
+
+다음 명령을 실행하면 LIF가 생성되고 '-address' 및 '-netmask' 매개 변수를 사용하여 IP 주소와 네트워크 마스크 값이 지정됩니다.
+
+[listing]
+----
+network interface create -vserver vs1.example.com -lif datalif1 -role data -data-protocol cifs -home-node node-4 -home-port e1c -address 192.0.2.145 -netmask 255.255.255.0 -firewall-policy data -auto-revert true
+----
+다음 명령을 실행하면 LIF가 생성되고 지정된 서브넷(client1_sub 이름)의 IP 주소와 네트워크 마스크 값이 할당됩니다.
+
+[listing]
+----
+network interface create -vserver vs3.example.com -lif datalif3 -role data -data-protocol cifs -home-node node-3 -home-port e1c -subnet-name client1_sub -firewall-policy data -auto-revert true
+----
+다음 명령을 실행하면 cluster-1의 모든 LIF가 표시됩니다. 데이터 LIF datalif1 및 datalif3은 IPv4 주소로 구성되고 datalif4는 IPv6 주소로 구성됩니다.
+
+[listing]
+----
+network interface show
+
+            Logical    Status     Network          Current      Current Is
+Vserver     Interface  Admin/Oper Address/Mask     Node         Port    Home
+----------- ---------- ---------- ---------------- ------------ ------- ----
+cluster-1
+            cluster_mgmt up/up    192.0.2.3/24     node-1       e1a     true
+node-1
+            clus1        up/up    192.0.2.12/24    node-1       e0a     true
+            clus2        up/up    192.0.2.13/24    node-1       e0b     true
+            mgmt1        up/up    192.0.2.68/24    node-1       e1a     true
+node-2
+            clus1        up/up    192.0.2.14/24    node-2       e0a     true
+            clus2        up/up    192.0.2.15/24    node-2       e0b     true
+            mgmt1        up/up    192.0.2.69/24    node-2       e1a     true
+vs1.example.com
+            datalif1     up/down  192.0.2.145/30   node-1       e1c     true
+vs3.example.com
+            datalif3     up/up    192.0.2.146/30   node-2       e0c     true
+            datalif4     up/up    2001::2/64       node-2       e0c     true
+5 entries were displayed.
+----
+다음 명령을 실행하면 기본 데이터 파일 서비스 정책에 할당된 NAS 데이터 LIF를 생성하는 방법이 표시됩니다.
+
+[listing]
+----
+network interface create -vserver vs1 -lif lif2 -home-node node2 -homeport e0d -service-policy default-data-files -subnet-name ipspace1
+----

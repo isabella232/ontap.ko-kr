@@ -1,0 +1,13 @@
+---
+permalink: tape-backup/features-not-supported-smtape-concept.html 
+sidebar: sidebar 
+keywords: feature, supported, not, smtape, restartable, backup, verification 
+summary: SMTape는 재시작 가능한 백업 및 백업 파일 확인을 지원하지 않습니다. 
+---
+= SMTape에서 지원되지 않는 기능입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMTape는 재시작 가능한 백업 및 백업 파일 확인을 지원하지 않습니다.

@@ -1,0 +1,25 @@
+---
+permalink: smb-hyper-v-sql/witness-protocol-concept.html 
+sidebar: sidebar 
+keywords: witness, protocol, node, sfo, partner, failure, smb, client 
+summary: ONTAP는 노드의 SFO 파트너를 증인으로 사용하여 Witness 프로토콜을 구현합니다. 장애가 발생할 경우 파트너는 빠르게 장애를 감지하고 SMB 클라이언트에 알립니다. 
+---
+= Witness 프로토콜 작동 방식
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP는 노드의 SFO 파트너를 증인으로 사용하여 Witness 프로토콜을 구현합니다. 장애가 발생할 경우 파트너는 빠르게 장애를 감지하고 SMB 클라이언트에 알립니다.
+
+Witness 프로토콜은 다음 프로세스를 사용하여 향상된 장애 조치를 제공합니다.
+
+. 애플리케이션 서버가 Node1에 대한 지속적으로 사용 가능한 SMB 연결을 설정하면 CIFS 서버가 애플리케이션 서버에 Witness를 사용할 수 있음을 알립니다.
+. 애플리케이션 서버는 Node1에서 Witness 서버의 IP 주소를 요청하고, 스토리지 가상 시스템(SVM)에 할당된 Node2(SFO 파트너) 데이터 LIF IP 주소 목록을 수신합니다.
+. 애플리케이션 서버는 IP 주소 중 하나를 선택하고 Node2에 대한 Witness 연결을 생성하며, Node1에서 계속 사용 가능한 연결이 이동해야 하는 경우 알림을 받을 레지스터를 생성합니다.
+. Node1에서 페일오버 이벤트가 발생할 경우 Witness는 페일오버 이벤트를 발생하지만 반환과 관련이 없습니다.
+. 감시 기능은 장애 조치 이벤트를 감지하고 Witness 연결을 통해 애플리케이션 서버에 SMB 연결이 Node2로 이동해야 함을 알립니다.
+. 애플리케이션 서버는 SMB 세션을 Node2로 이동하고 클라이언트 액세스를 중단하지 않고 연결을 복구합니다.
+
+
+image::../media/how-witness-works.gif[증인의 작동 방식]

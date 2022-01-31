@@ -1,0 +1,89 @@
+---
+permalink: tape-backup/ndmp-data-connection-types-reference.html 
+sidebar: sidebar 
+keywords: ndmp, data, connection, type, cab, extension, backup, application, svm, storage, virtual, machine, local 
+summary: 'SVM(스토리지 가상 머신) 범위의 NDMP 모드에서 지원되는 NDMP 데이터 연결 유형은 NDMP 제어 연결 LIF 유형과 CAB 확장 상태에 따라 다릅니다. 이 NDMP 데이터 연결 유형은 로컬 또는 3방향 NDMP 백업 또는 복구 작업을 수행할 수 있는지 여부를 나타냅니다.' 
+---
+= NDMP 데이터 연결 유형입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SVM(스토리지 가상 머신) 범위의 NDMP 모드에서 지원되는 NDMP 데이터 연결 유형은 NDMP 제어 연결 LIF 유형과 CAB 확장 상태에 따라 다릅니다. 이 NDMP 데이터 연결 유형은 로컬 또는 3방향 NDMP 백업 또는 복구 작업을 수행할 수 있는지 여부를 나타냅니다.
+
+TCP 또는 TCP/IPv6 네트워크를 통해 3방향 NDMP 백업 또는 복구 작업을 수행할 수 있습니다. 다음 표에서는 NDMP 제어 연결 LIF 유형과 CAB 확장의 상태를 기반으로 하는 NDMP 데이터 연결 유형을 보여 줍니다.
+
+
+
+== 백업 애플리케이션에서 CAB 확장을 지원하는 경우의 NDMP 데이터 연결 유형입니다
+
+|===
+| NDMP 제어 연결 LIF 유형입니다 | NDMP 데이터 연결 유형입니다 
+
+
+ a| 
+노드 관리 LIF
+ a| 
+로컬, TCP, TCP/IPv6
+
+
+
+ a| 
+데이터 LIF
+ a| 
+TCP, TCP/IPv6
+
+
+
+ a| 
+클러스터 관리 LIF
+ a| 
+로컬, TCP, TCP/IPv6
+
+
+
+ a| 
+인터클러스터 LIF
+ a| 
+로컬, TCP, TCP/IPv6
+
+|===
+
+
+== 백업 애플리케이션에서 CAB 확장을 지원하지 않는 경우 NDMP 데이터 연결 유형입니다
+
+|===
+| NDMP 제어 연결 LIF 유형입니다 | NDMP 데이터 연결 유형입니다 
+
+
+ a| 
+노드 관리 LIF
+ a| 
+로컬, TCP, TCP/IPv6
+
+
+
+ a| 
+데이터 LIF
+ a| 
+TCP, TCP/IPv6
+
+
+
+ a| 
+클러스터 관리 LIF
+ a| 
+TCP, TCP/IPv6
+
+
+
+ a| 
+인터클러스터 LIF
+ a| 
+로컬, TCP, TCP/IPv6
+
+|===
+xref:cluster-aware-backup-extension-concept.adoc[Cluster Aware Backup 확장의 기능]
+
+link:../networking/index.html["네트워크 관리"]

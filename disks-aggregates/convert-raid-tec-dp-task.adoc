@@ -1,0 +1,30 @@
+---
+permalink: disks-aggregates/convert-raid-tec-dp-task.html 
+sidebar: sidebar 
+keywords: convert, raid-tec, raid-dp 
+summary: Aggregate의 크기를 줄이고 더 이상 3중 패리티가 필요하지 않은 경우, RAID 정책을 RAID-TEC에서 RAID-DP로 전환하고 RAID 패리티에 필요한 디스크 수를 줄일 수 있습니다. 
+---
+= RAID-TEC를 RAID-DP로 변환합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Aggregate의 크기를 줄이고 더 이상 3중 패리티가 필요하지 않은 경우, RAID 정책을 RAID-TEC에서 RAID-DP로 전환하고 RAID 패리티에 필요한 디스크 수를 줄일 수 있습니다.
+
+RAID-TEC의 최대 RAID 그룹 크기가 RAID-DP의 최대 RAID 그룹 크기보다 큽니다. 최대 RAID-TEC 그룹 크기가 RAID-DP 제한 범위 내에 있지 않으면 RAID-DP로 변환할 수 없습니다.
+
+.단계
+. Aggregate가 온라인 상태이고 최소 6개의 디스크가 있는지 확인합니다.
++
+'Storage aggregate show-status-aggregate_aggregate_name_'
+
+. RAID-TEC에서 RAID-DP로 애그리게이트 변환:
++
+'Storage aggregate modify -aggregate_aggregate_name_-raidtype RAID_DP'
+
+. 애그리게이트 RAID 정책이 RAID-DP인지 확인합니다.
++
+'STORAGE AGGATE SHOW_AGGATE_NAME_'
+
+

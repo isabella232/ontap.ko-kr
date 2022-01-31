@@ -1,0 +1,42 @@
+---
+permalink: authentication/enable-ad-users-groups-access-cluster-svm-task.html 
+sidebar: sidebar 
+keywords: configure, active directory, domain, controller access 
+summary: AD 계정이 SVM에 액세스하려면 먼저 클러스터 또는 SVM에 대한 AD 도메인 컨트롤러 액세스를 구성해야 합니다. 데이터 SVM을 위해 CIFS 서버를 이미 구성한 경우 SVM을 클러스터에 대한 AD 액세스를 위한 게이트웨이 또는 터널로 구성할 수 있습니다. CIFS 서버를 구성하지 않은 경우 AD 도메인에서 SVM에 대한 컴퓨터 계정을 생성할 수 있습니다. 
+---
+= Active Directory 도메인 컨트롤러 액세스 개요 구성
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+AD 계정이 SVM에 액세스하려면 먼저 클러스터 또는 SVM에 대한 AD 도메인 컨트롤러 액세스를 구성해야 합니다. 데이터 SVM을 위해 SMB 서버를 이미 구성한 경우, SVM을 클러스터에 대한 AD 액세스를 위한 게이트웨이 또는 _tunnel_로 구성할 수 있습니다. SMB 서버를 구성하지 않은 경우 AD 도메인에서 SVM용 컴퓨터 계정을 생성할 수 있습니다.
+
+ONTAP는 다음과 같은 도메인 컨트롤러 인증 서비스를 지원합니다.
+
+* Kerberos
+* LDAP를 지원합니다
+* Netlogon
+* 로컬 보안 기관(LSA)
+
+
+ONTAP는 보안 Netlogon 연결을 위해 다음 세션 키 알고리즘을 지원합니다.
+
+|===
+
+
+| 세션 키 알고리즘입니다 | 에서 사용 가능... 
+
+
+| HMAC-SHA256, AES(Advanced Encryption Standard) 기반 | ONTAP 9.10.1 이상 
+
+
+| Des 및 HMAC-MD5(강력한 키가 설정된 경우) | 모든 ONTAP 9 릴리스 
+|===
+ONTAP 9.10.1 이상에서 Netlogon 보안 채널 설정 중에 AES 세션 키를 사용하려면 다음 명령을 사용하여 해당 키를 활성화해야 합니다.
+
+'cifs security modify -vserver vs1-aes-enabled-for-netlogon-channel true'
+
+기본값은 false 입니다.
+
+9.10.1 이전의 ONTAP 릴리스에서 도메인 컨트롤러가 보안 Netlogon 서비스에 AES를 적용할 경우 연결이 실패합니다. 도메인 컨트롤러는 이러한 릴리스에서 ONTAP과 강력한 키 연결을 허용하도록 구성해야 합니다.

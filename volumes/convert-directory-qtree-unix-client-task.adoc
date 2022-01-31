@@ -1,0 +1,49 @@
+---
+permalink: volumes/convert-directory-qtree-unix-client-task.html 
+sidebar: sidebar 
+keywords: convert, directory to a qtree, using, unix client 
+summary: UNIX에서 디렉토리를 qtree로 변환하려면 디렉토리의 이름을 바꾸고 스토리지 시스템에서 qtree를 생성한 다음 디렉토리의 컨텐츠를 qtree로 이동합니다. 
+---
+= UNIX 클라이언트를 사용하여 디렉토리를 qtree로 변환합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+UNIX에서 디렉토리를 qtree로 변환하려면 디렉토리의 이름을 바꾸고 스토리지 시스템에서 qtree를 생성한 다음 디렉토리의 컨텐츠를 qtree로 이동합니다.
+
+.단계
+. UNIX 클라이언트 창을 엽니다.
+. mv 명령을 사용하여 디렉토리의 이름을 바꿉니다.
++
+[listing]
+----
+client: mv /n/user1/vol1/dir1 /n/user1/vol1/olddir
+----
+. 스토리지 시스템에서 'volume qtree create' 명령을 사용하여 원래 이름의 qtree를 생성합니다.
++
+[listing]
+----
+system1: volume qtree create /n/user1/vol1/dir1
+----
+. 클라이언트에서 mv 명령을 사용하여 이전 디렉토리의 컨텐츠를 qtree로 이동합니다.
++
+[NOTE]
+====
+이동 중인 디렉토리에 있는 하위 디렉토리가 많을수록 이동 작업이 더 오래 걸립니다.
+
+====
++
+[listing]
+----
+client: mv /n/user1/vol1/olddir/* /n/user1/vol1/dir1
+----
+. rmdir 명령을 사용하여 현재 비어 있는 이전 디렉토리를 삭제합니다.
++
+[listing]
+----
+client: rmdir /n/user1/vol1/olddir
+----
+
+
+UNIX 클라이언트가 mv 명령을 구현하는 방법에 따라 파일 소유권 및 권한이 유지되지 않을 수 있습니다. 이 경우 파일 소유자와 권한을 이전 값으로 업데이트합니다.

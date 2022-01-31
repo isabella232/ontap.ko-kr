@@ -1,0 +1,25 @@
+---
+permalink: smb-admin/support-branchcache-group-policy-objects-concept.html 
+sidebar: sidebar 
+keywords: ontap, branchcache, support, group, policy, object, gpo, centralize, management, configuration, parameter, hash, publication, support for branchcache group policy objects 
+summary: 'ONTAP BranchCache는 특정 BranchCache 구성 매개 변수에 대한 중앙 집중식 관리를 허용하는 BranchCache GPO(그룹 정책 개체)를 지원합니다. BranchCache에는 두 가지 GPO, 즉 BranchCache GPO의 해시 게시 GPO와 BranchCache GPO의 해시 버전 지원 GPO가 사용됩니다.' 
+---
+= BranchCache 그룹 정책 개체 지원
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP BranchCache는 특정 BranchCache 구성 매개 변수에 대한 중앙 집중식 관리를 허용하는 BranchCache GPO(그룹 정책 개체)를 지원합니다. BranchCache에는 두 가지 GPO, 즉 BranchCache GPO의 해시 게시 GPO와 BranchCache GPO의 해시 버전 지원 GPO가 사용됩니다.
+
+* * BranchCache GPO * 용 해시 게시
++
+BranchCache GPO의 해시 게시는 '-operating-mode' 매개 변수에 해당합니다. GPO 업데이트가 발생하면 이 값은 그룹 정책이 적용되는 OU(조직 구성 단위) 내에 포함된 SVM(스토리지 가상 시스템) 개체에 적용됩니다.
+
+* * BranchCache GPO * 에 대한 해시 버전 지원
++
+BranchCache GPO의 해시 버전 지원은 '-versions' 매개 변수에 해당합니다. GPO 업데이트가 발생하면 이 값은 그룹 정책이 적용되는 조직 구성 단위 내에 포함된 SVM 개체에 적용됩니다.
+
+
+
+xref:applying-group-policy-objects-concept.adoc[CIFS 서버에 그룹 정책 객체 적용]

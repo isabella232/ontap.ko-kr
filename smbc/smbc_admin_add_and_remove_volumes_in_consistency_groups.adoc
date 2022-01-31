@@ -1,0 +1,77 @@
+---
+sidebar: sidebar 
+permalink: smbc/smbc_admin_add_and_remove_volumes_in_consistency_groups.html 
+keywords: SM-BC, SMBC, volume, consistency group, remove volume, add volume 
+summary: 볼륨을 추가하거나 제거하여 일관성 그룹의 구성을 변경하려면 먼저 원래 관계를 삭제한 다음 새 구성도를 사용하여 일관성 그룹을 다시 생성해야 합니다. 
+---
+= 일관성 그룹에 볼륨을 추가 및 제거합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+볼륨을 추가하거나 제거하여 일관성 그룹의 구성을 변경하려면 먼저 원래 관계를 삭제한 다음 새 구성도를 사용하여 일관성 그룹을 다시 생성해야 합니다.
+
+
+NOTE: 이 워크플로는 ONTAP 9.8 및 9.9.1에 적용됩니다. ONTAP 9.10.1.1부터는 를 관리하는 것이 좋습니다 link:../consistency-groups/index.html["정합성 보장 그룹"] System Manager 또는 ONTAP REST API를 통해
+
+.이 작업에 대해
+* 정합성 보장 그룹이 "InSync" 상태인 경우 컴포지션 변경이 허용되지 않습니다.
+* 대상 볼륨은 DP 유형이어야 합니다.
+
+
+
+NOTE: 일관성 그룹을 확장하기 위해 추가하는 새로운 볼륨에는 소스 볼륨과 타겟 볼륨 사이에 공통 스냅샷 복사본 쌍이 있어야 합니다.
+
+이 절차에서는 끝점 VS1_src:/cg/cg_src 및 vs1_dst:/cg/cg_dst 사이의 일관성 그룹 관계에서 vol_src1<->vol_dst1 및 vol_src2<->vol_dst2 볼륨 매핑이 2개 있다고 가정합니다.
+
+. 소스 클러스터와 타겟 클러스터 모두에서 소스 볼륨과 타겟 볼륨 사이에 공통 스냅샷 복사본이 있는지 확인합니다.
++
+'source::> snapshot show -vserver vs1_src -volume vol_src3 -snapshot SnapMirror *'
+
++
+대상::> snapshot show -vserver vs1_dst -volume vol_dst3 -snapshot snapmirror *
+
+. 공통 스냅샷 복사본이 없는 경우 FlexVol SnapMirror 관계를 생성하고 초기화합니다.
++
+대상 경로 VS1_Dst:vol_dst3'이라는 메시지가 나타납니다
+
+. 제로 RTO 정합성 보장 그룹 관계를 삭제합니다.
++
+대상 경로 VS1_DST:vol_dst3'을 선택합니다
+
+. 소스 SnapMirror 관계를 해제하고 공통 스냅샷 복사본을 유지합니다.
++
+'source::> snapmirror release-relationship-info-only true-destination-path vs1_dst:vol_dst3'
+
+. LUN 매핑을 해제하고 기존 일관성 그룹 관계를 삭제합니다.
++
+대상::> LUN 매핑 삭제 - vserver vs1_dst -path <lun_path> -igroup <igroup_name>'
+
++
+
+NOTE: 대상 LUN은 매핑 해제되지만 운영 복제본의 LUN은 계속해서 호스트 입출력을 처리합니다
+
++
+대상 경로 VS1_DST:/CG/CG_DST'의 경우, "대상 경로:::> SnapMirror delete-destination-path VS1_DST:/CG/CG_DST"
+
++
+'소스::> SnapMirror release-destination-path vs1_dst:/cg/cg_dst-relationship-info-only true'
+
+. 새 컴포지션을 사용하여 새 일관성 그룹 생성:
++
+대상 경로 VS1_Dst:/CG/CG_src-destination-path vs1_dst:/cg/cg_dst-item-mapping vol_src1:@vol_dst1, vol_src2:@vol_dst2, vol_src3:@vol_dst3
+
+. 제로급 RTO 정합성 보장 그룹 관계를 재동기화하여 동기화되도록 합니다.
++
+대상 경로 VS1_DST:/CG/CG_DST'를 다시 동기화하십시오
+
+. 5단계에서 매핑되지 않은 LUN을 다시 매핑합니다.
++
+대상::> LUN map - vserver vs1_dst -path <lun_path> -igroup <igroup_name>'
+
+. 호스트 LUN 입출력 경로를 재검색하여 LUN에 대한 모든 경로를 복구합니다.
+

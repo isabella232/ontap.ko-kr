@@ -1,0 +1,48 @@
+---
+sidebar: sidebar 
+permalink: smbc/smbc_install_mapping_luns_to_the_application_hosts.html 
+keywords: SM-BC, SMBC, igroup, LUN, initiator, application host, cluster configure 
+summary: 애플리케이션 호스트의 이니시에이터에 LUN을 매핑할 수 있도록 각 클러스터에 igroup을 생성해야 합니다. 
+---
+= 애플리케이션 호스트에 LUN 매핑
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+애플리케이션 호스트의 이니시에이터에 LUN을 매핑할 수 있도록 각 클러스터에 igroup을 생성해야 합니다.
+
+소스 클러스터와 대상 클러스터 모두에서 이 구성을 수행해야 합니다.
+
+.단계
+. 각 클러스터에 igroup 작성:
++
+'lun igroup create-igroup name-protocol fcp|iscsi-OSType OS-initiator initiator_name'
+
++
+* 예 *
+
++
+....
+lun igroup create -igroup ig1 -protocol iscsi -ostype linux -initiator -initiator iqn.2001-04.com.example:abc123
+....
+. LUN을 igroup에 매핑합니다.
++
+'lun map-path path_name-igroup igroup_name
+
++
+* 예: *
+
++
+....
+lun map -path /vol/src1/11 -group ig1
+....
+. LUN이 매핑되었는지 확인합니다.
++
+LUN show
+
+. 애플리케이션 호스트에서 새 LUN을 검색합니다.
+

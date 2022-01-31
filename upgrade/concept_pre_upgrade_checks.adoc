@@ -1,0 +1,62 @@
+---
+permalink: upgrade/concept_pre_upgrade_checks.html 
+sidebar: sidebar 
+keywords: ontap, upgrade, plan, planning, upgrade, manually, manual, checks, cluster, ready, verification, verify, verifying 
+summary: 다양한 구성 설정이 클러스터 업그레이드 준비에 영향을 미칠 수 있습니다. 
+---
+= 업그레이드 전 점검
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+환경에 따라 업그레이드를 시작하기 전에 특정 요소를 고려해야 합니다. 먼저 아래 표를 검토하여 어떤 특별 고려 사항을 고려해야 하는지 확인하십시오.
+
+[cols="2*"]
+|===
+| 스스로에게 물어보십시오. | 답변이 * 예 * 인 경우 다음을 수행하십시오. 
+
+
+| 혼합 버전 클러스터가 있습니까? | xref:concept_mixed_version_requirements.html[혼합 버전 요구 사항을 확인합니다] 
+
+
+| SAN 구성이 있습니까? | xref:task_verifying_the_san_configuration.html[SAN 구성을 확인합니다] 
+
+
+| MetroCluster 구성이 있습니까?  a| 
+* xref:concept_upgrade_requirements_for_metrocluster_configurations.html[MetroCluster 구성에 대한 구체적인 업그레이드 요구 사항을 검토합니다]
+* xref:task_verifying_the_networking_and_storage_status_for_metrocluster_cluster_is_ready.html[네트워킹 및 스토리지 상태를 확인합니다]
+
+
+
+
+| 클러스터의 노드가 루트 데이터 파티셔닝과 루트 데이터 데이터 파티셔닝을 사용하고 있습니까? | xref:concept_upgrade_considerations_for_root_data_partitioning.html[루트 데이터 및 루트 데이터 데이터 파티셔닝에 대한 업그레이드 고려 사항을 검토합니다] 
+
+
+| 볼륨 및 애그리게이트를 중복제거할 수 있습니까? | xref:task_verifying_that_deduplicated_volumes_and_aggregates_contain_sufficient_free_space.html[중복 제거된 볼륨 및 애그리게이트를 위한 충분한 여유 공간이 있는지 확인하십시오] 
+
+
+| 클러스터에서 SnapMirror가 실행 중입니까?  a| 
+* xref:concept_upgrade_requirements_for_snapmirror.html[SnapMirror의 업그레이드 요구사항을 검토하십시오]
+* xref:task_preparing_snapmirror_relationships_for_a_nondisruptive_upgrade_or_downgrade.html[업그레이드할 SnapMirror 관계를 준비합니다]
+
+
+
+
+| 클러스터에서 SnapLock가 실행 중입니까? | xref:concept_upgrade_considerations_for_snaplock.html[SnapLock에 대한 업그레이드 고려 사항을 검토합니다] 
+
+
+| ONTAP 8.3에서 업그레이드 중이며 로드 공유 미러가 있습니까? | xref:task_preparing_all_load_sharing_mirrors_for_a_major_upgrade.html[업그레이드를 위해 모든 로드 공유 미러를 준비합니다] 
+
+
+| 외부 키 관리 서버와 함께 NetApp Storage Encryption을 사용하고 있습니까? | xref:task_preparing_to_upgrade_nodes_using_netapp_storage_encryption_with_external_key_management_servers.html[기존 키 관리 서버 연결을 삭제합니다] 
+
+
+| SVM에 넷그룹이 로드되어 있습니까? | xref:task_verifying_that_the_netgroup_file_is_present_on_all_nodes.html[넷그룹 파일이 각 노드에 있는지 확인합니다] 
+
+
+| SSLv3을 사용하는 LDAP 클라이언트가 있습니까? | xref:task_configuring_ldap_clients_to_use_tls_for_highest_security.html[TLS를 사용하도록 LDAP 클라이언트를 구성합니다] 
+
+
+| 세션 지향 프로토콜을 사용하고 있습니까? | xref:concept_considerations_for_session_oriented_protocols.html[세션 지향 프로토콜에 대한 고려 사항을 검토합니다] 
+|===

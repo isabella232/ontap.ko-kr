@@ -1,0 +1,27 @@
+---
+permalink: volumes/features-supported-flexclone-files-luns-concept.html 
+sidebar: sidebar 
+keywords: features, supported with,  flexclone files, flexclone luns 
+summary: FlexClone 파일 및 FlexClone LUN은 중복제거, 스냅샷 복사본, 할당량, 볼륨 SnapMirror와 같은 다양한 ONTAP 기능과 함께 작동합니다. 
+---
+= FlexClone 파일 및 FlexClone LUN에서 지원되는 기능입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FlexClone 파일 및 FlexClone LUN은 중복제거, 스냅샷 복사본, 할당량, 볼륨 SnapMirror와 같은 다양한 ONTAP 기능과 함께 작동합니다.
+
+FlexClone 파일 및 FlexClone LUN에서 지원되는 기능은 다음과 같습니다.
+
+* 중복 제거
+* Snapshot 복사본
+* 액세스 제어 목록
+* 할당량
+* FlexClone 볼륨
+* NDMP
+* volume SnapMirror를 선택합니다
+* '볼륨 이동' 명령
+* 공간 예약
+* HA 구성
+

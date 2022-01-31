@@ -1,0 +1,95 @@
+---
+permalink: san-admin/configure-flexvol-delete-flexclone-files-luns-task.html 
+sidebar: sidebar 
+keywords: configure, flexvol, volume, automatically, delete, flexclone, files, flexclone, luns 
+summary: FlexVol 볼륨에서 사용 가능한 공간이 특정 임계값 아래로 감소할 경우 자동 삭제가 설정된 상태로 FlexClone 파일과 FlexClone LUN을 자동으로 삭제하도록 설정할 수 있습니다. 
+---
+= FlexClone 파일과 FlexClone LUN을 자동으로 삭제하도록 FlexVol 볼륨을 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FlexVol 볼륨에서 사용 가능한 공간이 특정 임계값 아래로 감소할 경우 자동 삭제가 설정된 상태로 FlexClone 파일과 FlexClone LUN을 자동으로 삭제하도록 설정할 수 있습니다.
+
+.무엇을 &#8217;필요로 할거야
+* FlexVol 볼륨은 FlexClone 파일과 FlexClone LUN을 포함해야 하며 온라인 상태여야 합니다.
+* FlexVol 볼륨은 읽기 전용 볼륨이 아니어야 합니다.
+
+
+.단계
+. '볼륨 스냅샷 자동 삭제 수정' 명령을 사용하여 FlexVol 볼륨에서 FlexClone 파일 및 FlexClone LUN을 자동으로 삭제할 수 있도록 설정합니다.
++
+** '-trigger' 파라미터는 volume 또는 snap_reserve를 지정할 수 있다.
+** '-destroy-list' 매개 변수의 경우 한 가지 유형의 클론만 삭제할지 여부와 관계없이 항상 lun_clone, file_clone을 지정해야 합니다. + 다음 예에서는 볼륨 vol1을 활성화하여 FlexClone 파일 및 FlexClone LUN의 공간 재확보를 위해 FlexClone 파일 중 25%가 여유 공간으로 구성되도록 하는 방법을 보여 줍니다.
++
+[listing]
+----
+cluster1::> volume snapshot autodelete modify -vserver vs1 -volume vol1 -enabled true -commitment disrupt -trigger volume -target-free-space 25 -destroy-list lun_clone,file_clone
+
+Volume modify successful on volume:vol1
+----
++
+[NOTE]
+====
+자동 삭제를 위해 FlexVol 볼륨을 설정하는 동안 '-delitment' 매개 변수의 값을 'estroy'로 설정하면 볼륨의 여유 공간이 지정된 임계값 아래로 떨어지면 '-automete' 매개 변수가 설정된 모든 FlexClone 파일 및 FlexClone LUN이 삭제될 수 있습니다. 그러나 '-Autodelete' 매개 변수가 false로 설정된 FlexClone 파일 및 FlexClone LUN은 삭제되지 않습니다.
+
+====
+
+
+. '볼륨 스냅샷 자동 삭제 표시' 명령을 사용하여 FlexVol 볼륨에서 FlexClone 파일 및 FlexClone LUN을 자동으로 삭제할 수 있는지 확인합니다.
++
+다음 예에서는 FlexClone 파일 및 FlexClone LUN을 자동으로 삭제하기 위해 볼륨 vol1이 활성화되어 있는 것을 보여 줍니다.
+
++
+[listing]
+----
+cluster1::> volume snapshot autodelete show -vserver vs1 -volume vol1
+
+         Vserver Name: vs1
+          Volume Name: vol1
+          Enabled: true
+           Commitment: disrupt
+         Defer Delete: user_created
+         Delete Order: oldest_first
+  Defer Delete Prefix: (not specified)*
+    Target Free Space: 25%
+              Trigger: volume
+     Destroy List: lun_clone,file_clone
+Is Constituent Volume: false
+----
+. 다음 단계를 수행하여 삭제할 볼륨의 FlexClone 파일 및 FlexClone LUN에 대해 자동 삭제를 사용하도록 설정했는지 확인합니다.
++
+.. '볼륨 파일 클론 자동 삭제' 명령을 사용하여 특정 FlexClone 파일 또는 FlexClone LUN을 자동으로 삭제할 수 있습니다.
++
+'-force' 매개 변수와 함께 'volume file clone autom자동 삭제' 명령을 사용하면 특정 FlexClone 파일 또는 FlexClone LUN을 강제로 자동으로 삭제할 수 있습니다.
+
++
+다음 예에서는 볼륨 vol1에 포함된 FlexClone LUN lun1_clone을 자동으로 삭제하는 것을 보여 줍니다.
+
++
+[listing]
+----
+cluster1::> volume file clone autodelete -vserver vs1 -clone-path /vol/vol1/lun1_clone -enabled true
+----
++
+FlexClone 파일 및 FlexClone LUN을 생성할 때 자동 삭제를 설정할 수 있습니다.
+
+.. 'volume file clone show -autom자동 삭제' 명령을 사용하여 FlexClone 파일 또는 FlexClone LUN이 자동 삭제되도록 설정되었는지 확인합니다.
++
+다음 예에서는 FlexClone LUN lun1_clone이 자동 삭제를 위해 설정되었음을 보여 줍니다.
+
++
+[listing]
+----
+cluster1::> volume file clone show-autodelete -vserver vs1 -clone-path vol/vol1/lun1_clone
+															Vserver Name: vs1
+															Clone Path: vol/vol1/lun1_clone
+															**Autodelete Enabled: true**
+----
+
+
++
+명령 사용에 대한 자세한 내용은 해당 man 페이지를 참조하십시오.
+
+

@@ -1,0 +1,19 @@
+---
+permalink: san-admin/igroups-concept.html 
+sidebar: sidebar 
+keywords: understand, igroups 
+summary: '이니시에이터 그룹(igroup)은 FC 프로토콜 호스트 WWPN 또는 iSCSI 호스트 노드 이름의 테이블입니다. igroup을 정의하고 LUN에 매핑하여 LUN에 액세스할 수 있는 이니시에이터를 제어할 수 있습니다.' 
+---
+= Igroup 정보
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이니시에이터 그룹(igroup)은 FC 프로토콜 호스트 WWPN 또는 iSCSI 호스트 노드 이름의 테이블입니다. igroup을 정의하고 LUN에 매핑하여 LUN에 액세스할 수 있는 이니시에이터를 제어할 수 있습니다.
+
+일반적으로 호스트의 모든 이니시에이터 포트 또는 소프트웨어 이니시에이터가 LUN에 액세스할 수 있도록 합니다. 다중 경로 소프트웨어를 사용하거나 클러스터 호스트를 사용하는 경우, 각 클러스터 호스트의 각 이니시에이터 포트 또는 소프트웨어 이니시에이터는 동일한 LUN에 대한 이중 경로를 필요로 합니다.
+
+LUN을 생성하기 전이나 후에 LUN에 액세스할 수 있는 이니시에이터를 지정하는 igroup을 생성할 수 있지만 LUN을 igroup에 매핑하기 전에 igroup을 생성해야 합니다.
+
+이니시에이터 그룹에 여러 이니시에이터가 있을 수 있으며, 여러 igroup이 동일한 이니시에이터를 포함할 수 있습니다. 그러나 동일한 이니시에이터가 있는 여러 igroup에 LUN을 매핑할 수 없습니다. 이니시에이터는 서로 다른 상치성 igroup의 구성원일 수 없습니다.

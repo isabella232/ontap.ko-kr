@@ -1,0 +1,115 @@
+---
+permalink: san-admin/restore-all-luns-volume-snapvault-backup-task.html 
+sidebar: sidebar 
+keywords: ontap 9.2, restore, luns, in a volume, snapvault, backup 
+summary: SnapVault 백업에서 볼륨에 있는 하나 이상의 LUN을 복원해야 하는 경우 전체 볼륨을 복원할 수 있습니다. 볼륨을 복원하면 볼륨의 모든 LUN에 영향을 줍니다. 
+---
+= SnapVault 백업에서 볼륨의 모든 LUN을 복구합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapVault 백업에서 볼륨에 있는 하나 이상의 LUN을 복원해야 하는 경우 전체 볼륨을 복원할 수 있습니다. 볼륨을 복원하면 볼륨의 모든 LUN에 영향을 줍니다.
+
+SnapVault 관계를 초기화하고 SnapVault 보조 볼륨에 복원할 적절한 스냅샷 복사본을 포함해야 합니다.
+
+전체 볼륨을 복원하면 볼륨이 스냅샷 복사본이 생성된 시점의 상태로 돌아갑니다. 스냅샷 복사본 후에 LUN이 볼륨에 추가된 경우 복원 프로세스 중에 해당 LUN이 제거됩니다.
+
+볼륨을 복원한 후 LUN은 복원 직전에 매핑된 igroup에 계속 매핑됩니다. LUN 매핑은 스냅샷 복사본 시점의 매핑과 다를 수 있습니다. 호스트 클러스터의 LUN에 대한 영구 예약이 유지됩니다.
+
+.단계
+. 볼륨에 있는 모든 LUN에 대한 입출력을 중지합니다.
+. 'napmirror show' 명령을 실행하여 SnapVault 보조 볼륨이 포함된 보조 볼륨을 확인합니다.
++
+[listing]
+----
+cluster::> snapmirror show
+
+Source         Dest     Mirror  Relation  Total             Last
+Path     Type  Path     State   Status    Progress  Healthy Updated
+-------- ---- --------- ------- --------- --------- ------- -------
+vserverA:srcvolA
+         XDP  vserverB:dstvolB
+                        Snapmirrored
+                                Idle       -         true    -
+----
+. 'volume snapshot show' 명령을 실행하여 복원할 스냅샷 복사본을 식별합니다.
++
+[listing]
+----
+cluster::> volume snapshot show
+
+Vserver  Volume  Snapshot               State Size   Total% Used%
+-------- ------- ---------------------- ----- ------ ------ -----
+vserverB
+         dstvolB
+                 snap2.2013-02-10_0010  valid  124KB     0%    0%
+                 snap1.2013-02-10_0015 valid  112KB     0%    0%
+                 snap2.2013-02-11_0010  valid  164KB     0%    0%
+----
+. '스냅샷 복구' 명령을 실행하고 '-source-snapshot' 옵션을 지정하여 사용할 스냅샷 복사본을 지정합니다.
++
+복원을 위해 지정하는 대상은 복원 중인 원본 볼륨입니다.
+
++
+[listing]
+----
+cluster::> snapmirror restore -destination-path vserverA:srcvolA
+  -source-path vserverB:dstvolB -source-snapshot daily.2013-02-10_0010
+
+Warning: All data newer than Snapshot copy hourly.2013-02-11_1205 on
+volume vserverA:src_volA will be deleted.
+Do you want to continue? {y|n}: y
+[Job 98] Job is queued: snapmirror restore from source
+"vserverB:dstvolB" for the snapshot daily.2013-02-10_0010.
+----
+. 호스트 클러스터에서 LUN을 공유하는 경우 영향을 받는 호스트에서 LUN의 영구 예약을 복원합니다.
+
+
+
+
+== SnapVault 백업에서 볼륨 복원
+
+다음 예에서는 스냅샷 복사본이 생성된 후 LUN_D라는 LUN이 볼륨에 추가되었습니다. 스냅샷 복사본에서 전체 볼륨을 복원하면 LUN_D가 더 이상 표시되지 않습니다.
+
+'lun show' 명령 출력에서 운영 볼륨의 srcvolA 및 SnapVault 보조 볼륨 dstvolB에서 해당 LUN의 읽기 전용 복제본을 확인할 수 있습니다. SnapVault 백업에는 LUN_D의 복제본이 없습니다.
+
+[listing]
+----
+cluster::> lun show
+Vserver   Path                State   Mapped   Type          Size
+--------- ------------------  ------- -------- --------      -------
+vserverA  /vol/srcvolA/lun_A  online  mapped   windows  300.0GB
+vserverA  /vol/srcvolA/lun_B  online  mapped   windows  300.0GB
+vserverA  /vol/srcvolA/lun_C  online  mapped   windows  300.0GB
+vserverA  /vol/srcvolA/lun_D  online  mapped   windows  250.0GB
+vserverB  /vol/dstvolB/lun_A  online  unmapped windows  300.0GB
+vserverB  /vol/dstvolB/lun_B  online  unmapped windows  300.0GB
+vserverB  /vol/dstvolB/lun_C  online  unmapped windows  300.0GB
+
+7 entries were displayed.
+
+cluster::>snapmirror restore -destination-path vserverA:srcvolA
+  -source-path vserverB:dstvolB
+  -source-snapshot daily.2013-02-10_0010
+
+Warning: All data newer than Snapshot copy hourly.2013-02-11_1205
+on volume vserverA:src_volA will be deleted.
+Do you want to continue? {y|n}: y
+[Job 98] Job is queued: snapmirror restore from source
+"vserverB:dstvolB" for the snapshot daily.2013-02-10_0010.
+
+cluster::> lun show
+Vserver   Path                State   Mapped   Type          Size
+--------- ------------------  ------- -------- --------      -------
+vserverA  /vol/srcvolA/lun_A  online  mapped   windows  300.0GB
+vserverA  /vol/srcvolA/lun_B  online  mapped   windows  300.0GB
+vserverA  /vol/srcvolA/lun_C  online  mapped   windows  300.0GB
+vserverB  /vol/dstvolB/lun_A  online  unmapped windows  300.0GB
+vserverB  /vol/dstvolB/lun_B  online  unmapped windows  300.0GB
+vserverB  /vol/dstvolB/lun_C  online  unmapped windows  300.0GB
+
+6 entries were displayed.
+----
+SnapVault 보조 볼륨에서 볼륨을 복구한 후에는 소스 볼륨에 LUN_D가 더 이상 포함되지 않습니다 복구 후 소스 볼륨의 LUN은 여전히 매핑되므로 LUN을 다시 매핑할 필요가 없습니다.

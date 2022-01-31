@@ -1,0 +1,15 @@
+---
+permalink: volumes/ha-pair-flexclone-files-luns-concept.html 
+sidebar: sidebar 
+keywords: how, ha configuration, works with, flexclone files, flexclone luns 
+summary: FlexClone 파일 및 FlexClone LUN 작업은 HA 구성에서 지원됩니다. 
+---
+= FlexClone 파일 및 FlexClone LUN에서 HA 구성의 작동 방식
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FlexClone 파일 및 FlexClone LUN 작업은 HA 구성에서 지원됩니다.
+
+HA pair에서는 테이크오버 또는 반환 작업이 진행 중인 동안에는 파트너에 FlexClone 파일 또는 FlexClone LUN을 생성할 수 없습니다. 테이크오버 또는 반환 작업이 완료된 후 파트너에 대해 보류 중인 모든 블록 공유 작업이 재개됩니다.

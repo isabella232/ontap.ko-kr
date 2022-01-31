@@ -1,0 +1,51 @@
+---
+permalink: ndmp/enable-svm-scoped-ndmp-cluster-task.html 
+sidebar: sidebar 
+keywords: enable, svm, scope, ndmp, cluster 
+summary: '클러스터에서 SVM 범위의 NDMP 모드 및 NDMP 서비스를 활성화하여 SVM 범위가 지정된 NDMP를 클러스터에서 구성할 수 있습니다(관리 SVM).' 
+---
+= 클러스터에서 SVM 범위의 NDMP를 사용하도록 설정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클러스터에서 SVM 범위의 NDMP 모드 및 NDMP 서비스를 활성화하여 SVM 범위가 지정된 NDMP를 클러스터에서 구성할 수 있습니다(관리 SVM).
+
+노드 범위의 NDMP 모드를 해제하면 클러스터에서 SVM 범위의 NDMP 모드가 설정됩니다.
+
+.단계
+. 'system services ndmp' 명령을 'node-scope-mode' 매개 변수와 함께 사용하여 SVM 범위의 NDMP 모드를 활성화합니다.
++
+[listing]
+----
+cluster1::> system services ndmp node-scope-mode off
+NDMP node-scope-mode is disabled.
+----
+. 'vserver services ndmp on' 명령을 사용하여 관리 SVM에서 NDMP 서비스를 설정합니다.
++
+[listing]
+----
+cluster1::> vserver services ndmp on -vserver cluster1
+----
++
+기본적으로 인증 유형은 "challenge"로 설정되고 일반 텍스트 인증은 비활성화됩니다.
+
++
+[NOTE]
+====
+보안 통신을 위해 일반 텍스트 인증을 사용하지 않도록 설정해야 합니다.
+
+====
+. 'vserver services ndmp show' 명령을 사용하여 NDMP 서비스가 설정되었는지 확인합니다.
++
+[listing]
+----
+cluster1::> vserver services ndmp show
+
+Vserver       Enabled   Authentication type
+------------- --------- -------------------
+cluster1      true      challenge
+vs1           false     challenge
+----
+

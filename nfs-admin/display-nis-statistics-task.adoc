@@ -1,0 +1,78 @@
+---
+permalink: nfs-admin/display-nis-statistics-task.html 
+sidebar: sidebar 
+keywords: display, nis, statistics 
+summary: '스토리지 시스템에 SVM(스토리지 가상 머신)에 대한 NIS 통계를 표시하여 성능을 모니터링하고 문제를 진단할 수 있습니다.' 
+---
+= NIS 통계를 표시합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+스토리지 시스템에 SVM(스토리지 가상 머신)에 대한 NIS 통계를 표시하여 성능을 모니터링하고 문제를 진단할 수 있습니다.
+
+.단계
+. 'tortisics catalog object show' 명령을 사용하여 데이터를 볼 수 있는 NIS 객체를 식별합니다.
++
+'통계 카탈로그 객체 표시 - 객체 EXTERNAL_SERVICE_op *'
+
+. 자폐 시작, 자폐 중지 명령을 사용하여 하나 이상의 객체에서 데이터 샘플을 수집합니다.
+. 'tortisics show' 명령어를 사용해 예시 데이터를 볼 수 있다.
+
+
+
+
+== NIS 통계 모니터링
+
+다음 예에서는 NIS 쿼리에 대한 성능 데이터를 보여 줍니다. 다음 명령을 실행하면 새 샘플의 데이터 수집이 시작됩니다.
+
+[listing]
+----
+vs1::*> statistics start -object external_service_op -sample-id nis_sample1
+vs1::*> statistics start -object external_service_op_error -sample-id nis_sample2
+----
+다음 명령을 실행하면 전송된 NIS 쿼리 수와 수신, 실패 또는 시간 초과 NIS 쿼리 수를 비교하여 보여 주는 카운터를 지정하여 샘플의 데이터가 표시됩니다.
+
+[listing]
+----
+vs1::*> statistics show -sample-id nis_sample1 -counter instance|num_requests_sent|num_responses_received|num_successful_responses|num_timeouts|num_request_failures|num_not_found_responses
+
+Object: external_service_op
+Instance: vs1:NIS:Query:10.227.13.221
+Start-time: 3/8/2016 11:27:39
+End-time: 3/8/2016 11:27:56
+Elapsed-time: 17s
+Scope: vs1
+
+    Counter                                                     Value
+    -------------------------------- --------------------------------
+    num_not_found_responses                                         0
+    num_request_failures                                            1
+    num_requests_sent                                               2
+    num_responses_received                                          1
+    num_successful_responses                                        1
+    num_timeouts                                                    0
+6 entries were displayed.
+----
+다음 명령을 실행하면 특정 서버의 NIS 쿼리에 대해 특정 오류가 수신된 횟수를 보여 주는 카운터를 지정하여 샘플의 데이터가 표시됩니다.
+
+[listing]
+----
+vs1::*> statistics show -sample-id nis_sample2 -counter server_ip_address|error_string|count
+
+Object: external_service_op_error
+Instance: vs1:NIS:Query:YP_NOTFOUND:10.227.13.221
+Start-time: 3/8/2016 11:33:05
+End-time: 3/8/2016 11:33:10
+Elapsed-time: 5s
+Scope: vs1
+
+    Counter                                                     Value
+    -------------------------------- --------------------------------
+    count                                                           1
+    error_string                                          YP_NOTFOUND
+    server_ip_address                                   10.227.13.221
+3 entries were displayed.
+----
+link:../performance-config/index.html["성능 모니터링 설정"]

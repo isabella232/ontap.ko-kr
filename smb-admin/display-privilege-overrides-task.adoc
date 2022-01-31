@@ -1,0 +1,51 @@
+---
+permalink: smb-admin/display-privilege-overrides-task.html 
+sidebar: sidebar 
+keywords: display, information, custom, privilege, assign, domain, local, user, account, group, desire, right, applied, apply, display information about privilege overrides 
+summary: 도메인 또는 로컬 사용자 계정 또는 그룹에 할당된 사용자 지정 권한에 대한 정보를 표시할 수 있습니다. 이 정보를 통해 원하는 사용자 권한이 적용되는지 여부를 확인할 수 있습니다. 
+---
+= 권한 재정의에 대한 정보를 표시합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+도메인 또는 로컬 사용자 계정 또는 그룹에 할당된 사용자 지정 권한에 대한 정보를 표시할 수 있습니다. 이 정보를 통해 원하는 사용자 권한이 적용되는지 여부를 확인할 수 있습니다.
+
+.단계
+. 다음 작업 중 하나를 수행합니다.
++
+|===
+| 다음에 대한 정보를 표시하려면... | 이 명령을 입력하십시오... 
+
+
+ a| 
+SVM(스토리지 가상 시스템)의 모든 도메인 및 로컬 사용자 및 그룹에 대한 사용자 지정 권한
+ a| 
+'vserver cifs users-and-groups privilege show -vserver_vserver_name_'
+
+
+
+ a| 
+SVM에서 특정 도메인 또는 로컬 사용자 및 그룹에 대한 사용자 지정 권한
+ a| 
+'vserver cifs users-and-groups 권한 표시 - vserver_vserver_name_-user-or-group-name_name_'
+
+|===
++
+이 명령을 실행할 때 선택할 수 있는 다른 선택적 매개 변수가 있습니다. 자세한 내용은 man 페이지를 참조하십시오.
+
+
+
+다음 명령을 실행하면 SVM VS1 에 대한 로컬 또는 도메인 사용자 및 그룹과 명시적으로 연결된 모든 권한이 표시됩니다.
+
+[listing]
+----
+cluster1::> vserver cifs users-and-groups privilege show -vserver vs1
+Vserver    User or Group Name     Privileges
+--------- ---------------------   ---------------
+vs1       BUILTIN\Administrators  SeTakeOwnershipPrivilege
+                                  SeRestorePrivilege
+vs1       CIFS_SERVER\sue         SeTcbPrivilege
+                                  SeTakeOwnershipPrivilege
+----

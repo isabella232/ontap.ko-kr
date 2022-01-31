@@ -1,0 +1,30 @@
+---
+permalink: smb-admin/write-cache-data-loss-oplocks-concept.html 
+sidebar: sidebar 
+keywords: circumstance, process, exclusive, oplock, file, flush, cache, data, write, lock, relinquish, network, failure, write cache data-loss considerations when using oplocks 
+summary: 경우에 따라 프로세스에 파일에 배타적 oplock이 있고 두 번째 프로세스에서 파일을 열려고 시도할 경우 첫 번째 프로세스에서는 캐시된 데이터를 무효화하고 쓰기 및 잠금을 플러시해야 합니다. 그런 다음 클라이언트는 oplock 및 파일에 대한 액세스를 양도해야 합니다. 이 플러시 중에 네트워크 장애가 발생하면 캐시된 쓰기 데이터가 손실될 수 있습니다. 
+---
+= oplocks 사용 시 캐시 데이터 손실 고려 사항 쓰기
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+경우에 따라 프로세스에 파일에 배타적 oplock이 있고 두 번째 프로세스에서 파일을 열려고 시도할 경우 첫 번째 프로세스에서는 캐시된 데이터를 무효화하고 쓰기 및 잠금을 플러시해야 합니다. 그런 다음 클라이언트는 oplock 및 파일에 대한 액세스를 양도해야 합니다. 이 플러시 중에 네트워크 장애가 발생하면 캐시된 쓰기 데이터가 손실될 수 있습니다.
+
+* 데이터 손실 가능성
++
+다음과 같은 상황에서는 쓰기 캐싱된 데이터가 있는 모든 애플리케이션에서 해당 데이터가 손실될 수 있습니다.
+
++
+** 연결은 SMB 1.0을 사용하여 이루어집니다.
+** 파일에 배타적 oplock이 있습니다.
+** 해당 oplock을 깨거나 파일을 닫도록 합니다.
+** 쓰기 캐시를 플러시하는 프로세스 중에 네트워크 또는 타겟 시스템에서 오류가 발생합니다.
+
+
+* 오류 처리 및 쓰기 완료
++
+캐시 자체는 오류 처리를 하지 않습니다. 애플리케이션에서 캐시에 쓰기를 수행할 때는 항상 쓰기가 완료됩니다. 캐시가 네트워크를 통해 타겟 시스템에 쓰기를 수행하는 경우 쓰기가 완료된 것으로 가정해야 합니다. 그렇지 않으면 데이터가 손실되기 때문입니다.
+
+

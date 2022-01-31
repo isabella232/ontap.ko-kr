@@ -1,0 +1,53 @@
+---
+sidebar: sidebar 
+permalink: networking/manage_the_hosts_table_@cluster_administrators_only@.html 
+keywords: 'manage, managing, snmp, monitor, monitoring, troubleshooting, error detection, traps, hosts, host, table, add, modify, change, create, delete, remove, view, show, display, manage the hosts table (cluster administrators only, manage the host name entries in the hosts table of the admin svm, commands for managing local host-name entries, vserver services name-service dns hosts' 
+summary: 관리 SVM의 호스트 테이블에서 호스트 이름 항목을 관리합니다 
+---
+= 호스트 테이블 관리(클러스터 관리자만 해당)
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+클러스터 관리자는 SVM(관리 스토리지 가상 시스템)의 호스트 테이블에 있는 호스트 이름 항목을 추가, 수정, 삭제 및 볼 수 있습니다. SVM 관리자는 할당된 SVM에 대해서만 호스트 이름 항목을 구성할 수 있습니다.
+
+
+
+== 로컬 호스트 이름 항목을 관리하는 명령입니다
+
+'vserver services name-service dns hosts' 명령을 사용하여 DNS 호스트 테이블 항목을 생성, 수정 또는 삭제할 수 있습니다.
+
+DNS 호스트 이름 항목을 만들거나 수정할 때 쉼표로 구분된 여러 개의 별칭 주소를 지정할 수 있습니다.
+
+[cols="30,70"]
+|===
+
+
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+DNS 호스트 이름 항목을 생성합니다
+ a| 
+'vserver services name-service DNS hosts create'
+
+
+
+ a| 
+DNS 호스트 이름 항목을 수정합니다
+ a| 
+'vserver services name-service dns hosts modify'
+
+
+
+ a| 
+DNS 호스트 이름 항목을 삭제합니다
+ a| 
+'vserver services name-service DNS hosts delete'
+
+|===
+자세한 내용은 를 참조하십시오 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"^] 'vserver services name-service dns hosts' 명령어를 위해서.

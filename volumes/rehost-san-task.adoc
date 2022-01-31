@@ -1,0 +1,66 @@
+---
+permalink: volumes/rehost-san-task.html 
+sidebar: sidebar 
+keywords: rehost, san volumes 
+summary: '매핑된 LUN이 있는 볼륨을 다시 호스팅할 수 있습니다. 타겟 SVM에서 이니시에이터 그룹(igroup)을 다시 생성한 후 볼륨 재호스트는 동일한 SVM에서 볼륨을 자동으로 재매핑할 수 있습니다.' 
+---
+= SAN 볼륨을 재호스트합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+매핑된 LUN이 있는 볼륨을 다시 호스팅할 수 있습니다. 타겟 SVM에서 이니시에이터 그룹(igroup)을 다시 생성한 후 볼륨 재호스트는 동일한 SVM에서 볼륨을 자동으로 재매핑할 수 있습니다.
+
+.무엇을 &#8217;필요로 할거야
+* 볼륨이 온라인 상태여야 합니다.
+* 볼륨 이동 또는 LUN 이동과 같은 볼륨 관리 작업이 실행되지 않아야 합니다.
+* 볼륨 또는 LUN에 활성 I/O가 없어야 합니다.
+* 대상 SVM에 동일한 이름의 igroup이 없지만 다른 이니시에이터가 있는지 확인해야 합니다.
++
+igroup의 이름이 동일한 경우 SVM(소스 또는 타겟) 중 하나에서 igroup의 이름을 변경해야 합니다.
+
+* 'force-unmap-LUNs' 옵션을 설정해야 합니다.
++
+** 'force-unmap-LUNs' 옵션의 기본값은 'false'입니다.
+** "force-unmap-LUNs" 옵션을 "true"로 설정하면 경고 또는 확인 메시지가 표시되지 않습니다.
+
+
+
+
+.이 작업에 대해
+* 재호스팅은 중단을 야기하는 작업입니다.
+* 재호스팅 작업이 실패하면 소스 볼륨에서 볼륨 정책 및 관련 규칙을 다시 구성해야 할 수 있습니다.
+* 재호스팅 작업 후 소스 볼륨에서 다음 볼륨 정책, 정책 규칙 및 구성이 손실되며 재호스트된 볼륨에서 수동으로 재구성해야 합니다.
++
+** 안티바이러스 정책
+** 볼륨 효율성 정책
+** QoS(서비스 품질) 정책
+** 스냅샷 정책
+** NS-SWITCH 및 NAME SERVICES 구성 엑스포트 정책 및 규칙
+** 사용자 및 그룹 ID
+
+
+
+
+.단계
+. 타겟 볼륨에 LUN 매핑 정보 기록:
++
+'lun mapping show –volume volume to be re호스팅 - vserver source vserver'
+
++
+이 단계는 볼륨 재호스트에 장애가 발생할 경우 LUN 매핑에 대한 정보가 손실되지 않도록 하는 사전 예방 단계입니다.
+
+. 타겟 볼륨과 연결된 igroup을 삭제합니다.
+. 타겟 볼륨을 대상 SVM으로 다시 호스팅:
++
+'volume rehost-vserver source_svm-volume vol_name-destination-vserver destination_svm'
+
+. 타겟 볼륨의 LUN을 적절한 igroup에 매핑합니다.
++
+** 볼륨 재호스트는 타겟 볼륨의 LUN을 유지하지만 LUN은 매핑 해제된 상태로 유지됩니다.
+** LUN을 매핑할 때 대상 SVM 포트 세트를 사용합니다.
+** 자동 재매핑-LUN 옵션이 true로 설정되어 있으면 재호스팅 후 LUN이 자동으로 매핑됩니다.
+
+
+

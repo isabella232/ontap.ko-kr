@@ -1,0 +1,105 @@
+---
+permalink: data-protection/restore-volume-snapvault-backup-task.html 
+sidebar: sidebar 
+keywords: restore, content, volume, snapmirror, destination, snap mirror, snapshot, vault, snapvault, read-write, incremental 
+summary: SnapMirror 타겟 볼륨의 스냅샷 복사본에서 전체 볼륨의 콘텐츠를 복원할 수 있습니다. 볼륨 내용을 원래 소스 볼륨 또는 다른 볼륨으로 복원할 수 있습니다. 
+---
+= SnapMirror 대상에서 볼륨 내용을 복원합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapMirror 타겟 볼륨의 스냅샷 복사본에서 전체 볼륨의 콘텐츠를 복원할 수 있습니다. 볼륨의 내용을 원래 소스 볼륨 또는 다른 볼륨으로 복원할 수 있습니다.
+
+복원 작업의 대상 볼륨은 다음 중 하나여야 합니다.
+
+* 소스 볼륨과 타겟 볼륨에 공통 스냅샷 복사본이 있는 경우 SnapMirror에서 _incremental restore_를 수행하는 읽기-쓰기 볼륨입니다(일반적으로 원래 소스 볼륨으로 복원할 때와 동일).
++
+[NOTE]
+====
+공통 스냅샷 복사본이 없으면 명령이 실패합니다. 볼륨의 내용을 빈 읽기-쓰기 볼륨으로 복원할 수 없습니다.
+
+====
+* 빈 데이터 보호 볼륨이며, 이 경우 SnapMirror는 _baseline restore_를 수행하고, 지정된 스냅샷 복사본과 이 볼륨이 참조하는 모든 데이터 블록을 소스 볼륨으로 전송합니다.
+
+
+볼륨의 내용을 복원하는 것은 운영 중단이 발생합니다. 복구 작업이 실행 중인 경우 SnapVault 운영 볼륨에서 CIFS 트래픽이 실행되고 있지 않아야 합니다.
+
+복원 작업의 타겟 볼륨에 압축이 활성화되어 있고 소스 볼륨에 압축이 활성화되어 있지 않은 경우 타겟 볼륨에서 압축을 비활성화합니다. 복원 작업이 완료된 후 압축을 다시 활성화해야 합니다.
+
+대상 볼륨에 대해 정의된 할당량 규칙은 복구를 수행하기 전에 비활성화됩니다. 복원 작업이 완료된 후 "volume quota modify" 명령을 사용하여 할당량 규칙을 다시 활성화할 수 있습니다.
+
+.단계
+. 타겟 볼륨의 스냅샷 복사본을 나열합니다.
++
+'volume snapshot show -vserver_SVM_-volume_volume_'
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+다음 예에서는 "vserverB:secondary1" 대상의 스냅샷 복사본을 보여 줍니다.
+
++
+[listing]
+----
+
+cluster_dst::> volume snapshot show -vserver vserverB -volume secondary1
+
+Vserver     Volume      Snapshot                State    Size  Total% Used%
+-------     ------      ---------- ----------- ------   -----  ------ -----
+vserverB    secondary1  hourly.2013-01-25_0005  valid   224KB     0%    0%
+                        daily.2013-01-25_0010   valid   92KB      0%    0%
+                        hourly.2013-01-25_0105  valid   228KB     0%    0%
+                        hourly.2013-01-25_0205  valid   236KB     0%    0%
+                        hourly.2013-01-25_0305  valid   244KB     0%    0%
+                        hourly.2013-01-25_0405  valid   244KB     0%    0%
+                        hourly.2013-01-25_0505  valid   244KB     0%    0%
+
+7 entries were displayed.
+----
+. SnapMirror 타겟 볼륨의 스냅샷 복사본에서 볼륨 콘텐츠를 복원합니다.
++
+'스냅샷 복구 - 소스 경로 - SVM: volume_|_cluster://SVM/volume_,... -destination-path_SVM:volume_|_cluster://SVM/volume_,... source-snapshot_snapshot_'을 선택합니다
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+[NOTE]
+====
+이 명령은 타겟 SVM 또는 타겟 클러스터에서 실행해야 합니다.
+
+====
++
+다음 명령을 실행하면 원래 타겟 볼륨 'econtary1'의 원래 소스 볼륨 'marpriy1'을 스냅샷 사본에서 복구합니다. 2013-01-25_0010
+
++
+[listing]
+----
+cluster_dst::> snapmirror restore -source-path vserverB:secondary1 -destination-path vserverA:primary1 -source-snapshot daily.2013-01-25_0010
+
+Warning: All data newer than Snapshot copy daily.2013-01-25_0010 on volume vserverA:primary1 will be deleted.
+
+Do you want to continue? {y|n}: y
+
+[Job 34] Job is queued: snapmirror restore from source vserverB:secondary1 for the snapshot daily.2013-01-25_0010.
+----
+. 복원된 볼륨을 다시 마운트하고 볼륨을 사용하는 모든 애플리케이션을 다시 시작합니다.
+
+
+
+
+== ONTAP에서 이 작업을 수행하는 다른 방법
+
+[cols="2"]
+|===
+| 에서 이러한 작업을 수행하려면... | 이 콘텐츠 보기... 
+
+
+| 재설계된 System Manager(ONTAP 9.7 이상에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap/task_dp_restore_from_vault.html["이전 스냅샷 복사본에서 볼륨을 복원합니다"^] 
+
+
+| System Manager Classic(ONTAP 9.7 이하에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap-sm-classic/volume-restore-snapvault/index.html["SnapVault를 사용한 볼륨 복원 개요"^] 
+|===

@@ -1,0 +1,11 @@
+---
+permalink: smb-admin/copyright-trademark-reference.html 
+sidebar: sidebar 
+keywords: copyright, trademark, machine, translation 
+summary: 저작권, 상표 및 기계 번역 
+---
+= 저작권, 상표 및 기계 번역
+:icons: font
+:imagesdir: ../media/
+
+

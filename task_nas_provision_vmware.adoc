@@ -1,0 +1,23 @@
+---
+sidebar: sidebar 
+permalink: task_nas_provision_vmware.html 
+keywords: netapp, ontap, provisioning, nas, vmware, datastores, nfs, provision, using, virtual storage console for vmware vsphere, vsc, esxi, host, vcenter, server 
+summary: NFS 프로토콜을 사용하여 VMware 데이터 저장소를 제공할 볼륨을 생성합니다. 
+---
+= VMware 데이터 저장소에 NAS 스토리지 용량 할당
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+NFS 프로토콜을 사용하여 VMware 데이터 저장소를 제공할 볼륨을 생성합니다.
+
+을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-sm-classic/nfs-config-esxi/index.html["VSC를 사용한 ESXi용 NFS 구성"] VMware 데이터 저장소 프로비저닝 Best Practice에 대해 설명합니다.

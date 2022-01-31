@@ -1,0 +1,537 @@
+---
+sidebar: sidebar 
+permalink: upgrade/task_upgrade_nondisruptive_manual_cli.html 
+keywords: netapp, ontap, upgrade, nondisruptive, nondisruptively, non-disruptive update, nondisruptive upgrade, upgrade a cluster, shift workload between clusters, hardware platform, configuration, software image, update, update ONTAP, update software, ndu 
+summary: 클러스터에서 ONTAP 버전을 중단 없이 업데이트할 수 있습니다. 
+---
+= CLI를 사용한 수동 무중단(롤링 방법
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+롤링 업그레이드 방법을 사용하면 2개 이상의 노드 클러스터를 중단 없이 업데이트할 수 있습니다. 이 방법에는 몇 단계가 있습니다. 즉, HA 쌍의 각 노드에서 페일오버 작업을 시작하고, ""failed"" 노드를 업데이트하고, 반환을 시작한 다음 클러스터의 각 HA 쌍에 대한 프로세스를 반복합니다.
+
+업그레이드 준비 요구 사항을 충족해야 합니다.
+
+. HA 쌍의 첫 번째 노드를 업데이트합니다
++
+노드의 파트너가 테이크오버를 시작하여 HA 쌍의 첫 번째 노드를 업그레이드합니다. 첫 번째 노드가 업그레이드되는 동안 파트너가 노드의 데이터를 제공합니다.
+
+. HA 쌍의 두 번째 노드를 업데이트합니다
++
+HA 쌍에서 첫 번째 노드를 업그레이드 또는 다운그레이드한 후 테이크오버를 시작하여 파트너를 업그레이드합니다. 파트너 노드가 업그레이드되는 동안 첫 번째 노드에서 파트너의 데이터를 제공합니다.
+
+. 각 HA 2노드에 대해 이 단계를 반복합니다.
+
+
+업그레이드 후 작업을 완료해야 합니다.
+
+
+
+== HA 쌍의 첫 번째 노드 업데이트
+
+노드의 파트너가 테이크오버를 시작하여 HA 쌍의 첫 번째 노드를 업데이트할 수 있습니다. 첫 번째 노드가 업그레이드되는 동안 파트너가 노드의 데이터를 제공합니다.
+
+대규모 업그레이드를 수행하는 경우 업그레이드할 첫 번째 노드는 외부 연결을 위해 데이터 LIF를 구성하고 첫 번째 ONTAP 이미지를 설치한 동일한 노드여야 합니다.
+
+첫 번째 노드를 업그레이드한 후 가능한 한 빨리 파트너 노드를 업그레이드해야 합니다. 두 노드가 버전 불일치의 상태를 필요한 것보다 더 이상 유지할 수 없습니다.
+
+. AutoSupport 메시지 'AutoSupport invoke-node * -type all-message 'starting_ndu''를 호출하여 클러스터의 첫 번째 노드를 업데이트합니다
++
+이 AutoSupport 알림에는 업데이트 직전에 시스템 상태에 대한 기록이 포함됩니다. 업데이트 프로세스에 문제가 있는 경우 유용한 문제 해결 정보를 저장합니다.
+
++
+클러스터가 AutoSupport 메시지를 전송하도록 구성되지 않은 경우 알림 복사본이 로컬에 저장됩니다.
+
+. "Set-Privilege advanced"라는 메시지가 나타나면 * y * 를 입력하여 권한 수준을 advanced로 설정합니다
++
+고급 프롬프트('*>')가 나타납니다.
+
+. 새 ONTAP 소프트웨어 이미지를 기본 이미지로 설정합니다. '시스템 이미지 수정{-node nodenameA-iscurrent false} - isdefault true'입니다
++
+system image modify 명령은 확장 쿼리를 사용하여 새 ONTAP 소프트웨어 이미지(대체 이미지로 설치됨)를 노드의 기본 이미지로 변경합니다.
+
+. 'system node upgrade-revert show'의 업데이트 진행 상황을 모니터링한다
+. 새 ONTAP 소프트웨어 이미지가 기본 이미지 '시스템 이미지 표시'로 설정되어 있는지 확인합니다
++
+다음 예제에서 image2는 새 ONTAP 버전이며 Node0에서 기본 이미지로 설정됩니다.
+
++
+[listing]
+----
+cluster1::*> system image show
+                 Is      Is                Install
+Node     Image   Default Current Version    Date
+-------- ------- ------- ------- --------- -------------------
+node0
+         image1  false   true    X.X.X     MM/DD/YYYY TIME
+         image2  true    false   Y.Y.Y     MM/DD/YYYY TIME
+node1
+         image1  true    true    X.X.X     MM/DD/YYYY TIME
+         image2  false   false   Y.Y.Y     MM/DD/YYYY TIME
+4 entries were displayed.
+----
+. 'Storage failover modify -node nodenameB -auto-반환 false'가 설정된 경우 파트너 노드에서 자동 반환 기능을 해제합니다
++
+클러스터가 2노드 클러스터인 경우 자동 반환이 비활성화되면 대체 장애 시나리오에서 관리 클러스터 서비스가 온라인 상태가 되지 않는다는 경고 메시지가 표시됩니다. 계속하려면 y를 입력하십시오.
+
+. 노드 파트너인 'Storage failover show-node nodenameB-fields auto-반환'에 대해 자동 반환이 비활성화되었는지 확인합니다
++
+[listing]
+----
+cluster1::> storage failover show -node node1 -fields auto-giveback
+node     auto-giveback
+-------- -------------
+node1    false
+1 entry was displayed.
+----
+. 다음 명령을 두 번 실행하여 업데이트할 노드가 현재 클라이언트의 시스템 노드 run-node nodenameA-command upptime을 처리하고 있는지 확인합니다
++
+Uptime 명령은 노드가 마지막으로 부팅된 이후 NFS, CIFS, FC 및 iSCSI 클라이언트에 대해 노드에서 수행한 총 작업 수를 표시합니다. 각 프로토콜에 대해 명령을 두 번 실행하여 작업 수가 증가하는지 여부를 확인해야 합니다. 노드가 증가하면 현재 해당 프로토콜에 대한 클라이언트를 제공하고 있는 것입니다. 증가되지 않는 경우 노드는 현재 해당 프로토콜에 대한 클라이언트를 제공하지 않습니다.
+
++
+* 참고 *: 클라이언트 작업이 증가하는 각 프로토콜을 기록해 두어야 노드가 업데이트된 후 클라이언트 트래픽이 재개되었는지 확인할 수 있습니다.
+
++
+다음 예에서는 NFS, CIFS, FC 및 iSCSI 작업이 있는 노드를 보여 줍니다. 하지만 노드는 현재 NFS 및 iSCSI 클라이언트만 제공하고 있습니다.
+
++
+[listing]
+----
+cluster1::> system node run -node node0 -command uptime
+  2:58pm up  7 days, 19:16 800000260 NFS ops, 1017333 CIFS ops, 0 HTTP ops, 40395 FCP ops, 32810 iSCSI ops
+
+cluster1::> system node run -node node0 -command uptime
+  2:58pm up  7 days, 19:17 800001573 NFS ops, 1017333 CIFS ops, 0 HTTP ops, 40395 FCP ops, 32815 iSCSI ops
+----
+. 노드 'network interface migrate-all-node nodenameA'에서 모든 데이터 LIF를 마이그레이션합니다
+. 마이그레이션한 LIF가 있는지 확인하십시오. 'network interface show'
++
+LIF 상태를 확인하는 데 사용할 수 있는 매개 변수에 대한 자세한 내용은 네트워크 인터페이스 show man 페이지를 참조하십시오.
+
++
+다음 예에서는 Node0의 데이터 LIF가 성공적으로 마이그레이션되었음을 보여 줍니다. 이 예에 포함된 필드를 각 LIF의 홈 노드 및 포트, LIF가 마이그레이션된 현재 노드 및 포트, LIF의 운영 및 관리 상태를 확인할 수 있습니다.
+
++
+[listing]
+----
+cluster1::> network interface show -data-protocol nfs|cifs -role data -home-node node0 -fields home-node,curr-node,curr-port,home-port,status-admin,status-oper
+vserver lif     home-node home-port curr-node curr-port status-oper status-admin
+------- ------- --------- --------- --------- --------- ----------- ------------
+vs0     data001 node0     e0a       node1     e0a       up          up
+vs0     data002 node0     e0b       node1     e0b       up          up
+vs0     data003 node0     e0b       node1     e0b       up          up
+vs0     data004 node0     e0a       node1     e0a       up          up
+4 entries were displayed.
+----
+. 'Storage failover takeover-ofnode nodenameA' 인수를 시작합니다
++
+즉시 실행 매개 변수를 지정하지 마십시오. 새 소프트웨어 이미지로 부팅하기 위해 테이크오버가 수행되는 노드에 일반 테이크오버가 필요합니다. LIF를 노드에서 수동으로 마이그레이션하지 않은 경우 서비스 중단이 발생하지 않도록 LIF가 노드의 HA 파트너로 자동으로 마이그레이션됩니다.
+
++
+첫 번째 노드가 반환 대기 상태로 부팅됩니다.
+
++
+* 참고 *: AutoSupport가 활성화된 경우 노드가 클러스터 쿼럼을 벗어났음을 나타내는 AutoSupport 메시지가 전송됩니다. 이 알림을 무시하고 업데이트를 진행할 수 있습니다.
+
+. 테이크오버가 성공했는지 확인: 스토리지 페일오버 표시
++
+버전 불일치와 사서함 형식 문제를 나타내는 오류 메시지가 나타날 수 있습니다. 이는 예상되는 동작으로, 주요 무중단 업그레이드에서 일시적인 상태를 나타내며 유해하지 않습니다.
+
++
+다음 예제는 Takeover가 성공했음을 보여줍니다. 노드 Node0이 반환 상태를 기다리고 있으며, 해당 파트너가 Takeover 상태에 있습니다.
+
++
+[listing]
+----
+cluster1::> storage failover show
+                              Takeover
+Node           Partner        Possible State Description
+-------------- -------------- -------- -------------------------------------
+node0          node1          -        Waiting for giveback (HA mailboxes)
+node1          node0          false    In takeover
+2 entries were displayed.
+----
+. 다음 조건이 적용될 때까지 8분 이상 기다립니다.
++
+** 클라이언트 다중 경로(배포된 경우)가 안정화됩니다.
+** 클라이언트는 테이크오버 중에 발생하는 입출력 작업에서 일시 중지로부터 복구됩니다.
++
+복구 시간은 클라이언트에 따라 다르며 클라이언트 애플리케이션의 특성에 따라 8분 이상 걸릴 수 있습니다.
+
+
+
+. 애그리게이트를 첫 번째 노드인 'Storage failover 반환 – ofnode nodenameA'로 반환합니다
++
+반환 프로그램이 루트 애그리게이트를 파트너 노드로 반환한 다음, 해당 노드에서 부팅을 완료한 후 루트가 아닌 애그리게이트와 자동으로 되돌리도록 설정된 LIF를 반환합니다. 새로 부팅된 노드는 Aggregate가 반환되는 즉시 각 Aggregate의 클라이언트에 데이터를 제공하기 시작합니다.
+
+. 모든 애그리게이트가 반환되었는지 확인:'Storage failover show-반환
++
+GiveStatus 필드에 반환할 애그리게이트가 없다고 표시되면 모든 애그리게이트가 반환된 것입니다. Giveback이 거부되면 명령은 반환 진행률을 표시하고 어떤 서브시스템이 Giveback을 거부하는지 표시합니다.
+
+. 애그리게이트가 반환되지 않은 경우 다음 단계를 수행하십시오.
++
+.. 거부권을 행사할 수 있는 대안을 검토하여 "받는 사람" 조건을 해결할지 또는 거부권을 무시할지 여부를 결정합니다.
++
+link:https://docs.netapp.com/us-en/ontap/high-availability/index.html["고가용성 구성"]
+
+.. 필요한 경우 오류 메시지에 설명된 "받는 사람" 조건을 해결하여 식별된 작업이 정상적으로 종료되도록 합니다.
+.. 스토리지 페일오버 반환 명령을 다시 실행합니다.
++
+만약 "to" 조건을 무시하기로 결정했다면 -override-vetoes 매개변수를 TRUE로 설정하십시오.
+
+
+
+. 다음 조건이 적용될 때까지 8분 이상 기다립니다.
++
+** 클라이언트 다중 경로(배포된 경우)가 안정화됩니다.
+** 클라이언트는 반환 중에 발생하는 I/O 작업의 일시 중지로부터 복구됩니다.
++
+복구 시간은 클라이언트에 따라 다르며 클라이언트 애플리케이션의 특성에 따라 8분 이상 걸릴 수 있습니다.
+
+
+
+. 노드에 대한 업데이트가 성공적으로 완료되었는지 확인합니다.
++
+.. 고급 특권인 다특권 고급으로 이동하세요
+.. 'system node upgrade-revert show-node nodenameA' 노드에 대한 업데이트 상태가 완료되었는지 확인합니다
++
+상태는 완료 로 표시되어야 합니다.
+
++
+상태가 완전하지 않은 경우 노드에서 system node upgrade-revert upgrade 명령을 실행합니다. 명령을 실행해도 업데이트가 완료되지 않으면 기술 지원 팀에 문의하십시오.
+
+.. admin 권한 수준으로 복귀:'et-Privilege admin'입니다
+
+
+. 노드의 포트가 작동 중인지 확인합니다. 'network port show-node nodenameA'
++
+상위 버전의 ONTAP 9로 업그레이드된 노드에서 이 명령을 실행해야 합니다.
+
++
+다음 예는 노드의 모든 포트가 작동 중인 것을 보여줍니다.
+
++
+[listing]
+----
+cluster1::> network port show -node node0
+                                                             Speed (Mbps)
+Node   Port      IPspace      Broadcast Domain Link   MTU    Admin/Oper
+------ --------- ------------ ---------------- ----- ------- ------------
+node0
+       e0M       Default      -                up       1500  auto/100
+       e0a       Default      -                up       1500  auto/1000
+       e0b       Default      -                up       1500  auto/1000
+       e1a       Cluster      Cluster          up       9000  auto/10000
+       e1b       Cluster      Cluster          up       9000  auto/10000
+5 entries were displayed.
+----
+. LIF를 노드 '네트워크 인터페이스 되돌리기 *'로 되돌립니다
++
+이 명령을 실행하면 노드에서 마이그레이션된 LIF가 반환됩니다.
+
++
+[listing]
+----
+cluster1::> network interface revert *
+8 entries were acted on.
+----
+. 노드의 데이터 LIF가 노드로 성공적으로 되돌려지고 'network interface show' 상태인지 확인합니다
++
+다음 예에서는 노드에서 호스팅하는 모든 데이터 LIF가 노드로 다시 되돌려지고 해당 운영 상태가 Up이면 다음을 수행합니다.
+
++
+[listing]
+----
+cluster1::> network interface show
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+vs0
+            data001      up/up    192.0.2.120/24     node0         e0a     true
+            data002      up/up    192.0.2.121/24     node0         e0b     true
+            data003      up/up    192.0.2.122/24     node0         e0b     true
+            data004      up/up    192.0.2.123/24     node0         e0a     true
+4 entries were displayed.
+----
+. 이전에 이 노드가 클라이언트에 서비스를 제공하기로 결정한 경우 해당 노드가 이전에 서비스했던 각 프로토콜에 대해 'system node run-node nodenameA -command 가동 시간'을 제공하고 있는지 확인합니다
++
+업데이트 중에 작업 수가 0으로 재설정됩니다.
+
++
+다음 예에서는 업데이트된 노드가 NFS 및 iSCSI 클라이언트 서비스를 재개했음을 보여 줍니다.
+
++
+[listing]
+----
+cluster1::> system node run -node node0 -command uptime
+  3:15pm up  0 days, 0:16 129 NFS ops, 0 CIFS ops, 0 HTTP ops, 0 FCP ops, 2 iSCSI ops
+----
+. 이전에 'Storage failover modify -node nodenameB -auto-반환 true'를 비활성화한 경우 파트너 노드에서 자동 반환 기능을 다시 활성화합니다
+
+
+노드의 HA 파트너를 최대한 빨리 업데이트해야 합니다. 어떤 이유로든 업데이트 프로세스를 일시 중단해야 하는 경우 HA 쌍의 두 노드에서 동일한 ONTAP 버전을 실행해야 합니다.
+
+
+
+== HA 쌍에서 파트너 노드를 업데이트 중입니다
+
+HA 쌍의 첫 번째 노드를 업데이트한 후 이를 테이크오버로 시작하여 파트너를 업데이트합니다. 파트너 노드가 업그레이드되는 동안 첫 번째 노드에서 파트너의 데이터를 제공합니다.
+
+. "Set-Privilege advanced"라는 메시지가 나타나면 * y * 를 입력하여 권한 수준을 advanced로 설정합니다
++
+고급 프롬프트('*>')가 나타납니다.
+
+. 새 ONTAP 소프트웨어 이미지를 기본 이미지로 설정합니다. '시스템 이미지 수정{-node nodenameB-iscurrent false} - isdefault true'입니다
++
+system image modify 명령은 확장 쿼리를 사용하여 새 ONTAP 소프트웨어 이미지(대체 이미지로 설치됨)를 노드의 기본 이미지로 변경합니다.
+
+. 'system node upgrade-revert show'의 업데이트 진행 상황을 모니터링한다
+. 새 ONTAP 소프트웨어 이미지가 기본 이미지 '시스템 이미지 표시'로 설정되어 있는지 확인합니다
++
+다음 예에서 'image2'는 ONTAP의 새 버전이며 노드의 기본 이미지로 설정됩니다.
+
++
+[listing]
+----
+cluster1::*> system image show
+                 Is      Is                Install
+Node     Image   Default Current Version    Date
+-------- ------- ------- ------- --------- -------------------
+node0
+         image1  false   false   X.X.X     MM/DD/YYYY TIME
+         image2  true    true    Y.Y.Y     MM/DD/YYYY TIME
+node1
+         image1  false   true    X.X.X     MM/DD/YYYY TIME
+         image2  true    false   Y.Y.Y     MM/DD/YYYY TIME
+4 entries were displayed.
+----
+. 'Storage failover modify -node nodenameA -auto-반환 false'가 설정된 경우 파트너 노드에서 자동 반환 기능을 해제합니다
++
+클러스터가 2노드 클러스터인 경우 자동 반환이 비활성화되면 대체 장애 시나리오에서 관리 클러스터 서비스가 온라인 상태가 되지 않는다는 경고 메시지가 표시됩니다. 계속하려면 y를 입력하십시오.
+
+. 파트너 노드 'storage failover show-node nodenameA-fields auto-반환'에 대해 자동 반환이 비활성화되었는지 확인합니다
++
+[listing]
+----
+cluster1::> storage failover show -node node0 -fields auto-giveback
+node     auto-giveback
+-------- -------------
+node0    false
+1 entry was displayed.
+----
+. 다음 명령을 두 번 실행하여 업데이트할 노드가 현재 'system node run-node nodenameB -command upptime'을 제공하고 있는지 확인합니다
++
+Uptime 명령은 노드가 마지막으로 부팅된 이후 NFS, CIFS, FC 및 iSCSI 클라이언트에 대해 노드에서 수행한 총 작업 수를 표시합니다. 각 프로토콜에 대해 명령을 두 번 실행하여 작업 수가 증가하는지 여부를 확인해야 합니다. 노드가 증가하면 현재 해당 프로토콜에 대한 클라이언트를 제공하고 있는 것입니다. 증가되지 않는 경우 노드는 현재 해당 프로토콜에 대한 클라이언트를 제공하지 않습니다.
+
++
+* 참고 *: 클라이언트 작업이 증가하는 각 프로토콜을 기록해 두어야 노드가 업데이트된 후 클라이언트 트래픽이 재개되었는지 확인할 수 있습니다.
+
++
+다음 예에서는 NFS, CIFS, FC 및 iSCSI 작업이 있는 노드를 보여 줍니다. 하지만 노드는 현재 NFS 및 iSCSI 클라이언트만 제공하고 있습니다.
+
++
+[listing]
+----
+cluster1::> system node run -node node1 -command uptime
+  2:58pm up  7 days, 19:16 800000260 NFS ops, 1017333 CIFS ops, 0 HTTP ops, 40395 FCP ops, 32810 iSCSI ops
+
+cluster1::> system node run -node node1 -command uptime
+  2:58pm up  7 days, 19:17 800001573 NFS ops, 1017333 CIFS ops, 0 HTTP ops, 40395 FCP ops, 32815 iSCSI ops
+----
+. 노드 'network interface migrate-all-node nodenameB'에서 모든 데이터 LIF를 마이그레이션합니다
+. 마이그레이션한 LIF의 상태를 'network interface show'로 확인하십시오
++
+LIF 상태를 확인하는 데 사용할 수 있는 매개 변수에 대한 자세한 내용은 네트워크 인터페이스 show man 페이지를 참조하십시오.
+
++
+다음 예에서는 node1의 데이터 LIF가 성공적으로 마이그레이션되었음을 보여 줍니다. 이 예에 포함된 필드를 각 LIF의 홈 노드 및 포트, LIF가 마이그레이션된 현재 노드 및 포트, LIF의 운영 및 관리 상태를 확인할 수 있습니다.
+
++
+[listing]
+----
+cluster1::> network interface show -data-protocol nfs|cifs -role data -home-node node1 -fields home-node,curr-node,curr-port,home-port,status-admin,status-oper
+vserver lif     home-node home-port curr-node curr-port status-oper status-admin
+------- ------- --------- --------- --------- --------- ----------- ------------
+vs0     data001 node1     e0a       node0     e0a       up          up
+vs0     data002 node1     e0b       node0     e0b       up          up
+vs0     data003 node1     e0b       node0     e0b       up          up
+vs0     data004 node1     e0a       node0     e0a       up          up
+4 entries were displayed.
+----
+. 'Storage failover takeover -ofnode nodenameB -option allow-version-mismatch'라는 인수를 시작합니다
++
+즉시 실행 매개 변수를 지정하지 마십시오. 새 소프트웨어 이미지로 부팅하기 위해 테이크오버가 수행되는 노드에 일반 테이크오버가 필요합니다. LIF를 노드에서 수동으로 마이그레이션하지 않은 경우 서비스 중단이 발생하지 않도록 LIF가 노드의 HA 파트너로 자동으로 마이그레이션됩니다.
+
++
+페일오버된 노드가 반환 대기 상태로 부팅됩니다.
+
++
+* 참고 *: AutoSupport가 활성화된 경우 노드가 클러스터 쿼럼을 벗어났음을 나타내는 AutoSupport 메시지가 전송됩니다. 이 알림을 무시하고 업데이트를 진행할 수 있습니다.
+
+. 테이크오버가 성공했는지 확인: 스토리지 페일오버 표시
++
+다음 예제는 Takeover가 성공했음을 보여줍니다. 노드 1이 반환 대기 상태이며 해당 파트너가 Takeover 상태에 있습니다.
+
++
+[listing]
+----
+cluster1::> storage failover show
+                              Takeover
+Node           Partner        Possible State Description
+-------------- -------------- -------- -------------------------------------
+node0          node1          -        In takeover
+node1          node0          false    Waiting for giveback (HA mailboxes)
+2 entries were displayed.
+----
+. 다음 조건이 적용될 때까지 8분 이상 기다립니다.
++
+** 클라이언트 다중 경로(배포된 경우)가 안정화됩니다.
+** 테이크오버가 수행되는 동안 입출력이 일시 중지되어 클라이언트가 복구됩니다.
++
+복구 시간은 클라이언트에 따라 다르며 클라이언트 애플리케이션의 특성에 따라 8분 이상 걸릴 수 있습니다.
+
+
+
+. 애그리게이트를 파트너 노드 'Storage Failover 반환 - ofnode nodenameB'로 반환합니다
++
+반환 작업은 먼저 루트 애그리게이트를 파트너 노드로 반환한 다음, 해당 노드의 부팅을 완료한 후 루트가 아닌 애그리게이트와 자동으로 되돌리도록 설정된 LIF를 반환합니다. 새로 부팅된 노드는 Aggregate가 반환되는 즉시 각 Aggregate의 클라이언트에 데이터를 제공하기 시작합니다.
+
+. 모든 애그리게이트가 반환되었는지 확인:'Storage failover show-반환
++
+GiveStatus 필드에 반환할 애그리게이트가 없는 경우 모든 애그리게이트가 반환됩니다. Giveback이 거부되면 명령은 반환 진행률을 표시하고 어떤 서브시스템이 반환 작업을 거부하는지 표시합니다.
+
+. 애그리게이트가 반환되지 않는 경우 다음 단계를 수행하십시오.
++
+.. 거부권을 행사할 수 있는 대안을 검토하여 "받는 사람" 조건을 해결할지 또는 거부권을 무시할지 여부를 결정합니다.
++
+link:https://docs.netapp.com/us-en/ontap/high-availability/index.html["고가용성 구성"]
+
+.. 필요한 경우 오류 메시지에 설명된 "받는 사람" 조건을 해결하여 식별된 작업이 정상적으로 종료되도록 합니다.
+.. 스토리지 페일오버 반환 명령을 다시 실행합니다.
++
+만약 "to" 조건을 무시하기로 결정했다면 -override-vetoes 매개변수를 TRUE로 설정하십시오.
+
+
+
+. 다음 조건이 적용될 때까지 8분 이상 기다립니다.
++
+** 클라이언트 다중 경로(배포된 경우)가 안정화됩니다.
+** 클라이언트는 반환 중에 발생하는 I/O 작업의 일시 중지로부터 복구됩니다.
++
+복구 시간은 클라이언트에 따라 다르며 클라이언트 애플리케이션의 특성에 따라 8분 이상 걸릴 수 있습니다.
+
+
+
+. 노드에 대한 업데이트가 성공적으로 완료되었는지 확인합니다.
++
+.. 고급 특권인 다특권 고급으로 이동하세요
+.. 'system node upgrade-revert show-node nodenameB' 노드에 대한 업데이트 상태가 완료되었는지 확인합니다
++
+상태는 완료 로 표시되어야 합니다.
+
++
+상태가 완전하지 않은 경우 노드에서 system node upgrade-revert upgrade 명령을 실행합니다. 명령을 실행해도 업데이트가 완료되지 않으면 기술 지원 팀에 문의하십시오.
+
+.. admin 권한 수준으로 복귀:'et-Privilege admin'입니다
+
+
+. 노드의 포트가 작동 중인지 확인합니다. 'network port show-node nodenameB'
++
+ONTAP 9.4로 업그레이드된 노드에서 이 명령을 실행해야 합니다.
+
++
+다음 예제는 노드의 모든 데이터 포트가 작동 중인 것을 보여줍니다.
+
++
+[listing]
+----
+cluster1::> network port show -node node1
+                                                             Speed (Mbps)
+Node   Port      IPspace      Broadcast Domain Link   MTU    Admin/Oper
+------ --------- ------------ ---------------- ----- ------- ------------
+node1
+       e0M       Default      -                up       1500  auto/100
+       e0a       Default      -                up       1500  auto/1000
+       e0b       Default      -                up       1500  auto/1000
+       e1a       Cluster      Cluster          up       9000  auto/10000
+       e1b       Cluster      Cluster          up       9000  auto/10000
+5 entries were displayed.
+----
+. LIF를 노드 '네트워크 인터페이스 되돌리기 *'로 되돌립니다
++
+이 명령을 실행하면 노드에서 마이그레이션된 LIF가 반환됩니다.
+
++
+[listing]
+----
+cluster1::> network interface revert *
+8 entries were acted on.
+----
+. 노드의 데이터 LIF가 노드로 성공적으로 되돌려지고 'network interface show' 상태인지 확인합니다
++
+다음 예에서는 노드에서 호스팅하는 모든 데이터 LIF가 노드로 다시 되돌려지고 해당 운영 상태가 Up이면 다음을 수행합니다.
+
++
+[listing]
+----
+cluster1::> network interface show
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+vs0
+            data001      up/up    192.0.2.120/24     node1         e0a     true
+            data002      up/up    192.0.2.121/24     node1         e0b     true
+            data003      up/up    192.0.2.122/24     node1         e0b     true
+            data004      up/up    192.0.2.123/24     node1         e0a     true
+4 entries were displayed.
+----
+. 이전에 이 노드가 클라이언트에 서비스를 제공하기로 결정한 경우 해당 노드가 이전에 서비스했던 각 프로토콜에 대해 'system node run-node nodenameB -command 가동 시간'을 제공하고 있는지 확인합니다
++
+업데이트 중에 작업 수가 0으로 재설정됩니다.
+
++
+다음 예에서는 업데이트된 노드가 NFS 및 iSCSI 클라이언트 서비스를 재개했음을 보여 줍니다.
+
++
+[listing]
+----
+cluster1::> system node run -node node1 -command uptime
+  3:15pm up  0 days, 0:16 129 NFS ops, 0 CIFS ops, 0 HTTP ops, 0 FCP ops, 2 iSCSI ops
+----
+. 이 노드가 업데이트할 클러스터의 마지막 노드인 경우 AutoSupport 알림을 트리거합니다. 'AutoSupport invoke-node * -type all-message "finishing_ndu
++
+이 AutoSupport 알림에는 업데이트 직전에 시스템 상태에 대한 기록이 포함됩니다. 업데이트 프로세스에 문제가 있는 경우 유용한 문제 해결 정보를 저장합니다.
+
++
+클러스터가 AutoSupport 메시지를 전송하도록 구성되지 않은 경우 알림 복사본이 로컬에 저장됩니다.
+
+. 새 ONTAP 소프트웨어가 HA 쌍의 두 노드에서 실행되고 있는지 확인합니다. 'system node image show'
++
+다음 예제에서 image2는 ONTAP의 업데이트된 버전이며 두 노드의 기본 버전입니다.
+
++
+[listing]
+----
+cluster1::*> system node image show
+                 Is      Is                Install
+Node     Image   Default Current Version    Date
+-------- ------- ------- ------- --------- -------------------
+node0
+         image1  false   false   X.X.X     MM/DD/YYYY TIME
+         image2  true    true    Y.Y.Y     MM/DD/YYYY TIME
+node1
+         image1  false   false   X.X.X     MM/DD/YYYY TIME
+         image2  true    true    Y.Y.Y     MM/DD/YYYY TIME
+4 entries were displayed.
+----
+. 이전에 'Storage failover modify -node nodenameA -auto-반환 true'를 비활성화한 경우 파트너 노드에서 자동 반환 기능을 다시 활성화합니다
+. 클러스터 show 및 클러스터 링 show(고급 권한 수준) 명령을 사용하여 클러스터가 쿼럼에 있고 서비스가 실행 중인지 확인합니다.
++
+추가 HA 쌍을 업그레이드하기 전에 이 단계를 수행해야 합니다.
+
+. admin 권한 수준으로 복귀:'et-Privilege admin'입니다
+
+
+추가 HA 쌍을 업그레이드합니다.

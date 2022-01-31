@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/restore-file-file-name-failed-reference.html 
+sidebar: sidebar 
+keywords: restore, file, name, failed, dar, fail, lun, direct, access, recovery 
+summary: '대상 볼륨에 있는 LUN의 파일 이름과 동일한 파일 이름의 DAR(Direct Access Recovery)이 수행된 경우 DAR가 실패합니다.' 
+---
+= file name> 파일을 복원하지 못했습니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+파일 이름을 복원하지 못했습니다
+
+* * 원인 *
++
+대상 볼륨에 있는 LUN의 파일 이름과 동일한 파일 이름의 DAR(Direct Access Recovery)이 수행된 경우 DAR가 실패합니다.
+
+* * 시정 조치 *
++
+파일의 DAR를 다시 시도하십시오.
+
+

@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: networking/display_ipspaces.html 
+keywords: display, view, show, ipspace, display ipspaces, list the ipspaces and view ipspace information for the cluster 
+summary: IPspace를 나열하고 클러스터에 대한 IPspace 정보를 표시합니다 
+---
+= IPspace를 표시합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+클러스터에 존재하는 IPspace 목록을 표시할 수 있으며 SVM(스토리지 가상 머신), 브로드캐스트 도메인 및 각 IPspace에 할당된 포트를 볼 수 있습니다.
+
+클러스터에서 IPspace 및 SVM 표시:
+
+....
+network ipspace show [-ipspace ipspace_name]
+....
+다음 명령을 실행하면 클러스터에서 모든 IPspace, SVM 및 브로드캐스트 도메인이 표시됩니다.
+
+....
+network ipspace show
+IPspace        Vserver List             Broadcast Domains
+-------------  -----------------------  -------------------
+Cluster
+               Cluster                  Cluster
+Default
+               vs1, cluster-1            Default
+ipspace1
+               vs3, vs4, ipspace1       bcast1
+....
+다음 명령을 실행하면 IPspace 1의 일부인 노드 및 포트가 표시됩니다.
+
+....
+network ipspace show -ipspace ipspace1
+IPspace name: ipspace1
+Ports: cluster-1-01:e0c, cluster-1-01:e0d, cluster-1-01:e0e, cluster-1-02:e0c, cluster-1-02:e0d, cluster-1-02:e0e
+Broadcast Domains: Default-1
+Vservers: vs3, vs4, ipspace1
+....

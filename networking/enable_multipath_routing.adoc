@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: networking/enable_multipath_routing.html 
+keywords: enable, enabling, multipath, route, routing, performance, enable multipath routing, enable multipath routing to load balance and utilize all the available routes 
+summary: 다중 경로 라우팅을 활성화하여 로드 밸런싱을 수행하고 사용 가능한 모든 경로를 활용합니다 
+---
+= 다중 경로 라우팅 활성화
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+여러 루트가 목적지에 대해 동일한 메트릭을 가지고 있는 경우, 나가는 트래픽에 대해 하나의 라우트만 선택됩니다. 이로 인해 다른 경로가 나가는 트래픽을 보내는 데 사용되지 않습니다. 다중 경로 라우팅을 활성화하여 로드 밸런싱을 수행하고 사용 가능한 모든 경로를 활용할 수 있습니다.
+
+.단계
+. 고급 권한 레벨에 로그인합니다.
++
+세트 프리빌리지 고급
+
+. 다중 경로 라우팅 활성화:
++
+'네트워크 옵션 다중 경로 라우팅 수정 - 활성화 true'
+
++
+클러스터의 모든 노드에 대해 다중 경로 라우팅이 활성화됩니다.
+
+
+
+....
+network options multipath-routing modify -is-enabled true
+....

@@ -1,0 +1,61 @@
+---
+permalink: smb-admin/set-server-minimum-authentication-security-level-task.html 
+sidebar: sidebar 
+keywords: cifs, server, minimum, security, level, lmcompatibilitylevel, smb, token, set the cifs server minimum authentication security level 
+summary: SMB 액세스에 대한 비즈니스 보안 요구 사항을 충족하도록 SMB 서버에서 LMCompatibilityLevel이라고 하는 SMB 서버 최소 보안 수준을 설정할 수 있습니다. 최소 보안 수준은 SMB 서버가 SMB 클라이언트에서 허용하는 최소 보안 토큰입니다. 
+---
+= SMB 서버 최소 인증 보안 수준을 설정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMB 클라이언트 액세스에 대한 비즈니스 보안 요구 사항을 충족하도록 SMB 서버에서 _LMCompatibilityLevel_이라고도 하는 SMB 서버 최소 보안 수준을 설정할 수 있습니다. 최소 보안 수준은 SMB 서버가 SMB 클라이언트에서 허용하는 최소 보안 토큰입니다.
+
+[NOTE]
+.이 작업에 대해
+====
+* 워크그룹 모드의 SMB 서버는 NTLM 인증만 지원합니다. Kerberos 인증은 지원되지 않습니다.
+* LMCompatibilityLevel 관리자 인증이 아닌 SMB 클라이언트 인증에만 적용됩니다.
+
+
+====
+최소 인증 보안 수준을 지원되는 네 가지 보안 수준 중 하나로 설정할 수 있습니다.
+
+|===
+| 값 | 설명 
+
+
+ a| 
+lm-NTLM-NTLMv2-KRB(기본값)
+ a| 
+SVM(스토리지 가상 시스템)은 LM, NTLM, NTLMv2 및 Kerberos 인증 보안을 수락합니다.
+
+
+
+ a| 
+NTLM-NTLMv2-KRB
+ a| 
+SVM은 NTLM, NTLMv2 및 Kerberos 인증 보안을 수락합니다. SVM은 LM 인증을 거부합니다.
+
+
+
+ a| 
+NTLMv2-KRB
+ a| 
+SVM은 NTLMv2 및 Kerberos 인증 보안을 수락합니다. SVM은 LM 및 NTLM 인증을 거부합니다.
+
+
+
+ a| 
+KRB
+ a| 
+SVM은 Kerberos 인증 보안만 수락합니다. SVM은 LM, NTLM 및 NTLMv2 인증을 거부합니다.
+
+|===
+.단계
+. 최소 인증 보안 수준을 설정합니다. 'vserver cifs security modify -vserver_vserver_name_-lm -compatibility-level{lm-NTLM-NTLMv2-KRB | NTLM-NTLMv2-KRB | NTLMv2-KRB | KRB | KRB}'
+. 인증 보안 수준이 원하는 수준('vserver cifs security show -vserver_vserver_name_')으로 설정되어 있는지 확인합니다
+
+
+xref:enable-disable-aes-encryption-kerberos-task.adoc[Kerberos 기반 통신을 위한 AES 암호화 활성화 또는 비활성화]

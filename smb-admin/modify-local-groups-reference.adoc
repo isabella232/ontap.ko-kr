@@ -1,0 +1,43 @@
+---
+permalink: smb-admin/modify-local-groups-reference.html 
+sidebar: sidebar 
+keywords: modify, exist, local, group, description, exist, local, group, renaming, rename, modify local groups 
+summary: 기존 로컬 그룹에 대한 설명을 변경하거나 그룹의 이름을 변경하여 기존 로컬 그룹을 수정할 수 있습니다. 
+---
+= 로컬 그룹을 수정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+기존 로컬 그룹에 대한 설명을 변경하거나 그룹의 이름을 변경하여 기존 로컬 그룹을 수정할 수 있습니다.
+
+|===
+| 원하는 작업 | 명령 사용... 
+
+
+ a| 
+로컬 그룹 설명을 수정합니다
+ a| 
+'vserver cifs users-and-groups local-group modify -vserver_vserver_name_-group-name_group_name_-description text' 설명에 공백이 포함되어 있으면 큰따옴표로 묶어야 합니다.
+
+
+
+ a| 
+로컬 그룹의 이름을 바꿉니다
+ a| 
+'vserver cifs users-and-groups local-group rename - vserver_vserver_name_-group-name_group_name_-new-group-name_new_group_name_'
+
+|===
+다음 예에서는 로컬 그룹 ""cifs_server\engineering""의 이름을 ""cifs_server\engineering_new""로 바꿉니다.
+
+[listing]
+----
+cluster1::> vserver cifs users-and-groups local-group rename -vserver vs1 -group-name CIFS_SERVER\engineering -new-group-name CIFS_SERVER\engineering_new
+----
+다음 예에서는 로컬 그룹 ""cifs_server\engineering""의 설명을 수정합니다.
+
+[listing]
+----
+cluster1::> vserver cifs users-and-groups local-group modify -vserver vs1 -group-name CIFS_SERVER\engineering -description "New Description"
+----

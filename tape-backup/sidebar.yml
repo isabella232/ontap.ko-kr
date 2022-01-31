@@ -1,0 +1,360 @@
+---
+section: tape-backup
+title: 테이프 백업을 사용한 데이터 보호
+entries:
+- title: 테이프 백업 개요
+  url: "/tape-backup/index.html"
+- title: 테이프 백업 및 복원 워크플로우
+  url: "/tape-backup/workflow-task.html"
+- title: 테이프 백업 엔진을 선택하는 사용 사례
+  url: "/tape-backup/use-cases-choosing-tape-backup-method-concept.html"
+- title: 테이프 드라이브 관리
+  entries:
+  - title: 개요
+    url: "/tape-backup/tape-drive-management-concept.html"
+  - title: 테이프 드라이브, 미디어 체인저 및 테이프 드라이브 작업을 관리하는 명령입니다
+    url: "/tape-backup/commands-manage-drives-media-changers-reference.html"
+  - title: 검증되지 않은 테이프 드라이브를 사용합니다
+    url: "/tape-backup/nonqualified-tape-drives-task.html"
+  - title: 테이프 별칭을 할당합니다
+    url: "/tape-backup/assign-tape-aliases-task.html"
+  - title: 테이프 별칭을 제거합니다
+    url: "/tape-backup/remove-tape-aliases-task.html"
+  - title: 테이프 예약을 설정하거나 해제합니다
+    url: "/tape-backup/enable-reservations-task.html"
+  - title: 테이프 라이브러리 연결을 확인하는 명령입니다
+    url: "/tape-backup/commands-verify-library-connections-reference.html"
+- title: 테이프 드라이브 정보
+  entries:
+  - title: 검증된 테이프 드라이브 개요
+    url: "/tape-backup/qualified-tape-drives-concept.html"
+  - title: 테이프 구성 파일의 형식입니다
+    url: "/tape-backup/format-tape-config-file-concept.html"
+  - title: 스토리지 시스템이 새 테이프 드라이브를 동적으로 자격을 부여하는 방법
+    url: "/tape-backup/qualify-new-drive-dynamically-concept.html"
+  - title: 테이프 장치 개요
+    entries:
+    - title: 개요
+      url: "/tape-backup/tape-devices-concept.html"
+    - title: 테이프 디바이스 이름 형식입니다
+      url: "/tape-backup/tape-device-name-format-concept.html"
+    - title: 지원되는 동시 테이프 디바이스 수입니다
+      url: "/tape-backup/supported-number-simultaneous-tape-devices-concept.html"
+  - title: 테이프 에일리어싱
+    entries:
+    - title: 개요
+      url: "/tape-backup/assign-tape-aliases-concept.html"
+    - title: 물리적 경로 이름이 무엇입니까
+      url: "/tape-backup/physical-path-names-concept.html"
+    - title: 일련 번호는 무엇입니까
+      url: "/tape-backup/serial-numbers-concept.html"
+  - title: 다중 경로 테이프 액세스를 구성할 때 고려해야 할 사항입니다
+    url: "/tape-backup/configure-multipath-access-concept.html"
+  - title: 스토리지 시스템에 테이프 드라이브 및 라이브러리를 추가하는 방법
+    url: "/tape-backup/add-drives-libraries-concept.html"
+  - title: 테이프 예약이란
+    url: "/tape-backup/tape-reservations-concept.html"
+- title: ndmpcopy를 사용하여 데이터를 전송합니다
+  entries:
+  - title: 개요
+    url: "/tape-backup/transfer-data-ndmpcopy-task.html"
+  - title: ndmpcopy 명령에 대한 옵션입니다
+    url: "/tape-backup/options-ndmpcopy-command-reference.html"
+- title: FlexVol 볼륨용 NDMP
+  entries:
+  - title: FlexVol 볼륨용 NDMP 정보
+    url: "/tape-backup/ndmp-management-concept.html"
+  - title: NDMP 작업 모드에 대해 설명합니다
+    url: "/tape-backup/ndmp-modes-concept.html"
+    entries:
+    - title: 노드 범위의 NDMP 모드는 무엇입니까
+      url: "/tape-backup/node-scoped-ndmp-mode-concept.html"
+    - title: SVM 범위의 NDMP 모드는 무엇입니까
+      url: "/tape-backup/svm-scoped-ndmp-mode-concept.html"
+  - title: NDMP를 사용할 때의 고려 사항
+    url: "/tape-backup/ndmp-concept.html"
+  - title: 환경 변수
+    entries:
+    - title: 개요
+      url: "/tape-backup/environment-variables-concept.html"
+    - title: ONTAP에서 지원하는 환경 변수입니다
+      url: "/tape-backup/environment-variables-supported-concept.html"
+  - title: 일반적인 NDMP 테이프 백업 토폴로지
+    url: "/tape-backup/common-ndmp-topologies-reference.html"
+  - title: 지원되는 NDMP 인증 방법입니다
+    url: "/tape-backup/supported-ndmp-authentication-methods-concept.html"
+  - title: ONTAP에서 지원되는 NDMP 확장
+    url: "/tape-backup/ndmp-extensions-supported-reference.html"
+  - title: ONTAP에서 지원하는 덤프에 대한 NDMP 재시작 가능한 백업 확장
+    url: "/tape-backup/ndmp-restartable-backup-extension-dump-ontap-reference.html"
+  - title: 향상된 DAR 기능은 무엇입니까
+    url: "/tape-backup/enhanced-dar-functionality-concept.html"
+  - title: NDMP 세션의 확장성 제한
+    url: "/tape-backup/scalability-limits-ndmp-sessions-reference.html"
+- title: FlexGroup 볼륨용 NDMP 정보
+  url: "/tape-backup/ndmp-management-flexgroup-concept.html"
+- title: SnapLock 볼륨이 있는 NDMP 정보
+  url: "/tape-backup/ndmp-snaplock-volumes-concept.html"
+- title: FlexVol 볼륨에 대한 노드 범위 NDMP 모드를 관리합니다
+  entries:
+  - title: 개요
+    url: "/tape-backup/manage-node-scoped-ndmp-mode-concept.html"
+  - title: 노드 범위의 NDMP 모드를 관리하는 명령입니다
+    url: "/tape-backup/commands-manage-node-scoped-ndmp-reference.html"
+  - title: 노드 범위 NDMP 모드의 사용자 인증
+    url: "/tape-backup/user-authentication-node-scoped-ndmp-mode-concept.html"
+- title: FlexVol 볼륨에 대한 SVM 범위의 NDMP 모드를 관리합니다
+  entries:
+  - title: 개요
+    url: "/tape-backup/manage-svm-scoped-ndmp-mode-concept.html"
+  - title: SVM 범위의 NDMP 모드를 관리하는 명령입니다
+    url: "/tape-backup/commands-manage-svm-scoped-ndmp-reference.html"
+  - title: Cluster Aware Backup 확장의 기능
+    url: "/tape-backup/cluster-aware-backup-extension-concept.html"
+  - title: 다양한 LIF 유형에서 백업 및 복원을 위해 볼륨 및 테이프 장치를 사용할 수 있습니다
+    url: "/tape-backup/availability-volumes-tapes-backup-restore-lif-reference.html"
+  - title: 선호도 정보의 정의
+    url: "/tape-backup/affinity-concept.html"
+  - title: NDMP 서버는 SVM 범위 모드에서 보안 제어 연결을 지원합니다
+    url: "/tape-backup/ndmp-server-secure-control-svm-scoped-mode-concept.html"
+  - title: NDMP 데이터 연결 유형입니다
+    url: "/tape-backup/ndmp-data-connection-types-reference.html"
+  - title: SVM 범위의 NDMP 모드에서 사용자 인증
+    url: "/tape-backup/user-authentication-svm-scoped-ndmp-mode-concept.html"
+  - title: NDMP 사용자에 대한 NDMP 관련 암호를 생성합니다
+    url: "/tape-backup/generate-ndmp-password-users-task.html"
+  - title: MetroCluster 구성에서 재해 복구 중에 테이프 백업 및 복원 작업이 영향을 받는 방식
+    url: "/tape-backup/restore-operations-svm-disaster-recovery-concept.html"
+- title: FlexVol 볼륨의 덤프 엔진 정보
+  entries:
+  - title: 정보
+    url: "/tape-backup/data-backup-dump-concept.html"
+  - title: 덤프 백업의 작동 방식
+    url: "/tape-backup/dump-backup-concept.html"
+  - title: 덤프 엔진이 백업하는 데이터 유형입니다
+    url: "/tape-backup/types-data-dump-engine-backs-up-concept.html"
+  - title: 체인 증분이 무엇입니까
+    url: "/tape-backup/increment-chains-concept.html"
+  - title: 차단 요소는 무엇입니까
+    url: "/tape-backup/blocking-factor-concept.html"
+  - title: 덤프 백업을 다시 시작해야 하는 경우
+    url: "/tape-backup/restart-dump-backup-concept.html"
+  - title: 덤프 복구의 작동 방식
+    url: "/tape-backup/dump-restore-concept.html"
+  - title: 덤프 엔진이 복원하는 데이터의 유형입니다
+    url: "/tape-backup/types-data-dump-engine-restores-concept.html"
+  - title: 데이터를 복원하기 전에 고려해야 할 사항
+    url: "/tape-backup/before-restoring-data-concept.html"
+  - title: 덤프 백업 및 복원 세션에 대한 확장성 제한
+    url: "/tape-backup/scalability-limits-dump-backup-restore-sessions-concept.html"
+  - title: 7-Mode에서 작동하는 Data ONTAP와 ONTAP 간의 테이프 백업 및 복원 지원
+    url: "/tape-backup/restore-7-mode-clustered-ontap-concept.html"
+  - title: 재시작 가능한 컨텍스트를 삭제합니다
+    url: "/tape-backup/delete-restartable-contexts-task.html"
+  - title: SnapVault 보조 볼륨에서 덤프가 작동하는 방식
+    url: "/tape-backup/dump-backs-up-data-snapvault-secondary-volume-concept.html"
+  - title: 스토리지 페일오버 및 ARL 작업과 덤프 작동 방식
+    url: "/tape-backup/dump-storage-failover-arl-operations-concept.html"
+  - title: 볼륨 이동 시 덤프가 작동하는 방식
+    url: "/tape-backup/dump-volume-move-concept.html"
+  - title: FlexVol 볼륨이 꽉 찼을 때 덤프가 작동하는 방식
+    url: "/tape-backup/dump-when-flexvol-volume-is-full-concept.html"
+  - title: 볼륨 액세스 유형이 변경될 때 덤프가 작동하는 방식
+    url: "/tape-backup/dump-volume-access-type-changes-concept.html"
+  - title: SnapMirror 단일 파일 또는 LUN 복원에서 덤프가 작동하는 방식
+    url: "/tape-backup/dump-snapmirror-single-file-lun-restore-concept.html"
+  - title: MetroCluster 구성에서 덤프 백업 및 복원 작업이 영향을 받는 방법
+    url: "/tape-backup/dump-backup-restore-operations-mcc-config-concept.html"
+- title: FlexVol 볼륨용 SMTape 엔진 정보
+  entries:
+  - title: 정보
+    url: "/tape-backup/smtape-engine-concept.html"
+  - title: SMTape 백업 중에 스냅샷 복사본을 사용합니다
+    url: "/tape-backup/snapshot-copies-during-smtape-backup-concept.html"
+  - title: SMTape 기능
+    url: "/tape-backup/smtape-capabilities-concept.html"
+  - title: SMTape에서 지원되지 않는 기능입니다
+    url: "/tape-backup/features-not-supported-smtape-concept.html"
+  - title: SMTape 백업 및 복구 세션에 대한 확장성 제한
+    url: "/tape-backup/scalability-limits-smtape-sessions-reference.html"
+  - title: 테이프 시딩이란 무엇입니까
+    url: "/tape-backup/tape-seeding-concept.html"
+  - title: SMTape가 스토리지 페일오버 및 ARL 작업과 작동하는 방식
+    url: "/tape-backup/smtape-storage-failover-arl-concept.html"
+  - title: SMTape가 볼륨 이동 시 작동하는 방식
+    url: "/tape-backup/smtape-volume-move-concept.html"
+  - title: SMTape가 볼륨 재호스트 작업과 작동하는 방식
+    url: "/tape-backup/smtape-volume-rehost-concept.html"
+  - title: ADB 동안 NDMP 백업 정책이 영향을 받는 방식
+    url: "/tape-backup/ndmp-backup-policy-affected-adb-concept.html"
+  - title: MetroCluster 구성에서 SMTape 백업 및 복원 작업이 영향을 받는 방식
+    url: "/tape-backup/smtape-backup-restore-operations-mcc-config-concept.html"
+- title: FlexVol 볼륨에 대한 테이프 백업 및 복원 작업을 모니터링합니다
+  entries:
+  - title: 개요
+    url: "/tape-backup/event-logging-concept.html"
+  - title: 이벤트 로그 파일에 액세스합니다
+    url: "/tape-backup/access-event-log-files-backup-restore-operations-task.html"
+  - title: 덤프 및 복원 이벤트 로그 메시지 형식은 무엇입니까
+    entries:
+    - title: 개요
+      url: "/tape-backup/dump-restore-event-log-message-format-concept.html"
+    - title: 이벤트 기록
+      url: "/tape-backup/logging-events-concept.html"
+    - title: 덤프 이벤트란 무엇입니까
+      url: "/tape-backup/dump-events-concept.html"
+    - title: 복구 이벤트란 무엇입니까
+      url: "/tape-backup/restore-events-concept.html"
+  - title: 이벤트 로깅을 설정하거나 해제합니다
+    url: "/tape-backup/enable-disable-event-logging-task.html"
+- title: FlexVol 볼륨의 테이프 백업 및 복원에 대한 오류 메시지입니다
+  entries:
+  - title: 백업 및 복원 오류 메시지
+    entries:
+    - title: '리소스 제한: 사용 가능한 스레드가 없습니다'
+      url: "/tape-backup/resource-limitation-no-available-thread-reference.html"
+    - title: 테이프 예약이 사전 비어 있습니다
+      url: "/tape-backup/tape-reservation-preempted-reference.html"
+    - title: 미디어를 초기화할 수 없습니다
+      url: "/tape-backup/could-not-initialize-media-reference.html"
+    - title: 진행 중인 최대 허용 덤프 또는 복원 수(최대 세션 제한)
+      url: "/tape-backup/maximum-allowed-dumps-restores-progress-reference.html"
+    - title: 테이프 쓰기의 미디어 오류입니다
+      url: "/tape-backup/media-error-on-tape-write-reference.html"
+    - title: 테이프 쓰기에 실패했습니다
+      url: "/tape-backup/tape-write-failed-reference.html"
+    - title: 테이프 쓰기 실패 - 새 테이프에 미디어 오류가 발생했습니다
+      url: "/tape-backup/tape-write-failed-media-error-reference.html"
+    - title: 테이프 쓰기 실패 - 새 테이프가 파손되었거나 쓰기 보호되어 있습니다
+      url: "/tape-backup/tape-write-failed-broken-write-protected-reference.html"
+    - title: 테이프 쓰기 실패 - 새 테이프가 이미 미디어 끝에 있습니다
+      url: "/tape-backup/tape-write-failed-already-at-end-media-reference.html"
+    - title: 테이프 쓰기 오류입니다
+      url: "/tape-backup/tape-write-error-reference.html"
+    - title: 테이프 읽기에서 미디어 오류가 발생했습니다
+      url: "/tape-backup/media-error-on-tape-read-reference.html"
+    - title: 테이프 읽기 오류입니다
+      url: "/tape-backup/tape-read-error-reference.html"
+    - title: 이미 테이프 끝에 있습니다
+      url: "/tape-backup/already-at-end-reference.html"
+    - title: 테이프 레코드 크기가 너무 작습니다. 더 큰 크기로 시도하십시오.
+      url: "/tape-backup/record-size-is-too-small-try-larger-size-reference.html"
+    - title: 테이프 레코드 크기는 block_size1이 아니라 block_size2여야 합니다
+      url: "/tape-backup/tape-record-size-should-be-block-size-reference.html"
+    - title: 테이프 레코드 크기는 4KB에서 256KB 사이여야 합니다
+      url: "/tape-backup/tape-record-size-must-be-range-reference.html"
+  - title: NDMP 오류 메시지입니다
+    entries:
+    - title: 네트워크 통신 오류입니다
+      url: "/tape-backup/network-communication-error-reference.html"
+    - title: 'Read Socket 의 메시지: error_string'
+      url: "/tape-backup/message-read-socket-reference.html"
+    - title: 'Write Dirnet의 메시지: error_string'
+      url: "/tape-backup/message-write-dirnet-error-string-reference.html"
+    - title: 소켓 수신 EOF를 판독합니다
+      url: "/tape-backup/read-socket-received-eof-reference.html"
+    - title: 'ndmpd 잘못된 버전 번호: version_number '''
+      url: "/tape-backup/ndmpd-invalid-version-number-version-reference.html"
+    - title: ndmpd 세션 session_ID가 활성 상태가 아닙니다
+      url: "/tape-backup/ndmpd-session-session-id-not-active-reference.html"
+    - title: volume volume_name에 대한 vol ref를 가져올 수 없습니다
+      url: "/tape-backup/could-not-obtain-vol-ref-reference.html"
+    - title: '["IPv6"|"IPv4"] 제어 연결에서는 데이터 연결 유형 ["NDMP4_ADDR_TCP_IPv6"] 이(가) 지원되지
+        않습니다'
+      url: "/tape-backup/data-connection-type-not-supported-reference.html"
+    - title: '데이터 수신: CAB 데이터 연결 준비 전제 조건 오류'
+      url: "/tape-backup/data-listen-cab-prepare-precondition-error-reference.html"
+    - title: 데이터 연결:CAB 데이터 연결 준비 전제 조건 오류
+      url: "/tape-backup/data-connect-cab-prepare-precondition-error-reference.html"
+    - title: '오류: 표시 실패: 사용자 ''사용자 이름''에 대한 암호를 가져올 수 없습니다.'
+      url: "/tape-backup/error-show-failed-cannot-get-password-reference.html"
+  - title: 덤프 오류 메시지
+    entries:
+    - title: 대상 볼륨이 읽기 전용입니다
+      url: "/tape-backup/destination-volume-read-only-reference.html"
+    - title: 타겟 qtree는 읽기 전용입니다
+      url: "/tape-backup/destination-qtree-read-only-reference.html"
+    - title: 볼륨에 대해 일시적으로 비활성화된 덤프를 다시 시도하십시오
+      url: "/tape-backup/dumps-temporarily-disabled-volume-reference.html"
+    - title: NFS 레이블을 인식할 수 없습니다
+      url: "/tape-backup/nfs-labels-not-recognized-reference.html"
+    - title: 파일이 생성되지 않았습니다
+      url: "/tape-backup/no-files-were-created-reference.html"
+    - title: 파일 이름을 복원하지 못했습니다
+      url: "/tape-backup/restore-file-file-name-failed-reference.html"
+    - title: src inode inode 번호
+      url: "/tape-backup/truncation-failed-src-inode-inode-number-reference.html"
+    - title: 덤프에 필요한 스냅샷을 잠글 수 없습니다
+      url: "/tape-backup/unable-lock-snapshot-needed-dump-reference.html"
+    - title: 비트맵 파일을 찾을 수 없습니다
+      url: "/tape-backup/unable-to-locate-bitmap-files-reference.html"
+    - title: 볼륨이 일시적으로 전환 상태입니다
+      url: "/tape-backup/volume-itemporarily-transitional-state-reference.html"
+  - title: SMTape 오류 메시지입니다
+    entries:
+    - title: 청크가 순서가 아닙니다
+      url: "/tape-backup/chunks-out-order-reference.html"
+    - title: 청크 형식이 지원되지 않습니다
+      url: "/tape-backup/chunk-format-not-supported-reference.html"
+    - title: 메모리를 할당하지 못했습니다
+      url: "/tape-backup/failed-to-allocate-memory-reference.html"
+    - title: 데이터 버퍼를 가져오지 못했습니다
+      url: "/tape-backup/failed-to-get-data-buffer-reference.html"
+    - title: 스냅샷을 찾지 못했습니다
+      url: "/tape-backup/failed-to-find-snapshot-reference.html"
+    - title: 스냅샷을 생성하지 못했습니다
+      url: "/tape-backup/failed-to-create-snapshot-reference.html"
+    - title: 스냅샷을 잠그지 못했습니다
+      url: "/tape-backup/failed-to-lock-snapshot-reference.html"
+    - title: 스냅샷을 삭제하지 못했습니다
+      url: "/tape-backup/failed-to-delete-snapshot-reference.html"
+    - title: 최신 스냅샷을 가져오지 못했습니다
+      url: "/tape-backup/failed-to-get-latest-snapshot-reference.html"
+    - title: 새 테이프를 로드하지 못했습니다
+      url: "/tape-backup/failed-to-load-new-tape-reference.html"
+    - title: 테이프를 초기화하지 못했습니다
+      url: "/tape-backup/failed-to-initialize-tape-reference.html"
+    - title: 복원 스트림을 초기화하지 못했습니다
+      url: "/tape-backup/failed-to-initialize-restore-stream-reference.html"
+    - title: 백업 이미지를 읽지 못했습니다
+      url: "/tape-backup/failed-to-read-backup-image-reference.html"
+    - title: 이미지 헤더가 없거나 손상되었습니다
+      url: "/tape-backup/image-header-missing-corrupted-reference.html"
+    - title: 내부 어설션
+      url: "/tape-backup/internal-assertion-reference.html"
+    - title: 백업 이미지 매직 번호가 잘못되었습니다
+      url: "/tape-backup/invalid-backup-image-magic-number-reference.html"
+    - title: 백업 이미지 체크섬이 잘못되었습니다
+      url: "/tape-backup/invalid-backup-image-checksum-reference.html"
+    - title: 입력 테이프가 잘못되었습니다
+      url: "/tape-backup/invalid-input-tape-reference.html"
+    - title: 볼륨 경로가 잘못되었습니다
+      url: "/tape-backup/invalid-volume-path-reference.html"
+    - title: 백업 세트 ID가 일치하지 않습니다
+      url: "/tape-backup/mismatch-backup-set-id-reference.html"
+    - title: 백업 타임 스탬프가 일치하지 않습니다
+      url: "/tape-backup/mismatch-backup-time-stamp-reference.html"
+    - title: 종료로 인해 작업이 중단되었습니다
+      url: "/tape-backup/job-aborted-due-to-shutdown-reference.html"
+    - title: 스냅샷 자동 삭제로 인해 작업이 중단되었습니다
+      url: "/tape-backup/job-aborted-due-to-snapshot-autodelete-reference.html"
+    - title: 현재 다른 작업에서 테이프를 사용하고 있습니다
+      url: "/tape-backup/tape-currently-in-use-by-other-operations-reference.html"
+    - title: 테이프 순서가 없습니다
+      url: "/tape-backup/tapes-out-order-reference.html"
+    - title: 전송 실패(MetroCluster 작업으로 인해 중단됨)
+      url: "/tape-backup/transfer-failed-aborted-mcc-operation-reference.html"
+    - title: 전송 실패(ARL 시작 중단)
+      url: "/tape-backup/transfer-failed-arl-initiated-abort-reference.html"
+    - title: 전송 실패(CFO가 중단을 초기화함)
+      url: "/tape-backup/transfer-failed-cfo-initiated-abort-reference.html"
+    - title: 전송 실패(SFO 시작 중단)
+      url: "/tape-backup/transfer-failed-sfo-initiated-abort-reference.html"
+    - title: 마이그레이션 중인 기본 애그리게이트
+      url: "/tape-backup/underlying-aggregate-under-migration-reference.html"
+    - title: 볼륨이 현재 마이그레이션 중입니다
+      url: "/tape-backup/volume-currently-under-migration-reference.html"
+    - title: 볼륨이 오프라인 상태입니다
+      url: "/tape-backup/volume-offline-reference.html"
+    - title: 볼륨이 제한되지 않았습니다
+      url: "/tape-backup/volume-not-restricted-reference.html"

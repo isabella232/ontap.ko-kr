@@ -1,0 +1,26 @@
+---
+permalink: ndmp/index.html 
+sidebar: sidebar 
+keywords: decide, ndmp, configuration, network, data, management, protocol, backup, back up 
+summary: '타사 백업 애플리케이션을 사용하여 데이터를 테이프에 직접 백업하기 위해 NDMP(네트워크 데이터 관리 프로토콜)를 사용하도록 ONTAP 9 클러스터를 빠르게 구성할 수 있습니다.' 
+---
+= NDMP 구성 개요
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+타사 백업 애플리케이션을 사용하여 데이터를 테이프에 직접 백업하기 위해 NDMP(네트워크 데이터 관리 프로토콜)를 사용하도록 ONTAP 9 클러스터를 빠르게 구성할 수 있습니다.
+
+다음과 같은 상황에서 NDMP를 구성합니다.
+
+* 클러스터에서 ONTAP 9가 실행 중입니다.
+* 타사 백업 애플리케이션(DMA라고도 함)이 있습니다.
+* 클러스터 관리자입니다.
+* 클러스터 레벨(SVM(admin Storage Virtual Machine) 사용) 또는 노드 레벨에서 백업 작업을 수행하려고 합니다.
+* 테이프 장치 및 옵션 미디어 서버가 설치됩니다.
+* 테이프 디바이스는 직접 연결되지 않고 FC(Fibre Channel) 스위치를 통해 클러스터에 연결됩니다.
+* 하나 이상의 테이프 디바이스에 LUN(Logical Unit Number)이 0인 경우
+
+
+link:../tape-backup/index.html["테이프 백업을 사용한 데이터 보호"].

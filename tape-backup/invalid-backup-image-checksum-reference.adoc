@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/invalid-backup-image-checksum-reference.html 
+sidebar: sidebar 
+keywords: invalid, backup, image, checksum, tape, corrupt, restore, operation 
+summary: 백업 이미지 체크섬이 잘못되었습니다. 
+---
+= 백업 이미지 체크섬이 잘못되었습니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+백업 이미지 체크섬이 잘못되었습니다
+
+* * 원인 *
++
+테이프가 손상되었습니다.
+
+* * 시정 조치 *
++
+테이프가 손상된 경우 복원 작업을 수행할 수 없습니다.
+
+

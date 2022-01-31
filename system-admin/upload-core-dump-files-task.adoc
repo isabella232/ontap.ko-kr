@@ -1,0 +1,65 @@
+---
+permalink: system-admin/upload-core-dump-files-task.html 
+sidebar: sidebar 
+keywords: upload, core, dump, file, autosupport, device, send, messages, email 
+summary: 코어 덤프 파일이 저장되면 이벤트 메시지가 생성됩니다. AutoSupport 서비스가 활성화되어 NetApp 지원으로 메시지를 보내도록 구성된 경우 AutoSupport 메시지가 전송되고 자동 이메일 확인이 전송됩니다. 
+---
+= 코어 덤프 파일을 업로드합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+코어 덤프 파일이 저장되면 이벤트 메시지가 생성됩니다. AutoSupport 서비스가 활성화되어 NetApp 지원으로 메시지를 보내도록 구성된 경우 AutoSupport 메시지가 전송되고 자동 이메일 확인이 전송됩니다.
+
+.무엇을 &#8217;필요로 할거야
+* 다음 설정으로 AutoSupport를 설정해야 합니다.
++
+** AutoSupport가 노드에서 활성화되어 있습니다.
+** AutoSupport는 기술 지원 부서에 메시지를 전송하도록 구성되어 있습니다.
+** AutoSupport는 HTTP 또는 HTTPS 전송 프로토콜을 사용하도록 구성됩니다.
++
+코어 덤프 파일과 같이 큰 파일이 포함된 메시지를 보낼 때는 SMTP 전송 프로토콜이 지원되지 않습니다.
+
+
+
+
+
+NetApp 지원 요청이 있을 경우 'system node AutoSupport invoke-core-upload' 명령을 사용하여 HTTPS를 통해 코어 덤프 파일을 업로드할 수도 AutoSupport 있습니다.
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Miscellaneous/How_to_upload_a_file_to_NetApp["NetApp에 파일을 업로드하는 방법"]
+
+.단계
+. system node coredump show 명령을 사용하여 노드의 코어 덤프 파일을 봅니다.
++
+다음 예에서는 로컬 노드에 대해 코어 덤프 파일이 표시됩니다.
+
++
+[listing]
+----
+cluster1::> system node coredump show -node local
+Node:Type Core Name Saved Panic Time
+--------- ------------------------------------------- ----- -----------------
+node:kernel
+core.4073000068.2013-09-11.15_05_01.nz true 9/11/2013 15:05:01
+----
+. 'system node AutoSupport invoke-core-upload' 명령어를 사용해 AutoSupport 메시지를 생성하고 core dump 파일을 업로드 한다.
++
+다음 예에서는 AutoSupport 메시지가 생성되어 기술 지원인 기본 위치로 전송되고 코어 덤프 파일이 NetApp Support 사이트인 기본 위치에 업로드됩니다.
+
++
+[listing]
+----
+cluster1::> system node autosupport invoke-core-upload -core-filename
+core.4073000068.2013-09-11.15_05_01.nz -node local
+----
++
+다음 예에서는 AutoSupport 메시지가 생성되어 URI에 지정된 위치로 전송되며 코어 덤프 파일이 URI에 업로드됩니다.
+
++
+[listing]
+----
+cluster1::> system node autosupport invoke-core-upload -uri https//files.company.com -core-filename
+core.4073000068.2013-09-11.15_05_01.nz -node local
+----
+

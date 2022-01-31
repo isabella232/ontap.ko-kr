@@ -1,0 +1,39 @@
+---
+sidebar: sidebar 
+permalink: networking/display_qos_marking_values.html 
+keywords: qos, quality, service, marking, ipspace, display, show, display qos marking values, display the qos marking values for different protocols, by ipspace, network qos-marking show 
+summary: IPspace별로 다양한 프로토콜에 대한 QoS 마킹 값을 표시한다 
+---
+= QoS 표시 값을 표시합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+IPspace별로 다양한 프로토콜에 대한 QoS 표시 값을 표시할 수 있습니다.
+
+'network QoS-marking show' 명령어를 이용하여 QoS marking 값을 출력한다.
+
+다음 명령을 실행하면 기본 IPspace의 모든 프로토콜에 대한 QoS 마킹이 표시됩니다.
+
+....
+network qos-marking show -ipspace Default
+IPspace             Protocol           DSCP  Enabled?
+------------------- ----------------- -----  --------
+Default
+                    CIFS                 10  false
+                    FTP                  48  false
+                    HTTP-admin           48  false
+                    HTTP-filesrv         10  false
+                    NDMP                 10  false
+                    NFS                  10  true
+                    SNMP                 48  false
+                    SSH                  48  false
+                    SnapMirror           10  false
+                    Telnet               48  false
+                    iSCSI                10  false
+11 entries were displayed.
+....

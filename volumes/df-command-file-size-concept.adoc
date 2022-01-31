@@ -1,0 +1,76 @@
+---
+permalink: volumes/df-command-file-size-concept.html 
+sidebar: sidebar 
+keywords: how, df command, accounts for file size 
+summary: df 명령에서 공간 사용을 보고하는 방법은 두 가지 조건, 즉 qtree가 포함된 볼륨에 대해 할당량을 설정하거나 해제할지 여부와 qtree 내의 할당량 사용을 추적할지 여부에 따라 달라집니다. 
+---
+= df 명령이 파일 크기를 어떻게 계산하는지 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'df' 명령에서 공간 사용을 보고하는 방식은 qtree가 포함된 볼륨에 대해 할당량을 설정하거나 해제할지 여부와 qtree 내의 할당량 사용을 추적할지 여부와 같은 두 가지 조건에 따라 달라집니다.
+
+qtree가 포함된 볼륨에 대해 할당량을 설정하고 qtree 내의 할당량 사용을 추적할 때 df 명령으로 보고되는 공간 사용은 할당량 보고서에 지정된 값과 동일합니다. 이 경우 할당량 사용 시 디렉토리, ACL, 스트림 디렉토리 및 메타파일에서 사용되는 블록이 제외됩니다.
+
+볼륨에 할당량이 설정되어 있지 않거나 qtree에 할당량 규칙이 구성되어 있지 않은 경우 보고된 공간 사용에는 볼륨 내의 다른 qtree를 포함하여 전체 볼륨에 대한 디렉토리, ACL, 스트림 디렉토리 및 메타파일에서 사용되는 블록이 포함됩니다. 이 경우 'df' 명령으로 보고되는 공간 사용량이 할당량을 추적할 때 보고되는 예상 값보다 큽니다.
+
+할당량 사용을 추적할 qtree의 마운트 지점에서 df 명령을 실행하면 명령 출력에 할당량 보고서에 지정된 값과 동일한 공간 사용량이 표시됩니다. 대부분의 경우 트리 할당량 규칙에 하드 디스크 제한이 있는 경우 df 명령이 보고하는 총 크기는 디스크 제한과 같고 사용 가능한 공간은 할당량 디스크 제한과 할당량 사용 간의 차이입니다.
+
+그러나 일부 경우 df 명령으로 보고되는 공간은 볼륨 전체에서 사용 가능한 공간과 동일할 수 있습니다. 이 문제는 qtree에 대해 구성된 하드 디스크 제한이 없을 때 발생합니다. ONTAP 9.9.1부터 볼륨 전체에서 사용 가능한 공간이 나머지 트리 할당량 공간보다 작을 때도 발생할 수 있습니다. 이러한 조건 중 하나가 발생할 경우 df 명령으로 보고되는 총 크기는 qtree 내에서 사용된 할당량과 FlexVol 볼륨에서 사용 가능한 공간을 더한 값과 같은 합성 숫자입니다.
+
+[NOTE]
+====
+이 총 크기는 qtree 디스크 제한이나 볼륨 구성 크기가 아닙니다. 다른 qtree나 백그라운드 스토리지 효율성 활동에 대한 쓰기 활동에도 따라 달라질 수 있습니다.
+
+====
+다음 할당량 보고서는 qtree Alice의 경우 디스크 제한인 1GB, qtree Bob의 경우 2GB, qtree Project1의 경우 제한 없음을 보여줍니다.
+
+[listing]
+----
+C1_vsim1::> quota report -vserver vs0
+Vserver: vs0
+                                    ----Disk----  ----Files-----   Quota
+Volume   Tree      Type    ID        Used  Limit    Used   Limit   Specifier
+-------  --------  ------  -------  -----  -----  ------  ------   ---------
+vol2     alice     tree    1
+                                  502.0MB    1GB       2       -   alice
+vol2     bob       tree    2
+                                   1003MB    2GB       2       -   bob
+vol2     project1  tree    3
+                                  200.8MB      -       2       -   project1
+vol2               tree    *           0B      -       0       -   *
+4 entries were displayed.
+----
+다음 예에서는 qtree Alice와 bob에 대한 'df' 명령의 출력이 할당량 보고서와 같은 사용된 공간 및 디스크 제한과 동일한 총 크기(100만 블록)를 보고합니다. 이는 qtree Alice와 bob에 대한 할당량 규칙에 정의된 디스크 제한이 있고 볼륨 가용 공간(1211MB)이 qtree Alice(523MB) 및 qtree bob(1045MB)에 대해 남아 있는 트리 할당량 공간보다 크기 때문입니다.
+
+[listing]
+----
+linux-client1 [~]$ df -m /mnt/vol2/alice
+Filesystem          1M-blocks  Used Available Use% Mounted on
+172.21.76.153:/vol2      1024   502       523  50% /mnt/vol2
+
+linux-client1 [~]$ df -m /mnt/vol2/bob
+Filesystem          1M-blocks  Used Available Use% Mounted on
+172.21.76.153:/vol2      2048  1004      1045  50% /mnt/vol2
+----
+다음 예제에서 qtree Project1의 df 명령 출력은 할당량 보고서와 같은 사용된 공간을 보고합니다. 그러나 총 크기는 총 1412MB의 용량을 제공하기 위해 qtree Project1(201 MB)의 할당량 사용에 전체(1211 MB)의 사용 가능한 공간을 추가하여 합성됩니다. 이는 Qtree Project1의 할당량 규칙에 디스크 제한이 없기 때문입니다.
+
+[listing]
+----
+linux-client1 [~]$ df -m /mnt/vol2/project1
+Filesystem          1M-blocks  Used Available Use% Mounted on
+172.21.76.153:/vol2      1412   201      1211  15% /mnt/vol2
+----
+[NOTE]
+====
+다음 예제는 전체 볼륨에 대한 df 명령의 출력이 Project1과 동일한 사용 가능한 공간을 보고하는 방법을 보여줍니다.
+
+[listing]
+----
+linux-client1 [~]$ df -m /mnt/vol2
+Filesystem          1M-blocks  Used Available Use% Mounted on
+172.21.76.153:/vol2      2919  1709      1211  59% /mnt/vol2
+----
+====

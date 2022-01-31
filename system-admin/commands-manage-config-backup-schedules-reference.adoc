@@ -1,0 +1,57 @@
+---
+permalink: system-admin/commands-manage-config-backup-schedules-reference.html 
+sidebar: sidebar 
+keywords: command, manage, configuration, backup, schedule, settings 
+summary: 시스템 구성 백업 설정 명령을 사용하여 구성 백업 일정을 관리할 수 있습니다. 
+---
+= 구성 백업 스케줄 관리를 위한 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'시스템 구성 백업 설정' 명령을 사용하여 구성 백업 스케줄을 관리할 수 있습니다.
+
+이러한 명령은 고급 권한 수준에서 사용할 수 있습니다.
+
+|===
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+구성 백업 스케줄의 설정을 변경합니다.
+
+* 클러스터의 기본 위치 외에 구성 백업 파일을 업로드할 원격 URL(HTTP, HTTPS 또는 FTP)을 지정합니다
+* 원격 URL에 로그인하는 데 사용할 사용자 이름을 지정합니다
+* 각 구성 백업 스케줄에 대해 유지할 백업 수를 설정합니다
+
+ a| 
+'시스템 구성 백업 설정 수정
+
+원격 URL에서 HTTPS를 사용하는 경우 '-validate-certification' 옵션을 사용하여 디지털 인증서 유효성 검사를 활성화하거나 비활성화합니다. 인증서 유효성 검사는 기본적으로 사용되지 않습니다.
+
+[NOTE]
+====
+구성 백업 파일을 업로드하는 웹 서버는 HTTPS에 대해 HTTP 및 POST 작업에 대해 PUT 작업을 활성화해야 합니다. 자세한 내용은 웹 서버 설명서를 참조하십시오.
+
+====
+
+
+ a| 
+원격 URL에 로그인하는 데 사용할 암호를 설정합니다
+ a| 
+'System configuration backup settings set-password'를 선택합니다
+
+
+
+ a| 
+구성 백업 스케줄에 대한 설정을 봅니다
+ a| 
+'시스템 구성 백업 설정 표시
+
+[NOTE]
+====
+'-instance' 매개 변수를 설정하여 각 스케줄에 대해 유지할 사용자 이름과 백업 수를 봅니다.
+
+====
+|===

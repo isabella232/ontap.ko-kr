@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+permalink: s3-snapmirror/modify-policy-task.html 
+keywords: modify a mirror policy, s3 snapmirror, s3 snapmirror policy, modify s3 snapmirror policy, change snapmirror policy, edit snapmirror policy, 
+summary: 예를 들어 RPO 및 스로틀 값을 조정하려면 S3 미러 정책을 수정할 수 있습니다. 
+---
+= 미러 정책을 수정합니다
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:toc-position: content
+
+
+[role="lead"]
+예를 들어 RPO 및 스로틀 값을 조정하려면 S3 미러 정책을 수정할 수 있습니다.
+
+
+
+== System Manager 절차
+
+이러한 값을 조정하려면 기존 보호 정책을 편집할 수 있습니다.
+
+. 보호 > 관계 * 를 클릭한 다음 수정할 관계에 대한 보호 정책을 선택합니다.
+. 을 클릭합니다 image:icon_kabob.gif["추가 아이콘"] 정책 이름 옆에 있는 * 편집 * 을 클릭합니다.
+
+
+
+
+== CLI 절차
+
+S3 SnapMirror 정책 수정: 'sapmirror policy modify -vserver svm_name -policy policy_name [-RPO_integer_] [-throttle_throttle_type_] [-comment_text_]'을 수정합니다
+
+매개 변수:
+
+* '-RPO' – 복구 시점 목표의 시간(초)을 지정합니다.
+* '-throttle' – 처리량/대역폭의 상한값을 킬로바이트/초로 지정합니다.
+
+
+....
+clusterA::> snapmirror policy modify -vserver vs0 -policy test-policy -rpo 60
+....

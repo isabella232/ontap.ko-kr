@@ -1,0 +1,50 @@
+---
+sidebar: sidebar 
+permalink: networking/modify_network_port_attributes.html 
+keywords: change, changing, modify, modifying, network, port, attributes, modify network port attributes, change the autonegotiation, duplex, flow control, speed, and health settings of a physical network port 
+summary: 물리적 네트워크 포트의 자동 협상, 이중, 흐름 제어, 속도 및 상태 설정을 변경합니다 
+---
+= 네트워크 포트 속성을 수정합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+물리적 네트워크 포트의 자동 협상, 이중, 흐름 제어, 속도 및 상태 설정을 수정할 수 있습니다.
+
+수정할 포트가 LIF를 호스팅하지 않아야 합니다.
+
+.이 작업에 대해
+* 100GbE, 40GbE, 10GbE 또는 1GbE 네트워크 인터페이스의 관리 설정을 수정하면 안 됩니다.
++
+이중 모드 및 포트 속도에 설정할 수 있는 값을 관리 설정이라고 합니다. 네트워크 제한에 따라 관리 설정은 작동 설정과 다를 수 있습니다(즉, 포트가 실제로 사용하는 이중 모드 및 속도).
+
+* 인터페이스 그룹에 있는 기본 물리적 포트의 관리 설정을 수정해서는 안 됩니다.
++
+'-up-admin' 매개 변수(고급 권한 수준에서 사용 가능)는 포트의 관리 설정을 수정합니다.
+
+* 노드의 모든 포트 또는 노드의 마지막 운영 클러스터 LIF를 호스팅하는 포트에 대해 '-up-admin' 관리 설정을 false로 설정하지 않아야 합니다.
+* 관리 포트 e0M의 MTU 크기를 수정하면 안 됩니다.
+* 브로드캐스트 도메인에 있는 포트의 MTU 크기는 브로드캐스트 도메인에 설정된 MTU 값에서 변경할 수 없습니다.
+* VLAN의 MTU 크기는 기본 포트의 MTU 크기 값을 초과할 수 없습니다.
+
+
+.단계
+. 네트워크 포트의 속성을 수정합니다.
++
+네트워크 포트 수정
+
+. 시스템이 지정된 포트의 네트워크 포트 상태를 무시하도록 지정하려면 '-ignore-health-status' 필드를 true로 설정합니다.
++
+네트워크 포트 상태가 성능 저하에서 정상 상태로 자동으로 변경되고 이 포트를 LIF를 호스팅하는 데 사용할 수 있습니다. 클러스터 포트의 흐름 제어를 "없음"으로 설정해야 합니다. 기본적으로 흐름 제어는 'full'로 설정됩니다.
+
+
+
+다음 명령을 실행하면 흐름 제어를 none으로 설정하여 포트 e0b의 흐름 제어가 비활성화됩니다.
+
+....
+network port modify -node cluster-1-01 -port e0b -flowcontrol-admin none
+....

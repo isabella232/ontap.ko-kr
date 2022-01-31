@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/ndmpd-session-session-id-not-active-reference.html 
+sidebar: sidebar 
+keywords: ndmpd, session, active, exist, view, status, command 
+summary: NDMP 세션이 없을 수 있습니다. 
+---
+= ndmpd 세션 session_ID가 활성 상태가 아닙니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+ndmpd session session_ID not active
+
+* * 원인 *
++
+NDMP 세션이 없을 수 있습니다.
+
+* * 시정 조치 *
++
+활성 NDMP 세션을 보려면 'ndmpd status' 명령을 사용합니다.
+
+

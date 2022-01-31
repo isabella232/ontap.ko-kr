@@ -1,0 +1,109 @@
+---
+permalink: encryption-at-rest/enable-onboard-key-management-95-earlier-nve-task.html 
+sidebar: sidebar 
+keywords: enabling, onboard key management, ontap 9.5, earlier, nve 
+summary: Onboard Key Manager를 사용하여 클러스터가 암호화된 데이터에 액세스하는 데 사용하는 키를 보호할 수 있습니다. 암호화된 볼륨 또는 자체 암호화 디스크에 액세스하는 각 클러스터에서 Onboard Key Manager를 활성화해야 합니다. 
+---
+= ONTAP 9.5 이하(NVE)에서 온보드 키 관리 활성화
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Onboard Key Manager를 사용하여 클러스터가 암호화된 데이터에 액세스하는 데 사용하는 키를 보호할 수 있습니다. 암호화된 볼륨 또는 자체 암호화 디스크에 액세스하는 각 클러스터에서 Onboard Key Manager를 활성화해야 합니다.
+
+.무엇을 &#8217;필요로 할거야
+* NSE를 외부 키 관리(KMIP) 서버와 함께 사용할 경우 외부 키 관리자 데이터베이스를 삭제해야 합니다.
++
+link:delete-key-management-database-task.html["외부 키 관리에서 온보드 키 관리로 전환"]
+
+* 이 작업을 수행하려면 클러스터 관리자여야 합니다.
+* Onboard Key Manager를 구성하기 전에 MetroCluster 환경을 구성해야 합니다.
+
+
+클러스터에 노드를 추가할 때마다 보안 키 관리자 설정 명령을 실행해야 합니다.
+
+MetroCluster 구성이 있는 경우 다음 지침을 검토하십시오.
+
+* ONTAP 9.5에서는 로컬 클러스터에서 보안 키 관리자 설정, 원격 클러스터에서 보안 키 관리자 설정 -동기화 -MetroCluster -구성 예 를 각각 동일한 암호를 사용하여 실행해야 합니다.
+* ONTAP 9.5 이전에는 로컬 클러스터에서 보안 키 관리자 설정을 실행하고 약 20초 정도 기다린 다음 원격 클러스터에서 동일한 암호를 사용하여 보안 키 관리자 설정을 실행해야 합니다.
+
+
+기본적으로 노드를 재부팅할 때는 키 관리자 암호를 입력할 필요가 없습니다. ONTAP 9.4부터 '-enable-cc-mode yes' 옵션을 사용하여 재부팅 후 사용자가 암호를 입력하도록 할 수 있습니다.
+
+NVE의 경우 '-enable-cc-mode yes'를 설정하면 볼륨 생성 및 볼륨 이동 시작 명령으로 생성한 볼륨이 자동으로 암호화됩니다. 볼륨 만들기에는 -encrypt true를 지정할 필요가 없습니다. 볼륨 이동 시작의 경우 -encrypt-destination true를 지정하지 않아도 됩니다.
+
+[NOTE]
+====
+실패한 암호 구문을 시도한 후에는 노드를 다시 재부팅해야 합니다.
+
+====
+.단계
+. 키 관리자 설정을 시작합니다.
++
+'보안 키 관리자 설정-활성화-cc-모드 예|아니오'
+
++
+[NOTE]
+====
+ONTAP 9.4부터는 사용자가 재부팅 후 키 관리자 암호를 입력하도록 하는 '-enable-cc-mode yes' 옵션을 사용할 수 있습니다. NVE의 경우 '-enable-cc-mode yes'를 설정하면 볼륨 생성 및 볼륨 이동 시작 명령으로 생성한 볼륨이 자동으로 암호화됩니다.
+
+====
++
+다음 예제에서는 재부팅할 때마다 암호를 입력할 필요 없이 키 관리자를 cluster1에서 설정하기 시작합니다.
+
++
+[listing]
+----
+cluster1::> security key-manager setup
+Welcome to the key manager setup wizard, which will lead you through
+the steps to add boot information.
+
+...
+
+Would you like to use onboard key-management? {yes, no} [yes]:
+Enter the cluster-wide passphrase:    <32..256 ASCII characters long text>
+Reenter the cluster-wide passphrase:    <32..256 ASCII characters long text>
+----
+. 온보드 키 관리를 구성하라는 메시지가 나타나면 "예"를 입력합니다.
+. 암호문 프롬프트에서 32자에서 256자 사이의 암호문을 입력하거나 64에서 256자 사이의 암호문을 "cc-mode"로 입력합니다.
++
+[NOTE]
+====
+지정된 ""cc-mode"" 암호가 64자 미만이면 키 관리자 설정 작업에 암호 프롬프트가 다시 표시되기 전에 5초의 지연이 발생합니다.
+
+====
+. 암호 확인 프롬프트에서 암호를 다시 입력합니다.
+. 모든 노드에 대해 키가 구성되었는지 확인합니다.
++
+보안 키 관리자 키 쇼
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+[listing]
+----
+cluster1::> security key-manager key show
+
+Node: node1
+Key Store: onboard
+Key ID                                                           Used By
+---------------------------------------------------------------- --------
+0000000000000000020000000000010059851742AF2703FC91369B7DB47C4722 NSE-AK
+000000000000000002000000000001008C07CC0AF1EF49E0105300EFC83004BF NSE-AK
+
+Node: node2
+Key Store: onboard
+Key ID                                                           Used By
+---------------------------------------------------------------- --------
+0000000000000000020000000000010059851742AF2703FC91369B7DB47C4722 NSE-AK
+000000000000000002000000000001008C07CC0AF1EF49E0105300EFC83004BF NSE-AK
+----
+
+
+나중에 사용할 수 있도록 암호를 스토리지 시스템 외부의 안전한 위치에 복사합니다.
+
+모든 키 관리 정보는 클러스터의 복제된 데이터베이스(RDB)에 자동으로 백업됩니다.
+
+Onboard Key Manager 암호를 구성할 때마다 재해 발생 시 사용할 수 있도록 정보를 스토리지 시스템 외부의 안전한 위치에 수동으로 백업해야 합니다. 을 참조하십시오 link:backup-key-management-information-manual-task.html["온보드 키 관리 정보를 수동으로 백업합니다"].

@@ -1,0 +1,127 @@
+---
+permalink: nas-audit/supported-file-operation-filter-fpolicy-nfsv4-concept.html 
+sidebar: sidebar 
+keywords: ontap 9, supported file operation, filter combinations, fpolicy, monitor, nfsv4 
+summary: FPolicy 이벤트를 구성할 때는 NFSv4 파일 액세스 작업을 모니터링하기 위해 특정 파일 작업 및 필터 조합만 지원된다는 점에 유의해야 합니다. 
+---
+= FPolicy에서 NFSv4를 모니터링할 수 있는 파일 작업 및 필터 조합이 지원됩니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FPolicy 이벤트를 구성할 때는 NFSv4 파일 액세스 작업을 모니터링하기 위해 특정 파일 작업 및 필터 조합만 지원된다는 점에 유의해야 합니다.
+
+NFSv4 파일 액세스 이벤트의 FPolicy 모니터링을 위해 지원되는 파일 작업 및 필터 조합 목록은 다음 표에 나와 있습니다.
+
+[cols="30,70"]
+|===
+
+
+| 지원되는 파일 작업 | 지원되는 필터 
+
+
+ a| 
+를 닫습니다
+ a| 
+offline-bit, exclude-directory
+
+
+
+ a| 
+생성
+ a| 
+오프라인 비트
+
+
+
+ a| 
+디렉토리 작성
+ a| 
+현재 이 파일 작업에 대해 지원되는 필터가 없습니다.
+
+
+
+ a| 
+삭제
+ a| 
+오프라인 비트
+
+
+
+ a| 
+Delete_dir
+ a| 
+현재 이 파일 작업에 대해 지원되는 필터가 없습니다.
+
+
+
+ a| 
+GetAttr
+ a| 
+offline-bit, exclude-directory
+
+
+
+ a| 
+링크
+ a| 
+오프라인 비트
+
+
+
+ a| 
+조회
+ a| 
+offline-bit, exclude-directory
+
+
+
+ a| 
+개방형
+ a| 
+offline-bit, exclude-directory
+
+
+
+ a| 
+읽기
+ a| 
+오프라인-비트, 첫 번째-읽기
+
+
+
+ a| 
+쓰기
+ a| 
+오프라인-비트, 첫 번째-쓰기, 크기 변경 쓰기
+
+
+
+ a| 
+이름 바꾸기
+ a| 
+오프라인 비트
+
+
+
+ a| 
+이름 바꾸기_디렉토리
+ a| 
+현재 이 파일 작업에 대해 지원되는 필터가 없습니다.
+
+
+
+ a| 
+SetAttr
+ a| 
+offline-bit, SetAttr_with_owner_change, SetAttr_with_group_change, SetAttr_with_mode_change, SetAttr_with_SACL_change, SetAttr_with_DACL_change, SetAttr_with_modify_time_change, SetAttr_with_access_time_change, SetAttr_with_size_change, exclude_directory
+
+
+
+ a| 
+symlink
+ a| 
+오프라인 비트
+
+|===

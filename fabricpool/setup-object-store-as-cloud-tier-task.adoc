@@ -1,0 +1,13 @@
+---
+permalink: fabricpool/setup-object-store-as-cloud-tier-task.html 
+sidebar: sidebar 
+keywords: setting up, object, store, cloud tier, fabricpool 
+summary: 'FabricPool를 설정하려면 FabricPool의 클라우드 계층으로 사용할 오브젝트 저장소(StorageGRID, ONTAP S3, Alibaba 클라우드 오브젝트 스토리지, AWS S3, Google 클라우드 스토리지 플랫폼, IBM 클라우드 오브젝트 스토리지 또는 클라우드용 Microsoft Azure Blob 스토리지)의 구성 정보를 지정해야 합니다.' 
+---
+= 오브젝트 저장소를 FabricPool의 클라우드 계층으로 설정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FabricPool를 설정하려면 FabricPool의 클라우드 계층으로 사용할 오브젝트 저장소(StorageGRID, ONTAP S3, Alibaba 클라우드 오브젝트 스토리지, AWS S3, Google 클라우드 스토리지 플랫폼, IBM 클라우드 오브젝트 스토리지 또는 클라우드용 Microsoft Azure Blob 스토리지)의 구성 정보를 지정해야 합니다.

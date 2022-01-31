@@ -1,0 +1,44 @@
+---
+permalink: performance-admin/check-nfs-tcp-read-write-size-task.html 
+sidebar: sidebar 
+keywords: check, nfs, tcp, maximum, transfer, size 
+summary: NFS의 경우 읽기 및 쓰기에 대한 TCP 최대 전송 크기가 성능 문제를 일으킬 수 있는지 확인할 수 있습니다. 크기가 성능을 저하한다고 생각되면 크기를 늘릴 수 있습니다. 
+---
+= NFS TCP 최대 전송 크기를 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NFS의 경우 읽기 및 쓰기에 대한 TCP 최대 전송 크기가 성능 문제를 일으킬 수 있는지 확인할 수 있습니다. 크기가 성능을 저하한다고 생각되면 크기를 늘릴 수 있습니다.
+
+.무엇을 &#8217;필요로 할거야
+* 이 작업을 수행하려면 클러스터 관리자 권한이 있어야 합니다.
+* 이 작업에는 고급 권한 레벨 명령을 사용해야 합니다.
+
+
+.단계
+. 고급 권한 레벨로 변경:
++
+세트 프리빌리지 고급
+
+. TCP 최대 전송 크기를 확인합니다.
++
+'vserver nfs show -vserver_vserver_name_-instance'
+
+. TCP 최대 전송 크기가 너무 작은 경우 크기를 늘립니다.
++
+'vserver nfs modify -vserver_vserver_name_-tcp-max -xfer-size_integer_'
+
+. 관리 권한 수준으로 돌아가기:
++
+'Set-Privilege admin'입니다
+
+
+
+다음 예에서는 'VM1'의 TCP 최대 전송 크기를 1048576으로 변경합니다.
+
+[listing]
+----
+cluster1::*> vserver nfs modify -vserver SVM1 -tcp-max-xfer-size 1048576
+----

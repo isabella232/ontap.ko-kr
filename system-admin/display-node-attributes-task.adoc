@@ -1,0 +1,42 @@
+---
+permalink: system-admin/display-node-attributes-task.html 
+sidebar: sidebar 
+keywords: display, cluster, node, attributes 
+summary: 이름, 소유자, 위치 등과 같이 클러스터에 있는 하나 이상의 노드의 속성을 표시할 수 있습니다. 모델 번호, 일련 번호, 노드의 실행 시간, 상태 및 클러스터에 대한 참여 자격 
+---
+= 노드 속성을 표시합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이름, 소유자, 위치 등과 같이 클러스터에 있는 하나 이상의 노드의 속성을 표시할 수 있습니다. 모델 번호, 일련 번호, 노드의 실행 시간, 상태 및 클러스터에 대한 참여 자격
+
+.단계
+. 특정 노드의 속성 또는 클러스터의 모든 노드에 대한 속성을 표시하려면 'system node show' 명령을 사용합니다.
+
+
+다음 예제에서는 node1에 대한 자세한 정보를 표시합니다.
+
+[listing]
+----
+cluster1::> system node show -node node1
+                          Node: node1
+                         Owner: Eng IT
+                      Location: Lab 5
+                         Model: model_number
+                 Serial Number: 12345678
+                     Asset Tag: -
+                        Uptime: 23 days 04:42
+               NVRAM System ID: 118051205
+                     System ID: 0118051205
+                        Vendor: NetApp
+                        Health: true
+                   Eligibility: true
+       Differentiated Services: false
+           All-Flash Optimized: true
+            Capacity Optimized: false
+                 QLC Optimized: false
+    All-Flash Select Optimized: false
+ SAS2/SAS3 Mixed Stack Support: none
+----

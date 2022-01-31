@@ -1,0 +1,39 @@
+---
+permalink: element-replication/update-replication-relationship-manually-task.html 
+sidebar: sidebar 
+keywords: update, replication, relationship, manually 
+summary: 네트워크 오류로 인해 업데이트에 실패하면 복제 관계를 수동으로 업데이트해야 할 수 있습니다. 
+---
+= 복제 관계를 수동으로 업데이트합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+네트워크 오류로 인해 업데이트에 실패하면 복제 관계를 수동으로 업데이트해야 할 수 있습니다.
+
+요소 소스 경로는 "_hostip:_/lun/_name_" 형식으로 지정해야 합니다. 여기서 ""lun"은 실제 문자열 ""lun""이고 "name"은 요소 볼륨의 이름입니다.
+
+.단계
+. 복제 관계를 수동으로 업데이트합니다.
++
+'스냅샷 업데이트 - 소스 경로_호스트 팁: _/LUN/_이름_-대상-경로_SVM:볼륨_|_클러스터://SVM/볼륨 _'
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+[NOTE]
+====
+소스 및 타겟에 공통 스냅샷 복사본이 존재하지 않으면 명령이 실패합니다. '스냅샷 초기화'를 사용하여 관계를 다시 초기화합니다.
+
+====
++
+다음 예에서는 IP 주소 10.0.0.11의 소스 볼륨 0005와 'VM_BACKUP'의 대상 볼륨 VolA_DST 사이의 관계를 업데이트합니다.
+
++
+[listing]
+----
+cluster_src::> snapmirror update -source-path 10.0.0.11:/lun/0005 -destination-path svm_backup:volA_dst
+----
+

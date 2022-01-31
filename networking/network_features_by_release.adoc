@@ -1,0 +1,480 @@
+---
+sidebar: sidebar 
+permalink: networking/network_features_by_release.html 
+keywords: auto-port placement, auto port placement, IPsec, VIP expansion, switch CLI simplification, IPv6 variable length, portmap, cache search, CUBIC, NTPv3, SSH alerts, LIF service policies, multipath routing, SSH MFA, SAML authentication, certifications, fastpath, SNMPv3 traphosts, IPv6, LIF management, LLDP, UC with DSCP, SHA-2, FIPS 140-2, network features by release, new features, analyze the impact of network features available with each ontap 9 release, cluster resiliency, vip lif enhancements, ipsec certificate authentication, automatic detection and recommendations for wiring issues 
+summary: 각 ONTAP 9 릴리즈에서 사용할 수 있는 네트워크 기능의 영향을 분석합니다 
+---
+= 릴리스별 네트워크 기능
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+각 ONTAP 9 릴리즈에서 사용할 수 있는 네트워크 기능의 영향을 분석합니다.
+
+[cols="15,25,60"]
+|===
+
+
+| 처음부터 사용할 수 있습니다 | 피처 | 설명 
+
+
+ a| 
+ONTAP 9.10.1
+ a| 
+네트워크 배선 문제에 대한 자동 감지 및 수리 권장 사항
+ a| 
+ONTAP는 브로드캐스트 도메인 구성(이더넷 포트) 계층 2 내 기능을 기반으로 네트워크 배선 문제를 자동으로 감지하고 수정할 것을 권장합니다.
+
+포트 도달 가능성 문제가 감지되면 System Manager에서 문제 해결을 위한 복구 작업을 권장합니다.
+
+link:auto-detect-wiring-issues-task.html["네트워크 배선 문제에 대한 자동 감지 및 수리 권장 사항"]
+
+
+
+ a| 
+ONTAP 9.10.1
+ a| 
+IPsec(인터넷 프로토콜 보안) 인증서 인증
+ a| 
+이제 IPsec 정책은 인증을 위한 사전 공유 키(PSK) 및 인증서를 지원합니다.
+
+* PSK로 구성된 정책은 정책의 모든 클라이언트 간에 키를 공유해야 합니다.
+* 인증서로 구성된 정책은 각 클라이언트가 인증을 위해 고유한 인증서를 가질 수 있으므로 클라이언트 간에 키를 공유할 필요가 없습니다.
+
+
+link:configure_ip_security_@ipsec@_over_wire_encryption.html["유선 암호화를 통해 IP 보안(IPsec)을 구성합니다"]
+
+
+
+ a| 
+ONTAP 9.10.1
+ a| 
+LIF 서비스
+ a| 
+방화벽 정책은 더 이상 사용되지 않으며 LIF 서비스 정책으로 완전히 대체됩니다.
+
+새로운 NTP LIF 서비스는 아웃바운드 NTP 요청에 사용되는 LIF를 더욱 효과적으로 제어합니다.
+
+link:lifs_and_service_policies96.html["ONTAP 9.6 이상의 LIF 및 서비스 정책"]
+
+
+
+ a| 
+ONTAP 9.10.1
+ a| 
+RDMA 상의 NFS
+ a| 
+ONTAP는 RDMA를 통한 NFS 지원을 제공하며, NVIDIA GDX 에코시스템을 보유한 고객을 위해 NFSv4.0의 성능을 더욱 높여 줍니다. RDMA 어댑터를 사용하면 스토리지에서 GPU로 메모리를 직접 복사할 수 있으므로 CPU 오버헤드가 줄어듭니다.
+
+link:../nfs-rdma/index.html["RDMA 상의 NFS"]
+
+
+
+ a| 
+ONTAP 9.9.1
+ a| 
+클러스터 복원력
+ a| 
+다음과 같은 클러스터 복원력 및 진단 향상으로 고객 경험을 개선합니다.
+
+* 포트 모니터링 및 방지:
++
+** 스위치가 없는 2노드 클러스터 구성에서는 전체 패킷 손실(접속 손실)이 발생하는 포트를 방지합니다. 이전 버전에서는 이 기능을 스위치 구성에서만 사용할 수 있었습니다.
+
+
+* 자동 노드 페일오버:
++
+** 노드가 클러스터 네트워크를 통해 데이터를 제공할 수 없는 경우 해당 노드에 디스크를 소유해서는 안 됩니다. 대신 파트너의 상태가 양호하면 HA 파트너가 대신 대신 맡아야 합니다.
+
+
+* 연결 문제를 분석하는 명령:
++
+** 다음 명령을 사용하여 패킷 손실이 발생하는 클러스터 경로를 표시합니다. 'network interface check cluster-connectivity show'
+
+
+
+
+
+
+ a| 
+ONTAP 9.9.1
+ a| 
+VIP LIF의 향상된 기능
+ a| 
+다음 필드는 가상 IP(VIP) 경계 게이트웨이 프로토콜(BGP) 기능을 확장하기 위해 추가되었습니다.
+
+* ASN 또는 -peer-ASN(4바이트 값) 속성 자체는 새로운 것이 아니지만 4바이트 정수를 사용합니다.
+* 중이었습니다
+* -use-peer-as-next-hop
+
+
+ASN_integer 파라미터는 ASN(Autonomous System Number) 또는 ASN을 지정한다.
+
+* ONTAP 9.8부터 BGP의 ASN은 2바이트 비음수를 지원합니다. 16비트 숫자(0-64511 사용 가능 값)입니다.
+* ONTAP 9.9.1부터 BGP의 ASN은 4바이트 비음수인 정수(65536-4294967295)를 지원합니다. 기본 ASN은 65501입니다. ASN 23456은 4바이트 ASN 기능을 발표하지 않는 피어와의 ONTAP 세션 설정을 위해 예약되어 있습니다.
+
+
+경로 우선 순위 지정을 위해 MED(Multi-Exit Discriminator) 지원을 통해 고급 경로 선택을 수행할 수 있습니다. Med는 라우터에 트래픽에 가장 적합한 경로를 선택하도록 지시하는 BGP 업데이트 메시지의 선택적 속성입니다. MED는 부호 없는 32비트 정수(0-4294967295)이며 더 낮은 값을 사용하는 것이 좋습니다.
+
+VIP BGP는 BGP 피어 그룹화를 사용하여 기본 경로 자동화를 제공하여 구성을 간소화합니다. ONTAP는 BGP 피어가 동일한 서브넷에 있을 때 BGP 피어를 다음 홉 라우터로 사용하여 기본 라우트를 학습할 수 있는 간단한 방법을 제공합니다. 이 기능을 사용하려면 '-use-peer-as-next-hop' 속성을 true로 설정합니다. 기본적으로 이 속성은 false 입니다.
+
+link:configure_virtual_ip_@vip@_lifs.html["가상 IP(VIP) LIF를 구성합니다"]
+
+
+
+ a| 
+ONTAP 9.8
+ a| 
+자동 포트 배치
+ a| 
+ONTAP는 브로드캐스트 도메인을 자동으로 구성하고, 포트를 선택하고, 접속 기능 및 네트워크 토폴로지 감지를 기반으로 네트워크 인터페이스(LIF), 가상 LAN(VLAN) 및 LAG(Link Aggregation Group)를 구성하는 데 도움을 줄 수 있습니다.
+
+클러스터를 처음 생성할 때 ONTAP는 포트에 연결된 네트워크를 자동으로 검색하고 계층 2 도달 가능 여부에 따라 필요한 브로드캐스트 도메인을 구성합니다. 더 이상 브로드캐스트 도메인을 수동으로 구성할 필요가 없습니다.
+
+2개의 IPspace를 사용하여 새 클러스터 생성:
+
+* 클러스터 IPspace *: 클러스터 상호 연결을 위한 하나의 브로드캐스트 도메인 포함. 이 구성을 절대 만지지 마십시오.
+
+* 기본 IPspace *: 나머지 포트에 대한 하나 이상의 브로드캐스트 도메인 포함. 네트워크 토폴로지에 따라 ONTAP는 필요에 따라 Default-1, Default-2 등의 추가 브로드캐스트 도메인을 구성합니다. 필요한 경우 이러한 브로드캐스트 도메인의 이름을 바꿀 수 있지만 이러한 브로드캐스트 도메인에서 구성된 포트는 수정하지 마십시오.
+
+네트워크 인터페이스를 구성할 때 홈 포트 선택은 선택 사항입니다. 홈 포트를 수동으로 선택하지 않으면 ONTAP는 동일한 서브넷에 있는 다른 네트워크 인터페이스와 동일한 브로드캐스트 도메인에 적절한 홈 포트를 할당하려고 시도합니다.
+
+VLAN을 만들거나 새로 만든 LAG에 첫 번째 포트를 추가할 때 ONTAP는 계층 2 도달 가능 여부에 따라 해당 브로드캐스트 도메인에 VLAN 또는 LAG를 자동으로 할당하려고 시도합니다.
+
+ONTAP는 브로드캐스트 도메인 및 포트를 자동으로 구성하여 클라이언트가 클러스터의 다른 포트 또는 노드로 페일오버하는 동안 데이터에 대한 액세스를 유지하도록 보장합니다.
+
+마지막으로, ONTAP는 포트 도달 능력이 잘못되었음을 감지하고 "네트워크 포트 도달 가능성 복구" 명령을 제공하여 일반적인 구성 오류를 자동으로 복구합니다.
+
+
+
+ a| 
+ONTAP 9.8
+ a| 
+유선 암호화를 통한 IPsec(인터넷 프로토콜 보안
+ a| 
+전송 중에도 데이터를 지속적으로 보호하고 암호화하기 위해 ONTAP는 전송 모드에서 IPsec 프로토콜을 사용합니다. IPsec은 NFS, iSCSI 및 SMB 프로토콜을 포함한 모든 IP 트래픽에 대한 데이터 암호화를 제공합니다. IPsec은 iSCSI 트래픽에 대해 전송 중인 유일한 암호화 옵션을 제공합니다.
+
+IPsec이 구성되면 클라이언트와 ONTAP 간의 네트워크 트래픽은 재생 및 MITM(Man-in-the-Middle) 공격에 대한 예방 조치로 보호됩니다.
+
+link:configure_ip_security_@ipsec@_over_wire_encryption.html["유선 암호화를 통해 IP 보안(IPsec)을 구성합니다"]
+
+
+
+ a| 
+ONTAP 9.8
+ a| 
+가상 IP(VIP) 확장
+ a| 
+Network BGP peer-group 명령에 새로운 필드가 추가되었습니다. 이 확장을 통해 가상 IP(VIP)에 대한 두 개의 추가 BGP(Border Gateway Protocol) 속성을 구성할 수 있습니다.
+
+* 경로 예비로 *: 다른 요소가 동일하면 BGP는 최단 경로(자동 시스템)를 선택하는 것을 선호합니다. 경로 옵션 을 PATH prepend 특성으로 사용하여 ASN(Autonomous System Number)을 반복하면 AS path 특성의 길이가 증가합니다. 수신기에서 경로를 선택하므로 가장 짧은 경로 로 업데이트됩니다.
+
+* BGP community *: BGP community 속성은 경로 업데이트에 할당할 수 있는 32비트 태그입니다. 각 경로 업데이트에는 하나 이상의 BGP 커뮤니티 태그가 있을 수 있습니다. 접두어를 받는 이웃은 커뮤니티 값을 검사하고 재배포를 위해 필터링 또는 특정 라우팅 정책 적용과 같은 조치를 취할 수 있습니다.
+
+
+
+ a| 
+ONTAP 9.8
+ a| 
+스위치 CLI 단순화
+ a| 
+스위치 명령을 단순화하기 위해 클러스터 및 스토리지 스위치 CLI가 통합됩니다. 통합 스위치 CLI에는 이더넷 스위치, FC 스위치 및 ATTO 프로토콜 브리지가 포함됩니다.
+
+이제 별도의 "system cluster-switch" 및 "system storage-switch" 명령을 사용하는 대신 "system switch"를 사용합니다. ATTO 프로토콜 브리지의 경우 "스토리지 브리지"를 사용하는 대신 "시스템 브리지"를 사용합니다.
+
+마찬가지로 스위치 상태 모니터링 기능이 확장되어 스토리지 스위치와 클러스터 인터커넥트 스위치를 모니터링할 수 있습니다. "client_device" 표의 "cluster_network" 아래에서 클러스터 인터커넥트에 대한 상태 정보를 볼 수 있습니다. "client_device" 테이블의 "storage_network" 아래에서 스토리지 스위치의 상태 정보를 볼 수 있습니다.
+
+
+
+ a| 
+ONTAP 9.8
+ a| 
+IPv6 가변 길이
+ a| 
+지원되는 IPv6 가변 접두사 길이 범위가 64비트에서 1비트에서 127비트로 늘어났습니다. 비트 128은 가상 IP(VIP)용으로 예약되어 있습니다.
+
+업그레이드할 때 마지막 노드가 업데이트될 때까지 64비트 이외의 비 VIP LIF 길이가 차단됩니다.
+
+업그레이드를 되돌릴 때, 되돌림에서는 비-VIP LIF에서 64비트 이외의 접두사가 있는지 확인합니다. 문제가 있는 LIF가 발견되면 해당 LIF를 삭제 또는 수정할 때까지 이 체크 표시를 차단합니다. VIP LIF가 확인되지 않습니다.
+
+
+
+ a| 
+ONTAP 9.7
+ a| 
+자동 포트맵 서비스
+ a| 
+portmap 서비스는 RPC 서비스를 수신 대기 포트에 매핑합니다.
+
+포트맵 서비스는 ONTAP 9.3 이하에서 항상 액세스할 수 있으며, ONTAP 9.4에서 ONTAP 9.6까지 구성할 수 있으며, ONTAP 9.7부터 자동으로 관리됩니다.
+
+* ONTAP 9.3 및 이전 * 의 경우: 포트맵 서비스(rpcbind)는 항상 타사 방화벽이 아닌 내장 ONTAP 방화벽에 의존하는 네트워크 구성의 포트 111에서 액세스할 수 있습니다.
+
+* ONTAP 9.4 ~ ONTAP 9.6 *: 특정 LIF에서 포트맵 서비스에 액세스할 수 있는지 여부를 제어하기 위해 방화벽 정책을 수정할 수 있습니다.
+
+* ONTAP 9.7 * 부터 시작: 포트맵 방화벽 서비스가 제거됩니다. 대신, NFS 서비스를 지원하는 모든 LIF에 대해 포트맵 포트가 자동으로 열립니다.
+
+link:configure_firewall_policies_for_lifs.html#Portmap-Service-Configuration["portmap 서비스 구성"]
+
+
+
+ a| 
+ONTAP 9.7
+ a| 
+캐시 검색
+ a| 
+vserver services name-service NIS-domain netgroup-database 명령을 사용하여 NIS의 넷그룹.byhost 항목을 캐시할 수 있습니다.
+
+
+
+ a| 
+ONTAP 9.6
+ a| 
+입방
+ a| 
+Cubic은 ONTAP 하드웨어의 기본 TCP 정체 제어 알고리즘입니다. Cubic은 ONTAP 9.5 및 이전 기본 TCP 정체 제어 알고리즘인 NewReno를 교체했습니다.
+
+Cubic은 RTT(High Round Trip Times)를 포함하여 긴 지방 네트워크(LFN)의 문제를 해결합니다. 입방체는 혼잡을 감지하고 방지합니다. Cubic은 대부분의 환경에서 성능을 향상시킵니다.
+
+
+
+ a| 
+ONTAP 9.6
+ a| 
+LIF 서비스 정책이 LIF 역할을 대체합니다
+ a| 
+LIF에서 지원되는 트래픽 유형을 결정하는 LIF에 서비스 정책(LIF 역할 대신)을 할당할 수 있습니다. 서비스 정책은 LIF에서 지원하는 네트워크 서비스 모음을 정의합니다. ONTAP는 LIF와 연결할 수 있는 기본 서비스 정책 세트를 제공합니다.
+
+ONTAP는 ONTAP 9.5부터 서비스 정책을 지원하지만 서비스 정책은 제한된 수의 서비스를 구성하는 데만 사용할 수 있습니다. ONTAP 9.6부터는 LIF 역할이 사용되지 않으며 모든 유형의 서비스에 대해 서비스 정책이 지원됩니다.
+
+link:https://docs.netapp.com/us-en/ontap/networking/lifs_and_service_policies96.html["LIF 및 서비스 정책을 확인하십시오"]
+
+
+
+ a| 
+ONTAP 9.5
+ a| 
+NTPv3 지원
+ a| 
+NTP(Network Time Protocol) 버전 3에는 SHA-1 키를 사용한 대칭 인증이 포함되어 있어 네트워크 보안이 향상됩니다.
+
+
+
+ a| 
+ONTAP 9.5
+ a| 
+SSH 로그인 보안 경고
+ a| 
+SSH(Secure Shell) 관리자로 로그인하면 이전 로그인에 대한 정보, 로그인 시도 실패, 마지막으로 성공한 로그인 이후 역할 및 권한의 변경 내용을 볼 수 있습니다.
+
+
+
+ a| 
+ONTAP 9.5
+ a| 
+LIF 서비스 정책
+ a| 
+새 서비스 정책을 생성하거나 기본 제공 정책을 사용할 수 있습니다. 하나 이상의 LIF에 서비스 정책을 할당할 수 있으므로 LIF에서 단일 서비스 또는 서비스 목록에 대한 트래픽을 전송할 수 있습니다.
+
+link:https://docs.netapp.com/us-en/ontap/networking/lifs_and_service_policies96.html["LIF 및 서비스 정책을 확인하십시오"]
+
+
+
+ a| 
+ONTAP 9.5
+ a| 
+VIP LIF 및 BGP 지원
+ a| 
+VIP 데이터 LIF는 서브넷의 일부가 아닌 LIF로, 동일한 IPspace에서 BGP(Border Gateway Protocol) LIF를 호스팅하는 모든 포트에서 연결할 수 있습니다. VIP 데이터 LIF는 개별 네트워크 인터페이스에 대한 호스트의 종속성을 제거합니다.
+
+link:configure_virtual_ip_@vip@_lifs.html#Create-a-virtual-IP-(VIP)-data-LIF["가상 IP(VIP) 데이터 LIF를 생성합니다"]
+
+
+
+ a| 
+ONTAP 9.5
+ a| 
+다중 경로 라우팅
+ a| 
+다중 경로 라우팅은 대상에 대해 사용 가능한 모든 경로를 활용하여 로드 밸런싱을 제공합니다.
+
+link:enable_multipath_routing.html["다중 경로 라우팅 활성화"]
+
+
+
+ a| 
+ONTAP 9.4
+ a| 
+포트맵 서비스
+ a| 
+포트맵 서비스는 RPC(원격 프로시저 호출) 서비스를 수신 대기 포트에 매핑합니다.
+
+포트맵 서비스는 항상 ONTAP 9.3 및 이전 버전에서 액세스할 수 있습니다. ONTAP 9.4부터 포트맵 서비스를 구성할 수 있습니다.
+
+특정 LIF에서 포트맵 서비스에 액세스할 수 있는지 여부를 제어하기 위해 방화벽 정책을 수정할 수 있습니다.
+
+link:configure_firewall_policies_for_lifs.html#Portmap-Service-Configuration["portmap 서비스 구성"]
+
+
+
+ a| 
+ONTAP 9.4
+ a| 
+LDAP 또는 NIS용 SSH MFA
+ a| 
+LDAP 또는 NIS용 SSH MFA(Multi-Factor Authentication)는 공용 키와 nsswitch를 사용하여 원격 사용자를 인증합니다.
+
+
+
+ a| 
+ONTAP 9.3
+ a| 
+SSH MFA
+ a| 
+로컬 관리자 계정의 SSH MFA는 공용 키와 암호를 사용하여 로컬 사용자를 인증합니다.
+
+
+
+ a| 
+ONTAP 9.3
+ a| 
+SAML 인증
+ a| 
+SAML(Security Assertion Markup Language) 인증을 사용하여 SPI(서비스 프로세서 인프라), ONTAP API, OnCommand System Manager 등의 웹 서비스에 대한 MFA를 구성할 수 있습니다.
+
+
+
+ a| 
+ONTAP 9.2
+ a| 
+SSH 로그인 시도
+ a| 
+무차별 암호 대입 공격을 방어하기 위해 SSH 로그인 시도 최대 횟수를 구성할 수 있습니다.
+
+
+
+ a| 
+ONTAP 9.2
+ a| 
+디지털 보안 인증서
+ a| 
+ONTAP는 OCSP(온라인 인증서 상태 프로토콜) 및 사전 설치된 기본 보안 인증서를 통해 디지털 인증서 보안에 대한 향상된 지원을 제공합니다.
+
+
+
+ a| 
+ONTAP 9.2
+ a| 
+빠른 경로
+ a| 
+성능 및 복원력 향상을 위한 네트워킹 스택 업데이트의 일환으로, ONTAP 9.2 이상의 릴리즈에서는 부적절한 라우팅 테이블에서 문제를 식별하기 위해 빠른 경로 라우팅 지원이 제거되었습니다. 따라서 ONTAP 9.2 이상으로 업그레이드할 때 노드 쉘에서 다음 옵션을 더 이상 설정할 수 없으며 기존 빠른 경로 구성은 비활성화됩니다.
+
+IP.fastpath.enable
+
+link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Network_traffic_not_sent_or_sent_out_of_an_unexpected_interface_after_upgrade_to_9.2_due_to_elimination_of_IP_Fastpath["IP fastpath 제거로 인해 9.2 업그레이드 후 예기치 않은 인터페이스에서 네트워크 트래픽이 전송 또는 전송되지 않습니다"^]
+
+
+
+ a| 
+ONTAP 9.1
+ a| 
+SNMPv3 Traphosts를 통한 보안
+ a| 
+USM(User-Based Security Model) 보안을 사용하여 SNMPv3 트라호스트를 구성할 수 있습니다. 이러한 향상된 기능을 통해 SNMPv3 트랩은 사전 정의된 USM 사용자의 인증 및 개인 정보 보호 자격 증명을 사용하여 생성할 수 있습니다.
+
+link:configure_traphosts_to_receive_snmp_notifications.html["SNMP 알림을 수신하도록 traphosts를 구성합니다"]
+
+
+
+ a| 
+ONTAP 9.0
+ a| 
+IPv6
+ a| 
+DDNS(동적 DNS) 이름 서비스는 IPv6 LIF에서 사용할 수 있습니다.
+
+link:create_a_lif.html["LIF를 생성합니다"]
+
+
+
+ a| 
+ONTAP 9.0
+ a| 
+노드당 LIF
+ a| 
+일부 시스템에서는 노드당 지원되는 LIF 수가 증가했습니다. 지정된 ONTAP 릴리즈에 대해 각 플랫폼에서 지원되는 LIF 수는 Hardware Universe를 참조하십시오.
+
+link:create_a_lif.html["LIF를 생성합니다"]
+
+link:https://hwu.netapp.com/["NetApp Hardware Universe를 참조하십시오"^]
+
+
+
+ a| 
+ONTAP 9.0
+ a| 
+LIF 관리
+ a| 
+ONTAP 및 System Manager는 자동으로 네트워크 포트 장애를 감지하고 차단합니다. LIF는 성능이 저하된 포트에서 정상 포트로 자동 마이그레이션됩니다.
+
+link:monitor_the_health_of_network_ports.html["네트워크 포트의 상태를 모니터링합니다"]
+
+
+
+ a| 
+ONTAP 9.0
+ a| 
+LLDP
+ a| 
+LLDP(Link Layer Discovery Protocol)는 ONTAP 시스템과 스위치 또는 라우터 간의 케이블 연결 확인 및 문제 해결을 위한 공급업체 중립적인 인터페이스를 제공합니다. Cisco Systems에서 개발한 독점 링크 계층 프로토콜인 CDP(Cisco Discovery Protocol)를 대체하는 것입니다.
+
+link:display_network_connectivity_with_neighbor_discovery_protocols.html#use-cdp-to-detect-network-connectivity["LLDP를 활성화 또는 비활성화합니다"]
+
+
+
+ a| 
+ONTAP 9.0
+ a| 
+DSCP 마킹에 대한 UC 준수
+ a| 
+DSCP(Differentiated Services Code Point) 마킹을 통한 통합 기능(UC) 준수.
+
+DSCP(Differentiated Services Code Point) 마크는 네트워크 트래픽을 분류 및 관리하기 위한 메커니즘으로 UC(Unified Capability) 규정 준수의 구성 요소입니다. 기본 또는 사용자가 제공한 DSCP 코드를 사용하여 지정된 프로토콜에 대해 발신(송신) IP 패킷 트래픽에 DSCP 마킹을 활성화할 수 있습니다.
+
+해당 프로토콜에 대해 DSCP marking을 설정할 때 DSCP 값을 제공하지 않으면 default를 사용한다.
+
+* 0x0A(10) *: 데이터 프로토콜/트래픽의 기본값
+
+* 0x30 (48) *: 제어 프로토콜/트래픽의 기본값.
+
+link:dscp_marking_for_uc_compliance.html["US 규정 준수를 위한 DSCP 마킹"]
+
+
+
+ a| 
+ONTAP 9.0
+ a| 
+SHA-2 암호 해시 함수
+ a| 
+암호 보안을 강화하기 위해 ONTAP 9는 SHA-2 암호 해시 기능을 지원하며, 새로 생성되거나 변경된 암호를 해시하는 데 기본적으로 SHA-512를 사용합니다.
+
+변경되지 않은 암호가 있는 기존 사용자 계정은 ONTAP 9 이상으로 업그레이드한 후 MD5 해시 기능을 계속 사용하며 사용자는 계속해서 자신의 계정에 액세스할 수 있습니다. 그러나 사용자가 암호를 변경하도록 하여 MD5 계정을 SHA-512로 마이그레이션하는 것이 좋습니다.
+
+
+
+ a| 
+ONTAP 9.0
+ a| 
+FIPS 140-2 지원
+ a| 
+FIPS(Federal Information Processing Standard) 140-2 규정 준수 모드를 사용하여 클러스터 전체의 컨트롤 플레인 웹 서비스 인터페이스를 구현할 수 있습니다.
+
+기본적으로 FIPS 140-2 전용 모드는 비활성화되어 있습니다.
+
+link:configure_network_security_using_federal_information_processing_standards_@fips@.html["FIPS(Federal Information Processing Standards)를 사용하여 네트워크 보안 구성"]
+
+|===

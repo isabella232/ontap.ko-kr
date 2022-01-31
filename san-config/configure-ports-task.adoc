@@ -1,0 +1,25 @@
+---
+permalink: san-config/configure-ports-task.html 
+sidebar: sidebar 
+keywords: configure, ports 
+summary: '통합 타겟 어댑터(X1143A-R6)를 구성하려면 동일한 퍼스낼리티 모드에서 동일한 칩에 두 개의 인접 포트를 구성해야 합니다.' 
+---
+= 포트를 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+통합 타겟 어댑터(X1143A-R6)를 구성하려면 동일한 퍼스낼리티 모드에서 동일한 칩에 두 개의 인접 포트를 구성해야 합니다.
+
+.단계
+. 'system node hardware unified-connect modify' 명령을 사용하여 FC(Fibre Channel) 또는 CNA(Converged Network Adapter)에 필요한 포트를 구성합니다.
+. FC 또는 10Gb 이더넷에 적합한 케이블을 연결합니다.
+. 올바른 SFP+가 설치되었는지 확인합니다.
++
+네트워크 FCP 어댑터 show-instance-node-adapter입니다
+
++
+CNA의 경우 10Gb 이더넷 SFP를 사용해야 합니다. FC의 경우 연결 중인 FC 패브릭을 기반으로 8Gb SFP 또는 16Gb SFP를 사용해야 합니다.
+
+

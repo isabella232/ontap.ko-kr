@@ -1,0 +1,56 @@
+---
+permalink: disks-aggregates/customize-size-raid-groups-task.html 
+sidebar: sidebar 
+keywords: raidsize, customize, raid groups 
+summary: RAID 그룹의 크기를 사용자 지정하여 RAID 그룹 크기가 Aggregate에 포함할 스토리지 크기에 적합한지 확인할 수 있습니다. 
+---
+= RAID 그룹의 크기를 사용자 지정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+RAID 그룹의 크기를 사용자 지정하여 RAID 그룹 크기가 Aggregate에 포함할 스토리지 크기에 적합한지 확인할 수 있습니다.
+
+표준 애그리게이트의 경우 애그리게이트로 RAID 그룹의 크기가 변경됩니다. Flash Pool 애그리게이트의 경우 SSD RAID 그룹 및 HDD RAID 그룹의 RAID 그룹 크기를 독립적으로 변경할 수 있습니다.
+
+다음 목록에서는 RAID 그룹 크기 변경에 대한 몇 가지 사항을 설명합니다.
+
+* 기본적으로 가장 최근에 생성된 RAID 그룹의 디스크 또는 어레이 LUN 수가 새 RAID 그룹 크기보다 작은 경우 디스크 또는 어레이 LUN은 새 크기에 도달할 때까지 가장 최근에 생성된 RAID 그룹에 추가됩니다.
+* 명시적으로 디스크를 추가하지 않는 한, 애그리게이트에 있는 다른 모든 기존 RAID 그룹의 크기는 동일하게 유지됩니다.
+* RAID 그룹이 애그리게이트의 현재 최대 RAID 그룹 크기보다 더 커지게 만들 수 없습니다.
+* 이미 생성된 RAID 그룹의 크기는 줄일 수 없습니다.
+* 새로운 크기는 해당 애그리게이트의 모든 RAID 그룹에 적용됩니다. Flash Pool 애그리게이트의 경우 영향을 받는 RAID 그룹 유형인 SSD 또는 HDD의 모든 RAID 그룹이 적용됩니다.
+
+
+.단계
+. 해당 명령을 사용합니다.
++
+|===
+
+
+| 원하는 작업 | 다음 명령을 입력합니다... 
+
+
+ a| 
+Flash Pool 애그리게이트의 SSD RAID 그룹의 최대 RAID 그룹 크기를 변경합니다
+ a| 
+'Storage aggregate modify-aggregate aggr_name-cache-raid-group-size'를 선택합니다
+
+
+
+ a| 
+다른 RAID 그룹의 최대 크기를 변경합니다
+ a| 
+'Storage aggregate modify -aggregate aggr_name -maxraidsize'를 선택합니다
+
+|===
+
+
+다음 명령을 실행하면 aggregate n1_A4의 최대 RAID 그룹 크기가 20개의 디스크 또는 어레이 LUN으로 변경됩니다.
+
+'Storage aggregate modify -aggregate n1_A4-maxraidsize 20'을 선택합니다
+
+다음 명령을 실행하면 Flash Pool 애그리게이트 n1_cache_a2의 SSD 캐시 RAID 그룹의 최대 RAID 그룹 크기가 24로 변경됩니다.
+
+'Storage aggregate modify-aggregate n1_cache_a2-cache-raid-group-size 24'를 선택합니다

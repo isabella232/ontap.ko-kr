@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/tape-reservation-preempted-reference.html 
+sidebar: sidebar 
+keywords: tape, drive, reservation, preempted, close, prematurely, operation, dma 
+summary: 테이프 드라이브가 다른 작업에서 사용 중이거나 테이프가 너무 일찍 닫혔습니다. 
+---
+= 테이프 예약이 사전 비어 있습니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+테이프 예약이 전제되었습니다
+
+* * 원인 *
++
+테이프 드라이브가 다른 작업에서 사용 중이거나 테이프가 너무 일찍 닫혔습니다.
+
+* * 시정 조치 *
++
+테이프 드라이브를 다른 작업에서 사용하고 있지 않은지, DMA 응용 프로그램이 작업을 중지하지 않았는지 확인한 다음 다시 시도하십시오.
+
+

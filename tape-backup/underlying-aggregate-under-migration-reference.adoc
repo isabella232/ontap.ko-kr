@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/underlying-aggregate-under-migration-reference.html 
+sidebar: sidebar 
+keywords: underlying, aggregate, migration, storage, failover, relocation, smtap, operation 
+summary: '마이그레이션 중인 Aggregate(스토리지 페일오버 또는 애그리게이트 재배치)에서 SMTape 작업이 시작되면 SMTape 작업이 실패합니다.' 
+---
+= 마이그레이션 중인 기본 애그리게이트
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+이주 중인 기본 골재
+
+* * 원인 *
++
+마이그레이션 중인 Aggregate(스토리지 페일오버 또는 애그리게이트 재배치)에서 SMTape 작업이 시작되면 SMTape 작업이 실패합니다.
+
+* * 시정 조치 *
++
+애그리게이트 마이그레이션이 완료된 후 SMTape 작업을 수행합니다.
+
+

@@ -1,0 +1,24 @@
+---
+permalink: encryption-at-rest/configure-external-key-management-concept.html 
+sidebar: sidebar 
+keywords: external key management, kmip, configure 
+summary: '하나 이상의 외부 키 관리 서버를 사용하여 클러스터가 암호화된 데이터에 액세스하는 데 사용하는 키를 보호할 수 있습니다. 외부 키 관리 서버는 KMIP(Key Management Interoperability Protocol)를 사용하여 노드에 키를 제공하는 스토리지 환경의 타사 시스템입니다.' 
+---
+= 외부 키 관리 개요 구성
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+하나 이상의 외부 키 관리 서버를 사용하여 클러스터가 암호화된 데이터에 액세스하는 데 사용하는 키를 보호할 수 있습니다. 외부 키 관리 서버는 KMIP(Key Management Interoperability Protocol)를 사용하여 노드에 키를 제공하는 스토리지 환경의 타사 시스템입니다.
+
+[NOTE]
+====
+ONTAP 9.1 이전 버전의 경우 노드 관리 LIF를 외부 키 관리자를 사용하려면 먼저 노드 관리 역할로 구성된 포트에 할당해야 합니다.
+
+====
+[NOTE]
+====
+NVE(NetApp Volume Encryption)는 ONTAP 9.1 이상의 온보드 키 관리자로 구현할 수 있습니다. ONTAP 9.3 이상에서는 외부 키 관리(KMIP)와 온보드 키 관리자를 사용하여 NVE를 구현할 수 있습니다.
+
+====

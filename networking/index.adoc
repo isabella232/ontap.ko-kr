@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: networking/index.html 
+keywords: ontap, 9, network, management, documentation, guide, ontap 9 network management documentation, welcome to the ontap 9 network management documentation portal 
+summary: ONTAP 9 네트워크 관리 문서 포털에 오신 것을 환영합니다 
+---
+= ONTAP 9 네트워크 관리 설명서
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+System Manager를 사용하면 풍부한 네트워킹 시각화 기능과 네트워크에 대한 통합 데이터를 다운로드할 수 있습니다. 자세한 내용은 다음 항목을 참조하십시오.
+
+* link:https://docs.netapp.com/us-en/ontap/concept_admin_viewing_managing_network.html["네트워크를 보고 관리합니다"]
+* link:https://docs.netapp.com/us-en/ontap/concept_admin_downloading_data_report.html["보고할 네트워크 데이터를 다운로드합니다"]
+
+
+ONTAP CLI를 사용하여 네트워크를 설정하고 관리할 수도 있습니다. ONTAP 9 CLI 네트워크 관리 설명서는 세 가지 주요 영역으로 구성되어 있습니다.
+
+link:set_up_nas_path_failover_98_and_later_cli.html["ONTAP 9.8 이상에 대해 NAS 경로 페일오버 설정"]
+
+ONTAP 9.8 이상에서 확립된 모범 사례를 사용하여 NAS 경로 페일오버를 설정하는 방법에 대해 알아보십시오
+
+link:set_up_nas_path_failover_9_to_97_cli.html["ONTAP 9.7 이전 버전에 대한 NAS 경로 페일오버 설정"]
+
+ONTAP 9.7 및 그 이전 버전에 확립된 Best Practice를 사용하여 NAS 경로 페일오버를 설정하는 방법에 대해 알아보십시오.
+
+link:networking_reference.html["네트워킹 참조"]
+
+네트워킹 참조 문서에서는 물리적 및 가상 네트워크 포트(VLAN 및 인터페이스 그룹), IPv4 및 IPv6를 사용하는 LIF, 라우팅 및 클러스터에서 호스트 해상도 서비스, 로드 밸런싱으로 네트워크 트래픽 최적화, SNMP를 사용하여 클러스터를 모니터링하는 방법에 대해 설명합니다. 달리 명시되지 않는 한, 이 정보는 모든 버전의 ONTAP 9에 적용됩니다.

@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/mismatch-backup-time-stamp-reference.html 
+sidebar: sidebar 
+keywords: mismatch, backup, time, stamp, tape, loaded, set 
+summary: 테이프 변경 중에 로드된 테이프는 백업 세트의 일부가 아닙니다. 
+---
+= 백업 타임 스탬프가 일치하지 않습니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+백업 타임 스탬프에 일치
+
+* * 원인 *
++
+테이프 변경 중에 로드된 테이프는 백업 세트의 일부가 아닙니다.
+
+* * 시정 조치 *
++
+'msape restore -h' 명령어를 사용하여 테이프의 헤더 정보를 확인한다.
+
+

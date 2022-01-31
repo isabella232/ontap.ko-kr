@@ -1,0 +1,41 @@
+---
+permalink: disks-aggregates/create-ssd-storage-pool-task.html 
+sidebar: sidebar 
+keywords: create, ssd storage pool 
+summary: '2~4개의 Flash Pool 애그리게이트를 위한 SSD 캐시를 제공하기 위해 SSD(Solid State Drive) 스토리지 풀을 생성할 수 있습니다.' 
+---
+= SSD 스토리지 풀을 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+2~4개의 Flash Pool 애그리게이트를 위한 SSD 캐시를 제공하기 위해 SSD(Solid State Drive) 스토리지 풀을 생성할 수 있습니다.
+
+.이 작업에 대해
+* 스토리지 풀에 디스크를 생성하거나 추가할 때 디스크 목록을 제공해야 합니다.
++
+스토리지 풀은 disskcount 매개 변수를 지원하지 않습니다.
+
+* 스토리지 풀에 사용된 SSD의 크기는 같아야 합니다.
+
+
+.단계
+. 사용 가능한 스페어 SSD의 이름을 확인합니다.
++
+'Storage aggregate show-spare-disks-disk-type ssd'를 선택합니다
+
++
+스토리지 풀에 사용된 SSD는 HA 쌍의 두 노드 중 하나에서 소유할 수 있습니다.
+
+. 스토리지 풀을 생성합니다.
++
+스토리지 풀 create-storage-pool_sp_name_-disk-list_disk1_,_disk2_,
+
+. * 선택 사항: * 새로 생성된 스토리지 풀을 확인합니다.
++
+'storage pool show -storage -pool_sp_name_'을 선택합니다
+
+
+
+스토리지 풀에 SSD를 배치한 후에는 스토리지 풀에서 제공하는 스토리지가 Flash Pool 캐시에 아직 할당되지 않았더라도 클러스터에서 스페어로 표시되지 않습니다. RAID 그룹에 SSD를 개별 드라이브로 추가할 수는 없습니다. SSD의 스토리지는 SSD가 속한 스토리지 풀의 할당 유닛을 통해서만 프로비저닝할 수 있습니다.

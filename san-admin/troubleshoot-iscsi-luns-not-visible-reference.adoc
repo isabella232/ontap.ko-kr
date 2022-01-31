@@ -1,0 +1,96 @@
+---
+permalink: san-admin/troubleshoot-iscsi-luns-not-visible-reference.html 
+sidebar: sidebar 
+keywords: troubleshoot, iscsi luns, not visible, host 
+summary: iSCSI LUN은 호스트에 로컬 디스크로 표시됩니다. 스토리지 시스템 LUN을 호스트에서 디스크로 사용할 수 없는 경우 구성 설정을 확인해야 합니다. 
+---
+= 호스트에 표시되지 않는 iSCSI LUN 문제를 해결합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+iSCSI LUN은 호스트에 로컬 디스크로 표시됩니다. 스토리지 시스템 LUN을 호스트에서 디스크로 사용할 수 없는 경우 구성 설정을 확인해야 합니다.
+
+[cols="1, 3"]
+|===
+| 구성 설정 | 할 일 
+
+
+ a| 
+케이블 연결
+ a| 
+호스트와 스토리지 시스템 사이의 케이블이 올바르게 연결되었는지 확인합니다.
+
+
+
+ a| 
+네트워크 연결
+ a| 
+호스트와 스토리지 시스템 간에 TCP/IP 접속이 설정되어 있는지 확인합니다.
+
+* 스토리지 시스템 명령줄에서 iSCSI에 사용 중인 호스트 인터페이스를 ping합니다.
++
+"ping –node_node_name_-destination_host_ip_address_for_iscsi_"
+
+* 호스트 명령줄에서 iSCSI에 사용 중인 스토리지 시스템 인터페이스를 ping합니다.
++
+"ping –node_node_name_-destination_host_ip_address_for_iscsi_"
+
+
+
+
+
+ a| 
+시스템 요구 사항
+ a| 
+구성 요소의 자격 여부를 확인합니다. 또한 호스트 운영 체제(OS) 서비스 팩 수준, 이니시에이터 버전, ONTAP 버전 및 기타 시스템 요구 사항이 올바른지 확인합니다. 상호 운용성 매트릭스에는 최신 시스템 요구 사항이 포함되어 있습니다.
+
+
+
+ a| 
+점보 프레임
+ a| 
+구성에서 점보 프레임을 사용하는 경우 네트워크 경로의 모든 장치(호스트 이더넷 NIC, 스토리지 시스템 및 모든 스위치)에서 점보 프레임이 활성화되어 있는지 확인합니다.
+
+
+
+ a| 
+iSCSI 서비스 상태입니다
+ a| 
+iSCSI 서비스에 라이센스가 부여되어 스토리지 시스템에서 시작되었는지 확인합니다.
+
+
+
+ a| 
+초기자 로그인
+ a| 
+이니시에이터가 스토리지 시스템에 로그인되어 있는지 확인합니다. "iscsi initiator show" 명령 출력에 로그인한 이니시에이터가 없는 경우 호스트에서 이니시에이터 구성을 확인하십시오. 스토리지 시스템이 이니시에이터의 타겟으로 구성되어 있는지도 확인합니다.
+
+
+
+ a| 
+iSCSI 노드 이름(IQN)
+ a| 
+igroup 구성에서 올바른 이니시에이터 노드 이름을 사용하고 있는지 확인합니다. 호스트에서 이니시에이터 툴 및 명령을 사용하여 이니시에이터 노드 이름을 표시할 수 있습니다. igroup 및 호스트에 구성된 이니시에이터 노드 이름이 일치해야 합니다.
+
+
+
+ a| 
+LUN 매핑
+ a| 
+LUN이 igroup에 매핑되어 있는지 확인합니다. 스토리지 시스템 콘솔에서 다음 명령 중 하나를 사용할 수 있습니다.
+
+* LUN mapping show는 모든 LUN과 매핑된 igroup을 표시합니다.
+* 'lun mapping show -igroup'은 특정 igroup에 매핑된 LUN을 표시합니다.
+
+
+
+
+ a| 
+iSCSI LIF가 사용하도록 설정합니다
+ a| 
+iSCSI 논리 인터페이스가 활성화되었는지 확인합니다.
+
+|===
+https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"]

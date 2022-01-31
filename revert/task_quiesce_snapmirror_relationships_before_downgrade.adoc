@@ -1,0 +1,61 @@
+---
+permalink: revert/task_quiesce_snapmirror_relationships_before_downgrade.html 
+sidebar: sidebar 
+keywords: ontap, downgrade, downgrading, snapmirror, operations, quisce 
+summary: ONTAP의 무중단 다운그레이드를 수행하기 전에 SnapMirror 작업을 중단하는 것이 좋습니다. 
+---
+= 다운그레이드하기 전에 SnapMirror 관계를 중지합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 다운그레이드를 수행하기 전에 SnapMirror 작업을 중단하는 것이 좋습니다.
+
+. SnapMirror show 명령을 사용하여 각 SnapMirror 관계의 대상 경로를 결정합니다.
+. 각 대상 볼륨에 대해 향후 SnapMirror 전송 일시 중지 - 대상 경로 대상'을 일시 중지합니다
++
+SnapMirror 관계에 대한 활성 전송이 없는 경우 이 명령은 상태를 중지 상태로 설정합니다. 관계에 활성 전송이 있는 경우 전송이 완료될 때까지 상태가 정지 상태로 설정되고 상태가 정지 상태가 됩니다.
+
++
+이 예에서는 SVMvs0.example.com 에서 대상 볼륨 vol1과 관련된 전송을 중지했습니다.
+
++
+[listing]
+----
+cluster1::> snapmirror quiesce -destination-path vs0.example.com:vol1
+----
+. 모든 SnapMirror 관계가 'napmirror show-status! Quiesced'로 중지되었는지 확인합니다
++
+이 명령은 _not_quiesced 인 SnapMirror 관계를 표시합니다.
+
++
+이 예에서는 모든 SnapMirror 관계가 정지된 상태를 보여줍니다.
+
++
+[listing]
+----
+cluster1::> snapmirror show -status !Quiesced
+There are no entries matching your query.
+----
+. 현재 SnapMirror 관계가 전송 중인 경우 다음 옵션 중 하나를 수행합니다.
++
+[cols="2*"]
+|===
+| 옵션을 선택합니다 | 설명 
+
+
+ a| 
+ONTAP 다운그레이드를 수행하기 전에 전송이 완료될 때까지 기다립니다.
+ a| 
+전송이 완료될 때마다 관계는 정지됨 상태로 변경됩니다.
+
+
+
+ a| 
+전송을 중지합니다. 'napmirror abort-destination-path destination-h' * 참고: * 로드 공유 미러 전송을 중단하는 경우에는 -foreground true 매개 변수를 사용해야 합니다.
+ a| 
+이 명령은 SnapMirror 전송을 중지하고 대상 볼륨을 성공적으로 전송된 마지막 스냅샷 복사본으로 복원합니다. 관계가 정지 상태로 설정됩니다.
+
+|===
+

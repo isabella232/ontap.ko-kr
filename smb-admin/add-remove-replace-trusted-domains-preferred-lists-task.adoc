@@ -1,0 +1,73 @@
+---
+permalink: smb-admin/add-remove-replace-trusted-domains-preferred-lists-task.html 
+sidebar: sidebar 
+keywords: add, remove, trust, domain, prefer, cifs, server, modify, list, configure, bidirectional, multidomain, name, mapping, search, add remove or replace trusted domains in preferred trusted domain list, replace 
+summary: CIFS 서버의 기본 설정 신뢰할 수 있는 도메인 목록에서 신뢰할 수 있는 도메인을 추가하거나 제거하거나 현재 목록을 수정할 수 있습니다. 기본 설정 신뢰할 수 있는 도메인 목록을 구성하는 경우 다중 도메인 이름 매핑 검색을 수행할 때 검색된 양방향 신뢰할 수 있는 도메인 대신 이 목록이 사용됩니다. 
+---
+= 기본 설정 신뢰할 수 있는 도메인 목록에서 신뢰할 수 있는 도메인을 추가, 제거 또는 교체합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+CIFS 서버의 기본 설정 신뢰할 수 있는 도메인 목록에서 신뢰할 수 있는 도메인을 추가하거나 제거하거나 현재 목록을 수정할 수 있습니다. 기본 설정 신뢰할 수 있는 도메인 목록을 구성하는 경우 다중 도메인 이름 매핑 검색을 수행할 때 검색된 양방향 신뢰할 수 있는 도메인 대신 이 목록이 사용됩니다.
+
+.이 작업에 대해
+* 기존 목록에 신뢰할 수 있는 도메인을 추가하는 경우 새 목록이 기존 목록과 병합되고 끝에 새 항목이 추가됩니다 신뢰할 수 있는 도메인은 신뢰할 수 있는 도메인 목록에 나타나는 순서대로 검색됩니다.
+* 기존 목록에서 신뢰할 수 있는 도메인을 제거하고 목록을 지정하지 않는 경우 지정된 SVM(스토리지 가상 머신)에 대한 신뢰할 수 있는 전체 도메인 목록이 제거됩니다.
+* 신뢰할 수 있는 도메인의 기존 목록을 수정하면 새 목록이 기존 목록을 덮어씁니다.
+
+
+[NOTE]
+====
+선호하는 트러스트된 도메인 목록에 양방향 트러스트된 도메인만 입력해야 합니다. 기본 도메인 목록에 아웃바운드 또는 인바운드 트러스트 도메인을 입력할 수 있지만 다중 도메인 이름 매핑 검색을 수행할 때는 사용되지 않습니다. ONTAP는 단방향 도메인의 항목을 건너뛰고 목록에서 다음 양방향 신뢰할 수 있는 도메인으로 이동합니다.
+
+====
+.단계
+. 다음 작업 중 하나를 수행합니다.
++
+|===
+| 기본 설정 신뢰할 수 있는 도메인 목록을 사용하여 다음을 수행하려면... | 명령 사용... 
+
+
+ a| 
+신뢰할 수 있는 도메인을 목록에 추가합니다
+ a| 
+'+vserver cifs domain name-mapping-search add-vserver_vserver_name_-trusted-domain FQDN,...+'
+
+
+
+ a| 
+목록에서 신뢰할 수 있는 도메인을 제거합니다
+ a| 
+'+vserver cifs domain name-mapping-search remove-vserver_vserver_name_[-trusted-domain FQDN,...]+'
+
+
+
+ a| 
+기존 목록을 수정합니다
+ a| 
+'+vserver cifs domain name-mapping-search modify -vserver_vserver_name_-trusted-domain FQDN,...+'
+
+|===
+
+
+다음 명령을 실행하면 SVM VS1 에서 사용하는 신뢰할 수 있는 도메인 2개(cifs1.example.com 및 cifs2.example.com 추가할 수 있습니다.
+
+[listing]
+----
+cluster1::> vserver cifs domain name-mapping-search add -vserver vs1 -trusted-domains cifs1.example.com, cifs2.example.com
+----
+다음 명령을 실행하면 SVM VS1 에서 사용되는 목록에서 신뢰할 수 있는 도메인 2개가 제거됩니다.
+
+[listing]
+----
+cluster1::> vserver cifs domain name-mapping-search remove -vserver vs1 -trusted-domains cifs1.example.com, cifs2.example.com
+----
+다음 명령을 실행하면 SVM VS1 에서 사용하는 신뢰할 수 있는 도메인 목록이 수정됩니다. 새 목록이 원본 목록을 대체합니다.
+
+[listing]
+----
+cluster1::> vserver cifs domain name-mapping-search modify -vserver vs1 -trusted-domains cifs3.example.com
+----
+xref:display-preferred-trusted-domain-list-task.adoc[신뢰할 수 있는 기본 도메인 목록에 대한 정보 표시]

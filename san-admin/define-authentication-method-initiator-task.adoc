@@ -1,0 +1,37 @@
+---
+permalink: san-admin/define-authentication-method-initiator-task.html 
+sidebar: sidebar 
+keywords: define, security, policy, method, initiator 
+summary: 이니시에이터 목록과 해당 인증 방법을 정의할 수 있습니다. 사용자 정의 인증 방법이 없는 이니시에이터에 적용되는 기본 인증 방법을 수정할 수도 있습니다. 
+---
+= 이니시에이터에 대한 보안 정책 방법을 정의합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이니시에이터 목록과 해당 인증 방법을 정의할 수 있습니다. 사용자 정의 인증 방법이 없는 이니시에이터에 적용되는 기본 인증 방법을 수정할 수도 있습니다.
+
+제품의 보안 정책 알고리즘을 사용하여 고유한 암호를 생성하거나 사용하려는 암호를 수동으로 지정할 수 있습니다.
+
+[NOTE]
+====
+일부 이니시에이터는 16진수 CHAP 암호 암호를 지원하지 않습니다.
+
+====
+.단계
+. "vserver iSCSI security create" 명령을 사용하여 이니시에이터에 대한 보안 정책 방법을 생성합니다.
++
+'vserver iscsi security create-vserver vS2-initiator iqn.1991-05.com.microsoft:host1 -auth-type CHAP-user-name byby1-outbound-user-name byby2'
+
+. 화면 명령에 따라 암호를 추가합니다.
++
+인바운드 및 아웃바운드 CHAP 사용자 이름 및 암호를 사용하여 초기자 iqn.1991-05.com.microsoft:host1 에 대한 보안 정책 방법을 만듭니다.
+
+
+
+.관련 정보
+* xref:iscsi-authentication-concept.adoc[iSCSI 인증의 작동 방식]
+* xref:using-chap-authentication-concept.adoc[CHAP 인증 사용에 대한 지침입니다]
+* xref:chap-authentication-concept.adoc[CHAP 인증입니다]
+

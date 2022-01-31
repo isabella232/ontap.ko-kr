@@ -1,0 +1,17 @@
+---
+permalink: fabricpool/attach-storagegrid-cloud-tier-video-reference.html 
+sidebar: sidebar 
+keywords: attaching, storagegrid, fabricpool, cloud tier, video 
+summary: 이 비디오에서는 StorageGRID를 사용하여 ONTAP 버킷을 FabricPool Aggregate에 연결하는 방법에 대해 System Manager를 사용하는 방법에 대해 간략하게 설명합니다. 
+---
+= StorageGRID를 FabricPool 클라우드 계층으로 연결(비디오)
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 비디오에서는 StorageGRID를 사용하여 ONTAP 버킷을 FabricPool Aggregate에 연결하는 방법에 대해 System Manager를 사용하는 방법에 대해 간략하게 설명합니다.
+
+https://www.youtube.com/embed/MVkkKZ754ZE?rel=0["NetApp 비디오: StorageGRID Webscale을 FabricPool 외부 용량 계층으로 연결"]
+
+https://www.youtube.com/playlist?list=PLdXI3bZJEw7mcD3RnEcdqZckqKkttoUpS["NetApp TechComm TV: FabricPool 재생 목록"]

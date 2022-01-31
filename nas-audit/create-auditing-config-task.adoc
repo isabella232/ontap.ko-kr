@@ -1,0 +1,81 @@
+---
+permalink: nas-audit/create-auditing-config-task.html 
+sidebar: sidebar 
+keywords: create, audit, configuration 
+summary: '파일 및 디렉토리 이벤트 감사를 시작하려면 먼저 SVM(스토리지 가상 머신)에 감사 구성을 생성해야 합니다.' 
+---
+= 감사 구성을 만듭니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SVM(Storage Virtual Machine)에서 파일 및 디렉토리 감사 구성을 생성하는 작업에는 사용 가능한 구성 옵션 이해, 구성 계획 수립, 구성 구성 및 활성화 등이 포함됩니다. 그런 다음 감사 구성에 대한 정보를 표시하여 결과 구성이 원하는 구성인지 확인할 수 있습니다.
+
+파일 및 디렉토리 이벤트 감사를 시작하려면 먼저 SVM(스토리지 가상 머신)에 감사 구성을 생성해야 합니다.
+
+중앙 액세스 정책 스테이징에 대한 감사 구성을 생성하려는 경우 SVM에 CIFS 서버가 있어야 합니다.
+
+[NOTE]
+====
+* CIFS 서버에서 동적 액세스 제어를 설정하지 않고 감사 구성에서 중앙 액세스 정책 스테이징을 설정할 수 있지만 동적 액세스 제어를 설정한 경우에만 중앙 액세스 정책 스테이징 이벤트가 생성됩니다.
++
+동적 액세스 제어는 CIFS 서버 옵션을 통해 설정됩니다. 기본적으로 활성화되어 있지 않습니다.
+
+* 필드, 중복 항목 및 존재하지 않는 항목에 대한 잘못된 입력 등 명령에서 필드의 인수가 잘못된 경우 감사 단계 전에 명령이 실패합니다.
++
+이러한 실패는 감사 기록을 생성하지 않습니다.
+
+
+
+====
+SVM이 SVM 재해 복구 소스인 경우 타겟 경로가 루트 볼륨에 있을 수 없습니다.
+
+.단계
+. 계획 워크시트의 정보를 사용하여 감사 구성을 만들어 로그 크기 또는 일정에 따라 감사 로그를 회전합니다.
++
+[cols="30,70"]
+|===
+
+
+| 감사 로그를 회전하려면... | 입력... 
+
+
+ a| 
+로그 크기
+ a| 
+'vserver audit create-vserver vserver_name-destination path-events[{file-ops|cifs-logon-logoff|cap-staging|file-share|audit-policy-change|user-account|security-group|authorization-policy-change}][-format{xml|evtx}][-rotate-size{integer[KB|MB|MB
+
+
+
+ a| 
+일정
+ a| 
+``vserver audit create-vserver_name-destination path-events[{file-ops|cifs-logon-logoff|cap-staging}][-format{xml|evtx}][-rotate-limit integer][-rotate-schedule-month chron_month][-rotate-schedule -dayOfWeek chron_dayOfWeek] [-month dayron-dayron-dayron-dayron-dayron-month rerotate" cyron-month cyron-month]일
+
+[NOTE]
+====
+시간 기반 감사 로그 회전을 구성하려면 '-rotate-schedule-minute' 매개 변수가 필요합니다.
+
+====
+|===
+
+
+다음 예제에서는 크기 기반 회전을 사용하여 파일 작업 및 CIFS 로그온 및 로그오프 이벤트(기본값)를 감사하는 감사 구성을 만듭니다. 로그 형식은 evtx(기본값)입니다. 로그는 '/audit_log' 디렉토리에 저장됩니다. 로그 파일 크기 제한은 200MB입니다. 로그 크기는 200MB에 도달하면 회전됩니다.
+
+[listing]
+----
+cluster1::> vserver audit create -vserver vs1 -destination /audit_log -rotate-size 200MB
+----
+다음 예제에서는 크기 기반 회전을 사용하여 파일 작업 및 CIFS 로그온 및 로그오프 이벤트(기본값)를 감사하는 감사 구성을 만듭니다. 로그 형식은 evtx(기본값)입니다. 로그 파일 크기 제한은 100MB(기본값)이며 로그 회전 제한은 5입니다.
+
+[listing]
+----
+cluster1::> vserver audit create -vserver vs1 -destination /audit_log -rotate-limit 5
+----
+다음 예에서는 파일 작업, CIFS 로그온 및 로그오프 이벤트 및 시간 기반 회전을 사용하여 중앙 액세스 정책 스테이징 이벤트를 감사하는 감사 구성을 생성합니다. 로그 형식은 evtx(기본값)입니다. 감사 로그는 매월 오후 12시 30분에 순환됩니다 일주일 내내. 로그 회전 제한은 "5"입니다.
+
+[listing]
+----
+cluster1::> vserver audit create -vserver vs1 -destination /audit_log -events file-ops,cifs-logon-logoff,file-share,audit-policy-change,user-account,security-group,authorization-policy-change,cap-staging -rotate-schedule-month all -rotate-schedule-dayofweek all -rotate-schedule-hour 12 -rotate-schedule-minute 30 -rotate-limit 5
+----

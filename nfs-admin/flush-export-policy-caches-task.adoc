@@ -1,0 +1,99 @@
+---
+permalink: nfs-admin/flush-export-policy-caches-task.html 
+sidebar: sidebar 
+keywords: flush, export, policy, cache 
+summary: '내보내기 정책 캐시를 수동으로 플러싱하면(vserver export-policy cache flush) 오래된 정보가 제거되고 ONTAP가 적절한 외부 리소스에서 현재 정보를 검색하도록 합니다. 이렇게 하면 NFS 내보내기에 대한 클라이언트 액세스와 관련된 다양한 문제를 해결할 수 있습니다.' 
+---
+= 엑스포트 정책 캐시 플러시
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP는 빠른 액세스를 위해 여러 엑스포트 정책 캐시를 사용하여 엑스포트 정책과 관련된 정보를 저장합니다. 내보내기 정책 캐시를 수동으로 플러싱하면('vserver export-policy cache flush') 오래된 정보가 제거되고 ONTAP가 적절한 외부 리소스에서 현재 정보를 검색하도록 합니다. 이렇게 하면 NFS 내보내기에 대한 클라이언트 액세스와 관련된 다양한 문제를 해결할 수 있습니다.
+
+다음과 같은 이유로 인해 엑스포트 정책 캐시 정보가 오래된 것일 수 있습니다.
+
+* 정책 규칙을 내보내기 위한 최근 변경 사항
+* 이름 서버의 호스트 이름 레코드에 대한 최근 변경 사항
+* 이름 서버의 넷그룹 항목에 대한 최근 변경 사항
+* 네트워크 중단 상태에서 복구되어 넷그룹이 완전히 로드되지 않았습니다
+
+
+.단계
+. 이름 서비스 캐시를 사용하지 않는 경우 다음 작업 중 하나를 고급 권한 모드에서 수행합니다.
++
+[cols="2*"]
+|===
+| 플러시를 원하는 경우... | 명령 입력... 
+
+
+ a| 
+모든 엑스포트 정책 캐시(Showmount 제외)
+ a| 
+'vserver export-policy cache flush-vserver vserver_name'
+
+
+
+ a| 
+엑스포트 정책 규칙 액세스 캐시
+ a| 
+'vserver export-policy cache flush-vserver vserver_name-cache access'는 선택 사항인 '-node' 매개변수를 포함하여 액세스 캐시를 플러시할 노드를 지정할 수 있습니다.
+
+
+
+ a| 
+호스트 이름 캐시입니다
+ a| 
+'vserver export-policy cache flush-vserver vserver_name-cache host'
+
+
+
+ a| 
+넷그룹 캐시입니다
+ a| 
+넷그룹의 처리는 리소스를 많이 소모하는 작업입니다. 오래된 넷그룹으로 인해 발생하는 클라이언트 액세스 문제를 해결하려는 경우에만 넷그룹 캐시를 플러시해야 합니다.
+
+
+
+ a| 
+showmount 캐시입니다
+ a| 
+'vserver export-policy cache flush-vserver vserver_name-cache showmount'
+
+|===
+. 이름 서비스 캐시가 활성화된 경우 다음 작업 중 하나를 수행합니다.
++
+[cols="2*"]
+|===
+| 플러시를 원하는 경우... | 명령 입력... 
+
+
+ a| 
+엑스포트 정책 규칙 액세스 캐시
+ a| 
+'vserver export-policy cache flush-vserver vserver_name-cache access'는 선택 사항인 '-node' 매개변수를 포함하여 액세스 캐시를 플러시할 노드를 지정할 수 있습니다.
+
+
+
+ a| 
+호스트 이름 캐시입니다
+ a| 
+'vserver services name-service cache hosts forward-lookup delete-all'
+
+
+
+ a| 
+넷그룹 캐시입니다
+ a| 
+SVM 서비스 이름-서비스 캐시 넷그룹 IP-넷그룹 삭제-모두 SVM 서비스 이름-서비스 캐시 넷그룹 구성원 삭제-모두(All) 넷그룹 처리는 리소스를 많이 소모합니다. 오래된 넷그룹으로 인해 발생하는 클라이언트 액세스 문제를 해결하려는 경우에만 넷그룹 캐시를 플러시해야 합니다.
+
+
+
+ a| 
+showmount 캐시입니다
+ a| 
+'vserver export-policy cache flush-vserver vserver_name-cache showmount'
+
+|===
+

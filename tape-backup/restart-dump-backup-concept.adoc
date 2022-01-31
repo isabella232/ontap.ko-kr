@@ -1,0 +1,56 @@
+---
+permalink: tape-backup/restart-dump-backup-concept.html 
+sidebar: sidebar 
+keywords: restart, dump, backup, internal, external, tape, write, errors, power, outages, accidental, user, interruptions, internal, inconsistency 
+summary: 테이프 쓰기 오류, 정전, 실수로 인한 사용자 중단 또는 스토리지 시스템의 내부 불일치 등과 같은 내부 또는 외부 오류로 인해 덤프 백업이 완료되지 않는 경우가 있습니다. 이러한 이유 중 하나로 인해 백업이 실패할 경우 백업을 다시 시작할 수 있습니다. 
+---
+= 덤프 백업을 다시 시작해야 하는 경우
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+테이프 쓰기 오류, 정전, 실수로 인한 사용자 중단 또는 스토리지 시스템의 내부 불일치 등과 같은 내부 또는 외부 오류로 인해 덤프 백업이 완료되지 않는 경우가 있습니다. 이러한 이유 중 하나로 인해 백업이 실패할 경우 백업을 다시 시작할 수 있습니다.
+
+스토리지 시스템에서 트래픽이 많지 않은 기간을 피하거나 테이프 드라이브와 같은 스토리지 시스템의 다른 제한된 리소스에 대한 경쟁 방지를 위해 백업을 중단 및 재시작할 수 있습니다. 보다 긴급한 복원(또는 백업)에 동일한 테이프 드라이브가 필요한 경우 긴 백업을 중단하고 나중에 다시 시작할 수 있습니다. 재시작 가능한 백업은 재부팅 후에도 유지됩니다. 다음 조건이 참인 경우에만 중단된 테이프 백업을 다시 시작할 수 있습니다.
+
+* 중단된 백업은 단계 IV에 있습니다
+* dump 명령으로 잠근 연결된 모든 스냅샷 복사본을 사용할 수 있습니다.
+* 파일 기록을 활성화해야 합니다.
+
+
+이러한 덤프 작업이 중단되고 재시작 가능한 상태로 남아 있으면 연결된 스냅샷 복사본이 잠깁니다. 이러한 스냅샷 복사본은 백업 컨텍스트가 삭제된 후에 릴리즈됩니다. 'vserver services ndmp restable backup show' 명령을 사용하여 백업 컨텍스트 목록을 볼 수 있습니다.
+
+[listing]
+----
+cluster::> vserver services ndmpd restartable-backup show
+Vserver     Context Identifier                   Is Cleanup Pending?
+----------- ------------------------------------ -------------------
+vserver1 330e6739-0179-11e6-a299-005056bb4bc9 false
+vserver1 481025c1-0179-11e6-a299-005056bb4bc9 false
+vserver2 5cf10132-0179-11e6-a299-005056bb4bc9 false
+3 entries were displayed.
+
+cluster::> vserver services ndmpd restartable-backup show -vserver vserver1 -context-id 330e6739-0179-11e6-a299-005056bb4bc9
+
+                       Vserver: vserver1
+            Context Identifier: 330e6739-0179-11e6-a299-005056bb4bc9
+                   Volume Name: /vserver1/vol1
+           Is Cleanup Pending?: false
+            Backup Engine Type: dump
+Is Snapshot Copy Auto-created?: true
+                     Dump Path: /vol/vol1
+   Incremental Backup Level ID: 0
+                     Dump Name: /vserver1/vol1
+     Context Last Updated Time: 1460624875
+               Has Offset Map?: true
+                 Offset Verify: true
+       Is Context Restartable?: true
+              Is Context Busy?: false
+                  Restart Pass: 4
+              Status of Backup: 2
+            Snapshot Copy Name: snapshot_for_backup.1
+          State of the Context: 7
+
+cluster::>"
+----

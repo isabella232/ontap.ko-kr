@@ -1,0 +1,106 @@
+---
+permalink: nas-audit/supported-file-operation-filter-fpolicy-smb-concept.html 
+sidebar: sidebar 
+keywords: list, supported file operation, filter combinations, fpolicy, monitor, smb 
+summary: FPolicy 이벤트를 구성할 때는 특정 조합의 파일 작업 및 필터만 SMB 파일 액세스 작업을 모니터링하는 데 지원됩니다. 
+---
+= FPolicy가 SMB용으로 모니터링할 수 있는 지원되는 파일 작업 및 필터 조합 목록입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FPolicy 이벤트를 구성할 때는 특정 조합의 파일 작업 및 필터만 SMB 파일 액세스 작업을 모니터링하는 데 지원됩니다.
+
+SMB 파일 액세스 이벤트의 FPolicy 모니터링을 위해 지원되는 파일 작업 및 필터 조합 목록은 다음 표에 나와 있습니다.
+
+[cols="30,70"]
+|===
+
+
+| 지원되는 파일 작업 | 지원되는 필터 
+
+
+ a| 
+를 닫습니다
+ a| 
+모니터 광고, 오프라인 비트, 수정 사항이 있는 닫기, 수정 없이 종료, 읽기 작업이 거의 없는 exclude-directory 를 선택합니다
+
+
+
+ a| 
+생성
+ a| 
+모니터 광고, 오프라인 비트
+
+
+
+ a| 
+디렉토리 작성
+ a| 
+현재 이 파일 작업에 대해 지원되는 필터가 없습니다.
+
+
+
+ a| 
+삭제
+ a| 
+모니터 광고, 오프라인 비트
+
+
+
+ a| 
+Delete_dir
+ a| 
+현재 이 파일 작업에 대해 지원되는 필터가 없습니다.
+
+
+
+ a| 
+GetAttr
+ a| 
+offline-bit, exclude-dir
+
+
+
+ a| 
+개방형
+ a| 
+monitor-ads, offline-bit, open-with-delete-intent, open-with-write-intent, exclude-dir
+
+
+
+ a| 
+읽기
+ a| 
+모니터 광고, 오프라인 비트, 첫 번째 읽기
+
+
+
+ a| 
+쓰기
+ a| 
+모니터 광고, 오프라인 비트, 처음 쓰기, 크기 변경 포함 쓰기
+
+
+
+ a| 
+이름 바꾸기
+ a| 
+모니터 광고, 오프라인 비트
+
+
+
+ a| 
+이름 바꾸기_디렉토리
+ a| 
+현재 이 파일 작업에 대해 지원되는 필터가 없습니다.
+
+
+
+ a| 
+SetAttr
+ a| 
+monitor-ads, offline-bit, SetAttr_with_owner_change, SetAttr_with_group_change, SetAttr_with_mode_change, SetAttr_with_SACL_change, SetAttr_with_DACL_change, SetAttr_with_modify_time_change, SetAttr_with_access_time_change, SetAttr_with_creation_time_change, SetAttr_with_size_change, SetAttr_with_allocation_size_change, exclude_directory
+
+|===

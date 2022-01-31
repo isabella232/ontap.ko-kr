@@ -1,0 +1,39 @@
+---
+permalink: nfs-config/create-export-policy-task.html 
+sidebar: sidebar 
+keywords: create, export, policy 
+summary: 내보내기 규칙을 만들기 전에 해당 규칙을 보유할 내보내기 정책을 만들어야 합니다. vserver export-policy create 명령을 사용하여 엑스포트 정책을 생성할 수 있습니다. 
+---
+= 엑스포트 정책을 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+내보내기 규칙을 만들기 전에 해당 규칙을 보유할 내보내기 정책을 만들어야 합니다. 'vserver export-policy create' 명령을 사용하여 엑스포트 정책을 생성할 수 있습니다.
+
+.단계
+. 엑스포트 정책 생성:
++
+'vserver export-policy create-vserver_vserver_name_-policyname_policy_name_'
+
++
+정책 이름은 최대 256자까지 지정할 수 있습니다.
+
+. 엑스포트 정책이 생성되었는지 확인:
++
+'vserver export-policy show-policyname_policy_name_'
+
+
+
+다음 명령을 실행하면 이름이 VS1 인 SVM에서 exp1 이라는 엑스포트 정책이 생성되는지 검증 및 됩니다.
+
+[listing]
+----
+vs1::> vserver export-policy create -vserver vs1 -policyname exp1
+
+vs1::> vserver export-policy show -policyname exp1
+Vserver          Policy Name
+---------------  -------------------
+vs1              exp1
+----

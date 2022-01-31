@@ -1,0 +1,13 @@
+---
+permalink: san-admin/manage-luns-fc-iscsi-concept.html 
+sidebar: sidebar 
+keywords: manage, luns, fc, iscsi 
+summary: LUN을 생성한 후에는 다양한 방법으로 LUN을 관리할 수 있습니다. 예를 들어, LUN 가용성을 제어하고, igroup에서 LUN 매핑을 해제하고, LUN을 삭제하고, LUN 크기를 늘릴 수 있습니다. 
+---
+= FC 및 iSCSI용 LUN 관리 개요
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+LUN을 생성한 후에는 다양한 방법으로 LUN을 관리할 수 있습니다. 예를 들어, LUN 가용성을 제어하고, igroup에서 LUN 매핑을 해제하고, LUN을 삭제하고, LUN 크기를 늘릴 수 있습니다.

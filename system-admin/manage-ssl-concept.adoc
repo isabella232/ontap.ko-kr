@@ -1,0 +1,23 @@
+---
+permalink: system-admin/manage-ssl-concept.html 
+sidebar: sidebar 
+keywords: manage, ssl, security, web, access, digital, certificate, encrypted, connection, server, browser 
+summary: SSL 프로토콜은 웹 서버와 브라우저 간에 암호화된 연결을 설정하기 위해 디지털 인증서를 사용하여 웹 액세스의 보안을 개선합니다. 
+---
+= SSL 관리
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SSL 프로토콜은 웹 서버와 브라우저 간에 암호화된 연결을 설정하기 위해 디지털 인증서를 사용하여 웹 액세스의 보안을 개선합니다.
+
+다음과 같은 방법으로 클러스터 또는 SVM(스토리지 가상 머신)의 SSL을 관리할 수 있습니다.
+
+* SSL 활성화
+* 디지털 인증서를 생성 및 설치하고 이를 클러스터 또는 SVM과 연계합니다
+* SSL이 활성화되었는지 여부를 확인하기 위해 SSL 구성을 표시하고, 사용 가능한 경우 SSL 인증서 이름을 표시합니다
+* 웹 액세스 요청을 통과할 수 있도록 클러스터 또는 SVM에 대한 방화벽 정책 설정
+* 사용할 수 있는 SSL 버전을 정의합니다
+* 웹 서비스에 대한 HTTPS 요청에만 액세스를 제한합니다
+

@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/tape-write-failed-media-error-reference.html 
+sidebar: sidebar 
+keywords: tape, write, failed, no, media, error, corrupted, backup, operation 
+summary: 백업에 사용된 테이프가 손상되었습니다. 
+---
+= 테이프 쓰기 실패 - 새 테이프에 미디어 오류가 발생했습니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+테이프 쓰기 실패 - 새 테이프에 미디어 오류가 발생했습니다
+
+* * 원인 *
++
+백업에 사용된 테이프가 손상되었습니다.
+
+* * 시정 조치 *
++
+테이프를 교체하고 백업을 다시 시도하십시오.
+
+

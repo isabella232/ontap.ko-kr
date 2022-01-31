@@ -1,0 +1,28 @@
+---
+permalink: smb-admin/branchcache-when-reverting-concept.html 
+sidebar: sidebar 
+keywords: revert, ontap, release, support, branchcache, what happens to branchcache when reverting 
+summary: ONTAP를 BranchCache를 지원하지 않는 릴리즈로 되돌릴 경우 어떤 일이 발생하는지 이해하는 것이 중요합니다. 
+---
+= 되돌릴 때 BranchCache가 어떻게 됩니까
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP를 BranchCache를 지원하지 않는 릴리즈로 되돌릴 경우 어떤 일이 발생하는지 이해하는 것이 중요합니다.
+
+* BranchCache를 지원하지 않는 ONTAP 버전으로 되돌릴 경우 SMB 공유는 BranchCache를 사용하는 클라이언트에 BranchCache 기능을 알리지 않으므로 클라이언트는 해시 정보를 요청하지 않습니다.
++
+대신 일반 SMB 읽기 요청을 사용하여 실제 콘텐츠를 요청합니다. CIFS 서버는 콘텐츠 요청에 따라 SVM(스토리지 가상 머신)에 저장된 실제 콘텐츠를 전송합니다.
+
+* 해시 저장소를 호스팅하는 노드가 BranchCache를 지원하지 않는 릴리즈로 되돌려지면 스토리지 관리자는 복원 중에 인쇄되는 명령을 사용하여 BranchCache 구성을 수동으로 되돌려야 합니다.
++
+이 명령을 실행하면 BranchCache 구성 및 해시가 삭제됩니다.
+
++
+복원이 완료된 후 스토리지 관리자는 원하는 경우 해시 저장소가 포함된 디렉토리를 수동으로 삭제할 수 있습니다.
+
+
+
+xref:delete-branchcache-config-svms-concept.adoc[SVM에서 BranchCache 구성을 삭제합니다]

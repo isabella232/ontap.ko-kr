@@ -1,0 +1,167 @@
+---
+permalink: nfs-admin/troubleshoot-name-service-issues-task.html 
+sidebar: sidebar 
+keywords: troubleshoot, name, service, issue 
+summary: 클라이언트가 이름 서비스 문제로 인해 액세스 오류가 발생하는 경우 vserver services name-service getxxbyy 명령 제품군을 사용하여 다양한 이름 서비스 조회를 수동으로 수행하고 조회에 대한 세부 정보와 결과를 검토하여 문제 해결에 도움을 줄 수 있습니다. 
+---
+= 이름 서비스 문제를 해결합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클라이언트가 이름 서비스 문제로 인해 액세스 오류가 발생하는 경우, 'vserver services name-service getxxbyy' 명령 제품군을 사용하여 다양한 이름 서비스 조회를 수동으로 수행하고 조회에 대한 세부 정보와 결과를 확인하여 문제 해결에 도움이 될 수 있습니다.
+
+.이 작업에 대해
+* 각 명령에 대해 다음을 지정할 수 있습니다.
++
+** 조회를 수행할 노드 또는 SVM(스토리지 가상 머신)의 이름입니다.
++
+이를 통해 특정 노드 또는 SVM에 대한 네임 서비스 조회를 테스트하여 잠재적 네임 서비스 구성 문제에 대한 검색 범위를 좁힐 수 있습니다.
+
+** 조회에 사용된 소스를 표시할지 여부를 나타냅니다.
++
+이를 통해 올바른 소스가 사용되었는지 확인할 수 있습니다.
+
+
+
+* ONTAP는 구성된 이름 서비스 스위치 순서에 따라 조회를 수행하기 위한 서비스를 선택합니다.
+* 이러한 명령은 고급 권한 수준에서 사용할 수 있습니다.
+
+
+.단계
+. 다음 작업 중 하나를 수행합니다.
++
+....
+[cols="2*",options="header"]
+|===
+| To retrieve the...| Use the command...
+a|
+IP address of a host name
+a|
+`vserver services name-service getxxbyyy getaddrinfo`     `vserver services name-service getxxbyyy gethostbyname` (IPv4 addresses only)
+a|
+Members of a group by group ID
+a|
+`vserver services name-service getxxbyyy getgrbygid`
+a|
+Members of a group by group name
+a|
+`vserver services name-service getxxbyyy getgrbyname`
+a|
+List of groups a user belongs to
+a|
+`vserver services name-service getxxbyyy getgrlist`
+a|
+Host name of an IP address
+a|
+`vserver services name-service getxxbyyy getnameinfo`     `vserver services name-service getxxbyyy gethostbyaddr` (IPv4 addresses only)
+a|
+User information by user name
+a|
+`vserver services name-service getxxbyyy getpwbyname`     You can test name resolution of RBAC users by specifying the `-use-rbac` parameter as `true`.
+a|
+User information by user ID
+a|
+`vserver services name-service getxxbyyy getpwbyuid`
+....
++
+....
+You can test name resolution of RBAC users by specifying the `-use-rbac` parameter as `true`.
+a|
+Netgroup membership of a client
+a|
+`vserver services name-service getxxbyyy netgrp`
+a|
+Netgroup membership of a client using netgroup-by-host search
+a|
+`vserver services name-service getxxbyyy netgrpbyhost`
+|===
+The following example shows a DNS lookup test for the SVM vs1 by attempting to obtain the IP address for the host acast1.eng.example.com:
+----
+cluster1::*> vserver services name-service getxxbyyy getaddrinfo -vserver vs1 -hostname acast1.eng.example.com -address-family all -show-source true
+Source used for lookup: DNS
+Host name: acast1.eng.example.com
+Canonical Name: acast1.eng.example.com
+IPv4: 10.72.8.29
+----
+....
++
+....
+The following example shows a NIS lookup test for the SVM vs1 by attempting to retrieve user information for a user with the UID 501768:
+----
+cluster1::*> vserver services name-service getxxbyyy getpwbyuid -vserver vs1 -userID 501768 -show-source true
+Source used for lookup: NIS
+pw_name: jsmith
+pw_passwd: $1$y8rA4XX7$/DDOXAvc2PC/IsNFozfIN0
+pw_uid: 501768
+pw_gid: 501768
+pw_gecos:
+pw_dir: /home/jsmith
+pw_shell: /bin/bash
+----
+The following example shows an LDAP lookup test for the SVM vs1 by attempting to retrieve user information for a user with the name ldap1:
+....
++
+....
+----
+cluster1::*> vserver services name-service getxxbyyy getpwbyname -vserver vs1 -username ldap1 -use-rbac false -show-source true
+Source used for lookup: LDAP
+pw_name: ldap1
+pw_passwd: {crypt}JSPM6yc/ilIX6
+pw_uid: 10001
+pw_gid: 3333
+pw_gecos: ldap1 user
+pw_dir: /u/ldap1
+pw_shell: /bin/csh
+----
+....
++
+ The following example shows a netgroup lookup test for the SVM vs1 by attempting to find out whether the client dnshost0 is a member of the netgroup lnetgroup136:
++
+....
+----
+cluster1::*> vserver services name-service getxxbyyy netgrp -vserver vs1 -netgroup lnetgroup136 -client dnshost0 -show-source true
+Source used for lookup: LDAP
+dnshost0 is a member of lnetgroup136
+----
+....
+. 수행한 테스트의 결과를 분석하고 필요한 조치를 취합니다.
++
+[cols="2*"]
+|===
+| 만약... | 다음을 확인하십시오. 
+
+
+ a| 
+호스트 이름 또는 IP 주소 조회에 실패했거나 잘못된 결과가 발생했습니다
+ a| 
+DNS 구성
+
+
+
+ a| 
+조회가 잘못된 소스를 쿼리했습니다
+ a| 
+네임 서비스 스위치 구성
+
+
+
+ a| 
+사용자 또는 그룹 조회에 실패했거나 잘못된 결과가 발생했습니다
+ a| 
+이름 서비스 스위치 구성 소스 구성(로컬 파일, NIS 도메인, LDAP 클라이언트)
+
+네트워크 구성(예: LIF 및 라우트)
+
+
+
+ a| 
+호스트 이름 조회가 실패했거나 시간이 초과되었으며 DNS 서버가 DNS 짧은 이름(예: host1)을 확인하지 않습니다.
+ a| 
+최상위 도메인(TLD) 쿼리에 대한 DNS 구성 '-is-TLD-QUERY-ENABLED FALSE' 옵션을 사용하여 'vserver services name-service dns modify' 명령에 대한 TLD 쿼리를 비활성화할 수 있습니다.
+
+|===
+
+
+https://www.netapp.com/pdf.html?item=/media/16328-tr-4668pdf.pdf["NetApp 기술 보고서 4668: 이름 서비스 모범 사례 가이드"]

@@ -1,0 +1,48 @@
+---
+permalink: smb-admin/enable-disable-automatic-node-referrals-task.html 
+sidebar: sidebar 
+keywords: enable, smb, automatic, node, referral, client, access, performance, disable, ontap, enable or disable smb automatic node referrals 
+summary: SMB 자동 노드 조회를 활성화하여 SMB 클라이언트 액세스 성능을 높일 수 있습니다. ONTAP가 SMB 클라이언트에 조회를 하지 않도록 하려면 자동 노드 조회를 사용하지 않도록 설정할 수 있습니다. 
+---
+= SMB 자동 노드 조회를 설정하거나 해제합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMB 자동 노드 조회를 활성화하여 SMB 클라이언트 액세스 성능을 높일 수 있습니다. ONTAP가 SMB 클라이언트에 조회를 하지 않도록 하려면 자동 노드 조회를 사용하지 않도록 설정할 수 있습니다.
+
+CIFS 서버는 SVM(스토리지 가상 머신)에서 구성 및 실행해야 합니다.
+
+SMB 자동 노드 조회 기능은 기본적으로 비활성화되어 있습니다. 필요에 따라 각 SVM에서 이 기능을 활성화 또는 비활성화할 수 있습니다.
+
+이 옵션은 고급 권한 수준에서 사용할 수 있습니다.
+
+.단계
+. 권한 수준을 Advanced:'Set-Privilege advanced'로 설정합니다
+. 필요에 따라 SMB 자동 노드 조회를 설정하거나 해제합니다.
++
+|===
+| SMB 자동 노드 조회를 원하는 경우... | 다음 명령을 입력합니다... 
+
+
+ a| 
+활성화됨
+ a| 
+'vserver cifs options modify -vserver vserver_name -is-referral-enabled true'
+
+
+
+ a| 
+사용 안 함
+ a| 
+'vserver cifs options modify -vserver vserver_name -is-referral-enabled false'
+
+|===
++
+옵션 설정은 새 SMB 세션에 적용됩니다. 기존 연결이 있는 클라이언트는 기존 캐시 시간 초과가 만료될 때만 노드 조회를 활용할 수 있습니다.
+
+. 'Set-Privilege admin'으로 설정
+
+
+xref:server-options-reference.adoc[사용 가능한 SMB 서버 옵션]

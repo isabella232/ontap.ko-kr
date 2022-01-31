@@ -1,0 +1,56 @@
+---
+permalink: system-admin/display-nodeshell-commands-task.html 
+sidebar: sidebar 
+keywords: display, nodeshell, command, cli, list, help 
+summary: CLI 도움말을 사용하여 노드 쉘에서 사용 가능한 노드 쉘의 명령 목록을 얻을 수 있습니다. 
+---
+= 사용 가능한 노드 대체 명령을 표시합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+CLI 도움말을 사용하여 노드 쉘에서 사용 가능한 노드 쉘의 명령 목록을 얻을 수 있습니다.
+
+.단계
+. 노드 쉘에 액세스하려면 클러스터 쉘의 시스템 프롬프트에 다음 명령을 입력합니다.
++
+'* 시스템 노드 run-node {_nodename_|local} *'
+
++
+로컬 은 클러스터에 액세스하는 데 사용한 노드입니다.
+
++
+[NOTE]
+====
+'system node run' 명령에는 'run'이라는 별칭 명령이 있습니다.
+
+====
+. 노드 쉘에 다음 명령을 입력하여 사용 가능한 노드 쉘 명령 목록을 표시합니다.
++
+"*[_CommandName_] 도움말 * "
+
++
+'_CommandName_'은 표시할 수 있는 명령의 이름입니다. '_CommandName_'을 포함하지 않으면 CLI는 사용 가능한 모든 notes지옥명령을 표시합니다.
+
++
+'exit'를 입력하거나 Ctrl-d를 입력하여 클러스터 쉘 CLI로 돌아갑니다.
+
+
+
+다음 예에서는 node2라는 노드의 노드 중 노드 쉘에 액세스하여 노드 쉘의 명령 "환경"에 대한 정보를 표시합니다.
+
+[listing]
+----
+cluster1::> system node run -node node2
+Type 'exit' or 'Ctrl-D' to return to the CLI
+
+node2> environment help
+Usage: environment status |
+     [status] [shelf [<adapter>[.<shelf-number>]]] |
+     [status] [shelf_log] |
+     [status] [shelf_stats] |
+     [status] [shelf_power_status] |
+     [status] [chassis [all | list-sensors | Temperature | PSU 1 |
+     PSU 2 | Voltage | SYS FAN | NVRAM6-temperature-3 | NVRAM6-battery-3]]
+----

@@ -1,0 +1,21 @@
+---
+permalink: system-admin/health-alerts-autosupport-messages-events-concept.html 
+sidebar: sidebar 
+keywords: system, health, alerts, trigger, autosupport, ems, event, management, message, event 
+summary: '시스템 상태 알림은 EMS(이벤트 관리 시스템)에서 AutoSupport 메시지 및 이벤트를 트리거하여, 상태 모니터링 시스템을 직접 사용하는 것 외에도 AutoSupport 메시지 및 EMS를 사용하여 시스템의 상태를 모니터링할 수 있습니다.' 
+---
+= 상태 알림이 AutoSupport 메시지 및 이벤트를 트리거하는 방식
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+시스템 상태 알림은 EMS(이벤트 관리 시스템)에서 AutoSupport 메시지 및 이벤트를 트리거하여, 상태 모니터링 시스템을 직접 사용하는 것 외에도 AutoSupport 메시지 및 EMS를 사용하여 시스템의 상태를 모니터링할 수 있습니다.
+
+경고 후 5분 내에 AutoSupport 메시지가 전송됩니다. AutoSupport 메시지에는 이전 AutoSupport 메시지 이후에 생성된 모든 경고가 포함됩니다. 단, 이전 주 내에 동일한 리소스 및 가능한 원인에 대한 경고를 복제하는 알림은 제외됩니다.
+
+일부 알림은 AutoSupport 메시지를 트리거하지 않습니다. 상태 정책에서 AutoSupport 메시지 전송을 사용하지 않도록 설정한 경우 알림은 AutoSupport 메시지를 트리거하지 않습니다. 예를 들어, 상태 정책은 기본적으로 AutoSupport 메시지를 사용하지 않도록 설정할 수 있습니다. 이 경우 문제가 발생할 때 AutoSupport에서 이미 메시지를 생성하므로 'system health policy definition modify' 명령을 사용하여 AutoSupport 메시지를 트리거하지 않도록 정책을 구성할 수 있습니다.
+
+'system health AutoSupport trigger history show' 명령어를 사용해 지난 주에 보낸 모든 경고 트리거 AutoSupport 메시지의 목록을 볼 수 있다.
+
+또한 알림은 EMS에 대한 이벤트 생성을 트리거합니다. 알림은 알림이 생성될 때마다 그리고 경고가 삭제될 때마다 생성됩니다.

@@ -1,0 +1,26 @@
+---
+permalink: volumes/rehost-volume-another-svm-task.html 
+sidebar: sidebar 
+keywords: rehost, volume, from one SVM to another SVM 
+summary: '볼륨 재호스트에서는 SnapMirror 복사본 없이도 하나의 스토리지 가상 시스템(SVM, 이전의 Vserver)에서 다른 SVM으로 NAS 또는 SAN 볼륨을 재할당할 수 있습니다. 볼륨 재호스팅 절차는 프로토콜 유형과 볼륨 유형에 따라 다릅니다. 볼륨 재호스팅은 데이터 액세스 및 볼륨 관리를 위한 운영 중단 작업입니다.' 
+---
+= 한 SVM에서 다른 SVM 개요로 볼륨 재호스팅
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+볼륨 재호스트에서는 SnapMirror 복사본 없이도 하나의 스토리지 가상 시스템(SVM, 이전의 Vserver)에서 다른 SVM으로 NAS 또는 SAN 볼륨을 재할당할 수 있습니다. 볼륨 재호스팅 절차는 프로토콜 유형과 볼륨 유형에 따라 다릅니다. 볼륨 재호스팅은 데이터 액세스 및 볼륨 관리를 위한 운영 중단 작업입니다.
+
+한 SVM에서 다른 SVM으로 볼륨을 재호스팅하기 전에 몇 가지 조건이 충족되어야 합니다.
+
+* 볼륨이 온라인 상태여야 합니다.
+* 프로토콜: SAN 또는 NAS
++
+NAS 프로토콜의 경우 볼륨을 마운트 해제해야 합니다.
+
+* 볼륨이 SnapMirror 관계에 있는 경우 볼륨 재호스팅 전에 관계를 삭제하거나 해제해야 합니다.
++
+볼륨 재호스트 작업 후 SnapMirror 관계를 재동기화할 수 있습니다.
+
+

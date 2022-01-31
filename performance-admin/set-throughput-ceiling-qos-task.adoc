@@ -1,0 +1,158 @@
+---
+permalink: performance-admin/set-throughput-ceiling-qos-task.html 
+sidebar: sidebar 
+keywords: setting, throughput, ceiling, qos 
+summary: '정책 그룹의 최대 처리량 필드를 사용하여 스토리지 오브젝트 워크로드의 처리량 한도(QoS Max)를 정의할 수 있습니다. 스토리지 객체를 생성하거나 수정할 때 정책 그룹을 적용할 수 있습니다.' 
+---
+= QoS를 사용하여 처리량 한도를 설정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+정책 그룹에 대해 '최대 처리량' 필드를 사용하여 스토리지 오브젝트 워크로드의 처리량 한도(QoS Max)를 정의할 수 있습니다. 스토리지 객체를 생성하거나 수정할 때 정책 그룹을 적용할 수 있습니다.
+
+.무엇을 &#8217;필요로 할거야
+* 정책 그룹을 생성하려면 클러스터 관리자여야 합니다.
+* SVM에 정책 그룹을 적용하려면 클러스터 관리자여야 합니다.
+
+
+.이 작업에 대해
+* ONTAP 9.4부터 _non-shared_QoS 정책 그룹을 사용하여 정의된 처리량 상한이 각 구성원 워크로드에 개별적으로 적용되도록 지정할 수 있습니다. 그렇지 않으면 정책 그룹이 _ 공유: _ 입니다. 정책 그룹에 할당된 워크로드의 총 처리량은 지정된 한도를 초과할 수 없습니다.
++
+QoS policy-group create 명령에 대해 set '-is-shared=false'를 설정하여 비공유 정책 그룹을 지정합니다.
+
+* 천장에 대한 처리량 제한을 IOPS, MB/s 또는 IOPS, MB/s로 지정할 수 있습니다 IOPS와 MB/s를 모두 지정하는 경우, 어느 한쪽의 제한에 먼저 도달하더라도 적용됩니다.
++
+[NOTE]
+====
+동일한 워크로드에 대해 천장과 바닥을 설정하는 경우 IOPS만 사용하여 천장에 대한 처리량 제한을 지정할 수 있습니다.
+
+====
+* QoS 제한이 적용되는 스토리지 개체는 정책 그룹이 속한 SVM에 포함되어 있어야 합니다. 여러 정책 그룹이 동일한 SVM에 속할 수 있습니다.
+* 포함하는 객체 또는 해당 하위 객체가 정책 그룹에 속해 있는 경우 스토리지 객체를 정책 그룹에 할당할 수 없습니다.
+* 정책 그룹을 동일한 유형의 스토리지 객체에 적용하는 것은 QoS 모범 사례입니다.
+
+
+.단계
+. 정책 그룹 생성:
++
+"QoS policy-group create-policy-group_policy_group_-vserver_SVM_-max-throughput_number_of_IOPS_|MB/S|IOPS, MB/S-is-shared true|false
+
++
+전체 명령 구문은 man 페이지를 참조하십시오. 'QoS policy-group modify' 명령을 사용하여 처리량 한도를 조정할 수 있습니다.
+
++
+다음 명령을 실행하면 최대 5,000 IOPS의 처리량을 갖는 공유 정책 그룹 'pg-vs1'이 생성됩니다.
+
++
+[listing]
+----
+cluster1::> qos policy-group create -policy-group pg-vs1 -vserver vs1 -max-throughput 5000iops -is-shared true
+----
++
+다음 명령을 실행하면 비공유 정책 그룹 'pg-vs3'이 생성되고 최대 처리량은 100IOPS, 400KB/S입니다.
+
++
+[listing]
+----
+cluster1::> qos policy-group create -policy-group pg-vs3 -vserver vs3 -max-throughput 100iops,400KB/s -is-shared false
+----
++
+다음 명령을 실행하면 처리량 제한 없이 비공유 정책 그룹 'pg-vs4'가 생성됩니다.
+
++
+[listing]
+----
+cluster1::> qos policy-group create -policy-group pg-vs4 -vserver vs4 -is-shared false
+----
+. SVM, 파일, 볼륨 또는 LUN에 정책 그룹 적용:
++
+'_storage_object_create-vserver_SVM_-QoS-policy-group_policy_group_'
+
++
+전체 명령 구문은 man 페이지를 참조하십시오. '_storage_object_modify' 명령을 사용하여 스토리지 객체에 다른 정책 그룹을 적용할 수 있습니다.
+
++
+다음 명령은 SVM 'VS1'에 정책 그룹 'pg-vs1'을 적용합니다.
+
++
+[listing]
+----
+cluster1::> vserver create -vserver vs1 -qos-policy-group pg-vs1
+----
++
+다음 명령은 정책 그룹 pg-app을 볼륨 app1과 app2에 적용합니다.
+
++
+[listing]
+----
+cluster1::> volume create -vserver vs2 -volume app1 -aggregate aggr1 -qos-policy-group pg-app
+----
++
+[listing]
+----
+cluster1::> volume create -vserver vs2 -volume app2 -aggregate aggr1 -qos-policy-group pg-app
+----
+. 정책 그룹 성능 모니터링:
++
+QoS 통계 성능 표시
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+[NOTE]
+====
+클러스터의 성능 모니터링 호스트의 툴을 사용하여 성능을 모니터링하지 마십시오.
+
+====
++
+다음 명령을 실행하면 정책 그룹 성능이 표시됩니다.
+
++
+[listing]
+----
+cluster1::> qos statistics performance show
+Policy Group           IOPS      Throughput   Latency
+-------------------- -------- --------------- ----------
+-total-                 12316       47.76MB/s  1264.00us
+pg_vs1                   5008       19.56MB/s     2.45ms
+_System-Best-Effort        62       13.36KB/s     4.13ms
+_System-Background         30           0KB/s        0ms
+----
+. 워크로드 성능 모니터링:
++
+QoS 통계 워크로드 성능 표시
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+[NOTE]
+====
+클러스터의 성능 모니터링 호스트의 툴을 사용하여 성능을 모니터링하지 마십시오.
+
+====
++
+다음 명령을 실행하면 워크로드 성능이 표시됩니다.
+
++
+[listing]
+----
+cluster1::> qos statistics workload performance show
+Workload          ID     IOPS      Throughput    Latency
+--------------- ------ -------- ---------------- ----------
+-total-              -    12320        47.84MB/s  1215.00us
+app1-wid7967      7967     7219        28.20MB/s   319.00us
+vs1-wid12279     12279     5026        19.63MB/s     2.52ms
+_USERSPACE_APPS     14       55        10.92KB/s   236.00us
+_Scan_Backgro..   5688       20            0KB/s        0ms
+----
++
+[NOTE]
+====
+'QoS statistics workload latency show' 명령을 사용하여 QoS 워크로드에 대한 상세한 지연 시간 통계를 볼 수 있습니다.
+
+====
+

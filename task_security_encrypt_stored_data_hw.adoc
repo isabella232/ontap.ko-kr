@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: task_security_encrypt_stored_data_hw.html 
+keywords: netapp, ontap, security, access, control, secure, encryption, encrypt, stored, data, kmip, Onboard Key Manager, Key Management Interoperability Protocol, encrypt stored data, self encrypting disk, local tier, disk encryption, aggregate 
+summary: 디스크 암호화를 사용하여 기본 장치를 용도 변경, 반환, 잘못된 위치 변경 또는 도난 당한 경우 볼륨 데이터를 읽을 수 없도록 합니다 
+---
+= 자체 암호화 드라이브를 사용하여 저장된 데이터 암호화
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+기본 장치를 용도 변경, 반환, 위치 변경 또는 도난 당한 경우 로컬 계층의 모든 데이터를 읽을 수 없도록 디스크 암호화를 사용합니다. 디스크 암호화에는 특수한 자체 암호화 HDD 또는 SSD가 필요합니다.
+
+디스크 암호화에는 키 관리자가 필요합니다. System Manager를 사용하여 온보드 키 관리자를 구성할 수 있습니다. 외부 키 관리자를 사용할 수도 있지만 먼저 ONTAP CLI를 사용하여 설정해야 합니다.
+
+ONTAP에서 자체 암호화 디스크를 감지하면 로컬 계층을 생성할 때 온보드 키 관리자를 구성하라는 메시지가 표시됩니다.
+
+.단계
+. 암호화 * 에서 를 클릭합니다 image:icon_gear.gif["기어 아이콘"] 온보드 키 관리자를 구성합니다.
+. 디스크를 다시 입력해야 한다는 메시지가 나타나면 를 클릭합니다 image:icon_kabob.gif["메뉴 아이콘"]를 클릭한 다음 * 디스크 재입력 * 을 클릭합니다.
+

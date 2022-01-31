@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+permalink: s3-snapmirror/takeover-local-destination-task.html 
+keywords: takeover and serve data from the destination bucket, local cluster, s3 snapmirror relationship 
+summary: 소스 버킷의 데이터를 사용할 수 없는 경우 SnapMirror 관계를 중단하여 대상 버킷에 대한 쓰기 가능 및 데이터 제공을 시작할 수 있습니다. 
+---
+= 대상 버킷(로컬 클러스터)의 데이터 테이크오버 및 서비스
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:toc-position: content
+
+
+[role="lead"]
+소스 버킷의 데이터를 사용할 수 없는 경우 SnapMirror 관계를 중단하여 대상 버킷에 대한 쓰기 가능 및 데이터 제공을 시작할 수 있습니다.
+
+테이크오버 작업이 수행되면 소스 버킷이 읽기 전용으로 변환되고 원래 타겟 버킷이 읽기-쓰기로 전환되어 S3 SnapMirror 관계가 반전됩니다.
+
+비활성화된 소스 버킷을 다시 사용할 수 있게 되면 S3 SnapMirror는 두 버킷의 내용을 자동으로 재동기화합니다. 표준 볼륨 SnapMirror 배포에 필요하므로 관계를 명시적으로 다시 동기화할 필요는 없습니다.
+
+대상 버킷이 원격 클러스터에 있는 경우 원격 클러스터에서 테이크오버 작업을 시작해야 합니다.
+
+
+
+== System Manager 절차
+
+사용할 수 없는 버킷에서 페일오버 및 데이터 서비스 시작:
+
+. 보호 > 관계 * 를 클릭한 다음 * S3 SnapMirror * 를 선택합니다.
+. 을 클릭합니다 image:icon_kabob.gif["추가 아이콘"]에서 * 장애 조치 * 를 선택한 다음 * 장애 조치 * 를 클릭합니다.
+
+
+
+
+== CLI 절차
+
+. '스냅미러 페일오버 시작-목적지-PATH_svm_name_:/bucket/_bucket_name_' 대상 버킷에 대한 페일오버 작업을 시작합니다
+. 페일오버 작업의 상태 '스냅샷 표시 - 필드 상태'를 확인합니다
+
+
+'clusterA:::> SnapMirror 페일오버 start-destination-path vs1:/bucket/test-bucket-mirror'

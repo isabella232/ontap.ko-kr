@@ -1,0 +1,54 @@
+---
+permalink: performance-admin/enable-disable-throughput-floors-v2-task.html 
+sidebar: sidebar 
+keywords: enable, disable, throughput, floors v2 
+summary: AFF에서 Throughput Floor v2를 활성화 또는 비활성화할 수 있습니다. 기본값은 ENABLED입니다. v2를 지원하는 경우, 컨트롤러가 다른 워크로드에 지연 시간이 길어지는 대신 사용량이 많은 경우 처리량 플로어를 충족할 수 있습니다. 버전 v2는 QoS 및 Adaptive QoS 모두에 적용됩니다. 
+---
+= 처리량 플로어 v2를 활성화 또는 비활성화합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+AFF에서 Throughput Floor v2를 활성화 또는 비활성화할 수 있습니다. 기본값은 ENABLED입니다. v2를 지원하는 경우, 컨트롤러가 다른 워크로드에 지연 시간이 길어지는 대신 사용량이 많은 경우 처리량 플로어를 충족할 수 있습니다. 버전 v2는 QoS 및 Adaptive QoS 모두에 적용됩니다.
+
+.단계
+. 고급 권한 레벨로 변경:
++
+세트 프리빌리지 고급
+
+. 다음 명령 중 하나를 입력합니다.
++
+|===
+| 원하는 작업 | 다음 명령을 사용합니다. 
+
+
+ a| 
+Floor v2를 비활성화합니다
+ a| 
+QoS 설정 처리량-층-v2-활성화 거짓
+
+
+
+ a| 
+Floor v2를 활성화합니다
+ a| 
+QoS 설정 처리량-층-v2-활성화 true
+
+|===
++
+[NOTE]
+====
+MetroCluster 클러스터에서 처리량 층 v2를 비활성화하려면 를 실행해야 합니다
+
+QoS 설정 처리량-층-v2-활성화 거짓
+
+소스 클러스터와 대상 클러스터 모두에서 명령을 내립니다.
+
+====
++
+[listing]
+----
+cluster1::*> qos settings throughput-floors-v2 -enable false
+----
+

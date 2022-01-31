@@ -1,0 +1,163 @@
+---
+permalink: tape-backup/format-tape-config-file-concept.html 
+sidebar: sidebar 
+keywords: format, tape, configuration, file, vendor, id, product, compression, type, drive 
+summary: 테이프 구성 파일 형식은 공급업체 ID, 제품 ID 등의 필드와 테이프 드라이브의 압축 유형에 대한 세부 정보로 구성됩니다. 또한 이 파일은 테이프 드라이브의 자동 로드 기능을 활성화하고 테이프 드라이브의 명령 시간 초과 값을 변경하기 위한 선택적 필드로 구성되어 있습니다. 
+---
+= 테이프 구성 파일의 형식입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+테이프 구성 파일 형식은 공급업체 ID, 제품 ID 등의 필드와 테이프 드라이브의 압축 유형에 대한 세부 정보로 구성됩니다. 또한 이 파일은 테이프 드라이브의 자동 로드 기능을 활성화하고 테이프 드라이브의 명령 시간 초과 값을 변경하기 위한 선택적 필드로 구성되어 있습니다.
+
+다음 표에는 테이프 구성 파일의 형식이 나와 있습니다.
+
+|===
+| 항목 | 크기 | 설명 
+
+
+ a| 
+(string) ndor_id
+ a| 
+최대 8바이트
+ a| 
+CSI Inquiry 명령으로 조회한 Vendor ID
+
+
+
+ a| 
+'product_id'(문자열)
+ a| 
+최대 16바이트
+ a| 
+CSI Inquiry 명령으로 조회한 제품 ID
+
+
+
+ a| 
+"id_match_size"(숫자)
+ a| 
+ a| 
+식별 대상 테이프 드라이브를 감지하기 위해 일치시키는 데 사용할 제품 ID의 바이트 수(Inquiry data에서 제품 ID의 첫 번째 문자로 시작).
+
+
+
+ a| 
+거미줄(string)
+ a| 
+최대 16바이트
+ a| 
+이 매개 변수가 있으면 'storage tape show -device-names' 명령으로 출력되는 문자열로 지정되고, 그렇지 않으면 INQ_vendor_ID로 출력된다.
+
+
+
+ a| 
+'PRODUCT_PRETY'(문자열)
+ a| 
+최대 16바이트
+ a| 
+이 파라미터가 있으면 'STORAGE TAPE SHOW-DEVICE-Names' 명령으로 출력되는 문자열로 지정되고, 그렇지 않으면 INQ_PRODUCT_ID가 출력된다.
+
+|===
+[NOTE]
+====
+신도 예쁘고 제품예쁘다 필드는 선택 사항이지만 값이 있으면 다른 필드에도 값이 있어야 합니다.
+
+====
+다음 표에서는 l, mh, h, a 등 다양한 압축 유형에 대한 설명, 밀도 코드 및 압축 알고리즘을 설명합니다.
+
+|===
+| 항목 | 크기 | 설명 
+
+
+ a| 
+'{l|m|h|a}_description = (string)'
+ a| 
+최대 24바이트
+ a| 
+특정 밀도 설정의 특성을 설명하는 notes지옥의 명령어 sysconfig -t를 위해 인쇄할 문자열입니다.
+
+
+
+ a| 
+`{l|m|h|a}_density=(16진수 코드)'
+ a| 
+ a| 
+l, m, h 또는 a에 대해 원하는 밀도 코드에 해당하는 SCSI 모드 페이지 블록 설명자에서 설정할 밀도 코드입니다
+
+
+
+ a| 
+`{l|m|h|a}_algorithm=(16진수 코드)'
+ a| 
+ a| 
+밀도 코드와 원하는 밀도 특성에 해당하는 SCSI 압축 모드 페이지에서 설정할 압축 알고리즘입니다.
+
+|===
+다음 표에는 테이프 구성 파일에서 사용할 수 있는 옵션 필드가 설명되어 있습니다.
+
+|===
+| 필드에 입력합니다 | 설명 
+
+
+ a| 
+'자동 로드 = (부울 예/아니요)
+ a| 
+테이프 드라이브에 자동 로드 기능이 있는 경우 이 필드는 '예'로 설정됩니다. 즉, 테이프 카트리지를 삽입한 후 'scsi load(start/stop unit)' 명령을 실행하지 않아도 테이프 드라이브가 준비됩니다. 이 필드의 기본값은 no입니다.
+
+
+
+ a| 
+'cmd_timeout_0x'입니다
+ a| 
+개별 제한 시간 값입니다. 테이프 드라이버에서 기본값으로 사용 중인 값과 다른 시간 제한 값을 지정하려면 이 필드만 사용해야 합니다. 샘플 파일에는 테이프 드라이브에서 사용되는 기본 SCSI 명령 시간 초과 값이 나열되어 있습니다. 시간 초과 값은 분(m), 초(s) 또는 밀리초(ms) 단위로 나타낼 수 있습니다.
+
+[NOTE]
+====
+이 필드는 기술 지원 부서의 안내에 따라서만 변경해야 합니다.
+
+====
+|===
+NetApp Support 사이트에서 테이프 구성 파일을 다운로드하고 볼 수 있습니다.
+
+HP LTO5 Ultrium 테이프 드라이브의 테이프 구성 파일 형식은 다음과 같습니다.
+
+전성자(ndor_id) = "HP"
+
+'PRODUCT_id'="Ultrium 5-SCSI"
+
+id_match_size=9
+
+거미장군=HP 휴렛팩커드
+
+"PRODUCT_PRETY" = "LTO-5"
+
+"l_description" = "LTO-3(ro)/4/800GB"
+
+'l_density' = 0x00
+
+'l_algorithm' = 0x00
+
+Ms_description"="LTO-3(ro)/4 8/1600GB CMP"
+
+mdensity' = 0x00
+
+m_algorithm'=0x01
+
+"h_description" = "LTO-5 1600GB"
+
+"h_density" = 0x58
+
+'h_algorithm' = 0x00
+
+"A_DESCRIPTION"="LTO-5 3200GB CMP"
+
+'A_Density' = 0x58
+
+"A_알고리즘" = 0x01
+
+"자동 로드" = "예"
+
+http://mysupport.netapp.com/NOW/download/tools/tape_config["NetApp 다운로드: 테이프 장치 구성 파일"]

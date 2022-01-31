@@ -1,0 +1,72 @@
+---
+permalink: flexgroup/fabricpool-aggregates-existing-volumes-task.html 
+sidebar: sidebar 
+keywords: aggregate, fabricpool, flexgroup, volume 
+summary: ONTAP 9.5부터 FlexGroup는 FabricPool 볼륨에 대해 지원됩니다. 기존 FlexGroup 볼륨에 FabricPool의 애그리게이트를 사용하려면 FlexGroup 볼륨이 상주하는 애그리게이트를 FabricPool의 애그리게이트로 변환하거나 FlexGroup 볼륨 구성요소를 FabricPool의 애그리게이트로 마이그레이션할 수 있습니다. 
+---
+= 기존 FlexGroup 볼륨에 대해 FabricPool의 애그리게이트를 사용합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.5부터 FlexGroup는 FabricPool 볼륨에 대해 지원됩니다. 기존 FlexGroup 볼륨에 FabricPool의 애그리게이트를 사용하려면 FlexGroup 볼륨이 상주하는 애그리게이트를 FabricPool의 애그리게이트로 변환하거나 FlexGroup 볼륨 구성요소를 FabricPool의 애그리게이트로 마이그레이션할 수 있습니다.
+
+.무엇을 &#8217;필요로 할거야
+* FlexGroup 볼륨에는 공간 보장이 "없음"으로 설정되어 있어야 합니다.
+* FlexGroup 볼륨이 상주하는 애그리게이트를 FabricPool에서 애그리게이트로 변환하려면 모든 SSD 디스크를 사용해야 합니다.
+
+
+기존 FlexGroup 볼륨이 비 SSD 애그리게이트에 상주하는 경우 FlexGroup 볼륨 구성요소를 FabricPool의 애그리게이트로 마이그레이션해야 합니다.
+
+.선택
+* FlexGroup 볼륨이 상주하는 애그리게이트를 FabricPool에서 애그리게이트로 변환하려면 다음 단계를 수행하십시오.
++
+.. 기존 FlexGroup 볼륨에 대한 계층화 정책을 'volume modify -volume flexgroup_name -Tiering -policy [auto|snapshot|none|backup]'로 설정합니다
++
+[listing]
+----
+cluster-2::> volume modify -volume fg1 -tiering-policy auto
+----
+.. FlexGroup 볼륨이 상주하는 집계('volume show-volume flexgroup_name-fields aggr-list')를 식별합니다
++
+[listing]
+----
+cluster-2::> volume show -volume fg1 -fields aggr-list
+vserver volume aggr-list
+------- ------ -----------
+vs1     fg1    aggr1,aggr3
+----
+.. 집계 목록에 나열된 각 집계에 오브젝트 저장소를 첨부합니다. '스토리지 집계 객체-저장-집계 집계 이름-이름 객체-저장-이름-허용-굽힘 그룹 TRUE'
++
+모든 애그리게이트를 오브젝트 저장소에 연결해야 합니다.
+
+
+
++
+[listing]
+----
+cluster-2::> storage aggregate object-store attach -aggregate aggr1 -object-store-name Amazon01B1
+----
+* FabricPool 볼륨 구성요소를 FlexGroup에서 애그리게이트로 마이그레이션하려면 다음 단계를 수행하십시오.
++
+.. 기존 FlexGroup 볼륨에 대한 계층화 정책을 'volume modify -volume flexgroup_name -Tiering -policy [auto|snapshot|none|backup]'로 설정합니다
++
+[listing]
+----
+cluster-2::> volume modify -volume fg1 -tiering-policy auto
+----
+.. FlexGroup 볼륨의 각 구성요소를 FabricPool의 동일한 클러스터에 있는 애그리게이트로 이동: 'volume move start-volume festination-aggregate FabricPool_aggregate-allow-mixed-agr-types true
++
+모든 FlexGroup 볼륨 구성요소를 FabricPool에서 애그리게이트로 이동하고(FlexGroup 볼륨 구성요소가 혼합 애그리게이트 유형에 있는 경우) 클러스터 내의 노드 전체에서 모든 구성요소의 균형을 조정해야 합니다.
+
++
+[listing]
+----
+cluster-2::> volume move start -volume fg1_001 -destination-aggregate FP_aggr1 -allow-mixed-aggr-types true
+----
+
+
+
+
+link:../disks-aggregates/index.html["디스크 및 애그리게이트 관리"]

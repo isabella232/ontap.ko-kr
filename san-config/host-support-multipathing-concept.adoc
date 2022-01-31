@@ -1,0 +1,17 @@
+---
+permalink: san-config/host-support-multipathing-concept.html 
+sidebar: sidebar 
+keywords: host, support, multipathing 
+summary: 'ONTAP는 항상 FC 및 iSCSI 경로 모두에 ALUA(Asymmetric Logical Unit Access)를 사용합니다. FC 및 iSCSI 프로토콜에서 ALUA를 지원하는 호스트 구성을 사용해야 합니다.' 
+---
+= 다중 경로 개요를 위한 호스트 지원
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP는 항상 FC 및 iSCSI 경로 모두에 ALUA(Asymmetric Logical Unit Access)를 사용합니다. FC 및 iSCSI 프로토콜에서 ALUA를 지원하는 호스트 구성을 사용해야 합니다.
+
+ANA(Asynchronous Namespace Access)를 사용하는 NVMe 구성에는 ONTAP 9.5 다중 경로 HA 쌍 페일오버/반환이 지원됩니다. ONTAP 9.4에서 NVMe는 호스트에서 대상까지 하나의 경로만 지원합니다. 애플리케이션 호스트는 고가용성(HA) 파트너에 대한 경로 페일오버를 관리해야 합니다.
+
+ALUA 또는 ANA를 지원하는 특정 호스트 구성에 대한 자세한 내용은 를 참조하십시오 https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"] 및 호스트 운영 체제를 위한 것입니다.

@@ -1,0 +1,74 @@
+---
+permalink: data-protection/delete-svm-replication-relationship-task.html 
+sidebar: sidebar 
+keywords: delete, svm, replication, relationship 
+summary: SnapMirror delete 및 SnapMirror 릴리즈 명령을 사용하여 SVM 복제 관계를 삭제할 수 있습니다. 그런 다음 불필요한 대상 볼륨을 수동으로 삭제할 수 있습니다. 
+---
+= SVM 복제 관계를 삭제합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'스냅샷 삭제' 및 '스냅샷 해제' 명령을 사용하여 SVM 복제 관계를 삭제할 수 있습니다. 그런 다음 불필요한 대상 볼륨을 수동으로 삭제할 수 있습니다.
+
+'napMirror release' 명령은 소스에서 SnapMirror로 생성된 Snapshot 복사본을 삭제합니다. '-relationship-info-only' 옵션을 사용하여 스냅샷 복사본을 보존할 수 있습니다.
+
+명령에 대한 전체 명령 구문은 man 페이지를 참조하십시오.
+
+.단계
+. 타겟 SVM 또는 타겟 클러스터에서 다음 명령을 실행하여 복제 관계를 중단하십시오.
++
+'스냅미러 break-source-path_SVM_:-destination-path_SVM_:'
+
++
+[NOTE]
+====
+'-source-path' 및 '-destination-path' 옵션에서 SVM 이름 뒤에 콜론(:)을 입력해야 합니다. 아래 예를 참조하십시오.
+
+====
++
+다음 예에서는 소스 SVM의 vm1과 대상 SVM의 vm_backup 간의 관계를 나눕니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror break -source-path svm1: -destination-path svm_backup:
+----
+. 타겟 SVM 또는 타겟 클러스터에서 다음 명령을 실행하여 복제 관계를 삭제합니다.
++
+'스냅샷 삭제-소스-경로_SVM_:-대상-경로_SVM_:'
+
++
+[NOTE]
+====
+'-source-path' 및 '-destination-path' 옵션에서 SVM 이름 뒤에 콜론(:)을 입력해야 합니다. 아래 예를 참조하십시오.
+
+====
++
+다음 예에서는 소스 SVM의 vm1과 대상 SVM의 vm_backup 간의 관계를 삭제합니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror delete -source-path svm1: -destination-path svm_backup:
+----
+. 소스 클러스터 또는 소스 SVM에서 다음 명령을 실행하여 소스 SVM에서 복제 관계 정보를 해제합니다.
++
+'스냅미러 해제 - source-path_SVM_: - destination-path_SVM_:'
+
++
+[NOTE]
+====
+'-source-path' 및 '-destination-path' 옵션에서 SVM 이름 뒤에 콜론(:)을 입력해야 합니다. 아래 예를 참조하십시오.
+
+====
++
+다음 예에서는 소스 SVM의 vm1에서 지정된 복제 관계에 대한 정보를 해제합니다.
+
++
+[listing]
+----
+cluster_src::> snapmirror release -source-path svm1: -destination-path svm_backup:
+----
+

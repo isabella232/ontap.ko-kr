@@ -1,0 +1,41 @@
+---
+permalink: nfs-admin/display-export-policy-netgroup-queue-cache-task.html 
+sidebar: sidebar 
+keywords: display, export, policy, netgroup, queue, cache 
+summary: ONTAP는 넷그룹 큐를 가져와 확인할 때 넷그룹 큐를 사용하고 넷그룹 캐시를 사용하여 결과 정보를 저장합니다. 내보내기 정책 넷그룹 관련 문제를 해결할 때 vserver export-policy netgroup queue show 및 vserver export-policy netgroup cache show 명령을 사용하여 넷그룹 큐의 상태와 넷그룹 캐시의 내용을 표시할 수 있습니다. 
+---
+= 엑스포트 정책 넷그룹 큐 및 캐시를 표시합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP는 넷그룹 큐를 가져와 확인할 때 넷그룹 큐를 사용하고 넷그룹 캐시를 사용하여 결과 정보를 저장합니다. 엑스포트 정책 넷그룹 관련 문제를 해결할 때 'vserver export-policy netgroup queue show' 및 'vserver export-policy netgroup cache show' 명령을 사용하여 넷그룹 큐의 상태와 넷그룹 캐시의 내용을 표시할 수 있습니다.
+
+.단계
+. 다음 작업 중 하나를 수행합니다.
++
+[cols="20,80"]
+|===
+
+
+| 엑스포트 정책 넷그룹을 표시하려면... | 명령 입력... 
+
+
+ a| 
+대기열
+ a| 
+'vserver export-policy netgroup queue show'를 선택합니다
+
+
+
+ a| 
+캐시
+ a| 
+'vserver export-policy netgroup cache show -vserver vserver_name'을 선택합니다
+
+|===
++
+자세한 내용은 각 명령에 대한 man 페이지를 참조하십시오.
+
+

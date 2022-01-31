@@ -1,0 +1,17 @@
+---
+permalink: smb-config/set-up-server-workgroup-task.html 
+sidebar: sidebar 
+keywords: set, up, smb, server, member, workgroup, consist, creating, create, local, user, group, set up an smb server in a workgroup 
+summary: 작업 그룹에서 SMB 서버를 구성원으로 설정하는 작업은 SMB 서버를 생성한 다음 로컬 사용자 및 그룹을 만드는 작업으로 구성됩니다. 
+---
+= 작업 그룹 개요에서 SMB 서버를 설정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+작업 그룹에서 SMB 서버를 구성원으로 설정하는 작업은 SMB 서버를 생성한 다음 로컬 사용자 및 그룹을 만드는 작업으로 구성됩니다.
+
+Microsoft Active Directory 도메인 인프라를 사용할 수 없는 경우 작업 그룹에서 SMB 서버를 구성할 수 있습니다.
+
+작업 그룹 모드의 SMB 서버는 NTLM 인증만 지원하며 Kerberos 인증을 지원하지 않습니다.

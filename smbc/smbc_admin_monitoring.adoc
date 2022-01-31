@@ -1,0 +1,164 @@
+---
+sidebar: sidebar 
+permalink: smbc/smbc_admin_monitoring.html 
+keywords: SM-BC, SMBC, monitoring, Mediator status, EMS, errors, planned failover status, automatic unplanned failover status, SM-BC status 
+summary: 모니터링할 수 있는 SM-BC 구성 요소 및 작업은 여러 가지가 있습니다. 
+---
+= 기본 모니터링
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+모니터링할 수 있는 SM-BC 구성 요소 및 작업은 여러 가지가 있습니다.
+
+
+
+=== ONTAP 중재자
+
+정상 작동 중에는 중재자 상태를 연결해야 합니다. 다른 상태인 경우 오류 상태를 나타낼 수 있습니다. EMS(Event Management System) 메시지를 검토하여 오류 및 적절한 수정 조치를 결정할 수 있습니다.
+
+|===
+| EMS 이름 | 설명 
+
+
+| sm.중재자 추가 | 중재자가 추가되었습니다 
+
+
+| SM.중재자 제거됨 | 중재자가 제거되었습니다 
+
+
+| sm.중재자. 사용할 수 없음 | 손상된 중재자 서버로 인해 중재자를 사용할 수 없습니다 
+
+
+| sm.중재자. 잘못 구성되었습니다 | 중재자가 재활용되거나 중재자 패키지가 더 이상 중재자 서버에 설치되지 않습니다 
+
+
+| sm.중재자. 연결할 수 없음 | 중재자를 찾을 수 없습니다 
+
+
+| sm.중재자.제거.힘 | 중재자가 "힘" 옵션을 사용하여 클러스터에서 제거됩니다 
+
+
+| sm.mediator.cacert.expiring | 중재자 CA(인증 기관) 인증서가 30일 이내에 만료될 예정입니다 
+
+
+| sm.mediator.serverc.expiring | 중재자 서버 인증서가 30일 이내에 만료될 예정입니다 
+
+
+| sm.중재자.clientc.만료 | 중재자 클라이언트 인증서가 30일 이내에 만료될 예정입니다 
+
+
+| sm.mediator.cacert.expired | 중재자 CA(인증 기관) 인증서가 만료되었습니다 
+
+
+| sm.mediator.serverc.expired | 중재자 서버 인증서가 만료되었습니다 
+
+
+| sm.중재자.clientc.expired | 중재자 클라이언트 인증서가 만료되었습니다 
+
+
+| sm.mediator.in.quorum | 모든 SM-BC 기록은 중재자로 재동기화됩니다 
+|===
+
+
+=== 계획된 페일오버 작업
+
+'napmirror failover show' 명령을 사용하여 계획된 페일오버 작업의 상태 및 진행률을 모니터링할 수 있습니다. 예를 들면 다음과 같습니다.
+
+....
+ClusterB::> snapmirror failover start -destination-path vs1:/cg/dcg1
+....
+페일오버 작업이 완료되면 새 타겟 클러스터에서 동기식 SnapMirror 보호 상태를 모니터링할 수 있습니다. 예를 들면 다음과 같습니다.
+
+....
+ClusterA::> snapmirror show
+....
+또한 다음 메시지를 검토하여 오류가 있는지 확인하고 적절한 수정 조치를 취할 수도 있습니다.
+
+|===
+| EMS 이름 | 설명 
+
+
+| smbc.pfo.failed를 참조하십시오 | SMBC 계획된 페일오버 작업이 실패했습니다. 대상 경로: 
+
+
+| smbc.pfo.start 를 클릭합니다. 대상 경로: | SMBC 계획된 페일오버 작업이 시작되었습니다 
+|===
+
+
+=== 계획되지 않은 페일오버 작업을 자동으로 수행합니다
+
+예기치 않은 자동 페일오버 중에 'napmirror failover show' 명령을 사용하여 작업 상태를 모니터링할 수 있습니다. 예를 들면 다음과 같습니다.
+
+....
+ClusterB::> snapmirror failover show -instance
+Start Time: 9/23/2020 22:03:29
+         Source Path: vs1:/cg/scg3
+    Destination Path: vs3:/cg/dcg3
+     Failover Status: completed
+        Error Reason:
+            End Time: 9/23/2020 22:03:30
+Primary Data Cluster: cluster-2
+Last Progress Update: -
+       Failover Type: unplanned
+  Error Reason codes: -
+....
+또한 다음 메시지를 검토하여 오류가 있는지 확인하고 적절한 수정 조치를 취할 수도 있습니다.
+
+|===
+| EMS 이름 | 설명 
+
+
+| smbc.aufo.failed | SnapMirror의 계획된 페일오버 자동 작업이 실패했습니다. 대상 경로: 
+
+
+| smbc.aufo.start 참조하십시오. 대상 경로: | SMBC 계획된 페일오버 작업이 시작되었습니다 
+
+
+| smbc.aufo.completed: | SnapMirror의 계획된 페일오버 자동 작업이 완료되었습니다. 대상 경로: 
+
+
+| smbc.aufo.failover.incapable | block.giveback.during.aufo 
+|===
+
+
+=== SM-BC 가용성
+
+운영 클러스터, 보조 클러스터 또는 둘 다에서 일련의 명령을 사용하여 SM-BC 관계의 가용성을 확인할 수 있습니다.
+
+사용하는 명령에는 1차 및 2차 클러스터 모두에 대한 'napmirror 중재자 표시' 명령을 사용하여 연결 및 쿼럼 상태, 'napmirror show' 명령 및 'volume show' 명령을 확인할 수 있습니다. 예를 들면 다음과 같습니다.
+
+....
+SMBC_A::*> snapmirror mediator show
+Mediator Address Peer Cluster     Connection Status Quorum Status
+---------------- ---------------- ----------------- -------------
+10.236.172.86    SMBC_B           connected         true
+
+SMBC_B::*> snapmirror mediator show
+Mediator Address Peer Cluster     Connection Status Quorum Status
+---------------- ---------------- ----------------- -------------
+10.236.172.86    SMBC_A           connected         true
+
+SMBC_B::*> snapmirror show -expand
+                                                                       Progress
+Source            Destination Mirror  Relationship   Total             Last
+Path        Type  Path        State   Status         Progress  Healthy Updated
+----------- ---- ------------ ------- -------------- --------- ------- --------
+vs0:/cg/cg1 XDP  vs1:/cg/cg1_dp Snapmirrored InSync  -         true    -
+vs0:vol1    XDP  vs1:vol1_dp  Snapmirrored InSync    -         true    -
+2 entries were displayed.
+
+SMBC_A::*> volume show -fields is-smbc-master,smbc-consensus,is-smbc-failover-capable -volume vol1
+vserver volume is-smbc-master is-smbc-failover-capable smbc-consensus
+------- ------ -------------- ------------------------ --------------
+vs0     vol1   true           false                    Consensus
+
+SMBC_B::*> volume show -fields is-smbc-master,smbc-consensus,is-smbc-failover-capable -volume vol1_dp
+vserver volume  is-smbc-master is-smbc-failover-capable smbc-consensus
+------- ------- -------------- ------------------------ --------------
+vs1     vol1_dp false          true                     No-consensus
+....

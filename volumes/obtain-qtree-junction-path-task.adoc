@@ -1,0 +1,34 @@
+---
+permalink: volumes/obtain-qtree-junction-path-task.html 
+sidebar: sidebar 
+keywords: obtain, qtree, junction, path 
+summary: qtree의 접합 경로 또는 네임스페이스 경로를 획득하여 개별 qtree를 마운트할 수 있습니다. CLI 명령 'qtree show-instance'에 표시되는 qtree 경로는 '/vol/<volume-name>/<qtree-name>' 형식입니다. 그러나 이 경로는 qtree의 접합 경로 또는 네임스페이스 경로를 참조하지 않습니다. 
+---
+= qtree 접합 경로를 확보합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+qtree의 접합 경로 또는 네임스페이스 경로를 획득하여 개별 qtree를 마운트할 수 있습니다. CLI 명령 'qtree show-instance'에 표시되는 qtree 경로는 '/vol/<volume_name>/<qtree_name>' 형식입니다. 그러나 이 경로는 qtree의 접합 경로 또는 네임스페이스 경로를 참조하지 않습니다.
+
+Qtree의 접합 경로 또는 네임스페이스 경로를 확인하려면 볼륨의 접합 경로를 알아야 합니다.
+
+.단계
+. 'vserver volume junction-path' 명령을 사용하여 볼륨의 junction path를 구합니다.
++
+다음 예에서는 vs0이라는 이름의 스토리지 가상 시스템(SVM)에 있는 vol1이라는 볼륨의 접합 경로를 표시합니다.
+
++
+[listing]
+----
+cluster1::> volume show -volume vol1 -vserver vs0 -fields junction-path
+
+------- ------ -------------
+
+vs0 vol1 /vol1
+----
++
+위 출력에서 볼륨의 접합 경로는 '/vol1'입니다. Qtree는 항상 볼륨에 루팅되므로 Qtree의 접합 경로 또는 네임스페이스 경로는 '/vol1/qtree1'이 됩니다.
+
+

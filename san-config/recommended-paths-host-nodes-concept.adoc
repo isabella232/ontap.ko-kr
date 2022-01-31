@@ -1,0 +1,28 @@
+---
+permalink: san-config/recommended-paths-host-nodes-concept.html 
+sidebar: sidebar 
+keywords: recommended, number, paths, host, nodes, cluster 
+summary: 호스트에서 클러스터의 각 노드로 이어지는 경로를 8개 이상 초과하지 않아야 합니다. 이때 호스트 OS에 지원될 수 있는 총 경로 수와 호스트에서 사용되는 다중 경로에 주의해야 합니다. 
+---
+= 클러스터의 호스트에서 노드까지 권장되는 경로 수입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+호스트에서 클러스터의 각 노드로 이어지는 경로를 8개 이상 초과하지 않아야 합니다. 이때 호스트 OS에 지원될 수 있는 총 경로 수와 호스트에서 사용되는 다중 경로에 주의해야 합니다.
+
+클러스터의 SVM(스토리지 가상 머신)에서 사용되고 있는 SLM(Selective LUN Map)을 통해 각 보고 노드에 연결되는 LUN당 최소 2개의 경로가 있어야 합니다. 따라서 단일 장애 지점이 발생하지 않으며 시스템에서 구성 요소 장애를 극복할 수 있습니다.
+
+클러스터에 4개 이상의 노드가 있거나 모든 노드에서 SVM이 사용하는 4개 이상의 타겟 포트가 있는 경우 다음 방법을 사용하여 노드의 LUN에 액세스하는 데 사용할 수 있는 경로 수를 제한하여 권장되는 최대 8개 경로를 초과하지 않도록 할 수 있습니다.
+
+* SLM
++
+SLM은 호스트에서 LUN으로의 경로 수를 LUN과 소유 노드의 HA 파트너가 있는 노드의 경로로만 줄여줍니다. SLM은 기본적으로 활성화되어 있습니다.
+
+* iSCSI에 대한 Portset입니다
+* 호스트에서 FC igroup 매핑
+* FC 스위치 조닝
+
+
+link:../san-admin/index.html["SAN 관리"]

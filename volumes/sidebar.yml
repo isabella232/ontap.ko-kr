@@ -1,0 +1,392 @@
+---
+section: volumes
+title: CLI를 통한 논리적 스토리지 관리
+entries:
+- title: 개요
+  url: "/volumes/index.html"
+- title: 볼륨 생성 및 관리
+  entries:
+  - title: 볼륨을 생성합니다
+    url: "/volumes/create-volume-task.html"
+  - title: SAN 볼륨
+    entries:
+    - title: 정보
+      url: "/volumes/san-volumes-concept.html"
+    - title: 볼륨 프로비저닝 옵션을 구성합니다
+      url: "/volumes/configure-volume-provision-options-task.html"
+    - title: 볼륨 또는 애그리게이트의 공간 사용량을 확인합니다
+      url: "/volumes/determine-space-usage-volume-aggregate-concept.html"
+    - title: 스냅샷 복사본을 자동으로 삭제합니다
+      url: "/volumes/delete-snapshot-copies-automatic-task.html"
+    - title: 볼륨이 꽉 차면 자동으로 더 많은 공간을 제공하도록 볼륨을 구성합니다
+      url: "/volumes/configure-automatic-provide-space-when-full-task.html"
+    - title: 크기를 자동으로 확대 및 축소하도록 볼륨을 구성합니다
+      url: "/volumes/configure-automatic-grow-shrink-size-task.html"
+    - title: 자동 축소와 자동 스냅샷 복사본 삭제를 둘 다 사용하기 위한 요구 사항
+      url: "/volumes/requirements-autoshrink-snapshot-deletion-concept.html"
+    - title: 자동 축소 기능이 스냅샷 복사본 삭제와 상호 작용하는 방법
+      url: "/volumes/autoshrink-snapshot-copy-deletion-concept.html"
+    - title: FlexVol 볼륨 충만 및 초과 할당 경고를 해결합니다
+      url: "/volumes/flexvol-fullness-overallocation-alerts-concept.html"
+    - title: 애그리게이트 전체도 및 초과 할당 경고를 처리합니다
+      url: "/volumes/aggregate-fullness-overallocation-alerts-concept.html"
+    - title: 부분 예약 설정을 위한 고려 사항
+      url: "/volumes/set-fractional-reserve-concept.html"
+  - title: 파일 또는 inode 사용량을 표시합니다
+    url: "/volumes/display-file-inode-usage-task.html"
+  - title: 스토리지 QoS를 사용하여 FlexVol 볼륨의 I/O 성능을 제어 및 모니터링합니다
+    url: "/volumes/control-io-performance-qos-task.html"
+  - title: FlexVol 볼륨을 삭제합니다
+    url: "/volumes/delete-flexvol-task.html"
+  - title: 우발적인 볼륨 삭제로부터 보호
+    url: "/volumes/protection-accidental-volume-deletion-concept.html"
+  - title: 디렉토리를 삭제합니다
+    entries:
+    - title: 개요
+      url: "/volumes/delete-directories-concept.html"
+    - title: CLI를 사용하여 빠른 디렉토리 삭제를 수행합니다
+      url: "/volumes/fast-directory-delete-task.html"
+    - title: 디렉토리 삭제 작업을 취소합니다
+      url: "/volumes/cancel-directory-delete-job-task.html"
+  - title: FlexVol 볼륨을 관리하는 명령입니다
+    url: "/volumes/commands-manage-flexvol-volumes-reference.html"
+  - title: 공간 사용 정보를 표시하는 명령입니다
+    url: "/volumes/commands-display-space-usage-reference.html"
+- title: 볼륨 이동 및 복사
+  entries:
+  - title: FlexVol 볼륨 이동 방법
+    url: "/volumes/move-volume-concept.html"
+  - title: 볼륨 이동 시 고려 사항 및 권장 사항
+    url: "/volumes/recommendations-moving-concept.html"
+  - title: SAN 환경에서 볼륨을 이동하기 위한 요구사항
+    url: "/volumes/requirement-moving-volumes-san-concept.html"
+  - title: 볼륨을 이동합니다
+    url: "/volumes/move-volume-task.html"
+  - title: 볼륨 이동을 위한 명령입니다
+    url: "/volumes/commands-move-volumes-reference.html"
+  - title: 볼륨을 복사하는 방법입니다
+    url: "/volumes/methods-copying-volume-concept.html"
+- title: FlexClone 볼륨을 사용하여 FlexVol 볼륨의 효율적인 복사본을 생성합니다
+  entries:
+  - title: 개요
+    url: "/volumes/flexclone-efficient-copies-concept.html"
+  - title: FlexClone 볼륨을 생성합니다
+    url: "/volumes/create-flexclone-task.html"
+  - title: 상위 볼륨에서 FlexClone 볼륨을 분할합니다
+    url: "/volumes/split-flexclone-from-parent-task.html"
+  - title: FlexClone 볼륨에서 사용하는 공간을 결정합니다
+    url: "/volumes/determine-space-used-flexclone-task.html"
+  - title: SnapMirror 소스 또는 타겟 볼륨에서 FlexClone 볼륨을 생성할 때의 고려 사항
+    url: "/volumes/create-flexclone-snapmirror-concept.html"
+- title: FlexClone 파일 및 FlexClone LUN을 사용하여 파일 및 LUN의 효율적인 복사본을 생성합니다
+  entries:
+  - title: 개요
+    url: "/volumes/flexclone-files-luns-efficient-copies-concept.html"
+  - title: FlexClone 파일 또는 FlexClone LUN을 생성합니다
+    url: "/volumes/create-flexclone-file-flexclone-lun-task.html"
+  - title: FlexClone 파일 및 FlexClone LUN을 생성하고 삭제하는 데 필요한 노드 용량을 봅니다
+    url: "/volumes/view-capacity-flexclone-files-luns-task.html"
+  - title: FlexClone 파일 및 FlexClone LUN을 통한 공간 절약 효과를 확인하십시오
+    url: "/volumes/view-space-savings-flexclone-files-luns-task.html"
+  - title: FlexClone 파일 및 FlexClone LUN을 삭제하는 방법입니다
+    url: "/volumes/methods-delete-flexclone-files-luns-concept.html"
+  - title: FlexVol 볼륨이 자동 삭제 설정을 통해 사용 가능한 공간을 재확보하는 방법
+    entries:
+    - title: 개요
+      url: "/volumes/flexvol-reclaim-free-space-autodelete-concept.html"
+    - title: FlexClone 파일과 FlexClone LUN을 자동으로 삭제하도록 FlexVol 볼륨을 구성합니다
+      url: "/volumes/configure-flexvol-delete-flexclone-files-luns-task.html"
+    - title: 특정 FlexClone 파일 또는 FlexClone LUN이 자동으로 삭제되지 않도록 합니다
+      url: "/volumes/prevent-flexclone-file-lun-automatic-deleted-task.html"
+    - title: FlexClone 파일 삭제를 구성하는 명령입니다
+      url: "/volumes/commands-configure-deletion-flexclone-reference.html"
+- title: Qtree를 사용하여 FlexVol 볼륨을 분할합니다
+  entries:
+  - title: 개요
+    url: "/volumes/qtrees-partition-your-volumes-concept.html"
+  - title: qtree 접합 경로를 확보합니다
+    url: "/volumes/obtain-qtree-junction-path-task.html"
+  - title: Qtree 이름 제한 사항
+    url: "/volumes/qtree-name-restrictions-concept.html"
+  - title: 디렉토리를 qtree로 변환합니다
+    entries:
+    - title: 개요
+      url: "/volumes/convert-directory-qtree-task.html"
+    - title: Windows 클라이언트를 사용하여 디렉토리를 qtree로 변환합니다
+      url: "/volumes/convert-directory-qtree-windows-client-task.html"
+    - title: UNIX 클라이언트를 사용하여 디렉토리를 qtree로 변환합니다
+      url: "/volumes/convert-directory-qtree-unix-client-task.html"
+  - title: Qtree 관리 및 구성을 위한 명령
+    url: "/volumes/commands-manage-qtrees-reference.html"
+- title: 볼륨에 대한 논리적 공간 보고 및 적용
+  entries:
+  - title: 개요
+    url: "/volumes/logical-space-reporting-enforcement-concept.html"
+  - title: 논리적 공간 보고에 표시되는 내용
+    url: "/volumes/logical-space-reporting-concept.html"
+  - title: 논리적 공간 적용의 기능
+    url: "/volumes/logical-space-enforcement-concept.html"
+  - title: 논리적 공간 보고 및 적용을 설정합니다
+    url: "/volumes/enable-logical-space-reporting-enforcement-task.html"
+- title: 할당량을 사용하여 리소스 사용을 제한하거나 추적합니다
+  entries:
+  - title: 할당량 프로세스 개요
+    entries:
+    - title: 할당량 프로세스
+      url: "/volumes/overview-quota-process-concept.html"
+    - title: 하드, 소프트 및 임계값 할당량 간의 차이
+      url: "/volumes/differences-hard-soft-threshold-quotas-concept.html"
+    - title: 할당량 알림에 대해 알아봅니다
+      url: "/volumes/quota-notifications-concept.html"
+    - title: 할당량을 사용하는 이유
+      url: "/volumes/quotas-concept.html"
+    - title: 할당량 규칙, 할당량 정책 및 할당량이란 무엇입니까
+      url: "/volumes/quota-rules-policies-enforced-quotas-concept.html"
+    - title: 할당량 대상 및 유형
+      url: "/volumes/quota-targets-types-concept.html"
+    - title: 특별한 종류의 할당량입니다
+      entries:
+      - title: 기본 할당량의 작동 방식
+        url: "/volumes/default-quotas-concept.html"
+      - title: 명시적 할당량을 사용하는 방법
+        url: "/volumes/explicit-quotas-concept.html"
+      - title: 파생 할당량의 작동 방식
+        url: "/volumes/derived-quotas-concept.html"
+      - title: 할당량 추적 사용 방법
+        url: "/volumes/track-quotas-concept.html"
+    - title: 할당량을 적용하는 방법
+      url: "/volumes/quotas-applied-concept.html"
+    - title: 할당량 정책을 할당할 때 고려해야 할 사항입니다
+      url: "/volumes/assign-quota-policies-concept.html"
+    - title: 사용자 및 그룹에서 할당량이 작동하는 방식
+      entries:
+      - title: 개요
+        url: "/volumes/quotas-work-users-groups-concept.html"
+      - title: 할당량에 대해 UNIX 사용자를 지정하는 방법
+        url: "/volumes/specify-unix-users-quotas-concept.html"
+      - title: 할당량을 위해 Windows 사용자를 지정하는 방법
+        url: "/volumes/specify-windows-users-quotas-concept.html"
+      - title: 기본 사용자 및 그룹 할당량이 파생 할당량을 생성하는 방법
+        url: "/volumes/default-user-group-quotas-derived-concept.html"
+      - title: 루트 사용자에게 할당량을 적용하는 방법
+        url: "/volumes/quotas-applied-root-user-concept.html"
+      - title: 특수 Windows 그룹에서 할당량을 사용하는 방법
+        url: "/volumes/quotas-special-windows-groups-concept.html"
+      - title: ID가 여러 개인 사용자에게 할당량을 적용하는 방법
+        url: "/volumes/quotas-applied-users-multiple-ids-concept.html"
+      - title: ONTAP에서 혼합 환경의 사용자 ID를 확인하는 방법
+        url: "/volumes/user-ids-mixed-environment-concept.html"
+      - title: 여러 사용자의 할당량 작동 방식
+        url: "/volumes/quotas-multiple-users-concept.html"
+      - title: 할당량에 대해 UNIX 및 Windows 이름을 연결하는 방법
+        url: "/volumes/link-unix-windows-names-quotas-concept.html"
+    - title: Qtree에서 할당량 작동 방식
+      url: "/volumes/quotas-qtrees-concept.html"
+    - title: 트리 할당량의 작동 방식
+      entries:
+      - title: 개요
+        url: "/volumes/tree-quotas-concept.html"
+      - title: 사용자 및 그룹 할당량이 Qtree에서 작동하는 방식
+        url: "/volumes/user-group-quotas-qtrees-concept.html"
+      - title: FlexVol 볼륨의 기본 트리 할당량이 파생 트리 할당량을 생성하는 방법
+        url: "/volumes/default-tree-quotas-volume-create-concept.html"
+      - title: FlexVol 볼륨의 기본 사용자 할당량이 해당 볼륨의 qtree에 대한 할당량에 미치는 영향
+        url: "/volumes/default-user-quotas-volume-affect-qtrees-concept.html"
+    - title: Qtree 변경이 할당량에 미치는 영향
+      entries:
+      - title: 개요
+        url: "/volumes/qtree-changes-affect-quotas-concept.html"
+      - title: qtree를 삭제하는 방법이 트리 할당량에 영향을 미치는 방식
+        url: "/volumes/delete-qtree-affects-tree-quotas-concept.html"
+      - title: Qtree 이름을 변경하면 할당량에 미치는 영향이 변경됩니다
+        url: "/volumes/rename-qtree-affects-quotas-concept.html"
+      - title: Qtree의 보안 스타일을 변경하면 사용자 할당량에 미치는 영향
+        url: "/volumes/change-security-style-qtree-affects-quotas-concept.html"
+    - title: 할당량이 활성화되는 방식
+      entries:
+      - title: 개요
+        url: "/volumes/quotas-activated-concept.html"
+      - title: 크기 조정을 사용할 수 있는 경우
+        url: "/volumes/resizing-concept.html"
+      - title: 전체 할당량 재초기화가 필요한 경우
+        url: "/volumes/full-quota-reinitialization-required-concept.html"
+    - title: 할당량 정보를 보는 방법
+      entries:
+      - title: 개요
+        url: "/volumes/view-quota-concept.html"
+      - title: 할당량 보고서를 사용하여 현재 사용 중인 할당량을 확인하는 방법
+        url: "/volumes/quota-report-quotas-effect-concept.html"
+      - title: 사용자 추가 할당량이 구성된 할당량과 다른 이유
+        url: "/volumes/enforced-quotas-differ-configured-concept.html"
+      - title: 할당량 보고서를 사용하여 특정 파일에 대한 쓰기를 제한하는 할당량을 결정합니다
+        url: "/volumes/quota-report-affect-writes-specific-file-task.html"
+      - title: 할당량에 대한 정보를 표시하는 명령입니다
+        url: "/volumes/commands-display-quotas-reference.html"
+      - title: 볼륨 할당량 정책 규칙 표시 및 볼륨 할당량 보고서 명령을 사용하는 경우
+        url: "/volumes/quota-reports-policy-rule-show-command-concept.html"
+    - title: 할당량 보고서 및 UNIX 클라이언트에 의해 표시되는 공간 사용량 차이
+      entries:
+      - title: 개요
+        url: "/volumes/space-display-quota-report-unix-client-concept.html"
+      - title: 할당량 보고서에서 디스크 공간 및 파일 사용량을 확인하는 방법
+        url: "/volumes/quota-report-accounts-disk-space-file-usage-concept.html"
+      - title: ls 명령이 공간 사용을 어떻게 계산하는지 확인합니다
+        url: "/volumes/ls-command-space-usage-concept.html"
+      - title: df 명령이 파일 크기를 어떻게 계산하는지 확인합니다
+        url: "/volumes/df-command-file-size-concept.html"
+      - title: du 명령이 공간 사용을 어떻게 계산하는지 보여 줍니다
+        url: "/volumes/du-command-space-usage-concept.html"
+    - title: 할당량 구성의 예
+      url: "/volumes/examples-quota-config-concept.html"
+  - title: anSVM에서 할당량 설정
+    url: "/volumes/setup-quotas-svm-task.html"
+  - title: 할당량 제한을 수정(또는 크기 조정)합니다
+    url: "/volumes/change-existing-quota-limits-task.html"
+  - title: 대대적인 변경 작업을 수행한 후 할당량을 다시 초기화합니다
+    url: "/volumes/reinitialize-quotas-after-changes-task.html"
+  - title: 할당량 규칙 및 할당량 정책을 관리하는 명령입니다
+    url: "/volumes/commands-manage-quota-rules-policies-reference.html"
+  - title: 할당량을 설정 및 수정하는 명령입니다
+    url: "/volumes/commands-activate-modify-quotas-reference.html"
+- title: 중복제거, 데이터 압축, 데이터 컴팩션을 사용하여 스토리지 효율성을 높입니다
+  entries:
+  - title: 개요
+    url: "/volumes/deduplication-data-compression-efficiency-concept.html"
+  - title: 볼륨에 대해 중복 제거를 설정합니다
+    url: "/volumes/enable-deduplication-volume-task.html"
+  - title: 볼륨에서 중복 제거를 해제합니다
+    url: "/volumes/disable-deduplication-volume-task.html"
+  - title: AFF 시스템에서 자동 볼륨 레벨 백그라운드 중복제거 관리
+    url: "/volumes/automatic-deduplication-schedule-aff-concept.html"
+  - title: AFF 시스템에서 애그리게이트 레벨의 인라인 중복제거를 관리합니다
+    url: "/volumes/manage-aggregate-level-deduplication-aff-task.html"
+  - title: AFF 시스템에서 애그리게이트 레벨의 백그라운드 중복제거를 관리합니다
+    url: "/volumes/enable-disable-background-deduplication-aff-task.html"
+  - title: 온도에 민감한 스토리지 효율성 개요
+    url: "/volumes/enable-temperature-sensitive-efficiency-concept.html"
+  - title: 스토리지 효율성 모드를 설정합니다
+    url: "/volumes/set-efficiency-mode-task.html"
+  - title: 볼륨 효율성 모드를 확인합니다
+    url: "/volumes/check-efficiency-task.html"
+  - title: 볼륨 효율성 모드를 변경합니다
+    url: "/volumes/change-efficiency-mode-task.html"
+  - title: 볼륨에 대해 데이터 압축을 설정합니다
+    url: "/volumes/enable-data-compression-volume-task.html"
+  - title: 보조 압축과 적응형 압축 간에 이동
+    url: "/volumes/move-between-secondary-adaptive-compression-task.html"
+  - title: 볼륨에 대한 데이터 압축을 비활성화합니다
+    url: "/volumes/disable-data-compression-volume-task.html"
+  - title: AFF 시스템의 인라인 데이터 컴팩션을 관리합니다
+    url: "/volumes/manage-inline-data-compaction-aff-task.html"
+  - title: FAS 시스템에 대해 인라인 데이터 컴팩션을 사용하도록 설정합니다
+    url: "/volumes/enable-inline-data-compaction-fas-systems-task.html"
+  - title: AFF 시스템에서 기본적으로 인라인 스토리지 효율성이 활성화되어 있습니다
+    url: "/volumes/inline-storage-efficiency-enablement-aff-concept.html"
+  - title: 스토리지 효율성 시각화 지원
+    url: "/volumes/enable-storage-efficiency-visualization-concept.html"
+  - title: 효율성 작업을 실행할 볼륨 효율성 정책을 생성합니다
+    entries:
+    - title: 개요
+      url: "/volumes/create-efficiency-policy-task.html"
+    - title: 볼륨에 볼륨 효율성 정책을 할당합니다
+      url: "/volumes/assign-volume-efficiency-policy-task.html"
+    - title: 볼륨 효율성 정책을 수정합니다
+      url: "/volumes/modify-volume-efficiency-policy-task.html"
+    - title: 볼륨 효율성 정책을 봅니다
+      url: "/volumes/view-volume-efficiency-policy-task.html"
+    - title: 볼륨 효율성 정책을 볼륨에서 연결 해제합니다
+      url: "/volumes/disassociate-volume-efficiency-policy-task.html"
+    - title: 볼륨 효율성 정책을 삭제합니다
+      url: "/volumes/delete-volume-efficiency-policy-task.html"
+  - title: 수동으로 볼륨 효율성 작업을 관리합니다
+    entries:
+    - title: 개요
+      url: "/volumes/manage-volume-efficiency-operations-manual-concept.html"
+    - title: 효율성 작업을 수동으로 실행합니다
+      url: "/volumes/run-efficiency-operations-manual-task.html"
+    - title: 체크포인트를 사용하여 효율성 작업을 다시 시작하십시오
+      url: "/volumes/checkpoints-resume-efficiency-operation-concept.html"
+    - title: 중단된 효율성 작업을 다시 시작합니다
+      url: "/volumes/resume-efficiency-operation-checkpoint-task.html"
+    - title: 기존 데이터에 대해 수동으로 효율성 작업을 실행합니다
+      url: "/volumes/run-efficiency-operations-manual-existing-data-task.html"
+  - title: 스케줄을 사용하여 볼륨 효율성 작업을 관리합니다
+    entries:
+    - title: 작성된 새 데이터의 양에 따라 효율성 작업을 실행합니다
+      url: "/volumes/run-efficiency-operations-depending-new-data-task.html"
+    - title: 일정을 사용하여 효율성 작업을 실행합니다
+      url: "/volumes/run-efficiency-operations-scheduling-task.html"
+  - title: 볼륨 효율성 작업을 모니터링합니다
+    entries:
+    - title: 효율성 작업의 상태를 봅니다
+      url: "/volumes/view-status-efficiency-operations-task.html"
+    - title: 효율성 공간 절약 효과 확인
+      url: "/volumes/view-efficiency-space-savings-task.html"
+    - title: FlexVol 볼륨의 효율성 통계를 확인합니다
+      url: "/volumes/view-efficiency-statistics-flexvol-task.html"
+  - title: 볼륨 효율성 작업을 중지합니다
+    url: "/volumes/stop-volume-efficiency-operations-task.html"
+  - title: 볼륨에서 공간 절약 효과를 제거하는 방법에 대한 정보
+    url: "/volumes/remove-space-savings-volume-reference.html"
+- title: 한 SVM에서 다른 SVM으로 볼륨을 다시 호스팅
+  entries:
+  - title: 개요
+    url: "/volumes/rehost-volume-another-svm-task.html"
+  - title: CIFS 볼륨을 다시 호스트합니다
+    url: "/volumes/rehost-smb-task.html"
+  - title: NFS 볼륨을 다시 호스트합니다
+    url: "/volumes/rehost-nfs-volumes-task.html"
+  - title: SAN 볼륨을 재호스트합니다
+    url: "/volumes/rehost-san-task.html"
+  - title: SnapMirror 관계에서 볼륨 재호스팅
+    url: "/volumes/rehost-snapmirror-relationship-task.html"
+  - title: 볼륨 재호스트를 지원하지 않는 기능입니다
+    url: "/volumes/features-supported-volume-rehost-concept.html"
+- title: 보관 제한
+  url: "/volumes/storage-limits-reference.html"
+- title: 권장되는 볼륨 및 파일 또는 LUN 구성 조합
+  entries:
+  - title: 개요
+    url: "/volumes/recommended-volume-lun-config-combinations-concept.html"
+  - title: 환경에 맞는 올바른 볼륨 및 LUN 구성 조합을 결정합니다
+    url: "/volumes/determine-correct-volume-lun-config-task.html"
+  - title: 일반 프로비저닝된 볼륨이 있는 공간 예약 파일 또는 LUN에 대한 구성 설정입니다
+    url: "/volumes/space-reserved-luns-thick-provisioned-concept.html"
+  - title: 공간이 예약되지 않은 파일 또는 씬 프로비저닝된 볼륨이 있는 LUN에 대한 구성 설정입니다
+    url: "/volumes/non-space-reserved-luns-thin-provisioned-concept.html"
+  - title: 반씩 볼륨 프로비저닝을 사용하는 공간 예약 파일 또는 LUN에 대한 구성 설정입니다
+    url: "/volumes/space-reserved-luns-semi-thick-provisioning-concept.html"
+- title: 파일 또는 디렉토리 용량 변경에 대한 주의 및 고려 사항
+  entries:
+  - title: FlexVol 볼륨에서 허용되는 최대 파일 수를 변경하기 위한 고려 사항
+    url: "/volumes/change-maximum-number-files-allowed-concept.html"
+  - title: FlexVol 볼륨의 최대 디렉토리 크기를 늘리는 데 대한 주의 사항
+    url: "/volumes/cautions-increasing-maximum-directory-size-concept.html"
+  - title: 노드 루트 볼륨 및 루트 애그리게이트를 제어하는 규칙
+    url: "/volumes/rules-node-root-volumes-aggregates-concept.html"
+  - title: 루트 볼륨을 새 애그리게이트로 재배치
+    url: "/volumes/relocate-root-volumes-new-aggregates-task.html"
+- title: FlexClone 파일 및 FlexClone LUN에서 지원되는 기능입니다
+  entries:
+  - title: 개요
+    url: "/volumes/features-supported-flexclone-files-luns-concept.html"
+  - title: FlexClone 파일 및 FlexClone LUN에서 중복 제거 작동 방식
+    url: "/volumes/deduplication-flexclone-files-luns-concept.html"
+  - title: FlexClone 파일 및 FlexClone LUN의 Snapshot 복사본 작동 방식
+    url: "/volumes/snapshot-copies-flexclone-files-luns-concept.html"
+  - title: 액세스 제어 목록이 FlexClone 파일 및 FlexClone LUN과 작동하는 방식
+    url: "/volumes/access-control-lists-streams-flexclone-concept.html"
+  - title: FlexClone 파일 및 FlexClone LUN에서 할당량이 작동하는 방식
+    url: "/volumes/quotas-flexclone-files-luns-concept.html"
+  - title: FlexClone 볼륨이 FlexClone 파일 및 FlexClone LUN과 작동하는 방식
+    url: "/volumes/flexclone-volumes-files-luns-concept.html"
+  - title: NDMP가 FlexClone 파일 및 FlexClone LUN과 작동하는 방식
+    url: "/volumes/ndmp-dump-flexclone-files-luns-concept.html"
+  - title: volume SnapMirror가 FlexClone 파일 및 FlexClone LUN과 작동하는 방식
+    url: "/volumes/volume-snapmirror-flexclone-files-luns-concept.html"
+  - title: 볼륨 이동이 FlexClone 파일 및 FlexClone LUN에 미치는 영향
+    url: "/volumes/volume-move-flexclone-files-luns-concept.html"
+  - title: FlexClone 파일 및 FlexClone LUN에서 공간 예약이 작동하는 방식
+    url: "/volumes/space-reservation-flexclone-files-luns-concept.html"
+  - title: FlexClone 파일 및 FlexClone LUN에서 HA 구성의 작동 방식
+    url: "/volumes/ha-pair-flexclone-files-luns-concept.html"

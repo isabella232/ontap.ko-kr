@@ -1,0 +1,39 @@
+---
+permalink: nfs-rdma/index.html 
+sidebar: sidebar 
+keywords: NFS over RDMA, NVIDIA, GPU, NVIDIA GDX 
+summary: RDMA 상의 NFS는 RDMA 어댑터를 사용하므로 스토리지 시스템 메모리와 호스트 시스템 메모리 간에 데이터를 직접 복사할 수 있으므로 CPU 중단과 오버헤드를 피할 수 있습니다. 
+---
+= RDMA 상의 NFS
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+RDMA 상의 NFS는 RDMA 어댑터를 사용하므로 스토리지 시스템 메모리와 호스트 시스템 메모리 간에 데이터를 직접 복사할 수 있으므로 CPU 중단과 오버헤드를 피할 수 있습니다.
+
+RDMA 상 NFS 구성은 머신 러닝 및 분석과 같은 지연 시간에 민감하거나 대역폭이 높은 워크로드를 사용하는 고객을 위해 설계되었습니다. NVIDIA는 GDS(GPU Direct Storage)를 활성화하기 위해 RDMA를 통해 NFS를 확장했습니다. GDS는 RDMA를 사용하여 CPU와 메인 메모리를 모두 바이패스하여 스토리지 시스템과 GPU 메모리 간에 직접 데이터를 전송하여 GPU 지원 워크로드를 더욱 가속화합니다.
+
+ONTAP 9.10.1에서는 RoCE 프로토콜 버전 2를 사용하여 RDMA를 지원하는 Mellanox CX-5 또는 CX-6 어댑터와 함께 사용할 경우 NFSv4.0 프로토콜에 대해서만 이 구성이 지원됩니다. GDS는 Mellanox NIC 카드 및 MOFED 소프트웨어를 사용하는 NVIDIA Tesla- 및 Ampere-제품군 GPU만 사용하여 지원됩니다. RDMA 상 NFS 지원은 노드 로컬 트래픽으로만 제한됩니다. 표준 FlexVol 또는 FlexGroups: 동일한 노드에 있는 모든 구성요소가 지원되며 동일한 노드의 LIF에서 액세스해야 합니다.
+
+.요구 사항
+* Storages 시스템에서 ONTAP 9.10.1을 실행해야 합니다
+* HA 쌍의 두 노드는 동일한 버전이어야 합니다
+* 스토리지 시스템 컨트롤러에는 RDMA 지원(현재 A400, A700, A800)이 있어야 합니다.
+* RDMA 지원 하드웨어(예 Mellanox CX-5 또는 CX-6)
+* 데이터 LIF는 RDMA를 지원하도록 구성해야 합니다.
+* 클라이언트는 Mellanox RDMA 지원 NIC 카드 및 Mellanox OFED(MOFED) 네트워크 소프트웨어를 사용해야 합니다.
+
+
+.다음 단계
+* xref:./configure-nics-task.adoc[RDMA를 통해 NFS용 NIC를 구성합니다]
+* xref:./configure-lifs-task.adoc[RDMA를 통해 NFS용 LIF를 구성합니다]
+* xref:./configure-nfs-task.adoc[RDMA를 통한 NFS 설정에 대해 설명합니다]
+
+
+.추가 참고 자료
+* link:https://datatracker.ietf.org/doc/html/rfc7530["RFC 7530: NFS 버전 4 프로토콜"]
+* link:https://datatracker.ietf.org/doc/html/rfc8166["RFC 8166: 원격 프로시저 호출 버전 1을 위한 원격 직접 메모리 액세스 전송"]
+* link:https://datatracker.ietf.org/doc/html/rfc8167["RFC 8167: RPC-over-RDMA 전송에 대한 양방향 원격 프로시저 호출"]
+* link:https://datatracker.ietf.org/doc/html/rfc8267["RFC 8267: RPC-over-RDMA 버전 1에 NFS 상위 계층의 바인딩"]
+

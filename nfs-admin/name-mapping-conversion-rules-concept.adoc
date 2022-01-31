@@ -1,0 +1,13 @@
+---
+permalink: nfs-admin/name-mapping-conversion-rules-concept.html 
+sidebar: sidebar 
+keywords: name, mapping, conversion, rule 
+summary: ONTAP 시스템은 각 SVM에 대해 일련의 전환 규칙을 유지합니다. 각 규칙은 패턴과 교체의 두 부분으로 구성됩니다. 변환은 적절한 목록의 시작 부분에서 시작하여 첫 번째 일치 규칙을 기반으로 대체를 수행합니다. 이 패턴은 UNIX 형식의 정규식입니다. 대체는 UNIX SED 프로그램에서와 같이 패턴에서 부분식을 나타내는 이스케이프 시퀀스를 포함하는 문자열입니다. 
+---
+= 이름 매핑 변환 규칙
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 시스템은 각 SVM에 대해 일련의 전환 규칙을 유지합니다. 각 규칙은 A_pattern_과 A_replacement_의 두 부분으로 구성됩니다. 변환은 적절한 목록의 시작 부분에서 시작하여 첫 번째 일치 규칙을 기반으로 대체를 수행합니다. 이 패턴은 UNIX 형식의 정규식입니다. 대체는 UNIX 'ed' 프로그램과 마찬가지로 패턴에서 부분식을 나타내는 이스케이프 시퀀스를 포함하는 문자열입니다.

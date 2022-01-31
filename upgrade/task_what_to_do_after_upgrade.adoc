@@ -1,0 +1,13 @@
+---
+permalink: upgrade/task_what_to_do_after_upgrade.html 
+sidebar: sidebar 
+keywords: ontap, upgrade, plan, planning, upgrade, how, post-checks 
+summary: ONTAP 소프트웨어를 업그레이드한 후 클러스터 준비 상태를 확인하기 위해 여러 가지 작업을 수행해야 합니다. 
+---
+= 업그레이드 후 수행할 작업
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 소프트웨어를 업그레이드한 후 클러스터 준비 상태를 확인하기 위해 여러 가지 작업을 수행해야 합니다.

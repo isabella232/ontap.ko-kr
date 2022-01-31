@@ -1,0 +1,19 @@
+---
+permalink: san-config/world-wide-name-based-zoning-concept.html 
+sidebar: sidebar 
+keywords: world, wide, name-based, zoning 
+summary: 'WWN(World Wide Name)을 기반으로 하는 조닝은 영역 내에 포함할 구성원의 WWN을 지정합니다. ONTAP에서 조닝할 때 WWPN(World Wide Port Name) 조닝을 사용해야 합니다.' 
+---
+= World Wide Name 기반 조닝
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+WWN(World Wide Name)을 기반으로 하는 조닝은 영역 내에 포함할 구성원의 WWN을 지정합니다. ONTAP에서 조닝할 때 WWPN(World Wide Port Name) 조닝을 사용해야 합니다.
+
+WWPN 조닝을 사용하면 디바이스가 Fabric에 물리적으로 연결된 위치에 따라 액세스가 결정되지 않으므로 유연성이 제공됩니다. 영역을 재구성하지 않고도 한 포트에서 다른 포트로 케이블을 이동할 수 있습니다.
+
+ONTAP를 실행하는 스토리지 컨트롤러에 대한 파이버 채널 경로의 경우 FC 스위치가 노드의 물리적 포트 WWPN이 아니라 타겟 논리 인터페이스(LIF)의 WWPN을 사용하여 조닝(zoning)되는지 확인합니다. LIF에 대한 자세한 내용은 _ONTAP 네트워크 관리 가이드_를 참조하십시오.
+
+link:../networking/index.html["네트워크 관리"]

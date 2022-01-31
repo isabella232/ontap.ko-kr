@@ -1,0 +1,111 @@
+---
+permalink: peering/add-svm-intercluster-relationship-93-later-task.html 
+sidebar: sidebar 
+keywords: add, intercluster, svm, peer, relationship 
+summary: 클러스터 피어 관계를 구성한 후 SVM을 생성할 경우 SVM에 대한 피어 관계를 수동으로 추가해야 합니다. SVM 피어 생성 명령을 사용하여 SVM 간에 피어 관계를 생성할 수 있습니다. 피어 관계가 생성된 후 원격 클러스터에서 SVM 피어 승인을 실행하여 피어 관계를 승인할 수 있습니다. 
+---
+= 인터클러스터 SVM 피어 관계 추가(ONTAP 9.3 이상)
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클러스터 피어 관계를 구성한 후 SVM을 생성할 경우 SVM에 대한 피어 관계를 수동으로 추가해야 합니다. 'vserver peer create' 명령을 사용하여 SVM 간에 피어 관계를 생성할 수 있습니다. 피어 관계가 생성된 후 원격 클러스터에서 'vserver peer accept'를 실행하여 피어 관계를 승인할 수 있습니다.
+
+소스 및 타겟 클러스터를 내다봐야 합니다.
+
+로컬 데이터 백업을 위해 동일한 클러스터에서 SVM 간에 피어 관계를 생성할 수 있습니다. 자세한 내용은 'vserver peer create' man 페이지를 참조하십시오.
+
+관리자는 때때로 'vserver peer reject' 명령을 사용하여 제안된 SVM 피어 관계를 거부합니다. SVM 간의 관계가 "rebin" 상태인 경우 새 관계를 생성하려면 먼저 관계를 삭제해야 합니다. 자세한 내용은 vserver peer delete man 페이지를 참조하십시오.
+
+.단계
+. 데이터 보호 소스 클러스터에서 데이터 보호 타겟 클러스터의 SVM과 피어 관계를 생성합니다.
++
+'vserver peer create -vserver_local_SVM_-peer-vserver_remote_SVM_-applications SnapMirror|file-copy|lun-copy -peer -cluster_remote_cluster_'
+
++
+다음 예에서는 로컬 SVM ``pvs1’’과 원격 SVM ``vs1’’ 간에 피어 관계를 생성합니다
+
++
+[listing]
+----
+cluster01::> vserver peer create -vserver pvs1 -peer-vserver vs1 -applications snapmirror -peer-cluster cluster02
+----
++
+로컬 및 원격 SVM의 이름이 동일한 경우 _ local name _ 을(를) 사용하여 SVM 피어 관계를 생성해야 합니다.
+
++
+[listing]
+----
+cluster01::> vserver peer create -vserver vs1 -peer-vserver
+vs1 -applications snapmirror -peer-cluster cluster01
+-local-name cluster1vs1LocallyUniqueName
+----
+. 데이터 보호 소스 클러스터에서 피어 관계가 시작되었는지 확인합니다.
++
+'vserver peer show-all'
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+다음 예에서는 SVM ``pvs1’’과 SVM ``vs1’’ 간의 피어 관계가 시작된 것을 보여 줍니다.
+
++
+[listing]
+----
+cluster01::> vserver peer show-all
+                   Peer              Peer                        Peering
+Vserver            Vserver           State       Peer Cluster    Applications
+-----------        -----------       ----------  --------------  ------------
+pvs1               vs1               initiated   Cluster02       snapmirror
+----
+. 데이터 보호 대상 클러스터에서 보류 중인 SVM 피어 관계를 표시합니다.
++
+'vserver peer show'
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+다음 예에서는 'cluster02'에 대해 보류 중인 피어 관계를 나열합니다.
+
++
+[listing]
+----
+cluster02::> vserver peer show
+
+                   Peer               Peer
+Vserver            Vserver            State
+-----------        -----------        ------------
+vs1                pvs1               pending
+----
+. 데이터 보호 대상 클러스터에서 보류 중인 피어 관계를 승인합니다.
++
+'vserver peer accept -vserver_local_SVM_-peer-vserver_remote_SVM_'
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+다음 예에서는 로컬 SVM 'VS1'과 원격 SVM 'pvs1' 간의 피어 관계를 승인합니다.
+
++
+[listing]
+----
+cluster02::> vserver peer accept -vserver vs1 -peer-vserver pvs1
+----
+. SVM 피어 관계 확인:
++
+'vserver peer show'
+
++
+[listing]
+----
+cluster01::> vserver peer show
+            Peer        Peer                           Peering        Remote
+Vserver     Vserver     State        Peer Cluster      Applications   Vserver
+----------- ----------- ------------ ----------------- -------------- ---------
+pvs1        vs1         peered       cluster02         snapmirror     vs1
+----
+

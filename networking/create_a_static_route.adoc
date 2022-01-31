@@ -1,0 +1,24 @@
+---
+sidebar: sidebar 
+permalink: networking/create_a_static_route.html 
+keywords: create, creation, creating, add, adding, static, route, svm, traffic, network, create a static route, network route create 
+summary: SVM 내에서 정적 경로를 생성하여 LIF가 아웃바운드 트래픽에 네트워크를 사용하는 방법을 제어합니다 
+---
+= 정적 배관을 작성합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+SVM(Storage Virtual Machine) 내에서 정적 경로를 생성하여 LIF가 아웃바운드 트래픽에 네트워크를 사용하는 방법을 제어할 수 있습니다.
+
+SVM과 관련된 경로 항목을 생성하면 해당 경로가 지정된 SVM이 소유하고 게이트웨이와 동일한 서브넷에 있는 모든 LIF에서 사용됩니다.
+
+'network route create' 명령어를 이용하여 경로를 생성한다.
+
+....
+network route create -vserver vs0 -destination 0.0.0.0/0 -gateway 10.61.208.1
+....

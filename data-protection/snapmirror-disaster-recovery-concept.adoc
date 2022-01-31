@@ -1,0 +1,104 @@
+---
+permalink: data-protection/snapmirror-disaster-recovery-concept.html 
+sidebar: sidebar 
+keywords: asynchronous, snapmirror, disaster, recovery basics 
+summary: SnapMirror는 재해 복구 기술로, 지리적으로 원격 사이트의 운영 스토리지에서 2차 스토리지로 페일오버하도록 설계되었습니다. 그 이름이 시사하는 것처럼 SnapMirror는 운영 사이트에서 재해가 발생한 경우에도 데이터를 계속 제공할 수 있는 보조 스토리지에 작업 데이터의 복제본 또는 미러를 생성합니다. 
+---
+= 비동기식 SnapMirror 재해 복구 기본 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+_SnapMirror_는 지리적으로 원격 사이트의 운영 스토리지에서 보조 스토리지로 페일오버하도록 설계된 재해 복구 기술입니다. 그 이름이 시사하듯이 SnapMirror는 운영 사이트에서 재해가 발생한 경우에도 데이터를 계속 제공할 수 있는 보조 스토리지에 작업 데이터의 복제본 또는 _MIRROR_를 생성합니다.
+
+운영 사이트에서 데이터를 계속 제공할 수 있는 경우 필요한 데이터를 다시 전송하여 미러에서 클라이언트를 전혀 제공하지 않고 그대로 제공할 수 있습니다. 페일오버 사용 사례에서 알 수 있듯이, 2차 시스템의 컨트롤러는 미러링된 스토리지의 데이터를 효율적으로 지원하기 위해 운영 시스템의 컨트롤러와 동등하거나 거의 동등해야 합니다.
+
+
+
+== 데이터 보호 관계
+
+데이터가 볼륨 레벨에서 미러링됩니다. 운영 스토리지의 소스 볼륨과 2차 스토리지의 타겟 볼륨 간의 관계를 _ 데이터 보호 관계라고 합니다. _ 볼륨이 상주하는 클러스터와 볼륨에서 데이터를 제공하는 SVM은 _ 피어링되어야 합니다. _ 피어 관계를 통해 클러스터와 SVM이 서로 교환할 수 있습니다 안전하게 데이터 관리
+
+https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["클러스터 및 SVM 피어링"]
+
+아래 그림에서는 SnapMirror 데이터 보호 관계를 보여 줍니다.
+
+image::../media/snapmirror-for-dp-pg.gif[DP용 SnapMirror pg]
+
+
+
+== 데이터 보호 관계의 범위
+
+볼륨 간 또는 볼륨을 소유한 SVM 간에 직접 데이터 보호 관계를 생성할 수 있습니다. SVM 데이터 보호 관계에서는 NFS 엑스포트 및 SMB 공유에서 RBAC에 이르는 SVM 구성의 전체 또는 일부를 복제할 뿐만 아니라 SVM이 소유한 볼륨의 데이터도 복제됩니다.
+
+또한 다음과 같은 두 가지 특수 데이터 보호 애플리케이션에 SnapMirror를 사용할 수 있습니다.
+
+* SVM 루트 볼륨의 _load 공유 mirror_copy를 사용하면 노드 운영 중단 또는 페일오버 발생 시에도 데이터에 액세스할 수 있습니다.
+* SnapLock 볼륨 _ 간의 데이터 보호 관계를 통해 WORM 파일을 보조 스토리지로 복제할 수 있습니다.
++
+link:../snaplock/index.html["SnapLock 기술을 사용한 아카이브 및 규정 준수"]
+
+
+
+
+
+== SnapMirror 데이터 보호 관계가 초기화된 방식
+
+SnapMirror를 처음 호출하면 소스 볼륨에서 대상 볼륨으로 _baseline transfer_를 수행합니다. 관계에 대한 _SnapMirror 정책_은 기준 및 모든 업데이트의 내용을 정의합니다.
+
+기본 SnapMirror 정책 'MirorAllSnapshots'에 따른 기본 전송에는 다음 단계가 포함됩니다.
+
+* 소스 볼륨의 스냅샷 복사본을 만듭니다.
+* 스냅샷 복사본과 스냅샷 복사본이 대상 볼륨에 참조하는 모든 데이터 블록을 전송합니다.
+* ""활성" 미러가 손상된 경우에 사용할 수 있도록 소스 볼륨의 나머지 최신 스냅샷 복사본을 대상 볼륨으로 전송합니다.
+
+
+
+
+== SnapMirror 데이터 보호 관계가 업데이트되는 방법
+
+업데이트는 구성한 일정에 따라 비동기식입니다. 보존은 소스의 스냅샷 정책을 미러링합니다.
+
+MirorAllSnapshots 정책의 각 업데이트 시 SnapMirror는 소스 볼륨의 스냅샷 복사본을 생성하고 이 스냅샷 복사본과 마지막 업데이트 이후 생성된 스냅샷 복사본을 전송합니다. 'irorAllSnapshots' 정책에 대한 'napmirror policy show' 명령의 출력은 다음과 같습니다.
+
+* "스냅샷 생성"은 "참"이며, 이는 SnapMirror가 관계를 업데이트할 때 "irorAllSnapshots"이 스냅샷 복사본을 생성함을 의미합니다.
+* 'MirorAllSnapshots'에는 'sm_created' 및 'all_source_snapshots' 규칙이 있습니다. 이는 SnapMirror에서 생성한 스냅샷 복사본과 마지막 업데이트 이후 생성된 스냅샷 복사본이 모두 SnapMirror에서 관계를 업데이트하면 전송됨을 나타냅니다.
+
+
+[listing]
+----
+cluster_dst::> snapmirror policy show -policy MirrorAllSnapshots -instance
+
+                     Vserver: vs0
+      SnapMirror Policy Name: MirrorAllSnapshots
+      SnapMirror Policy Type: async-mirror
+                Policy Owner: cluster-admin
+                 Tries Limit: 8
+           Transfer Priority: normal
+   Ignore accesstime Enabled: false
+     Transfer Restartability: always
+ Network Compression Enabled: false
+             Create Snapshot: true
+                     Comment: Asynchronous SnapMirror policy for mirroring all snapshots
+                              and the latest active file system.
+       Total Number of Rules: 2
+                  Total Keep: 2
+                       Rules: SnapMirror Label     Keep  Preserve Warn Schedule Prefix
+                              ----------------     ----  -------- ---- -------- ------
+                              sm_created              1  false       0 -        -
+                              all_source_snapshots    1  false       0 -        -
+----
+
+
+== 대칭 복사 정책
+
+사전 구성된 'irorLatest' 정책은 'irrorAllSnapshots'과 정확히 동일하게 작동합니다. 단, SnapMirror에서 생성한 스냅샷 복사본만 초기화 및 업데이트 시 전송됩니다.
+
+[listing]
+----
+
+                       Rules: SnapMirror Label     Keep  Preserve Warn Schedule Prefix
+                              ----------------     ----  -------- ---- -------- ------
+                              sm_created              1  false       0 -        -
+----

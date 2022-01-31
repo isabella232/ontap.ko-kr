@@ -1,0 +1,80 @@
+---
+permalink: data-protection/snapmirror-global-throttling-concept.html 
+sidebar: sidebar 
+keywords: using snapmirror, global, throttling 
+summary: 글로벌 네트워크 스로틀링은 모든 SnapMirror 및 SnapVault 전송에 대해 노드 단위로 사용할 수 있습니다. 
+---
+= SnapMirror 글로벌 제한 기능을 사용합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+글로벌 네트워크 스로틀링은 모든 SnapMirror 및 SnapVault 전송에 대해 노드 단위로 사용할 수 있습니다.
+
+SnapMirror 글로벌 제한 때문에 들어오고/또는 나가는 SnapMirror 및 SnapVault 전송에 사용되는 대역폭이 제한됩니다. 이 제한은 클러스터의 모든 노드에서 클러스터 전체에 적용됩니다.
+
+예를 들어, 발신 스로틀이 100Mbps로 설정된 경우 클러스터의 각 노드는 발신 대역폭을 100Mbps로 설정합니다. 글로벌 임계치 조절이 비활성화된 경우 모든 노드에서 비활성화됩니다.
+
+[NOTE]
+====
+스로틀은 볼륨 이동 전송이나 로드 공유 미러 전송에는 영향을 주지 않습니다. 데이터 전송 속도는 대개 초당 비트 수(bps)로 표현되지만 스로틀 값은 초당 킬로바이트(kbps)로 입력해야 합니다.
+
+====
+글로벌 제한은 SnapMirror 및 SnapVault 전송을 위한 관계별 스로틀 기능과 함께 작동합니다. 관계별 전송의 결합된 대역폭이 글로벌 스로틀의 값을 초과할 때까지, 즉 글로벌 스로틀이 적용될 때까지 관계별 스로틀이 적용됩니다. 스로틀 값 0은 글로벌 스로틀링이 비활성화됨을 의미합니다.
+
+[NOTE]
+====
+SnapMirror 글로벌 스로틀은 동기 중일 때 SnapMirror Synchronous 관계에 영향을 주지 않습니다. 그러나 초기화 작업 또는 동기화 중단 이벤트 후 같은 비동기 전송 단계를 수행할 때 스로틀이 SnapMirror Synchronous 관계에 영향을 줍니다. 따라서 SnapMirror Synchronous 관계를 사용하여 글로벌 제한을 설정하는 것은 권장되지 않습니다.
+
+====
+.단계
+. 글로벌 제한 활성화:
++
+'options-option-name replication.throttle.enable on|off'
+
++
+다음 예에서는 "cluster_dst"에서 SnapMirror 글로벌 제한을 활성화하는 방법을 보여 줍니다.
+
++
+[listing]
+----
+cluster_dst::> options -option-name replication.throttle.enable on
+----
+. 들어오는 전송에 사용되는 최대 총 대역폭을 지정합니다.
++
+'options-option-name replication.throttle.incoming.max_kbs_kbps_'
+
++
+권장되는 최소 스로틀 대역폭은 4kbps이고 최대 스로틀 대역폭은 2Tbps입니다. 이 옵션의 기본값은 무제한(unlimited)으로, 사용되는 총 대역폭에 대한 제한이 없음을 의미합니다.
+
++
+다음 예에서는 들어오는 전송에 사용되는 최대 총 대역폭을 100Mbps로 설정하는 방법을 보여 줍니다.
+
++
+[listing]
+----
+cluster_dst::> options -option-name replication.throttle.incoming.max_kbs 12500
+----
++
+[NOTE]
+====
+100Mbps = 12500kbps
+
+====
+. 송신 전송에 사용되는 최대 총 대역폭을 지정합니다.
++
+옵션-옵션-이름 복제.throttle.outgoing.max_ksb_cps_
+
++
+kbps는 초당 킬로바이트 단위의 최대 전송 속도입니다. 유효한 전송 속도 값은 1 ~ 125000입니다. 이 옵션의 기본값은 무제한(unlimited)으로, 사용되는 총 대역폭에 대한 제한이 없음을 의미합니다.
+
++
+다음 예에서는 송신 전송에 사용되는 최대 총 대역폭을 100Mbps로 설정하는 방법을 보여 줍니다.
+
++
+[listing]
+----
+cluster_dst::> options -option-name replication.throttle.outgoing.max_kbs 12500
+----
+

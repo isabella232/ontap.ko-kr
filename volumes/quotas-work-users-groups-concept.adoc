@@ -1,0 +1,13 @@
+---
+permalink: volumes/quotas-work-users-groups-concept.html 
+sidebar: sidebar 
+keywords: how quotas work, users, with, groups 
+summary: 사용자 또는 그룹을 할당량의 타겟으로 지정하면 해당 할당량에 의해 적용되는 제한이 해당 사용자 또는 그룹에 적용됩니다. 그러나 일부 특수 그룹과 사용자는 다르게 처리됩니다. 사용자 환경에 따라 사용자 ID를 지정하는 방법은 다양합니다. 
+---
+= 사용자 및 그룹과 할당량 작동 방법 개요
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+사용자 또는 그룹을 할당량의 타겟으로 지정하면 해당 할당량에 의해 적용되는 제한이 해당 사용자 또는 그룹에 적용됩니다. 그러나 일부 특수 그룹과 사용자는 다르게 처리됩니다. 사용자 환경에 따라 사용자 ID를 지정하는 방법은 다양합니다.

@@ -1,0 +1,42 @@
+---
+permalink: fabricpool/assign-new-tag-volume-creation-task.html 
+sidebar: sidebar 
+keywords: assigning, new tag, volume creation 
+summary: 새로 만든 볼륨에서 계층화된 새 개체에 하나 이상의 태그를 할당하려는 경우 새 개체 태그를 만들 수 있습니다. 
+---
+= 볼륨을 생성하는 동안 새 태그를 할당합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+새로 만든 볼륨에서 계층화된 새 개체에 하나 이상의 태그를 할당하려는 경우 새 개체 태그를 만들 수 있습니다.
+
+.이 작업에 대해
+* 볼륨당 최대 4개의 태그가 허용됩니다
+* 각 개체 태그는 등호("")로 구분된 키 값 쌍이어야 합니다.
+* 여러 태그는 쉼표("")로 구분해야 합니다.
+* 각 태그 값은 최대 127자를 포함할 수 있습니다
+* 각 태그 키는 영문자 또는 밑줄로 시작해야 합니다.
++
+키에는 영숫자와 밑줄만 포함되어야 하며 허용되는 최대 문자 수는 127입니다.
+
+
+
+.단계
+. '-Tiering-object-tags' 옵션과 함께 'volume create' 명령을 사용하여 지정된 태그로 새 볼륨을 생성합니다. 쉼표로 구분된 쌍으로 여러 태그를 지정할 수 있습니다.
++
+[listing]
+----
+volume create [ -vserver <vserver name> ] -volume <volume_name> -tiering-object-tags <key1=value1> [
+    ,<key2=value2>,<key3=value3>,<key4=value4> ]
+----
++
+다음 예에서는 개체 태그가 3개인 fp_volume1 볼륨을 생성합니다.
+
++
+[listing]
+----
+vol create -volume fp_volume1 -vserver vs0 -tiering-object-tags project=fabricpool,type=abc,content=data
+----
+

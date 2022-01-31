@@ -1,0 +1,15 @@
+---
+permalink: nfs-admin/authentication-based-restrictions-concept.html 
+sidebar: sidebar 
+keywords: authentication, restrictions 
+summary: '인증 기반 제한 사항을 사용하여 SVM(스토리지 가상 머신)에 연결할 수 있는 클라이언트 시스템과 사용자를 지정할 수 있습니다.' 
+---
+= 인증 기반 제한
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+인증 기반 제한 사항을 사용하여 SVM(스토리지 가상 머신)에 연결할 수 있는 클라이언트 시스템과 사용자를 지정할 수 있습니다.
+
+ONTAP는 UNIX 서버와 Windows 서버 모두에서 Kerberos 인증을 지원합니다.

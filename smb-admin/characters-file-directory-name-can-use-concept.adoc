@@ -1,0 +1,15 @@
+---
+permalink: smb-admin/characters-file-directory-name-can-use-concept.html 
+sidebar: sidebar 
+keywords: access, file, directory, client, operating, system, character, valid, characters a file or directory name can use 
+summary: 다른 운영 체제를 사용하는 클라이언트에서 파일 또는 디렉토리에 액세스하는 경우 두 운영 체제 모두에서 유효한 문자를 사용해야 합니다. 
+---
+= 문자 파일 또는 디렉터리 이름에 사용할 수 있습니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+다른 운영 체제를 사용하는 클라이언트에서 파일 또는 디렉토리에 액세스하는 경우 두 운영 체제 모두에서 유효한 문자를 사용해야 합니다.
+
+예를 들어 UNIX를 사용하여 파일 또는 디렉토리를 생성하는 경우 MS-DOS 파일 또는 디렉토리 이름에 콜론이 허용되지 않으므로 이름에 콜론(:)을 사용하지 마십시오. 유효한 문자의 제한 사항은 운영 체제마다 다르므로 금지된 문자에 대한 자세한 내용은 클라이언트 운영 체제 설명서를 참조하십시오.

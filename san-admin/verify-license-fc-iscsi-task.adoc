@@ -1,0 +1,36 @@
+---
+permalink: san-admin/verify-license-fc-iscsi-task.html 
+sidebar: sidebar 
+keywords: verify, license, fc or iscsi 
+summary: 'FC 또는 iSCSI를 사용하여 SVM(스토리지 가상 시스템)에 대한 블록 액세스를 활성화하려면 먼저 라이센스가 있어야 합니다.' 
+---
+= FC 또는 iSCSI에 대한 라이센스를 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FC 또는 iSCSI를 사용하여 SVM(스토리지 가상 시스템)에 대한 블록 액세스를 활성화하려면 먼저 라이센스가 있어야 합니다.
+
+.단계
+. 'system license show' 명령을 사용하여 FC 또는 iSCSI 라이센스가 있는지 확인합니다.
++
+'시스템 사용권 프로그램'
+
++
+[listing]
+----
+
+Package           Type    Description           Expiration
+ ----------------- ------- --------------------- --------------------
+ Base              site    Cluster Base License  -
+ NFS               site    NFS License           -
+ CIFS              site    CIFS License          -
+ iSCSI             site    iSCSI License         -
+ FCP               site    FCP License           -
+----
+. FC 또는 iSCSI 라이센스가 없는 경우 'license add' 명령을 사용합니다.
++
+'license add-license-code_your_license_code_'
+
+

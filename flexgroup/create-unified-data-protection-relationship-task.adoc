@@ -1,0 +1,105 @@
+---
+permalink: flexgroup/create-unified-data-protection-relationship-task.html 
+sidebar: sidebar 
+keywords: create, unified, data, protection, relationship, flexgroup, volume, snap shot, snapshot, policy, policies, mirrorandvault, mirror-vault, mirrorallsnapshot, back up, backup, snapvault, snap vault 
+summary: ONTAP 9.3부터는 SnapMirror 통합 데이터 보호 관계를 생성 및 구성하여 동일한 타겟 볼륨에서 재해 복구 및 아카이빙을 구성할 수 있습니다. 
+---
+= FlexGroup 볼륨에 대한 통합 데이터 보호 관계를 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.3부터는 SnapMirror 통합 데이터 보호 관계를 생성 및 구성하여 동일한 타겟 볼륨에서 재해 복구 및 아카이빙을 구성할 수 있습니다.
+
+FlexGroup 볼륨에 대한 통합 데이터 보호 관계를 생성할 때 고려해야 할 사항에 대해 알고 있어야 합니다.
+
+link:snapvault-backup-concept.html["SnapVault 백업 관계를 생성할 때의 고려 사항 및 FlexGroup 볼륨에 대한 통합 데이터 보호 관계"]
+
+.단계
+. 소스 FlexGroup 볼륨과 구성 요소 수가 동일한 dP 유형의 대상 FlexGroup 볼륨을 생성합니다.
++
+.. 소스 클러스터에서 소스 FlexGroup 볼륨의 구성요소 수('volume show-volume volume_name * -is-f성분 TRUE')를 결정합니다
++
+[listing]
+----
+cluster1::> volume show  -volume srcFG* -is-constituent true
+Vserver   Volume         Aggregate    State      Type       Size  Available  Used%
+--------- ------------   ------------ ---------- ---- ----------  ---------- -----
+vss       srcFG          -            online     RW         400TB   172.86GB  56%
+vss       srcFG__0001    Aggr_cmode   online     RW         25GB    10.86TB   56%
+vss       srcFG__0002    aggr1        online     RW         25TB    10.86TB   56%
+vss       srcFG__0003    Aggr_cmode   online     RW         25TB    10.72TB   57%
+vss       srcFG__0004    aggr1        online     RW         25TB    10.73TB   57%
+vss       srcFG__0005    Aggr_cmode   online     RW         25TB    10.67TB   57%
+vss       srcFG__0006    aggr1        online     RW         25TB    10.64TB   57%
+vss       srcFG__0007    Aggr_cmode   online     RW         25TB    10.63TB   57%
+...
+----
+.. 대상 클러스터에서 소스 FlexGroup 볼륨과 동일한 수의 구성 요소와 함께 dP 유형의 대상 FlexGroup 볼륨을 생성합니다.
++
+[listing]
+----
+cluster2::> volume create -vserver vsd -aggr-list aggr1,aggr2 -aggr-list-multiplier 8 -size 400TB -type DP dstFG
+
+Warning: The FlexGroup volume "dstFG" will be created with the following number of constituents of size 25TB: 16.
+Do you want to continue? {y|n}: y
+[Job 766] Job succeeded: Successful
+----
+.. 대상 클러스터에서 대상 FlexGroup 볼륨에 있는 구성 요소 수('volume show-volume volume volume_name * -is-f성분 TRUE')를 확인합니다
++
+[listing]
+----
+cluster2::> volume show  -volume dstFG* -is-constituent true
+Vserver   Volume       Aggregate    State      Type       Size  Available Used%
+--------- ------------ ------------ ---------- ---- ---------- ---------- -----
+vsd       dstFG          -            online     RW         400TB   172.86GB  56%
+vsd       dstFG__0001    Aggr_cmode   online     RW         25GB    10.86TB   56%
+vsd       dstFG__0002    aggr1        online     RW         25TB    10.86TB   56%
+vsd       dstFG__0003    Aggr_cmode   online     RW         25TB    10.72TB   57%
+vsd       dstFG__0004    aggr1        online     RW         25TB    10.73TB   57%
+vsd       dstFG__0005    Aggr_cmode   online     RW         25TB    10.67TB   57%
+vsd       dstFG__0006    aggr1        online     RW         25TB    10.64TB   57%
+vsd       dstFG__0007    Aggr_cmode   online     RW         25TB    10.63TB   57%
+...
+----
+
+
+. 작업 일정 생성:'작업 일정 cron create-name job_name-month month-DayOfWeek day_of_week-day day_of_month-hour-minute'입니다
++
+월-일-일-주-시간 옵션을 선택하면 월, 요일, 시간마다 작업을 실행하도록 모두 를 지정할 수 있습니다.
+
++
+다음 예에서는 토요일 오전 3시에 실행되는 my_weekly라는 작업 일정을 생성합니다.
+
++
+[listing]
+----
+cluster1::> job schedule cron create -name my_weekly -dayofweek "Saturday" -hour 3 -minute 0
+----
+. 'Mirror-vault' 유형의 사용자 지정 정책을 만든 다음 미러 및 볼트 정책에 대한 규칙을 정의합니다.
++
+.. 'Mirror policy create-vserver svm_name-policy_name-type mirror-vault'라는 통합 데이터 보호 관계를 위한 'Mirror-vault' 유형의 사용자 지정 정책을 생성합니다
+.. 초기화 및 업데이트 작업 중에 전송할 스냅샷 복사본을 결정하는 미러 및 볼트 정책의 규칙을 정의합니다. 이 규칙은 '스냅샷 미러 정책 추가 규칙 - vserver svm_name - policy_for_rule - SnapMirror -label snapmirror -label -keep retention_count -schedule' 입니다
+
+
++
+사용자 지정 정책을 지정하지 않으면 통합 데이터 보호 관계에 MirorAndVault 정책이 사용됩니다.
+
+. 통합 데이터 보호 관계를 생성합니다. 'napmirror create-source-path src_svm:src_flexgroup-destination-path dest_svm:dest_flexgroup-type XDP -schedule schedule_name -policy MirrorAndVault'
++
+ONTAP 9.4 이하 버전에서는, 정책이 '스냅샷 생성' 명령으로 지정되지 않으면 기본적으로 'irorAllSnapshots' 정책이 사용됩니다. ONTAP 9.5에서는 '스냅샷 생성' 명령으로 정책을 지정하지 않으면 기본적으로 'MirorAndVault' 정책이 사용됩니다.
+
++
+[listing]
+----
+cluster2::> snapmirror create -source-path vss:srcFG -destination-path vsd:dstFG -type XDP -schedule Daily -policy MirrorAndVault
+----
+. 대상 클러스터에서 기본 전송인 'napmirror initialize-destination-path dest_svm:dest_flexgroup'을 수행하여 통합 데이터 보호 관계를 초기화합니다
++
+[listing]
+----
+cluster2::> snapmirror initialize -destination-path vsd:dstFG
+Operation is queued: snapmirror initialize of destination "vsd:dstFG".
+----
+

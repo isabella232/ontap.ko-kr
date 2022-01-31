@@ -1,0 +1,54 @@
+---
+sidebar: sidebar 
+permalink: task_object_provision_manage_svm_access.html 
+keywords: netapp, ontap, manage, manage user access, user, users, group, group policy, access, VM, storage VM, object, objects, bucket, buckets, bucketname, bucket capacity, permissions, policy, policies, effect, actions, resources, conditions, object tagging, AWS client 
+summary: 스토리지 VM을 편집하여 여러 버킷에 대한 사용자 및 그룹 액세스 권한을 제어하는 정책을 추가합니다. 
+---
+= S3 지원 스토리지 VM에 대한 사용자 액세스 관리
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+스토리지 VM을 편집하여 여러 버킷에 대한 사용자 및 그룹 액세스 권한을 제어하는 정책을 추가합니다.
+
+개별 버킷에 대한 액세스 권한을 관리하는 대신 S3 지원 스토리지 VM에서 하나 이상의 버킷에 대한 액세스를 관리하는 그룹 정책을 추가할 수 있습니다. 따라서 버킷이 추가되거나 액세스 요구사항이 변경될 때 관리가 간소화됩니다.
+
+정책에 사용 권한을 부여하기 전에 이미 사용자와 하나 이상의 그룹을 만들어야 합니다.
+
+ONTAP 9.9.1 이상 릴리즈에서는 ONTAP S3 서버에서 AWS 클라이언트 개체 태그 지정 기능을 지원하려는 경우 버킷 또는 그룹 정책을 사용하여 GetObjectTagging, PutObjectTagging, DeleteObjectTagging 등의 작업을 허용해야 합니다.
+
+.단계
+. 스토리지 VM 편집: * 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 클릭한 다음 * 설정 * 을 클릭하고 을 클릭합니다 image:icon_pencil.gif["연필 아이콘"] S3 아래.
+. 사용자 추가: * Policies * 를 클릭한 다음 * Add * 를 클릭합니다.
++
+.. 정책 이름을 입력하고 그룹 목록에서 선택합니다.
+.. 기존 기본 정책을 선택하거나 새 정책을 추가합니다.
++
+그룹 정책을 추가하거나 수정할 때 다음 매개 변수를 지정할 수 있습니다.
+
++
+*** Group(그룹): 액세스 권한이 부여된 그룹입니다.
+*** 효과: 하나 이상의 그룹에 대한 액세스를 허용하거나 거부합니다.
+*** 조치: 주어진 그룹에 대해 하나 이상의 버킷에서 허용되는 조치.
+*** 리소스: 액세스가 부여되거나 거부되는 하나 이상의 버킷 내에 있는 오브젝트의 경로 및 이름입니다. 예를 들면 다음과 같습니다.
++
+**** *** 스토리지 VM의 모든 버킷에 대한 액세스 권한을 부여합니다.
+**** * bucketname * 및 * bucketname/** 특정 버킷의 모든 물체에 대한 액세스 권한을 부여합니다.
+**** * bucketname/readme.txt * 특정 버킷의 개체에 대한 액세스 권한을 부여합니다.
+
+
+
+
+.. 필요한 경우 기존 정책에 구문을 추가합니다.
+
+
+

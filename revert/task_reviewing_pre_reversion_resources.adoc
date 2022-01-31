@@ -1,0 +1,37 @@
+---
+permalink: revert/task_reviewing_pre_reversion_resources.html 
+sidebar: sidebar 
+keywords: ontap, downgrade, downgrading, revert, reverting, reversion, resources, pre-reversion, pre-downgrading, before 
+summary: ONTAP를 되돌리기 전에 하드웨어 지원을 확인하고 리소스를 검토하여 발생할 수 있거나 해결해야 할 문제를 파악해야 합니다. 
+---
+= 되돌리기 전에 검토할 리소스
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP를 되돌리기 전에 하드웨어 지원을 확인하고 리소스를 검토하여 발생할 수 있거나 해결해야 할 문제를 파악해야 합니다.
+
+. 를 검토합니다 link:https://library.netapp.com/ecmdocs/ECMLP2492508/html/frameset.html["ONTAP 9 릴리즈 노트"] 타겟 릴리즈용
++
+""중요 주의 사항" 섹션에서는 다운그레이드 또는 되돌리기 전에 숙지해야 할 잠재적인 문제에 대해 설명합니다.
+
+. 대상 릴리즈에서 하드웨어 플랫폼이 지원되는지 확인합니다.
++
+https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"]
+
+. 타겟 릴리즈에서 클러스터 및 관리 스위치가 지원되는지 확인하십시오.
++
+NX-OS(클러스터 네트워크 스위치), IOS(관리 네트워크 스위치) 및 참조 구성 파일(RCF) 소프트웨어 버전이 되돌리려고 하는 ONTAP 버전과 호환되는지 확인해야 합니다.
+
++
+http://mysupport.netapp.com/NOW/download/software/cm_switches/["NetApp 다운로드: Cisco 이더넷 스위치"]
+
+. 클러스터가 SAN용으로 구성된 경우 SAN 구성이 완전히 지원되는지 확인합니다.
++
+대상 ONTAP 소프트웨어 버전, 호스트 OS 및 패치, 필요한 호스트 유틸리티 소프트웨어, 어댑터 드라이버 및 펌웨어를 비롯한 모든 SAN 구성 요소가 지원되어야 합니다.
+
++
+https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"]
+
+

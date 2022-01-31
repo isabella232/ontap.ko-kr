@@ -1,0 +1,37 @@
+---
+permalink: smb-admin/monitor-display-ipv6-sessions-task.html 
+sidebar: sidebar 
+keywords: monitor, display, information, smb, session, ipv6, determining, determine, monitor and display information about ipv6 smb sessions 
+summary: IPv6 네트워크를 사용하여 연결된 SMB 세션에 대한 정보를 모니터링하고 표시할 수 있습니다. 이 정보는 IPv6 SMB 세션에 대한 기타 유용한 정보와 함께 IPv6를 사용하여 연결 중인 클라이언트를 확인하는 데 유용합니다. 
+---
+= IPv6 SMB 세션에 대한 정보를 모니터링하고 표시합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+IPv6 네트워크를 사용하여 연결된 SMB 세션에 대한 정보를 모니터링하고 표시할 수 있습니다. 이 정보는 IPv6 SMB 세션에 대한 기타 유용한 정보와 함께 IPv6를 사용하여 연결 중인 클라이언트를 확인하는 데 유용합니다.
+
+.단계
+. 원하는 작업을 수행합니다.
++
+|===
+| 다음 사항을 확인할 수 있습니다. | 명령 입력... 
+
+
+ a| 
+SVM(스토리지 가상 시스템)에 대한 SMB 세션은 IPv6를 사용하여 연결됩니다
+ a| 
+'vserver cifs session show -vserver_vserver_name_-instance'
+
+
+
+ a| 
+IPv6은 지정된 LIF 주소를 통해 SMB 세션에 사용됩니다
+ a| 
+'vserver cifs session show -vserver_vserver_name_-lif-address_LIF_ip_address_-instance'
+
+'_LIF_IP_address_'는 데이터 LIF의 IPv6 주소입니다.
+
+|===
+

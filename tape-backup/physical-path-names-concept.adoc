@@ -1,0 +1,32 @@
+---
+permalink: tape-backup/physical-path-names-concept.html 
+sidebar: sidebar 
+keywords: physical, path, names, ppn, numerical, address, tape, drive, electrical 
+summary: '물리적 경로 이름(PPN)은 ONTAP가 스토리지 시스템에 접속된 SCSI-2/3 어댑터 또는 스위치(특정 위치)를 기반으로 테이프 드라이브 및 테이프 라이브러리에 할당하는 숫자 주소 시퀀스입니다. PPN은 전기 이름이라고도 합니다.' 
+---
+= 물리적 경로 이름이 무엇입니까
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+물리적 경로 이름(PPN)은 ONTAP가 스토리지 시스템에 접속된 SCSI-2/3 어댑터 또는 스위치(특정 위치)를 기반으로 테이프 드라이브 및 테이프 라이브러리에 할당하는 숫자 주소 시퀀스입니다. PPN은 전기 이름이라고도 합니다.
+
+직접 연결된 장치의 PPN은 'host_adapter' 형식을 사용한다. device_id_lun
+
+[NOTE]
+====
+LUN 값이 0이 아닌 테이프 및 미디어 체인저 디바이스에 대해서만 LUN 값이 표시됩니다. 즉, LUN 값이 0이면 PPN의 'LUN' 부분이 표시되지 않습니다.
+
+====
+예를 들어, PPN 8.6은 호스트 어댑터 번호가 8이고, 장치 ID는 6이며, 논리 장치 번호(LUN)는 0임을 나타냅니다.
+
+SAS 테이프 장치도 직접 연결 장치입니다. 예를 들어, PPN 5c.4는 스토리지 시스템에서 SAS HBA가 슬롯 5에 연결되어 있고 SAS 테이프가 SAS HBA의 포트 C에 연결되어 있고 장치 ID가 4임을 나타냅니다.
+
+Fibre Channel 스위치 접속 디바이스의 PPN은 'switch:port_id' 형식을 사용합니다. device_id_lun
+
+예를 들어, PPN my_switch:5.3L2는 my_switch라는 스위치의 포트 5에 연결된 테이프 드라이브가 장치 ID 3으로 설정되어 있고 LUN 2를 가지고 있음을 나타냅니다.
+
+LUN(논리 유닛 번호)은 드라이브에 의해 결정됩니다. Fibre Channel, SCSI 테이프 드라이브 및 라이브러리 및 디스크에는 PPN이 있습니다.
+
+테이프 드라이브 및 라이브러리의 PPN은 스위치의 이름이 변경되거나, 테이프 드라이브 또는 라이브러리가 이동하거나, 테이프 드라이브 또는 라이브러리를 다시 구성하지 않는 한 변경되지 않습니다. 재부팅 후 PPN은 변경되지 않습니다. 예를 들어 my_switch:5.3L2라는 테이프 드라이브가 제거되고 디바이스 ID와 LUN이 동일한 새 테이프 드라이브가 스위치 my_switch의 포트 5에 연결된 경우 my_switch:5.3L2를 사용하여 새 테이프 드라이브에 액세스할 수 있습니다.

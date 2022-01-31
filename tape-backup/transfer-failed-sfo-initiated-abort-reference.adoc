@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/transfer-failed-sfo-initiated-abort-reference.html 
+sidebar: sidebar 
+keywords: transfer, failed, sfo, initiated, abort, storage, failover, takeover, giveback 
+summary: 'SMTape 작업은 스토리지 페일오버(테이크오버 및 반환) 작업으로 인해 중단됩니다.' 
+---
+= 전송 실패(SFO 시작 중단)
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+전송 실패(SFO 시작 중단)
+
+* * 원인 *
++
+SMTape 작업은 스토리지 페일오버(테이크오버 및 반환) 작업으로 인해 중단됩니다.
+
+* * 시정 조치 *
++
+스토리지 페일오버(테이크오버 및 반환) 작업이 완료된 후 SMTape 작업을 수행합니다.
+
+

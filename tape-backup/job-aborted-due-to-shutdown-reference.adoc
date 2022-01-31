@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/job-aborted-due-to-shutdown-reference.html 
+sidebar: sidebar 
+keywords: job, aborted, shutown, reboot, system, restore, operation 
+summary: 스토리지 시스템을 재부팅하는 중입니다. 
+---
+= 종료로 인해 작업이 중단되었습니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+종료로 인해 작업이 중단되었습니다
+
+* * 원인 *
++
+스토리지 시스템을 재부팅하는 중입니다.
+
+* * 시정 조치 *
++
+스토리지 시스템이 재부팅된 후 작업을 재시도하십시오.
+
+

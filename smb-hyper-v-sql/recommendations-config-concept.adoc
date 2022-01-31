@@ -1,0 +1,29 @@
+---
+permalink: smb-hyper-v-sql/recommendations-config-concept.html 
+sidebar: sidebar 
+keywords: recommendations, sql, server, hyper, v, smb, configuration 
+summary: SQL Server 및 Hyper-V over SMB 구성이 강력하고 작동 가능한지 확인하려면 솔루션 구성 시 권장 모범 사례를 숙지해야 합니다. 
+---
+= SMB 구성을 통한 SQL Server 및 Hyper-V 권장 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SQL Server 및 Hyper-V over SMB 구성이 강력하고 작동 가능한지 확인하려면 솔루션 구성 시 권장 모범 사례를 숙지해야 합니다.
+
+
+
+== 일반 권장 사항
+
+* 일반 사용자 데이터와 애플리케이션 서버 파일을 분리합니다.
++
+가능하면 전체 SVM(스토리지 가상 시스템)과 해당 스토리지를 애플리케이션 서버의 데이터에 사용합니다.
+
+* 최상의 성능을 위해 SVM에서 애플리케이션 서버의 데이터를 저장하는 데 사용되는 SMB 서명을 활성화하지 마십시오.
+* 최상의 성능과 향상된 내결함성을 위해 SMB 멀티 채널을 통해 단일 SMB 세션에서 ONTAP와 클라이언트 간에 여러 개의 연결을 제공할 수 있습니다.
+* Hyper-V 또는 SQL Server over SMB 구성에서 사용되는 공유 이외의 공유에 대해 지속적으로 사용 가능한 공유를 생성하지 마십시오.
+* 지속적인 가용성에 사용되는 공유에 대한 변경 알림을 해제합니다.
+* ARL에는 일부 작업을 일시 중지하는 단계가 있으므로 ARL(Aggregate relocation)과 동시에 볼륨 이동을 수행하지 마십시오.
+* SMB를 통한 Hyper-V 솔루션의 경우 클러스터 가상 머신을 생성할 때 게스트 내 iSCSI 드라이브를 사용합니다. 공유 '.vHDX' 파일은 ONTAP SMB 공유에서 SMB를 통한 Hyper-V에 지원되지 않습니다.
+

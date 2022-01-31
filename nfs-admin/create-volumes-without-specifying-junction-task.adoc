@@ -1,0 +1,49 @@
+---
+permalink: nfs-admin/create-volumes-without-specifying-junction-task.html 
+sidebar: sidebar 
+keywords: create, data, volume, specify, junction, point 
+summary: 교차점을 지정하지 않고 데이터 볼륨을 생성할 수 있습니다. 결과 볼륨은 자동으로 마운트되지 않으며 NAS 액세스에 대해 구성할 수 없습니다. 해당 볼륨에 대해 SMB 공유 또는 NFS 내보내기를 구성하려면 먼저 볼륨을 마운트해야 합니다. 
+---
+= 교차점을 지정하지 않고 데이터 볼륨을 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+교차점을 지정하지 않고 데이터 볼륨을 생성할 수 있습니다. 결과 볼륨은 자동으로 마운트되지 않으며 NAS 액세스에 대해 구성할 수 없습니다. 해당 볼륨에 대해 SMB 공유 또는 NFS 내보내기를 구성하려면 먼저 볼륨을 마운트해야 합니다.
+
+볼륨을 생성할 애그리게이트가 이미 존재해야 합니다.
+
+.단계
+. 다음 명령을 사용하여 교차점 없이 볼륨을 생성합니다.
++
+'volume create-vserver vserver_name-volume volume_name-aggregate aggregate_name-size{integer[KB|MB|GB|TB|PB]} - security-style{NTFS|UNIX|MIXED}'입니다
+
++
+볼륨 보안 스타일을 지정하는 것은 선택 사항입니다. 보안 스타일을 지정하지 않으면 ONTAP에서 SVM(스토리지 가상 머신)의 루트 볼륨에 적용되는 것과 동일한 보안 스타일로 볼륨을 생성합니다. 그러나 루트 볼륨의 보안 스타일이 데이터 볼륨에 적용할 보안 스타일이 아닐 수 있습니다. 문제 해결이 어려운 파일 액세스 문제를 최소화하기 위해 볼륨을 생성할 때 보안 스타일을 지정하는 것이 좋습니다.
+
++
+데이터 볼륨을 사용자 지정하는 데 사용할 수 있는 여러 가지 선택적 매개 변수가 있습니다. 자세한 내용은 볼륨 만들기 명령에 대한 man 페이지를 참조하십시오.
+
+. 볼륨이 교차점 없이 생성되었는지 확인합니다.
++
+'volume show -vserver vserver_name -volume volume_name -junction'
+
+
+
+다음 예에서는 교차점에 마운트되지 않은 SVM VS1 상에 "sales"라는 이름의 볼륨을 생성합니다.
+
+[listing]
+----
+cluster1::> volume create -vserver vs1 -volume sales -aggregate aggr3 -size 20GB
+[Job 3406] Job succeeded: Successful
+
+cluster1::> volume show -vserver vs1 -junction
+                     Junction                 Junction
+Vserver   Volume     Active   Junction Path   Path Source
+--------- ---------- -------- --------------- -----------
+vs1       data       true     /data           RW_volume
+vs1       home4      true     /eng/home       RW_volume
+vs1       vs1_root   -        /               -
+vs1       sales      -        -               -
+----

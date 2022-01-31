@@ -1,0 +1,54 @@
+---
+permalink: flexcache/prepopulate-volume-task.html 
+sidebar: sidebar 
+keywords: prepopulating, flexcache, volume 
+summary: FlexCache 볼륨을 미리 채워 캐시된 데이터에 액세스하는 데 걸리는 시간을 줄일 수 있습니다. 
+---
+= FlexCache 볼륨을 미리 채웁니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FlexCache 볼륨을 미리 채워 캐시된 데이터에 액세스하는 데 걸리는 시간을 줄일 수 있습니다.
+
+.무엇을 &#8217;필요로 할거야
+* 고급 권한 레벨의 클러스터 관리자여야 합니다
+* 선행 모집단에 대해 전달하는 경로가 유효해야 하거나 미리 채우기 작업이 실패합니다.
+
+
+.이 작업에 대해
+* 미리 채우기는 파일만을 읽고 디렉토리를 통과합니다
+* is-recursion 플래그는 미리 채워지도록 전달된 전체 디렉터리 목록에 적용됩니다
+
+
+.단계
+. FlexCache 볼륨을 미리 채웁니다.
++
+'volume FlexCache prefulate-cache-vserver vserver_name-cache-volume-path-list path_list-is-recursion true|false'
+
++
+이 예제에는 프리모집단:
+
++
+[listing]
+----
+cluster1::*> flexcache prepopulate start -cache-vserver vs2 -cache-volume fg_cachevol_1 -path-list /dir1
+  (volume flexcache prepopulate start)
+[JobId 207]: FlexCache prepopulate job queued.
+----
++
+이 예제에는 미리 채우기용으로 사용할 수 있는 여러 경로 목록이 포함되어 있습니다.
+
++
+[listing]
+----
+cluster1::*> flexcache prepopulate start -cache-vserver vs2 -cache-volume fg_cachevol_1 -path-list /dir1,/dir2,/dir3,/dir4
+  (volume flexcache prepopulate start)
+[JobId 208]: FlexCache prepopulate job queued.
+----
+. 읽은 파일 수 표시:
++
+job show-id job_ID-ins를 선택합니다
+
+

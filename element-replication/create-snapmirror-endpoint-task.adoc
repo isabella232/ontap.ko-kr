@@ -1,0 +1,23 @@
+---
+permalink: element-replication/create-snapmirror-endpoint-task.html 
+sidebar: sidebar 
+keywords: create, snapmirror, endpoint 
+summary: 복제 관계를 생성하려면 먼저 SnapMirror 엔드포인트를 생성해야 합니다. Element 소프트웨어 웹 UI에서만 이 작업을 수행할 수 있습니다. 
+---
+= SnapMirror 끝점을 만듭니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+복제 관계를 생성하려면 먼저 SnapMirror 엔드포인트를 생성해야 합니다. Element 소프트웨어 웹 UI에서만 이 작업을 수행할 수 있습니다.
+
+Element 클러스터에서 SnapMirror를 사용하도록 설정해야 합니다.
+
+.단계
+. 데이터 보호 * > * SnapMirror 엔드포인트 * 를 클릭합니다.
+. 끝점 만들기 * 를 클릭합니다.
+. 새 엔드포인트 생성 * 대화 상자에서 ONTAP 클러스터 관리 IP 주소를 입력합니다.
+. ONTAP 클러스터 관리자의 사용자 ID와 암호를 입력합니다.
+. 끝점 만들기 * 를 클릭합니다.
+

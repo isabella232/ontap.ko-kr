@@ -1,0 +1,15 @@
+---
+section: consistency-groups
+title: 정합성 보장 그룹 관리
+entries:
+- title: 개요
+  url: "/consistency-groups/index.html"
+- title: 단일 일관성 그룹을 구성합니다
+  url: "/consistency-groups/configure-task.html"
+- title: 계층적 일관성 그룹을 구성합니다
+  url: "/consistency-groups/configure-hierarchy-task.html"
+- title: 보호
+  url: "/consistency-groups/protect-task.html"
+- title: 삭제
+  url: "/consistency-groups/delete-task.html"
+- section: smbc

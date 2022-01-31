@@ -1,0 +1,23 @@
+---
+permalink: disks-aggregates/determine-volumes-reside-aggregate-task.html 
+sidebar: sidebar 
+keywords: determine, volumes, reside, aggregate 
+summary: Aggregate의 재배치 또는 오프라인 지정과 같은 작업을 수행하기 전에 Aggregate에 상주하는 볼륨을 결정해야 할 수도 있습니다. 
+---
+= Aggregate에 상주하는 볼륨을 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Aggregate의 재배치 또는 오프라인 지정과 같은 작업을 수행하기 전에 Aggregate에 상주하는 볼륨을 결정해야 할 수도 있습니다.
+
+.단계
+. Aggregate에 상주하는 볼륨을 표시하려면 를 입력합니다
++
+'volume show-aggregate aggregate_name'입니다
+
++
+지정된 Aggregate에 상주하는 모든 볼륨이 표시됩니다.
+
+

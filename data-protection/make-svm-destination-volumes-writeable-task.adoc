@@ -1,0 +1,103 @@
+---
+permalink: data-protection/make-svm-destination-volumes-writeable-task.html 
+sidebar: sidebar 
+keywords: make, svm, destination, volume, writable 
+summary: 클라이언트에 데이터를 제공하려면 SVM 대상 볼륨을 쓰기 가능하게 해야 합니다. 이 절차는 볼륨 복제 절차와 크게 동일하지만 한 가지 예외가 있습니다. SVM 복제 관계를 생성할 때 -identity-preserve를 true로 설정한 경우, 대상 SVM을 활성화하기 전에 소스 SVM을 중지해야 합니다. 
+---
+= SVM 타겟 볼륨을 쓰기 가능하게 만듭니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클라이언트에 데이터를 제공하려면 SVM 대상 볼륨을 쓰기 가능하게 해야 합니다. 이 절차는 볼륨 복제 절차와 크게 동일하지만 한 가지 예외가 있습니다. SVM 복제 관계를 생성할 때 '-identity-preserve true'를 설정하면 대상 SVM을 활성화하기 전에 소스 SVM을 중지해야 합니다.
+
+전체 명령 구문은 man 페이지를 참조하십시오.
+
+[NOTE]
+====
+재해 복구 시나리오에서는 소스 SVM과 해당 데이터에 액세스할 수 없고 마지막 재동기화 이후의 업데이트가 불량하거나 손상되었을 수 있으므로 소스 SVM에서 재해 복구 대상 SVM으로 SnapMirror 업데이트를 수행할 수 없습니다.
+
+====
+.단계
+. 대상 SVM 또는 대상 클러스터에서 대상으로 예약된 전송을 중지합니다.
++
+'sapmirror quiesce-source-path_SVM_:-destination-path_SVM_:'
+
++
+[NOTE]
+====
+'-source-path' 및 '-destination-path' 옵션에서 SVM 이름 뒤에 콜론(:)을 입력해야 합니다. 아래 예를 참조하십시오.
+
+====
++
+다음 예에서는 소스 SVM의 vm1과 대상 SVM의 vm_backup 간의 예약된 전송을 중지합니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror quiesce -source-path svm1: -destination-path svm_backup:
+----
+. 대상 SVM 또는 대상 클러스터에서 목적지로의 진행 중인 전송을 중지합니다.
++
+'sapmirror abort-source-path_SVM_:-destination-path_SVM_:'
+
++
+[NOTE]
+====
+'-source-path' 및 '-destination-path' 옵션에서 SVM 이름 뒤에 콜론(:)을 입력해야 합니다. 아래 예를 참조하십시오.
+
+====
++
+다음 예에서는 소스 SVM의 vm1과 대상 SVM의 vm_backup 간의 지속적인 전송을 중지합니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror abort -source-path svm1: -destination-path svm_backup:
+----
+. 타겟 SVM 또는 타겟 클러스터에서 복제 관계를 중단하십시오.
++
+'스냅미러 break-source-path_SVM_:-destination-path_SVM_:'
+
++
+[NOTE]
+====
+'-source-path' 및 '-destination-path' 옵션에서 SVM 이름 뒤에 콜론(:)을 입력해야 합니다. 아래 예를 참조하십시오.
+
+====
++
+다음 예에서는 소스 SVM의 vm1과 대상 SVM의 vm_backup 간의 관계를 나눕니다.
+
++
+[listing]
+----
+cluster_dst::> snapmirror break -source-path svm1: -destination-path svm_backup:
+----
+. SVM 복제 관계를 생성할 때 '-identity-preserve true'를 설정하면 소스 SVM을 중지합니다.
++
+'vserver stop-vserver_SVM_'
+
++
+다음 예에서는 소스 SVM의 vm1'를 중지합니다.
+
++
+[listing]
+----
+cluster_src::> vserver stop svm1
+----
+. 대상 SVM 시작:
++
+'vserver start-vserver_SVM_'
+
++
+다음 예에서는 대상 SVM의 VM_BACKUP을 시작합니다.
+
++
+[listing]
+----
+cluster_dst::> vserver start svm_backup
+----
+
+
+에 설명된 대로 데이터 액세스를 위해 SVM 대상 볼륨을 구성합니다 link:configure-destination-volume-data-access-concept.html["데이터 액세스를 위한 대상 볼륨을 구성합니다"].

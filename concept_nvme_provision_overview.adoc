@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: concept_nvme_provision_overview.html 
+keywords: netapp, ontap, nvme, storage, provision, overview, NVMe, non-volatile memory express protocol, solid-state storage, namespace, storage block, subsystem, FC switch 
+summary: 'NVMe(Non-Volatile Memory Express) 프로토콜을 사용하여 SAN 환경에 스토리지를 제공할 수 있습니다.' 
+---
+= NVMe 스토리지 프로비저닝
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+NVMe(Non-Volatile Memory Express) 프로토콜을 사용하여 SAN 환경에 스토리지를 제공할 수 있습니다. NVMe 프로토콜은 솔리드 스테이트 스토리지의 성능을 위해 최적화되어 있습니다.
+
+NVMe의 경우 스토리지 타겟을 네임스페이스라고 합니다. NVMe 네임스페이스는 많은 비휘발성 스토리지로, 논리 블록으로 포맷되고 호스트에 표준 블록 장치로 제공될 수 있습니다. 네임스페이스와 서브시스템을 생성한 다음, 네임스페이스를 서브시스템에 매핑합니다. 이는 LUN이 FC 및 iSCSI용 igroup에 프로비저닝 및 매핑된 방식과 유사합니다.
+
+NVMe 대상은 이더넷 스위치 및 호스트 측 어댑터를 사용하여 FC 스위치 또는 표준 TCP 인프라를 사용하여 표준 FC 인프라를 통해 네트워크에 연결됩니다.
+
+지원되는 NVMe 프로토콜은 다음과 같습니다.
+
+[cols="3*"]
+|===
+
+
+| 프로토콜 | 다음으로 시작... | 허용된 사용자... 
+
+
+| TCP | ONTAP 9.10.1 | 기본값 
+
+
+| FCP | ONTAP 9.4 | 기본값 
+|===
+.관련 정보
+* link:task_nvme_provision_suse_linux.html["System Manager를 사용하여 SUSE Linux용 NVMe 스토리지를 프로비저닝합니다"]
+* link:san-admin/configure-svm-nvme-task.html["CLI를 사용하여 NVMe용 SVM을 구성합니다"]
+

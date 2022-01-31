@@ -1,0 +1,19 @@
+---
+permalink: nfs-config/exports-differ-concept.html 
+sidebar: sidebar 
+keywords: ontap, exports, differ, 7-mode, exports 
+summary: ONTAP에서 NFS 엑스포트를 구축하는 방법에 대한 생소한 사용자는 7-Mode와 ONTAP 엑스포트 구성 툴을 비교할 수 있을 뿐만 아니라, 클러스터 정책 및 규칙을 사용하는 샘플 7-Mode/etc/exports 파일을 비교할 수 있습니다. 
+---
+= ONTAP 내보내기는 7-Mode 내보내기와는 어떻게 다릅니까
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP에서 NFS 엑스포트를 구축하는 방법에 대한 생소한 사용자는 7-Mode와 ONTAP 엑스포트 구성 툴을 비교할 수 있을 뿐만 아니라 7-Mode '/etc/exports' 파일을 클러스터 정책 및 규칙과 비교할 수 있습니다.
+
+ONTAP에는 '/etc/exports' 파일과 'exportfs' 명령이 없습니다. 대신 엑스포트 정책을 정의해야 합니다. 엑스포트 정책을 사용하면 7-Mode와 동일한 방식으로 클라이언트 액세스를 제어할 수 있으며, 여러 볼륨에 동일한 엑스포트 정책을 다시 사용할 수 있는 등 기능도 추가로 제공됩니다.
+
+link:../nfs-admin/index.html["NFS 관리"]
+
+http://www.netapp.com/us/media/tr-4067.pdf["NetApp 기술 보고서 4067: NFS 모범 사례 및 구축 가이드"]

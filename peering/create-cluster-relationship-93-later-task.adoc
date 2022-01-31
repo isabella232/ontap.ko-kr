@@ -1,0 +1,170 @@
+---
+permalink: peering/create-cluster-relationship-93-later-task.html 
+sidebar: sidebar 
+keywords: create, cluster, peer, relationship 
+summary: 클러스터 피어 생성 명령을 사용하여 로컬 클러스터와 원격 클러스터 간에 피어 관계를 생성할 수 있습니다. 피어 관계가 생성된 후 원격 클러스터에서 클러스터 피어 생성을 실행하여 로컬 클러스터에 인증할 수 있습니다. 
+---
+= 클러스터 피어 관계 생성(ONTAP 9.3 이상)
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'cluster peer create' 명령을 사용하여 로컬 클러스터와 원격 클러스터 간의 피어 관계를 생성할 수 있습니다. 피어 관계가 생성된 후 원격 클러스터에서 '클러스터 피어 생성'을 실행하여 로컬 클러스터에 인증할 수 있습니다.
+
+.무엇을 &#8217;필요로 할거야
+* 피어링될 클러스터의 모든 노드에 대한 인터클러스터 LIF를 생성해야 합니다.
+* 클러스터는 ONTAP 9.3 이상을 실행해야 합니다.
+
+
+.단계
+. 대상 클러스터에서 소스 클러스터와의 피어 관계를 생성합니다.
++
+"클러스터 피어 생성 - 생성 - 암호 - 오퍼 - EXPIRATION_MM/DD/YYYY HH:MM:SS_|1...7일|1...168시간 - 피어-addrs_peer_LIF_IPs_-초기-허용 - vserver-peer_svm_name_,..| * - IPSpace_IPSpace_
+
++
+'-generate-passphrase와 '-peer-addrs'를 모두 지정하면 '-peer-addrs'에 지정된 인터클러스터 LIF가 있는 클러스터만 생성된 암호를 사용할 수 있습니다.
+
++
+사용자 지정 IPspace를 사용하지 않는 경우 '-IPSpace' 옵션을 무시할 수 있습니다. 전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+ONTAP 9.6 이상에서 피어링 관계를 생성하고 클러스터 간 피어링 통신을 암호화하지 않으려면, 암호화를 비활성화하려면 '-encryption-protocol-proposed none' 옵션을 사용해야 합니다.
+
++
+다음 예에서는 지정되지 않은 원격 클러스터와 클러스터 피어 관계를 생성하고 로컬 클러스터에서 SVM "VS1" 및 "VS2"와 피어 관계를 사전 승인합니다.
+
++
+[listing]
+----
+cluster02::> cluster peer create -generate-passphrase -offer-expiration 2days -initial-allowed-vserver-peers vs1,vs2
+
+                     Passphrase: UCa+6lRVICXeL/gq1WrK7ShR
+                Expiration Time: 6/7/2017 08:16:10 EST
+  Initial Allowed Vserver Peers: vs1,vs2
+            Intercluster LIF IP: 192.140.112.101
+              Peer Cluster Name: Clus_7ShR (temporary generated)
+
+Warning: make a note of the passphrase - it cannot be displayed again.
+----
++
+다음 예에서는 인터클러스터 LIF IP 주소 192.140.112.103 및 192.140.112.104에서 원격 클러스터와 클러스터 피어 관계를 생성하고 로컬 클러스터의 SVM과의 피어 관계를 사전 승인합니다.
+
++
+[listing]
+----
+cluster02::> cluster peer create -generate-passphrase -peer-addrs 192.140.112.103,192.140.112.104 -offer-expiration 2days -initial-allowed-vserver-peers *
+
+                     Passphrase: UCa+6lRVICXeL/gq1WrK7ShR
+                Expiration Time: 6/7/2017 08:16:10 EST
+  Initial Allowed Vserver Peers: vs1,vs2
+            Intercluster LIF IP: 192.140.112.101,192.140.112.102
+              Peer Cluster Name: Clus_7ShR (temporary generated)
+
+Warning: make a note of the passphrase - it cannot be displayed again.
+----
++
+다음 예에서는 지정되지 않은 원격 클러스터와 클러스터 피어 관계를 생성하고 로컬 클러스터에서 SVM ``VS1’ 및 ``VS2”와 피어 관계를 사전 승인합니다.
+
++
+[listing]
+----
+cluster02::> cluster peer create -generate-passphrase -offer-expiration 2days -initial-allowed-vserver-peers vs1,vs2
+
+                     Passphrase: UCa+6lRVICXeL/gq1WrK7ShR
+                Expiration Time: 6/7/2017 08:16:10 EST
+  Initial Allowed Vserver Peers: vs1,vs2
+            Intercluster LIF IP: 192.140.112.101
+              Peer Cluster Name: Clus_7ShR (temporary generated)
+
+Warning: make a note of the passphrase - it cannot be displayed again.
+----
+. 소스 클러스터에서 소스 클러스터를 대상 클러스터에 인증합니다.
++
+'cluster peer create-peer-addrs_peer_LIF_IPs_-IPSpace IPSpace'
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+다음 예에서는 인터클러스터 LIF IP 주소 192.140.112.101 및 192.140.112.102에서 원격 클러스터에 대한 로컬 클러스터를 인증합니다.
+
++
+[listing]
+----
+cluster01::> cluster peer create -peer-addrs 192.140.112.101,192.140.112.102
+
+Notice: Use a generated passphrase or choose a passphrase of 8 or more characters.
+        To ensure the authenticity of the peering relationship, use a phrase or sequence of characters that would be hard to guess.
+
+Enter the passphrase:
+Confirm the passphrase:
+
+Clusters cluster02 and cluster01 are peered.
+----
++
+메시지가 나타나면 피어 관계에 대한 암호를 입력합니다.
+
+. 클러스터 피어 관계가 생성되었는지 확인합니다.
++
+클러스터 피어 쇼 인스턴스
+
++
+[listing]
+----
+cluster01::> cluster peer show -instance
+
+                               Peer Cluster Name: cluster02
+                   Remote Intercluster Addresses: 192.140.112.101, 192.140.112.102
+              Availability of the Remote Cluster: Available
+                             Remote Cluster Name: cluster2
+                             Active IP Addresses: 192.140.112.101, 192.140.112.102
+                           Cluster Serial Number: 1-80-123456
+                  Address Family of Relationship: ipv4
+            Authentication Status Administrative: no-authentication
+               Authentication Status Operational: absent
+                                Last Update Time: 02/05 21:05:41
+                    IPspace for the Relationship: Default
+----
+. 피어 관계에서 노드의 접속 상태와 상태를 확인합니다.
++
+클러스터 피어 상태 쇼
+
++
+[listing]
+----
+cluster01::> cluster peer health show
+Node       cluster-Name                Node-Name
+             Ping-Status               RDB-Health Cluster-Health  Avail…
+---------- --------------------------- ---------  --------------- --------
+cluster01-01
+           cluster02                   cluster02-01
+             Data: interface_reachable
+             ICMP: interface_reachable true       true            true
+                                       cluster02-02
+             Data: interface_reachable
+             ICMP: interface_reachable true       true            true
+cluster01-02
+           cluster02                   cluster02-01
+             Data: interface_reachable
+             ICMP: interface_reachable true       true            true
+                                       cluster02-02
+             Data: interface_reachable
+             ICMP: interface_reachable true       true            true
+----
+
+
+
+
+== ONTAP에서 이 작업을 수행하는 다른 방법
+
+[cols="2"]
+|===
+| 에서 이러한 작업을 수행하려면... | 이 콘텐츠 보기... 
+
+
+| 재설계된 System Manager(ONTAP 9.7 이상에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap/task_dp_prepare_mirror.html["미러링 및 보관 준비"^] 
+
+
+| System Manager Classic(ONTAP 9.7 이하에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap-sm-classic/volume-disaster-prep/index.html["볼륨 재해 복구 준비 개요"^] 
+|===

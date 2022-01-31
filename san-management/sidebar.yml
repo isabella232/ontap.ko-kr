@@ -1,0 +1,30 @@
+---
+section: san-management
+title: SAN 스토리지 관리
+url: "/san-management/index.html"
+entries:
+- title: System Manager를 이용한 SAN 관리
+  entries:
+  - title: SAN 스토리지
+    entries:
+    - title: 개요
+      url: "/concept_san_provision_overview.html"
+    - title: VMware 데이터 저장소
+      url: "/task_san_provision_vmware.html"
+    - title: Linux 서버
+      url: "/task_san_provision_linux.html"
+    - title: 지원합니다
+      url: "/task_san_provision_windows.html"
+    - title: 중첩된 igroup을 생성합니다
+      url: "/task_san_create_nested_igroup.html"
+    - title: igroup을 여러 LUN에 매핑합니다
+      url: "/task_san_map_igroups_to_multiple_luns.html"
+    - title: 포틀세트를 생성하고 관리합니다
+      url: "/san-admin/manage-portsets-task.html"
+    - title: LUN QoS 정책을 편집합니다
+      url: "/san-admin/edit-lun-qos-policy-task.html"
+    - title: LUN을 오프라인 상태로 전환합니다
+      url: "/san-admin/offline-lun-task.html"
+  - section: nvme
+- section: san-admin
+- section: san-config

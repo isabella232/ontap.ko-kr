@@ -1,0 +1,56 @@
+---
+sidebar: sidebar 
+permalink: task_object_provision_enable_s3_server.html 
+keywords: netapp, ontap, System Manager, S3, S3 server, storage VM, storage VMs, S3 client, client, clients, server, certificate, network, protocol, protocol servers, configure protocols, Fully Qualified Domain Name, FQDN, client, client access, network, network interface, network interfaces, DNS 
+summary: S3 서버로 스토리지 VM을 추가하여 S3 클라이언트에 콘텐츠를 제공할 수 있습니다. 
+---
+= 스토리지에서 S3 서버를 활성화합니다
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+S3 클라이언트에서 컨텐트를 제공할 수 있도록 S3 서버를 신규 또는 기존 스토리지 VM에 추가합니다.
+
+S3 서버는 스토리지 VM에 다른 프로토콜 서버와 공존할 수 있으며, 또는 새로운 스토리지 VM을 생성하여 네임스페이스 및 워크로드를 격리할 수 있습니다.
+
+인터페이스 역할 데이터에 대한 S3 서버 이름(FQDN) 및 IP 주소를 입력할 준비가 되어 있어야 합니다.
+
+외부 CA 서명 인증서를 사용하는 경우 이 절차를 수행하는 동안 해당 인증서를 입력하라는 메시지가 표시됩니다. 또한 시스템에서 생성한 인증서를 사용할 수도 있습니다.
+
+.단계
+. 스토리지 VM에서 S3를 설정합니다.
++
+.. 새 스토리지 VM 추가: * 스토리지 > 스토리지 VM * 을 클릭한 다음 * 추가 * 를 클릭합니다.
++
+기존 스토리지 VM이 없는 새 시스템인 경우 * 대시보드 > 프로토콜 구성 * 을 클릭합니다.
+
++
+기존 스토리지 VM에 S3 서버를 추가하는 경우 * 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 선택한 다음 * 설정 * 을 클릭하고 을 클릭합니다 image:icon_gear.gif["설정 아이콘"] S3 * 아래.
+
+.. S3 * 활성화 를 클릭한 다음 S3 서버 이름 을 입력합니다.
++
+이 이름은 클라이언트가 사용할 FQDN(정규화된 도메인 이름)입니다.
+
+.. 인증서 유형을 선택합니다.
++
+시스템에서 생성한 인증서 또는 사용자 인증서 중 하나를 선택하든 클라이언트 액세스에 필요합니다.
+
+.. 네트워크 인터페이스를 입력합니다.
+
+
+. 시스템에서 생성한 인증서를 선택한 경우 새 스토리지 VM 생성이 확인되면 인증서 정보가 표시됩니다. 다운로드 * 를 클릭하고 클라이언트 액세스를 위해 저장합니다.
++
+** 비밀 키는 다시 표시되지 않습니다.
+** 인증서 정보가 다시 필요한 경우 * 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 선택한 다음 * 설정 * 을 클릭합니다.
+
+
+

@@ -1,0 +1,67 @@
+---
+permalink: smb-hyper-v-sql/create-continuously-available-shares-task.html 
+sidebar: sidebar 
+keywords: create, continuous, smb, available, share, sql, database, file, server, hyper, v, virtual, machine 
+summary: 데이터 볼륨을 생성한 후 애플리케이션 서버가 Hyper-V 가상 머신 및 구성 파일, SQL Server 데이터베이스 파일에 액세스하는 데 사용하는 연속 사용 가능한 공유를 생성할 수 있습니다. SMB 공유를 생성할 때 공유 구성 워크시트를 사용해야 합니다. 
+---
+= 지속적으로 사용 가능한 SMB 공유를 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+데이터 볼륨을 생성한 후 애플리케이션 서버가 Hyper-V 가상 머신 및 구성 파일, SQL Server 데이터베이스 파일에 액세스하는 데 사용하는 연속 사용 가능한 공유를 생성할 수 있습니다. SMB 공유를 생성할 때 공유 구성 워크시트를 사용해야 합니다.
+
+.단계
+. 기존 데이터 볼륨 및 연결 경로에 대한 정보를 표시합니다.
++
+'* volume show -vserver_vserver_name_-junction *'
+
+. 지속적으로 사용 가능한 SMB 공유 생성:
++
+'* vserver CIFS 공유 create-vserver_vserver_name_-share-name_share_name_-path_path_-share-properties oplocks, Continuously-available-symlink""[-comment text] *'
+
++
+** 필요에 따라 공유 구성에 주석을 추가할 수 있습니다.
+** 기본적으로 오프라인 파일 공유 속성은 공유에서 구성되며 '수동'으로 설정됩니다.
+** ONTAP는 Everyone/Full Control의 Windows 기본 공유 권한으로 공유를 생성합니다.
+
+
+. 공유 구성 워크시트의 모든 공유에 대해 이전 단계를 반복합니다.
+. 'vserver cifs share show' 명령을 사용하여 구성이 올바른지 확인하십시오.
+. 드라이브를 각 공유에 매핑하고 * Windows 속성 * 창을 사용하여 파일 권한을 구성하여 지속적으로 사용 가능한 공유에서 NTFS 파일 권한을 구성합니다.
+
+
+다음 명령을 실행하면 스토리지 가상 머신(SVM, 이전 명칭 Vserver) VS1 에 "data2"라는 이름의 연속 사용 가능한 공유가 생성됩니다. '-symlink' 매개변수를 """로 설정하면 Symlink가 비활성화됩니다.
+
+[listing]
+----
+cluster1::> volume show -vserver vs1 -junction
+                      Junction                  Junction
+Vserver   Volume      Active   Junction Path    Path Source
+--------- ----------- -------- ---------------- ------------
+vs1       data        true     /data            RW_volume
+vs1       data1       true     /data/data1      RW_volume
+vs1       data2       true     /data/data2      RW_volume
+vs1       vs1_root    -        /                -
+
+cluster1::> vserver cifs share create -vserver vs1 -share-name data2 -path /data/data2 -share-properties oplocks,continuously-available -symlink ""
+
+cluster1::> vserver cifs share show -vserver vs1 -share-name data2
+
+                      Vserver: vs1
+                        Share: data2
+     CIFS Server NetBIOS Name: VS1
+                         Path: /data/data2
+             Share Properties: oplocks
+                               continuously-available
+           Symlink Properties: -
+      File Mode Creation Mask: -
+ Directory Mode Creation Mask: -
+                Share Comment: -
+                    Share ACL: Everyone / Full Control
+File Attribute Cache Lifetime: -
+                  Volume Name: -
+                Offline Files: manual
+Vscan File-Operations Profile: standard
+----

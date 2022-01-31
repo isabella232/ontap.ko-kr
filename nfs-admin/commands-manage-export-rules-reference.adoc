@@ -1,0 +1,54 @@
+---
+permalink: nfs-admin/commands-manage-export-rules-reference.html 
+sidebar: sidebar 
+keywords: command, manage, export, rule 
+summary: 내보내기 규칙을 관리하기 위한 특정 ONTAP 명령이 있습니다. 
+---
+= 내보내기 규칙을 관리하는 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+내보내기 규칙을 관리하기 위한 특정 ONTAP 명령이 있습니다.
+
+[cols="35,65"]
+|===
+
+
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+엑스포트 규칙을 생성합니다
+ a| 
+'vserver export-policy rule create'
+
+
+
+ a| 
+내보내기 규칙에 대한 정보를 표시합니다
+ a| 
+'vserver export-policy rule show'를 선택합니다
+
+
+
+ a| 
+엑스포트 규칙을 수정합니다
+ a| 
+'vserver export-policy rule modify'입니다
+
+
+
+ a| 
+엑스포트 규칙을 삭제합니다
+ a| 
+'vserver export-policy rule delete
+
+|===
+[NOTE]
+====
+서로 다른 클라이언트와 일치하는 동일한 내보내기 규칙을 여러 개 구성한 경우 내보내기 규칙을 관리할 때 해당 규칙을 동기화 상태로 유지해야 합니다.
+
+====
+자세한 내용은 각 명령에 대한 man 페이지를 참조하십시오.

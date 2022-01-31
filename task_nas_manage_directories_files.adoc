@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: task_nas_manage_directories_files.html 
+keywords: netapp, ontap, directories, files, view, delete, fast directory delete 
+summary: System Manager 볼륨 표시를 확장하여 디렉토리 및 파일을 보고 삭제합니다 
+---
+= 디렉토리 및 파일을 관리합니다
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+System Manager 볼륨 표시를 확장하여 디렉토리 및 파일을 보고 삭제합니다.
+
+ONTAP 9.9.1부터 디렉토리는 지연 시간이 짧은 고속 디렉토리 삭제 기능으로 삭제됩니다.
+
+ONTAP 9.9.1 이상에서 파일 시스템을 보는 방법에 대한 자세한 내용은 을 참조하십시오 link:concept_nas_file_system_analytics_overview.html["파일 시스템 분석 개요"].
+
+.단계
+. 스토리지 > 볼륨 * 을 클릭합니다. 그런 다음 볼륨을 확장하여 내용을 봅니다.
+

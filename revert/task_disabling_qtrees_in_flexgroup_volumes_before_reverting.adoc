@@ -1,0 +1,81 @@
+---
+permalink: revert/task_disabling_qtrees_in_flexgroup_volumes_before_reverting.html 
+sidebar: sidebar 
+keywords: ontap, revert, reverting, reversion, disable, disabling, qtree, functionality, function, flexgroup, volumes 
+summary: FlexGroup 9.3 이전에는 ONTAP 볼륨용 qtree가 지원되지 않습니다. ONTAP 9.3에서 이전 버전의 ONTAP로 되돌리기 전에 FlexGroup 볼륨에서 qtree 기능을 비활성화해야 합니다. 
+---
+= 되돌리기 전에 FlexGroup 볼륨에서 qtree 기능을 해제합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FlexGroup 9.3 이전에는 ONTAP 볼륨용 qtree가 지원되지 않습니다. ONTAP 9.3에서 이전 버전의 ONTAP로 되돌리기 전에 FlexGroup 볼륨에서 qtree 기능을 비활성화해야 합니다.
+
+qtree를 생성하거나 기본 qtree의 보안 스타일 및 oplock 모드 특성을 수정할 때 qtree 기능이 설정됩니다.
+
+. 각 FlexGroup 볼륨에서 Qtree 기능을 사용하도록 설정된 기본이 아닌 모든 qtree를 식별하여 삭제합니다.
++
+.. 고급 권한 수준 'Set-Privilege Advanced'에 로그인합니다
+.. qtree 기능이 있는 FlexGroup 볼륨이 활성화되어 있는지 확인합니다.
++
+ONTAP 9.6 이상에서는 'volume show is-qtree-caching-enabled true'를 사용합니다
+
++
+ONTAP 9.5 이전 버전의 경우 'volume show-is-flexgroup-qtree-enabled true'를 사용합니다
+
++
+[listing]
+----
+cluster1::*> volume show -is-flexgroup-qtree-enabled true
+Vserver   Volume       Aggregate    State      Type       Size  Available Used%
+--------- ------------ ------------ ---------- ---- ---------- ---------- -----
+vs0       fg           -            online     RW        320MB    220.4MB   31%
+----
+.. 각 FlexGroup 볼륨에서 'volume qtree delete -vserver svm_name -volume volume volume_name -qtree qtree_name'이라는 qtree 기능을 사용하도록 설정된 기본 qtree가 아닌 모든 qtree를 삭제합니다
++
+기본 qtree의 특성을 수정했기 때문에 qtree 기능을 사용할 수 있고 qtree가 없는 경우에는 이 단계를 건너뛸 수 있습니다.
+
++
+[listing]
+----
+cluster1::*> volume qtree delete -vserver vs0 -volume fg -qtree qtree4
+WARNING: Are you sure you want to delete qtree qtree4 in volume fg vserver vs0?  {y|n}: y
+[Job 38] Job is queued: Delete qtree qtree4 in volume fg vserver vs0.
+----
+
+
+. 각 FlexGroup 볼륨에서 qtree 기능 비활성화: 'volume FlexGroup qtree -disable -vserver svm_name -volume volume volume_name'
++
+[listing]
+----
+cluster1::*> volume flexgroup qtree-disable -vserver vs0 -volume fg
+----
+. qtree 기능을 사용하도록 설정된 스냅샷 복사본을 식별하여 삭제합니다.
++
+.. qtree 기능('volume snapshot show -vserver vserver_name -volume volume volume_name -fields is -flexgroup -qtree -enabled')으로 스냅샷 복사본이 활성화되어 있는지 확인합니다
++
+[listing]
+----
+cluster1::*> volume snapshot show -vserver vs0 -volume fg -fields is-flexgroup-qtree-enabled
+vserver volume snapshot is-flexgroup-qtree-enabled
+------- ------ -------- --------------------------
+vs0     fg     fg_snap1 true
+vs0     fg     daily.2017-09-27_0010 true
+vs0     fg     daily.2017-09-28_0010 true
+vs0     fg     snapmirror.0241f354-a865-11e7-a1c0-00a098a71764_2147867740.2017-10-04_124524 true
+----
+.. qtree 기능을 사용하여 활성화된 모든 스냅샷 복사본을 삭제합니다. 'volume snapshot delete -vserver svm_name -volume volume_name -snapshot snapshot_name -force true-ignore-l소유자 TRUE'
++
+삭제해야 하는 스냅샷 복사본에는 일반 스냅샷 복사본과 SnapMirror 관계에 대해 생성한 스냅샷 복사본이 포함됩니다. ONTAP 9.2 이하를 실행 중인 타겟 클러스터에서 FlexGroup 볼륨에 대한 SnapMirror 관계를 생성한 경우, qtree 기능에 대해 소스 FlexGroup 볼륨을 사용할 수 있을 때 사용한 모든 스냅샷 복사본을 삭제해야 합니다.
+
++
+[listing]
+----
+cluster1::> volume snapshot delete -vserver vs0 -volume fg -snapshot daily.2017-09-27_0010 -force true -ignore-owners true
+----
+
+
+
+
+link:../flexgroup/index.html["FlexGroup 볼륨 관리"]

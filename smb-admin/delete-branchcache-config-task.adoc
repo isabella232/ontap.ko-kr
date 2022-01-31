@@ -1,0 +1,42 @@
+---
+permalink: smb-admin/delete-branchcache-config-task.html 
+sidebar: sidebar 
+keywords: command, deleting, delete, branchcache, service, storage, virtual, machine, svm, exist, hash, delete the branchcache configuration 
+summary: 'SVM(스토리지 가상 시스템)에서 BranchCache 서비스를 삭제하는 데 사용하는 명령은 기존 해시를 삭제하거나 유지할지 여부에 따라 달라집니다.' 
+---
+= BranchCache 구성을 삭제합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SVM(스토리지 가상 시스템)에서 BranchCache 서비스를 삭제하는 데 사용하는 명령은 기존 해시를 삭제하거나 유지할지 여부에 따라 달라집니다.
+
+.단계
+. 적절한 명령을 실행합니다.
++
+|===
+| 원하는 작업 | 그런 다음 다음을 입력합니다. 
+
+
+ a| 
+BranchCache 구성을 삭제하고 기존 해시를 삭제합니다
+ a| 
+'vserver cifs BranchCache delete -vserver_vserver_name_-flush-hash true
+
+
+
+ a| 
+BranchCache 구성을 삭제하지만 기존 해시는 그대로 둡니다
+ a| 
+'vserver cifs BranchCache delete -vserver_vserver_name_-flush-hash false
+
+|===
+
+
+다음 예에서는 SVM VS1 상의 BranchCache 구성을 삭제하고 기존 해시를 모두 삭제합니다.
+
+[listing]
+----
+cluster1::> vserver cifs branchcache delete -vserver vs1 -flush-hashes true
+----

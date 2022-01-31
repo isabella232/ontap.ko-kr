@@ -1,0 +1,25 @@
+---
+section: software_setup
+title: ONTAP를 설정합니다
+entries:
+- title: 사용할 설정 방법을 결정합니다
+  url: "/software_setup/concept_decide_whether_to_use_ontap_cli.html"
+- title: System Manager로 클러스터 설정
+  url: "/task_configure_ontap.html"
+- title: CLI를 사용하여 클러스터 설정
+  url: "/software_setup/concept_set_up_the_cluster.html"
+  entries:
+  - title: 첫 번째 노드에서 클러스터를 생성합니다
+    url: "/software_setup/task_create_the_cluster_on_the_first_node.html"
+  - title: 나머지 노드를 클러스터에 연결합니다
+    url: "/software_setup/task_join_remaining_nodes_to_the_cluster.html"
+  - title: Active IQ Config Advisor에서 클러스터를 확인하십시오
+    url: "/software_setup/task_check_cluster_with_config_advisor.html"
+  - title: 클러스터 전체에서 시스템 시간을 동기화합니다
+    url: "/software_setup/task_synchronize_the_system_time_across_the_cluster.html"
+  - title: NTP 서버에서 대칭 인증을 관리하는 명령입니다
+    url: "/software_setup/reference_commands_for_managing_ntp_servers.html"
+  - title: 완료해야 할 추가 시스템 구성 작업
+    url: "/software_setup/concept_additional_system_configuration_tasks_to_complete.html"
+- title: 모든 SAN 어레이 소프트웨어를 구성합니다
+  url: "/task_asa_software_configuration.html"

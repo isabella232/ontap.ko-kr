@@ -1,0 +1,30 @@
+---
+permalink: element-replication/enable-snapmirror-source-volume-task.html 
+sidebar: sidebar 
+keywords: enable, snapmirror, element, source, volume 
+summary: 복제 관계를 생성하려면 먼저 Element 소스 볼륨에서 SnapMirror를 활성화해야 합니다. Element 소프트웨어 웹 UI에서만 이 작업을 수행할 수 있습니다. 
+---
+= Element 소스 볼륨에서 SnapMirror를 사용하도록 설정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+복제 관계를 생성하려면 먼저 Element 소스 볼륨에서 SnapMirror를 활성화해야 합니다. Element 소프트웨어 웹 UI에서만 이 작업을 수행할 수 있습니다.
+
+.시작하기 전에
+* Element 클러스터에서 SnapMirror를 사용하도록 설정해야 합니다.
+* 볼륨 블록 크기는 512바이트입니다.
+* 볼륨이 Element 원격 복제에 참여해서는 안 됩니다.
+* 볼륨 액세스 유형은 ""복제 타겟""이 아니어야 합니다.
+
+
+아래 절차에서는 볼륨이 이미 있다고 가정합니다. 볼륨을 생성하거나 클론 복제할 때 SnapMirror를 설정할 수도 있습니다.
+
+.단계
+. Management * > * Volumes * 를 클릭합니다.
+. 를 클릭합니다 image:../media/action-icon.gif[""] 버튼을 클릭합니다.
+. 드롭다운 메뉴에서 * 편집 * 을 선택합니다.
+. 볼륨 편집 * 대화 상자에서 * SnapMirror 사용 * 을 선택합니다.
+. 변경 내용 저장 * 을 클릭합니다.
+

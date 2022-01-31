@@ -1,0 +1,73 @@
+---
+sidebar: sidebar 
+permalink: concept_nas_file_system_analytics_overview.html 
+keywords: monitor file, evaluate file activity, assess capacity usage, capacity analytics, activity tracking, data consumption 
+summary: 파일 시스템 분석은 FlexGroup 또는 FlexVol 볼륨의 콘텐츠에 대한 데이터를 수집하고 표시하기 위한 프레임워크입니다. 
+---
+= 파일 시스템 분석 개요
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+ONTAP 9.8부터 파일 시스템 분석(FSA)은 ONTAP FlexGroup 또는 FlexVol 볼륨의 콘텐츠에 대한 주요 데이터 포인트를 수집하고 시각화하는 프레임워크입니다. FSA는 데이터 지역성, 스토리지 소비, 스토리지 최적화, 데이터 보호와 관련된 조직의 데이터 과제를 해결하는 데 도움이 됩니다. FSA는 데이터 사용량에 대한 실시간 통찰력을 제공함으로써 처리량에 대한 서비스 품질 변경, 볼륨을 다른 컨트롤러 또는 애그리게이트로 이동하는 등 효율적인 데이터 관리 및 운영을 위한 의사 결정을 지원합니다.
+
+FSA는 볼륨의 파일 시스템 계층 구조의 각 레벨에 대한 자세한 정보를 제공하므로 다음을 수행할 수 있습니다.
+
+* link:task_nas_file_system_analytics_view.html["용량 사용 현황 및 추세를 평가합니다"]
+* link:task_nas_file_system_analytics_view.html["파일 및 디렉토리 수를 모니터링합니다"]
+* link:./file-system-analytics/activity-tracking-task.html["파일 활동 및 기록을 평가합니다"]
+* link:task_nas_file_system_analytics_view.html["비활성 데이터에 대한 정보를 캡처합니다"]
+* link:task_nas_file_system_analytics_take_corrective_action.html["통찰력을 바탕으로 시정 조치 수행(ONTAP 9.9.1부터 시작)"]
+* link:./file-system-analytics/activity-tracking-task.html["높은 트래픽 및 높은 처리량 활동에 대한 정보 분석 및 다운로드(ONTAP 9.10.1부터 시작)"]
+
+
+파일 시스템 분석은 데이터의 목록과 그래픽 뷰를 제공합니다. 그래픽 뷰에서 다양한 크기의 블록과 색상 음영은 디렉토리의 그래픽 표현을 제공합니다. 아래 표시된 목록 보기에서 각 디렉토리가 사용하는 공간의 양과 각 디렉토리에 대한 대화형 그래프 및 숫자 형식의 수정 및 액세스 기록을 확인할 수 있습니다.
+
+image::fsa-listview.png[FSA 목록 보기의 화면 캡처. 4개의 디렉토리는 데이터 사용량의 내림차순으로 표시됩니다. 각 디렉터리는 각각의 액세스 및 수정 기록을 보여 주는 두 개의 선형 차트로 애니메이션됩니다.]
+
+파일 시스템 분석 데이터는 ONTAP 시스템 관리자를 사용하여 표시됩니다. ONTAP REST API를 사용하여 데이터에 프로그래밍 방식으로 액세스할 수도 있습니다.
+
+* 릴리스별 기능 가용성 *
+
+[cols="3,1,1,1"]
+|===
+
+
+|  | ONTAP 9.8 | ONTAP 9.9.1 | ONTAP 9.10.1 
+
+
+| System Manager의 시각화 | X | X | X 
+
+
+| 용량 분석 | X | X | X 
+
+
+| 비활성 데이터 정보 | X | X | X 
+
+
+| 7-Mode 시스템에서 전환된 볼륨의 가용성 |  | X | X 
+
+
+| System Manager에서 비활성 기간을 변경하는 옵션입니다 |  | X | X 
+
+
+| 활동 추적 |  |  | X 
+
+
+| CSV로 다운로드(활동 추적) |  |  | X 
+|===
+
+
+== 파일 시스템 분석에 대해 자세히 알아보십시오
+
+video::0oRHfZIYurk[youtube, width=848,height=480]
+link:https://www.netapp.com/media/20707-tr-4867.pdf["TR 4687: ONTAP 파일 시스템 분석에 대한 모범 사례 지침"^]

@@ -1,0 +1,18 @@
+---
+permalink: san-admin/tools-monitor-luns-concept.html 
+sidebar: sidebar 
+keywords: tools, available, effectively, monitor, luns 
+summary: 툴을 사용하면 LUN을 효과적으로 모니터링하고 공간 부족 현상을 방지할 수 있습니다. 
+---
+= LUN을 효과적으로 모니터링하는 데 사용할 수 있는 툴입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+툴을 사용하면 LUN을 효과적으로 모니터링하고 공간 부족 현상을 방지할 수 있습니다.
+
+* Active IQ Unified Manager은 환경의 모든 클러스터에서 모든 스토리지를 관리할 수 있는 무료 툴입니다.
+* System Manager는 ONTAP에 내장된 그래픽 사용자 인터페이스로, 클러스터 레벨에서 스토리지 요구사항을 수동으로 관리할 수 있습니다.
+* OnCommand Insight은 스토리지 인프라에 대한 단일 뷰를 제공하며 LUN, 볼륨 및 애그리게이트에 스토리지 공간이 부족할 때 자동 모니터링, 경고 및 보고를 설정할 수 있습니다.
+

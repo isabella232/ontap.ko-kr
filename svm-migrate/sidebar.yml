@@ -1,0 +1,18 @@
+---
+section: svm-migrate
+title: SVM 데이터 이동성
+entries:
+- title: 개요
+  url: "/svm-migrate/index.html"
+- title: SVM 마이그레이션
+  url: "/svm-migrate/migrate-svm-task.html"
+- title: 마이그레이션 모니터링
+  url: "/svm-migrate/monitor-volume-task.html"
+- title: 마이그레이션을 일시 중지하고 다시 시작합니다
+  url: "/svm-migrate/pause-task.html"
+- title: 마이그레이션을 취소합니다
+  url: "/svm-migrate/cancel-task.html"
+- title: 클라이언트를 수동으로 잘라냅니다
+  url: "/svm-migrate/manual-client-cutover-task.html"
+- title: 소스 SVM을 수동으로 제거합니다
+  url: "/svm-migrate/manual-source-removal-task.html"

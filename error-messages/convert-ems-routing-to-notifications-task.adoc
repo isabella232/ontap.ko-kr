@@ -1,0 +1,116 @@
+---
+permalink: error-messages/convert-ems-routing-to-notifications-task.html 
+sidebar: sidebar 
+keywords: update, ems, mapping, notification, filter, event 
+summary: 명령줄을 사용하여 더 이상 사용되지 않는 ONTAP 명령에서 EMS 이벤트 매핑을 업데이트합니다. 
+---
+= 사용되지 않는 ONTAP 명령에서 EMS 이벤트 매핑을 업데이트합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+EMS 이벤트 매핑이 사용되지 않는 ONTAP 명령 집합('이벤트 대상', '이벤트 경로')을 사용하여 현재 구성된 경우 다음 절차에 따라 매핑을 업데이트하여 '이벤트 필터', '이벤트 알림' 및 '이벤트 알림 대상' 명령 집합을 사용해야 합니다.
+
+.단계
+. 'event destination show' 명령을 사용하여 시스템의 모든 이벤트 대상을 나열합니다.
++
+[listing]
+----
+cluster-1::event*> destination show
+                                                                         Hide
+Name             Mail Dest.        SNMP Dest.         Syslog Dest.       Params
+---------------- ----------------- ------------------ ------------------ ------
+allevents        -                 -                  -                  false
+asup             -                 -                  -                  false
+criticals        -                 -                  -                  false
+pager            -                 -                  -                  false
+test             test@xyz.com      -                  -                  false
+traphost         -                 -                  -                  false
+6 entries were displayed.
+----
+. 각 목적지에 대해 'event route show-destinations <destination name>' 명령어를 이용하여 해당 목적지에 맵핑되는 이벤트를 나열한다.
++
+[listing]
+----
+cluster-1::event*> route show -destinations test
+                                                               Freq    Time
+Message                          Severity       Destinations   Threshd Threshd
+-------------------------------- -------------- -------------- ------- -------
+raid.aggr.autoGrow.abort         NOTICE         test           0       0
+raid.aggr.autoGrow.success       NOTICE         test           0       0
+raid.aggr.lock.conflict          INFORMATIONAL  test           0       0
+raid.aggr.log.CP.count           DEBUG          test           0       0
+4 entries were displayed.
+----
+. 이러한 모든 이벤트 하위 집합을 포함하는 해당 이벤트 필터를 만듭니다. 예를 들어, 'raid.aggr.' * 이벤트만 포함하려면 필터를 생성할 때 'essage-name' 매개 변수에 와일드카드를 사용합니다. 단일 이벤트에 대한 필터를 만들 수도 있습니다.
++
+
+NOTE: 최대 50개의 이벤트 필터를 만들 수 있습니다.
+
++
+[listing]
+----
+cluster-1::event*> filter create -filter-name test_events
+
+cluster-1::event*> filter rule add -filter-name test_events -type include -message-name raid.aggr.*
+
+cluster-1::event*> filter show -filter-name test_events
+Filter Name Rule     Rule      Message Name           SNMP Trap Type  Severity
+            Position Type
+----------- -------- --------- ---------------------- --------------- --------
+test_events
+            1        include   raid.aggr.*            *               *
+            2        exclude   *                      *               *
+2 entries were displayed.
+----
+. 각 '이벤트 대상' 엔드포인트(SMTP/SNMP/syslog)에 대해 '이벤트 알림 대상'을 생성한다.
++
+[listing]
+----
+cluster-1::event*> notification destination create -name dest1 -email test@xyz.com
+
+cluster-1::event*> notification destination show
+Name            Type        Destination
+--------------  ----------  ---------------------
+dest1           email       test@xyz.com (via "localhost" from "admin@localhost", configured in "event config")
+snmp-traphost   snmp        - (from "system snmp traphost")
+2 entries were displayed.
+----
+. 이벤트 필터를 이벤트 알림 대상에 매핑하여 이벤트 알림을 생성합니다.
++
+[listing]
+----
+cluster-1::event*> notification create -filter-name asup_events -destinations dest1
+
+cluster-1::event*> notification show
+ID   Filter Name                     Destinations
+---- ------------------------------  -----------------
+1    default-trap-events             snmp-traphost
+2    asup_events                     dest1
+2 entries were displayed.
+----
+. 이벤트 경로 매핑이 있는 각 이벤트 대상에 대해 1-5단계를 반복합니다.
++
+
+NOTE: SNMP 대상으로 라우팅된 이벤트는 NMP-traphost 이벤트 알림 대상에 매핑되어야 합니다. SNMP traphost 대상은 시스템에서 구성한 SNMP traphost를 사용합니다.
+
++
+[listing]
+----
+cluster-1::event*> system snmp traphost add 10.234.166.135
+
+cluster-1::event*> system snmp traphost show
+        scspr2410142014.gdl.englab.netapp.com (scspr2410142014.gdl.englab.netapp.com) <10.234.166.135>    Community: public
+
+cluster-1::event*> notification destination show -name snmp-traphost
+
+                Destination Name: snmp-traphost
+             Type of Destination: snmp
+                     Destination: 10.234.166.135 (from "system snmp traphost")
+ Server CA Certificates Present?: -
+   Client Certificate Issuing CA: -
+Client Certificate Serial Number: -
+       Client Certificate Valid?: -
+----
+

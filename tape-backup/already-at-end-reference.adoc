@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/already-at-end-reference.html 
+sidebar: sidebar 
+keywords: end, tape, correction, action, rewind 
+summary: 테이프에 데이터가 포함되어 있지 않거나 되감아야 합니다. 
+---
+= 이미 테이프 끝에 있습니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+이미 테이프 끝에 있습니다
+
+* * 원인 *
++
+테이프에 데이터가 포함되어 있지 않거나 되감아야 합니다.
+
+* * 시정 조치 *
++
+테이프에 데이터가 포함되어 있지 않은 경우 백업이 포함된 테이프를 사용하고 복구 작업을 다시 시도하십시오. 그렇지 않으면 테이프를 되감고 복구 작업을 다시 시도하십시오.
+
+

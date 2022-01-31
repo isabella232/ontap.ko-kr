@@ -1,0 +1,29 @@
+---
+permalink: tape-backup/manage-svm-scoped-ndmp-mode-concept.html 
+sidebar: sidebar 
+keywords: manage, svm, scope, ndmp, flexvol, volumes, vserver, modify 
+summary: NDMP 옵션 및 명령을 사용하여 SVM별로 NDMP를 관리할 수 있습니다. vserver services ndmp modify 명령을 사용하여 NDMP 옵션을 수정할 수 있습니다. SVM 범위의 NDMP 모드에서는 사용자 인증이 역할 기반 액세스 제어 메커니즘과 통합됩니다. 
+---
+= FlexVol 볼륨의 SVM 범위 NDMP 모드를 관리합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NDMP 옵션 및 명령을 사용하여 SVM별로 NDMP를 관리할 수 있습니다. 'vserver services ndmp modify' 명령을 사용하여 NDMP 옵션을 수정할 수 있습니다. SVM 범위의 NDMP 모드에서는 사용자 인증이 역할 기반 액세스 제어 메커니즘과 통합됩니다.
+
+"vserver modify" 명령을 사용하여 허용 또는 허용되지 않는 프로토콜 목록에 NDMP를 추가할 수 있습니다. 기본적으로 NDMP는 허용되는 프로토콜 목록에 있습니다. NDMP가 허용되지 않는 프로토콜 목록에 추가되면 NDMP 세션을 설정할 수 없습니다.
+
+'-preferred-interface-role' 옵션을 사용하여 NDMP 데이터 연결이 설정된 LIF 유형을 제어할 수 있습니다. NDMP 데이터 연결을 설정하는 동안 NDMP는 이 옵션에 지정된 LIF 유형에 속하는 IP 주소를 선택합니다. IP 주소가 이러한 LIF 유형 중 하나에 속하지 않으면 NDMP 데이터 연결을 설정할 수 없습니다. '-preferred-interface-role' 옵션에 대한 자세한 내용은 man 페이지를 참조하십시오.
+
+'vserver services ndmp modify' 명령에 대한 자세한 내용은 man 페이지를 참조하십시오.
+
+xref:commands-manage-svm-scoped-ndmp-reference.adoc[SVM 범위의 NDMP 모드를 관리하는 명령입니다]
+
+xref:cluster-aware-backup-extension-concept.adoc[Cluster Aware Backup 확장의 기능]
+
+link:../concepts/index.html["ONTAP 개념"]
+
+xref:svm-scoped-ndmp-mode-concept.adoc[SVM 범위의 NDMP 모드는 무엇입니까]
+
+link:../system-admin/index.html["시스템 관리"]

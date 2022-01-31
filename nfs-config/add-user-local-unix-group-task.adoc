@@ -1,0 +1,29 @@
+---
+permalink: nfs-config/add-user-local-unix-group-task.html 
+sidebar: sidebar 
+keywords: add, user, local, unix group 
+summary: vserver services name-service unix-group adduser 명령을 사용하여 SVM에 로컬인 보조 UNIX 그룹에 사용자를 추가할 수 있습니다. 
+---
+= 로컬 UNIX 그룹에 사용자를 추가합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'vserver services name-service unix-group adduser' 명령을 사용하여 SVM에 로컬인 보조 UNIX 그룹에 사용자를 추가할 수 있습니다.
+
+.단계
+. 로컬 UNIX 그룹에 사용자 추가:
+
+
+'vserver services name-service unix-group adduser-vserver_vserver_name_-name_group_name_-username_user_name_'
+
+'-name''_group_name_'은 사용자의 기본 그룹 외에도 사용자를 추가할 UNIX 그룹의 이름을 지정합니다.
+
+다음 명령을 실행하면 이름이 max인 사용자가 이름이 eng인 로컬 UNIX 그룹에 이름이 vs1 인 SVM에 추가됩니다.
+
+[listing]
+----
+vs1::> vserver services name-service unix-group adduser -vserver vs1 -name eng
+-username max
+----

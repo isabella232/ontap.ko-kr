@@ -1,0 +1,46 @@
+---
+permalink: data-protection/exclude-volumes-svm-replication-task.html 
+sidebar: sidebar 
+keywords: exclude, volumes, svm replication 
+summary: 기본적으로 소스 SVM의 모든 RW 데이터 볼륨이 복제됩니다. 소스 SVM에서 모든 볼륨을 보호하지 않으려는 경우 volume modify 명령의 -vserver-dr-protection protected 옵션을 사용하여 SVM 복제에서 볼륨을 제외할 수 있습니다. 
+---
+= SVM 복제에서 볼륨 제외
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+기본적으로 소스 SVM의 모든 RW 데이터 볼륨이 복제됩니다. 소스 SVM의 모든 볼륨을 보호하지 않으려는 경우 '볼륨 수정' 명령의 '-vserver-dr-protection protected' 옵션을 사용하여 SVM 복제에서 볼륨을 제외할 수 있습니다.
+
+.단계
+. SVM 복제에서 볼륨 제외:
++
+'volume modify -vserver_SVM_-volume_volume_-vserver-dr-protection protected'
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+다음 예에서는 SVM 복제에서 볼륨 'VolA_src'를 제외합니다.
+
++
+[listing]
+----
+cluster_src::> volume modify -vserver SVM1 -volume volA_src -vserver-dr-protection unprotected
+----
++
+나중에 원래 제외된 SVM 복제에 볼륨을 포함하려면 다음 명령을 실행합니다.
+
++
+'볼륨 수정 - vserver_SVM_-volume_volume_-vserver-dr-protection protected
+
++
+다음 예에서는 SVM 복제의 볼륨 VolA_src를 포함합니다.
+
++
+[listing]
+----
+cluster_src::> volume modify -vserver SVM1 -volume volA_src -vserver-dr-protection protected
+----
+. 에 설명된 대로 SVM 복제 관계를 생성하고 초기화합니다 link:replicate-entire-svm-config-task.html["전체 SVM 구성 복제"],
+

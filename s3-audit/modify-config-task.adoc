@@ -1,0 +1,38 @@
+---
+permalink: s3-audit/modify-config-task.html 
+sidebar: sidebar 
+keywords: s3 audit, modify 
+summary: 개별 버킷의 감사 매개 변수 또는 SVM에서 감사를 위해 선택한 모든 버킷의 감사 구성을 수정할 수 있습니다. 
+---
+= S3 감사 구성을 수정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+개별 버킷의 감사 매개 변수 또는 SVM에서 감사를 위해 선택한 모든 버킷의 감사 구성을 수정할 수 있습니다.
+
+[cols="2,4"]
+|===
+| 에 대한 감사 구성을 수정하려면... | 입력... 
+
+
+| 개별 버킷 | 'vserver object-store-server audit event-selector modify -vserver_svm_name_[-bucket_bucket_name_][_parameters to modify _]' 
+
+
+| SVM의 모든 버킷  a| 
+'vserver object-store-server audit modify -vserver_svm_name_[_parameters to modify _]'
+
+|===
+다음 예에서는 쓰기 전용 액세스 이벤트만 감사하도록 개별 버킷 감사 구성을 수정합니다.
+
+[listing]
+----
+cluster1::> vserver object-store-server audit event-selector modify -vserver vs1 -bucket test-bucket -access write-only
+----
+다음 예에서는 SVM의 모든 버킷에 대한 감사 구성을 수정하여 로그 크기 제한을 10MB로 변경하고 회전 전에 로그 파일 3개를 보존합니다.
+
+[listing]
+----
+cluster1::> vserver object-store-server audit modify -vserver vs1 -rotate-size 10MB -rotate-limit 3
+----

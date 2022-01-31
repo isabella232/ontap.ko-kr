@@ -1,0 +1,17 @@
+---
+permalink: tape-backup/dump-snapmirror-single-file-lun-restore-concept.html 
+sidebar: sidebar 
+keywords: dump, works, snapmirror, single, file, lun, restore, operation 
+summary: SnapMirror 기술을 사용하여 단일 파일 또는 LUN이 복원되는 볼륨에서 덤프 백업 또는 복원 작업을 수행하기 전에 단일 파일 또는 LUN 복원 작업에서 덤프 작업이 어떻게 작동하는지 이해해야 합니다. 
+---
+= SnapMirror 단일 파일 또는 LUN 복원에서 덤프가 작동하는 방식
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapMirror 기술을 사용하여 단일 파일 또는 LUN이 복원되는 볼륨에서 덤프 백업 또는 복원 작업을 수행하기 전에 단일 파일 또는 LUN 복원 작업에서 덤프 작업이 어떻게 작동하는지 이해해야 합니다.
+
+SnapMirror 단일 파일 또는 LUN 복원 작업 중에 클라이언트 I/O는 복원 중인 파일 또는 LUN에서 제한됩니다. 단일 파일 또는 LUN 복원 작업이 완료되면 파일 또는 LUN에 대한 입출력 제한이 제거됩니다. 단일 파일 또는 LUN이 복구되는 볼륨에서 덤프 백업을 수행하는 경우 클라이언트 I/O 제한이 있는 파일 또는 LUN은 덤프 백업에 포함되지 않습니다. 이후의 백업 작업에서는 입출력 제한이 제거된 후 이 파일 또는 LUN이 테이프로 백업됩니다.
+
+동일한 볼륨에서 덤프 복구와 SnapMirror 단일 파일 또는 LUN 복원 작업을 동시에 수행할 수 없습니다.

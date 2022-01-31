@@ -1,0 +1,261 @@
+---
+sidebar: sidebar 
+permalink: networking/configure_virtual_ip_@vip@_lifs.html 
+keywords: 'configure, configuration, configuring, setup, setting, set, up, virtual, vip, ip, lif, data, configure virtual IP (vip) lifs, set up border gateway protocol (bgp), use-peer-as-next-hop, asn-prepend-type, asn-prepend-count, community, network bgp peer-group, med, multi-exit discriminator, create a virtual ip (vip) data lif, commands for managing the BGP, network bgp, manage bgp configuration, manage bgp default values, manage bgp peer groups' 
+summary: 페일오버 LIF가 여러 서브넷에 걸쳐 있습니다 
+---
+= 가상 IP(VIP) LIF를 구성합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+일부 차세대 데이터 센터는 서브넷 간에 LIF를 페일오버해야 하는 네트워크 계층 3 메커니즘을 사용합니다. ONTAP 9.5부터 VIP 데이터 LIF와 관련 라우팅 프로토콜인 BGP(Border Gateway Protocol)가 지원되므로 ONTAP가 이러한 차세대 네트워크에 참여할 수 있습니다.
+
+VIP 데이터 LIF는 서브넷의 일부가 아닌 LIF로, 동일한 IPspace에서 BGP LIF를 호스팅하는 모든 포트에서 연결할 수 있습니다. VIP 데이터 LIF는 개별 네트워크 인터페이스에 대한 호스트의 종속성을 제거합니다. 여러 개의 물리적 어댑터가 데이터 트래픽을 전달하므로 전체 로드가 단일 어댑터와 관련 서브넷에 집중되지 않습니다. VIP 데이터 LIF는 라우팅 프로토콜인 BGP(Border Gateway Protocol)를 통해 피어 라우터에 보급됩니다.
+
+VIP 데이터 LIF는 다음과 같은 이점을 제공합니다.
+
+* 브로드캐스트 도메인 또는 서브넷 이상의 LIF 이동성: VIP 데이터 LIF는 BGP를 통해 각 VIP 데이터 LIF의 현재 위치를 공유함으로써 네트워크의 모든 서브넷에 페일오버할 수 있습니다.
+* 총 처리량: VIP 데이터 LIF는 여러 서브넷 또는 포트에서 데이터를 동시에 송수신할 수 있으므로 개별 포트의 대역폭을 초과하는 총 처리량을 지원할 수 있습니다.
+
+
+
+
+== BGP(Border Gateway Protocol) 설정
+
+VIP LIF를 생성하기 전에 피어 라우터에 대한 VIP LIF의 존재를 알리는 데 사용되는 라우팅 프로토콜인 BGP를 설정해야 합니다.
+
+ONTAP 9.9.1부터, VIP BGP는 BGP 피어 그룹화를 사용하여 기본 경로 자동화를 제공하여 구성을 간소화합니다.
+
+ONTAP는 BGP 피어가 동일한 서브넷에 있을 때 BGP 피어를 다음 홉 라우터로 사용하여 기본 라우트를 학습할 수 있는 간단한 방법을 제공합니다. 이 기능을 사용하려면 '-use-peer-as-next-hop' 속성을 true로 설정합니다. 기본적으로 이 속성은 false 입니다.
+
+정적 라우트가 구성된 경우 이러한 자동 기본 라우트보다 더 선호됩니다.
+
+ASN(Autonomous System Number)이 구성된 BGP LIF에서 BGP 연결을 허용하도록 피어 라우터를 구성해야 합니다.
+
+
+NOTE: ONTAP는 라우터에서 수신되는 라우트 알림을 처리하지 않으므로, 피어 라우터가 클러스터에 대한 라우트 업데이트를 보내지 않도록 구성해야 합니다.
+
+BGP를 설정하려면 선택적으로 BGP 구성을 생성하고, BGP LIF를 생성하고, BGP 피어 그룹을 생성해야 합니다. ONTAP는 특정 노드에서 첫 번째 BGP 피어 그룹이 생성될 때 기본값으로 기본 BGP 구성을 자동으로 생성합니다. BGP LIF는 피어 라우터를 사용하여 BGP TCP 세션을 설정하는 데 사용됩니다. 피어 라우터의 경우 BGP LIF는 VIP LIF에 도달하기 위한 다음 홉입니다. BGP LIF에서 페일오버가 비활성화되었습니다. BGP 피어 그룹은 피어 그룹의 IPspace에 있는 모든 SVM에 대한 VIP 경로를 알립니다.
+
+ONTAP 9.8부터 이러한 필드는 'network BGP peer-group' 명령에 추가되었습니다.
+
+* -asn-prepend-type입니다
+* -asn-prepend-count
+* 커뮤니티
+
+
+이러한 BGP 특성을 사용하면 를 BGP 피어 그룹에 대한 경로 및 커뮤니티 속성으로 구성할 수 있습니다.
+
+ONTAP 9.9.1부터 다음 필드가 추가되었습니다.
+
+* ASN 또는 -peer-ASN(4바이트 값) 속성 자체는 새로운 것이 아니지만 4바이트 정수를 사용합니다.
+* 중이었습니다
+* -use-peer-as-next-hop
+
+
+경로 우선 순위 지정을 위해 MED(Multi-Exit Discriminator) 지원을 통해 고급 경로 선택을 수행할 수 있습니다. Med는 라우터에 트래픽에 가장 적합한 경로를 선택하도록 지시하는 BGP 업데이트 메시지의 선택적 속성입니다. MED는 부호 없는 32비트 정수(0-4294967295)이며 더 낮은 값을 사용하는 것이 좋습니다.
+
+
+NOTE: ONTAP는 위의 BGP 속성을 지원하지만 라우터는 이를 존중하지 않아도 됩니다. 라우터가 지원하는 특성을 확인하고 적절하게 BGP 피어 그룹을 구성하는 것이 좋습니다. 자세한 내용은 라우터에서 제공한 BGP 설명서를 참조하십시오.
+
+.단계
+. 고급 권한 레벨에 로그인합니다.
++
+세트 프리빌리지 고급
+
+. 선택 사항: 다음 작업 중 하나를 수행하여 BGP 구성을 생성하거나 클러스터의 기본 BGP 구성을 수정합니다.
++
+.. BGP 구성 생성:
++
+....
+network bgp config create -node {node_name | local} -asn asn_integer -holdtime
+hold_time -routerid local_router_IP_address
+....
++
+2바이트 ASN이 포함된 샘플:
+
++
+....
+network bgp config create -node node1 -asn 65502 -holdtime 180 -routerid 1.1.1.1
+....
++
+4바이트 ASN이 포함된 샘플:
+
++
+....
+network bgp config create -node node1 -asn 85502 -holdtime 180 -routerid 1.1.1.1
+....
+.. 기본 BGP 구성을 수정합니다.
++
+....
+network bgp defaults modify -asn asn_integer -holdtime hold_time
+network bgp defaults modify -asn 65502
+....
++
+*** ASN_integer는 ASN을 지정한다. ONTAP 9.8부터 BGP의 ASN은 2바이트 비음수를 지원합니다. 16비트 숫자(1 - 65534 사용 가능한 값)입니다. ONTAP 9.9.1부터 BGP의 ASN은 4바이트 비음의 정수(1-4294967295)를 지원합니다. 기본 ASN은 65501입니다. ASN 23456은 4바이트 ASN 기능을 발표하지 않는 피어와의 ONTAP 세션 설정을 위해 예약되어 있습니다.
+*** hold_time은 홀드 시간을 초 단위로 지정합니다. 기본값은 180입니다.
+
+
+
+
+. 시스템 SVM을 위한 BGP LIF 생성:
++
+....
+network interface create -vserver system_svm -lif lif_name -service-policy default-route-announce -home-node home_node -home-port home_port -address ip_address -netmask netmask
+....
++
+BGP LIF에 대한 'default-route-공지' 서비스 정책 또는 "management-BGP" 서비스가 포함된 사용자 지정 서비스 정책을 사용할 수 있습니다.
+
++
+....
+network interface create -vserver cluster1 -lif bgp1 -service-policy default-route-announce -home-node cluster1-01 -home-port e0c -address 10.10.10.100 -netmask 255.255.255.0
+....
+. 원격 피어 라우터로 BGP 세션을 설정하고 피어 라우터에 보급된 VIP 라우트 정보를 구성하는 데 사용되는 BGP 피어 그룹을 생성합니다.
++
+샘플 1: 자동 기본 경로 없이 피어 그룹을 생성합니다
+
++
+이 경우 관리자는 BGP 피어에 대한 정적 라우트를 생성해야 합니다.
+
++
+....
+network bgp peer-group create -peer-group group_name -ipspace ipspace_name -bgp-lif bgp_lif -peer-address peer-router_ip_address -peer-asn 65502 -route-preference integer
+-asn-prepend-type <ASN_prepend_type> -asn-prepend-count integer -med integer -community BGP community list <0-65535>:<0-65535>
+....
++
+....
+network bgp peer-group create -peer-group group1 -ipspace Default -bgp-lif bgp1 -peer-address 10.10.10.1 -peer-asn 65502 -route-preference 100 -asn-prepend-type local-asn -asn-prepend-count 2 -med 100 -community 9000:900,8000:800
+....
++
+샘플 2: 자동 기본 라우트가 있는 피어 그룹을 생성합니다
+
++
+....
+network bgp peer-group create -peer-group group_name -ipspace ipspace_name -bgp-lif bgp_lif -peer-address peer-router_ip_address -peer-asn 65502 -use-peer-as-next-hop true -route-preference integer -asn-prepend-type <ASN_prepend_type> -asn-prepend-count integer -med integer -community BGP community list <0-65535>:<0-65535>
+....
++
+....
+network bgp peer-group create -peer-group group1 -ipspace Default -bgp-lif bgp1 -peer-address 10.10.10.1 -peer-asn 65502 -use-peer-as-next-hop true -route-preference 100 -asn-prepend-type local-asn -asn-prepend-count 2 -med 100 -community 9000:900,8000:800
+....
+
+
+
+
+== 가상 IP(VIP) 데이터 LIF를 생성합니다
+
+VIP 데이터 LIF는 라우팅 프로토콜인 BGP(Border Gateway Protocol)를 통해 피어 라우터에 보급됩니다.
+
+.시작하기 전에
+* BGP 피어 그룹을 설정하고 LIF를 생성할 SVM을 위한 BGP 세션을 활성화해야 합니다.
+* BGP LIF 서브넷의 BGP 라우터 또는 다른 라우터에 대한 정적 경로는 SVM의 나가는 VIP 트래픽을 위해 생성해야 합니다.
+* 나가는 VIP 트래픽이 사용 가능한 모든 경로를 활용할 수 있도록 다중 경로 라우팅을 켜야 합니다.
++
+다중 경로 라우팅이 활성화되지 않은 경우 나가는 모든 VIP 트래픽은 단일 인터페이스에서 이동합니다.
+
+
+
+.단계
+. VIP 데이터 LIF 생성:
++
+....
+network interface create -vserver svm_name -lif lif_name -role data -data-protocol
+{nfs|cifs|iscsi|fcache|none|fc-nvme} -home-node home_node -address ip_address -is-vip true
+....
++
+네트워크 인터페이스 생성 명령으로 홈 포트를 지정하지 않으면 VIP 포트가 자동으로 선택됩니다.
+
++
+기본적으로 VIP 데이터 LIF는 각 IPspace에 대해 'VIP'라는 시스템 생성 브로드캐스트 도메인에 속해 있습니다. VIP 브로드캐스트 도메인은 수정할 수 없습니다.
+
++
+VIP 데이터 LIF는 IPspace의 BGP LIF를 호스팅하는 모든 포트에서 동시에 연결할 수 있습니다. 로컬 노드에서 VIP의 SVM을 위한 활성 BGP 세션이 없는 경우, VIP 데이터 LIF는 해당 SVM을 위해 BGP 세션이 설정된 노드에서 다음 VIP 포트로 페일오버됩니다.
+
+. BGP 세션이 VIP 데이터 LIF의 SVM에 대한 UP 상태인지 확인합니다.
++
+....
+network bgp vserver-status show
+
+Node        Vserver  bgp status
+	    ----------  -------- ---------
+	    node1       vs1      up
+....
++
+노드의 SVM에 대해 BGP 상태가 'down'이면 VIP 데이터 LIF가 SVM에 대해 BGP 상태가 가동 중인 다른 노드로 페일오버됩니다. 모든 노드에서 BGP 상태가 '소유'인 경우 VIP 데이터 LIF는 어느 곳에서나 호스팅할 수 없으며 LIF 상태가 '다운'입니다.
+
+
+
+
+
+== BGP 관리를 위한 명령입니다
+
+ONTAP 9.5부터 ONTAP에서 BGP 세션을 관리하기 위해 'network BGP' 명령어를 사용한다.
+
+
+
+=== BGP 구성 관리
+
+|===
+
+
+| 원하는 작업 | 이 명령 사용... 
+
+
+| BGP 구성을 생성합니다 | Network BGP config create.(네트워크 BGP 구성 생성 
+
+
+| BGP 구성을 수정합니다 | 네트워크 BGP 구성 수정 
+
+
+| BGP 구성을 삭제합니다 | 네트워크 BGP 구성 삭제 
+
+
+| BGP 구성을 표시합니다 | Network BGP config show를 참조하십시오 
+
+
+| VIP LIF의 SVM에 대한 BGP 상태를 표시합니다 | Network BGP vserver-status show 
+|===
+
+
+=== BGP 기본값을 관리합니다
+
+|===
+
+
+| 원하는 작업 | 이 명령 사용... 
+
+
+| BGP 기본값을 수정합니다 | 네트워크 BGP 기본값을 수정합니다 
+
+
+| BGP 기본값을 표시합니다 | 네트워크 BGP 기본값이 표시됩니다 
+|===
+
+
+=== BGP 피어 그룹을 관리합니다
+
+|===
+
+
+| 원하는 작업 | 이 명령 사용... 
+
+
+| BGP 피어 그룹을 생성합니다 | Network BGP peer-group create 
+
+
+| BGP 피어 그룹을 수정합니다 | Network BGP peer-group modify를 참조하십시오 
+
+
+| BGP 피어 그룹을 삭제합니다 | Network BGP peer-group delete.(네트워크 BGP 피어 그룹 삭제 
+
+
+| BGP 피어 그룹 정보를 표시합니다 | Network BGP peer-group show를 참조하십시오 
+
+
+| BGP 피어 그룹의 이름을 바꿉니다 | Network BGP peer-group rename.(네트워크 BGP 피어 그룹 이름 
+|===
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"^]

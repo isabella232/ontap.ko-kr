@@ -1,0 +1,87 @@
+---
+permalink: data-protection/snapmirror-unified-replication-concept.html 
+sidebar: sidebar 
+keywords: snapmirror, unified, replication 
+summary: SnapMirror 통합 복제를 사용하면 동일한 대상 볼륨에 재해 복구 및 아카이빙을 구성할 수 있습니다. 통합 복제가 적절한 경우 필요한 보조 스토리지의 양을 줄이고 기본 전송 수를 제한하며 네트워크 트래픽을 줄일 수 있습니다. 
+---
+= SnapMirror 통합 복제 기본 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapMirror_Unified replication_을 사용하면 동일한 대상 볼륨에 재해 복구 및 아카이빙을 구성할 수 있습니다. 통합 복제가 적절한 경우 필요한 보조 스토리지의 양을 줄이고 기본 전송 수를 제한하며 네트워크 트래픽을 줄일 수 있습니다.
+
+
+
+== 통합 데이터 보호 관계의 초기화 방법
+
+SnapMirror와 마찬가지로 통합 데이터 보호는 처음 호출할 때 기본 전송을 수행합니다. 관계에 대한 SnapMirror 정책에서는 기본 내용과 모든 업데이트를 정의합니다.
+
+기본 통합 데이터 보호 정책 MirorAndVault에 의한 기본 전송은 소스 볼륨의 스냅샷 복사본을 만든 다음 해당 복사본과 데이터 블록이 대상 볼륨에 참조되도록 전송합니다. 볼트 보관과 마찬가지로, 통합 데이터 보호에도 이전 Snapshot 복사본이 기준에 포함되지 않습니다.
+
+
+
+== 통합 데이터 보호 관계를 업데이트하는 방법
+
+MirorAndVault 정책 아래의 각 업데이트 시, SnapMirror는 스냅샷 정책 규칙에 정의된 레이블과 일치하는 레이블이 있는 경우 소스 볼륨의 스냅샷 복사본과 마지막 업데이트 이후에 만들어진 스냅샷 복사본을 전송하고 소스 볼륨의 스냅샷 복사본을 생성합니다. 다음 출력에서는 MirorAndVault에 대한 'napmirror policy show' 명령어가 출력됩니다.
+
+* "스냅샷 생성"은 "참"이며, 이는 SnapMirror가 관계를 업데이트할 때 MirorAndVault가 스냅샷 복사본을 생성한다는 것을 의미합니다.
+* 'MirorAndVault'에는 'sm_created', 'd데일리', 'weekly' 규칙이 있습니다. 이는 SnapMirror가 관계를 업데이트하면 소스에 일치하는 레이블이 있는 스냅샷 복사본과 SnapMirror가 생성한 스냅샷 복사본이 모두 전송됨을 나타냅니다.
+
+
+[listing]
+----
+cluster_dst::> snapmirror policy show -policy MirrorAndVault -instance
+
+                     Vserver: vs0
+      SnapMirror Policy Name: MirrorAndVault
+      SnapMirror Policy Type: mirror-vault
+                Policy Owner: cluster-admin
+                 Tries Limit: 8
+           Transfer Priority: normal
+   Ignore accesstime Enabled: false
+     Transfer Restartability: always
+ Network Compression Enabled: false
+             Create Snapshot: true
+                     Comment: A unified Synchronous SnapMirror and SnapVault policy for
+                              mirroring the latest file system and daily and weekly snapshots.
+       Total Number of Rules: 3
+                  Total Keep: 59
+                       Rules: SnapMirror Label     Keep  Preserve Warn Schedule Prefix
+                              ----------------     ----  -------- ---- -------- ------
+                              sm_created              1  false       0 -        -
+                              daily                   7  false       0 -        -
+                              weekly                 52  false       0 -        -
+----
+
+
+== Unified7년 정책입니다
+
+미리 구성된 Unified7년 정책은 MirorAndVault와 정확히 동일한 방식으로 작동합니다. 단, 네 번째 규칙은 월별 Snapshot 복사본을 전송하고 7년간 유지합니다.
+
+[listing]
+----
+
+                       Rules: SnapMirror Label     Keep  Preserve Warn Schedule Prefix
+                              ----------------     ----  -------- ---- -------- ------
+                              sm_created              1  false       0 -        -
+                              daily                   7  false       0 -        -
+                              weekly                 52  false       0 -        -
+                              monthly                84  false       0 -        -
+----
+
+
+== 데이터 손상을 방지합니다
+
+유니파이드 복제는 초기화 시 SnapMirror가 생성한 스냅샷 복사본으로 기본 전송 내용을 제한합니다. 각 업데이트가 있을 때마다 SnapMirror는 소스의 다른 스냅샷 복사본을 생성하고 이 스냅샷 복사본과 스냅샷 정책 규칙에 정의된 레이블이 지정된 새 스냅샷 복사본을 전송합니다.
+
+대상에 마지막으로 전송된 스냅샷 복사본의 복사본을 생성하여 업데이트된 스냅샷 복사본이 손상될 가능성을 방지할 수 있습니다. 이 ""로컬 복사본""은 소스의 보존 규칙에 관계없이 보존되므로, SnapMirror에서 원래 전송한 스냅샷을 소스에서 더 이상 사용할 수 없더라도 대상에서 사용할 수 있습니다.
+
+
+
+== 통합 데이터 복제를 사용하는 경우
+
+전체 미러 유지 관리의 이점을 통합 복제가 2차 스토리지의 양을 줄이고 기본 전송 수를 제한하며 네트워크 트래픽을 감소시켜 주는 이점과 비교하여 평가해야 합니다.
+
+통합 복제의 적절성을 결정하는 주요 요인은 활성 파일 시스템의 변경률입니다. 예를 들어, 기존 미러는 데이터베이스 트랜잭션 로그의 시간별 스냅샷 복사본이 있는 볼륨에 더 적합할 수 있습니다.

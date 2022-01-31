@@ -1,0 +1,18 @@
+---
+permalink: san-admin/add-nodes-cluster-concept.html 
+sidebar: sidebar 
+keywords: considerations, adding, nodes, cluster 
+summary: 클러스터에 노드를 추가할 때는 특정 고려 사항을 염두에 두어야 합니다. 
+---
+= 클러스터에 노드를 추가할 때의 고려 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클러스터에 노드를 추가할 때는 특정 고려 사항을 염두에 두어야 합니다.
+
+* 새 노드에서 LUN을 생성하기 전에 필요에 따라 새 노드에 LIF를 생성해야 합니다.
+* 호스트에서 호스트 스택 및 프로토콜에 따라 이러한 LIF를 검색해야 합니다.
+* 클러스터 인터커넥트 네트워크를 사용하지 않고 LUN 및 볼륨 이동을 수행할 수 있도록 새 노드에 LIF를 생성해야 합니다.
+

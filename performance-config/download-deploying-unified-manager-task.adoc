@@ -1,0 +1,33 @@
+---
+permalink: performance-config/download-deploying-unified-manager-task.html 
+sidebar: sidebar 
+keywords: download, deploy, active iq unified manager 
+summary: '소프트웨어를 설치하려면 가상 어플라이언스(VA) 설치 파일을 다운로드한 다음 VMware vSphere Client를 사용하여 VMware ESXi 서버에 파일을 구축해야 합니다. VA는 OVA 파일에서 사용할 수 있습니다.' 
+---
+= Active IQ Unified Manager 다운로드 및 배포
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+소프트웨어를 설치하려면 가상 어플라이언스(VA) 설치 파일을 다운로드한 다음 VMware vSphere Client를 사용하여 VMware ESXi 서버에 파일을 구축해야 합니다. VA는 OVA 파일에서 사용할 수 있습니다.
+
+.단계
+. NetApp Support 사이트 소프트웨어 다운로드 * 페이지로 이동하여 Active IQ Unified Manager을 찾으십시오.
++
+https://mysupport.netapp.com/products/index.html[]
+
+. Select Platform * (플랫폼 선택 *) 드롭다운 메뉴에서 * VMware vSphere * 를 선택하고 * Go! * (이동! *)를 클릭합니다
+. VMware vSphere Client에서 액세스할 수 있는 로컬 또는 네트워크 위치에 "OVA" 파일을 저장합니다.
+. VMware vSphere Client에서 * File * > * Deploy OVF Template * 을 클릭합니다.
+. "OVA" 파일을 찾아 마법사를 사용하여 ESXi 서버에 가상 어플라이언스를 구축합니다.
++
+마법사의 * 속성 * 탭을 사용하여 정적 구성 정보를 입력할 수 있습니다.
+
+. VM의 전원을 켭니다.
+. 초기 부팅 프로세스를 보려면 * Console * 탭을 클릭합니다.
+. 프롬프트에 따라 VM에 VMware Tools를 설치합니다.
+. 시간대를 구성합니다.
+. 유지보수 사용자 이름과 암호를 입력합니다.
+. VM 콘솔에 표시된 URL로 이동합니다.
+

@@ -1,0 +1,30 @@
+---
+permalink: cloud/encryption-data-at-rest-concept.html 
+sidebar: sidebar 
+keywords: netapp volume encryption, netapp aggregate encryption, encryption, data at rest 
+summary: ONTAP은 동일한 암호화 기술을 사용하여 사내 데이터를 보호하는 데 사용하는 클라우드에서 데이터를 보호합니다. 
+---
+= 유휴 데이터의 암호화
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP은 동일한 암호화 기술을 사용하여 사내 데이터를 보호하는 데 사용하는 클라우드에서 데이터를 보호합니다.
+
+Cloud Volumes ONTAP은 외부 키 관리자로 NVE(NetApp Volume Encryption) 및 NAE(NetApp Aggregate Encryption)를 지원합니다.
+
+Cloud Volumes ONTAP는 다음과 같은 암호화 기술도 지원합니다.
+
+* AWS 키 관리 서비스
+* Azure 스토리지 서비스 암호화
+* Google Cloud Platform 기본 암호화
+
+
+Azure NetApp Files 및 NetApp Cloud Volumes Service for Google Cloud를 사용하면 유휴 데이터를 항상 암호화할 수 있습니다.
+
+https://docs.netapp.com/us-en/occm/concept_security.html["Cloud Volumes ONTAP에 저장된 데이터의 암호화"]
+
+https://www.netapp.com/us/media/ds-3899.pdf["NetApp 볼륨 암호화 및 NetApp 애그리게이트 암호화"]
+
+https://docs.netapp.com/us-en/occm/task_encrypting_volumes.html["NetApp 암호화 솔루션으로 Cloud Volumes ONTAP의 볼륨 암호화"]

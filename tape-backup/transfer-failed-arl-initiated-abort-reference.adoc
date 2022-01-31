@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/transfer-failed-arl-initiated-abort-reference.html 
+sidebar: sidebar 
+keywords: transfer, failed, arl, initialized, abort, smtap, operation, abort 
+summary: SMTape 작업이 진행 중인 동안 집계 재배치를 시작하면 SMTape 작업이 중단됩니다. 
+---
+= 전송 실패(ARL 시작 중단)
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+"전송 실패(ARL 시작 중단)"
+
+* * 원인 *
++
+SMTape 작업이 진행 중인 동안 집계 재배치를 시작하면 SMTape 작업이 중단됩니다.
+
+* * 시정 조치 *
++
+집계 재배치 작업이 완료된 후 SMTape 작업을 수행합니다.
+
+

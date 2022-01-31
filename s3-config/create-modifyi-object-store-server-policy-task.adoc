@@ -1,0 +1,76 @@
+---
+permalink: s3-config/create-modifyi-object-store-server-policy-task.html 
+sidebar: sidebar 
+keywords: create, modify, object, store, server, policy 
+summary: 오브젝트 저장소의 하나 이상의 버킷에 적용할 수 있는 정책을 생성할 수 있습니다. 오브젝트 저장소 서버 정책을 사용자 그룹에 연결할 수 있으므로 여러 버킷에서 리소스 액세스 관리를 간소화할 수 있습니다. 
+---
+= 오브젝트 저장소 서버 정책을 만들거나 수정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+오브젝트 저장소의 하나 이상의 버킷에 적용할 수 있는 정책을 생성할 수 있습니다. 오브젝트 저장소 서버 정책을 사용자 그룹에 연결할 수 있으므로 여러 버킷에서 리소스 액세스 관리를 간소화할 수 있습니다.
+
+S3 서버와 버킷을 포함하는 S3 기반 SVM이 이미 존재해야 합니다.
+
+오브젝트 스토리지 서버 그룹에서 기본 정책 또는 사용자 지정 정책을 지정하여 SVM 레벨에서 액세스 정책을 활성화할 수 있습니다. 정책은 그룹 정의에 지정될 때까지 적용되지 않습니다.
+
+[NOTE]
+====
+개체 스토리지 서버 정책을 사용할 때는 정책 자체가 아니라 그룹 정의에서 보안 주체(사용자 및 그룹)를 지정합니다.
+
+====
+ONTAP S3 리소스에 액세스하기 위한 세 가지 읽기 전용 기본 정책이 있습니다.
+
+* 전체 액세스
+* NoS3액세스
+* ReadOnlyAccess 를 참조하십시오
+
+
+또한 새 사용자 지정 정책을 만든 다음 새 사용자 및 그룹에 대한 새 문을 추가하거나 기존 문의 특성을 수정할 수도 있습니다. 더 많은 옵션은 'vserver object-store-server policy' man 페이지를 참조하십시오.
+
+.단계
+. 오브젝트 스토리지 서버 정책 생성:
++
+'vserver object-store-server policy create-vserver svm_name-policy policy_name[-comment text]'
+
+. 정책에 대한 문을 생성합니다.
++
+'vserver object-store-server policy statement create -vserver svm_name] -policy policy_name -effect{allow|deny} -action object_store_actions -resource object_store_resources[-sid text]'를 입력합니다
+
++
+다음 매개 변수는 액세스 권한을 정의합니다.
+
++
+[cols="2*"]
+|===
+
+
+ a| 
+효과
+ a| 
+이 문은 액세스를 허용하거나 거부할 수 있습니다
+
+
+
+ a| 
+액션
+ a| 
+모든 작업을 의미하는 ' * '를 지정하거나, GetObject, PutObject, DeleteObject, ListBucket, GetBuckketAcl, GetObjectAcl 중 하나 이상의 목록을 지정할 수 있습니다. ListAllMyBucket, ListBuckketMultpartUploads, ListMultipartUploadParts를 포함합니다.
+
+
+
+ a| 
+'-resource'
+ a| 
+버킷과 버킷에 포함된 모든 물체 와일드카드 문자 ' * '와 '?'입니다 리소스를 지정하기 위한 정규식을 구성하는 데 사용할 수 있습니다.
+
+|===
++
+선택적으로 '-sid' 옵션을 사용하여 텍스트 문자열을 주석으로 지정할 수 있습니다.
+
++
+기본적으로 새 문은 순서대로 처리되는 문 목록의 끝에 추가됩니다. 나중에 문을 추가하거나 수정할 때 문장의 '-index' 설정을 수정하여 처리 순서를 변경할 수 있습니다.
+
+

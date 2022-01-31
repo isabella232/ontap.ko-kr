@@ -1,0 +1,12 @@
+---
+layout: landing-page 
+sidebar: sidebar 
+permalink: setup-upgrade/index.html 
+summary: ONTAP 및 시스템 구성 요소의 설정, 업그레이드 및 되돌리기 
+---
+= ONTAP 및 시스템 구성 요소의 설정, 업그레이드 및 되돌리기
+:hardbreaks:
+:linkattrs: 
+:imagesdir: ./media/
+
+

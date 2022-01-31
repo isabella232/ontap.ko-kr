@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/tape-record-size-should-be-block-size-reference.html 
+sidebar: sidebar 
+keywords: tape, record, size, local, restore, blocking, factor, restore, operation 
+summary: 로컬 복구에 대해 지정된 차단 계수가 잘못되었습니다. 
+---
+= 테이프 레코드 크기는 block_size1이 아니라 block_size2여야 합니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+테이프 레코드 크기는 block_size1이 아니라 block_size2여야 합니다
+
+* * 원인 *
++
+로컬 복구에 대해 지정된 차단 계수가 잘못되었습니다.
+
+* * 시정 조치 *
++
+블록 크기1을 차단 요소로 사용하여 복원 작업을 재시도하십시오.
+
+

@@ -1,0 +1,34 @@
+---
+permalink: tape-backup/remove-tape-aliases-task.html 
+sidebar: sidebar 
+keywords: remove, tape, aliases, clear, command, drive, medium, changer 
+summary: 테이프 드라이브 또는 미디어 체인저에 영구 별칭이 더 이상 필요하지 않은 경우 스토리지 테이프 별칭 지우기 명령을 사용하여 별칭을 제거할 수 있습니다. 
+---
+= 테이프 별칭을 제거합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+테이프 드라이브 또는 미디어 체인저에 영구 별칭이 더 이상 필요하지 않은 경우 'Storage tape alias clear' 명령을 사용하여 별칭을 제거할 수 있습니다.
+
+.단계
+. 'Storage tape alias clear' 명령어를 사용해 테이프 드라이브 또는 미디어 체인저에서 별칭을 삭제한다.
++
+이 명령에 대한 자세한 내용은 man 페이지를 참조하십시오.
+
++
+다음 명령을 실행하면 별칭 지우기 작업의 범위를 "테이프"로 지정하여 모든 테이프 드라이브의 별칭이 제거됩니다.
+
++
+[listing]
+----
+cluster-01::>storage tape alias clear -node cluster-01 -clear-scope tape
+----
+
+
+NDMP를 사용하여 테이프 백업 또는 복구 작업을 수행하는 경우 테이프 드라이브 또는 미디어 체인저에서 별칭을 제거한 후 테이프 디바이스에 계속 액세스하려면 테이프 드라이브 또는 미디어 체인저에 새 별칭 이름을 할당해야 합니다.
+
+xref:assign-tape-aliases-concept.adoc[테이프 앨리어싱이란 무엇입니까]
+
+xref:assign-tape-aliases-task.adoc[테이프 별칭 할당]

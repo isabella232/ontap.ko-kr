@@ -1,0 +1,39 @@
+---
+sidebar: sidebar 
+permalink: networking/create_a_subnet.html 
+keywords: move, moving, broadcast, domain, ipspace, create a subnet, network subnet create, network subnet show -ipspace 
+summary: 서브넷을 생성합니다 
+---
+= 서브넷을 생성합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+브로드캐스트 도메인을 생성한 후 SVM용 LIF를 생성할 때 나중에 사용할 특정 IPv4 또는 IPv6 주소 블록을 할당하는 서브넷을 생성할 수 있습니다.
+
+따라서 각 LIF에 대한 IP 주소와 네트워크 마스크 값을 지정하지 않고 서브넷 이름을 지정하여 LIF를 더 쉽게 생성할 수 있습니다.
+
+이 작업을 수행하려면 클러스터 관리자여야 합니다.
+
+.단계
+. 서브넷을 생성합니다.
++
+[listing]
+----
+network subnet create -broadcast-domain ipspace1 -ipspace ipspace1 -subnet-name ipspace1 -subnet 10.0.0.0/24 -gateway 10.0.0.1 -ip-ranges "10.0.0.128-10.0.0.130,10.0.0.132"
+----
++
+서브넷 이름은 192.0.2.0/24 등의 서브넷 IP 값이거나 이 예제에 사용된 것과 같은 ipspace1 등의 문자열이 될 수 있습니다.
+
+. 서브넷 구성이 올바른지 확인합니다.
++
+이 예제의 출력은 ipspace1 IPspace의 ipspace1 이라는 서브넷에 대한 정보를 보여 줍니다. 서브넷은 브로드캐스트 도메인 이름 ipspac1에 속합니다. 이 서브넷의 IP 주소를 ipspace1 IPspace에서 생성된 SVM용 데이터 LIF에 할당할 수 있습니다.
+
++
+네트워크 서브넷 표시-IPSpace ipspace1
+
+

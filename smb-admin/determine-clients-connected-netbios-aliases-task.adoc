@@ -1,0 +1,68 @@
+---
+permalink: smb-admin/determine-clients-connected-netbios-aliases-task.html 
+sidebar: sidebar 
+keywords: determine, smb, client, connect, netbios, alias, connection, troubleshoot, issue, determine whether smb clients are connected using netbios aliases 
+summary: SMB 클라이언트가 NetBIOS 별칭을 사용하여 연결되어 있는지 여부와 연결된 경우 연결에 사용되는 NetBIOS 별칭을 확인할 수 있습니다. 이 기능은 연결 문제를 해결할 때 유용할 수 있습니다. 
+---
+= SMB 클라이언트가 NetBIOS 별칭을 사용하여 연결되어 있는지 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMB 클라이언트가 NetBIOS 별칭을 사용하여 연결되어 있는지 여부와 연결된 경우 연결에 사용되는 NetBIOS 별칭을 확인할 수 있습니다. 이 기능은 연결 문제를 해결할 때 유용할 수 있습니다.
+
+SMB 연결에 연결된 NetBIOS 별칭(있는 경우)을 표시하려면 '-instance' 매개 변수를 사용해야 합니다. CIFS 서버 이름 또는 IP 주소를 사용하여 SMB 연결을 수행하는 경우 NetBIOS 이름 필드의 출력은 "-"(하이픈)입니다.
+
+.단계
+. 원하는 작업을 수행합니다.
++
+|===
+| 다음에 대한 NetBIOS 정보를 표시하려면... | 입력... 
+
+
+ a| 
+SMB 연결
+ a| 
+'vserver cifs session show-instance'
+
+
+
+ a| 
+지정된 NetBIOS 별칭을 사용하는 연결:
+ a| 
+'vserver cifs session show-instance-netbios-name_netbios_name_'
+
+|===
++
+다음 예에서는 세션 ID 1과 SMB 연결을 설정하는 데 사용되는 NetBIOS 별칭에 대한 정보를 표시합니다.
+
++
+'vserver cifs session show-session-id 1-instance'
+
++
+[listing]
+----
+
+                        Node: node1
+                     Vserver: vs1
+                  Session ID: 1
+               Connection ID: 127834
+Incoming Data LIF IP Address: 10.1.1.25
+                 Workstation: 10.2.2.50
+    Authentication Mechanism: NTLMv2
+                Windows User: EXAMPLE\user1
+                   UNIX User: user1
+                 Open Shares: 2
+                  Open Files: 2
+                  Open Other: 0
+              Connected Time: 1d 1h 10m 5s
+                   Idle Time: 22s
+            Protocol Version: SMB3
+      Continuously Available: No
+           Is Session Signed: true
+       User Authenticated as: domain-user
+                NetBIOS Name: ALIAS1
+       SMB Encryption Status: Unencrypted
+----
+

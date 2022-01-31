@@ -1,0 +1,95 @@
+---
+indexpage:
+  tiles:
+  - title: 시작하십시오
+    links:
+    - title: 데이터 보호 개요
+      url: "/../data-protection/index.html"
+    - title: 클러스터 및 SVM 피어링을 위한 기초
+      url: "/../peering/index.html"
+    - title: MetroCluster 개요
+      url: "/../concepts/mcc-config-concept.html"
+    - title: SnapLock 개요
+      url: "/../snaplock/snaplock-concept.html"
+    - title: 테이프 백업 개요
+      url: "/../tape-backup/index.html"
+  - title: 클러스터 및 SVM 피어링
+    links:
+    - title: System Manager로 클러스터 및 SVM 피어링 준비
+      url: "/../task_dp_prepare_mirror.html"
+    - title: CLI를 사용하여 클러스터 피어 관계를 생성합니다
+      url: "/../peering/peering-basics-concept.html"
+    - title: CLI를 사용하여 인터클러스터 SVM 피어 관계를 생성합니다
+      url: "/../peering/create-intercluster-svm-peer-relationship-93-later-task.html"
+    - title: CLI를 사용하여 인터클러스터 LIF를 구성합니다
+      url: "/../peering/configure-intercluster-lifs-share-data-ports-task.html"
+  - title: 재해 복구 및 준비
+    links:
+    - title: System Manager로 볼륨 보호
+      url: "/../task_dp_configure_mirror.html"
+    - title: CLI를 사용하여 볼륨 보호
+      url: "/../data-protection/snapmirror-replication-workflow-concept.html"
+    - title: System Manager로 스토리지 VM 보호
+      url: "/../task_dp_configure_storage_vm_dr.html"
+    - title: CLI를 통해 SVM 보호
+      url: "/../data-protection/snapmirror-svm-replication-workflow-concept.html"
+    - title: System Manager로 데이터를 복원합니다
+      url: "/../task_dp_serve_data_from_destination.html"
+    - title: CLI를 사용하여 데이터를 복원합니다
+      url: "/../data-protection/restore-volume-snapvault-backup-task.html"
+    - title: SnapMirror와 호환되는 ONTAP 버전
+      url: "/../data-protection/compatible-ontap-versions-snapmirror-concept.html"
+  - title: 아카이브 및 규정 준수
+    links:
+    - title: SnapLock 애그리게이트 및 볼륨 생성
+      url: "/../snaplock/workflow-concept.html"
+    - title: WORM에 파일을 커밋합니다
+      url: "/../snaplock/commit-files-worm-state-manual-task.html"
+    - title: 보존 시간을 설정합니다
+      url: "/../snaplock/set-retention-period-task.html"
+  - title: 정합성 보장 그룹(ONTAP 9.10.1의 새로운 기능)
+    links:
+    - title: 개요
+      url: "/../consistency-groups/index.html"
+    - title: 정합성 보장 그룹을 구성합니다
+      url: "/../consistency-groups/configure-task.html"
+    - title: 데이터 보호
+      url: "/../consistency-groups/protect-task.html"
+    - title: SnapMirror 비즈니스 연속성 개요
+      url: "/../concept_san_smbc_overview.html"
+    - title: System Manager를 이용한 구축
+      url: "/../task_san_configure_protection_for_business_continuity.html"
+    - title: CLI를 사용한 구축
+      url: "/../smbc/smbc_install_high_level_deployment_workflow.html"
+  - title: SnapMirror 클라우드
+    links:
+    - title: SnapMirror 클라우드 라이센스
+      url: "/../data-protection/install-snapmirror-cloud-license-task.html"
+    - title: 클라우드 백업
+      url: "/../concepts/cloud-backup-support-traditional-backups-concept.html"
+  - title: MetroCluster
+    links:
+    - title: System Manager로 MetroCluster 사이트를 관리합니다
+      url: "/../concept_metrocluster_manage_nodes.html"
+    - title: CLI를 사용하여 MetroCluster를 관리합니다
+      url: https://docs.netapp.com/us-en/ontap-metrocluster/
+  - title: 테이프 백업
+    links:
+    - title: NDMP를 구성합니다
+      url: "/../ndmp/config-workflow-concept.html"
+    - title: ndmpcopy를 사용하여 데이터를 전송합니다
+      url: "/../tape-backup/transfer-data-ndmpcopy-task.html"
+    - title: SMTape 엔진
+      url: "/../tape-backup/smtape-engine-concept.html"
+    - title: 덤프 엔진
+      url: "/../tape-backup/data-backup-dump-concept.html"
+  - title: 더 많은 리소스
+    links:
+    - title: 'TR-4015: SnapMirror 구성 및 모범 사례'
+      url: https://www.netapp.com/pdf.html?item=/media/17229-tr4015.pdf
+    - title: 'TR-4733: SnapMirror Synchronous 구성 및 모범 사례'
+      url: https://www.netapp.com/pdf.html?item=/media/17174-tr4733.pdf
+    - title: 'TR-4526: SnapLock를 사용한 규정 준수 WORM 스토리지'
+      url: https://www.netapp.com/media/6158-tr4526.pdf
+    - title: 'TR-4183: SnapVault 모범 사례'
+      url: https://www.netapp.com/pdf.html?item=/media/19684-tr-4183.pdf

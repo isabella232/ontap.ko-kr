@@ -1,0 +1,15 @@
+---
+permalink: performance-admin/qos-workflow-concept.html 
+sidebar: sidebar 
+keywords: storage, qos, workflow 
+summary: QoS를 사용하여 관리할 워크로드의 성능 요구사항을 이미 알고 있는 경우 정책 그룹을 생성할 때 처리량 한도를 지정할 수 있습니다. 그렇지 않으면 워크로드를 모니터링하여 한도를 지정할 때까지 기다릴 수 있습니다. 
+---
+= 스토리지 QoS 워크플로우
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+QoS를 사용하여 관리할 워크로드의 성능 요구사항을 이미 알고 있는 경우 정책 그룹을 생성할 때 처리량 한도를 지정할 수 있습니다. 그렇지 않으면 워크로드를 모니터링하여 한도를 지정할 때까지 기다릴 수 있습니다.
+
+image::../media/qos-workflow.gif[이 그림에서는 다음 단계를 보여 줍니다. 1. 정책 그룹에 할당할 스토리지 객체를 식별합니다. 제어 및 모니터링,create policy groups with throughput limits or to monitor only,create policy groups without throughput limits. 3. Assign the storage objects to policy groups. 4. Monitor performance by viewing statistics. 5. Adjust policy settings]

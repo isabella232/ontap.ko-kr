@@ -1,0 +1,84 @@
+---
+section: authentication
+title: CLI를 사용하여 관리자 인증 및 RBAC를 관리합니다
+entries:
+- title: 개요
+  url: "/authentication/index.html"
+- title: 워크플로우
+  url: "/authentication/workflow-concept.html"
+- title: 구성 워크시트
+  url: "/authentication/config-worksheets-reference.html"
+- title: 로그인 계정을 만듭니다
+  entries:
+  - title: 개요
+    url: "/authentication/create-svm-user-accounts-task.html"
+  - title: 로컬 계정 액세스를 설정합니다
+    entries:
+    - title: 개요
+      url: "/authentication/create-local-user-accounts-task.html"
+    - title: 암호 계정 액세스를 활성화합니다
+      url: "/authentication/enable-password-account-access-task.html"
+    - title: SSH 공개 키 계정을 활성화합니다
+      url: "/authentication/enable-ssh-public-key-accounts-task.html"
+    - title: SSH 다단계 인증(MFA) 지원
+      url: "/authentication/setup-ssh-multifactor-authentication-task.html"
+    - title: SSL 인증서 계정을 활성화합니다
+      url: "/authentication/enable-ssl-certificate-accounts-task.html"
+  - title: Active Directory 계정 액세스를 설정합니다
+    url: "/authentication/grant-access-active-directory-users-groups-task.html"
+  - title: LDAP 또는 NIS 계정 액세스를 설정합니다
+    url: "/authentication/grant-access-nis-ldap-user-accounts-task.html"
+  - title: SAML 인증을 구성합니다
+    url: "/authentication/configure-saml-authentication-task.html"
+- title: 액세스 제어 역할을 관리합니다
+  entries:
+  - title: 개요
+    url: "/authentication/manage-access-control-roles-concept.html"
+  - title: 관리자에게 할당된 역할을 수정합니다
+    url: "/authentication/modify-role-assigned-administrator-task.html"
+  - title: 사용자 지정 역할을 정의합니다
+    url: "/authentication/define-custom-roles-task.html"
+  - title: 클러스터 관리자를 위한 사전 정의된 역할
+    url: "/authentication/predefined-roles-cluster-administrators-concept.html"
+  - title: SVM 관리자를 위한 사전 정의된 역할
+    url: "/authentication/predefined-roles-svm-administrators-concept.html"
+- title: 관리자 계정을 관리합니다
+  entries:
+  - title: 개요
+    url: "/authentication/manage-user-accounts-concept.html"
+  - title: 공개 키를 관리자 계정에 연결합니다
+    url: "/authentication/manage-public-key-authentication-concept.html"
+  - title: CA 서명 서버 인증서를 생성하고 설치합니다
+    entries:
+    - title: 개요
+      url: "/authentication/install-server-certificate-cluster-svm-ssl-server-task.html"
+    - title: 인증서 서명 요청을 생성합니다
+      url: "/authentication/generate-digital-certificate-signing-request-task.html"
+    - title: CA 서명 서버 인증서를 설치합니다
+      url: "/authentication/install-ca-signed-server-digital-certificate-task.html"
+  - title: Active Directory 도메인 컨트롤러 액세스를 구성합니다
+    entries:
+    - title: 개요
+      url: "/authentication/enable-ad-users-groups-access-cluster-svm-task.html"
+    - title: 인증 터널을 구성합니다
+      url: "/authentication/configure-authentication-tunnel-task.html"
+    - title: 도메인에서 SVM 컴퓨터 계정을 생성합니다
+      url: "/authentication/create-svm-computer-account-domain-task.html"
+  - title: LDAP 또는 NIS 서버 액세스를 구성합니다
+    entries:
+    - title: 개요
+      url: "/authentication/enable-nis-ldap-users-access-cluster-task.html"
+    - title: LDAP 서버 액세스를 구성합니다
+      url: "/authentication/configure-ldap-server-access-task.html"
+    - title: NIS 서버 액세스를 구성합니다
+      url: "/authentication/configure-nis-server-access-task.html"
+    - title: 네임 서비스 스위치를 생성합니다
+      url: "/authentication/create-name-service-switch-task.html"
+  - title: 관리자 암호를 변경합니다
+    url: "/authentication/change-login-password-task.html"
+  - title: 관리자 계정 잠금 및 잠금 해제
+    url: "/authentication/lock-unlock-user-account-task.html"
+  - title: 실패한 로그인 시도를 관리합니다
+    url: "/authentication/manage-failed-login-attempts-reference.html"
+  - title: 관리자 계정 암호에 SHA-2를 적용합니다
+    url: "/authentication/enforce-sha2-user-account-passwords-task.html"

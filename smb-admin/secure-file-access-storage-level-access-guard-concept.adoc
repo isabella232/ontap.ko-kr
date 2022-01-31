@@ -1,0 +1,73 @@
+---
+permalink: smb-admin/secure-file-access-storage-level-access-guard-concept.html 
+sidebar: sidebar 
+keywords: addition, securing, secure, access, native, file-level, export, share, security, storage-level, guard, apply, applied, secure file access by using storage-level access guard 
+summary: 기본 파일 수준 및 내보내기/공유 보안을 사용하여 액세스를 보호하는 것 외에도 ONTAP가 볼륨 수준에서 적용한 세 번째 보안 계층인 스토리지 수준 액세스 가드를 구성할 수 있습니다. Storage-Level Access Guard는 모든 NAS 프로토콜에서 해당 프로토콜이 적용된 스토리지 객체에 액세스하는 데 적용됩니다. 
+---
+= Storage-Level Access Guard를 사용하여 파일 액세스를 보호합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+기본 파일 수준 및 내보내기/공유 보안을 사용하여 액세스를 보호하는 것 외에도 ONTAP가 볼륨 수준에서 적용한 세 번째 보안 계층인 스토리지 수준 액세스 가드를 구성할 수 있습니다. Storage-Level Access Guard는 모든 NAS 프로토콜에서 해당 프로토콜이 적용된 스토리지 객체에 액세스하는 데 적용됩니다.
+
+NTFS 액세스 권한만 지원됩니다. ONTAP에서 UNIX 사용자에 대한 보안 검사를 수행하여 스토리지 수준 액세스 가드가 적용된 볼륨의 데이터에 액세스하려면 UNIX 사용자는 볼륨을 소유한 SVM에서 Windows 사용자에게 매핑해야 합니다.
+
+
+
+== Storage-Level Access Guard 동작
+
+* Storage-Level Access Guard는 스토리지 개체의 모든 파일 또는 모든 디렉토리에 적용됩니다.
++
+볼륨의 모든 파일 또는 디렉토리에는 Storage-Level Access Guard 설정이 적용되기 때문에 전파를 통한 상속은 필요하지 않습니다.
+
+* 저장소 수준 액세스 가드를 구성하여 파일에만 적용하거나 디렉터리에만 적용하거나 볼륨 내의 파일과 디렉터리에 모두 적용할 수 있습니다.
++
+** 파일 및 디렉터리 보안
++
+스토리지 객체 내의 모든 디렉토리 및 파일에 적용됩니다. 기본 설정입니다.
+
+** 파일 보안
++
+스토리지 객체 내의 모든 파일에 적용됩니다. 이 보안을 적용해도 디렉터리에 대한 액세스 또는 감사에는 영향을 주지 않습니다.
+
+** 디렉터리 보안
++
+스토리지 객체 내의 모든 디렉토리에 적용됩니다. 이 보안을 적용해도 파일에 대한 액세스 또는 감사에는 영향을 주지 않습니다.
+
+
+
+* Storage-Level Access Guard는 사용 권한을 제한하는 데 사용됩니다.
++
+추가 액세스 권한은 제공하지 않습니다.
+
+* NFS 또는 SMB 클라이언트의 파일 또는 디렉토리에 대한 보안 설정을 볼 경우 Storage-Level Access Guard 보안이 표시되지 않습니다.
++
+스토리지 객체 레벨에서 적용되고 유효 사용 권한을 결정하는 데 사용되는 메타데이터에 저장됩니다.
+
+* 시스템(Windows 또는 UNIX) 관리자도 클라이언트에서 스토리지 수준 보안을 취소할 수 없습니다.
++
+스토리지 관리자만 수정할 수 있습니다.
+
+* NTFS 또는 혼합 보안 스타일을 사용하는 볼륨에 스토리지 수준 액세스 가드를 적용할 수 있습니다.
+* 볼륨이 포함된 SVM에 CIFS 서버가 구성되어 있는 경우 UNIX 보안 스타일을 사용하는 볼륨에 Storage-Level Access Guard를 적용할 수 있습니다.
+* 볼륨이 볼륨 접합 경로 아래에 마운트되고 해당 경로에 Storage-Level Access Guard가 있는 경우 그 아래에 마운트된 볼륨으로 전파되지 않습니다.
+* Storage-Level Access Guard 보안 설명자는 SnapMirror 데이터 복제 및 SVM 복제를 통해 복제됩니다.
+* 바이러스 스캐너용 특별한 디스펜션이 있습니다.
++
+저장소 수준 액세스 가드가 개체에 대한 액세스를 거부하더라도 이러한 서버에서 파일과 디렉토리를 선별하기 위해 예외적인 액세스가 허용됩니다.
+
+* 스토리지 레벨 액세스 가드로 인해 액세스가 거부되면 FPolicy 알림이 전송되지 않습니다.
+
+
+
+
+== 액세스 확인 순서
+
+파일 또는 디렉토리에 대한 액세스는 내보내기 또는 공유 권한, 볼륨에 설정된 Storage-Level Access Guard 권한, 파일 및/또는 디렉토리에 적용되는 기본 파일 권한의 합집합에 의해 결정됩니다. 모든 보안 수준을 평가하여 파일 또는 디렉터리에 있는 유효한 권한을 결정합니다. 보안 액세스 검사는 다음 순서로 수행됩니다.
+
+. SMB 공유 또는 NFS 엑스포트 레벨 사용 권한
+. 스토리지 레벨 액세스 가드
+. NTFS 파일/폴더 ACL(액세스 제어 목록), NFSv4 ACL 또는 UNIX 모드 비트
+

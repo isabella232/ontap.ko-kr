@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: task_cloud_local_bucket_tier_data.html 
+keywords: netapp, ontap, ONTAP 9.8, ONTAP S3, S3, data, cloud, tier, tiering, tiers, bucket, buckets, VM, storage VM, storage, object, object storage, volume 
+summary: ONTAP 9.8부터 ONTAP S3를 사용하여 데이터를 로컬 오브젝트 스토리지에 계층화할 수 있습니다. 
+---
+= 데이터를 로컬 버킷에 계층화
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+ONTAP 9.8부터 ONTAP S3를 사용하여 데이터를 로컬 오브젝트 스토리지에 계층화할 수 있습니다.
+
+데이터를 로컬 버킷으로 계층화하면 데이터를 다른 로컬 계층으로 이동할 때의 간단한 대안이 됩니다. 이 절차에서는 로컬 클러스터에 있는 기존 버킷을 사용하거나 ONTAP에서 자동으로 새 스토리지 VM과 새 버킷을 생성할 수 있습니다.
+
+로컬 계층(aggr)에 연결한 후에는 클라우드 계층을 연결 해제할 수 없습니다.
+
+이 워크플로우에는 새 S3 서버 및 새 버킷을 생성하거나 기존 버킷을 사용하는 S3 라이센스가 필요합니다. 이 워크플로우에는 FabricPool 라이센스가 필요하지 않습니다.
+
+.단계
+. 로컬 버킷에 데이터 계층화: * Tiers * 를 클릭하고 계층을 선택한 다음 를 클릭합니다 image:icon_kabob.gif["Kabob 아이콘"].
++
+** 새 계층(ONTAP S3)을 생성하거나 기존 계층을 사용할 수 있습니다.
+** 기존 볼륨 계층화 정책을 편집할 수 있습니다.
+
+
+

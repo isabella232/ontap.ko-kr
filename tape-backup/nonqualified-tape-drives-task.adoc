@@ -1,0 +1,48 @@
+---
+permalink: tape-backup/nonqualified-tape-drives-task.html 
+sidebar: sidebar 
+keywords: nonqualified, tape, drive, storage, system, emulate, qualified 
+summary: 검증된 테이프 드라이브를 에뮬레이트할 수 있는 경우 스토리지 시스템에서 검증되지 않은 테이프 드라이브를 사용할 수 있습니다. 그런 다음 자격 있는 테이프 드라이브처럼 취급됩니다. 검증되지 않은 테이프 드라이브를 사용하려면 먼저 정규화된 테이프 드라이브를 에뮬레이트하는지 여부를 확인해야 합니다. 
+---
+= 검증되지 않은 테이프 드라이브를 사용합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+검증된 테이프 드라이브를 에뮬레이트할 수 있는 경우 스토리지 시스템에서 검증되지 않은 테이프 드라이브를 사용할 수 있습니다. 그런 다음 자격 있는 테이프 드라이브처럼 취급됩니다. 검증되지 않은 테이프 드라이브를 사용하려면 먼저 정규화된 테이프 드라이브를 에뮬레이트하는지 여부를 확인해야 합니다.
+
+검증되지 않은 테이프 드라이브는 스토리지 시스템에 연결되어 있지만 ONTAP에서 지원되거나 인식되지 않는 드라이브입니다.
+
+.단계
+. Storage tape show-supported-status 명령을 사용하여 스토리지 시스템에 연결된 검증되지 않은 테이프 드라이브를 확인합니다.
++
+다음 명령을 실행하면 스토리지 시스템에 연결된 테이프 드라이브와 각 테이프 드라이브의 지원 및 검증 상태가 표시됩니다. 검증되지 않은 테이프 드라이브도 나열됩니다. ""tape_drive_vendor_name""은(는) 스토리지 시스템에 연결된 검증되지 않은 테이프 드라이브이지만 ONTAP에서 지원하지 않습니다.
+
++
+[listing]
+----
+
+cluster1::> storage tape show-supported-status -node Node1
+
+          Node: Node1
+                                    Is
+          Tape Drive                Supported  Support Status
+          --------------------      ---------  --------------
+          "tape_drive_vendor_name"  false      Nonqualified tape drive
+          Hewlett-Packard C1533A    true       Qualified
+          Hewlett-Packard C1553A    true       Qualified
+          Hewlett-Packard Ultrium 1 true       Qualified
+          Sony SDX-300C             true       Qualified
+          Sony SDX-500C             true       Qualified
+          StorageTek T9840C         true       Dynamically Qualified
+          StorageTek T9840D         true       Dynamically Qualified
+          Tandberg LTO-2 HH         true       Dynamically Qualified
+----
+. 검증된 테이프 드라이브를 에뮬레이트합니다.
++
+http://mysupport.netapp.com/NOW/download/tools/tape_config["NetApp 다운로드: 테이프 장치 구성 파일"]
+
+
+
+xref:qualified-tape-drives-concept.adoc[검증된 테이프 드라이브가 무엇입니까]

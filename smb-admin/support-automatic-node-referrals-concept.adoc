@@ -1,0 +1,29 @@
+---
+permalink: smb-admin/support-automatic-node-referrals-concept.html 
+sidebar: sidebar 
+keywords: enable, smb, automatic, node, referral, aware, ontap, functionality, support, support for smb automatic node referrals 
+summary: SMB 자동 노드 조회를 활성화하기 전에 특정 ONTAP 기능이 조회를 지원하지 않는다는 점을 알아야 합니다. 
+---
+= SMB 자동 노드 조회를 지원합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMB 자동 노드 조회를 활성화하기 전에 특정 ONTAP 기능이 조회를 지원하지 않는다는 점을 알아야 합니다.
+
+* 다음 유형의 볼륨은 SMB 자동 노드 조회를 지원하지 않습니다.
++
+** 로드 공유 미러의 읽기 전용 구성원입니다
+** 데이터 보호 미러의 타겟 볼륨입니다
+
+
+* 노드 조회가 LIF 이동 옆에서 이동하지 않습니다.
++
+클라이언트가 SMB 2.x 또는 SMB 3.0 연결을 통해 위탁된 연결을 사용 중이고 데이터 LIF가 중단 없이 이동되는 경우, LIF가 더 이상 데이터에 로컬이 아니어도 클라이언트는 계속 동일한 연결 연결을 사용합니다.
+
+* 노드 조회가 볼륨 이동 옆에서 이동하지 않습니다.
++
+클라이언트가 SMB 연결을 통해 참조된 연결을 사용하고 있고 볼륨 이동이 발생하는 경우, 클라이언트는 볼륨이 데이터 LIF와 같은 노드에 더 이상 존재하지 않더라도 계속해서 동일한 연결 연결을 사용합니다.
+
+

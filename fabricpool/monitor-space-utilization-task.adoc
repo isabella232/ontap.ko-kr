@@ -1,0 +1,148 @@
+---
+permalink: fabricpool/monitor-space-utilization-task.html 
+sidebar: sidebar 
+keywords: monitoring, space, utilization, fabricpool 
+summary: FabricPool를 위해 성능 및 클라우드 계층에 얼마나 많은 데이터가 저장되어 있는지 알아야 합니다. 이 정보를 통해 볼륨의 계층화 정책을 변경해야 하는지, 라이센스가 부여된 FabricPool 사용 제한을 늘리거나, 클라우드 계층의 스토리지 공간을 늘려야 하는지 여부를 결정할 수 있습니다. 
+---
+= FabricPool의 공간 사용률을 모니터링합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FabricPool를 위해 성능 및 클라우드 계층에 얼마나 많은 데이터가 저장되어 있는지 알아야 합니다. 이 정보를 통해 볼륨의 계층화 정책을 변경해야 하는지, 라이센스가 부여된 FabricPool 사용 제한을 늘리거나, 클라우드 계층의 스토리지 공간을 늘려야 하는지 여부를 결정할 수 있습니다.
+
+.단계
+. 다음 명령 중 하나를 사용하여 FabricPool 지원 애그리게이트의 공간 활용률을 모니터링하여 정보를 표시합니다.
++
+|===
+
+
+| 를 표시하려면... | 다음 명령을 사용합니다. 
+
+
+ a| 
+애그리게이트에서 클라우드 계층의 사용된 크기입니다
+ a| 
+'Storage aggregate show'를 -instance 매개변수로 표시합니다
+
+
+
+ a| 
+오브젝트 저장소의 참조 용량을 포함하여 애그리게이트 내 공간 활용률의 세부 정보
+ a| 
+인스턴스 매개 변수가 있는 'Storage aggregate show space'입니다
+
+
+
+ a| 
+사용 중인 라이센스 공간을 비롯하여 애그리게이트에 연결되어 있는 오브젝트 저장소의 공간 활용률
+ a| 
+'스토리지 집계 오브젝트 저장소 표시 공간'
+
+
+
+ a| 
+애그리게이트의 볼륨 목록과 데이터 및 메타데이터의 풋프린트
+ a| 
+볼륨 쇼 풋프린트
+
+|===
++
+CLI 명령을 사용할 뿐만 아니라 Active IQ Unified Manager(이전의 OnCommand Unified Manager)와 ONTAP 9.4 이상 클러스터에서 지원하는 FabricPool Advisor 또는 System Manager를 함께 사용하여 공간 사용률을 모니터링할 수 있습니다.
+
++
+다음 예제는 FabricPool에 대한 공간 사용률 및 관련 정보를 표시하는 방법을 보여줍니다.
+
++
+[listing]
+----
+cluster1::> storage aggregate show-space -instance
+
+                          Aggregate: MyFabricPool
+                                                                   ...
+                                               Aggregate Display Name: MyFabricPool
+                                                                   ...
+                          Total Object Store Logical Referenced Capacity: -
+                          Object Store Logical Referenced Capacity Percentage: -
+                                                                   ...
+                                                       Object Store Size: -
+                          Object Store Space Saved by Storage Efficiency: -
+                          Object Store Space Saved by Storage Efficiency Percentage: -
+                                                 Total Logical Used Size: -
+                                                 Logical Used Percentage: -
+                                           Logical Unreferenced Capacity: -
+                                         Logical Unreferenced Percentage: -
+
+----
++
+[listing]
+----
+cluster1::> storage aggregate show -instance
+
+                           Aggregate: MyFabricPool
+                           ...
+                           Composite: true
+                           Capacity Tier Used Size:
+                           ...
+----
++
+[listing]
+----
+cluster1::> volume show-footprint
+
+Vserver : vs1
+Volume : rootvol
+
+Feature                          Used       Used%
+-------------------------------- ---------- -----
+Volume Footprint                 KB          %
+Volume Guarantee                 MB          %
+Flexible Volume Metadata         KB          %
+Delayed Frees                    KB          %
+Total Footprint                  MB          %
+
+Vserver : vs1
+Volume : vol
+
+Feature                          Used       Used%
+-------------------------------- ---------- -----
+Volume Footprint                 KB          %
+Footprint in Performance Tier    KB          %
+Footprint in Amazon01            KB          %
+Flexible Volume Metadata         MB          %
+Delayed Frees                    KB          %
+Total Footprint                  MB          %
+...
+----
+. 필요에 따라 다음 작업 중 하나를 수행합니다.
++
+|===
+
+
+| 원하는 작업 | 그러면... 
+
+
+ a| 
+볼륨의 계층화 정책을 변경합니다
+ a| 
+의 절차를 따릅니다 link:modify-tiering-policy-cooling-period-task.html["볼륨의 계층화 정책을 수정하거나 최소 냉각 기간을 계층화하여 스토리지 계층화 관리"].
+
+
+
+ a| 
+FabricPool 라이센스 사용 제한을 늘립니다
+ a| 
+NetApp 또는 파트너 세일즈 담당자에게 문의하십시오.
+
+https://mysupport.netapp.com/site/global/dashboard["NetApp 지원"]
+
+
+
+ a| 
+클라우드 계층의 스토리지 공간 증가
+ a| 
+클라우드 계층에 사용하는 오브젝트 저장소 공급자에 문의하십시오.
+
+|===
+

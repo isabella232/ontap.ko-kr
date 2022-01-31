@@ -1,0 +1,65 @@
+---
+permalink: smb-admin/grant-null-users-access-file-system-shares-task.html 
+sidebar: sidebar 
+keywords: access, storage, system, resource, null, session, client, assign, group, ip, adress, null, session, grant, grant null users access to file system shares 
+summary: null 세션 클라이언트가 사용할 그룹을 할당하고 null 세션 클라이언트의 IP 주소를 기록하여 null 세션을 사용하여 데이터를 액세스할 수 있는 스토리지 시스템의 클라이언트 목록에 추가하여 null 세션 클라이언트를 통해 스토리지 시스템 리소스에 대한 액세스를 허용할 수 있습니다. 
+---
+= Null 사용자에게 파일 시스템 공유에 대한 액세스 권한을 부여합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+null 세션 클라이언트가 사용할 그룹을 할당하고 null 세션 클라이언트의 IP 주소를 기록하여 null 세션을 사용하여 데이터를 액세스할 수 있는 스토리지 시스템의 클라이언트 목록에 추가하는 방식으로 null 세션 클라이언트를 통해 스토리지 시스템 리소스에 대한 액세스를 허용할 수 있습니다.
+
+.단계
+. "vserver name-mapping create" 명령을 사용하여 Null 사용자를 IP 한정자를 사용하여 유효한 Windows 사용자에게 매핑합니다.
++
+다음 명령을 실행하면 유효한 호스트 이름이 google.com 인 user1에 null 사용자가 매핑됩니다.
+
++
+[listing]
+----
+vserver name-mapping create –direction win-unix  -position 1 –pattern “ANONYMOUS LOGON” –replacement user1 – hostname google.com
+----
++
+다음 명령을 실행하면 유효한 IP 주소가 10.238.2.54/32인 user1에 null 사용자가 매핑됩니다.
+
++
+[listing]
+----
+vserver name-mapping create –direction win-unix  -position 2 –pattern “ANONYMOUS LOGON” –replacement user1 –address 10.238.2.54/32
+----
+. 이름 매핑을 확인하려면 'vserver name-mapping show' 명령을 사용하십시오.
++
+[listing]
+----
+vserver name-mapping show
+
+Vserver:   vs1
+Direction: win-unix
+Position Hostname         IP Address/Mask
+-------- --------         ----------------
+1       -                 10.72.40.83/32      Pattern: anonymous logon
+                                          Replacement: user1
+----
+. "vserver cifs options modify –win-name -for-null-user" 명령을 사용하여 null 사용자에게 Windows 구성원을 할당합니다.
++
+이 옵션은 Null 사용자에 대해 유효한 이름 매핑이 있는 경우에만 적용할 수 있습니다.
+
++
+[listing]
+----
+vserver cifs options modify -win-name-for-null-user user1
+----
+. "vserver cifs options show" 명령을 사용하여 null 사용자가 Windows 사용자 또는 그룹에 매핑되었는지 확인합니다.
++
+[listing]
+----
+vserver cifs options show
+
+Vserver :vs1
+
+Map Null User to Windows User of Group: user1
+----
+

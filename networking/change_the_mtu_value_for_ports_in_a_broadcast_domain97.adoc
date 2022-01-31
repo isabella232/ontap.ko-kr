@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: networking/change_the_mtu_value_for_ports_in_a_broadcast_domain97.html 
+keywords: modify, modifying, mtu, mtu_value, change, changing, broadcast, domain, ports, port, change the mtu value for ports in a broadcast domain 
+summary: 브로드캐스트 도메인의 MTU 값을 수정하여 브로드캐스트 도메인의 모든 포트에 대해 해당 값을 변경합니다 
+---
+= 브로드캐스트 도메인의 포트에 대한 MTU 값을 변경합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+브로드캐스트 도메인의 MTU 값을 수정하여 해당 브로드캐스트 도메인의 모든 포트에 대한 MTU 값을 변경할 수 있습니다. 이 작업은 네트워크에서 수행된 토폴로지 변경을 지원하기 위해 수행할 수 있습니다.
+
+MTU 값은 e0M 포트 처리 관리 트래픽을 제외하고 해당 계층 2 네트워크에 연결된 모든 장치와 일치해야 합니다.
+
+MTU 값을 변경하면 영향을 받는 포트에서 트래픽이 잠시 중단됩니다. MTU를 변경하려면 y로 답해야 한다는 메시지가 표시됩니다.
+
+브로드캐스트 도메인의 모든 포트에 대한 MTU 값을 변경합니다.
+
+....
+network port broadcast-domain modify -broadcast-domain <broadcast_domain_name> -mtu <mtu_valu> [-ipspace <ipspace_name>]
+....
+* broadcast_domain은 브로드캐스트 도메인의 이름입니다.
+* Mtu는 IP 패킷의 MTU 크기이고 1500과 9000은 일반적인 값입니다.
+* IPSpace는 이 브로드캐스트 도메인이 상주하는 IPspace의 이름입니다. 이 옵션에 대한 값을 지정하지 않으면 "기본" IPspace가 사용됩니다. 다음 명령을 실행하면 브로드캐스트 도메인 bcast1의 모든 포트에 대한 MTU가 9000으로 변경됩니다.
+
+
+....
+network port broadcast-domain modify -broadcast-domain <Default-1> -mtu < 9000 >
+Warning: Changing broadcast domain settings will cause a momentary data-serving interruption.
+Do you want to continue? {y|n}: <y>
+....

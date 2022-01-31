@@ -1,0 +1,19 @@
+---
+permalink: volumes/default-user-quotas-volume-affect-qtrees-concept.html 
+sidebar: sidebar 
+keywords: how, default, user, quotas, flexvol volume, affect, quotas, qtrees, volume 
+summary: 기본 사용자 할당량이 FlexVol 볼륨에 대해 정의된 경우 명시적 또는 파생 트리 할당량이 있는 해당 볼륨에 포함된 모든 qtree에 대해 기본 사용자 할당량이 자동으로 생성됩니다. 
+---
+= FlexVol 볼륨의 기본 사용자 할당량이 해당 볼륨의 qtree에 대한 할당량에 미치는 영향
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+기본 사용자 할당량이 FlexVol 볼륨에 대해 정의된 경우 명시적 또는 파생 트리 할당량이 있는 해당 볼륨에 포함된 모든 qtree에 대해 기본 사용자 할당량이 자동으로 생성됩니다.
+
+qtree의 기본 사용자 할당량이 이미 있는 경우, 볼륨에 대한 기본 사용자 할당량이 생성될 때 영향을 받지 않습니다.
+
+Qtree에서 자동으로 생성된 기본 사용자 할당량은 볼륨에 대해 생성한 기본 사용자 할당량과 동일한 제한이 있습니다.
+
+qtree에 대한 명시적 사용자 할당량이 관리자가 생성한 qtree의 기본 사용자 할당량을 재정의하는 것과 동일한 방식으로 자동으로 생성된 기본 사용자 할당량을 재정의합니다.

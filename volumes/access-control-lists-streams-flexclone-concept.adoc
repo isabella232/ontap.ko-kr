@@ -1,0 +1,15 @@
+---
+permalink: volumes/access-control-lists-streams-flexclone-concept.html 
+sidebar: sidebar 
+keywords: how, access control lists work, flexclone files, flexclone luns 
+summary: FlexClone 파일 및 FlexClone LUN은 부모 파일 및 LUN의 액세스 제어 목록을 상속합니다. 
+---
+= 액세스 제어 목록이 FlexClone 파일 및 FlexClone LUN과 작동하는 방식
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FlexClone 파일 및 FlexClone LUN은 부모 파일 및 LUN의 액세스 제어 목록을 상속합니다.
+
+상위 파일에 Windows NT 스트림이 포함되어 있으면 FlexClone 파일도 스트림 정보를 상속합니다. 그러나 스트림이 6개 이상인 상위 파일은 복제할 수 없습니다.

@@ -1,0 +1,70 @@
+---
+section: snaplock
+title: SnapLock 기술을 사용한 아카이브 및 규정 준수
+entries:
+- title: 개요
+  url: "/snaplock/index.html"
+- title: SnapLock란
+  url: "/snaplock/snaplock-concept.html"
+- title: SnapLock 워크플로
+  url: "/snaplock/workflow-concept.html"
+- title: SnapLock를 구성합니다
+  entries:
+  - title: 라이센스를 설치합니다
+    url: "/snaplock/install-license-task.html"
+  - title: ComplianceClock을 초기화합니다
+    url: "/snaplock/initialize-complianceclock-task.html"
+  - title: SnapLock Aggregate를 생성합니다
+    url: "/snaplock/create-snaplock-aggregate-task.html"
+  - title: SnapLock 볼륨을 생성합니다
+    url: "/snaplock/create-snaplock-volume-task.html"
+  - title: SnapLock 볼륨을 마운트합니다
+    url: "/snaplock/mount-snaplock-volume-task.html"
+  - title: 보존 시간을 설정합니다
+    entries:
+    - title: 개요
+      url: "/snaplock/set-retention-period-task.html"
+    - title: 파일의 보존 시간을 명시적으로 설정합니다
+      url: "/snaplock/set-retention-time-file-explicitly-task.html"
+    - title: 기본 보존 기간을 설정합니다
+      url: "/snaplock/set-default-retention-period-task.html"
+  - title: SnapLock 설정을 확인합니다
+    url: "/snaplock/verify-file-volume-settings-file-fingerprint-task.html"
+  - title: NTP 구성 시스템의 ComplianceClock을 재설정합니다
+    url: "/snaplock/reset-complianceclock-ntp-task.html"
+- title: WORM에 파일을 커밋합니다
+  entries:
+  - title: WORM에 파일을 수동으로 커밋합니다
+    url: "/snaplock/commit-files-worm-state-manual-task.html"
+  - title: WORM에 파일을 자동 커밋합니다
+    url: "/snaplock/autocommit-files-worm-task.html"
+  - title: 명령 또는 프로그램을 사용하여 WORM 추가 가능 파일을 생성합니다
+    url: "/snaplock/create-worm-appendable-file-task.html"
+  - title: 볼륨 추가 모드를 사용하여 WORM 추가 가능 파일을 생성합니다
+    url: "/snaplock/volume-append-mode-create-worm-appendable-files-task.html"
+- title: WORM에 스냅샷 복사본 커밋
+  url: "/snaplock/commit-snapshot-copies-worm-concept.html"
+- title: WORM 파일 미러링
+  url: "/snaplock/mirror-worm-files-task.html"
+- title: 감사 로그를 생성합니다
+  url: "/snaplock/create-audit-log-task.html"
+- title: 권한이 있는 삭제 기능을 사용합니다
+  entries:
+  - title: SnapLock 관리자 계정을 만듭니다
+    url: "/snaplock/create-compliance-administrator-account-task.html"
+  - title: 권한 있는 삭제 기능을 활성화합니다
+    url: "/snaplock/enable-privileged-delete-task.html"
+  - title: 권한 있는 삭제를 사용하여 WORM 파일을 삭제합니다
+    url: "/snaplock/implement-privileged-delete-functionality-task.html"
+- title: 법적 증거 자료 보관 기능을 사용합니다
+  url: "/snaplock/hold-tamper-proof-files-indefinite-period-task.html"
+- title: EBR(Event Based Retention) 기능을 사용합니다
+  url: "/snaplock/event-based-retention-feature-task.html"
+- title: SnapLock 볼륨을 이동합니다
+  entries:
+  - title: SnapLock 보안 관리자 계정을 만듭니다
+    url: "/snaplock/create-snaplock-security-administrator-account-task.html"
+  - title: SnapLock 볼륨을 이동합니다
+    url: "/snaplock/move-snaplock-volume-task.html"
+- title: SnapLock API
+  url: "/snaplock/snaplock-apis-reference.html"

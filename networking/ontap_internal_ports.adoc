@@ -1,0 +1,203 @@
+---
+sidebar: sidebar 
+permalink: networking/ontap_internal_ports.html 
+keywords: port, tcp, udp, ontap, internal, internally, ontap internal ports, port list, tcp ports, udp ports, port to establish intracluster lif communication, syslog, port 514, rpc, port 900, port 902, port 904, port 905, port 910, port 911, port 913, port 914, port 915, port 918, port 920, port 921, port 924, port 925, port 927, port 928, port 929, port 931, port 932, port 933, port 934, port 935, port 936, port 937, port 939, port 940, port 951, port 954, port 955, port 956, port 958, port 961, port 963, port 964, port 966, port 967, port 5125, alternate control port, port 5133, port 5144, node scope ssh, port 65502, port 65503, lif sharing, port 7810, port 7811, port 7812, port 7813, port 7814, port 7815, port 7816, port 7817, port 7818, port 7819, port 7820, port 7821, port 7822, port 7823, port 7824, port 8023, node scope telnet, node scope rsh, port 8514, kmip client port, port 9877 
+summary: ONTAP에서 내부적으로 사용되는 TCP 포트 및 UDP 포트입니다 
+---
+= ONTAP 내부 포트
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+다음 표에는 ONTAP에서 내부적으로 사용되는 TCP 포트 및 UDP 포트가 나와 있습니다. 이 포트들은 클러스터 간 LIF 통신을 설정하는 데 사용됩니다.
+
+[cols="30,70"]
+|===
+
+
+| 포트/프로토콜 | 설명 
+
+
+| 514 | Syslog를 클릭합니다 
+
+
+| 900 | NetApp 클러스터 RPC 
+
+
+| 902 | NetApp 클러스터 RPC 
+
+
+| 904 | NetApp 클러스터 RPC 
+
+
+| 905 | NetApp 클러스터 RPC 
+
+
+| 910 | NetApp 클러스터 RPC 
+
+
+| 911 | NetApp 클러스터 RPC 
+
+
+| 913 | NetApp 클러스터 RPC 
+
+
+| 914 | NetApp 클러스터 RPC 
+
+
+| 915 | NetApp 클러스터 RPC 
+
+
+| 918 | NetApp 클러스터 RPC 
+
+
+| 920 | NetApp 클러스터 RPC 
+
+
+| 921)를 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 924 | NetApp 클러스터 RPC 
+
+
+| 925 | NetApp 클러스터 RPC 
+
+
+| 927)를 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 928 | NetApp 클러스터 RPC 
+
+
+| 929)를 누릅니다 | NetApp 클러스터 RPC 
+
+
+| 931 | NetApp 클러스터 RPC 
+
+
+| 932 | NetApp 클러스터 RPC 
+
+
+| 933 | NetApp 클러스터 RPC 
+
+
+| 934 | NetApp 클러스터 RPC 
+
+
+| 935 | NetApp 클러스터 RPC 
+
+
+| 936 | NetApp 클러스터 RPC 
+
+
+| 937 | NetApp 클러스터 RPC 
+
+
+| 939 | NetApp 클러스터 RPC 
+
+
+| 940 | NetApp 클러스터 RPC 
+
+
+| 951을 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 954를 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 955 | NetApp 클러스터 RPC 
+
+
+| 956을 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 958 | NetApp 클러스터 RPC 
+
+
+| 961 | NetApp 클러스터 RPC 
+
+
+| 963 | NetApp 클러스터 RPC 
+
+
+| 964 | NetApp 클러스터 RPC 
+
+
+| 966 | NetApp 클러스터 RPC 
+
+
+| 967 | NetApp 클러스터 RPC 
+
+
+| 5125 | 디스크의 대체 제어 포트 
+
+
+| 5133 | 디스크의 대체 제어 포트 
+
+
+| 5144 | 디스크의 대체 제어 포트 
+
+
+| 65502 | 노드 범위 SSH 
+
+
+| 65503 | LIF 공유 
+
+
+| 7810)를 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 7811 | NetApp 클러스터 RPC 
+
+
+| 7812)를 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 7813)를 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 7814)를 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 7815)를 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 7816 | NetApp 클러스터 RPC 
+
+
+| 7817 | NetApp 클러스터 RPC 
+
+
+| 7818)를 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 7819)를 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 7820)를 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 7821)를 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 7822)를 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 7823)를 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 7824)를 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 8023 | 노드 범위 텔넷 
+
+
+| 8514 | 노드 범위 RSH 
+
+
+| 9877 | KMIP 클라이언트 포트(내부 로컬 호스트만 해당) 
+|===

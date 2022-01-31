@@ -1,0 +1,77 @@
+---
+sidebar: sidebar 
+permalink: networking/migrate_a_lif.html 
+keywords: move the lif, change lif port, migrate a lif, migrate a LIF to a different port on the same node or a different node within the cluster 
+summary: LIF를 동일한 노드의 다른 포트 또는 클러스터 내의 다른 노드로 마이그레이션합니다 
+---
+= LIF 마이그레이션
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+포트에 장애가 발생하거나 유지 관리가 필요한 경우 LIF를 동일한 노드의 다른 포트 또는 클러스터 내의 다른 노드로 마이그레이션해야 할 수 있습니다. LIF 마이그레이션은 LIF 페일오버와 비슷하지만, LIF 마이그레이션은 수동 작업이며, LIF 페일오버는 LIF의 현재 네트워크 포트에서 링크 장애가 발생할 경우 LIF의 자동 마이그레이션입니다.
+
+.시작하기 전에
+* LIF에 대해 페일오버 그룹을 구성해야 합니다.
+* 대상 노드와 포트가 작동 중이고 소스 포트와 동일한 네트워크에 액세스할 수 있어야 합니다.
+
+
+.이 작업에 대해
+* BGP LIF는 홈 포트에 상주하며 다른 노드 또는 포트로 마이그레이션할 수 없습니다.
+* 노드에서 NIC를 제거하기 전에 NIC에 속한 포트에서 호스팅되는 LIF를 클러스터의 다른 포트로 마이그레이션해야 합니다.
+* 클러스터 LIF가 호스팅된 노드에서 클러스터 LIF를 마이그레이션하기 위한 명령을 실행해야 합니다.
+* 노드 범위의 관리 LIF, 클러스터 LIF, LIF와 같은 노드 범위의 LIF는 원격 인터클러스터 노드로 마이그레이션할 수 없습니다.
+* NFSv4 LIF를 노드 간에 마이그레이션할 경우 LIF가 새 포트에서 사용 가능해지기 전에 최대 45초가 지연됩니다.
++
+이 문제를 해결하려면 지연이 발생하지 않는 NFSv4.1을 사용하십시오.
+
+* 한 노드에서 다른 노드로 iSCSI LIF를 마이그레이션할 수 없습니다.
++
+이 제한을 해결하려면 대상 노드에 iSCSI LIF를 생성해야 합니다. iSCSI LIF 생성 지침에 대한 자세한 내용은 를 참조하십시오 link:../san-admin/index.html["SAN 관리"^].
+
+* 소스 또는 대상 LIF를 마이그레이션할 때 VMware VAAI 복사본 오프로드 작업이 실패합니다. VMware VAAI에 대한 자세한 내용은 를 참조하십시오 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/GUID-39C8E616-EAE8-46A4-881A-87C4B8421281.html["NFS 참조입니다"^] 또는.
+
+
+특정 LIF를 마이그레이션할지 또는 모든 LIF를 마이그레이션할지 여부에 따라 적절한 작업을 수행합니다.
+
+[cols="30,70"]
+|===
+
+
+| 마이그레이션하려면... | 다음 명령을 입력합니다... 
+
+
+ a| 
+특정 LIF
+ a| 
+네트워크 인터페이스 마이그레이션
+
+
+
+ a| 
+노드의 모든 데이터 및 클러스터 관리 LIF
+ a| 
+네트워크 인터페이스 마이그레이션 모두
+
+
+
+ a| 
+모든 LIF가 포트에서 해제됩니다
+ a| 
+'network interface migrate-all-node <node> - port <port>'
+
+|===
+다음 예에서는 SVM vs0의 datalif1이라는 LIF를 노드 0b의 포트 e0d로 마이그레이션하는 방법을 보여 줍니다.
+
+....
+network interface migrate -vserver vs0 -lif datalif1 -dest-node node0b -dest-port e0d
+....
+다음 예에서는 현재(로컬) 노드에서 모든 데이터 및 클러스터 관리 LIF를 마이그레이션하는 방법을 보여 줍니다.
+
+....
+network interface migrate-all -node local
+....

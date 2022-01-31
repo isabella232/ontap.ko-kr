@@ -1,0 +1,32 @@
+---
+permalink: smb-config/verify-user-access-task.html 
+sidebar: sidebar 
+keywords: test, user, configure, access, smb, share, file, contain, verify user access 
+summary: 구성한 사용자가 SMB 공유 및 해당 공유에 포함된 파일에 액세스할 수 있는지 테스트해야 합니다. 
+---
+= 사용자 액세스를 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+구성한 사용자가 SMB 공유 및 해당 공유에 포함된 파일에 액세스할 수 있는지 테스트해야 합니다.
+
+.단계
+. Windows 클라이언트에서 공유에 대한 액세스 권한이 있는 사용자 중 하나로 로그인합니다.
+. Windows 탐색기의 * Tools * 메뉴에서 * Map network drive * 를 선택합니다.
+. 네트워크 드라이브 매핑 * 상자를 완료합니다.
++
+.. 드라이브 * 문자를 선택합니다.
+.. 폴더 * 상자에 사용자에게 제공할 공유 이름을 입력합니다.
++
+SMB 서버 이름이 smb_SERVER01이고 공유 이름이 "smb_SERVER01"이면 "\\smb_SERVER01\share1"을 입력합니다.
+
+.. 마침 * 을 클릭합니다.
+
+
++
+선택한 드라이브가 마운트되고 공유 내에 포함된 파일 및 폴더를 표시하는 Windows 탐색기 창이 준비됩니다.
+
+. 테스트 파일을 만들고, 파일이 있는지 확인하고, 텍스트를 작성한 다음 테스트 파일을 제거합니다.
+

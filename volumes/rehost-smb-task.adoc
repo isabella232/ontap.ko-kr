@@ -1,0 +1,82 @@
+---
+permalink: volumes/rehost-smb-task.html 
+sidebar: sidebar 
+keywords: rehost, cifs volumes 
+summary: SMB 프로토콜을 통해 데이터를 제공하는 볼륨을 재호스팅할 수 있습니다. CIFS 볼륨을 재호스팅한 후 SMB 프로토콜을 통해 계속해서 데이터에 액세스하려면 정책과 관련 규칙을 수동으로 구성해야 합니다. 
+---
+= CIFS 볼륨을 다시 호스트합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMB 프로토콜을 통해 데이터를 제공하는 볼륨을 재호스팅할 수 있습니다. CIFS 볼륨을 재호스팅한 후 SMB 프로토콜을 통해 계속해서 데이터에 액세스하려면 정책과 관련 규칙을 수동으로 구성해야 합니다.
+
+.무엇을 &#8217;필요로 할거야
+* 볼륨이 온라인 상태여야 합니다.
+* 볼륨 이동 또는 LUN 이동 같은 볼륨 관리 작업이 실행되고 있지 않아야 합니다.
+* 재호스팅 중인 볼륨에 대한 데이터 액세스를 중지해야 합니다.
+* 대상 SVM의 ns-switch 및 name 서비스 구성은 재호스팅 볼륨의 데이터 액세스를 지원하도록 구성해야 합니다.
+* 소스 SVM 및 타겟 SVM에는 동일한 Active Directory 및 realmDNS 도메인이 있어야 합니다.
+* 볼륨의 사용자 ID 및 그룹 ID는 타겟 SVM에서 사용하거나 호스팅 볼륨에서 변경해야 합니다.
++
+[NOTE]
+====
+로컬 사용자 및 그룹이 구성되어 있고 해당 사용자 또는 그룹에 대해 설정된 권한이 있는 해당 볼륨에 파일 및 디렉토리가 있는 경우 이러한 권한은 더 이상 유효하지 않습니다.
+
+====
+
+
+.이 작업에 대해
+* 재호스팅은 중단을 야기하는 작업입니다.
+* 재호스팅 작업이 실패하면 소스 볼륨에서 볼륨 정책 및 관련 규칙을 다시 구성해야 할 수 있습니다.
+* 소스 SVM 및 대상 SVM Active Directory 도메인이 서로 다르면 볼륨의 개체에 액세스하지 못할 수 있습니다.
+* 소스 SVM에 로컬 사용자 및 그룹이 있을 경우 설정된 파일 및 디렉토리(ACL)에 대한 사용 권한은 볼륨 재호스트 작업 후에 더 이상 유효하지 않습니다.
++
+감사 ACL(SACL)에도 마찬가지입니다.
+
+* 재호스팅 작업 후에는 소스 볼륨에서 다음 볼륨 정책, 정책 규칙 및 구성이 손실되며 재호스트된 볼륨에서 수동으로 재구성해야 합니다.
++
+** 볼륨 및 qtree 엑스포트 정책
+** 안티바이러스 정책
+** 볼륨 효율성 정책
+** QoS(서비스 품질) 정책
+** 스냅샷 정책
+** 할당량 규칙
+** NS-SWITCH 및 NAME SERVICES 구성 엑스포트 정책 및 규칙
+** 사용자 및 그룹 ID
+
+
+
+
+.단계
+. 볼륨 재호스트 작업이 실패할 경우 CIFS 공유에 대한 정보가 손실되지 않도록 CIFS 공유에 대한 정보를 기록합니다.
+. 상위 볼륨에서 볼륨을 마운트 해제합니다.
++
+'볼륨 마운트 해제'
+
+. 고급 권한 레벨로 전환합니다.
++
+세트 프리빌리지 고급
+
+. 대상 SVM에서 볼륨 재호스팅:
++
+'volume rehost-vserver source_svm-volume vol_name-destination-vserver destination_svm'
+
+. 대상 SVM의 적절한 접합 경로 아래에 볼륨을 마운트합니다.
++
+'볼륨 마운트'입니다
+
+. 재호스트된 볼륨에 대한 CIFS 공유 생성:
++
+'vserver cifs share create
+
+. 소스 SVM과 타겟 SVM 간에 DNS 도메인이 서로 다른 경우 새로운 사용자와 그룹을 생성합니다.
+. 새로 대상 SVM LIF와 재호스팅 볼륨의 접합 경로로 CIFS 클라이언트를 업데이트합니다.
+
+
+재호스트된 볼륨에서 정책 및 관련 규칙을 수동으로 재구성해야 합니다.
+
+https://docs.netapp.com/us-en/ontap-sm-classic/smb-config/index.html["SMB 구성"]
+
+https://docs.netapp.com/us-en/ontap-sm-classic/nas-multiprotocol-config/index.html["SMB 및 NFS 멀티 프로토콜 구성"]

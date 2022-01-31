@@ -1,0 +1,38 @@
+---
+permalink: smb-admin/gpos-updated-server-concept.html 
+sidebar: sidebar 
+keywords: default, ontap, retrieve, applies, apply, group, policy, object, gpo, minute, security, refresh, update, automatic, manual, cifs, server, command, how gpos are updated on the cifs server 
+summary: '기본적으로 ONTAP는 90분마다 GPO(그룹 정책 개체) 변경 내용을 검색하고 적용합니다. 보안 설정은 16시간마다 새로 고쳐집니다. ONTAP에서 GPO를 자동으로 업데이트하기 전에 GPO를 업데이트하여 새 GPO 정책 설정을 적용하려면 ONTAP 명령을 사용하여 CIFS 서버에서 수동 업데이트를 트리거하면 됩니다.' 
+---
+= CIFS 서버 개요에서 GPO를 업데이트하는 방법
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+기본적으로 ONTAP는 90분마다 GPO(그룹 정책 개체) 변경 내용을 검색하고 적용합니다. 보안 설정은 16시간마다 새로 고쳐집니다. ONTAP에서 GPO를 자동으로 업데이트하기 전에 GPO를 업데이트하여 새 GPO 정책 설정을 적용하려면 ONTAP 명령을 사용하여 CIFS 서버에서 수동 업데이트를 트리거하면 됩니다.
+
+* 기본적으로 모든 GPO는 90분마다 확인 및 업데이트됩니다.
++
+이 간격은 구성 가능하며 '새로 고침 간격' 및 '임의 오프셋' GPO 설정을 사용하여 설정할 수 있습니다.
+
++
+ONTAP는 Active Directory에 GPO 변경 사항을 쿼리합니다. Active Directory에 기록된 GPO 버전 번호가 CIFS 서버의 GPO 버전 번호보다 높을 경우 ONTAP는 새 GPO를 검색하고 적용합니다. 버전 번호가 같으면 CIFS 서버의 GPO가 업데이트되지 않습니다.
+
+* 보안 설정 GPO는 16시간마다 새로 고쳐집니다.
++
+ONTAP는 이러한 GPO의 변경 여부에 관계없이 보안 설정 GPO를 16시간마다 검색하고 적용합니다.
+
++
+[NOTE]
+====
+현재 ONTAP 버전에서는 16시간 기본값을 변경할 수 없습니다. Windows 클라이언트 기본 설정입니다.
+
+====
+* 모든 GPO는 ONTAP 명령을 사용하여 수동으로 업데이트할 수 있습니다.
++
+이 명령은 Windows 'gpupdate.exe' /force' 명령을 시뮬레이션합니다.
+
+
+
+xref:manual-update-gpo-settings-task.adoc[CIFS 서버에서 GPO 설정을 수동으로 업데이트합니다]

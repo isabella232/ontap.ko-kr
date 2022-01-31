@@ -1,0 +1,28 @@
+---
+permalink: smb-hyper-v-sql/create-config-nondisruptive-operations-task.html 
+sidebar: sidebar 
+keywords: create, configuration, nondisruptive, operations, hyper, v, sql, server, smb 
+summary: SMB를 통한 무중단 운영을 제공하는 Hyper-V 및 SQL Server 설치를 준비하기 위해 수행해야 하는 몇 가지 ONTAP 구성 단계가 있습니다. 
+---
+= SMB를 통한 Hyper-V 및 SQL Server의 무중단 운영을 위한 ONTAP 구성 개요를 제공합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMB를 통한 무중단 운영을 제공하는 Hyper-V 및 SQL Server 설치를 준비하기 위해 수행해야 하는 몇 가지 ONTAP 구성 단계가 있습니다.
+
+SMB를 통해 Hyper-V 및 SQL Server의 무중단 운영을 위한 ONTAP 구성을 생성하기 전에 다음 작업을 완료해야 합니다.
+
+* 클러스터에서 시간 서비스를 설정해야 합니다.
+* SVM에 대해 네트워킹을 설정해야 합니다.
+* SVM을 생성해야 합니다.
+* 데이터 LIF 인터페이스는 SVM에서 구성해야 합니다.
+* SVM에서 DNS를 구성해야 합니다.
+* SVM에 대해 원하는 이름 서비스를 설정해야 합니다.
+* CIFS 서버를 생성해야 합니다.
+
+
+xref:planning-config-concept.adoc[SMB를 통한 Hyper-V 또는 SQL Server 구성 계획]
+
+xref:config-requirements-concept.adoc[구성 요구 사항 및 고려 사항]

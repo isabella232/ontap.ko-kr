@@ -1,0 +1,130 @@
+---
+sidebar: sidebar 
+permalink: networking/ontap_port_usage_on_a_storage_system_overview.html 
+keywords: port, tcp, udp, ontap, external, externally, service, services, introduce, introduction, introducing, overview, ontap port usage overview, ontap port usage, network ports, ontap ports, tcp ports, udp ports, ssh, port 22, telnet, port 23, dns, port 53, http, port 80, rpcbind, port 111, ntp, port 123, msrpc, port 135, netbios-ssn, port 139, snmp, port 161, https, port 443, microsoft-ds, port 445, mount, port 635, named, port 953, nfs, port 2049, nrv, port 2050, iscsi, port 3260, lockd, port 4045, nsm, port 4046, rquotad, port 4049, krb524, port 4444, mdns, port 5353, https, port 5986, port 8443, ndmp, port 10000, cluster peering, port 11104, port 11105, ports 18600 through 18699, cifs witness, port 40001, tls, port 50000, port 65200 
+summary: 특정 서비스와 ONTAP 통신을 위한 예약된 포트입니다 
+---
+= 개요
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+잘 알려진 여러 포트는 특정 서비스와 ONTAP 통신을 위해 예약되어 있습니다. 스토리지 네트워크 환경의 포트 값이 ONTAP 포트와 동일한 경우 포트 충돌이 발생합니다.
+
+다음 표에는 ONTAP에서 사용하는 TCP 포트 및 UDP 포트가 나와 있습니다.
+
+[cols="25,25,50"]
+|===
+
+
+| 서비스 | 포트/프로토콜 | 설명 
+
+
+| SSH를 클릭합니다 | 22/TCP | 보안 쉘 로그인 
+
+
+| 텔넷 | 23/TCP | 원격 로그인 
+
+
+| DNS | 53/TCP | 균형 잡힌 DNS를 로드합니다 
+
+
+| HTTP | 80/TCP | Hyper Text Transfer Protocol의 약어입니다 
+
+
+| rpcbind | 111/TCP | 원격 프로시저 호출 
+
+
+| rpcbind | 111/UDP | 원격 프로시저 호출 
+
+
+| NTP | 123/UDP입니다 | Network Time Protocol의 약어입니다 
+
+
+| MSRPC | 135/UDP | MSRPC 
+
+
+| NetBIOS-SSN | 139/TCP 를 참조하십시오 | NetBIOS 서비스 세션입니다 
+
+
+| SNMP를 선택합니다 | 161/UDP | 단순한 네트워크 관리 프로토콜 
+
+
+| HTTPS | 443/TCP | TLS를 통한 HTTP 
+
+
+| Microsoft - DS | 445/TCP | Microsoft - DS 
+
+
+| 마운트 | 635/TCP | NFS 마운트 
+
+
+| 마운트 | 635/UDP | NFS 마운트 
+
+
+| 이름 지정 | 953/UDP | 이름 데몬입니다 
+
+
+| NFS 를 참조하십시오 | 2049/UDP | NFS 서버 데몬 
+
+
+| NFS 를 참조하십시오 | 2049/TCP | NFS 서버 데몬 
+
+
+| NRV | 2050/TCP | NetApp 원격 볼륨 프로토콜 
+
+
+| iSCSI | 3260/TCP | iSCSI 타겟 포트입니다 
+
+
+| 잠금 | 4045/TCP | NFS 잠금 데몬 
+
+
+| 잠금 | 4045/UDP | NFS 잠금 데몬 
+
+
+| NFS 를 참조하십시오 | 4046/TCP | 네트워크 상태 모니터 
+
+
+| NSM | 4046/UDP | 네트워크 상태 모니터 
+
+
+| rquotad | 4049/UDP | NFS rquotad 프로토콜 
+
+
+| krb524)를 참조하십시오 | 4444/UDP | Kerberos 524 
+
+
+| mDNS | 5353/UDP | 멀티캐스트 DNS 
+
+
+| HTTPS | 5986/UDP | HTTPS 포트 수신 이진 프로토콜 
+
+
+| HTTPS | 8443/TCP | https를 통해 7MTT GUI 툴 사용 
+
+
+| NDMP | 10000/TCP | 네트워크 데이터 관리 프로토콜 
+
+
+| 클러스터 피어링 | 11104/TCP | 클러스터 피어링 
+
+
+| 클러스터 피어링 | 11105/TCP | 클러스터 피어링 
+
+
+| NDMP | 18600-18699/TCP | NDMP 
+
+
+| CIFS 감시 포트입니다 | 40001/TCP | CIFS 감시 포트입니다 
+
+
+| TLS | 50000/TCP | 전송 계층 보안 
+
+
+| iSCSI | 65200/TCP | iSCSI 포트 
+|===

@@ -1,0 +1,94 @@
+---
+permalink: fabricpool/replace-existing-object-store-mirror-task.html 
+sidebar: sidebar 
+keywords: replacing, existing, object, store, fabricpool, mirror 
+summary: FabricPool 미러 기술을 사용하여 한 오브젝트 저장소를 다른 오브젝트 저장소로 대체할 수 있습니다. 새 오브젝트 저장소는 원래 오브젝트 저장소와 동일한 클라우드 공급자를 사용할 필요가 없습니다. 
+---
+= FabricPool 미러를 사용하여 기존 오브젝트 저장소를 교체합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FabricPool 미러 기술을 사용하여 한 오브젝트 저장소를 다른 오브젝트 저장소로 대체할 수 있습니다. 새 오브젝트 저장소는 원래 오브젝트 저장소와 동일한 클라우드 공급자를 사용할 필요가 없습니다.
+
+원래 오브젝트 저장소를 다른 클라우드 공급자를 사용하는 오브젝트 저장소로 대체할 수 있습니다. 예를 들어, 원래 오브젝트 저장소에서 AWS를 클라우드 공급자로 사용할 수 있지만, Azure를 클라우드 공급자로 사용하는 오브젝트 저장소로 대체할 수 있습니다. 그러나 새 오브젝트 저장소는 원본과 동일한 오브젝트 크기를 유지해야 합니다.
+
+.단계
+. 'Storage aggregate object-store mirror' 명령을 사용하여 기존 FabricPool에 새 오브젝트 저장소를 추가하여 FabricPool 미러를 생성합니다.
++
+[listing]
+----
+cluster1::> storage aggregate object-store mirror -aggregate aggr1 -name my-AZURE-store
+----
+. 'storage aggregate object-store show-resync-status' 명령을 사용하여 미러 재동기화 상태를 모니터링합니다.
++
+[listing]
+----
+cluster1::> storage aggregate object-store show-resync-status -aggregate aggr1
+----
++
+[listing]
+----
+                                                  Complete
+      Aggregate    Primary          Mirror        Percentage
+      ---------    -----------      ----------    ----------
+      aggr1        my-AWS-store     my-AZURE-store     40%
+----
+. 'Storage aggregate object-store > show-fields mirror-type, is-mirror-degraded' 명령을 사용하여 미러가 동기화되어 있는지 확인합니다.
++
+[listing]
+----
+cluster1::> storage aggregate object-store show -fields mirror-type,is-mirror-degraded
+----
++
+[listing]
+----
+aggregate      object-store-name mirror-type     is-mirror-degraded
+-------------- ----------------- ------------- ------------------
+aggr1          my-AWS-store        primary           -
+               my-AZURE-store      mirror          false
+----
+. 'Storage aggregate object-store modify' 명령을 사용하여 운영 오브젝트 저장소를 미러 오브젝트 저장소로 바꾸십시오.
++
+[listing]
+----
+cluster1::> storage aggregate object-store modify -aggregate aggr1 -name my-AZURE-store -mirror-type primary
+----
+. 'Storage aggregate object-store show-fields mirror-type, is-mirror-degraded' 명령을 사용하여 FabricPool 미러에 대한 세부 정보를 표시합니다.
++
+이 예에서는 미러의 성능 저하(동기식 아님) 여부를 비롯하여 FabricPool 미러에 대한 정보를 표시합니다.
+
++
+[listing]
+----
+cluster1::> storage aggregate object-store show -fields mirror-type, is-mirror-degraded
+----
++
+[listing]
+----
+aggregate      object-store-name mirror-type     is-mirror-degraded
+-------------- ----------------- ------------- ------------------
+aggr1          my-AZURE-store      primary           -
+               my-AWS-store        mirror          false
+----
+. 'storage aggregate object-store unmirror' 명령어를 사용해 FabricPool 미러를 제거한다.
++
+[listing]
+----
+cluster1::> storage aggregate object-store unmirror -aggregate aggr1
+----
+. 'storage aggregate object-store show-fields mirror-type, is-mirror-degraded' 명령을 사용하여 FabricPool가 단일 오브젝트 저장소 구성으로 다시 설정되었는지 확인합니다.
++
+[listing]
+----
+cluster1::> storage aggregate object-store show -fields mirror-type,is-mirror-degraded
+----
++
+[listing]
+----
+aggregate      object-store-name mirror-type     is-mirror-degraded
+-------------- ----------------- ------------- ------------------
+aggr1          my-AZURE-store      primary           -
+----
+

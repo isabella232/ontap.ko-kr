@@ -1,0 +1,46 @@
+---
+permalink: nfs-config/kerberos-nfs-strong-security-concept.html 
+sidebar: sidebar 
+keywords: use, kerberos, nfs, strong, security 
+summary: Kerberos가 강력한 인증을 위해 사용자 환경에서 사용되는 경우 Kerberos 관리자와 협력하여 요구사항 및 적절한 스토리지 시스템 구성을 결정한 다음 SVM을 Kerberos 클라이언트로 사용하도록 설정해야 합니다. 
+---
+= 강력한 보안을 위해 NFS와 Kerberos 사용 개요
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Kerberos가 강력한 인증을 위해 사용자 환경에서 사용되는 경우 Kerberos 관리자와 협력하여 요구사항 및 적절한 스토리지 시스템 구성을 결정한 다음 SVM을 Kerberos 클라이언트로 사용하도록 설정해야 합니다.
+
+환경은 다음 지침을 충족해야 합니다.
+
+* ONTAP용 Kerberos를 구성하기 전에 Kerberos 서버 및 클라이언트 구성에 대한 모범 사례를 따라야 합니다.
+* 가능하면 Kerberos 인증이 필요한 경우 NFSv4 이상을 사용합니다.
++
+NFSv3은 Kerberos와 함께 사용할 수 있습니다. 하지만 Kerberos의 모든 보안 이점은 NFSv4 이상의 ONTAP 구축에서만 실현됩니다.
+
+* 중복 서버 액세스를 프로모션하려면 Kerberos가 동일한 SPN을 사용하여 클러스터의 여러 노드에 있는 여러 데이터 LIF에서 활성화되어야 합니다.
+* SVM에서 Kerberos를 사용하도록 설정할 경우 NFS 클라이언트 구성에 따라 볼륨 또는 qtree의 내보내기 규칙에 다음 보안 방법 중 하나를 지정해야 합니다.
++
+** "krb5"(Kerberos v5 프로토콜)
+** "krb5i"(체크섬을 사용한 무결성 검사를 포함한 Kerberos v5 프로토콜)
+** "krb5p"(개인정보 보호 서비스가 있는 Kerberos v5 프로토콜)
+
+
+
+
+Kerberos 서버 및 클라이언트 외에도 ONTAP가 Kerberos를 지원하도록 다음과 같은 외부 서비스를 구성해야 합니다.
+
+* 디렉터리 서비스
++
+SSL/TLS를 통해 LDAP를 사용하도록 구성된 Active Directory 또는 OpenLDAP와 같은 환경에서 보안 디렉터리 서비스를 사용해야 합니다. 요청이 일반 텍스트로 전송되므로 안전하지 않은 NIS를 사용하지 마십시오.
+
+* NTP
++
+NTP를 실행하는 작업 시간 서버가 있어야 합니다. 시간 편중이 발생하여 Kerberos 인증 실패를 방지하려면 이 작업이 필요합니다.
+
+* 도메인 이름 확인(DNS)
++
+각 UNIX 클라이언트와 각 SVM LIF에는 정방향 및 역방향 조회 영역에서 KDC에 등록된 적절한 서비스 레코드(SRV)가 있어야 합니다. 모든 참가자는 DNS를 통해 제대로 확인할 수 있어야 합니다.
+
+

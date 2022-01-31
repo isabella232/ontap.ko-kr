@@ -1,0 +1,43 @@
+---
+permalink: svm-migrate/pause-task.html 
+sidebar: sidebar 
+keywords: svm, migrate, pause, resume, restart 
+summary: '마이그레이션 컷오버를 시작하기 전에 SVM 마이그레이션을 일시 중지할 수 있습니다. "vserver migrate pause" 명령을 사용하여 SVM 마이그레이션을 일시 중지할 수 있습니다.' 
+---
+= SVM 마이그레이션 일시 중지 및 재개
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+마이그레이션 컷오버를 시작하기 전에 SVM 마이그레이션을 일시 중지할 수 있습니다. "vserver migrate pause" 명령을 사용하여 SVM 마이그레이션을 일시 중지할 수 있습니다.
+
+
+
+== 마이그레이션을 일시 중지합니다
+
+'vserver migrate pause' 명령을 사용하여 클라이언트 컷오버를 시작하기 전에 SVM 마이그레이션을 일시 중지할 수 있습니다.
+
+.단계
+. 대상 클러스터에서 마이그레이션을 일시 중지합니다.
++
+dest_cluster>vserver migrate pause-vserver <vserver name>'
+
+
+
+
+
+== 마이그레이션을 다시 시작하십시오
+
+일시 중지된 SVM 마이그레이션을 재개할 준비가 되거나 SVM 마이그레이션이 실패할 경우 'vserver migrate resume' 명령을 사용할 수 있습니다.
+
+.단계
+. SVM 마이그레이션 재개:
++
+dest_cluster > vserver migrate resume'을 선택합니다
+
+. SVM 마이그레이션이 재개되었는지 확인하고 진행률을 모니터링합니다.
++
+dest_cluster > vserver migrate show"를 선택합니다
+
+

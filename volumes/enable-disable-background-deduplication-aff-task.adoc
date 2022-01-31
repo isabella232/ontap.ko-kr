@@ -1,0 +1,58 @@
+---
+permalink: volumes/enable-disable-background-deduplication-aff-task.html 
+sidebar: sidebar 
+keywords: manage, aggregate-level, background, deduplication, aff systems 
+summary: Aggregate 레벨의 데이터 중복 제거를 통해 동일한 애그리게이트에 속한 볼륨 전체에서 중복 블록을 제거할 수 있습니다. ONTAP 9.3부터는 AFF 시스템의 백그라운드에서 애그리게이트 레벨의 중복제거를 수행할 수 있습니다. 이 기능은 새로 생성된 모든 볼륨과 볼륨 백그라운드 중복제거가 활성화되어 있는 모든 업그레이드된 볼륨에 대해 기본적으로 활성화됩니다. 
+---
+= AFF 시스템에서 애그리게이트 레벨의 백그라운드 중복제거를 관리합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Aggregate 레벨의 데이터 중복 제거를 통해 동일한 애그리게이트에 속한 볼륨 전체에서 중복 블록을 제거할 수 있습니다. ONTAP 9.3부터는 AFF 시스템의 백그라운드에서 애그리게이트 레벨의 중복제거를 수행할 수 있습니다. 이 기능은 새로 생성된 모든 볼륨과 볼륨 백그라운드 중복제거가 활성화되어 있는 모든 업그레이드된 볼륨에 대해 기본적으로 활성화됩니다.
+
+변경 로그의 비율이 충분히 채워지면 작업이 자동으로 트리거됩니다. 작업과 연결된 스케줄 또는 정책이 없습니다.
+
+ONTAP 사용자는 AFF 9.4부터 애그리게이트 레벨의 중복제거 스캐너를 실행하여 애그리게이트 내 볼륨 전체의 기존 데이터 중복을 제거할 수도 있습니다. '-scan-old-data=true' 옵션과 함께 'storage aggregate Efficiency cross-volume-dedupe start' 명령을 사용하여 스캐너를 시작할 수 있습니다.
+
+[listing]
+----
+cluster-1::> storage aggregate efficiency cross-volume-dedupe start -aggregate aggr1 -scan-old-data true
+----
+데이터 중복 제거 검사는 시간이 오래 걸릴 수 있습니다. 사용량이 적은 시간에 작업을 실행할 수 있습니다.
+
+[NOTE]
+====
+Aggregate 레벨의 백그라운드 중복제거를 볼륨 간 백그라운드 중복제거라고도 합니다.
+
+====
+.단계
+. AFF 시스템에서 애그리게이트 레벨의 백그라운드 중복제거 관리:
++
+[cols="2*"]
+|===
+| 원하는 작업 | 이 명령을 사용합니다 
+
+
+ a| 
+Aggregate 레벨의 백그라운드 중복제거를 지원합니다
+ a| 
+'볼륨 효율성 수정 - vserver <vserver_name\> - volume <vol_name\> - cross-volume-background-dedupe true
+
+
+
+ a| 
+애그리게이트 레벨의 백그라운드 중복제거를 사용하지 않도록 설정합니다
+ a| 
+'볼륨 효율성 수정 - vserver <vserver_name\> - volume <vol_name\> - cross-volume-background-dedupe false
+
+
+
+ a| 
+애그리게이트 레벨의 백그라운드 중복제거 상태를 표시합니다
+ a| 
+'집계 효율성 교차 볼륨 - 중복 제거 표시'
+
+|===
+

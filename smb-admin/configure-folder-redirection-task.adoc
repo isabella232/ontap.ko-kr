@@ -1,0 +1,31 @@
+---
+permalink: smb-admin/configure-folder-redirection-task.html 
+sidebar: sidebar 
+keywords: configure, folder, redirection, windows, properties, method, assistance, svm, administrator, configure folder redirection 
+summary: Windows 속성 창을 사용하여 폴더 리디렉션을 구성할 수 있습니다. 이 방법을 사용하면 Windows 사용자가 SVM 관리자의 도움 없이 폴더 리디렉션을 구성할 수 있다는 이점이 있습니다. 
+---
+= 폴더 리디렉션을 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Windows 속성 창을 사용하여 폴더 리디렉션을 구성할 수 있습니다. 이 방법을 사용하면 Windows 사용자가 SVM 관리자의 도움 없이 폴더 리디렉션을 구성할 수 있다는 이점이 있습니다.
+
+.단계
+. Windows 탐색기에서 네트워크 공유로 리디렉션할 폴더를 마우스 오른쪽 단추로 클릭합니다.
+. 속성 * 을 클릭합니다.
++
+선택한 공유의 속성이 표시됩니다.
+
+. 바로 가기 * 탭에서 * 대상 * 을 클릭하고 선택한 폴더를 리디렉션할 네트워크 위치의 경로를 지정합니다.
++
+예를 들어, 폴더를 "Q:\"에 매핑된 홈 디렉토리의 "ata" 폴더로 리디렉션하려면 "Q:\data"를 대상으로 지정합니다.
+
+. 확인 * 을 클릭합니다.
++
+오프라인 폴더 구성에 대한 자세한 내용은 Microsoft TechNet 라이브러리를 참조하십시오.
+
+
+
+http://technet.microsoft.com/en-us/library/["Microsoft TechNet 라이브러리: technet.microsoft.com/en-us/library/"]

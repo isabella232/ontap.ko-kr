@@ -1,0 +1,91 @@
+---
+permalink: ndmp/configure-lifs-node-scoped-task.html 
+sidebar: sidebar 
+keywords: configure, lif 
+summary: 노드와 백업 애플리케이션 간의 데이터 연결 및 제어 연결을 설정하는 데 사용할 LIF를 식별해야 합니다. LIF를 식별한 후 LIF에 대한 방화벽 및 페일오버 정책이 설정되어 있는지 확인해야 합니다. 
+---
+= LIF를 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+노드와 백업 애플리케이션 간의 데이터 연결 및 제어 연결을 설정하는 데 사용할 LIF를 식별해야 합니다. LIF를 식별한 후 LIF에 대한 방화벽 및 페일오버 정책이 설정되어 있는지 확인해야 합니다.
+
+.단계
+. '-role' 매개 변수가 있는 'network interface show' 명령을 사용하여 노드에 호스팅된 인터클러스터 LIF를 식별합니다.
++
+[listing]
+----
+cluster1::> network interface show -role intercluster
+
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+cluster1    IC1        up/up      192.0.2.65/24      cluster1-1    e0a     true
+cluster1    IC2        up/up      192.0.2.68/24      cluster1-2    e0b     true
+----
+. 인터클러스터 LIF에서 NDMP에 대해 방화벽 정책이 활성화되어 있는지 확인합니다.
++
+.. 'system services firewall policy show' 명령을 사용하여 NDMP에 대해 방화벽 정책이 설정되어 있는지 확인합니다.
++
+다음 명령을 실행하면 인터클러스터 LIF의 방화벽 정책이 표시됩니다.
+
++
+[listing]
+----
+cluster1::> system services firewall policy show -policy intercluster
+
+Vserver     Policy       Service    Allowed
+-------     ------------ ---------- -------------------
+cluster1    intercluster dns        -
+                         http       -
+                         https      -
+                         **ndmp       0.0.0.0/0, ::/0**
+                         ndmps      -
+                         ntp        -
+                         rsh        -
+                         ssh        -
+                         telnet     -
+9 entries were displayed.
+----
+.. 방화벽 정책이 활성화되지 않은 경우 '-service' 매개 변수를 사용하여 'system services firewall policy modify' 명령을 사용하여 방화벽 정책을 활성화합니다.
++
+다음 명령을 실행하면 인터클러스터 LIF에 대한 방화벽 정책을 사용할 수 있습니다.
+
++
+[listing]
+----
+cluster1::> system services firewall policy modify -vserver cluster1 -policy intercluster -service ndmp 0.0.0.0/0
+----
+
+
+. 인터클러스터 LIF에 대해 페일오버 정책이 적절하게 설정되었는지 확인합니다.
++
+.. 네트워크 인터페이스 show-failover 명령을 사용하여 인터클러스터 LIF의 페일오버 정책이 "로컬 전용"으로 설정되었는지 확인합니다.
++
+[listing]
+----
+cluster1::> network interface show -failover
+            Logical          Home              Failover     Failover
+Vserver     Interface        Node:Port         Policy       Group
+--------    ---------------  ----------------- ------------ --------
+cluster1    **IC1               cluster1-1:e0a    local-only   Default**
+                                                    Failover Targets:
+                                                    .......
+            **IC2               cluster1-2:e0b    local-only   Default**
+                                                    Failover Targets:
+                                                    .......
+cluster1-1  cluster1-1_mgmt1 cluster1-1:e0m    local-only    Default
+                                                    Failover Targets:
+                                                    .......
+----
+.. 페일오버 정책이 적절하게 설정되지 않은 경우 '-failover-policy' 매개 변수와 함께 'network interface modify' 명령을 사용하여 페일오버 정책을 수정합니다.
++
+[listing]
+----
+cluster1::> network interface modify -vserver cluster1 -lif IC1 -failover-policy local-only
+----
+
+
+

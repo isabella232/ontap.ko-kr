@@ -1,0 +1,19 @@
+---
+sidebar: sidebar 
+permalink: task_object_provision.html 
+keywords: add key words 
+summary: 여기에 요약을 추가하십시오 
+---
+= 오브젝트 프로비저닝
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+

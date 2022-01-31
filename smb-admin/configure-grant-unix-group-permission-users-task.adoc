@@ -1,0 +1,38 @@
+---
+permalink: smb-admin/configure-grant-unix-group-permission-users-task.html 
+sidebar: sidebar 
+keywords: configure, grant, group, permission, access, file, directories, directory, incoming, cifs, ownder, configure the grant unix group permission to cifs users 
+summary: 들어오는 CIFS 사용자가 파일 소유자가 아닌 경우에도 파일 또는 디렉토리에 액세스할 수 있는 그룹 권한을 부여하도록 이 옵션을 구성할 수 있습니다. 
+---
+= CIFS 사용자에게 UNIX 그룹 권한 부여 를 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+들어오는 CIFS 사용자가 파일 소유자가 아닌 경우에도 파일 또는 디렉토리에 액세스할 수 있는 그룹 권한을 부여하도록 이 옵션을 구성할 수 있습니다.
+
+.단계
+. 권한 수준을 Advanced:'Set-Privilege advanced'로 설정합니다
+. UNIX 그룹 권한 부여를 적절히 구성합니다.
++
+|===
+| 원하는 경우 | 명령을 입력합니다 
+
+
+ a| 
+사용자가 파일 소유자가 아니더라도 파일 또는 디렉토리에 대한 액세스를 활성화하여 그룹 권한을 얻습니다
+ a| 
+'vserver cifs options modify –grant-unix-group-perms-to-others true'
+
+
+
+ a| 
+파일 또는 디렉토리에 대한 액세스를 비활성화하여 사용자가 파일 소유자가 아니더라도 그룹 권한을 얻습니다
+ a| 
+'vserver cifs options modify –grant-unix-group-perms-to-others false'
+
+|===
+. 이 옵션이 원하는 값으로 설정되어 있는지 확인합니다. 'vserver cifs options show –fields grant-unix-group-perms-to-others'
+. admin 권한 수준으로 복귀:'et-Privilege admin'입니다
+

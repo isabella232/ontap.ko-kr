@@ -1,0 +1,39 @@
+---
+permalink: performance-admin/check-network-settings-task.html 
+sidebar: sidebar 
+keywords: check, mtu, network, setting, storage, system 
+summary: 스토리지 시스템의 네트워크 설정이 클라이언트 또는 다른 네트워크 엔드포인트와 동일하지 않은 경우 변경할 수 있습니다. 관리 네트워크 MTU 설정은 1500으로 설정되어 있지만 데이터 네트워크 MTU 크기는 9000이어야 합니다. 
+---
+= 스토리지 시스템에서 MTU 네트워크 설정을 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+스토리지 시스템의 네트워크 설정이 클라이언트 또는 다른 네트워크 엔드포인트와 동일하지 않은 경우 변경할 수 있습니다. 관리 네트워크 MTU 설정은 1500으로 설정되어 있지만 데이터 네트워크 MTU 크기는 9000이어야 합니다.
+
+
+
+== 이 작업에 대해
+
+브로드캐스트 도메인 내의 모든 포트는 MTU 크기가 동일하며 e0M 포트 처리 관리 트래픽을 제외하고 있습니다. 포트가 broadcast-domain의 일부인 경우 broadcast-domain modify 명령을 사용하여 수정된 broadcast-domain 내의 모든 포트에 대한 MTU를 변경한다.
+
+NIC 및 데이터 스위치와 같은 중간 네트워크 장치는 네트워크 엔드포인트보다 더 높은 MTU 크기로 설정할 수 있습니다. 자세한 내용은 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap/performance-admin/check-network-settings-data-switches-task.html["데이터 스위치의 네트워크 설정을 확인합니다"].
+
+.단계
+. 스토리지 시스템에서 MTU 포트 설정을 확인합니다.
++
+네트워크 포트 show-instance
+
+. MTU 포트 설정을 9000으로 변경합니다.
++
+'network port modify -node_nodename_-port_port_-mtu 9000'
+
+
+
+다음 예에서는 "e0a"에 대한 MTU 포트 설정을 9000으로 변경합니다.
+
+[listing]
+----
+cluster1::*> network port modify -node node0 -port e0a -mtu 9000
+----

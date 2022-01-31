@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: task_add_connection_to_cloud.html 
+keywords: netapp, ontap, connection, cloud, cloud insights, cloud agent 
+summary: ONTAP 9.9.0부터는 System Manager를 사용하여 클라우드에 연결을 추가할 수 있습니다. 
+---
+= 클라우드에 연결을 추가합니다
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+ONTAP 9.9.0부터는 System Manager를 사용하여 클라우드에 연결을 추가할 수 있습니다.
+
+먼저 NetApp Cloud Insights를 사용하여 Collector를 구성합니다. 구성 프로세스 중에 Cloud Insights에서 생성한 페어링 코드를 복사한 다음 System Manager를 사용하여 클러스터에 로그온합니다. 여기서 해당 페어링 코드를 사용하여 클라우드 연결을 추가합니다. 나머지 프로세스는 Cloud Insights에서 완료됩니다.
+
+.단계
+. Cloud Insights에서 수집기를 구성하는 프로세스 중에 생성된 페어링 코드를 복사합니다.
+. ONTAP 9.9.0 이상과 함께 System Manager를 사용하여 클러스터에 로그온합니다.
+. 클러스터 > 설정 * 으로 이동합니다.
+. 클라우드 연결 섹션에서 * 추가 * 를 선택하여 연결을 추가합니다.
+. 연결 이름을 입력하고 제공된 공간에 페어링 코드를 붙여넣습니다.
+. 추가 * 를 클릭합니다.
+. 수집기의 구성을 완료하려면 Cloud Insights로 돌아가십시오.
+
+
+
+NOTE: Cloud Insights 사용에 대한 자세한 내용은 을 참조하십시오 link:http://docs.netapp.com/us-en/cloudinsights/concept_ontap_streaming_telemetry.html["Cloud Insights 클라우드 에이전트 설명서"].

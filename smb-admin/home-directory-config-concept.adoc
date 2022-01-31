@@ -1,0 +1,47 @@
+---
+permalink: smb-admin/home-directory-config-concept.html 
+sidebar: sidebar 
+keywords: create, additional, home, directory, configuration, variable, enable, customize, additional home directory configurations 
+summary: '%w, %d 및 %u 변수를 사용하여 추가 홈 디렉토리 구성을 생성할 수 있습니다. 이 변수를 사용하여 필요에 맞게 홈 디렉토리 구성을 사용자 정의할 수 있습니다.' 
+---
+= 추가 홈 디렉토리 구성
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+"%w", "%d", "%u" 변수를 사용하여 홈 디렉토리 설정을 추가로 생성할 수 있습니다. 이 변수를 사용하여 필요에 맞게 홈 디렉토리 구성을 사용자 정의할 수 있습니다.
+
+공유 이름과 검색 경로에서 변수와 정적 문자열을 조합하여 여러 홈 디렉토리 구성을 만들 수 있습니다. 다음 표에는 여러 가지 홈 디렉토리 구성을 만드는 방법을 보여 주는 몇 가지 예가 나와 있습니다.
+
+|===
+| '/vol1/user'가 홈 디렉토리를 포함할 때 생성되는 경로... | 공유 명령... 
+
+
+ a| 
+사용자를 '/vol1/user/win_username'으로 안내하는 공유 경로 '\\vs1\~win_username'을 만듭니다
+ a| 
+'vserver cifs share create-share-name~%w-path%w-share-properties oplocks, browable, changenotify, homedir'
+
+
+
+ a| 
+사용자를 '/vol1/user/domain/win_username'으로 안내하는 공유 경로 '\\vs1\win_username'을 만듭니다
+ a| 
+'vserver cifs share create-share-name %w-path %d/%w-share-properties oplocks, browable, changenotify, homedir'
+
+
+
+ a| 
+사용자를 '/vol1/user/unix_username'으로 안내하는 공유 경로 '\\vs1\win_username'을 만듭니다
+ a| 
+'vserver cifs share create-share-name %w-path %u-share-properties oplocks, browable, changenotify, homedir'
+
+
+
+ a| 
+사용자를 '/vol1/user/unix_username'으로 안내하는 공유 경로 '\\vs1\unix_username'을 생성합니다
+ a| 
+'vserver cifs share create-share-name %u-path %u-share-properties oplocks, browable, changenotify, homedir'
+
+|===

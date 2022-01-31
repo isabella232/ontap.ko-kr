@@ -1,0 +1,17 @@
+---
+permalink: concepts/rdma-concept.html 
+sidebar: sidebar 
+keywords: Remote Direct Memory Access, NFS over RDMA, RoCE, intercluster 
+summary: RDMA를 통한 NFS 및 RDMA 클러스터 상호 연결은 RDMA를 활용하여 고대역폭 워크로드의 성능을 향상시킵니다. 
+---
+= RDMA 개요
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+지연 시간에 민감하거나 높은 대역폭의 워크로드를 사용하는 경우 ONTAP의 RDMA(Read Direct Memory Access) 기능을 활용할 수 있습니다. RDMA를 사용하면 스토리지 시스템 메모리와 호스트 시스템 메모리 간에 데이터를 직접 복사하여 CPU 중단과 오버헤드를 피할 수 있습니다.
+
+ONTAP 9.10.1부터 구성할 수 있습니다 link:../nfs-rdma/index.html["RDMA 상의 NFS"] 지원되는 NVIDIA GPU가 있는 호스트에서 GPU 가속 워크로드에 NVIDIA GPUDirect 스토리지를 사용할 수 있도록 합니다.
+
+또한 ONTAP 9.10.1은 Pensando 클러스터 NIC가 장착된 A400 또는 ASA400 스토리지 시스템을 사용하는 ONTAP 사용자를 위해 RDMA 클러스터 상호 연결을 도입했습니다. RDMA 클러스터 상호 연결은 지연 시간을 단축하고, 페일오버 시간을 단축하며, 클러스터 내의 노드 간 통신을 가속화합니다. 적절한 스토리지 시스템을 설정해도 추가 구성이 필요하지 않습니다.

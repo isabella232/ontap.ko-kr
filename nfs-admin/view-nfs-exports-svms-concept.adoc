@@ -1,0 +1,36 @@
+---
+permalink: nfs-admin/view-nfs-exports-svms-concept.html 
+sidebar: sidebar 
+keywords: enable, display, nfs, export, client 
+summary: NFS 클라이언트는 showmount -e 명령을 사용하여 ONTAP NFS 서버에서 사용할 수 있는 내보내기 목록을 볼 수 있습니다. 이렇게 하면 마운트할 파일 시스템을 식별하는 데 도움이 됩니다. 
+---
+= NFS 클라이언트에서 NFS 내보내기 표시를 설정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NFS 클라이언트는 'howmount -e' 명령을 사용하여 ONTAP NFS 서버에서 사용할 수 있는 내보내기 목록을 볼 수 있습니다. 이렇게 하면 마운트할 파일 시스템을 식별하는 데 도움이 됩니다.
+
+ONTAP 9.2부터 ONTAP는 NFS 클라이언트가 기본적으로 엑스포트 목록을 볼 수 있도록 지원합니다. 이전 릴리즈에서는 vserver nfs modify 명령의 'howmount' 옵션을 명시적으로 활성화해야 합니다. 엑스포트 목록을 보려면 SVM에서 NFSv3을 설정해야 합니다.
+
+다음 명령을 실행하면 이름이 VS1 인 SVM의 showmount 기능이 표시됩니다.
+
+[listing]
+----
+clusterl : : > vserver nfs show -vserver vs1 -fields showmount
+vserver showmount
+------- ---------
+vs1    enabled
+----
+NFS 클라이언트에서 실행된 다음 명령은 IP 주소가 10.63.21.9인 NFS 서버의 내보내기 목록을 표시합니다.
+
+[listing]
+----
+showmount -e 10.63.21.9
+Export list for 10.63.21.9:
+/unix        (everyone)
+/unix/unixl  (everyone)
+/unix/unix2  (everyone)
+/            (everyone)
+----

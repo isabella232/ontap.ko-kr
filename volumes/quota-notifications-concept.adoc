@@ -1,0 +1,114 @@
+---
+permalink: volumes/quota-notifications-concept.html 
+sidebar: sidebar 
+keywords: understanding, quota, notifications 
+summary: '할당량 알림은 EMS(이벤트 관리 시스템)로 전송되고 SNMP 트랩으로도 구성된 메시지입니다.' 
+---
+= 할당량 알림에 대해 알아봅니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+할당량 알림은 EMS(이벤트 관리 시스템)로 전송되고 SNMP 트랩으로도 구성된 메시지입니다.
+
+알림은 다음 이벤트에 대한 응답으로 전송됩니다.
+
+* 즉, 하드 할당량에 도달했습니다. 즉, 할당량을 초과하려고 합니다
+* 소프트 할당량을 초과했습니다
+* 소프트 할당량을 더 이상 초과하지 않습니다
+
+
+임계값은 다른 소프트 할당량과 약간 다릅니다. 임계값은 알림이 더 이상 초과하지 않는 경우에만 알림을 트리거합니다.
+
+볼륨 할당량 수정 명령을 사용하여 하드 할당량 알림을 구성할 수 있습니다. 이러한 메시지를 완전히 끌 수 있으며, 예를 들어 중복된 메시지를 보내지 않도록 간격을 변경할 수 있습니다.
+
+할당량 소프트 알림은 중복 메시지를 생성할 가능성이 낮고 유일한 목적은 알림이므로 구성할 수 없습니다.
+
+다음 표에는 할당량이 EMS 시스템으로 전송되는 이벤트가 나열되어 있습니다.
+
+[cols="2*"]
+|===
+| 이 경우... | 이 이벤트는 EMS로 전송됩니다. 
+
+
+ a| 
+트리 할당량의 하드 제한값에 도달했습니다
+ a| 
+WAFL.quota.qtree.exceeded
+
+
+
+ a| 
+볼륨의 사용자 할당량이 하드 제한값에 도달했습니다
+ a| 
+'wafl.quota.user.exceeded` (UNIX 사용자의 경우)' wafl.quota.user.exceeded.win` (Windows 사용자의 경우)
+
+
+
+ a| 
+qtree의 사용자 할당량에서 하드 제한값에 도달했습니다
+ a| 
+'wafl.quota.userQtree.exceeded` (UNIX 사용자의 경우)' wafl.quota.userQtree.exceeded.win` (Windows 사용자의 경우)
+
+
+
+ a| 
+볼륨의 그룹 할당량이 하드 제한값에 도달했습니다
+ a| 
+"wafl.quota.group.exceeded`
+
+
+
+ a| 
+qtree의 그룹 할당량에서 하드 제한값에 도달했습니다
+ a| 
+"wafl.quota.groupQtree.exceeded`
+
+
+
+ a| 
+임계값을 포함한 소프트 제한값을 초과했습니다
+ a| 
+쿼터소프트리미트 초과
+
+
+
+ a| 
+소프트 제한값을 더 이상 초과하지 않습니다
+ a| 
+"quota.softlimit.normal`
+
+|===
+다음 표에는 할당량이 생성하는 SNMP 트랩이 나열되어 있습니다.
+
+[cols="2*"]
+|===
+| 이 경우... | 이 SNMP 트랩이 전송되었습니다... 
+
+
+ a| 
+하드 제한값에 도달했습니다
+ a| 
+쿼타Exceeded.(쿼타Exceed
+
+
+
+ a| 
+임계값을 포함한 소프트 제한값을 초과했습니다
+ a| 
+QuotaExceeded 및 softQuotaExceeded.를 참조하십시오
+
+
+
+ a| 
+소프트 제한값을 더 이상 초과하지 않습니다
+ a| 
+QuotaNormal 및 softQuotaNormal을 참조하십시오
+
+|===
+[NOTE]
+====
+알림에는 qtree 이름이 아닌 qtree ID 번호가 포함되어 있습니다. 'volume qtree show-id' 명령을 사용하여 qtree 이름과 ID 번호를 상호 연결할 수 있습니다.
+
+====

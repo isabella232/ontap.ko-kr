@@ -1,0 +1,31 @@
+---
+permalink: system-admin/commands-manage-ssl-reference.html 
+sidebar: sidebar 
+keywords: command, manage, ssl, security, protocol, cluster, storage, virtual, machine, svm 
+summary: '보안 SSL 명령을 사용하여 클러스터 또는 SVM(Storage Virtual Machine)의 SSL 프로토콜을 관리할 수 있습니다.' 
+---
+= SSL 관리를 위한 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SVM(Cluster ora Storage Virtual Machine)의 SSL 프로토콜을 관리하려면 '보안 SSL' 명령을 사용합니다.
+
+|===
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+클러스터 oranSVM에 SSL을 활성화하고 디지털 인증서를 이 클러스터와 연결합니다
+ a| 
+보안 SSL 수정
+
+
+
+ a| 
+클러스터 oranSVM의 SSL 구성 및 인증서 이름을 표시합니다
+ a| 
+보안 SSL 쇼
+
+|===

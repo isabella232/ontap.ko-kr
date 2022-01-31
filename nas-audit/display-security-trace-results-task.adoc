@@ -1,0 +1,154 @@
+---
+permalink: nas-audit/display-security-trace-results-task.html 
+sidebar: sidebar 
+keywords: display, security trace results 
+summary: 보안 추적 필터와 일치하는 파일 작업에 대해 생성된 보안 추적 결과를 표시할 수 있습니다. 이 결과를 사용하여 파일 액세스 보안 구성을 검증하거나 SMB 및 NFS 파일 액세스 문제를 해결할 수 있습니다. 
+---
+= 보안 추적 결과를 표시합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+보안 추적 필터와 일치하는 파일 작업에 대해 생성된 보안 추적 결과를 표시할 수 있습니다. 이 결과를 사용하여 파일 액세스 보안 구성을 검증하거나 SMB 및 NFS 파일 액세스 문제를 해결할 수 있습니다.
+
+활성화된 보안 추적 필터가 있어야 하며 보안 추적 결과를 생성하려면 보안 추적 필터와 일치하는 SMB 또는 NFS 클라이언트에서 작업을 수행해야 합니다.
+
+모든 보안 추적 결과의 요약을 표시하거나 선택적 매개 변수를 지정하여 출력에 표시되는 정보를 사용자 지정할 수 있습니다. 이 기능은 보안 추적 결과에 많은 수의 레코드가 포함된 경우에 유용합니다.
+
+선택적 매개 변수를 지정하지 않으면 다음 항목이 표시됩니다.
+
+* 스토리지 가상 시스템(SVM) 이름
+* 노드 이름
+* Security Trace Index Number이다
+* 보안 스타일
+* 경로
+* 이유
+* 사용자 이름입니다
++
+추적 필터 구성 방법에 따라 사용자 이름이 표시됩니다.
+
++
+[cols="40,60"]
+|===
+
+
+| 필터가 구성된 경우... | 그러면... 
+
+
+ a| 
+UNIX 사용자 이름을 사용합니다
+ a| 
+보안 추적 결과에 UNIX 사용자 이름이 표시됩니다.
+
+
+
+ a| 
+Windows 사용자 이름을 사용합니다
+ a| 
+보안 추적 결과에 Windows 사용자 이름이 표시됩니다.
+
+
+
+ a| 
+사용자 이름이 없습니다
+ a| 
+보안 추적 결과에 Windows 사용자 이름이 표시됩니다.
+
+|===
+
+
+선택적 매개 변수를 사용하여 출력을 사용자 지정할 수 있습니다. 명령 출력에 반환되는 결과의 범위를 좁히는 데 사용할 수 있는 선택적 매개 변수 중 몇 가지는 다음과 같습니다.
+
+[cols="35,65"]
+|===
+
+
+| 선택적 매개 변수입니다 | 설명 
+
+
+ a| 
+``필드’’필드_이름, ...
+ a| 
+선택한 필드에 출력을 표시합니다. 이 매개 변수는 단독으로 사용하거나 다른 선택적 매개 변수와 함께 사용할 수 있습니다.
+
+
+
+ a| 
+'-인스턴스'
+ a| 
+보안 추적 이벤트에 대한 자세한 정보를 표시합니다. 이 매개 변수를 다른 선택적 매개 변수와 함께 사용하면 특정 필터 결과에 대한 자세한 정보를 표시할 수 있습니다.
+
+
+
+ a| 
+'-node' node_name'입니다
+ a| 
+지정된 노드의 이벤트에 대한 정보만 표시합니다.
+
+
+
+ a| 
+'-vserver''vserver_name'
+ a| 
+지정된 SVM의 이벤트에 대한 정보만 표시합니다.
+
+
+
+ a| 
+인덱스 정수
+ a| 
+지정된 인덱스 번호에 해당하는 필터의 결과로 발생한 이벤트에 대한 정보를 표시합니다.
+
+
+
+ a| 
+'-client-ip''ip_address'
+ a| 
+지정된 클라이언트 IP 주소에서 파일 액세스로 인해 발생한 이벤트에 대한 정보를 표시합니다.
+
+
+
+ a| 
+길의 길
+ a| 
+지정된 경로에 대한 파일 액세스 결과로 발생한 이벤트에 대한 정보를 표시합니다.
+
+
+
+ a| 
+'-user-name''user_name'입니다
+ a| 
+지정된 Windows 또는 UNIX 사용자가 파일에 액세스한 결과로 발생한 이벤트에 대한 정보를 표시합니다.
+
+
+
+ a| 
+'-security-style''security_style'
+ a| 
+지정된 보안 스타일이 있는 파일 시스템에서 발생한 이벤트에 대한 정보를 표시합니다.
+
+|===
+명령에 사용할 수 있는 다른 선택적 매개 변수에 대한 자세한 내용은 man 페이지를 참조하십시오.
+
+.단계
+. 'vserver security trace trace trace -result show' 명령어를 사용해 보안추적 필터 결과를 출력한다.
++
+'vserver security trace trace-result show-user-name domain\user'를 선택합니다
+
++
+[listing]
+----
+Vserver: vs1
+
+Node     Index   Filter Details         Reason
+-------- ------- ---------------------  -----------------------------
+node1    3       User:domain\user       Access denied by explicit ACE
+                 Security Style:mixed
+                 Path:/dir1/dir2/
+
+node1    5       User:domain\user       Access denied by explicit ACE
+                 Security Style:unix
+                 Path:/dir1/
+----
+

@@ -1,0 +1,13 @@
+---
+permalink: performance-admin/performance-thresholds-generate-event-task.html 
+sidebar: sidebar 
+keywords: use, performance, thresholds, generate, event, notifications 
+summary: 이벤트는 미리 정의된 조건이 발생하거나 성능 카운터 값이 임계값을 초과할 때 Active IQ Unified Manager에서 자동으로 생성되는 알림입니다. 이벤트는 모니터링 중인 클러스터에서 성능 문제를 식별하는 데 도움이 됩니다. 특정 심각도 유형의 이벤트가 발생할 때 전자 메일 알림을 자동으로 보내도록 알림을 구성할 수 있습니다. 
+---
+= 성능 임계값을 사용하여 이벤트 알림을 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이벤트는 미리 정의된 조건이 발생하거나 성능 카운터 값이 임계값을 초과할 때 Active IQ Unified Manager에서 자동으로 생성되는 알림입니다. 이벤트는 모니터링 중인 클러스터에서 성능 문제를 식별하는 데 도움이 됩니다. 특정 심각도 유형의 이벤트가 발생할 때 전자 메일 알림을 자동으로 보내도록 알림을 구성할 수 있습니다.

@@ -1,0 +1,20 @@
+---
+permalink: smb-admin/security-style-inheritance-concept.html 
+sidebar: sidebar 
+keywords: security, style, creating, create, flexvol, volume, qtree, inherit, how security style inheritance works 
+summary: 새 FlexVol 볼륨 또는 qtree를 생성할 때 보안 스타일을 지정하지 않으면 보안 스타일이 다른 방식으로 상속됩니다. 
+---
+= 보안 스타일 상속의 작동 방식
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+새 FlexVol 볼륨 또는 qtree를 생성할 때 보안 스타일을 지정하지 않으면 보안 스타일이 다른 방식으로 상속됩니다.
+
+보안 스타일은 다음과 같은 방식으로 상속됩니다.
+
+* FlexVol 볼륨은 SVM이 포함된 루트 볼륨의 보안 스타일을 상속합니다.
+* qtree는 포함된 FlexVol 볼륨의 보안 스타일을 상속합니다.
+* 파일 또는 디렉토리는 포함된 FlexVol 볼륨 또는 qtree의 보안 스타일을 상속합니다.
+

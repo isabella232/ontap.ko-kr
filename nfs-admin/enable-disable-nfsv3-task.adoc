@@ -1,0 +1,38 @@
+---
+permalink: nfs-admin/enable-disable-nfsv3-task.html 
+sidebar: sidebar 
+keywords: enable, disable, nfsv3 
+summary: v3 옵션을 수정하여 NFSv3을 설정하거나 해제할 수 있습니다. 이렇게 하면 NFSv3 프로토콜을 사용하는 클라이언트에 대한 파일 액세스가 허용됩니다. 기본적으로 NFSv3은 설정되어 있습니다. 
+---
+= NFSv3을 사용하거나 사용하지 않도록 설정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'-v3' 옵션을 수정하여 NFSv3을 설정하거나 해제할 수 있습니다. 이렇게 하면 NFSv3 프로토콜을 사용하는 클라이언트에 대한 파일 액세스가 허용됩니다. 기본적으로 NFSv3은 설정되어 있습니다.
+
+.단계
+. 다음 작업 중 하나를 수행합니다.
++
+[cols="20,80"]
+|===
+
+
+| 원하는 작업 | 명령 입력... 
+
+
+ a| 
+NFSv3을 사용하도록 설정합니다
+ a| 
+'vserver NFS modify -vserver vserver_name -v3 enabled'
+
+
+
+ a| 
+NFSv3을 사용하지 않도록 설정합니다
+ a| 
+'vserver NFS modify -vserver vserver_name -v3 disabled'
+
+|===
+

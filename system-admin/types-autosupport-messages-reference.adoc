@@ -1,0 +1,94 @@
+---
+permalink: system-admin/types-autosupport-messages-reference.html 
+sidebar: sidebar 
+keywords: active, iq, autosupport, messages, content, support, subsystems 
+summary: 'AutoSupport 메시지에는 지원되는 하위 시스템에 대한 상태 정보가 포함되어 있습니다. AutoSupport 메시지에 포함된 내용을 학습하면 전자 메일로 받거나 Active IQ(이전의 My AutoSupport) 웹 사이트에서 보는 메시지를 해석하거나 응답할 수 있습니다.' 
+---
+= AutoSupport 메시지의 유형과 콘텐츠입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+AutoSupport 메시지에는 지원되는 하위 시스템에 대한 상태 정보가 포함되어 있습니다. AutoSupport 메시지에 포함된 내용을 학습하면 전자 메일로 받거나 Active IQ(이전의 My AutoSupport) 웹 사이트에서 보는 메시지를 해석하거나 응답할 수 있습니다.
+
+|===
+| 메시지 유형입니다 | 메시지에 포함된 데이터 유형입니다 
+
+
+ a| 
+이벤트가 트리거되었습니다
+ a| 
+이벤트가 발생한 특정 하위 시스템에 대한 컨텍스트 기반 데이터를 포함하는 파일입니다
+
+
+
+ a| 
+매일
+ a| 
+로그 파일
+
+
+
+ a| 
+성능
+ a| 
+지난 24시간 동안 샘플링된 성능 데이터
+
+
+
+ a| 
+매주
+ a| 
+구성 및 상태 데이터
+
+
+
+ a| 
+'system node AutoSupport invoke' 명령에 의해 발생한다
+ a| 
+'-type' 파라미터에 지정된 값에 따라 다름:
+
+* "테스트"는 기본적인 데이터가 포함된 사용자 트리거 메시지를 보냅니다.
++
+또한 이 메시지는 '-to' 옵션을 사용하여 기술 지원에서 특정 이메일 주소로 자동 이메일 응답을 트리거하여 AutoSupport 메시지가 수신되고 있는지 확인할 수 있도록 합니다.
+
+* '성능'은 성능 데이터를 전송합니다.
+* All은 서브시스템의 데이터 문제 해결 등 주간 메시지와 유사한 완전한 데이터 세트를 가진 사용자 트리거 메시지를 전송한다.
++
+기술 지원 부서에서는 일반적으로 이 메시지를 요청합니다.
+
+
+
+
+
+ a| 
+'system node AutoSupport invoke-core-upload' 명령에 의해 발생한다
+ a| 
+노드의 코어 덤프 파일
+
+
+
+ a| 
+'system node AutoSupport invoke-performance-archive' 명령에 의해 트리거됩니다
+ a| 
+지정된 기간 동안 성능 아카이브 파일
+
+
+
+ a| 
+AutoSupport OnDemand에 의해 트리거됩니다
+ a| 
+AutoSupport OnDemand는 새 메시지 또는 이전 메시지를 요청할 수 있습니다.
+
+* AutoSupport 수집 유형에 따라 테스트, 전체 또는 성능 중 새 메시지가 나타날 수 있습니다.
+* 지난 메시지는 다시 전송되는 메시지 유형에 따라 달라집니다.
+
+
+AutoSupport OnDemand는 다음 파일을 NetApp Support 사이트 에 업로드하는 새 메시지를 요청할 수 있습니다 http://mysupport.netapp.com/["mysupport.netapp.com"]:
+
+* 코어 덤프
+* 성능 아카이브
+
+
+|===

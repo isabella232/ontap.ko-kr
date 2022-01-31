@@ -1,0 +1,169 @@
+---
+permalink: upgrade/task_updating_a_two_node_metrocluster_configuration_in_ontap_9_2_and_earlier.html 
+sidebar: sidebar 
+keywords: ontap, upgrade, two-node, metrocluster, mcc, 9.2, earlier 
+summary: '2노드 MetroCluster 구성의 경우 ONTAP를 중단 없이 업그레이드할 수 있습니다. 이 방법에는 몇 가지 단계가 있습니다. 협상된 전환 시작, "장애" 사이트에서 클러스터 업데이트, 스위치백 시작, 다른 사이트의 클러스터에서 프로세스 반복이 있습니다.' 
+---
+= ONTAP 9.2 이하 버전의 CLI를 사용한 2노드 MetroCluster 구성의 수동 무중단 업그레이드
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+2노드 MetroCluster 구성의 경우 ONTAP를 중단 없이 업그레이드할 수 있습니다. 이 방법에는 몇 가지 단계가 있습니다. 즉, 협상된 전환 시작, ""장애" 사이트에서 클러스터 업데이트, 스위치백 시작, 다른 사이트의 클러스터에서 프로세스 반복이 있습니다.
+
+이 절차는 ONTAP 9.2 이하를 실행하는 2노드 MetroCluster 구성에만 해당됩니다.
+
++4노드 MetroCluster 구성이 있는 경우 이 절차를 사용하지 마십시오.
+
++ONTAP 9.3 이상을 실행하는 2노드 MetroCluster 구성이 있는 경우 를 수행합니다 xref:task_upgrade_andu_sm.html[System Manager를 사용하여 무중단 업그레이드 자동화].
+
+. "Set-Privilege advanced"라는 메시지가 나타나면 * y * 를 입력하여 권한 수준을 advanced로 설정합니다
++
+고급 프롬프트('*>')가 나타납니다.
+
+. 업그레이드할 클러스터에서 새 ONTAP 소프트웨어 이미지를 기본값인 'system node image update-package package_location-SetDefault true-replace-package true'로 설치합니다
++
+[listing]
+----
+cluster_B::*> system node image update -package http://www.example.com/NewImage.tgz -setdefault true -replace-package true
+----
+. 대상 소프트웨어 이미지가 기본 이미지 '시스템 노드 이미지 표시'로 설정되어 있는지 확인합니다
++
+다음 예에서는 "NewImage"가 기본 이미지로 설정되어 있음을 보여 줍니다.
+
++
+[listing]
+----
+cluster_B::*> system node image show
+                    Is      Is                           Install
+Node     Image      Default Current Version              Date
+-------- -------    ------- ------- -------------------- -------------------
+node_B_1
+         OldImage  false   true    X.X.X                MM/DD/YYYY TIME
+         NewImage  true    false   Y.Y.Y                MM/DD/YYYY TIME
+2 entries were displayed.
+----
+. 대상 소프트웨어 이미지가 기본 이미지로 설정되어 있지 않으면 '시스템 이미지 수정{-node * -iscurrent false} -isdefault true'로 변경합니다
+. 모든 클러스터 SVM이 'MetroCluster vserver show'라는 상태 상태인지 확인합니다
+. 업데이트되지 않는 클러스터에서 협상된 전환 'MetroCluster switchover'를 시작합니다
++
+이 작업은 몇 분 정도 걸릴 수 있습니다. MetroCluster operation show 명령을 사용하여 전환이 완료되었는지 확인할 수 있습니다.
+
++
+다음 예에서는 원격 클러스터(""cluster_a"")에서 협상된 전환이 수행됩니다. 이로 인해 로컬 클러스터("cluster_B")가 중지되어 업데이트할 수 있습니다.
+
++
+[listing]
+----
+cluster_A::> metrocluster switchover
+
+Warning: negotiated switchover is about to start. It will stop all the data
+         Vservers on cluster "cluster_B" and
+         automatically re-start them on cluster
+         "cluster_A". It will finally gracefully shutdown
+         cluster "cluster_B".
+Do you want to continue? {y|n}: y
+----
+. 모든 클러스터 SVM이 'MetroCluster vserver show'라는 상태 상태인지 확인합니다
+. "해결 중" 클러스터의 데이터 집계, 즉 MetroCluster 치료 단계 집계를 재동기화합니다
++
+MetroCluster IP 구성을 ONTAP 9.5 이상으로 업그레이드한 후, 애그리게이트는 짧은 기간 동안 성능 저하 상태가 된 후에 재동기화되어 미러링된 상태로 돌아갑니다.
+
++
+[listing]
+----
+cluster_A::> metrocluster heal -phase aggregates
+[Job 130] Job succeeded: Heal Aggregates is successful.
+----
+. 복구 작업이 성공적으로 완료되었는지 확인합니다. 'MetroCluster operation show'
++
+[listing]
+----
+cluster_A::> metrocluster operation show
+Operation: heal-aggregates
+State: successful
+Start Time: MM/DD/YYYY TIME
+End Time: MM/DD/YYYY TIME
+Errors: -
+----
+. "해결 중" 클러스터의 루트 애그리게이트를 재동기화합니다. "MetroCluster 수정 단계 루트 애그리게이트"
++
+[listing]
+----
+cluster_A::> metrocluster heal -phase root-aggregates
+[Job 131] Job succeeded: Heal Root Aggregates is successful.
+----
+. 복구 작업이 성공적으로 완료되었는지 확인합니다. 'MetroCluster operation show'
++
+[listing]
+----
+cluster_A::> metrocluster operation show
+Operation: heal-root-aggregates
+State: successful
+Start Time: MM/DD/YYYY TIME
+End Time: MM/DD/YYYY TIME
+Errors: -
+----
+. 중단된 클러스터의 경우 LOADER 프롬프트에서 "boot_ontap" 노드를 부팅합니다
+. 부팅 프로세스가 완료될 때까지 기다린 다음 모든 클러스터 SVM이 상태('MetroCluster vserver show')에 있는지 확인합니다
+. '서바이빙' 클러스터에서 스위치백을 수행합니다. 'MetroCluster 스위치백'
+. 스위치백을 성공적으로 완료했는지 확인합니다. 'MetroCluster operation show'
++
+[listing]
+----
+cluster_A::> metrocluster operation show
+Operation: switchback
+State: successful
+Start Time: MM/DD/YYYY TIME
+End Time: MM/DD/YYYY TIME
+Errors: -
+----
+. 모든 클러스터 SVM이 'MetroCluster vserver show'라는 상태 상태인지 확인합니다
+. 다른 클러스터에서 이전 단계를 모두 반복합니다.
+. MetroCluster 구성이 정상인지 확인합니다.
++
+.. 'MetroCluster check run' 설정을 확인한다
++
+[listing]
+----
+cluster_A::> metrocluster check run
+Last Checked On: MM/DD/YYYY TIME
+Component           Result
+------------------- ---------
+nodes               ok
+lifs                ok
+config-replication  ok
+aggregates          ok
+4 entries were displayed.
+
+Command completed. Use the "metrocluster check show -instance"
+command or sub-commands in "metrocluster check" directory for
+detailed results.
+To check if the nodes are ready to do a switchover or switchback
+operation, run "metrocluster switchover -simulate" or "metrocluster
+switchback -simulate", respectively.
+----
+.. 더 자세한 결과를 보려면 MetroCluster check run 명령을 사용하십시오. 'MetroCluster check aggregate show' metrocluster check config-replication show' metrocluster check lif show' metrocluster check node show
+.. 권한 수준을 Advanced:'Set-Privilege advanced'로 설정합니다
+.. 'MetroCluster switchover-simulate' 절체 동작 시뮬레이션
+.. 절체 시뮬레이션 결과 MetroCluster Operation show를 검토한다
++
+[listing]
+----
+cluster_A::*> metrocluster operation show
+    Operation: switchover
+        State: successful
+   Start time: MM/DD/YYYY TIME
+     End time: MM/DD/YYYY TIME
+       Errors: -
+----
+.. admin 권한 수준으로 복귀:'et-Privilege admin'입니다
+.. 다른 클러스터에서 이러한 하위 단계를 반복합니다.
+
+
+
+
+업그레이드 후 작업을 수행해야 합니다.
+
+link:https://docs.netapp.com/us-en/ontap-metrocluster/disaster-recovery/concept_dr_workflow.html["MetroCluster 재해 복구"]

@@ -1,0 +1,43 @@
+---
+permalink: system-admin/enable-sp-bmc-automatic-network-config-task.html 
+sidebar: sidebar 
+keywords: enable, sp, bmc, automatic, network, configuration 
+summary: SP 네트워크를 수동으로 구성하는 대신 자동 네트워크 구성을 사용하도록 SP를 설정하는 것이 좋습니다. SP 자동 네트워크 구성은 클러스터 전체에 있으므로 개별 노드의 SP 네트워크를 수동으로 관리할 필요가 없습니다. 
+---
+= SP/BMC 자동 네트워크 구성을 사용하도록 설정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SP 네트워크를 수동으로 구성하는 대신 자동 네트워크 구성을 사용하도록 SP를 설정하는 것이 좋습니다. SP 자동 네트워크 구성은 클러스터 전체에 있으므로 개별 노드의 SP 네트워크를 수동으로 관리할 필요가 없습니다.
+
+[NOTE]
+====
+이 태스크는 SP와 BMC 모두에 적용됩니다.
+
+====
+* SP 자동 네트워크 구성에 사용할 서브넷이 이미 클러스터에 정의되어 있어야 하며 SP 네트워크 인터페이스와 리소스 충돌이 없어야 합니다.
++
+network subnet show 명령은 클러스터의 서브넷 정보를 표시합니다.
+
++
+네트워크 서브넷 명령의 서브넷 연관(-force-update-lif-associations) 매개 변수를 강제하는 매개변수는 SP 네트워크 인터페이스가 아닌 네트워크 LIF에서만 지원됩니다.
+
+* SP에 대해 IPv6 연결을 사용하려면 ONTAP에 대해 IPv6가 이미 구성 및 설정되어 있어야 합니다.
++
+network options ipv6 show 명령을 실행하면 ONTAP의 현재 IPv6 설정 상태가 표시됩니다.
+
+
+
+.단계
+. 'system service-processor network auto-configuration enable' 명령어를 사용하여 SP가 사용할 서브넷의 IPv4 또는 IPv6 주소 제품군과 이름을 지정한다.
+. 'system service-processor network auto-configuration show' 명령을 사용하여 SP 자동 네트워크 구성을 표시합니다.
+. 이후에 쿼럼에 있는 모든 노드에 대해 SP IPv4 또는 IPv6 네트워크 인터페이스를 비활성화하거나 다시 활성화하려면 '-address-family'['IPv4'|'IPv6'] 및 '-enable'['true'|'false'] 매개 변수를 사용하여 'system service-processor network modify' 명령을 사용하십시오.
++
+SP 자동 네트워크 구성이 설정된 경우 쿼럼에 있는 노드의 SP IP 주소를 수정할 수 없습니다. SP IPv4 또는 IPv6 네트워크 인터페이스만 사용하거나 사용하지 않도록 설정할 수 있습니다.
+
++
+노드가 쿼럼을 벗어난 경우 노드에서 '시스템 서비스 프로세서 네트워크 수정'을 실행하고 노드의 SP 자동 네트워크 구성을 재정의할지 확인하여 SP IP 주소를 포함한 노드의 SP 네트워크 구성을 수정할 수 있습니다. 그러나 노드가 쿼럼에 연결되면 지정된 서브넷에 따라 노드에 대한 SP 자동 재구성이 수행됩니다.
+
+

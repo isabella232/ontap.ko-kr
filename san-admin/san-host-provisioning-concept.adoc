@@ -1,0 +1,65 @@
+---
+permalink: san-admin/san-host-provisioning-concept.html 
+sidebar: sidebar 
+keywords: understand, san host, provisioning 
+summary: 'SAN 환경에서 스토리지 시스템은 스토리지 대상 디바이스가 있는 타겟입니다. iSCSI 및 FC의 경우 스토리지 타겟 디바이스를 LUN(논리 유닛)이라고 합니다. Fibre Channel을 통한 NVMe(Non-Volatile Memory Express)의 경우 스토리지 타겟 디바이스를 네임스페이스라고 합니다.' 
+---
+= iSCSI를 사용한 SAN 프로비저닝
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SAN 환경에서 스토리지 시스템은 스토리지 대상 디바이스가 있는 타겟입니다. iSCSI 및 FC의 경우 스토리지 타겟 디바이스를 LUN(논리 유닛)이라고 합니다. Fibre Channel을 통한 NVMe(Non-Volatile Memory Express)의 경우 스토리지 타겟 디바이스를 네임스페이스라고 합니다.
+
+iSCSI 및 FC용 LUN을 생성하거나 NVMe용 네임스페이스를 생성하여 스토리지를 구성합니다. 그런 다음 iSCSI(Internet Small Computer Systems Interface) 또는 FC(Fibre Channel) 프로토콜 네트워크를 사용하여 호스트에서 LUN 또는 네임스페이스에 액세스합니다.
+
+iSCSI 네트워크에 연결하기 위해 호스트는 표준 이더넷 네트워크 어댑터(NIC), 소프트웨어 이니시에이터가 있는 TCP 오프로드 엔진(TOE) 카드, 통합 네트워크 어댑터(CNA) 또는 전용 iSCSI 호스트 버스 어댑터(HBA)를 사용할 수 있습니다.
+
+FC 네트워크에 접속하려면 호스트에 FC HBA 또는 CNA가 필요합니다.
+
+지원되는 FC 프로토콜은 다음과 같습니다.
+
+* FC
+* FCoE 를 참조하십시오
+* NVMe를 참조하십시오
+
+
+
+
+== iSCSI 타겟 노드 네트워크 연결 및 이름
+
+iSCSI 타겟 노드는 다음과 같은 여러 가지 방법으로 네트워크에 연결할 수 있습니다.
+
+* ONTAP에 통합된 소프트웨어를 사용하는 이더넷 인터페이스를 통해.
+* 다중 시스템 인터페이스, iSCSI에 사용되는 인터페이스로 CIFS 및 NFS와 같은 다른 프로토콜의 트래픽을 전송할 수 있습니다.
+* UTA(통합 타겟 어댑터) 또는 CNA(통합 네트워크 어댑터) 사용
+
+
+모든 iSCSI 노드에는 노드 이름이 있어야 합니다.
+
+iSCSI 노드 이름에 대한 두 형식 또는 형식 지정자는 _iqn_과 _eui_입니다. SVM iSCSI 타겟은 항상 iqn형 지정자를 사용합니다. 이니시에이터는 iqn 유형 또는 eui 유형 지정자를 사용할 수 있습니다.
+
+
+
+== 스토리지 시스템 노드 이름입니다
+
+iSCSI를 실행하는 각 SVM에는 역방향 도메인 이름과 고유한 인코딩 번호를 기반으로 하는 기본 노드 이름이 있습니다.
+
+노드 이름은 다음 형식으로 표시됩니다.
+
+iqn.1992-08.com.netapp:sn.`_unique-encoding-number_`
+
+다음 예에서는 고유한 인코딩 번호가 있는 스토리지 시스템의 기본 노드 이름을 보여 줍니다.
+
+iqn.1992-08.com.netapp:sn.812921059e6c11e097b3123478563412:vs.6
+
+
+
+== iSCSI용 TCP 포트
+
+iSCSI 프로토콜은 ONTAP에서 TCP 포트 번호 3260을 사용하도록 구성되어 있습니다.
+
+ONTAP는 iSCSI의 포트 번호 변경을 지원하지 않습니다. 포트 번호 3260은 iSCSI 사양의 일부로 등록되었으며 다른 애플리케이션이나 서비스에서 사용할 수 없습니다.
+
+https://docs.netapp.com/us-en/ontap-sanhost/["NetApp 설명서: ONTAP SAN 호스트 구성"]

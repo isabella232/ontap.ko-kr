@@ -1,0 +1,142 @@
+---
+permalink: data-protection/version-flexible-snapmirror-default-concept.html 
+sidebar: sidebar 
+keywords: xdp, replace, dp, snapmirror, default, snap mirror, data protection, replication, replicate, snap lock, snaplock 
+summary: 'ONTAP 9.3부터 SnapMirror 확장 데이터 보호(XDP) 모드가 SnapMirror 기본값으로 SnapMirror 데이터 보호(DP) 모드를 대체합니다.' 
+---
+= XDP는 DP를 SnapMirror 기본값으로 바꿉니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.3부터 SnapMirror 확장 데이터 보호(XDP) 모드가 SnapMirror 기본값으로 SnapMirror 데이터 보호(DP) 모드를 대체합니다.
+
+ONTAP 9.3까지 SnapMirror는 DP 모드에서 호출되고 SnapMirror는 XDP 모드에서 호출될 때까지 서로 다른 복제 엔진을 사용했으며, 버전 의존성에 대한 접근법도 다릅니다.
+
+* DP 모드에서 호출된 SnapMirror는 ONTAP 버전이 운영 스토리지와 2차 스토리지에서 동일해야 하는 _version-dependent_replication 엔진을 사용합니다.
++
+[listing]
+----
+cluster_dst::>  snapmirror create -type DP -source-path ... -destination-path ...
+----
+* XDP 모드에서 호출된 SnapMirror는 운영 스토리지와 보조 스토리지에서 서로 다른 ONTAP 버전을 지원하는 _version-flexible_replication 엔진을 사용했습니다.
++
+[listing]
+----
+cluster_dst::>  snapmirror create -type XDP -source-path ... -destination-path ...
+----
+
+
+성능이 향상됨에 따라 버전에 상관없이 유연한 SnapMirror의 주요 이점이 버전에 따라 달라지는 복제 처리량의 약간 이점보다 훨씬 큽니다. 이러한 이유로 ONTAP 9.3부터 XDP 모드가 새로운 기본값이 되었으며 명령줄이나 신규 또는 기존 스크립트에서 DP 모드를 호출하는 경우 XDP 모드가 자동으로 XDP 모드로 변환됩니다.
+
+기존 관계는 영향을 받지 않습니다. 관계가 이미 DP 유형인 경우 DP 유형이 됩니다. ONTAP 9.5부터 MirrorAndVault는 데이터 보호 모드가 지정되지 않았거나 XDP 모드가 관계 유형으로 지정된 경우 새로운 기본 정책입니다. 아래 표에는 예상되는 동작이 나와 있습니다.
+
+[cols="3*"]
+|===
+
+
+| 지정하는 경우... | 유형은... | 기본 정책(정책을 지정하지 않은 경우)은... 
+
+
+ a| 
+DP
+ a| 
+XDP
+ a| 
+MirrorAllSnapshots(SnapMirror DR)
+
+
+
+ a| 
+아무것도 없습니다
+ a| 
+XDP
+ a| 
+MirrorAndVault(통합 복제)
+
+
+
+ a| 
+XDP
+ a| 
+XDP
+ a| 
+MirrorAndVault(통합 복제)
+
+|===
+표에 나와 있듯이 서로 다른 환경에서 XDP에 할당되는 기본 정책은 변환이 이전 유형의 기능적 동등성을 유지하도록 보장합니다. 물론 필요에 따라 통합 복제에 대한 정책을 비롯한 다양한 정책을 사용할 수 있습니다.
+
+[cols="3*"]
+|===
+
+
+| 지정하는 경우... | 정책은... | 그 결과... 
+
+
+ a| 
+DP
+ a| 
+MirrorAllSnapshots을 선택합니다
+ a| 
+SnapMirror DR
+
+
+
+ a| 
+XDPDefault
+ a| 
+SnapVault
+
+
+
+ a| 
+MirrorAndVault를 선택합니다
+ a| 
+통합 복제
+
+
+
+ a| 
+XDP
+ a| 
+MirrorAllSnapshots을 선택합니다
+ a| 
+SnapMirror DR
+
+
+
+ a| 
+XDPDefault
+ a| 
+SnapVault
+
+
+
+ a| 
+MirrorAndVault를 선택합니다
+ a| 
+통합 복제
+
+|===
+변환 예외 사항은 다음과 같습니다.
+
+* SVM 데이터 보호 관계는 ONTAP 9.3 및 이전 버전에서 DP 모드로 계속 기본값입니다.
++
+ONTAP 9.4부터 SVM 데이터 보호 관계는 기본적으로 XDP 모드로 설정됩니다.
+
+* 루트 볼륨 로드 공유 데이터 보호 관계는 기본적으로 DP 모드로 유지됩니다.
+* SnapLock 데이터 보호 관계는 ONTAP 9.4 이하 버전에서 DP 모드로 계속 기본값입니다.
++
+ONTAP 9.5부터 SnapLock 데이터 보호 관계는 XDP 모드로 기본 설정됩니다.
+
+* DP의 명시적 호출은 다음 클러스터 전체 옵션을 설정한 경우 계속해서 DP 모드로 설정됩니다.
++
+[listing]
+----
+options replication.create_data_protection_rels.enable on
+----
++
+DP를 명시적으로 호출하지 않으면 이 옵션은 무시됩니다.
+
+

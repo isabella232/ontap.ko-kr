@@ -1,0 +1,49 @@
+---
+permalink: san-admin/prevent-flexclone-file-lun-deleted-task.html 
+sidebar: sidebar 
+keywords: prevent, specific, flexclone file, flexclone lun, automatically, deleted 
+summary: FlexClone 파일 및 FlexClone LUN을 자동으로 삭제하도록 FlexVol 볼륨을 구성하는 경우 지정한 조건에 맞는 모든 클론을 삭제할 수 있습니다. 보존하려는 특정 FlexClone 파일 또는 FlexClone LUN이 있는 경우 자동 FlexClone 삭제 프로세스에서 해당 LUN을 제외할 수 있습니다. 
+---
+= 특정 FlexClone 파일 또는 FlexClone LUN이 자동으로 삭제되지 않도록 합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FlexClone 파일 및 FlexClone LUN을 자동으로 삭제하도록 FlexVol 볼륨을 구성하는 경우 지정한 조건에 맞는 모든 클론을 삭제할 수 있습니다. 보존하려는 특정 FlexClone 파일 또는 FlexClone LUN이 있는 경우 자동 FlexClone 삭제 프로세스에서 해당 LUN을 제외할 수 있습니다.
+
+FlexClone 라이센스를 설치해야 합니다.
+
+FlexClone 파일 또는 FlexClone LUN을 생성할 때 기본적으로 클론에 대한 자동 삭제 설정이 사용되지 않습니다. 자동 삭제가 비활성화된 FlexClone 파일 및 FlexClone LUN은 FlexVol 볼륨을 구성하여 볼륨의 공간을 자동으로 재확보하도록 구성할 때 보존됩니다.
+
+[NOTE]
+====
+볼륨에 대해 'try' 또는 'disrupt'로 'preserve' 수준을 설정하면 해당 클론에 대해 자동 삭제를 비활성화하여 특정 FlexClone 파일이나 FlexClone LUN을 개별적으로 보존할 수 있습니다. 그러나 볼륨에 대한 '약정' 레벨을 'Destroy'로 설정하고 destroy 목록에 'lun_clone, file_clone'이 포함된 경우 볼륨 설정이 클론 설정을 재정의하고 클론의 자동 삭제 설정에 관계없이 모든 FlexClone 파일과 FlexClone LUN을 삭제할 수 있습니다.
+
+====
+.단계
+. '볼륨 파일 클론 자동 삭제' 명령을 사용하여 특정 FlexClone 파일 또는 FlexClone LUN이 자동으로 삭제되지 않도록 합니다.
++
+다음 예에서는 vol1에 포함된 FlexClone LUN lun1_clone에 대해 자동 삭제를 해제하는 방법을 보여 줍니다.
+
++
+[listing]
+----
+cluster1::> volume file clone autodelete -vserver vs1 -volume vol1 -clone-path lun1_clone -enable false
+----
++
+자동 삭제가 비활성화된 FlexClone 파일 또는 FlexClone LUN은 볼륨의 공간을 재확보하기 위해 자동으로 삭제할 수 없습니다.
+
+. 'volume file clone show -Autodelete' 명령을 사용하여 FlexClone 파일 또는 FlexClone LUN에 대해 자동 삭제가 비활성화되어 있는지 확인합니다.
++
+다음 예제에서는 FlexClone LUN lun1_clone에 대한 자동 삭제가 거짓인 것을 보여 줍니다.
+
++
+[listing]
+----
+cluster1::> volume file clone show-autodelete -vserver vs1 -clone-path vol/vol1/lun1_clone
+															Vserver Name: vs1
+															Clone Path: vol/vol1/lun1_clone
+															Autodelete Enabled: false
+----
+

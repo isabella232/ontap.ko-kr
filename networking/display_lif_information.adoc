@@ -1,0 +1,104 @@
+---
+sidebar: sidebar 
+permalink: networking/display_lif_information.html 
+keywords: display, view, show, lif, logical, interface, display lif information, view detailed information about a lif to determine its configuration 
+summary: LIF에 대한 자세한 정보를 보고 해당 구성을 결정하십시오 
+---
+= LIF 정보를 표시합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+LIF에 대한 자세한 정보를 보고 해당 구성을 확인할 수 있습니다.
+
+또한 이 정보를 확인하여 중복 IP 주소 확인 또는 네트워크 포트가 올바른 서브넷에 속하는지 확인하는 등의 기본 LIF 문제를 진단할 수도 있습니다. SVM(Storage Virtual Machine) 관리자는 SVM과 연결된 LIF에 대한 정보만 볼 수 있습니다.
+
+다음 정보가 표시됩니다.
+
+* LIF와 연결된 IP 주소입니다
+* LIF의 관리 상태입니다
+* LIF의 운영 상태입니다
++
+데이터 LIF의 운영 상태는 데이터 LIF가 연결된 SVM의 상태에 따라 결정됩니다. SVM이 중지되면 LIF의 운영 상태가 아래로 변경됩니다. SVM이 다시 시작되면 운영 상태가 가동으로 바뀝니다
+
+* 노드 및 LIF가 상주하는 포트입니다
+
+
+필드의 데이터를 사용할 수 없는 경우(예: 확장 상태 정보가 없는 경우) 필드 값은 '-'로 표시됩니다.
+
+네트워크 인터페이스 show 명령을 사용하여 LIF 정보를 표시합니다.
+
+instance 매개 변수를 지정하여 각 LIF에 대한 자세한 정보를 보거나 -fields 매개 변수를 사용하여 필드 이름을 지정하여 특정 정보를 얻을 수 있습니다.
+
+다음 명령을 실행하면 클러스터의 모든 LIF에 대한 일반 정보가 표시됩니다.
+
+....
+network interface show
+           Logical    Status     Network          Current      Current Is
+Vserver    Interface  Admin/Oper Address/Mask     Node         Port    Home
+---------- ---------- ---------- ---------------- ------------ ------- ----
+example
+           lif1         up/up    192.0.2.129/22   node-01
+                                                               e0d     false
+node
+           cluster_mgmt up/up    192.0.2.3/20     node-02
+                                                               e0c     false
+node-01
+           clus1        up/up    192.0.2.65/18    node-01
+                                                               e0a     true
+           clus2        up/up    192.0.2.66/18    node-01
+                                                               e0b     true
+           mgmt1        up/up    192.0.2.1/20     node-01
+                                                               e0c     true
+node-02
+           clus1        up/up    192.0.2.67/18    node-02
+                                                               e0a     true
+           clus2        up/up    192.0.2.68/18    node-02
+                                                               e0b     true
+           mgmt2        up/up    192.0.2.2/20     node-02
+                                                               e0d     true
+vs1
+           d1           up/up    192.0.2.130/21   node-01
+                                                               e0d     false
+           d2           up/up    192.0.2.131/21   node-01
+                                                               e0d     true
+           data3        up/up    192.0.2.132/20   node-02
+                                                               e0c     true
+....
+다음 명령을 실행하면 단일 LIF에 대한 자세한 정보가 표시됩니다.
+
+....
+network interface show -lif data1 -instance
+
+                    Vserver Name: vs1
+          Logical Interface Name: data1
+                            Role: data
+                   Data Protocol: nfs,cifs
+                       Home Node: node-01
+                       Home Port: e0c
+                    Current Node: node-03
+                    Current Port: e0c
+              Operational Status: up
+                 Extended Status: -
+                         Is Home: false
+                 Network Address: 192.0.2.128
+                         Netmask: 255.255.192.0
+             Bits in the Netmask: 18
+                 IPv4 Link Local: -
+                     Subnet Name: -
+           Administrative Status: up
+                 Failover Policy: local-only
+                 Firewall Policy: data
+                     Auto Revert: false
+   Fully Qualified DNS Zone Name: xxx.example.com
+         DNS Query Listen Enable: false
+             Failover Group Name: Default
+                        FCP WWPN: -
+                  Address family: ipv4
+                         Comment: -
+                  IPspace of LIF: Default
+....

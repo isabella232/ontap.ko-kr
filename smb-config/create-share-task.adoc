@@ -1,0 +1,42 @@
+---
+permalink: smb-config/create-share-task.html 
+sidebar: sidebar 
+keywords: create, smb, share, data, server, client, properties, home, directory, designate, designating, customize, configure, configuring, optional, setting, create an smb share 
+summary: SMB 클라이언트와 SMB 서버의 데이터를 공유하려면 먼저 SMB 공유를 생성해야 합니다. 공유를 생성할 때 공유를 홈 디렉토리로 지정하는 등의 공유 속성을 설정할 수 있습니다. 선택적 설정을 구성하여 공유를 사용자 지정할 수도 있습니다. 
+---
+= SMB 공유를 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMB 클라이언트와 SMB 서버의 데이터를 공유하려면 먼저 SMB 공유를 생성해야 합니다. 공유를 생성할 때 공유를 홈 디렉토리로 지정하는 등의 공유 속성을 설정할 수 있습니다. 선택적 설정을 구성하여 공유를 사용자 지정할 수도 있습니다.
+
+공유를 생성하기 전에 SVM 네임스페이스에 볼륨 또는 qtree의 디렉토리 경로가 있어야 합니다.
+
+공유를 생성할 때 기본 공유 ACL(기본 공유 권한)은 '모든 사용자/모든 권한'입니다. 공유에 대한 액세스를 테스트한 후에는 기본 공유 ACL을 제거하고 보다 안전한 대체 공유 ACL로 대체해야 합니다.
+
+.단계
+. 필요한 경우 공유에 대한 디렉토리 경로 구조를 생성합니다.
++
+'vserver cifs share create' 명령은 공유 생성 중에 '-path' 옵션에 지정된 경로를 확인합니다. 지정한 경로가 없으면 명령이 실패합니다.
+
+. 지정된 SVM과 연결된 SMB 공유 생성: "+ vserver cifs share create -vserver vserver_name -share-name share_name -path path [-share-properties share_properties,...] [Other_attributes] [-comment text]+'
+. 공유가 생성되었는지 확인합니다. ''vserver cifs share show-share-name share_name''
+
+
+다음 명령을 실행하면 SVM vs1.example.com "sHARE1"이라는 SMB 공유가 생성됩니다. 디렉터리 경로는 '/users'이며 기본 속성으로 만들어집니다.
+
+[listing]
+----
+cluster1::> vserver cifs share create -vserver vs1.example.com -share-name SHARE1 -path /users
+
+cluster1::> vserver cifs share show -share-name SHARE1
+
+Vserver          Share    Path     Properties Comment  ACL
+---------------  -------- -------- ---------- -------- -----------
+vs1.example.com  SHARE1   /users   oplocks    -        Everyone / Full Control
+                                   browsable
+                                   changenotify
+                                   show-previous-versions
+----

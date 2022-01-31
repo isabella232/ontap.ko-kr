@@ -1,0 +1,52 @@
+---
+permalink: encryption-at-rest/transition-external-key-from-onboard-key-task.html 
+sidebar: sidebar 
+keywords: transitioning, external key management, onboard key management 
+summary: 온보드 키 관리에서 외부 키 관리로 전환하려면 온보드 키 관리 구성을 삭제해야 외부 키 관리를 활성화할 수 있습니다. 
+---
+= 온보드 키 관리에서 외부 키 관리로 전환
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+온보드 키 관리에서 외부 키 관리로 전환하려면 온보드 키 관리 구성을 삭제해야 외부 키 관리를 활성화할 수 있습니다.
+
+.무엇을 &#8217;필요로 할거야
+* 하드웨어 기반 암호화의 경우 모든 FIPS 드라이브 또는 SED의 데이터 키를 기본값으로 재설정해야 합니다.
++
+link:return-seds-unprotected-mode-task.html["FIPS 드라이브 또는 SED를 보호되지 않는 모드로 되돌리는 중입니다"]
+
+* 소프트웨어 기반 암호화의 경우 모든 볼륨의 암호화를 해제해야 합니다.
++
+link:unencrypt-volume-data-task.html["볼륨 데이터 암호화를 해제합니다"]
+
+* 이 작업을 수행하려면 클러스터 관리자여야 합니다.
+
+
+.단계
+. 클러스터의 온보드 키 관리 구성을 삭제합니다.
++
+[cols="35,65"]
+|===
+
+
+| 이 ONTAP 버전의 경우... | 이 명령 사용... 
+
+
+ a| 
+ONTAP 9.6 이상
+ a| 
+'Security key-manager 온보드 disable-vserver SVM
+
+
+
+ a| 
+ONTAP 9.5 이하
+ a| 
+보안 키 관리자 삭제 키 데이터베이스
+
+|===
+
+
+전체 명령 구문은 을 참조하십시오 link:link:http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 설명서 페이지"].

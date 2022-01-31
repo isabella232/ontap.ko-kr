@@ -1,0 +1,32 @@
+---
+sidebar: sidebar 
+permalink: networking/merge_broadcast_domains97.html 
+keywords: merge, combine, broadcast, domain, reachability, merge broadcast domains, merge the ports from one broadcast domain into an existing broadcast domain 
+summary: 하나의 브로드캐스트 도메인의 포트를 기존 브로드캐스트 도메인으로 병합합니다 
+---
+= 브로드캐스트 도메인을 병합합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+병합 명령을 사용하여 하나의 브로드캐스트 도메인에서 기존 브로드캐스트 도메인으로 모든 포트를 이동할 수 있습니다.
+
+이 작업은 브로드캐스트 도메인에서 모든 포트를 제거한 다음 기존 브로드캐스트 도메인에 포트를 추가하는 경우에 필요한 단계를 줄여줍니다.
+
+한 브로드캐스트 도메인의 포트를 기존 브로드캐스트 도메인으로 병합:
+
+....
+network port broadcast-domain merge -ipspace <ipspace_name> -broadcast-domain <broadcast_domain_name> -into-broadcast-domain <broadcast_domain_name>
+....
+* IPSpace_name은 브로드캐스트 도메인이 상주하는 IPspace의 이름입니다.
+* '-broadcast-domain'은 통합될 브로드캐스트 도메인의 이름입니다.
+* '-브로드캐스트-도메인'은 추가 포트를 받을 브로드캐스트 도메인의 이름입니다.
+
+
+다음 예에서는 브로드캐스트 도메인 BD-data1을 브로드캐스트 도메인 BD-data2에 병합합니다.
+
+네트워크 포트-IPSpace Default broadcast-domain bd-data1을 broadcast-domain bd-data2로 설정합니다

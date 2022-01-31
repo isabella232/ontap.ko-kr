@@ -1,0 +1,31 @@
+---
+permalink: san-config/iscsi-config-concept.html 
+sidebar: sidebar 
+keywords: considerations, iscsi, configurations 
+summary: iSCSI 구성을 설정할 때 몇 가지 사항을 고려해야 합니다. 
+---
+= iSCSI 구성 고려 사항 개요
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+iSCSI 구성을 설정할 때 몇 가지 사항을 고려해야 합니다.
+
+* 단일 노드 또는 HA 쌍을 통해 iSCSI 구성을 설정할 수 있습니다.
++
+직접 연결 또는 이더넷 스위치 사용이 연결에 지원됩니다. 두 가지 연결 유형에 대해 LIF를 생성해야 합니다
+
+* SAN을 지원하는 모든 SVM(스토리지 가상 머신)마다 하나의 관리 LIF를 구성해야 합니다.
+* SLM(Selective LUN Mapping)은 HA 쌍이 소유한 LUN에 액세스하는 데 사용되는 경로를 제한합니다.
++
+이는 ONTAP 릴리즈로 생성된 LUN의 기본 동작입니다.
+
+* HA 쌍은 호스트가 ALUA를 통해 LUN에 액세스하는 데 사용할 Active/Optimized 및 Active/Unptimized 경로에 대한 보고 노드로 정의됩니다.
+* iSCSI 구성의 모든 SVM은 여러 경로에 걸쳐 이중화 및 MPIO를 지원하기 위해 개별 이더넷 네트워크의 노드당 최소 2개의 LIF를 유지하는 것이 좋습니다.
+* HA 쌍에서 처리하는 LUN에 대한 액세스를 허용하려면 논리 인터페이스(LIF)를 사용하여 HA 쌍의 각 노드에서 하나 이상의 iSCSI 경로를 생성해야 합니다.
++
+노드에 장애가 발생할 경우 LIF는 장애가 발생한 파트너 노드의 IP 주소를 마이그레이션하거나 가정하지 않습니다. 대신, 호스트에서 ALUA를 사용하여 LIF를 통해 LUN 액세스를 위한 적절한 경로를 선택해야 합니다.
+
+* VLAN은 iSCSI에서 활용하고자 하는 향상된 보안 및 향상된 네트워크 안정성과 같은 특정 이점을 제공합니다.
+

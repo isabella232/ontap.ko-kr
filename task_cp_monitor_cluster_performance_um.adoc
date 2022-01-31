@@ -1,0 +1,27 @@
+---
+sidebar: sidebar 
+permalink: task_cp_monitor_cluster_performance_um.html 
+keywords: netapp, ontap, cluster, performance, monitor, monitoring, unified manager, active IQ, headroom, cpu, cpus, latency, maximize availability, AFF storage, FAS storage, scalability, supportability, support, security, data management 
+summary: NetApp Active IQ Unified Manager를 사용하면 시스템 관리를 단순화하고 스토리지 상태를 모니터링할 수 있습니다. 
+---
+= Unified Manager로 클러스터 성능 모니터링
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+Active IQ Unified Manager를 사용하면 가용성을 최대화하고 NetApp AFF 및 FAS 스토리지 인프라에 대한 제어를 유지하여 확장성, 지원 가능성, 성능 및 보안을 향상할 수 있습니다.
+
+Active IQ Unified Manager은 시스템 상태를 지속적으로 모니터링하고 알림을 전송하므로 조직에서 IT 직원 리소스를 여유 있게 사용할 수 있습니다. 단일 대시보드에서 스토리지 상태를 즉시 확인하고 권장 조치를 통해 문제를 빠르게 해결할 수 있습니다.
+
+알림을 검색, 모니터링 및 수신하여 스토리지를 능동적으로 관리하고 신속하게 문제를 해결할 수 있으므로 데이터 관리가 간소화됩니다. 단일 대시보드에서 페타바이트급 데이터를 모니터링하고 규모에 맞게 데이터를 관리할 수 있으므로 관리 효율성이 향상됩니다.
+
+Active IQ Unified Manager를 사용하면 변화하는 비즈니스 요구사항에 대응할 수 있으므로 성능 데이터 및 고급 분석을 사용하여 성능을 최적화할 수 있습니다. 보고 기능을 사용하면 표준 보고서에 액세스하거나 맞춤형 운영 보고서를 작성하여 비즈니스의 특정 요구를 충족할 수 있습니다.

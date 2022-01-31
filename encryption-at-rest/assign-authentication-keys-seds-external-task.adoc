@@ -1,0 +1,57 @@
+---
+permalink: encryption-at-rest/assign-authentication-keys-seds-external-task.html 
+sidebar: sidebar 
+keywords: assign, data, authentication, key, fips, drive, sed, external, key, management 
+summary: 스토리지 암호화 디스크 수정 명령을 사용하여 데이터 인증 키를 FIPS 드라이브 또는 SED에 할당할 수 있습니다. 클러스터 노드는 이 키를 사용하여 드라이브에서 암호화된 데이터를 잠그거나 잠금 해제합니다. 
+---
+= 데이터 인증 키를 FIPS 드라이브 또는 SED(외부 키 관리)에 할당
+
+
+[role="lead"]
+'스토리지 암호화 디스크 수정' 명령을 사용하여 데이터 인증 키를 FIPS 드라이브 또는 SED에 할당할 수 있습니다. 클러스터 노드는 이 키를 사용하여 드라이브에서 암호화된 데이터를 잠그거나 잠금 해제합니다.
+
+이 작업을 수행하려면 클러스터 관리자여야 합니다.
+
+자체 암호화 드라이브는 인증 키 ID가 기본값이 아닌 값으로 설정된 경우에만 무단 액세스로부터 보호됩니다. 키 ID 0x0이 있는 제조업체 보안 ID(MSID)는 SAS 드라이브의 표준 기본값입니다. NVMe 드라이브의 경우 표준 기본값은 빈 키 ID로 표시되는 null 키입니다. 키 ID를 자체 암호화 드라이브에 할당하면 시스템은 해당 인증 키 ID를 기본값이 아닌 값으로 변경합니다.
+
+.단계
+. FIPS 드라이브 또는 SED에 데이터 인증 키 할당:
++
+'Storage encryption disk modify -disk disk_ID -data-key-id key_ID'
+
++
+전체 명령 구문은 명령에 대한 man 페이지를 참조하십시오.
+
++
+[NOTE]
+====
+'Security key-manager query-key-type NSE-AK' 명령어를 이용하여 키 ID를 확인할 수 있다.
+
+====
++
+[listing]
+----
+cluster1::> storage encryption disk modify -disk 0.10.* -data-key-id F1CB30AFF1CB30B00101000000000000A68B167F92DD54196297159B5968923C
+
+Info: Starting modify on 14 disks.
+      View the status of the operation by using the
+      storage encryption disk show-status command.
+----
+. 인증 키가 할당되었는지 확인합니다.
++
+스토리지 암호화 디스크 표시
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+[listing]
+----
+cluster1::> storage encryption disk show
+Disk    Mode Data Key ID
+-----   ---- ----------------------------------------------------------------
+0.0.0   data F1CB30AFF1CB30B00101000000000000A68B167F92DD54196297159B5968923C
+0.0.1   data F1CB30AFF1CB30B00101000000000000A68B167F92DD54196297159B5968923C
+[...]
+----
+

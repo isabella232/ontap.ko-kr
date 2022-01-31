@@ -1,0 +1,32 @@
+---
+permalink: volumes/specify-windows-users-quotas-concept.html 
+sidebar: sidebar 
+keywords: how to, specify, windows users, for quotas 
+summary: Windows 2000 이전 형식의 Windows 이름, SID 또는 사용자 SID가 소유한 파일 또는 디렉토리의 세 가지 형식 중 하나를 사용하여 할당량에 대한 Windows 사용자를 지정할 수 있습니다. 
+---
+= 할당량을 위해 Windows 사용자를 지정하는 방법
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Windows 2000 이전 형식의 Windows 이름, SID 또는 사용자 SID가 소유한 파일 또는 디렉토리의 세 가지 형식 중 하나를 사용하여 할당량에 대한 Windows 사용자를 지정할 수 있습니다.
+
+할당량에 대한 Windows 사용자를 지정하려면 다음 형식 중 하나를 사용합니다.
+
+* Windows 2000 이전 형식의 Windows 이름입니다.
+* Windows에서 S-1-5-32-544와 같은 텍스트 형식으로 표시되는 SID(보안 ID)입니다.
+* 해당 사용자의 SID가 소유한 ACL이 있는 파일 또는 디렉토리의 이름입니다.
++
+[NOTE]
+====
+파일 또는 디렉토리 이름을 지정하는 경우 사용자 계정이 시스템에 남아 있는 한, 사용할 파일 또는 디렉토리를 선택해야 합니다.
+
+ONTAP가 ACL에서 SID를 가져오려면 ACL이 유효해야 합니다.
+
+파일 또는 디렉토리가 UNIX 스타일 qtree에 있거나 스토리지 시스템에서 사용자 인증에 UNIX 모드를 사용하는 경우 ONTAP는 사용자 할당량을 파일 또는 디렉토리의 UID * 가 아닌 * UID * 에 해당하는 사용자에게 적용합니다.
+
+할당량에 대한 사용자를 식별하기 위해 파일 또는 디렉토리 이름을 지정해도 ONTAP에서는 해당 파일 또는 디렉토리에 할당량을 적용하지 않습니다.
+
+====
+

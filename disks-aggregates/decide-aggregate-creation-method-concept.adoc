@@ -1,0 +1,39 @@
+---
+permalink: disks-aggregates/decide-aggregate-creation-method-concept.html 
+sidebar: sidebar 
+keywords: ontap 9, decide, aggregate, create, method, use 
+summary: ONTAP 9.2 이상에서는 자동 프로비저닝을 사용한 애그리게이트 생성이 모범 사례이지만 환경이 지원되는지 여부를 확인해야 합니다. 그렇지 않은 경우 RAID 정책 및 디스크 구성에 대해 결정을 내린 다음 애그리게이트를 수동으로 생성해야 합니다. 
+---
+= 사용할 집계 생성 방법을 결정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.2 이상에서는 자동 프로비저닝을 사용한 애그리게이트 생성이 모범 사례이지만 환경이 지원되는지 여부를 확인해야 합니다. 그렇지 않은 경우 RAID 정책 및 디스크 구성에 대해 결정을 내린 다음 애그리게이트를 수동으로 생성해야 합니다.
+
+'Storage aggregate auto-provision' 명령을 사용하여 애그리게이트를 생성하면 ONTAP는 클러스터에서 사용 가능한 스페어 디스크를 분석하고 모범 사례에 따라 스페어 디스크를 사용하여 애그리게이트를 생성하는 방법에 대한 권장 사항을 생성합니다. ONTAP에서는 이름과 사용 가능한 크기를 포함하여 권장 애그리게이트의 요약을 표시한 다음 애그리게이트가 권장되는 만큼 생성되는지 여부를 결정하라는 메시지를 표시합니다.
+
+대부분의 경우 자동 프로비저닝 디스플레이에서 권장되는 애그리게이트 레이아웃이 사용자 환경에 가장 적합합니다. 하지만 클러스터에서 ONTAP 9.1 이하를 실행 중이거나 환경에 다음 구성이 포함된 경우 수동 애그리게이트 구성 방법을 사용해야 합니다.
+
+* 타사 어레이 LUN을 사용하는 Aggregate
+* Cloud Volumes ONTAP 또는 ONTAP Select가 있는 가상 디스크
+* MetroCluster
+* SyncMirror
+* mSATA 디스크
+* FlashPool 애그리게이트
+* 노드에 여러 디스크 유형 또는 크기가 접속되어 있습니다
+
+
+또한 다음 디스크 조건 중 하나라도 있는 경우 자동 프로비저닝 방법을 사용하기 전에 해결해야 합니다.
+
+* 디스크가 누락되었습니다
+* 스페어 디스크 숫자의 변동
+* 할당되지 않은 디스크
+* 제로화되지 않은 스페어
+* 유지 관리 테스트를 진행 중인 디스크
+
+
+Storage aggregate auto-provision man 페이지에 이러한 요구 사항에 대한 자세한 정보가 나와 있습니다.
+
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"]

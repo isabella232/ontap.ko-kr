@@ -1,0 +1,23 @@
+---
+permalink: smb-admin/server-security-settings-svm-disaster-recovery-concept.html 
+sidebar: sidebar 
+keywords: create, creating, svm, configure, disaster, recovery, destination, identity, preserve, snapmirror, configuration, smb, guideline, guidelines for smb server security settings in an svm disaster recovery configuration 
+summary: 'ID가 유지되지 않는 재해 복구 대상으로 구성된 SVM(SnapMirror 구성에서 -identity-preserve 옵션이 false로 설정)을 생성하기 전에 대상 SVM에서 SMB 서버 보안 설정이 관리되는 방식을 알아야 합니다.' 
+---
+= SVM 재해 복구 구성의 SMB 서버 보안 설정 지침
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ID가 보존되지 않는 재해 복구 대상으로 구성된 SVM(SnapMirror 구성에서 '-identity-preserve' 옵션이 'false'로 설정됨)을 생성하기 전에 SVM 대상에서 SMB 서버 보안 설정이 관리되는 방식을 알아야 합니다.
+
+* 기본이 아닌 SMB 서버 보안 설정은 대상에 복제되지 않습니다.
++
+대상 SVM에서 SMB 서버를 생성할 때 모든 SMB 서버 보안 설정이 기본값으로 설정됩니다. SVM 재해 복구 대상이 초기화, 업데이트 또는 재동기화되면 소스의 SMB 서버 보안 설정이 타겟으로 복제되지 않습니다.
+
+* 기본이 아닌 SMB 서버 보안 설정을 수동으로 구성해야 합니다.
++
+소스 SVM에 기본값이 아닌 SMB 서버 보안 설정이 구성되어 있는 경우 SnapMirror 관계가 깨진 후, 대상이 읽기-쓰기 상태가 되면 대상 SVM에서 동일한 설정을 수동으로 구성해야 합니다.
+
+

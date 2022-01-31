@@ -1,0 +1,44 @@
+---
+permalink: smb-config/where-provision-storage-capacity-task.html 
+sidebar: sidebar 
+keywords: create, smb, volume, qtree, exist, configuration, svm, decision, workflow, decide where to provision new SMB storage capacity 
+summary: 새 SMB 볼륨 또는 qtree를 생성하기 전에 새로운 SVM이나 기존 SVM에 배치할 것인지, SVM에 필요한 구성의 양을 결정해야 합니다. 이 결정에 따라 워크플로가 결정됩니다. 
+---
+= 새 SMB 스토리지 용량을 프로비저닝할 위치를 결정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+새 SMB 볼륨 또는 qtree를 생성하기 전에 새로운 SVM이나 기존 SVM에 배치할 것인지, SVM에 필요한 구성의 양을 결정해야 합니다. 이 결정에 따라 워크플로가 결정됩니다.
+
+.선택
+* 새 SVM에서 볼륨 또는 qtree를 프로비저닝하거나 SMB가 활성화되었지만 구성되지 않은 기존 SVM에서 프로비저닝하려는 경우 "'SVM에 SMB 액세스 구성' 및 "'SMB 지원 SVM에 스토리지 용량 추가'' 단계를 완료하십시오.
++
+xref:configure-access-svm-task.adoc[SVM에 대한 SMB 액세스 구성]
+
++
+xref:configure-client-access-shared-storage-concept.adoc[공유 스토리지에 대한 SMB 클라이언트 액세스 구성]
+
++
+다음 중 하나에 해당하는 경우 새 SVM을 생성할 수 있습니다.
+
++
+** 클러스터에서 SMB를 처음으로 활성화하는 경우
+** SMB 지원을 사용하지 않으려는 클러스터에 기존 SVM이 있습니다.
+** 클러스터에 하나 이상의 SMB 지원 SVM이 있으며 다음 연결 중 하나를 원합니다.
++
+*** 다른 Active Directory 포리스트 또는 워크그룹에.
+*** SMB 서버(멀티 테넌시 시나리오) 또한 이 옵션을 선택하여 SMB를 활성화했지만 구성되지 않은 기존 SVM에서 스토리지를 프로비저닝해야 합니다. 이는 SAN 액세스를 위해 SVM을 생성했거나, SVM 생성 시 프로토콜을 사용하지 않은 경우에 발생할 수 있습니다.
+
+
+
+
++
+SVM에서 SMB를 활성화한 후 볼륨 또는 qtree를 계속해서 프로비저닝합니다.
+
+* SMB 액세스를 위해 완벽하게 구성된 기존 SVM에서 볼륨 또는 qtree를 프로비저닝하려면 "'SMB 지원 SVM에 스토리지 용량 추가' 단계를 완료하십시오.
++
+xref:configure-client-access-shared-storage-concept.adoc[공유 스토리지에 대한 SMB 클라이언트 액세스 구성]
+
+

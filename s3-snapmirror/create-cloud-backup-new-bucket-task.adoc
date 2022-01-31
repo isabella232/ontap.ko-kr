@@ -1,0 +1,141 @@
+---
+sidebar: sidebar 
+permalink: s3-snapmirror/create-cloud-backup-new-bucket-task.html 
+keywords: create, backup, relationship, new, bucket 
+summary: 새로운 S3 버킷을 생성할 때 StorageGRID 시스템 또는 AWS S3 구축과 같은 오브젝트 저장소 공급자의 S3 SnapMirror 타겟 버킷에 즉시 백업할 수 있습니다. 
+---
+= 새 버킷에 대한 백업 관계 생성(클라우드 타겟)
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:toc-position: content
+
+
+[role="lead"]
+새로운 S3 버킷을 생성할 때 StorageGRID 시스템 또는 AWS S3 구축과 같은 오브젝트 저장소 공급자의 S3 SnapMirror 타겟 버킷에 즉시 백업할 수 있습니다.
+
+.필요한 것
+* 객체 저장소 공급자에 대한 유효한 계정 자격 증명 및 구성 정보가 있습니다.
+* 소스 시스템에 인터클러스터 네트워크 인터페이스 및 IPspace가 구성되었습니다.
+* • 소스 스토리지 VM의 DNS 구성은 타겟의 FQDN을 확인할 수 있어야 합니다.
+
+
+
+
+== System Manager 절차
+
+. 스토리지 VM을 편집하여 사용자를 추가하고 사용자를 그룹에 추가합니다.
++
+.. 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 클릭한 다음 * 설정 * 을 클릭하고 을 클릭합니다 image:icon_pencil.gif["편집 아이콘"] S3 * 아래.
++
+을 참조하십시오 link:../task_object_provision_add_s3_users_groups.html["S3 사용자 및 그룹 추가"] 를 참조하십시오.
+
+
+
+. 소스 시스템에 Cloud Object Store 추가:
++
+.. 보호 > 개요 * 를 클릭한 다음 * 클라우드 오브젝트 저장소 * 를 선택합니다.
+.. 추가 * 를 클릭한 다음 * Amazon S3 * 또는 * StorageGRID * 를 선택합니다.
+.. 다음 값을 입력합니다.
++
+*** 클라우드 오브젝트 저장소 이름
+*** URL 스타일(경로 또는 가상 호스팅)
+*** 스토리지 VM(S3에 대해 활성화됨)
+*** 개체 저장소 서버 이름(FQDN)
+*** 오브젝트 저장소 인증서
+*** 액세스 키
+*** 비밀 키
+*** 컨테이너(버킷) 이름입니다
+
+
+
+
+. S3 SnapMirror 정책이 없는 경우 기본 정책을 사용하지 않으려면 다음과 같이 하십시오.
++
+.. 보호 > 개요 * 를 클릭한 다음 * 로컬 정책 설정 * 을 클릭합니다.
+.. 을 클릭합니다 image:../media/icon_arrow.gif["오른쪽 화살표"] 보호 정책 * 옆에 있는 * 추가 * 를 클릭합니다.
++
+*** 정책 이름과 설명을 입력합니다.
+*** 정책 범위, 클러스터 또는 SVM을 선택합니다
+*** S3 SnapMirror 관계에 대해 * Continuous * 를 선택합니다.
+*** 스로틀 * 및 * 복구 지점 목표 * 값을 입력합니다.
+
+
+
+
+. SnapMirror 보호를 통해 버킷 생성:
++
+.. 스토리지 > 버킷 * 을 클릭한 다음 * 추가 * 를 클릭합니다.
+.. 이름을 입력하고 스토리지 VM을 선택한 다음 크기를 입력한 다음 * 추가 옵션 * 을 클릭합니다.
+.. 사용 권한 * 에서 * 추가 * 를 클릭합니다. 사용 권한 확인은 선택 사항이지만 사용하는 것이 좋습니다.
++
+*** * Principal * 및 * Effect * - 사용자 그룹 설정에 해당하는 값을 선택하거나 기본값을 그대로 사용합니다.
+*** * Actions * - GetObject, PutObject, DeleteObject, ListBucket, GetBuckketAcl, GetObjectAcl, ListBuckketMultipartUploads, ListMultiPartUploadParts 등의 값이 표시되는지 확인합니다
+*** * 리소스 * - 기본값(_(버켓 이름, 버켓 이름/ *) 또는 필요한 기타 값을 사용합니다.
++
+을 참조하십시오 link:../task_object_provision_manage_bucket_access.html["버킷에 대한 사용자 액세스를 관리합니다"] 이 필드에 대한 자세한 내용은 를 참조하십시오.
+
+
+
+.. 보호 * 에서 * SnapMirror(ONTAP 또는 클라우드) * 를 선택하고 * 클라우드 스토리지 * 를 선택한 다음 * 클라우드 오브젝트 저장소 * 를 선택합니다.
+
+
+
+
+Save * 를 클릭하면 소스 스토리지 VM에 새 버킷이 생성되고 클라우드 오브젝트 저장소에 백업됩니다.
+
+
+
+== CLI 절차
+
+. 이 SVM에서 처음으로 S3 SnapMirror 관계를 구축할 경우, 소스 및 타겟 SVM 모두에 루트 사용자 키가 있는지 확인하고 그렇지 않을 경우 다시 생성하십시오. 'vserver object-store-server user show' + 루트 사용자에 대한 액세스 키가 있는지 확인하십시오. 그렇지 않으면 다음을 입력합니다. 'vserver object-store-server user reenate-keys-vserver svm_name-user_root_'+키가 이미 있으면 키를 다시 생성하지 마십시오.
+. 소스 SVM에서 버킷을 생성합니다. 'vserver object-store-server bucket create-vserver_svm_name_-bucket_bucket_name_[-size_integer_[KB|MB|GB|TB|PB][-comment_text_][_additional_options_]'
+. 기본 버킷 정책에 액세스 규칙을 추가합니다. 'vserver object-store-server bucket policy add-statement-vserver_svm_name_-bucket_bucket_name_-effect{allow|deny}-action_object_store_actions_-principal_user_and_group_names_-resource_store_resources_[-sid_text_][-index_integer_integer
++
+.예
+[listing]
+----
+clusterA::> vserver object-store-server bucket policy add-statement -bucket test-bucket -effect allow -action GetObject,PutObject,DeleteObject,ListBucket,GetBucketAcl,GetObjectAcl,ListBucketMultipartUploads,ListMultipartUploadParts -principal - -resource test-bucket, test-bucket /*
+----
+. S3 SnapMirror 정책이 없는 경우 기본 정책('스냅샷 미러 정책 생성 - vserver svm_name - policy policy_name - type continuous[-RPO_integer_][-throttle_throttle_type_][-comment_text_][_additional_options_]')를 사용하지 않으려는 경우 S3 SnapMirror 정책을 생성합니다
++
+매개 변수: * "type continuous" - S3 SnapMirror 관계에 대한 유일한 정책 유형(필수) * '-RPO' – 복구 시점 목표의 시간(초 단위)을 지정합니다(선택 사항). * '-throttle' – 처리량/대역폭의 상한값을 킬로바이트/초 단위로 지정합니다(선택 사항).
+
++
+.예
+[listing]
+----
+clusterA::> snapmirror policy create -vserver vs0 -type continuous -rpo 0 -policy test-policy
+----
+. 타겟이 StorageGRID 시스템인 경우 소스 클러스터의 관리 SVM에 StorageGRID CA 서버 인증서를 설치합니다. '보안 인증서 설치 유형 server-ca-vserver_src_admin_svm_-cert-name_storage_grid_server_certificate_'
++
+자세한 내용은 보안 인증서 설치 man 페이지를 참조하십시오.
+
+. S3 SnapMirror 대상 오브젝트 저장소 정의:'sapmirror object-store config create-vserver_svm_name_-object-store-name_target_store_name_-usage data-provider-type{AWS_S3|SGWs}-server_target_FQDN_-container-name_remote_bucket_name_-is-ssl-enabled true-port_port_port_key_password_access-access
++
+매개 변수: * '-object-store-name' - 로컬 ONTAP 시스템에 있는 오브젝트 저장소 타겟의 이름입니다. 이 워크플로에는 '-usage' – 'data'를 사용합니다. ' *'-provider-type' –'AWS_S3','sgws'(StorageGRID) 대상이 지원됩니다. * '-server' – 대상 서버의 FQDN 또는 IP 주소입니다. * '-is-ssl-enabled' – SSL 활성화는 선택 사항이지만 권장됩니다. + 자세한 내용은 '스냅샷 객체 저장 구성 생성' man 페이지를 참조하십시오.
+
++
+.예
+[listing]
+----
+src_cluster::> snapmirror object-store config create -vserver vs0 -object-store-name sgws-store -usage data -provider-type SGWS -server sgws.example.com -container-name target-test-bucket -is-ssl-enabled true -port 443 -access-key abc123 -secret-password xyz890
+----
+. S3 SnapMirror 관계 생성: 'sapmirror create-source-path_svm_name_:/bucket/_bucket_name_-destination-path_object_store_name_:/objstore-policy_policy_name_'
++
+매개 변수: * '-destination-path' - 이전 단계에서 만든 개체 저장소 이름과 고정 값 "objstore"입니다. + 사용자가 만든 정책을 사용하거나 기본값을 사용할 수 있습니다.
+
++
+.예
+[listing]
+----
+src_cluster::> snapmirror create -source-path vs0:/bucket/test-bucket -destination-path sgws-store:/objstore -policy test-policy
+----
+. 미러링이 활성 상태인지 확인합니다. '스냅샷 표시 - 정책 유형 연속 필드 상태'
+

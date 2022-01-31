@@ -1,0 +1,57 @@
+---
+permalink: nfs-config/create-qtree-task.html 
+sidebar: sidebar 
+keywords: create, qtree 
+summary: Qtree 생성을 통해 데이터를 포함할 수 있으며 볼륨 qtree 생성 명령을 사용하여 속성을 지정할 수 있습니다. 
+---
+= qtree를 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'volume qtree create' 명령을 사용하여 데이터를 포함하는 qtree를 생성하고 해당 속성을 지정할 수 있습니다.
+
+.무엇을 &#8217;필요로 할거야
+* SVM과 새 qtree가 포함될 볼륨이 이미 존재해야 합니다.
+* SVM 보안 스타일은 UNIX여야 하며 NFS를 설정하고 실행해야 합니다.
+
+
+.단계
+. qtree 생성:
++
+'볼륨 qtree create-vserver_vserver_name_{-volume_volume_name_-qtree_qtree_name_|-qtree-path_qtree path_} - 보안 스타일 UNIX [-policy_export_policy_name_]'
+
++
+볼륨과 qtree를 별도의 인수로 지정하거나 qtree 경로 인수를 '/vol/_volume_name/_qtree_name_' 형식으로 지정할 수 있습니다.
+
++
+기본적으로 Qtree는 상위 볼륨의 엑스포트 정책을 상속하지만, 자체 정책을 사용하도록 구성할 수 있습니다. 기존 엑스포트 정책을 사용하려는 경우 qtree를 생성할 때 지정할 수 있습니다. 나중에 'volume qtree modify' 명령을 사용하여 엑스포트 정책을 추가할 수도 있습니다.
+
+. qtree가 원하는 접합 경로로 생성되었는지 확인합니다.
++
+'volume qtree show-vserver_vserver_name_{-volume_volume_name_-qtree_qtree_name_|-qtree-path_qtree path_}'
+
+
+
+다음 예에서는 junction path '/vol/data1'이 있는 SVM vs1.example.com 에 qt01이라는 이름의 qtree를 생성합니다.
+
+[listing]
+----
+cluster1::> volume qtree create -vserver vs1.example.com -qtree-path /vol/data1/qt01 -security-style unix
+[Job 1642] Job succeeded: Successful
+
+cluster1::> volume qtree show -vserver vs1.example.com -qtree-path /vol/data1/qt01
+
+                      Vserver Name: vs1.example.com
+                       Volume Name: data1
+                        Qtree Name: qt01
+  Actual (Non-Junction) Qtree Path: /vol/data1/qt01
+                    Security Style: unix
+                       Oplock Mode: enable
+                  Unix Permissions: ---rwxr-xr-x
+                          Qtree Id: 2
+                      Qtree Status: normal
+                     Export Policy: default
+        Is Export Policy Inherited: true
+----

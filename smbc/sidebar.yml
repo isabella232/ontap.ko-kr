@@ -1,0 +1,90 @@
+---
+section: smbc
+title: SnapMirror 비즈니스 연속성
+entries:
+- title: 개요
+  url: "/smbc/index.html"
+- title: 주요 개념
+  url: "/smbc/smbc_intro_terminology.html"
+- title: 계획 수립
+  entries:
+  - title: 필수 구성 요소
+    url: "/smbc/smbc_plan_prerequisites.html"
+  - title: 추가 제한 및 제한 사항
+    url: "/smbc/smbc_plan_additional_restrictions_and_limitations.html"
+  - title: ONTAP 액세스 옵션
+    url: "/smbc/smbc_plan_ontap_access_options.html"
+  - title: ONTAP CLI 사용을 준비합니다
+    url: "/smbc/smbc_plan_preparing_to_use_the_ontap_cli.html"
+  - title: ONTAP 중재자를 사용할 준비를 합니다
+    url: "/smbc/smbc_plan_preparing_to_use_the_ontap_mediator.html"
+  - title: 구축 모범 사례 요약
+    url: "/smbc/smbc_plan_summary_of_deployment_best_practices.html"
+- title: System Manager를 사용하여 비즈니스 연속성을 위한 SnapMirror를 관리합니다
+  entries:
+  - title: 중재자 구성
+    url: "/task_san_configure_mediator.html"
+  - title: 무중단 업무 운영을 위한 보호 구성
+    url: "/task_san_configure_protection_for_business_continuity.html"
+  - title: 계획되지 않은 페일오버 후에 원래 보호 관계를 다시 설정합니다
+    url: "/task_san_reestablish_original_relationship_after_unplanned_failover.html"
+- title: ONTAP CLI를 사용한 설치 및 설정
+  entries:
+  - title: 고급 배포 워크플로
+    url: "/smbc/smbc_install_high_level_deployment_workflow.html"
+  - title: ONTAP 중재자 설치
+    url: "/smbc/smbc_install_installing_the_ontap_mediator.html"
+  - title: ONTAP 클러스터 구성을 확인합니다
+    url: "/smbc/smbc_install_confirm_the_ontap_cluster_configuration.html"
+  - title: ONTAP 중재자를 초기화합니다
+    url: "/smbc/smbc_install_initialize_the_ontap_mediator.html"
+  - title: 일관성 그룹 관계를 생성합니다
+    url: "/smbc/smbc_install_creating_a_consistency_group_relationship.html"
+  - title: 일관성 그룹 초기화
+    url: "/smbc/smbc_install_initializing_a_consistency_group.html"
+  - title: 애플리케이션 호스트에 LUN 매핑
+    url: "/smbc/smbc_install_mapping_luns_to_the_application_hosts.html"
+- title: 관리
+  entries:
+  - title: 공통 스냅샷 복사본을 생성합니다
+    url: "/smbc/smbc_admin_creating_a_common_snapshot_copy.html"
+  - title: 계획된 페일오버를 수행합니다
+    url: "/smbc/smbc_admin_performing_a_planned_failover.html"
+  - title: 계획되지 않은 페일오버 작업을 자동으로 수행합니다
+    url: "/smbc/smbc_admin_what_happens_during_an_automatic_unplanned_failover.html"
+  - title: 기본 모니터링
+    url: "/smbc/smbc_admin_monitoring.html"
+  - title: 일관성 그룹에 볼륨을 추가 및 제거합니다
+    url: "/smbc/smbc_admin_add_and_remove_volumes_in_consistency_groups.html"
+  - title: 기존 관계를 SM-BC 관계로 전환
+    url: "/smbc/smbc_admin_converting_existing_relationships_to_smbc.html"
+  - title: SM-BC 업그레이드 및 되돌리기 고려 사항
+    url: "/smbc/smbc_admin_upgrade_and_revert_considerations.html"
+  - title: SM-BC 구성을 제거합니다
+    url: "/smbc/smbc_admin_removing_an_smbc_configuration.html"
+  - title: ONTAP 중재자를 제거합니다
+    url: "/smbc/smbc_admin_removing_ontap_mediator.html"
+- title: 문제 해결
+  entries:
+  - title: takover 상태에서 SnapMirror 삭제 작업이 실패합니다
+    url: "/smbc/smbc_troubleshoot_sm_delete_fails_in_takeover_state.html"
+  - title: SnapMirror 관계 생성 및 일관성 그룹 초기화 실패
+    url: "/smbc/smbc_troubleshoot_failure_creating_snapmirror_relationship.html"
+  - title: 계획된 페일오버가 성공하지 못했습니다
+    url: "/smbc/smbc_troubleshoot_planned_failover_unsuccessful.html"
+  - title: 중재자가 연락할 수 없거나 중재 쿼럼 상태가 거짓입니다
+    url: "/smbc/smbc_troubleshoot_mediator_not_reachable_or_quorum_false.html"
+  - title: 사이트 B에서 예기치 않은 자동 페일오버가 트리거되지 않습니다
+    url: "/smbc/smbc_troubleshoot_aufo_not_triggered_on_site_b.html"
+  - title: 사이트 B와 중재 Down 및 사이트 A Down 사이의 연결
+    url: "/smbc/smbc_troubleshoot_link_between_site_b_and_mediator_down.html"
+  - title: 사이트 A와 중재 Down 및 사이트 B DOWN 간의 연결
+    url: "/smbc/smbc_troubleshoot_link_between_site_a_and_mediator_down.html"
+  - title: 대상 볼륨에 Fence가 설정되어 있으면 SM-BC SnapMirror 삭제 작업이 실패합니다
+    url: "/smbc/smbc_troubleshoot_sm_delete_fails_when_fence_is_set_on_dest.html"
+  - title: 운영 사이트가 다운된 경우 볼륨 이동 작업이 중단됩니다
+    url: "/smbc/smbc_troubleshoot_volume_move_stuck_when_primary_down.html"
+  - title: 스냅샷 복사본을 삭제할 수 없을 때 해제 작업이 실패합니다
+    url: "/smbc/smbc_troubleshoot_snapmirror_release_fails.html"
+  - title: 볼륨 이동 참조 스냅샷 복사본이 최신 로 표시됩니다
+    url: "/smbc/smbc_troubleshoot_vol_move_reference_snapshot_showing_as_newest.html"

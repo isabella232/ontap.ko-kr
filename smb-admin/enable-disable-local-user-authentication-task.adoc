@@ -1,0 +1,58 @@
+---
+permalink: smb-admin/enable-disable-local-user-authentication-task.html 
+sidebar: sidebar 
+keywords: enable, disable, local, user, authentication, smb, access, storage, virtual, machine, svm, domain, controller, domain-level, level, enable or disable local user authentication 
+summary: 'SVM(스토리지 가상 머신)에서 SMB 액세스에 대한 로컬 사용자 인증을 설정하거나 해제할 수 있습니다. 기본값은 로컬 사용자 인증을 허용하는 것입니다. 이는 SVM이 도메인 컨트롤러에 연결할 수 없거나 도메인 레벨 액세스 제어를 사용하지 않도록 선택하는 경우에 유용합니다.' 
+---
+= 로컬 사용자 인증을 사용하거나 사용하지 않도록 설정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SVM(스토리지 가상 머신)에서 SMB 액세스에 대한 로컬 사용자 인증을 설정하거나 해제할 수 있습니다. 기본값은 로컬 사용자 인증을 허용하는 것입니다. 이는 SVM이 도메인 컨트롤러에 연결할 수 없거나 도메인 레벨 액세스 제어를 사용하지 않도록 선택하는 경우에 유용합니다.
+
+CIFS 서버에서 로컬 사용자 및 그룹 기능을 설정해야 합니다.
+
+언제든지 로컬 사용자 인증을 활성화 또는 비활성화할 수 있습니다. SMB 연결을 생성할 때 인증에 로컬 사용자를 사용하려면 CIFS 서버의 로컬 사용자 및 그룹 옵션도 설정해야 합니다.
+
+.단계
+. 권한 수준을 Advanced:'Set-Privilege advanced'로 설정합니다
+. 다음 작업 중 하나를 수행합니다.
++
+|===
+| 로컬 인증을 사용하려는 경우... | 명령 입력... 
+
+
+ a| 
+활성화됨
+ a| 
+'vserver cifs options modify -vserver_vserver_name_-is-local-auth-enabled true'
+
+
+
+ a| 
+사용 안 함
+ a| 
+'vserver cifs options modify -vserver_vserver_name_-is-local-auth-enabled false'
+
+|===
+. admin 권한 수준으로 복귀:'et-Privilege admin'입니다
+
+
+다음 예에서는 SVM VS1 에서 로컬 사용자 인증을 사용합니다.
+
+[listing]
+----
+cluster1::>set -privilege advanced
+Warning: These advanced commands are potentially dangerous; use them
+only when directed to do so by technical support personnel.
+Do you wish to continue? (y or n): y
+
+cluster1::*> vserver cifs options modify -vserver vs1 -is-local-auth-enabled true
+
+cluster1::*> set -privilege admin
+----
+xref:local-user-authentication-concept.adoc[로컬 사용자 인증의 작동 방식]
+
+xref:enable-disable-local-users-groups-task.adoc[로컬 사용자 및 그룹 활성화 또는 비활성화]

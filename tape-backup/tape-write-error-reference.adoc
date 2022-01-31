@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/tape-write-error-reference.html 
+sidebar: sidebar 
+keywords: tape, write, error, backup, data, capacity, minimum, backup, job 
+summary: 테이프 용량이 부족하여 백업 데이터를 포함할 수 없습니다. 
+---
+= 테이프 쓰기 오류입니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+테이프 쓰기 오류 - 이전 테이프의 최소 용량(MB)이 이 이 테이프 작업의 최소 용량(MB)보다 적었습니다. 작업을 처음부터 다시 시작해야 합니다
+
+* * 원인 *
++
+테이프 용량이 부족하여 백업 데이터를 포함할 수 없습니다.
+
+* * 시정 조치 *
++
+용량이 큰 테이프를 사용하고 백업 작업을 재시도하십시오.
+
+

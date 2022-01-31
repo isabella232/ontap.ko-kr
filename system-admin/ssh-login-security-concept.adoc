@@ -1,0 +1,80 @@
+---
+permalink: system-admin/ssh-login-security-concept.html 
+sidebar: sidebar 
+keywords: ssh, login, security, information, view, changes, privileges, unsuccessful, attempts, previous, successful, restrictions, considerations 
+summary: ONTAP 9.5부터 이전 로그인에 대한 정보, 로그인 시도 실패 및 마지막으로 성공한 로그인 이후 권한 변경 내용을 볼 수 있습니다. 
+---
+= SSH 로그인 보안
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.5부터 이전 로그인에 대한 정보, 로그인 시도 실패 및 마지막으로 성공한 로그인 이후 권한 변경 내용을 볼 수 있습니다.
+
+SSH admin 사용자로 로그인하면 보안 관련 정보가 표시됩니다. 다음 조건에 대한 경고가 표시됩니다.
+
+* 계정 이름이 마지막으로 로그인한 시간입니다.
+* 마지막으로 성공한 로그인 이후 실패한 로그인 시도 횟수입니다.
+* 마지막 로그인 이후 역할이 변경되었는지 여부(예: admin 계정의 역할이 "admin"에서 "backup"으로 변경된 경우)
+* 마지막 로그인 이후 역할의 추가, 수정 또는 삭제 기능이 수정되었는지 여부
+
+
+[NOTE]
+====
+표시된 정보가 의심스러운 경우 즉시 보안 부서에 문의해야 합니다.
+
+====
+로그인할 때 이 정보를 얻으려면 다음 필수 구성 요소가 충족되어야 합니다.
+
+* ONTAP에서 SSH 사용자 계정을 프로비저닝해야 합니다.
+* SSH 보안 로그인을 생성해야 합니다.
+* 로그인 시도가 성공해야 합니다.
+
+
+
+
+== SSH 로그인 보안에 대한 제한 및 기타 고려 사항
+
+SSH 로그인 보안 정보에는 다음과 같은 제한 및 고려 사항이 적용됩니다.
+
+* 이 정보는 SSH 기반 로그인에만 사용할 수 있습니다.
+* LDAP/NIS 및 AD 계정과 같은 그룹 기반 관리자 계정의 경우, 사용자는 자신이 속한 그룹이 ONTAP에서 관리자 계정으로 할당된 경우 SSH 로그인 정보를 볼 수 있습니다.
++
+그러나 이러한 사용자에 대해서는 사용자 계정의 역할 변경에 대한 알림을 표시할 수 없습니다. 또한 ONTAP에서 admin 계정으로 프로비저닝된 AD 그룹에 속한 사용자는 마지막으로 로그인한 이후 실패한 로그인 시도 횟수를 볼 수 없습니다.
+
+* ONTAP에서 사용자 계정을 삭제하면 해당 사용자에 대해 유지되는 정보가 삭제됩니다.
+* SSH가 아닌 애플리케이션 접속에 대한 정보는 표시되지 않습니다.
+
+
+
+
+== SSH 로그인 보안 정보의 예
+
+다음 예에서는 로그인 후 표시되는 정보의 유형을 보여 줍니다.
+
+* 이 메시지는 로그인에 성공할 때마다 표시됩니다.
++
+[listing]
+----
+
+Last Login : 7/19/2018 06:11:32
+----
+* 마지막으로 성공한 로그인 이후 로그인 시도가 실패한 경우 다음 메시지가 표시됩니다.
++
+[listing]
+----
+
+Last Login : 4/12/2018 08:21:26
+Unsuccessful login attempts since last login – 5
+----
+* 로그인 시도 실패 및 마지막 로그인 후 권한이 수정된 경우 다음 메시지가 표시됩니다.
++
+[listing]
+----
+
+Last Login : 8/22/2018 20:08:21
+Unsuccessful login attempts since last login – 3
+Your privileges have changed since last login
+----
+

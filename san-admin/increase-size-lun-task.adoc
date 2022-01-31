@@ -1,0 +1,62 @@
+---
+permalink: san-admin/increase-size-lun-task.html 
+sidebar: sidebar 
+keywords: increase, size, lun 
+summary: ONTAP 9.5부터는 원래 크기에 관계없이 최대 16TB까지 LUN을 확장할 수 있습니다. ONTAP 9.4 이하 버전에서는 LUN을 원래 크기의 약 10배로 늘릴 수 있지만 16TB를 초과할 수 없습니다. 
+---
+= LUN의 크기를 늘립니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+LUN을 늘릴 수 있는 크기는 ONTAP 버전에 따라 다릅니다.
+
+[cols="2"]
+|===
+| ONTAP 버전입니다 | 최대 LUN 크기입니다 
+
+
+| ONTAP 9.8 이상  a| 
+* 모든 SAN 어레이에 128TB(ASA)
+* 비 ASA의 경우 16TB
+
+
+
+
+| ONTAP 9.5, 9.6, 9.7 | 16TB 
+
+
+| ONTAP 9.4 이하 | 원래 LUN 크기의 10배가 되지만 16TB가 넘지 않습니다. 예를 들어 100GB LUN을 생성하는 경우 1,000GB로만 확장할 수 있습니다. 
+|===
+크기를 늘리기 위해 LUN을 오프라인 상태로 전환하지 않아도 됩니다. 그러나 크기를 늘린 후에는 호스트에서 LUN을 재검색하여 크기 변경을 인식해야 합니다.
+
+LUN 크기 조정에 대한 자세한 내용은 'LUN 크기 조정' 명령에 대한 명령 참조 페이지를 참조하십시오.
+
+[NOTE]
+====
+Solaris LUN의 크기는 조정할 수 없습니다.
+
+====
+.단계
+. LUN 크기를 늘립니다.
++
+'LUN resize-vserver_vserver_name_-volume_volume_name_-lun_lun_name_-size_lun_size_
+
+. 늘어난 LUN 크기 확인:
++
+'lun show -vserver_vserver_name _'
+
++
+[NOTE]
+====
+ONTAP 작업은 LUN의 실제 최대 크기를 반올림하여 예상 값보다 약간 작습니다. 또한 실제 LUN 크기는 LUN의 OS 유형에 따라 약간 다를 수 있습니다. 정확한 크기 조정 값을 얻으려면 고급 모드에서 다음 명령을 실행합니다.
+
+세트 B
+
+'lun show-fields max-resize-volume_volume_name_-lun_lun_name_'
+
+====
+. 호스트에서 LUN을 다시 검색합니다.
+. 호스트 문서에 따라 새로 생성된 LUN 크기를 호스트 파일 시스템에 표시합니다.
+

@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/image-header-missing-corrupted-reference.html 
+sidebar: sidebar 
+keywords: image, header, missing, corrupted, smtape, backup, valid 
+summary: 테이프에 유효한 SMTape 백업이 없습니다. 
+---
+= 이미지 헤더가 없거나 손상되었습니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+'이미지 헤더 누락 또는 손상'
+
+* * 원인 *
++
+테이프에 유효한 SMTape 백업이 없습니다.
+
+* * 시정 조치 *
++
+유효한 백업이 포함된 테이프로 다시 시도하십시오.
+
+

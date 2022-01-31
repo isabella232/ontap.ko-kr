@@ -1,0 +1,48 @@
+---
+permalink: fabricpool/check-status-performance-tier-promotion-task.html 
+sidebar: sidebar 
+keywords: checking, status, performance, tier, promotion 
+summary: 성능 계층 프로모션의 상태를 확인하여 작업이 완료되는 시기를 결정할 수 있습니다. 
+---
+= 성능 계층 프로모션의 상태를 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+성능 계층 프로모션의 상태를 확인하여 작업이 완료되는 시기를 결정할 수 있습니다.
+
+.단계
+. '계층화' 옵션과 함께 volume 'object-store' 명령을 사용하여 성능 계층 프로모션의 상태를 확인합니다.
++
+[listing]
+----
+volume object-store tiering show [ -instance | -fields <fieldname>, ... ] [ -vserver <vserver name> ] *Vserver
+[[-volume] <volume name>] *Volume [ -node <nodename> ] *Node Name [ -vol-dsid <integer> ] *Volume DSID
+[ -aggregate <aggregate name> ] *Aggregate Name
+----
++
+[listing]
+----
+volume object-store tiering show v1 -instance
+
+                                  Vserver: vs1
+                                   Volume: v1
+                                Node Name: node1
+                              Volume DSID: 1023
+                           Aggregate Name: a1
+                                    State: ready
+                      Previous Run Status: completed
+                 Aborted Exception Status: -
+               Time Scanner Last Finished: Mon Jan 13 20:27:30 2020
+                 Scanner Percent Complete: -
+                      Scanner Current VBN: -
+                         Scanner Max VBNs: -
+      Time Waiting Scan will be scheduled: -
+                           Tiering Policy: snapshot-only
+     Estimated Space Needed for Promotion: -
+                        Time Scan Started: -
+  Estimated Time Remaining for scan to complete: -
+                    Cloud Retrieve Policy: promote
+----
+

@@ -1,0 +1,243 @@
+---
+sidebar: sidebar 
+permalink: networking/configure_firewall_policies_for_lifs.html 
+keywords: firewall, policy, policies, security, cluster, unauthorized, access, storage, system, service, enable, enabling, disable, disabling, apply, applying, create, creating, add, adding, lif, protocols, nfs, smb, cifs, svm, firewall policies enhance the security of the cluster, configure firewall policies for lifs, firewall policies and lifs, network interface create, network interface modify, firewall-policy, portmap service configuration, what behavior you can expect portmap service, how to add or remove the portmap service, create a firewall policy and assigning it to a lif, example of creating a firewall policy and applying it to a lif 
+summary: 방화벽 정책은 클러스터의 보안을 강화합니다 
+---
+= LIF의 방화벽 정책을 구성합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+방화벽을 설정하면 클러스터의 보안이 강화되고 스토리지 시스템에 대한 무단 액세스가 방지됩니다. 기본적으로 온보드 방화벽은 데이터, 관리 및 인터클러스터 LIF에 대한 특정 IP 서비스 세트에 대한 원격 액세스를 허용하도록 구성됩니다.
+
+ONTAP 9.10.1 시작:
+
+* 방화벽 서비스 정책은 더 이상 사용되지 않으며 LIF 서비스 정책으로 교체됩니다. 이전에는 방화벽 정책을 사용하여 온보드 방화벽을 관리했습니다. 이 기능은 이제 LIF 서비스 정책을 사용하여 구현됩니다.
+* 모든 방화벽 정책이 비어 있으며 기본 방화벽에서 포트를 열지 않습니다. 대신 LIF 서비스 정책을 사용하여 모든 포트를 열어야 합니다.
+* 방화벽 서비스 정책에서 LIF 서비스 정책으로 전환하기 위해 9.10.1 이상으로 업그레이드한 후에는 작업이 필요하지 않습니다. 이전 ONTAP 릴리즈에서 사용 중인 방화벽 서비스 정책과 일치하는 LIF 서비스 정책이 자동으로 구성됩니다. 사용자 지정 방화벽 정책을 만들고 관리하는 스크립트나 기타 도구를 사용하는 경우 대신 해당 스크립트를 업그레이드하여 사용자 지정 서비스 정책을 만들어야 할 수 있습니다.
+
+
+자세한 내용은 을 참조하십시오 link:lifs_and_service_policies96.html["ONTAP 9.6 이상의 LIF 및 서비스 정책"].
+
+방화벽 정책을 사용하여 SSH, HTTP, HTTPS, Telnet, NTP 등의 관리 서비스 프로토콜에 대한 액세스를 제어할 수 있습니다. NDMP, NDMPS, RSH, DNS 또는 SNMP NFS 또는 SMB와 같은 데이터 프로토콜에 대해 방화벽 정책을 설정할 수 없습니다.
+
+다음과 같은 방법으로 방화벽 서비스 및 정책을 관리할 수 있습니다.
+
+* 방화벽 서비스 활성화 또는 비활성화
+* 현재 방화벽 서비스 구성을 표시합니다
+* 지정된 정책 이름 및 네트워크 서비스를 사용하여 새 방화벽 정책 생성
+* 방화벽 정책을 논리 인터페이스에 적용합니다
+* 기존 정책의 정확한 사본인 새 방화벽 정책을 생성합니다
++
+이를 사용하여 동일한 SVM 내에서 유사한 특성을 갖는 정책을 생성하거나 정책을 다른 SVM으로 복사할 수 있습니다.
+
+* 방화벽 정책에 대한 정보 표시
+* 방화벽 정책에서 사용하는 IP 주소 및 넷마스크 수정
+* LIF에서 사용되지 않는 방화벽 정책을 삭제합니다
+
+
+
+
+== 방화벽 정책 및 LIF
+
+LIF 방화벽 정책을 사용하여 각 LIF에서 클러스터에 대한 액세스를 제한합니다. 기본 방화벽 정책이 각 LIF 유형에 대한 시스템 액세스에 미치는 영향과 LIF에 대한 보안을 늘리거나 줄일 수 있도록 방화벽 정책을 사용자 지정하는 방법을 이해해야 합니다.
+
+network interface create 또는 network interface modify 명령을 사용하여 LIF를 구성하는 경우, '-firewall-policy' 매개 변수에 지정된 값에 따라 LIF에 대한 액세스가 허용된 서비스 프로토콜과 IP 주소가 결정됩니다.
+
+대부분의 경우 기본 방화벽 정책 값을 적용할 수 있습니다. 다른 경우에는 특정 IP 주소 및 특정 관리 서비스 프로토콜에 대한 액세스를 제한해야 할 수도 있습니다. 사용 가능한 관리 서비스 프로토콜에는 SSH, HTTP, HTTPS, Telnet, NTP, NDMP, NDMPS, RSH, DNS 및 SNMP를 지원합니다.
+
+모든 클러스터 LIF의 방화벽 정책은 기본적으로 ""로 설정되며 수정할 수 없습니다.
+
+다음 표에서는 LIF를 생성할 때 역할(ONTAP 9.5 이하) 또는 서비스 정책(ONTAP 9.6 이상)에 따라 각 LIF에 할당되는 기본 방화벽 정책을 설명합니다.
+
+|===
+
+
+| 방화벽 정책 | 기본 서비스 프로토콜 | 기본 액세스 | LIF가 에 적용되었습니다 
+
+
+ a| 
+관리
+ a| 
+DNS, http, https, NDMP, ndmps, NTP, SNMP, ssh
+ a| 
+모든 주소(0.0.0.0/0)
+ a| 
+클러스터 관리, SVM 관리, 노드 관리 LIF
+
+
+
+ a| 
+관리 - NFS
+ a| 
+DNS, http, https, NDMP, ndmps, NTP, 포트 맵, SNMP, ssh
+ a| 
+모든 주소(0.0.0.0/0)
+ a| 
+데이터 LIF: SVM 관리 액세스도 지원합니다
+
+
+
+ a| 
+인터클러스터
+ a| 
+HTTPS, NDMP, ndmps
+ a| 
+모든 주소(0.0.0.0/0)
+ a| 
+모든 인터클러스터 LIF
+
+
+
+ a| 
+데이터
+ a| 
+DNS, NDMP, ndmps, portmap
+ a| 
+모든 주소(0.0.0.0/0)
+ a| 
+모든 데이터 LIF
+
+|===
+
+
+== portmap 서비스 구성
+
+portmap 서비스는 RPC 서비스를 수신 대기 포트에 매핑합니다.
+
+포트맵 서비스는 ONTAP 9.3 이전 버전에서 항상 액세스할 수 있었고 ONTAP 9.4에서 ONTAP 9.6까지 구성할 수 있었고 ONTAP 9.7부터 자동으로 관리됩니다.
+
+* ONTAP 9.3 및 이전 버전에서는 타사 방화벽이 아닌 내장 ONTAP 방화벽에 의존하는 네트워크 구성의 포트 111에서 포트맵 서비스(rpcbind)에 항상 액세스할 수 있었습니다.
+* ONTAP 9.4에서 ONTAP 9.6까지 방화벽 정책을 수정하여 특정 LIF에서 포트맵 서비스에 액세스할 수 있는지 여부를 제어할 수 있습니다.
+* ONTAP 9.7부터 포트 맵 방화벽 서비스가 제거됩니다. 대신, NFS 서비스를 지원하는 모든 LIF에 대해 포트맵 포트가 자동으로 열립니다.
+
+
+* Portmap 서비스는 ONTAP 9.4 ~ ONTAP 9.6 * 의 방화벽에서 구성할 수 있습니다
+
+이 항목의 나머지 부분에서는 ONTAP 9.4에서 ONTAP 9.6 릴리스까지 포트맵 방화벽 서비스를 구성하는 방법을 설명합니다.
+
+구성에 따라 특정 LIF 유형, 일반적으로 관리 및 인터클러스터 LIF에 대한 서비스에 대한 액세스를 허용하지 않을 수 있습니다. 경우에 따라 데이터 LIF에 대한 액세스를 허용하지 않을 수도 있습니다.
+
+ONTAP 9.4 ~ ONTAP 9.6 동작은 업그레이드 시 원활한 전환을 제공하도록 설계되었습니다. 특정 유형의 LIF에서 portmap 서비스에 이미 액세스하고 있는 경우 이러한 유형의 LIF에서 계속 액세스할 수 있습니다. 이전 ONTAP 버전과 마찬가지로, LIF 유형의 방화벽 정책에서 방화벽 내에서 액세스할 수 있는 서비스를 지정할 수 있습니다.
+
+이 동작이 적용되려면 클러스터의 모든 노드에서 ONTAP 9.4~ONTAP 9.6을 실행해야 합니다. 인바운드 트래픽만 영향을 받습니다.
+
+새로운 규칙은 다음과 같습니다.
+
+* 릴리스 9.4 ~ 9.6으로 업그레이드할 때 ONTAP는 포트맵 서비스를 기존의 모든 방화벽 정책(기본값 또는 사용자 정의)에 추가합니다.
+* 새 클러스터 또는 새 IPspace를 생성하는 경우 ONTAP는 기본 관리 또는 인터클러스터 정책이 아니라 기본 데이터 정책에만 포트맵 서비스를 추가합니다.
+* 필요에 따라 포트맵 서비스를 기본 또는 사용자 지정 정책에 추가하고 필요에 따라 서비스를 제거할 수 있습니다.
+
+
+포트맵 서비스를 SVM 또는 클러스터 방화벽 정책에 추가하려면(방화벽 내에서 액세스 가능) 다음을 입력합니다.
+
+'시스템 서비스 방화벽 정책 생성 - vserver SVM-policy mgmt | 인터클러스터 | data | custom-service portmap'
+
+SVM 또는 클러스터 방화벽 정책에서 portmap 서비스를 제거하려면(방화벽 내에서 액세스할 수 없도록 설정) 다음을 입력합니다.
+
+'시스템 서비스 방화벽 정책 삭제 - vserver SVM-policy mgmt | 인터클러스터 | data | custom-service portmap
+
+네트워크 인터페이스 수정 명령을 사용하여 기존 LIF에 방화벽 정책을 적용할 수 있습니다. 전체 명령 구문은 을 참조하십시오 link:http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"^].
+
+
+
+== 방화벽 정책을 생성하여 LIF에 할당합니다
+
+LIF를 생성할 때 각 LIF에 기본 방화벽 정책이 할당됩니다. 대부분의 경우 기본 방화벽 설정이 잘 작동하고 변경할 필요가 없습니다. LIF에 액세스할 수 있는 네트워크 서비스 또는 IP 주소를 변경하려면 사용자 지정 방화벽 정책을 생성하여 LIF에 할당할 수 있습니다.
+
+.이 작업에 대해
+* 정책 이름 data, 클러스터 클러스터 클러스터 또는 mGMT로 방화벽 정책을 만들 수 없습니다.
++
+이러한 값은 시스템 정의 방화벽 정책용으로 예약되어 있습니다.
+
+* 클러스터 LIF에 대한 방화벽 정책을 설정하거나 수정할 수 없습니다.
++
+클러스터 LIF의 방화벽 정책은 모든 서비스 유형에 대해 0.0.0.0/0 으로 설정됩니다.
+
+* 정책에서 서비스를 제거해야 하는 경우 기존 방화벽 정책을 삭제하고 새 정책을 생성해야 합니다.
+* 클러스터에 IPv6이 설정되어 있으면 IPv6 주소를 사용하여 방화벽 정책을 생성할 수 있습니다.
++
+IPv6을 사용하도록 설정한 후, "데이터", "인터클러스터" 및 "GMT" 방화벽 정책에는 IPv6 와일드카드인 /0이 허용된 주소 목록에 포함됩니다.
+
+* System Manager를 사용하여 클러스터 간에 데이터 보호 기능을 구성하는 경우 LIF IP 주소가 허용 목록에 포함되어 있고 인터클러스터 LIF와 회사 소유 방화벽 모두에 HTTPS 서비스가 허용되는지 확인해야 합니다.
++
+기본적으로 '인터클러스터' 방화벽 정책은 모든 IP 주소(IPv6의 경우 0.0.0.0/0 또는:/0)의 액세스를 허용하고 HTTPS, NDMP 및 NDMPS 서비스를 활성화합니다. 이 기본 정책을 수정하거나 인터클러스터 LIF에 대한 자체 방화벽 정책을 만드는 경우 각 인터클러스터 LIF IP 주소를 허용된 목록에 추가하고 HTTPS 서비스를 활성화해야 합니다.
+
+* ONTAP 9.6부터는 HTTPS 및 SSH 방화벽 서비스가 지원되지 않습니다.
++
+ONTAP 9.6에서는 HTTPS 및 SSH 관리 액세스를 위해 관리 https와 관리 ssh LIF 서비스를 사용할 수 있습니다.
+
+
+
+.단계
+. 특정 SVM의 LIF에서 사용할 수 있는 방화벽 정책을 생성합니다.
++
+'시스템 서비스 방화벽 정책 생성 - vserver_vserver_name_-policy_policy_name_-service_network_service_-allow-list_ip_address/mask_'
+
++
+이 명령을 여러 번 사용하여 방화벽 정책에서 각 서비스에 대해 둘 이상의 네트워크 서비스 및 허용된 IP 주소 목록을 추가할 수 있습니다.
+
+. System services firewall policy show 명령을 사용하여 정책이 올바르게 추가되었는지 확인합니다.
+. 방화벽 정책을 LIF에 적용합니다.
++
+'network interface modify -vserver_vserver_name_-lif_lif_name_-firewall-policy_policy_name_'
+
+. 'network interface show-fields firewall -policy' 명령을 사용하여 LIF에 정책이 올바르게 추가되었는지 확인합니다.
+
+
+다음 명령을 실행하면 10.10 서브넷의 IP 주소에서 HTTP 및 HTTPS 프로토콜 액세스를 지원하는 data_http라는 방화벽 정책이 생성되어 SVM VS1의 data1이라는 LIF에 해당 정책이 적용되고 클러스터의 모든 방화벽 정책이 표시됩니다.
+
+....
+system services firewall policy create -vserver vs1 -policy data_http -service http - allow-list 10.10.0.0/16
+....
+....
+system services firewall policy show
+
+Vserver Policy       Service    Allowed
+------- ------------ ---------- -------------------
+cluster-1
+        data
+                     dns        0.0.0.0/0
+                     ndmp       0.0.0.0/0
+                     ndmps      0.0.0.0/0
+cluster-1
+        intercluster
+                     https      0.0.0.0/0
+                     ndmp       0.0.0.0/0
+                     ndmps      0.0.0.0/0
+cluster-1
+        mgmt
+                     dns        0.0.0.0/0
+                     http       0.0.0.0/0
+                     https      0.0.0.0/0
+                     ndmp       0.0.0.0/0
+                     ndmps      0.0.0.0/0
+                     ntp        0.0.0.0/0
+                     snmp       0.0.0.0/0
+                     ssh        0.0.0.0/0
+vs1
+        data_http
+                     http       10.10.0.0/16
+                     https      10.10.0.0/16
+
+network interface modify -vserver vs1 -lif data1 -firewall-policy data_http
+
+network interface show -fields firewall-policy
+
+vserver  lif                  firewall-policy
+-------  -------------------- ---------------
+Cluster  node1_clus_1
+Cluster  node1_clus_2
+Cluster  node2_clus_1
+Cluster  node2_clus_2
+cluster-1 cluster_mgmt         mgmt
+cluster-1 node1_mgmt1          mgmt
+cluster-1 node2_mgmt1          mgmt
+vs1      data1                data_http
+vs3      data2                data
+....

@@ -1,0 +1,21 @@
+---
+permalink: nfs-admin/benefits-enable-nfsv4-acls-concept.html 
+sidebar: sidebar 
+keywords: benefits, enable, nfsv4, acls 
+summary: NFSv4 ACL을 설정하면 많은 이점이 있습니다. 
+---
+= NFSv4 ACL 설정 이점
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NFSv4 ACL을 설정하면 많은 이점이 있습니다.
+
+NFSv4 ACL을 설정하면 다음과 같은 이점이 있습니다.
+
+* 파일 및 디렉토리에 대한 사용자 액세스를 세밀하게 제어합니다
+* NFS 보안 강화
+* CIFS와의 상호 운용성 향상
+* 사용자당 16개 그룹의 NFS 제한을 제거합니다
+

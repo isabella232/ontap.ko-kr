@@ -1,0 +1,54 @@
+---
+permalink: nfs-admin/commands-manage-ldap-client-schema-templates-reference.html 
+sidebar: sidebar 
+keywords: command, manage, ldap, client, schema, template 
+summary: LDAP 클라이언트 스키마 템플릿을 관리하기 위한 특정 ONTAP 명령이 있습니다. 
+---
+= LDAP 클라이언트 스키마 템플릿을 관리하는 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+LDAP 클라이언트 스키마 템플릿을 관리하기 위한 특정 ONTAP 명령이 있습니다.
+
+[NOTE]
+====
+SVM 관리자는 클러스터 관리자가 생성한 LDAP 클라이언트 스키마를 수정하거나 삭제할 수 없습니다.
+
+====
+[cols="35,65"]
+|===
+
+
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+기존 LDAP 스키마 템플릿을 복사합니다
+ a| 
+고급 권한 수준 이상에서 사용할 수 있는 'vserver services name-service LDAP 클라이언트 스키마 복사'입니다.
+
+
+
+ a| 
+LDAP 스키마 템플릿을 표시합니다
+ a| 
+'vserver services name-service ldap client schema show'를 참조하십시오
+
+
+
+ a| 
+LDAP 스키마 템플릿을 수정합니다
+ a| 
+고급 권한 수준 이상에서 사용할 수 있는 'vserver services name-service LDAP 클라이언트 스키마 수정'입니다.
+
+
+
+ a| 
+LDAP 스키마 템플릿을 삭제합니다
+ a| 
+고급 권한 수준 이상에서 사용할 수 있는 'vserver services name-service LDAP 클라이언트 스키마 삭제'입니다.
+
+|===
+자세한 내용은 각 명령에 대한 man 페이지를 참조하십시오.

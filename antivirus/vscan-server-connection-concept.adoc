@@ -1,0 +1,21 @@
+---
+permalink: antivirus/vscan-server-connection-concept.html 
+sidebar: sidebar 
+keywords: potential connectivity, issues, involve, scan-mandatory, option 
+summary: 기본적으로 액세스 시 스캔에 대한 스캔 필수 옵션은 Vscan 서버 연결을 스캐닝에 사용할 수 없을 때 파일 액세스를 거부합니다. 이 옵션은 중요한 안전 기능을 제공하지만 몇 가지 상황에서 문제가 발생할 수 있습니다. 
+---
+= 스캔 필수 옵션과 관련된 잠재적인 연결 문제
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+"vserver vscan connection-status show" 명령을 사용하면 연결 문제 해결에 도움이 될 수 있는 Vscan 서버 연결에 대한 정보를 볼 수 있습니다.
+
+기본적으로, 액세스 시 스캔에 대한 '스캔 필수' 옵션은 Vscan 서버 연결을 스캐닝에 사용할 수 없을 때 파일 액세스를 거부합니다. 이 옵션은 중요한 안전 기능을 제공하지만 몇 가지 상황에서 문제가 발생할 수 있습니다.
+
+* 클라이언트 액세스를 활성화하기 전에 LIF가 있는 각 노드의 SVM에 하나 이상의 Vscan 서버가 연결되어 있는지 확인해야 합니다. 클라이언트 액세스를 활성화한 후 서버를 SVM에 연결해야 하는 경우 Vscan 서버 연결을 사용할 수 없기 때문에 파일 액세스가 거부되지 않도록 SVM에서 '필수' 옵션을 해제해야 합니다. 서버를 연결한 후 옵션을 다시 켤 수 있습니다.
+* 대상 LIF가 SVM을 위한 모든 Vscan 서버 연결을 호스팅하는 경우 LIF가 마이그레이션되면 서버와 SVM 간 연결이 끊어집니다. Vscan 서버 연결을 사용할 수 없어 파일 액세스가 거부되지 않도록 하려면 LIF를 마이그레이션하기 전에 '필수' 옵션을 해제해야 합니다. LIF가 마이그레이션된 후 옵션을 다시 설정할 수 있습니다.
+
+
+각 SVM에는 최소한 2개의 Vscan 서버가 할당되어 있어야 합니다. Vscan 서버를 클라이언트 액세스에 사용되는 네트워크와 다른 네트워크를 통해 스토리지 시스템에 연결하는 것이 가장 좋습니다.

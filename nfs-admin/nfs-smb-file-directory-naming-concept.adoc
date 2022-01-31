@@ -1,0 +1,21 @@
+---
+permalink: nfs-admin/nfs-smb-file-directory-naming-concept.html 
+sidebar: sidebar 
+keywords: nfs, smb, file, directory, naming, dependency 
+summary: 파일 및 디렉토리 명명 규칙은 ONTAP 클러스터 및 클라이언트의 언어 설정과 함께 네트워크 클라이언트의 운영 체제 및 파일 공유 프로토콜에 따라 다릅니다. 
+---
+= 부록: NFS 및 SMB 파일 및 디렉토리 이름 지정 종속성
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+파일 및 디렉토리 명명 규칙은 ONTAP 클러스터 및 클라이언트의 언어 설정과 함께 네트워크 클라이언트의 운영 체제 및 파일 공유 프로토콜에 따라 다릅니다.
+
+운영 체제 및 파일 공유 프로토콜에는 다음이 결정됩니다.
+
+* 문자 파일 이름에 사용할 수 있습니다
+* 파일 이름의 대/소문자 구분
+
+
+ONTAP는 ONTAP 릴리즈별 파일, 디렉토리 및 qtree 이름에서 멀티바이트 문자를 지원합니다.

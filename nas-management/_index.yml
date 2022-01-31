@@ -1,0 +1,85 @@
+---
+indexpage:
+  tiles:
+  - title: 시작하십시오
+    links:
+    - title: NFS 개요
+      url: "/../nfs-admin/index.html"
+    - title: SMB 개요
+      url: "/../smb-admin/index.html"
+    - title: SMB를 통한 Microsoft Hyper-V 및 SQL Server를 위한 ONTAP 개요
+      url: "/../smb-hyper-v-sql/index.html"
+  - title: NFS 서버
+    links:
+    - title: System Manager로 구성합니다
+      url: "/../task_nas_enable_linux_nfs.html"
+    - title: CLI를 사용하여 구성합니다
+      url: "/../nfs-config/create-server-task.html"
+    - title: System Manager로 NFS 내보내기를 구성합니다
+      url: "/../task_nas_provision_export_policies.html"
+    - title: CLI를 사용하여 NFS 내보내기를 구성합니다
+      url: "/../nfs-config/export-policies-concept.html"
+    - title: NFS 클라이언트 액세스를 확인합니다
+      url: "/../nfs-config/verify-client-access-from-cluster-task.html"
+  - title: SMB 서버
+    links:
+    - title: System Manager로 구성합니다
+      url: "/../task_nas_enable_windows_smb.html"
+    - title: CLI를 사용하여 구성합니다
+      url: "/../smb-config/create-server-active-directory-domain-task.html"
+    - title: System Manager로 홈 디렉터리를 관리합니다
+      url: "/../task_nas_provision_home_directories.html"
+    - title: CLI를 사용하여 홈 디렉토리를 관리합니다
+      url: "/../smb-admin/dynamic-home-directories-concept.html"
+    - title: 지원되는 SMB 버전 및 기능
+      url: "/../smb-admin/supported-versions-functionality-concept.html"
+  - title: NAS 멀티 프로토콜 구성
+    links:
+    - title: System Manager로 구성합니다
+      url: "/../task_nas_enable_nfs_and_smb.html"
+    - title: Windows NFS 클라이언트에 대한 액세스를 설정합니다
+      url: "/../nfs-admin/enable-access-windows-nfs-clients-task.html"
+    - title: NFS 및 SMB 명명 종속성
+      url: "/../smb-admin/nfs-smb-file-directory-naming-concept.html"
+  - title: 네임 서비스
+    links:
+    - title: System Manager로 구성합니다
+      url: "/../task_nas_provide_client_access_with_name_services.html"
+    - title: CLI를 사용하여 구성합니다
+      url: "/../nfs-config/configure-name-services-concept.html"
+    - title: 네임 서비스 스위치 개요
+      url: "/../nfs-admin/ontap-name-service-switch-config-concept.html"
+    - title: 이름 서비스 문제를 해결합니다
+      url: "/../nfs-admin/troubleshoot-name-service-issues-task.html"
+  - title: Kerberos
+    links:
+    - title: System Manager로 구성합니다
+      url: "/../task_nas_secure_client_access_with_kerberos.html"
+    - title: CLI를 사용하여 구성합니다
+      url: "/../nfs-config/kerberos-nfs-strong-security-concept.html"
+    - title: Kerberos에 대한 ONTAP 지원
+      url: "/../nfs-admin/ontap-support-kerberos-concept.html"
+  - title: RDMA 상의 NFS(ONTAP 9.10.1의 새로운 기능)
+    links:
+    - title: 개요
+      url: "/../nfs-rdma/index.html"
+    - title: NIC 구성
+      url: "/../nfs-rdma/configure-nics-task.html"
+    - title: LIF 구성
+      url: "/../nfs-rdma/configure-lifs-task.html"
+  - title: 더 많은 리소스
+    links:
+    - title: 'TR-4067: NFS 모범 사례 및 구축'
+      url: https://www.netapp.com/pdf.html?item=/media/10720-tr-4067.pdf
+    - title: 'TR-4887: 다중 프로토콜 NAS 개요 및 모범 사례'
+      url: https://www.netapp.com/pdf.html?item=/media/27436-tr-4887.pdf
+    - title: 'TR-3580: NFSv4 향상 및 Best Practice'
+      url: https://www.netapp.com/pdf.html?item=/media/16398-tr-3580.pdf
+    - title: 'TR-4668: 서비스 모범 사례 이름을 지정합니다'
+      url: https://www.netapp.com/pdf.html?item=/media/16328-tr-4668.pdf
+    - title: 'TR-4616: ONTAP에서 NFS Kerberos'
+      url: https://www.netapp.com/media/19384-tr-4616.pdf
+    - title: 'TR-4835: ONTAP에서 LDAP를 구성하는 방법'
+      url: https://www.netapp.com/pdf.html?item=/media/19423-tr-4835.pdf
+    - title: 'TR-4543: SMB 프로토콜 모범 사례'
+      url: https://www.netapp.com/pdf.html?item=/media/10678-tr-4543.pdf

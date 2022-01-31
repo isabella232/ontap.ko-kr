@@ -1,0 +1,286 @@
+---
+section: san-admin
+title: CLI를 통한 SAN 관리
+entries:
+- title: 개요
+  url: "/san-admin/index.html"
+- title: FC 및 iSCSI에 대해 LUN을 설정합니다
+  entries:
+  - title: LUN 지침을 따릅니다
+    url: "/san-admin/lun-san-environments-concept.html"
+  - title: LUN 설정 워크플로우
+    url: "/san-admin/lun-setup-workflow-concept.html"
+  - title: FCoE에 대한 스위치를 구성합니다
+    url: "/san-admin/configure-switches-fcoe-task.html"
+  - title: LUN 설정을 위한 사전 요구사항
+    url: "/san-admin/prerequisites-setup-luns-concept.html"
+  - title: FC 또는 iSCSI에 대한 라이센스를 확인합니다
+    url: "/san-admin/verify-license-fc-iscsi-task.html"
+  - title: iSCSI용 SVM을 구성합니다
+    url: "/san-admin/configure-svm-iscsi-task.html"
+  - title: FC용 SVM 구성
+    url: "/san-admin/configure-svm-fc-task.html"
+  - title: LUN을 생성하고 igroup에 매핑합니다
+    url: "/san-admin/create-luns-mapping-igroups-task.html"
+  - title: 특정 호스트에 대해 블록 액세스를 설정합니다
+    url: "/san-admin/enable-block-access-specific-host-task.html"
+- title: NVMe용 네임스페이스 설정
+  entries:
+  - title: NVMe 네임스페이스 고려 사항
+    url: "/san-admin/nvme-namespaces-considerations-concept.html"
+  - title: NVMe를 위한 SVM 구성
+    url: "/san-admin/configure-svm-nvme-task.html"
+  - title: NVMe 네임스페이스 및 하위 시스템을 작성합니다
+    url: "/san-admin/create-nvme-namespace-subsystem-task.html"
+  - title: NVMe 네임스페이스를 하위 시스템에 매핑
+    url: "/san-admin/map-nvme-namespace-subsystem-task.html"
+- title: FC 및 iSCSI용 LUN 관리
+  entries:
+  - title: LUN의 크기를 늘립니다
+    url: "/san-admin/increase-size-lun-task.html"
+  - title: LUN 크기를 줄입니다
+    url: "/san-admin/decrease-size-lun-task.html"
+  - title: LUN을 이동합니다
+    url: "/san-admin/move-luns-task.html"
+  - title: LUN을 삭제합니다
+    url: "/san-admin/delete-luns-task.html"
+  - title: LUN을 복제할 때의 고려 사항
+    url: "/san-admin/copy-luns-concept.html"
+  - title: 포트 세트 및 igroup을 사용하여 LUN 액세스를 제한하는 방법
+    url: "/san-admin/limit-lun-access-portsets-igroups-concept.html"
+  - title: LUN의 구성 및 사용 공간을 검사합니다
+    url: "/san-admin/examine-configured-used-space-lun-task.html"
+  - title: 스토리지 QoS를 사용하여 LUN의 I/O 성능을 제어 및 모니터링합니다
+    url: "/san-admin/control-monitor-io-performance-luns-qos-task.html"
+  - title: LUN을 효과적으로 모니터링하는 데 사용할 수 있는 툴입니다
+    url: "/san-admin/tools-monitor-luns-concept.html"
+  - title: SAN 구성을 전환하기 위한 고려 사항
+    url: "/san-admin/transition-config-concept.html"
+  - title: 올바르게 정렬된 LUN의 I/O 정렬 불량
+    url: "/san-admin/io-misalignments-properly-aligned-luns-concept.html"
+  - title: LUN이 오프라인 상태가 될 때 발생하는 문제를 해결하는 방법
+    url: "/san-admin/address-issues-when-luns-go-offline-concept.html"
+- title: 권장되는 볼륨 및 파일 또는 LUN 구성 조합
+  entries:
+  - title: 개요
+    url: "/san-admin/recommended-volume-lun-config-combinations-concept.html"
+  - title: 환경에 맞는 올바른 볼륨 및 LUN 구성 조합을 결정합니다
+    url: "/san-admin/determine-volume-lun-config-combination-task.html"
+  - title: LUN의 데이터 증가율 계산
+    url: "/san-admin/calculate-rate-data-growth-luns-task.html"
+  - title: 일반 프로비저닝된 볼륨이 있는 공간 예약 파일 또는 LUN에 대한 구성 설정입니다
+    url: "/san-admin/space-reserved-luns-thick-provisioned-volumes-concept.html"
+  - title: 공간이 예약되지 않은 파일 또는 씬 프로비저닝된 볼륨이 있는 LUN에 대한 구성 설정입니다
+    url: "/san-admin/config-non-space-reserved-luns-thin-provisioned-concept.html"
+  - title: 반씩 볼륨 프로비저닝을 사용하는 공간 예약 파일 또는 LUN에 대한 구성 설정입니다
+    url: "/san-admin/space-reserved-luns-semi-thick-provisioning-concept.html"
+- title: 선택적 LUN 맵입니다
+  entries:
+  - title: 개요
+    url: "/san-admin/selective-lun-map-concept.html"
+  - title: LUN 맵에서 SLM이 설정되었는지 여부를 확인합니다
+    url: "/san-admin/determine-slm-enabled-lun-map-concept.html"
+  - title: 포트 세트를 생성하고 igroup을 포트 세트에 바인딩합니다
+    url: "/san-admin/create-port-sets-binding-igroups-task.html"
+  - title: SLM 보고 노드 목록을 수정합니다
+    url: "/san-admin/modify-slm-reporting-nodes-task.html"
+- title: iSCSI 프로토콜을 관리합니다
+  entries:
+  - title: 최상의 성능을 위해 네트워크를 구성합니다
+    url: "/san-admin/configure-network-best-performance-task.html"
+  - title: 이니시에이터에 대한 보안 정책 방법을 정의합니다
+    url: "/san-admin/define-authentication-method-initiator-task.html"
+  - title: SVM을 위한 iSCSI 서비스를 삭제합니다
+    url: "/san-admin/delete-iscsi-service-svm-task.html"
+  - title: iSCSI 세션 오류 복구에 대한 자세한 내용을 확인하십시오
+    url: "/san-admin/get-details-iscsi-session-error-recoveries-task.html"
+  - title: iSNS 서버를 사용하여 SVM을 등록합니다
+    url: "/san-admin/register-svm-isns-server-task.html"
+  - title: 스토리지 시스템의 iSCSI 오류 메시지를 해결합니다
+    url: "/san-admin/resolve-iscsi-error-messages-reference.html"
+  - title: 호스트에 표시되지 않는 iSCSI LUN 문제를 해결합니다
+    url: "/san-admin/troubleshoot-iscsi-luns-not-visible-reference.html"
+- title: FC 프로토콜을 관리합니다
+  entries:
+  - title: SVM을 위한 FC 서비스를 삭제합니다
+    url: "/san-admin/delete-fc-service-svm-task.html"
+  - title: FCoE 점보 프레임에 대한 권장 MTU 구성
+    url: "/san-admin/recommended-mtu-config-fcoe-jumbo-frames-concept.html"
+- title: FC 어댑터를 사용하여 시스템을 관리합니다
+  entries:
+  - title: 개요
+    url: "/san-admin/manage-systems-fc-adapters-concept.html"
+  - title: FC 어댑터를 관리하는 명령입니다
+    url: "/san-admin/commands-manage-fc-adapters-reference.html"
+  - title: 이니시에이터 모드에 맞게 FC 어댑터를 구성합니다
+    url: "/san-admin/configure-fc-adapters-initiator-mode-task.html"
+  - title: FC 어댑터를 타겟 모드로 구성합니다
+    url: "/san-admin/configure-fc-adapters-target-mode-task.html"
+  - title: FC 타겟 어댑터에 대한 정보를 표시합니다
+    url: "/san-admin/display-fc-target-adapter-task.html"
+  - title: UTA2 포트를 CNA 모드에서 FC 모드로 변경합니다
+    url: "/san-admin/change-uta2-port-cna-mode-fc-task.html"
+  - title: CNA/UTA2 타겟 어댑터 광 모듈을 변경합니다
+    url: "/san-admin/change-cna-uta2-optical-modules-task.html"
+  - title: 어댑터 설정을 봅니다
+    url: "/san-admin/view-adapter-settings-capabilities-task.html"
+  - title: X1143A-R6 어댑터에 대해 지원되는 포트 구성
+    url: "/san-admin/supported-port-config-x1143a-r6-adapter-concept.html"
+  - title: X1143A-R6 어댑터 포트를 구성합니다
+    url: "/san-admin/configure-ports-task.html"
+  - title: X1133A-R6 어댑터를 사용할 경우 연결 끊김 방지
+    url: "/san-admin/prevent-loss-connectivity-x1133a-r6-adapter-concept.html"
+- title: NVMe 프로토콜 관리
+  entries:
+  - title: 라이센스 요구 사항
+    url: "/san-admin/manage-nvme-concept.html"
+  - title: SVM에 대해 NVMe/FC 서비스를 시작합니다
+    url: "/san-admin/start-nvme-fc-service-svm-task.html"
+  - title: SVM에서 NVMe/FC 서비스를 삭제합니다
+    url: "/san-admin/delete-nvme-fc-service-task.html"
+  - title: NVMe 네임스페이스 크기 조정
+    url: "../nvme/resize-namespace-task.html"
+- title: 모든 SAN 프로토콜에 대한 LIF 관리
+  entries:
+  - title: 개요
+    url: "/san-admin/manage-lifs-all-san-protocols-concept.html"
+  - title: NVMe LIF를 구성합니다
+    url: "/san-admin/configure-nvme-lif-task.html"
+  - title: SAN LIF 이동에 대한 고려 사항
+    url: "/san-admin/lif-movement-concept.html"
+  - title: 포트 세트에서 SAN LIF를 제거합니다
+    url: "/san-admin/remove-lif-from-portset-task.html"
+  - title: SAN LIF를 이동합니다
+    url: "/san-admin/move-san-lifs-task.html"
+  - title: SAN 환경에서 LIF를 삭제합니다
+    url: "/san-admin/delete-lif-san-environment-task.html"
+  - title: 클러스터에 노드를 추가할 때의 고려 사항
+    url: "/san-admin/add-nodes-cluster-concept.html"
+  - title: 호스트 iSCSI SendTargets 검색 작업에 FQDN을 반환하도록 iSCSI LIF를 구성합니다
+    url: "/san-admin/configure-return-fqdn-host-iscsi-discovery-task.html"
+- title: SAN 환경의 데이터 보호 방법입니다
+  entries:
+  - title: 개요
+    url: "/san-admin/data-protection-methods-reference.html"
+  - title: LUN을 스냅샷 복사본에서 이동 또는 복사하는 영향
+    entries:
+    - title: 개요
+      url: "/san-admin/effect-moving-copying-lun-snapshot-copies-concept.html"
+    - title: 스냅샷 복사본에서 단일 LUN을 복원합니다
+      url: "/san-admin/restore-single-lun-snapshot-copy-task.html"
+    - title: 스냅샷 복사본에서 볼륨의 모든 LUN을 복원합니다
+      url: "/san-admin/restore-all-luns-volume-snapshot-copy-task.html"
+    - title: 볼륨에서 기존 스냅샷 복사본을 하나 이상 삭제합니다
+      url: "/san-admin/delete-all-existing-snapshot-copies-volume-task.html"
+  - title: FlexClone LUN을 사용하여 데이터를 보호합니다
+    entries:
+    - title: 개요
+      url: "/san-admin/flexclone-luns-protect-your-data-concept.html"
+    - title: FlexClone LUN을 사용하는 이유
+      url: "/san-admin/reasons-cloning-luns-concept.html"
+    - title: FlexVol 볼륨이 자동 삭제 설정을 통해 사용 가능한 공간을 재확보하는 방법
+      url: "/san-admin/flexvol-reclaim-free-space-autodelete-concept.html"
+    - title: FlexClone 파일과 FlexClone LUN을 자동으로 삭제하도록 FlexVol 볼륨을 구성합니다
+      url: "/san-admin/configure-flexvol-delete-flexclone-files-luns-task.html"
+    - title: 활성 볼륨에서 LUN의 클론을 생성합니다
+      url: "/san-admin/clone-luns-active-volume-task.html"
+    - title: 볼륨의 스냅샷 복사본에서 FlexClone LUN을 생성합니다
+      url: "/san-admin/create-flexclone-luns-snapshot-copy-volume-task.html"
+    - title: 특정 FlexClone 파일 또는 FlexClone LUN이 자동으로 삭제되지 않도록 합니다
+      url: "/san-admin/prevent-flexclone-file-lun-deleted-task.html"
+  - title: SAN 환경에서 SnapVault 백업을 구성하고 사용합니다
+    entries:
+    - title: 개요
+      url: "/san-admin/configure-backup-vaults-san-environment-concept.html"
+    - title: SnapVault 백업에서 읽기 전용 LUN 복사본을 액세스합니다
+      url: "/san-admin/access-read-only-lun-copy-backup-vault-task.html"
+    - title: SnapVault 백업에서 단일 LUN을 복원합니다
+      url: "/san-admin/restore-single-lun-snapvault-backup-task.html"
+    - title: SnapVault 백업에서 볼륨의 모든 LUN을 복구합니다
+      url: "/san-admin/restore-all-luns-volume-snapvault-backup-task.html"
+  - title: 호스트 백업 시스템을 운영 스토리지 시스템에 연결하는 방법
+    url: "/san-admin/connect-host-backup-primary-concept.html"
+  - title: 호스트 백업 시스템을 통해 LUN을 백업합니다
+    url: "/san-admin/backup-lun-host-backup-system-task.html"
+- title: MetroCluster 환경의 SAN 구성에 대한 고려 사항
+  url: "/san-admin/san-config-mcc-concept.html"
+- title: SAN 개념
+  entries:
+  - title: SAN 호스트 프로비저닝에 대해 설명합니다
+    entries:
+    - title: iSCSI를 사용한 SAN 프로비저닝
+      url: "/san-admin/san-host-provisioning-concept.html"
+    - title: iSCSI 서비스 관리
+      entries:
+      - title: 개요
+        url: "/san-admin/iscsi-service-management-system-interfaces-concept.html"
+      - title: iSCSI 인증의 작동 방식
+        url: "/san-admin/iscsi-authentication-concept.html"
+      - title: iSCSI 초기자 보안 관리
+        url: "/san-admin/iscsi-initiator-security-management-concept.html"
+      - title: iSCSI 엔드포인트 격리
+        url: "/san-admin/iscsi-endpoint-isolation-concept.html"
+      - title: CHAP 인증입니다
+        url: "/san-admin/chap-authentication-concept.html"
+      - title: iSCSI 인터페이스 액세스 목록을 사용하여 이니시에이터 인터페이스를 제한하는 방법은 성능과 보안을 향상시킬 수 있습니다
+        url: "/san-admin/iscsi-interface-access-management-concept.html"
+      - title: iSNS 서버 등록 요구 사항입니다
+        entries:
+        - title: iSNS란 무엇입니까
+          url: "/san-admin/isns-concept.html"
+        - title: SVM이 iSNS 서버와 상호 작용하는 방식
+          url: "/san-admin/svms-interact-isns-server-concept.html"
+        - title: iSNS 관리 명령입니다
+          url: "/san-admin/commands-manage-isns-reference.html"
+    - title: FC를 통한 SAN 프로비저닝
+      url: "/san-admin/san-provisioning-fc-concept.html"
+    - title: NVMe를 이용한 SAN 프로비저닝
+      url: "/san-admin/san-provisioning-nvme-concept.html"
+  - title: SAN 볼륨 정보
+    entries:
+    - title: 개요
+      url: "/san-admin/san-volumes-concept.html"
+    - title: 볼륨 프로비저닝 옵션을 구성합니다
+      url: "/san-admin/configure-volume-provisioning-options-task.html"
+    - title: SAN 볼륨 구성 옵션
+      url: "/san-admin/volume-config-options-concept.html"
+    - title: SAN 환경에서 볼륨을 이동하기 위한 요구사항
+      url: "/san-admin/requirement-moving-volumes-san-concept.html"
+    - title: 부분 예약 설정을 위한 고려 사항
+      url: "/san-admin/set-fractional-reserve-concept.html"
+  - title: 호스트 측 공간 관리에 대해 설명합니다
+    entries:
+    - title: 개요
+      url: "/san-admin/host-side-management-concept.html"
+    - title: SCSI 씬 프로비저닝된 LUN을 사용하여 호스트 측 공간을 자동으로 관리합니다
+      url: "/san-admin/automatic-host-side-space-management-concept.html"
+    - title: SCSI 씬 프로비저닝된 LUN에 대한 공간 할당을 설정합니다
+      url: "/san-admin/enable-space-allocation-scsi-thin-provisioned-luns-task.html"
+    - title: SCSI 씬 프로비저닝을 위한 호스트 지원
+      url: "/san-admin/host-support-scsi-thin-provisioning-reference.html"
+    - title: SnapCenter를 통한 호스트 관리 단순화
+      url: "/san-admin/simplified-host-management-snapcenter-concept.html"
+  - title: Igroup 정보
+    url: "/san-admin/igroups-concept.html"
+  - title: igroup에서 LUN 액세스를 제공하는 방법의 예
+    url: "/san-admin/example-how-igroups-give-lun-access-reference.html"
+  - title: igroup에 대해 이니시에이터 WWPN 및 iSCSI 노드 이름을 지정합니다
+    url: "/san-admin/specify-initiator-wwpns-node-names-igroup-concept.html"
+  - title: VMware 및 Microsoft 복사본 오프로드를 통한 스토리지 가상화
+    entries:
+    - title: 개요
+      url: "/san-admin/storage-virtualization-vmware-copy-offload-concept.html"
+    - title: 가상화된 환경에서 LUN 액세스가 작동하는 방식
+      url: "/san-admin/lun-access-virtualized-environment-concept.html"
+    - title: 클러스터 SAN 환경의 LIF 고려 사항
+      url: "/san-admin/lifs-cluster-concept.html"
+    - title: ESX 호스트의 VMware VAAI 성능을 향상시킵니다
+      url: "/san-admin/improve-vmware-vaai-performance-esx-hosts-concept.html"
+    - title: Microsoft ODX(Offloaded Data Transfer)
+      entries:
+      - title: 개요
+        url: "/san-admin/microsoft-offloaded-data-transfer-odx-concept.html"
+      - title: ODX 사용을 위한 요구사항
+        url: "/san-admin/requirements-odx-concept.html"
+      - title: ODX의 사용 사례
+        url: "/san-admin/use-cases-odx-concept.html"

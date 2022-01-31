@@ -1,0 +1,107 @@
+---
+permalink: s3-config/create-intercluster-lifs-remote-fabricpool-tiering-task.html 
+sidebar: sidebar 
+keywords: create, intercluster, lifs, remote fabricpool, tiering 
+summary: 'ONTAP S3를 사용하여 원격 FabricPool 용량(클라우드) 계층화를 활성화하는 경우 인터클러스터 LIF를 구성해야 합니다. 데이터 네트워크와 공유하는 포트에 대한 인터클러스터 LIF를 구성할 수 있습니다. 이렇게 하면 인터클러스터 네트워킹에 필요한 포트 수가 줄어듭니다.' 
+---
+= 원격 FabricPool 계층화에 대한 인터클러스터 LIF를 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP S3를 사용하여 원격 FabricPool 용량(클라우드) 계층화를 활성화하는 경우 인터클러스터 LIF를 구성해야 합니다. 데이터 네트워크와 공유하는 포트에 대한 인터클러스터 LIF를 구성할 수 있습니다. 이렇게 하면 인터클러스터 네트워킹에 필요한 포트 수가 줄어듭니다.
+
+.무엇을 &#8217;필요로 할거야
+* 기본 물리적 또는 논리적 네트워크 포트가 관리 'UP' 상태로 구성되어 있어야 합니다.
+* LIF 서비스 정책이 이미 존재해야 합니다.
+
+
+인터클러스터 LIF는 로컬 Fabric 풀 계층화나 외부 S3 애플리케이션을 제공하기 위해 필요하지 않습니다.
+
+.단계
+. 클러스터의 포트 나열:
++
+네트워크 포트 쇼
+
++
+다음 예에서는 "cluster01"의 네트워크 포트를 보여줍니다.
+
++
+[listing]
+----
+
+cluster01::> network port show
+                                                             Speed (Mbps)
+Node   Port      IPspace      Broadcast Domain Link   MTU    Admin/Oper
+------ --------- ------------ ---------------- ----- ------- ------------
+cluster01-01
+       e0a       Cluster      Cluster          up     1500   auto/1000
+       e0b       Cluster      Cluster          up     1500   auto/1000
+       e0c       Default      Default          up     1500   auto/1000
+       e0d       Default      Default          up     1500   auto/1000
+cluster01-02
+       e0a       Cluster      Cluster          up     1500   auto/1000
+       e0b       Cluster      Cluster          up     1500   auto/1000
+       e0c       Default      Default          up     1500   auto/1000
+       e0d       Default      Default          up     1500   auto/1000
+----
+. 시스템 SVM에 대한 인터클러스터 LIF 생성:
++
+'network interface create-vserver cluster-lif LIF_name-service-policy default-인터클러스터 홈 노드-홈-포트 포트-주소 port_ip-넷마스크 넷마스크 넷마스크'
+
++
+다음 예에서는 인터클러스터 LIF 'cluster01_icl01'과 'cluster01_icl02'를 생성합니다.
+
++
+[listing]
+----
+
+cluster01::> network interface create -vserver Cluster -lif cluster01_icl01 -service-
+policy default-intercluster -home-node cluster01-01 -home-port e0c -address 192.168.1.201
+-netmask 255.255.255.0
+
+cluster01::> network interface create -vserver Cluster -lif cluster01_icl02 -service-
+policy default-intercluster -home-node cluster01-02 -home-port e0c -address 192.168.1.202
+-netmask 255.255.255.0
+----
+. 인터클러스터 LIF가 생성되었는지 확인합니다.
++
+네트워크 인터페이스 show-service-policy default-인터클러스터
+
++
+[listing]
+----
+cluster01::> network interface show -service-policy default-intercluster
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+cluster01
+            cluster01_icl01
+                       up/up      192.168.1.201/24   cluster01-01  e0c     true
+            cluster01_icl02
+                       up/up      192.168.1.202/24   cluster01-02  e0c     true
+----
+. 인터클러스터 LIF가 중복되는지 확인합니다.
++
+'network interface show – service-policy default-인터클러스터-failover'
+
++
+다음 예에서는 e0c 포트의 인터클러스터 LIF 'cluster01_icl01'과 cluster01_icl02가 e0d 포트로 페일오버된다는 것을 보여 줍니다.
+
++
+[listing]
+----
+cluster01::> network interface show -service-policy default-intercluster –failover
+         Logical         Home                  Failover        Failover
+Vserver  Interface       Node:Port             Policy          Group
+-------- --------------- --------------------- --------------- --------
+cluster01
+         cluster01_icl01 cluster01-01:e0c   local-only      192.168.1.201/24
+                            Failover Targets: cluster01-01:e0c,
+                                              cluster01-01:e0d
+         cluster01_icl02 cluster01-02:e0c   local-only      192.168.1.201/24
+                            Failover Targets: cluster01-02:e0c,
+                                              cluster01-02:e0d
+----
+

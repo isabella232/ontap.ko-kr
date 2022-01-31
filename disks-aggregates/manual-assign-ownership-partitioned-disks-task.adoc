@@ -1,0 +1,19 @@
+---
+permalink: disks-aggregates/manual-assign-ownership-partitioned-disks-task.html 
+sidebar: sidebar 
+keywords: manual, assign, disk, ownership, partition, disks 
+summary: 분할되지 않은 디스크의 경우 그대로 수동으로 또는 자동 할당을 사용하여 컨테이너 디스크 또는 파티션의 소유권을 설정할 수 있습니다. 
+---
+= 분할된 디스크의 소유권을 수동으로 할당 개요
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+파티션되지 않은 디스크에 대한 것처럼 수동으로 또는 자동 할당을 사용하여 컨테이너 디스크 또는 파티션의 소유권을 설정할 수 있습니다.
+
+[NOTE]
+====
+컨테이너의 디스크 중 하나가 채워진 셸프에서 장애가 발생하여 교체된 경우, ONTAP는 소유권을 자동으로 할당하지 않습니다. 이 경우 새 디스크를 수동으로 할당해야 합니다. 절반만 채워진 셸프에서 자동 할당 작업을 하려면 맨 오른쪽 베이에 디스크를 동일하게 놓고 나머지 6개는 맨 오른쪽에 배치합니다. 즉, 베이 0-5의 디스크 6개와 베이 18-23의 디스크 6개가 있습니다. ADP 구성 시스템에 컨테이너 디스크가 할당된 후에는 ONTAP 소프트웨어가 사용자 개입 없이 필요한 모든 파티셔닝 및 파티션 할당을 처리합니다.
+
+====

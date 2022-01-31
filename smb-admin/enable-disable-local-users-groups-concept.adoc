@@ -1,0 +1,23 @@
+---
+permalink: smb-admin/enable-disable-local-users-groups-concept.html 
+sidebar: sidebar 
+keywords: local, user, group, access, control, ntfs, security-style, data, enable, authentication, disable, enable or disable local users and groups functionality 
+summary: NTFS 보안 스타일 데이터의 액세스 제어에 로컬 사용자 및 그룹을 사용하려면 먼저 로컬 사용자 및 그룹 기능을 활성화해야 합니다. 또한 SMB 인증에 로컬 사용자를 사용하려면 로컬 사용자 인증 기능을 활성화해야 합니다. 
+---
+= 로컬 사용자 및 그룹 기능 개요를 설정하거나 해제합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NTFS 보안 스타일 데이터의 액세스 제어에 로컬 사용자 및 그룹을 사용하려면 먼저 로컬 사용자 및 그룹 기능을 활성화해야 합니다. 또한 SMB 인증에 로컬 사용자를 사용하려면 로컬 사용자 인증 기능을 활성화해야 합니다.
+
+로컬 사용자 및 그룹 기능 및 로컬 사용자 인증은 기본적으로 사용됩니다. 이 옵션이 설정되어 있지 않으면 로컬 사용자 및 그룹을 구성하고 사용할 수 있도록 설정하기 전에 설정해야 합니다. 언제든지 로컬 사용자 및 그룹 기능을 사용하지 않도록 설정할 수 있습니다.
+
+로컬 사용자 및 그룹 기능을 명시적으로 해제하는 것 외에도, 클러스터의 노드가 해당 기능을 지원하지 않는 ONTAP 릴리즈로 되돌려지는 경우 ONTAP는 로컬 사용자 및 그룹 기능을 비활성화합니다. 클러스터의 모든 노드에서 지원하는 ONTAP 버전이 실행될 때까지 로컬 사용자 및 그룹 기능이 활성화되지 않습니다.
+
+xref:manage-local-user-accounts-concept.adoc[로컬 사용자 계정 관리]
+
+xref:manage-local-groups-concept.adoc[로컬 그룹 관리]
+
+xref:manage-local-privileges-concept.adoc[로컬 권한 관리]

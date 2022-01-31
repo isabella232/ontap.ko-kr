@@ -1,0 +1,65 @@
+---
+permalink: smb-admin/secure-file-access-dynamic-access-control-concept.html 
+sidebar: sidebar 
+keywords: secure, access, dynamic, control, creating, create, central, policies, policy, active, directory, apply, file, folder, group, policy, object, gpo, staging, stage, change, secure file access by using dynamic access control, dac 
+summary: '동적 액세스 제어를 사용하고 Active Directory에서 중앙 액세스 정책을 생성한 후 적용된 GPO(그룹 정책 개체)를 통해 SVM의 파일 및 폴더에 적용하여 액세스를 보호할 수 있습니다. 중앙 액세스 정책 스테이징 이벤트를 사용하여 변경 내용을 적용하기 전에 중앙 액세스 정책에 대한 영향을 확인할 수 있도록 감사를 구성할 수 있습니다.' 
+---
+= DAC(Dynamic Access Control) 개요를 사용하여 파일 액세스 보호
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+동적 액세스 제어를 사용하고 Active Directory에서 중앙 액세스 정책을 생성한 후 적용된 GPO(그룹 정책 개체)를 통해 SVM의 파일 및 폴더에 적용하여 액세스를 보호할 수 있습니다. 중앙 액세스 정책 스테이징 이벤트를 사용하여 변경 내용을 적용하기 전에 중앙 액세스 정책에 대한 영향을 확인할 수 있도록 감사를 구성할 수 있습니다.
+
+
+
+== CIFS 자격 증명에 추가
+
+동적 액세스 제어 전에 CIFS 자격 증명에는 보안 주체(사용자의) ID와 Windows 그룹 구성원이 포함되어 있습니다. 동적 액세스 제어를 사용하면 디바이스 ID, 디바이스 클레임 및 사용자 클레임을 비롯한 세 가지 유형의 정보가 자격 증명에 추가됩니다.
+
+* 장치 ID
++
+사용자가 로그인하는 장치의 ID 및 그룹 멤버쉽은 제외하고 사용자의 ID 정보의 아날로그.
+
+* 장치 요청
++
+장치 보안 주체에 대한 어설션. 예를 들어 장치 클레임은 특정 OU의 구성원일 수 있습니다.
+
+* 사용자 클레임
++
+사용자 보안 주체에 대한 어설션. 예를 들어 사용자 클레임은 AD 계정이 특정 OU의 구성원일 수 있습니다.
+
+
+
+
+
+== 중앙 액세스 정책
+
+파일에 대한 중앙 액세스 정책을 사용하면 조직에서 사용자 그룹, 사용자 클레임, 장치 클레임 및 리소스 속성을 사용하는 조건부 식을 포함하는 인증 정책을 중앙에서 배포하고 관리할 수 있습니다.
+
+예를 들어, 비즈니스에 큰 영향을 미치는 데이터에 액세스하려면 정규직 직원이어야 하며 관리되는 장치의 데이터만 액세스할 수 있어야 합니다. 중앙 액세스 정책은 Active Directory에서 정의되고 GPO 메커니즘을 통해 파일 서버로 배포됩니다.
+
+
+
+== 고급 감사를 통한 중앙 액세스 정책 스테이징
+
+중앙 액세스 정책은 '성질'일 수 있으며, 이 경우 파일 액세스 검사 중에 "what-if" 방식으로 평가됩니다. 정책이 적용된 경우 어떤 결과가 발생했는지, 현재 구성된 것과 어떻게 다른 결과가 감사 이벤트로 기록됩니다. 이렇게 하면 관리자가 감사 이벤트 로그를 사용하여 실제로 정책을 적용하기 전에 액세스 정책 변경의 영향을 확인할 수 있습니다. 액세스 정책 변경의 영향을 평가한 후 GPO를 통해 원하는 SVM에 정책을 배포할 수 있습니다.
+
+xref:supported-gpos-concept.adoc[지원되는 GPO]
+
+xref:applying-group-policy-objects-concept.adoc[CIFS 서버에 그룹 정책 객체 적용]
+
+xref:enable-disable-gpo-support-task.adoc[CIFS 서버에서 GPO 지원을 설정하거나 해제합니다]
+
+xref:display-gpo-config-task.adoc[GPO 구성에 대한 정보 표시]
+
+xref:display-central-access-policies-task.adoc[중앙 액세스 정책에 대한 정보 표시]
+
+xref:display-central-access-policy-rules-task.adoc[중앙 액세스 정책 규칙에 대한 정보 표시]
+
+xref:configure-central-access-policies-secure-data-task.adoc[CIFS 서버의 데이터를 보호하기 위해 중앙 액세스 정책 구성]
+
+xref:display-dynamic-access-control-security-task.adoc[동적 액세스 제어 보안에 대한 정보 표시]
+
+link:../nas-audit/index.html["SMB 및 NFS 감사 및 보안 추적"]

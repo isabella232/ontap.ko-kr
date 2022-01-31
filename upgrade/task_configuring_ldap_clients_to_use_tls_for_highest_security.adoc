@@ -1,0 +1,29 @@
+---
+permalink: upgrade/task_configuring_ldap_clients_to_use_tls_for_highest_security.html 
+sidebar: sidebar 
+keywords: ontap, upgrade, configuring, configure, ldap, clients, servers, tls, security 
+summary: 대상 ONTAP 릴리즈로 업그레이드하기 전에 TLS를 사용하기 위해 LDAP 서버와의 보안 통신을 위해 SSLv3을 사용하여 LDAP 클라이언트를 구성해야 합니다. 업그레이드 후에는 SSL을 사용할 수 없습니다. 
+---
+= 가장 높은 보안을 위해 TLS를 사용하도록 LDAP 클라이언트를 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+대상 ONTAP 릴리즈로 업그레이드하기 전에 TLS를 사용하기 위해 LDAP 서버와의 보안 통신을 위해 SSLv3을 사용하여 LDAP 클라이언트를 구성해야 합니다. 업그레이드 후에는 SSL을 사용할 수 없습니다.
+
+기본적으로 클라이언트와 서버 응용 프로그램 간의 LDAP 통신은 암호화되지 않습니다. SSL 사용을 허용하지 않고 TLS 사용을 적용해야 합니다.
+
+. 사용자 환경의 LDAP 서버가 TLS를 지원하는지 확인합니다.
++
+그렇지 않으면 계속 진행하지 마십시오. LDAP 서버를 TLS를 지원하는 버전으로 업그레이드해야 합니다.
+
+. SSL/TLS를 통한 LDAP가 활성화된 ONTAP LDAP 클라이언트 구성의 'vserver services name-service ldap client show'를 확인하십시오
++
+없는 경우 나머지 단계를 건너뛸 수 있습니다. 하지만 보안을 강화하기 위해 TLS를 통한 LDAP 사용을 고려해야 합니다.
+
+. 각 LDAP 클라이언트 구성에 대해 SSL에서 TLS를 사용하도록 허용하지 않습니다. 'vserver services name -service ldap client modify -vserver vserver_name -client -config ldap_client_config_name -allow -ssl false
+. LDAP 클라이언트에 대해 SSL 사용이 더 이상 허용되지 않는지 확인합니다. 'vserver services name-service ldap client show'
+
+
+link:../nfs-admin/index.html["NFS 관리"]

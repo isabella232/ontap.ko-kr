@@ -1,0 +1,51 @@
+---
+permalink: nfs-admin/commands-manage-name-service-switch-entries-reference.html 
+sidebar: sidebar 
+keywords: command, manage, name, service, switch, entry 
+summary: 이름 서비스 스위치 항목은 생성, 표시, 수정 및 삭제하여 관리할 수 있습니다. 
+---
+= 이름 서비스 스위치 항목을 관리하는 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이름 서비스 스위치 항목은 생성, 표시, 수정 및 삭제하여 관리할 수 있습니다.
+
+[cols="35,65"]
+|===
+
+
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+이름 서비스 스위치 항목을 생성합니다
+ a| 
+'vserver services name-service ns-switch create'
+
+
+
+ a| 
+이름 서비스 스위치 항목을 표시합니다
+ a| 
+'vserver services name-service ns-switch show'
+
+
+
+ a| 
+이름 서비스 스위치 항목을 수정합니다
+ a| 
+'vserver services name-service ns-switch modify'를 참조하십시오
+
+
+
+ a| 
+이름 서비스 스위치 항목을 삭제합니다
+ a| 
+'vserver services name-service ns-switch delete'
+
+|===
+자세한 내용은 각 명령에 대한 man 페이지를 참조하십시오.
+
+https://www.netapp.com/pdf.html?item=/media/16328-tr-4668pdf.pdf["NetApp 기술 보고서 4668: 이름 서비스 모범 사례 가이드"]

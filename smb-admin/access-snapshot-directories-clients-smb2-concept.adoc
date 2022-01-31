@@ -1,0 +1,51 @@
+---
+permalink: smb-admin/access-snapshot-directories-clients-smb2-concept.html 
+sidebar: sidebar 
+keywords: method, access, snapshot, directory, windows, client, smb, data, store, copies, copy, how to access the snapshot directory from windows clients using smb 2.x 
+summary: SMB 2.x를 사용하여 Windows 클라이언트에서 ~snapshot 디렉토리에 액세스하는 방법은 SMB 1.0에 사용되는 방법과 다릅니다. SMB 2.x 연결을 사용할 때 ~snapshot 디렉토리에 액세스하여 스냅샷 복사본에 저장된 데이터에 성공적으로 액세스하는 방법을 이해해야 합니다. 
+---
+= SMB 2.x를 사용하여 Windows 클라이언트에서 ~snapshot 디렉토리에 액세스합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMB 2.x를 사용하는 Windows 클라이언트의 '~snapshot' 디렉토리에 액세스하는 방법은 SMB 1.0에 사용되는 방법과 다릅니다. SMB 2.x 연결을 사용할 때 Snapshot 복사본에 저장된 데이터에 성공적으로 액세스하기 위해 '~snapshot' 디렉토리에 액세스하는 방법을 이해해야 합니다.
+
+SVM 관리자는 가상 서버 CIFS 공유 속성 제품군의 명령을 사용하여 'showsnapshot' 공유 속성을 활성화하거나 비활성화하여 Windows 클라이언트의 사용자가 공유의 '~snapshot' 디렉토리를 보고 액세스할 수 있는지 여부를 제어합니다.
+
+'showsnapshot' 공유 속성을 비활성화하면 SMB 2.x를 사용하는 Windows 클라이언트의 사용자는 '~snapshot' 디렉토리를 볼 수 없으며 '~snapshot' 디렉토리의 경로를 수동으로 입력하거나 디렉토리 내의 특정 Snapshot 복제본에 액세스할 수 없습니다.
+
+'showsnapshot' 공유 속성이 활성화되면 SMB 2.x를 사용하는 Windows 클라이언트의 사용자는 공유 루트 또는 공유 루트 아래의 연결 지점 또는 디렉토리 내에서 '~snapshot' 디렉토리를 볼 수 없습니다. 그러나 공유에 접속한 후에는 공유 경로의 끝에 수동으로 \~snapshot을 추가하여 숨겨진 `~snapshot' 디렉토리에 액세스할 수 있습니다. 숨겨진 '~snapshot' 디렉토리는 두 개의 진입점에서 액세스할 수 있습니다.
+
+* 공유 루트에 있습니다
+* 공유 공간의 모든 접합 지점에서
+
+
+공유 내의 비접속 하위 디렉토리에서는 숨겨진 '~snapshot' 디렉토리에 액세스할 수 없습니다.
+
+다음 예제에서 보여 주는 구성을 사용하면 "eng" 공유에 SMB 2.x가 연결되어 있는 Windows 클라이언트의 사용자가 공유 경로 및 경로의 모든 연결 지점에서 공유 경로에 "\~snapshot"을 수동으로 추가하여 '~snapshot" 디렉토리에 액세스할 수 있습니다. 숨겨진 '~snapshot' 디렉토리는 다음 세 가지 경로에서 액세스할 수 있습니다.
+
+* '\\VS1\ENG\~스냅샷'
+* '\\VS1\ENG\projects1\~스냅샷'
+* '\\VS1\ENG\projects2\~스냅샷'
+
+
+[listing]
+----
+cluster1::> volume show -vserver vs1 -fields volume,junction-path
+vserver volume       junction-path
+------- ------------ ----------------------------------------
+vs1     vs1_root      /
+vs1     vs1_vol1      /eng
+vs1     vs1_vol2      /eng/projects1
+vs1     vs1_vol3      /eng/projects2
+
+cluster1::> vserver cifs share show
+Vserver  Share   Path     Properties    Comment  ACL
+-------- ------  -------  ----------    -------- ----------
+vs1      eng     /eng     oplocks       -        Everyone / Full Control
+                          changenotify
+                          browsable
+                          showsnapshot
+----

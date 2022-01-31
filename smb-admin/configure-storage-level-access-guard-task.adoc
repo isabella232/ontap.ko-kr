@@ -1,0 +1,252 @@
+---
+permalink: smb-admin/configure-storage-level-access-guard-task.html 
+sidebar: sidebar 
+keywords: level, storage, access, security, provide, guard, applies, access, apply, object, protocol, volume, qtree 
+summary: 볼륨 또는 qtree에 스토리지 레벨 액세스 가드를 구성하려면 여러 단계를 수행해야 합니다. Storage-Level Access Guard는 스토리지 레벨에서 설정된 액세스 보안 수준을 제공합니다. 모든 NAS 프로토콜에서 적용된 스토리지 객체에 대한 모든 액세스에 적용되는 보안을 제공합니다. 
+---
+= Storage-Level Access Guard를 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+볼륨 또는 qtree에 스토리지 레벨 액세스 가드를 구성하려면 여러 단계를 수행해야 합니다. Storage-Level Access Guard는 스토리지 레벨에서 설정된 액세스 보안 수준을 제공합니다. 모든 NAS 프로토콜에서 적용된 스토리지 객체에 대한 모든 액세스에 적용되는 보안을 제공합니다.
+
+.단계
+. 'vserver security file-directory NTFS create' 명령을 사용하여 보안 설명자를 생성합니다.
++
+'vserver security file-directory NTFS create-vserver vs1-ntfs-sd sd1''vserver security file-directory NTFS show-vserver vs1'
+
++
+[listing]
+----
+
+Vserver: vs1
+
+   NTFS Security    Owner Name
+   Descriptor Name
+   ------------     --------------
+   sd1              -
+----
++
+보안 설명자는 다음 네 가지 기본 ACE(DACL 액세스 제어 항목)를 사용하여 만들어집니다.
+
++
+[listing]
+----
+
+Vserver: vs1
+  NTFS Security Descriptor Name: sd1
+
+    Account Name     Access   Access          Apply To
+                     Type     Rights
+    --------------   -------  -------         -----------
+    BUILTIN\Administrators
+                     allow    full-control   this-folder, sub-folders, files
+    BUILTIN\Users    allow    full-control   this-folder, sub-folders, files
+    CREATOR OWNER    allow    full-control   this-folder, sub-folders, files
+    NT AUTHORITY\SYSTEM
+                     allow    full-control   this-folder, sub-folders, files
+----
++
+Storage-Level Access Guard를 구성할 때 기본 항목을 사용하지 않으려면 보안 설명자에 고유한 ACE를 만들고 추가하기 전에 해당 항목을 제거할 수 있습니다.
+
+. Storage-Level Access Guard 보안으로 구성하지 않으려는 보안 설명자에서 기본 DACL ACE 중 하나를 제거합니다.
++
+.. 'vserver security file-directory NTFS DACL remove' 명령을 사용하여 불필요한 DACL ACE를 제거합니다.
++
+이 예제에서는 세 개의 기본 DACL ACE가 보안 설명자인 BUILTIN\Administrators, BUILTIN\Users 및 Creator Owner에서 제거됩니다.
+
++
+'vserver security file-directory NTFS DACL remove-vserver vs1-ntfs-sd SD1-access-type allow-account builtin\users''vserver security file-directory NTFS DACL remove-vserver vs1-directory vs1-access-directs builtl-creator' vserver security file-directs -directs -ntfs -directs -ntfs -directs -directs -creator
+
+.. 'vserver security file-directory NTFS DACL show' 명령을 사용하여 스토리지 수준 액세스 가드 보안에 사용하지 않을 DACL ACE가 보안 설명자에서 제거되었는지 확인합니다.
++
+이 예제에서 명령의 출력은 NT AUTHORITY\SYSTEM DEFAULT DACL ACE 항목만 남겨 두고 세 개의 기본 DACL ACE가 보안 설명자에서 제거되었는지 확인합니다.
+
++
+'vserver security file-directory NTFS DACL show -vserver vs1'
+
++
+[listing]
+----
+
+Vserver: vs1
+  NTFS Security Descriptor Name: sd1
+
+    Account Name     Access   Access          Apply To
+                     Type     Rights
+    --------------   -------  -------         -----------
+    NT AUTHORITY\SYSTEM
+                     allow    full-control   this-folder, sub-folders, files
+----
+
+
+. 'vserver security file-directory NTFS DACL add' 명령을 사용하여 하나 이상의 DACL 항목을 보안 설명자에 추가합니다.
++
+이 예제에서는 보안 설명자에 두 개의 DACL ACE가 추가됩니다.
+
++
+'vserver security file-directory NTFS DACL add-vserver vs1-ntfs-sd SD1-access-type allow-account example\engineering-rights full-control-apply-to this-folder, sub-folders, files''vserver security file-directory ntfs DACL add-vserver vs1-ntfs-access-type allow-account" example\Domain Users"-read-folders 폴더에 대한 읽기 권한
+
+. 'vserver security file-directory NTFS SACL add' 명령을 사용하여 하나 이상의 SACL 항목을 보안 설명자에 추가합니다.
++
+이 예제에서는 두 개의 SACL ACE가 보안 설명자에 추가됩니다.
+
++
+'vserver security file-directory NTFS SACL add-vserver vs1-ntfs-sd SD1-access-type failure-account' example\Domain Users"-rights read-apply-to this-folder, sub-folders, files''vserver security file-directory NTFS SACL add-vserver vs1-ntfs-sd-access-type success-account example\engineering-folders full-control-folders
+
+. 'vserver security file-directory NTFS DACL show' 및 'vserver security file-directory NTFS SACL show' 명령을 각각 사용하여 DACL 및 SACL ACE가 올바르게 구성되었는지 확인합니다.
++
+이 예제에서 다음 명령은 보안 설명자 "'Sd1'"의 DACL 항목에 대한 정보를 표시합니다.
+
++
+'vserver security file-directory NTFS DACL show -vserver vs1-NTFS-SD SD1'
+
++
+[listing]
+----
+
+Vserver: vs1
+  NTFS Security Descriptor Name: sd1
+
+    Account Name     Access   Access          Apply To
+                     Type     Rights
+    --------------   -------  -------         -----------
+    EXAMPLE\Domain Users
+                     allow    read           this-folder, sub-folders, files
+    EXAMPLE\engineering
+                     allow    full-control   this-folder, sub-folders, files
+    NT AUTHORITY\SYSTEM
+                     allow    full-control   this-folder, sub-folders, files
+----
++
+이 예제에서 다음 명령은 보안 설명자 "'sd1'"에 대한 SACL 항목에 대한 정보를 표시합니다.
+
++
+'vserver security file-directory NTFS SACL show -vserver vs1-NTFS-SD SD1'
+
++
+[listing]
+----
+
+Vserver: vs1
+  NTFS Security Descriptor Name: sd1
+
+    Account Name     Access   Access          Apply To
+                     Type     Rights
+    --------------   -------  -------         -----------
+    EXAMPLE\Domain Users
+                     failure  read           this-folder, sub-folders, files
+    EXAMPLE\engineering
+                     success  full-control   this-folder, sub-folders, files
+----
+. 'vserver security file-directory policy create' 명령을 사용하여 보안 정책을 생성합니다.
++
+다음 예제에서는 ""정책1""이라는 정책을 만듭니다.
+
++
+'vserver security file-directory policy create-vserver vs1-policy-name policy1'
+
+. 'vserver security file-directory policy show' 명령을 사용하여 정책이 올바르게 구성되었는지 확인합니다.
++
+'vserver security file-directory policy show'를 선택합니다
+
++
+[listing]
+----
+
+   Vserver          Policy Name
+   ------------     --------------
+   vs1              policy1
+----
+. server security file-directory policy-task add 명령을 -access-control 매개 변수와 함께 'lag'로 설정하여 보안 정책에 관련 보안 설명자가 포함된 작업을 추가합니다.
++
+정책에 둘 이상의 Storage-Level Access Guard 작업이 포함될 수 있지만 파일 디렉터리 및 Storage-Level Access Guard 작업을 모두 포함하도록 정책을 구성할 수는 없습니다. 정책에는 모든 스토리지 레벨 액세스 가드 작업 또는 모든 파일 디렉토리 작업이 포함되어야 합니다.
+
++
+이 예제에서는 보안 설명자 'Sd1'에 할당된 "정책1"이라는 정책에 작업이 추가됩니다. 액세스 제어 유형이 '슬래그'로 설정된 '/datavol1' 경로에 할당됩니다.
+
++
+'vserver security file-directory policy task add-vserver vs1-policy-name policy1-path/datavol1-access-control slag-security-type ntfs-ntfs-mode propagate-ntfs-sd SD1'
+
+. 'vserver security file-directory policy task show' 명령을 사용하여 작업이 올바르게 구성되었는지 확인합니다.
++
+'vserver security file-directory policy task show -vserver vs1-policy-name policy1'
+
++
+[listing]
+----
+
+ Vserver: vs1
+  Policy: policy1
+
+   Index  File/Folder  Access           Security  NTFS       NTFS Security
+          Path         Control          Type      Mode       Descriptor Name
+   -----  -----------  ---------------  --------  ---------- ---------------
+   1      /datavol1    slag             ntfs      propagate  sd1
+----
+. 'vserver security file-directory policy apply' 명령을 사용하여 Storage-Level Access Guard 보안 정책을 적용합니다.
++
+'vserver security file-directory apply-vserver vs1-policy-name policy1'
+
++
+보안 정책을 적용할 작업이 예약됩니다.
+
+. 'vserver security file-directory show' 명령을 사용하여 적용된 Storage-Level Access Guard 보안 설정이 올바른지 확인합니다.
++
+이 예제에서 명령의 출력은 스토리지 레벨 액세스 가드 보안이 NTFS 볼륨 '/datavol1'에 적용되었음을 보여 줍니다. 모든 사용자에게 모든 권한을 허용하는 기본 DACL이 그대로 유지되더라도 Storage-Level Access Guard 보안은 Storage-Level Access Guard 설정에 정의된 그룹에 대한 액세스를 제한(및 감사)합니다.
+
++
+'vserver security file-directory show -vserver vs1-path/datavol1'
+
++
+[listing]
+----
+
+                Vserver: vs1
+              File Path: /datavol1
+      File Inode Number: 77
+         Security Style: ntfs
+        Effective Style: ntfs
+         DOS Attributes: 10
+ DOS Attributes in Text: ----D---
+Expanded Dos Attributes: -
+           Unix User Id: 0
+          Unix Group Id: 0
+         Unix Mode Bits: 777
+ Unix Mode Bits in Text: rwxrwxrwx
+                   ACLs: NTFS Security Descriptor
+                         Control:0x8004
+                         Owner:BUILTIN\Administrators
+                         Group:BUILTIN\Administrators
+                         DACL - ACEs
+                           ALLOW-Everyone-0x1f01ff
+                           ALLOW-Everyone-0x10000000-OI|CI|IO
+
+
+                         Storage-Level Access Guard security
+                         SACL (Applies to Directories):
+                           AUDIT-EXAMPLE\Domain Users-0x120089-FA
+                           AUDIT-EXAMPLE\engineering-0x1f01ff-SA
+                         DACL (Applies to Directories):
+                           ALLOW-EXAMPLE\Domain Users-0x120089
+                           ALLOW-EXAMPLE\engineering-0x1f01ff
+                           ALLOW-NT AUTHORITY\SYSTEM-0x1f01ff
+                         SACL (Applies to Files):
+                           AUDIT-EXAMPLE\Domain Users-0x120089-FA
+                           AUDIT-EXAMPLE\engineering-0x1f01ff-SA
+                         DACL (Applies to Files):
+                           ALLOW-EXAMPLE\Domain Users-0x120089
+                           ALLOW-EXAMPLE\engineering-0x1f01ff
+                           ALLOW-NT AUTHORITY\SYSTEM-0x1f01ff
+----
+
+
+xref:manage-ntfs-security-audit-policies-slag-concept.adoc[CLI를 사용하여 SVM에서 NTFS 파일 보안, NTFS 감사 정책 및 Storage-Level Access Guard를 관리합니다]
+
+xref:workflow-config-storage-level-access-guard-concept.adoc[Storage-Level Access Guard를 구성하는 워크플로우]
+
+xref:display-storage-level-access-guard-task.adoc[Storage-Level Access Guard에 대한 정보 표시]
+
+xref:remove-storage-level-access-guard-task.adoc[Storage-Level Access Guard 제거]

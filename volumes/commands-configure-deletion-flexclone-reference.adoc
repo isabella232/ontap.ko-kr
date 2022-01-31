@@ -1,0 +1,51 @@
+---
+permalink: volumes/commands-configure-deletion-flexclone-reference.html 
+sidebar: sidebar 
+keywords: commands for, configuring, deletion of, flexclone files, configure 
+summary: 클라이언트가 NetApp Manageability SDK를 사용하지 않고 FlexClone 파일을 삭제할 때 볼륨 파일 클론 삭제 명령을 사용하면 FlexVol 볼륨에서 FlexClone 파일을 더 빠르게 삭제할 수 있습니다. FlexClone 파일의 확장명과 최소 크기를 사용하여 더 빠르게 삭제할 수 있습니다. 
+---
+= FlexClone 파일 삭제를 구성하는 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클라이언트가 NetApp Manageability SDK를 사용하지 않고 FlexClone 파일을 삭제할 때 '볼륨 파일 클론 삭제' 명령을 사용하면 FlexVol 볼륨에서 FlexClone 파일을 더 빠르게 삭제할 수 있습니다. FlexClone 파일의 확장명과 최소 크기를 사용하여 더 빠르게 삭제할 수 있습니다.
+
+볼륨 파일 클론 삭제 명령을 사용하여 지원되는 확장 목록과 볼륨의 FlexClone 파일에 대한 최소 크기 요구 사항을 지정할 수 있습니다. 더 빠른 삭제 방법은 요구사항을 충족하는 FlexClone 파일에만 사용됩니다. 요구 사항을 충족하지 않는 FlexClone 파일의 경우 느린 삭제 방법이 사용됩니다.
+
+NetApp Manageability SDK를 사용하여 고객이 볼륨에서 FlexClone 파일과 FlexClone LUN을 삭제할 경우 더 빠른 삭제 방법이 항상 사용되므로 확장 및 크기 요구사항은 적용되지 않습니다.
+
+[cols="2*"]
+|===
+| 대상... | 이 명령 사용... 
+
+
+ a| 
+지원되는 볼륨 확장 목록에 확장을 추가합니다
+ a| 
+'볼륨 파일 클론 삭제 추가 확장
+
+
+
+ a| 
+더 빠른 삭제 방법을 사용하여 볼륨에서 삭제할 수 있는 FlexClone 파일의 최소 크기를 변경합니다
+ a| 
+'볼륨 파일 클론 삭제 수정
+
+
+
+ a| 
+지원되는 볼륨 확장 목록에서 확장 프로그램을 제거합니다
+ a| 
+'볼륨 파일 클론 삭제 제거 - 확장'
+
+
+
+ a| 
+더 빠른 삭제 방법을 사용하여 지원되는 확장명 목록과 클라이언트에서 볼륨에서 삭제할 수 있는 FlexClone 파일의 최소 크기를 확인합니다
+ a| 
+'볼륨 파일 클론 삭제 표시
+
+|===
+이러한 명령에 대한 자세한 내용은 해당 man 페이지를 참조하십시오.

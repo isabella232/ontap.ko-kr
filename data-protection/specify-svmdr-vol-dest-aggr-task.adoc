@@ -1,0 +1,23 @@
+---
+permalink: data-protection/specify-svmdr-vol-dest-aggr-task.html 
+sidebar: sidebar 
+keywords: snapmirror, svm, replication, aggregate, disaster recovery, svm-dr, svm dr, destination 
+summary: '재해 복구 SVM이 생성되면 "vserver modify" 명령으로 "aggr-list" 옵션을 사용하여 SVM DR 대상 볼륨을 호스팅하는 데 사용되는 애그리게이트를 제한할 수 있습니다.' 
+---
+= SVM DR 관계에 사용할 애그리게이트를 지정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+재해 복구 SVM이 생성되면 "vserver modify" 명령으로 "aggr-list" 옵션을 사용하여 SVM DR 대상 볼륨을 호스팅하는 데 사용되는 애그리게이트를 제한할 수 있습니다.
+
+.단계
+. 대상 SVM 생성:
++
+'vserver create-vserver_SVM_-subtype DP-destination'
+
+. 재해 복구 SVM의 볼륨을 호스팅하는 데 사용되는 애그리게이트를 제한하려면 재해 복구 SVM의 애그리게이션 목록을 수정하십시오.
+
+
+'cluster_dest::> vserver modify -vserver_SVM_-aggr-list <comma-separated-list>'

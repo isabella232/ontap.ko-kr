@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/failed-to-get-data-buffer-reference.html 
+sidebar: sidebar 
+keywords: failed, data, buffer, storage, system 
+summary: 스토리지 시스템의 버퍼가 부족했습니다. 
+---
+= 데이터 버퍼를 가져오지 못했습니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+데이터 버퍼를 가져오지 못했습니다
+
+* * 원인 *
++
+스토리지 시스템의 버퍼가 부족했습니다.
+
+* * 시정 조치 *
++
+일부 스토리지 시스템 작업이 완료될 때까지 기다린 다음 작업을 재시도하십시오.
+
+

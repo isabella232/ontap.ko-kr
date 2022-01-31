@@ -1,0 +1,17 @@
+---
+permalink: smb-admin/branchcache-cache-share-content-branch-office-concept.html 
+sidebar: sidebar 
+keywords: branchcache, develop, microsoft, enable, caching, cache, content, computer, local, request, client, ontap, implementation, reduce, wide-area, network, wan, utilization, response, svm, smb, use branchcache to cache smb share content at a branch office 
+summary: 'BranchCache는 요청 클라이언트에 대한 로컬 컴퓨터의 콘텐츠를 캐싱할 수 있도록 Microsoft에서 개발했습니다. ONTAP의 BranchCache를 구현하면 WAN(Wide Area Network) 사용률을 줄이고, 지사의 사용자가 SMB를 사용하여 SVM(Storage Virtual Machine)에 저장된 콘텐츠에 액세스할 때 액세스 응답 시간을 향상시킬 수 있습니다.' 
+---
+= BranchCache를 사용하여 지사 개요에서 SMB 공유 콘텐츠를 캐시합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+BranchCache는 요청 클라이언트에 대한 로컬 컴퓨터의 콘텐츠를 캐싱할 수 있도록 Microsoft에서 개발했습니다. ONTAP의 BranchCache를 구현하면 WAN(Wide Area Network) 사용률을 줄이고, 지사의 사용자가 SMB를 사용하여 SVM(Storage Virtual Machine)에 저장된 콘텐츠에 액세스할 때 액세스 응답 시간을 향상시킬 수 있습니다.
+
+BranchCache를 구성하는 경우 Windows BranchCache 클라이언트는 먼저 SVM에서 콘텐츠를 검색한 다음 지사 내의 컴퓨터에 콘텐츠를 캐시합니다. 지사의 다른 BranchCache 지원 클라이언트가 동일한 컨텐츠를 요청하는 경우 SVM은 먼저 요청된 사용자를 인증하고 권한을 부여합니다. 그런 다음, SVM이 캐시된 콘텐츠가 아직 최신 상태인지 확인하고 최신 상태인 경우 캐시된 콘텐츠에 대한 클라이언트 메타데이터를 보냅니다. 그런 다음 클라이언트는 메타데이터를 사용하여 로컬 기반 캐시에서 콘텐츠를 직접 검색합니다.
+
+xref:offline-files-allow-caching-concept.adoc[오프라인 파일을 사용하여 오프라인 사용을 위해 파일 캐싱을 허용합니다]

@@ -1,0 +1,53 @@
+---
+permalink: flexgroup/transition-snapmirror-relationship-svm-dr-task.html 
+sidebar: sidebar 
+keywords: transition, flexgroup, snapmirror, relationship, svm, dr 
+summary: 기존 FlexGroup 볼륨 SnapMirror 관계를 전환하여 FlexGroup SVM DR 관계를 생성할 수 있습니다. 
+---
+= 기존 FlexGroup SnapMirror 관계를 SVM DR으로 전환합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+기존 FlexGroup 볼륨 SnapMirror 관계를 전환하여 FlexGroup SVM DR 관계를 생성할 수 있습니다.
+
+.무엇을 &#8217;필요로 할거야
+* FlexGroup 볼륨 SnapMirror 관계가 양호한 상태입니다.
+* 소스 및 대상 FlexGroup 볼륨의 이름이 같습니다.
+
+
+.단계
+. SnapMirror 대상에서 FlexGroup 레벨 SnapMirror 관계인 '스냅샷 재동기화'를 다시 동기화합니다
+. FlexGroup SVM DR SnapMirror 관계를 생성합니다. '스냅샷 생성 정책 DPDefault-identity-preserve true-destination-path dest_svm:dest_flexgroup-source-path src_svm:src_flexgroup'
+. 'sapmirror show-destination-path dest_svm: dest_flexgroup-source-path src_svm: src_flexgroup' 관계가 끊어졌는지 확인합니다
++
+[listing]
+----
+snapmirror show -destination-path fg_vs_renamed: -source-path fg_vs:
+
+                                                                       Progress
+Source            Destination Mirror  Relationship   Total             Last
+Path        Type  Path        State   Status         Progress  Healthy Updated
+----------- ---- ------------ ------- -------------- --------- ------- --------
+fg_vs:        XDP  fg_vs1_renamed:     Broken-off
+                                      Idle           -         true   -
+----
+. 대상 SVM을 중지합니다. 'vserver stop-vserver vs_name'
++
+[listing]
+----
+vserver stop -vserver fg_vs_renamed
+[Job 245] Job is queued: Vserver Stop fg_vs_renamed.
+[Job 245] Done
+----
+. SVM SnapMirror 관계를 재동기화합니다. 'sapmirror resync-destination-path dest_svm: dest_flexgroup-source-path src_svm: src_flexgroup'
++
+[listing]
+----
+snapmirror resync -destination-path fg_vs_renamed: -source-path fg_vs:
+Warning: This Vserver has volumes which are the destination of FlexVol or FlexGroup SnapMirror relationships. A resync on the Vserver SnapMirror relationship will cause disruptions in data access
+----
+. SVM DR 레벨 SnapMirror 관계가 '스냅샷 표시-확장'이라는 양호한 유휴 상태에 도달하는지 확인합니다
+. FlexGroup SnapMirror 관계가 '스냅샷 표시'라는 양호한 상태인지 확인합니다
+

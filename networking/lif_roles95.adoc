@@ -1,0 +1,88 @@
+---
+sidebar: sidebar 
+permalink: networking/lif_roles95.html 
+keywords: lif, role, ontap 9.5, lif roles in ontap 9.5 and earlier, lifs with different roles have different characteristics, lif compatibility with port types, network interface modify -vserver _vserver name_ -lif _intercluster lif_ -status-admin up|down, lif security, lif failover, lif routing, lif rebalancing 
+summary: 다양한 역할을 수행하는 LIF는 다양한 특성을 갖습니다 
+---
+= ONTAP 9.5 이전 버전에서 LIF 역할
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+다양한 역할을 수행하는 LIF는 다양한 특성을 갖습니다. LIF 역할은 인터페이스를 통해 지원되는 트래픽 종류와 함께 적용되는 페일오버 규칙, 적용되는 방화벽 제한, 보안, 로드 밸런싱, 각 LIF의 라우팅 동작을 결정합니다. LIF에는 클러스터, 클러스터 관리, 데이터, 인터클러스터, 노드 관리, 및 undef(정의되지 않음). undef 역할은 BGP LIF에 사용됩니다.
+
+ONTAP 9.6부터는 LIF 역할이 사용되지 않습니다. 역할 대신 LIF에 대한 서비스 정책을 지정해야 합니다. 서비스 정책으로 LIF를 생성할 때 LIF 역할을 지정할 필요가 없습니다.
+
+
+
+== LIF 보안
+
+|===
+
+
+|  | 데이터 LIF | 클러스터 LIF | 노드 관리 LIF | 클러스터 관리 LIF | 인터클러스터 LIF 
+
+
+| 전용 IP 서브넷이 필요합니까? | 아니요 | 예 | 아니요 | 아니요 | 아니요 
+
+
+| 보안 네트워크가 필요하십니까? | 아니요 | 예 | 아니요 | 아니요 | 예 
+
+
+| 기본 방화벽 정책 | 매우 제한적입니다 | 완전히 열립니다 | 중간 | 중간 | 매우 제한적입니다 
+
+
+| 방화벽을 사용자 정의할 수 있습니까? | 예 | 아니요 | 예 | 예 | 예 
+|===
+
+
+== LIF 페일오버
+
+|===
+
+
+|  | 데이터 LIF | 클러스터 LIF | 노드 관리 LIF | 클러스터 관리 LIF | 인터클러스터 LIF 
+
+
+| 기본 동작 | LIF의 홈 노드 및 SFO가 아닌 파트너 노드에 있는 동일한 페일오버 그룹의 포트만 | LIF의 홈 노드에 있는 동일한 페일오버 그룹의 포트만 | LIF의 홈 노드에 있는 동일한 페일오버 그룹의 포트만 | 동일한 페일오버 그룹의 모든 포트 | LIF의 홈 노드에 있는 동일한 페일오버 그룹의 포트만 
+
+
+| 사용자 지정이 가능한 것입니까? | 예 | 아니요 | 예 | 예 | 예 
+|===
+
+
+== LIF 라우팅
+
+|===
+
+
+|  | 데이터 LIF | 클러스터 LIF | 노드 관리 LIF | 클러스터 관리 LIF | 인터클러스터 LIF 
+
+
+| 기본 경로는 언제 필요합니까? | 클라이언트 또는 도메인 컨트롤러가 다른 IP 서브넷에 있는 경우 | 안 함 | 기본 트래픽 유형 중 하나라도 다른 IP 서브넷에 액세스해야 하는 경우 | 관리자가 다른 IP 서브넷에서 연결하는 경우 | 다른 인터클러스터 LIF가 다른 IP 서브넷에 있는 경우 
+
+
+| 특정 IP 서브넷에 대한 정적 라우트는 언제 필요합니까? | 희귀합니다 | 안 함 | 희귀합니다 | 희귀합니다 | 다른 클러스터의 노드에 다른 IP 서브넷에 있는 인터클러스터 LIF가 있는 경우 
+
+
+| 특정 서버에 대한 정적 호스트 라우트는 언제 필요합니까? | 노드 관리 LIF에 나열된 트래픽 유형 중 하나를 지정하려면 노드 관리 LIF가 아니라 데이터 LIF를 거쳐야 합니다. 이를 위해서는 해당 방화벽 변경이 필요합니다. | 안 함 | 희귀합니다 | 희귀합니다 | 희귀합니다 
+|===
+
+
+== LIF 균형 재조정
+
+|===
+
+
+|  | 데이터 LIF | 클러스터 LIF | 노드 관리 LIF | 클러스터 관리 LIF | 인터클러스터 LIF 
+
+
+| DNS: DNS 서버로 사용하시겠습니까? | 예 | 아니요 | 아니요 | 아니요 | 아니요 
+
+
+| DNS: 영역으로 내보내시겠습니까? | 예 | 아니요 | 아니요 | 아니요 | 아니요 
+|===

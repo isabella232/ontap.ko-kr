@@ -1,0 +1,25 @@
+---
+permalink: cloud/high-availability-concept.html 
+sidebar: sidebar 
+keywords: high availability 
+summary: '사내 데이터 센터에서 물리적 노드는 내결함성 및 무중단 운영을 위해 고가용성(HA) 쌍으로 구성됩니다. 노드에 장애가 발생할 경우 또는 정기적인 유지보수를 위해 노드를 구축해야 하는 경우 파트너는 스토리지를 인계받아 노드에서 데이터를 계속 제공합니다.' 
+---
+= 고가용성
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+사내 데이터 센터에서 물리적 노드는 내결함성 및 무중단 운영을 위해 고가용성(HA) 쌍으로 구성됩니다. 노드에 장애가 발생할 경우 또는 정기적인 유지보수를 위해 노드를 구축해야 하는 경우 파트너는 스토리지를 인계받아 노드에서 데이터를 계속 제공합니다.
+
+클라우드 환경에서 Cloud Volumes ONTAP 인스턴스의 HA 쌍을 생성하여 사내 HA 쌍과 동일한 내결함성 및 무중단 운영을 구현할 수 있습니다. 이러한 복구 목표는 클라우드 HA 쌍으로 지원됩니다.
+
+* 복구 지점 목표(RPO)는 0초입니다. 데이터는 데이터 손실 없이 트랜잭션 측면에서 일관적입니다.
+* 복구 시간 목표(RTO)는 60초입니다. 정전이 발생할 경우 60초 이내에 데이터를 사용할 수 있어야 합니다.
+
+
+각 클라우드 공급자는 자체 HA 아키텍처 및 구성 옵션을 제공합니다. Cloud Volumes Service의 경우 서비스 수준 계약을 통해 고가용성을 보장합니다.
+
+https://docs.netapp.com/us-en/occm/concept_ha.html["AWS의 고가용성 쌍"]
+
+https://docs.netapp.com/us-en/occm/concept_ha_azure.html["Azure의 고가용성 쌍"]

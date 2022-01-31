@@ -1,0 +1,47 @@
+---
+permalink: smb-admin/remove-privileges-local-domain-users-groups-task.html 
+sidebar: sidebar 
+keywords: manage, user, right, local, domain, group, removing, remove, privilege, enhance, security, allow, customize, maximum, remove privileges from local or domain users or groups 
+summary: 권한을 제거하여 로컬 또는 도메인 사용자 또는 그룹에 대한 사용자 권한을 관리할 수 있습니다. 이렇게 하면 사용자와 그룹이 보유한 최대 권한을 사용자 지정할 수 있으므로 보안이 강화됩니다. 
+---
+= 로컬 또는 도메인 사용자 또는 그룹에서 권한을 제거합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+권한을 제거하여 로컬 또는 도메인 사용자 또는 그룹에 대한 사용자 권한을 관리할 수 있습니다. 이렇게 하면 사용자와 그룹이 보유한 최대 권한을 사용자 지정할 수 있으므로 보안이 강화됩니다.
+
+권한을 제거할 로컬 또는 도메인 사용자 또는 그룹이 이미 있어야 합니다.
+
+로컬 또는 도메인 사용자 또는 그룹에서 권한을 제거할 때는 다음 사항을 염두에 두어야 합니다.
+
+* 하나 이상의 권한을 제거할 수 있습니다.
+* 도메인 사용자 또는 그룹에서 권한을 제거할 때 ONTAP는 도메인 컨트롤러에 문의하여 도메인 사용자 또는 그룹의 유효성을 검사할 수 있습니다.
++
+ONTAP가 도메인 컨트롤러에 연결할 수 없는 경우 명령이 실패할 수 있습니다.
+
+
+
+.단계
+. 로컬 또는 도메인 사용자 또는 그룹에서 하나 이상의 권한을 제거합니다. '+vserver cifs users-and-groups privilege remove-privilege-vserver_name_-user-or-group-name_name_-Privileges_Privilege_[,...]+'
+. 원하는 권한이 'vserver cifs users-and-groups privilege show-vserver_name_-user-or-group-name_name_' 객체에서 제거되었는지 확인합니다
+
+
+다음 예에서는 스토리지 가상 머신(SVM, 이전 명칭 Vserver)의 사용자 " cifs_server\sue "(cifs_server\sue ")에서 "'seTcbPrivilege' 및 "'setegenershipPrivilege'" 권한을 제거합니다1.
+
+[listing]
+----
+cluster1::> vserver cifs users-and-groups privilege show -vserver vs1
+Vserver   User or Group Name    Privileges
+--------- --------------------- ---------------
+vs1       CIFS_SERVER\sue       SeTcbPrivilege
+                                SeTakeOwnershipPrivilege
+
+cluster1::> vserver cifs users-and-groups privilege remove-privilege -vserver vs1 -user-or-group-name CIFS_SERVER\sue -privileges SeTcbPrivilege,SeTakeOwnershipPrivilege
+
+cluster1::> vserver cifs users-and-groups privilege show -vserver vs1
+Vserver   User or Group Name    Privileges
+--------- --------------------- -------------------
+vs1       CIFS_SERVER\sue       -
+----

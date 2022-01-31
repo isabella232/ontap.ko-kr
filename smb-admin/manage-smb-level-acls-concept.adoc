@@ -1,0 +1,32 @@
+---
+permalink: smb-admin/manage-smb-level-acls-concept.html 
+sidebar: sidebar 
+keywords: change, share-level, acl, user, access, right, share, configure, windows, unix, group, guidelines for managing smb share-level acls 
+summary: 공유 수준 ACL을 변경하여 사용자에게 공유에 대한 액세스 권한을 더 많이 또는 덜 부여할 수 있습니다. Windows 사용자 및 그룹 또는 UNIX 사용자 및 그룹을 사용하여 공유 수준 ACL을 구성할 수 있습니다. 
+---
+= SMB 공유 수준 ACL 관리 지침
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+공유 수준 ACL을 변경하여 사용자에게 공유에 대한 액세스 권한을 더 많이 또는 덜 부여할 수 있습니다. Windows 사용자 및 그룹 또는 UNIX 사용자 및 그룹을 사용하여 공유 수준 ACL을 구성할 수 있습니다.
+
+공유를 생성한 후에는 기본적으로 공유 레벨 ACL이 Everyone이라는 표준 그룹에 대한 읽기 액세스를 제공합니다. ACL의 읽기 액세스는 도메인의 모든 사용자와 모든 신뢰할 수 있는 도메인의 모든 사용자가 공유에 대한 읽기 전용 액세스 권한을 가지고 있음을 의미합니다.
+
+Windows 클라이언트 또는 ONTAP 명령줄에서 MMC(Microsoft Management Console)를 사용하여 공유 수준 ACL을 변경할 수 있습니다.
+
+MMC를 사용할 때 다음 지침이 적용됩니다.
+
+* 지정된 사용자 및 그룹 이름은 Windows 이름이어야 합니다.
+* Windows 권한만 지정할 수 있습니다.
+
+
+ONTAP 명령줄을 사용할 때 다음 지침이 적용됩니다.
+
+* 지정된 사용자 및 그룹 이름은 Windows 이름 또는 UNIX 이름일 수 있습니다.
++
+ACL을 생성하거나 수정할 때 사용자 및 그룹 유형을 지정하지 않으면 기본 유형은 Windows 사용자 및 그룹입니다.
+
+* Windows 권한만 지정할 수 있습니다.
+

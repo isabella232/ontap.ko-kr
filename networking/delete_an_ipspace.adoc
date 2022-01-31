@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: networking/delete_an_ipspace.html 
+keywords: delete, deleting, remove, removing, ipspace, delete an ipspace, remove unneeded ipspaces 
+summary: 불필요한 IPspace를 제거합니다 
+---
+= IPspace 삭제
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+IPspace가 더 이상 필요하지 않은 경우 삭제할 수 있습니다.
+
+삭제할 IPspace와 연결된 브로드캐스트 도메인, 네트워크 인터페이스 또는 SVM이 없어야 합니다.
+
+시스템 정의 "기본" 및 "클러스터" IPspace는 삭제할 수 없습니다.
+
+IPspace 삭제:
+
+....
+network ipspace delete -ipspace ipspace_name
+....
+다음 명령을 실행하면 클러스터에서 IPspace ipspace1 이 삭제됩니다.
+
+....
+network ipspace delete -ipspace ipspace1
+....

@@ -1,0 +1,159 @@
+---
+permalink: revert/task_reverting_an_ontap_cluster.html 
+sidebar: sidebar 
+keywords: ontap, revert, reverting, reversion, cluster 
+summary: 클러스터를 오프라인으로 전환하여 이전 ONTAP 릴리즈로 되돌리려면 스토리지 페일오버 및 데이터 LIF를 비활성화하고, 리버전 전제 조건을 해결하며, 노드에서 클러스터 및 파일 시스템 구성을 되돌린 다음 클러스터의 각 추가 노드에 대해 이 프로세스를 반복해야 합니다. 
+---
+= ONTAP 클러스터를 되돌립니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클러스터를 오프라인으로 전환하여 이전 ONTAP 릴리즈로 되돌리려면 스토리지 페일오버 및 데이터 LIF를 비활성화하고, 리버전 전제 조건을 해결하며, 노드에서 클러스터 및 파일 시스템 구성을 되돌린 다음 클러스터의 각 추가 노드에 대해 이 프로세스를 반복해야 합니다.
+
+되돌리기 작업을 완료해야 합니다 link:task_things_to_verify_before_revert.html["검증"] 및 .
+
+클러스터를 되돌린 경우 재버전을 수행하는 동안 클러스터를 오프라인으로 전환해야 합니다.
+
+. admin에서 advanced로 권한 수준을 설정하고 계속할지 묻는 메시지가 표시되면 * y * 를 입력합니다
++
+고급 프롬프트('*>')가 나타납니다.
+
+. 대상 ONTAP 소프트웨어가 설치되어 있는지 확인합니다. 'system image show
++
+다음 예에서는 버전 9.1이 두 노드에 대한 대체 이미지로 설치된 것을 보여 줍니다.
+
++
+[listing]
+----
+cluster1::*> system image show
+                 Is      Is                 Install
+Node     Image   Default Current Version    Date
+-------- ------- ------- ------- --------   -------------------
+node0
+         image1  true    true    9.2        MM/DD/YYYY TIME
+         image2  false   false   9.1        MM/DD/YYYY TIME
+node1
+         image1  true    true    9.2        MM/DD/YYYY TIME
+         image2  false   false   9.1        MM/DD/YYYY TIME
+4 entries were displayed.
+----
+. 클러스터의 모든 데이터 LIF를 비활성화합니다. 'network interface modify {-role data}-status-admin down'
+. [[STEP-5]] 클러스터가 2개의 노드로만 구성된 경우 cluster HA: "cluster ha modify-configured false"를 비활성화합니다
+. [[step-6] HA 쌍의 노드에 대한 스토리지 페일오버가 'Storage failover modify -node nodename -enabled false'에서 비활성화된다
++
+HA 쌍에 대해 스토리지 페일오버를 한 번만 해제하면 됩니다. 노드에 대해 스토리지 페일오버를 해제하면 노드의 파트너에서도 스토리지 페일오버가 해제됩니다.
+
+. 되돌리려는 노드에 로그인합니다.
++
+노드를 되돌리려면 노드의 노드 관리 LIF를 통해 클러스터에 로그인해야 합니다.
+
+. 노드의 대상 ONTAP 소프트웨어 이미지를 기본 이미지로 설정합니다. 'system image modify -node nodename -image target_image -isdefault true'입니다
+. 대상 ONTAP 소프트웨어 이미지가 되돌리려고 하는 노드의 기본 이미지로 설정되어 있는지 확인합니다. 'system image show'
++
+다음 예제에서는 버전 9.1이 Node0의 기본 이미지로 설정된 것을 보여 줍니다.
+
++
+[listing]
+----
+cluster1::*> system image show
+                 Is      Is                 Install
+Node     Image   Default Current Version    Date
+-------- ------- ------- ------- --------   -------------------
+node0
+         image1  false   true    9.2        MM/DD/YYYY TIME
+         image2  true    false   9.1        MM/DD/YYYY TIME
+node1
+         image1  true    true    9.2        MM/DD/YYYY TIME
+         image2  false   false   9.1        MM/DD/YYYY TIME
+4 entries were displayed.
+----
+. 클러스터가 2개의 노드로만 구성된 경우 노드에 epsilon이 없는지 확인합니다.
++
+.. 노드가 현재 epsilon: "cluster show-node nodename"을 보유하고 있는지 확인합니다
++
+다음 예는 노드가 epsilon를 보유하고 있음을 보여줍니다.
+
++
+[listing]
+----
+cluster1::*> cluster show -node node1
+
+          Node: node1
+          UUID: 026efc12-ac1a-11e0-80ed-0f7eba8fc313
+       Epsilon: true
+   Eligibility: true
+        Health: true
+----
+.. 노드가 epsilon을 보유하고 있는 경우 노드의 epsilon을 false로 표시하여 epsilon이 노드의 파트너 "cluster modify -node nodenameA -epsilon false"로 전송될 수 있도록 합니다
+.. 파트너 노드에 epsilon TRUE를 표시하여 epsilon을 노드 파트너에게 전달합니다. 'cluster modify -node nodenameB -epsilon TRUE'
+
+
+. 노드가 재버전될 준비가 되었는지 확인합니다. '시스템 노드 노드 노드 노드 노드 노드 노드 노드 노드 노드 노드 노드 노드 이름 확인 전용 true-version 9.x'
++
+check-only 매개 변수는 다음 예와 같이 되돌리기 전에 해결해야 하는 모든 전제 조건을 식별합니다.
+
++
+** 스토리지 페일오버를 해제하는 중입니다
+** 스냅샷 정책을 사용하지 않도록 설정합니다
+** 더 최신 버전의 ONTAP로 업그레이드한 후 생성된 스냅샷 복사본 삭제
+
+
+. 'System node revert-to-node nodename-check-only true-version 9.x'라는 전제 조건이 모두 해결되었는지 확인합니다
+. 'System node revert-to-node nodename-version 9.x' 노드의 클러스터 구성을 되돌립니다
++
+version 옵션은 타겟 릴리즈를 나타냅니다. 예를 들어, 설치하고 검증한 소프트웨어가 ONTAP 9.1인 경우 version 옵션의 올바른 값은 9.1입니다.
+
++
+클러스터 구성을 되돌린 다음 클러스터 쉘에서 로그아웃됩니다.
+
+. 다시 클러스터 쉘에 로그인한 다음 노드 노데나미 로 전환합니다
++
+클러스터 쉘에 다시 로그온한 후 노드 쉘을 수락하는 데 몇 분 정도 걸릴 수 있습니다. 따라서 명령이 실패하면 몇 분 정도 기다린 후 다시 시도하십시오.
+
+. 노드의 파일 시스템 구성을 revert_to 9.x로 되돌립니다
++
+이 명령은 노드의 파일 시스템 구성을 되돌릴 준비가 되었는지 확인한 다음 되돌립니다. 전제 조건이 확인되면 해당 조건을 해결한 다음 RECOVERY_TWOD 명령을 다시 실행해야 합니다.
+
++
+
+NOTE: 시스템 콘솔을 사용하여 복원 프로세스를 모니터링하면 노드 쉘에서 볼 수 있는 것보다 더 자세한 정보가 표시됩니다.
+
++
+명령이 완료되면 자동 부팅 기능이 ONTAP로 재부팅됩니다.
+
++
+autoboot가 false 이면 명령이 로더 프롬프트를 표시합니다. 되돌리려면 yes를 입력하고 노드를 수동으로 재부팅하려면 boot_ONTAP을 사용합니다.
+
+. 노드가 재부팅된 후 새 소프트웨어가 실행되고 있는지 확인합니다. 'system node image show'
++
+다음 예제에서 image1은 새 ONTAP 버전이며 Node0에서 현재 버전으로 설정됩니다.
+
++
+[listing]
+----
+cluster1::*> system node image show
+                 Is      Is                 Install
+Node     Image   Default Current Version    Date
+-------- ------- ------- ------- --------   -------------------
+node0
+         image1  true    true    X.X.X       MM/DD/YYYY TIME
+         image2  false   false   Y.Y.Y      MM/DD/YYYY TIME
+node1
+         image1  true    false   X.X.X      MM/DD/YYYY TIME
+         image2  false   true    Y.Y.Y      MM/DD/YYYY TIME
+4 entries were displayed.
+----
+. 'system node upgrade-revert show-node nodename'이라는 각 노드에 대해 되돌리기 상태가 완료되었는지 확인합니다
++
+상태는 완료 로 표시되어야 합니다.
+
++
+복원에 성공하지 못한 경우 즉시 기술 지원 부서에 문의하십시오.
+
+. 반복합니다 <<step-5>> 부터 까지 <<step-17>> 두 HA 쌍 중 다른 노드에 대해
+. 클러스터가 2개의 노드로만 구성된 경우 클러스터 HA를 다시 활성화합니다. 즉, 클러스터 ha 수정 구성 true입니다
+. [[step-18]]스토리지 페일오버가 이전에 해제된 경우 두 노드에서 스토리지 페일오버를 다시 설정합니다. 'Storage failover modify -node nodename -enabled true
+. 반복합니다 <<step-6>> 부터 까지 <<step-18>> MetroCluster 구성의 각 추가 HA 쌍과 두 클러스터에 대해
+

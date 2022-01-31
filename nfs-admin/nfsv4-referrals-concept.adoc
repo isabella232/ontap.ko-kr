@@ -1,0 +1,15 @@
+---
+permalink: nfs-admin/nfsv4-referrals-concept.html 
+sidebar: sidebar 
+keywords: nfsv4, referral, work 
+summary: 'NFSv4 조회를 설정하면 ONTAP는 NFSv4 클라이언트에 "SVM 내" 조회를 제공합니다. SVM 내 의뢰는 NFSv4 요청을 수신하는 클러스터 노드가 SVM(스토리지 가상 머신)의 다른 논리 인터페이스(LIF)에 NFSv4 클라이언트를 참조하는 경우를 말합니다.' 
+---
+= NFSv4 참조 작동 방식
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NFSv4 조회를 설정하면 ONTAP는 NFSv4 클라이언트에 ""intra-SVM" 조회를 제공합니다. SVM 내 의뢰는 NFSv4 요청을 수신하는 클러스터 노드가 SVM(스토리지 가상 머신)의 다른 논리 인터페이스(LIF)에 NFSv4 클라이언트를 참조하는 경우를 말합니다.
+
+NFSv4 클라이언트는 해당 시점부터 타겟 LIF에서 조회 대상이 된 경로를 액세스해야 합니다. 원래 클러스터 노드는 SVM에 데이터 볼륨이 상주하는 클러스터 노드에 상주하는 LIF가 존재한다고 판단하여 클라이언트가 데이터에 더 빠르게 액세스하고 추가 클러스터 통신을 피할 수 있게 해줍니다.

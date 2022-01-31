@@ -1,0 +1,51 @@
+---
+permalink: system-admin/structure-autosupport-messages-sent-email-concept.html 
+sidebar: sidebar 
+keywords: structure, autosupport, messages, sent, email, subject, standard, brief, body, large, attachment, 7z, file, data 
+summary: AutoSupport 메시지를 전자 메일로 보내면 메시지에 표준 제목, 간단한 본문 및 데이터가 포함된 7z 파일 형식의 대용량 첨부 파일이 포함됩니다. 
+---
+= 전자 메일로 보낸 AutoSupport 메시지의 구조
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+AutoSupport 메시지를 전자 메일로 보내면 메시지에 표준 제목, 간단한 본문 및 데이터가 포함된 7z 파일 형식의 대용량 첨부 파일이 포함됩니다.
+
+[NOTE]
+====
+AutoSupport가 개인 데이터를 숨기도록 구성된 경우 호스트 이름과 같은 특정 정보는 헤더, 제목, 본문 및 첨부 파일에서 생략되거나 마스킹됩니다.
+
+====
+
+
+== 제목
+
+AutoSupport 메커니즘에서 보낸 메시지의 제목 줄에는 알림의 원인을 식별하는 텍스트 문자열이 포함됩니다. 제목 줄의 형식은 다음과 같습니다.
+
+시스템_이름_(_메시지_)_심각도 _ 의 HA 그룹 알림
+
+* _System_Name_은 AutoSupport 구성에 따라 호스트 이름 또는 시스템 ID입니다
+
+
+
+
+== 바디
+
+AutoSupport 메시지 본문에는 다음 정보가 포함됩니다.
+
+* 메시지의 날짜 및 타임 스탬프입니다
+* 메시지를 생성한 노드의 ONTAP 버전입니다
+* 메시지를 생성한 노드의 시스템 ID, 일련 번호 및 호스트 이름입니다
+* AutoSupport 시퀀스 번호
+* SNMP 연락처 이름 및 위치(지정된 경우
+* HA 파트너 노드의 시스템 ID 및 호스트 이름입니다
+
+
+
+
+== 첨부 파일
+
+AutoSupport 메시지의 주요 정보는 body.7z라는 7z 파일로 압축되어 메시지에 첨부되는 파일에 포함되어 있습니다.
+
+첨부 파일에 포함된 파일은 AutoSupport 메시지 유형에 따라 다릅니다.

@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+permalink: networking/create_a_failover_group.html 
+keywords: create, creation, creating, add, adding, failover, fail, over, group, create a failover group, failover group of network ports automatically migrate a lif to a different port when a link failure occurs, failover-groups create, ifgrps 
+summary: 네트워크 포트의 페일오버 그룹을 생성하면 링크 장애가 발생할 경우 LIF를 다른 포트로 자동으로 마이그레이션합니다 
+---
+= 페일오버 그룹을 생성합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+네트워크 포트의 페일오버 그룹을 생성하면 LIF의 현재 포트에서 링크 장애가 발생할 경우 LIF가 자동으로 다른 포트로 마이그레이션할 수 있습니다. 이렇게 하면 시스템이 네트워크 트래픽을 클러스터의 사용 가능한 다른 포트로 재라우팅할 수 있습니다.
+
+'network interface failover-groups create' 명령을 사용하여 그룹을 생성하고 그룹에 포트를 추가합니다.
+
+* 페일오버 그룹에 추가된 포트는 네트워크 포트, VLAN 또는 인터페이스 그룹(ifgrp)일 수 있습니다.
+* 페일오버 그룹에 추가된 모든 포트는 동일한 브로드캐스트 도메인에 속해야 합니다.
+* 단일 포트는 여러 페일오버 그룹에 상주할 수 있습니다.
+* 다른 VLAN 또는 브로드캐스트 도메인에 LIF가 있는 경우 각 VLAN 또는 브로드캐스트 도메인에 대해 페일오버 그룹을 구성해야 합니다.
+* SAN iSCSI 또는 FC 환경에서는 페일오버 그룹이 적용되지 않습니다.
+
+
+페일오버 그룹 생성:
+
+'network interface failover-groups create-vserver_vserver_name_-failover-group_failover_group_name_-targets_ports_list_'
+
+* '_vserver_name_'은 페일오버 그룹을 사용할 수 있는 SVM의 이름입니다.
+* '_failover_group_name_'은 생성할 페일오버 그룹의 이름입니다.
+* '_ports_list_'는 페일오버 그룹에 추가될 포트 목록입니다. 포트는 format_node_name>:<port_number>_에 추가됩니다(예: node1:e0c).
+
+
+다음 명령을 실행하면 SVM vs3용 페일오버 그룹 fg3이 생성되고 2개의 포트가 추가됩니다.
+
+....
+network interface failover-groups create -vserver vs3 -failover-group fg3 -targets cluster1-01:e0e,cluster1-02:e0e
+....
+.작업을 마친 후
+* 페일오버 그룹이 생성되었으므로 페일오버 그룹을 LIF에 적용해야 합니다.
+* LIF에 유효한 페일오버 타겟을 제공하지 않는 페일오버 그룹을 적용하면 경고 메시지가 표시됩니다.
++
+유효한 페일오버 목표가 없는 LIF가 페일오버를 시도하면 운영 중단이 발생할 수 있습니다.
+
+

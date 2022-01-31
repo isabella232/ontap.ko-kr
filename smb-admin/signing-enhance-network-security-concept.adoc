@@ -1,0 +1,13 @@
+---
+permalink: smb-admin/signing-enhance-network-security-concept.html 
+sidebar: sidebar 
+keywords: smb, sign, ensure, network, traffic, smb, server, client, compromise, prevent, replay, attack, default, ontap, configure, using smb signing to enhance network security 
+summary: SMB 서명을 사용하면 SMB 서버와 클라이언트 사이의 네트워크 트래픽이 손상되지 않도록 할 수 있으며, 재생 공격을 차단하여 이 작업을 수행합니다. 기본적으로 ONTAP는 클라이언트가 요청할 때 SMB 서명을 지원합니다. 필요에 따라 스토리지 관리자는 SMB 서명이 필요하도록 SMB 서버를 구성할 수 있습니다. 
+---
+= SMB 서명을 사용하여 네트워크 보안 개요를 개선합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SMB 서명을 사용하면 SMB 서버와 클라이언트 사이의 네트워크 트래픽이 손상되지 않도록 할 수 있으며, 재생 공격을 차단하여 이 작업을 수행합니다. 기본적으로 ONTAP는 클라이언트가 요청할 때 SMB 서명을 지원합니다. 필요에 따라 스토리지 관리자는 SMB 서명이 필요하도록 SMB 서버를 구성할 수 있습니다.

@@ -1,0 +1,35 @@
+---
+permalink: antivirus/reset-status-scanned-files-task.html 
+sidebar: sidebar 
+keywords: reset, status, scanned files 
+summary: 경우에 따라 SVM Vscan reset 명령을 사용하여 파일에 대해 캐시된 정보를 폐기함으로써 SVM에서 성공적으로 스캔된 파일의 스캔 상태를 재설정할 수 있습니다. 예를 들어, 잘못 구성된 검사가 있는 경우 이 명령을 사용하여 바이러스 검사 처리를 다시 시작할 수 있습니다. 
+---
+= 스캔한 파일의 상태를 재설정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+경우에 따라 'vserver Vscan reset' 명령을 사용하여 파일에 대한 캐시된 정보를 폐기함으로써 SVM에서 성공적으로 스캔된 파일의 스캔 상태를 재설정할 수 있습니다. 예를 들어, 잘못 구성된 검사가 있는 경우 이 명령을 사용하여 바이러스 검사 처리를 다시 시작할 수 있습니다.
+
+'vserver Vscan reset' 명령을 실행하면 다음에 액세스할 때 모든 유효한 파일이 스캔됩니다.
+
+[NOTE]
+====
+이 명령은 다시 스캔 대상 파일의 수와 크기에 따라 성능에 부정적인 영향을 미칠 수 있습니다.
+
+====
+.단계
+. 스캔한 파일의 상태 재설정:
++
+'vserver Vscan reset - vserver data_SVM'
+
++
+다음 명령을 실행하면 ''vs1''의 VM에서 스캔한 파일의 상태가 재설정됩니다.
+
++
+[listing]
+----
+cluster1::> vserver vscan reset -vserver vs1
+----
+

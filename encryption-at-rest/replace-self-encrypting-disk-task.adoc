@@ -1,0 +1,85 @@
+---
+permalink: encryption-at-rest/replace-self-encrypting-disk-task.html 
+sidebar: sidebar 
+keywords: replacing, fips drive, sed 
+summary: 일반 디스크를 교체하는 것과 동일한 방법으로 FIPS 드라이브 또는 SED를 교체할 수 있습니다. 새 데이터 인증 키를 교체 드라이브에 할당하십시오. FIPS 드라이브의 경우 새 FIPS 140-2 인증 키를 할당할 수도 있습니다. 
+---
+= FIPS 드라이브 또는 SED를 교체합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+일반 디스크를 교체하는 것과 동일한 방법으로 FIPS 드라이브 또는 SED를 교체할 수 있습니다. 새 데이터 인증 키를 교체 드라이브에 할당하십시오. FIPS 드라이브의 경우 새 FIPS 140-2 인증 키를 할당할 수도 있습니다.
+
+
+NOTE: HA 쌍이 를 사용 중인 경우 xref:../encryption-at-rest/support-storage-encryption-concept.html[SAS 또는 NVMe 드라이브(SED, NSE, FIPS) 암호화], 항목의 지침을 따라야 합니다 xref:../encryption-at-rest/return-seds-unprotected-mode-task.html[FIPS 드라이브 또는 SED를 보호되지 않는 모드로 되돌리는 중입니다] 시스템을 초기화하기 전에 HA 쌍 내의 모든 드라이브(부팅 옵션 4 또는 9) 이렇게 하지 않을 경우 드라이브를 용도 변경할 경우 향후의 데이터 손실이 발생할 수 있습니다.
+
+.무엇을 &#8217;필요로 할거야
+* 드라이브에서 사용하는 인증 키의 키 ID를 알아야 합니다.
+* 이 작업을 수행하려면 클러스터 관리자여야 합니다.
+
+
+.단계
+. 디스크가 실패로 표시되어 있는지 확인합니다.
++
+스토리지 디스크 고장
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+[listing]
+----
+cluster1::> storage disk show -broken
+Original Owner: cluster1-01
+  Checksum Compatibility: block
+                                                                 Usable Physical
+    Disk   Outage Reason HA Shelf Bay Chan   Pool  Type    RPM     Size     Size
+    ------ ---- ------------ ---- --- ---- ------ -----  -----  -------  -------
+    0.0.0  admin  failed  0b    1   0    A  Pool0  FCAL  10000  132.8GB  133.9GB
+    0.0.7  admin  removed 0b    2   6    A  Pool1  FCAL  10000  132.8GB  134.2GB
+[...]
+----
+. 디스크 쉘프 모델의 하드웨어 가이드에 나와 있는 지침에 따라 장애가 발생한 디스크를 제거하고 새 FIPS 드라이브 또는 SED로 교체합니다.
+. 새로 교체한 디스크의 소유권을 할당합니다.
++
+'Storage disk assign-disk disk_name-owner node'
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+[listing]
+----
+cluster1::> storage disk assign -disk 2.1.1 -owner cluster1-01
+----
+. 새 디스크가 할당되었는지 확인합니다.
++
+스토리지 암호화 디스크 표시
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+[listing]
+----
+cluster1::> storage encryption disk show
+Disk    Mode Data Key ID
+-----   ---- ----------------------------------------------------------------
+0.0.0   data F1CB30AFF1CB30B00101000000000000A68B167F92DD54196297159B5968923C
+0.0.1   data F1CB30AFF1CB30B00101000000000000A68B167F92DD54196297159B5968923C
+1.10.0  data F1CB30AFF1CB30B00101000000000000CF0EFD81EA9F6324EA97B369351C56AC
+1.10.1  data F1CB30AFF1CB30B00101000000000000CF0EFD81EA9F6324EA97B369351C56AC
+2.1.1   open 0x0
+[...]
+----
+. 데이터 인증 키를 FIPS 드라이브 또는 SED에 할당합니다.
++
+link:assign-authentication-keys-seds-external-task.html["FIPS 드라이브 또는 SED(외부 키 관리)에 데이터 인증 키 할당"]
+
+. 필요한 경우 FIPS 140-2 인증 키를 FIPS 드라이브에 할당합니다.
++
+link:assign-fips-140-2-authentication-key-task.html["FIPS 140-2 인증 키를 FIPS 드라이브에 할당"]
+
+

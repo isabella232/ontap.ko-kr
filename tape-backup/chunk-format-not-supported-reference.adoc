@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/chunk-format-not-supported-reference.html 
+sidebar: sidebar 
+keywords: chunck, format, not, supported, smtape 
+summary: 백업 이미지가 SMTape가 아닙니다. 
+---
+= 청크 형식이 지원되지 않습니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+청크 형식이 지원되지 않습니다
+
+* * 원인 *
++
+백업 이미지가 SMTape가 아닙니다.
+
+* * 시정 조치 *
++
+백업 이미지가 SMTape가 아닌 경우 SMTape 백업이 있는 테이프를 사용하여 작업을 재시도하십시오.
+
+

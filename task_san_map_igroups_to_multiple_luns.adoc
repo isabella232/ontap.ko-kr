@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: task_san_map_igroups_to_multiple_luns.html 
+keywords: netapp, ontap, san, provisioning, create LUN, FC, iSCSI, map, lun, igroups, initiator groups 
+summary: igroup을 2개 이상의 LUN에 동시에 매핑합니다. 
+---
+= 여러 LUN에 igroup 매핑
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+ONTAP 9.9.1부터 igroup을 2개 이상의 LUN에 동시에 매핑할 수 있습니다.
+
+. System Manager에서 * 스토리지 > LUN * 을 클릭합니다.
+. 매핑할 LUN을 선택합니다.
+. More * 를 클릭한 다음 * Map to Initiator Groups * 를 클릭합니다.
+
+
+
+NOTE: 선택한 igroup이 선택한 LUN에 추가됩니다. 기존 매핑은 덮어쓰지 않습니다.

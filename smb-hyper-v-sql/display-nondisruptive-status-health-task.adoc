@@ -1,0 +1,119 @@
+---
+permalink: smb-hyper-v-sql/display-nondisruptive-status-health-task.html 
+sidebar: sidebar 
+keywords: display, nondisruptive, operation, status, system, health, monitor, cifs, ndo, alert 
+summary: 시스템 상태 명령을 사용하여 클러스터의 전체 시스템 상태와 CIFS-NDO 서브시스템 상태에 대한 정보를 표시하고, 알림에 응답하고, 향후 알림을 구성하고, 상태 모니터링 구성 방법에 대한 정보를 표시할 수 있습니다. 
+---
+= 시스템 상태 모니터링을 사용하여 무중단 운영 상태를 표시합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'시스템 상태' 명령을 사용하면 클러스터의 전체 시스템 상태 및 CIFS-NDO 하위 시스템의 상태에 대한 정보를 표시하고, 알림에 응답하고, 향후 알림을 구성하고, 상태 모니터링 구성 방법에 대한 정보를 표시할 수 있습니다.
+
+.단계
+. 적절한 작업을 수행하여 상태 모니터링:
++
+|===
+| 를 표시하려면... | 명령 입력... 
+
+
+ a| 
+개별 상태 모니터의 전체 상태를 반영하는 시스템의 상태입니다
+ a| 
+'* 시스템 상태 표시 *'
+
+
+
+ a| 
+CIFS-NDO 서브시스템의 상태에 대한 정보입니다
+ a| 
+'* 시스템 상태 하위 시스템 표시 - 하위 시스템 cifs-NDO-instance*'
+
+|===
+. 적절한 작업을 수행하여 CIFS-NDO 알림 모니터링을 구성하는 방법에 대한 정보를 표시합니다.
++
+|===
+| 다음에 대한 정보를 표시하려면... | 명령 입력... 
+
+
+ a| 
+모니터링되는 노드, 초기화 상태 및 상태와 같은 CIFS-NDO 서브시스템에 대한 상태 모니터의 구성 및 상태입니다
+ a| 
+'* 시스템 상태 구성 show-subsystem cifs-NDO *'
+
+
+
+ a| 
+상태 모니터에서 잠재적으로 생성할 수 있는 CIFS-NDO 알림을 나타냅니다
+ a| 
+'* 시스템 상태 경고 정의 show-subsystem cifs-NDO *'
+
+
+
+ a| 
+CIFS-NDO 상태 모니터링 정책으로 알림이 발생하는 시기를 결정합니다
+ a| 
+'* 시스템 상태 정책 정의 표시 - 모니터 노드 연결 * '
+
+|===
++
+[NOTE]
+====
+자세한 정보를 표시하려면 '-instance' 매개 변수를 사용합니다.
+
+====
+
+
+다음 출력에는 클러스터 및 CIFS-NDO 서브시스템의 전체 상태에 대한 정보가 표시됩니다.
+
+[listing]
+----
+cluster1::> system health status show
+Status
+---------------
+ok
+
+cluster1::> system health subsystem show -instance -subsystem CIFS-NDO
+
+                   Subsystem: CIFS-NDO
+                      Health: ok
+        Initialization State: initialized
+Number of Outstanding Alerts: 0
+ Number of Suppressed Alerts: 0
+                        Node: node2
+  Subsystem Refresh Interval: 5m
+----
+다음 출력에는 CIFS-NDO 서브시스템의 상태 모니터 구성 및 상태에 대한 자세한 정보가 나와 있습니다.
+
+[listing]
+----
+cluster1::> system health config show -subsystem CIFS-NDO -instance
+
+                           Node: node1
+                        Monitor: node-connect
+                      Subsystem: SAS-connect, HA-health, CIFS-NDO
+                         Health: ok
+                Monitor Version: 2.0
+            Policy File Version: 1.0
+                        Context: node_context
+                     Aggregator: system-connect
+                       Resource: SasAdapter, SasDisk, SasShelf, HaNodePair,
+                                 HaICMailbox, CifsNdoNode, CifsNdoNodeVserver
+Subsystem Initialization Status: initialized
+    Subordinate Policy Versions: 1.0 SAS, 1.0 SAS multiple adapters, 1.0, 1.0
+
+                           Node: node2
+                        Monitor: node-connect
+                      Subsystem: SAS-connect, HA-health, CIFS-NDO
+                         Health: ok
+                Monitor Version: 2.0
+            Policy File Version: 1.0
+                        Context: node_context
+                     Aggregator: system-connect
+                       Resource: SasAdapter, SasDisk, SasShelf, HaNodePair,
+                                 HaICMailbox, CifsNdoNode, CifsNdoNodeVserver
+Subsystem Initialization Status: initialized
+    Subordinate Policy Versions: 1.0 SAS, 1.0 SAS multiple adapters, 1.0, 1.0
+----

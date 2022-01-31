@@ -1,0 +1,60 @@
+---
+permalink: software_setup/task_join_remaining_nodes_to_the_cluster.html 
+sidebar: sidebar 
+keywords: ontap, software, setup, join, remaining, nodes, cluster, HA, high availability, autosupport 
+summary: 새 클러스터를 생성한 후 클러스터 설정 마법사를 사용하여 나머지 각 노드를 한 번에 하나씩 클러스터에 결합할 수 있습니다. 이 마법사를 사용하면 각 노드의 노드 관리 인터페이스를 구성할 수 있습니다. 
+---
+= 나머지 노드를 클러스터에 연결합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+새 클러스터를 생성한 후 클러스터 설정 마법사를 사용하여 나머지 각 노드를 한 번에 하나씩 클러스터에 결합할 수 있습니다. 이 마법사를 사용하면 각 노드의 노드 관리 인터페이스를 구성할 수 있습니다.
+
+하나의 클러스터에 두 개의 노드를 결합할 경우 고가용성(HA) 쌍이 생성됩니다. 4개의 노드를 결합하는 경우 2개의 HA 쌍을 생성합니다. HA에 대한 자세한 내용은 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap/high-availability/index.html["HA에 대해 알아보십시오"].
+
+한 번에 하나의 노드만 클러스터에 결합할 수 있습니다. 클러스터에 노드를 연결하려면 해당 노드에 대해 연결 작업을 완료해야 하며, 다음 노드에 가입하기 전에 노드가 클러스터의 일부여야 합니다.
+
+* 모범 사례: * 24개 이하의 NL-SAS 드라이브에 FAS2720을 사용하는 경우 스토리지 구성 기본값이 Active/Passive로 설정되어 성능을 최적화할 수 있는지 확인해야 합니다. 자세한 내용은 을 참조하십시오 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-psmg/GUID-4AC35094-4077-4F1E-8D6E-82BF111354B0.html?cp=4_5_5_11["루트 데이터 파티셔닝을 사용하여 노드에서 액티브-패시브 구성 설정"]
+
+. 클러스터에 참여하려는 노드에 로그인합니다.
++
+콘솔에서 클러스터 설정 마법사가 시작됩니다.
+
++
+[listing]
+----
+Welcome to the cluster setup wizard....
+----
+. AutoSupport 설명을 확인합니다.
++
+
+NOTE: AutoSupport는 기본적으로 사용하도록 설정되어 있습니다.
+
++
+[listing]
+----
+Type yes to confirm and continue {yes}: yes
+----
+. 화면의 지침에 따라 노드에 IP 주소를 할당합니다.
+. 클러스터에 노드를 가입시킵니다
+. 화면의 지침에 따라 노드를 설정하고 클러스터에 연결합니다.
+. 설치가 완료된 후 노드가 정상 상태이며 클러스터에 참여할 자격이 있는지 'cluster show'인지 확인합니다
++
+다음 예에서는 두 번째 노드(cluster1-02)가 클러스터에 결합된 후의 클러스터를 보여 줍니다.
+
++
+[listing]
+----
+cluster1::> cluster show
+Node                  Health  Eligibility
+--------------------- ------- ------------
+cluster1-01           true    true
+cluster1-02           true    true
+----
++
+클러스터 설정 마법사를 사용하면 클러스터 설정 명령을 사용하여 admin SVM 또는 node SVM에 대해 입력한 값을 변경할 수 있습니다.
+
+. 나머지 각 노드에 대해 이 작업을 반복합니다.
+

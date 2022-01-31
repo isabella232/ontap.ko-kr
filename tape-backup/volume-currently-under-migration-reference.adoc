@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/volume-currently-under-migration-reference.html 
+sidebar: sidebar 
+keywords: volume, currently, migration, smtap, backup 
+summary: 볼륨 마이그레이션 및 SMTape 백업을 동시에 실행할 수 없습니다. 
+---
+= 볼륨이 현재 마이그레이션 중입니다
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+볼륨이 현재 마이그레이션 중입니다
+
+* * 원인 *
++
+볼륨 마이그레이션 및 SMTape 백업을 동시에 실행할 수 없습니다.
+
+* * 시정 조치 *
++
+볼륨 마이그레이션이 완료된 후 백업 작업을 다시 시도하십시오.
+
+

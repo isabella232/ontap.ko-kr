@@ -1,0 +1,49 @@
+---
+permalink: smb-hyper-v-sql/configure-solutions-concept.html 
+sidebar: sidebar 
+keywords: configure, microsoft, hyper, v, sql, server, smb, solution, virtual, machine, gile 
+summary: 'SE는 지속적으로 사용 가능한 SMB 3.0 이상의 파일 공유를 통해 Hyper-V 가상 머신 파일 또는 SQL Server 시스템 데이터베이스와 사용자 데이터베이스를 SVM에 상주하는 볼륨에 저장하는 동시에 계획된 이벤트와 계획되지 않은 이벤트 모두에 무중단 운영(NDO)을 제공할 수 있습니다.' 
+---
+= SMB 솔루션을 통해 Microsoft Hyper-V 및 SQL Server용 ONTAP를 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+지속적으로 사용 가능한 SMB 3.0 이상 파일 공유를 사용하여 Hyper-V 가상 머신 파일 또는 SQL Server 시스템 데이터베이스와 사용자 데이터베이스를 SVM에 상주하는 볼륨에 저장하는 동시에 계획된 이벤트와 계획되지 않은 이벤트 모두에 무중단 운영(NDO)을 제공할 수 있습니다.
+
+
+
+== SMB를 통한 Microsoft Hyper-V
+
+SMB를 통한 Hyper-V 솔루션을 생성하려면 먼저 ONTAP를 구성하여 Microsoft Hyper-V 서버에 스토리지 서비스를 제공해야 합니다. 또한 Microsoft 클러스터(클러스터 구성을 사용하는 경우), Hyper-V 서버, CIFS 서버에서 호스팅하는 공유에 대한 지속적인 SMB 3.0 연결, SVM 볼륨에 저장된 가상 시스템 파일을 보호하기 위한 백업 서비스도 구성해야 합니다.
+
+[NOTE]
+====
+Hyper-V 서버는 Windows 2012 Server 이상에서 구성해야 합니다. 독립 실행형 및 클러스터링된 Hyper-V 서버 구성이 모두 지원됩니다.
+
+====
+* Microsoft 클러스터 및 Hyper-V 서버 생성에 대한 자세한 내용은 Microsoft 웹 사이트를 참조하십시오.
+* SnapManager for Hyper-V는 호스트 기반 애플리케이션으로, SMB 구성을 통해 Hyper-V와 통합되도록 설계된 빠른 스냅샷 복사본 기반 백업 서비스를 지원합니다.
++
+SMB 구성을 통한 Hyper-V에서 SnapManager를 사용하는 방법에 대한 자세한 내용은 _SnapManager for Hyper-V 설치 및 관리 가이드 _ 를 참조하십시오.
+
+
+
+
+
+== SMB를 통한 Microsoft SQL Server
+
+SMB를 통한 SQL Server 솔루션을 생성하려면 먼저 Microsoft SQL Server 애플리케이션에 스토리지 서비스를 제공하도록 ONTAP를 구성해야 합니다. 또한 클러스터된 구성을 사용하는 경우 Microsoft 클러스터도 구성해야 합니다. 그런 다음 Windows 서버에 SQL Server를 설치 및 구성하고 CIFS 서버에서 호스팅하는 공유에 대해 지속적으로 사용 가능한 SMB 3.0 연결을 생성합니다. 필요에 따라 SVM 볼륨에 저장된 데이터베이스 파일을 보호하도록 백업 서비스를 구성할 수 있습니다.
+
+[NOTE]
+====
+SQL Server는 Windows 2012 Server 이상에서 설치 및 구성해야 합니다. 독립 실행형 구성과 클러스터 구성이 모두 지원됩니다.
+
+====
+* Microsoft 클러스터 만들기 및 SQL Server 설치 및 구성에 대한 자세한 내용은 Microsoft 웹 사이트를 참조하십시오.
+* SnapManager for Microsoft SQL Server는 SMB 구성을 통해 SQL Server와 통합되도록 설계된, 신속한 Snapshot 복사본 기반 백업 서비스를 지원하는 호스트 기반 애플리케이션입니다.
++
+Microsoft SQL Server용 SnapManager 사용에 대한 자세한 내용은 _SnapManager for Microsoft SQL Server 설치 및 관리 가이드_를 참조하십시오.
+
+

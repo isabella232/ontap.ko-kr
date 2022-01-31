@@ -1,0 +1,105 @@
+---
+permalink: authentication/predefined-roles-svm-administrators-concept.html 
+sidebar: sidebar 
+keywords: predefined roles, cluster administrators 
+summary: SVM 관리자를 위한 사전 정의된 역할은 대부분의 요구사항을 충족해야 합니다. 필요에 따라 사용자 지정 역할을 만들 수 있습니다. 기본적으로 SVM 관리자는 사전 정의된 vsadmin 역할이 할당됩니다. 
+---
+= SVM 관리자를 위한 사전 정의된 역할
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SVM 관리자를 위한 사전 정의된 역할은 대부분의 요구사항을 충족해야 합니다. 필요에 따라 사용자 지정 역할을 만들 수 있습니다. 기본적으로 SVM 관리자는 사전 정의된 "vsadmin" 역할이 할당됩니다.
+
+다음 표에는 SVM 관리자를 위한 사전 정의된 역할이 나와 있습니다.
+
+|===
+
+
+| 역할 이름 | 제공합니다 
+
+
+ a| 
+vsadmin을 선택합니다
+ a| 
+* 사용자 계정 로컬 암호 및 키 정보 관리
+* 볼륨 이동을 제외한 볼륨 관리
+* 할당량, Qtree, 스냅샷 복사본 및 파일 관리
+* LUN 관리
+* 권한 있는 삭제를 제외한 SnapLock 작업 수행
+* 프로토콜 구성: NFS, CIFS, iSCSI 및 FC FCoE 포함
+* 서비스 구성: DNS, LDAP 및 NIS
+* 작업 모니터링
+* 네트워크 연결 및 네트워크 인터페이스 모니터링
+* SVM 상태 모니터링
+
+
+
+
+ a| 
+vsadmin - 볼륨
+ a| 
+* 사용자 계정 로컬 암호 및 키 정보 관리
+* 볼륨 이동을 포함한 볼륨 관리
+* 할당량, Qtree, 스냅샷 복사본 및 파일 관리
+* LUN 관리
+* 프로토콜 구성: NFS, CIFS, iSCSI, FC, FCoE 포함
+* 서비스 구성: DNS, LDAP 및 NIS
+* 네트워크 인터페이스 모니터링
+* SVM 상태 모니터링
+
+
+
+
+ a| 
+vsadmin - 프로토콜
+ a| 
+* 사용자 계정 로컬 암호 및 키 정보 관리
+* 프로토콜 구성: NFS, CIFS, iSCSI, FC, FCoE 포함
+* 서비스 구성: DNS, LDAP 및 NIS
+* LUN 관리
+* 네트워크 인터페이스 모니터링
+* SVM 상태 모니터링
+
+
+
+
+ a| 
+vsadmin - 백업
+ a| 
+* 사용자 계정 로컬 암호 및 키 정보 관리
+* NDMP 작업 관리
+* 복구된 볼륨을 읽기/쓰기로 만듭니다
+* SnapMirror 관계 및 Snapshot 복사본 관리
+* 볼륨 및 네트워크 정보 보기
+
+
+
+
+ a| 
+vsadmin - SnapLock
+ a| 
+* 사용자 계정 로컬 암호 및 키 정보 관리
+* 볼륨 이동을 제외한 볼륨 관리
+* 할당량, Qtree, 스냅샷 복사본 및 파일 관리
+* 권한 있는 삭제를 포함한 SnapLock 작업 수행
+* 프로토콜 구성: NFS 및 CIFS
+* 서비스 구성: DNS, LDAP 및 NIS
+* 작업 모니터링
+* 네트워크 연결 및 네트워크 인터페이스 모니터링
+
+
+
+
+ a| 
+vsadmin - 읽기 전용입니다
+ a| 
+* 사용자 계정 로컬 암호 및 키 정보 관리
+* SVM 상태 모니터링
+* 네트워크 인터페이스 모니터링
+* 볼륨 및 LUN 보기
+* 서비스 및 프로토콜 보기
+
+
+|===

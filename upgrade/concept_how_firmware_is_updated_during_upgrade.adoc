@@ -1,0 +1,28 @@
+---
+permalink: upgrade/concept_how_firmware_is_updated_during_upgrade.html 
+sidebar: sidebar 
+keywords: ontap, upgrade, how, firmware, updated, during 
+summary: ONTAP 업그레이드에는 펌웨어 업그레이드가 포함되므로 펌웨어를 수동으로 업데이트할 필요가 없습니다. 
+---
+= ONTAP 업그레이드 중 펌웨어 업데이트 방법
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 업그레이드에는 펌웨어 업그레이드가 포함되므로 펌웨어를 수동으로 업데이트할 필요가 없습니다. ONTAP 업그레이드를 수행하면 ONTAP 업그레이드 패키지에 포함된 클러스터의 펌웨어가 각 노드의 부팅 장치로 복사되고 새 펌웨어는 자동으로 설치됩니다.
+
+클러스터의 버전이 ONTAP 업그레이드 패키지와 함께 제공되는 펌웨어보다 오래된 경우 다음 구성 요소의 펌웨어가 자동으로 업데이트됩니다.
+
+* 시스템 및 진단:
++
+** BIOS
+** Flash Cache를 참조하십시오
+** 서비스 프로세서(SP)
+
+
+* 디스크
+* 디스크 쉘프
+
+
+필요한 경우 ONTAP 업그레이드 간에 펌웨어를 수동으로 업데이트할 수도 있습니다.

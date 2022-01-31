@@ -1,0 +1,64 @@
+---
+sidebar: sidebar 
+permalink: task_security_mfa_setup.html 
+keywords: netapp, ontap, mfa, multifactor authentication, multi-factor, saml, security, Security Assertion Markup Language, authentication, identity provider, IdP, authorization, enable SAML, disable SAML 
+summary: 'SAML(Security Assertion Markup Language) 인증을 통해 사용자는 IDP(Secure Identity Provider)를 사용하여 애플리케이션에 로그인할 수 있습니다.' 
+---
+= 다단계 인증 설정
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+SAML(Security Assertion Markup Language) 인증을 통해 사용자는 IDP(Secure Identity Provider)를 사용하여 애플리케이션에 로그인할 수 있습니다.
+
+System Manager에서 표준 ONTAP 인증 외에도 SAML 기반 인증이 다단계 인증을 위한 옵션으로 제공됩니다.
+
+SAML(Security Assertion Markup Language)은 서비스 공급자와 ID 공급자 간의 인증 및 승인을 위한 XML 기반 프레임워크입니다.
+
+
+
+== SAML 인증을 활성화합니다
+
+image:workflow_security_mfa_setup.gif["SAML로 다중 요소 인증을 설정하는 작업의 워크플로 다이어그램"]
+
+SAML 인증을 활성화하려면 다음 단계를 수행하십시오.
+
+.단계
+. 클러스터 > 설정 * 을 클릭합니다.
+. SAML 인증 * 옆에 있는 을 클릭합니다 image:icon_gear.gif["기어 아이콘"].
+. SAML 인증 활성화 * 확인란이 선택되어 있는지 확인합니다.
+. IDP URI의 URL(포함)을 입력합니다 "https://")[].
+. 필요한 경우 호스트 시스템 주소를 수정합니다.
+. 올바른 인증서가 사용되고 있는지 확인합니다.
++
+** 시스템이 "서버" 유형의 인증서를 하나만 사용하여 매핑된 경우 해당 인증서는 기본값으로 간주되어 표시되지 않습니다.
+** 시스템이 여러 인증서를 "서버" 유형으로 매핑한 경우 인증서 중 하나가 표시됩니다. 다른 인증서를 선택하려면 * 변경 * 을 클릭합니다.
+
+
+. 저장 * 을 클릭합니다. 확인 창에 메타데이터 정보가 표시되며, 이 정보는 클립보드에 자동으로 복사됩니다.
+. 지정한 IDP 시스템으로 이동하고 클립보드에서 메타데이터를 복사하여 시스템 메타데이터를 업데이트합니다.
+. System Manager의 확인 창으로 돌아가서 * 호스트 URI 또는 메타데이터 * 를 사용하여 IDP를 구성했는지 * 확인란을 선택합니다.
+. SAML 기반 인증을 활성화하려면 * 로그아웃 * 을 클릭합니다. IDP 시스템에 인증 화면이 표시됩니다.
+. IdP 시스템에서 SAML 기반 자격 증명을 입력합니다. 자격 증명이 확인되면 System Manager 홈 페이지로 이동합니다.
+
+
+
+
+== SAML 인증을 비활성화합니다
+
+SAML 인증을 비활성화하려면 다음 단계를 수행하십시오.
+
+.단계
+. 클러스터 > 설정 * 을 클릭합니다.
+. SAML Authentication * 에서 * Enabled * 토글 버튼을 클릭합니다.
+. _Optional_: 을(를) 클릭할 수도 있습니다 image:icon_gear.gif["기어 아이콘"] SAML Authentication * 옆에 있는 * SAML Authentication * 확인란의 선택을 취소합니다.
+

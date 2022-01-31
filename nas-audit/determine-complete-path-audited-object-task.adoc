@@ -1,0 +1,47 @@
+---
+permalink: nas-audit/determine-complete-path-audited-object-task.html 
+sidebar: sidebar 
+keywords: determine, complete path, audited object 
+summary: '감사 레코드의 <ObjectName> 태그에 인쇄된 개체 경로에는 볼륨의 이름(괄호 안에 표시)과 포함하는 볼륨의 루트에서 가져온 상대 경로가 포함됩니다. 연결 경로를 포함하여 감사된 개체의 전체 경로를 결정하려면 특정 단계를 수행해야 합니다.' 
+---
+= 감사된 개체에 대한 전체 경로를 결정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+감사 레코드에 대한 "<ObjectName>" 태그에 인쇄된 객체 경로에는 볼륨의 이름(괄호 안에 표시)과 포함하는 볼륨의 루트에서의 상대 경로가 포함됩니다. 연결 경로를 포함하여 감사된 개체의 전체 경로를 결정하려면 특정 단계를 수행해야 합니다.
+
+.단계
+. 감사 이벤트의 "<ObjectName>" 태그를 확인하여 감사된 개체에 대한 볼륨 이름 및 상대 경로를 확인합니다.
++
+이 예에서 볼륨 이름은 "data1"이고 파일의 상대 경로는 "/dir1/file.txt"입니다.
+
++
+'<Data Name="ObjectName">''(data1); /dir1/file.txt'</Data>'
+
+. 이전 단계에서 확인한 볼륨 이름을 사용하여 감사된 개체가 포함된 볼륨의 연결 경로를 결정합니다.
++
+이 예에서 볼륨 이름은 "data1"이고 감사 대상 객체가 포함된 볼륨의 연결 경로는 "/data/data1"입니다.
+
++
+'볼륨 표시-접합-볼륨 데이터1'
+
++
+[listing]
+----
+
+                                Junction                    Junction
+Vserver   Volume       Language Active    Junction Path     Path Source
+--------- ------------ -------- --------  ----------------- -----------
+vs1       data1        en_US.UTF-8
+                                true      /data/data1       RW_volume
+----
+. 볼륨의 접합 경로에 "<ObjectName>" 태그에 있는 상대 경로를 추가하여 감사된 개체의 전체 경로를 확인합니다.
++
+이 예에서 볼륨의 접합 경로는 다음과 같습니다.
+
++
+'/data/data1/dir1/file.text'
+
+

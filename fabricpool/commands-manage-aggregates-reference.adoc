@@ -1,0 +1,241 @@
+---
+permalink: fabricpool/commands-manage-aggregates-reference.html 
+sidebar: sidebar 
+keywords: commands, managing, aggregates, storage aggregate object-store config 
+summary: 스토리지 애그리게이트 오브젝트 저장소 명령을 사용하여 FabricPool의 오브젝트 저장소를 관리할 수 있습니다. 스토리지 애그리게이트 명령을 사용하여 FabricPool의 애그리게이트를 관리할 수 있습니다. volume 명령을 사용하여 FabricPool의 볼륨을 관리할 수 있습니다. 
+---
+= FabricPool에서 애그리게이트를 관리하기 위한 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'Storage aggregate object-store' 명령을 사용하여 FabricPool의 오브젝트 저장소를 관리할 수 있습니다. '스토리지 애그리게이트' 명령을 사용하여 FabricPool의 애그리게이트를 관리할 수 있습니다. 'volume' 명령을 사용하여 FabricPool의 볼륨을 관리할 수 있습니다.
+
+|===
+
+
+| 원하는 작업 | 다음 명령을 사용합니다. 
+
+
+ a| 
+ONTAP에서 액세스할 수 있도록 객체 저장소에 대한 구성을 정의합니다
+ a| 
+'스토리지 집계 객체 저장소 구성 생성'을 선택합니다
+
+
+
+ a| 
+오브젝트 저장소 구성 특성을 수정합니다
+ a| 
+'Storage aggregate object-store config modify'를 참조하십시오
+
+
+
+ a| 
+기존 오브젝트 저장소 구성의 이름을 바꿉니다
+ a| 
+'스토리지 집계 객체 저장소 구성 이름 바꾸기'를 선택합니다
+
+
+
+ a| 
+오브젝트 저장소 구성을 삭제합니다
+ a| 
+'스토리지 집계 객체 저장소 구성 삭제'를 선택합니다
+
+
+
+ a| 
+오브젝트 저장소 구성 목록을 표시합니다
+ a| 
+'Storage aggregate object-store config show'를 선택합니다
+
+
+
+ a| 
+새 FabricPool 또는 기존에 미러로 두 번째 오브젝트 저장소를 연결합니다
+ a| 
+관리 권한 수준에서 '-aggregate' 및 '-name' 매개 변수가 있는 스토리지 집계 오브젝트 저장소 미러
+
+
+
+ a| 
+기존 FabricPool 미러에서 오브젝트 저장소 미러를 제거합니다
+ a| 
+관리 권한 수준에서 '-aggregate' 및 '-name' 매개 변수가 있는 '스토리지 집계 객체 저장소 언미러'입니다
+
+
+
+ a| 
+FabricPool 미러 재동기화 상태를 모니터링합니다
+ a| 
+'Storage aggregate object-store show-resync-status'를 참조하십시오
+
+
+
+ a| 
+FabricPool 미러 세부 정보를 표시합니다
+ a| 
+'스토리지 골재 오브젝트 저장소 쇼'
+
+
+
+ a| 
+FabricPool 미러 구성에서 운영 오브젝트 저장소를 대체하도록 오브젝트 저장소 미러를 승격합니다
+ a| 
+관리 권한 수준에서 '-aggregate' 매개 변수를 사용하여 '스토리지 애그리게이트 오브젝트 저장소 수정'을 수행합니다
+
+
+
+ a| 
+오브젝트 저장소를 Aggregate에 연결하지 않고 오브젝트 저장소의 지연 시간과 성능을 테스트합니다
+ a| 
+스토리지 집계 오브젝트 저장소 프로파일러는 고급 권한 수준에서 '-object-store-name' 및 '-node' 매개변수로 시작됩니다
+
+
+
+ a| 
+오브젝트 저장소 프로파일러 상태를 모니터링합니다
+ a| 
+스토리지 집계 오브젝트 저장소 프로파일러는 고급 권한 수준에서 '-object-store-name' 및 '-node' 매개 변수를 사용하여 표시합니다
+
+
+
+ a| 
+실행 중인 개체 저장소 프로파일러를 중단합니다
+ a| 
+고급 권한 수준에서 '-object-store-name' 및 '-node' 매개 변수를 사용하여 '저장소 집계 개체 저장소 프로파일러 중단'을 실행하십시오
+
+
+
+ a| 
+FabricPool를 사용하기 위해 오브젝트 저장소를 Aggregate에 연결합니다
+ a| 
+'스토리지 골재 오브젝트 저장소 연결'을 참조하십시오
+
+
+
+ a| 
+FabricPool를 사용하기 위해 FlexGroup 볼륨이 포함된 애그리게이트에 오브젝트 저장소를 연결합니다
+ a| 
+'allow-flexgroup'이 true인 'tTRUE'로 'STOATTATE OBJECT-STORE ATTACH'가 가능합니다
+
+
+
+ a| 
+FabricPool 지원 애그리게이트에 연결된 오브젝트 저장소의 세부 정보를 표시합니다
+ a| 
+'스토리지 골재 오브젝트 저장소 쇼'
+
+
+
+ a| 
+계층화 스캔에서 사용되는 애그리게이트 충만 임계값을 표시합니다
+ a| 
+고급 권한 레벨의 필드 계층화-충만함-임계값 매개변수를 사용하여 '스토리지 집계 오브젝트 저장소 표시'를 표시합니다
+
+
+
+ a| 
+FabricPool 지원 애그리게이트에 연결된 오브젝트 저장소의 공간 활용률을 표시합니다
+ a| 
+'스토리지 집계 오브젝트 저장소 표시 공간'
+
+
+
+ a| 
+FabricPool에 사용되지 않는 애그리게이트에 대해 비활성 데이터 보고를 설정합니다
+ a| 
+'스토리지 집계 수정' - is-inactive-data-reporting-enabled' true 매개 변수를 사용합니다
+
+
+
+ a| 
+비활성 데이터 보고가 집계에서 활성화되어 있는지 여부를 표시합니다
+ a| 
+"필드 is-inactive-data-reporting-enabled" 매개 변수가 있는 '스토리지 집계 표시'입니다
+
+
+
+ a| 
+집계 내에서 얼마나 많은 사용자 데이터가 콜드 데이터인지 표시합니다
+ a| 
+'fields performance-tier-inactive-user-data, performance-tier-inactive-user-data-percent' 매개 변수가 있는 'storage aggregate show space'입니다
+
+
+
+ a| 
+다음을 지정하는 등 FabricPool용 볼륨을 생성합니다.
+
+* 계층화 정책
+* 계층화 최소 냉각 기간('스냅샷 전용' 또는 '자동' 계층화 정책)
+
+ a| 
+'볼륨 생성'
+
+* 계층화 정책을 지정하려면 '-Tiering-policy' 매개 변수를 사용합니다.
+* 고급 권한 수준에서 '-Tiering-Minimum-Cooling-Days' 매개 변수를 사용하여 계층화 최소 냉각 기간을 지정합니다.
+
+
+
+
+ a| 
+다음 사항을 수정하는 등 FabricPool의 볼륨을 수정합니다.
+
+* 계층화 정책
+* 계층화 최소 냉각 기간('스냅샷 전용' 또는 '자동' 계층화 정책)
+
+ a| 
+볼륨 수정
+
+* 계층화 정책을 지정하려면 '-Tiering-policy' 매개 변수를 사용합니다.
+* 고급 권한 수준에서 '-Tiering-Minimum-Cooling-Days' 매개 변수를 사용하여 계층화 최소 냉각 기간을 지정합니다.
+
+
+
+
+ a| 
+다음과 같은 볼륨 관련 FabricPool 정보를 표시합니다.
+
+* 계층화 최소 냉각 기간
+* 사용 빈도가 낮은 사용자 데이터의 양
+
+ a| 
+'볼륨 쇼'
+
+* 고급 권한 수준에서 '-fields Tiering-minimum-cooling-days' 매개 변수를 사용하여 계층화 최소 냉각 기간을 표시합니다.
+* '-fields performance-tier-inactive-user-data, performance-tier-inactive-user-data-percent' 매개 변수를 사용하여 사용자 데이터의 사용 빈도가 낮은 양을 표시할 수 있습니다.
+
+
+
+
+ a| 
+FabricPool로 또는 밖으로 볼륨을 이동합니다
+ a| 
+볼륨 이동 시작 '-Tiering-policy' 선택적 매개 변수를 사용하여 볼륨에 대한 계층화 정책을 지정합니다.
+
+
+
+ a| 
+FabricPool에 대해 참조되지 않은 공간(조각 모음 임계값)을 회수하기 위한 임계값을 수정합니다
+ a| 
+고급 권한 레벨의 unrecla재확보된 공간 임계값 매개변수를 사용하여 스토리지 집계 오브젝트 저장소를 수정합니다
+
+
+
+ a| 
+계층화 검사가 FabricPool에 대한 데이터 계층화를 시작하기 전에 애그리게이트의 전체 비율을 위한 임계값을 수정합니다
+
+FabricPool은 로컬 계층이 98%에 도달할 때까지 콜드 데이터를 클라우드 계층으로 계속 계층화합니다.
+ a| 
+고급 권한 레벨의 계층화-fullness-threshold로 스토리지 집계 객체 저장소 수정
+
+
+
+ a| 
+참조되지 않은 FabricPool 공간을 재확보하기 위한 임계값을 표시합니다
+ a| 
+고급 권한 수준에서 '-unrecla재확보된-공간-임계값' 매개 변수를 사용하는 '스토리지 집계 객체 저장소 표시' 또는 '저장소 집계 오브젝트 저장소 표시 공간' 명령
+
+|===

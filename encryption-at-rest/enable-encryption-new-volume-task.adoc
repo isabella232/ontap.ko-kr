@@ -1,0 +1,133 @@
+---
+permalink: encryption-at-rest/enable-encryption-new-volume-task.html 
+sidebar: sidebar 
+keywords: enabling, encryption, new, volume 
+summary: 볼륨 생성 명령을 사용하여 새 볼륨에서 암호화를 활성화할 수 있습니다. 
+---
+= 새 볼륨에서 암호화를 활성화합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'volume create' 명령을 사용하여 새 볼륨에서 암호화를 활성화할 수 있습니다.
+
+ONTAP 9.2부터는 SnapLock 볼륨에서 암호화를 사용하도록 설정할 수 있습니다.
+
+ONTAP 9.4부터 Onboard Key Manager를 설정할 때 ""cc-mode""를 활성화하면 "-encrypt true"를 지정하든 상관없이 "volume create" 명령으로 생성한 볼륨이 자동으로 암호화됩니다.
+
+ONTAP 9.6부터 애그리게이트 레벨 암호화를 사용하여 암호화할 볼륨에 포함된 애그리게이트에 키를 할당할 수 있습니다. Aggregate에서 생성한 볼륨은 기본적으로 암호화됩니다. 볼륨을 만들 때 '-encrypt' 옵션을 사용하여 기본값을 재정의할 수 있습니다.
+
+ONTAP 9.7부터는 VE 라이센스 및 온보드 키 또는 외부 키 관리 기능이 있는 경우 새로 생성된 볼륨이 기본적으로 암호화됩니다.
+
+고유 키로 암호화된 볼륨을 _NVE 볼륨 _ 이라고 합니다. 애그리게이트 레벨 키로 암호화된 볼륨을 _NAE 애그리게이트 _ (NetApp 애그리게이트 암호화의 경우)라고 합니다. NAE 애그리게이트에서는 일반 텍스트 볼륨이 지원되지 않습니다.
+
+.단계
+. 새 볼륨을 생성하고 볼륨에 암호화가 활성화되어 있는지 여부를 지정합니다.
++
+[cols="25,75"]
+|===
+
+
+| 생성 방법... | 이 명령 사용... 
+
+
+ a| 
+ONTAP 9.7 이상 NAE 볼륨
+ a| 
+'volume create-vserver SVM_name-volume volume_name-aggregate aggregate_name'
+
+
+
+ a| 
+ONTAP 9.6 NAE 볼륨(애그리게이트 레벨 암호화가 사용되는 것으로 가정)
+ a| 
+'volume create-vserver SVM_name-volume volume_name-aggregate aggregate_name'
+
+
+
+ a| 
+ONTAP 9.7 이상 NVE 볼륨
+ a| 
+'volume create-vserver SVM_name-volume volume_name-aggregate aggregate_name'
+
+
+
+ a| 
+ONTAP 9.6 또는 이전 NVE 볼륨
+ a| 
+'volume create-vserver SVM_name-volume volume_name-aggregate aggregate_name-encrypt TRUE'
+
+
+
+ a| 
+일반 텍스트 볼륨입니다
+ a| 
+'volume create-vserver SVM_name-volume volume_name-aggregate aggregate_name-encrypt false'
+
+|===
++
+전체 명령 구문은 명령에 대한 man 페이지를 참조하십시오.
+
++
+다음 명령은 ONTAP 9.7 이상부터 aggr1에 vol1이라는 NAE 볼륨을 생성합니다.
+
++
+[listing]
+----
+cluster1::> volume create -vserver vs1 -volume vol1 -aggregate aggr1
+----
++
+다음 명령은 ONTAP 9.6을 사용하여 집계 수준 암호화가 활성화된 것으로 가정하고, aggr1에서 "vol1"이라는 NAE 볼륨을 생성합니다.
+
++
+[listing]
+----
+cluster1::> volume create -vserver vs1 -volume vol1 -aggregate aggr1
+----
++
+다음 명령은 ONTAP 9.7 이상부터 aggr1에 vol2라는 NVE 볼륨을 생성합니다.
+
++
+[listing]
+----
+cluster1::> volume create -vserver vs1 -volume vol2 -aggregate aggr1
+----
++
+ONTAP 9.6 이하를 사용하여 다음 명령을 실행하면 aggr1에 vol2라는 NVE 볼륨이 생성됩니다.
+
++
+[listing]
+----
+cluster1::> volume create -vserver vs1 -volume vol2 -aggregate aggr1 -encrypt true
+----
++
+다음 명령을 실행하면 aggr1에 vol3이라는 일반 텍스트 볼륨이 생성됩니다.
+
++
+[listing]
+----
+cluster1::> volume create -vserver vs1 -volume vol3 -aggregate aggr1 -encrypt false
+----
+. 볼륨에 암호화가 설정되어 있는지 확인합니다.
++
+볼륨 쇼는 암호화된 사실이다
+
++
+전체 명령 구문은 명령에 대한 man 페이지를 참조하십시오.
+
++
+다음 명령을 실행하면 암호화된 볼륨이 'cluster2'에 표시됩니다.
+
++
+[listing]
+----
+cluster2::> volume show -is-encrypted true
+
+Vserver  Volume  Aggregate  State  Type  Size  Available  Used
+-------  ------  ---------  -----  ----  -----  --------- ----
+vs1      vol1    aggr2     online    RW  200GB    160.0GB  20%
+----
+
+
+KMIP 서버를 사용하여 노드의 암호화 키를 저장하는 경우, ONTAP는 볼륨을 암호화할 때 암호화 키를 서버에 자동으로 "푸시"(푸시)"합니다.

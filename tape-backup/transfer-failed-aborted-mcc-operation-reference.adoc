@@ -1,0 +1,24 @@
+---
+permalink: tape-backup/transfer-failed-aborted-mcc-operation-reference.html 
+sidebar: sidebar 
+keywords: transfer, failed, aborted, metrocluster, operation, switchover, switchback 
+summary: 전환 또는 스위치백 작업으로 인해 SMTape 작업이 중단됩니다. 
+---
+= 전송 실패(MetroCluster 작업으로 인해 중단됨)
+:icons: font
+:imagesdir: ../media/
+
+
+* * 메시지 *
++
+"전송 실패(MetroCluster 작업으로 인해 중단됨)
+
+* * 원인 *
++
+전환 또는 스위치백 작업으로 인해 SMTape 작업이 중단됩니다.
+
+* * 시정 조치 *
++
+스위치오버 또는 스위치백 작업이 완료된 후 SMTape 작업을 수행합니다.
+
+

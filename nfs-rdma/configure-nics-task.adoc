@@ -1,0 +1,54 @@
+---
+permalink: nfs-rdma/configure-nics-task.html 
+sidebar: sidebar 
+keywords: networking, NICs, NFS over RDMA, NVIDIA, NFS 
+summary: 이 문서에서는 ONTAP에서 RDMA 상의 NFS를 사용하기 위해 NIC에 대한 요구 사항과 클라이언트 시스템 및 스토리지 플랫폼 구성 프로세스를 모두 수행하는 방법을 설명합니다. 
+---
+= RDMA를 통해 NFS용 NIC를 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+RDMA를 통한 NFS를 사용하려면 클라이언트 시스템과 스토리지 플랫폼 모두에 NIC 구성이 필요합니다.
+
+
+
+== 스토리지 플랫폼 구성
+
+X1148 RDMA 어댑터를 서버에 설치해야 합니다. HA 구성을 사용하는 경우 페일오버 중에도 RDMA 서비스를 계속하려면 페일오버 파트너에 해당하는 X1148 어댑터가 있어야 합니다. NIC는 ROCE를 지원해야 합니다.
+
+ONTAP 9.10.1부터 "network port show-RDMA-protocols RoCE" 명령을 사용하여 RDMA Offload 프로토콜 목록을 볼 수 있습니다
+
+
+
+== 클라이언트 시스템 구성
+
+클라이언트는 Mellanox RDMA 지원 NIC 카드(예 X1148) 및 Mellanox OFED 네트워크 소프트웨어. 지원되는 모델 및 버전은 Mellanox 설명서를 참조하십시오. 클라이언트와 서버를 직접 연결할 수 있지만 스위치를 사용하면 페일오버 성능이 향상되므로 스위치를 사용하는 것이 좋습니다.
+
+클라이언트, 서버 및 모든 스위치와 스위치의 모든 포트는 점보 프레임을 사용하여 구성해야 합니다. 또한 우선 순위 흐름 제어가 모든 스위치에 적용되었는지 확인합니다.
+
+이 구성이 확인되면 NFS를 마운트할 수 있습니다.
+
+.단계
+. 다음 명령을 사용하여 NFS 서버에서 RDMA 액세스가 활성화되어 있는지 확인합니다.
++
+'vserver nfs show -vserver_vserver_name_'
+
++
+기본적으로 -RDMA가 활성화되어 있어야 합니다. 그렇지 않은 경우 NFS 서버에서 RDMA 액세스를 설정합니다.
+
++
+'vserver NFS modify -vserver_vserver_name_-RDMA enabled'
+
+. RDMA를 통해 NFSv4.0을 통해 클라이언트를 마운트합니다.
++
+.. proto 매개 변수의 입력은 서버 IP 프로토콜 버전에 따라 다릅니다. v4인 경우 proto=RDMA를 사용합니다. V6인 경우 proto=rdma6 사용
+.. NFS 타겟 포트를 2049의 표준 포트 대신 포트=20049로 지정합니다.
++
+마운트 - 서버 = 4, MinorVersion = 0, proto = RDMA, port = 20049_Server_IP_address_:/_volume_path__mount_point_"
+
+
+
+. * 선택 사항 *: 클라이언트를 마운트 해제해야 하는 경우 'unmount_mount_path_' 명령을 실행합니다
+

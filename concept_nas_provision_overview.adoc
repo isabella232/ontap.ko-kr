@@ -1,0 +1,45 @@
+---
+sidebar: sidebar 
+permalink: concept_nas_provision_overview.html 
+keywords: netapp, ontap, provisioning, nas, overview, provision NAS storage, manage NAS services, NAS file service, Linux client, Windows client, NAS multiprotocol, name service, name service switch, NFS, SMB, DNS, LDAP, NIS, Kerberos security, export, share, qtree, name mapping, NAS data service 
+summary: ONTAP를 사용하면 Linux 및 Windows 클라이언트에 데이터를 쉽고 안전하고 효율적으로 제공할 수 있습니다. 
+---
+= System Manager를 사용한 NAS 관리 개요
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+이 섹션에서는 ONTAP 9.7 이상 릴리즈에서 System Manager를 사용하여 NAS 환경을 구성하고 관리하는 방법을 설명합니다.
+
+클래식 시스템 관리자(ONTAP 9.7 이전에서만 사용 가능)를 사용하는 경우 다음 항목을 참조하십시오.
+
+* https://docs.netapp.com/us-en/ontap-sm-classic/nfs-config/index.html["NFS 구성 개요"^]
+* https://docs.netapp.com/us-en/ontap-sm-classic/smb-config/index.html["SMB 구성 개요"^]
+
+
+System Manager는 다음과 같은 워크플로우를 지원합니다.
+
+* NAS 파일 서비스에 사용할 클러스터의 초기 구성입니다.
+* 변화하는 스토리지 요구사항에 부합하는 추가 볼륨 프로비저닝
+* 업계 표준 인증 및 보안 시설을 위한 구성 및 유지 보수
+
+
+System Manager를 사용하면 구성 요소 레벨에서 NAS 서비스를 관리할 수 있습니다.
+
+* 프로토콜 – NFS, SMB 또는 둘 다(NAS 멀티프로토콜)
+* 이름 서비스 – DNS, LDAP 및 NIS
+* 네임 서비스 스위치
+* Kerberos 보안
+* 수출 및 공유
+* Qtree
+* 사용자 및 그룹의 이름 매핑
+

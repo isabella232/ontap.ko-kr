@@ -1,0 +1,35 @@
+---
+permalink: san-admin/storage-virtualization-vmware-copy-offload-concept.html 
+sidebar: sidebar 
+keywords: storage, virtualization, vmware, microsoft, copy, offload, advantages, virtualized, san 
+summary: VMware와 Microsoft는 복제 오프로드 작업을 지원하여 성능과 네트워크 처리량을 높여줍니다. 개별 복제 오프로드 기능을 사용하려면 VMware 및 Windows 운영 체제 환경의 요구 사항을 충족하도록 시스템을 구성해야 합니다. 
+---
+= VMware 및 Microsoft Copy Offload를 사용한 스토리지 가상화 개요
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VMware와 Microsoft는 복제 오프로드 작업을 지원하여 성능과 네트워크 처리량을 높여줍니다. 개별 복제 오프로드 기능을 사용하려면 VMware 및 Windows 운영 체제 환경의 요구 사항을 충족하도록 시스템을 구성해야 합니다.
+
+가상화 환경에서 VMware 및 Microsoft 복제 오프로드를 사용하는 경우 LUN을 정렬해야 합니다. 정렬되지 않은 LUN은 성능을 저하시킬 수 있습니다.
+
+
+
+== 가상화된 SAN 환경을 사용할 때의 이점
+
+SVM(Storage Virtual Machine)과 LIF를 사용하여 가상화 환경을 구축하면 클러스터의 모든 노드로 SAN 환경을 확장할 수 있습니다.
+
+* 분산 관리
++
+SVM의 모든 노드에 로그인하여 클러스터의 모든 노드를 관리할 수 있습니다.
+
+* 데이터 액세스 증가
++
+MPIO 및 ALUA를 사용하면 SVM을 위한 모든 활성 iSCSI 또는 FC LIF를 통해 데이터에 액세스할 수 있습니다.
+
+* LUN 액세스를 제어합니다
++
+SLM 및 포트 세트를 사용하는 경우 이니시에이터가 LUN에 액세스하는 데 사용할 수 있는 LIF를 제한할 수 있습니다.
+
+

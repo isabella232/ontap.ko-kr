@@ -1,0 +1,113 @@
+---
+permalink: flexgroup/expand-destination-snapmirror-relationship-task.html 
+sidebar: sidebar 
+keywords: expand, destination, flexgroup, volume, snapmirror, relationship 
+summary: 대상 FlexGroup 볼륨을 확장하고 SnapMirror 관계를 자동 또는 수동으로 다시 설정할 수 있습니다. 기본적으로 SnapMirror 관계는 자동 확장을 위해 설정되고 소스 볼륨이 확장되면 대상 FlexGroup 볼륨이 자동으로 확장됩니다. 
+---
+= SnapMirror 관계의 대상 FlexGroup 볼륨을 확장합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+대상 FlexGroup 볼륨을 확장하고 SnapMirror 관계를 자동 또는 수동으로 다시 설정할 수 있습니다. 기본적으로 SnapMirror 관계는 자동 확장을 위해 설정되고 소스 볼륨이 확장되면 대상 FlexGroup 볼륨이 자동으로 확장됩니다.
+
+.무엇을 &#8217;필요로 할거야
+* 소스 FlexGroup 볼륨이 확장되어야 합니다.
+* SnapMirror 관계는 '미스네이ed' 상태여야 합니다.
++
+SnapMirror 관계를 끊거나 삭제할 수 없습니다.
+
+
+
+.이 작업에 대해
+* 대상 FlexGroup 볼륨이 생성되면 기본적으로 자동 확장이 가능하도록 볼륨이 설정됩니다.
++
+필요한 경우 수동 확장을 위해 대상 FlexGroup 볼륨을 수정할 수 있습니다.
+
++
+[NOTE]
+====
+가장 좋은 방법은 대상 FlexGroup 볼륨을 자동으로 확장하는 것입니다.
+
+====
+* 소스 FlexGroup 볼륨과 타겟 FlexGroup 볼륨 모두에 동일한 수의 구성요소가 있을 때까지 모든 SnapMirror 작업이 실패합니다.
+* SnapMirror 관계가 끊거나 삭제된 후 대상 FlexGroup 볼륨을 확장하는 경우 원래 관계를 다시 동기화할 수 없습니다.
++
+대상 FlexGroup 볼륨을 재사용하려면 SnapMirror 관계를 삭제한 후 볼륨을 확장해서는 안 됩니다.
+
+
+
+.선택
+* 업데이트 전송을 수행하여 대상 FlexGroup 볼륨을 자동으로 확장합니다.
++
+.. 'sapmirror update-destination-path svm:vol_name'이라는 SnapMirror 업데이트 전송을 수행합니다
+.. SnapMirror 관계의 상태가 '스냅샷 표시' 상태인지 확인합니다
++
+[listing]
+----
+cluster2::> snapmirror show
+                                                                       Progress
+Source            Destination Mirror  Relationship   Total             Last
+Path        Type  Path        State   Status         Progress  Healthy Updated
+----------- ---- ------------ ------- -------------- --------- ------- --------
+vs_src:src_fg
+            XDP  vs_dst:dst_fg
+                              Snapmirrored
+                                      Idle           -         true   -
+----
+
+
++
+애그리게이트의 크기와 가용성에 따라 애그리게이트가 자동으로 선택되고, 소스 FlexGroup 볼륨의 구성요소에 맞는 새로운 구성요소가 타겟 FlexGroup 볼륨에 추가됩니다. 확장 후 재동기화 작업이 자동으로 트리거됩니다.
+
+* 대상 FlexGroup 볼륨을 수동으로 확장합니다.
++
+.. SnapMirror 관계가 자동 확장 모드에 있는 경우 SnapMirror 관계를 수동 확장 모드인 '스냅샷 수정-대상-경로 svm:vol_name-is-auto-expand-enabled false'로 설정합니다
++
+[listing]
+----
+cluster2::> snapmirror modify -destination-path vs_dst:dst_fg -is-auto-expand-enabled false
+Operation succeeded: snapmirror modify for the relationship with destination "vs_dst:dst_fg".
+----
+.. SnapMirror 관계 중지:'sapmirror-destination-path svm:vol_name'입니다
++
+[listing]
+----
+cluster2::> snapmirror quiesce -destination-path vs_dst:dst_fg
+Operation succeeded: snapmirror quiesce for destination "vs_dst:dst_fg".
+----
+.. 대상 FlexGroup 볼륨을 확장합니다. '+ volume expand -vserver vserver_name -volume fg_name -aggr -list aggregate name,... [-aggr-list-multiplier f구성요소_per_aggr]+'
++
+[listing]
+----
+cluster2::> volume expand -volume dst_fg -aggr-list aggr1 -aggr-list-multiplier 2  -vserver vs_dst
+
+Warning: The following number of constituents of size 50GB will be added to FlexGroup "dst_fg": 2.
+Do you want to continue? {y|n}: y
+[Job 68] Job succeeded: Successful
+----
+.. SnapMirror 관계 'sapmirror resync-destination-path svm:vol_name'을 재동기화합니다
++
+[listing]
+----
+cluster2::> snapmirror resync -destination-path vs_dst:dst_fg
+Operation is queued: snapmirror resync to destination "vs_dst:dst_fg".
+----
+.. SnapMirror 관계의 상태가 '스냅샷 표시':'스냅샷 표시'인지 확인합니다
++
+[listing]
+----
+cluster2::> snapmirror show
+                                                                       Progress
+Source            Destination Mirror  Relationship   Total             Last
+Path        Type  Path        State   Status         Progress  Healthy Updated
+----------- ---- ------------ ------- -------------- --------- ------- --------
+vs_src:src_fg
+            XDP  vs_dst:dst_fg
+                              Snapmirrored
+                                      Idle           -         true   -
+----
+
+
+

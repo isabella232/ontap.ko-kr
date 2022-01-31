@@ -1,0 +1,90 @@
+---
+permalink: encryption-at-rest/create-authentication-keys-96-later-task.html 
+sidebar: sidebar 
+keywords: creating, authentication keys, ontap 9.6, later 
+summary: security key-manager key create 명령을 사용하여 노드의 인증 키를 생성한 다음 구성된 KMIP 서버에 저장할 수 있습니다. 
+---
+= ONTAP 9.6 이상에서 인증 키를 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'Security key-manager key create' 명령을 사용하여 노드의 인증 키를 생성한 후 구성된 KMIP 서버에 저장할 수 있습니다.
+
+이 작업을 수행하려면 클러스터 관리자여야 합니다.
+
+보안 설정에서 데이터 인증과 FIPS 140-2 인증을 위해 다른 키를 사용해야 하는 경우 각각에 대해 별도의 키를 만들어야 합니다. 그렇지 않은 경우 데이터 액세스에 사용하는 FIPS 준수에 동일한 인증 키를 사용할 수 있습니다.
+
+ONTAP은 클러스터의 모든 노드에 대해 인증 키를 생성합니다.
+
+* Onboard Key Manager가 활성화된 경우 이 명령은 지원되지 않습니다. 그러나 Onboard Key Manager가 활성화되면 두 개의 인증 키가 자동으로 생성됩니다. 키는 다음 명령을 사용하여 볼 수 있습니다.
++
+'보안 키 관리자 키 쿼리 - 키 유형 NSE-AK'
+
+* 구성된 키 관리 서버가 이미 128개 이상의 인증 키를 저장하고 있으면 경고가 표시됩니다.
++
+'Security key-manager key delete' 명령어를 이용하여 사용하지 않는 키를 삭제할 수 있다. 지정된 키가 현재 ONTAP에서 사용 중이면 보안 키 관리자 키 삭제 명령이 실패합니다. (이 명령을 사용하려면 ""admin"" 이상의 권한이 있어야 합니다.)
+
+
+
+.단계
+. 클러스터 노드의 인증 키를 생성합니다.
++
+'보안 키-관리자 키 만들기-키-태그 passphrase_label-prompt-for-key true|false'
+
++
+[NOTE]
+====
+'prompt-for-key=true'로 설정하면 시스템이 암호화된 드라이브를 인증할 때 클러스터 관리자에게 암호를 사용하도록 요청합니다. 그렇지 않으면 시스템이 자동으로 32바이트 암호를 생성합니다. 보안 키 관리자 키 만들기 명령은 보안 키 관리자 만들기 키 명령을 대체합니다. 전체 명령 구문은 man 페이지를 참조하십시오.
+
+====
++
+다음 예제에서는 32바이트 암호를 자동으로 생성하는 "cluster1"에 대한 인증 키를 만듭니다.
+
++
+[listing]
+----
+cluster1::> security key-manager key create
+Key ID: 000000000000000002000000000001006268333f870860128fbe17d393e5083b0000000000000000
+----
+. 인증 키가 생성되었는지 확인합니다.
++
+'보안 키 관리자 키 쿼리 노드
+
++
+[NOTE]
+====
+보안 키-관리자 키 쿼리 명령은 보안 키-관리자 쿼리 키 명령을 대체합니다. 전체 명령 구문은 man 페이지를 참조하십시오. 출력에 표시되는 키 ID는 인증 키를 참조하는 데 사용되는 식별자입니다. 실제 인증 키 또는 데이터 암호화 키가 아닙니다.
+
+====
++
+다음 예제에서는 "cluster1"에 대해 인증 키가 생성되었는지 확인합니다.
+
++
+[listing]
+----
+cluster1::> security key-manager key query
+       Vserver: cluster1
+   Key Manager: external
+          Node: node1
+
+Key Tag                               Key Type  Restored
+------------------------------------  --------  --------
+node1                                 NSE-AK    yes
+    Key ID: 000000000000000002000000000001000c11b3863f78c2273343d7ec5a67762e0000000000000000
+node1                                 NSE-AK    yes
+    Key ID: 000000000000000002000000000001006f4e2513353a674305872a4c9f3bf7970000000000000000
+
+       Vserver: cluster1
+   Key Manager: external
+          Node: node2
+
+Key Tag                               Key Type  Restored
+------------------------------------  --------  --------
+node2                                 NSE-AK    yes
+    Key ID: 000000000000000002000000000001000c11b3863f78c2273343d7ec5a67762e0000000000000000
+node2                                 NSE-AK    yes
+    Key ID: 000000000000000002000000000001006f4e2513353a674305872a4c9f3bf7970000000000000000
+----
+

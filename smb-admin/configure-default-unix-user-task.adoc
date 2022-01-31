@@ -1,0 +1,75 @@
+---
+permalink: smb-admin/configure-default-unix-user-task.html 
+sidebar: sidebar 
+keywords: configure, unix, user, map, fail, individual, windows, authentication, non-mapped, configure the default unix user 
+summary: 기본 UNIX 사용자는 사용자의 다른 모든 매핑 시도가 실패하거나 UNIX와 Windows 간에 개별 사용자를 매핑하지 않으려는 경우에 사용하도록 구성할 수 있습니다. 또는 매핑되지 않은 사용자의 인증에 실패하도록 하려면 기본 UNIX 사용자를 구성하지 않아야 합니다. 
+---
+= 기본 UNIX 사용자를 구성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+기본 UNIX 사용자는 사용자의 다른 모든 매핑 시도가 실패하거나 UNIX와 Windows 간에 개별 사용자를 매핑하지 않으려는 경우에 사용하도록 구성할 수 있습니다. 또는 매핑되지 않은 사용자의 인증에 실패하도록 하려면 기본 UNIX 사용자를 구성하지 않아야 합니다.
+
+기본적으로 기본 UNIX 사용자의 이름은 ""pcuser""입니다. 즉, 기본적으로 기본 UNIX 사용자에 대한 사용자 매핑이 설정됩니다. 기본 UNIX 사용자로 사용할 다른 이름을 지정할 수 있습니다. 지정하는 이름은 SVM(스토리지 가상 머신)용으로 구성된 네임 서비스 데이터베이스에 있어야 합니다. 이 옵션이 null 문자열로 설정된 경우 CIFS 서버를 UNIX 기본 사용자로 액세스할 수 없습니다. 즉, 각 사용자는 CIFS 서버를 액세스하기 전에 암호 데이터베이스에 계정이 있어야 합니다.
+
+사용자가 기본 UNIX 사용자 계정을 사용하여 CIFS 서버에 접속하려면 다음과 같은 사전 요구 사항을 충족해야 합니다.
+
+* 사용자가 인증됩니다.
+* 사용자가 CIFS 서버의 로컬 Windows 사용자 데이터베이스, CIFS 서버의 홈 도메인 또는 신뢰할 수 있는 도메인에 있습니다(CIFS 서버에서 다중 도메인 이름 매핑 검색이 설정된 경우).
+* 사용자 이름이 null 문자열에 명시적으로 매핑되어 있지 않습니다.
+
+
+.단계
+. 기본 UNIX 사용자 구성:
++
+|===
+| 원하는 작업 | 입력... 
+
+
+ a| 
+기본 UNIX 사용자 ""pcuser"" 사용
+ a| 
+'vserver cifs options modify-default-unix-user pcuser'
+
+
+
+ a| 
+다른 UNIX 사용자 계정을 기본 사용자로 사용합니다
+ a| 
+'vserver cifs options modify-default-unix-user_user_name_'
+
+
+
+ a| 
+기본 UNIX 사용자를 비활성화합니다
+ a| 
+'vserver cifs options modify-default-unix-user'''
+
+|===
++
+'vserver cifs options modify-default-unix-user pcuser'
+
+. 기본 UNIX 사용자가 올바르게 구성되었는지 확인합니다. 'vserver cifs options show -vserver_vserver_name_'
++
+다음 예에서는 기본 UNIX 사용자와 SVM VS1 게스트 UNIX 사용자 모두 UNIX 사용자 ""pcuser""를 사용하도록 구성되어 있습니다.
+
++
+'vserver cifs options show -vserver vs1'을 선택합니다
+
++
+[listing]
+----
+
+Vserver: vs1
+
+  Client Session Timeout : 900
+  Default Unix Group     : -
+  Default Unix User      : pcuser
+  Guest Unix User        : pcuser
+  Read Grants Exec       : disabled
+  Read Only Delete       : disabled
+  WINS Servers           : -
+----
+

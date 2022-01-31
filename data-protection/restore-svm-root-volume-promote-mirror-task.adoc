@@ -1,0 +1,70 @@
+---
+permalink: data-protection/restore-svm-root-volume-promote-mirror-task.html 
+sidebar: sidebar 
+keywords: promote, load-sharing, mirror 
+summary: '루트 볼륨을 영구적으로 사용할 수 없는 경우 LSM(Load-sharing mirror) 볼륨을 프로모션하여 루트 볼륨 데이터에 대한 쓰기 액세스를 제공할 수 있습니다.' 
+---
+= 로드 공유 미러를 상향 이동합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+루트 볼륨을 영구적으로 사용할 수 없는 경우 LSM(Load-sharing mirror) 볼륨을 프로모션하여 루트 볼륨 데이터에 대한 쓰기 액세스를 제공할 수 있습니다.
+
+이 작업에는 고급 권한 레벨 명령을 사용해야 합니다.
+
+.단계
+. 고급 권한 레벨로 변경:
++
+세트 프리빌리지 고급
+
+. LSM 볼륨 승격:
++
+'스냅샷 미러 상향 이동 - destination-path_SVM: volume_|_cluster://SVM/volume_'
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+다음 예에서는 볼륨의 vm1_m2를 새 SVM 루트 볼륨으로 상향 이동합니다.
+
++
+[listing]
+----
+cluster_src::*> snapmirror promote -destination-path svm1:svm1_m2
+
+Warning: Promote will delete the offline read-write volume
+         cluster_src://svm1/svm1_root and replace it with
+         cluster_src://svm1/svm1_m2. Because the volume is offline,
+         it is not possible to determine whether this promote will
+         affect other relationships associated with this source.
+Do you want to continue? {y|n}: y
+----
++
+y를 입력합니다. ONTAP는 LSM 볼륨을 읽기/쓰기 볼륨으로 만들고, 액세스 가능한 경우 원래 루트 볼륨을 삭제한다.
+
++
+[NOTE]
+====
+마지막 업데이트가 최근에 수행되지 않은 경우 상향 이동된 루트 볼륨에 원래 루트 볼륨에 있던 데이터가 모두 없을 수 있습니다.
+
+====
+. 관리자 권한 레벨로 돌아가기:
++
+'Set-Privilege admin'입니다
+
+. 루트 볼륨에 사용한 명명 규칙에 따라 승격된 볼륨의 이름을 바꿉니다.
++
+'볼륨 이름 변경 - vserver_SVM_-volume_volume_-newname_new_name_'
+
++
+다음 예에서는 승격된 볼륨의 이름을 vm1_m2로 바꾸고 이름은 svm1_root로 바꿉니다.
+
++
+[listing]
+----
+cluster_src::> volume rename -vserver svm11 -volume svm1_m2 -newname svm1_root
+----
+. 단계에서 설명한 대로 이름이 변경된 루트 볼륨을 보호합니다 link:create-load-sharing-mirror-task.html#steps["3"] 단계를 수행합니다  인치 .
+

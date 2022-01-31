@@ -1,0 +1,115 @@
+---
+permalink: flexgroup/create-task.html 
+sidebar: sidebar 
+keywords: create, flexgroup, volume, flex group, aggregate, fabricpool, fabric pool 
+summary: FlexGroup 볼륨을 생성할 애그리게이트를 수동으로 선택한 다음, 각 애그리게이트에 있는 구성요소의 수를 지정하여 FlexGroup 볼륨을 생성할 수 있습니다. 
+---
+= FlexGroup 볼륨을 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+FlexGroup 볼륨을 생성할 애그리게이트를 수동으로 선택한 다음, 각 애그리게이트에 있는 구성요소의 수를 지정하여 FlexGroup 볼륨을 생성할 수 있습니다.
+
+FlexGroup 볼륨을 생성하는 데 필요한 Aggregate의 공간에 대해 알고 있어야 합니다.
+
+link:aggregate-space-requirements-concept.html["FlexGroup 볼륨을 프로비저닝할 때 애그리게이트 공간을 위한 지침입니다"]
+
+또한 FlexGroup 볼륨 프로비저닝을 위해 애그리게이트를 선택할 때 고려해야 할 사항과 요구사항을 알고 있어야 합니다.
+
+FlexGroup 볼륨에서 최상의 성능 결과를 얻으려면 FlexGroup 볼륨을 생성할 때 다음 지침을 고려해야 합니다.
+
+* FlexGroup 볼륨은 동일한 하드웨어 시스템에 있는 애그리게이트에만 분산되어야 합니다.
++
+동일한 하드웨어 시스템을 사용하면 FlexGroup 볼륨 전체에서 예측 가능한 성능을 제공할 수 있습니다.
+
+* FlexGroup 볼륨은 디스크 유형과 RAID 그룹 구성이 동일한 애그리게이트로 확장되어야 합니다.
++
+일관된 성능을 위해서는 모든 SSD, 모든 HDD 또는 모든 하이브리드 애그리게이트에서 사용할 수 있는지 확인해야 합니다. 또한 애그리게이트는 FlexGroup 볼륨 전체에서 동일한 수의 드라이브 및 RAID 그룹을 가져야 합니다.
+
+* FlexGroup 볼륨은 클러스터의 일부를 포괄할 수 있습니다.
++
+FlexGroup 볼륨을 전체 클러스터로 구성할 필요는 없지만 사용할 수 있는 하드웨어 리소스를 더 많이 활용할 수 있습니다.
+
+* FlexGroup 볼륨을 생성할 때 FlexGroup 볼륨이 구축되어 있는 애그리게이트에 다음과 같은 특성을 갖는 것이 가장 좋습니다.
++
+** 특히 씬 프로비저닝을 사용할 경우 여러 애그리게이트에서 거의 동일한 양의 여유 공간을 사용할 수 있어야 합니다.
+** FlexGroup 볼륨을 생성한 후 여유 공간의 약 3%를 애그리게이트 메타데이터용으로 예약해야 합니다.
+
+
+* FAS 시스템의 경우 노드당 두 개의 애그리게이트를 가질 수 있으며, AFF 시스템의 경우 FlexGroup 볼륨의 경우 노드당 하나의 애그리게이트를 가져야 합니다.
+* 각 FlexGroup 볼륨에 대해 FAS 시스템의 2개 이상의 애그리게이트와 AFF 시스템의 하나 이상의 애그리게이트에 분산되어 있는 최소 8개의 구성요소를 생성해야 합니다.
+
+
+.단계
+. FlexGroup 볼륨:'volume create-vserver svm_name-volume flexgroup_name-aggr-list aggr1, aggr2'를 생성합니다. -aggr-list-multiplier fopls_per_aggr-size fg_size [–encrypt true] [-qos-policy-group qos_policy_group_name]
++
+** '-aggr-list' 매개 변수는 FlexGroup 볼륨 구성요소에 사용할 애그리게이트 목록을 지정합니다.
++
+목록의 각 항목은 지정된 애그리게이트에 구성요소를 생성합니다. Aggregate를 여러 번 지정하여 Aggregate에 여러 구성요소를 생성할 수 있습니다.
+
++
+FlexGroup 볼륨 전체에서 일관된 성능을 위해서는 모든 애그리게이트에서 동일한 디스크 유형과 RAID 그룹 구성을 사용해야 합니다.
+
+** '-aggr-list-multiplier' 매개 변수는 FlexGroup 볼륨을 생성할 때 '-aggr-list' 매개 변수로 나열된 애그리게이트를 반복하는 횟수를 지정합니다.
++
+'-aggr-list-multiplier' 파라미터의 기본값은 4이다.
+
+** "size" 매개 변수는 FlexGroup 볼륨의 크기를 KB, MB, GB, TB 또는 PB 단위로 지정합니다.
+** ONTAP 9.5부터는 모든 SSD 애그리게이트만 사용하는 FabricPool용 FlexGroup 볼륨을 생성할 수 있습니다.
++
+FabricPool에 대한 FlexGroup 볼륨을 생성하려면 '-aggr-list' 매개 변수로 지정한 모든 애그리게이트가 FabricPool여야 합니다. 볼륨 보장은 FabricPool에 대해 항상 "없음"으로 설정되어야 합니다. FlexGroup 볼륨에 대한 계층화 정책 및 계층화 최소 냉각 기간을 지정할 수도 있습니다.
+
++
+xref:../disks-aggregates/index.html[디스크 및 애그리게이트 관리]
+
+** ONTAP 9.4부터 FlexGroup 볼륨에 대한 처리량 층(QoS Min) 및 적응형 QoS를 지정할 수 있습니다.
++
+link:../performance-admin/index.html["성능 관리"]
+
+** ONTAP 9.3부터 FlexGroup 볼륨에 대한 처리량 한도(QoS Max)를 지정하여 FlexGroup 볼륨에서 처리할 수 있는 성능 리소스를 제한할 수 있습니다.
+** ONTAP 9.2부터 FlexGroup 볼륨에서 암호화를 사용하려면 '-encrypt' 매개 변수를 'true'로 설정할 수 있습니다.
++
+암호화된 볼륨을 만들려면 볼륨 암호화 라이센스와 키 관리자를 설치해야 합니다.
+
++
+[NOTE]
+====
+생성 시 FlexGroup 볼륨에서 암호화를 활성화해야 합니다. 기존 FlexGroup 볼륨에서는 암호화를 설정할 수 없습니다.
+
+====
++
+link:../encryption-at-rest/index.html["유휴 데이터의 암호화"]
+
+
+
++
+[listing]
+----
+cluster-1::> volume create -vserver vs0 -volume fg2 -aggr-list aggr1,aggr2,aggr3,aggr1 -aggr-list-multiplier 2 -size 500TB
+
+Warning: A FlexGroup "fg2" will be created with the following number of constituents of size 62.50TB: 8.
+Do you want to continue? {y|n}: y
+
+[Job 43] Job succeeded: Successful
+----
+
+
+이전 예제에서 FabricPool용 FlexGroup 볼륨을 생성하려면 모든 애그리게이트(aggr1, aggr2, aggr3)가 FabricPool의 애그리게이트여야 합니다. . "volume mount -vserver vserver_name -volume vol_name -junction-path junction_path" 접합 경로로 FlexGroup 볼륨을 마운트합니다
+
+[listing]
+----
+cluster1::> volume mount -vserver vs0 -volume fg2 -junction-path /fg
+----
+클라이언트에서 FlexGroup 볼륨을 마운트해야 합니다.
+
+ONTAP 9.6 이하 버전을 실행 중이고 SVM(스토리지 가상 시스템)에 NFSv3 및 NFSv4가 모두 구성되어 있는 경우 클라이언트에서 FlexGroup 볼륨을 마운트하지 못할 수 있습니다. 이러한 경우 클라이언트에서 FlexGroup 볼륨을 마운트할 때 NFS 버전을 명시적으로 지정해야 합니다.
+
+[listing]
+----
+# mount -t nfs -o vers=3 192.53.19.64:/fg /mnt/fg2
+# ls /mnt/fg2
+file1  file2
+----
+http://www.netapp.com/us/media/tr-4571.pdf["NetApp 기술 보고서 4571: NetApp FlexGroup 모범 사례 및 구현 가이드"]

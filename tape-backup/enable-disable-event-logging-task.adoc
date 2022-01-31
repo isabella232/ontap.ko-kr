@@ -1,0 +1,32 @@
+---
+permalink: tape-backup/enable-disable-event-logging-task.html 
+sidebar: sidebar 
+keywords: enable, disable, event, logging 
+summary: 이벤트 로깅을 설정하거나 해제할 수 있습니다. 
+---
+= 이벤트 로깅 활성화 또는 비활성화
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이벤트 로깅을 설정하거나 해제할 수 있습니다.
+
+.단계
+. 이벤트 로깅을 사용하거나 사용하지 않도록 설정하려면 클러스터 쉘에서 다음 명령을 입력합니다.
++
+'* options_-option_name_backup.log.enable_-option-value_{on|off} *'
+
++
+On은 이벤트 로깅을 켭니다.
+
++
+OFF는 이벤트 로깅을 해제합니다.
+
++
+[NOTE]
+====
+이벤트 로깅은 기본적으로 설정되어 있습니다.
+
+====
+

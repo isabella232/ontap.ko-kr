@@ -1,0 +1,37 @@
+---
+permalink: smb-admin/manual-update-gpo-settings-task.html 
+sidebar: sidebar 
+keywords: update, group, policy, object, gpo, setting, cifs, server, manual, update, applied, apply, manual updating gpo settings on the cifs server 
+summary: 'CIFS 서버에서 GPO(그룹 정책 개체) 설정을 즉시 업데이트하려면 설정을 수동으로 업데이트할 수 있습니다. 변경된 설정만 업데이트하거나 이전에 적용되었지만 변경되지 않은 설정을 포함하여 모든 설정에 대해 업데이트를 적용할 수 있습니다.' 
+---
+= CIFS 서버에서 GPO 설정을 수동으로 업데이트합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+CIFS 서버에서 GPO(그룹 정책 개체) 설정을 즉시 업데이트하려면 설정을 수동으로 업데이트할 수 있습니다. 변경된 설정만 업데이트하거나 이전에 적용되었지만 변경되지 않은 설정을 포함하여 모든 설정에 대해 업데이트를 적용할 수 있습니다.
+
+.단계
+. 적절한 작업을 수행합니다.
++
+|===
+| 업데이트하려면... | 명령 입력... 
+
+
+ a| 
+GPO 설정이 변경되었습니다
+ a| 
+'vserver cifs group-policy update-vserver_vserver_name_'
+
+
+
+ a| 
+모든 GPO 설정
+ a| 
+'vserver cifs group-policy update-vserver_vserver_name_-force-re애플리케이션-all-settings true'
+
+|===
+
+
+xref:gpos-updated-server-concept.adoc[CIFS 서버에서 GPO를 업데이트하는 방법]

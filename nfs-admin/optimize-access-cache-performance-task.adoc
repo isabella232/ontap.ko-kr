@@ -1,0 +1,67 @@
+---
+permalink: nfs-admin/optimize-access-cache-performance-task.html 
+sidebar: sidebar 
+keywords: optimize, access, cache, performance 
+summary: 여러 매개 변수를 구성하여 액세스 캐시를 최적화하고 성능과 액세스 캐시에 저장된 정보의 현재 상태 간에 적절한 균형을 찾을 수 있습니다. 
+---
+= 액세스 캐시 성능을 최적화합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+여러 매개 변수를 구성하여 액세스 캐시를 최적화하고 성능과 액세스 캐시에 저장된 정보의 현재 상태 간에 적절한 균형을 찾을 수 있습니다.
+
+액세스 캐시 새로 고침 기간을 구성할 때는 다음 사항을 염두에 두십시오.
+
+* 값이 높을수록 액세스 캐시에서 항목이 더 오래 유지됩니다.
++
+ONTAP는 액세스 캐시 항목을 새로 고치는 데 리소스를 적게 사용하기 때문에 성능이 향상됩니다. 단점은 엑스포트 정책 규칙이 변경되고 액세스 캐시 항목이 오래되면 업데이트하는 데 시간이 오래 걸린다는 것입니다. 따라서 액세스를 받아야 하는 클라이언트가 거부되고 거부되어야 하는 클라이언트가 액세스할 수 있습니다.
+
+* 값이 낮을수록 ONTAP에서 액세스 캐시 항목을 더 자주 새로 고칩니다.
++
+장점은 항목이 더 최신 항목이고 클라이언트가 올바르게 액세스 권한을 부여하거나 거부될 가능성이 더 높다는 점입니다. 단점은 ONTAP에서 액세스 캐시 항목을 새로 고치는 데 더 많은 리소스를 사용하기 때문에 성능이 저하된다는 것입니다.
+
+
+
+.단계
+. 권한 수준을 고급으로 설정합니다.
++
+세트 프리빌리지 고급
+
+. 원하는 작업을 수행합니다.
++
+[cols="2*"]
+|===
+| 수정 방법 | 입력... 
+
+
+ a| 
+양의 항목에 대한 새로 고침 기간
+ a| 
+'vserver export-policy access-cache config modify -all-vservers-refresh-period-positive timeout_value'
+
+
+
+ a| 
+음수 항목의 새로 고침 기간
+ a| 
+'vserver export-policy access-cache config modify -all-vservers-refresh-period-negative timeout_value'
+
+
+
+ a| 
+이전 항목의 제한 시간
+ a| 
+'vserver export-policy access-cache config modify -all-vservers-ab하비스트-timeout_value'
+
+|===
+. 새 매개 변수 설정을 확인합니다.
++
+'vserver export-policy access-cache config show-all-vservers'
+
+. 관리자 권한 레벨로 돌아갑니다.
++
+'Set-Privilege admin'입니다
+
+

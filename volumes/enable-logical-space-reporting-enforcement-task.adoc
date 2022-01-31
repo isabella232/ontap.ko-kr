@@ -1,0 +1,45 @@
+---
+permalink: volumes/enable-logical-space-reporting-enforcement-task.html 
+sidebar: sidebar 
+keywords: enable, logical, space, reporting, enforcement 
+summary: ONTAP 9.4부터 논리 공간 보고를 활성화할 수 있습니다. 9.5부터 논리 공간 적용 또는 보고와 적용을 함께 사용할 수 있습니다. 
+---
+= 논리적 공간 보고 및 적용을 설정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.4부터 논리 공간 보고를 활성화할 수 있습니다. 9.5부터 논리 공간 적용 또는 보고와 적용을 함께 사용할 수 있습니다.
+
+개별 볼륨 레벨에서 논리적 공간 보고 및 적용을 활성화할 뿐만 아니라 기능을 지원하는 모든 볼륨에서 SVM 레벨에서 활성화할 수 있습니다. 전체 SVM에 대해 논리적 공간 기능을 활성화할 경우 개별 볼륨에 대해 LUN을 비활성화할 수도 있습니다.
+
+9.8부터 SnapMirror 소스 볼륨에서 논리적 공간 리포팅을 활성화하면 전송 후에 타겟 볼륨에서 자동으로 활성화됩니다.
+
+[NOTE]
+====
+SnapMirror 소스 볼륨에서 적용 옵션을 활성화하면 적용 설정이 대상 볼륨으로 전송됩니다. 그러나 대상 볼륨이 적용을 지원하지 않기 때문에 대상은 논리 공간 소비를 보고하지만 해당 적용을 수행하지 않습니다.
+
+====
+.선택
+* 볼륨에 대한 논리 공간 보고 활성화:
++
+'volume modify -vserver SVM-name-volume-name-size volume-size-is-space-reporting-logical TRUE
+
+* 볼륨에 대한 논리적 공간 적용 활성화:
++
+'volume modify -vserver SVM-name-volume-name-size volume-size-is-space-enforcement-logical TRUE
+
+* 볼륨에 대한 논리적 공간 보고 및 적용을 함께 활성화합니다.
++
+'volume modify-vserver SVM-name-volume-name volume-size-is-space-reporting-logical TRUE-is-space-enforcement-logical TRUE
+
+* 새로운 SVM에 대한 논리적 공간 보고 또는 적용 지원
++
+'+vserver create-vserver SVM-name-rootvolume root-volume-name-rootvolume-security-style UNIX-data-services{desired-data-services}[-is-space-reporting-logical true][-is-space-enforcement-logical true]+'
+
+* 기존 SVM에 대해 논리 공간 보고 또는 적용 지원
++
+'+vserver modify-vserver SVM-name{desired-data-services}[-is-space-reporting-logical true][-is-space-enforcement-logical true]+'
+
+

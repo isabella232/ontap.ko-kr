@@ -1,0 +1,56 @@
+---
+permalink: nfs-admin/commands-manage-name-service-cache-reference.html 
+sidebar: sidebar 
+keywords: command, managing, name, service, cache 
+summary: 'TTL(Time To Live) 값을 수정하여 이름 서비스 캐시를 관리할 수 있습니다. TTL 값은 이름 서비스 정보가 캐시에 지속되는 기간을 결정합니다.' 
+---
+= 이름 서비스 캐시를 관리하는 명령입니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+TTL(Time To Live) 값을 수정하여 이름 서비스 캐시를 관리할 수 있습니다. TTL 값은 이름 서비스 정보가 캐시에 지속되는 기간을 결정합니다.
+
+[cols="35,65"]
+|===
+
+
+| TTL 값을 수정하려는 경우... | 이 명령 사용... 
+
+
+ a| 
+Unix 사용자
+ a| 
+'vserver services name-service cache unix-user settings
+
+
+
+ a| 
+Unix 그룹
+ a| 
+'vserver services name-service cache unix-group settings'
+
+
+
+ a| 
+Unix 넷그룹
+ a| 
+'vserver services name-service cache netgroups settings'(SVM 서비스 이름 서비스 캐시 넷그룹 설정)
+
+
+
+ a| 
+호스트
+ a| 
+'vserver services name-service cache hosts settings'(SVM 서비스 이름 서비스 캐시 호스트 설정)
+
+
+
+ a| 
+그룹 구성원 자격
+ a| 
+'vserver services name-service cache group-membership settings'
+
+|===
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"]

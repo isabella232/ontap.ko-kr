@@ -1,0 +1,40 @@
+---
+sidebar: sidebar 
+permalink: networking/remove_ports_from_a_broadcast_domain.html 
+keywords: move, moving, broadcast, domain, ipspace, remove ports from a broadcast domain, broadcast-domain remove-ports 
+summary: 브로드캐스트 도메인에서 포트를 제거합니다 
+---
+= 브로드캐스트 도메인에서 포트를 제거합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+새 브로드캐스트 도메인에 추가할 포트가 이미 다른 브로드캐스트 도메인에 있는 경우 새 브로드캐스트 도메인에 포트를 할당하기 전에 해당 브로드캐스트 도메인에서 포트를 제거해야 합니다.
+
+
+NOTE: 이 작업은 ONTAP 9.8이 아닌 ONTAP 9.0-9.7에 적합합니다.
+
+이 작업을 수행하려면 클러스터 관리자여야 합니다.
+
+.단계
+. 다음을 지정하여 브로드캐스트 도메인에서 포트를 제거합니다.
++
+** 다음 샘플에서 IPSpace, Ddefault.
+** 다음 샘플에서 브로드캐스트 도메인, 기본값.
+** 다음 샘플에서 노드 및 포트 구문 'node1:e0d,node1:e0e,node2:e0d,node2:e0e'를 사용하여 포트를 표시합니다.
++
+[listing]
+----
+network port broadcast-domain remove-ports -ipspace Default -broadcast-domain Default -ports node1:e0d,node1:e0e,node2:e0d,node2:e0e
+----
+
+
+. 포트가 브로드캐스트 도메인에서 제거되었는지 확인합니다.
++
+네트워크 포트 쇼
+
+

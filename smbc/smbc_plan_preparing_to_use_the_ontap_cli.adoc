@@ -1,0 +1,58 @@
+---
+sidebar: sidebar 
+permalink: smbc/smbc_plan_preparing_to_use_the_ontap_cli.html 
+keywords: SM-BC, SMBC, preparing, ONTAP, CLI, commands 
+summary: ONTAP 명령줄 인터페이스를 사용하여 SnapMirror 비즈니스 연속성 솔루션을 배포할 때 다음 명령을 익혀야 합니다. 
+---
+= ONTAP CLI 사용을 준비합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 명령줄 인터페이스를 사용하여 SnapMirror 비즈니스 연속성 솔루션을 배포할 때 다음 명령을 익혀야 합니다.
+
+
+NOTE: SM-BC는 활성 동기화 정책과의 관계를 위한 '스냅샷 중지' 및 '스냅샷 복구 재시작' 명령을 지원하지 않습니다.
+
+다음 ONTAP 명령에 대한 자세한 내용은 을 참조하십시오 https://docs.netapp.com/ontap-9/index.jsp["NetApp 설명서: ONTAP 9"^].
+
+|===
+| 명령 | 설명 
+
+
+| LUN igroup 작성 | 클러스터에서 igroup을 생성합니다 
+
+
+| LUN 매핑 | LUN을 igroup에 매핑합니다 
+
+
+| LUN 표시 | LUN 목록을 표시합니다 
+
+
+| SnapMirror 생성 | 새 SnapMirror 관계를 생성합니다 
+
+
+| SnapMirror 초기화 | SM-BC 정합성 보장 그룹을 초기화한다 
+
+
+| SnapMirror 업데이트 | 공통 스냅샷 생성 작업을 시작합니다 
+
+
+| SnapMirror 쇼 | SnapMirror 관계 목록을 표시합니다 
+
+
+| SnapMirror 페일오버 | 계획된 페일오버 작업을 시작합니다 
+
+
+| SnapMirror 재동기화 | 재동기화 작업을 시작합니다 
+
+
+| SnapMirror 삭제 | SnapMirror 관계를 삭제합니다 
+
+
+| SnapMirror 릴리즈 | SnapMirror 관계에 대한 소스 정보를 제거합니다 
+|===

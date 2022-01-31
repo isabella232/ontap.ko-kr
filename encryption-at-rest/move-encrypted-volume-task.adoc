@@ -1,0 +1,58 @@
+---
+permalink: encryption-at-rest/move-encrypted-volume-task.html 
+sidebar: sidebar 
+keywords: moving, encrypted, volume 
+summary: 볼륨 이동 시작 명령을 사용하여 암호화된 볼륨을 이동할 수 있습니다. 이동된 볼륨은 동일한 애그리게이트 또는 다른 애그리게이트에 있을 수 있습니다. 
+---
+= 암호화된 볼륨을 이동합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+'volume move start' 명령을 사용하여 암호화된 볼륨을 이동할 수 있습니다. 이동된 볼륨은 동일한 애그리게이트 또는 다른 애그리게이트에 있을 수 있습니다.
+
+이 작업을 수행하려면 클러스터 관리자이거나 클러스터 관리자가 권한을 위임한 SVM 관리자여야 합니다.
+
+link:delegate-volume-encryption-svm-administrator-task.html["볼륨 이동 명령을 실행하는 위임 권한"]
+
+대상 노드 또는 대상 볼륨이 볼륨 암호화를 지원하지 않으면 이동이 실패합니다.
+
+볼륨 이동 시작을 위한 '-encrypt-destination' 옵션은 암호화된 볼륨에 대해 기본적으로 true로 설정됩니다. 대상 볼륨을 암호화하지 않도록 명시적으로 지정해야 볼륨의 데이터를 실수로 암호화하지 않습니다.
+
+.단계
+. 암호화된 기존 볼륨을 이동하고 볼륨의 데이터를 암호화된 상태로 유지:
++
+'volume move start-vserver SVM_name-volume volume_name-destination-aggregate aggregate_name'
+
++
+전체 명령 구문은 명령에 대한 man 페이지를 참조하십시오.
+
++
+다음 명령을 실행하면 이름이 "vol1"인 기존 볼륨이 대상 애그리게이트 "aggr3"으로 이동하고 볼륨의 데이터가 암호화된 상태로 유지됩니다.
+
++
+[listing]
+----
+cluster1::> volume move start -vserver vs1 -volume vol1 -destination-aggregate aggr3
+----
+. 볼륨에 암호화가 활성화되어 있는지 확인합니다.
++
+볼륨 쇼는 암호화된 사실이다
+
++
+전체 명령 구문은 명령에 대한 man 페이지를 참조하십시오.
+
++
+다음 명령을 실행하면 암호화된 볼륨이 'cluster1'에 표시됩니다.
+
++
+[listing]
+----
+cluster1::> volume show -is-encrypted true
+
+Vserver  Volume  Aggregate  State  Type  Size  Available  Used
+-------  ------  ---------  -----  ----  -----  --------- ----
+vs1      vol1    aggr3     online    RW  200GB    160.0GB  20%
+----
+

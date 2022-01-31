@@ -1,0 +1,19 @@
+---
+permalink: smb-admin/limits-when-cli-set-file-folder-security-concept.html 
+sidebar: sidebar 
+keywords: limit, cli, file, folder, security, limits when using the cli to set file and folder security 
+summary: CLI를 사용하여 파일 및 폴더 보안을 설정할 때 특정 제한 사항을 알고 있어야 합니다. 
+---
+= CLI를 사용하여 파일 및 폴더 보안을 설정할 때의 제한 사항
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+CLI를 사용하여 파일 및 폴더 보안을 설정할 때 특정 제한 사항을 알고 있어야 합니다.
+
+* 'vserver security file-directory' 명령 제품군은 NFSv4 ACL 설정을 지원하지 않습니다.
++
+NTFS 보안 설명자는 NTFS 파일 및 폴더에만 적용할 수 있습니다.
+
+

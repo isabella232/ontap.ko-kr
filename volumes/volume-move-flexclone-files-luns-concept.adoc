@@ -1,0 +1,13 @@
+---
+permalink: volumes/volume-move-flexclone-files-luns-concept.html 
+sidebar: sidebar 
+keywords: how, volume, move, affects, flexclone, files, luns 
+summary: 볼륨 이동 작업의 컷오버 단계에서는 FlexVol 볼륨의 FlexClone 파일 또는 FlexClone LUN을 생성할 수 없습니다. 
+---
+= 볼륨 이동이 FlexClone 파일 및 FlexClone LUN에 미치는 영향
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+볼륨 이동 작업의 컷오버 단계에서는 FlexVol 볼륨의 FlexClone 파일 또는 FlexClone LUN을 생성할 수 없습니다.

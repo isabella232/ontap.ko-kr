@@ -1,0 +1,17 @@
+---
+permalink: san-admin/manage-systems-fc-adapters-concept.html 
+sidebar: sidebar 
+keywords: manage, systems, fc, adapters 
+summary: 온보드 FC 어댑터 및 FC 어댑터 카드를 관리하는 데 사용할 수 있는 명령입니다. 이러한 명령을 사용하여 어댑터 모드를 구성하고 어댑터 정보를 표시하며 속도를 변경할 수 있습니다. 
+---
+= FC 어댑터를 사용하여 시스템을 관리합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+온보드 FC 어댑터 및 FC 어댑터 카드를 관리하는 데 사용할 수 있는 명령입니다. 이러한 명령을 사용하여 어댑터 모드를 구성하고 어댑터 정보를 표시하며 속도를 변경할 수 있습니다.
+
+대부분의 스토리지 시스템에는 이니시에이터 또는 타겟으로 구성할 수 있는 온보드 FC 어댑터가 있습니다. 이니시에이터 또는 타겟으로 구성된 FC 어댑터 카드를 사용할 수도 있습니다. 이니시에이터는 백엔드 디스크 쉘프 및 FlexArray(외부 스토리지 어레이)에 연결됩니다. 타겟은 FC 스위치에만 연결됩니다. FC 타겟 HBA 포트와 스위치 포트 속도는 모두 동일한 값으로 설정해야 하며 자동으로 설정되어서는 안 됩니다.
+
+link:../san-config/index.html["SAN 구성"]

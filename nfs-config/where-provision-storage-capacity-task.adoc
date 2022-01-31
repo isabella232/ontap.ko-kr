@@ -1,0 +1,39 @@
+---
+permalink: nfs-config/where-provision-storage-capacity-task.html 
+sidebar: sidebar 
+keywords: decide, provision, new, nfs, storage, capacity 
+summary: 새 NFS 볼륨 또는 qtree를 생성하기 전에 새로운 SVM이나 기존 SVM에 배치할지 여부와 SVM에 필요한 구성의 크기를 결정해야 합니다. 이 결정에 따라 워크플로가 결정됩니다. 
+---
+= 새 NFS 스토리지 용량을 프로비저닝할 위치를 결정합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+새 NFS 볼륨 또는 qtree를 생성하기 전에 새로운 SVM이나 기존 SVM에 배치할지 여부와 SVM에 필요한 구성의 크기를 결정해야 합니다. 이 결정에 따라 워크플로가 결정됩니다.
+
+.선택
+* 새 SVM에서 볼륨 또는 qtree를 프로비저닝하거나 NFS가 활성화되어 있지만 구성되지 않은 기존 SVM에서 프로비저닝하려면 "SVM에 NFS 액세스 구성" 및 "NFS 스토리지를 NFS 지원 SVM에 추가" 단계를 완료하십시오.
++
+xref:access-svm-task.adoc[SVM에 대한 NFS 액세스 구성]
+
++
+xref:add-storage-capacity-nfs-enabled-svm-concept.adoc[NFS 지원 SVM에 NFS 스토리지 추가]
+
++
+다음 중 하나에 해당하는 경우 새 SVM을 생성할 수 있습니다.
+
++
+** 클러스터에서 NFS를 처음으로 사용하도록 설정하고 있습니다.
+** NFS 지원을 사용하지 않으려는 클러스터에 기존 SVM이 있습니다.
+** 하나의 클러스터에 NFS 지원 SVM이 하나 이상 있으며 다른 NFS 서버를 격리된 네임스페이스(멀티 테넌시 시나리오)로 사용하려는 경우를 가정해 보겠습니다. NFS가 활성화되었지만 구성되지 않은 기존 SVM에서 스토리지를 프로비저닝하려면 이 옵션을 선택해야 합니다. 이는 SAN 액세스를 위해 SVM을 생성했거나, SVM 생성 시 프로토콜을 사용하지 않은 경우에 발생할 수 있습니다.
+
+
++
+SVM에서 NFS를 사용하도록 설정한 후 볼륨 또는 qtree를 프로비저닝합니다.
+
+* NFS 액세스를 위해 완전히 구성된 기존 SVM에서 볼륨 또는 qtree를 프로비저닝하려면 "NFS 스토리지를 NFS 지원 SVM에 추가"의 단계를 완료하십시오.
++
+xref:add-storage-capacity-nfs-enabled-svm-concept.adoc[NFS 지원 SVM에 NFS 스토리지 추가]
+
+

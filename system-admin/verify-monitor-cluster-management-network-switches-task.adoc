@@ -1,0 +1,40 @@
+---
+permalink: system-admin/verify-monitor-cluster-management-network-switches-task.html 
+sidebar: sidebar 
+keywords: verify, monitor, cluster, management, network, switches, heath, monitor 
+summary: 클러스터 스위치 상태 모니터는 검색된 스위치를 자동으로 모니터링하지만 스위치가 올바르게 구성되지 않은 경우 모니터링이 자동으로 실행되지 않을 수 있습니다. 스위치를 모니터링하도록 상태 모니터가 올바르게 구성되어 있는지 확인해야 합니다. 
+---
+= 클러스터 및 관리 네트워크 스위치의 모니터링을 확인합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클러스터 스위치 상태 모니터는 검색된 스위치를 자동으로 모니터링하지만 스위치가 올바르게 구성되지 않은 경우 모니터링이 자동으로 실행되지 않을 수 있습니다. 스위치를 모니터링하도록 상태 모니터가 올바르게 구성되어 있는지 확인해야 합니다.
+
+.단계
+. 'system health cluster-switch show' 명령을 사용하여 클러스터 스위치 상태 모니터가 검색한 스위치를 식별합니다.
++
+Model 열에 Other 값이 표시되면 ONTAP에서 스위치를 모니터링할 수 없습니다. ONTAP에서 자동으로 검색하는 스위치가 상태 모니터링을 지원하지 않는 경우 이 값을 '기타'로 설정합니다.
+
++
+[NOTE]
+====
+스위치가 명령 출력에 표시되지 않으면 스위치 검색을 구성해야 합니다.
+
+====
+. 지원되는 최신 스위치 소프트웨어로 업그레이드하고 NetApp Support 사이트에서 RCF(구성 파일)를 참조합니다.
++
+http://support.netapp.com/NOW/download/software/cm_switches/["Cisco 이더넷 스위치 페이지"]
+
++
+스위치의 RCF에 있는 커뮤니티 문자열은 상태 모니터가 사용하도록 구성된 커뮤니티 문자열과 일치해야 합니다. 기본적으로 상태 모니터는 커뮤니티 문자열 "cshm1!"를 사용합니다.
+
++
+클러스터에서 모니터링하는 스위치에 대한 정보를 변경해야 하는 경우 'system health cluster-switch modify' 명령을 사용하여 상태 모니터에서 사용하는 커뮤니티 문자열을 수정할 수 있습니다.
+
+. 스위치의 관리 포트가 관리 네트워크에 연결되어 있는지 확인합니다.
++
+SNMP 쿼리를 수행하려면 이 연결이 필요합니다.
+
+

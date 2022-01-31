@@ -1,0 +1,48 @@
+---
+permalink: san-admin/create-flexclone-luns-snapshot-copy-volume-task.html 
+sidebar: sidebar 
+keywords: create, flexclone, luns, snapshot, copy, volume 
+summary: 볼륨의 스냅샷 복사본을 사용하여 LUN의 FlexClone 복사본을 만들 수 있습니다. LUN의 FlexClone 복사본은 읽기 및 쓰기가 모두 가능합니다. 
+---
+= 볼륨의 스냅샷 복사본에서 FlexClone LUN을 생성합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+볼륨의 스냅샷 복사본을 사용하여 LUN의 FlexClone 복사본을 만들 수 있습니다. LUN의 FlexClone 복사본은 읽기 및 쓰기가 모두 가능합니다.
+
+FlexClone 라이센스를 설치해야 합니다.
+
+FlexClone LUN은 상위 LUN의 공간 예약 속성을 상속합니다. 공간 예약 FlexClone LUN에는 공간 예약 상위 LUN과 동일한 공간이 필요합니다. FlexClone LUN이 공간 예약되지 않은 경우 볼륨에 클론의 변경 사항을 수용할 수 있는 충분한 공간이 있어야 합니다.
+
+.단계
+. LUN이 매핑되지 않았거나 쓰기 중인지 확인합니다.
+. LUN이 포함된 볼륨의 스냅샷 복사본을 생성합니다.
++
+'볼륨 스냅샷 생성 - vserver_vserver_name_-volume_volume_name_-snapshot_snapshot_name_'
+
++
+복제할 LUN의 스냅샷 복사본(백업 스냅샷 복사본)을 생성해야 합니다.
+
+. 스냅샷 복사본에서 FlexClone LUN을 생성합니다.
++
+"파일 클론 create-vserver_vserver_name_-volume_volume_name_-source-path_source_path_-snapshot-name_snapshot_name_-destination-path_destination_path_"
+
++
+자동 삭제를 위해 FlexClone LUN을 사용할 수 있어야 하는 경우 '-autom자동 삭제 true'를 포함합니다. 반씩 프로비저닝을 사용하여 볼륨에 FlexClone LUN을 생성하는 경우 모든 FlexClone LUN에 대해 자동 삭제를 활성화해야 합니다.
+
+. FlexClone LUN이 올바른지 확인합니다.
++
+'lun show -vserver_vserver_name _'
+
++
+[listing]
+----
+
+Vserver Path                      State    Mapped    Type     Size
+------- ----------------------    -------- --------- -------- -------
+vs1     /vol/vol1/lun1_clone      online   unmapped windows   47.07MB
+vs1     /vol/vol1/lun1_snap_clone online   unmapped windows   47.07MB
+----
+

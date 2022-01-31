@@ -1,0 +1,60 @@
+---
+permalink: nas-audit/delete-security-trace-filters-task.html 
+sidebar: sidebar 
+keywords: delete, security trace filters 
+summary: '보안 추적 필터 항목이 더 이상 필요하지 않으면 삭제할 수 있습니다. SVM(스토리지 가상 시스템)당 최대 10개의 보안 추적 필터를 사용할 수 있으므로 불필요한 필터를 삭제하면 최대 한도까지 도달했을 때 새 필터를 생성할 수 있습니다.' 
+---
+= 보안 추적 필터를 삭제합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+보안 추적 필터 항목이 더 이상 필요하지 않으면 삭제할 수 있습니다. SVM(스토리지 가상 시스템)당 최대 10개의 보안 추적 필터를 사용할 수 있으므로 불필요한 필터를 삭제하면 최대 한도까지 도달했을 때 새 필터를 생성할 수 있습니다.
+
+삭제할 보안 추적 필터를 고유하게 식별하려면 다음을 지정해야 합니다.
+
+* 트레이스 필터가 적용된 SVM의 이름입니다
+* 추적 필터의 필터 인덱스 번호입니다
+
+
+.단계
+. 삭제할 보안 추적 필터 항목의 필터 인덱스 번호를 식별합니다.
++
+'vserver security trace filter show -vserver vserver_name'
+
++
+'vserver security trace filter show -vserver vs1'이 표시됩니다
+
++
+[listing]
+----
+
+Vserver  Index   Client-IP            Path            Trace-Allow  Windows-Name
+-------- -----  -----------  ----------------------   -----------  -------------
+vs1        1    -            /dir1/dir2/file.txt          yes      -
+vs1        2    -            /dir3/dir4/                  no       mydomain\joe
+----
+. 이전 단계의 필터 인덱스 번호 정보를 사용하여 필터 항목을 삭제합니다.
++
+'vserver security trace filter delete -vserver vserver_name -index index index_number'
+
++
+'vserver security trace filter delete - vserver vs1-index 1'
+
+. 보안 추적 필터 항목이 삭제되었는지 확인합니다.
++
+'vserver security trace filter show -vserver vserver_name'
+
++
+'vserver security trace filter show -vserver vs1'이 표시됩니다
+
++
+[listing]
+----
+
+Vserver  Index   Client-IP            Path            Trace-Allow   Windows-Name
+-------- -----  -----------  ----------------------   -----------   -------------
+vs1        2    -            /dir3/dir4/                  no        mydomain\joe
+----
+

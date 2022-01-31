@@ -1,0 +1,80 @@
+---
+section: smb-config
+title: CLI를 사용하여 SMB를 구성합니다
+entries:
+- title: 개요
+  url: "/smb-config/index.html"
+- title: 워크플로우
+  url: "/smb-config/workflow-concept.html"
+- title: 준비
+  entries:
+  - title: 물리적 스토리지 요구사항을 평가합니다
+    url: "/smb-config/assess-physical-storage-requirements-task.html"
+  - title: 네트워킹 요구 사항을 평가합니다
+    url: "/smb-config/assess-networking-requirements-task.html"
+  - title: 새 SMB 스토리지 용량을 프로비저닝할 위치를 결정합니다
+    url: "/smb-config/where-provision-storage-capacity-task.html"
+  - title: SMB 구성 정보 수집을 위한 워크시트입니다
+    url: "/smb-config/worksheet-reference.html"
+- title: SVM에 대한 SMB 액세스를 구성합니다
+  entries:
+  - title: 개요
+    url: "/smb-config/configure-access-svm-task.html"
+  - title: SVM을 생성합니다
+    url: "/smb-config/create-svms-data-access-task.html"
+  - title: SVM에서 SMB 프로토콜이 활성화되어 있는지 확인합니다
+    url: "/smb-config/verify-protocol-enabled-task.html"
+  - title: SVM 루트 볼륨의 엑스포트 정책을 엽니다
+    url: "/smb-config/open-export-policy-svm-root-volume-task.html"
+  - title: LIF를 생성합니다
+    url: "/smb-config/create-lif-task.html"
+  - title: 호스트 이름 확인을 위해 DNS를 활성화합니다
+    url: "/smb-config/configure-dns-host-name-resolution-task.html"
+  - title: Active Directory 도메인에서 SMB 서버를 설정합니다
+    entries:
+    - title: 시간 서비스를 구성합니다
+      url: "/smb-config/configure-time-services-task.html"
+    - title: NTP 서버에서 대칭 인증을 관리하는 명령입니다
+      url: "/smb-config/commands-manage-ntp-servers-reference.html"
+    - title: Active Directory 도메인에서 SMB 서버를 생성합니다
+      url: "/smb-config/create-server-active-directory-domain-task.html"
+    - title: SMB 인증을 위한 keytab 파일을 생성합니다
+      url: "/smb-config/create-keytab-files-authentication-concept.html"
+  - title: 워크그룹에서 SMB 서버를 설정합니다
+    entries:
+    - title: 개요
+      url: "/smb-config/set-up-server-workgroup-task.html"
+    - title: 워크그룹에 SMB 서버를 생성합니다
+      url: "/smb-config/create-server-workgroup-task.html"
+    - title: 로컬 사용자 계정을 생성합니다
+      url: "/smb-config/create-local-user-accounts-task.html"
+    - title: 로컬 그룹을 생성합니다
+      url: "/smb-config/create-local-groups-task.html"
+    - title: 로컬 그룹 구성원 자격을 관리합니다
+      url: "/smb-config/manage-local-group-membership-task.html"
+  - title: 활성화된 SMB 버전을 확인합니다
+    url: "/smb-config/verify-enabled-versions-task.html"
+  - title: DNS 서버의 SMB 서버를 매핑합니다
+    url: "/smb-config/map-dns-server-task.html"
+- title: 공유 스토리지에 대한 SMB 클라이언트 액세스를 구성합니다
+  entries:
+  - title: 개요
+    url: "/smb-config/configure-client-access-shared-storage-concept.html"
+  - title: 볼륨 또는 qtree 스토리지 컨테이너를 생성합니다
+    entries:
+    - title: 볼륨을 생성합니다
+      url: "/smb-config/create-volume-task.html"
+    - title: qtree를 생성합니다
+      url: "/smb-config/create-qtree-task.html"
+  - title: SMB 공유를 생성하기 위한 요구 사항 및 고려 사항
+    url: "/smb-config/requirements-create-share-concept.html"
+  - title: SMB 공유를 생성합니다
+    url: "/smb-config/create-share-task.html"
+  - title: SMB 클라이언트 액세스를 확인합니다
+    url: "/smb-config/verify-client-access-task.html"
+  - title: SMB 공유 액세스 제어 목록을 생성합니다
+    url: "/smb-config/create-share-access-control-lists-task.html"
+  - title: 공유에서 NTFS 파일 권한을 구성합니다
+    url: "/smb-config/configure-ntfs-windows-security-tab-task.html"
+  - title: 사용자 액세스를 확인합니다
+    url: "/smb-config/verify-user-access-task.html"

@@ -1,0 +1,18 @@
+---
+section: anti-ransomware
+title: 랜섬웨어 보호
+entries:
+- title: 개요
+  url: "/anti-ransomware/index.html"
+- title: 활용 사례 및 고려 사항
+  url: "/anti-ransomware/use-cases-restrictions-concept.html"
+- title: 활성화
+  url: "/anti-ransomware/enable-task.html"
+- title: 기본적으로 사용됩니다
+  url: "/anti-ransomware/enable-default-task.html"
+- title: 일시 중지
+  url: "/anti-ransomware/pause-task.html"
+- title: 비정상적인 활동에 응답합니다
+  url: "/anti-ransomware/respond-abnormal-task.html"
+- title: 공격 후 데이터 복구
+  url: "/anti-ransomware/recover-data-task.html"

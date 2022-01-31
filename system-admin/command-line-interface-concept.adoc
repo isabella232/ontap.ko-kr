@@ -1,0 +1,19 @@
+---
+permalink: system-admin/command-line-interface-concept.html 
+sidebar: sidebar 
+keywords: ontap, command, line, interface, cli, management, interface, storage, system, prompt 
+summary: 'ONTAP CLI(Command-Line Interface)는 관리 인터페이스의 명령 기반 뷰를 제공합니다. 스토리지 시스템 프롬프트에서 명령을 입력하면 명령 결과가 텍스트로 표시됩니다.' 
+---
+= ONTAP 명령줄 인터페이스 사용
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP CLI(Command-Line Interface)는 관리 인터페이스의 명령 기반 뷰를 제공합니다. 스토리지 시스템 프롬프트에서 명령을 입력하면 명령 결과가 텍스트로 표시됩니다.
+
+CLI 명령 프롬프트는 cluster_name:::>'로 표시됩니다.
+
+권한 수준(즉, 'set' 명령의 '-Privilege' 매개 변수)을 'advanced'로 설정하면 다음과 같은 별표(*)가 표시됩니다.
+
+'cluster_name:: *>'

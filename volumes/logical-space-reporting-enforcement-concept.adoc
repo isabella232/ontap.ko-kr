@@ -1,0 +1,49 @@
+---
+permalink: volumes/logical-space-reporting-enforcement-concept.html 
+sidebar: sidebar 
+keywords: logical, space, reporting, enforcement, volumes 
+summary: ONTAP 9.4부터 볼륨에 사용된 논리적 공간과 사용자에게 표시할 남은 스토리지 공간의 양을 허용할 수 있습니다. 9.5부터 사용자가 사용하는 논리적 공간의 양을 제한할 수 있습니다. 
+---
+= 볼륨 개요를 위한 논리적 공간 보고 및 적용
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.4부터 볼륨에 사용된 논리적 공간과 사용자에게 표시할 남은 스토리지 공간의 양을 허용할 수 있습니다. 9.5부터 사용자가 사용하는 논리적 공간의 양을 제한할 수 있습니다.
+
+논리적 공간 보고 및 적용은 기본적으로 해제되어 있습니다.
+
+다음 볼륨 유형은 논리 공간 보고 및 적용을 지원합니다.
+
+[cols="3*"]
+|===
+| 볼륨 유형입니다 | 공간 보고가 지원됩니까? | 공간 적용이 지원됩니까? 
+
+
+ a| 
+FlexVol 볼륨
+ a| 
+예, ONTAP 9.4부터 시작합니다
+ a| 
+예, ONTAP 9.5부터 시작합니다
+
+
+
+ a| 
+SnapMirror 타겟 볼륨
+ a| 
+예, ONTAP 9.8부터 시작합니다
+ a| 
+아니요
+
+
+
+ a| 
+FlexGroup 볼륨
+ a| 
+예, ONTAP 9.9.1부터 시작합니다
+ a| 
+예, ONTAP 9.9.1부터 시작합니다
+
+|===

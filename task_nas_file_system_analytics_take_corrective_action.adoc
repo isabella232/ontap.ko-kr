@@ -1,0 +1,86 @@
+---
+sidebar: sidebar 
+permalink: task_nas_file_system_analytics_take_corrective_action.html 
+keywords: netapp, ontap, file, system, analytics, File System Analytics, volume, volumes, System Manager, storage, explorer, active data, inactive data, historical data, fast directory delete, move volume, media cost, storage cost comparison 
+summary: ONTAP 9.9.1부터 현재 데이터와 원하는 결과를 기준으로 파일 시스템 분석 디스플레이에서 직접 수정 조치를 수행할 수 있습니다. 
+---
+= 분석을 기반으로 수정 조치 수행
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+ONTAP 9.9.1부터 현재 데이터와 원하는 결과를 기준으로 파일 시스템 분석 디스플레이에서 직접 수정 조치를 수행할 수 있습니다.
+
+분석이 활성화되면 다음 작업을 수행할 수 있습니다.
+
+* 디렉토리 및 파일을 삭제합니다
++
+탐색기 디스플레이에서 삭제할 디렉터리 또는 개별 파일을 선택할 수 있습니다. 디렉토리는 지연 시간이 짧은 빠른 디렉토리 삭제 기능으로 삭제됩니다. (빠른 디렉토리 삭제는 분석이 활성화되지 않은 ONTAP 9.9.1부터 사용할 수도 있습니다.)
+
+* 스토리지 계층에서 미디어 비용을 할당하여 비활성 데이터 스토리지 위치의 비용을 비교합니다
++
+미디어 비용은 스토리지 비용 평가를 기준으로 할당한 값이며, 선택한 통화는 GB당 통화입니다. 설정할 경우 System Manager에서 볼륨을 이동할 때 할당된 미디어 비용을 사용하여 예상 절감액을 투영합니다.
+
++
+설정한 미디어 비용은 지속적이지 않으며 단일 브라우저 세션에만 설정할 수 있습니다.
+
+* 볼륨을 이동하여 스토리지 비용 절감 분석 디스플레이 및 미디어 비용 비교를 기반으로 볼륨을 로컬 계층의 보다 저렴한 스토리지로 이동할 수 있습니다.
++
+한 번에 하나의 볼륨만 비교 및 이동할 수 있습니다.
+
+
+
+* 단계 *
+
+|===
+| 이 작업을 수행하려면… | 다음 단계를 수행하십시오. 
+
+
+ a| 
+디렉토리 또는 파일을 삭제합니다
+ a| 
+. 스토리지 > 볼륨 * 을 클릭한 다음 * 탐색기 * 를 클릭합니다.
++
+파일 또는 폴더 위로 마우스를 가져가면 삭제 옵션이 나타납니다. 한 번에 하나의 개체만 삭제할 수 있습니다.
+
+
+
+
+NOTE: 디렉토리와 파일이 삭제되면 새 스토리지 용량 값이 즉시 표시되지 않습니다.
+
+
+
+ a| 
+미디어 비용 비교를 활성화합니다
+ a| 
+. Storage > Tiers * 를 클릭한 다음 원하는 로컬 계층(집계) 타일에서 * Set Media Cost * 를 클릭합니다.
++
+비교를 활성화하려면 활성 계층과 비활성 계층을 선택해야 합니다.
+
+. 통화 유형 및 금액을 입력합니다.
++
+미디어 비용을 입력하거나 변경하면 모든 미디어 유형에 변경 사항이 적용됩니다.
+
+
+
+
+
+ a| 
+볼륨을 저렴한 계층으로 이동
+ a| 
+. 미디어 비용 표시를 활성화한 후 * Storage > Tiers * 를 클릭하고 * Volumes * 를 클릭합니다.
+. 볼륨의 대상 옵션을 비교하려면 을 클릭합니다 image:icon_kabob.gif["메뉴 아이콘"] 볼륨에 대해 * Move * (이동 *)를 클릭합니다.
+. 대상 로컬 계층 선택 * 디스플레이에서 대상 계층을 선택하여 예상 비용 차이를 표시합니다.
+. 옵션을 비교한 후 원하는 계층을 선택하고 * Move * (이동 *)를 클릭합니다.
+
+
+|===

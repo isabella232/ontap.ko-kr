@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: task_san_configure_protection_for_business_continuity.html 
+keywords: netapp, ontap, System Manager, LUNs, source cluster, protect, protection, storage VM, volume, volumes, source, destination, cluster, IOPS activity 
+summary: 비즈니스 연속성을 위해 보호를 구성하려면 ONTAP 소스 클러스터에서 LUN을 선택하고 일관성 그룹에 추가해야 합니다. 비즈니스 연속성을 위한 보호 구성을 시작하려면 소스 클러스터의 브라우저에서 System Manager를 엽니다. 
+---
+= 무중단 업무 운영을 위한 보호 구성
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+비즈니스 연속성을 위해 보호를 구성하려면 ONTAP 소스 클러스터에서 LUN을 선택하고 일관성 그룹에 추가해야 합니다. 비즈니스 연속성을 위한 보호 구성을 시작하려면 소스 클러스터의 브라우저에서 System Manager를 엽니다.
+
+이 워크플로는 ONTAP 9.8 및 9.9용으로 설계되었습니다. ONTAP 9.10.1부터 정합성 보장 그룹을 생성한 다음 SM-BC를 원격 보호로 사용하는 것이 좋습니다.
+
+
+
+== 이 작업에 대해
+
+* LUN은 동일한 스토리지 VM에 있어야 합니다.
+* LUN은 서로 다른 볼륨에 상주할 수 있습니다.
+* 소스 클러스터와 대상 클러스터는 같을 수 없습니다.
+* 클러스터 피어 관계를 위해 SM-BC에서 기본 IPspace가 필요합니다. 사용자 지정 IPspace는 지원되지 않습니다.
+
+
+.단계
+. 보호할 LUN을 선택하고 보호 그룹에 추가합니다. * 보호 > 개요 > 무중단 업무 운영 보호 > LUN 보호 *.
+. 소스 클러스터에서 보호할 LUN을 하나 이상 선택합니다.
+. 대상 클러스터와 SVM을 선택합니다.
+. 기본적으로 * 관계 초기화 * 가 선택됩니다. 보호를 시작하려면 * 저장 * 을 클릭합니다.
+. 대시보드 > 성능 * 으로 이동하여 LUN의 IOPS 활동을 확인합니다.
+. 대상 클러스터에서 System Manager를 사용하여 비즈니스 연속성 관계에 대한 보호가 동기화 상태인지 확인합니다. * 보호 > 관계 *.
+
