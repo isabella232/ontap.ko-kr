@@ -2,7 +2,7 @@
 permalink: volumes/set-efficiency-mode-task.html 
 sidebar: sidebar 
 keywords: enable, temperature, sensitive, storage, efficiency, mode, performance mode, efficient mode, set, System Manager, higher efficiency 
-summary: ONTAP 9.10.1부터 새 AFF 볼륨을 생성할 때 스토리지 효율성 모드를 설정할 수 있습니다. 매개변수 '-storage-Efficiency-mode'를 사용하여 볼륨이 효율적 모드 또는 기본 성능 모드를 사용하는지 여부를 지정할 수 있습니다. 비 AFF 볼륨 또는 데이터 보호 볼륨에서는 '-스토리지 효율성 모드' 매개 변수가 지원되지 않습니다. 
+summary: ONTAP 9.10.1부터 새 AFF 볼륨을 생성할 때 스토리지 효율성 모드를 설정할 수 있습니다. 매개변수 \'-storage-Efficiency-mode\'를 사용하여 볼륨이 효율적 모드 또는 기본 성능 모드를 사용하는지 여부를 지정할 수 있습니다. 비 AFF 볼륨 또는 데이터 보호 볼륨에서는 \'-스토리지 효율성 모드\' 매개 변수가 지원되지 않습니다. 
 ---
 = 볼륨 생성 중에 스토리지 효율성 모드를 설정합니다
 :icons: font

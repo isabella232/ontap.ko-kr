@@ -2,7 +2,7 @@
 permalink: data-protection/check-available-snapshot-reserve.html 
 sidebar: sidebar 
 keywords: modify, snapshot, copy, reserve 
-summary: 'volume show' 명령을 사용하여 'shapshot-reserve-available' 매개 변수를 사용하여 볼륨에 사용 가능한 스냅샷 복사본 예약 공간의 양을 확인할 수 있습니다. 
+summary: \'volume show\' 명령을 사용하여 \'shapshot-reserve-available\' 매개 변수를 사용하여 볼륨에 사용 가능한 스냅샷 복사본 예약 공간의 양을 확인할 수 있습니다. 
 ---
 = 볼륨에서 사용 가능한 스냅샷 복사본 예약 공간을 확인합니다
 :icons: font
