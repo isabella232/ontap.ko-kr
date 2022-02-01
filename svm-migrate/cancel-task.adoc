@@ -2,7 +2,7 @@
 permalink: svm-migrate/cancel-task.html 
 sidebar: sidebar 
 keywords: svm, migrate, cancel, abort 
-summary: 'SVM 마이그레이션이 완료되기 전에 취소해야 하는 경우 \'vserver migrate abort\' 명령을 사용할 수 있습니다. 작업이 일시 중지 또는 실패 상태인 경우에만 SVM 마이그레이션을 취소할 수 있습니다. 상태가 "컷오버 시작"이거나 컷오버가 완료된 후에는 SVM 마이그레이션을 취소할 수 없습니다. SVM 마이그레이션이 진행 중일 때는 \'중단\' 옵션을 사용할 수 없습니다.' 
+summary: 'SVM 마이그레이션이 완료되기 전에 취소해야 하는 경우 "vserver migrate abort" 명령을 사용할 수 있습니다. 작업이 일시 중지 또는 실패 상태인 경우에만 SVM 마이그레이션을 취소할 수 있습니다. 상태가 "컷오버 시작"이거나 컷오버가 완료된 후에는 SVM 마이그레이션을 취소할 수 없습니다. SVM 마이그레이션이 진행 중일 때는 "중단" 옵션을 사용할 수 없습니다.' 
 ---
 = SVM 마이그레이션을 취소합니다
 :icons: font

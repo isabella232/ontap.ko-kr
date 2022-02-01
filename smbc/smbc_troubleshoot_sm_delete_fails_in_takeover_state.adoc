@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: smbc/smbc_troubleshoot_sm_delete_fails_in_takeover_state.html 
 keywords: troubleshooting, SM-BC, SMBC, SnapMirror, delete, takeover, consistency group 
-summary: 클러스터에 ONTAP 9.9.1이 설치된 경우 SM-BC 정합성 보장 그룹 관계가 Takeover 상태에 있을 때 \'napmirror delete\' 명령을 실행하면 실패합니다. 
+summary: '클러스터에 ONTAP 9.9.1이 설치된 경우 SM-BC 정합성 보장 그룹 관계가 Takeover 상태에 있을 때 "napmirror delete" 명령을 실행하면 실패합니다.' 
 ---
 = takover 상태에서 SnapMirror 삭제 작업이 실패합니다
 :hardbreaks:

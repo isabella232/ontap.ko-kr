@@ -2,7 +2,7 @@
 permalink: object-backup-s3-snapmirror-task.html 
 sidebar: sidebar 
 keywords: s3 snapmirror overview 
-summary: ONTAP 9.10.1부터 친숙한 SnapMirror 미러링 및 백업 기능을 사용하여 ONTAP S3 오브젝트 저장소의 버킷을 보호할 수 있습니다.\' 
+summary: 'ONTAP 9.10.1부터 친숙한 SnapMirror 미러링 및 백업 기능을 사용하여 ONTAP S3 오브젝트 저장소의 버킷을 보호할 수 있습니다."' 
 ---
 = S3 SnapMirror를 통해 ONTAP S3 서버를 백업합니다
 :icons: font

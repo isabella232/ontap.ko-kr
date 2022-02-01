@@ -2,7 +2,7 @@
 permalink: encryption-at-rest/restore-external-encryption-keys-93-later-task.html 
 sidebar: sidebar 
 keywords: restoring, external key management, encryption keys 
-summary: 외부 키 관리 암호화 키를 수동으로 복원하고 다른 노드로 \'푸시\'할 수 있습니다. 클러스터 키를 생성할 때 일시적으로 중단했던 노드를 다시 시작하는 경우 이 작업을 수행할 수 있습니다. 
+summary: '외부 키 관리 암호화 키를 수동으로 복원하고 다른 노드로 "푸시"할 수 있습니다. 클러스터 키를 생성할 때 일시적으로 중단했던 노드를 다시 시작하는 경우 이 작업을 수행할 수 있습니다.' 
 ---
 = 외부 키 관리 암호화 키를 복원합니다
 :icons: font
