@@ -12,15 +12,13 @@ summary: 볼륨 이동 명령을 사용하여 SnapLock 볼륨을 대상 애그�
 [role="lead"]
 'volume move' 명령을 사용하여 SnapLock 볼륨을 대상 애그리게이트로 이동할 수 있습니다.
 
-ONTAP 9.8부터 SnapLock 볼륨을 엔터프라이즈부터 규정 준수까지 동일한 유형의 대상 Aggregate로 이동할 수 있습니다. SnapLock 볼륨을 이동하려면 SnapLock 보안 역할이 할당되어야 합니다.
-
 .무엇을 &#8217;필요로 할거야
 * SnapLock 볼륨 이동을 수행하기 전에 SnapLock으로 보호되는 감사 로그를 생성해야 합니다.
 +
 link:create-audit-log-task.html["감사 로그를 생성합니다"].
 
-* 대상 애그리게이트는 이동하려는 SnapLock 볼륨과 동일한 SnapLock 유형이어야 합니다. Compliance to Compliance 또는 Enterprise to Enterprise입니다.
-* SnapLock 보안 SnapLock 역할을 가진 사용자여야 합니다.
+* ONTAP 9.10.1 이전 버전의 ONTAP를 사용하는 경우 대상 애그리게이트는 이동할 SnapLock 볼륨과 동일한 SnapLock 유형이어야 합니다. Compliance to Compliance 또는 Enterprise to Enterprise입니다. ONTAP 9.10.1부터는 이러한 제한이 없어지기 때문에 aggregate에 Compliance 및 Enterprise SnapLock 볼륨과 비 SnapLock 볼륨이 모두 포함될 수 있습니다.
+* SnapLock 보안 역할을 가진 사용자여야 합니다.
 
 
 .단계

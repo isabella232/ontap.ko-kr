@@ -25,7 +25,7 @@ entries:
       - title: ONTAP 9.6 이상(NVE)에서 외부 키 관리 지원
         url: "/encryption-at-rest/enable-external-key-management-96-later-nve-task.html"
       - title: ONTAP 9.5 이전 버전에서 외부 키 관리를 활성화합니다
-        url: "/encryption-at-rest/enable-exernal-key-management-95-earlier-hw-task.html"
+        url: "/encryption-at-rest/enable-external-key-management-95-earlier-task.html"
       - title: Azure 또는 Google 키 관리 서비스를 통해 키를 관리합니다
         url: "/encryption-at-rest/manage-keys-azure-google-task.html"
     - title: ONTAP 9.6 이상(NVE)에서 온보드 키 관리 지원

@@ -18,6 +18,7 @@ summary: '재해 복구 SVM이 생성되면 "vserver modify" 명령으로 "aggr-
 'vserver create-vserver_SVM_-subtype DP-destination'
 
 . 재해 복구 SVM의 볼륨을 호스팅하는 데 사용되는 애그리게이트를 제한하려면 재해 복구 SVM의 애그리게이션 목록을 수정하십시오.
-
-
++
 'cluster_dest::> vserver modify -vserver_SVM_-aggr-list <comma-separated-list>'
+
+

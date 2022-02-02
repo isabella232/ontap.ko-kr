@@ -18,6 +18,4 @@ http://www.netapp.com/us/media/tr-4286.pdf["NetApp 기술 보고서 4286: cluste
 
 http://www.netapp.com/us/media/tr-4304.pdf["NetApp 기술 보고서 4304: clustered Data ONTAP용 바이러스 백신 솔루션 Symantec"^]
 
-http://www.netapp.com/us/media/tr-4309.pdf["NetApp 기술 보고서 4309: clustered Data ONTAP Sophos용 안티바이러스 솔루션"^]
-
 http://www.netapp.com/us/media/tr-4312.pdf["NetApp 기술 보고서 4312: clustered Data ONTAP Trend Micro의 안티바이러스 솔루션"^]

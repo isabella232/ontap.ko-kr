@@ -33,3 +33,5 @@ iSCSI 프로토콜로 데이터를 제공하는 SVM은 노드당 최소 하나�
 
 . 호스트에서 LIF에 iSCSI 세션을 생성합니다.
 
+
+https://www.netapp.com/media/10680-tr4080.pdf["NetApp 기술 보고서 4080: 최신 SAN 모범 사례"]
