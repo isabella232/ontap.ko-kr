@@ -38,6 +38,8 @@ entries:
     entries:
     - title: NFS 또는 CIFS 클라이언트의 스냅샷 복사본에서 파일을 복원합니다
       url: "/data-protection/snapshot-copies-work-concept.html"
+    - title: 스냅샷 복사본 디렉토리에 대한 NFS 및 SMB 클라이언트 액세스를 설정 및 해제합니다
+      url: data-protection/enable-disable-snapshot-dir-access-task.html
     - title: 스냅샷 복사본에서 단일 파일을 복원합니다
       url: "/data-protection/restore-single-file-snapshot-task.html"
     - title: 스냅샷 복사본에서 파일 일부를 복원합니다

@@ -17,7 +17,7 @@ summary: 스토리지 암호화 디스크 수정 명령을 사용하여 데이�
 .단계
 . FIPS 드라이브 또는 SED에 데이터 인증 키 할당:
 +
-'Storage encryption disk modify -disk disk_ID -data-key-id key_ID'
+'Storage encryption disk modify -disk_disk_ID_-data-key-id_key_ID_'
 
 +
 전체 명령 구문은 명령에 대한 man 페이지를 참조하십시오.

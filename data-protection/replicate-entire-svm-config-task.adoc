@@ -49,7 +49,7 @@ cluster_dst:> vserver create -vserver svm_backup -subtype dp-destination
 +
 [listing]
 ----
-cluster_dst::> job schedule cron create -name my_weekly -dayofweek "Saturday" -hour 3 -minute 0
+cluster_dst::> job schedule cron create -name my_weekly -dayofweek saturday -hour 3 -minute 0
 ----
 . 타겟 SVM 또는 타겟 클러스터에서 복제 관계를 생성합니다.
 +

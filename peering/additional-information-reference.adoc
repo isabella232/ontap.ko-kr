@@ -1,7 +1,7 @@
 ---
 permalink: peering/additional-information-reference.html 
 sidebar: sidebar 
-keywords: find, additional, information 
+keywords: SnapMirror, ONTAP CLI, System Manager, diaster prep, recover 
 summary: NetApp의 광범위한 문서 라이브러리에서 클러스터 및 SVM 피어링 관련 작업에 대해 자세히 알아볼 수 있습니다. 
 ---
 = 추가 정보를 찾을 수 있는 위치
@@ -22,19 +22,19 @@ ONTAP CLI를 사용하여 SnapMirror 복제를 수행하는 방법을 설명합�
 
 * https://docs.netapp.com/us-en/ontap-sm-classic/volume-disaster-prep/index.html["볼륨 재해 복구 준비"]
 +
-시스템 관리를 사용하여 재해 복구를 위해 대상 볼륨을 빠르게 구성하는 방법에 대해 설명합니다.
+System Manager를 사용하여 재해 복구를 위한 대상 볼륨을 빠르게 구성하는 방법에 대해 설명합니다.
 
 * https://docs.netapp.com/us-en/ontap-sm-classic/volume-disaster-prep/index.html["볼륨 재해 복구 준비"]
 +
-시스템 관리를 사용하여 재해 발생 후 대상 볼륨을 빠르게 복구하는 방법에 대해 설명합니다.
+에서는 재해 발생 후 System Manager를 사용하여 대상 볼륨을 빠르게 복구하는 방법에 대해 설명합니다.
 
 * https://docs.netapp.com/us-en/ontap-sm-classic/volume-backup-snapvault/index.html["SnapVault를 사용한 볼륨 백업"]
 +
-시스템 관리를 사용하여 볼륨 간에 SnapVault 관계를 빠르게 구성하는 방법에 대해 설명합니다.
+에서는 System Manager를 사용하여 볼륨 간 SnapVault 관계를 빠르게 구성하는 방법에 대해 설명합니다.
 
 * https://docs.netapp.com/us-en/ontap-sm-classic/volume-restore-snapvault/index.html["SnapVault를 사용한 볼륨 복원 관리"]
 +
-시스템 관리를 사용하여 SnapVault 관계의 대상 볼륨에서 파일을 빠르게 복원하는 방법에 대해 설명합니다.
+SnapVault 관계에서 시스템 관리자를 사용하여 대상 볼륨의 파일을 빠르게 복원하는 방법에 대해 설명합니다.
 
 * link:../snaplock/index.html["SnapLock 기술을 사용한 아카이브 및 규정 준수"]
 +

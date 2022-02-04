@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: concept_san_smbc_overview.html 
-keywords: netapp, ontap, system manager, san, san protocol, all san array, asa, aff, cluster, clusters, ha cluster, ha pair, lun, volume, volumes, protect, failover, fail over, snapmirror, snapMirror business continuity, iscsi, fcp, protocols, smbc, mirror clones, server, VM, data protection, protection, mediator, rhel 7.6 or 7.8, centos 8.0 or 8.1, license, synchronous, synchronous replication, consistency groups 
+keywords: netapp, ontap, system manager, san, san protocol, all san array, asa, aff, clusters protect, automated failover, fail over, snapmirror, SM-BC, smbc, mirror clones, server, VM, data protection, protection, mediator, synchronous replication 
 summary: 'ONTAP 9.8부터 System Manager를 사용하여 투명한 애플리케이션 장애 조치를 위해 LUN을 보호할 수 있으므로, AFF 클러스터 2개 또는 ASA(All SAN Array) 클러스터 2개를 사용할 때 비즈니스 연속성을 위해 애플리케이션을 자동으로 페일오버할 수 있습니다.' 
 ---
 = SnapMirror 비즈니스 연속성 개요
@@ -50,7 +50,7 @@ SnapMirror 비즈니스 연속성은 다음에 대한 지원을 제공합니다.
 * 동기식 복제
 * SAN 프로토콜 – FCP 또는 iSCSI
 * 각각 최대 12개의 볼륨을 포함하는 최대 5개의 일관성 그룹
-* 일관성 그룹을 포함하여 HA 쌍당 총 80개의 동기식 동시 관계
+* ONTAP 9.10.1의 ONTAP 9.8과 9.9.9.1 및 200에서 HA 쌍당 총 80개의 동시 동기식 관계가 있으며, 정합성 보장 그룹이 포함됩니다
 
 
 image:workflow_san_snapmirror_synchronous.png["SnapMirror 동기식 워크플로"]

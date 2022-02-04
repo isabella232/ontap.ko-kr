@@ -1,0 +1,45 @@
+---
+permalink: data-protection/enable-disable-snapshot-dir-access-task.html 
+sidebar: sidebar 
+keywords: enable, disable, access, snapshot copy 
+summary: '스냅샷 복사본의 파일 또는 LUN을 스냅샷 복사본에서 복원할 수 있도록 스냅샷 복사본 디렉토리가 NFS 및 SMB 클라이언트에 표시되는지 여부를 확인하려면 "볼륨 수정" 명령의 "-snapdir-access" 옵션을 사용하여 스냅샷 복사본 디렉토리에 대한 액세스를 설정하거나 해제할 수 있습니다.' 
+---
+= 스냅샷 복사본 디렉토리에 대한 NFS 및 SMB 클라이언트 액세스를 설정 및 해제합니다
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+스냅샷 복사본의 파일 또는 LUN을 스냅샷 복사본에서 복원할 수 있도록 스냅샷 복사본 디렉토리가 NFS 및 SMB 클라이언트에 표시되는지 여부를 확인하려면 '볼륨 수정' 명령의 '-snapdir-access' 옵션을 사용하여 스냅샷 복사본 디렉토리에 대한 액세스를 설정하거나 해제할 수 있습니다.
+
+.단계
+. 스냅샷 디렉토리 액세스 상태를 확인합니다.
++
+ `volume show -vserver _SVM_name_ -volume _vol_name_ -fields snapdir-access`
++
+예:
+
++
+[listing]
+----
+
+clus1::> volume show -vserver vs0 -volume vol1 -fields snapdir-access
+vserver volume snapdir-access
+------- ------ --------------
+vs0     vol1   false
+----
+. 스냅샷 복사본 디렉토리 액세스 설정 또는 해제:
++
+'volume modify -volume_vol_name_-snapdir-access true|false'
+
++
+다음 예에서는 vol1에서 스냅샷 복사본 디렉토리 액세스를 설정합니다.
+
++
+[listing]
+----
+
+clus1::> volume modify -volume vol1 -snapdir-access true
+Volume modify successful on volume vol1 of Vserver vs0.
+----
+

@@ -10,7 +10,7 @@ summary: 이 작업에서는 S3 감사에 사용되는 매개 변수에 대해 �
 [role="lead"]
 S3 감사 구성에 대해 여러 매개 변수를 지정하거나 기본값을 그대로 사용해야 합니다. 특히 적절한 여유 공간을 확보하는 데 도움이 되는 로그 회전 매개 변수를 고려해야 합니다.
 
-구문 세부 정보는 * vserver object-store-server audit create * man 페이지를 참조하십시오.
+구문 정보는 * 'vserver object-store-server audit create' * man 페이지를 참조하십시오.
 
 
 

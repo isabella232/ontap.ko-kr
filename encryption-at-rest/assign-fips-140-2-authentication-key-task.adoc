@@ -15,15 +15,16 @@ summary: FIPS-key-id 옵션과 함께 스토리지 암호화 디스크 수정 �
 보안 설정에서 데이터 인증과 FIPS 140-2 인증을 위해 다른 키를 사용해야 할 수 있습니다. 그렇지 않은 경우 데이터 액세스에 사용하는 FIPS 준수에 동일한 인증 키를 사용할 수 있습니다.
 
 .단계
+. 먼저 데이터 인증 키를 할당했는지 확인해야 합니다. 이 작업은 를 사용하여 수행할 수 있습니다 xref:assign-authentication-keys-seds-external-task.html[외부 키 관리자] 또는 을 누릅니다 xref:assign-authentication-keys-seds-onboard-task.html[Onboard Key Manager(온보드 키 관리자]. 'storage encryption disk show' 명령을 사용하여 키가 할당되었는지 확인합니다.
 . SED에 FIPS 140-2 인증 키 할당:
 +
-'Storage encryption disk modify -disk disk_id -FIPS -key -id FIPS_authentication_key_id'
+'Storage encryption disk modify -disk_disk_id_-FIPS-key-id_FIPS_authentication_key_id_'
 
 +
 '보안 키 관리자 쿼리' 명령을 사용하여 키 ID를 볼 수 있습니다.
 
 +
-[listing]
+[source]
 ----
 cluster1::> storage encryption disk modify -disk 2.10.* -fips-key-id 6A1E21D80000000001000000000000005A1FB4EE8F62FD6D8AE6754C9019F35A
 

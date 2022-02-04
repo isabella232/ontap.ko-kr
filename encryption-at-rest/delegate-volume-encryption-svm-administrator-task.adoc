@@ -17,7 +17,7 @@ summary: 볼륨 이동 명령을 사용하여 기존 볼륨을 암호화하거�
 .단계
 . '볼륨 이동' 명령을 실행하는 권한을 위임합니다.
 +
-'보안 로그인 수정 - vserver SVM_name -user -or -group -name user_or_group_name -application application application -AuthMethod authentication_method -role vsadmin -volume'
+'보안 로그인 수정 - vserver_SVM_name_-user-or-group-name_user_or_group_name_-application_application_-AuthMethod_authentication_method_-role_vsadmin -volume_'
 
 +
 전체 명령 구문은 명령에 대한 man 페이지를 참조하십시오.
