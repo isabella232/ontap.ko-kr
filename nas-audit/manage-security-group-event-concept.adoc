@@ -12,7 +12,7 @@ summary: 'SVM(스토리지 가상 시스템)에 대해 보안 그룹 이벤트�
 [role="lead"]
 SVM(스토리지 가상 시스템)에 대해 보안 그룹 이벤트가 구성되고 감사가 활성화된 경우 감사 이벤트가 생성됩니다.
 
-이벤트 ID 4731, 4732, 4733, 4734 및 4735가 포함된 보안 그룹 이벤트는 로컬 CIFS 또는 NFS 그룹이 시스템에서 생성 또는 삭제되고 로컬 사용자가 그룹에서 추가 또는 제거될 때 생성됩니다. security-group-events는 vserver cifs users-and-groups <local-group>' 및 'vserver services name-service <unix-group>' 명령을 사용하여 사용자 계정을 수정할 때 생성됩니다.
+이벤트 ID 4731, 4732, 4733, 4734 및 4735가 포함된 보안 그룹 이벤트는 로컬 SMB 또는 NFS 그룹이 시스템에서 생성 또는 삭제되고 로컬 사용자가 그룹에서 추가 또는 제거될 때 생성됩니다. 사용자 계정이 'vserver cifs users-and-groups_<local-group>_' 및 'vserver services name-service_<unix-group>_' 명령을 사용하여 수정될 때 security-group-events가 생성됩니다.
 
 다음 예에서는 로컬 UNIX 보안 그룹이 생성될 때 ID 4731이 생성된 보안 그룹 이벤트를 표시합니다.
 

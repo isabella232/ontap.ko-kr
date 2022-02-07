@@ -34,7 +34,7 @@ entries:
     url: "/antivirus/create-on-access-policy-task.html"
   - title: 액세스 시 정책을 설정합니다
     url: "/antivirus/enable-on-access-policy-task.html"
-  - title: CIFS 공유에 대한 Vscan 파일 작업 프로필을 수정합니다
+  - title: SMB 공유에 대한 Vscan 파일 작업 프로필을 수정합니다
     url: "/antivirus/modify-vscan-file-profile-smb-share-task.html"
   - title: 액세스 시 정책을 관리하는 명령입니다
     url: "/antivirus/commands-manage-on-access-policies-reference.html"

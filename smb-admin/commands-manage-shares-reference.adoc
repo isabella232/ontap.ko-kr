@@ -10,7 +10,7 @@ summary: SVM CIFS 공유 및 SVM CIFS 공유 속성 명령을 사용하여 SMB �
 
 
 [role="lead"]
-"vserver cifs share" 및 "vserver cifs share properties" 명령을 사용하여 SMB 공유를 관리할 수 있습니다.
+'vserver cifs share' 및 'vserver cifs share properties' 명령을 사용하여 SMB 공유를 관리할 수 있습니다.
 
 |===
 | 원하는 작업 | 이 명령 사용... 

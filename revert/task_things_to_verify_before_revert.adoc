@@ -10,7 +10,7 @@ summary: 다양한 구성 설정이 클러스터 업그레이드 준비에 영�
 
 
 [role="lead"]
-되돌리기 전에 클러스터 상태, 스토리지 상태 및 시스템 시간을 확인해야 합니다. 또한 실행 중인 모든 클러스터 작업을 삭제하고 지속적으로 사용할 수 없는 모든 CIFS 세션을 정상적으로 종료해야 합니다.
+되돌리기 전에 클러스터 상태, 스토리지 상태 및 시스템 시간을 확인해야 합니다. 또한 실행 중인 모든 클러스터 작업을 삭제하고 지속적으로 사용할 수 없는 SMB 세션을 정상적으로 종료해야 합니다.
 
 
 
@@ -239,15 +239,15 @@ Job ID Name                 Vserver    Node           State
 
 
 
-== 종료해야 하는 CIFS 세션입니다
+== 종료해야 하는 SMB 세션입니다
 
-되돌리기 전에 지속적으로 사용할 수 없는 CIFS 세션을 식별하여 정상적으로 종료해야 합니다.
+되돌리기 전에 지속적으로 사용할 수 없는 SMB 세션을 식별하여 정상적으로 종료해야 합니다.
 
-Hyper-V 또는 Microsoft SQL Server 클라이언트가 SMB 3.0 프로토콜을 사용하여 액세스하는 지속적으로 사용 가능한 CIFS 공유는 업그레이드 또는 다운그레이드하기 전에 종료할 필요가 없습니다.
+Hyper-V 또는 Microsoft SQL Server 클라이언트가 SMB 3.0 프로토콜을 사용하여 액세스하는 지속적으로 사용 가능한 SMB 공유는 업그레이드 또는 다운그레이드하기 전에 종료할 필요가 없습니다.
 
-. 계속 사용할 수 없는 설정된 CIFS 세션을 식별합니다. 'vserver cifs session show-Continuously-available Yes-instance'
+. 계속 사용할 수 없는 설정된 SMB 세션을 식별합니다. 'vserver cifs session show-Continuously-available Yes-instance'
 +
-이 명령은 무중단 가용성이 없는 CIFS 세션에 대한 자세한 정보를 표시합니다. ONTAP 다운그레이드를 진행하기 전에 종료해야 합니다.
+이 명령은 무중단 가용성이 없는 SMB 세션에 대한 자세한 정보를 표시합니다. ONTAP 다운그레이드를 진행하기 전에 종료해야 합니다.
 
 +
 [listing]
@@ -272,7 +272,7 @@ Incoming Data LIF IP Address: 198.51.100.5
       Continuously Available: No
 1 entry was displayed.
 ----
-. 필요한 경우, 식별된 각 CIFS 세션에 대해 열려 있는 파일을 확인하십시오: 'vserver cifs session file show-session-id session_ID'
+. 필요한 경우, 확인한 각 SMB 세션에 대해 열려 있는 파일을 확인하십시오: 'vserver cifs session file show-session-id session_ID'
 +
 [listing]
 ----

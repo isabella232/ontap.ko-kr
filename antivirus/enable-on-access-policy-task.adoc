@@ -25,7 +25,7 @@ SVM의 파일을 스캔하려면 먼저 SVM에서 액세스 시 정책을 활성
 ----
 cluster1::> vserver vscan on-access-policy enable -vserver vs1 -policy-name Policy1
 ----
-. 액세스 시 정책이 활성화되어 있는지 확인합니다. 'vserver vscan on-access-policy show-instance data_SVM-policy-name policy_name'
+. 액세스 시 정책이 활성화되어 있는지 확인합니다. 'vserver vscan on-access-policy show -instance_data_SVM_-policy-name_policy_name_'
 +
 전체 옵션 목록은 명령에 대한 man 페이지를 참조하십시오.
 

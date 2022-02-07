@@ -26,7 +26,7 @@ entries:
       url: "/nfs-admin/nfs-client-authentication-concept.html"
     - title: ONTAP에서 이름 서비스를 사용하는 방법
       url: "/nfs-admin/ontap-name-services-concept.html"
-    - title: ONTAP가 NFS 클라이언트에서 CIFS 파일 액세스를 허용하는 방법
+    - title: ONTAP가 NFS 클라이언트에서 SMB 파일 액세스를 허용하는 방법
       url: "/nfs-admin/smb-access-nfs-clients-concept.html"
     - title: NFS 자격 증명 캐시의 작동 방식
       url: "/nfs-admin/nfs-credential-cache-concept.html"

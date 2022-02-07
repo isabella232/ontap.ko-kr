@@ -1,7 +1,7 @@
 ---
 permalink: performance-admin/check-smb-multiplex-settings-task.html 
 sidebar: sidebar 
-keywords: check, cifs, multiplex, settings 
+keywords: check, cifs, multiplex, settings, smb 
 summary: 느린 CIFS 네트워크 성능으로 인해 성능 문제가 발생하는 경우 멀티플렉스 설정을 수정하여 성능을 개선하고 수정할 수 있습니다. 
 ---
 = CIFS 다중통신 설정을 점검하십시오

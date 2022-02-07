@@ -1,8 +1,8 @@
 ---
 permalink: authentication/create-svm-computer-account-domain-task.html 
 sidebar: sidebar 
-keywords: create, svm, computer, account, domain 
-summary: 데이터 SVM을 위해 CIFS 서버를 구성하지 않은 경우 vserver active-directory create 명령을 사용하여 도메인에서 SVM을 위한 컴퓨터 계정을 생성할 수 있습니다. 
+keywords: create, svm, computer, account, domain, cifs server 
+summary: 데이터 SVM을 위해 SMB 서버를 구성하지 않은 경우 vserver active-directory create 명령을 사용하여 도메인에서 SVM을 위한 컴퓨터 계정을 생성할 수 있습니다. 
 ---
 = 도메인에서 SVM 컴퓨터 계정을 생성합니다
 :icons: font
@@ -10,7 +10,7 @@ summary: 데이터 SVM을 위해 CIFS 서버를 구성하지 않은 경우 vserv
 
 
 [role="lead"]
-데이터 SVM용으로 CIFS 서버를 구성하지 않은 경우 'vserver active-directory create' 명령을 사용하여 도메인의 SVM에 대한 컴퓨터 계정을 생성할 수 있습니다.
+데이터 SVM용으로 SMB 서버를 구성하지 않은 경우 'vserver active-directory create' 명령을 사용하여 도메인의 SVM에 대한 컴퓨터 계정을 생성할 수 있습니다.
 
 이 작업을 수행하려면 클러스터 또는 SVM 관리자여야 합니다.
 
@@ -19,7 +19,7 @@ summary: 데이터 SVM을 위해 CIFS 서버를 구성하지 않은 경우 vserv
 .단계
 . AD 도메인에서 SVM을 위한 컴퓨터 계정을 생성합니다.
 +
-'vserver active-directory create-vserver SVM_name-account-name netbios_account_name-domain domain domain -ou 조직_unit'
+'vserver active-directory create-vserver_SVM_name_-account-name_NetBIOS_account_name_-domain_domain_-ou_조직_unit_'
 
 +
 전체 명령 구문은 을 참조하십시오 link:config-worksheets-reference.html["워크시트"].

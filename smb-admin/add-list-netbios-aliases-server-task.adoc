@@ -1,20 +1,20 @@
 ---
 permalink: smb-admin/add-list-netbios-aliases-server-task.html 
 sidebar: sidebar 
-keywords: smb, client, connect, cifs, server, alias, create, list, netbios, add, add a list of netbios aliases to the cifs server 
+keywords: smb, client, connect, cifs, server, alias, create, list, netbios 
 summary: SMB 클라이언트가 별칭을 사용하여 CIFS 서버에 접속하도록 하려면 NetBIOS 별칭 목록을 생성하거나 NetBIOS 별칭의 기존 목록에 NetBIOS 별칭을 추가할 수 있습니다. 
 ---
-= CIFS 서버에 NetBIOS 별칭 목록을 추가합니다
+= NetBIOS 별칭 목록을 SMB 서버에 추가합니다
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-SMB 클라이언트가 별칭을 사용하여 CIFS 서버에 접속하도록 하려면 NetBIOS 별칭 목록을 생성하거나 NetBIOS 별칭의 기존 목록에 NetBIOS 별칭을 추가할 수 있습니다.
+SMB 클라이언트가 별칭을 사용하여 SMB 서버에 접속하도록 하려면 NetBIOS 별칭 목록을 만들거나 NetBIOS 별칭의 기존 목록에 NetBIOS 별칭을 추가할 수 있습니다.
 
 .이 작업에 대해
 * NetBIOS 별칭 이름은 최대 15자까지 지정할 수 있습니다.
-* CIFS 서버에서 최대 200개의 NetBIOS 별칭을 구성할 수 있습니다.
+* SMB 서버에서 최대 200개의 NetBIOS 별칭을 구성할 수 있습니다.
 * 다음 문자는 허용되지 않습니다.
 +
 @# * ()=+[]|;:",<>\/?

@@ -13,13 +13,13 @@ summary: NFS 또는 SMB 서버를 생성하기 전에 SVM을 위한 DNS 서비�
 
 
 [role="lead"]
-NFS 또는 CIFS 서버를 생성하기 전에 SVM을 위한 DNS 서비스를 구성해야 합니다. 일반적으로 DNS 이름 서버는 NFS 또는 CIFS 서버가 연결할 도메인의 Active Directory 통합 DNS 서버입니다.
+NFS 또는 SMB 서버를 생성하기 전에 SVM을 위한 DNS 서비스를 구성해야 합니다. 일반적으로 DNS 이름 서버는 NFS 또는 SMB 서버가 연결할 도메인의 Active Directory 통합 DNS 서버입니다.
 
-Active Directory 통합 DNS 서버에는 도메인 LDAP 및 도메인 컨트롤러 서버에 대한 SRV(서비스 위치 레코드)가 포함되어 있습니다. SVM이 Active Directory LDAP 서버 및 도메인 컨트롤러를 찾을 수 없는 경우 NFS 또는 CIFS 서버 설정이 실패합니다.
+Active Directory 통합 DNS 서버에는 도메인 LDAP 및 도메인 컨트롤러 서버에 대한 SRV(서비스 위치 레코드)가 포함되어 있습니다. SVM이 Active Directory LDAP 서버 및 도메인 컨트롤러를 찾을 수 없는 경우 NFS 또는 SMB 서버 설정에 실패합니다.
 
 SVM은 hosts name services ns-switch 데이터베이스를 사용하여 호스트에 대한 정보를 찾을 때 사용할 이름 서비스와 순서를 결정합니다. 호스트 데이터베이스에 지원되는 두 가지 이름 서비스는 '파일'과 'dns'입니다.
 
-CIFS 서버를 생성하기 전에 dns가 소스 중 하나인지 확인해야 합니다.
+SMB 서버를 생성하기 전에 dns가 소스 중 하나인지 확인해야 합니다.
 
 
 NOTE: mgwd 프로세스 및 SecD 프로세스의 DNS 이름 서비스에 대한 통계를 보려면 통계 UI를 사용합니다.
@@ -126,7 +126,7 @@ NOTE: DDNS 업데이트에 대한 RFC 규칙을 준수하지 않는 SVM FQDN의 
 'vserver services name-service dns dynamic-update modify -vserver_vs1_-is-enabled_true_-use-secure_true_-vserver-FQDN _vs1.example.com_`
 
 +
-별표는 사용자 지정 FQDN의 일부로 사용할 수 없습니다. 예를 들어, '* .netapp.com'은(는) 유효하지 않습니다.
+별표는 사용자 지정 FQDN의 일부로 사용할 수 없습니다. 예를 들어, "{Asterisk}.netapp.com"은(는) 유효하지 않습니다.
 
 . DDNS 구성이 올바른지 확인합니다.
 +

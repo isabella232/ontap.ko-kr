@@ -10,9 +10,9 @@ summary: 'SVM(스토리지 가상 시스템)에 대해 파일 공유 이벤트�
 
 
 [role="lead"]
-SVM(스토리지 가상 시스템)에 대해 파일 공유 이벤트가 구성되고 감사가 활성화된 경우 감사 이벤트가 생성됩니다. 파일 공유 이벤트는 CIFS 네트워크 공유가 'vserver cifs share' 관련 명령을 사용하여 수정될 때 생성됩니다.
+SVM(스토리지 가상 시스템)에 대해 파일 공유 이벤트가 구성되고 감사가 활성화된 경우 감사 이벤트가 생성됩니다. 파일 공유 이벤트는 SMB 네트워크 공유가 'vserver cifs share' 관련 명령을 사용하여 수정될 때 생성됩니다.
 
-SVM에서 CIFS 네트워크 공유를 추가, 수정 또는 삭제할 때 이벤트 ID 5142, 5143 및 5144와 파일 공유 이벤트가 생성됩니다. CIFS 네트워크 공유 구성은 "CIFS share access control create | modify | delete" 명령을 사용하여 수정됩니다.
+이벤트 ID 5142, 5143 및 5144와 파일 공유 이벤트는 SVM에 대해 SMB 네트워크 공유를 추가, 수정 또는 삭제할 때 생성됩니다. SMB 네트워크 공유 구성은 'CIFS share access control create | modify | delete' 명령을 사용하여 수정합니다.
 
 다음 예에서는 'audit_dest'라는 공유 객체가 생성될 때 ID 5143이 생성된 파일 공유 이벤트를 표시합니다.
 

@@ -32,7 +32,7 @@ summary: 감사 설정을 변경하려면 로그 경로 대상 및 로그 형식
 '-events' 매개 변수를 사용하여 vserver audit modify를 수행합니다
 
 
-NOTE: 중앙 액세스 정책 스테이징 이벤트를 감사하려면 SVM(Storage Virtual Machine)에서 DAC(Dynamic Access Control) CIFS 서버 옵션을 활성화해야 합니다.
+NOTE: 중앙 액세스 정책 스테이징 이벤트를 감사하려면 스토리지 가상 머신(SVM)에서 DAC(Dynamic Access Control) SMB 서버 옵션을 활성화해야 합니다.
 
 
 

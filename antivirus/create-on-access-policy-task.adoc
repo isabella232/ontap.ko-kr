@@ -26,7 +26,7 @@ summary: 액세스 시 정책은 액세스 시 검사의 범위를 정의합니�
 .단계
 . 액세스 시 정책 생성:
 +
-'vserver vscan on-access-policy create -vserver data_SVM|cluster_admin_SVM-policy-name policy_name-protocol cifs-max-file-size max_size_of_files_to_scan –filters[scan-ro-volume,] -file-ext-to-include_files_to_include-file-ext-ext-no-scan_mandatory-mandatory-exclude_exclude_vessing_exclude_file-file-file-ext_exclude_exclude_exclude_exclude_file-ext_exclude_exclude_exclude_exclude_file-ext-ext-ext-exclude_exclude
+'vserver vscan on-access-policy create -vserver_data_SVM|cluster_admin_SVM_-policy -name_policy_name_-protocol cifs-max-file-size_max_size_of_files_to_scan_ – filters [scan-ro-volume,] [scan-execute-access] -file-ext-to-include_ext_ext_ext_ext_exclude_ext_ext_exclude_ext_ext_ext_ext_exclude_exclude_ext_ext_exclude_file_exclude_file_file_scan_exclude_exclude_exclude_file_file_file_file_file_file_file_max-max_max-max-max-max-max_
 
 +
 ** 개별 SVM에 정의된 정책에 따라 데이터 SVM을 지정하고, 클러스터의 모든 SVM에 정의된 정책에 따라 클러스터 관리 SVM을 지정합니다.
@@ -39,7 +39,7 @@ summary: 액세스 시 정책은 액세스 시 검사의 범위를 정의합니�
 ----
 cluster1::> vserver vscan on-access-policy create -vserver vs1 -policy-name Policy1 -protocol CIFS -filters scan-ro-volume -max-file-size 3GB -file-ext-to-include “mp*”,"tx*" -file-ext-to-exclude "mp3","txt" -scan-files-with-no-ext false -paths-to-exclude "\vol\a b\","\vol\a,b\"
 ----
-. 액세스 시 정책이 생성되었는지 확인합니다. 'vserver vscan on-access-policy show -instance data_SVM|cluster_admin_SVM-policy-name policy_name'
+. 액세스 시 정책이 생성되었는지 확인합니다. 'vserver vscan on-access-policy show -instance_data_SVM|cluster_admin_SVM_-policy-name policy_name'
 +
 전체 옵션 목록은 명령에 대한 man 페이지를 참조하십시오.
 

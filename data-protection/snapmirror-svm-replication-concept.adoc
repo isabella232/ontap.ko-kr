@@ -323,9 +323,9 @@ IPspace
 
 
  a| 
-CIFS를 선택합니다
+중소기업
  a| 
-CIFS 서버
+SMB 서버
  a| 
 예
  a| 

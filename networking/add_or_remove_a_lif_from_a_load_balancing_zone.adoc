@@ -35,20 +35,20 @@ LIF를 로드 밸런싱 존에 추가하거나 LIF에서 제거합니다.
  a| 
 LIF를 추가합니다
  a| 
-네트워크 인터페이스 modify -vserver vserver_name -lif lif_name -dns-zone zone zone_name 예: network interface modify -vserver vs1 -lif data1 -dns-zone cifs.company.com
+'network interface modify -vserver_vserver_name_-lif_lif_name_-dns-zone_zone_name_' 예: 'network interface modify -vserver vs1-lif data1-dns-zone cifs.company.com`
 
 
 
  a| 
 단일 LIF를 제거합니다
  a| 
-네트워크 인터페이스 modify -vserver vserver_name -lif lif_name -dns -zone none 예: network interface modify -vserver vs1 -lif data1 -dns -zone none
+'network interface modify -vserver_vserver_name_-lif_lif_name_-dns-zone none' 예: 'network interface modify -vserver vs1-lif data1-dns-zone none
 
 
 
  a| 
 모든 LIF를 제거합니다
  a| 
-네트워크 인터페이스 modify -vserver vserver_name -lif * -dns -zone none 예: network interface modify -vserver vs0 -lif * -dns-zone none 해당 영역에서 SVM의 모든 LIF를 제거하여 로드 밸런싱 영역에서 SVM을 제거할 수 있습니다.
+'network interface modify -vserver_vserver_name_-lif * -dns-zone none' 예: 'network interface modify -vs0 -lif * -dns-zone none' SVM의 모든 LIF를 해당 영역에서 제거하여 로드 밸런싱 영역에서 SVM을 제거할 수 있습니다.
 
 |===

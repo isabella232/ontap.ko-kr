@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: configure, branchcache, service, per-share, basis, smb, share, configure branchcache on the cifs server 
 summary: BranchCache를 구성하여 공유별로 BranchCache 서비스를 제공할 수 있습니다. 또는 BranchCache를 구성하여 모든 SMB 공유에서 캐싱을 자동으로 설정할 수 있습니다. 
 ---
-= CIFS 서버에서 BranchCache를 구성합니다
+= SMB 서버에서 BranchCache를 구성합니다
 :icons: font
 :imagesdir: ../media/
 
@@ -82,23 +82,23 @@ _작동 모드 _
 . 필요에 따라 SMB 2.1 및 3.0 활성화:
 +
 .. 권한 수준을 Advanced:'Set-Privilege advanced'로 설정합니다
-.. 구성된 SVM SMB 설정을 확인하여 필요한 모든 SMB 버전이 활성화되었는지 확인합니다. 'vserver cifs options show -vserver vserver_name'
-.. 필요한 경우 SMB 2.1:'vserver cifs options modify -vserver vserver_name -SMB2 -enabled true'를 설정합니다
+.. 구성된 SVM SMB 설정을 확인하여 필요한 모든 SMB 버전이 활성화되었는지 확인합니다. 'vserver cifs options show -vserver_vserver_name_'
+.. 필요한 경우 SMB 2.1:'vserver cifs options modify -vserver_vserver_name_-SMB2-enabled true'를 설정합니다
 +
 이 명령을 사용하면 SMB 2.0 및 SMB 2.1이 모두 설정됩니다.
 
-.. 필요한 경우 SMB 3.0:'vserver cifs options modify -vserver vserver_name -SMB3 -enabled true'를 설정합니다
+.. 필요한 경우 SMB 3.0:'vserver cifs options modify -vserver_vserver_name_-SMB3-enabled true'를 설정합니다
 .. admin 권한 수준으로 복귀:'et-Privilege admin'입니다
 
 
-. BranchCache 구성:'vserver cifs BranchCache create-vserver vserver_name-hash-store-path path path[-hash-store-max-size{integer[KB|MB|GB|TB|PB]} [-versions{v1-enable|v2-enable|enable-all][-server-key text] - operating-mode{per-share|all-share}
+. BranchCache 구성:'vserver cifs BranchCache create-vserver_name_-hash-store-path path path [-hash-store-max-size{integer[KB|MB|GB|TB|PB]} [-versions{v1-enable|v2-enable|enable-all][-server-key text] - operating-mode{per-share|all-share}}
 +
 지정된 해시 스토리지 경로가 있어야 하며 SVM에서 관리하는 볼륨에 상주해야 합니다. 경로는 읽기 쓰기 가능 볼륨에도 있어야 합니다. 경로가 읽기 전용이거나 존재하지 않으면 명령이 실패합니다.
 
 +
 SVM BranchCache 구성을 추가할 때 동일한 서버 키를 사용하려면 서버 키에 대해 입력한 값을 기록합니다. BranchCache 구성에 대한 정보를 표시할 때는 서버 키가 나타나지 않습니다.
 
-. BranchCache 구성이 올바른지 확인합니다. 'vserver cifs BranchCache show -vserver vserver_name'
+. BranchCache 구성이 올바른지 확인합니다. 'vserver cifs BranchCache show -vserver_vserver_name_'
 
 
 다음 명령을 실행하면 SMB 2.1과 3.0이 모두 활성화되어 있고 SVM VS1의 모든 SMB 공유에서 캐싱이 자동으로 활성화되도록 BranchCache가 구성됩니다.

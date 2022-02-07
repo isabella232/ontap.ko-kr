@@ -1,7 +1,7 @@
 ---
 permalink: revert/task_identifying_current_cluster_activity.html 
 sidebar: sidebar 
-keywords: ontap, downgrade, dowgrading, cluster, activity, running, jobs, stop, shutdown, active, cifs, sessions 
+keywords: ontap, downgrade, dowgrading, cluster, activity, running, jobs, stop, shutdown, active, SMB, sessions 
 summary: 무중단 다운그레이드를 수행하기 전에 지속적으로 사용할 수 없는 CIFS 세션을 식별하여 올바르게 종료해야 합니다. 
 ---
 = 다운그레이드하기 전에 현재 클러스터 활동을 확인합니다
@@ -10,7 +10,7 @@ summary: 무중단 다운그레이드를 수행하기 전에 지속적으로 사
 
 
 [role="lead"]
-다운그레이드하기 전에 작업이 실행되고 있지 않아야 하며 지속적으로 사용할 수 없는 모든 CIFS 세션을 종료해야 합니다.
+다운그레이드하기 전에 작업이 실행되지 않아야 하며 지속적으로 사용할 수 없는 모든 SMB 세션이 종료되어야 합니다.
 
 
 
@@ -64,15 +64,15 @@ Job ID Name                 Vserver    Node           State
 
 
 
-== 종료해야 하는 활성 CIFS 세션을 식별합니다
+== 종료해야 하는 활성 SMB 세션을 식별합니다
 
-무중단 다운그레이드를 수행하기 전에 지속적으로 사용할 수 없는 CIFS 세션을 식별하여 올바르게 종료해야 합니다.
+무중단 다운그레이드를 수행하기 전에 지속적으로 사용할 수 없는 SMB 세션을 식별하여 정상적으로 종료해야 합니다.
 
-Hyper-V 또는 Microsoft SQL Server 클라이언트가 SMB 3.0 프로토콜을 사용하여 액세스하는 지속적으로 사용 가능한 CIFS 공유는 업그레이드 또는 다운그레이드하기 전에 종료할 필요가 없습니다.
+Hyper-V 또는 Microsoft SQL Server 클라이언트가 SMB 3.0 프로토콜을 사용하여 액세스하는 지속적으로 사용 가능한 SMB 공유는 업그레이드 또는 다운그레이드하기 전에 종료할 필요가 없습니다.
 
-. 계속 사용할 수 없는 설정된 CIFS 세션을 식별합니다. 'vserver cifs session show-Continuously-available Yes-instance'
+. 계속 사용할 수 없는 설정된 SMB 세션을 식별합니다. 'vserver cifs session show-Continuously-available Yes-instance'
 +
-이 명령은 무중단 가용성이 없는 CIFS 세션에 대한 자세한 정보를 표시합니다. ONTAP 다운그레이드를 진행하기 전에 종료해야 합니다.
+이 명령은 무중단 가용성이 없는 SMB 세션에 대한 자세한 정보를 표시합니다. ONTAP 다운그레이드를 진행하기 전에 종료해야 합니다.
 
 +
 [listing]
@@ -97,7 +97,7 @@ Incoming Data LIF IP Address: 198.51.100.5
       Continuously Available: No
 1 entry was displayed.
 ----
-. 필요한 경우, 식별된 각 CIFS 세션에 대해 열려 있는 파일을 확인하십시오: 'vserver cifs session file show-session-id session_ID'
+. 필요한 경우, 확인한 각 SMB 세션에 대해 열려 있는 파일을 확인하십시오: 'vserver cifs session file show-session-id_session_ID_'
 +
 [listing]
 ----

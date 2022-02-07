@@ -39,7 +39,7 @@ summary: 스캐너 풀은 SVM에 연결할 수 있는 Vscan 서버 및 특별 �
 ----
 cluster1::> vserver vscan scanner-pool create -vserver vs1 -scanner-pool SP -hostnames 1.1.1.1,vmwin204-27.fsct.nb -privileged-users cifs\u1,cifs\u2
 ----
-. 스캐너 풀이 생성되었는지 확인합니다. 'vserver vscan scanner -pool show -vserver data_SVM|cluster_admin_SVM-scanner -pool scanner_pool'
+. 스캐너 풀이 생성되었는지 확인합니다. 'vserver vscan scanner -pool show -vserver_data_SVM|cluster_admin_SVM_-scanner -pool_scanner_pool_'
 +
 전체 옵션 목록은 명령에 대한 man 페이지를 참조하십시오.
 

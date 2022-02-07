@@ -186,23 +186,23 @@ _Filters_continued
 * 파일 또는 디렉토리의 그룹을 변경하기 위한 클라이언트 SetAttr 요청을 필터링하는 'Setattr-with-group-change' 옵션
 * 파일 또는 디렉터리에서 SACL을 변경하기 위한 클라이언트 SetAttr 요청을 필터링하는 'Setattr-with-SACL-change' 옵션입니다.
 +
-이 필터는 CIFS 및 NFSv4 프로토콜에만 사용할 수 있습니다.
+이 필터는 SMB 및 NFSv4 프로토콜에만 사용할 수 있습니다.
 
 * 파일 또는 디렉토리의 DACL 변경을 위한 클라이언트 SetAttr 요청을 필터링하는 'Setattr-with-DACL-change' 옵션.
 +
-이 필터는 CIFS 및 NFSv4 프로토콜에만 사용할 수 있습니다.
+이 필터는 SMB 및 NFSv4 프로토콜에만 사용할 수 있습니다.
 
 * 파일 또는 디렉토리의 수정 시간을 변경하기 위해 클라이언트 SetAttr 요청을 필터링하는 'Setattr-with-modify-time-change' 옵션.
 * 파일 또는 디렉터리의 액세스 시간 변경을 위한 클라이언트 SetAttr 요청을 필터링하는 'Setattr-with-access-time-change' 옵션.
 * 'Setattr-with-creation-time-change' 옵션을 사용하여 파일 또는 디렉토리의 생성 시간을 변경하기 위해 클라이언트 SetAttr 요청을 필터링합니다.
 +
-이 옵션은 CIFS 프로토콜에만 사용할 수 있습니다.
+이 옵션은 SMB 프로토콜에만 사용할 수 있습니다.
 
 * 파일 또는 디렉토리의 모드 비트 변경을 위한 클라이언트 SetAttr 요청을 필터링하는 'Setattr-with-mode-change' 옵션.
 * 파일 크기 변경에 대한 클라이언트 SetAttr 요청을 필터링하기 위한 'Metattr-with-size-change' 옵션입니다.
 * 'etattr-with-allocation-size-change' 옵션을 사용하여 파일의 할당 크기를 변경하기 위해 클라이언트 SetAttr 요청을 필터링합니다.
 +
-이 옵션은 CIFS 프로토콜에만 사용할 수 있습니다.
+이 옵션은 SMB 프로토콜에만 사용할 수 있습니다.
 
 * 디렉토리 작업에 대한 클라이언트 요청을 필터링하기 위한 'exclude-directory' 옵션입니다.
 +

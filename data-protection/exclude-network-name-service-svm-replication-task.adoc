@@ -106,9 +106,9 @@ cluster_dst::> snapmirror create -source-path svm1: -destination-path svm_backup
 ----
 destination_cluster::> vserver stop -vserver dvs1
 ----
-. SMB를 사용하는 경우 CIFS 서버도 구성해야 합니다.
+. SMB를 사용하는 경우 SMB 서버도 구성해야 합니다.
 +
-을 참조하십시오 link:create-smb-server-task.html["CIFS만 해당: CIFS 서버 생성"].
+을 참조하십시오 link:create-smb-server-task.html["SMB 전용: SMB 서버 생성"].
 
 . 대상 SVM 또는 대상 클러스터에서 SVM 복제 관계를 초기화합니다.
 +

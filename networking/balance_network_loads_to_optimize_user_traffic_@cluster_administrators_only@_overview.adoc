@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: networking/balance_network_loads_to_optimize_user_traffic_@cluster_administrators_only@_overview.html 
-keywords: balance, balanced, load, utilization, usage, lif, port, cluster, performance, configure the cluster to serve client requests from appropriately loaded LIFs, balance network loads to optimize user traffic, overview 
-summary: 적절하게 로드된 LIF의 클라이언트 요청을 처리하도록 클러스터를 구성합니다 
+keywords: balance, balanced, load, utilization, usage, lif, port, cluster, performance 
+summary: 적절하게 로드된 LIF의 클라이언트 요청을 처리하도록 클러스터를 구성합니다. 
 ---
 = 개요
 :hardbreaks:
@@ -21,5 +21,5 @@ DNS 로드 밸런싱을 통해 LIF는 SVM의 로드 밸런싱 영역과 연결�
 
 * 사용 가능한 리소스 간에 새 클라이언트 연결이 균형 있게 조정됩니다.
 * 특정 SVM을 마운트할 때 사용할 LIF를 결정하기 위해 수작업이 필요하지 않습니다.
-* DNS 로드 밸런싱은 NFSv3, NFSv4, NFSv4.1, CIFS, SMB 2.0, SMB 2.1 및 SMB 3.0:
+* DNS 로드 밸런싱은 NFSv3, NFSv4, NFSv4.1, SMB 2.0, SMB 2.1 및 SMB 3.0을 지원합니다.
 

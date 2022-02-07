@@ -287,7 +287,7 @@ LIF 역할
 허용된 프로토콜
 
 * LIF를 사용할 수 있는 프로토콜입니다.
-* 기본적으로 CIFS, NFS 및 FlexCache가 허용됩니다. FlexCache 프로토콜을 사용하면 7-Mode에서 운영 중인 Data ONTAP 시스템에서 FlexCache 볼륨의 원본 볼륨으로 볼륨을 사용할 수 있습니다.
+* 기본적으로 SMB, NFS 및 FlexCache가 허용됩니다. FlexCache 프로토콜을 사용하면 7-Mode에서 운영 중인 Data ONTAP 시스템에서 FlexCache 볼륨의 원본 볼륨으로 볼륨을 사용할 수 있습니다.
 
 
 

@@ -32,7 +32,7 @@ image::../media/metrocluster-av-config.gif[MetroCluster AV 구성]
 .단계
 . 스캐너 풀 생성:
 +
-'vserver vscan scanner -pool create -vserver data_SVM|cluster_admin_SVM-scanner -pool scanner_pool -hostname vscan_server_hostname -privileged-users privileged_users'
+'vserver vscan scanner -pool create -vserver_data_SVM|cluster_admin_SVM_-scanner -pool_scanner_pool_-hostname_vscan_server_hostname_-privileged-users_privileged_users_'
 
 +
 ** 개별 SVM용으로 정의된 풀에 대해 데이터 SVM을 지정하고, 클러스터의 모든 SVM에 대해 정의된 풀에 대해 클러스터 관리 SVM을 지정합니다.
@@ -71,7 +71,7 @@ cluster1::> vserver vscan scanner-pool create -vserver cifssvm1 -
 scanner-pool pool2_for_site2 -hostnames scan2 -privileged-users cifs
 \u1,cifs\u2
 ----
-. 스캐너 풀이 생성되었는지 확인합니다. 'vserver vscan scanner -pool show -vserver data_SVM|cluster_admin_SVM-scanner -pool scanner_pool'
+. 스캐너 풀이 생성되었는지 확인합니다. 'vserver vscan scanner -pool show -vserver_data_SVM|cluster_admin_SVM_-scanner -pool_scanner_pool_'
 +
 전체 옵션 목록은 명령에 대한 man 페이지를 참조하십시오.
 

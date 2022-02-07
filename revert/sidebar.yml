@@ -32,7 +32,7 @@ entries:
     url: "/revert/task_reverting_the_physical_block_sharing_in_split_flexclone_volumes.html"
   - title: FlexGroup 볼륨
     url: "/revert/task_disabling_qtrees_in_flexgroup_volumes_before_reverting.html"
-  - title: CIFS 서버를 워크그룹 모드로 설정합니다
+  - title: 작업 그룹 모드의 SMB 서버
     url: "/revert/task_identifying_and_moving_cifs_servers_in_workgroup_mode.html"
   - title: 중복제거된 볼륨
     url: "/revert/task_reverting_systems_with_deduplicated_volumes.html"
@@ -56,7 +56,7 @@ entries:
     url: "/revert/task_enabling_and_reverting_lifs_to_home_ports_completing_post_reversion_tasks.html"
   - title: 스냅샷 복사본 정책 설정
     url: "/revert/task_preparing_snapshot_copies_after_reverting.html"
-  - title: 클라이언트 액세스 확인(CIFS 및 NFS)
+  - title: 클라이언트 액세스 확인(SMB 및 NFS)
     url: "/revert/task_verifying_client_access_cifs_and_nfs.html"
   - title: IPv6 방화벽 항목을 확인합니다
     url: "/revert/task_verifying_ipv6_firewall_entries.html"
