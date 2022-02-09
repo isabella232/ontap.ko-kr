@@ -41,7 +41,7 @@ image:workflow_admin_update_firmware.gif["펌웨어 업데이트 작업의 워�
 ONTAP 9.9.1부터, Active IQ Unified Manager에서 클러스터에서 펌웨어 업데이트가 보류 중일 때 알려주는 경고를 시스템 관리자에게 받을 수 있습니다.
 
 
-NOTE: ONTAP 9.9.1로 작업할 때 펌웨어 업데이트에 대한 경고를 받으려면 Active IQ Unified Manager에 등록되어 있어야 합니다. 을 참조하십시오 link:https://netapp.com/support-and-training/documentation/active-iq-unified-manager["Active IQ Unified Manager 문서 리소스"].
+NOTE: ONTAP 9.9.1로 작업할 때 펌웨어 업데이트에 대한 경고를 받으려면 Active IQ Unified Manager에 등록되어 있어야 합니다. 을 참조하십시오 link:https://netapp.com/support-and-training/documentation/active-iq-unified-manager["Active IQ Unified Manager 문서 리소스"^].
 
 .단계
 . 대시보드 * 로 이동합니다.
@@ -154,6 +154,9 @@ NOTE: 펌웨어 업데이트 요약 * 에서 업데이트를 모니터링하거�
 
 ONTAP 9.10.1부터 System Manager를 사용하면 자동 업데이트 기능을 활성화할 수 있습니다. 이 기능을 사용하면 ONTAP에서 권장하는 펌웨어 패치, 업그레이드 및 업데이트(기본 동작)를 자동으로 다운로드하여 설치할 수 있습니다.
 
+
+IMPORTANT: 현재 자동 펌웨어 업데이트 기능이 제대로 작동하지 않습니다. 이 기능을 활성화할 수 있지만 자동 펌웨어 업데이트에 대한 알림은 받지 않습니다.
+
 자동 업데이트 기능을 사용하려면 HTTPS를 통한 AutoSupport 연결이 필요합니다. 연결 문제를 해결하려면 을 참조하십시오 link:../system-admin/troubleshoot-autosupport-http-https-task.html["HTTP 또는 HTTPS를 통한 AutoSupport 메시지 전송 문제를 해결합니다"].
 
 업데이트에는 다음 범주의 펌웨어 패치, 업그레이드 및 업데이트가 포함됩니다.
@@ -168,7 +171,7 @@ System Manager에서 범주별 기본 동작을 변경하여 펌웨어 업데이
 
 image:../media/sm-firmware-auto-update.gif["자동 업데이트 워크플로"]
 
-* <<Ensure Automatic Update feature is enabled>>
+* <<Ensure the Automatic Update feature is enabled>>
 * <<Specify default actions for update recommendations>>
 * <<Manage automatic update recommendations>>
 
