@@ -35,7 +35,10 @@ https://docs.netapp.com/us-en/ontap/data-protection/replicate-entire-svm-config-
 +
 link:create-task.html["FlexGroup 볼륨을 생성하는 중입니다"].
 
-. FlexGroup 볼륨을 복제하려면 보조 사이트에서 'sapmirror update-destination-path destination_svm_name: - source-path source_svm_name:'을(를) 업데이트하십시오
++
+계속하기 전에 FlexGroup 및 모든 구성 구성요소가 생성될 때까지 기다리십시오.
+
+. FlexGroup 볼륨을 복제하려면 보조 사이트에서 'sapmirror update-destination-path destination_svm_name: - source-path source_svm_name:'+'sapmirror show-fields schedule'을 입력하여 예약된 SnapMirror 업데이트가 이미 있는지 확인할 수도 있습니다
 . 2차 사이트에서 SnapMirror 관계가 정상인지 '스냅샷 표시'인지 확인합니다
 +
 [listing]

@@ -19,7 +19,7 @@ SVM이 생성되면 로컬 사용자 기능이 기본적으로 활성화됩니�
 'vserver cifs users-and-groups local-user' man 페이지에는 선택적 매개 변수 및 명명 요구 사항에 대한 세부 정보가 포함되어 있습니다.
 
 .단계
-. 로컬 사용자 'vserver cifs users-and-groups local-user create-vserver vserver_name user-name user_name optional_parameters'를 생성합니다
+. 로컬 사용자:'vserver cifs users-and-groups local-user create-vserver_vserver_name_-user-name_user_name__optional_parameters_'를 생성합니다
 +
 다음과 같은 선택적 매개 변수가 유용할 수 있습니다.
 
@@ -42,7 +42,7 @@ SVM이 생성되면 로컬 사용자 기능이 기본적으로 활성화됩니�
 명령을 실행하면 로컬 사용자 암호를 묻는 메시지가 표시됩니다.
 
 . 로컬 사용자의 암호를 입력한 다음 암호를 확인합니다.
-. 사용자가 성공적으로 생성되었는지 확인합니다. 'vserver cifs users-and-groups local-user show-vserver vserver_name'
+. 사용자가 성공적으로 생성되었는지 확인합니다. 'vserver cifs users-and-groups local-user show -vserver_vserver_name_'
 
 
 다음 예에서는 SVM vs1.example.com 과 관련된 "sUE Chang"이라는 전체 이름으로 로컬 사용자 "sMB_SERVER01\sue"를 생성합니다.
