@@ -14,7 +14,7 @@ entries:
     url: "/disks-aggregates/create-aggregates-auto-provision-task.html"
   - title: 애그리게이트를 위한 기본 RAID 정책
     url: "/disks-aggregates/default-raid-policies-aggregates-concept.html"
-  - title: Aggregate에 필요한 디스크 또는 디스크 파티션 수를 Dtermine로 지정합니다
+  - title: Aggregate에 필요한 디스크 또는 디스크 파티션 수를 결정합니다
     url: "/disks-aggregates/determine-number-disks-partitions-aggregate-concept.html"
   - title: 수동으로 애그리게이트 생성
     url: "/disks-aggregates/create-aggregates-manual-task.html"
