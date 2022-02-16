@@ -42,5 +42,5 @@ cluster_src::> volume modify -vserver SVM1 -volume volA_src -vserver-dr-protecti
 ----
 cluster_src::> volume modify -vserver SVM1 -volume volA_src -vserver-dr-protection protected
 ----
-. 에 설명된 대로 SVM 복제 관계를 생성하고 초기화합니다 link:replicate-entire-svm-config-task.html["전체 SVM 구성 복제"],
+. 에 설명된 대로 SVM 복제 관계를 생성하고 초기화합니다 link:replicate-entire-svm-config-task.html["전체 SVM 구성 복제"].
 

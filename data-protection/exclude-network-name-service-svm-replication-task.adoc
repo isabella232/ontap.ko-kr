@@ -14,6 +14,8 @@ summary: SnapMirror create 명령의 -identity-preserve false 옵션을 사용�
 
 소스 및 타겟 클러스터와 SVM을 피어링해야 합니다.
 
+자세한 내용은 을 참조하십시오 link:../peering/create-cluster-relationship-93-later-task.html["클러스터 피어 관계 생성(ONTAP 9.3 이상)"] 및 .
+
 보존된 프로토콜 및 이름 서비스 설정 목록은 를 참조하십시오 link:snapmirror-svm-replication-concept.html#configurations-replicated-in-svm-dr-relationships["SVM DR 관계에 복제된 구성"].
 
 전체 명령 구문은 man 페이지를 참조하십시오.
@@ -34,6 +36,10 @@ SVM 이름은 소스 및 타겟 클러스터 전체에서 고유해야 합니다
 ----
 cluster_dst:> vserver create -vserver svm_backup -subtype dp-destination
 ----
+. 대상 클러스터에서 'vserver peer create' 명령을 사용하여 SVM 피어 관계를 생성합니다.
++
+자세한 내용은 을 참조하십시오 link:../peering/create-intercluster-svm-peer-relationship-93-later-task.html["SVM 인터클러스터 피어 관계 생성(ONTAP 9.3 이상)"].
+
 . 복제 작업 스케줄 생성:
 +
 "작업 일정 cron create-name_job_name_-month_month_-DayOfWeek_day_of_week_-day_day_of_month_-hour_hour_-minute_minute_"
