@@ -30,7 +30,7 @@ NVMe/FC를 사용하여 SAN을 구현 및 구성하는 방법을 설명합니다
 +
 에서는 참조 형식의 ONTAP 명령에 대해 설명합니다.
 
-* https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"]
+* https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"^]
 +
 SAN 호스트 및 컨트롤러 구성 제한에 대해 설명합니다.
 

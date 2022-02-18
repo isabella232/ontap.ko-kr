@@ -44,5 +44,5 @@ image:workflow_dp_serve_data_from_destination.gif["Alt = 대상에서 데이터�
 | System Manager Classic(ONTAP 9.7 이하에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap-sm-classic/volume-disaster-recovery/index.html["볼륨 재해 복구 개요"^] 
 
 
-| ONTAP 명령줄 인터페이스입니다 | link:https://docs.netapp.com/us-en/ontap/data-protection/make-destination-volume-writeable-task.html["대상 볼륨을 활성화합니다"^] 
+| ONTAP 명령줄 인터페이스입니다 | link:./data-protection/make-destination-volume-writeable-task.html["대상 볼륨을 활성화합니다"^] 
 |===

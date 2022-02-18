@@ -31,7 +31,7 @@ System Manager는 S3 오브젝트 스토리지를 지원하기 위한 두 가지
 FabricPool 계층화에 대한 자세한 내용은 를 참조하십시오 link:concept_cloud_overview.html["System Manager를 이용한 FabricPool 계층 관리 개요"].
 
 
-NOTE: ONTAP S3는 추가 하드웨어 및 관리 없이 기존 클러스터에서 S3 기능을 원하는 경우에 적합합니다. 300TB 이상의 배포를 위해 NetApp StorageGRID 소프트웨어는 계속해서 오브젝트 스토리지를 위한 NetApp의 대표적인 솔루션입니다. 자세한 내용은 를 참조하십시오 link:https://docs.netapp.com/sgws-114/index.jsp["StorageGRID 설명서"].
+NOTE: ONTAP S3는 추가 하드웨어 및 관리 없이 기존 클러스터에서 S3 기능을 원하는 경우에 적합합니다. 300TB 이상의 배포를 위해 NetApp StorageGRID 소프트웨어는 계속해서 오브젝트 스토리지를 위한 NetApp의 대표적인 솔루션입니다. 자세한 내용은 를 참조하십시오 link:https://docs.netapp.com/sgws-114/index.jsp["StorageGRID 설명서"^].
 
 System Manager를 사용하여 S3 버킷을 생성하는 경우, ONTAP은 시스템에서 가장 가용성이 높은 기본 성능 서비스 수준을 구성합니다. 예를 들어, AFF 시스템에서 기본 설정은 * Extreme * 입니다. 성능 서비스 수준은 사전 정의된 QoS(Quality of Service) 정책 그룹입니다. 기본 서비스 수준 대신 사용자 지정 QoS 정책 그룹 또는 정책 그룹을 지정할 수 있습니다.
 

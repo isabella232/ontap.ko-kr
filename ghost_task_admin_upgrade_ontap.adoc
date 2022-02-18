@@ -31,7 +31,7 @@ summary: 클러스터에서 ONTAP 버전을 중단 없이 업데이트할 수 �
 image:workflow_admin_upgrade_ontap.gif["업그레이드 작업의 워크플로 다이어그램"]
 
 .단계
-. 소프트웨어 이미지를 네트워크의 HTTP 또는 FTP 서버로 다운로드하려면 에서 소프트웨어 이미지를 복사합니다 link:https://mysupport.netapp.com/site/downloads["NetApp Support 사이트"] 이미지를 제공할 HTTP 또는 FTP 서버의 디렉토리로 이동합니다.
+. 소프트웨어 이미지를 네트워크의 HTTP 또는 FTP 서버로 다운로드하려면 에서 소프트웨어 이미지를 복사합니다 link:https://mysupport.netapp.com/site/downloads["NetApp Support 사이트"^] 이미지를 제공할 HTTP 또는 FTP 서버의 디렉토리로 이동합니다.
 +
 소프트웨어 이미지를 로컬 폴더에 다운로드하려면 NetApp Support 사이트에서 소프트웨어 이미지를 클릭한 다음 * 다른 이름으로 저장 * 을 선택하고 이미지를 배치할 로컬 폴더를 선택합니다.
 

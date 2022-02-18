@@ -174,7 +174,7 @@ GiveStatus 필드에 반환할 애그리게이트가 없다고 표시되면 모�
 +
 .. 거부권을 행사할 수 있는 대안을 검토하여 "받는 사람" 조건을 해결할지 또는 거부권을 무시할지 여부를 결정합니다.
 +
-link:https://docs.netapp.com/us-en/ontap/high-availability/index.html["고가용성 구성"]
+link:../ontap/high-availability/index.html["고가용성 구성"]
 
 .. 필요한 경우 오류 메시지에 설명된 "받는 사람" 조건을 해결하여 식별된 작업이 정상적으로 종료되도록 합니다.
 .. 스토리지 페일오버 반환 명령을 다시 실행합니다.

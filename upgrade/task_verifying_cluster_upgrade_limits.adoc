@@ -10,15 +10,15 @@ summary: ONTAP 소프트웨어를 업그레이드하기 전에 클러스터가 �
 
 
 [role="lead"]
-을 사용하지 않는 경우 link:https://aiq.netapp.com/["Active IQ"] Upgrade Advisor - 클러스터가 플랫폼 시스템 제한을 초과하지 않는지 확인해야 합니다. 또한 SAN에는 플랫폼 시스템 제한뿐만 아니라 확인해야 할 제한도 있습니다.
+을 사용하지 않는 경우 link:https://aiq.netapp.com/["Active IQ"^] Upgrade Advisor - 클러스터가 플랫폼 시스템 제한을 초과하지 않는지 확인해야 합니다. 또한 SAN에는 플랫폼 시스템 제한뿐만 아니라 확인해야 할 제한도 있습니다.
 
 . 클러스터가 플랫폼의 시스템 제한을 초과하지 않는지 확인합니다.
 +
-https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"]
+https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"^]
 
 . 클러스터가 SAN에 대해 구성된 경우 FC, FCoE 및 iSCSI의 구성 제한을 초과하지 않는지 확인합니다.
 +
-https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"]
+https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"^]
 
 . CPU 및 디스크 활용도를 'node run-node_name -command sysstat -c 10-x 3'으로 판단한다
 +

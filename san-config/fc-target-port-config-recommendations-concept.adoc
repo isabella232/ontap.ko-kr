@@ -12,7 +12,7 @@ summary: 최상의 성능과 가용성을 얻으려면 권장되는 FC 타겟 �
 [role="lead"]
 최상의 성능과 가용성을 얻으려면 권장되는 FC 타겟 포트 구성을 사용해야 합니다.
 
-다음 표에는 온보드 FC 및 FC-NVMe 타겟 포트에 대한 기본 포트 사용 순서가 나와 있습니다. 확장 어댑터의 경우 동일한 ASIC를 연결에 사용하지 않도록 FC 포트를 분산해야 합니다. 기본 슬롯 순서는 에 나와 있습니다 https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"] 컨트롤러에서 사용하는 ONTAP 소프트웨어 버전입니다.
+다음 표에는 온보드 FC 및 FC-NVMe 타겟 포트에 대한 기본 포트 사용 순서가 나와 있습니다. 확장 어댑터의 경우 동일한 ASIC를 연결에 사용하지 않도록 FC 포트를 분산해야 합니다. 기본 슬롯 순서는 에 나와 있습니다 https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"^] 컨트롤러에서 사용하는 ONTAP 소프트웨어 버전입니다.
 
 FC-NVMe는 다음 모델에서 지원됩니다.
 
@@ -43,7 +43,7 @@ FAS9000, AFF A700, AFF A700s 및 AFF A800
  a| 
 없음
  a| 
-모든 데이터 포트는 확장 어댑터에 있습니다. 을 참조하십시오 https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"] 를 참조하십시오.
+모든 데이터 포트는 확장 어댑터에 있습니다. 을 참조하십시오 https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"^] 를 참조하십시오.
 
 
 

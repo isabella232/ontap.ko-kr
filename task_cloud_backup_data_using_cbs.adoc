@@ -25,8 +25,8 @@ NOTE: Cloud Backup은 FlexVol 읽기-쓰기 볼륨 및 데이터 보호(DP) 볼�
 
 다음 절차를 수행하여 Cloud Manager에 계정을 설정해야 합니다. 서비스 계정의 경우 "계정 관리자" 역할을 생성해야 합니다. (다른 서비스 계정 역할에는 System Manager와의 연결을 설정하는 데 필요한 권한이 없습니다.)
 
-. link:https://docs.netapp.com/us-en/occm/task_logging_in.html["Cloud Manager에서 계정을 생성합니다"].
-. link:https://docs.netapp.com/us-en/occm/concept_connectors.html["Cloud Manager에서 커넥터를 작성합니다"] 공급한 클라우드 공급업체는 다음과 같습니다.
+. link:https://docs.netapp.com/us-en/occm/task_logging_in.html["Cloud Manager에서 계정을 생성합니다"^].
+. link:https://docs.netapp.com/us-en/occm/concept_connectors.html["Cloud Manager에서 커넥터를 작성합니다"^] 공급한 클라우드 공급업체는 다음과 같습니다.
 +
 ** Microsoft Azure를 참조하십시오
 ** AWS(Amazon Web Services)
@@ -38,8 +38,8 @@ NOTE: ONTAP 9.10.1부터 클라우드 백업 공급자로 StorageGRID을 선택�
 
 
 
-. link:https://docs.netapp.com/us-en/occm/concept_backup_to_cloud.html["Cloud Manager에서 Cloud Backup Service을 구독하십시오"] (적절한 라이센스 필요).
-. link:https://docs.netapp.com/us-en/occm/task_managing_cloud_central_accounts.html#creating-and-managing-service-accounts["Cloud Manager를 사용하여 액세스 키와 비밀 키를 생성합니다"].
+. link:https://docs.netapp.com/us-en/occm/concept_backup_to_cloud.html["Cloud Manager에서 Cloud Backup Service을 구독하십시오"^] (적절한 라이센스 필요).
+. link:https://docs.netapp.com/us-en/occm/task_managing_cloud_central_accounts.html#creating-and-managing-service-accounts["Cloud Manager를 사용하여 액세스 키와 비밀 키를 생성합니다"^].
 
 
 

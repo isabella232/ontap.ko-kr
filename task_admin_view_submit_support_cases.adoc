@@ -21,7 +21,7 @@ summary: ONTAP 9.9.1부터, 클러스터와 관련된 Active IQ의 지원 사례
 ONTAP 9.9.1부터 클러스터와 연결된 Active IQ에서 지원 케이스를 볼 수 있습니다. 또한 NetApp Support 사이트에서 새로운 지원 케이스를 제출하는 데 필요한 클러스터 세부 정보를 복사할 수도 있습니다.
 
 
-NOTE: ONTAP 9.9.1로 작업할 때 펌웨어 업데이트에 대한 경고를 받으려면 Active IQ Unified Manager에 등록되어 있어야 합니다. 을 참조하십시오 link:https://netapp.com/support-and-training/documentation/active-iq-unified-manager["Active IQ Unified Manager 문서 리소스"].
+NOTE: ONTAP 9.9.1로 작업할 때 펌웨어 업데이트에 대한 경고를 받으려면 Active IQ Unified Manager에 등록되어 있어야 합니다. 을 참조하십시오 link:https://netapp.com/support-and-training/documentation/active-iq-unified-manager["Active IQ Unified Manager 문서 리소스"^].
 
 .단계
 . System Manager에서 * Support * 를 선택합니다.

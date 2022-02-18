@@ -36,4 +36,4 @@ System Manager를 사용하면 다음과 같은 일반적인 작업을 수행할
 * 노드의 상태에 관계없이 노드를 원격으로 로그인, 관리, 모니터링 및 관리하도록 서비스 프로세서를 구성합니다.
 
 
-System Manager에 대한 자세한 내용은 를 참조하십시오 http://mysupport.netapp.com/["NetApp Support 사이트"].
+System Manager에 대한 자세한 내용은 를 참조하십시오 http://mysupport.netapp.com/["NetApp Support 사이트"^].

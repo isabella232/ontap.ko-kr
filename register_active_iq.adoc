@@ -22,11 +22,11 @@ summary: System Manager의 특정 측정값에 시스템의 스토리지 용량�
 
 Active IQ은 지원 계약이 유효한 모든 NetApp 고객에게 제공됩니다. 지원 계정을 만들려면 다음으로 이동하십시오.
 
-* link:https://mysupport.netapp.com/eservice/public/now.do["mysupport.netapp.com/eservice/public/now.do"]
+* link:https://mysupport.netapp.com/eservice/public/now.do["사용자 등록을 지원합니다"^]
 
 
 Active IQ에 대한 자세한 내용:
 
-* link:https://www.netapp.com/services/support/active-iq/["www.netapp.com/services/support/active-iq/"]
-* link:https://mysupport.netapp.com/site/info/aboutAIQ["mysupport.netapp.com/site/info/aboutAIQ"]
+* link:https://www.netapp.com/services/support/active-iq/["ActiveIQ Digital Advisor"^]
+* link:https://mysupport.netapp.com/site/info/aboutAIQ["지원:ActiveIQ"^]
 

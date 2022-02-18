@@ -10,4 +10,4 @@ summary: 업그레이드 계획하려면 NetApp Active IQ에서 제공하는 서
 
 
 [role="lead"]
-NetApp에서 제공하는 서비스 중 하나인 Upgrade Advisor를 사용해야 합니다 link:https://aiq.netapp.com/["Active IQ"] 업그레이드를 계획하십시오. Upgrade Advisor가 없으면 업그레이드하기 전에 추가 수동 검사를 수행해야 합니다.
+NetApp에서 제공하는 서비스 중 하나인 Upgrade Advisor를 사용해야 합니다 link:https://aiq.netapp.com/["Active IQ"^] 업그레이드를 계획하십시오. Upgrade Advisor가 없으면 업그레이드하기 전에 추가 수동 검사를 수행해야 합니다.

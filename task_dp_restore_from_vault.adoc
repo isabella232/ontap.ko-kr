@@ -42,5 +42,5 @@ summary: 볼륨의 데이터가 손실되거나 손상된 경우 이전 스냅�
 | System Manager Classic(ONTAP 9.7 이하에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap-sm-classic/volume-restore-snapvault/index.html["SnapVault를 사용한 볼륨 복원 개요"^] 
 
 
-| ONTAP 명령줄 인터페이스입니다 | link:https://docs.netapp.com/us-en/ontap/data-protection/restore-volume-snapvault-backup-task.html["SnapMirror 대상에서 볼륨 내용을 복원합니다"^] 
+| ONTAP 명령줄 인터페이스입니다 | link:./data-protection/restore-volume-snapvault-backup-task.html["SnapMirror 대상에서 볼륨 내용을 복원합니다"^] 
 |===

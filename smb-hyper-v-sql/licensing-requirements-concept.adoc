@@ -28,7 +28,7 @@ ONTAP는 Windows 2012 이상에서 실행되는 SQL Server 2012 이상에 대해
 
 SMB 공유에서 무중단 운영을 지원하는 ONTAP, Windows Server 및 SQL Server의 지원되는 버전에 대한 최신 정보는 상호 운용성 매트릭스 를 참조하십시오.
 
-https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"]
+https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"^]
 
 
 

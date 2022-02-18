@@ -64,7 +64,7 @@ ONTAP 9.4부터 SAN 환경에서 NVMe(Non-Volatile Memory Express) 프로토콜�
 * 애플리케이션 인식(AppDM/안정적인 배치)
 
 
-를 참조하십시오 https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"] NVMe 제한의 전체 목록을 확인하십시오.
+를 참조하십시오 https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"^] NVMe 제한의 전체 목록을 확인하십시오.
 
 https://kb.netapp.com/Advice_and_Troubleshooting/Flash_Storage/AFF_Series/How_to_configure_and_Connect_SUSE_Enterprise_Linux_to_ONTAP_NVMe%2F%2FFC_namespaces["SUSE Enterprise Linux를 ONTAP NVMe/FC 네임스페이스에 구성하고 연결하는 방법"]
 

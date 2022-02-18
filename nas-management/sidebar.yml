@@ -8,7 +8,7 @@ entries:
   - title: NAS 스토리지 개요
     url: "/concept_nas_provision_overview.html"
   - title: VMware 데이터 저장소
-    url: "/task_san_provision_vmware.html"
+    url: "/task_nas_provision_nfs_vmware.html"
   - title: 홈 디렉토리
     url: "/task_nas_provision_home_directories.html"
   - title: Linux 서버

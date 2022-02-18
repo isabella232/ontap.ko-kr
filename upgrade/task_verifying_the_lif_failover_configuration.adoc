@@ -76,4 +76,4 @@ network interface failover-groups modify -vserver vs0 -failover-group fg1 -targe
 ----
 
 
-link:https://docs.netapp.com/us-en/ontap/networking/networking_reference.html["네트워크 및 LIF 관리"]
+link:../ontap/networking/networking_reference.html["네트워크 및 LIF 관리"]

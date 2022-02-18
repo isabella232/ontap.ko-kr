@@ -10,4 +10,4 @@ summary: Upgrade Advisor를 사용하지 않는 경우 업그레이드하기 전
 
 
 [role="lead"]
-을 사용하지 않는 경우 link:https://aiq.netapp.com/["Active IQ"] Upgrade Advisor 업그레이드를 계획하려면 업그레이드하기 전에 클러스터 업그레이드 제한과 클러스터 활동을 확인해야 합니다.
+을 사용하지 않는 경우 link:https://aiq.netapp.com/["Active IQ"^] Upgrade Advisor 업그레이드를 계획하려면 업그레이드하기 전에 클러스터 업그레이드 제한과 클러스터 활동을 확인해야 합니다.

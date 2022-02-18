@@ -21,6 +21,6 @@ summary: '어댑터에 대해 선택한 퍼스낼리티 모드를 지원하도�
 네트워크 FCP 어댑터 show-instance-node-adapter입니다
 
 +
-지원되는 SFP+ 모듈 및 Cisco Twinax(Copper) 케이블이 에 나열되어 있습니다 https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"].
+지원되는 SFP+ 모듈 및 Cisco Twinax(Copper) 케이블이 에 나열되어 있습니다 https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"^].
 
 

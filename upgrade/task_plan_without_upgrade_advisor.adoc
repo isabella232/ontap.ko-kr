@@ -10,7 +10,7 @@ summary: Active IQ의 Upgrade Advisor를 사용하여 업그레이드를 계획�
 
 
 [role="lead"]
-에서 Upgrade Advisor를 사용하는 것이 Best Practice입니다 link:https://aiq.netapp.com/["Active IQ"] 업그레이드를 계획하십시오. 활성 이 없는 경우  Contract for Active IQ에서는 필수 업그레이드 전 점검을 수행하고 자체 업그레이드 계획을 작성해야 합니다.
+에서 Upgrade Advisor를 사용하는 것이 Best Practice입니다 link:https://aiq.netapp.com/["Active IQ"^] 업그레이드를 계획하십시오. 활성 이 없는 경우  Contract for Active IQ에서는 필수 업그레이드 전 점검을 수행하고 자체 업그레이드 계획을 작성해야 합니다.
 
 
 

@@ -35,7 +35,7 @@ entries:
   - title: 디스크의 RAID 보호 수준
     url: "/disks-aggregates/raid-protection-levels-disks-concept.html"
   - title: Aggregate에 필요한 디스크 또는 디스크 파티션 수를 결정합니다
-    url: "/disks-aggregates/determine-number-disks-partitions-aggregate-concept.html"
+    url: "/disks-aggregates/determine-number-disks-partitions-concept.html"
   - title: 잘못 정렬된 스페어 파티션을 수정합니다
     url: "/disks-aggregates/correct-misaligned-spare-partitions-task.html"
   - title: Aggregate에 대한 드라이브 및 RAID 그룹 정보를 확인합니다

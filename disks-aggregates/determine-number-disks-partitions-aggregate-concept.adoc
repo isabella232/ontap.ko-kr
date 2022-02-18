@@ -36,6 +36,6 @@ AFF C190에는 스페어 드라이브가 기본적으로 없습니다. 이 예�
 * 유지보수 센터의 사용을 지원하고 여러 개의 동시 디스크 장애로 인한 문제를 방지하려면 다중 디스크 캐리어에 최소 4개의 핫 스페어가 있어야 합니다.
 
 
-https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"]
+https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"^]
 
 http://www.netapp.com/us/media/tr-3838.pdf["NetApp 기술 보고서 3838: 스토리지 서브시스템 구성 가이드"]

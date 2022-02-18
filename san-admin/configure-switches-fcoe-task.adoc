@@ -42,7 +42,7 @@ FC 대상 포트의 온라인 상태가 "거짓"인 경우 스위치 설명서�
 
 
 
-https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"]
+https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"^]
 
 http://www.netapp.com/us/media/tr-3800.pdf["NetApp 기술 보고서 3800: FCoE(Fibre Channel over Ethernet) 엔드 투 엔드 구축 가이드"]
 
