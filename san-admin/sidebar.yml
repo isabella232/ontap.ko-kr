@@ -139,7 +139,7 @@ entries:
   - title: SVM에서 NVMe/FC 서비스를 삭제합니다
     url: "/san-admin/delete-nvme-fc-service-task.html"
   - title: NVMe 네임스페이스 크기 조정
-    url: "../nvme/resize-namespace-task.html"
+    url: "/nvme/resize-namespace-task.html"
 - title: 모든 SAN 프로토콜에 대한 LIF 관리
   entries:
   - title: 개요

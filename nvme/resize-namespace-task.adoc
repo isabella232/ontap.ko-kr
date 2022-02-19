@@ -28,7 +28,7 @@ ONTAP 9.10.1부터 ONTAP CLI를 사용하여 NVMe 네임스페이스의 크기�
 . capacity * 에서 네임스페이스의 크기를 변경합니다.
 
  a| 
-. 'vserver NVMe namespace modify -vserver SMV_name -path path –size new_size_of_namespace' 명령을 입력합니다
+. 'vserver NVMe namespace modify -vserver_SVM_name_-path_path_ –size_new_size_of_namespace_' 명령을 입력합니다
 
 
 |===
@@ -44,6 +44,6 @@ ONTAP CLI를 사용하여 NVMe 네임스페이스의 크기를 줄여야 합니�
 
 . 네임스페이스 크기 축소:
 +
-'vserver NVMe namespace modify -vserver SMV_name -path namespace_path -size new_size_of_namespace'
+'vserver NVMe namespace modify -vserver_SVM_name_-path_namespace_path_-size_new_size_of_namespace_'
 
 

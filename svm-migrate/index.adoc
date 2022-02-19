@@ -102,7 +102,7 @@ SVM 마이그레이션에서는 다음 기능이 지원되지 않습니다.
 * Flash Pool 애그리게이트로 전환 가능
 * MetroCluster
 * 시스템 관리자
-* VSC
+* VMware vSphere용 가상 스토리지 콘솔(VSC는 의 일부입니다 https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere/index.html["VMware vSphere 가상 어플라이언스인 ONTAP 툴"^] VSC 7.0부터 시작)
 * 볼륨 클론
 * FAS 스토리지
 * 로드 공유 미러
