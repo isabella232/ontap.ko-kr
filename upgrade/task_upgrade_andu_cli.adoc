@@ -176,6 +176,30 @@ cluster1::>
 +
 클러스터가 AutoSupport 메시지를 전송하도록 구성되지 않은 경우 알림 복사본이 로컬에 저장됩니다.
 
+. 클러스터가 자동 비계획 스위치오버에 대해 설정되었는지 확인합니다.
++
+
+NOTE: 이 절차는 MetroCluster FC 구성에만 수행됩니다. MetroCluster IP 구성을 사용하는 경우 이 절차를 건너뜁니다.
+
++
+.. 예기치 않은 자동 전환이 활성화되어 있는지 확인합니다.
++
+MetroCluster 쇼
+
++
+자동 비계획 전환이 활성화된 경우 명령 출력에 다음 설명이 표시됩니다.
+
++
+....
+AUSO Failure Domain    auso-on-cluster-disaster
+....
+.. 명령문이 출력에 표시되지 않으면 예기치 않은 자동 전환을 설정합니다.
++
+'MetroCluster modify-auto-switchover-failure-domain auso-on-cluster-disaster
+
+.. 1단계를 반복하여 예기치 않은 자동 전환을 활성화했는지 확인합니다.
+
+
 
 
 

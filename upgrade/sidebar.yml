@@ -22,8 +22,8 @@ entries:
       url: "/upgrade/task_verifying_cluster_upgrade_limits.html"
     - title: 현재 클러스터 활동입니다
       url: "/upgrade/task_identifying_current_cluster_activity.html"
-  - title: 업그레이드 중 펌웨어 업데이트 방법
-    url: "/upgrade/concept_how_firmware_is_updated_during_upgrade.html"
+    - title: 업그레이드 중 펌웨어 업데이트 방법
+      url: "/upgrade/concept_how_firmware_is_updated_during_upgrade.html"
 - title: Upgrade Advisor를 사용하거나 사용하지 않고 업그레이드하기 전에 무엇을 확인해야 합니까?
   entries:
   - title: 업그레이드 전 검증 개요
