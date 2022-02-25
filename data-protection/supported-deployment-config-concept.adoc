@@ -63,3 +63,7 @@ image::../media/sm-mirror-vault-cascade.png[SnapMirror 구축: 소스와 미러 
 * 볼트 미러 계단식 배열 구축은 소스 볼륨을 보조 볼륨으로 보관하고 2차 볼륨을 3차 볼륨으로 미러링하는 관계 체인으로 구성됩니다.
 * (ONTAP 9.2부터) 볼트(Vault) 캐스케이드 배포는 소스 볼륨을 보조 볼륨으로 보관하고 2차 볼륨을 3차 볼륨으로 보관되는 일련의 관계로 구성됩니다.
 
+
+.추가 참고 자료
+* xref:../smbc/resume-protection-fan-out-configuration.html[SM-BC를 사용하여 팬아웃 구성에서 보호를 재개합니다]
+

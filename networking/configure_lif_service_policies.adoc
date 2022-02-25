@@ -69,14 +69,14 @@ network interface service-policy create -vserver <svm_name> -policy <service_pol
 
 +
 ....
-network interface service-policy create -vserver svm1 -policy svm1_data_policy - services data-nfs,data-cifs,data-core -allowed-addresses 10.1.0.0/16
+network interface service-policy create -vserver svm1 -policy svm1_data_policy -services data-nfs,data-cifs,data-core -allowed-addresses 10.1.0.0/16
 ....
 +
 다음 예제에서는 인터클러스터 서비스 정책을 만드는 방법을 보여 줍니다.
 
 +
 ....
-network interface service-policy create -vserver cluster1 -policy intercluster1 - services intercluster-core -allowed-addresses 10.1.0.0/16
+network interface service-policy create -vserver cluster1 -policy intercluster1 -services intercluster-core -allowed-addresses 10.1.0.0/16
 ....
 
 
