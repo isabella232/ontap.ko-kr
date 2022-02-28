@@ -75,6 +75,8 @@ indexpage:
       url: "/../system-admin/manage-licenses-concept.html"
     - title: System Manager로 지원 케이스를 보고 제출합니다
       url: "/../task_admin_view_submit_support_cases.html"
+    - title: 시스템 최적화를 위한 통찰력 확보
+      url: "/../insights-system-optimization-task.html"
     - title: CLI를 사용한 AutoSupport 및 Active IQ 개요
       url: "/../system-admin/autosupport-active-iq-digital-advisor-concept.html"
   - title: SVM 마이그레이션(ONTAP 9.10.1의 새로운 기능)

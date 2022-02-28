@@ -13,6 +13,8 @@ entries:
     url: "/task_admin_view_submit_support_cases.html"
   - title: Active IQ 디지털 자문으로 위험 모니터링
     url: "/task_admin_monitor_risks.html"
+  - title: 시스템 최적화를 위한 통찰력 확보
+    url: "/insights-system-optimization-task.html"
   - title: 하드웨어 구성을 보고 문제를 확인합니다
     url: "/task_admin_troubleshoot_hardware_problems.html"
   - title: 디스크를 로컬 계층에 추가합니다
