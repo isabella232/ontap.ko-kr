@@ -17,7 +17,7 @@ SnapLock 볼륨 이동을 수행하려면 SnapLock 보안 관리자 권한이 �
 * 보안 연결(SSH, 콘솔 또는 ZAPI)에 로그인해야 합니다.
 
 
-SnapLock 역할은 데이터 SVM과 연결된 vsadmin-SnapLock 역할과는 달리 클러스터 SVM과 연결됩니다.
+SnapLock 역할은 데이터 SVM과 연결된 vsadmin-SnapLock 역할과는 달리 관리 SVM과 연결됩니다.
 
 .단계
 . SnapLock 관리자 역할을 사용하여 SVM 관리자 계정을 생성합니다.
@@ -25,11 +25,11 @@ SnapLock 역할은 데이터 SVM과 연결된 vsadmin-SnapLock 역할과는 달�
 '* 보안 로그인 create-vserver_SVM_name_-user-or-group-name_user_or_group_name_-application_application_-AuthMethod_authentication_method_-role_role_-comment_comment_*'
 
 +
-다음 명령을 실행하면 SnapLock 역할이 사전 정의된 SVM 관리자 계정 'napLockAdmin'에서 암호를 사용하여 VM2에 액세스할 수 있습니다.
+다음 명령을 실행하면 미리 정의된 "SnapLock" 역할을 사용하여 SVM 관리자 계정 'napLockAdmin'에서 암호를 사용하여 admin SVM 'cluster1'에 액세스할 수 있습니다.
 
 +
 [listing]
 ----
-cluster1::> security login create -vserver SVM2 -user-or-group-name SnapLockAdmin -application ssh -authmethod password -role snaplock
+cluster1::> security login create -vserver cluster1 -user-or-group-name SnapLockAdmin -application ssh -authmethod password -role snaplock
 ----
 

@@ -24,6 +24,10 @@ summary: SnapMirror 삭제 및 SnapMirror 릴리즈 명령을 사용하여 볼�
 ----
 cluster_dst::> snapmirror quiesce -destination-path svm_backup:volA_dst
 ----
+. SnapMirror 관계 끊기:
++
+스냅미러 break-source-path svm1:vola-destination-path svm_backup:VolA_dst'
+
 . 복제 관계를 삭제합니다.
 +
 '스냅샷 삭제 - 소스 경로 - SVM: volume_|_cluster://SVM/volume_,... -destination-path_SVM:volume_|_cluster://SVM/volume_,
