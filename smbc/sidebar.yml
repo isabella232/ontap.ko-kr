@@ -56,7 +56,7 @@ entries:
     url: "/smbc/smbc_admin_monitoring.html"
   - title: 일관성 그룹에 볼륨을 추가 및 제거합니다
     url: "/smbc/smbc_admin_add_and_remove_volumes_in_consistency_groups.html"
-  - title: 팬아웃 구성에서 보호를 복원합니다
+  - title: 팬아웃 구성에서 보호를 재개합니다
     url: "/smbc/resume-protection-fan-out-configuration.html"
   - title: 기존 관계를 SM-BC 관계로 전환
     url: "/smbc/smbc_admin_converting_existing_relationships_to_smbc.html"
