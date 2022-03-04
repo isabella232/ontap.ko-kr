@@ -1,53 +1,7 @@
 ---
-sidebar: sidebar 
 permalink: smbc/smbc_install_confirm_the_ontap_cluster_configuration.html 
-keywords: SM-BC, SMBC, ONTAP, cluster, configure, peering, volume, SVM, SAN, LIFs, map, igroup, discover 
-summary: 소스 및 대상 클러스터가 올바르게 구성되어 있는지 확인해야 합니다. 
+redirect: ontap/smbc/smbc_install_confirm_ontap_cluster.html 
 ---
-= ONTAP 클러스터 구성을 확인합니다
-:hardbreaks:
-:nofooter: 
-:icons: font
-:linkattrs: 
-:imagesdir: ../media/
+= 
 
-
-[role="lead"]
-소스 및 대상 클러스터가 올바르게 구성되어 있는지 확인해야 합니다.
-
-다음 각 단계를 진행합니다. 각 단계에 대해 특정 구성이 수행되었는지 확인해야 합니다. 필요한 경우 각 단계 다음에 포함된 링크를 사용하여 자세한 정보를 얻을 수 있습니다.
-
-.단계
-. 클러스터 피어링 관계가 클러스터 간에 존재하는지 확인합니다.
-+
-
-NOTE: 클러스터 피어 관계를 위해 SM-BC에서 기본 IPspace가 필요합니다. 사용자 지정 IPspace는 지원되지 않습니다.
-
-+
-link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-csp/GUID-5AC8B2CD-9203-4F61-A5FB-C177A22F0C29.html?cp=8_1_3["피어 관계를 구성합니다"^]
-
-. 스토리지 VM이 각 클러스터에 생성되었는지 확인합니다.
-+
-link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-960/GUID-4CF9FEB6-083C-42A0-8B4B-78F51EFCE2F4.html?cp=4_1_5_0_1_4["SVM 생성"^]
-
-. 각 클러스터의 스토리지 VM 간에 피어 관계가 있는지 확인합니다.
-+
-link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/GUID-84C089E7-1A5C-43AF-99B5-9DDB5100B3EA.html?cp=8_2_2_1_2["SVM 피어링 관계 생성"^]
-
-. LUN에 대한 볼륨이 있는지 확인합니다.
-+
-link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-cifs-cg/GUID-A8F1A48F-81B8-46B6-AFAC-F4A01B99CFF6.html?cp=13_6_3_0_0["볼륨을 생성하는 중입니다"^]
-
-. 클러스터의 각 노드에 하나 이상의 SAN LIF가 생성되었는지 확인합니다.
-+
-link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/GUID-A34528DF-C287-4B1A-9BEF-3EC4CCFA240F.html?cp=13_6_7_4_0_1["클러스터 SAN 환경에서 LIF에 대한 고려 사항"^]
-
-+
-link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/GUID-4B666C44-694A-48A3-B0A9-517FA7FD2502.html?cp=13_6_4_0["LIF 생성"^]
-
-. 필요한 LUN이 생성되어 igroup에 매핑되어 있는지 확인합니다. igroup은 애플리케이션 호스트의 이니시에이터에 LUN을 매핑하는 데 사용됩니다.
-+
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/GUID-D4DAC7DB-A6B0-4696-B972-7327EE99FD72.html?cp=13_6_1_0_2_5["LUN을 생성하고 igroup을 매핑합니다"^]
-
-. 애플리케이션 호스트를 재검색하여 새 LUN을 검색합니다.
 
