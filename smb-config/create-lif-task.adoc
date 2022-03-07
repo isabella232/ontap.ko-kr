@@ -39,7 +39,7 @@ ONTAP 9.4부터는 FC-NVMe가 지원됩니다. FC-NVMe LIF를 생성하는 경�
 .단계
 . LIF 생성:
 +
-'network interface create-vserver vserver_name-lif lif_name-role data-protocol cifs-home-node node_name-home-port port port_name{-address ip_address-netmask ip_address|-subnet-name subnet_name} - firewall-policy data-auto-revert{true|false}'입니다
+'network interface create-vserver_vserver_name_-lif_lif_name_-role data-protocol cifs-home-node_node_name_-home-port_port_name_{-address_ip_address_-netmask ip_address|-subnet-name_subnet_name_}-firewall-policy data-auto-revert{true|false}'
 
 +
 |===
@@ -49,7 +49,7 @@ ONTAP 9.4부터는 FC-NVMe가 지원됩니다. FC-NVMe LIF를 생성하는 경�
 
 
  a| 
-'network interface create-vserver vserver_name-lif lif_name-role data-protocol cifs-home-node node_name-home-port port port_name{-address ip_address-netmask ip_address|-subnet-name subnet_name} - firewall-policy data-auto-revert{true|false}'입니다
+'network interface create-vserver_vserver_name_-lif_lif_name_-role data-protocol cifs-home-node_node_name_-home-port_port_name_{-address_name_- netmask_ip_address_|- subnet-name_subnet_name_} -firewall-policy data-auto-revert{true|false}
 
 |===
 +
@@ -60,7 +60,7 @@ ONTAP 9.4부터는 FC-NVMe가 지원됩니다. FC-NVMe LIF를 생성하는 경�
 
 
  a| 
-'network interface create-vserver vserver_name-lif lif_name-service-policy service_policy_name-home-node node_name-home-port port_name{-address ip_address-netmask ip_address|-subnet-name subnet_name subnet_name}-firewall-policy data-auto-revert{true|false}'입니다
+'network interface create-vserver_vserver_name_-lif_lif_name_-service-policy_service_policy_name_-home-node_node_name_-home-port_port_name_{-address_netmask_ip_address_|-subnet_name_subnet_name_} -firewall-policy data-auto-revert_revert_false
 
 |===
 +

@@ -20,7 +20,7 @@ summary: 소스 및 대상 클러스터가 올바르게 구성되어 있는지 �
 .단계
 . 소스 및 대상 클러스터가 올바르게 구성되었는지 확인하기 전에 ONTAP 중재자 서비스를 설치합니다.
 +
-link:https://docs.netapp.com/us-en/ontap/mediator/mediator-task-install-ontap-mediator.html["ONTAP 중재자 서비스"^]
+xref:../mediator/index.html[ONTAP 중재자 서비스]
 
 . 클러스터 피어링 관계가 클러스터 간에 존재하는지 확인합니다.
 +
@@ -28,19 +28,19 @@ link:https://docs.netapp.com/us-en/ontap/mediator/mediator-task-install-ontap-me
 NOTE: 클러스터 피어 관계를 위해 SM-BC에서 기본 IPspace가 필요합니다. 사용자 지정 IPspace는 지원되지 않습니다.
 
 +
-link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-csp/GUID-5AC8B2CD-9203-4F61-A5FB-C177A22F0C29.html?cp=8_1_3["피어 관계를 구성합니다"^]
+xref:../task_dp_prepare_mirror.html[피어 관계를 구성합니다]
 
 . 스토리지 VM이 각 클러스터에 생성되었는지 확인합니다.
 +
-link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-960/GUID-4CF9FEB6-083C-42A0-8B4B-78F51EFCE2F4.html?cp=4_1_5_0_1_4["SVM 생성"^]
+xref:../smb-config/create-svms-data-access-task.html[SVM 생성]
 
 . 각 클러스터의 스토리지 VM 간에 피어 관계가 있는지 확인합니다.
 +
-link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-clus-peer/GUID-84C089E7-1A5C-43AF-99B5-9DDB5100B3EA.html?cp=8_2_2_1_2["SVM 피어링 관계 생성"^]
+xref:../peering/create-intercluster-svm-peer-relationship-93-later-task.html[SVM 피어링 관계 생성]
 
 . LUN에 대한 볼륨이 있는지 확인합니다.
 +
-link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-cifs-cg/GUID-A8F1A48F-81B8-46B6-AFAC-F4A01B99CFF6.html?cp=13_6_3_0_0["볼륨을 생성하는 중입니다"^]
+xref:../smb-config/create-volume-task.html[볼륨을 생성하는 중입니다]
 
 . 클러스터의 각 노드에 하나 이상의 SAN LIF가 생성되었는지 확인합니다.
 +
@@ -51,7 +51,7 @@ link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/GUID-4B66
 
 . 필요한 LUN이 생성되어 igroup에 매핑되어 있는지 확인합니다. igroup은 애플리케이션 호스트의 이니시에이터에 LUN을 매핑하는 데 사용됩니다.
 +
-https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/GUID-D4DAC7DB-A6B0-4696-B972-7327EE99FD72.html?cp=13_6_1_0_2_5["LUN을 생성하고 igroup을 매핑합니다"^]
+xref:../san-admin/create-luns-mapping-igroups-task.html[LUN을 생성하고 igroup을 매핑합니다^]
 
 . 애플리케이션 호스트를 재검색하여 새 LUN을 검색합니다.
 
