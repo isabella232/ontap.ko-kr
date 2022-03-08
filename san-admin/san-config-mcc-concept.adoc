@@ -12,8 +12,9 @@ summary: MetroCluster 환경에서 SAN 구성을 사용할 때는 몇 가지 고
 [role="lead"]
 MetroCluster 환경에서 SAN 구성을 사용할 때는 몇 가지 고려 사항을 염두에 두어야 합니다.
 
-* 2노드, 4노드 및 8노드 MetroCluster 구성은 프런트엔드 FC Fabric ""라우팅된"" vSAN 구성을 지원하지 않습니다.
-* 2노드, 4노드 및 8노드 MetroCluster 구성은 SAN 프로토콜을 지원합니다.
+* MetroCluster 구성은 프런트엔드 FC 패브릭 ""라우팅된" vSAN 구성을 지원하지 않습니다.
+* MetroCluster 구성은 프론트 엔드 NVMe 호스트 연결을 지원하지 않습니다.
+* 다른 SAN 프로토콜은 MetroCluster 구성에서 지원됩니다.
 * SAN 클라이언트 구성을 사용할 때는 상호 운용성 매트릭스 툴(IMT)에 제공된 노트에 MetroCluster 구성과 관련된 특별한 고려 사항이 포함되어 있는지 확인해야 합니다.
 * MetroCluster는 프런트엔드 SAN의 양쪽에 동일한 WWPN을 사용합니다.
 
