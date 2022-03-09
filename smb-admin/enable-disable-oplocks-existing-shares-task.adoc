@@ -24,7 +24,7 @@ oplocks는 기본적으로 스토리지 가상 시스템(SVM)의 SMB 공유에 �
  a| 
 기존 공유를 수정하여 공유에 oplocks를 설정합니다
  a| 
-'vserver share properties add -vserver_vserver_name_-share-name share_name-share-properties oplocks' 명령을 입력합니다
+'vserver cifs share properties add -vserver_vserver_name_-share-name share_name-share-properties oplocks' 명령을 입력합니다
 
 [NOTE]
 ====
@@ -38,7 +38,7 @@ oplocks는 기본적으로 스토리지 가상 시스템(SVM)의 SMB 공유에 �
  a| 
 기존 공유를 수정하여 공유에 oplocks를 사용하지 않도록 설정합니다
  a| 
-'vserver share properties remove-vserver_vserver_name_-share-name_share_name_-share-properties oplocks' 명령을 입력합니다
+'vserver cifs share properties remove-vserver_vserver_name_-share-name_share_name_-share-properties oplocks' 명령을 입력합니다
 
 [NOTE]
 ====

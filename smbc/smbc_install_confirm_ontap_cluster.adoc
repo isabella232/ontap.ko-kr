@@ -44,14 +44,14 @@ xref:../smb-config/create-volume-task.html[볼륨을 생성하는 중입니다]
 
 . 클러스터의 각 노드에 하나 이상의 SAN LIF가 생성되었는지 확인합니다.
 +
-link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/GUID-A34528DF-C287-4B1A-9BEF-3EC4CCFA240F.html?cp=13_6_7_4_0_1["클러스터 SAN 환경에서 LIF에 대한 고려 사항"^]
+link:../san-admin/lifs-cluster-concept.html["클러스터 SAN 환경에서 LIF에 대한 고려 사항"]
 
 +
 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/GUID-4B666C44-694A-48A3-B0A9-517FA7FD2502.html?cp=13_6_4_0["LIF 생성"^]
 
 . 필요한 LUN이 생성되어 igroup에 매핑되어 있는지 확인합니다. igroup은 애플리케이션 호스트의 이니시에이터에 LUN을 매핑하는 데 사용됩니다.
 +
-xref:../san-admin/create-luns-mapping-igroups-task.html[LUN을 생성하고 igroup을 매핑합니다^]
+xref:../san-admin/create-luns-mapping-igroups-task.html[LUN을 생성하고 igroup을 매핑합니다]
 
 . 애플리케이션 호스트를 재검색하여 새 LUN을 검색합니다.
 

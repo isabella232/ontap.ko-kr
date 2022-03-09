@@ -71,3 +71,9 @@ ONTAPI 명령 "CG-start"와 "CG-commit"으로 생성된 스냅샷은 일관성 �
 | 부모 일관성 그룹에 있는 하위 일관성 그룹의 수입니다 | 부모 일관성 그룹 | 1 | 5 
 |===
 SM-BC를 사용하는 경우 을 참조하십시오 link:../smbc/smbc_plan_additional_restrictions_and_limitations.html#volumes["SM-BC 제한 및 제한 사항"].
+
+
+
+=== 비디오
+
+video::j0jfXDcdyzE[youtube, width=848,height=480]
