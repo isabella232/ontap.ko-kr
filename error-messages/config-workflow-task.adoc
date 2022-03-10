@@ -12,4 +12,4 @@ summary: EMS 구성 작업 흐름
 [role="lead"]
 중요한 EMS 이벤트 알림을 e-메일로 보내거나, syslog 서버로 전달하거나, SNMP traphost로 전달하거나, REST API 서버로 전송하도록 구성해야 합니다. 이를 통해 적시에 수정 조치를 취함으로써 시스템 중단을 방지할 수 있습니다.
 
-image::../media/ems-config-workflow.gif[이 그림은 심각도가 높은 이벤트에 대한 EMS 구성 워크플로의 흐름도입니다. 워크플로의 단계가 이 가이드의 항목과 일치합니다.]
+image::../media/ems-config-workflow.png[이 그림은 심각도가 높은 이벤트에 대한 EMS 구성 워크플로의 흐름도입니다. 워크플로의 단계가 이 가이드의 항목과 일치합니다.]
