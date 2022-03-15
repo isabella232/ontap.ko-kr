@@ -161,6 +161,15 @@ ONTAP 9.7부터 지원됩니다
 
 
  a| 
+Microsoft ODX(Offloaded Data Transfer)
+ a| 
+아니요
+ a| 
+아니요
+
+
+
+ a| 
 NetApp 볼륨 암호화(NVE)
  a| 
 예
