@@ -88,7 +88,7 @@ NOTE: 2019년 6월 이전에 ONTAP 스토리지 시스템을 구입한 경우 �
 === ONTAP 중재자
 
 * 투명한 애플리케이션 페일오버를 위해 외부에서 프로비저닝하고 ONTAP에 연결해야 합니다.
-* ONTAP 중재자에 대한 자세한 내용은 을 참조하십시오 https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_install_configure_mediator.html["ONTAP 중재자 서비스 설치 또는 업그레이드"].
+* ONTAP 중재자에 대한 자세한 내용은 을 참조하십시오 https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_install_configure_mediator.html["ONTAP 중재자 서비스 설치 또는 업그레이드"^].
 
 
 

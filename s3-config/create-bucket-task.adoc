@@ -54,7 +54,7 @@ link:../performance-admin/index.html["성능 관리"]
 . Aggregate 및 FlexGroup 구성 요소를 직접 선택하려면 권한 수준을 Advanced(고급)로 설정하십시오. 그렇지 않으면 admin 권한 수준이 Advanced(고급)로 설정됩니다
 . 버킷 생성:
 +
-'vserver object-store-server bucket create-vserver svm_name-bucket bucket_name[-size integer[KB|MB|GB|TB|PB][-comment text][Additional_options]'
+'vserver object-store-server bucket create-vserver_svm_name_-bucket_bucket_name_[-size integer[KB|MB|GB|TB|PB][-comment text] [Additional_options]'
 
 +
 로컬 계층화를 구성하는 경우 SVM 이름은 데이터 SVM이나 '클러스터'(시스템 SVM 이름)일 수 있습니다.
@@ -95,7 +95,7 @@ FlexGroup 볼륨 전체에서 일관된 성능을 위해서는 모든 애그리�
 
 . 필요한 경우 QoS 정책 그룹을 추가합니다.
 +
-'vserver object-store-server bucket modify -bucket bucket_name -qos-policy-group qos_policy_group'
+'vserver object-store-server bucket modify -bucket_bucket_name_-qos-policy-group_qos_policy_group_'
 
 . 버킷 생성 확인:
 +
