@@ -55,8 +55,9 @@ entries:
   - title: 하드웨어 기반 암호화 워크플로우
     url: "/encryption-at-rest/hw-encryption-workflow-concept.html"
   - title: 외부 키 관리를 구성합니다
-    url: "/encryption-at-rest/configure-external-key-management-concept.html"
     entries:
+    - title: 개요
+      url: "/encryption-at-rest/configure-external-key-management-concept.html"
     - title: ONTAP 9.2 및 그 이전 버전에서 네트워크 정보를 수집합니다
       url: "/encryption-at-rest/before-configuring-concept.html"
     - title: 클러스터에 SSL 인증서를 설치합니다

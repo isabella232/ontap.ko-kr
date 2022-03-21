@@ -2,7 +2,7 @@
 permalink: volumes/run-efficiency-operations-manual-existing-data-task.html 
 sidebar: sidebar 
 keywords: run, efficiency, operations, manually, existing, data 
-summary: 중복제거, 데이터 압축 또는 데이터 컴팩션을 사용하기 전에 볼륨에 있는 데이터에 대해 효율성 작업을 수동으로 실행할 수 있습니다. 볼륨 효율성 start-scan-old-data 명령을 사용하여 이러한 작업을 실행할 수 있습니다. 
+summary: ONTAP 9.8 이전 버전의 ONTAP에서 중복제거, 데이터 압축 또는 데이터 컴팩션을 사용하기 전에 온도에 민감하지 않은 스토리지 효율성 볼륨에 있는 데이터에 대해 수동으로 효율성 작업을 실행할 수 있습니다. 볼륨 효율성 start-scan-old-data 명령을 사용하여 이러한 작업을 실행할 수 있습니다. 
 ---
 = 기존 데이터에 대해 수동으로 효율성 작업을 실행합니다
 :icons: font
@@ -10,7 +10,9 @@ summary: 중복제거, 데이터 압축 또는 데이터 컴팩션을 사용하�
 
 
 [role="lead"]
-중복제거, 데이터 압축 또는 데이터 컴팩션을 사용하기 전에 볼륨에 있는 데이터에 대해 효율성 작업을 수동으로 실행할 수 있습니다. 'volume Efficiency start-scan-old-data' 명령을 사용하여 이러한 작업을 실행할 수 있습니다.
+ONTAP 9.8 이전 버전의 ONTAP에서 중복제거, 데이터 압축 또는 데이터 컴팩션을 사용하기 전에 온도에 민감하지 않은 스토리지 효율성 볼륨에 있는 데이터에 대해 수동으로 효율성 작업을 실행할 수 있습니다. 'volume Efficiency start-scan-old-data' 명령을 사용하여 이러한 작업을 실행할 수 있습니다.
+
+'-압축' 옵션은 온도에 민감한 스토리지 효율성 볼륨에 대한 '-scan-old-data'와 함께 사용할 수 없습니다. 비활성 데이터 압축은 ONTAP 9.8 이상에서 온도에 민감한 스토리지 효율성 볼륨을 위해 기존 데이터에 자동으로 실행됩니다.
 
 볼륨에 대해 중복 제거만 사용하도록 설정하면 데이터에서 중복제거가 실행됩니다. 볼륨에 중복제거, 데이터 압축 및 데이터 컴팩션을 사용하도록 설정하면 데이터 압축이 먼저 실행된 후 중복제거가 실행되고 데이터 컴팩션이 적용됩니다.
 
