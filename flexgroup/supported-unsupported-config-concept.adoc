@@ -62,10 +62,6 @@ xref:create-snapmirror-cascade-fanout-reference.adoc[FlexGroups에 대한 계단
 * 파일 및 디렉토리의 비동기식 삭제
 * 파일 시스템 분석(FSA)
 * FlexGroup를 VMware vSphere 데이터 저장소로 사용합니다
-* "사전 변환" 스냅샷 복사본을 FlexGroup 볼륨으로 복원
-+
-사전 변환 스냅샷 복사본은 FlexGroup 볼륨으로 변환되기 전에 FlexVol 볼륨에서 생성된 스냅샷 복사본입니다.
-
 * 다음 기능을 포함하여 NDMP를 사용한 테이프 백업 및 복구에 대한 추가 지원:
 +
 ** NDMP RBE(재시작 가능한 백업 확장) 및 SSME(Snapshot Management Extension)
