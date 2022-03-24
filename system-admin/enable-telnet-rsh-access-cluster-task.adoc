@@ -5,6 +5,7 @@ keywords: enable, telnet, rsh, access, cluster, mgmt, management, firewall, poli
 summary: '최선의 보안 방법으로, 텔넷 및 RSH는 미리 정의된 관리 방화벽 정책(관리)에서 비활성화됩니다. 클러스터가 텔넷 또는 RSH 요청을 수락하도록 설정하려면 텔넷 또는 RSH가 설정된 새 관리 방화벽 정책을 생성한 다음 새 정책을 클러스터 관리 LIF와 연결해야 합니다.' 
 ---
 = 클러스터에 대한 Telnet 또는 RSH 액세스를 활성화합니다
+:hardbreaks:
 :icons: font
 :imagesdir: ../media/
 
@@ -17,27 +18,9 @@ ONTAP는 미리 정의된 방화벽 정책을 변경하지 못하도록 하지�
 클러스터에 대한 텔넷 또는 RSH 액세스를 활성화하려면 다음 단계를 수행하십시오.
 
 .단계
-. 고급 권한 모드로 들어갑니다.
-+
-' * SET ADVANCED * '
-
-. 보안 프로토콜 활성화(RSH 또는 Telnet):
-+
-'* 보안 프로토콜 수정 - application_security_protocol_-enabled true*'
-
-. "GMT" 관리 방화벽 정책을 기반으로 새 관리 방화벽 정책을 생성합니다.
-+
-'* 시스템 서비스 방화벽 정책 클론-정책 관리-새-정책-이름_정책-이름_*'
-
-. 새 관리 방화벽 정책에서 텔넷 또는 RSH를 활성화합니다.
-+
-'* 시스템 서비스 방화벽 정책 create-policy_policy-name_-service_security_protocol_-action allow-ip-list_ip_address/netmask_*'
-
-+
-모든 IP 주소를 허용하려면 '-ip-list 0.0.0.0/0'을 지정해야 합니다
-
-. 새 정책을 클러스터 관리 LIF와 연결합니다.
-+
-'* 네트워크 인터페이스 수정 - vserver_cluster_management_LIF_-lif cluster_mgmt-firewall-policy_policy-name_ *
-
+. 고급 권한 모드(* SET ADVANCED *)로 진입합니다
+. 보안 프로토콜(RSH 또는 TELNET) 사용: (* security protocol modify -application_security_protocol_-enabled true*)
+. mGMT 관리 방화벽 정책, 즉 `* 시스템 서비스 방화벽 정책 클론-정책 관리-대상-정책_정책-이름_*'을 기반으로 새 관리 방화벽 정책을 만듭니다
+. 새 관리 방화벽 정책에서 텔넷 또는 RSH를 활성화합니다. (* 시스템 서비스 방화벽 정책 create-policy_name_-service_security_protocol_-action allow-ip-list_ip_address/netmask_*) 모든 IP 주소를 허용하려면 '-ip-list 0.0.0.0/0'을 지정해야 합니다
+. 새 정책을 클러스터 관리 LIF: `* 네트워크 인터페이스 수정 -vserver_cluster_management_LIF_-lif cluster_mgmt -firewall_policy_name_ * '과(와) 연계합니다
 
