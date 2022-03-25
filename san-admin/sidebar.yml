@@ -132,7 +132,7 @@ entries:
     url: "/san-admin/prevent-loss-connectivity-x1133a-r6-adapter-concept.html"
 - title: NVMe 프로토콜 관리
   entries:
-  - title: 라이센스 요구 사항
+  - title: 개요
     url: "/san-admin/manage-nvme-concept.html"
   - title: SVM에 대해 NVMe/FC 서비스를 시작합니다
     url: "/san-admin/start-nvme-fc-service-svm-task.html"

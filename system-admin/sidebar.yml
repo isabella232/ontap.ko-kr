@@ -8,6 +8,8 @@ entries:
   entries:
   - title: 역할
     url: "/system-admin/cluster-svm-administrators-concept.html"
+  - title: System Manager에 대한 액세스를 관리합니다
+    url: "/system-admin/manage-access-system-manager-concept.html"
   - title: 클러스터 관리 서버의 정의
     url: "/system-admin/cluster-management-server-concept.html"
   - title: SVM의 유형
@@ -76,14 +78,6 @@ entries:
         url: "/system-admin/commands-manage-records-cli-sessions-reference.html"
     - title: CLI session의 자동 timeout 기간을 관리하는 명령어
       url: "/system-admin/commands-manage-timeout-period-reference.html"
-  - title: System Manager를 통한 클러스터 액세스
-    entries:
-    - title: System Manager를 사용하여 클러스터에 액세스합니다
-      url: "/system-admin/access-cluster-system-manager-browser-task.html"
-    - title: System Manager 정보
-      url: "/system-admin/system-manager-concept.html"
-    - title: System Manager에 대한 액세스를 관리하는 방법
-      url: "/system-admin/manage-access-system-manager-concept.html"
 - title: ONTAP 명령줄 인터페이스를 사용합니다
   url: "/system-admin/command-line-interface-concept.html"
   entries:

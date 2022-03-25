@@ -7,6 +7,8 @@ entries:
   entries:
   - title: 관리 개요
     url: "/concept_administration_overview.html"
+  - title: System Manager를 사용하여 클러스터에 액세스합니다
+    url: "/system-admin/access-cluster-system-manager-browser-task.html"
   - title: 새로운 기능 활성화
     url: "/task_admin_enable_new_features.html"
   - title: 지원 케이스를 보고 제출합니다
