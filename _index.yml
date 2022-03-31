@@ -8,8 +8,8 @@ indexpage:
     links:
     - title: 릴리즈 노트
       url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508
-    - title: 모든 소개 주제
-      url: "/introduction-concepts/index.html"
+    - title: REST API를 사용하여 자동화
+      url: https://docs.netapp.com/us-en/ontap-automation/getting_started_with_the_rest_api.html
     - title: ONTAP 개념
       url: "/concepts/index.html"
     - title: ONTAP와 클라우드
