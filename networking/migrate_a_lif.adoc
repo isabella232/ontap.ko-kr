@@ -33,7 +33,7 @@ summary: LIF를 동일한 노드의 다른 포트 또는 클러스터 내의 다
 +
 이 제한을 해결하려면 대상 노드에 iSCSI LIF를 생성해야 합니다. iSCSI LIF 생성 지침에 대한 자세한 내용은 를 참조하십시오 link:../san-admin/index.html["SAN 관리"^].
 
-* 소스 또는 대상 LIF를 마이그레이션할 때 VMware VAAI 복사본 오프로드 작업이 실패합니다. VMware VAAI에 대한 자세한 내용은 를 참조하십시오 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/GUID-39C8E616-EAE8-46A4-881A-87C4B8421281.html["NFS 참조입니다"^] 또는.
+* 소스 또는 대상 LIF를 마이그레이션할 때 VMware VAAI 복사본 오프로드 작업이 실패합니다. VMware VAAI에 대한 자세한 내용은 를 참조하십시오 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/GUID-39C8E616-EAE8-46A4-881A-87C4B8421281.html["NFS 참조입니다"^] 또는 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/GUID-D97EE182-9068-4BD8-A3BF-F5C458303740.html["SAN 관리"^].
 
 
 특정 LIF를 마이그레이션할지 또는 모든 LIF를 마이그레이션할지 여부에 따라 적절한 작업을 수행합니다.

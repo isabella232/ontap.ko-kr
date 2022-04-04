@@ -20,14 +20,14 @@ summary: 클러스터에서 필요 없는 노드를 한 번에 하나씩 제거�
 ** 여기에는 가 포함될 수 있습니다 link:../encryption-at-rest/secure-purge-data-encrypted-volume-concept.html["암호화된 볼륨에서 데이터를 제거하는 중입니다"].
 
 
-* 모든 볼륨이 입니다 link:../volumes/move-volume-task.html["이동됨"] 또는  노드에서 소유하는 Aggregate에서.
+* 모든 볼륨이 입니다 link:../volumes/move-volume-task.html["이동됨"] 또는 link:../volumes/delete-flexvol-task.html["삭제됨"] 노드에서 소유하는 Aggregate에서.
 * 모든 애그리게이트는 재수집되었습니다 link:../disks-aggregates/commands-manage-aggregates-reference.html["삭제됨"] 노드에서.
 * 노드가 FIPS(Federal Information Processing Standards) 디스크 또는 SED(자체 암호화 디스크)를 소유한 경우 link:../encryption-at-rest/return-seds-unprotected-mode-task.html["디스크 암호화가 제거되었습니다"] 디스크를 보호되지 않는 모드로 되돌리는 것입니다.
 +
 ** 원하는 경우도 있을 것입니다 link:../encryption-at-rest/sanitize-fips-drive-sed-task.html["FIPS 드라이브 또는 SED를 살균합니다"].
 
 
-* 데이터 LIF는 이미 존재했습니다 link:../networking/delete_a_lif.html["삭제됨"] 또는  노드에서.
+* 데이터 LIF는 이미 존재했습니다 link:../networking/delete_a_lif.html["삭제됨"] 또는 link:../networking/migrate_a_lif.html["위치가 재조정되었습니다"] 노드에서.
 * 클러스터 관리 LIF는 입니다 link:../networking/migrate_a_lif.html["위치가 재조정되었습니다"] 노드 및 홈 포트가 변경되었습니다.
 * 인터클러스터 LIF는 모두 입니다 link:../networking/delete_a_lif.html["제거되었습니다"].
 +

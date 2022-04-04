@@ -32,7 +32,7 @@ ASA 플랫폼은 2노드 스위치 클러스터 또는 스위치가 없는 클�
 NOTE: ONTAP 9.9.1을 사용하면 이제 고객은 AFF ASA 구성을 최대 12개 노드로 확장할 수 있습니다. ASA는 ONTAP 9.7 이상에서 지원됩니다. 지원되는 구성은 에 나와 있습니다 link:http://mysupport.netapp.com/matrix/["NetApp 상호 운용성 매트릭스 툴"^].
 
 link:http://www.netapp.com/us/media/tr-4515.pdf["NetApp 기술 보고서 4515: ONTAP AFF All SAN 어레이 시스템"^]
- 
+ link:http://www.netapp.com/us/media/tr-4080.pdf["NetApp 기술 보고서 4080: 확장형 SAN ONTAP 9에 대한 모범 사례"^]
 
 
 

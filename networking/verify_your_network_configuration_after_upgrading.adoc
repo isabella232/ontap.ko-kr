@@ -77,7 +77,7 @@ image:ontap_nm_image1.png["수리 가능성 의사결정 트리"]
 
 물리적 연결 및 스위치 구성을 검사하여 올바르지 않거나 포트에 할당된 브로드캐스트 도메인을 하나 이상의 브로드캐스트 도메인과 병합해야 하는지 확인합니다.
 
-자세한 내용은 을 참조하십시오 link:merge_broadcast_domains.html["브로드캐스트 도메인을 병합합니다"] 또는 .
+자세한 내용은 을 참조하십시오 link:merge_broadcast_domains.html["브로드캐스트 도메인을 병합합니다"] 또는 link:repair_port_reachability.html["수리 포트 도달 가능성"].
 
 
 

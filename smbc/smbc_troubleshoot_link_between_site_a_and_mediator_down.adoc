@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: smbc/smbc_troubleshoot_link_between_site_a_and_mediator_down.html 
-keywords: SM-BC, SMBC, troubleshooting, link down, Mediator 
+keywords: SM-BC, SMBC, troubleshooting, connectivity, consensus 
 summary: 사이트 A와 중재 다운 및 사이트 B 다운 사이의 문제 해결 링크. 
 ---
 = 사이트 A와 중재 Down 및 사이트 B Down 사이의 연결
@@ -13,7 +13,9 @@ summary: 사이트 A와 중재 다운 및 사이트 B 다운 사이의 문제 �
 
 
 [role="lead"]
-사이트 A에서 중재자의 상태를 확인합니다
+SM-BC를 사용하면 중재자나 피어링된 클러스터 간의 연결이 끊어질 수 있습니다. SM-BC 관계의 여러 부분에 대한 연결, 가용성 및 합의 상태를 확인한 후 강제로 연결을 재개하여 문제를 진단할 수 있습니다.
+
+사이트 A에서 스냅미러 중재자 표시 명령을 사용하여 중재자의 상태를 확인합니다.
 
 ....
 C1_cluster::*> snapmirror mediator show
@@ -28,7 +30,7 @@ Path         Type  Path         Status Progress   Updated      Id
 ----------- ----- ------------ ------- --------- ------------ ---------------
 vs0:/cg/src_cg_1  XDP   vs1:/cg/dst_cg_1  OutOfSync  -         -            bba7d354-06f6-11eb-9138-005056acec19
 ....
-사이트 B 연결 확인:
+"cluster peer show" 명령을 사용하여 사이트 B 연결을 확인합니다.
 
 ....
 C1_sti78-vsim-ucs188a_cluster::*> cluster peer show
@@ -36,7 +38,7 @@ Peer Cluster Name         Cluster Serial Number Availability   Authentication
 ------------------------- --------------------- -------------- --------------
 C2_cluster                1-80-000011           Unavailable    ok
 ....
-SM-BC 볼륨에서 합의 상태 확인:
+sm-bc volume의 합의 상태를 'volume show_volume_name_-fields smbc-Consensus' 명령으로 확인한다.
 
 ....
 C1_cluster::*> volume show zrto_cg_894191_188b_RW1 -fields smbc-consensus
@@ -47,7 +49,7 @@ vs0     zrto_cg_894191_188b_RW1 Awaiting-consensus
 SM-BC 합의를 무시하고 사이트 A에서 강제로 I/O를 재개하려면 다음 단계를 수행하십시오.
 
 . 사이트 A에서 LUN 매핑을 해제합니다
-. 사이트 A에서 '-force' 및 'override-smbc-Consensus' 옵션을 사용하여 SnapMirror 릴리즈 명령을 실행합니다
+. 사이트 A의 '-force ' 및 ' override-smbc-Consensus ' 옵션을 사용하여 'napMirror release' 명령을 실행합니다
 . LUN을 다시 매핑합니다.
 . 먼저 중재자를 불러 사이트 B 노드를 가져옵니다.
 . '스냅샷 재동기화'를 사용하여 정합성 보장 그룹 관계를 다시 동기화하십시오.

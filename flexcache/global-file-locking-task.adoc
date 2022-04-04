@@ -52,7 +52,7 @@ NOTE: FlexCache 볼륨이 오프라인 상태일 때 일시 중지 및 수정 �
 볼륨 FlexCache 연결 상태 표시
 
 +
-나열된 모든 볼륨의 상태가 ""연결됨"으로 표시되어야 합니다. 자세한 내용은 을 참조하십시오 link:flexcache\view-connection-status-origin-task.html["FlexCache 관계 상태 보기"] 또는 .
+나열된 모든 볼륨의 상태가 ""연결됨"으로 표시되어야 합니다. 자세한 내용은 을 참조하십시오 link:flexcache\view-connection-status-origin-task.html["FlexCache 관계 상태 보기"] 또는 link:synchronize-properties-origin-volume-task.html["원점에서 FlexCache 볼륨의 속성을 동기화하는 중입니다"].
 
 . 캐시에 글로벌 파일 잠금 설정:
 +

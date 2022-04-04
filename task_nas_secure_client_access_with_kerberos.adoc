@@ -20,7 +20,7 @@ summary: NAS 클라이언트에 대한 스토리지 액세스를 보호하기 �
 [role="lead"]
 NAS 클라이언트에 대한 스토리지 액세스를 보호하기 위해 Kerberos를 설정합니다.
 
-이 절차에서는 에 대해 설정된 기존 스토리지 VM에서 Kerberos를 구성합니다 link:task_nas_enable_linux_nfs.html["NFS 를 참조하십시오"] 또는 .
+이 절차에서는 에 대해 설정된 기존 스토리지 VM에서 Kerberos를 구성합니다 link:task_nas_enable_linux_nfs.html["NFS 를 참조하십시오"] 또는 link:task_nas_enable_windows_smb.html["중소기업"].
 
 시작하기 전에 DNS, NTP 및 를 구성해야 합니다 link:task_nas_provide_client_access_with_name_services.html["LDAP를 지원합니다"] 스토리지 시스템에서
 

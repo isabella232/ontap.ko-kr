@@ -189,7 +189,7 @@ LIF 연결의 강제 업데이트 기존 LIF 연결을 강제로 업데이트할
 
 SVM을 사용하여 클라이언트 및 호스트에 데이터를 제공할 수 있습니다.
 
-귀사가 기록하는 값은 기본 데이터 SVM을 생성하는 것입니다. MetroCluster 소스 SVM을 생성하는 경우 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/concept_considerations_differences.html["패브릭 연결 MetroCluster 설치 및 구성 가이드"^] 또는 을 누릅니다 .
+귀사가 기록하는 값은 기본 데이터 SVM을 생성하는 것입니다. MetroCluster 소스 SVM을 생성하는 경우 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/concept_considerations_differences.html["패브릭 연결 MetroCluster 설치 및 구성 가이드"^] 또는 을 누릅니다 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-stretch/concept_choosing_the_correct_installation_procedure_for_your_configuration_mcc_install.html["스트레치 MetroCluster 설치 및 구성 가이드"^].
 
 [cols="45,20,35"]
 |===

@@ -51,4 +51,4 @@ NOTE: NAS 액세스를 위해 마운트된 볼륨에 SM-BC 관계를 설정할 �
 . 정합성 보장 그룹을 초기화하고 동기화해야 합니다. 이 작업이 완료되면 * SnapMirror(원격) * 에서 상태가 옆에 ""보호됨""으로 표시되어야 합니다 image:../media/icon_shield.png["Alt = 녹색 차폐 아이콘"].
 
 
-link:../task_dp_configure_snapshot.html["스냅샷 복사본을 구성합니다"] 를 누릅니다 를 누릅니다 를 누릅니다
+link:../task_dp_configure_snapshot.html["스냅샷 복사본을 구성합니다"] 를 누릅니다link:../task_dp_create_custom_data_protection_policies.html["사용자 지정 데이터 보호 정책을 생성합니다"] 를 누릅니다link:../task_dp_recover_snapshot.html["Snapshot 복사본에서 복구"] 를 누릅니다link:../task_dp_restore_from_vault.html["이전 스냅샷 복사본에서 볼륨을 복원합니다"]
