@@ -14,7 +14,7 @@ summary: 핫 객체에 액세스할 때 성능을 개선하기 위해 동일한 
 
 FlexCache 볼륨은 항상 FlexVol 볼륨이며 FlexGroup 볼륨은 아닙니다.
 
-ONTAP 9.7부터 FlexGroup 볼륨은 FlexCache 관계의 시작에서도 지원됩니다.
+ONTAP 9.7부터 FlexGroup 볼륨은 FlexCache 관계의 시작점에서도 지원됩니다.
 
 .단계
 . 생성할 FlexCache 볼륨이 다른 클러스터에 있는 경우 클러스터 피어 관계를 생성합니다.

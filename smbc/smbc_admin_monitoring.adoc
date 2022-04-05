@@ -116,7 +116,7 @@ Last Progress Update: -
 | smbc.aufo.failed | SnapMirror의 계획된 페일오버 자동 작업이 실패했습니다. 대상 경로: 
 
 
-| smbc.aufo.start 참조하십시오. 대상 경로: | SMBC 계획된 페일오버 작업이 시작되었습니다 
+| smbc.aufo.start | SMBC 계획된 페일오버 작업이 시작되었습니다. 대상 경로: 
 
 
 | smbc.aufo.completed: | SnapMirror의 계획된 페일오버 자동 작업이 완료되었습니다. 대상 경로: 

@@ -26,7 +26,7 @@ summary: 모든 SSL 인증서의 만료 날짜가 있습니다. 인증서가 만
 .단계
 . 새 KMIP 서버-CA 인증서를 설치합니다.
 +
-'Security certificate install-type server-ca-vserver<>'
+'Security certificate install-type server-ca-vserver<>'를 선택합니다
 
 . 새 KMIP 클라이언트 인증서 설치:
 +
