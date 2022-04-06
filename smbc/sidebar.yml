@@ -33,7 +33,7 @@ entries:
   - title: 고급 배포 워크플로
     url: "/smbc/smbc_install_high_level_deployment_workflow.html"
   - title: ONTAP 중재자 서비스를 설치하고 ONTAP 클러스터 구성을 확인합니다
-    url: "/smbc/smbc-install-confirm-ontap-cluster.html"
+    url: "/smbc/smbc_install_confirm_ontap_cluster.html"
   - title: ONTAP 중재자를 초기화합니다
     url: "/smbc/smbc_install_initialize_the_ontap_mediator.html"
   - title: 일관성 그룹 관계를 생성합니다

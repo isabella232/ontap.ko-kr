@@ -54,8 +54,6 @@ entries:
     entries:
     - title: 개요
       url: "/san-config/supported-port-config-x1143a-r6-adapter-concept.html"
-    - title: X1143A-R6 어댑터의 포트 구성 옵션입니다
-      url: "/san-config/port-config-options-x1143a-r6-adapter-concept.html"
     - title: 포트를 구성합니다
       url: "/san-config/configure-ports-task.html"
     - title: UTA2 포트를 CNA 모드에서 FC 모드로 변경합니다

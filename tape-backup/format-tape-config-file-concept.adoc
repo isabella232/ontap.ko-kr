@@ -160,4 +160,4 @@ m_algorithm'=0x01
 
 "자동 로드" = "예"
 
-http://mysupport.netapp.com/NOW/download/tools/tape_config["NetApp 다운로드: 테이프 장치 구성 파일"]
+https://mysupport.netapp.com/site/tools/tool-eula/5f4d322319c1ab1cf34fd063["NetApp 툴: 테이프 장치 구성 파일"]
