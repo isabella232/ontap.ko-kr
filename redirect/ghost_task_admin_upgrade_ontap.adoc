@@ -1,0 +1,49 @@
+---
+sidebar: sidebar 
+permalink: task_admin_upgrade_ontap.html 
+keywords: netapp, ontap, upgrade, nondisruptive, nondisruptively, non-disruptive update, nondisruptive upgrade, upgrade a cluster, shift workload, between clusters, hardware platform, configuration, software image, update, update ONTAP, update software, ndu 
+summary: 클러스터에서 ONTAP 버전을 중단 없이 업데이트할 수 있습니다. 
+---
+= ONTAP를 업데이트합니다
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+이 항목에서는 System Manager 인터페이스를 사용하여 ONTAP 9.7 이상에서 ONTAP 9 이후 버전으로 ONTAP 클러스터를 업그레이드하는 프로세스를 개략적으로 설명합니다.
+
+다른 ONTAP 클러스터 업그레이드 시나리오에 대한 정보가 필요하면 를 방문하십시오 link:../upgrade/index.html["여기"].
+
+클러스터에서 ONTAP 버전을 중단 없이 업데이트할 수 있습니다.
+
+업데이트 프로세스에서는 하드웨어 플랫폼 및 구성을 확인하여 업그레이드하려는 ONTAP 버전에서 시스템이 지원되는지 확인합니다. ONTAP는 업그레이드 중에 클러스터 간에 워크로드를 자동으로 이동하여 데이터를 계속 제공할 수 있도록 합니다.
+
+이 절차를 수행하면 시스템이 지정된 버전의 ONTAP로 업데이트됩니다. 대상 릴리즈에서 하드웨어 플랫폼 및 구성이 지원되는 것으로 가정합니다.
+
+image:workflow_admin_upgrade_ontap.gif["업그레이드 작업의 워크플로 다이어그램"]
+
+.단계
+. 소프트웨어 이미지를 네트워크의 HTTP 또는 FTP 서버로 다운로드하려면 에서 소프트웨어 이미지를 복사합니다 link:https://mysupport.netapp.com/site/downloads["NetApp Support 사이트"^] 이미지를 제공할 HTTP 또는 FTP 서버의 디렉토리로 이동합니다.
++
+소프트웨어 이미지를 로컬 폴더에 다운로드하려면 NetApp Support 사이트에서 소프트웨어 이미지를 클릭한 다음 * 다른 이름으로 저장 * 을 선택하고 이미지를 배치할 로컬 폴더를 선택합니다.
+
+. System Manager에서 * Cluster > Overview * 를 클릭합니다.
+. 개요 창의 오른쪽 모서리에서 을 클릭합니다 image:icon_kabob.gif["메뉴 아이콘"].
+. ONTAP 업데이트 * 를 클릭합니다.
+
+
+
+
+== ONTAP 업그레이드로 더욱 간편해진 비디오
+
+ONTAP 9.8 System Manager에서 제공되는 단순화된 ONTAP 업그레이드 기능을 살펴보십시오.
+
+video::xwwX8vrrmIk[youtube, width=848,height=480]

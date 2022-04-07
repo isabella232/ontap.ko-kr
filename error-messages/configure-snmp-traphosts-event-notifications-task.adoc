@@ -30,7 +30,7 @@ ONTAP 명령줄에 명령을 입력하여 클러스터가 실행 중일 때마�
 .단계
 . 환경에 이벤트 알림을 수신하도록 구성된 SNMP traaphost가 아직 없는 경우 다음 중 하나를 추가하십시오.
 +
-'System snmp traphost add-peer-address snmp_traphost_name'입니다
+'System snmp traphost add-peer-address_snmp_traphost_name_'
 
 +
 기본적으로 SNMP에서 지원하는 모든 이벤트 알림은 SNMP traphost로 전달됩니다.

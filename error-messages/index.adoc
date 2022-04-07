@@ -30,4 +30,4 @@ summary: '중요한 EMS(이벤트 관리 시스템) 이벤트 알림을 전자 �
 * 많은 개념적 배경을 읽고 싶지 않습니다.
 
 
-이 페이지의 추가 리소스 아래에서 EMS 이벤트 카탈로그를 찾을 수 있습니다. https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=62286["ONTAP 9 제품 라이브러리"^]. 을 참조하십시오 link:convert-ems-routing-to-notifications-task.html["레거시 이벤트 경로 기반 라우팅을 이벤트 알림으로 변환합니다"] 알림 기반 모델 변환을 수행하는 방법에 대한 자세한 내용은 를 참조하십시오.
+이 페이지의 추가 리소스 아래에서 EMS 이벤트 카탈로그를 찾을 수 있습니다. link:https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=62286["ONTAP 9 제품 라이브러리"^]. 을 참조하십시오 xref:convert-ems-routing-to-notifications-task.html[레거시 이벤트 경로 기반 라우팅을 이벤트 알림으로 변환합니다] 알림 기반 모델 변환을 수행하는 방법에 대한 자세한 내용은 를 참조하십시오.

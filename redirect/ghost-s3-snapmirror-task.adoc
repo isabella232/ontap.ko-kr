@@ -1,0 +1,7 @@
+---
+permalink: object-backup-s3-snapmirror-task.html 
+redirect: ontap/s3-snapmirror/index.html 
+---
+= 
+
+

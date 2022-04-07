@@ -1,0 +1,7 @@
+---
+permalink: data-protection-consistency-group-task.html 
+redirect: ontap/consistency-groups/index.html 
+---
+= 
+
+

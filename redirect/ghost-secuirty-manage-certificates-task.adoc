@@ -1,0 +1,7 @@
+---
+permalink: security-manage-certificates-task.html 
+redirect: ontap/authentication/manage-certificates-sm-task.html 
+---
+= 
+
+
