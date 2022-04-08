@@ -5,6 +5,7 @@ keywords: restore, node, configuration, backup, file, recovering
 summary: 복구 노드에서 식별하여 사용할 수 있도록 만든 구성 백업 파일을 사용하여 노드 구성을 복원합니다. 
 ---
 = 구성 백업 파일을 사용하여 노드 구성을 복구합니다
+:hardbreaks:
 :icons: font
 :imagesdir: ../media/
 
@@ -15,26 +16,17 @@ summary: 복구 노드에서 식별하여 사용할 수 있도록 만든 구성 
 이 작업은 노드의 로컬 구성 파일이 손실되는 재해에서만 수행해야 합니다.
 
 .단계
-. 노드가 정상 상태인 경우 다른 노드의 고급 권한 수준에서 -node 및 -eligibility" 매개 변수와 함께 "cluster modify" 명령을 사용하여 부적격이 아닌 것으로 표시하고 이를 클러스터에서 분리합니다.
-+
-노드가 정상이 아닌 경우 이 단계를 건너뛰어야 합니다.
+. 고급 권한 수준 'Set-Privilege advanced'로 변경합니다
+. 노드가 정상 상태인 경우 다른 노드의 고급 권한 수준에서 -node 및 -eligibility" 매개 변수와 함께 "cluster modify" 명령을 사용하여 부적격이 아닌 것으로 표시하고 이를 클러스터에서 분리합니다. 노드가 정상이 아닌 경우 이 단계를 건너뛰어야 합니다. 이 예제에서는 노드 2가 클러스터에 참여할 수 없도록 수정하여 해당 구성을 복원할 수 있도록 합니다.
 
-+
-이 예제에서는 노드 2가 클러스터에 참여할 수 없도록 수정하여 해당 구성을 복원할 수 있도록 합니다.
 
-+
 [listing]
 ----
 cluster1::*> cluster modify -node node2 -eligibility false
 ----
-. 고급 권한 레벨의 '시스템 구성 복구 노드 복구' 명령을 사용하여 구성 백업 파일에서 노드 구성을 복구합니다.
-+
-노드 이름을 포함하여 노드 ID가 손실되면 '-nodename-in-backup' 매개 변수를 사용하여 구성 백업 파일에 노드 이름을 지정해야 합니다.
+. 고급 권한 레벨의 '시스템 구성 복구 노드 복구' 명령을 사용하여 구성 백업 파일에서 노드 구성을 복구합니다. 노드 이름을 포함하여 노드 ID가 손실되면 '-nodename-in-backup' 매개 변수를 사용하여 구성 백업 파일에 노드 이름을 지정해야 합니다. 다음 예에서는 노드에 저장된 구성 백업 파일 중 하나를 사용하여 노드의 구성을 복구합니다.
 
-+
-다음 예에서는 노드에 저장된 구성 백업 파일 중 하나를 사용하여 노드의 구성을 복구합니다.
 
-+
 [listing]
 ----
 cluster1::*> system configuration recovery node restore -backup cluster1.8hour.2011-02-22.18_15_00.7z
@@ -46,7 +38,6 @@ Warning: This command overwrites local configuration files with
          The node will reboot after restoring the local configuration.
 Do you want to continue? {y|n}: y
 ----
-+
 구성이 복원되고 노드가 재부팅됩니다.
 
 . 노드 부적격으로 표시한 경우 'system configuration recovery cluster sync' 명령을 사용하여 노드를 적합한 것으로 표시하고 클러스터와 동기화합니다.
