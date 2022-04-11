@@ -86,3 +86,15 @@ ONTAP 9.6부터는 LIF 역할이 사용되지 않습니다. 역할 대신 LIF에
 
 | DNS: 영역으로 내보내시겠습니까? | 예 | 아니요 | 아니요 | 아니요 | 아니요 
 |===
+
+
+== LIF 1차 트래픽 유형
+
+|===
+
+
+|  | 데이터 LIF | 클러스터 LIF | 노드 관리 LIF | 클러스터 관리 LIF | 인터클러스터 LIF 
+
+
+| 기본 트래픽 유형 | NFS 서버, CIFS 서버, NIS 클라이언트, Active Directory, LDAP, WINS, DNS 클라이언트 및 서버, iSCSI 및 FC 서버 | 클러스터 내 | SSH 서버, HTTPS 서버, NTP 클라이언트, SNMP, AutoSupport 클라이언트, DNS 클라이언트, 소프트웨어 업데이트 로드 중 | SSH 서버, HTTPS 서버 | 클러스터 간 복제 
+|===
