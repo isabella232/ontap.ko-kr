@@ -5,6 +5,7 @@ keywords: managing, fabricpool, cooling period
 summary: 스토리지 계층화 요구 사항을 지원하기 위해 ONTAP를 사용하면 볼륨의 비활성 데이터 양을 표시하거나, FabricPool에 볼륨을 추가 또는 이동하거나, FabricPool의 공간 사용률을 모니터링하거나, 볼륨의 계층화 정책 또는 최소 계층화 냉각 기간을 수정할 수 있습니다. 
 ---
 = FabricPool 개요 관리
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

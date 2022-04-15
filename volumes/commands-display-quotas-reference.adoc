@@ -5,6 +5,7 @@ keywords: commands for, display, displaying, information about, quotas
 summary: 명령을 사용하면 적용된 할당량과 리소스 사용량이 포함된 할당량 보고서를 표시하고, 할당량 상태 및 오류에 대한 정보를 표시하거나, 할당량 정책 및 할당량 규칙에 대한 정보를 표시할 수 있습니다. 
 ---
 = 할당량에 대한 정보를 표시하는 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

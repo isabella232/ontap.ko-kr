@@ -5,6 +5,7 @@ keywords: install, ca, signed, client, certificate, kmip, server, key, managemen
 summary: '클라이언트 및 서버 CA 유형과 함께 KMIP(Key Management Interoperability Protocol)(-subtype KMIP-cert 매개 변수)의 인증서 하위 유형은 클러스터 및 KMIP 서버와 같은 외부 키 관리자를 상호 인증하는 데 인증서가 사용됨을 나타냅니다.' 
 ---
 = KMIP 서버용 CA 서명 클라이언트 인증서를 설치합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

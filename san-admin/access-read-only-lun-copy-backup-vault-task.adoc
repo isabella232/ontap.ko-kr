@@ -5,6 +5,7 @@ keywords: access, read-only, lun, copy, snapvault, backup
 summary: SnapVault 백업의 최신 스냅샷 복사본에서 LUN의 읽기 전용 복사본에 액세스할 수 있습니다. LUN ID, 경로 및 일련 번호는 소스 LUN과 다르며 먼저 매핑해야 합니다. 영구 예약, LUN 매핑 및 igroup은 SnapVault 2차 볼륨에 복제되지 않습니다. 
 ---
 = SnapVault 백업에서 읽기 전용 LUN 복사본을 액세스합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

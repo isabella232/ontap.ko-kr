@@ -5,6 +5,7 @@ keywords: smtape, backup, restore, operation, metrocluster, configuration, switc
 summary: MetroCluster 구성에서 SMTape 백업 및 복원 작업을 수행하기 전에 전환 또는 스위치백 작업이 수행될 때 SMTape 작업이 어떤 영향을 받는지 알아야 합니다. 
 ---
 = MetroCluster 구성에서 SMTape 백업 및 복원 작업이 영향을 받는 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

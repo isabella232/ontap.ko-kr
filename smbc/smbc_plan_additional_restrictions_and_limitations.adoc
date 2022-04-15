@@ -6,6 +6,7 @@ summary: SnapMirror 비즈니스 연속성 솔루션을 사용할 때는 몇 가
 ---
 = 추가 제한 및 제한 사항
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

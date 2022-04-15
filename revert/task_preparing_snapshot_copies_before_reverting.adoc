@@ -5,6 +5,7 @@ keywords: ontap, revert, reverting, reversion, snapshot, copies, prepare, prepar
 summary: 이전 ONTAP 릴리즈로 되돌리기 전에 모든 스냅샷 복사본 정책을 사용하지 않도록 설정하고 현재 릴리즈로 업그레이드한 후 생성한 모든 스냅샷 복사본을 삭제해야 합니다. 
 ---
 = 되돌리기 전에 스냅샷 복사본을 준비합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

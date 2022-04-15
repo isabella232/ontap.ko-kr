@@ -5,6 +5,7 @@ keywords: determining, whether, cluster, version, supports, nve
 summary: 라이센스를 설치하기 전에 클러스터 버전이 NVE를 지원하는지 확인해야 합니다. version 명령을 사용하여 클러스터 버전을 확인할 수 있습니다. 
 ---
 = 클러스터 버전이 NVE를 지원하는지 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

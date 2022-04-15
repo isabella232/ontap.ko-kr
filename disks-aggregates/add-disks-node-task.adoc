@@ -5,6 +5,7 @@ keywords: add, drives, node, shelf
 summary: 드라이브를 노드나 쉘프에 추가하여 핫 스페어 수를 늘리거나 애그리게이트에 공간을 추가할 수 있습니다. 
 ---
 = 노드 또는 쉘프에 드라이브 추가
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

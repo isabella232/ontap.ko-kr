@@ -5,6 +5,7 @@ keywords: disk, autoassignment, policy
 summary: '일반적으로 대부분의 시스템에 대한 스택 정책과 동등한 기본 자동 할당 정책과 엔트리 레벨 시스템에 대한 베이 정책(AFF A2xx, FAS2xxx)을 사용할 수 있습니다. 그러나 일부 구성의 경우 자동 할당 정책을 변경해야 할 수도 있습니다.' 
 ---
 = 사용할 디스크 자동 할당 정책입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

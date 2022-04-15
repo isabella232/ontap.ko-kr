@@ -5,6 +5,7 @@ keywords: delete, svm, replication, relationship
 summary: SnapMirror delete 및 SnapMirror 릴리즈 명령을 사용하여 SVM 복제 관계를 삭제할 수 있습니다. 그런 다음 불필요한 대상 볼륨을 수동으로 삭제할 수 있습니다. 
 ---
 = SVM 복제 관계를 삭제합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

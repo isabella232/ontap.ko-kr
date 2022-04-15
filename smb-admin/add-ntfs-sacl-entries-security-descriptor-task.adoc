@@ -5,6 +5,7 @@ keywords: add, sacl, system, access, control, list, entires, aces, ntfs, audit, 
 summary: 'SACL(시스템 액세스 제어 목록) ACE(액세스 제어 항목)를 NTFS 보안 설명자에 추가하는 것은 SVM의 파일 또는 폴더에 대한 NTFS 감사 정책을 생성하는 두 번째 단계입니다. 각 항목은 감사하려는 사용자 또는 그룹을 식별합니다. SACL 항목은 성공한 액세스 시도 또는 실패한 액세스 시도를 감사할지 여부를 정의합니다.' 
 ---
 = NTFS SACL 액세스 제어 항목을 NTFS 보안 설명자에 추가합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

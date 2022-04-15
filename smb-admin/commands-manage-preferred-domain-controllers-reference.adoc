@@ -5,6 +5,7 @@ keywords: command, add, display, removing, remove, prefer, domain, controller, c
 summary: 기본 도메인 컨트롤러를 추가, 표시 및 제거하는 명령을 알아야 합니다. 
 ---
 = 기본 도메인 컨트롤러를 관리하는 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

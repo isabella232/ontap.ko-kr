@@ -5,6 +5,7 @@ keywords: ndmp, mode, operation, backup, restore, node, level, svm
 summary: '지금까지는 노드 수준에서나 SVM(스토리지 가상 시스템) 레벨에서 테이프 백업 및 복원 작업을 수행하도록 선택할 수 있습니다. SVM 레벨에서 이러한 작업을 성공적으로 수행하려면 SVM에서 NDMP 서비스를 사용하도록 설정해야 합니다.' 
 ---
 = NDMP 작업 모드에 대해 설명합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

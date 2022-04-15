@@ -5,6 +5,7 @@ keywords: commands, manage, ssd, storage, pools
 summary: ONTAP에서는 SSD 스토리지 풀을 관리하기 위한 스토리지 풀 명령을 제공합니다. 
 ---
 = SSD 스토리지 풀을 관리하는 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

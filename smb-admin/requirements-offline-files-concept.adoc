@@ -5,6 +5,7 @@ keywords: microsoft, offline, file, feature, cifs, server, version, ontap, windo
 summary: CIFS 서버에서 Microsoft 오프라인 파일 기능을 사용하려면 먼저 ONTAP 및 SMB의 버전과 이 기능을 지원하는 Windows 클라이언트를 알아야 합니다. 
 ---
 = 오프라인 파일 사용에 대한 요구 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

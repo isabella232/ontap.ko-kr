@@ -5,6 +5,7 @@ keywords: configure, security, style, svm, root, volume
 summary: 'SVM(Storage Virtual Machine) 루트 볼륨 보안 스타일을 구성하여 SVM의 루트 볼륨에서 데이터에 사용되는 권한의 유형을 결정할 수 있습니다.' 
 ---
 = SVM 루트 볼륨에 보안 스타일을 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

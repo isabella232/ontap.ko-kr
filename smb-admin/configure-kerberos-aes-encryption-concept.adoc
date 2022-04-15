@@ -5,6 +5,7 @@ keywords: security, kerberos-based, communication, enable, aes-256, aes-128, aes
 summary: 'Kerberos 기반 통신을 사용하여 보안을 강화하기 위해 SMB 서버에서 AES-256 및 AES-128 암호화를 활성화할 수 있습니다. 기본적으로 SVM에서 SMB 서버를 생성할 때 AES 암호화가 사용되지 않습니다. AES(Advanced Encryption Standard) 암호화에서 제공하는 강력한 보안을 활용하려면 이 기능을 활성화해야 합니다.' 
 ---
 = AES 암호화를 사용하여 Kerberos 기반 통신을 위한 강력한 보안을 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

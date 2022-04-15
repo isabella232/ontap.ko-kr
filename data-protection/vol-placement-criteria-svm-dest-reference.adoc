@@ -5,6 +5,7 @@ keywords: snapmirror, svm, replication, disaster recovery, aggregate, volume
 summary: 소스 SVM에서 타겟 SVM으로 볼륨을 복제할 때 애그리게이트 선택 기준을 파악하는 것이 중요합니다. 
 ---
 = 타겟 SVM에 볼륨을 배치할 기준
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

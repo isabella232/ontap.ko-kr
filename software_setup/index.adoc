@@ -5,6 +5,7 @@ keywords: home, software, setup, ontap, documentation
 summary: 소프트웨어 설치 안내서 
 ---
 = 소프트웨어 설치 안내서
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

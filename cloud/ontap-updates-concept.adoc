@@ -5,6 +5,7 @@ keywords: ontap updates
 summary: NetApp은 ONTAP에 대한 정기적인 업데이트를 릴리스하여 새로운 기능을 추가하고 알려진 문제를 해결합니다. 사내 ONTAP 릴리즈를 업데이트하는 것과 비슷한 방식으로 클라우드에서 ONTAP를 업데이트할 수 있습니다. 클라우드의 HA 구성에서 프로세스는 중단 없이 진행됩니다. 
 ---
 = ONTAP 업데이트
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

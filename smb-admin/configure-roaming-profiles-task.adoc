@@ -5,6 +5,7 @@ keywords: automatic, user, profile, available, log, computer, network, configure
 summary: 사용자가 네트워크의 컴퓨터에 로그온할 때 자동으로 사용자 프로필을 사용할 수 있도록 하려면 Active Directory 사용자 및 컴퓨터 MMC 스냅인을 통해 로밍 프로필을 구성할 수 있습니다. Windows Server 2012에서 로밍 프로필을 구성하는 경우 Active Directory 관리 센터를 사용할 수 있습니다. 
 ---
 = 로밍 프로필을 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

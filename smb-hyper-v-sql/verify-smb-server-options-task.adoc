@@ -5,6 +5,7 @@ keywords: verify, cifs, server, option, configured, hyper, v, sql, server, smb
 summary: 필요한 CIFS 서버 옵션이 Hyper-V 및 SQL Server over SMB의 무중단 운영 요구 사항에 따라 설정 및 구성되었는지 확인해야 합니다. 
 ---
 = 필요한 CIFS 서버 옵션이 구성되었는지 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

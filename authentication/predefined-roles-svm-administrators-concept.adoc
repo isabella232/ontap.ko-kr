@@ -5,6 +5,7 @@ keywords: predefined roles, cluster administrators
 summary: SVM 관리자를 위한 사전 정의된 역할은 대부분의 요구사항을 충족해야 합니다. 필요에 따라 사용자 지정 역할을 만들 수 있습니다. 기본적으로 SVM 관리자는 사전 정의된 vsadmin 역할이 할당됩니다. 
 ---
 = SVM 관리자를 위한 사전 정의된 역할
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

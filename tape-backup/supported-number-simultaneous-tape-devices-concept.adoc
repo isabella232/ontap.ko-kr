@@ -5,6 +5,7 @@ keywords: supported, number, simultaneoud, tape, devices, fibre, channel, scsi, 
 summary: 'ONTAP는 Fibre Channel, SCSI 또는 SAS 접속 장치를 혼합하여 각 스토리지 시스템(노드당)에 대해 최대 64개의 동시 테이프 드라이브 접속, 16개의 미디어 체인저 및 16개의 브리지 또는 라우터 디바이스를 지원합니다.' 
 ---
 = 지원되는 동시 테이프 디바이스 수입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -6,6 +6,7 @@ summary: SNMP 트랩을 사용하여 운영 임계값 또는 오류를 정기적
 ---
 = SNMP 트랩
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

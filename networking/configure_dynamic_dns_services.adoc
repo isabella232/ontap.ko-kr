@@ -6,6 +6,7 @@ summary: NFS 또는 SMB 서버를 생성하기 전에 SVM을 위한 DNS 서비�
 ---
 = 동적 DNS 서비스를 구성합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

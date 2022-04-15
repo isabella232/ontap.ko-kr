@@ -5,6 +5,7 @@ keywords: commands for, configuring, deletion of, flexclone files, configure
 summary: 클라이언트가 NetApp Manageability SDK를 사용하지 않고 FlexClone 파일을 삭제할 때 볼륨 파일 클론 삭제 명령을 사용하면 FlexVol 볼륨에서 FlexClone 파일을 더 빠르게 삭제할 수 있습니다. FlexClone 파일의 확장명과 최소 크기를 사용하여 더 빠르게 삭제할 수 있습니다. 
 ---
 = FlexClone 파일 삭제를 구성하는 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

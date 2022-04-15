@@ -5,6 +5,7 @@ keywords: create, creating, ntfs, security, descriptor, audit, policy, configure
 summary: 'NTFS 보안 설명자 감사 정책을 생성하는 것은 SVM에 상주하는 파일 및 폴더에 NTFS ACL(액세스 제어 목록)을 구성 및 적용하는 첫 번째 단계입니다. 보안 설명자를 정책 작업의 파일 또는 폴더 경로에 연결합니다.' 
 ---
 = NTFS 보안 설명자를 만듭니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

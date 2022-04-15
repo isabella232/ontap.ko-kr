@@ -5,6 +5,7 @@ keywords: default, ontap, retrieve, applies, apply, group, policy, object, gpo, 
 summary: '기본적으로 ONTAP는 90분마다 GPO(그룹 정책 개체) 변경 내용을 검색하고 적용합니다. 보안 설정은 16시간마다 새로 고쳐집니다. ONTAP에서 GPO를 자동으로 업데이트하기 전에 GPO를 업데이트하여 새 GPO 정책 설정을 적용하려면 ONTAP 명령을 사용하여 CIFS 서버에서 수동 업데이트를 트리거하면 됩니다.' 
 ---
 = CIFS 서버 개요에서 GPO를 업데이트하는 방법
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

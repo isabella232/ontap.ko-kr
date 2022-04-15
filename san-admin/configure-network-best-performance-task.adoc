@@ -5,6 +5,7 @@ keywords: configure, your, network, best, performance
 summary: 이더넷 네트워크의 성능은 매우 다양합니다. 특정 구성 값을 선택하여 iSCSI에 사용되는 네트워크의 성능을 최대화할 수 있습니다. 
 ---
 = 최상의 성능을 위해 네트워크를 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

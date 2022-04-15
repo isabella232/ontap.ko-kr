@@ -5,6 +5,7 @@ keywords: manage, character, mapping, creating, create, modify, information, del
 summary: FlexVol 볼륨에서 SMB 파일 이름 변환에 사용되는 파일 문자 매핑을 생성, 수정, 정보 표시 또는 삭제하여 문자 매핑을 관리할 수 있습니다. 
 ---
 = SMB 파일 이름 변환에 대한 문자 매핑을 관리하는 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: single-fabric, zoning
 summary: 단일 패브릭 구성에서는 각 호스트 이니시에이터를 각 스토리지 노드에 연결할 수 있습니다. 다중 경로를 관리하려면 호스트에 다중 경로 소프트웨어가 필요합니다. 솔루션에서 복원력을 제공하려면 각 호스트에 두 개의 이니시에이터를 구성하여 다중 경로를 구현해야 합니다. 
 ---
 = 단일 패브릭 조닝
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

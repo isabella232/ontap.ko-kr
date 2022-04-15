@@ -5,6 +5,7 @@ keywords: when, host, multipathing, software, required
 summary: 'SVM(Storage Virtual Machine) 논리 인터페이스(LIF)에서 패브릭까지 두 개 이상의 경로가 있는 경우 다중 경로 소프트웨어가 필요합니다. 호스트에서 둘 이상의 경로를 통해 LUN에 액세스할 수 있는 경우 항상 다중 경로 소프트웨어가 필요합니다.' 
 ---
 = 호스트 다중 경로 소프트웨어가 필요한 경우
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: zoning, restrictions, for cisco, fc, fcoe, switches
 summary: Cisco FC 및 FCoE 스위치를 사용할 때 단일 패브릭 영역에는 동일한 물리적 포트에 대해 둘 이상의 대상 LIF가 포함될 수 없습니다. 같은 포트에 여러 LIF가 있는 경우 LIF 포트가 연결 손실로부터 복구되지 못할 수 있습니다. 
 ---
 = Cisco FC 및 FCoE 스위치에 대한 조닝 제한 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

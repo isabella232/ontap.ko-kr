@@ -5,6 +5,7 @@ keywords: compatible, ontap, versions, snapmirror, relationships
 summary: SnapMirror 데이터 보호 관계를 생성하기 전에 소스 볼륨과 타겟 볼륨에서 호환되는 ONTAP 버전이 실행되고 있는지 확인해야 합니다. 
 ---
 = SnapMirror 관계에 대한 호환 ONTAP 버전
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: manage, ontap, cloud
 summary: '자체 데이터 센터에서든 클라우드에서든 동일한 인터페이스를 사용하여 스토리지를 관리할 수 있습니다. ONTAP 즉, 클라우드에서 ONTAP을 관리하는 방법을 이미 잘 알고 있는 것입니다. 또한, NetApp Cloud Manager는 Cloud Volumes ONTAP를 구축 및 시작하기 위한 사용이 간편한 최신 그래픽 인터페이스입니다. Cloud Volumes ONTAP 또는 Cloud Volumes Service의 고급 관리를 수행해야 하는 경우가 있습니다. System Manager, CLI(Command Line Interface) 또는 REST API를 사용하여 이 작업을 수행할 수 있습니다.' 
 ---
 = 클라우드에서 ONTAP 관리
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

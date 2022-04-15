@@ -5,6 +5,7 @@ keywords: disaster, recovery, workflow, flexgroup, volumes
 summary: 소스 FlexGroup 볼륨에서 재해가 발생하면 대상 FlexGroup 볼륨을 활성화하고 클라이언트 액세스를 리디렉션해야 합니다. 소스 FlexGroup 볼륨을 복구할 수 있는지 여부에 따라 소스 FlexGroup 볼륨을 다시 활성화하거나 SnapMirror 관계를 반대로 해야 합니다. 
 ---
 = FlexGroup 볼륨에 대한 재해 복구 워크플로우
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

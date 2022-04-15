@@ -5,6 +5,7 @@ keywords: enforce, requirement, client, smb, message, enabling, enable, require,
 summary: 필요한 SMB 서명을 설정하여 클라이언트가 SMB 메시지에 서명하도록 요구 사항을 적용할 수 있습니다. 활성화된 경우 ONTAP는 유효한 서명이 있는 경우에만 SMB 메시지를 수락합니다. SMB 서명을 허용하되 SMB 서명이 필요하지 않은 경우 필요한 SMB 서명을 사용하지 않도록 설정할 수 있습니다. 
 ---
 = 수신 SMB 트래픽에 필요한 SMB 서명을 설정하거나 해제합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

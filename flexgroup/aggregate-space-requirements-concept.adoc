@@ -5,6 +5,7 @@ keywords: guideline, aggregate, space, provision, flexgroup, volume
 summary: FlexGroup 볼륨 프로비저닝을 위해 애그리게이트를 선택할 때 고려해야 할 사항과 요구사항을 알고 있어야 합니다. 
 ---
 = FlexGroup 볼륨을 프로비저닝할 때 애그리게이트 공간을 위한 지침입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

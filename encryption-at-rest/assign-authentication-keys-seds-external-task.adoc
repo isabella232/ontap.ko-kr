@@ -5,6 +5,7 @@ keywords: assign, data, authentication, key, fips, drive, sed, external, key, ma
 summary: 스토리지 암호화 디스크 수정 명령을 사용하여 데이터 인증 키를 FIPS 드라이브 또는 SED에 할당할 수 있습니다. 클러스터 노드는 이 키를 사용하여 드라이브에서 암호화된 데이터를 잠그거나 잠금 해제합니다. 
 ---
 = 데이터 인증 키를 FIPS 드라이브 또는 SED(외부 키 관리)에 할당
+:allow-uri-read: 
 
 
 [role="lead"]

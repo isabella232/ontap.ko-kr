@@ -5,6 +5,7 @@ keywords: benefits, enable, nfsv4, acls
 summary: NFSv4 ACL을 설정하면 많은 이점이 있습니다. 
 ---
 = NFSv4 ACL 설정 이점
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

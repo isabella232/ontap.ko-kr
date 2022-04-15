@@ -5,6 +5,7 @@ keywords: understand, ndmp, flexvol, volume, network, data, management, protocol
 summary: 'NDMP(Network Data Management Protocol)는 스토리지 시스템 및 테이프 라이브러리와 같은 운영 스토리지 디바이스와 보조 스토리지 디바이스 간의 백업, 복구 및 기타 데이터 전송 유형을 제어하는 표준화된 프로토콜입니다.' 
 ---
 = FlexVol 볼륨용 NDMP 정보
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: configure, branchcache, recommendation, mind, smb, enable, caching, ca
 summary: BranchCache를 구성하기 전에 BranchCache 캐싱을 활성화할 SMB 공유를 결정할 때 유의해야 할 몇 가지 권장 사항이 있습니다. 
 ---
 = BranchCache 권장 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

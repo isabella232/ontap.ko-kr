@@ -5,6 +5,7 @@ keywords: smb, cifs, configuration, workflow, SMB configuration workflow
 summary: SMB 구성 워크플로우 
 ---
 = SMB 구성 워크플로우
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords:
 summary: 변환된 감사 이벤트 로그에 지원되는 파일 형식은 evtx 및 XML 파일 형식입니다. 
 ---
 = 지원되는 감사 이벤트 로그 형식은 무엇입니까
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

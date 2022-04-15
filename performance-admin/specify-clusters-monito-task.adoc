@@ -5,6 +5,7 @@ keywords: specify, clusters, monitored
 summary: 클러스터를 모니터링하고, 클러스터 검색 상태를 확인하고, 성능을 모니터링하려면 Active IQ Unified Manager 서버에 클러스터를 추가해야 합니다. 
 ---
 = 모니터링할 클러스터를 지정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

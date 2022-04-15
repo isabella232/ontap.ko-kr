@@ -5,6 +5,7 @@ keywords: considerations, copying, luns
 summary: LUN을 복제할 때 고려해야 할 사항이 있습니다. 
 ---
 = LUN을 복제할 때의 고려 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

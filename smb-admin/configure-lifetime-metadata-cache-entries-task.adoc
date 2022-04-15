@@ -5,6 +5,7 @@ keywords: configure, lifetime, smb, metadata, cache, entries, optimise, environm
 summary: SMB 메타데이터 캐시 항목의 수명을 구성하여 사용자 환경에서 SMB 메타데이터 캐시 성능을 최적화할 수 있습니다. 기본값은 10초입니다. 
 ---
 = SMB 메타데이터 캐시 항목의 수명을 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

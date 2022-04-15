@@ -5,6 +5,7 @@ keywords: improve, vmware, vaai, performance, esx, hosts
 summary: 'ONTAP는 ESX 호스트가 ESX 4.1 이상을 실행하는 경우 특정 VMware VAAI(vStorage APIs for Array Integration) 기능을 지원합니다. 이러한 기능은 ESX 호스트에서 스토리지 시스템으로 작업을 오프로드하고 네트워크 처리량을 늘리는 데 도움이 됩니다. ESX 호스트는 올바른 환경에서 자동으로 기능을 활성화합니다.' 
 ---
 = ESX 호스트의 VMware VAAI 성능을 향상시킵니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

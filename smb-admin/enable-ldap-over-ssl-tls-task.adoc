@@ -5,6 +5,7 @@ keywords: cifs, smb, server, tls, secure, communication, active, directory, ldap
 summary: SMB 서버가 Active Directory LDAP 서버와의 보안 통신에 TLS를 사용하려면 먼저 SMB 서버 보안 설정을 수정하여 TLS를 통한 LDAP를 활성화해야 합니다. 
 ---
 = 서버에서 TLS를 통해 LDAP를 활성화합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

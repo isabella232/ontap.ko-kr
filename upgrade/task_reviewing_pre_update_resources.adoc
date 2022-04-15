@@ -5,6 +5,7 @@ keywords: ontap, upgrade, resources, review, before
 summary: ONTAP 소프트웨어를 업데이트하기 전에 리소스를 검토하여 해결해야 하는 문제를 파악하고, 타겟 릴리즈에서 새로운 시스템 동작을 이해하고, 하드웨어 지원을 확인해야 합니다. 
 ---
 = 업그레이드 전에 읽을 리소스
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -8,6 +8,7 @@ summary: ONTAP 9.8부터 파일 액세스 문제를 추적하고 볼 수 있습�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

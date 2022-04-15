@@ -8,6 +8,7 @@ summary: 볼륨의 데이터가 손실되거나 손상된 경우 이전 스냅�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

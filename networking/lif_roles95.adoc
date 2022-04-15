@@ -6,6 +6,7 @@ summary: 다양한 역할을 수행하는 LIF는 다양한 특성을 갖습니�
 ---
 = ONTAP 9.5 이전 버전에서 LIF 역할
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

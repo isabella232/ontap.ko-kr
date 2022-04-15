@@ -5,6 +5,7 @@ keywords: ontap, revert, considerations
 summary: ONTAP 리버전을 시작하기 전에 복원 문제와 제한 사항을 고려해야 합니다. 
 ---
 = 되돌리기 고려 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

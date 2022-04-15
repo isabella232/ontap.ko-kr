@@ -5,6 +5,7 @@ keywords: understand, ontap, invalidate, hash, branchcache, configuration, share
 summary: BranchCache 구성을 계획할 때 ONTAP에서 해시를 무효화하는 이유를 이해하는 것이 도움이 될 수 있습니다. 구성할 운영 모드를 결정하는 데 도움이 되며 BranchCache를 활성화할 공유를 선택하는 데 도움이 될 수 있습니다. 
 ---
 = ONTAP가 BranchCache 해시를 무효화하는 이유
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: tape, seeding, smtape, functionality, destination, flexvol, data, prot
 summary: 테이프 시딩은 데이터 보호 미러 관계에서 대상 FlexVol 볼륨을 초기화하는 데 도움이 되는 SMTape 기능입니다. 
 ---
 = 테이프 시딩이란 무엇입니까
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

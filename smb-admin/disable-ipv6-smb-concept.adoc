@@ -5,6 +5,7 @@ keywords: ipv6, enable, cluster, network, option, diable, smb, command, ontap, d
 summary: 네트워크 옵션을 사용하여 클러스터에 IPv6이 설정되어 있어도 동일한 명령을 사용하여 SMB용 IPv6를 해제할 수 없습니다. 대신 ONTAP는 클러스터 관리자가 클러스터에서 마지막 IPv6 사용 인터페이스를 비활성화할 때 IPv6를 비활성화합니다. IPv6 지원 인터페이스 관리에 대해서는 클러스터 관리자와 통신해야 합니다. 
 ---
 = SMB에 대해 IPv6을 사용하지 않도록 설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

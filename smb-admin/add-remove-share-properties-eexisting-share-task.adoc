@@ -5,6 +5,7 @@ keywords: customize, exist, smb, share, add, remove, removing, properties, usefu
 summary: 공유 속성을 추가하거나 제거하여 기존 SMB 공유를 사용자 지정할 수 있습니다. 이 기능은 환경의 변화하는 요구 사항에 맞게 공유 구성을 변경하려는 경우에 유용합니다. 
 ---
 = 기존 SMB 공유에서 공유 속성을 추가하거나 제거합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

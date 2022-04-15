@@ -5,6 +5,7 @@ keywords: testing, nfs, access, client, systems
 summary: 새 스토리지 개체에 대한 NFS 액세스를 검증한 후 NFS 관리 호스트에 로그인하고 SVM에서 데이터를 읽고 쓰는 방법으로 구성을 테스트해야 합니다. 그런 다음 클라이언트 시스템에서 루트 이외의 사용자로 프로세스를 반복해야 합니다. 
 ---
 = 클라이언트 시스템에서 NFS 액세스를 테스트합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

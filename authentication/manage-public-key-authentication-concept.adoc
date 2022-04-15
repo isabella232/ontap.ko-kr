@@ -5,6 +5,7 @@ keywords: associate, public key, administrator account
 summary: SSH 공개 키 인증의 경우 계정에서 SVM에 액세스할 수 있으려면 먼저 공개 키를 관리자 계정과 연결해야 합니다. 보안 로그인 공개 키 만들기 명령을 사용하여 키를 관리자 계정에 연결할 수 있습니다. 
 ---
 = 공개 키를 관리자 계정에 연결합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

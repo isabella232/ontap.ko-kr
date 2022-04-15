@@ -5,6 +5,7 @@ keywords: create, configuration, nondisruptive, operations, hyper, v, sql, serve
 summary: SMB를 통한 무중단 운영을 제공하는 Hyper-V 및 SQL Server 설치를 준비하기 위해 수행해야 하는 몇 가지 ONTAP 구성 단계가 있습니다. 
 ---
 = SMB를 통한 Hyper-V 및 SQL Server의 무중단 운영을 위한 ONTAP 구성 개요를 제공합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

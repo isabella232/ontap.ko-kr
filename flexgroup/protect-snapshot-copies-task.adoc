@@ -5,6 +5,7 @@ keywords: protect, flexgroup, volume, snapshot, copy, flex group, snap shot, man
 summary: 스냅샷 복사본 생성을 자동으로 관리하는 스냅샷 정책을 생성하거나 FlexGroup 볼륨에 대한 스냅샷 복사본을 수동으로 생성할 수 있습니다. ONTAP이 FlexGroup 볼륨의 각 구성요소에 대해 스냅샷 복사본을 생성할 수 있는 경우에만 FlexGroup 볼륨에 대해 유효한 스냅샷 복사본이 생성됩니다. 
 ---
 = 스냅샷 복사본을 사용하여 FlexGroup 볼륨 보호
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

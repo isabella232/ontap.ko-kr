@@ -5,6 +5,7 @@ keywords: create, nvme, namespace, subsystem
 summary: NVMe 프로토콜을 사용하는 시스템의 경우 하나 이상의 NVMe 네임스페이스 및 서브시스템을 생성해야 합니다. 그런 다음 각 네임스페이스를 NVMe 하위 시스템에 매핑하여 호스트 시스템에서 데이터에 액세스할 수 있습니다. 
 ---
 = NVMe 네임스페이스 및 하위 시스템을 작성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

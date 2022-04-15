@@ -8,6 +8,7 @@ summary: iSCSI 및 FC 프로토콜을 사용하여 System Manager와 함께 SAN 
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

@@ -5,6 +5,7 @@ keywords: configure, backup, user, cluster
 summary: 백업 애플리케이션에서 NDMP를 인증하려면 로컬 백업 사용자 또는 admin 또는 backup 역할을 사용하여 클러스터에 대한 NIS 또는 LDAP 사용자를 생성하고 백업 사용자에 대한 NDMP 암호를 생성해야 합니다. 
 ---
 = 클러스터의 백업 사용자를 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

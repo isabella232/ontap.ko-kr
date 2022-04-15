@@ -5,6 +5,7 @@ keywords: commands, display, information, fpolicy, configurations
 summary: FPolicy show 명령을 사용하여 FPolicy 외부 엔진, 이벤트, 범위, 정책에 대한 정보를 비롯하여 FPolicy 구성에 대한 정보를 표시할 수 있습니다. 
 ---
 = FPolicy 구성에 대한 정보를 표시하는 명령입니다
+:allow-uri-read: 
 
 
 [role="lead"]

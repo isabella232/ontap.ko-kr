@@ -5,6 +5,7 @@ keywords: create, ssd storage pool
 summary: '2~4개의 Flash Pool 애그리게이트를 위한 SSD 캐시를 제공하기 위해 SSD(Solid State Drive) 스토리지 풀을 생성할 수 있습니다.' 
 ---
 = SSD 스토리지 풀을 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

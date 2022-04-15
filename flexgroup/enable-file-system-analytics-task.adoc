@@ -5,6 +5,7 @@ keywords: monitor, volume, ontap, file, system, analytics
 summary: 이 문서에서는 용량 분석 및 CLI를 사용한 작업 추적을 비롯한 파일 시스템 분석 기능을 사용하도록 설정하고 사용하는 방법에 대해 설명합니다. 
 ---
 = 파일 시스템 분석 설정
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

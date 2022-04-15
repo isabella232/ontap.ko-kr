@@ -5,6 +5,7 @@ keywords: run, modify, scheduling, efficiency, operations, deduplication, data, 
 summary: 볼륨 효율성 수정 명령을 사용하여 볼륨에 대한 중복제거 또는 데이터 압축 작업의 예약을 수정할 수 있습니다. 일정 및 볼륨 효율성 정책의 구성 옵션은 상호 배타적입니다. 
 ---
 = 일정을 사용하여 효율성 작업을 실행합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: restore, all, luns in a volume, from, snapshot copy
 summary: 볼륨 스냅샷 복원 명령을 사용하여 스냅샷 복사본에서 지정된 볼륨의 모든 LUN을 복원할 수 있습니다. 
 ---
 = 스냅샷 복사본에서 볼륨의 모든 LUN을 복원합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

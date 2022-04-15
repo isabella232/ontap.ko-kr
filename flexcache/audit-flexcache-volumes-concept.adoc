@@ -5,6 +5,7 @@ keywords: considerations, auditing, flexcache, volumes
 summary: ONTAP 9.7부터는 기본 ONTAP 감사 및 FPolicy를 사용한 파일 정책 관리를 통해 FlexCache 관계에서 NFS 파일 액세스 이벤트를 감사할 수 있습니다. SMB가 있는 FlexCache 볼륨에는 FPolicy가 지원되지 않습니다. 기본 감사 및 FPolicy는 FlexVol 볼륨에 사용되는 동일한 CLI 명령으로 구성 및 관리됩니다. 그러나 FlexCache 볼륨에는 몇 가지 다른 동작이 있습니다. 
 ---
 = FlexCache 볼륨을 감사할 때의 고려 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

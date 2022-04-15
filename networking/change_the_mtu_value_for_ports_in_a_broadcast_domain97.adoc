@@ -6,6 +6,7 @@ summary: 브로드캐스트 도메인의 MTU 값을 수정하여 브로드캐스
 ---
 = 브로드캐스트 도메인의 포트에 대한 MTU 값을 변경합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

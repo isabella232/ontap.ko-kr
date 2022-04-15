@@ -5,6 +5,7 @@ keywords: local, user, group, access, control, ntfs, security-style, data, enabl
 summary: NTFS 보안 스타일 데이터의 액세스 제어에 로컬 사용자 및 그룹을 사용하려면 먼저 로컬 사용자 및 그룹 기능을 활성화해야 합니다. 또한 SMB 인증에 로컬 사용자를 사용하려면 로컬 사용자 인증 기능을 활성화해야 합니다. 
 ---
 = 로컬 사용자 및 그룹 기능 개요를 설정하거나 해제합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

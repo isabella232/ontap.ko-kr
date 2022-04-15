@@ -8,6 +8,7 @@ summary: igroup을 2개 이상의 LUN에 동시에 매핑합니다.
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

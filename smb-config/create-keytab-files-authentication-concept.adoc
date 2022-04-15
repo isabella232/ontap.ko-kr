@@ -5,6 +5,7 @@ keywords: begin, ontap, support, svm, authentication, active, directory, ad, ser
 summary: 'ONTAP 9.7부터 ONTAP는 keytab 파일을 사용하여 AD(Active Directory) 서버에서 SVM 인증을 지원합니다. AD 관리자는 keytab 파일을 생성하여 ONTAP 관리자가 이 파일을 URI(Uniform Resource Identifier)로 사용할 수 있도록 합니다. 이 URI는 SVM CIFS 명령에 AD 도메인과의 Kerberos 인증이 필요한 경우에 제공됩니다.' 
 ---
 = SMB 인증을 위한 keytab 파일을 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

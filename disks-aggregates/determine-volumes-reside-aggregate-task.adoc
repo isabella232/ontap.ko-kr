@@ -5,6 +5,7 @@ keywords: determine, volumes, reside, aggregate
 summary: Aggregate의 재배치 또는 오프라인 지정과 같은 작업을 수행하기 전에 Aggregate에 상주하는 볼륨을 결정해야 할 수도 있습니다. 
 ---
 = Aggregate에 상주하는 볼륨을 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

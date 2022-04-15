@@ -8,6 +8,7 @@ summary: ONTAP은 ONTAP 중재자를 사용하여 운영 스토리지 시스템�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

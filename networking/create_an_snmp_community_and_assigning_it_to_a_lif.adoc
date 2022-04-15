@@ -6,6 +6,7 @@ summary: 관리 스테이션과 SVM 간 인증 메커니즘 역할을 하는 SNM
 ---
 = SNMP 커뮤니티를 생성하여 LIF에 할당합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

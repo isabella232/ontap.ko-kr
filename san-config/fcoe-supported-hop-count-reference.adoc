@@ -5,6 +5,7 @@ keywords: fcoe, supported, hop, count
 summary: '호스트와 스토리지 시스템 간에 지원되는 최대 FCoE(Fibre Channel over Ethernet) 홉 수는 스위치 공급업체와 FCoE 구성에 대한 스토리지 시스템 지원에 따라 달라집니다.' 
 ---
 = FCoE 지원 홉 수
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: automatic, host-side, space, management, scsi, thinly, provisioned, lu
 summary: 호스트에서 SCSI 씬 프로비저닝을 지원하는 경우 ONTAP에서 공간 할당 옵션을 설정하여 자동 호스트측 공간 관리를 설정할 수 있습니다. 
 ---
 = SCSI 씬 프로비저닝된 LUN을 사용하여 호스트 측 공간을 자동으로 관리합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

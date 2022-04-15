@@ -6,6 +6,7 @@ summary: 자동 테이크오버 기능은 지원되는 모든 NetApp FAS, AFF, A
 ---
 = 자동 테이크오버 명령
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

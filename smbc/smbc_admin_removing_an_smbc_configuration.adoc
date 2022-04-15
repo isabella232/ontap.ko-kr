@@ -6,6 +6,7 @@ summary: 제로 RTO 동기식 SnapMirror 보호를 제거하고 SM-BC 관계 구
 ---
 = SM-BC 구성을 제거합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

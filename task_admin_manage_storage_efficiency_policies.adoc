@@ -8,6 +8,7 @@ summary: ONTAP 9.8부터 비 AFF 시스템에서 스토리지 VM의 효율성 �
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

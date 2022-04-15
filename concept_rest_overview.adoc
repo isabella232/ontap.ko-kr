@@ -8,6 +8,7 @@ summary: REST API 로그는 System Manager에서 ONTAP로 발급하는 API 호�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

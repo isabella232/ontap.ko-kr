@@ -8,6 +8,7 @@ summary: 용량 분석과 같은 사용 데이터를 수집하고 표시하려�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

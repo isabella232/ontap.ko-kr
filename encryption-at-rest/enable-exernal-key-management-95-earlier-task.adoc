@@ -5,6 +5,7 @@ keywords: enabling, external key management, ontap 9.5, earlier
 summary: 하나 이상의 KMIP 서버를 사용하여 클러스터에서 암호화된 데이터에 액세스하는 데 사용하는 키를 보호할 수 있습니다. 하나의 노드에 KMIP 서버를 최대 4개까지 연결할 수 있습니다. 이중화 및 재해 복구를 위해 최소 2대의 서버를 사용하는 것이 좋습니다. 
 ---
 = ONTAP 9.5 이전 버전에서 외부 키 관리를 활성화합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

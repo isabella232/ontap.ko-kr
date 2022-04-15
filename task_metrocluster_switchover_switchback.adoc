@@ -8,6 +8,7 @@ summary: 한 MetroCluster 사이트에서 다른 사이트로 전환하여 유�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

@@ -6,6 +6,7 @@ summary: 특성을 변경하여 LIF를 수정합니다
 ---
 = LIF를 수정합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

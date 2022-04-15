@@ -6,6 +6,7 @@ summary: 다음 워크플로우를 사용하여 SnapMirror 비즈니스 연속�
 ---
 = 고급 배포 워크플로
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

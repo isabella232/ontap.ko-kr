@@ -5,6 +5,7 @@ keywords: limit, cli, file, folder, security, limits when using the cli to set f
 summary: CLI를 사용하여 파일 및 폴더 보안을 설정할 때 특정 제한 사항을 알고 있어야 합니다. 
 ---
 = CLI를 사용하여 파일 및 폴더 보안을 설정할 때의 제한 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

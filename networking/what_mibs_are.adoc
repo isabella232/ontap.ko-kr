@@ -6,6 +6,7 @@ summary: 'MIB(Management Information Base) 소개'
 ---
 = MIB란 무엇입니까
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

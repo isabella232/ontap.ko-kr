@@ -8,6 +8,7 @@ summary: 스토리지 VM을 편집하여 사용자를 추가하고 사용자를 
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

@@ -5,6 +5,7 @@ keywords: failed, delete, snapshot, auto, copy, operations
 summary: 자동 스냅샷 복사본이 다른 작업에서 사용 중이므로 삭제할 수 없습니다. 
 ---
 = 스냅샷을 삭제하지 못했습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

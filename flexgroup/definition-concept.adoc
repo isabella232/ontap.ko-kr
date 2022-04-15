@@ -5,6 +5,7 @@ keywords: flexgroup, volume
 summary: FlexGroup 볼륨은 자동 로드 분산 및 확장성과 함께 고성능을 제공하는 스케일아웃 NAS 컨테이너입니다. FlexGroup 볼륨에는 트래픽을 자동으로 투명하게 공유하는 여러 구성요소가 포함되어 있습니다. 
 ---
 = FlexGroup 볼륨이란
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

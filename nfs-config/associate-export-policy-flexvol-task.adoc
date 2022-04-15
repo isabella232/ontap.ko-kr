@@ -5,6 +5,7 @@ keywords: assign, export, policy, volume
 summary: SVM에 포함된 각 볼륨은 클라이언트의 볼륨 데이터 액세스 엑스포트 규칙이 포함된 엑스포트 정책과 연결되어야 합니다. 
 ---
 = 볼륨에 엑스포트 정책을 할당합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

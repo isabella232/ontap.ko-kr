@@ -5,6 +5,7 @@ keywords: health, monitoring, nondisruptive, operation, status, healthy, ndo, hy
 summary: '상태 모니터링 에서는 클러스터 전체의 시스템 상태에 대한 정보를 제공합니다. 상태 모니터는 SMB 구성을 통해 Hyper-V 및 SQL Server를 모니터링하여 애플리케이션 서버에 대한 무중단 운영(NDO)을 보장합니다. 상태가 성능 저하인 경우 가능한 원인 및 권장 복구 조치를 포함하여 문제에 대한 세부 정보를 볼 수 있습니다.' 
 ---
 = 상태 모니터링을 사용하여 무중단 운영 상태가 정상인지 확인하십시오
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

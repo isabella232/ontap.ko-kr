@@ -5,6 +5,7 @@ keywords: lock, unable, snapshot, dump, copy
 summary: 백업에 지정된 스냅샷 복사본을 사용할 수 없습니다. 
 ---
 = 덤프에 필요한 스냅샷을 잠글 수 없습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

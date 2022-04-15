@@ -5,6 +5,7 @@ keywords: consistency groups, consistency group, application protection, delete
 summary: 이 문서에서는 일관성 그룹을 적절하게 삭제하는 방법에 대해 설명합니다. 
 ---
 = 일관성 그룹을 삭제합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -8,6 +8,7 @@ summary: ONTAP 9.7부터 System Manager를 사용하여 FlexVol 볼륨 및 LUN, 
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

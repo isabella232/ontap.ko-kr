@@ -5,6 +5,7 @@ keywords:
 summary: NFSv3 및 NFSv4.x 프로토콜을 사용하여 모든 TCP 연결에 대해 최대 전송 크기를 구성하려면 -tcp-max-xfer-size 옵션을 수정할 수 있습니다. 
 ---
 = NFSv3 및 NFSv4 TCP 최대 전송 크기를 수정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

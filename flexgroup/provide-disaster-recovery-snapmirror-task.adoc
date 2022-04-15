@@ -5,6 +5,7 @@ keywords: data, protection, workflow, flexgroup, volumes, snapmirror, snap mirro
 summary: 'FlexGroup 볼륨에 대한 SnapMirror DR(재해 복구) 관계를 생성할 수 있습니다. ONTAP 9.3부터는 SnapVault 기술을 사용하여 FlexGroup 볼륨을 백업 및 복원할 수 있으며, 동일한 대상을 백업 및 DR에 사용하는 통합 데이터 보호 관계를 만들 수 있습니다.' 
 ---
 = FlexGroup 볼륨에 대한 데이터 보호 워크플로우
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

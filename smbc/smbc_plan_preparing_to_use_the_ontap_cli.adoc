@@ -6,6 +6,7 @@ summary: ONTAP 명령줄 인터페이스를 사용하여 SnapMirror 비즈니스
 ---
 = ONTAP CLI 사용을 준비합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

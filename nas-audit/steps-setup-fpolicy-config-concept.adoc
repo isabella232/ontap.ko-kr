@@ -5,6 +5,7 @@ keywords: steps, setting, fpolicy configuration
 summary: 'FPolicy가 파일 액세스를 모니터링하기 전에 FPolicy 서비스가 필요한 스토리지 가상 시스템(SVM)에서 FPolicy 구성을 생성하고 사용하도록 설정해야 합니다.' 
 ---
 = FPolicy 구성을 설정하는 단계는 무엇입니까
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

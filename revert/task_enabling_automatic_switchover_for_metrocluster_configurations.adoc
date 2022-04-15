@@ -5,6 +5,7 @@ keywords: ontap, revert, reversion, reverting, downgrade, downgrading, enable, e
 summary: 이 항목에서는 MetroCluster 구성을 재설치한 후 수행해야 하는 추가 작업에 대한 정보를 제공합니다. 
 ---
 = MetroCluster 구성에 대해 자동 전환을 활성화합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -6,6 +6,7 @@ summary: ONTAP 네트워크 구성을 위해 특정 IP 주소 블록을 할당�
 ---
 = 서브넷을 생성합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

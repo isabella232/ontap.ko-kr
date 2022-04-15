@@ -5,6 +5,7 @@ keywords: list, supported file operation, filter combinations, fpolicy, monitor,
 summary: FPolicy 이벤트를 구성할 때는 특정 조합의 파일 작업 및 필터만 SMB 파일 액세스 작업을 모니터링하는 데 지원됩니다. 
 ---
 = FPolicy가 SMB용으로 모니터링할 수 있는 지원되는 파일 작업 및 필터 조합 목록입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

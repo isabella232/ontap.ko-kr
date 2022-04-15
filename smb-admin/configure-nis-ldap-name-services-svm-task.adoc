@@ -5,6 +5,7 @@ keywords: smb, access, map, unix, user, perform, data, ntfs, security-style, vol
 summary: SMB 액세스를 사용하면 NTFS 보안 스타일 볼륨에서 데이터에 액세스할 때도 UNIX 사용자에 대한 사용자 매핑이 항상 수행됩니다. 정보가 NIS 또는 LDAP 디렉토리 저장소에 저장되어 있는 해당 UNIX 사용자에게 Windows 사용자를 매핑하거나 이름 매핑에 LDAP를 사용하는 경우 SMB 설정 중에 이러한 이름 서비스를 구성해야 합니다. 
 ---
 = SVM에서 NIS 또는 LDAP 네임 서비스를 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

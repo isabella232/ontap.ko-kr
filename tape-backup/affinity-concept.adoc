@@ -5,6 +5,7 @@ keywords: affinity, information, cab, aware, ndmp, application, volumes, backup,
 summary: 백업 애플리케이션이 CAB을 인식하면 NDMP 서버가 볼륨 및 테이프 디바이스에 대한 고유한 위치 정보를 제공합니다. 볼륨과 테이프 디바이스가 동일한 선호도를 공유하는 경우 이러한 선호도 정보를 사용하여 백업 애플리케이션이 3방향 백업 대신 로컬 백업을 수행할 수 있습니다. 
 ---
 = 선호도 정보의 정의
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: promoting, data, fabricpool, volume, performance, tier
 summary: 클라우드의 FabricPool 볼륨에서 모든 데이터를 사전에 검색하여 성능 계층으로 상향 이동할 수 있습니다. 
 ---
 = FabricPool 볼륨의 모든 데이터를 성능 계층으로 상향 이동합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

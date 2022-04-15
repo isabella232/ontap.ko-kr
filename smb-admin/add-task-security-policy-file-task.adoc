@@ -5,6 +5,7 @@ keywords: creating, create, add, policy, task, security, policy, configuring, co
 summary: 보안 정책에 정책 작업을 생성하고 추가하는 것은 SVM의 파일 또는 폴더에 ACL을 구성 및 적용하는 네 번째 단계입니다. 정책 작업을 생성할 때 작업을 보안 정책에 연결합니다. 하나 이상의 작업 항목을 보안 정책에 추가할 수 있습니다. 
 ---
 = 보안 정책에 작업을 추가합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

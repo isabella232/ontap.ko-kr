@@ -5,6 +5,7 @@ keywords: iscsi, service, management
 summary: 'SVM iSCSI 인터페이스 활성화 또는 SVM iSCSI 인터페이스 비활성화 명령을 사용하여 SVM(스토리지 가상 머신)의 iSCSI 논리 인터페이스에서 iSCSI 서비스의 가용성을 관리할 수 있습니다.' 
 ---
 = iSCSI 서비스 관리
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

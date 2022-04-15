@@ -5,6 +5,7 @@ keywords: commands, moving, volumes, to move
 summary: 볼륨 이동을 관리하기 위한 특정 ONTAP 명령이 있습니다. 
 ---
 = 볼륨 이동을 위한 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

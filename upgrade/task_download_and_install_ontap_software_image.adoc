@@ -5,6 +5,7 @@ keywords: ontap, software, image, download, downloading, install, installing
 summary: '먼저 NetApp Support 사이트에서 ONTAP 소프트웨어를 다운로드한 다음 자동 무중단 업그레이드(ANDU) 또는 수동 업그레이드 프로세스를 사용하여 설치할 수 있습니다.' 
 ---
 = ONTAP 소프트웨어 이미지를 다운로드하고 설치합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

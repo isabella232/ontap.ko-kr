@@ -6,6 +6,7 @@ summary: 페일오버되거나 마이그레이션된 후 LIF를 홈 포트로 �
 ---
 = LIF를 홈 포트로 되돌립니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

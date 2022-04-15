@@ -5,6 +5,7 @@ keywords: verify, audit, configuration
 summary: 감사 구성을 완료한 후에는 감사가 올바르게 구성되어 있고 활성화되어 있는지 확인해야 합니다. 
 ---
 = 감사 구성을 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

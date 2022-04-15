@@ -5,6 +5,7 @@ keywords: deciding, send, important, event notifications
 summary: 중요한 EMS 이벤트 알림을 구성하기 전에 이메일 주소, syslog 서버 또는 SNMP traaphost에 알림을 전송할지 여부를 결정해야 합니다. 
 ---
 = 중요한 이벤트 알림을 보낼 위치를 결정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

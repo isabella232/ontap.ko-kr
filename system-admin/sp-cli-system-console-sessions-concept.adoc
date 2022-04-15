@@ -5,6 +5,7 @@ keywords: relationship, sp, cli, console, system, sessions, shell, environment, 
 summary: SP CLI 세션을 열어 노드를 원격으로 관리하고 별도의 SP 콘솔 세션을 열어 노드 콘솔에 액세스할 수 있습니다. SP 콘솔 세션은 동시 시스템 콘솔 세션에 표시되는 출력을 미러링합니다. SP와 시스템 콘솔에는 독립 로그인 인증이 있는 독립 셸 환경이 있습니다. 
 ---
 = SP CLI, SP 콘솔 및 시스템 콘솔 세션의 관계
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

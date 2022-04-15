@@ -5,6 +5,7 @@ keywords: method, navigating, cli, command, directories, hierarchy, path, struct
 summary: CLI의 명령은 명령 디렉토리별로 계층 구조로 구성됩니다. 전체 명령 경로를 입력하거나 디렉토리 구조를 탐색하여 계층에서 명령을 실행할 수 있습니다. 
 ---
 = CLI 명령 디렉토리 탐색 방법
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

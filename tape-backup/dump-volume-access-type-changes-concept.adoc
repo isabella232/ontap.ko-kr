@@ -5,6 +5,7 @@ keywords: snapmirror, snapvault, secondary, volume, access, type, change, baseli
 summary: SnapMirror 대상 볼륨 또는 SnapVault 보조 볼륨의 상태가 읽기/쓰기에서 읽기 전용으로 또는 읽기 전용에서 읽기/쓰기로 변경되면 기본 테이프 백업 또는 복원 작업을 수행해야 합니다. 
 ---
 = 볼륨 액세스 유형이 변경될 때 덤프가 작동하는 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

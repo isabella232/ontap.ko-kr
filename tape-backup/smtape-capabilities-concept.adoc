@@ -5,6 +5,7 @@ keywords: smtap, capabilities, snapshot, copy, preservation, deduplication, comp
 summary: Snapshot 복사본 백업, 증분 및 차등 백업, 복원된 볼륨에 대한 중복 제거 및 압축 기능 보존, 테이프 시딩 등의 SMTape 기능은 테이프 백업 및 복원 작업을 최적화하는 데 도움이 됩니다. 
 ---
 = SMTape 기능
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

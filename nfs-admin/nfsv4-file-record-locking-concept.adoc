@@ -5,6 +5,7 @@ keywords: nfsv4, file, record, locking
 summary: NFSv4 클라이언트의 경우 ONTAP는 NFSv4 파일 잠금 메커니즘을 지원하여 임대 기반 모델에서 모든 파일 잠금의 상태를 유지합니다. 
 ---
 = NFSv4 파일 및 레코드 잠금에 대해 설명합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

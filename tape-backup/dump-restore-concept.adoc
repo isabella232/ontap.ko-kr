@@ -5,6 +5,7 @@ keywords: dump, restore, file, write, system, data, disk
 summary: 덤프 복구는 미리 정의된 프로세스를 사용하여 파일 시스템 데이터를 테이프에서 디스크로 씁니다. 
 ---
 = 덤프 복구의 작동 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: log, event, field, message, beginning, end, logging
 summary: 로그로 시작하는 메시지의 이벤트 필드는 로깅 시작 또는 로깅 종료를 지정합니다. 
 ---
 = 이벤트 기록
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

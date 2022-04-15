@@ -5,6 +5,7 @@ keywords: flexcache, volume, creation, workflow
 summary: FlexCache 볼륨 생성 워크플로우 
 ---
 = FlexCache 볼륨 생성 워크플로우
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

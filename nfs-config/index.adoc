@@ -5,6 +5,7 @@ keywords: NFS, configuration, overview
 summary: ONTAP 9 CLI 명령을 사용하여 새 스토리지 가상 머신 또는 기존 스토리지 가상 머신에서 새 볼륨 또는 qtree에 포함된 파일에 대한 NFS 클라이언트 액세스를 구성할 수 있습니다. 
 ---
 = CLI를 사용한 NFS 구성 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

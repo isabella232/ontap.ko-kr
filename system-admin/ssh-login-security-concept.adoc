@@ -5,6 +5,7 @@ keywords: ssh, login, security, information, view, changes, privileges, unsucces
 summary: ONTAP 9.5부터 이전 로그인에 대한 정보, 로그인 시도 실패 및 마지막으로 성공한 로그인 이후 권한 변경 내용을 볼 수 있습니다. 
 ---
 = SSH 로그인 보안
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

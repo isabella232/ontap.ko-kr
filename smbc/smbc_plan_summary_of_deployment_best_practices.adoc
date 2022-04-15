@@ -6,6 +6,7 @@ summary: SnapMirror 비즈니스 연속성 구축을 계획할 때 고려해야 
 ---
 = 구축 모범 사례 요약
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -5,6 +5,7 @@ keywords: ontap, downgrade, downgrading, snapmirror, operations, quisce
 summary: ONTAP의 무중단 다운그레이드를 수행하기 전에 SnapMirror 작업을 중단하는 것이 좋습니다. 
 ---
 = 다운그레이드하기 전에 SnapMirror 관계를 중지합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

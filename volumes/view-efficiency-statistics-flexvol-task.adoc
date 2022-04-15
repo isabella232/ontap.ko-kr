@@ -5,6 +5,7 @@ keywords: view, efficiency, statistics, flexvol, volume
 summary: 볼륨 효율성 stat 명령을 사용하여 FlexVol 볼륨에서 실행되는 효율성 작업의 세부 정보를 확인할 수 있습니다. 
 ---
 = FlexVol 볼륨의 효율성 통계를 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

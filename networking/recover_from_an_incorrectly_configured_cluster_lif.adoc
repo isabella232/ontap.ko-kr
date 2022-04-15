@@ -6,6 +6,7 @@ summary: 잘못 구성된 클러스터를 식별하고 수정하는 방법
 ---
 = ONTAP 9.8 이상: 잘못 구성된 클러스터 LIF에서 복구합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

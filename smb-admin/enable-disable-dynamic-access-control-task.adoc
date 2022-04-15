@@ -5,6 +5,7 @@ keywords: option, enable, dynamic, access, control, dac, secure, object, cifs, s
 summary: 'DAC(Dynamic Access Control)를 사용하여 CIFS 서버의 객체를 보호할 수 있는 옵션은 기본적으로 해제되어 있습니다. CIFS 서버에서 동적 액세스 제어를 사용하려면 이 옵션을 설정해야 합니다. 나중에 동적 액세스 제어를 사용하여 CIFS 서버에 저장된 객체를 보호하지 않으려는 경우 이 옵션을 해제할 수 있습니다.' 
 ---
 = 동적 액세스 제어 개요 활성화 또는 비활성화
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

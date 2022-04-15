@@ -5,6 +5,7 @@ keywords: modify, slm, reporting-nodes, list
 summary: 'LUN이 포함된 LUN 또는 볼륨을 동일한 클러스터 내의 다른 고가용성(HA) 쌍으로 이동하는 경우, 이동을 시작하기 전에 선택 LUN 맵(SLM: Selective LUN Map) 보고 노드 목록을 수정하여 최적화된 활성 LUN 경로가 유지되도록 해야 합니다.' 
 ---
 = SLM 보고 노드 목록을 수정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

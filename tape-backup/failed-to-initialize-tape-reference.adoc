@@ -5,6 +5,7 @@ keywords: failed, initialize, tape, smtape, blocking, factor, corrupt, damaged, 
 summary: 테이프를 초기화하지 못했습니다. 
 ---
 = 테이프를 초기화하지 못했습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

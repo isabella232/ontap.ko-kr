@@ -5,6 +5,7 @@ keywords: snapmirror, limitations
 summary: 데이터 보호 관계를 생성하기 전에 기본적인 SnapMirror 제한을 숙지해야 합니다. 
 ---
 = SnapMirror 제한 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

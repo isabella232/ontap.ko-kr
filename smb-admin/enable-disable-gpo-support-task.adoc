@@ -5,6 +5,7 @@ keywords: enable, disable, group, policy, object, gpo, support, cifs, server, ap
 summary: 'CIFS 서버에서 GPO(그룹 정책 개체) 지원을 설정하거나 해제할 수 있습니다. CIFS 서버에서 GPO 지원을 설정하면 그룹 정책에 정의된 적용 가능한 GPO, 즉 CIFS 서버 컴퓨터 개체가 포함된 OU(조직 구성 단위)에 적용되는 정책이 CIFS 서버에 적용됩니다.' 
 ---
 = CIFS 서버에서 GPO 지원을 설정하거나 해제합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

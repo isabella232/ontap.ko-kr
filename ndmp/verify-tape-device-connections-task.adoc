@@ -5,6 +5,7 @@ keywords: verify, tape, device, connection
 summary: 모든 드라이브와 미디어 체인저가 ONTAP에 디바이스로 표시되는지 확인해야 합니다. 
 ---
 = 테이프 디바이스 연결을 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

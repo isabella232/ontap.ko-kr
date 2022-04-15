@@ -8,6 +8,7 @@ summary: NFS 볼륨을 생성하여 NFS 또는 SMB 서비스용으로 구성된 
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

@@ -5,6 +5,7 @@ keywords: create, volume
 summary: 볼륨 생성 명령을 사용하여 볼륨을 생성하고 해당 접합 지점 및 기타 속성을 지정할 수 있습니다. 
 ---
 = 볼륨을 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

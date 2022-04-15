@@ -5,6 +5,7 @@ keywords: smb, cifs, configuration, microsoft, hyper-v, sql, serve
 summary: ONTAP 기능을 사용하면 Microsoft Hyper-V와 Microsoft SQL Server라는 SMB 프로토콜을 통해 두 Microsoft 애플리케이션의 무중단 운영을 실현할 수 있습니다. 
 ---
 = Microsoft Hyper-V 및 SQL Server를 위한 SMB 구성 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

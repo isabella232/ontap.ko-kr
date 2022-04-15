@@ -5,6 +5,7 @@ keywords: command, manage, audit, settings, management, activity
 summary: 보안 감사 명령을 사용하여 audit.log 파일에 기록되는 관리 작업을 관리할 수 있습니다. 클러스터 로그 전달 명령을 사용하여 감사 로그를 전달할 대상을 관리할 수 있습니다. 
 ---
 = 관리 작업에 대한 감사 설정을 관리하는 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: autosupport, severity, types, message
 summary: AutoSupport 메시지에는 긴급 문제에 즉시 주의를 기울이거나 정보를 제공하는 등 각 메시지의 목적을 이해하는 데 도움이 되는 심각도 유형이 있습니다. 
 ---
 = AutoSupport 심각도 유형
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

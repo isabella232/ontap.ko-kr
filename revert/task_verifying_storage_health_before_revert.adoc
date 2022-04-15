@@ -5,6 +5,7 @@ keywords: ontap, revert, verify, verifying, storage, health, before, revert, rev
 summary: 클러스터를 업그레이드, 복원 또는 다운그레이드하기 전과 다운그레이드한 후에는 디스크, 애그리게이트 및 볼륨의 상태를 확인해야 합니다. 
 ---
 = 되돌리기 전에 스토리지 상태를 확인하십시오
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

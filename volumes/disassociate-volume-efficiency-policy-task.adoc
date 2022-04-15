@@ -5,6 +5,7 @@ keywords: disassociate, volume efficiency policy, from a volume
 summary: 볼륨에서 볼륨 효율성 정책을 연결 해제함으로써 볼륨에 대한 추가 일정 기반 중복제거 및 데이터 압축 작업의 실행을 중지할 수 있습니다. 볼륨 효율성 정책의 연결을 끊으면 수동으로 트리거되도록 할 수 있습니다. 
 ---
 = 볼륨 효율성 정책을 볼륨에서 연결 해제합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

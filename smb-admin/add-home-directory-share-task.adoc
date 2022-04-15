@@ -5,6 +5,7 @@ keywords: smb, home, directory, feature, add, property, share, properties, prope
 summary: SMB 홈 디렉토리 기능을 사용하려면 공유 속성에 포함된 홈 디렉토리 속성에 공유를 하나 이상 추가해야 합니다. 
 ---
 = 홈 디렉토리 공유를 추가합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

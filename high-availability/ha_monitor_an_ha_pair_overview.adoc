@@ -6,6 +6,7 @@ summary: ONTAP 명령을 사용하여 HA 쌍의 상태를 모니터링할 수 �
 ---
 = HA 쌍 모니터링을 위한 명령입니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

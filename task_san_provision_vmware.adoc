@@ -8,6 +8,7 @@ summary: 'ONTAP System Manager(9.7 이상)와 함께 FC 또는 iSCSI SAN 프로�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

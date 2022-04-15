@@ -5,6 +5,7 @@ keywords: ontap, revert, reverting, reversion, downgrade, downgrading, verifying
 summary: 클러스터를 되돌리거나 다운그레이드한 후에는 노드가 정상 상태이고 클러스터에 참여할 수 있으며 클러스터가 쿼럼에 있는지 확인해야 합니다. 
 ---
 = 다운그레이드 또는 되돌리기 후 클러스터 및 스토리지 상태를 확인합니다
+:allow-uri-read: 
 
 
 [role="lead"]

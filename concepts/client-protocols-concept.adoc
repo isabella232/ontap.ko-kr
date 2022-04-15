@@ -5,6 +5,7 @@ keywords: client protocols
 summary: ONTAP는 NFS, SMB, FC, FCoE, iSCSI, iSCSI 등의 모든 주요 업계 표준 클라이언트 프로토콜을 NVMe/FC가 있습니다. 
 ---
 = 클라이언트 프로토콜
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

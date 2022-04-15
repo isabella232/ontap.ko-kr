@@ -5,6 +5,7 @@ keywords: correct, misaligned, partition
 summary: 분할된 디스크를 Aggregate에 추가하는 경우 모든 노드에 대해 루트 및 데이터 파티션을 모두 사용할 수 있는 디스크를 스페어로 남겨두어야 합니다. 노드가 중단되지 않고 노드가 중단되면 ONTAP은 코어를 스페어 데이터 파티션으로 덤프할 수 없습니다. 
 ---
 = 잘못 정렬된 스페어 파티션을 수정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

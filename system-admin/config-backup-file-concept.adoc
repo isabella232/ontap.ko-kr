@@ -5,6 +5,7 @@ keywords: configuration, backup, files, archive, files
 summary: '구성 백업 파일은 클러스터에 필요한 구성 가능한 모든 옵션과 해당 클러스터 내의 노드가 올바르게 작동하는 데 필요한 정보를 포함하는 아카이브 파일(.7z)입니다.' 
 ---
 = 어떤 구성 백업 파일인지 확인하십시오
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

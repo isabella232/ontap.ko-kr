@@ -6,6 +6,7 @@ summary: SNMP, SNMP 사용자, 트랩, 트랩 이벤트 및 traphosts를 관리�
 ---
 = SNMP 관리를 위한 명령입니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

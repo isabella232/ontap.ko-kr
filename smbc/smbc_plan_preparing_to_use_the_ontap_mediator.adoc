@@ -6,6 +6,7 @@ summary: ONTAP 중재자가 SM-BC 관계에서 ONTAP 클러스터에 대한 쿼�
 ---
 = ONTAP 중재자를 사용할 준비를 합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

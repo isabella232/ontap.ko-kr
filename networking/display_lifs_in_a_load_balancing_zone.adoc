@@ -6,6 +6,7 @@ summary: 로드 밸런싱 존에 속하는 모든 LIF를 표시하여 로드 밸
 ---
 = 로드 밸런싱 영역에 LIF를 표시합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

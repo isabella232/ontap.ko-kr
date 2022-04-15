@@ -8,6 +8,7 @@ summary: System Manager는 클러스터에서 NFS 라이센스가 부여될 때 
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

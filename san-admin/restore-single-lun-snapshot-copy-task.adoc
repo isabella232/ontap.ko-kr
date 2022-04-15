@@ -5,6 +5,7 @@ keywords: restore, single lun, snapshot copy
 summary: 단일 LUN이 포함된 전체 볼륨을 복원하지 않고 스냅샷 복사본에서 단일 LUN을 복원할 수 있습니다. LUN을 제자리에서 또는 볼륨의 새 경로로 복원할 수 있습니다. 이 작업은 볼륨의 다른 파일 또는 LUN에 영향을 주지 않고 단일 LUN만 복구합니다. 스트림을 사용하여 파일을 복원할 수도 있습니다. 
 ---
 = 스냅샷 복사본에서 단일 LUN을 복원합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

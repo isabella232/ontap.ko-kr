@@ -5,6 +5,7 @@ keywords: remote, vss, consideration, hyper, v, smb, configuration, backup, solu
 summary: SMB를 통한 Hyper-V 구성에 대해 원격 VSS 지원 백업 솔루션을 사용할 때는 특정 고려 사항을 염두에 두어야 합니다. 
 ---
 = SMB 구성을 통한 Hyper-V에 대한 원격 VSS 고려 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

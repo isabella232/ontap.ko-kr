@@ -5,6 +5,7 @@ keywords: load, local, unix, groups, uri
 summary: '개별 로컬 UNIX 그룹을 수동으로 생성하는 대신 vserver services name-service unix-group load-from-Uri 명령을 사용하여 URI(Uniform Resource Identifier)에서 SVM으로 로컬 UNIX 그룹 목록을 로드할 수 있습니다.' 
 ---
 = URI에서 로컬 UNIX 그룹을 로드합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

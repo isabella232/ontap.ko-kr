@@ -6,6 +6,7 @@ summary: IPspace를 사용하여 샘플 수집
 ---
 = IPspace 사용 예
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

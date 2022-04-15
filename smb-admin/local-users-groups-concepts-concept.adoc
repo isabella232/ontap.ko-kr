@@ -5,6 +5,7 @@ keywords: local, user, group, basic, information, determine, determining, config
 summary: 사용자 환경에서 로컬 사용자 및 그룹을 구성하고 사용할지 여부를 결정하기 전에 로컬 사용자 및 그룹의 정의 및 이에 대한 몇 가지 기본 정보를 알아야 합니다. 
 ---
 = 로컬 사용자 및 그룹 개념
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

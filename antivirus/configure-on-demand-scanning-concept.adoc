@@ -5,6 +5,7 @@ keywords: configure, on-demand, scan
 summary: 주문형 검사를 사용하여 파일에 바이러스가 있는지 즉시 또는 일정에 따라 확인할 수 있습니다. 예를 들어, 사용량이 적은 시간에만 스캔을 실행하거나 액세스 시 스캔에서 제외되었던 매우 큰 파일을 스캔할 수 있습니다. 
 ---
 = 온디맨드 스캐닝 개요 구성
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

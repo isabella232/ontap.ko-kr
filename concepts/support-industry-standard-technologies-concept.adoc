@@ -5,6 +5,7 @@ keywords: support, industry-standard, network, technologies
 summary: ONTAP는 모든 주요 업계 표준 네트워크 기술을 지원합니다. 주요 기술에는 IPspace, DNS 로드 밸런싱, SNMP 트랩이 포함됩니다. 
 ---
 = 업계 표준 네트워크 기술 지원
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

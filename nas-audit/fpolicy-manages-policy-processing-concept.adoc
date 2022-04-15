@@ -5,6 +5,7 @@ keywords: fpolicy, manages, policy process
 summary: '스토리지 가상 시스템(SVM)에 여러 FPolicy 정책이 할당될 수 있으며 각 정책은 서로 다른 우선순위를 갖습니다. SVM에 적절한 FPolicy 구성을 생성하려면 FPolicy에서 정책 처리를 관리하는 방법을 이해하는 것이 중요합니다.' 
 ---
 = FPolicy가 정책 처리를 관리하는 방법입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

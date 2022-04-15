@@ -5,6 +5,7 @@ keywords: apply, audit, policy, svmsis, creating, create, apply, ntfs, acl, file
 summary: 감사 정책을 SVMsis에 적용 NTFS ACL을 만들어 파일 또는 폴더에 적용하는 마지막 단계입니다. 
 ---
 = 보안 정책을 적용합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

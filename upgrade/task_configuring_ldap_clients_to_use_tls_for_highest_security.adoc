@@ -5,6 +5,7 @@ keywords: ontap, upgrade, configuring, configure, ldap, clients, servers, tls, s
 summary: 대상 ONTAP 릴리즈로 업그레이드하기 전에 TLS를 사용하기 위해 LDAP 서버와의 보안 통신을 위해 SSLv3을 사용하여 LDAP 클라이언트를 구성해야 합니다. 업그레이드 후에는 SSL을 사용할 수 없습니다. 
 ---
 = 가장 높은 보안을 위해 TLS를 사용하도록 LDAP 클라이언트를 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: consider, convert, flexvol, volume, flexgroup, autobalance, give back,
 summary: FlexVol 볼륨을 FlexGroup 볼륨으로 변환하기 전에 지원되는 기능 및 작업을 알고 있어야 합니다. 
 ---
 = FlexVol 볼륨을 FlexGroup 볼륨으로 변환 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

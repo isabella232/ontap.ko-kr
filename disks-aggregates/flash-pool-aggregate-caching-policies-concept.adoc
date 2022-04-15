@@ -5,6 +5,7 @@ keywords: cache, flash pool, policy, work
 summary: 캐싱 정책은 Flash Pool 애그리게이트에 있는 볼륨에 적용됩니다. 캐시 정책을 변경하기 전에 캐싱 정책이 어떻게 작동하는지를 이해해야 합니다. 
 ---
 = Flash Pool 애그리게이트 캐싱 정책의 작동 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

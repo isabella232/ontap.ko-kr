@@ -5,6 +5,7 @@ keywords: check, throughput, latency, between, nodes
 summary: network test-path 명령을 사용하여 네트워크 병목 현상을 식별하거나 노드 간 네트워크 경로를 사전 평가할 수 있습니다. 클러스터 간 노드 또는 클러스터 내 노드 간에 명령을 실행할 수 있습니다. 
 ---
 = 노드 간 처리량과 지연 시간을 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

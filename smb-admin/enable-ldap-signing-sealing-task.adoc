@@ -5,6 +5,7 @@ keywords: cifs, server, sign, seal, secure, communication, active, directory, ld
 summary: CIFS 서버가 Active Directory LDAP 서버와의 보안 통신을 위해 서명 및 봉인을 사용하려면 먼저 CIFS 서버 보안 설정을 수정하여 LDAP 서명 및 봉인을 설정해야 합니다. 
 ---
 = CIFS 서버에서 LDAP 서명 및 봉인을 설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

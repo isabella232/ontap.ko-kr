@@ -5,6 +5,7 @@ keywords: delete, restartable, contents, backup, context
 summary: 컨텍스트를 다시 시작하지 않고 백업을 시작하려면 컨텍스트를 삭제할 수 있습니다. 
 ---
 = 재시작 가능한 컨텍스트를 삭제합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: configuring, configure, branchcache, store, hash, size, guideline, cid
 summary: BranchCache를 구성할 때는 해시를 저장할 위치와 해시 저장소의 크기를 선택합니다. 해시 저장소 위치 및 크기를 선택할 때 지침을 이해하면 CIFS 지원 SVM에서 BranchCache 구성을 계획하는 데 도움이 됩니다. 
 ---
 = 해시 저장 위치 선택 지침
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

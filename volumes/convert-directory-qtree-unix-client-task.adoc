@@ -5,6 +5,7 @@ keywords: convert, directory to a qtree, using, unix client
 summary: UNIX에서 디렉토리를 qtree로 변환하려면 디렉토리의 이름을 바꾸고 스토리지 시스템에서 qtree를 생성한 다음 디렉토리의 컨텐츠를 qtree로 이동합니다. 
 ---
 = UNIX 클라이언트를 사용하여 디렉토리를 qtree로 변환합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, control, access, file
 summary: ONTAP는 사용자가 지정하는 인증 기반 및 파일 기반 제한 사항에 따라 파일에 대한 액세스를 제어합니다. 
 ---
 = ONTAP에서 파일 액세스를 제어하는 방법 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

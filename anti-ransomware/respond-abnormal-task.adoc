@@ -8,6 +8,7 @@ summary: Anti-랜섬웨어가 보호 볼륨에서 비정상적인 활동을 감�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

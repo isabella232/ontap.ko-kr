@@ -5,6 +5,7 @@ keywords: enable, svm, protection, flexgroup, volume
 summary: SVM DR 보호 플래그가 FlexGroup 볼륨에서 보호되지 않음으로 설정된 경우 SVM DR 보호를 위해 플래그를 보호됨으로 설정할 수 있습니다. 
 ---
 = FlexGroup 볼륨에서 SVM 보호 활성화
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

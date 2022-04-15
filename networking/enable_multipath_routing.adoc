@@ -6,6 +6,7 @@ summary: 다중 경로 라우팅을 활성화하여 로드 밸런싱을 수행�
 ---
 = 다중 경로 라우팅 활성화
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

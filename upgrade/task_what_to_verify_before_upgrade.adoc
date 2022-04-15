@@ -5,6 +5,7 @@ keywords: ontap, upgrade, plan, planning, upgrade, how, pre-checks
 summary: Upgrade Advisor를 사용하지 않는 경우 업그레이드하기 전에 확인해야 할 다양한 사항이 있습니다. 
 ---
 = 업그레이드 전에 확인해야 할 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

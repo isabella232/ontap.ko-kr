@@ -5,6 +5,7 @@ keywords: autosupport, active iq digital advisor, upgrade advisor
 summary: ONTAP는 웹 포털과 모바일 앱을 통해 인공 지능 기반의 시스템 모니터링 및 보고를 제공합니다. ONTAP의 AutoSupport 구성 요소는 Active IQ 디지털 어드바이저가 분석하는 원격 측정을 전송합니다. 
 ---
 = AutoSupport 및 Active IQ 디지털 자문업체
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

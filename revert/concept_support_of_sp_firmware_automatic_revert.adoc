@@ -5,6 +5,7 @@ keywords: ontap, revert, reverting, reversion, considerations, manual, manually,
 summary: SP 자동 업데이트 기능이 활성화된 경우 ONTAP 8.3.x로 다운그레이드하거나 되돌리면 수동 SP 펌웨어 업데이트가 필요하지 않습니다. SP 펌웨어는 이전 또는 다운그레이드한 ONTAP 버전에서 지원하는 최신 호환 버전으로 자동 업데이트됩니다. 
 ---
 = SP 펌웨어를 수동으로 업데이트할지 여부를 결정할 때 고려해야 할 사항입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

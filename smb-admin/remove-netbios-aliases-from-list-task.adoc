@@ -5,6 +5,7 @@ keywords: netbios, alias, cifs, server, remove, list, remove netbios aliases fro
 summary: CIFS 서버에 대한 특정 NetBIOS 별칭이 필요하지 않은 경우 목록에서 해당 NetBIOS 별칭을 제거할 수 있습니다. 목록에서 모든 NetBIOS 별칭을 제거할 수도 있습니다. 
 ---
 = NetBIOS 별칭 목록에서 NetBIOS 별칭을 제거합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

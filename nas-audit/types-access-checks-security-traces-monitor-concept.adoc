@@ -5,6 +5,7 @@ keywords: types, access, checks, security traces, monitor
 summary: 파일 또는 폴더에 대한 액세스 검사는 여러 기준에 따라 수행됩니다. Security Trace는 이러한 모든 기준에 대한 작업을 모니터링합니다. 
 ---
 = 액세스 검사 유형 보안 추적 모니터
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

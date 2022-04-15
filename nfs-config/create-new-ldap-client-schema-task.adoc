@@ -5,6 +5,7 @@ keywords: create, new, ldap, client, schema
 summary: 사용자 환경의 LDAP 스키마가 ONTAP 기본값과 다른 경우 LDAP 클라이언트 구성을 생성하기 전에 ONTAP에 대한 새 LDAP 클라이언트 스키마를 만들어야 합니다. 
 ---
 = 새 LDAP 클라이언트 스키마를 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

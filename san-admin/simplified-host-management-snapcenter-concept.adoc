@@ -5,6 +5,7 @@ keywords: snapcenter, host management, simplified
 summary: SnapCenter 소프트웨어를 사용하면 iSCSI 및 FC 스토리지와 관련된 일부 관리 및 데이터 보호 작업을 단순화할 수 있습니다. SnapCenter는 Windows 및 UNIX 호스트용 선택적 관리 패키지입니다. 
 ---
 = SnapCenter를 통한 호스트 관리 단순화
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: version, cifs, server, ontap, smb, windows, client, support, snapshot,
 summary: CIFS 서버에서 이전 버전을 사용하려면 먼저 ONTAP 및 SMB의 버전과 지원 대상 Windows 클라이언트를 알아야 합니다. 스냅샷 복사본 설정 요구사항에 대해서도 알아야 합니다. 
 ---
 = Microsoft 이전 버전 사용에 대한 요구 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

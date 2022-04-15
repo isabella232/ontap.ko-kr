@@ -8,6 +8,7 @@ summary: LUN을 이동하여 스토리지 로드 밸런싱을 수행하거나 �
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

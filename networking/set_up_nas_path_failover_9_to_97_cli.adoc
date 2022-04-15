@@ -6,6 +6,7 @@ summary: ONTAP 9.0 - 9.7 NAS 경로 페일오버 워크플로우에 오신 것�
 ---
 = CLI를 사용하여 NAS 경로 페일오버 설정(ONTAP 9.0 - 9.7)
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

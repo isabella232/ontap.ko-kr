@@ -8,6 +8,7 @@ summary: 중복제거, 데이터 압축, 데이터 컴팩션을 함께 실행하
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

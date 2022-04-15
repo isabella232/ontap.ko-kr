@@ -5,6 +5,7 @@ keywords: make, destination, volume, write
 summary: 볼륨에서 클라이언트로 데이터를 제공하려면 먼저 대상 볼륨을 쓰기 가능하게 만들어야 합니다. SnapMirror 중지 명령을 사용하여 대상에 대한 예약된 전송을 중지하고, SnapMirror 중단 명령을 사용하여 진행 중인 전송을 중지한 다음, SnapMirror 중단 명령을 사용하여 대상을 쓰기 가능 상태로 만들 수 있습니다. 
 ---
 = 대상 볼륨을 쓰기 가능하게 만듭니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

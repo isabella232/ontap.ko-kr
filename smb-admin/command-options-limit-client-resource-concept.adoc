@@ -5,6 +5,7 @@ keywords: option, vserver, cifs, modify, command, enable, control, resource, con
 summary: 'vserver cifs options modify 명령에 대한 옵션을 사용하면 Windows 클라이언트의 리소스 사용을 제어할 수 있습니다. 이 기능은 클라이언트가 리소스 사용의 정상적인 범위를 벗어난 경우(예: 열려 있는 파일의 수가 비정상적으로 많거나 세션이 열려 있거나 변경 알림 요청이 있는 경우) 유용합니다.' 
 ---
 = 과도한 Windows 클라이언트 리소스 사용을 제한하는 명령 옵션입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

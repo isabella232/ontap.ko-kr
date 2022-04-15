@@ -5,6 +5,7 @@ keywords: fc, switch, configuration, best, practices
 summary: 최상의 성능을 얻으려면 FC 스위치를 구성할 때 특정 모범 사례를 고려해야 합니다. 
 ---
 = FC 스위치 구성 모범 사례
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: tape, read, error, complete, backup, damaged
 summary: 테이프 드라이브가 손상되었거나 테이프에 전체 백업이 포함되어 있지 않습니다. 
 ---
 = 테이프 읽기 오류입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

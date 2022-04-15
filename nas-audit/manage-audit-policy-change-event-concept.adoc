@@ -5,6 +5,7 @@ keywords: manage, audit-policy-change, event
 summary: 'SVM(스토리지 가상 시스템)에 대해 감사 정책 변경 이벤트가 구성되고 감사가 활성화된 경우 감사 이벤트가 생성됩니다. 감사 정책 변경 이벤트는 SVM 감사 관련 명령을 사용하여 감사 정책을 수정할 때 생성됩니다.' 
 ---
 = Audit-Policy-Change 이벤트를 관리합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: preparing, fabricpool, configuration
 summary: FabricPool 구성에 필요한 준비는 클라우드 계층으로 사용하는 오브젝트 저장소에 따라 다릅니다. 
 ---
 = FabricPool 구성 개요를 준비합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

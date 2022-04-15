@@ -5,6 +5,7 @@ keywords: display, information, group, policy, object, gpo, configuration, defin
 summary: 'Active Directory에 정의된 GPO(그룹 정책 개체) 구성과 CIFS 서버에 적용된 GPO 구성에 대한 정보를 표시할 수 있습니다.' 
 ---
 = GPO 구성에 대한 정보를 표시합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

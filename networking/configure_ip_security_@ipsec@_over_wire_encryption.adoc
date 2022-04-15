@@ -6,6 +6,7 @@ summary: 전송 중에도 데이터를 지속적으로 보호하고 암호화하
 ---
 = 유선 암호화를 통해 IP 보안(IPsec)을 구성합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

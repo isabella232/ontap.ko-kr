@@ -8,6 +8,7 @@ summary: 버킷에 대한 액세스 권한이 있는 목록 사용자를 수정�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

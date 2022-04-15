@@ -6,6 +6,7 @@ summary: 'IPspace는 SVM(스토리지 가상 머신)이 상주하는 고유 IP �
 ---
 = 개요
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

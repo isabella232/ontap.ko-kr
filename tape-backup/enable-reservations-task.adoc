@@ -5,6 +5,7 @@ keywords: enable, disable, tape, reservation, turn, on
 summary: Tape.예약 옵션을 사용하여 ONTAP에서 테이프 디바이스 예약을 관리하는 방법을 제어할 수 있습니다. 기본적으로 테이프 예약이 해제되어 있습니다. 
 ---
 = 테이프 예약 활성화 또는 비활성화
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

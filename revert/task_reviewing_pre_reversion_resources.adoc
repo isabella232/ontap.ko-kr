@@ -5,6 +5,7 @@ keywords: ontap, downgrade, downgrading, revert, reverting, reversion, resources
 summary: ONTAP를 되돌리기 전에 하드웨어 지원을 확인하고 리소스를 검토하여 발생할 수 있거나 해결해야 할 문제를 파악해야 합니다. 
 ---
 = 되돌리기 전에 검토할 리소스
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

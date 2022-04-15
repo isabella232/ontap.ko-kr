@@ -5,6 +5,7 @@ keywords: ontap, software, setup, deciding, decide, if, whether, use, cli, clust
 summary: 사용 중인 System Manager 버전에서 지원되지 않는 경우 ONTAP CLI를 사용하여 초기 클러스터 설정을 수행해야 합니다. 
 ---
 = 클러스터 설정에 System Manager를 사용할지, ONTAP CLI를 사용할지 결정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: rehost, san volumes
 summary: '매핑된 LUN이 있는 볼륨을 다시 호스팅할 수 있습니다. 타겟 SVM에서 이니시에이터 그룹(igroup)을 다시 생성한 후 볼륨 재호스트는 동일한 SVM에서 볼륨을 자동으로 재매핑할 수 있습니다.' 
 ---
 = SAN 볼륨을 재호스트합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

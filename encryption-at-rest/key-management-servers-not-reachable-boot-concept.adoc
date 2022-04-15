@@ -5,6 +5,7 @@ keywords: what, happens, key management servers, not reachable, boot, process
 summary: ONTAP는 NSE에 구성된 스토리지 시스템이 부팅 프로세스 중 지정된 키 관리 서버에 연결할 수 없는 경우 원치 않는 동작을 방지하기 위해 특정 예방 조치를 취합니다. 
 ---
 = 부팅 프로세스 중에 키 관리 서버에 연결할 수 없는 경우 발생하는 현상
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

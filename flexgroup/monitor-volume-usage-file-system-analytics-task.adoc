@@ -5,6 +5,7 @@ keywords: monitor, volume, ontap, file, system, analytics
 summary: 파일 시스템 분석은 FlexGroup 또는 FlexVol 볼륨의 콘텐츠에 대한 데이터를 수집하고 표시하기 위한 프레임워크입니다. 
 ---
 = ONTAP 파일 시스템 분석을 통해 볼륨 사용을 모니터링합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

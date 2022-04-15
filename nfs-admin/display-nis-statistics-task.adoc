@@ -5,6 +5,7 @@ keywords: display, nis, statistics
 summary: '스토리지 시스템에 SVM(스토리지 가상 머신)에 대한 NIS 통계를 표시하여 성능을 모니터링하고 문제를 진단할 수 있습니다.' 
 ---
 = NIS 통계를 표시합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

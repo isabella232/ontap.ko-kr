@@ -8,6 +8,7 @@ summary: 클러스터에서 ONTAP 버전을 중단 없이 업데이트할 수 �
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

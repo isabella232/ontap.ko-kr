@@ -5,6 +5,7 @@ keywords: configure, scanner pools
 summary: 스캐너 풀은 SVM에 연결할 수 있는 Vscan 서버 및 특별 권한 사용자를 정의합니다. 스캐너 정책은 스캐너 풀이 활성 상태인지 여부를 결정합니다. 
 ---
 = 스캐너 풀 개요를 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

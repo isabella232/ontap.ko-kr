@@ -5,6 +5,7 @@ keywords: bypass, traverse, user, privilege, permission, directory, allow, check
 summary: '통과 확인 무시 사용자 권한(권한이라고도 함)은 사용자가 이동 중인 디렉터리에 대한 권한이 없더라도 경로 내의 모든 디렉터리를 파일로 이동할 수 있는지 여부를 결정합니다. 통과 확인을 허용 또는 허용하지 않을 경우 어떤 일이 발생하는지, 그리고 SVM(스토리지 가상 시스템)에서 사용자에 대한 통과 확인을 건너뛰도록 구성하는 방법을 이해해야 합니다.' 
 ---
 = 우회 횡단 검사 개요 구성
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

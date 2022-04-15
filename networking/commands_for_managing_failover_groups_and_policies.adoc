@@ -6,6 +6,7 @@ summary: 페일오버 그룹을 관리합니다
 ---
 = 페일오버 그룹 및 정책을 관리하는 명령입니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

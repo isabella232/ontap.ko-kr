@@ -8,6 +8,7 @@ summary: 할당량을 추가하여 할당량 대상이 사용할 수 있는 디�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

@@ -5,6 +5,7 @@ keywords: configure, replication, relationship, one step, snapmirror, protect, p
 summary: ONTAP 9.3부터는 SnapMirror Protect 명령을 사용하여 단일 단계로 데이터 보호 관계를 구성할 수 있습니다. 복제할 볼륨 목록, 타겟 클러스터의 SVM, 작업 일정, SnapMirror 정책 등을 지정합니다. SnapMirror Protect는 나머지 기능을 수행합니다. 
 ---
 = 한 번에 복제 관계를 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

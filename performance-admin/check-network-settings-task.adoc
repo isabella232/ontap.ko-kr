@@ -5,6 +5,7 @@ keywords: check, mtu, network, setting, storage, system
 summary: 스토리지 시스템의 네트워크 설정이 클라이언트 또는 다른 네트워크 엔드포인트와 동일하지 않은 경우 변경할 수 있습니다. 관리 네트워크 MTU 설정은 1500으로 설정되어 있지만 데이터 네트워크 MTU 크기는 9000이어야 합니다. 
 ---
 = 스토리지 시스템에서 MTU 네트워크 설정을 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

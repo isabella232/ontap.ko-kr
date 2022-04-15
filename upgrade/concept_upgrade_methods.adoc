@@ -5,6 +5,7 @@ keywords: upgrade, methods, andu, ndu, automated, automatic, system manager, cli
 summary: '업그레이드 방법은 구성에 따라 다릅니다. 가능하면 System Manager를 사용하는 자동 무중단 업그레이드(ANDU)가 권장됩니다.' 
 ---
 = 어떤 업그레이드 방법을 사용해야 합니까?
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

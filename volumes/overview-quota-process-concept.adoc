@@ -5,6 +5,7 @@ keywords: overview, quota, process
 summary: 할당량은 소프트 또는 하드일 수 있습니다. 소프트 할당량을 사용하면 ONTAP에서 지정된 제한을 초과할 때 알림을 보내고, 하드 할당량을 사용하면 지정된 제한을 초과할 때 쓰기 작업이 성공하지 못합니다. 
 ---
 = 할당량 프로세스
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, software, setup, check, cluster, active iq, config, advisor
 summary: 모든 노드를 새 클러스터에 결합했으면 Active IQ Config Advisor를 실행하여 구성을 검증하고 일반적인 구성 오류를 확인해야 합니다. 
 ---
 = Active IQ Config Advisor에서 클러스터를 확인하십시오
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

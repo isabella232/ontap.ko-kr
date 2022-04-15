@@ -5,6 +5,7 @@ keywords: restore, part, file, snapshot copy
 summary: 데이터의 시작 바이트 오프셋과 바이트 수를 알고 있다고 가정할 때, 볼륨 스냅샷 부분 복원 파일 명령을 사용하여 스냅샷 복사본에서 LUN 또는 NFS 또는 SMB 컨테이너 파일로 데이터 범위를 복원할 수 있습니다. 이 명령을 사용하여 여러 데이터베이스를 동일한 LUN에 저장하는 호스트에서 데이터베이스 중 하나를 복원할 수 있습니다. 
 ---
 = 스냅샷 복사본에서 파일 일부를 복원합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

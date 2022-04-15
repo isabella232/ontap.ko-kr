@@ -5,6 +5,7 @@ keywords: transfer, failed, sfo, initiated, abort, storage, failover, takeover, 
 summary: 'SMTape 작업은 스토리지 페일오버(테이크오버 및 반환) 작업으로 인해 중단됩니다.' 
 ---
 = 전송 실패(SFO 시작 중단)
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

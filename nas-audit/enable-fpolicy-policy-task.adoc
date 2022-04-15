@@ -5,6 +5,7 @@ keywords: enable, fpolicy policy
 summary: FPolicy 정책 구성을 수행한 후 FPolicy 정책을 사용하도록 설정합니다. 정책을 설정하면 우선 순위가 설정되고 정책에 대한 파일 액세스 모니터링이 시작됩니다. 
 ---
 = FPolicy 정책을 사용합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

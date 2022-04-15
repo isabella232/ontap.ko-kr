@@ -5,6 +5,7 @@ keywords: create, audit, configuration
 summary: '파일 및 디렉토리 이벤트 감사를 시작하려면 먼저 SVM(스토리지 가상 머신)에 감사 구성을 생성해야 합니다.' 
 ---
 = 감사 구성을 만듭니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap mediator service, install requirements, mediator requirements
 summary: ONTAP 중재자 서비스를 설치하려면 모든 필수 구성 요소가 충족되었는지 확인하고 설치 패키지를 얻고 호스트에서 설치 관리자를 실행해야 합니다. 
 ---
 = ONTAP 중재자 서비스를 설치하거나 업그레이드합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: manual, assign, disks, root-data-data partitioning
 summary: '루트 데이터 데이터 파티셔닝의 경우 HA 쌍이 통틀어 4개의 소유 엔터티(컨테이너 디스크 및 3개의 파티션)가 있습니다.' 
 ---
 = 루트-데이터-데이터 파티셔닝으로 디스크를 수동으로 할당합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

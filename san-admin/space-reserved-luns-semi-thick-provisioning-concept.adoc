@@ -5,6 +5,7 @@ keywords: configuration, settings, space-reserved files, luns, semi-thick, volum
 summary: 이 FlexVol 볼륨 및 파일 또는 LUN 구성 조합을 사용하면 완전히 프로비저닝된 조합보다 더 적은 양의 스토리지를 미리 할당할 수 있지만 볼륨에 사용할 수 있는 효율성 기술에 제한이 있습니다. 이러한 구성 조합의 경우 덮어쓰기의 작업이 가장 효율적으로 처리됩니다. 
 ---
 = 반씩 볼륨 프로비저닝을 사용하는 공간 예약 파일 또는 LUN에 대한 구성 설정입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

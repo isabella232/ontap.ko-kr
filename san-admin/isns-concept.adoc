@@ -5,6 +5,7 @@ keywords: what, isns
 summary: 'iSNS(Internet Storage Name Service)는 TCP/IP 스토리지 네트워크에서 iSCSI 디바이스를 자동으로 검색하고 관리할 수 있도록 하는 프로토콜입니다. iSNS 서버는 IP 주소, iSCSI 노드 이름 IQN 및 포털 그룹을 포함하여 네트워크의 활성 iSCSI 장치에 대한 정보를 유지 관리합니다.' 
 ---
 = iSNS란 무엇입니까
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

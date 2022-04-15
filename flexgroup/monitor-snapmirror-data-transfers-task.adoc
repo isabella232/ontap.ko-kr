@@ -5,6 +5,7 @@ keywords: monitor, snapmirror, data, transfer, flexgroup, volumes
 summary: FlexGroup 볼륨 SnapMirror 관계의 상태를 주기적으로 모니터링하여 대상 FlexGroup 볼륨이 지정된 일정에 따라 정기적으로 업데이트되는지 확인해야 합니다. 
 ---
 = FlexGroup 볼륨에 대한 SnapMirror 데이터 전송을 모니터링합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

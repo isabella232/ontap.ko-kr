@@ -5,6 +5,7 @@ keywords: xdp, replace, dp, snapmirror, default, snap mirror, data protection, r
 summary: 'ONTAP 9.3부터 SnapMirror 확장 데이터 보호(XDP) 모드가 SnapMirror 기본값으로 SnapMirror 데이터 보호(DP) 모드를 대체합니다.' 
 ---
 = XDP는 DP를 SnapMirror 기본값으로 바꿉니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

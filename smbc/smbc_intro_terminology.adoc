@@ -6,6 +6,7 @@ summary: ONTAP SnapMirror 비즈니스 연속성을 살펴보고 구축을 계�
 ---
 = 주요 개념
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

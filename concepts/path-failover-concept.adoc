@@ -5,6 +5,7 @@ keywords: path failover
 summary: 'ONTAP가 NAS 및 SAN 토폴로지에서 경로 페일오버를 관리하는 방식에 있어 중요한 차이점이 있습니다. NAS LIF는 링크 장애 후 다른 네트워크 포트로 자동 마이그레이션됩니다. SAN LIF는 마이그레이션하지 않습니다(장애 후 수동으로 이동하지 않는 경우). 대신, 호스트의 다중 경로 기술은 동일한 SVM에서 트래픽을 다른 LIF로 전환하지만 다른 네트워크 포트에 액세스합니다.' 
 ---
 = 경로 페일오버 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

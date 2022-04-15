@@ -5,6 +5,7 @@ keywords: installing, ca certificate, ontap s3
 summary: ONTAP S3에 대한 인증서 확인을 사용하지 않도록 설정하려면 ONTAP에서 ONTAP S3를 FabricPool의 개체 저장소로 인증할 수 있도록 클러스터에 ONTAP S3 CA 인증서를 설치해야 합니다. 
 ---
 = ONTAP S3을 사용하는 경우 CA 인증서를 설치합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

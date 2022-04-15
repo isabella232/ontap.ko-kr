@@ -5,6 +5,7 @@ keywords: understand, sp, service, processor, remote, management, device, access
 summary: '서비스 프로세서(SP)는 노드를 원격으로 액세스, 모니터링 및 문제 해결할 수 있는 원격 관리 디바이스입니다.' 
 ---
 = SP 정보
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

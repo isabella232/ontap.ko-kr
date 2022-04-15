@@ -5,6 +5,7 @@ keywords: how, user and group quotas, work, with, qtrees
 summary: 트리 할당량은 qtree의 전체 크기를 제한합니다. 개별 사용자 또는 그룹이 전체 qtree를 사용하지 않도록 하려면 해당 qtree에 대한 사용자 또는 그룹 할당량을 지정합니다. 
 ---
 = 사용자 및 그룹 할당량이 Qtree에서 작동하는 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

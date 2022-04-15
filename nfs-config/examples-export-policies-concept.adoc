@@ -5,6 +5,7 @@ keywords: examples, ontap, export, policies, implementation, 7-mode
 summary: 내보내기 정책의 예를 검토하여 ONTAP에서 내보내기 정책의 작동 방식을 보다 잘 이해할 수 있습니다. 
 ---
 = ONTAP 엑스포트 정책의 예
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

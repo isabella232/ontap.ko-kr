@@ -5,6 +5,7 @@ keywords: determine, modify, cache, policy, flash pool, aggregates
 summary: Flash Pool 애그리게이트의 볼륨에 캐시 보존 정책을 할당하여 Flash Pool 캐시의 볼륨 데이터가 유지되는 기간을 결정할 수 있습니다. 그러나 캐시 보존 정책을 변경해도 볼륨의 데이터가 캐시에 남아 있는 시간에 영향을 주지 않는 경우도 있습니다. 
 ---
 = Flash Pool 애그리게이트의 캐싱 정책을 수정할지 여부를 확인합니다. 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

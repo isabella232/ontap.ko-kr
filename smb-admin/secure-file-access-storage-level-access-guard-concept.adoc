@@ -5,6 +5,7 @@ keywords: addition, securing, secure, access, native, file-level, export, share,
 summary: 기본 파일 수준 및 내보내기/공유 보안을 사용하여 액세스를 보호하는 것 외에도 ONTAP가 볼륨 수준에서 적용한 세 번째 보안 계층인 스토리지 수준 액세스 가드를 구성할 수 있습니다. Storage-Level Access Guard는 모든 NAS 프로토콜에서 해당 프로토콜이 적용된 스토리지 객체에 액세스하는 데 적용됩니다. 
 ---
 = Storage-Level Access Guard를 사용하여 파일 액세스를 보호합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

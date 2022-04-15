@@ -8,6 +8,7 @@ summary: System Manager의 특정 측정값에 시스템의 스토리지 용량�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

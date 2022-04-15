@@ -6,6 +6,7 @@ summary: DNS 로드 밸런싱 영역을 생성하여 LIF 성능을 개선합니�
 ---
 = DNS 부하 분산 영역을 만듭니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

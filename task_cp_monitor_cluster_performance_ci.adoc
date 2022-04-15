@@ -8,6 +8,7 @@ summary: Cloud Insights을 사용하면 퍼블릭 클라우드 및 프라이빗 
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

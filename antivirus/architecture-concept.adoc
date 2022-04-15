@@ -5,6 +5,7 @@ keywords: antivirus, architecture
 summary: NetApp 바이러스 백신 아키텍처는 Vscan 서버와 일련의 ONTAP 구성 가능으로 구성됩니다. 
 ---
 = 안티바이러스 아키텍처
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

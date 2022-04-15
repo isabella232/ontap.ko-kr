@@ -5,6 +5,7 @@ keywords: worm storage
 summary: 'SnapLock는 규정 및 거버넌스 목적으로 WORM(Write Once, Read Many) 스토리지를 사용하여 중요한 파일을 수정되지 않은 형식으로 유지하는 조직을 위한 고성능 규정 준수 솔루션입니다.' 
 ---
 = WORM 스토리지
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

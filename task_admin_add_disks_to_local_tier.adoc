@@ -8,6 +8,7 @@ summary: '용량 디스크를 추가하여 기존 애그리게이트(로컬 계�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

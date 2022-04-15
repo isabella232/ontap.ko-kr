@@ -5,6 +5,7 @@ keywords:
 summary:  
 ---
 = 상표
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

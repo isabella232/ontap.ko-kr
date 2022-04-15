@@ -5,6 +5,7 @@ keywords: consideration, sp, bmc, network, configuration, cluster, level, disabl
 summary: 'SP에 대해 클러스터 레벨의 자동 네트워크 구성을 설정할 수 있습니다(권장). 또한 SP 자동 네트워크 구성을 기본값인 사용하지 않도록 설정하고 SP 네트워크 구성을 노드 레벨에서 수동으로 관리할 수도 있습니다. 각 사례별로 몇 가지 고려 사항이 있습니다.' 
 ---
 = SP/BMC 네트워크 구성에 대한 고려 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

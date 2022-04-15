@@ -5,6 +5,7 @@ keywords: active, iq, autosupport, messages, email, manual, scheduled, event, tr
 summary: 'AutoSupport는 메시지 유형에 따라 다른 수신자에게 메시지를 보냅니다. AutoSupport에서 메시지를 보내는 시기와 위치를 이해하면 전자 메일을 통해 받는 메시지를 이해하거나 Active IQ(이전의 My AutoSupport) 웹 사이트에서 볼 수 있습니다.' 
 ---
 = AutoSupport 메시지가 전송되는 시기 및 위치
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

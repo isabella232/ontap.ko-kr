@@ -6,6 +6,7 @@ summary: '자동 비계획 장애 조치(AUFO) 작업은 운영 클러스터가 
 ---
 = 계획되지 않은 페일오버 작업을 자동으로 수행합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -8,6 +8,7 @@ summary: '노드를 재부팅하거나 종료하기 전에 노드의 워크로�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

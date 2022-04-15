@@ -6,6 +6,7 @@ summary: SVM 내에서 정적 경로를 생성하여 LIF가 아웃바운드 트�
 ---
 = 정적 배관을 작성합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

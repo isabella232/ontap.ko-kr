@@ -5,6 +5,7 @@ keywords: manage, license, enable, add, record, software, entitlement, keys, cod
 summary: '라이센스는 하나 이상의 소프트웨어 사용 권한의 기록입니다. ONTAP 8.2 ~ ONTAP 9.9.1에서는 라이센스가 28자 문자열로 전달되고 ONTAP 기능당 키가 하나씩 있습니다. ONTAP 9.2에서는 FabricPool와 같은 클러스터 전체 기능 전용 NLF(NetApp 라이센스 파일)라는 새로운 라이센스 형식이 도입되었습니다.' 
 ---
 = 라이센스 관리 개요(클러스터 관리자만 해당)
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

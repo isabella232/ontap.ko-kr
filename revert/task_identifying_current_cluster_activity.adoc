@@ -5,6 +5,7 @@ keywords: ontap, downgrade, dowgrading, cluster, activity, running, jobs, stop, 
 summary: 무중단 다운그레이드를 수행하기 전에 지속적으로 사용할 수 없는 CIFS 세션을 식별하여 올바르게 종료해야 합니다. 
 ---
 = 다운그레이드하기 전에 현재 클러스터 활동을 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

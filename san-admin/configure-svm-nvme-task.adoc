@@ -5,6 +5,7 @@ keywords: configure, svm, nvme
 summary: 노드에서 NVMe 프로토콜을 사용하려면 NVMe용으로 특수 SVM을 구성해야 합니다. 
 ---
 = NVMe를 위한 SVM 구성
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

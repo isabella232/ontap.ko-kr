@@ -6,6 +6,7 @@ summary: 동기식 일관성 그룹 관계도 설정하는 SnapMirror 일관성 
 ---
 = 일관성 그룹 관계를 생성합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

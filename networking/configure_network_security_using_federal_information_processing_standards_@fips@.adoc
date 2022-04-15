@@ -6,6 +6,7 @@ summary: '모든 SSL 연결에 대해 FIPS(Federal Information Processing Standa
 ---
 = FIPS(Federal Information Processing Standards)를 사용하여 네트워크 보안 구성
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

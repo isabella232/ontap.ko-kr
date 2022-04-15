@@ -5,6 +5,7 @@ keywords: access-based, enumeration, abe, enable, smb, share, user, folder, file
 summary: 'SMB 공유에서 ABE(Access-Based Enumeration)를 사용하는 경우, 개별 또는 그룹 권한 제한을 통해 공유 내에 포함된 폴더나 파일에 액세스할 수 있는 권한이 없는 사용자는 자신의 환경에 표시된 공유 리소스를 볼 수 없습니다.' 
 ---
 = 액세스 기반 열거 개요를 사용하여 공유에 대한 폴더 보안을 제공합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

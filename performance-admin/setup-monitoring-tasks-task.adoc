@@ -5,6 +5,7 @@ keywords: setting, basic, monitoring, tasks
 summary: 매일 시스템을 확인하고, 주별 및 월별 성능 동향을 설정하고, 잠재적인 성능 문제에 대한 알림을 수신하는 임계값을 지정하여 시스템의 성능 문제를 모니터링할 수 있습니다. 
 ---
 = 기본 모니터링 작업을 설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

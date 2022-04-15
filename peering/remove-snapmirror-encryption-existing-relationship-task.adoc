@@ -5,6 +5,7 @@ keywords: remove, cluster, peering, encryption, existing, peer, relationship
 summary: 기본적으로 클러스터 피어링 암호화는 ONTAP 9.6 이상에서 생성된 모든 피어 관계에서 활성화됩니다. 클러스터 간 피어링 통신에 암호화를 사용하지 않으려면 비활성화할 수 있습니다. 
 ---
 = 기존 피어 관계에서 클러스터 피어링 암호화를 제거합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

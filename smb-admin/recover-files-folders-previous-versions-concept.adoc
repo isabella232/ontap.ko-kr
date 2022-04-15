@@ -5,6 +5,7 @@ keywords: ability, microsoft, previous, version, applicable, file, system, suppo
 summary: Microsoft 이전 버전을 사용하는 기능은 Snapshot 복사본을 일부 형식으로 지원하고 사용하도록 설정한 파일 시스템에 적용할 수 있습니다. 스냅샷 기술은 ONTAP의 핵심 요소입니다. 사용자는 Microsoft 이전 버전 기능을 사용하여 Windows 클라이언트에서 Snapshot 복사본의 파일과 폴더를 복구할 수 있습니다. 
 ---
 = 이전 버전 개요를 사용하여 파일 및 폴더를 복구합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

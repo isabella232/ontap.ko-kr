@@ -5,6 +5,7 @@ keywords: ways, configure, fc, fc-nvme, san hosts, with single nodes
 summary: '하나 이상의 패브릭을 통해 단일 노드로 FC 및 FC-NVMe SAN 호스트를 구성할 수 있습니다. N-포트 ID 가상화(NPIV)가 필요하며 Fabric의 모든 FC 스위치에서 활성화해야 합니다. FC 스위치를 사용하지 않고 FC 또는 FC-NMVE SAN 호스트를 단일 노드에 직접 연결할 수는 없습니다.' 
 ---
 = 단일 노드로 FC 및 FC-NVMe SAN 호스트를 구성하는 방법
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

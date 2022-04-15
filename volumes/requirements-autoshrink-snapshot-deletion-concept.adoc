@@ -5,6 +5,7 @@ keywords: requirements, enabling, autoshrink, automatic, snapshot copy, deletion
 summary: 자동 축소 기능은 특정 구성 요구사항이 충족되면 자동 스냅샷 복사본 삭제와 함께 사용할 수 있습니다. 
 ---
 = 자동 축소와 자동 스냅샷 복사본 삭제를 둘 다 사용하기 위한 요구 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

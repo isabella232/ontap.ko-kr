@@ -5,6 +5,7 @@ keywords: create, install, ca certificate, svm
 summary: 'S3 클라이언트에서 S3 기반 SVM으로 HTTPS 트래픽을 활성화하려면 CA(인증 기관) 인증서가 필요합니다.' 
 ---
 = SVM에서 CA 인증서를 생성하고 설치합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

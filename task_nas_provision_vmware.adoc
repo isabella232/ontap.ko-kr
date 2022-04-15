@@ -8,6 +8,7 @@ summary: NFS 프로토콜을 사용하여 VMware 데이터 저장소를 제공�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

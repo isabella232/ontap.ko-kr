@@ -6,6 +6,7 @@ summary: 페일오버 LIF가 여러 서브넷에 걸쳐 있습니다
 ---
 = 가상 IP(VIP) LIF를 구성합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

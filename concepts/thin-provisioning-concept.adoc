@@ -5,6 +5,7 @@ keywords: thin provision
 summary: 씬 프로비저닝된 볼륨 또는 LUN은 스토리지가 미리 예약되지 않은 볼륨입니다. 대신 필요에 따라 스토리지가 동적으로 할당됩니다. 볼륨 또는 LUN의 데이터가 삭제되면 사용 가능한 공간이 스토리지 시스템으로 다시 해제됩니다. 
 ---
 = 씬 프로비저닝
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

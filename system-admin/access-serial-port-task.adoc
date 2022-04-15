@@ -5,6 +5,7 @@ keywords: access, cluster, serial, port, node
 summary: 노드의 시리얼 포트에 연결된 콘솔에서 클러스터에 직접 액세스할 수 있습니다. 
 ---
 = 직렬 포트를 사용하여 클러스터에 액세스합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

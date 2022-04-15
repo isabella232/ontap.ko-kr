@@ -5,6 +5,7 @@ keywords: ontap, post, after, upgrade, verify, networking, storage, status, metr
 summary: MetroCluster 구성에서 업데이트를 수행하기 전과 후에 각 클러스터의 LIF, 애그리게이트 및 볼륨 상태를 확인해야 합니다. 
 ---
 = MetroCluster 구성에 대한 네트워킹 및 스토리지 상태를 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

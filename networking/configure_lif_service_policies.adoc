@@ -6,6 +6,7 @@ summary: LIF에 대한 서비스 정책을 생성하고 할당합니다
 ---
 = LIF 서비스 정책을 구성합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

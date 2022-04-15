@@ -5,6 +5,7 @@ keywords: command, manage, sp, ontap, network, configuration, firmware, image, s
 summary: ONTAP에서는 SP 네트워크 구성, SP 펌웨어 이미지, SP에 대한 SSH 액세스, 일반 SP 관리를 비롯한 SP 관리를 위한 명령을 제공합니다. 
 ---
 = ONTAP에서 SP를 관리하는 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

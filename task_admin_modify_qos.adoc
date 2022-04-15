@@ -8,6 +8,7 @@ summary: ONTAP 9.8부터는 스토리지 용량 할당 시 QoS가 기본적으�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

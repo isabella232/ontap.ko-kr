@@ -5,6 +5,7 @@ keywords: considerations, adding, nodes, cluster
 summary: 클러스터에 노드를 추가할 때는 특정 고려 사항을 염두에 두어야 합니다. 
 ---
 = 클러스터에 노드를 추가할 때의 고려 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

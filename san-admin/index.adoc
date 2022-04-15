@@ -5,6 +5,7 @@ keywords: decide, san, administration, host, provisioning, iscsi, fc, nvme
 summary: 이 정보는 기본적인 SAN 호스트 프로비저닝을 설명합니다. 
 ---
 = CLI를 사용한 SAN 관리 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

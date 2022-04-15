@@ -5,6 +5,7 @@ keywords: transitioning, external key management, onboard key management
 summary: 온보드 키 관리에서 외부 키 관리로 전환하려면 온보드 키 관리 구성을 삭제해야 외부 키 관리를 활성화할 수 있습니다. 
 ---
 = 온보드 키 관리에서 외부 키 관리로 전환
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

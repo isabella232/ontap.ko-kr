@@ -5,6 +5,7 @@ keywords: internal, assertion, smtape, error, techincal, report
 summary: 내부 SMTape 오류가 있습니다. 
 ---
 = 내부 어설션
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

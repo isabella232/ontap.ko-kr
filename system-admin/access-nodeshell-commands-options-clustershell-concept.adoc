@@ -5,6 +5,7 @@ keywords: nodeshell, command, access, option, clustershell
 summary: '노드 쉘은 노드 쉘을 통해 액세스할 수 있습니다(시스템 노드 run – notenodename). 일반적으로 사용되는 노드 쉘의 명령 및 옵션은 클러스터 쉘에 터널링되거나 별칭되어 클러스터 쉘에서도 실행될 수 있습니다.' 
 ---
 = 클러스터 쉘에서 노드 명령 및 옵션 액세스
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

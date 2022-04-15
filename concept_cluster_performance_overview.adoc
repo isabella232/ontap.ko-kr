@@ -8,6 +8,7 @@ summary: System Manager를 사용하면 사용자 환경에서 클러스터를 �
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

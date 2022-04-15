@@ -8,6 +8,7 @@ summary: 현재 릴리스에서 랜섬웨어 보호는 NAS 환경에 가장 적�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

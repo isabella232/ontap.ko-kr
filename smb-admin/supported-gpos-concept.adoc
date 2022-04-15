@@ -5,6 +5,7 @@ keywords: group, policy, object, gpo, applicable, cifs-enabled, storage, virtual
 summary: '모든 GPO(그룹 정책 개체)가 CIFS 지원 SVM(스토리지 가상 머신)에 적용되는 것은 아니지만 SVM은 관련 GPO 세트를 인식하고 처리할 수 있습니다.' 
 ---
 = 지원되는 GPO
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

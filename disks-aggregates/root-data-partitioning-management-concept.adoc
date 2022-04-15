@@ -5,6 +5,7 @@ keywords: additional, root-data, partitioning, management, options
 summary: ONTAP 9.2부터는 루트 데이터 파티셔닝에 구성된 디스크에 대한 추가 관리 기능을 제공하는 부팅 메뉴에서 새로운 루트 데이터 파티셔닝 옵션을 사용할 수 있습니다. 
 ---
 = 추가 루트 데이터 파티셔닝 관리 옵션
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

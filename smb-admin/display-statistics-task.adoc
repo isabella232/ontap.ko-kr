@@ -5,6 +5,7 @@ keywords: display, various, statistic, cifs, smb, audit, branchcache, has, monit
 summary: CIFS 및 SMB, 감사 및 BranchCache 해시에 대한 통계를 비롯한 다양한 통계를 표시하여 성능을 모니터링하고 문제를 진단할 수 있습니다. 
 ---
 = 통계를 표시합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

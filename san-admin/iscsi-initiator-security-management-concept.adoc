@@ -5,6 +5,7 @@ keywords: iscsi, initiator, security, management
 summary: ONTAP는 iSCSI 초기자에 대한 보안을 관리하는 다양한 기능을 제공합니다. iSCSI 초기자 목록과 각각에 대한 인증 방법을 정의하고, 인증 목록에 초기자 및 관련 인증 방법을 표시하고, 인증 목록에서 이니시에이터를 추가 및 제거하고, 목록에 없는 이니시에이터에 대한 기본 iSCSI 초기자 인증 방법을 정의할 수 있습니다. 
 ---
 = iSCSI 초기자 보안 관리
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

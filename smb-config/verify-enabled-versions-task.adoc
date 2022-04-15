@@ -5,6 +5,7 @@ keywords: ontap, release, smb, version, enable, default, connection, client, dom
 summary: ONTAP 9 릴리즈에서는 클라이언트 및 도메인 컨트롤러와의 연결에 대해 기본적으로 설정되는 SMB 버전을 결정합니다. SMB 서버가 사용자 환경에 필요한 클라이언트 및 기능을 지원하는지 확인해야 합니다. 
 ---
 = 활성화된 SMB 버전을 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

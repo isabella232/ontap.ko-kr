@@ -5,6 +5,7 @@ keywords: fibre, channel, fcoe zoning
 summary: FC, FC-NVMe 또는 FCoE 존은 패브릭 내 하나 이상의 포트를 논리적으로 그룹화한 것입니다. 장치가 서로 보고, 연결하고, 서로 세션을 만들고, 통신하려면 두 포트 모두 공통 영역 구성원이 있어야 합니다. 단일 이니시에이터 조닝을 사용하는 것이 좋습니다. 
 ---
 = 파이버 채널 및 FCoE 조닝 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

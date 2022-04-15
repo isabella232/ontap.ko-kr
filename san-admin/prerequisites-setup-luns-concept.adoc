@@ -5,6 +5,7 @@ keywords: prerequisites, setting up, luns
 summary: LUN을 설정하려면 LUN을 생성하고, igroup을 생성하고, LUN을 igroup에 매핑해야 합니다. LUN을 설정하기 전에 시스템이 특정 사전 요구 사항을 충족해야 합니다. 
 ---
 = LUN 설정을 위한 사전 요구사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

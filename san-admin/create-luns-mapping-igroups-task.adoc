@@ -5,6 +5,7 @@ keywords: create, luns, mapping, igroups
 summary: 'SAN 환경을 구성하려면 LUN을 생성하고 이니시에이터 그룹(igroup)을 생성한 후 LUN을 igroup에 매핑해야 합니다.' 
 ---
 = LUN을 생성하고 igroup에 매핑합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

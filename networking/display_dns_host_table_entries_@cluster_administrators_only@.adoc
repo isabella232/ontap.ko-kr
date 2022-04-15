@@ -6,6 +6,7 @@ summary: 클러스터의 모든 SVM에 대해 호스트 및 별칭 이름과 매
 ---
 = DNS 호스트 테이블 항목 표시(클러스터 관리자만 해당)
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

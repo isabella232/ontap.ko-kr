@@ -8,6 +8,7 @@ summary: 비즈니스 연속성을 위해 보호를 구성하려면 ONTAP 소스
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

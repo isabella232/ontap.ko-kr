@@ -5,6 +5,7 @@ keywords: creating, flexcache, volume, flex cache, performance, remote cluster, 
 summary: 핫 객체에 액세스할 때 성능을 개선하기 위해 동일한 클러스터에 FlexCache 볼륨을 생성할 수 있습니다. 여러 위치에 데이터 센터가 있는 경우 원격 클러스터에 FlexCache 볼륨을 생성하여 데이터 액세스를 가속할 수 있습니다. 
 ---
 = FlexCache 볼륨을 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

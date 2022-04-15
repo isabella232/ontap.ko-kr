@@ -5,6 +5,7 @@ keywords: ways, display, information, file security, audit policies
 summary: '와일드카드 문자(*)를 사용하여 지정된 경로 또는 루트 볼륨 아래에 있는 모든 파일 및 디렉토리의 파일 보안 및 감사 정책에 대한 정보를 표시할 수 있습니다.' 
 ---
 = 파일 보안 및 감사 정책에 대한 정보를 표시하는 방법
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

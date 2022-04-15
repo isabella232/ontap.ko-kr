@@ -5,6 +5,7 @@ keywords: ndmp, authentication, method, requests, plaintext, challenge
 summary: NDMP 연결 요청을 허용하는 인증 방법을 지정할 수 있습니다. ONTAP는 스토리지 시스템에 대한 NDMP 액세스를 인증하는 두 가지 방법인 일반 텍스트 및 본인 확인 방법을 지원합니다. 
 ---
 = 지원되는 NDMP 인증 방법입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

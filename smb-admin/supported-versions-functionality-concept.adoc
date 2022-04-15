@@ -5,6 +5,7 @@ keywords: server, message, block, smb, remote, file-sharing, protocol, microsoft
 summary: 'SMB(Server Message Block)는 Microsoft Windows 클라이언트 및 서버에서 사용하는 원격 파일 공유 프로토콜입니다. ONTAP 9에서는 모든 SMB 버전이 지원되지만, 기본 SMB 1.0 지원은 ONTAP 버전에 따라 다릅니다. ONTAP SMB 서버가 사용자 환경에 필요한 클라이언트 및 기능을 지원하는지 확인해야 합니다.' 
 ---
 = 지원되는 SMB 버전 및 기능
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

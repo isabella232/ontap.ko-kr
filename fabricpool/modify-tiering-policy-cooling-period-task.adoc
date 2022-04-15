@@ -5,6 +5,7 @@ keywords: managing, storage, tiering, modifying, volume, tiering, policy, tierin
 summary: '볼륨의 계층화 정책을 변경하여 데이터가 비활성(콜드) 상태가 될 때 클라우드 계층으로 이동되는지 여부를 제어할 수 있습니다. 스냅샷 전용 또는 자동 계층화 정책이 있는 볼륨의 경우 사용자 데이터가 클라우드 계층으로 이동되기 전에 비활성 상태를 유지해야 하는 계층화 최소 냉각 기간을 지정할 수도 있습니다.' 
 ---
 = 볼륨의 계층화 정책을 수정하거나 최소 냉각 기간을 계층화하여 스토리지 계층화를 관리합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

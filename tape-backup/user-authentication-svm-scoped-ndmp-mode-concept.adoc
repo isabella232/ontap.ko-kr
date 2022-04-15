@@ -5,6 +5,7 @@ keywords: user, authentication, svm, ndmp, node, vsadmin, backup, role, storage,
 summary: 'SVM(스토리지 가상 시스템) 범위의 NDMP 모드에서는 NDMP 사용자 인증이 역할 기반 액세스 제어와 통합됩니다. SVM 맥락에서 NDMP 사용자는 "vsadmin" 또는 "vsadmin-backup" 역할을 수행해야 합니다. 클러스터 컨텍스트에서 NDMP 사용자는 "admin" 또는 "backup" 역할을 가지고 있어야 합니다.' 
 ---
 = SVM 범위의 NDMP 모드에서 사용자 인증
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

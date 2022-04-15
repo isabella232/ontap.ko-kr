@@ -5,6 +5,7 @@ keywords: default, export, policy, svm, root, volume, rule, client, smb, rule, o
 summary: SVM 루트 볼륨의 기본 엑스포트 정책에는 SMB를 통한 모든 클라이언트의 개방형 액세스를 지원하는 규칙이 포함되어야 합니다. 이러한 규칙이 없으면 모든 SMB 클라이언트가 SVM 및 해당 볼륨에 대한 액세스가 거부됩니다. 
 ---
 = SVM 루트 볼륨의 엑스포트 정책을 엽니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -8,6 +8,7 @@ summary: 네트워크에서 노드, 디스크 쉘프 및 스토리지 스위치�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

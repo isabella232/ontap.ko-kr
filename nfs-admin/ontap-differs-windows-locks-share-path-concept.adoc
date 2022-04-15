@@ -5,6 +5,7 @@ keywords: ontap, windows, handle, locks, share, path, component
 summary: Windows와 달리 ONTAP는 파일이 열려 있는 동안 열려 있는 파일에 대한 경로의 각 구성 요소를 잠그지 않습니다. 이 동작은 SMB 공유 경로에도 영향을 줍니다. 
 ---
 = 공유 경로 구성 요소의 잠금 처리에 대한 ONTAP와 Windows의 차이점
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

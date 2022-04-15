@@ -5,6 +5,7 @@ keywords: ontap, upgrade, requirements, snapmirror
 summary: SnapMirror를 실행 중인 클러스터를 성공적으로 업그레이드하려면 특정 작업을 수행해야 합니다. 
 ---
 = SnapMirror의 업그레이드 요구 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

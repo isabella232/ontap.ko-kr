@@ -5,6 +5,7 @@ keywords: ldaps, concept
 summary: ONTAP가 LDAP 통신을 보호하는 방법에 대한 특정 용어와 개념을 이해해야 합니다. ONTAP는 Active Directory 통합 LDAP 서버 또는 UNIX 기반 LDAP 서버 간에 인증된 세션을 설정하기 위해 시작 TLS 또는 LDAPS를 사용할 수 있습니다. 
 ---
 = LDAPS 개념
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

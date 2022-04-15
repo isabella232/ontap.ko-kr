@@ -5,6 +5,7 @@ keywords: ontap, netbios, name, service, nbns, windows, internet, name, service,
 summary: 'ONTAP 9부터는 NetBIOS 이름 서비스(NBNS, Windows 인터넷 이름 서비스 또는 WINS라고도 함)가 기본적으로 사용되지 않습니다. 이전에는 CIFS 지원 SVM(스토리지 가상 머신)이 네트워크에서 WINS가 활성화되었는지 여부에 관계없이 이름 등록 브로드캐스트를 전송했습니다. NBNS가 필요한 구성으로 이러한 브로드캐스트를 제한하려면 새 CIFS 서버에 대해 NBNS를 명시적으로 설정해야 합니다.' 
 ---
 = NetBIOS 이름 서비스를 활성화합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

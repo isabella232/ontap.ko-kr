@@ -5,6 +5,7 @@ keywords: tape, device, representation, combination, rewind, type, compression, 
 summary: 테이프 디바이스는 테이프 드라이브를 나타냅니다. 테이프 드라이브의 되감기 유형과 압축 기능의 특정 조합입니다. 
 ---
 = 테이프 장치 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

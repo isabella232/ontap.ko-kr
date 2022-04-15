@@ -5,6 +5,7 @@ keywords: create, smb, volume, qtree, exist, configuration, svm, decision, workf
 summary: 새 SMB 볼륨 또는 qtree를 생성하기 전에 새로운 SVM이나 기존 SVM에 배치할 것인지, SVM에 필요한 구성의 양을 결정해야 합니다. 이 결정에 따라 워크플로가 결정됩니다. 
 ---
 = 새 SMB 스토리지 용량을 프로비저닝할 위치를 결정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

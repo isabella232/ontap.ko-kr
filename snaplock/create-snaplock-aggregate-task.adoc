@@ -5,6 +5,7 @@ keywords: create, snaplock, aggregate, compliance, enterprise, mode, volumes
 summary: '볼륨 "-snaplock-type" 옵션을 사용하여 Compliance 또는 Enterprise SnapLock 볼륨 유형을 지정합니다. ONTAP 9.10.1 이전 릴리스의 경우 별도의 SnapLock 애그리게이트를 만들어야 합니다. ONTAP 9.10.1부터 SnapLock 및 비 SnapLock 볼륨은 동일한 애그리게이트에 존재할 수 있으므로, ONTAP 9.10.1을 사용하는 경우 더 이상 별도의 SnapLock 애그리게이트를 생성할 필요가 없습니다.' 
 ---
 = SnapLock Aggregate를 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

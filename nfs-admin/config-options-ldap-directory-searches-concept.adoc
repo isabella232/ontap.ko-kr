@@ -5,6 +5,7 @@ keywords: LDAP referral chasing
 summary: 사용자, 그룹 및 넷그룹 정보를 포함한 LDAP 디렉토리 검색을 최적화하려면 ONTAP LDAP 클라이언트가 사용자 환경에 가장 적합한 방식으로 LDAP 서버에 접속하도록 구성해야 합니다. 기본 LDAP 기본 및 범위 검색 값이 충분하면 사용자 지정 값이 더 적합한 시기를 지정하는 매개 변수가 무엇인지 이해해야 합니다. 
 ---
 = LDAP 디렉토리 검색에 대한 구성 옵션입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

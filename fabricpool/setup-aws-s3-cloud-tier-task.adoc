@@ -5,6 +5,7 @@ keywords: setting up, aws, s3, cloud tier
 summary: 'ONTAP 9.2 이상을 실행 중인 경우 AWS S3를 FabricPool의 클라우드 계층으로 설정할 수 있습니다. ONTAP 9.5 이상을 실행 중인 경우 FabricPool용 AWS C2S(상용 클라우드 서비스)를 설정할 수 있습니다.' 
 ---
 = AWS S3를 클라우드 계층으로 설정
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

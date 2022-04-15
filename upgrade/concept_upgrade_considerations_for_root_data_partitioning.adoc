@@ -5,6 +5,7 @@ keywords: ontap, upgrade, update, considerations, root-data, root-data-data, par
 summary: 일부 플랫폼 모델 및 구성에서는 루트 데이터 파티셔닝과 루트 데이터 데이터 파티셔닝이 지원됩니다. 이 파티셔닝 기능은 시스템 초기화 중에 활성화되며 기존 애그리게이트에 적용할 수 없습니다. 
 ---
 = 루트 데이터 파티셔닝 및 루트 데이터 데이터 파티셔닝에 대한 업그레이드 고려 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

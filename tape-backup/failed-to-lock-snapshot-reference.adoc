@@ -5,6 +5,7 @@ keywords: failed, lock, snapshot, deleted, copy
 summary: 스냅샷 복사본이 사용 중이거나 삭제되었습니다. 
 ---
 = 스냅샷을 잠그지 못했습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: worksheet, gathering, nfs, configuration, information, access, svm, na
 summary: NFS 구성 워크시트를 사용하면 클라이언트에 대한 NFS 액세스를 설정하는 데 필요한 정보를 수집할 수 있습니다. 
 ---
 = NFS 구성 정보 수집을 위한 워크시트입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

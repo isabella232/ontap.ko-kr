@@ -5,6 +5,7 @@ keywords: perform, daily, monitoring
 summary: 매일 모니터링을 수행하여 즉각적인 성능 문제가 발생하지 않도록 주의할 수 있습니다. 
 ---
 = 매일 모니터링을 수행합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

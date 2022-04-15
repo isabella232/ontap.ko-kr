@@ -5,6 +5,7 @@ keywords: ontap, downgrade, revert, paths
 summary: 되돌릴 수 있는 ONTAP 버전은 현재 노드에서 실행 중인 ONTAP 버전에 따라 달라집니다. 
 ---
 = 복원 경로
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

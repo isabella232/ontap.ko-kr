@@ -5,6 +5,7 @@ keywords: fpolicy, services, work, svm, namespaces
 summary: 'ONTAP은 유니파이드 스토리지 가상 시스템(SVM) 네임스페이스를 제공합니다. 접합을 통해 클러스터 전체의 볼륨을 연결하여 하나의 논리적 파일 시스템을 제공합니다. FPolicy 서버는 네임스페이스 토폴로지를 인식하고 네임스페이스에서 FPolicy 서비스를 제공합니다.' 
 ---
 = FPolicy 서비스가 SVM 네임스페이스 전체에서 작동하는 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

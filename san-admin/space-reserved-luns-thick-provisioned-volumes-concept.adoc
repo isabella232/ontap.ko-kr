@@ -5,6 +5,7 @@ keywords: configuration, settings, space-reserved files, luns, thick-provisioned
 summary: 이 FlexVol 볼륨 및 파일 또는 LUN 구성 조합을 사용하면 스토리지 효율성 기술을 사용할 수 있으며 공간이 사전에 충분히 할당되므로 여유 공간을 능동적으로 모니터링할 필요가 없습니다. 
 ---
 = 일반 프로비저닝된 볼륨이 있는 공간 예약 파일 또는 LUN에 대한 구성 설정입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

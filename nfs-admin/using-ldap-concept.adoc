@@ -5,6 +5,7 @@ keywords: use, ldap
 summary: 'LDAP(Lightweight Directory Access Protocol) 서버를 사용하면 사용자 정보를 중앙에서 관리할 수 있습니다. 사용자 환경의 LDAP 서버에 사용자 데이터베이스를 저장하는 경우 기존 LDAP 데이터베이스에서 사용자 정보를 조회하도록 스토리지 시스템을 구성할 수 있습니다.' 
 ---
 = LDAP 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: compression
 summary: 압축은 압축 그룹에 데이터 블록을 결합하여 볼륨에 필요한 물리적 스토리지의 양을 줄이며, 각 블록이 단일 블록으로 저장됩니다. ONTAP는 전체 파일 또는 LUN이 아니라 요청된 데이터가 들어 있는 압축 그룹만 압축 해제하므로 압축된 데이터의 읽기는 기존 압축 방법보다 빠릅니다. 
 ---
 = 압축
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

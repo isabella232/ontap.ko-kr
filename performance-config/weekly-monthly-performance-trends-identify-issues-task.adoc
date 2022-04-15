@@ -5,6 +5,7 @@ keywords: use, weekly, monthly, performance, trends, identify, issues
 summary: 성능 추세를 파악하면 볼륨 지연 시간을 분석하여 클러스터가 과도하게 사용되고 있는지 또는 제대로 사용되고 있지 않는지를 파악하는 데 도움이 됩니다. 유사한 단계를 사용하여 CPU, 네트워크 또는 기타 시스템 병목 현상을 식별할 수 있습니다. 
 ---
 = 매주 및 매월 성과 추세를 사용하여 성과 문제를 식별합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

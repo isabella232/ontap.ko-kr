@@ -6,6 +6,7 @@ summary: SM-BC는 팬아웃 구성을 지원합니다. SM-BC 엔드포인트에�
 ---
 = SM-BC를 사용하여 팬아웃 구성에서 보호를 재개합니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: transfer, failed, aborted, metrocluster, operation, switchover, switch
 summary: 전환 또는 스위치백 작업으로 인해 SMTape 작업이 중단됩니다. 
 ---
 = 전송 실패(MetroCluster 작업으로 인해 중단됨)
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, discover, domain, controller, dns, list, add preferred domain c
 summary: ONTAP는 DNS를 통해 도메인 컨트롤러를 자동으로 검색합니다. 필요에 따라 특정 도메인의 기본 도메인 컨트롤러 목록에 하나 이상의 도메인 컨트롤러를 추가할 수 있습니다. 
 ---
 = 기본 도메인 컨트롤러를 추가합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

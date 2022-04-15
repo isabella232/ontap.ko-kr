@@ -5,6 +5,7 @@ keywords: manage, node, scope, ndmp, mode, flexvol, volume, command, option, bac
 summary: NDMP 옵션과 명령을 사용하여 노드 레벨에서 NDMP를 관리할 수 있습니다. options 명령을 사용하여 NDMP 옵션을 수정할 수 있습니다. 테이프 백업 및 복구 작업을 수행하려면 NDMP 관련 자격 증명을 사용하여 스토리지 시스템을 액세스해야 합니다. 
 ---
 = FlexVol 볼륨에 대한 노드 범위 NDMP 모드 관리 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

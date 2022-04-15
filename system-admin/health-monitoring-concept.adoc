@@ -5,6 +5,7 @@ keywords: health, monitoring, individual, policies, alerts, condition
 summary: 개별 상태 모니터에는 특정 조건이 발생할 때 알림을 트리거하는 일련의 정책이 있습니다. 상태 모니터링 작동 방식을 이해하면 문제에 대응하고 향후 경고를 제어하는 데 도움이 됩니다. 
 ---
 = 상태 모니터링 작동 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

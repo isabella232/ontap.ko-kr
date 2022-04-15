@@ -8,6 +8,7 @@ summary: ONTAP 9.10.1.1부터 MetroCluster IP 인터페이스의 IP 주소 및 �
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

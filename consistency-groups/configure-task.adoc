@@ -5,6 +5,7 @@ keywords: consistency groups, consistency group, application protection, parent,
 summary: 애플리케이션 워크로드 관리 및 데이터 보호를 위한 단일 일관성 그룹 생성 
 ---
 = 단일 일관성 그룹을 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

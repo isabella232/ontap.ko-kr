@@ -6,6 +6,7 @@ summary: 클라이언트에 SVM 데이터를 제공할 LIF를 생성합니다
 ---
 = LIF를 생성합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

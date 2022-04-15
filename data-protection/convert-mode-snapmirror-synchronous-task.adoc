@@ -5,6 +5,7 @@ keywords: convert, mode, snapmirror, synchronous, relationship
 summary: ONTAP 9.5부터는 SnapMirror Synchronous 관계가 지원됩니다. SnapMirror Synchronous 관계의 모드를 StrictSync에서 Sync로 또는 그 반대로 변환할 수 있습니다. 
 ---
 = SnapMirror Synchronous 관계의 모드를 변환합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

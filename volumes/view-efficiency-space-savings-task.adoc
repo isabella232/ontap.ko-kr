@@ -5,6 +5,7 @@ keywords: view space savings with deduplication, view space savings with data co
 summary: volume show 명령을 사용하면 볼륨에서 중복제거 및 데이터 압축을 통해 절약 공간을 실현할 수 있습니다. 
 ---
 = 효율성 공간 절약 효과 확인
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

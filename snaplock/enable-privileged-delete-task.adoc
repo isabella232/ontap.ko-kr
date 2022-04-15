@@ -5,6 +5,7 @@ keywords: enable, privileged, delete, feature, enterprise, volume, worm, file
 summary: 삭제하려는 WORM 파일이 포함된 엔터프라이즈 볼륨에서 권한 있는 삭제 기능을 명시적으로 활성화해야 합니다. 
 ---
 = 권한 있는 삭제 기능을 활성화합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

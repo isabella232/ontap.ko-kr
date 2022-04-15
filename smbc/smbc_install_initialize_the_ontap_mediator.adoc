@@ -6,6 +6,7 @@ summary: SM-BC가 계획 및 자동 비계획 페일오버 작업을 수행하�
 ---
 = ONTAP 중재자를 초기화합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -5,6 +5,7 @@ keywords: convert, flexvol, volume, flexgroup, conversion, flex vol, flex group,
 summary: ONTAP 9.7부터 데이터 복사본이나 추가 디스크 공간 없이 FlexVol 볼륨을 FlexGroup 볼륨으로 데이터 이동 없이 전환할 수 있습니다. 
 ---
 = FlexVol 볼륨을 FlexGroup 볼륨으로 변환합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

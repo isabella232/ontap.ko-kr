@@ -5,6 +5,7 @@ keywords: snaplock, autocommit, commit, files, worm, automatically
 summary: SnapLock 자동 커밋 기능을 사용하면 파일을 WORM에 자동으로 커밋할 수 있습니다. 
 ---
 = WORM에 파일을 자동 커밋합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: cloud, compliance service, data sense
 summary: 인공 지능을 기반으로 하는 NetApp은 클라우드 데이터 센스를 제공하여 다양한 규정을 준수하도록 지원합니다. 이 상시 가동 서비스는 복잡한 규정 준수 규제를 처리하는 가장 좋은 방법입니다. 
 ---
 = NetApp 클라우드 데이터 감지
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: plan, fpolicy, policy, configuration
 summary: FPolicy 정책을 구성하기 전에 정책을 생성할 때 어떤 매개 변수가 필요한지, 그리고 특정 선택적 매개 변수를 구성해야 하는 이유를 이해해야 합니다. 이 정보는 각 매개변수에 대해 설정할 값을 결정하는 데 도움이 됩니다. 
 ---
 = FPolicy 정책 구성 개요를 계획하십시오
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

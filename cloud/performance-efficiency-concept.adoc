@@ -5,6 +5,7 @@ keywords: performance, efficiency, cloud
 summary: 사내 ONTAP 시스템은 더 적은 물리적 공간에 더 많은 데이터를 저장하고 거의 사용되지 않는 데이터를 계층화하여 스토리지 비용을 절감할 수 있는 데이터 효율성 기능을 제공합니다. 하이브리드 클라우드 구성을 사용하거나 전체 워크로드를 클라우드로 이동할 때 ONTAP을 사용하면 스토리지 성능과 효율성을 극대화할 수 있습니다. 
 ---
 = 클라우드 개요: 성능 및 효율성
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

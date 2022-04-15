@@ -6,6 +6,7 @@ summary: 포트, LIF, 라우트, 페일오버 규칙, 페일오버 그룹 관련
 ---
 = 개요
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

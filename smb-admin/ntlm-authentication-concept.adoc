@@ -5,6 +5,7 @@ keywords: ntlm, client, authentication, using, use, challenge, response, protoco
 summary: NTLM 클라이언트 인증은 암호를 기반으로 사용자별 비밀번호에 대한 공유 지식을 기반으로 하는 본인 확인 응답 프로토콜을 사용하여 수행됩니다. 
 ---
 = NTLM 인증
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

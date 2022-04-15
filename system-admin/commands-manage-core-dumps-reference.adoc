@@ -5,6 +5,7 @@ keywords: command, manage, core, dump, coredump, config, files, node, applicatio
 summary: 시스템 노드 코어 덤프 구성 명령을 사용하여 코어 덤프 구성, 코어 덤프 파일을 관리하는 시스템 노드 코어 덤프 명령, 응용 프로그램 코어 보고서를 관리하는 시스템 노드 코어 덤프 보고서 명령을 관리할 수 있습니다. 
 ---
 = 코어 덤프를 관리하는 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: expand, flexgroup, volume, snapmirror, relationship, snap mirror, flex
 summary: ONTAP 9.3부터는 새 구성요소를 볼륨에 추가하여 SnapMirror 관계에 있는 소스 FlexGroup 볼륨과 타겟 FlexGroup 볼륨을 확장할 수 있습니다. 대상 볼륨을 수동 또는 자동으로 확장할 수 있습니다. 
 ---
 = SnapMirror 관계에서 FlexGroup 볼륨을 확장합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

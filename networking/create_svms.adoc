@@ -6,6 +6,7 @@ summary: SVM을 생성하여 클라이언트에 데이터 제공
 ---
 = SVM을 생성합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

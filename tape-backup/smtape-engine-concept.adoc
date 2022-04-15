@@ -5,6 +5,7 @@ keywords: smtape, disaster, recovery, solution, blocks, data, tape, qtree, subtr
 summary: SMTape는 데이터 블록을 테이프로 백업하는 ONTAP의 재해 복구 솔루션입니다. SMTape를 사용하여 테이프에 볼륨 백업을 수행할 수 있습니다. 그러나 qtree 또는 하위 트리 레벨에서 백업을 수행할 수 없습니다. SMTape는 기본 백업, 차등 백업 및 증분 백업을 지원합니다. SMTape에는 라이센스가 필요하지 않습니다. 
 ---
 = FlexVol 볼륨용 SMTape 엔진 정보
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

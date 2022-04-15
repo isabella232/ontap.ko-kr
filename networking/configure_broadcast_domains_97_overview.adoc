@@ -6,6 +6,7 @@ summary: 브로드캐스트 도메인은 동일한 계층 2 네트워크에 속�
 ---
 = ONTAP 9.7 및 그 이전 버전에 대한 개요
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

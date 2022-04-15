@@ -5,6 +5,7 @@ keywords: update, desk, qualification, package
 summary: 'DQP(Disk Qualification Package)는 새로 검증된 드라이브에 대한 완전한 지원을 추가합니다. 드라이브 펌웨어를 업데이트하거나 새 드라이브 유형 또는 크기를 클러스터에 추가하기 전에 DQP를 업데이트해야 합니다. 모범 사례는 DQP를 정기적으로 업데이트하는 것입니다(예: 매 분기 또는 매 반년).' 
 ---
 = 디스크 검증 패키지를 업데이트해야 하는 경우
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

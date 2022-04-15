@@ -5,6 +5,7 @@ keywords: upgrade, cluster, limits, verify, san
 summary: ONTAP 소프트웨어를 업그레이드하기 전에 클러스터가 플랫폼 시스템 제한을 초과하지 않는지 확인해야 합니다. 
 ---
 = 클러스터 업그레이드 제한 확인
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

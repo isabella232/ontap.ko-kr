@@ -5,6 +5,7 @@ keywords: enable, disable, vss, aware, backup, hyper, v, virtual, machine, files
 summary: VSS 인식 백업 애플리케이션을 사용하여 SMB 공유에 저장된 Hyper-V 가상 머신 파일을 백업하는 경우 VSS 섀도우 복제본을 설정해야 합니다. VSS 인식 백업 애플리케이션을 사용하지 않는 경우 VSS 섀도우 복제본을 비활성화할 수 있습니다. 기본값은 VSS 섀도우 복제본을 설정하는 것입니다. 
 ---
 = SMB 백업을 통해 Hyper-V에 대한 VSS 섀도우 복제본을 설정하거나 해제합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -8,6 +8,7 @@ summary: 다음 절차에 따라 System Manager를 사용하여 모든 SAN 어�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

@@ -5,6 +5,7 @@ keywords: decide, provision, new s3, storage, capacity
 summary: 새 S3 버킷을 생성하기 전에 새 SVM이나 기존 SVM에 배치할 것인지 결정해야 합니다. 이 결정에 따라 워크플로가 결정됩니다. 
 ---
 = 새 S3 스토리지 용량을 프로비저닝할 위치를 결정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

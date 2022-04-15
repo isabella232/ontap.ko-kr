@@ -8,6 +8,7 @@ summary: System Manager를 사용하면 스토리지 시스템과 스토리지 �
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

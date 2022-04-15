@@ -5,6 +5,7 @@ keywords: files, event, triggered, autosupport, message, troubleshoot, subsystem
 summary: 이벤트 트리거 AutoSupport 메시지에는 AutoSupport가 메시지를 생성하도록 한 이벤트와 연결된 하위 시스템의 기본 및 문제 해결 정보만 포함됩니다. 특정 데이터는 NetApp 지원 및 지원 파트너가 문제를 해결하는 데 도움이 됩니다. 
 ---
 = 이벤트 트리거 AutoSupport 메시지로 전송된 파일입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -8,6 +8,7 @@ summary: 'ONTAP 9.10.1.1부터는 학습 모드에서 새로운 볼륨이 기본
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

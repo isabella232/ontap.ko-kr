@@ -5,6 +5,7 @@ keywords: select, lun, map
 summary: 'SLM(Selective LUN Map)은 호스트에서 LUN으로의 경로 수를 줄입니다. SLM 기능을 통해 새 LUN 맵이 생성되면 LUN 및 해당 HA 파트너를 소유하는 노드의 경로를 통해서만 LUN에 액세스할 수 있습니다.' 
 ---
 = 선택적 LUN 맵 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

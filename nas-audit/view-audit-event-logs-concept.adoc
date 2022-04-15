@@ -5,6 +5,7 @@ keywords: view, audit event logs
 summary: 감사 이벤트 로그를 사용하여 적절한 파일 보안이 있는지 여부와 잘못된 파일 및 폴더 액세스 시도가 있는지 여부를 확인할 수 있습니다. evtx 또는 XML 파일 형식으로 저장된 감사 이벤트 로그를 보고 처리할 수 있습니다. 
 ---
 = 감사 이벤트 로그를 봅니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -6,6 +6,7 @@ summary: DNS를 사용하여 호스트 정보에 대한 로컬 또는 원격 소
 ---
 = 호스트 이름 확인을 위해 DNS를 구성합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

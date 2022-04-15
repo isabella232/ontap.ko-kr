@@ -6,6 +6,7 @@ summary: IPspace별로 다양한 프로토콜에 대한 QoS 마킹 값을 표시
 ---
 = QoS 표시 값을 표시합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

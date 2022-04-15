@@ -8,6 +8,7 @@ summary: 스토리지 VM을 수정하여 SMB 서버에서 Windows 클라이언�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

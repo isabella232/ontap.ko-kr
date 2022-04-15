@@ -5,6 +5,7 @@ keywords: snapmirror, replication, workflow, protection relationship, snap mirro
 summary: SnapMirror 데이터 보호 관계의 각 유형에 대해 워크플로는 동일합니다. 대상 볼륨 생성, 작업 일정 생성, 정책 지정, 관계 생성 및 초기화 
 ---
 = SnapMirror 복제 워크플로우
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

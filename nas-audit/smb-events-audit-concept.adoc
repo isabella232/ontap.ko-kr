@@ -5,6 +5,7 @@ keywords: smb events, audited
 summary: ONTAP는 특정 파일 및 폴더 액세스 이벤트, 특정 로그온 및 로그오프 이벤트, 중앙 액세스 정책 스테이징 이벤트를 비롯한 특정 SMB 이벤트를 감사할 수 있습니다. 감사할 수 있는 액세스 이벤트를 알면 이벤트 로그의 결과를 해석할 때 도움이 됩니다. 
 ---
 = 감사할 수 있는 SMB 이벤트 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

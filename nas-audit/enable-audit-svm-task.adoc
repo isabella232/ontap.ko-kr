@@ -5,6 +5,7 @@ keywords: enable, audit, svm
 summary: '감사 구성 설정을 완료한 후에는 스토리지 가상 시스템 \(SVM\)에 대한 감사를 활성화해야 합니다.' 
 ---
 = SVM에 대한 감사를 설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

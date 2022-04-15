@@ -8,6 +8,7 @@ summary: '자주 액세스하는 볼륨(핫 볼륨) 및 데이터(핫 오브젝�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

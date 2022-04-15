@@ -5,6 +5,7 @@ keywords: access, event, log, files, rdfile, nodeshell, tap, backup, monitor, re
 summary: notes지옥의 rdfile 명령을 사용하여 /etc/log/directory에서 테이프 백업 및 복구 작업을 위한 이벤트 로그 파일에 액세스할 수 있습니다. 이러한 이벤트 로그 파일을 보고 테이프 백업 및 복원 작업을 모니터링할 수 있습니다. 
 ---
 = 이벤트 로그 파일에 액세스합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

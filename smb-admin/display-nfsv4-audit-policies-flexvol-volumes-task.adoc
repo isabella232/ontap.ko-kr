@@ -5,6 +5,7 @@ keywords: display, information, nfsv4, audit, policies, policy, flexvol, volume,
 summary: '보안 스타일 및 효과적인 보안 스타일의 정의, 적용되는 권한 및 SACL(시스템 액세스 제어 목록)에 대한 정보를 포함하여 ONTAP CLI를 사용하여 FlexVol 볼륨에서 NFSv4 감사 정책에 대한 정보를 표시할 수 있습니다. 결과를 사용하여 보안 구성을 확인하거나 감사 문제를 해결할 수 있습니다.' 
 ---
 = CLI를 사용하여 FlexVol 볼륨에서 NFSv4 감사 정책에 대한 정보를 표시합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

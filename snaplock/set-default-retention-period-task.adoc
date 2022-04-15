@@ -5,6 +5,7 @@ keywords: snaplock, volume, command, modify, retention, period, file, set, defau
 summary: volume SnapLock modify 명령을 사용하여 SnapLock 볼륨의 파일에 대한 기본 보존 기간을 설정할 수 있습니다. 
 ---
 = 기본 보존 기간을 설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

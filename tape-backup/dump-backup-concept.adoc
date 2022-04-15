@@ -5,6 +5,7 @@ keywords: dump, backup, qtree, file, system, data
 summary: 덤프 백업은 미리 정의된 프로세스를 사용하여 파일 시스템 데이터를 디스크에서 테이프로 씁니다. 볼륨, qtree 또는 전체 볼륨이나 qtree가 아닌 하위 트리를 백업할 수 있습니다. 
 ---
 = 덤프 백업의 작동 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

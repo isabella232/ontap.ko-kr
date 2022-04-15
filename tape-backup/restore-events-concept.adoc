@@ -5,6 +5,7 @@ keywords: restore, events, parenthesis, type
 summary: 복원 이벤트의 이벤트 필드에는 이벤트 유형 다음에 이벤트 관련 정보가 괄호 안에 표시됩니다. 
 ---
 = 복구 이벤트란 무엇입니까
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

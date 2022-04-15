@@ -5,6 +5,7 @@ keywords: invalid, backup, image, magic, number, smtape, retry, operation, resto
 summary: 백업 이미지 매직 번호가 잘못되었습니다. 
 ---
 = 백업 이미지 매직 번호가 잘못되었습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

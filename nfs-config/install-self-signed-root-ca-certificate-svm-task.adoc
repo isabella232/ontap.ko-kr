@@ -5,6 +5,7 @@ keywords: install, self-signed, root, ca certificate, svm
 summary: LDAP 서버에 바인딩할 때 TLS를 사용한 LDAP 인증이 필요한 경우 먼저 SVM에 자체 서명된 루트 CA 인증서를 설치해야 합니다. 
 ---
 = SVM에 자체 서명된 루트 CA 인증서를 설치합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

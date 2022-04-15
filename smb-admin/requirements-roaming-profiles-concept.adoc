@@ -5,6 +5,7 @@ keywords: microsoft, roam, profile, cifs, server, version, ontap, smb, windows, 
 summary: CIFS 서버에서 Microsoft의 로밍 프로필을 사용하려면 먼저 ONTAP 및 SMB의 버전과 이 기능을 지원하는 Windows 클라이언트를 알아야 합니다. 
 ---
 = 로밍 프로필 사용에 대한 요구 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

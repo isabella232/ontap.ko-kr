@@ -5,6 +5,7 @@ keywords: display, information, cifs, server, group, policy, object, gpo, config
 summary: 'CIFS 서버의 GPO(그룹 정책 개체) 구성에 대한 정보를 표시하여 BranchCache GPO가 CIFS 서버가 속한 도메인에 대해 정의되었는지 그리고 그러한 경우 허용되는 설정이 무엇인지 확인할 수 있습니다. 또한 BranchCache GPO 설정이 CIFS 서버에 적용되는지 여부를 확인할 수 있습니다.' 
 ---
 = BranchCache 그룹 정책 개체에 대한 정보를 표시합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: configure, security, style, qtree
 summary: Qtree 볼륨 보안 스타일을 구성하여 Qtree에서 데이터에 사용되는 권한의 유형을 결정할 수 있습니다. 
 ---
 = Qtree에서 보안 스타일 구성
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

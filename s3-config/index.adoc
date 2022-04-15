@@ -5,6 +5,7 @@ keywords: decide, s3, configuration, client, access, configure, object, bucket, 
 summary: ONTAP 9 CLI 명령을 사용하여 SVM의 버킷에 포함된 오브젝트에 대한 S3 클라이언트 액세스를 구성할 수 있습니다. 
 ---
 = CLI를 사용한 S3 구성 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, predefined, support, privilege, local, group, add, user, exist,
 summary: ONTAP에는 지원되는 권한이 미리 정의되어 있습니다. 미리 정의된 특정 로컬 그룹에는 이러한 권한 중 일부가 기본적으로 추가됩니다. 또한 미리 정의된 그룹에서 권한을 추가하거나 제거하거나 새 로컬 사용자 또는 그룹을 만들고 만든 그룹 또는 기존 도메인 사용자 및 그룹에 권한을 추가할 수도 있습니다. 
 ---
 = 지원되는 권한 목록입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

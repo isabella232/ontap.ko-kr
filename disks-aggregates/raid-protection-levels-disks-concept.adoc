@@ -5,6 +5,7 @@ keywords: raid, protection, levels, disks
 summary: ONTAP는 Aggregate에 대해 3가지 레벨의 RAID 보호를 지원합니다. RAID 보호 수준에 따라 디스크 장애 시 데이터 복구에 사용할 수 있는 패리티 디스크 수가 결정됩니다. 
 ---
 = 디스크의 RAID 보호 수준
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

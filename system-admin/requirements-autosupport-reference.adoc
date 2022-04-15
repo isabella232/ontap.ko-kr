@@ -5,6 +5,7 @@ keywords: requirements, autosupport, messages, http, smtp, https, configuration,
 summary: 최상의 보안을 제공하고 모든 최신 AutoSupport 기능을 지원하려면 AutoSupport 메시지 전달에 HTTPS를 사용해야 합니다. AutoSupport는 AutoSupport 메시지 전달을 위해 HTTP 및 SMTP를 지원하지만 HTTPS를 사용하는 것이 좋습니다. 
 ---
 = AutoSupport 사용에 대한 요구 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

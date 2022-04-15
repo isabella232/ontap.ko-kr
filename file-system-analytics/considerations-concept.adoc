@@ -5,6 +5,7 @@ keywords: file system analytics, performance, 7-mode
 summary: File System Analytics는 활성 NAS 데이터가 있는 볼륨에 대한 가시성을 제공하도록 설계되었습니다. 사용 시 제한 및 제한 사항이 있습니다. 
 ---
 = 파일 시스템 분석을 위한 고려 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

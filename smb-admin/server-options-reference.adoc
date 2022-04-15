@@ -5,6 +5,7 @@ keywords: useful, option, available, consider, customize, smb, cifs, server, gen
 summary: SMB 서버를 사용자 지정하는 방법을 고려할 때 사용할 수 있는 옵션을 파악하는 것이 유용합니다. 일부 옵션은 SMB 서버에서 일반적으로 사용되지만 일부 옵션은 특정 SMB 기능을 설정하고 구성하는 데 사용됩니다. SMB 서버 옵션은 vserver cifs options modify 옵션을 사용하여 제어합니다. 
 ---
 = 사용 가능한 SMB 서버 옵션
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

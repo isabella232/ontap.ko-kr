@@ -5,6 +5,7 @@ keywords: isolate, management, network, traffic, sp, bmc, e0m, interface, perfor
 summary: 관리 트래픽 전용 서브넷에 SP/BMC 및 e0M 관리 인터페이스를 구성하는 것이 좋습니다. 관리 네트워크를 통해 데이터 트래픽을 실행하면 성능 저하 및 라우팅 문제가 발생할 수 있습니다. 
 ---
 = 관리 네트워크 트래픽을 격리합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

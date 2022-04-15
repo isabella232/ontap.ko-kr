@@ -5,6 +5,7 @@ keywords: tranfer, failed, cfo, initiated, abort, aggregate, takeover, failover
 summary: 'SMTape 작업은 CFO 애그리게이트의 스토리지 페일오버(테이크오버 및 반환) 작업 때문에 중단됩니다.' 
 ---
 = 전송 실패(CFO가 중단을 초기화함)
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

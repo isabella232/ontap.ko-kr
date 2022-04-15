@@ -5,6 +5,7 @@ keywords: sp, bmc, network, interface, firmware, update
 summary: 버전 1.5, 2.5, 3.1 이상을 실행하는 SP에서 ONTAP에서 트리거되는 SP 펌웨어 업데이트는 SP 네트워크 인터페이스를 통해 IP 기반 파일 전송 메커니즘을 사용할 수 있도록 지원합니다. 
 ---
 = SP/BMC가 펌웨어 업데이트에 네트워크 인터페이스를 사용하는 경우
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

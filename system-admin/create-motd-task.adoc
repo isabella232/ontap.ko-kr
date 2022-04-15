@@ -5,6 +5,7 @@ keywords: create, motd, cli, user, clustershell, ssh, session, cluster, access, 
 summary: 'MOTD(오늘의 메시지)를 생성하여 인증된 CLI 사용자에게 정보를 전달할 수 있습니다. MOTD는 사용자를 인증한 후 클러스터 셸 프롬프트가 나타나기 전에 콘솔 세션(클러스터 액세스만 해당) 또는 SSH 세션(클러스터 또는 SVM 액세스용)에 표시됩니다.' 
 ---
 = MOTD를 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

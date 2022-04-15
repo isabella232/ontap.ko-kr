@@ -5,6 +5,7 @@ keywords: nvme, namespaces, considerations, provisioning
 summary: SAN 환경에서 NVMe 프로토콜을 설정하려면 NVMe용 SVM을 구성하고, 네임스페이스와 서브시스템을 생성하고, NVMe/FC LIF를 구성한 다음, 네임스페이스를 서브시스템에 매핑해야 합니다. 
 ---
 = NVMe 네임스페이스 고려 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

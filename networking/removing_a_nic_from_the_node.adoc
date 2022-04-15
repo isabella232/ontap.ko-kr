@@ -6,6 +6,7 @@ summary: ONTAP 9.8 이상에서는 유지 관리를 위해 결함이 있는 NIC�
 ---
 = ONTAP 9.8 이상의 노드에서 NIC 분리
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

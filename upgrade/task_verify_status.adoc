@@ -5,6 +5,7 @@ keywords: ontap, upgrade, upgrade, verify, status, ha, ldap, dns, networking, st
 summary: 다양한 구성 설정이 클러스터 업그레이드 준비에 영향을 미칠 수 있습니다. 
 ---
 = 상태를 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

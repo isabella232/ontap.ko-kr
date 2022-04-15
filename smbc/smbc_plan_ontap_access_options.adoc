@@ -6,6 +6,7 @@ summary: SM-BC 구축에 사용되는 ONTAP 노드를 구성할 때 여러 가�
 ---
 = ONTAP 액세스 옵션
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

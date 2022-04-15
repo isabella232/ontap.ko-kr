@@ -5,6 +5,7 @@ keywords: ontap 9, determine, correct volume, lun configuration, combination for
 summary: 환경에 대한 몇 가지 기본적인 질문에 답변하면 환경에 가장 적합한 FlexVol 볼륨 및 LUN 구성을 파악하는 데 도움이 됩니다. 
 ---
 = 환경에 맞는 올바른 볼륨 및 LUN 구성 조합을 결정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

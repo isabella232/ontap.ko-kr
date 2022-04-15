@@ -6,6 +6,7 @@ summary: 복구 노드에서 식별하여 사용할 수 있도록 만든 구성 
 ---
 = 구성 백업 파일을 사용하여 노드 구성을 복구합니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

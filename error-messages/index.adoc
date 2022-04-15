@@ -5,6 +5,7 @@ keywords: ems, configuration, event, management, system, events, notifications
 summary: '중요한 EMS(이벤트 관리 시스템) 이벤트 알림을 전자 메일 주소, syslog 서버 또는 SNMP(Simple Management Network Protocol) traaphost에 직접 보내도록 ONTAP를 빠르게 구성하여 즉각적인 주의가 필요한 시스템 문제를 즉시 알릴 수 있습니다.' 
 ---
 = EMS 구성 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

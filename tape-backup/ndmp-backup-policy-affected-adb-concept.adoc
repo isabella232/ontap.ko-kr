@@ -5,6 +5,7 @@ keywords: ndmp, backup, policy, adb, aggregate, balancer, analysis, user, statis
 summary: 'ADB(자동 데이터 밸런서)가 활성화되면 밸런서는 애그리게이트의 사용 통계를 분석하여 구성된 상위 임계값 사용 비율을 초과한 애그리게이트를 식별합니다.' 
 ---
 = ADB 동안 NDMP 백업 정책이 영향을 받는 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

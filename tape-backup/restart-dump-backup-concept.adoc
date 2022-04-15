@@ -5,6 +5,7 @@ keywords: restart, dump, backup, internal, external, tape, write, errors, power,
 summary: 테이프 쓰기 오류, 정전, 실수로 인한 사용자 중단 또는 스토리지 시스템의 내부 불일치 등과 같은 내부 또는 외부 오류로 인해 덤프 백업이 완료되지 않는 경우가 있습니다. 이러한 이유 중 하나로 인해 백업이 실패할 경우 백업을 다시 시작할 수 있습니다. 
 ---
 = 덤프 백업을 다시 시작해야 하는 경우
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: requirement, fpolicy, scope, configurations, policy, native engine
 summary: 기본 엔진을 사용하도록 FPolicy 정책을 구성하는 경우 정책에 구성된 FPolicy 범위를 정의하는 방법에 대한 특정 요구사항이 있습니다. 
 ---
 = FPolicy 정책에서 기본 엔진을 사용하는 경우 FPolicy 범위 구성에 대한 요구사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: key, concepts, nondisruptive, operation, hyper, v, sql, server, smb, c
 summary: 'SMB 솔루션을 통해 Hyper-V 또는 SQL Server를 구성하기 전에 알아야 하는 무중단 운영(NDO)에 대한 몇 가지 개념이 있습니다.' 
 ---
 = SMB를 통한 Hyper-V 및 SQL Server의 무중단 운영에 대한 주요 개념입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

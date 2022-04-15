@@ -5,6 +5,7 @@ keywords: branchcache, develop, microsoft, enable, caching, cache, content, comp
 summary: 'BranchCache는 요청 클라이언트에 대한 로컬 컴퓨터의 콘텐츠를 캐싱할 수 있도록 Microsoft에서 개발했습니다. ONTAP의 BranchCache를 구현하면 WAN(Wide Area Network) 사용률을 줄이고, 지사의 사용자가 SMB를 사용하여 SVM(Storage Virtual Machine)에 저장된 콘텐츠에 액세스할 때 액세스 응답 시간을 향상시킬 수 있습니다.' 
 ---
 = BranchCache를 사용하여 지사 개요에서 SMB 공유 콘텐츠를 캐시합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

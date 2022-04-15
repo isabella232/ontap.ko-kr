@@ -5,6 +5,7 @@ keywords: remove, san, lif, port, set
 summary: 삭제하거나 이동하려는 LIF가 포트 세트에 있는 경우 LIF를 삭제하거나 이동하기 전에 포트 세트에서 LIF를 제거해야 합니다. 
 ---
 = 포트 세트에서 SAN LIF를 제거합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

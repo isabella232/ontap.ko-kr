@@ -5,6 +5,7 @@ keywords: vserver, name-mapping, create, command, name, map, windows, enable, us
 summary: vserver name-mapping create 명령을 사용하여 이름 매핑을 생성할 수 있습니다. 이름 매핑을 사용하여 Windows 사용자가 UNIX 보안 스타일 볼륨에 액세스하고 그 반대로 액세스할 수 있습니다. 
 ---
 = 이름 매핑을 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

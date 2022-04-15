@@ -5,6 +5,7 @@ keywords: respond, system, health, alerts, repair, acknowledge, prevent
 summary: 시스템 상태 경고가 발생하면 이를 확인하고, 자세히 알아보고, 기본 상태를 수리하고, 문제가 다시 발생하지 않도록 할 수 있습니다. 
 ---
 = 시스템 상태 알림에 응답하는 방법
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

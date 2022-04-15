@@ -5,6 +5,7 @@ keywords: enable, branchcache, smb, create, share, setting, property, create a b
 summary: BranchCache 공유 속성을 설정하여 공유를 생성할 때 SMB 공유에서 BranchCache를 사용하도록 설정할 수 있습니다. 
 ---
 = BranchCache 지원 SMB 공유를 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

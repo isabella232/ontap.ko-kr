@@ -8,6 +8,7 @@ summary: 특정_역할_을 관리자에게 할당하여 관리자가 System Mana
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

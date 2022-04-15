@@ -5,6 +5,7 @@ keywords: create, smb, share, data, server, client, properties, home, directory,
 summary: SMB 클라이언트와 SMB 서버의 데이터를 공유하려면 먼저 SMB 공유를 생성해야 합니다. 공유를 생성할 때 공유를 홈 디렉토리로 지정하는 등의 공유 속성을 설정할 수 있습니다. 선택적 설정을 구성하여 공유를 사용자 지정할 수도 있습니다. 
 ---
 = SMB 공유를 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

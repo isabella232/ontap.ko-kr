@@ -5,6 +5,7 @@ keywords: smtape, storage, failover, arl, operation, aggregate, relocation
 summary: 'SMTape 백업 또는 복원 작업을 수행하기 전에 이러한 작업이 스토리지 페일오버(테이크오버 및 반환) 또는 애그리게이트 재배치(ARL) 작업에서 어떻게 작동하는지 이해해야 합니다. override-vetoes 옵션은 스토리지 페일오버 또는 ARL 작업 중 SMTape 엔진의 동작을 결정합니다.' 
 ---
 = SMTape가 스토리지 페일오버 및 ARL 작업과 작동하는 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

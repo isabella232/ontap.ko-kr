@@ -5,6 +5,7 @@ keywords: display, information, enabled fpolicy policies
 summary: '활성화된 FPolicy 정책에 대한 정보를 표시하여 사용자가 사용하도록 구성된 FPolicy 외부 엔진, 정책의 우선순위 및 FPolicy 정책이 연결된 스토리지 가상 시스템(SVM)을 결정할 수 있습니다.' 
 ---
 = 활성화된 FPolicy 정책에 대한 정보를 표시합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

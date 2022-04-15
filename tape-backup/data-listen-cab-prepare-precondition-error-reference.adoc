@@ -5,6 +5,7 @@ keywords: data, listen, cab, connection, prepare, precondition, error
 summary: 백업 애플리케이션이 NDMP 서버와 CAB 확장을 협상하고 NDMP_CAB_DATA_CONN_Prepare 및 NDMP_DATA_LECEIVE 메시지 간에 지정된 NDMP 데이터 연결 주소 유형이 일치하지 않으면 NDMP 데이터 수신 작업이 실패합니다. 
 ---
 = 데이터 수신: CAB 데이터 연결 준비 전제 조건 오류
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

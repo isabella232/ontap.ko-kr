@@ -5,6 +5,7 @@ keywords: ontap, revert, reverting, reversion, reverse, reversing, physical, blo
 summary: 상위 볼륨에서 FlexClone 볼륨을 분할한 경우 ONTAP 9.4 이상 버전을 ONTAP 이전 버전으로 되돌리기 전에 클론과 상위 볼륨 간의 물리적 블록 공유를 실행 취소해야 합니다. 
 ---
 = FlexClone 볼륨 분할에서 물리적 블록 공유를 반대로 수행합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

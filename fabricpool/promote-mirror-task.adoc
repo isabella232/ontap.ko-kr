@@ -5,6 +5,7 @@ keywords: promoting, fabricpool, mirror
 summary: 객체 저장소 미러를 프로모션하여 운영 오브젝트 저장소로 재할당할 수 있습니다. 객체 저장소 미러가 1차 미러가 되면 원래 1차 미러가 자동으로 미러가 됩니다. 
 ---
 = FabricPool 미러를 상향 이동합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

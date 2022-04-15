@@ -5,6 +5,7 @@ keywords: command, mapping, name
 summary: 이름 매핑을 관리하기 위한 특정 ONTAP 명령이 있습니다. 
 ---
 = 이름 매핑을 관리하는 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

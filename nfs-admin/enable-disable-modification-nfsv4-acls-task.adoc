@@ -5,6 +5,7 @@ keywords: enable, disable, modification, nfsv4, acl
 summary: ONTAP가 ACL이 있는 파일 또는 디렉토리에 대한 chmod 명령을 수신하면 기본적으로 ACL이 유지되고 모드 비트 변경 사항을 반영하도록 수정됩니다. 대신 ACL을 삭제하려는 경우 -v4-acl-preserve 매개 변수를 사용하지 않도록 설정하여 동작을 변경할 수 있습니다. 
 ---
 = NFSv4 ACL 수정 설정 또는 해제
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

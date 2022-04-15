@@ -5,6 +5,7 @@ keywords: update, replication, relationship, manual, snap mirror, snapmirror, sy
 summary: 소스 볼륨이 이동되었기 때문에 업데이트에 실패하면 복제 관계를 수동으로 업데이트해야 할 수 있습니다. 
 ---
 = 복제 관계를 수동으로 업데이트합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

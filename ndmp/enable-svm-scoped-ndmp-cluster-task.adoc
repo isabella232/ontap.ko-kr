@@ -5,6 +5,7 @@ keywords: enable, svm, scope, ndmp, cluster
 summary: '클러스터에서 SVM 범위의 NDMP 모드 및 NDMP 서비스를 활성화하여 SVM 범위가 지정된 NDMP를 클러스터에서 구성할 수 있습니다(관리 SVM).' 
 ---
 = 클러스터에서 SVM 범위의 NDMP를 사용하도록 설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

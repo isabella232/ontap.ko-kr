@@ -5,6 +5,7 @@ keywords: verify, permissions, kerberos, configuration
 summary: Kerberos를 사용하려면 SVM 루트 볼륨 및 로컬 사용자 및 그룹에 대해 특정 UNIX 사용 권한을 설정해야 합니다. 
 ---
 = Kerberos 구성에 대한 권한을 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

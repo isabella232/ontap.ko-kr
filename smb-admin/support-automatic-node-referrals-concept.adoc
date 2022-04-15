@@ -5,6 +5,7 @@ keywords: enable, smb, automatic, node, referral, aware, ontap, functionality, s
 summary: SMB 자동 노드 조회를 활성화하기 전에 특정 ONTAP 기능이 조회를 지원하지 않는다는 점을 알아야 합니다. 
 ---
 = SMB 자동 노드 조회를 지원합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

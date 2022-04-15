@@ -5,6 +5,7 @@ keywords: mapping, work
 summary: ONTAP에서 사용자에 대한 자격 증명을 매핑해야 하는 경우 먼저 로컬 이름 매핑 데이터베이스와 LDAP 서버에서 기존 매핑을 확인합니다. SVM의 네임 서비스 구성에 따라 1개 또는 2개 모두를 검사할지 여부를 결정합니다. 
 ---
 = 이름 매핑 작동 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

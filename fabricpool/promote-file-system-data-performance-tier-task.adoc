@@ -5,6 +5,7 @@ keywords: promoting, data, file, system, performance, tier
 summary: 클라우드 계층의 복원된 스냅샷 복사본에서 액티브 파일 시스템 데이터를 능동적으로 검색하여 성능 계층으로 상향 이동할 수 있습니다. 
 ---
 = 파일 시스템 데이터를 성능 계층으로 상향 이동합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

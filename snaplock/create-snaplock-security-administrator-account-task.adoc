@@ -5,6 +5,7 @@ keywords: create, snaplock, security, administrator, support, volume, move, user
 summary: SnapLock 볼륨 이동을 수행하려면 SnapLock 보안 관리자 권한이 있어야 합니다. 이 권한은 ONTAP 9.8에 도입된 SnapLock 역할을 통해 부여됩니다. 해당 역할이 아직 할당되지 않은 경우 클러스터 관리자에게 이 SnapLock 보안 역할을 가진 SnapLock 보안 사용자를 만들도록 요청할 수 있습니다. 
 ---
 = SnapLock 보안 관리자 계정을 만듭니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

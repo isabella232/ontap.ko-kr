@@ -5,6 +5,7 @@ keywords: decrease, size, lun
 summary: LUN 크기를 줄이기 전에 호스트는 LUN 데이터가 포함된 블록을 더 작은 LUN 크기의 바운더리로 마이그레이션해야 합니다. Windows용 SnapDrive와 같은 툴을 사용하면 LUN 데이터가 포함된 블록을 잘라내지 않고도 LUN이 제대로 감소하는지 확인할 수 있습니다. LUN 크기를 수동으로 줄이는 것은 권장되지 않습니다. 
 ---
 = LUN 크기를 줄입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

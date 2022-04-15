@@ -5,6 +5,7 @@ keywords: tape, record, size, small, restore, operation, blocking, factor, backu
 summary: 복구 작업에 지정된 차단 계수가 백업 중에 사용된 차단 요소보다 작습니다. 
 ---
 = 테이프 레코드 크기가 너무 작습니다. 더 큰 크기로 시도하십시오.
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

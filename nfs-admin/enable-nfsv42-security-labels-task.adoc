@@ -5,6 +5,7 @@ keywords: enable, nfs, v4.2, security, label
 summary: ONTAP 9.9.1부터 NFS 보안 레이블을 활성화할 수 있습니다. 기본적으로 비활성화되어 있습니다. 
 ---
 = NFS v4.2 보안 레이블을 사용하도록 설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: considerations, restore, file, data, original, path, destination, oper
 summary: 백업된 데이터를 원래 경로 또는 다른 대상으로 복원할 수 있습니다. 백업된 데이터를 다른 대상으로 복원하는 경우 복원 작업을 위한 대상을 준비해야 합니다. 
 ---
 = 데이터를 복원하기 전에 고려해야 할 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

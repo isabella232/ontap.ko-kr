@@ -5,6 +5,7 @@ keywords: reset, status, scanned files
 summary: 경우에 따라 SVM Vscan reset 명령을 사용하여 파일에 대해 캐시된 정보를 폐기함으로써 SVM에서 성공적으로 스캔된 파일의 스캔 상태를 재설정할 수 있습니다. 예를 들어, 잘못 구성된 검사가 있는 경우 이 명령을 사용하여 바이러스 검사 처리를 다시 시작할 수 있습니다. 
 ---
 = 스캔한 파일의 상태를 재설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: requirement, configure, kerberos, nfs
 summary: 시스템에서 NFS로 Kerberos를 구성하기 전에 네트워크 및 스토리지 환경의 특정 항목이 올바르게 구성되었는지 확인해야 합니다. 
 ---
 = NFS로 Kerberos 구성 요구 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

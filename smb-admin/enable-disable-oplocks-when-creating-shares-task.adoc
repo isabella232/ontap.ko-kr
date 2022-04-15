@@ -5,6 +5,7 @@ keywords: oplock, client, lock, file, cache, content, local, performance, operat
 summary: 'oplocks를 사용하면 클라이언트가 파일을 잠그고 컨텐츠를 로컬에서 캐시할 수 있으므로 파일 작업의 성능이 향상됩니다. oplocks는 스토리지 가상 시스템(SVM)에 상주하는 SMB 공유에 설정됩니다. 경우에 따라 oplocks를 해제할 수 있습니다. 공유별로 oplocks를 설정하거나 해제할 수 있습니다.' 
 ---
 = SMB 공유를 생성할 때 oplocks를 설정하거나 해제합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

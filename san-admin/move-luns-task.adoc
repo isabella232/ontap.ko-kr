@@ -5,6 +5,7 @@ keywords: system manager, ontap 9.2, move, lun
 summary: 'SVM(스토리지 가상 시스템) 내의 볼륨 간에 LUN을 이동할 수 있지만 SVM 간에 LUN을 이동할 수는 없습니다. SVM 내에서 볼륨 간에 이동하는 LUN은 연결 끊김 없이 즉시 이동됩니다.' 
 ---
 = LUN을 이동합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

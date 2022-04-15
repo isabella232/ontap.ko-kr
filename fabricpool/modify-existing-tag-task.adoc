@@ -5,6 +5,7 @@ keywords: modifying, existing tag
 summary: 태그 이름을 변경하거나, 개체 저장소의 기존 개체에 있는 태그를 바꾸거나, 나중에 추가할 새 개체에 다른 태그를 추가할 수 있습니다. 
 ---
 = 기존 태그를 수정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

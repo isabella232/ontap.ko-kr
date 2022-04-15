@@ -5,6 +5,7 @@ keywords: configure, volumes, automatically, provide, more, space, when, full
 summary: FlexVol 볼륨이 꽉 차면 ONTAP는 다양한 방법을 사용하여 볼륨에 사용 가능한 공간을 자동으로 더 많이 제공할 수 있습니다. ONTAP에서 사용할 수 있는 방법과 애플리케이션 및 스토리지 아키텍처의 요구사항에 따라 사용할 순서를 선택할 수 있습니다. 
 ---
 = 볼륨이 꽉 차면 자동으로 더 많은 공간을 제공하도록 볼륨을 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

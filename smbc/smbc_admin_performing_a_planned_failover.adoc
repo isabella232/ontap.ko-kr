@@ -6,6 +6,7 @@ summary: 계획된 페일오버를 수행하여 재해 복구 구성을 테스�
 ---
 = 계획된 페일오버를 수행합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

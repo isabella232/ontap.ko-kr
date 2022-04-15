@@ -6,6 +6,7 @@ summary: 클러스터의 각 SVM에 대한 라우팅 구성 정보를 봅니다
 ---
 = 라우팅 정보를 표시합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

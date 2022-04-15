@@ -6,6 +6,7 @@ summary: SVM에서 불필요한 정적 경로를 제거합니다
 ---
 = 정적 경로를 삭제합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -5,6 +5,7 @@ keywords: message, write, dirnet, error, string, remote, tape, ndmp, connection
 summary: NDMP 3-way 연결에서 원격 테이프에 대한 백업 통신에 오류가 있습니다. 
 ---
 = Write Dirnet의 메시지: error_string
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

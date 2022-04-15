@@ -5,6 +5,7 @@ keywords: create, volume efficiency policy, run, efficiency, operations
 summary: 특정 기간 동안 볼륨에 대해 중복제거 또는 데이터 압축을 실행한 후 볼륨 효율성 정책 생성 명령을 사용하여 작업 일정을 지정할 수 있습니다. 
 ---
 = 효율성 작업을 실행할 볼륨 효율성 정책을 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

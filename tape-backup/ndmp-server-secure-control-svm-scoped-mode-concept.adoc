@@ -5,6 +5,7 @@ keywords: ndmp, server, supports, secure, control, connections, svm, scoped, mod
 summary: '보안 소켓(SSL/TLS)을 통신 메커니즘으로 사용하여 DMA(Data Management Application)와 NDMP 서버 간에 보안 제어 연결을 설정할 수 있습니다. 이 SSL 통신은 서버 인증서를 기반으로 합니다. NDMP 서버는 포트 30000에서 수신 대기합니다(IANA에서 "ndmps" 서비스에 할당됨).' 
 ---
 = NDMP 서버는 SVM 범위 모드에서 보안 제어 연결을 지원합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

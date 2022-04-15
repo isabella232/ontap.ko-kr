@@ -5,6 +5,7 @@ keywords: manual, assign, disk, ownership, partition, disks
 summary: 분할되지 않은 디스크의 경우 그대로 수동으로 또는 자동 할당을 사용하여 컨테이너 디스크 또는 파티션의 소유권을 설정할 수 있습니다. 
 ---
 = 분할된 디스크의 소유권을 수동으로 할당 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

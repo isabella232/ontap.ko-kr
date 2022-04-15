@@ -6,6 +6,7 @@ summary: 브로드캐스트 도메인은 동일한 계층 2 네트워크에 속�
 ---
 = 브로드캐스트 도메인을 만듭니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

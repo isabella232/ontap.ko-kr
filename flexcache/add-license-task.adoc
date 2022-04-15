@@ -5,6 +5,7 @@ keywords: add, flexcache, license, flex cache, volume, limit, capacity, term
 summary: ONTAP 9.6 이하 버전을 실행 중인 경우 System Manager를 사용하여 용량 기반 및 기간 기반 라이센스인 FlexCache 라이센스를 설치해야 합니다. 
 ---
 = FlexCache 라이센스를 추가합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

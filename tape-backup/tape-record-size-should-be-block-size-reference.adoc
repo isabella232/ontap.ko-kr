@@ -5,6 +5,7 @@ keywords: tape, record, size, local, restore, blocking, factor, restore, operati
 summary: 로컬 복구에 대해 지정된 차단 계수가 잘못되었습니다. 
 ---
 = 테이프 레코드 크기는 block_size1이 아니라 block_size2여야 합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

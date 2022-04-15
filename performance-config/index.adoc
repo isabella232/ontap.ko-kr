@@ -5,6 +5,7 @@ keywords: decide, use, performance, monitor, monitoring, express,
 summary: 'Active IQ Unified Manager(이전의 OnCommand Unified Manager)를 빠르게 설치 및 구성하고, 기본 모니터링 작업을 수행하며, 성능 문제를 식별할 수 있습니다.' 
 ---
 = 성능 모니터링 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

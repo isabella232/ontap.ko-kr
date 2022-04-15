@@ -5,6 +5,7 @@ keywords: potential connectivity, issues, involve, scan-mandatory, option
 summary: 기본적으로 액세스 시 스캔에 대한 스캔 필수 옵션은 Vscan 서버 연결을 스캐닝에 사용할 수 없을 때 파일 액세스를 거부합니다. 이 옵션은 중요한 안전 기능을 제공하지만 몇 가지 상황에서 문제가 발생할 수 있습니다. 
 ---
 = 스캔 필수 옵션과 관련된 잠재적인 연결 문제
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

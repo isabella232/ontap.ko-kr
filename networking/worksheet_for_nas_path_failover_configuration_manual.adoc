@@ -6,6 +6,7 @@ summary: ONTAP 9.0-9.7에 대한 NAS 경로 페일오버를 구성하기 전에 
 ---
 = ONTAP 9.0-9.7에 대한 NAS 경로 페일오버 구성을 위한 워크시트입니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

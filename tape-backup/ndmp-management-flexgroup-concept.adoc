@@ -5,6 +5,7 @@ keywords: understand, ndmp, flexgroup, volume, flexvol
 summary: ONTAP 9.7부터는 FlexGroup 볼륨에서 NDMP가 지원됩니다. 
 ---
 = FlexGroup 볼륨용 NDMP 정보
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

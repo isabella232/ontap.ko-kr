@@ -5,6 +5,7 @@ keywords: initialize, replication, relationship, snapmirror, snap mirror, synchr
 summary: 모든 관계 유형에 대해 초기화는 기본 전송을 수행합니다. 즉, 소스 볼륨의 스냅샷 복사본을 만든 다음 해당 복사본과 대상 볼륨에 참조하는 모든 데이터 블록을 전송합니다. 그렇지 않으면 전송 내용이 정책에 따라 달라집니다. 
 ---
 = 복제 관계를 초기화합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

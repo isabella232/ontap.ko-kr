@@ -6,6 +6,7 @@ summary: 'SVM(스토리지 가상 머신)의 DNS 로드 밸런싱 영역에서 L
 ---
 = 로드 밸런싱 영역에서 LIF를 추가 또는 제거합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

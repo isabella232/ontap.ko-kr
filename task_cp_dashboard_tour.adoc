@@ -8,6 +8,7 @@ summary: 대시보드를 사용하여 추가하거나 이동할 워크로드에 
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

@@ -8,6 +8,7 @@ summary: 스토리지 서비스를 온라인으로 유지하면서 MetroCluster 
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

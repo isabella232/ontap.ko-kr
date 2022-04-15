@@ -5,6 +5,7 @@ keywords: lifs, network, settings, svm, replication
 summary: 소스 및 타겟 SVM이 서로 다른 서브넷에 있는 경우 SnapMirror 정책 생성 명령의 -discard-configs 네트워크 옵션을 사용하여 LIF 및 관련 네트워크 설정을 SVM 복제에서 제외할 수 있습니다. 
 ---
 = SVM 복제에서 LIF 및 관련 네트워크 설정을 제외합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

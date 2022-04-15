@@ -5,6 +5,7 @@ keywords: ontap, upgrade, how, firmware, updated, during
 summary: ONTAP 업그레이드에는 펌웨어 업그레이드가 포함되므로 펌웨어를 수동으로 업데이트할 필요가 없습니다. 
 ---
 = ONTAP 업그레이드 중 펌웨어 업데이트 방법
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

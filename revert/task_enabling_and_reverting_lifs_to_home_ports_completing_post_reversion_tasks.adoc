@@ -5,6 +5,7 @@ keywords: ontap, revert, reverting, reversion, downgrade, downgrading, enable, e
 summary: 재부팅 중 일부 LIF는 할당된 페일오버 포트로 마이그레이션되었을 수 있습니다. 클러스터를 되돌린 후에는 홈 포트에 없는 모든 LIF를 설정 및 되돌려야 합니다. 
 ---
 = 되돌리기 후 LIF를 홈 포트로 설정 및 되돌립니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

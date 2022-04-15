@@ -5,6 +5,7 @@ keywords: ontap, upgrade, mixed, version, requirements
 summary: ONTAP 9.3부터는 기본적으로 기존 노드에서 실행 중인 버전과 다른 ONTAP 버전을 실행 중인 클러스터에 새 노드를 추가할 수 없습니다. 
 ---
 = 혼합 버전 요구 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

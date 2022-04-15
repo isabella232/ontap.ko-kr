@@ -5,6 +5,7 @@ keywords: previous, configure, branchcache, storage, virtual, machine, svm, cach
 summary: '이전에 BranchCache를 구성했지만 SVM(스토리지 가상 시스템)이 캐시된 콘텐츠를 계속 제공하지 않도록 하려면 CIFS 서버에서 BranchCache 구성을 삭제할 수 있습니다. 구성을 삭제할 때 어떤 일이 발생하는지 알고 있어야 합니다.' 
 ---
 = BranchCache 구성을 삭제하면 어떻게 됩니까
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

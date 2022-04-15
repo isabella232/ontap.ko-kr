@@ -5,6 +5,7 @@ keywords: file, lock, prevent, client, access, display, information, held, break
 summary: 파일 잠금으로 인해 클라이언트가 파일에 액세스하지 못하는 경우 현재 보류된 잠금에 대한 정보를 표시한 다음 특정 잠금을 중단할 수 있습니다. 잠금을 해제해야 하는 시나리오의 예로는 응용 프로그램 디버깅이 있습니다. 
 ---
 = 잠금 해제
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

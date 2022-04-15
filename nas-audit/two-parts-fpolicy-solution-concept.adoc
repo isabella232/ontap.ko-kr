@@ -5,6 +5,7 @@ keywords: two parts, fpolicy, solution
 summary: FPolicy 솔루션에는 두 가지 부품이 있습니다. ONTAP FPolicy 프레임워크는 클러스터의 활동을 관리하고 외부 FPolicy 서버에 알림을 보냅니다. 외부 FPolicy 서버는 ONTAP FPolicy에서 보낸 알림을 처리합니다. 
 ---
 = FPolicy 솔루션의 두 부분은 무엇입니까
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

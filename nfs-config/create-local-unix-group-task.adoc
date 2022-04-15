@@ -5,6 +5,7 @@ keywords: create, local, unix, group
 summary: vserver services name-service unix-group create 명령을 사용하여 SVM에 로컬인 UNIX 그룹을 생성할 수 있습니다. 로컬 UNIX 그룹은 로컬 UNIX 사용자와 함께 사용됩니다. 
 ---
 = 로컬 UNIX 그룹을 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -6,6 +6,7 @@ summary: SVM 내 경로에 대한 정보를 봅니다
 ---
 = 라우팅 정보를 표시합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

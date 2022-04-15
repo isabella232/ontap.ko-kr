@@ -5,6 +5,7 @@ keywords: job, aborted, shutown, reboot, system, restore, operation
 summary: 스토리지 시스템을 재부팅하는 중입니다. 
 ---
 = 종료로 인해 작업이 중단되었습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

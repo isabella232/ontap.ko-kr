@@ -5,6 +5,7 @@ keywords: configure, security, style, flexvol, volume
 summary: 'FlexVol 볼륨 보안 스타일을 구성하여 SVM(스토리지 가상 머신)의 FlexVol 볼륨에서 데이터에 사용되는 권한의 유형을 결정할 수 있습니다.' 
 ---
 = FlexVol 볼륨에서 보안 스타일을 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

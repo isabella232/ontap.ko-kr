@@ -5,6 +5,7 @@ keywords: microsoft, offloaded, data, transfer, odx
 summary: '복사 오프로드로 알려진 Microsoft ODX(Offloaded Data Transfer)를 사용하면 호스트 컴퓨터를 통해 데이터를 전송하지 않고도 스토리지 장치 내에서 또는 호환되는 스토리지 장치 간에 직접 데이터를 전송할 수 있습니다.' 
 ---
 = Microsoft ODX(Offloaded Data Transfer) 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

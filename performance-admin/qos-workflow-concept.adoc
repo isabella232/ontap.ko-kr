@@ -5,6 +5,7 @@ keywords: storage, qos, workflow
 summary: QoS를 사용하여 관리할 워크로드의 성능 요구사항을 이미 알고 있는 경우 정책 그룹을 생성할 때 처리량 한도를 지정할 수 있습니다. 그렇지 않으면 워크로드를 모니터링하여 한도를 지정할 때까지 기다릴 수 있습니다. 
 ---
 = 스토리지 QoS 워크플로우
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

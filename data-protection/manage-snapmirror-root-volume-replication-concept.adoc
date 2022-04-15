@@ -5,6 +5,7 @@ keywords: manage, snapmirror, root volume , replication
 summary: NAS 환경의 모든 SVM에는 고유한 네임스페이스가 있습니다. 운영 체제 및 관련 정보가 포함된 SVM 루트 볼륨은 네임스페이스 계층 구조의 진입점입니다. 노드 운영 중단 또는 페일오버 발생 시 클라이언트가 데이터에 계속 액세스할 수 있도록 SVM 루트 볼륨의 로드 공유 미러 복사본을 생성해야 합니다. 
 ---
 = SnapMirror 루트 볼륨 복제 개요 관리
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

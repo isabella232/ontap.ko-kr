@@ -5,6 +5,7 @@ keywords: security, style, volume, factor, primary, administrator, manage, file,
 summary: 볼륨에 사용할 보안 스타일을 결정하는 데 도움이 되도록 두 가지 요소를 고려해야 합니다. 기본 요소는 파일 시스템을 관리하는 관리자 유형입니다. 2차 요소는 볼륨의 데이터에 액세스하는 사용자 또는 서비스의 유형입니다. 
 ---
 = SVM에 사용할 보안 유형을 결정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -7,6 +7,7 @@ summary: System Manager는 ONTAP 클러스터를 쉽게 구성 및 관리할 수
 ---
 = ONTAP 9 설명서
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

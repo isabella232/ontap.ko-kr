@@ -5,6 +5,7 @@ keywords: node, scope, ndmp, mode, tape, backup, resotre, operations, upgrade, d
 summary: 노드 범위의 NDMP 모드에서는 노드 수준에서 테이프 백업 및 복구 작업을 수행할 수 있습니다. Data ONTAP 8.2에서 사용되는 NDMP 작업 모드는 업그레이드 후에도 8.2에서 8.3으로 유지됩니다. 
 ---
 = 노드 범위의 NDMP 모드는 무엇입니까
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

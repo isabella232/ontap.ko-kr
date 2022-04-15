@@ -5,6 +5,7 @@ keywords: access, system, console, node, serial, ssh, sp, boot
 summary: '부팅 메뉴 또는 부팅 환경 프롬프트에 노드가 있는 경우 시스템 콘솔(시리얼 콘솔이라고도 함)을 통해서만 액세스할 수 있습니다. 노드의 SP 또는 클러스터에 대한 SSH 연결에서 노드의 시스템 콘솔에 액세스할 수 있습니다.' 
 ---
 = 노드의 시스템 콘솔에 액세스합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

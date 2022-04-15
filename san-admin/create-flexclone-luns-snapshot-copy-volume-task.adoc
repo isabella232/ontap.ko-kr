@@ -5,6 +5,7 @@ keywords: create, flexclone, luns, snapshot, copy, volume
 summary: 볼륨의 스냅샷 복사본을 사용하여 LUN의 FlexClone 복사본을 만들 수 있습니다. LUN의 FlexClone 복사본은 읽기 및 쓰기가 모두 가능합니다. 
 ---
 = 볼륨의 스냅샷 복사본에서 FlexClone LUN을 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

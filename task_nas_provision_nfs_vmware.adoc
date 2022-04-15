@@ -8,6 +8,7 @@ summary: 'VMware vSphere(VSC)용 가상 스토리지 콘솔을 사용하여 ESXi
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

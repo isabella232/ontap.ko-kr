@@ -5,6 +5,7 @@ keywords: display, information, fpolicy, policy status
 summary: 'FPolicy 정책 상태에 대한 정보를 표시하여 정책이 사용되는지 여부, 외부 엔진이 사용하도록 구성되었는지, 정책의 시퀀스 번호가 무엇인지, FPolicy 정책이 어떤 스토리지 가상 머신(SVM)과 연결되어 있는지 확인할 수 있습니다.' 
 ---
 = FPolicy 정책 상태에 대한 정보를 표시합니다
+:allow-uri-read: 
 
 
 [role="lead"]

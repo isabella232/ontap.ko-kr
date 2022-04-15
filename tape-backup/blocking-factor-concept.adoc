@@ -5,6 +5,7 @@ keywords: blocking, factor, tape, backup, restore, read, write, operation
 summary: 테이프 블록은 1,024바이트의 데이터입니다. 테이프 백업 또는 복원 중에 각 읽기/쓰기 작업에서 전송되는 테이프 블록 수를 지정할 수 있습니다. 이 수를 차단 계수라고 합니다. 
 ---
 = 차단 요소는 무엇입니까
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

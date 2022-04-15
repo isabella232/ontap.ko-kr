@@ -5,6 +5,7 @@ keywords: ndmpcopy, command, tranfer, data, nodeshell
 summary: ndmpcopy 명령에 사용할 수 있는 옵션을 이해하여 데이터를 성공적으로 전송해야 합니다. 
 ---
 = ndmpcopy 명령에 대한 옵션입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

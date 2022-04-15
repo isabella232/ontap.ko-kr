@@ -5,6 +5,7 @@ keywords: active, directory-integrated, dns, server, dynamic, register, smb, ser
 summary: 'SMB 서버를 다른 도메인으로 이동할 때 Active Directory 통합 DNS 서버가 DNS에 SMB 서버의 DNS 레코드를 동적으로 등록하도록 하려면 SMB 서버를 이동하기 전에 SVM(스토리지 가상 시스템)에서 DDNS(동적 DNS)를 수정해야 합니다.' 
 ---
 = SMB 서버를 이동하기 전에 SVM에서 동적 DNS 도메인을 수정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: resume, halted, efficiency, operation
 summary: 시스템 중지, 시스템 중단 또는 재부팅으로 인해 효율성 작업이 중단되면 체크포인트 옵션과 함께 볼륨 효율성 시작 명령을 사용하여 동일한 지점에서 효율성 작업을 재개할 수 있습니다. 따라서 처음부터 효율성 작업을 다시 시작할 필요가 없어 시간과 리소스를 절약할 수 있습니다. 
 ---
 = 중단된 효율성 작업을 다시 시작합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

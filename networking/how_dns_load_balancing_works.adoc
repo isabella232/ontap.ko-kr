@@ -6,6 +6,7 @@ summary: DNS 로드 밸런싱 소개
 ---
 = DNS 로드 균형 조정 작동 방식
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

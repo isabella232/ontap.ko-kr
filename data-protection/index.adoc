@@ -5,6 +5,7 @@ keywords: decide, data, protection, overview, manage, snapshot, copies, replicat
 summary: CLI 명령을 사용하여 로컬 ONTAP 시스템에서 스냅샷 복사본을 관리하고 SnapMirror를 사용하여 스냅샷 복사본을 원격 시스템에 복제할 수 있습니다. 
 ---
 = CLI를 사용한 데이터 보호 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

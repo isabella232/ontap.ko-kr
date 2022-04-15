@@ -5,6 +5,7 @@ keywords: svm, migrate, defaults, cutover, cleanup
 summary: SVM 마이그레이션이 완료된 후 클라이언트가 타겟 클러스터로 자동으로 컷오버되고 불필요한 SVM이 소스 클러스터에서 제거됩니다. 자동 컷오버 및 자동 소스 클린업이 기본적으로 설정됩니다. 필요한 경우, 컷오버를 시작하기 전에 마이그레이션을 일시 중지하고 자동 소스 SVM 정리를 사용하지 않도록 설정할 수 있습니다. 
 ---
 = SVM 마이그레이션
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

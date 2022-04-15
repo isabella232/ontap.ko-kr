@@ -5,6 +5,7 @@ keywords: enable, inline, data, compaction, fas systems
 summary: 'WAFL 컴팩션 enable 노드 셸 명령을 사용하여 볼륨 또는 애그리게이트 레벨에서 Flash Pool(하이브리드) 애그리게이트 또는 HDD 애그리게이트가 포함된 FAS 시스템에서 인라인 데이터 컴팩션을 제어할 수 있습니다. FAS 시스템의 경우 데이터 컴팩션은 기본적으로 비활성화되어 있습니다.' 
 ---
 = FAS 시스템에 대해 인라인 데이터 컴팩션을 사용하도록 설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

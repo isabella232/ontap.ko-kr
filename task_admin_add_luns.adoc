@@ -8,6 +8,7 @@ summary: LUN을 생성하여 SAN 프로토콜로 구성된 기존 스토리지 V
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

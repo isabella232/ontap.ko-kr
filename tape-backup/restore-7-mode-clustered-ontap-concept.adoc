@@ -5,6 +5,7 @@ keywords: tape, backup, restore, support, data, 7 mode, storage, system
 summary: 7-Mode에서 운영 중인 스토리지 시스템이나 ONTAP를 실행 중인 스토리지 시스템에서 백업된 데이터를 7-Mode로 운영 중이거나 ONTAP를 실행 중인 스토리지 시스템으로 복구할 수 있습니다. 
 ---
 = 7-Mode에서 작동하는 Data ONTAP와 ONTAP 간의 테이프 백업 및 복원 지원
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

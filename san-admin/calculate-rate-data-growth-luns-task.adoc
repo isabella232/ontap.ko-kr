@@ -5,6 +5,7 @@ keywords: calculate, rate, data, growth, luns
 summary: 시간이 경과하면서 LUN 데이터가 증가하는 속도를 알고 있어야 공간 예약 LUN 또는 비공간 예약 LUN을 사용해야 하는지 여부를 확인할 수 있습니다. 
 ---
 = LUN의 데이터 증가율 계산
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

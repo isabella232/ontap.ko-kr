@@ -5,6 +5,7 @@ keywords: smtape, volume, rehost, operation, session
 summary: 볼륨에서 볼륨 재호스트 작업이 진행 중인 경우 SMTape 작업을 시작할 수 없습니다. 볼륨이 볼륨 재호스트 작업에 관련되어 있는 경우 해당 볼륨에서 SMTape 세션을 시작하지 않아야 합니다. 
 ---
 = SMTape가 볼륨 재호스트 작업과 작동하는 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

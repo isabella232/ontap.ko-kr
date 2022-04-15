@@ -5,6 +5,7 @@ keywords: enable, data, compression, on a volume
 summary: 볼륨 효율성 수정 명령을 사용하여 볼륨에서 데이터 압축을 활성화하여 공간을 절약할 수 있습니다. 볼륨 효율성 수정 명령을 사용하여 FlexVol 볼륨에서 데이터 압축을 활성화하여 공간을 절약할 수 있습니다. 기본 압축 유형을 사용하지 않으려면 볼륨에 압축 유형을 할당할 수도 있습니다. 
 ---
 = 볼륨에 대해 데이터 압축을 설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

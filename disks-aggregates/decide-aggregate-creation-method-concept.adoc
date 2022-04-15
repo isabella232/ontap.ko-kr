@@ -5,6 +5,7 @@ keywords: ontap 9, decide, aggregate, create, method, use
 summary: ONTAP 9.2 이상에서는 자동 프로비저닝을 사용한 애그리게이트 생성이 모범 사례이지만 환경이 지원되는지 여부를 확인해야 합니다. 그렇지 않은 경우 RAID 정책 및 디스크 구성에 대해 결정을 내린 다음 애그리게이트를 수동으로 생성해야 합니다. 
 ---
 = 사용할 집계 생성 방법을 결정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

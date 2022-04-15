@@ -5,6 +5,7 @@ keywords: handle, nfs, access, ntfs, volumes, qtrees, unknown, unix, users
 summary: ONTAP가 NTFS 보안 스타일로 볼륨이나 qtree에 연결하려고 시도하는 UNIX 사용자를 식별할 수 없는 경우 사용자를 Windows 사용자에게 명시적으로 매핑할 수 없습니다. 보다 엄격한 보안을 위해 이러한 사용자에 대한 액세스를 거부하거나 모든 사용자에 대한 최소 액세스 수준을 보장하도록 ONTAP를 기본 Windows 사용자에게 매핑하도록 구성할 수 있습니다. 
 ---
 = 알 수 없는 UNIX 사용자의 NTFS 볼륨 또는 qtree에 대한 NFS 액세스를 처리합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

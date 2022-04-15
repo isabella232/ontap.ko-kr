@@ -5,6 +5,7 @@ keywords: ontap, upgrade, verifying, verify, lif, failover, configuration
 summary: 업그레이드를 수행하기 전에 페일오버 정책과 페일오버 그룹이 올바르게 구성되어 있는지 확인해야 합니다. 
 ---
 = LIF 페일오버 구성을 확인하는 중입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

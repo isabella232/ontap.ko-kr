@@ -5,6 +5,7 @@ keywords: secure, nfs, access, using, export, policies
 summary: 엑스포트 정책을 사용하여 볼륨 또는 qtree에 대한 NFS 액세스를 특정 매개 변수와 일치하는 클라이언트로 제한할 수 있습니다. 새 스토리지를 프로비저닝할 때 기존 정책 및 규칙을 사용하거나, 기존 정책에 규칙을 추가하거나, 새 정책 및 규칙을 생성할 수 있습니다. 내보내기 정책의 구성을 확인할 수도 있습니다 
 ---
 = 내보내기 정책을 사용하여 NFS 액세스를 보호합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, upgrade, verify, verifying, cluster, health,
 summary: 클러스터를 업그레이드하기 전에 노드가 정상 상태이며 클러스터에 참여할 자격이 있는지, 클러스터가 쿼럼에 있는지 확인해야 합니다. 
 ---
 = 클러스터 상태를 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

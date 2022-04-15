@@ -5,6 +5,7 @@ keywords: configure, vss, shadow, copy, directory, depth, hyper, v, smb, share
 summary: 필요에 따라 SMB 공유 내에서 섀도우 복제본을 생성할 디렉토리의 최대 깊이를 구성할 수 있습니다. 이 매개 변수는 ONTAP에서 섀도 복사본을 만들어야 하는 하위 디렉터리의 최대 수준을 수동으로 제어하려는 경우에 유용합니다. 
 ---
 = VSS 섀도우 복제본 디렉토리 깊이 구성(SMB 공유를 통한 Hyper-V의 경우)
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

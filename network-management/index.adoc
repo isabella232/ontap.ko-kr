@@ -6,6 +6,7 @@ summary: 네트워크 관리
 ---
 = 네트워크 관리
 :hardbreaks:
+:allow-uri-read: 
 :linkattrs: 
 :imagesdir: ./media/
 

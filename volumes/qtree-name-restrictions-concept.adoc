@@ -5,6 +5,7 @@ keywords: qtree, name, restrictions
 summary: qtree 이름의 길이는 64자를 초과할 수 없습니다. 또한 쉼표, 공백 등 qtree 이름에 일부 특수 문자를 사용하면 다른 기능에 문제가 발생할 수 있으므로 사용을 피해야 합니다. 
 ---
 = Qtree 이름 제한 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

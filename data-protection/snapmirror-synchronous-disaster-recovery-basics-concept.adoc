@@ -5,6 +5,7 @@ keywords: snapmirror, synchronous, disaster, recovery
 summary: 'ONTAP 9.5부터 최소 16GB의 메모리와 모든 ONTAP Select 플랫폼에서 SM-S(SnapMirror Synchronous) 기술이 모든 FAS 및 AFF 플랫폼에서 지원됩니다. SnapMirror Synchronous 기술은 노드 단위로 라이센스가 부여된 기능이며 볼륨 레벨에서 동기식 데이터 복제를 제공합니다.' 
 ---
 = SnapMirror Synchronous 재해 복구 기본 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: guideline, mind, builtin, group, local, administrator, account, delete
 summary: BUILTIN 그룹 및 로컬 관리자 계정을 사용할 때 유의해야 할 몇 가지 지침이 있습니다. 예를 들어 로컬 관리자 계정의 이름을 바꿀 수는 있지만 이 계정은 삭제할 수 없습니다. 
 ---
 = BUILTIN 그룹 및 로컬 관리자 계정 사용에 대한 지침
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

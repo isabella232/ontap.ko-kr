@@ -5,6 +5,7 @@ keywords: netbios, alternative, name, smb, client, configuring, configure, conso
 summary: NetBIOS 별칭은 SMB 클라이언트가 SMB 서버에 연결할 때 사용할 수 있는 SMB 서버의 대체 이름입니다. SMB 서버에 대한 NetBIOS 별칭을 구성하면 다른 파일 서버의 데이터를 SMB 서버로 통합할 때 SMB 서버가 원래 파일 서버의 이름에 응답하도록 할 때 유용합니다. 
 ---
 = SMB 서버의 NetBIOS 별칭 관리 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

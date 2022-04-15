@@ -5,6 +5,7 @@ keywords: unmirrored, aggregates
 summary: 'SyncMirror를 사용하지 않는 한 모든 애그리게이트는 미러링되지 않은 것입니다. 미러링되지 않은 애그리게이트에는 해당 애그리게이트에 속한 모든 RAID 그룹이 포함된 하나의 plex(데이터 복사본)만 있습니다.' 
 ---
 = 미러링되지 않은 애그리게이트가 작동하는 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: set, queue, depths, linux, hosts
 summary: Linux 호스트에서 Emulex HBA 및 QLogic HBA의 대기열 길이를 변경할 수 있습니다. 
 ---
 = Linux 호스트에서 대기열 깊이를 설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

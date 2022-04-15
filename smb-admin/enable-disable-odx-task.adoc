@@ -5,6 +5,7 @@ keywords: enable, disable, odx, storage, virtual, machine, svm, default, support
 summary: '스토리지 가상 시스템(SVM)에서 ODX를 사용하거나 사용하지 않도록 설정할 수 있습니다. 기본적으로 SMB 3.0도 사용하도록 설정된 경우 ODX 복사 오프로드를 지원합니다.' 
 ---
 = ODX를 설정 또는 해제합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

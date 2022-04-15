@@ -5,6 +5,7 @@ keywords: process, revert
 summary: '클러스터를 되돌리려는 경우 클러스터에 감사 기능이 설정된 SVM(스토리지 가상 머신)이 있을 때 ONTAP에서 따르는 복원 프로세스에 대해 알고 있어야 합니다. 되돌리기 전에 특정 조치를 취해야 합니다.' 
 ---
 = 되돌릴 때의 프로세스
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

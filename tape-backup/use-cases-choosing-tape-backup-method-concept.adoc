@@ -5,6 +5,7 @@ keywords: cases, choose, tape, backup, engine, smtape, dump, restore
 summary: ONTAP는 SMTape와 dump의 두 가지 백업 엔진을 지원합니다. 테이프 백업 및 복원 작업을 수행할 백업 엔진을 선택하는 데 도움이 되는 SMTape 및 덤프 백업 엔진의 사용 사례를 알고 있어야 합니다. 
 ---
 = 테이프 백업 엔진을 선택하는 사용 사례
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

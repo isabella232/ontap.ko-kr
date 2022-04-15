@@ -6,6 +6,7 @@ summary: '더 이상 필요하지 않은 네트워크 인터페이스(LIF)를 �
 ---
 = LIF를 삭제합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -5,6 +5,7 @@ keywords: create, snapvault, relationship, flexgroup, volumes
 summary: SnapVault 관계를 구성하고 관계에 SnapVault 정책을 할당하여 SnapVault 백업을 생성할 수 있습니다. 
 ---
 = FlexGroup 볼륨에 대한 SnapVault 관계를 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

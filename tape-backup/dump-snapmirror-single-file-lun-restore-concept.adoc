@@ -5,6 +5,7 @@ keywords: dump, works, snapmirror, single, file, lun, restore, operation
 summary: SnapMirror 기술을 사용하여 단일 파일 또는 LUN이 복원되는 볼륨에서 덤프 백업 또는 복원 작업을 수행하기 전에 단일 파일 또는 LUN 복원 작업에서 덤프 작업이 어떻게 작동하는지 이해해야 합니다. 
 ---
 = SnapMirror 단일 파일 또는 LUN 복원에서 덤프가 작동하는 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

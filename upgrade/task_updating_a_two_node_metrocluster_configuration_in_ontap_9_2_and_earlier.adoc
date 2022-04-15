@@ -5,6 +5,7 @@ keywords: ontap, upgrade, two-node, metrocluster, mcc, 9.2, earlier
 summary: '2노드 MetroCluster 구성의 경우 ONTAP를 중단 없이 업그레이드할 수 있습니다. 이 방법에는 몇 가지 단계가 있습니다. 협상된 전환 시작, "장애" 사이트에서 클러스터 업데이트, 스위치백 시작, 다른 사이트의 클러스터에서 프로세스 반복이 있습니다.' 
 ---
 = ONTAP 9.2 이하 버전의 CLI를 사용한 2노드 MetroCluster 구성의 수동 무중단 업그레이드
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

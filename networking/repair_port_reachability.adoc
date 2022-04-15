@@ -6,6 +6,7 @@ summary: 포트가 다시 케이블로 연결되거나 스위치 구성이 변�
 ---
 = 수리 포트 도달 가능성
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

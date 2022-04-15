@@ -5,6 +5,7 @@ keywords: enable, disable, local, user, authentication, smb, access, storage, vi
 summary: 'SVM(스토리지 가상 머신)에서 SMB 액세스에 대한 로컬 사용자 인증을 설정하거나 해제할 수 있습니다. 기본값은 로컬 사용자 인증을 허용하는 것입니다. 이는 SVM이 도메인 컨트롤러에 연결할 수 없거나 도메인 레벨 액세스 제어를 사용하지 않도록 선택하는 경우에 유용합니다.' 
 ---
 = 로컬 사용자 인증을 사용하거나 사용하지 않도록 설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

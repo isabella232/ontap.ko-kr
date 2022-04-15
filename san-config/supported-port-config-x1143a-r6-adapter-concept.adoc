@@ -5,6 +5,7 @@ keywords: supported, port, configurations, x1143a-r6, adapters
 summary: FC 타겟 모드는 X1143A-R6 어댑터 포트의 기본 구성입니다. 하지만 이 어댑터의 포트는 10Gb 이더넷 및 FCoE 포트 또는 16Gb FC 포트로 구성할 수 있습니다. 
 ---
 = X1143A-R6 어댑터에 지원되는 포트 구성 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

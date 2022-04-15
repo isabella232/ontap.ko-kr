@@ -5,6 +5,7 @@ keywords: examples, quota, configuration
 summary: 이 예에서는 할당량을 구성하고 할당량 보고서를 읽는 방법을 이해하는 데 도움이 됩니다. 
 ---
 = 할당량 구성의 예
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

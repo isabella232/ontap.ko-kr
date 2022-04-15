@@ -5,6 +5,7 @@ keywords: cloud migration, controls, override, volume, default, tiering policy
 summary: ONTAP 9.8에 도입된 클라우드 검색 정책 옵션을 사용하여 클라우드 계층에서 성능 계층으로 사용자 데이터 검색을 제어하는 볼륨의 기본 계층화 정책을 변경할 수 있습니다. 
 ---
 = 클라우드 마이그레이션 제어를 사용하여 볼륨의 기본 계층화 정책을 재정의합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

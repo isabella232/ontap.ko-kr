@@ -6,6 +6,7 @@ summary: IPspace 내의 각 서브넷에 할당된 IP 주소 목록을 봅니다
 ---
 = 서브넷을 표시합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

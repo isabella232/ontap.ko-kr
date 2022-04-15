@@ -5,6 +5,7 @@ keywords: replicate, entire, svm, configuration, snapmirror, snap mirror, replic
 summary: SnapMirror create 명령의 -identity-preserve true 옵션을 사용하여 전체 SVM 구성을 복제할 수 있습니다. 
 ---
 = 전체 SVM 구성을 복제합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

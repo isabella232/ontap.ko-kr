@@ -6,6 +6,7 @@ summary: SAN 스토리지 관리
 ---
 = SAN 스토리지 관리
 :hardbreaks:
+:allow-uri-read: 
 :linkattrs: 
 :imagesdir: ./media/
 

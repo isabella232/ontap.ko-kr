@@ -5,6 +5,7 @@ keywords: failed, load, new, tape, error, drive, media
 summary: 테이프 드라이브 또는 미디어에 오류가 있습니다. 
 ---
 = 새 테이프를 로드하지 못했습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

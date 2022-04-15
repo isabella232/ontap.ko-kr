@@ -5,6 +5,7 @@ keywords: how, access control lists work, flexclone files, flexclone luns
 summary: FlexClone 파일 및 FlexClone LUN은 부모 파일 및 LUN의 액세스 제어 목록을 상속합니다. 
 ---
 = 액세스 제어 목록이 FlexClone 파일 및 FlexClone LUN과 작동하는 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

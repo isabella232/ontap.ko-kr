@@ -5,6 +5,7 @@ keywords: method, view, command, history, reissue, command
 summary: 각 CLI 세션은 해당 세션에서 실행된 모든 명령의 기록을 유지합니다. 현재 사용 중인 세션의 명령 기록을 볼 수 있습니다. 명령을 다시 실행할 수도 있습니다. 
 ---
 = 명령 기록을 보고 명령을 재실행하는 방법
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

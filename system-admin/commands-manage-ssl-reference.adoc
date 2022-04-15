@@ -5,6 +5,7 @@ keywords: command, manage, ssl, security, protocol, cluster, storage, virtual, m
 summary: '보안 SSL 명령을 사용하여 클러스터 또는 SVM(Storage Virtual Machine)의 SSL 프로토콜을 관리할 수 있습니다.' 
 ---
 = SSL 관리를 위한 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

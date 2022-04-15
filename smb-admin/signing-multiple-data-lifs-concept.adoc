@@ -5,6 +5,7 @@ keywords: enable, disable, require, smb, sign, server, guideline, lifs, configur
 summary: SMB 서버에서 필요한 SMB 서명을 설정하거나 해제하는 경우 SVM에 대한 여러 데이터 LIF 구성에 대한 지침을 숙지해야 합니다. 
 ---
 = 여러 데이터 LIF가 구성된 경우 SMB 서명을 위한 지침입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -8,6 +8,7 @@ summary: FlexCache 볼륨을 사용하면 데이터 액세스 속도를 높이�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

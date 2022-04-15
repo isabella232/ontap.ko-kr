@@ -5,6 +5,7 @@ keywords: null, session, access, permission, network, resource, storage, system,
 summary: 'null 세션 액세스는 스토리지 시스템 데이터와 같은 네트워크 리소스 및 로컬 시스템에서 실행되는 클라이언트 기반 서비스에 대한 권한을 제공합니다. Null 세션은 클라이언트 프로세스에서 "시스템" 계정을 사용하여 네트워크 리소스에 액세스할 때 발생합니다. Null 세션 구성은 비 Kerberos 인증에만 적용됩니다.' 
 ---
 = Null 세션을 사용하여 Kerberos가 아닌 환경의 스토리지에 액세스 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

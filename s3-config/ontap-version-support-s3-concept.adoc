@@ -5,6 +5,7 @@ keywords: ontap, version, support, s3, object, storage, AWS S3, Azure S3
 summary: ONTAP 9.7에서는 S3 오브젝트 스토리지가 공용 미리 보기로 도입되었습니다. 이 버전은 프로덕션 환경을 위한 것이 아니며 ONTAP 9.8을 통해 더 이상 업데이트되지 않습니다. ONTAP 9.8 이상 릴리즈에서만 운영 환경에서 S3 오브젝트 스토리지를 지원합니다. 
 ---
 = S3 오브젝트 스토리지를 위한 ONTAP 버전 지원
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

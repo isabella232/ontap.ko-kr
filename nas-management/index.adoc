@@ -6,6 +6,7 @@ summary: NAS 스토리지 관리
 ---
 = NAS 스토리지 관리
 :hardbreaks:
+:allow-uri-read: 
 :linkattrs: 
 :imagesdir: ./media/
 

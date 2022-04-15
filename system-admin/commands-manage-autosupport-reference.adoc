@@ -5,6 +5,7 @@ keywords: command, manage, autosupport, node, message, send, resend, cancel, con
 summary: 시스템 노드 AutoSupport 명령을 사용하여 AutoSupport 구성을 변경하거나 보고, 이전 AutoSupport 메시지에 대한 정보를 표시하고, AutoSupport 메시지를 전송, 다시 보내기 또는 취소할 수 있습니다. 
 ---
 = AutoSupport 관리를 위한 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

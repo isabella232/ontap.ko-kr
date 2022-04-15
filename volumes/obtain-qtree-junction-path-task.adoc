@@ -5,6 +5,7 @@ keywords: obtain, qtree, junction, path
 summary: 'qtree의 접합 경로 또는 네임스페이스 경로를 획득하여 개별 qtree를 마운트할 수 있습니다. CLI 명령 "qtree show-instance"에 표시되는 qtree 경로는 "/vol/<volume-name>/<qtree-name>" 형식입니다. 그러나 이 경로는 qtree의 접합 경로 또는 네임스페이스 경로를 참조하지 않습니다.' 
 ---
 = qtree 접합 경로를 확보합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

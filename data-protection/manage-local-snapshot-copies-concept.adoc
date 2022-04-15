@@ -5,6 +5,7 @@ keywords: manage, local, snapshot, copy, storage, performance overhead, copies, 
 summary: 스냅샷 복사본은 볼륨의 읽기 전용 시점 이미지입니다. 이 이미지는 마지막 스냅샷 복사본 이후 파일의 변경사항만 기록하므로 최소한의 스토리지 공간만 사용하고 무시할 만한 성능 오버헤드를 발생시킵니다. 
 ---
 = 로컬 스냅샷 복사본 관리 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

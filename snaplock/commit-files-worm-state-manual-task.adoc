@@ -5,6 +5,7 @@ keywords: commit, file, worm, manually, nfs, cifs, read, only
 summary: 파일을 읽기 전용으로 만들어 WORM에 파일을 수동으로 커밋합니다. NFS 또는 CIFS를 통해 적합한 명령 또는 프로그램을 사용하여 파일의 읽기-쓰기 속성을 읽기 전용으로 변경할 수 있습니다. 
 ---
 = WORM에 파일을 수동으로 커밋합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -8,6 +8,7 @@ summary: 소스를 사용할 수 없게 될 때 미러 대상에서 데이터를
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

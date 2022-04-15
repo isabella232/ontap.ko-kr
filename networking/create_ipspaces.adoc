@@ -6,6 +6,7 @@ summary: 클러스터에서 각 SVM을 위한 IPspace 생성
 ---
 = IPspace 생성
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

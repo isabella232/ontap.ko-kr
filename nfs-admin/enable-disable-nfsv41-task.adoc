@@ -5,6 +5,7 @@ keywords: enable, disable, nfsv4.1
 summary: v4.1 옵션을 수정하여 NFSv4.1을 설정 또는 해제할 수 있습니다. 따라서 NFSv4.1 프로토콜을 사용하여 클라이언트에 파일을 액세스할 수 있습니다. ONTAP 9.9.1에서는 NFSv4.1이 기본적으로 활성화되어 있지만 이전 릴리즈에서는 기본적으로 사용되지 않습니다. 
 ---
 = NFSv4.1을 설정 또는 해제합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

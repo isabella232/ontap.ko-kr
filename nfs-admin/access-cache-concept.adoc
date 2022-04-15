@@ -5,6 +5,7 @@ keywords: access, cache
 summary: ONTAP은 액세스 캐시를 사용하여 클라이언트 액세스 작업에 대한 엑스포트 정책 규칙 평가 결과를 볼륨 또는 qtree에 저장합니다. 따라서 클라이언트가 입출력 요청을 보낼 때마다 내보내기 정책 규칙 평가 프로세스를 거치는 것보다 액세스 캐시에서 정보를 훨씬 빠르게 검색할 수 있기 때문에 성능이 향상됩니다. 
 ---
 = 액세스 캐시의 작동 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

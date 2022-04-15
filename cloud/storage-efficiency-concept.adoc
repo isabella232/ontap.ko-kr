@@ -5,6 +5,7 @@ keywords: storage efficiency
 summary: 사내 ONTAP의 동일한 스토리지 효율성 기능을 클라우드에서 사용할 수 있습니다. 스냅샷 복사본, 중복제거, 압축, 컴팩션, 씬 프로비저닝 FlexClone 데이터 클론은 NetApp Cloud 오퍼링에 모두 활용할 수 있습니다. 
 ---
 = 스토리지 효율성
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

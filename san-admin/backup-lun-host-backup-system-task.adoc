@@ -5,6 +5,7 @@ keywords: back up, lun, through, host, backup, system
 summary: 스냅샷 복사본의 클론 복제된 LUN을 호스트 백업 시스템의 소스 데이터로 사용할 수 있습니다. 
 ---
 = 호스트 백업 시스템을 통해 LUN을 백업합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

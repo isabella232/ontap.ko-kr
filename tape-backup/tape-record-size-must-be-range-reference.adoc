@@ -5,6 +5,7 @@ keywords: tape, record, size, 4kb, 256kb, backup, restore, operation, blocking, 
 summary: 백업 또는 복원 작업에 대해 지정된 차단 계수가 허용 범위 내에 있지 않습니다. 
 ---
 = 테이프 레코드 크기는 4KB에서 256KB 사이여야 합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

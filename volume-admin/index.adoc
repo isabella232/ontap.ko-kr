@@ -6,6 +6,7 @@ summary: 볼륨 관리
 ---
 = 볼륨 관리
 :hardbreaks:
+:allow-uri-read: 
 :linkattrs: 
 :imagesdir: ./media/
 

@@ -5,6 +5,7 @@ keywords: determine, number, supported, nodes, san configurations
 summary: ONTAP에서 지원하는 클러스터당 노드 수는 ONTAP 버전, 클러스터의 스토리지 컨트롤러 모델, 클러스터 노드의 프로토콜에 따라 다릅니다. 
 ---
 = SAN 구성에서 지원되는 노드 수를 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

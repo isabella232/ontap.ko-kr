@@ -5,6 +5,7 @@ keywords: create, nis, domain, configuration, configure
 summary: '사용자 환경에서 NIS(Network Information Service)를 사용하여 이름 서비스를 제공하는 경우 vserver services name -service NIS-domain create 명령을 사용하여 SVM에 대한 NIS 도메인 구성을 생성해야 합니다.' 
 ---
 = NIS 도메인 구성을 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: archiving, volumes, fabricpool, video
 summary: 이 비디오에서는 FabricPool를 사용하여 볼륨을 클라우드 계층에 아카이브하는 방법에 대해 간략하게 설명합니다. 
 ---
 = FabricPool로 볼륨 아카이브(비디오)
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

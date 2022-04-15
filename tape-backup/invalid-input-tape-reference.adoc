@@ -5,6 +5,7 @@ keywords: invalid, input, tape, backup, image, header, corrupted, data
 summary: 백업 이미지의 서명이 테이프 헤더에서 유효하지 않습니다. 테이프에 손상된 데이터가 있거나 유효한 백업 이미지가 없습니다. 
 ---
 = 입력 테이프가 잘못되었습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

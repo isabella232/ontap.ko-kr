@@ -5,6 +5,7 @@ keywords: create, fpolicy, external engine
 summary: 'FPolicy 구성을 생성하려면 외부 엔진을 생성해야 합니다. 외부 엔진은 FPolicy가 외부 FPolicy 서버에 대한 연결을 만들고 관리하는 방법을 정의합니다. 구성에서 내부 ONTAP 엔진(기본 외부 엔진)을 간단한 파일 차단에 사용하는 경우 별도의 FPolicy 외부 엔진을 구성하지 않아도 되며 이 단계를 수행할 필요가 없습니다.' 
 ---
 = FPolicy 외부 엔진을 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

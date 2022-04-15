@@ -5,6 +5,7 @@ keywords: replacing, fips drive, sed
 summary: 일반 디스크를 교체하는 것과 동일한 방법으로 FIPS 드라이브 또는 SED를 교체할 수 있습니다. 새 데이터 인증 키를 교체 드라이브에 할당하십시오. FIPS 드라이브의 경우 새 FIPS 140-2 인증 키를 할당할 수도 있습니다. 
 ---
 = FIPS 드라이브 또는 SED를 교체합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

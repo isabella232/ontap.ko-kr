@@ -6,6 +6,7 @@ summary: 불필요한 IPspace를 제거합니다
 ---
 = IPspace 삭제
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

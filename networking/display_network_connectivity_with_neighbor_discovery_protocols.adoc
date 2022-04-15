@@ -6,6 +6,7 @@ summary: 인접 검색 프로토콜을 사용하여 물리적 또는 가상 시�
 ---
 = 인접 검색 프로토콜과의 네트워크 연결을 표시합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

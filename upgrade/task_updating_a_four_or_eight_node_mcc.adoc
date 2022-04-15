@@ -5,6 +5,7 @@ keywords: 4-node MetroCluster configurations,8-node MetroCluster configurations
 summary: 4노드 또는 8노드 MetroCluster 구성의 업그레이드 또는 다운그레이드를 위한 수동 업데이트 절차에는 업데이트 준비, 1개 또는 2개의 DR 그룹 각각에서 DR 쌍 업데이트, 일부 업데이트 후 작업 수행이 포함됩니다. 
 ---
 = CLI를 사용하여 4노드 또는 8노드 MetroCluster 구성의 무중단 수동 업그레이드
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -6,6 +6,7 @@ summary: 클러스터의 모든 액티브 또는 리스닝 연결 또는 클라�
 ---
 = 클러스터 연결을 표시합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -5,6 +5,7 @@ keywords: storage, virtualization, vmware, microsoft, copy, offload, advantages,
 summary: VMware와 Microsoft는 복제 오프로드 작업을 지원하여 성능과 네트워크 처리량을 높여줍니다. 개별 복제 오프로드 기능을 사용하려면 VMware 및 Windows 운영 체제 환경의 요구 사항을 충족하도록 시스템을 구성해야 합니다. 
 ---
 = VMware 및 Microsoft Copy Offload를 사용한 스토리지 가상화 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap 9,raid-dp,raid-tec, default raid policies, aggregates
 summary: RAID-DP 또는 RAID-TEC가 모든 새 애그리게이트를 위한 기본 RAID 정책입니다. RAID 정책은 디스크 장애 시 발생하는 패리티 보호를 결정합니다. 
 ---
 = 애그리게이트를 위한 기본 RAID 정책
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

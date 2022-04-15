@@ -5,6 +5,7 @@ keywords: raidsize, customize, raid groups
 summary: RAID 그룹의 크기를 사용자 지정하여 RAID 그룹 크기가 Aggregate에 포함할 스토리지 크기에 적합한지 확인할 수 있습니다. 
 ---
 = RAID 그룹의 크기를 사용자 지정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

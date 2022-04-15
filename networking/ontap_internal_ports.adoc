@@ -6,6 +6,7 @@ summary: ONTAP에서 내부적으로 사용되는 TCP 포트 및 UDP 포트입�
 ---
 = ONTAP 내부 포트
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

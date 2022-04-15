@@ -5,6 +5,7 @@ keywords: monitor, volume, ontap, FSA, File System Analytics,
 summary: 작업 추적 을 사용하여 실시간 성능 문제 해결을 위해 지정된 볼륨에서 핫 파일, 디렉토리, 클라이언트 및 사용자를 봅니다 
 ---
 = 활동 추적을 활성화합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

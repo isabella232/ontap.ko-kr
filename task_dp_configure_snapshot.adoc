@@ -8,6 +8,7 @@ summary: 스냅샷 복사본 정책은 스냅샷 복사본의 생성, 보존 및
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

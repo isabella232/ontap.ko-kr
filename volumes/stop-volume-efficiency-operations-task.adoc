@@ -5,6 +5,7 @@ keywords: stopping deduplication, stopping data compression, volume efficiency o
 summary: 볼륨 효율성 STOP 명령을 사용하여 중복제거 또는 사후 처리 압축 작업을 중지할 수 있습니다. 이 명령은 체크포인트를 자동으로 생성합니다. 
 ---
 = 볼륨 효율성 작업을 중지합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

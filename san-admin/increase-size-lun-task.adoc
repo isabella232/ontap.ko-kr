@@ -5,6 +5,7 @@ keywords: increase, size, lun
 summary: ONTAP 9.5부터는 원래 크기에 관계없이 최대 16TB까지 LUN을 확장할 수 있습니다. ONTAP 9.4 이하 버전에서는 LUN을 원래 크기의 약 10배로 늘릴 수 있지만 16TB를 초과할 수 없습니다. 
 ---
 = LUN의 크기를 늘립니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

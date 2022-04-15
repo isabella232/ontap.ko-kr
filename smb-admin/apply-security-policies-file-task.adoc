@@ -5,6 +5,7 @@ keywords: apply, file, security, policy, svm, creating, create, folder, apply se
 summary: 파일 또는 폴더에 NTFS ACL을 생성하고 적용하는 마지막 단계는 SVM에 파일 보안 정책을 적용하는 것입니다. 
 ---
 = 보안 정책을 적용합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

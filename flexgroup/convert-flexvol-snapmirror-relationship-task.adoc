@@ -5,6 +5,7 @@ keywords: convert, flexvol, volume, snapmirror, relation, flexgroup
 summary: FlexVol 볼륨 SnapMirror 관계를 ONTAP에서 FlexGroup 볼륨 SnapMirror 관계로 변환하려면 먼저 대상 FlexVol 볼륨을 변환한 다음 소스 FlexVol 볼륨을 변환해야 합니다. 
 ---
 = FlexVol 볼륨 SnapMirror 관계를 FlexGroup 볼륨 SnapMirror 관계로 변환합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

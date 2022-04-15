@@ -5,6 +5,7 @@ keywords: svm, cluster, data, access, smb, client, create, create an svm
 summary: SMB 클라이언트에 데이터 액세스를 제공하기 위해 클러스터에 SVM을 하나 이상 가지고 있지 않은 경우 하나 생성해야 합니다. 
 ---
 = SVM을 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

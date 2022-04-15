@@ -5,6 +5,7 @@ keywords: create, creating, file, security, policy, svm, configuring, configure,
 summary: SVM에 대한 파일 보안 정책을 생성하는 것은 파일이나 폴더에 ACL을 구성 및 적용하는 세 번째 단계입니다. 정책은 다양한 작업을 위한 컨테이너 역할을 하며, 여기서 각 작업은 파일이나 폴더에 적용할 수 있는 단일 항목입니다. 나중에 보안 정책에 작업을 추가할 수 있습니다. 
 ---
 = 보안 정책을 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

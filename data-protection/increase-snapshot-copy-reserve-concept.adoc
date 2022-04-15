@@ -5,6 +5,7 @@ keywords: increase, snapshot, copy, reserve
 summary: 스냅샷 예약 용량을 늘인지의 여부를 결정할 때 스냅샷 복사본은 마지막 스냅샷 복사본 생성 이후 파일에 대한 변경 사항만 기록한다는 점을 기억해야 합니다. 활성 파일 시스템의 블록이 수정되거나 삭제될 때만 디스크 공간을 사용합니다. 
 ---
 = 언제 스냅샷 복사본 예약 공간을 늘려야 합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: node, cluster, configuration, backup, up, automatically
 summary: 세 개의 별도 일정으로 클러스터 및 노드 구성 백업 파일이 자동으로 생성되어 클러스터의 노드 간에 복제됩니다. 
 ---
 = 노드 및 클러스터 구성을 자동으로 백업하는 방법
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

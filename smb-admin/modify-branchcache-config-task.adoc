@@ -5,6 +5,7 @@ keywords: modify, configuration, branchcache, service, svm, store, directory, pa
 summary: 해시 저장소 디렉토리 경로 변경, 해시 저장소 최대 디렉토리 크기, 운영 모드 및 지원되는 BranchCache 버전을 포함하여 SVM에서 BranchCache 서비스의 구성을 수정할 수 있습니다. 해시 저장소가 포함된 볼륨의 크기를 늘릴 수도 있습니다. 
 ---
 = BranchCache 구성을 수정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

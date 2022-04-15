@@ -8,6 +8,7 @@ summary: 'ONTAP 9.10.1부터 안티 랜섬웨어 기능은 NAS(NFS 및 SMB) 환�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

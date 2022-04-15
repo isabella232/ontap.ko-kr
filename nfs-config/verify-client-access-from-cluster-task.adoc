@@ -5,6 +5,7 @@ keywords: verify, nfs, client, access, cluster
 summary: UNIX 관리 호스트에서 UNIX 파일 권한을 설정하여 선택한 클라이언트에 공유에 대한 액세스 권한을 부여할 수 있습니다. vserver export-policy check-access 명령을 사용하여 클라이언트 액세스를 확인하고 필요에 따라 엑스포트 규칙을 조정할 수 있습니다. 
 ---
 = 클러스터에서 NFS 클라이언트 액세스를 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

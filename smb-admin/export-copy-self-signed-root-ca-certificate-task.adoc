@@ -5,6 +5,7 @@ keywords: ldap, ssl, tls, secure, securing, active, directory, communication, ex
 summary: 'Active Directory 통신을 보호하기 위해 SSL/TLS를 통한 LDAP를 사용하려면 먼저 Active Directory 인증서 서비스의 자체 서명 루트 CA 인증서 사본을 인증서 파일로 내보내고 ASCII 텍스트 파일로 변환해야 합니다. 이 텍스트 파일은 ONTAP에서 SVM(스토리지 가상 머신)에 인증서를 설치하는 데 사용됩니다.' 
 ---
 = 자체 서명된 루트 CA 인증서의 복사본을 내보냅니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

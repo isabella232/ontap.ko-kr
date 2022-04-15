@@ -5,6 +5,7 @@ keywords: configure, name, mapping
 summary: ONTAP는 이름 매핑을 사용하여 SMB ID를 UNIX ID에 매핑하고, Kerberos ID를 UNIX ID에 매핑하며, UNIX ID를 SMB ID에 매핑합니다. 사용자 자격 증명을 얻고 NFS 클라이언트나 SMB 클라이언트에서 연결 중인지 여부와 관계없이 적절한 파일 액세스를 제공하려면 이 정보가 필요합니다. 
 ---
 = 이름 매핑 구성 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

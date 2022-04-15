@@ -5,6 +5,7 @@ keywords: configure, audit policies, ntfs security-style files, directories
 summary: 파일 및 디렉터리 작업을 감사하려면 감사 정보를 수집할 파일 및 디렉터리에 대한 감사 정책을 구성해야 합니다. 감사 구성을 설정 및 활성화하는 것 외에 다른 기능도 있습니다. Windows 보안 탭을 사용하거나 ONTAP CLI를 사용하여 NTFS 감사 정책을 구성할 수 있습니다. 
 ---
 = NTFS 보안 스타일 파일 및 디렉터리에 대한 감사 정책을 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: commands, view, vscan, server, connection, status
 summary: vserver Vscan connection-status show 명령을 사용하여 Vscan 서버 연결 상태에 대한 요약 및 세부 정보를 볼 수 있습니다. 
 ---
 = Vscan 서버 연결 상태를 보기 위한 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

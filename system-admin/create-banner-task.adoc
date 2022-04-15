@@ -5,6 +5,7 @@ keywords: create, banner, svm, access, cluster, ssh, session
 summary: '클러스터 또는 SVM에 액세스하려고 하는 사람에게 메시지를 표시하는 배너를 생성할 수 있습니다. 사용자에게 인증 프롬프트가 표시되기 전에 콘솔 세션(클러스터 액세스만 해당) 또는 SSH 세션(클러스터 또는 SVM 액세스를 위한)에 배너가 표시됩니다.' 
 ---
 = 배너를 만듭니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

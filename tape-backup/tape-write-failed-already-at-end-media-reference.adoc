@@ -5,6 +5,7 @@ keywords: tape, write, failed, new, end, media, space, backup
 summary: 테이프에 공간이 부족하여 백업을 완료할 수 없습니다. 
 ---
 = 테이프 쓰기 실패 - 새 테이프가 이미 미디어 끝에 있습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

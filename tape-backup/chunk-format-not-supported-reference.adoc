@@ -5,6 +5,7 @@ keywords: chunck, format, not, supported, smtape
 summary: 백업 이미지가 SMTape가 아닙니다. 
 ---
 = 청크 형식이 지원되지 않습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

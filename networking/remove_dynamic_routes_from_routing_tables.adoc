@@ -6,6 +6,7 @@ summary: 동적 경로를 제거하여 경로가 만료될 때 연결이 끊어�
 ---
 = 라우팅 테이블에서 동적 경로를 제거합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -5,6 +5,7 @@ keywords: fc, switch, configuration, limits
 summary: 파이버 채널 스위치에는 포트, 포트 그룹, 블레이드 및 스위치별로 지원되는 로그인 수를 포함한 최대 구성 제한이 있습니다. 지원되는 제한은 스위치 벤더에서 문서로 제공합니다. 
 ---
 = FC 스위치 구성 제한
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

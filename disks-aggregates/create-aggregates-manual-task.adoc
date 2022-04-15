@@ -5,6 +5,7 @@ keywords: ontap 9, create, aggregates, manually
 summary: 애그리게이트를 수동으로 생성하기 전에 디스크 구성 옵션을 검토하고 생성을 시뮬레이트해야 합니다. 그런 다음 스토리지 애그리게이트 생성을 실행하여 결과를 확인할 수 있습니다. 
 ---
 = 수동으로 애그리게이트 생성
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

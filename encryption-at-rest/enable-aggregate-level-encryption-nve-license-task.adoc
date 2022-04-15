@@ -5,6 +5,7 @@ keywords: enabling, aggregate-level, encryption, nve, ve license, license
 summary: ONTAP 9.7부터 VE 라이센스 및 온보드 키 관리 기능이 있는 경우 새로 생성된 애그리게이트 및 볼륨은 기본적으로 암호화됩니다. ONTAP 9.6부터 애그리게이트 레벨 암호화를 사용하여 암호화할 볼륨에 포함된 애그리게이트에 키를 할당할 수 있습니다. Aggregate에서 생성한 볼륨은 기본적으로 암호화됩니다. 볼륨을 암호화할 때 기본값을 재정의할 수 있습니다. 
 ---
 = VE 라이센스로 애그리게이트 레벨 암호화를 설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

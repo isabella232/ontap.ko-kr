@@ -6,6 +6,7 @@ summary: 발신 IP 패킷 트래픽에 DSCP 마킹을 활성화합니다
 ---
 = UC 규정 준수를 위한 DSCP 표시
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

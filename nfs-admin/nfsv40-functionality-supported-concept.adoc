@@ -5,6 +5,7 @@ keywords: nfsv4.0, functionality, support, ontap
 summary: ONTAP는 SPKM3 및 LIPKEY 보안 메커니즘을 제외한 NFSv4.0의 모든 필수 기능을 지원합니다. 
 ---
 = ONTAP에서 지원하는 NFSv4.0 기능
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

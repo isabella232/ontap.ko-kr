@@ -5,6 +5,7 @@ keywords: aware, branchcache, version, ontap, support, branchcache version suppo
 summary: ONTAP가 지원하는 BranchCache 버전은 무엇인지 알고 있어야 합니다. 
 ---
 = BranchCache 버전 지원
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

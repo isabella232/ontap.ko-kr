@@ -5,6 +5,7 @@ keywords: configure, nvme, lif
 summary: NVMe LIF를 구성할 때 특정 요구사항을 충족해야 합니다. 
 ---
 = NVMe LIF를 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

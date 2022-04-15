@@ -5,6 +5,7 @@ keywords: doccomments, quality documentation, high-quality documentation
 summary: '의견을 보내주시면 문서의 품질 향상에 큰 도움이 됩니다. 생산 수준 \(GA/FCS\) 문서가 처음 릴리스되거나 기존 생산 수준 문서에 중요한 변경 사항이 있을 때 자동 알림을 받을 수 있습니다.' 
 ---
 = 설명서에 대한 의견을 보내고 업데이트 알림을 받습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

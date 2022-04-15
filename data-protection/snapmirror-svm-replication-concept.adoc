@@ -5,6 +5,7 @@ keywords: understand, snapmirror, svm, replication
 summary: SnapMirror를 사용하여 SVM 간에 데이터 보호 관계를 생성할 수 있습니다. 이러한 유형의 데이터 보호 관계에서는 SVM이 소유한 볼륨의 데이터뿐만 아니라 NFS 엑스포트 및 SMB 공유에서 RBAC에 이르는 SVM 구성 전체 또는 일부를 복제합니다. 
 ---
 = SnapMirror SVM 복제에 대해 알아보십시오
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

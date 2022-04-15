@@ -5,6 +5,7 @@ keywords: create, flexclone file, flexclone lun
 summary: 볼륨 파일 클론 생성 명령을 사용하여 FlexVol 볼륨 또는 FlexClone 볼륨에 있는 파일 및 LUN의 공간 효율적이고 시간 효율적인 클론을 생성할 수 있습니다. 
 ---
 = FlexClone 파일 또는 FlexClone LUN을 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

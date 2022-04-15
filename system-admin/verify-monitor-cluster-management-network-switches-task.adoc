@@ -5,6 +5,7 @@ keywords: verify, monitor, cluster, management, network, switches, heath, monito
 summary: 클러스터 스위치 상태 모니터는 검색된 스위치를 자동으로 모니터링하지만 스위치가 올바르게 구성되지 않은 경우 모니터링이 자동으로 실행되지 않을 수 있습니다. 스위치를 모니터링하도록 상태 모니터가 올바르게 구성되어 있는지 확인해야 합니다. 
 ---
 = 클러스터 및 관리 네트워크 스위치의 모니터링을 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

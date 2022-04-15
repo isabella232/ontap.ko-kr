@@ -6,6 +6,7 @@ summary: 자동 테이크오버 및 반환 작업이 함께 작동하여 클라�
 ---
 = 자동 테이크오버 및 반환의 작동 방식
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

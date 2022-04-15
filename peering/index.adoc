@@ -5,6 +5,7 @@ keywords: decide, cluster, svm, peering, peer, relationships, source, destinatio
 summary: '소스 및 타겟 클러스터와 소스 및 타겟 스토리지 가상 머신(SVM) 간에 피어 관계를 생성할 수 있습니다.' 
 ---
 = CLI를 통한 클러스터 및 SVM 피어링 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

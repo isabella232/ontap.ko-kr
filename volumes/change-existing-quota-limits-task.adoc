@@ -5,6 +5,7 @@ keywords: modify, resize, quota limits
 summary: 기존 할당량의 크기를 변경하면 영향을 받는 모든 볼륨에서 할당량의 크기를 조정할 수 있으므로 해당 볼륨에서 할당량을 다시 초기화하는 것보다 빠릅니다. 
 ---
 = 할당량 제한을 수정(또는 크기 조정)합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

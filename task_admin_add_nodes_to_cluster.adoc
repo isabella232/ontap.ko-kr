@@ -8,6 +8,7 @@ summary: 새 노드를 추가하여 클러스터의 크기와 기능을 확장�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

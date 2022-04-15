@@ -5,6 +5,7 @@ keywords: remove, export, policy, qtree
 summary: 특정 엑스포트 정책을 qtree에 더 이상 할당하지 않으려는 경우, qtree를 수정하여 포함하는 볼륨의 엑스포트 정책을 상속하도록 엑스포트 정책을 제거할 수 있습니다. 이 작업은 volume qtree modify 명령과 -export-policy 매개 변수, 빈 이름 문자열을 사용하여 수행할 수 있습니다. 
 ---
 = qtree에서 엑스포트 정책을 제거합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

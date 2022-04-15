@@ -5,6 +5,7 @@ keywords: use, hard, mount
 summary: 장착 문제를 해결할 때 올바른 장착 유형을 사용하고 있는지 확인해야 합니다. NFS는 소프트 마운트와 하드 마운트의 두 가지 마운트 유형을 지원합니다. 안정성을 위해 하드 마운트만 사용해야 합니다. 
 ---
 = 하드 마운트 사용
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

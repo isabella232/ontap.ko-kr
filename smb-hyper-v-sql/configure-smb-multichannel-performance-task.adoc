@@ -5,6 +5,7 @@ keywords: configure, smb, multichannel, performance, redundancy, session, fault,
 summary: ONTAP 9.4부터 SMB 다중 채널을 구성하여 단일 SMB 세션에서 ONTAP와 클라이언트 간에 여러 연결을 제공할 수 있습니다. 이렇게 하면 SMB 구성에서 Hyper-V 및 SQL Server의 처리량과 내결함성을 향상시킬 수 있습니다. 
 ---
 = 성능 및 이중화를 위해 SMB 멀티 채널을 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

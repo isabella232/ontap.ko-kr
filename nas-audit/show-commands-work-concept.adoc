@@ -5,6 +5,7 @@ keywords: show commands, work
 summary: FPolicy 구성에 대한 정보를 표시하여 show 명령의 작동 방식을 이해하는 데 도움이 됩니다. 
 ---
 = show 명령이 작동하는 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

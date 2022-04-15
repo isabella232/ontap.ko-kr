@@ -5,6 +5,7 @@ keywords: ontap, branchcache, support, group, policy, object, gpo, centralize, m
 summary: 'ONTAP BranchCache는 특정 BranchCache 구성 매개 변수에 대한 중앙 집중식 관리를 허용하는 BranchCache GPO(그룹 정책 개체)를 지원합니다. BranchCache에는 두 가지 GPO, 즉 BranchCache GPO의 해시 게시 GPO와 BranchCache GPO의 해시 버전 지원 GPO가 사용됩니다.' 
 ---
 = BranchCache 그룹 정책 개체 지원
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

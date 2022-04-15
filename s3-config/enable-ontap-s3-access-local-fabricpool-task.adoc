@@ -5,6 +5,7 @@ keywords: enable, ontap, s3 access, local, fabricpool, tiering
 summary: ONTAP S3를 로컬 FabricPool 용량 계층으로 사용하려면 생성한 버킷을 기반으로 오브젝트 저장소를 정의한 다음 오브젝트 저장소를 성능 계층 애그리게이트에 연결하여 FabricPool를 생성해야 합니다. 
 ---
 = 로컬 FabricPool 계층화에 대해 ONTAP S3 액세스를 설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: storage protocols
 summary: ONTAP은 현재 사용 중인 클라우드에서 동일한 NFS, SMB 및 iSCSI 프로토콜을 제공합니다. 
 ---
 = 프로토콜을 지원합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

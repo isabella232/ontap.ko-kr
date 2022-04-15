@@ -5,6 +5,7 @@ keywords: moving, encrypted, volume
 summary: 볼륨 이동 시작 명령을 사용하여 암호화된 볼륨을 이동할 수 있습니다. 이동된 볼륨은 동일한 애그리게이트 또는 다른 애그리게이트에 있을 수 있습니다. 
 ---
 = 암호화된 볼륨을 이동합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

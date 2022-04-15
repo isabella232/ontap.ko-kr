@@ -5,6 +5,7 @@ keywords: create, svm
 summary: NFS 클라이언트에 데이터 액세스를 제공하기 위해 클러스터에 SVM이 하나 이상 없으면 하나 이상의 SVM을 생성해야 합니다. 
 ---
 = SVM을 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

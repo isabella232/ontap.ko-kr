@@ -5,6 +5,7 @@ keywords: smb, automatic, node, referral, autolocation, aware, requirement, vers
 summary: 자동 위치정보 라고도 하는 SMB 자동 노드 조회를 사용하려면 해당 기능을 지원하는 ONTAP 버전을 비롯한 특정 요구 사항을 알고 있어야 합니다. 또한 지원되는 SMB 프로토콜 버전 및 기타 특정 특별 지침에 대해서도 알아야 합니다. 
 ---
 = 자동 노드 조회를 사용하기 위한 요구 사항 및 지침
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

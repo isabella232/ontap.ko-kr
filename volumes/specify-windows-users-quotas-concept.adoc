@@ -5,6 +5,7 @@ keywords: how to, specify, windows users, for quotas
 summary: Windows 2000 이전 형식의 Windows 이름, SID 또는 사용자 SID가 소유한 파일 또는 디렉토리의 세 가지 형식 중 하나를 사용하여 할당량에 대한 Windows 사용자를 지정할 수 있습니다. 
 ---
 = 할당량을 위해 Windows 사용자를 지정하는 방법
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

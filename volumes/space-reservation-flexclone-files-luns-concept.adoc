@@ -5,6 +5,7 @@ keywords: how, space reservation, works, flexclone files, flexclone luns
 summary: FlexClone 파일 및 FlexClone LUN은 기본적으로 상위 파일 및 상위 LUN의 공간 예약 속성을 상속합니다. 그러나 FlexVol 볼륨에 공간이 없는 경우 공간 예약이 활성화된 상위 파일과 상위 LUN에서 공간 예약이 비활성화된 상태로 FlexClone 파일 및 FlexClone LUN을 생성할 수 있습니다. 
 ---
 = FlexClone 파일 및 FlexClone LUN에서 공간 예약이 작동하는 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

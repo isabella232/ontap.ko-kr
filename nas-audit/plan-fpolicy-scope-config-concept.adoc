@@ -5,6 +5,7 @@ keywords: plan, fpolicy, scope, configuration
 summary: FPolicy 범위를 구성하기 전에 범위를 생성하는 것이 무엇을 의미하는지 이해해야 합니다. 범위 구성에 포함된 내용을 이해해야 합니다. 또한 우선 순위 범위 규칙이 무엇인지 이해해야 합니다. 이 정보는 설정할 값을 계획하는 데 도움이 될 수 있습니다. 
 ---
 = FPolicy 범위 구성 개요를 계획하십시오
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

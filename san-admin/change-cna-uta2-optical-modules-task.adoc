@@ -5,6 +5,7 @@ keywords: change, cna/uta2, target, adapter, optical, modules
 summary: '어댑터에 대해 선택한 퍼스낼리티 모드를 지원하도록 유니파이드 타겟 어댑터(CNA/UTA2)의 광 모듈을 변경해야 합니다.' 
 ---
 = CNA/UTA2 타겟 어댑터 광 모듈을 변경합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

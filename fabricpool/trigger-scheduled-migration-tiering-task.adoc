@@ -5,6 +5,7 @@ keywords: triggering, scheduled, migration, tiering
 summary: 기본 계층화 검사를 기다리지 않으려는 경우 언제든지 계층화 스캔 요청을 트리거할 수 있습니다. 
 ---
 = 예약된 마이그레이션 및 계층화 트리거
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

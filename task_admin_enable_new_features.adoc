@@ -8,6 +8,7 @@ summary: 일부 ONTAP 기능은 라이센스 키를 통해 활성화됩니다. S
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

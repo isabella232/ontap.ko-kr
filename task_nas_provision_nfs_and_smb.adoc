@@ -8,6 +8,7 @@ summary: NFS 또는 SMB 프로토콜을 사용하여 스토리지를 제공할 �
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

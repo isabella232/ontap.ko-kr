@@ -5,6 +5,7 @@ keywords: circumstance, process, exclusive, oplock, file, flush, cache, data, wr
 summary: 경우에 따라 프로세스에 파일에 배타적 oplock이 있고 두 번째 프로세스에서 파일을 열려고 시도할 경우 첫 번째 프로세스에서는 캐시된 데이터를 무효화하고 쓰기 및 잠금을 플러시해야 합니다. 그런 다음 클라이언트는 oplock 및 파일에 대한 액세스를 양도해야 합니다. 이 플러시 중에 네트워크 장애가 발생하면 캐시된 쓰기 데이터가 손실될 수 있습니다. 
 ---
 = oplocks 사용 시 캐시 데이터 손실 고려 사항 쓰기
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

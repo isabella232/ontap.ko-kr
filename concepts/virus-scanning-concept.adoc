@@ -5,6 +5,7 @@ keywords: virus scan
 summary: 스토리지 시스템에서 통합 바이러스 백신 기능을 사용하여 바이러스나 기타 악성 코드에 의해 데이터가 손상되는 것을 방지할 수 있습니다. Vscan이라는 ONTAP 바이러스 스캔은 동급 최강의 타사 바이러스 백신 소프트웨어와 ONTAP 기능을 결합하여 언제 어떤 파일을 스캔할지 제어하는 데 필요한 유연성을 제공합니다. 
 ---
 = 바이러스 검사
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

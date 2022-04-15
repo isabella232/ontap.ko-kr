@@ -5,6 +5,7 @@ keywords: modify, port, nfsv3, service
 summary: 스토리지 시스템의 NFS 서버에서는 마운트 데몬, Network Lock Manager 등의 서비스를 사용하여 특정 기본 네트워크 포트를 통해 NFS 클라이언트와 통신합니다. 대부분의 NFS 환경에서 기본 포트는 올바르게 작동하고 수정할 필요가 없지만, NFSv3 환경에서 다른 NFS 네트워크 포트를 사용하려는 경우에는 변경할 수 있습니다. 
 ---
 = NFSv3 서비스에 사용되는 포트를 수정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: fast, directory, delete, deleting, using CLI
 summary: 'REST API를 사용하여 디렉토리를 삭제하는 것이 좋습니다. ONTAP CLI(Command Line Interface)를 사용하여 디렉토리를 삭제할 수도 있습니다.' 
 ---
 = CLI를 사용하여 빠른 디렉토리 삭제를 수행합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: create, s3, user
 summary: 권한이 있는 클라이언트로의 연결을 제한하려면 모든 ONTAP 개체 저장소에 사용자 권한이 필요합니다. 
 ---
 = S3 사용자를 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

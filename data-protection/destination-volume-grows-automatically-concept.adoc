@@ -5,6 +5,7 @@ keywords: destination, volume, grow, automatic
 summary: 볼륨에 포함된 가용 공간이 애그리게이트에 있는 경우 데이터 보호 미러 전송 중에 소스 볼륨이 증가하면 타겟 볼륨의 크기가 자동으로 커집니다. 
 ---
 = 타겟 볼륨이 자동으로 증가하는 경우
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

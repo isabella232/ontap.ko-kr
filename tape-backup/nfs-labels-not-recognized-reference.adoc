@@ -5,6 +5,7 @@ keywords: nfs, label, recognized, not, abort, file, system, security
 summary: NFS 보안 레이블은 NFSv4.2가 활성화된 경우 ONTAP 9.9.1부터 지원됩니다. 
 ---
 = NFS 레이블을 인식할 수 없습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

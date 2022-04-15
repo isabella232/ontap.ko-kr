@@ -5,6 +5,7 @@ keywords: manage, file-share, event
 summary: 'SVM(스토리지 가상 시스템)에 대해 파일 공유 이벤트가 구성되고 감사가 활성화된 경우 감사 이벤트가 생성됩니다. CIFS 네트워크 공유가 vserver cifs share 관련 명령을 사용하여 수정될 때 파일 공유 이벤트가 생성됩니다.' 
 ---
 = 파일 공유 이벤트를 관리합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

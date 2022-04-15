@@ -5,6 +5,7 @@ keywords: snaplock, worm, storage, compliance, enterprise, mode, sec, rule, 17a,
 summary: SnapLock는 WORM 스토리지를 사용하여 규정 및 거버넌스 목적으로 수정되지 않은 형태로 파일을 유지하는 조직을 위한 고성능 규정 준수 솔루션입니다. 단일 라이센스를 사용하면 SnapLock를 엄격한 규정 준수 모드로 사용하여 SEC Rule 17a-4 및 느슨한 엔터프라이즈 모드와 같은 외부 규정을 충족함으로써 디지털 자산 보호를 위해 내부적으로 규정된 규정을 준수할 수 있습니다. 
 ---
 = SnapLock란
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

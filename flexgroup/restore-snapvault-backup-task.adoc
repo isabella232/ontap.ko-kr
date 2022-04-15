@@ -5,6 +5,7 @@ keywords: restore, flexgroup, volume, snapvault, backup
 summary: SnapVault 보조 볼륨의 스냅샷 복사본에서 FlexGroup 볼륨에 대한 전체 볼륨 복원 작업을 수행할 수 있습니다. FlexGroup 볼륨을 원래 소스 볼륨이나 새 FlexGroup 볼륨으로 복원할 수 있습니다. 
 ---
 = SnapVault 백업에서 FlexGroup 볼륨을 복원합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

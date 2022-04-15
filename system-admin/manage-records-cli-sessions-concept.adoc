@@ -5,6 +5,7 @@ keywords: manage, records, cli, sessions, file, name, size, limit, ftp, http
 summary: CLI 세션을 지정된 이름 및 크기 제한이 있는 파일에 기록한 다음 파일을 FTP 또는 HTTP 대상으로 업로드할 수 있습니다. 이전에 CLI 세션을 기록한 파일을 표시하거나 삭제할 수도 있습니다. 
 ---
 = CLI 세션 관리 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

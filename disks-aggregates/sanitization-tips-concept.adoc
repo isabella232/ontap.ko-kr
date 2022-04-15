@@ -5,6 +5,7 @@ keywords: disks, disk sanitization, aggregates, sensitive data
 summary: 데이터를 삭제하기 위해 애그리게이트를 생성하거나 백업하는 경우, 몇 가지 간단한 지침을 따르면 데이터를 삭제하는 데 걸리는 시간이 줄어듭니다. 
 ---
 = 삭제할 데이터가 포함된 집계를 생성 및 백업하기 위한 팁
+:allow-uri-read: 
 
 
 [role="lead"]

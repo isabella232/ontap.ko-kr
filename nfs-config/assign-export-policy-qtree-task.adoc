@@ -5,6 +5,7 @@ keywords: assign, export, policy, qtree
 summary: 전체 볼륨을 내보내는 대신, 볼륨에 있는 특정 qtree를 엑스포트하여 클라이언트에서 직접 액세스할 수도 있습니다. 엑스포트 정책을 qtree에 할당하여 qtree를 내보낼 수 있습니다. 새 qtree를 생성하거나 기존 qtree를 수정하여 엑스포트 정책을 할당할 수 있습니다. 
 ---
 = qtree에 엑스포트 정책을 할당합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

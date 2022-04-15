@@ -6,6 +6,7 @@ summary: 서브넷을 생성합니다
 ---
 = 서브넷을 생성합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

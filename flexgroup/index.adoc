@@ -5,6 +5,7 @@ keywords: decide, scalability, performance, flexgroup, volumes, scalability, per
 summary: 확장성과 성능을 위해 FlexGroup 볼륨을 설정, 관리, 보호할 수 있습니다. FlexGroup 볼륨은 자동 로드 분산 기능과 함께 고성능을 제공하는 스케일아웃 볼륨입니다. 
 ---
 = CLI를 통한 FlexGroup 볼륨 관리 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

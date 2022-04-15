@@ -5,6 +5,7 @@ keywords: protocol, smb, microsoft, nondisruptive, sql, server, hyper, v
 summary: Microsoft는 SMB 3.0 릴리스와 함께 SMB를 통해 Hyper-V 및 SQL Server의 무중단 운영을 지원하는 데 필요한 기능을 제공하는 새로운 프로토콜을 출시했습니다. 
 ---
 = 프로토콜을 지원하여 SMB를 통해 무중단 운영을 실현합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

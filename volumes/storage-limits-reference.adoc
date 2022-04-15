@@ -5,6 +5,7 @@ keywords: storage limits
 summary: 스토리지 아키텍처를 계획 및 관리할 때 고려해야 할 스토리지 개체에 대한 제한이 있습니다. 
 ---
 = 보관 제한
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

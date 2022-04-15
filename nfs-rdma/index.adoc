@@ -5,6 +5,7 @@ keywords: NFS over RDMA, GPU, NVIDIA GDX
 summary: RDMA 상의 NFS는 RDMA 어댑터를 사용하므로 스토리지 시스템 메모리와 호스트 시스템 메모리 간에 데이터를 직접 복사할 수 있으므로 CPU 중단과 오버헤드를 피할 수 있습니다. 
 ---
 = RDMA 상의 NFS
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

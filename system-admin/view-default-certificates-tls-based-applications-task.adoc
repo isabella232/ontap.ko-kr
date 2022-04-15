@@ -5,6 +5,7 @@ keywords: view, default, certificates, tls, applications, transport
 summary: 'ONTAP 9.2부터 ONTAP는 TLS(전송 계층 보안)를 사용하는 ONTAP 응용 프로그램에 대해 신뢰할 수 있는 루트 인증서 기본 집합을 제공합니다.' 
 ---
 = TLS 기반 응용 프로그램에 대한 기본 인증서를 봅니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

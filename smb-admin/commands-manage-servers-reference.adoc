@@ -5,6 +5,7 @@ keywords: command, creating, create, display, modify, stop, start, deleting, del
 summary: 생성, 표시, 수정, 중지, 시작 명령을 알아야 합니다. 및 SMB 서버 삭제. 또한 서버를 재설정 및 재검색, 컴퓨터 계정 암호 변경 또는 재설정, 컴퓨터 계정 암호 변경 예약, NetBIOS 별칭 추가 또는 제거 등의 명령도 있습니다. 
 ---
 = SMB 서버 관리를 위한 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -6,6 +6,7 @@ summary: '"napmirror failover start" 명령을 실행한 후 "napmirror failover
 ---
 = 계획된 페일오버 실패
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -5,6 +5,7 @@ keywords: node, governing, root, volume, aggregate, riles, special, directories
 summary: 노드의 루트 볼륨에는 해당 노드에 대한 특수 디렉토리와 파일이 포함되어 있습니다. 루트 Aggregate는 루트 볼륨을 포함합니다. 노드의 루트 볼륨 및 루트 애그리게이트에 적용되는 몇 가지 규칙이 있습니다. 
 ---
 = 노드 루트 볼륨 및 루트 애그리게이트 개요를 제어하는 규칙
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

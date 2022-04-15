@@ -5,6 +5,7 @@ keywords: apply, scanner policy, single, cluster
 summary: 스캐너 정책은 스캐너 풀이 활성 상태인지 여부를 결정합니다. 스캐너 풀에 정의된 Vscan 서버가 SVM에 연결될 수 있으려면 먼저 스캐너 풀을 활성화해야 합니다. 
 ---
 = 단일 클러스터에 스캐너 정책을 적용합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

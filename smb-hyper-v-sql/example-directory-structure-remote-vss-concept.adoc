@@ -5,6 +5,7 @@ keywords: directory, structure, remote, vss, hyper, v, virutal, machine, file, s
 summary: 원격 VSS는 섀도우 복제본을 생성할 때 Hyper-V 가상 머신 파일을 저장하는 디렉토리 구조를 통과합니다. 가상 머신 파일의 백업을 성공적으로 생성할 수 있도록 적절한 디렉토리 구조가 무엇인지 이해하는 것이 중요합니다. 
 ---
 = 원격 VSS에서 사용하는 디렉토리 구조의 예
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

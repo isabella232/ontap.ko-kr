@@ -5,6 +5,7 @@ keywords: invalid, backup, image, checksum, tape, corrupt, restore, operation
 summary: 백업 이미지 체크섬이 잘못되었습니다. 
 ---
 = 백업 이미지 체크섬이 잘못되었습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -6,6 +6,7 @@ summary: 특정 포트에 대한 정보 또는 클러스터의 모든 노드에 
 ---
 = 네트워크 포트 정보를 표시합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

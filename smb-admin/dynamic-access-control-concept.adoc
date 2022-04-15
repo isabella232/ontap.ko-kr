@@ -5,6 +5,7 @@ keywords: consideration, dynamic, access, control, dac, central, policies, polic
 summary: 'DAC(Dynamic Access Control) 및 중앙 액세스 정책을 사용하여 CIFS 서버의 파일과 폴더를 보호할 때 고려해야 할 몇 가지 사항이 있습니다.' 
 ---
 = CIFS 서버에서 동적 액세스 제어 및 중앙 액세스 정책을 사용할 때의 고려 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

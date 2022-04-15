@@ -5,6 +5,7 @@ keywords: configure, name, services
 summary: 스토리지 시스템의 구성에 따라 ONTAP는 클라이언트에 대한 적절한 액세스를 제공하기 위해 호스트, 사용자, 그룹 또는 넷그룹 정보를 조회해야 합니다. 이 정보를 얻으려면 ONTAP가 로컬 또는 외부 이름 서비스에 액세스하도록 이름 서비스를 구성해야 합니다. 
 ---
 = 이름 서비스 구성 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

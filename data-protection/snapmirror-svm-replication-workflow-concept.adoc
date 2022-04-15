@@ -5,6 +5,7 @@ keywords: snapmirror, svm, replication, workflow
 summary: SnapMirror SVM 복제에는 대상 SVM 생성, 복제 작업 일정 생성, SnapMirror 관계 생성 및 초기화가 포함됩니다. 
 ---
 = SnapMirror SVM 복제 워크플로우
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

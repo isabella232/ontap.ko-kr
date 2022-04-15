@@ -5,6 +5,7 @@ keywords: rules, specifying, values, cli, parameters, required, optional
 summary: 대부분의 명령에는 하나 이상의 필수 매개 변수 또는 선택적 매개 변수가 포함됩니다. 많은 매개 변수는 값을 지정해야 합니다. CLI에서 값을 지정할 때 적용되는 몇 가지 규칙이 있습니다. 
 ---
 = CLI에서 값을 지정하는 규칙입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

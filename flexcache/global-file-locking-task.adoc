@@ -5,6 +5,7 @@ keywords: global file locking, flexcache, relationship
 summary: 가용성에 대한 정합성을 보장하려면 FlexCache 볼륨에 대해 글로벌 파일 잠금을 설정할 수 있습니다. 
 ---
 = 글로벌 파일 잠금을 설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

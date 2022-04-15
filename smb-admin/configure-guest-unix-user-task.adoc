@@ -5,6 +5,7 @@ keywords: configuring, configure, guest, unix, user, untrusted, domain, map, con
 summary: '게스트 UNIX 사용자 옵션을 구성하면 신뢰할 수 없는 도메인에서 로그인하는 사용자가 게스트 UNIX 사용자에게 매핑되고 CIFS 서버에 연결할 수 있습니다. 또는 신뢰할 수 없는 도메인의 사용자 인증에 실패하도록 하려면 게스트 UNIX 사용자를 구성하지 않아야 합니다. 기본값은 신뢰할 수 없는 도메인의 사용자가 CIFS 서버에 접속할 수 없도록 하는 것입니다(게스트 UNIX 계정이 구성되지 않음).' 
 ---
 = 게스트 UNIX 사용자를 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

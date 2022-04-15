@@ -5,6 +5,7 @@ keywords: create, qtrees, flexgroup, volume, flex group, segment, smb oplock,
 summary: ONTAP 9.3부터 FlexGroup 볼륨으로 qtree를 생성할 수 있습니다. Qtree를 사용하면 FlexGroup 볼륨을 작은 세그먼트로 파티셔닝하여 개별적으로 관리할 수 있습니다. 
 ---
 = FlexGroup 볼륨으로 qtree를 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

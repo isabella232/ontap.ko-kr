@@ -5,6 +5,7 @@ keywords: active, autosupport, manifest, information, errors, file, view
 summary: AutoSupport 매니페스트는 각 AutoSupport 메시지에 대해 수집된 파일에 대한 자세한 보기를 제공합니다. AutoSupport 매니페스트에는 AutoSupport에서 필요한 파일을 수집할 수 없는 경우 컬렉션 오류에 대한 정보도 포함되어 있습니다. 
 ---
 = AutoSupport 매니페스트에 포함된 정보입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

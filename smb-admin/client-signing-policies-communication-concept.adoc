@@ -5,6 +5,7 @@ keywords: addition, cifs, server, smb, sign, security, windows, client, control,
 summary: CIFS 서버 SMB 서명 보안 설정 외에도 Windows 클라이언트의 두 SMB 서명 정책은 클라이언트와 CIFS 서버 간의 디지털 통신 서명을 제어합니다. 비즈니스 요구 사항에 맞게 설정을 구성할 수 있습니다. 
 ---
 = SMB 서명 정책이 CIFS 서버와의 통신에 미치는 영향
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

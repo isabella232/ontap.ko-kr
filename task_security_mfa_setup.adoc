@@ -8,6 +8,7 @@ summary: 'SAML(Security Assertion Markup Language) 인증을 통해 사용자는
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

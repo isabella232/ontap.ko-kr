@@ -5,6 +5,7 @@ keywords: convert, raid-tec, raid-dp
 summary: Aggregate의 크기를 줄이고 더 이상 3중 패리티가 필요하지 않은 경우, RAID 정책을 RAID-TEC에서 RAID-DP로 전환하고 RAID 패리티에 필요한 디스크 수를 줄일 수 있습니다. 
 ---
 = RAID-TEC를 RAID-DP로 변환합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

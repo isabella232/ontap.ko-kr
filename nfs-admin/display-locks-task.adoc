@@ -5,6 +5,7 @@ keywords: display, information, lock
 summary: 현재 파일 잠금에 대한 정보를 표시할 수 있습니다. 여기에는 보유한 잠금의 유형 및 잠금 상태, 바이트 범위 잠금에 대한 세부 정보, 공유 잠금 모드, 위임 잠금 및 편의적 잠금, 잠금이 내구성 또는 지속 핸들로 열렸는지 여부 등이 포함됩니다. 
 ---
 = 잠금에 대한 정보를 표시합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

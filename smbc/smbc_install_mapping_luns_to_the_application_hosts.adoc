@@ -6,6 +6,7 @@ summary: 애플리케이션 호스트의 이니시에이터에 LUN을 매핑할 
 ---
 = 애플리케이션 호스트에 LUN 매핑
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

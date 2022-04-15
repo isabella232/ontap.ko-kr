@@ -5,6 +5,7 @@ keywords: ontap, software, setup, provision, svm, preconfigured, template
 summary: ONTAP 9.3부터는 사전 구성된 템플릿을 사용하여 SVM을 생성하고 프로비저닝할 수 있습니다. 템플릿에 정의된 매개 변수의 값을 입력해야 합니다. 
 ---
 = 사전 구성된 ONTAP 템플릿을 사용하여 SVM 프로비저닝
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

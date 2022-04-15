@@ -5,6 +5,7 @@ keywords: ontap, software, setup, configure, important, ems, events, email, noti
 summary: 가장 중요한 이벤트의 이메일 알림을 수신하려면 중요한 활동을 나타내는 이벤트에 대한 이메일 메시지를 보내도록 EMS를 구성해야 합니다. 
 ---
 = e-메일 알림을 보내도록 중요한 EMS 이벤트를 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

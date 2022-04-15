@@ -5,6 +5,7 @@ keywords: installing, fabricpool, license
 summary: '새로 주문한 AFF 시스템에는 사용자가 선택하는 경우 FabricPool에서 타사 오브젝트 저장소(AWS S3, Azure Blob Storage, IBM Cloud Object Storage, Alibaba Cloud Object Storage 또는 Google Cloud Storage)를 사용할 수 있는 10TB 용량 기간 기반 라이센스가 무료로 제공됩니다. AFF 시스템에서 추가 용량이 필요하거나, 비-AFF 시스템에서 타사 오브젝트 저장소를 사용하려는 경우 또는 기존 클러스터에서 업그레이드할 경우 FabricPool 라이센스가 필요합니다.' 
 ---
 = FabricPool 라이센스를 설치합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

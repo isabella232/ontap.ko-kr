@@ -5,6 +5,7 @@ keywords: delete, volume, efficiency, policy
 summary: 볼륨 효율성 정책 삭제 명령을 사용하여 볼륨 효율성 정책을 삭제할 수 있습니다. 
 ---
 = 볼륨 효율성 정책을 삭제합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

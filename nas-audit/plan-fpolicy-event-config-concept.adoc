@@ -5,6 +5,7 @@ keywords: plan, fpolicy event configuration
 summary: FPolicy 이벤트를 구성하기 전에 FPolicy 이벤트가 생성하는 것이 무엇을 의미하는지 이해해야 합니다. 이벤트를 모니터링할 프로토콜, 모니터링할 이벤트 및 사용할 이벤트 필터를 결정해야 합니다. 이 정보는 설정할 값을 계획하는 데 도움이 됩니다. 
 ---
 = FPolicy 이벤트 구성 개요를 계획하십시오
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

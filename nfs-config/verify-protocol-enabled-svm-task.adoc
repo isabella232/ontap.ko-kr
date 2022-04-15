@@ -5,6 +5,7 @@ keywords: verify, nfs, protocol, enabled, svm
 summary: SVM에서 NFS를 구성 및 사용하려면 먼저 프로토콜이 활성화되어 있는지 확인해야 합니다. 
 ---
 = SVM에서 NFS 프로토콜이 활성화되어 있는지 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

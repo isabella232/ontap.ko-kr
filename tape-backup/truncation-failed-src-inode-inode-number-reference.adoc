@@ -5,6 +5,7 @@ keywords: truncation, failed, src, inode, number, delete, file, restore
 summary: 파일 inode는 파일이 복원될 때 삭제됩니다. 
 ---
 = src inode <inode number>… 에 대한 잘라내기에 실패했습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

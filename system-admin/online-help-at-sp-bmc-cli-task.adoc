@@ -5,6 +5,7 @@ keywords: online, help, sp, bmc, cli, command
 summary: 온라인 도움말에는 SP/BMC CLI 명령 및 옵션이 표시됩니다. 
 ---
 = SP/BMC CLI에서 온라인 도움말을 사용합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

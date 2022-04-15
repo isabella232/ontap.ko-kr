@@ -6,6 +6,7 @@ summary: 정기적으로 예약된 스냅샷 복사본 작업 외에도, 기본 
 ---
 = 공통 스냅샷 복사본을 생성합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

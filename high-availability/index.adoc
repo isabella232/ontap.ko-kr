@@ -6,6 +6,7 @@ summary: 테이크오버는 노드가 파트너의 스토리지를 제어하는 
 ---
 = 고가용성 관리 개요
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

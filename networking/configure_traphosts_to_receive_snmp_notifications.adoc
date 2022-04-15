@@ -6,6 +6,7 @@ summary: 트랩 알림을 받도록 SNMP 관리자를 구성합니다
 ---
 = SNMP 알림을 수신하도록 traphosts를 구성합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

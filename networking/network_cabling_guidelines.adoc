@@ -6,6 +6,7 @@ summary: 네트워크 케이블 연결 모범 사례
 ---
 = 네트워크 케이블 연결 지침
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

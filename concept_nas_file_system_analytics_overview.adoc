@@ -8,6 +8,7 @@ summary: 파일 시스템 분석은 FlexGroup 또는 FlexVol 볼륨의 콘텐츠
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

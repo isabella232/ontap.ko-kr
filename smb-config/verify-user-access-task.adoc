@@ -5,6 +5,7 @@ keywords: test, user, configure, access, smb, share, file, contain, verify user 
 summary: 구성한 사용자가 SMB 공유 및 해당 공유에 포함된 파일에 액세스할 수 있는지 테스트해야 합니다. 
 ---
 = 사용자 액세스를 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

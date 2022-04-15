@@ -5,6 +5,7 @@ keywords:
 summary: 'v4 -fsid -change 및 -v4.0 -referral 또는 -v4.1 -referral 옵션을 설정하여 스토리지 가상 머신 \(SVM\)에서 NFSv4 조회를 설정할 수 있습니다. NFSv4 조회를 설정하면 이 기능을 지원하는 NFSv4 클라이언트에 대한 데이터 액세스 속도가 빨라집니다.' 
 ---
 = NFSv4 조회를 설정하거나 해제합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: replacing, fabricpool, mirror, metrocluster, configuration
 summary: FabricPool 미러에 저장된 객체 중 하나가 제거되거나 MetroCluster 구성에서 영구적으로 사용할 수 없게 되는 경우 미러가 아직 미러가 아닌 경우 손상된 객체 저장소를 FabricPool 미러에서 제거할 수 있습니다. 그런 다음 새 오브젝트 저장소 미러를 FabricPool에 추가합니다. 
 ---
 = MetroCluster 구성에서 FabricPool 미러를 교체합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

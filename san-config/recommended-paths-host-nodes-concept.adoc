@@ -5,6 +5,7 @@ keywords: recommended, number, paths, host, nodes, cluster
 summary: 호스트에서 클러스터의 각 노드로 이어지는 경로를 8개 이상 초과하지 않아야 합니다. 이때 호스트 OS에 지원될 수 있는 총 경로 수와 호스트에서 사용되는 다중 경로에 주의해야 합니다. 
 ---
 = 클러스터의 호스트에서 노드까지 권장되는 경로 수입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

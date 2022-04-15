@@ -5,6 +5,7 @@ keywords: delete, local, group, storage, virtual, machine, svm, determine, deter
 summary: 'SVM(스토리지 가상 시스템)에서 로컬 그룹을 삭제하여 해당 SVM과 관련된 데이터에 대한 액세스 권한을 결정하거나 SVM 사용자 권한(권한)을 그룹 멤버에 할당할 필요가 없는 경우 해당 로컬 그룹을 삭제할 수 있습니다.' 
 ---
 = 로컬 그룹을 삭제합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

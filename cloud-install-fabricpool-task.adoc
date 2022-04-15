@@ -8,6 +8,7 @@ summary: 이전에 사용했을 수 있는 FabricPool 라이센스는 변경되�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

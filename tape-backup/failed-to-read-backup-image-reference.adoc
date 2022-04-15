@@ -5,6 +5,7 @@ keywords: restore, operation, failed, read, backup, image, corrupt
 summary: 테이프가 손상되었습니다. 
 ---
 = 백업 이미지를 읽지 못했습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

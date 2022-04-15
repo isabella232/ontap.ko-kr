@@ -5,6 +5,7 @@ keywords:
 summary: ONTAP에서 FC SAN을 구축하는 방법을 이해하는 데 필요한 중요한 개념을 알아야 합니다. 
 ---
 = FC를 통한 SAN 프로비저닝
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

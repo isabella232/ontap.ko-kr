@@ -5,6 +5,7 @@ keywords: ontap, store, name, service, configuration, information, table, equiva
 summary: ONTAP는 UNIX 시스템의 /etc/nsswitch.conf 파일에 해당하는 테이블에 이름 서비스 구성 정보를 저장합니다. 환경에 맞게 적절하게 구성할 수 있도록 표의 기능과 ONTAP에서 표의 사용 방법을 이해해야 합니다. 
 ---
 = ONTAP 네임 서비스 스위치 구성의 작동 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: backing up, onboard key management, okm, onboard key manager, informat
 summary: Onboard Key Manager 암호를 구성할 때마다 온보드 키 관리 정보를 스토리지 시스템 외부의 안전한 위치에 복사해야 합니다. 
 ---
 = 온보드 키 관리 정보를 수동으로 백업합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

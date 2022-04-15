@@ -8,6 +8,7 @@ summary: ONTAP 9.9.1부터 System Manager를 사용하여 데이터를 클라우
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

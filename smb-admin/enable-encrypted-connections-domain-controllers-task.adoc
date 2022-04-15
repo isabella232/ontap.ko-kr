@@ -5,6 +5,7 @@ keywords: ontap, connection, domain, controller, encrypt, enable, enable encrypt
 summary: ONTAP 9.8부터 도메인 컨트롤러에 대한 연결이 암호화되도록 지정할 수 있습니다. 
 ---
 = 도메인 컨트롤러에 대한 암호화된 연결을 활성화합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

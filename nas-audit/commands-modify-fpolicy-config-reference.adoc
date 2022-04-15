@@ -5,6 +5,7 @@ keywords: commands, modify, fpolicy, configurations
 summary: FPolicy 외부 엔진, 이벤트, 범위 및 정책을 수정할 수 있습니다. 
 ---
 = FPolicy 구성을 수정하는 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

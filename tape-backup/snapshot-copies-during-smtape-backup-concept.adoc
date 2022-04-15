@@ -5,6 +5,7 @@ keywords: snapshot, copy, smtape, backup, baseline, incremental, snapmirror
 summary: SMTape 기본 백업 및 증분 백업 중에 스냅샷 복사본이 어떻게 사용되는지 이해해야 합니다. 또한 SMTape를 사용하여 백업을 수행하는 동안 유의해야 할 고려 사항도 있습니다. 
 ---
 = SMTape 백업 중에 스냅샷 복사본을 사용합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

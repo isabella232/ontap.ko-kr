@@ -6,6 +6,7 @@ summary: 특정 VLAN에 대한 정보 또는 클러스터의 모든 VLAN에 대�
 ---
 = VLAN에 대한 정보 표시(클러스터 관리자만 해당)
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -5,6 +5,7 @@ keywords: decide, replication, netapp element software, ontap, business continui
 summary: SnapMirror를 사용하여 Element 볼륨의 스냅샷 복사본을 ONTAP 대상에 복제하여 Element 시스템에서 비즈니스 연속성을 보장할 수 있습니다. 
 ---
 = NetApp Element 소프트웨어와 ONTAP 간 복제 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -6,6 +6,7 @@ summary: 스토리지 페일오버를 설정 및 해제하는 명령입니다
 ---
 = 스토리지 페일오버를 설정 및 해제하는 명령입니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

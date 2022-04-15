@@ -5,6 +5,7 @@ keywords: support, vmware, vStorage, nfs
 summary: 'ONTAP는 NFS 환경에서 특정 VMware VAAI(vStorage APIs for Array Integration) 기능을 지원합니다.' 
 ---
 = VMware vStorage over NFS 지원
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

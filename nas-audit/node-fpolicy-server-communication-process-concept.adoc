@@ -5,6 +5,7 @@ keywords: node-to-external, fpolicy, server communication process
 summary: FPolicy 구성을 올바르게 계획하려면 노드-외부 FPolicy 서버 통신 프로세스가 무엇인지 이해해야 합니다. 
 ---
 = 노드-외부 FPolicy 서버 통신 프로세스는 무엇입니까
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: cifs, server, minimum, security, level, lmcompatibilitylevel, smb, tok
 summary: SMB 액세스에 대한 비즈니스 보안 요구 사항을 충족하도록 SMB 서버에서 LMCompatibilityLevel이라고 하는 SMB 서버 최소 보안 수준을 설정할 수 있습니다. 최소 보안 수준은 SMB 서버가 SMB 클라이언트에서 허용하는 최소 보안 토큰입니다. 
 ---
 = SMB 서버 최소 인증 보안 수준을 설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

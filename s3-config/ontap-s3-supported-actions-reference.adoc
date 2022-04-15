@@ -5,6 +5,7 @@ keywords: ontap s3, supported, actions
 summary: ONTAP S3가 지원되는 작업. 
 ---
 = ONTAP S3가 지원되는 작업
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

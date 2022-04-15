@@ -5,6 +5,7 @@ keywords: configure, ports
 summary: '통합 타겟 어댑터(X1143A-R6)를 구성하려면 동일한 퍼스낼리티 모드에서 동일한 칩에 두 개의 인접 포트를 구성해야 합니다.' 
 ---
 = 포트를 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

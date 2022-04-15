@@ -5,6 +5,7 @@ keywords: volume, restricted, restored, destination
 summary: 데이터가 복원되는 대상 볼륨은 제한되지 않습니다. 
 ---
 = 볼륨이 제한되지 않았습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

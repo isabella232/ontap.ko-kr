@@ -6,6 +6,7 @@ summary: SM-BC 구성을 업그레이드하고 되돌리는 데 필요한 요구
 ---
 = SM-BC 업그레이드 및 되돌리기 고려 사항
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

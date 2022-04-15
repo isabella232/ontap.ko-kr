@@ -5,6 +5,7 @@ keywords: benefits, storage, tiers, using, fabricpool
 summary: FabricPool를 사용하도록 애그리게이트를 구성하면 스토리지 계층을 사용할 수 있습니다. 스토리지 시스템의 성능과 비용을 효율적으로 조정하고, 공간 사용률을 모니터링 및 최적화하고, 스토리지 계층 간에 정책 기반 데이터 이동을 수행할 수 있습니다. 
 ---
 = FabricPool를 사용하여 스토리지 계층의 이점 실현
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

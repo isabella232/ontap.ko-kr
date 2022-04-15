@@ -5,6 +5,7 @@ keywords: ontap, revert, reverting, reversion, snapshot, copy, copies, policy, p
 summary: 이전 버전의 ONTAP로 되돌린 후에는 스냅샷 복사본 정책을 사용하도록 설정해야 스냅샷 복사본 생성이 다시 시작됩니다. 
 ---
 = 되돌리기 후 스냅샷 복사본 정책을 사용하도록 설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

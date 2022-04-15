@@ -5,6 +5,7 @@ keywords: configure, smb, svm, verify, protocol, enable, verify that the smb pro
 summary: SVM에서 SMB를 구성 및 사용하려면 먼저 프로토콜이 활성화되어 있는지 확인해야 합니다. 
 ---
 = SVM에서 SMB 프로토콜이 활성화되어 있는지 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

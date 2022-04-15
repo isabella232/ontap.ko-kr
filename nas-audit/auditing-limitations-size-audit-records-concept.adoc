@@ -5,6 +5,7 @@ keywords: limitations, size, audit records, stage files
 summary: 스테이징 파일의 감사 레코드 크기는 32KB를 초과할 수 없습니다. 
 ---
 = 스테이징 파일의 감사 레코드 크기에 대한 제한 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

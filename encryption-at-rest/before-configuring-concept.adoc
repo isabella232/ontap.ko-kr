@@ -5,6 +5,7 @@ keywords: collect, network, information, ontap 9.2, earlier
 summary: ONTAP 9.2 이하를 사용하는 경우 외부 키 관리를 활성화하기 전에 네트워크 구성 워크시트를 작성해야 합니다. 
 ---
 = ONTAP 9.2 및 그 이전 버전에서 네트워크 정보를 수집합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

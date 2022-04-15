@@ -5,6 +5,7 @@ keywords: nfs file, directory access events, audited
 summary: ONTAP는 특정 NFS 파일 및 디렉토리 액세스 이벤트를 감사할 수 있습니다. 감사할 수 있는 액세스 이벤트를 알면 변환된 감사 이벤트 로그의 결과를 해석할 때 도움이 됩니다. 
 ---
 = 감사할 수 있는 NFS 파일 및 디렉토리 액세스 이벤트입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: add, user, local, unix group
 summary: vserver services name-service unix-group adduser 명령을 사용하여 SVM에 로컬인 보조 UNIX 그룹에 사용자를 추가할 수 있습니다. 
 ---
 = 로컬 UNIX 그룹에 사용자를 추가합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

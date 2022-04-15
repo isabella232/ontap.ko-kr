@@ -5,6 +5,7 @@ keywords: ontap, command, pausing, pause, resuming, resume, stop, display, infor
 summary: 보안 정책 작업에 대한 정보를 일시 중지, 다시 시작, 중지 및 표시하는 ONTAP 명령이 있습니다. 
 ---
 = 보안 정책 작업 관리를 위한 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

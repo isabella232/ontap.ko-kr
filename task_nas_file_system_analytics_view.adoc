@@ -8,6 +8,7 @@ summary: 파일 시스템 분석을 설정한 후 탐색기 화면에서 용량 
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

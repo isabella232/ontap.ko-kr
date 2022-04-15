@@ -5,6 +5,7 @@ keywords: fabricpool, management workflow
 summary: FabricPool 워크플로 다이어그램을 사용하여 구성 및 관리 작업을 계획할 수 있습니다. 
 ---
 = FabricPool 관리 워크플로우
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

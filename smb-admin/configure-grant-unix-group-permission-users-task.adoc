@@ -5,6 +5,7 @@ keywords: configure, grant, group, permission, access, file, directories, direct
 summary: 들어오는 CIFS 사용자가 파일 소유자가 아닌 경우에도 파일 또는 디렉토리에 액세스할 수 있는 그룹 권한을 부여하도록 이 옵션을 구성할 수 있습니다. 
 ---
 = CIFS 사용자에게 UNIX 그룹 권한 부여 를 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

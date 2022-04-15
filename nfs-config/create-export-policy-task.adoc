@@ -5,6 +5,7 @@ keywords: create, export, policy
 summary: 내보내기 규칙을 만들기 전에 해당 규칙을 보유할 내보내기 정책을 만들어야 합니다. vserver export-policy create 명령을 사용하여 엑스포트 정책을 생성할 수 있습니다. 
 ---
 = 엑스포트 정책을 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

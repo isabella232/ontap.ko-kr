@@ -8,6 +8,7 @@ summary: ONTAP 9.7부터 System Manager를 사용하여 클러스터 보안을 �
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

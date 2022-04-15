@@ -5,6 +5,7 @@ keywords: metrocluster environments, considerations, san configuration, metroclu
 summary: MetroCluster 환경에서 SAN 구성을 사용할 때는 몇 가지 고려 사항을 염두에 두어야 합니다. 
 ---
 = MetroCluster 환경의 SAN 구성에 대한 고려 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

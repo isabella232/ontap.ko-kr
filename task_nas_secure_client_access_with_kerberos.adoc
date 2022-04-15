@@ -8,6 +8,7 @@ summary: NAS 클라이언트에 대한 스토리지 액세스를 보호하기 �
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

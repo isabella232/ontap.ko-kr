@@ -5,6 +5,7 @@ keywords: verify, audit, policy, confirm, file, folder, storage, virtual, machin
 summary: '감사 정책을 확인하여 보안 정책을 적용한 SVM(스토리지 가상 시스템)의 파일 또는 폴더에 원하는 감사 보안 설정이 있는지 확인할 수 있습니다.' 
 ---
 = 적용된 감사 정책을 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

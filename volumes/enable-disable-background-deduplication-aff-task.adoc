@@ -5,6 +5,7 @@ keywords: manage, aggregate-level, background, deduplication, aff systems
 summary: Aggregate 레벨의 데이터 중복 제거를 통해 동일한 애그리게이트에 속한 볼륨 전체에서 중복 블록을 제거할 수 있습니다. ONTAP 9.3부터는 AFF 시스템의 백그라운드에서 애그리게이트 레벨의 중복제거를 수행할 수 있습니다. 이 기능은 새로 생성된 모든 볼륨과 볼륨 백그라운드 중복제거가 활성화되어 있는 모든 업그레이드된 볼륨에 대해 기본적으로 활성화됩니다. 
 ---
 = AFF 시스템에서 애그리게이트 레벨의 백그라운드 중복제거를 관리합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

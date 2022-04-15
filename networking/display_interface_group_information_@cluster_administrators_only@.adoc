@@ -6,6 +6,7 @@ summary: 인터페이스 그룹 구성을 확인합니다
 ---
 = 인터페이스 그룹 정보 표시(클러스터 관리자만 해당)
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

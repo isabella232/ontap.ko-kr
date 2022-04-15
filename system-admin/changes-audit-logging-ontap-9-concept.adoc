@@ -5,6 +5,7 @@ keywords: audit, logging, ontap, 9, command, history, scripts, tool
 summary: ONTAP 9부터는 command-history.log 파일이 audit.log로 대체되고 mgwd.log 파일에는 더 이상 감사 정보가 포함되지 않습니다. ONTAP 9로 업그레이드하는 경우 기존 파일과 해당 콘텐츠를 참조하는 스크립트나 도구를 검토해야 합니다. 
 ---
 = ONTAP 9의 감사 로깅을 변경합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

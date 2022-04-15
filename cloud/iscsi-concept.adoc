@@ -5,6 +5,7 @@ keywords: iscsi
 summary: iSCSI 프로토콜은 파일 대신 블록 스토리지를 원하는 데이터베이스 및 기타 애플리케이션과 같은 클라이언트에 블록 레벨 스토리지를 제공합니다. ONTAP는 클라우드에 iSCSI 프로토콜을 제공합니다. 
 ---
 = iSCSI
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

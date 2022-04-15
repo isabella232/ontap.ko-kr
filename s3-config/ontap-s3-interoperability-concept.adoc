@@ -5,6 +5,7 @@ keywords: ontap s3, interoperability
 summary: ONTAP S3 서버는 일반적으로 이 표에 명시된 경우를 제외하고 다른 ONTAP 기능과 상호 작용합니다. 
 ---
 = ONTAP S3 상호 운용성
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

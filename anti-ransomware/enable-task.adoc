@@ -8,6 +8,7 @@ summary: 새로운 볼륨 또는 기존 볼륨에서 Anti-랜섬웨어를 활성
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

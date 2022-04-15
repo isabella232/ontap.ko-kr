@@ -8,6 +8,7 @@ summary: 'System Manager를 사용하여 자동 페일오버에 사용될 중재
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

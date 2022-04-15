@@ -5,6 +5,7 @@ keywords: user, authentication, node, scoped, ndmp, storage, system
 summary: 노드 범위 NDMP 모드에서는 NDMP 관련 자격 증명을 사용하여 스토리지 시스템에 액세스해야 테이프 백업 및 복구 작업을 수행할 수 있습니다. 
 ---
 = 노드 범위 NDMP 모드의 사용자 인증
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

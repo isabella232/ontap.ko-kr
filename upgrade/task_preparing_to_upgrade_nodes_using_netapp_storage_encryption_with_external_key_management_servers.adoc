@@ -5,6 +5,7 @@ keywords: ontap, upgrade, prepare, preparing, nodes, netapp, storage, encryption
 summary: 'ONTAP 9.2 이하 버전에서 NetApp 스토리지 암호화\(NSE\)를 사용하고 ONTAP 9.3 이상으로 업그레이드하는 경우 업그레이드를 수행하기 전에 CLI\(Command Line Interface\)를 사용하여 기존의 외부 키 관리\(KMIP\) 서버 연결을 삭제해야 합니다.' 
 ---
 = 업그레이드하기 전에 기존 외부 키 관리 서버 연결을 삭제합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

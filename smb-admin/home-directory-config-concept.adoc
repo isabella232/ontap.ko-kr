@@ -5,6 +5,7 @@ keywords: create, additional, home, directory, configuration, variable, enable, 
 summary: '%w, %d 및 %u 변수를 사용하여 추가 홈 디렉토리 구성을 생성할 수 있습니다. 이 변수를 사용하여 필요에 맞게 홈 디렉토리 구성을 사용자 정의할 수 있습니다.' 
 ---
 = 추가 홈 디렉토리 구성
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

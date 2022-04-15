@@ -5,6 +5,7 @@ keywords: promoting, data, fabricpool, volume, performance, tier, fabric pool, s
 summary: ONTAP 9.8부터 고급 권한 수준의 클러스터 관리자인 경우 계층화-정책과 클라우드 검색-정책 설정의 조합을 사용하여 클라우드 계층의 성능 계층으로 데이터를 사전 예방적으로 승격할 수 있습니다. 
 ---
 = 데이터를 성능 계층 개요로 승격합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

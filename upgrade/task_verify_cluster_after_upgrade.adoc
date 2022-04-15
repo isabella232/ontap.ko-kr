@@ -5,6 +5,7 @@ keywords: ontap, upgrade, upgrade, verify, status, health, post, after
 summary: 업그레이드 후에는 클러스터를 확인해야 합니다. 
 ---
 = 업그레이드 후 클러스터 검증
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

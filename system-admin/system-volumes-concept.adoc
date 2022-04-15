@@ -5,6 +5,7 @@ keywords: system, volume, flexvol, metadata, file, services, audit, logs, accoun
 summary: 시스템 볼륨은 파일 서비스 감사 로그의 메타데이터와 같은 특수 메타데이터가 포함된 FlexVol 볼륨입니다. 이러한 볼륨은 클러스터에서 볼 수 있으므로 클러스터에서 스토리지 사용을 완전히 고려할 수 있습니다. 
 ---
 = 시스템 볼륨이 무엇인지 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

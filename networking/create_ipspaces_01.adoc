@@ -6,6 +6,7 @@ summary: IPspace는 SVM이 상주하는 고유 IP 주소 공간입니다
 ---
 = IPspace 생성
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -5,6 +5,7 @@ keywords: multidomain, name, mapping, search, wild, card, domain, portion, windo
 summary: '다중 도메인 이름 매핑 검색을 사용하면 UNIX 사용자를 Windows 사용자 이름 매핑에 구성할 때 Windows 이름의 도메인 부분에서 와일드 카드(*)를 사용할 수 있습니다. 이름의 도메인 부분에서 와일드카드(*)를 사용하면 ONTAP에서 CIFS 서버의 컴퓨터 계정이 포함된 도메인과 양방향 트러스트가 있는 모든 도메인을 검색할 수 있습니다.' 
 ---
 = 다중 도메인 이름 매핑 검색을 사용하거나 사용하지 않도록 설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

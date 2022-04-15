@@ -5,6 +5,7 @@ keywords: set, up, smb, server, member, workgroup, consist, creating, create, lo
 summary: 작업 그룹에서 SMB 서버를 구성원으로 설정하는 작업은 SMB 서버를 생성한 다음 로컬 사용자 및 그룹을 만드는 작업으로 구성됩니다. 
 ---
 = 작업 그룹 개요에서 SMB 서버를 설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

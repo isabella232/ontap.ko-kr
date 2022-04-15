@@ -5,6 +5,7 @@ keywords: check, network, settings, data, switches, mtu
 summary: '클라이언트, 서버 및 스토리지 시스템(즉, 네트워크 엔드포인트)에서 동일한 MTU 설정을 유지해야 하지만 성능에 영향을 주지 않도록 NIC 및 스위치와 같은 중간 네트워크 디바이스를 최대 MTU 값으로 설정해야 합니다.' 
 ---
 = 데이터 스위치의 네트워크 설정을 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

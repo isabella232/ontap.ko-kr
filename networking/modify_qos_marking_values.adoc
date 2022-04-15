@@ -6,6 +6,7 @@ summary: 다른 프로토콜에 대한 QoS 표시 값을 변경합니다
 ---
 = QoS 표시 값을 수정합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

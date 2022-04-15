@@ -5,6 +5,7 @@ keywords: smb, encryption, data, transfer, security, enhancement, enable, disabl
 summary: SMB를 통한 데이터 전송을 위한 SMB 암호화는 SMB 서버에서 활성화 또는 비활성화할 수 있는 향상된 보안 기능입니다. 공유 속성 설정을 통해 공유별로 원하는 SMB 암호화 설정을 구성할 수도 있습니다. 
 ---
 = SMB를 통한 데이터 전송을 위해 SMB 서버에 필요한 SMB 암호화 구성 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

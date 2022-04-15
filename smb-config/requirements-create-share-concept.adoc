@@ -5,6 +5,7 @@ keywords: creating, create, smb, share, requirement, path, properties, property,
 summary: SMB 공유를 생성하기 전에 공유 경로 및 공유 속성, 특히 홈 디렉토리에 대한 요구 사항을 이해해야 합니다. 
 ---
 = SMB 공유를 생성하기 위한 요구 사항 및 고려 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: plan, fpolicy, external engine, configuration
 summary: 'FPolicy 외부 엔진(외부 엔진)을 구성하기 전에 외부 엔진을 생성하는 것이 무엇을 의미하는지 및 사용 가능한 구성 매개 변수를 이해해야 합니다. 이 정보는 각 매개변수에 대해 설정할 값을 결정하는 데 도움이 됩니다.' 
 ---
 = FPolicy 외부 엔진 구성을 계획하십시오
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

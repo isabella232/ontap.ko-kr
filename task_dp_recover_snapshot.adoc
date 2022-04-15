@@ -8,6 +8,7 @@ summary: 스냅샷 복사본에서 복원하여 볼륨을 이전 시점으로 �
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

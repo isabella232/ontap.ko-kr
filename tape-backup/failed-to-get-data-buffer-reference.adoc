@@ -5,6 +5,7 @@ keywords: failed, data, buffer, storage, system
 summary: 스토리지 시스템의 버퍼가 부족했습니다. 
 ---
 = 데이터 버퍼를 가져오지 못했습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

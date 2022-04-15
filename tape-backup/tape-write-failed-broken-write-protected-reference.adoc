@@ -5,6 +5,7 @@ keywords: tape, write, failed, broken, protected, corrupted
 summary: 백업에 사용된 테이프가 손상되었거나 쓰기 보호되어 있습니다. 
 ---
 = 테이프 쓰기 실패 - 새 테이프가 파손되었거나 쓰기 보호되어 있습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

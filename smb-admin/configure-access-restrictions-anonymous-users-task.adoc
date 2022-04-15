@@ -5,6 +5,7 @@ keywords: anonymous, unauthenticated, user, information, network, cifs, server, 
 summary: '기본적으로 인증되지 않은 익명 사용자(null 사용자라고도 함)는 네트워크의 특정 정보에 액세스할 수 있습니다. SMB 서버 옵션을 사용하여 익명 사용자의 액세스 제한을 구성할 수 있습니다.' 
 ---
 = 익명 사용자의 액세스 제한을 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

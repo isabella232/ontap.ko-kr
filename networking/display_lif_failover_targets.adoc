@@ -6,6 +6,7 @@ summary: LIF의 페일오버 정책과 페일오버 그룹 구성을 확인합�
 ---
 = LIF 페일오버 타겟을 표시합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

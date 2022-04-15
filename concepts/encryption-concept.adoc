@@ -5,6 +5,7 @@ keywords: encryption
 summary: ONTAP는 소프트웨어 및 하드웨어 기반 암호화 기술을 모두 제공하여 스토리지 미디어가 용도 변경, 반환, 잘못된 위치 변경 또는 도난된 경우 유휴 데이터를 읽을 수 없도록 합니다. 
 ---
 = 암호화
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

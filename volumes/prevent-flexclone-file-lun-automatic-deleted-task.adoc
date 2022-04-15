@@ -5,6 +5,7 @@ keywords: prevent, specific, flexclone, file, or flexclone, lun, from automatica
 summary: FlexClone 파일 및 FlexClone LUN을 자동으로 삭제하도록 FlexVol 볼륨을 구성하는 경우 지정한 조건에 맞는 모든 클론을 삭제할 수 있습니다. 보존하려는 특정 FlexClone 파일 또는 FlexClone LUN이 있는 경우 자동 FlexClone 삭제 프로세스에서 해당 LUN을 제외할 수 있습니다. 
 ---
 = 특정 FlexClone 파일 또는 FlexClone LUN이 자동으로 삭제되지 않도록 합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

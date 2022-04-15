@@ -5,6 +5,7 @@ keywords: aware, guideline, configure, snapmirror, volume, svm, contain, local, 
 summary: 로컬 그룹이 포함된 SVM이 소유한 볼륨에 SnapMirror를 구성할 때는 지침을 숙지해야 합니다. 
 ---
 = 로컬 그룹이 포함된 SVM에서 SnapMirror 사용 지침
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

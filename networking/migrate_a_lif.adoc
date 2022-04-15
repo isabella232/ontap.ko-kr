@@ -6,6 +6,7 @@ summary: LIF를 동일한 노드의 다른 포트 또는 클러스터 내의 다
 ---
 = LIF 마이그레이션
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

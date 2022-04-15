@@ -5,6 +5,7 @@ keywords: configure, nfs, kerberos, permitted, encryption, types
 summary: 기본적으로 ONTAP는 NFS Kerberos인 DES, 3DES, AES-128, AES-256에 대해 다음 암호화 유형을 지원합니다. vserver NFS modify 명령과 -enc -types 매개 변수를 함께 사용하면 각 SVM에 대해 허용되는 암호화 유형을 특정 환경의 보안 요구사항에 맞게 구성할 수 있습니다. 
 ---
 = NFS Kerberos 허용 암호화 유형을 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -6,6 +6,7 @@ summary: 물리적 또는 논리적 포트와 연결된 IP 주소인 LIF를 생�
 ---
 = LIF를 생성합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

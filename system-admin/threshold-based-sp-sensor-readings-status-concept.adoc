@@ -5,6 +5,7 @@ keywords: understand, threshold, sp, sensor, readings, status, value, command, o
 summary: 임계값 기반 센서는 다양한 시스템 구성 요소의 판독값을 주기적으로 읽습니다. SP는 구성 요소의 허용 가능한 작동 조건을 정의하는 사전 설정된 임계값 제한과 임계값 기반 센서에서 읽은 정보를 비교합니다. 
 ---
 = 시스템 센서 명령 출력의 임계값 기반 SP 센서 판독값과 상태 값에 대해 설명합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: determine, control. volume, space usage, aggregate
 summary: Aggregate에서 가장 많은 공간을 사용 중인 FlexVol 볼륨과 볼륨 내의 기능을 확인할 수 있습니다. volume show-footprint 명령은 볼륨의 설치 공간 또는 포함된 애그리게이트 내의 공간 사용에 대한 정보를 제공합니다. 
 ---
 = Aggregate에서 볼륨의 공간 사용을 결정하고 제어하는 방법
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

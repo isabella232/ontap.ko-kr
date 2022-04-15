@@ -5,6 +5,7 @@ keywords: monitor, snapshot, copy, disk, consumption
 summary: df 명령을 사용하여 스냅샷 복사본 디스크 소비를 모니터링할 수 있습니다. 명령은 활성 파일 시스템의 사용 가능한 공간과 스냅샷 복사본 예약 공간을 표시합니다. 
 ---
 = 스냅샷 복사본 디스크 사용량을 모니터링합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

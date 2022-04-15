@@ -5,6 +5,7 @@ keywords: enable, disable, nfsv4, write, file, delegation
 summary: 쓰기 파일 위임을 설정하거나 해제하려면 -v4.0-write-delegation 또는 -v4.1-write-delegation 옵션을 수정할 수 있습니다. 쓰기 파일 위임을 사용하면 파일 열기 및 닫기 외에도 파일 및 레코드 잠금과 관련된 메시지 오버헤드를 상당 정도 제거할 수 있습니다. 
 ---
 = NFSv4 쓰기 파일 위임을 설정 또는 해제합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

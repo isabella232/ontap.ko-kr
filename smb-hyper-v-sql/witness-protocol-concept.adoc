@@ -5,6 +5,7 @@ keywords: witness, protocol, node, sfo, partner, failure, smb, client
 summary: ONTAP는 노드의 SFO 파트너를 증인으로 사용하여 Witness 프로토콜을 구현합니다. 장애가 발생할 경우 파트너는 빠르게 장애를 감지하고 SMB 클라이언트에 알립니다. 
 ---
 = Witness 프로토콜 작동 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

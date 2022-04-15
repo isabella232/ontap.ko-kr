@@ -5,6 +5,7 @@ keywords: snapmanager, hyper, v, remote, manage, vss, backup, smb
 summary: SnapManager for Hyper-V를 사용하여 원격 VSS 기반 백업 서비스를 관리할 수 있습니다. SnapManager for Hyper-V 관리 백업 서비스를 사용하면 공간 효율적인 백업 세트를 생성할 수 있다는 이점이 있습니다. 
 ---
 = SnapManager for Hyper-V가 SMB를 통해 Hyper-V에 대한 원격 VSS 기반 백업을 관리하는 방법
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

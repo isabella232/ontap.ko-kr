@@ -6,6 +6,7 @@ summary: 클러스터 내 각 IPspace 내의 브로드캐스트 도메인 목록
 ---
 = 브로드캐스트 도메인을 표시합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

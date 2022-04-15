@@ -5,6 +5,7 @@ keywords: networking, LIF, NFS over RDMA, NVIDIA, NFS, RDMA, ROCE
 summary: 이 문서에서는 LIF가 RDMA 기능을 지원하도록 구성하는 방법을 설명합니다. 
 ---
 = RDMA를 통해 NFS용 LIF를 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

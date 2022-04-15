@@ -5,6 +5,7 @@ keywords: ontap, configure, smb, multichannel, multiple, connection, client, ses
 summary: ONTAP 9.4부터 SMB 다중 채널을 구성하여 단일 SMB 세션에서 ONTAP와 클라이언트 간에 여러 연결을 제공할 수 있습니다. 이렇게 하면 처리량과 내결함성이 개선됩니다. 
 ---
 = 성능 및 이중화를 위해 SMB 멀티 채널을 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

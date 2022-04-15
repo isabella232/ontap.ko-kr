@@ -5,6 +5,7 @@ keywords: delegating, authority, run, volume move, command
 summary: 볼륨 이동 명령을 사용하여 기존 볼륨을 암호화하거나, 암호화된 볼륨을 이동하거나, 볼륨을 암호화 해제할 수 있습니다. 클러스터 관리자는 볼륨 이동 명령을 직접 실행하거나 SVM 관리자에게 명령을 실행할 권한을 위임할 수 있습니다. 
 ---
 = 볼륨 이동 명령을 실행하는 권한을 위임합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

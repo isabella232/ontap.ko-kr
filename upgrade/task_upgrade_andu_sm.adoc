@@ -8,6 +8,7 @@ summary: System Manager를 사용하면 클러스터에서 ONTAP 버전을 중�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

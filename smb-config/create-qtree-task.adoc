@@ -5,6 +5,7 @@ keywords: create, qtree, contain, data, specify, properties, property, volume, c
 summary: Qtree 생성을 통해 데이터를 포함할 수 있으며 볼륨 qtree 생성 명령을 사용하여 속성을 지정할 수 있습니다. 
 ---
 = qtree를 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

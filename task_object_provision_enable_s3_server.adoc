@@ -8,6 +8,7 @@ summary: S3 서버로 스토리지 VM을 추가하여 S3 클라이언트에 콘�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

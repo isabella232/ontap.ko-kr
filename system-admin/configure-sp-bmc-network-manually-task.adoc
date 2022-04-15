@@ -5,6 +5,7 @@ keywords: configure, sp, bmc, network, manually, ip, address
 summary: SP에 자동 네트워크 구성이 설정되어 있지 않은 경우 IP 주소를 사용하여 SP에 액세스할 수 있도록 노드의 SP 네트워크를 수동으로 구성해야 합니다. 
 ---
 = SP/BMC 네트워크를 수동으로 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

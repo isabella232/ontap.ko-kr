@@ -5,6 +5,7 @@ keywords: configure, switches, fcoe
 summary: FC 서비스를 기존 이더넷 인프라에서 실행하려면 먼저 FCoE에 대한 스위치를 구성해야 합니다. 
 ---
 = FCoE에 대한 스위치를 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

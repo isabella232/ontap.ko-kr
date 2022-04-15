@@ -5,6 +5,7 @@ keywords: create, fpolicy scope
 summary: FPolicy 정책을 생성한 후에는 FPolicy 범위를 생성해야 합니다. 범위를 생성할 때 범위를 FPolicy 정책과 연계합니다. 범위는 FPolicy 정책이 적용되는 경계를 정의합니다. 범위에는 공유, 엑스포트 정책, 볼륨, 파일 확장명을 기준으로 파일을 포함하거나 제외할 수 있습니다. 
 ---
 = FPolicy 범위를 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

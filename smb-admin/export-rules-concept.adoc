@@ -5,6 +5,7 @@ keywords: export, rule, functional, element, policy, match, client, access, requ
 summary: 내보내기 규칙은 엑스포트 정책의 기능 요소입니다. 내보내기 규칙은 클라이언트 액세스 요청을 처리하는 방법을 결정하기 위해 구성한 특정 매개 변수와 볼륨에 대한 클라이언트 액세스 요청을 일치시킵니다. 
 ---
 = 엑스포트 규칙의 작동 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

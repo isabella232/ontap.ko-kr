@@ -5,6 +5,7 @@ keywords: returning, fips, drive, unprotected, mode
 summary: 노드에 대한 인증 키 ID가 기본값이 아닌 값으로 설정된 경우에만 FIPS 드라이브 또는 SED가 무단 액세스로부터 보호됩니다. 스토리지 암호화 디스크 수정 명령을 사용하여 키 ID를 기본값으로 설정하여 FIPS 드라이브 또는 SED를 보호되지 않는 모드로 되돌릴 수 있습니다. 
 ---
 = FIPS 드라이브 또는 SED를 보호되지 않는 모드로 되돌립니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

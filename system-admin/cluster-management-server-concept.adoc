@@ -5,6 +5,7 @@ keywords: cluster, management, server, adminsvm, svm, single, entity
 summary: 'adminSVM이라고 하는 클러스터 관리 서버는 클러스터를 관리할 수 있는 단일 엔티티로 제공하는 전문화된 SVM(스토리지 가상 시스템) 구현입니다. 클러스터 관리 서버는 최상위 관리 도메인 역할을 할 뿐만 아니라 데이터 SVM에 논리적으로 속하지 않는 리소스를 소유합니다.' 
 ---
 = 클러스터 관리 서버의 정의
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

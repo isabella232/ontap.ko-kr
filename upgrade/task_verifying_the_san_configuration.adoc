@@ -5,6 +5,7 @@ keywords: ontap, upgrade, verify, verifying, san, configuration
 summary: SAN 환경에서 업그레이드하면 직접 경로가 변경됩니다. 따라서 업그레이드를 수행하기 전에 각 호스트가 올바른 수의 직접 및 간접 경로로 구성되어 있는지, 그리고 각 호스트가 올바른 LIF에 연결되어 있는지 확인해야 합니다. 
 ---
 = SAN 구성을 확인하는 중입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -8,6 +8,7 @@ summary: 스토리지 VM을 수정하여 Linux 클라이언트에 데이터를 �
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

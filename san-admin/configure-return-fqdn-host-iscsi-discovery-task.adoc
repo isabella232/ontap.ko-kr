@@ -5,6 +5,7 @@ keywords: configure, iscsi, lifs, return, fqdn, host, sendtargets discovery oper
 summary: 'ONTAP 9부터 호스트 OS가 iSCSI SendTargets 검색 작업을 전송할 때 FQDN(정규화된 도메인 이름)을 반환하도록 iSCSI LIF를 구성할 수 있습니다. FQDN은 호스트 OS와 스토리지 서비스 사이에 NAT(Network Address Translation) 디바이스가 있는 경우에 유용합니다.' 
 ---
 = 호스트 iSCSI SendTargets 검색 작업에 FQDN을 반환하도록 iSCSI LIF를 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

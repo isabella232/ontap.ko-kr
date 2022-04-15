@@ -5,6 +5,7 @@ keywords: information, smb, share, svm, perform, management, task, microsoft, ma
 summary: 'SVM에서 SMB 공유에 대한 정보를 확인하고 MMC(Microsoft Management Console)를 사용하여 일부 관리 작업을 수행할 수 있습니다. 공유를 보려면 먼저 MMC를 SVM에 연결해야 합니다.' 
 ---
 = MMC를 사용하여 SMB 공유에 대한 정보를 봅니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

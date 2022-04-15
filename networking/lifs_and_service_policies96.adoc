@@ -6,6 +6,7 @@ summary: LIF에 서비스 정책을 할당하여 지원되는 트래픽을 지�
 ---
 = ONTAP 9.6 이상의 LIF 및 서비스 정책
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

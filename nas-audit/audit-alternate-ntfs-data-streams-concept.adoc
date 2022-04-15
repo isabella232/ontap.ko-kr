@@ -5,6 +5,7 @@ keywords: considerations, audit, alternate, ntfs data streams
 summary: NTFS 대체 데이터 스트림을 사용하여 파일을 감사할 때 고려해야 할 몇 가지 사항이 있습니다. 
 ---
 = 대체 NTFS 데이터 스트림을 감사할 때의 고려 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

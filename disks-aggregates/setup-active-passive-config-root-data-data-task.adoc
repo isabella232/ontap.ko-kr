@@ -5,6 +5,7 @@ keywords: root-data-data, partitioning, disks, active-passive
 summary: HA 쌍이 공장 출하 시 루트 데이터 데이터 파티셔닝을 사용하도록 구성된 경우, 액티브-액티브 구성에서 사용하기 위해 데이터 파티션의 소유권은 두 노드 사이에 분할됩니다. 액티브-패시브 구성에서 HA 쌍을 사용하려면 데이터 애그리게이트를 생성하기 전에 파티션 소유권을 업데이트해야 합니다. 
 ---
 = 루트-데이터-데이터 파티셔닝을 사용하여 노드에서 액티브-패시브 구성을 설정하십시오
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: consistency groups, application protection, parent, child, hierarchy
 summary: 대규모 애플리케이션 워크로드 관리 및 데이터 보호를 위한 계층적 일관성 그룹을 생성합니다. 
 ---
 = 계층적 일관성 그룹을 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

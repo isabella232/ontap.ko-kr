@@ -6,6 +6,7 @@ summary: FIPS 드라이브 또는 SED가 영구적으로 인증 키를 분실하
 ---
 = 인증 키가 손실되면 FIPS 드라이브 또는 SED를 서비스에 반환합니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

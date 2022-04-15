@@ -5,6 +5,7 @@ keywords: ontap, revert, reverting, reversion, disable, disabling, qtree, functi
 summary: FlexGroup 9.3 이전에는 ONTAP 볼륨용 qtree가 지원되지 않습니다. ONTAP 9.3에서 이전 버전의 ONTAP로 되돌리기 전에 FlexGroup 볼륨에서 qtree 기능을 비활성화해야 합니다. 
 ---
 = 되돌리기 전에 FlexGroup 볼륨에서 qtree 기능을 해제합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

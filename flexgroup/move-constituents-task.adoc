@@ -5,6 +5,7 @@ keywords: constituents, flexgroup, volume, flex group, balancing, balance, traff
 summary: 특정 구성요소에 더 많은 트래픽이 발생하는 경우 로드 밸런싱을 위해 FlexGroup 볼륨의 구성요소를 한 애그리게이트에서 다른 애그리게이트로 이동할 수 있습니다. 또한 구성요소를 이동하면 기존 구성요소의 크기를 조정할 수 있도록 애그리게이트의 공간을 확보할 수 있습니다. 
 ---
 = FlexGroup 볼륨의 구성요소를 이동합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

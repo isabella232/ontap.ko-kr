@@ -5,6 +5,7 @@ keywords: world, wide, name-based, zoning
 summary: 'WWN(World Wide Name)을 기반으로 하는 조닝은 영역 내에 포함할 구성원의 WWN을 지정합니다. ONTAP에서 조닝할 때 WWPN(World Wide Port Name) 조닝을 사용해야 합니다.' 
 ---
 = World Wide Name 기반 조닝
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

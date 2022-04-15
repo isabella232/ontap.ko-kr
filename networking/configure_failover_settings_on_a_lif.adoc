@@ -6,6 +6,7 @@ summary: LIF가 특정 네트워크 포트 그룹으로 페일오버되도록 �
 ---
 = LIF에서 페일오버 설정을 구성합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

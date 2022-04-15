@@ -5,6 +5,7 @@ keywords: fpolicy, configuration types
 summary: 기본 FPolicy 구성 유형은 두 가지입니다. 하나의 구성에서는 외부 FPolicy 서버를 사용하여 알림을 처리하고 처리합니다. 다른 구성에서는 외부 FPolicy 서버를 사용하지 않습니다. 대신 ONTAP 내부 기본 FPolicy 서버를 사용하여 확장자에 따라 간단한 파일 차단을 수행합니다. 
 ---
 = FPolicy 구성 유형
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

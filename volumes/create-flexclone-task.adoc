@@ -5,6 +5,7 @@ keywords: create, flexclone volume
 summary: FlexClone 볼륨 생성 
 ---
 = FlexClone 볼륨을 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

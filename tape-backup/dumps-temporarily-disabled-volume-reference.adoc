@@ -5,6 +5,7 @@ keywords: ndmp, dump, backup, temporarily, disable, volume, snapmirror, resync, 
 summary: SnapMirror 중단 또는 SnapMirror 재동기화 작업의 일부인 SnapMirror 대상 볼륨에서 NDMP 덤프 백업이 시도됩니다. 
 ---
 = 볼륨에 대해 일시적으로 비활성화된 덤프를 다시 시도하십시오
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

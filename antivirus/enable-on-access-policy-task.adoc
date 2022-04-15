@@ -5,6 +5,7 @@ keywords: enable, on-access, policy
 summary: SVM의 파일을 스캔하려면 먼저 SVM에서 액세스 시 정책을 활성화해야 합니다. 클러스터에서 모든 SVM에 대해 액세스 시 정책을 생성한 경우 각 SVM에 대해 개별적으로 정책을 활성화해야 합니다. 한 번에 하나의 SVM에 대해 액세스 시 정책만 활성화할 수 있습니다. 
 ---
 = 액세스 시 정책을 설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, multi byte, file, directory, qtree, name
 summary: 'ONTAP 9.5부터 4바이트 UTF-8 인코딩 이름을 지원하므로 BMP(기본 다국어 플레인) 외부의 유니코드 보조 문자를 포함하는 파일, 디렉터리 및 트리 이름을 만들고 표시할 수 있습니다. 이전 릴리스에서는 이러한 보조 문자가 멀티 프로토콜 환경에서 올바르게 표시되지 않았습니다.' 
 ---
 = ONTAP에서 멀티바이트 파일, 디렉토리 및 qtree 이름을 처리하는 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

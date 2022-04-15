@@ -5,6 +5,7 @@ keywords: considerations, creating, flexclone volume, from snapmirror, source, d
 summary: 기존 볼륨 SnapMirror 관계의 소스 또는 타겟 볼륨에서 FlexClone 볼륨을 생성할 수 있습니다. 그러나 이렇게 하면 이후의 SnapMirror 복제 작업이 성공적으로 완료되지 못할 수 있습니다. 
 ---
 = SnapMirror 소스 또는 타겟 볼륨에서 FlexClone 볼륨을 생성할 때의 고려 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

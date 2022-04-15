@@ -5,6 +5,7 @@ keywords: view, snapshot, copies, copy, previous, version, enable, policy, appli
 summary: 활성화된 스냅샷 정책이 공유가 포함된 볼륨에 적용되고 볼륨 구성에서 스냅샷 복사본에 액세스할 수 있는 경우에만 이전 버전 탭에서 스냅샷 복사본을 볼 수 있습니다. 이전 버전 액세스 권한을 가진 사용자를 지원할 때 스냅샷 복사본의 가용성을 확인하는 것이 좋습니다. 
 ---
 = 이전 버전에서 사용할 수 있는 스냅샷 복사본이 있는지 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

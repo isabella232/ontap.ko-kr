@@ -5,6 +5,7 @@ keywords: prepare, ndmp, configuration
 summary: 'NDMP(Network Data Management Protocol)를 통해 테이프 백업 액세스를 구성하기 전에 계획된 구성이 지원되는지 확인하고, 테이프 드라이브가 각 노드의 적격 드라이브로 나열되는지 확인하고, 모든 노드에 인터클러스터 LIF가 있는지 확인해야 합니다. 백업 애플리케이션이 CAB(Cluster Aware Backup) 확장을 지원하는지 여부를 확인합니다.' 
 ---
 = NDMP 구성을 준비합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

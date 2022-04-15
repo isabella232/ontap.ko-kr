@@ -6,6 +6,7 @@ summary: HA 쌍의 모든 측면을 구성한 후에는 Takeover 및 Giveback �
 ---
 = 테이크오버 및 반환 테스트
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

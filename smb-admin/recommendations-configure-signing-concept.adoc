@@ -5,6 +5,7 @@ keywords: configure, smb, sign, behavior, client, cifs, security, requirement, s
 summary: SMB 클라이언트와 CIFS 서버 간에 SMB 서명 동작을 구성하여 보안 요구 사항을 충족할 수 있습니다. CIFS 서버에서 SMB 서명을 구성할 때 선택하는 설정은 보안 요구 사항에 따라 다릅니다. 
 ---
 = SMB 서명 구성을 위한 권장 사항입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

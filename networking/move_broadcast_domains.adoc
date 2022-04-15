@@ -6,6 +6,7 @@ summary: 시스템에서 생성한 브로드캐스트 도메인을 생성한 IPs
 ---
 = 브로드캐스트 도메인을 IPspace로 이동
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

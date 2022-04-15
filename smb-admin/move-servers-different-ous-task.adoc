@@ -5,6 +5,7 @@ keywords: cifs, server, create-process, default, organizational, unit, ou, cn, c
 summary: 'CIFS 서버 생성 프로세스는 다른 OU를 지정하지 않는 한 설정 중에 기본 OU(조직 구성 단위) CN=컴퓨터를 사용합니다. 설정 후 CIFS 서버를 다른 OU로 이동할 수 있습니다.' 
 ---
 = CIFS 서버를 다른 OU로 이동합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

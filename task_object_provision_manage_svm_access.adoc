@@ -8,6 +8,7 @@ summary: 스토리지 VM을 편집하여 여러 버킷에 대한 사용자 및 �
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

@@ -5,6 +5,7 @@ keywords: additional information, configure, fpolicy, external engines, ssl auth
 summary: FPolicy 서버에 연결할 때 SSL을 사용하도록 FPolicy 외부 엔진을 구성하려면 몇 가지 추가 정보를 알고 있어야 합니다. 
 ---
 = SSL 인증된 연결을 사용하도록 FPolicy 외부 엔진을 구성하는 방법에 대한 추가 정보입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: move, smb, server, workgroup, active, directory, domain, vserver, cifs
 summary: vserver cifs modify 명령을 사용하여 작업 그룹에서 Active Directory 도메인으로, 작업 그룹에서 다른 작업 그룹으로 또는 Active Directory 도메인에서 작업 그룹으로 SMB 서버를 이동할 수 있습니다. 
 ---
 = SMB 서버를 수정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

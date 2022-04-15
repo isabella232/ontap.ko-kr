@@ -6,6 +6,7 @@ summary: ONTAP 클러스터에서 기존 ONTAP 중재자 구성을 제거하려�
 ---
 = ONTAP 중재자를 제거합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

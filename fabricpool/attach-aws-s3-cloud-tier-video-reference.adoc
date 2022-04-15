@@ -5,6 +5,7 @@ keywords: attaching, aws, s3, fabricpool, cloud, tier, video
 summary: 이 비디오에서는 System Manager를 사용하여 ONTAP S3 버킷을 FabricPool로 Aggregate에 연결하는 방법에 대해 간략하게 설명합니다. 
 ---
 = AWS S3를 FabricPool 클라우드 계층으로 연결(비디오)
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

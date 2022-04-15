@@ -5,6 +5,7 @@ keywords: local, user, access, data, cifs, server, create, authenticate, session
 summary: 로컬 사용자가 CIFS 서버의 데이터를 액세스하려면 먼저 인증된 세션을 생성해야 합니다. 
 ---
 = 로컬 사용자 인증의 작동 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

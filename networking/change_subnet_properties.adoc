@@ -6,6 +6,7 @@ summary: 서브넷 주소, 마스크 값, 게이트웨이 주소 또는 IP 주�
 ---
 = 서브넷 속성을 변경합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

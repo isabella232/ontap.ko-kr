@@ -5,6 +5,7 @@ keywords: configure, lifs
 summary: 데이터와 테이프 리소스 간에 데이터 연결을 설정하고, 관리 SVM과 백업 애플리케이션 간의 연결을 제어하는 데 사용할 LIF를 식별해야 합니다. LIF를 식별한 후 LIF에 대한 방화벽 및 페일오버 정책이 설정되었는지 확인하고 기본 인터페이스 역할을 지정해야 합니다. 
 ---
 = LIF를 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

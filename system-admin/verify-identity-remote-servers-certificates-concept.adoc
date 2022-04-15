@@ -5,6 +5,7 @@ keywords: verify, identity, remote, servers, certificate
 summary: ONTAP는 보안 인증서 기능을 지원하여 원격 서버의 ID를 확인합니다. 
 ---
 = 인증서 개요를 사용하여 원격 서버의 ID를 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

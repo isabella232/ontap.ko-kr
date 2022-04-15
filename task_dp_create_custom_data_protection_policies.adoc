@@ -8,6 +8,7 @@ summary: 기존 기본 보호 정책이 요구사항에 적합하지 않은 경�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

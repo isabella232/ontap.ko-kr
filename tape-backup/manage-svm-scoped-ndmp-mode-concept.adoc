@@ -5,6 +5,7 @@ keywords: manage, svm, scope, ndmp, flexvol, volumes, vserver, modify
 summary: NDMP 옵션 및 명령을 사용하여 SVM별로 NDMP를 관리할 수 있습니다. vserver services ndmp modify 명령을 사용하여 NDMP 옵션을 수정할 수 있습니다. SVM 범위의 NDMP 모드에서는 사용자 인증이 역할 기반 액세스 제어 메커니즘과 통합됩니다. 
 ---
 = FlexVol 볼륨의 SVM 범위 NDMP 모드를 관리합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

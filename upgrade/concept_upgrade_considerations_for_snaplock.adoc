@@ -5,6 +5,7 @@ keywords: ontap, upgrade, update, snaplock, considerations
 summary: SnapLock는 특정 커널 버전이 잘못된 SnapLock 릴리즈로 검증된 경우 또는 해당 릴리즈에서 SnapLock가 비활성화된 경우에는 해당 커널 버전을 다운로드할 수 없습니다. 이러한 다운로드 제한은 노드에 SnapLock 데이터가 있는 경우에만 적용됩니다. 
 ---
 = SnapLock에 대한 업그레이드 고려 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

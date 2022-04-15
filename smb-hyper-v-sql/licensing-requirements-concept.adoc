@@ -5,6 +5,7 @@ keywords: ontap, license, requirement, nondisruptive, hyper, v, smb, sql, server
 summary: SVM에서 무중단 운영을 위해 SQL Server 또는 Hyper-V over SMB 솔루션을 생성할 때 특정 ONTAP 및 라이센스 요구사항을 알아야 합니다. 
 ---
 = ONTAP 및 라이센스 요구 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

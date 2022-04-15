@@ -5,6 +5,7 @@ keywords: boot, ontap, environment, prompt, current, release, node
 summary: 노드의 부팅 환경 프롬프트에서 현재 릴리즈 또는 ONTAP의 백업 릴리즈를 부팅할 수 있습니다. 
 ---
 = 부팅 환경 프롬프트에서 ONTAP를 부팅합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, share, naming, name, requirement, mind, creating, create, smb, 
 summary: SMB 서버에서 SMB 공유를 생성할 때는 ONTAP 공유 이름 지정 요구 사항을 염두에 두어야 합니다. 
 ---
 = SMB 공유 이름 지정 요구 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

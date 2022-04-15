@@ -5,6 +5,7 @@ keywords: ontap, support, nfsv4.1
 summary: ONTAP 9.8부터는 NFSv4.1이 활성화된 경우 기본적으로 nconnect 기능을 사용할 수 있습니다. 
 ---
 = NFSv4.1을 위한 ONTAP 지원
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

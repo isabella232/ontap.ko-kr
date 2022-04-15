@@ -5,6 +5,7 @@ keywords: considerations, requirements, using, fabricpool
 summary: FabricPool 사용에 관한 몇 가지 고려 사항 및 요구 사항을 숙지해야 합니다. 
 ---
 = FabricPool 사용에 대한 고려 사항 및 요구 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

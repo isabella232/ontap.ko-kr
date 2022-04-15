@@ -8,6 +8,7 @@ summary: 재해 복구를 위해 볼륨의 미러 및 볼트를 생성합니다
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

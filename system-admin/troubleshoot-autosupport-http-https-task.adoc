@@ -5,6 +5,7 @@ keywords: troubleshoot, autosupport, message, delivery, http, https, check, sett
 summary: 시스템에서 예상된 AutoSupport 메시지를 전송하지 않고 HTTP 또는 HTTPS를 사용하는 경우 여러 설정을 확인하여 문제를 해결할 수 있습니다. 
 ---
 = HTTP 또는 HTTPS를 통한 AutoSupport 메시지 전송 문제를 해결합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

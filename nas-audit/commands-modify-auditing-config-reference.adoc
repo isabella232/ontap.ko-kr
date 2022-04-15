@@ -5,6 +5,7 @@ keywords: commands, modify, audit, configurations
 summary: 감사 설정을 변경하려면 로그 경로 대상 및 로그 형식 수정, 감사할 이벤트 범주 수정, 로그 파일을 자동으로 저장하는 방법, 저장할 최대 로그 파일 수 지정 등 언제든지 현재 구성을 수정할 수 있습니다. 
 ---
 = 감사 구성을 수정하는 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

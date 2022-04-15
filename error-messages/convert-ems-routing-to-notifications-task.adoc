@@ -5,6 +5,7 @@ keywords: update, ems, mapping, notification, filter, event
 summary: 명령줄을 사용하여 더 이상 사용되지 않는 ONTAP 명령에서 EMS 이벤트 매핑을 업데이트합니다. 
 ---
 = 사용되지 않는 ONTAP 명령에서 EMS 이벤트 매핑을 업데이트합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

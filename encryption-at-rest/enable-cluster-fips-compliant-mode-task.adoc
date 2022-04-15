@@ -5,6 +5,7 @@ keywords: enabling, cluster-wide, fips-compliant mode, kmip, server, connections
 summary: 보안 구성 수정 명령을 -is-FIPS 지원 옵션과 함께 사용하여 사용 중인 데이터에 대해 클러스터 차원의 FIPS 호환 모드를 설정할 수 있습니다. 이렇게 하면 클러스터가 KMIP 서버에 연결할 때 FIPS 모드에서 OpenSSL을 사용하게 됩니다. 
 ---
 = KMIP 서버 연결을 위해 클러스터 차원의 FIPS 호환 모드를 지원합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

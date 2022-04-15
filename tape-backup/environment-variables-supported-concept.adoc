@@ -5,6 +5,7 @@ keywords: environment, variables, ontap, ndmp, restore, operation, backup, defau
 summary: 환경 변수는 NDMP 지원 백업 애플리케이션과 스토리지 시스템 간의 백업 또는 복구 작업에 대한 정보를 전달하는 데 사용됩니다. ONTAP는 연결된 기본값을 갖는 환경 변수를 지원합니다. 그러나 이러한 기본값을 수동으로 수정할 수 있습니다. 
 ---
 = ONTAP에서 지원하는 환경 변수입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

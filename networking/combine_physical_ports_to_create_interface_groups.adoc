@@ -6,6 +6,7 @@ summary: 두 개 이상의 물리적 포트를 단일 논리 포트로 결합하
 ---
 = 물리적 포트를 결합하여 인터페이스 그룹을 생성합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

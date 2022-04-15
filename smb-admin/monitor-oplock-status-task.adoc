@@ -5,6 +5,7 @@ keywords: monitor, display, information, oplock, status, file, state, leasing, l
 summary: oplock 상태에 대한 정보를 모니터링하고 표시할 수 있습니다. 이 정보를 사용하여 oplocks가 있는 파일, oplock 레벨 및 oplock 상태 수준이 무엇인지, oplock 리스가 사용되는지 여부를 확인할 수 있습니다. 수동으로 해제해야 하는 잠금에 대한 정보를 확인할 수도 있습니다. 
 ---
 = oplock 상태를 모니터링합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

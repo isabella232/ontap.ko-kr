@@ -6,6 +6,7 @@ summary: 샘플 브로드캐스트 도메인
 ---
 = 브로드캐스트 도메인 사용 예
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

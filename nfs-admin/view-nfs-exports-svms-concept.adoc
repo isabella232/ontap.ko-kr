@@ -5,6 +5,7 @@ keywords: enable, display, nfs, export, client
 summary: NFS 클라이언트는 showmount -e 명령을 사용하여 ONTAP NFS 서버에서 사용할 수 있는 내보내기 목록을 볼 수 있습니다. 이렇게 하면 마운트할 파일 시스템을 식별하는 데 도움이 됩니다. 
 ---
 = NFS 클라이언트에서 NFS 내보내기 표시를 설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

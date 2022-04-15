@@ -5,6 +5,7 @@ keywords: install, snapmirror, cloud, license, asynchronous, replicate, replicat
 summary: ONTAP 9.8부터 SnapMirror Cloud는 ONTAP에서 오브젝트 스토리지 엔드포인트로 비동기 Snapshot 복사본 복제를 제공합니다. SnapMirror 클라우드 관계는 사전 검증된 타사 백업 애플리케이션을 사용해서만 구성할 수 있습니다. ONTAP를 오브젝트 스토리지 복제로 구성하려면 오브젝트 저장소 끝점에 복제하도록 구성된 ONTAP 소스 클러스터에 SnapMirror 및 SnapMirror 클라우드 라이센스가 모두 필요합니다. 
 ---
 = SnapMirror Cloud 라이센스를 설치합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

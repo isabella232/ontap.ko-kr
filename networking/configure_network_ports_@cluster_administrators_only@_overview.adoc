@@ -6,6 +6,7 @@ summary: 물리적 및 가상 네트워크 포트 소개
 ---
 = 개요
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -5,6 +5,7 @@ keywords: diag, secd, different, shells, cli, commands, cluster, administrators,
 summary: 클러스터에는 클러스터 셸, 노드 쉘, 시스템 쉘과 같은 CLI 명령을 위한 서로 다른 세 개의 셸이 있습니다. 쉘은 서로 다른 용도로 사용되며 각각 다른 명령 집합을 가집니다. 
 ---
 = CLI 명령에 대한 다양한 셸 정보 개요(클러스터 관리자만 해당)
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

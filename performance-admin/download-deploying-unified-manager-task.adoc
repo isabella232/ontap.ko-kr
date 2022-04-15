@@ -5,6 +5,7 @@ keywords: download, deploy, active iq unified manager
 summary: '소프트웨어를 설치하려면 가상 어플라이언스(VA) 설치 파일을 다운로드한 다음 VMware vSphere Client를 사용하여 VMware ESXi 서버에 파일을 구축해야 합니다. VA는 OVA 파일에서 사용할 수 있습니다.' 
 ---
 = Active IQ Unified Manager 다운로드 및 배포
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

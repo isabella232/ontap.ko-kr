@@ -5,6 +5,7 @@ keywords: tcp, port, iscsi
 summary: iSCSI 프로토콜은 ONTAP에서 TCP 포트 번호 3260을 사용하도록 구성되어 있습니다. 
 ---
 = iSCSI용 TCP 포트
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

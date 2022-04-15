@@ -5,6 +5,7 @@ keywords: user, map, share, authenticate, smb, session, establish, user, access,
 summary: 사용자가 공유를 매핑하면 인증된 SMB 세션이 설정되고 사용자, 사용자의 그룹 구성원 자격 및 누적 권한, 매핑된 UNIX 사용자에 대한 정보가 포함된 사용자 액세스 토큰이 생성됩니다. 
 ---
 = 사용자 액세스 토큰을 구성하는 방법입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

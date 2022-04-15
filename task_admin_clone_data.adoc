@@ -8,6 +8,7 @@ summary: 볼륨 및 LUN을 클론 복제하여 테스트할 복사본을 생성�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

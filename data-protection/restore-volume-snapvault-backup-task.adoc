@@ -5,6 +5,7 @@ keywords: restore, content, volume, snapmirror, destination, snap mirror, snapsh
 summary: SnapMirror 타겟 볼륨의 스냅샷 복사본에서 전체 볼륨의 콘텐츠를 복원할 수 있습니다. 볼륨 내용을 원래 소스 볼륨 또는 다른 볼륨으로 복원할 수 있습니다. 
 ---
 = SnapMirror 대상에서 볼륨 내용을 복원합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

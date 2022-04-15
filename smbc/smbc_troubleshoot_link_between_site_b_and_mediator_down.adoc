@@ -6,6 +6,7 @@ summary: 사이트 B의 중재자 연결이 연결할 수 없는 것으로 표�
 ---
 = 사이트 B와 중재 Down 및 사이트 A Down 사이의 연결
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

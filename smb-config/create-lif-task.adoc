@@ -5,6 +5,7 @@ keywords: lif, ip, address, associate, physical, logical, port, component, failu
 summary: LIF는 물리적 포트 또는 논리적 포트와 연결된 IP 주소입니다. 구성요소 장애가 발생할 경우 LIF가 다른 물리적 포트로 페일오버되거나 마이그레이션되어 네트워크와 계속 통신할 수 있습니다. 
 ---
 = LIF를 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

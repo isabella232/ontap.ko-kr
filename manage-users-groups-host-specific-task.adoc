@@ -5,6 +5,7 @@ keywords: system manager, windows, unix, host-specific, host, users, groups, add
 summary: ONTAP 9.10.1부터 System Manager를 사용하여 UNIX 또는 Windows 호스트별 사용자 및 그룹을 관리할 수 있습니다. 
 ---
 = System Manager로 호스트별 사용자 및 그룹을 관리합니다
+:allow-uri-read: 
 
 
 [role="lead"]

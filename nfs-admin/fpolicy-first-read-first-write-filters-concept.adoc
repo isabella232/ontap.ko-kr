@@ -5,6 +5,7 @@ keywords: fpolicy, first, read, write, filter, work, nfs
 summary: FPolicy가 읽기/쓰기 작업이 있는 외부 FPolicy 서버를 사용하여 모니터링되는 이벤트로 사용되는 경우 NFS 클라이언트에서 읽기/쓰기 요청의 트래픽이 많을 때 응답 시간이 오래 됩니다. NFS 클라이언트의 경우 FPolicy에서 첫 번째 읽기 및 첫 번째 쓰기 필터를 사용하므로 FPolicy 알림의 수가 줄어들고 성능이 향상됩니다. 
 ---
 = FPolicy를 먼저 읽고 첫 번째 쓰기 필터가 NFS에서 작동하는 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -6,6 +6,7 @@ summary: 클러스터를 업그레이드하기 전후에 디스크, 애그리게
 ---
 = 스토리지 상태를 확인합니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

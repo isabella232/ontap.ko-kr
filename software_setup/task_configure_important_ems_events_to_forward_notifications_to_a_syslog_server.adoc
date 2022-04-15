@@ -5,6 +5,7 @@ keywords: ontap, software, setup, configure, important,ems, events, forward, not
 summary: syslog 서버에서 가장 심각한 이벤트의 알림을 기록하려면 중요한 활동을 나타내는 이벤트에 대한 알림을 전달하도록 EMS를 구성해야 합니다. 
 ---
 = syslog 서버로 알림을 전달하도록 중요한 EMS 이벤트를 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

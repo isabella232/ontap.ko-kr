@@ -5,6 +5,7 @@ keywords: system manager, autosupport, setting, generate autosupport data, send 
 summary: 시스템 관리자를 사용하여 AutoSupport 계정의 설정을 보고 편집할 수 있습니다. 
 ---
 = System Manager로 AutoSupport 설정을 관리합니다
+:allow-uri-read: 
 
 
 [role="lead"]

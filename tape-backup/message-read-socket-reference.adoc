@@ -5,6 +5,7 @@ keywords: restore, read, socket, error, string, communication, remotem ndmp
 summary: NDMP 3-way 연결에서 원격 테이프에서 통신 복구 시 오류가 발생했습니다. 
 ---
 = Read Socket 의 메시지: error_string
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: commands, verify, tape, library, connections, storage, system
 summary: 스토리지 시스템과 스토리지 시스템에 연결된 테이프 라이브러리 구성 사이의 접속 경로에 대한 정보를 볼 수 있습니다. 이 정보를 사용하여 테이프 라이브러리 구성에 대한 연결 경로를 확인하거나 연결 경로와 관련된 문제를 해결할 수 있습니다. 
 ---
 = 테이프 라이브러리 연결을 확인하는 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

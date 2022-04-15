@@ -5,6 +5,7 @@ keywords: ontap, revert, reverting, revision, plan, planning, pre-checks
 summary: 환경에 따라 복원을 시작하기 전에 특정 요소를 고려해야 합니다. 
 ---
 = 되돌리기 전 점검
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

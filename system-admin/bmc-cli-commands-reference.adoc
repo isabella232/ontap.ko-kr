@@ -5,6 +5,7 @@ keywords: bmc, command, cli, log, ssh
 summary: SSH를 사용하여 BMC에 로그인할 수 있습니다. BMC 명령행에서 지원되는 명령은 다음과 같습니다. 
 ---
 = BMC CLI 명령
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

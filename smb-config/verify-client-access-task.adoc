@@ -5,6 +5,7 @@ keywords: verify, configure, smb, correct, access, writing, write, data, share, 
 summary: 공유에 데이터를 액세스 및 기록하여 SMB를 올바르게 구성했는지 확인해야 합니다. SMB 서버 이름 및 NetBIOS 별칭을 사용하여 액세스를 테스트해야 합니다. 
 ---
 = SMB 클라이언트 액세스를 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

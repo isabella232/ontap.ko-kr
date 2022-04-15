@@ -6,6 +6,7 @@ summary: 보안 및 데이터 암호화
 ---
 = 보안 및 데이터 암호화
 :hardbreaks:
+:allow-uri-read: 
 :linkattrs: 
 :imagesdir: ./media/
 

@@ -5,6 +5,7 @@ keywords: storage, service, definitions
 summary: ONTAP에는 해당 최소 성능 요소에 매핑된 사전 정의된 스토리지 서비스가 포함되어 있습니다. 
 ---
 = 스토리지 서비스 정의
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: configure, configuring, share, permission, create, access, control, li
 summary: 'SMB 공유에 대한 ACL(액세스 제어 목록)을 생성하여 공유 권한을 구성하면 사용자 및 그룹의 공유에 대한 액세스 수준을 제어할 수 있습니다.' 
 ---
 = SMB 공유 액세스 제어 목록을 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

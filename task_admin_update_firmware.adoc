@@ -8,6 +8,7 @@ summary: '디스크, 디스크 쉘프, DQP(Disk Qualification Package), SP(서�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

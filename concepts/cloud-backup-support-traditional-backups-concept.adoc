@@ -5,6 +5,7 @@ keywords: cloud backup, support, traditional backups
 summary: 이전에는 D2D 전용이었었던 SnapMirror 및 SnapVault 데이터 보호 관계 외에도 이제는 장기 데이터 보존에 저렴한 대안을 제공하는 여러 백업 솔루션이 있습니다. 
 ---
 = 클라우드 백업 및 기존 백업 지원
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

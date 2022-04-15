@@ -5,6 +5,7 @@ keywords: configure, map, important, ems, events, notifications, filters
 summary: ONTAP 9.0 이전에는 EMS 이벤트가 이벤트 이름 패턴 일치를 기준으로 이벤트 대상에만 매핑될 수 있었습니다. 해당 모델과 관련된 ONTAP 명령은 계속 사용할 수 있지만 ONTAP 9.0부터는 더 이상 사용되지 않습니다. 
 ---
 = EMS 이벤트 매핑 모델
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: features, supported with,  flexclone files, flexclone luns
 summary: FlexClone 파일 및 FlexClone LUN은 중복제거, 스냅샷 복사본, 할당량, 볼륨 SnapMirror와 같은 다양한 ONTAP 기능과 함께 작동합니다. 
 ---
 = FlexClone 파일 및 FlexClone LUN에서 지원되는 기능입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

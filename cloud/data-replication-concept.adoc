@@ -5,6 +5,7 @@ keywords: data replication
 summary: SnapMirror 기술은 ONTAP 스냅샷 복사본을 사용하여 사내 설치와 클라우드 설치 간에 데이터를 동기화된 상태로 유지합니다. SnapMirror는 변경된 데이터만 대상 복제본에 전송되도록 블록 레벨 증분 데이터 전송을 수행합니다. 
 ---
 = 데이터 복제
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

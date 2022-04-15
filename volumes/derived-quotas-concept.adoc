@@ -5,6 +5,7 @@ keywords: how, derived, quotas, work
 summary: '명시적 할당량(특정 대상을 가진 할당량)이 아닌 기본 할당량의 결과로 적용되는 할당량을 파생 할당량이라고 합니다.' 
 ---
 = 파생 할당량의 작동 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

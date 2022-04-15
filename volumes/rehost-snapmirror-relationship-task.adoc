@@ -5,6 +5,7 @@ keywords: rehost, volumes, snapmirror, relationship
 summary: SnapMirror 관계에서 볼륨을 다시 호스팅할 수 있습니다. 
 ---
 = SnapMirror 관계에서 볼륨 재호스팅
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

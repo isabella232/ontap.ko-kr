@@ -8,6 +8,7 @@ summary: System Manager의 대시보드를 사용하여 클러스터의 성능�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

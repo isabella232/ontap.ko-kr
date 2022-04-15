@@ -5,6 +5,7 @@ keywords: command, manage, web, protocol, engine, firewall, system, services
 summary: 시스템 서비스 웹 명령을 사용하여 웹 프로토콜 엔진을 관리합니다. 시스템 서비스 방화벽 정책 생성 및 네트워크 인터페이스 수정 명령을 사용하여 웹 액세스 요청이 방화벽을 통과할 수 있도록 합니다. 
 ---
 = 웹 프로토콜 엔진 관리를 위한 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

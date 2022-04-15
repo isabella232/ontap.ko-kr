@@ -5,6 +5,7 @@ keywords: workflow, replication, element, ontap
 summary: 데이터를 Element에서 ONTAP로 복제하든 ONTAP에서 Element로 복제하든 작업 일정을 구성하고 정책을 지정한 다음 관계를 생성 및 초기화해야 합니다. 기본 또는 사용자 지정 정책을 사용할 수 있습니다. 
 ---
 = Element와 ONTAP 간 복제를 위한 워크플로우
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

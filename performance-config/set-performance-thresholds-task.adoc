@@ -5,6 +5,7 @@ keywords: set, performance, thresholds
 summary: 성능 임계값을 설정하여 중요한 성능 문제를 모니터링할 수 있습니다. 사용자 정의 임계값은 시스템이 정의된 임계값에 접근하거나 이를 초과할 경우 경고 또는 중요 이벤트 알림을 트리거합니다. 
 ---
 = 성능 임계값을 설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

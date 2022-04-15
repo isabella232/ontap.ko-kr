@@ -5,6 +5,7 @@ keywords: destroy, fips, drive, sed, psid, physical secure ID, nrd plus
 summary: FIPS 드라이브 또는 SED에 있는 데이터를 영구적으로 액세스할 수 없게 하고 드라이브를 다시 사용할 필요가 없는 경우 스토리지 암호화 디스크 폐기 명령을 사용하여 디스크를 폐기할 수 있습니다. 
 ---
 = FIPS 드라이브 또는 SED를 제거합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

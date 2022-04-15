@@ -5,6 +5,7 @@ keywords: dump, workd, storage, failover, arl, operations, override, aggregate, 
 summary: '덤프 백업 또는 복원 작업을 수행하기 전에 이러한 작업이 스토리지 페일오버(테이크오버 및 반환) 또는 애그리게이트 재배치(ARL) 작업과 어떻게 연동되는지 이해해야 합니다. override-vetoes 옵션은 스토리지 페일오버 또는 ARL 작업 중 덤프 엔진의 동작을 결정합니다.' 
 ---
 = 스토리지 페일오버 및 ARL 작업과 덤프 작동 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

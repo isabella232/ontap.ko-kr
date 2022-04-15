@@ -5,6 +5,7 @@ keywords: create, export, policy, rule, restrict, allow, access, smb, svm, enabl
 summary: 이 예에서는 SMB 액세스에 대한 엑스포트 정책이 설정된 SVM에서 SMB를 통한 액세스를 제한 또는 허용하는 엑스포트 정책 규칙을 생성하는 방법을 보여줍니다. 
 ---
 = SMB를 통한 액세스를 제한하거나 허용하는 엑스포트 정책 규칙의 예
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

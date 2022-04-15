@@ -5,6 +5,7 @@ keywords: tape, write, failed, no, media, error, corrupted, backup, operation
 summary: 백업에 사용된 테이프가 손상되었습니다. 
 ---
 = 테이프 쓰기 실패 - 새 테이프에 미디어 오류가 발생했습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

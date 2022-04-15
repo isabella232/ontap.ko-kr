@@ -5,6 +5,7 @@ keywords: command, manage, nis, domain, configuration
 summary: NIS 도메인 구성을 관리하기 위한 특정 ONTAP 명령이 있습니다. 
 ---
 = NIS 도메인 구성을 관리하는 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: offer, caching, service, certain, share, offer, cache, disable, branch
 summary: 이전에 캐시된 콘텐츠를 제공한 특정 공유에 캐싱 서비스를 제공하지 않으려면 기존 SMB 공유에서 BranchCache를 사용하지 않도록 설정할 수 있습니다. 
 ---
 = 단일 SMB 공유에서 BranchCache를 비활성화합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

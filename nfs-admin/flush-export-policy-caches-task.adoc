@@ -5,6 +5,7 @@ keywords: flush, export, policy, cache
 summary: '내보내기 정책 캐시를 수동으로 플러싱하면(vserver export-policy cache flush) 오래된 정보가 제거되고 ONTAP가 적절한 외부 리소스에서 현재 정보를 검색하도록 합니다. 이렇게 하면 NFS 내보내기에 대한 클라이언트 액세스와 관련된 다양한 문제를 해결할 수 있습니다.' 
 ---
 = 엑스포트 정책 캐시 플러시
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

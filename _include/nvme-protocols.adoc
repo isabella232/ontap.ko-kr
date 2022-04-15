@@ -1,4 +1,5 @@
 = 
+:allow-uri-read: 
 
 
 지원되는 NVMe 프로토콜은 다음과 같습니다.

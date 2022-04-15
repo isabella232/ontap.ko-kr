@@ -5,6 +5,7 @@ keywords: s3 support, ontap 9
 summary: ONTAP에서 버킷의 기본 아키텍처는 FlexGroup 볼륨입니다. 이는 여러 개의 구성 멤버 볼륨으로 이루어진 단일 네임스페이스이지만 단일 볼륨으로 관리됩니다. 
 ---
 = ONTAP S3 아키텍처 및 사용 사례
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

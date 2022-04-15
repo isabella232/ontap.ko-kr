@@ -5,6 +5,7 @@ keywords: upload, core, dump, file, autosupport, device, send, messages, email
 summary: 코어 덤프 파일이 저장되면 이벤트 메시지가 생성됩니다. AutoSupport 서비스가 활성화되어 NetApp 지원으로 메시지를 보내도록 구성된 경우 AutoSupport 메시지가 전송되고 자동 이메일 확인이 전송됩니다. 
 ---
 = 코어 덤프 파일을 업로드합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: create, replication, job, schedule
 summary: 작업 스케줄 cron create 명령을 사용하여 복제 작업 스케줄을 생성할 수 있습니다. 작업 일정은 SnapMirror에서 일정이 할당된 데이터 보호 관계를 자동으로 업데이트할지 여부를 결정합니다. 
 ---
 = 복제 작업 스케줄을 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -6,6 +6,7 @@ summary: 브로드캐스트 도메인, 페일오버 그룹 및 페일오버 정�
 ---
 = 브로드캐스트 도메인, 페일오버 그룹 및 페일오버 정책 간의 관계
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

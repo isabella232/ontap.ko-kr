@@ -5,6 +5,7 @@ keywords: typical, flexcache, deployments, performance, acceleration, hot volume
 summary: 'FlexCache 볼륨은 일반적으로 읽기 집약적인 워크로드에 사용됩니다. 동일한 클러스터에 FlexCache 볼륨이 있으면 자주 액세스하는 데이터 또는 "핫 객체"의 성능을 가속화할 수 있습니다. 또한 FlexCache 볼륨을 사용하여 여러 클러스터에 데이터를 분산하여 WAN 대기 시간을 줄일 수 있습니다.' 
 ---
 = 일반적인 FlexCache 구축
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

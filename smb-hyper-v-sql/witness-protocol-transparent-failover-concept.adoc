@@ -5,6 +5,7 @@ keywords: witness, protocol, transparent, failover, lif, ca, share, client, smb,
 summary: 'Witness 프로토콜은 SMB 3.0에서 지속적으로 사용 가능한 공유(CA 공유)를 위한 향상된 클라이언트 페일오버 기능을 제공합니다. 입회자는 LIF 페일오버 복구 기간을 거치지 않으므로 더 빠른 페일오버를 촉진합니다. SMB 3.0 연결이 시간 초과될 때까지 기다리지 않고 노드를 사용할 수 없을 때 애플리케이션 서버에 알립니다.' 
 ---
 = Witness 프로토콜이 투명한 장애 조치를 강화하기 위해 수행하는 조치
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

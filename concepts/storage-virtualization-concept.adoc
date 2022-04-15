@@ -5,6 +5,7 @@ keywords: storage virtualization
 summary: 'SVM(스토리지 가상 시스템)을 사용하여 클라이언트 및 호스트에 데이터를 제공할 수 있습니다. 하이퍼바이저에서 실행되는 가상 머신과 마찬가지로 SVM은 물리적 리소스를 추상화하는 논리적 엔터티입니다. SVM을 통해 액세스되는 데이터는 스토리지 내의 위치에 바인딩되지 않습니다. SVM에 대한 네트워크 액세스는 물리적 포트에 바인딩되지 않습니다.' 
 ---
 = 스토리지 가상화 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

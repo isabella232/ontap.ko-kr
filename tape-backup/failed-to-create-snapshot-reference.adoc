@@ -5,6 +5,7 @@ keywords: failed, create, snapshot, volume, maximum, copy
 summary: 볼륨에 이미 최대 수의 스냅샷 복사본이 포함되어 있습니다. 
 ---
 = 스냅샷을 생성하지 못했습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

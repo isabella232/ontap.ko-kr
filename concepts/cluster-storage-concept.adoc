@@ -5,6 +5,7 @@ keywords: cluster storage
 summary: 현재 ONTAP의 반복 작업은 NetApp의 스케일아웃 클러스터 스토리지 아키텍처용으로 개발된 것입니다. 이 아키텍처는 ONTAP의 데이터 센터 구현에서 일반적으로 볼 수 있는 아키텍처입니다. 이 구현 방식은 ONTAP의 대부분의 기능을 사용하기 때문에 ONTAP 기술에 대한 개념을 이해하는 것이 좋습니다. 
 ---
 = 클러스터 스토리지
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

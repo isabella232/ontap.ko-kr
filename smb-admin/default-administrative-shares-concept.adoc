@@ -5,6 +5,7 @@ keywords: create, cifs, server, storage, virtual, machine, svm, default, adminis
 summary: 'SVM(스토리지 가상 시스템)에서 CIFS 서버를 생성하면 세 가지 기본 관리 공유가 자동으로 생성됩니다. 이러한 기본 공유가 무엇이고 어떻게 사용되는지 이해해야 합니다.' 
 ---
 = 기본 관리 공유는 무엇입니까
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: ontap, upgrade, reconfigure, reconfiguring, kmip, server, connections,
 summary: 'ONTAP 9.3 이상으로 업그레이드한 후 외부 키 관리(KMIP) 서버 연결을 다시 구성해야 합니다.' 
 ---
 = ONTAP 9.3 이상으로 업그레이드한 후 KMIP 서버 연결을 재구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

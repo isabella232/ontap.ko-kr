@@ -5,6 +5,7 @@ keywords: enable, ssh, multifactor authentication, mfa
 summary: ONTAP 9.3부터 보안 로그인 생성 명령을 사용하면 관리자가 SSH 공개 키와 사용자 암호를 모두 사용하여 admin 또는 data SVM에 로그인하도록 요구하여 보안을 강화할 수 있습니다. 
 ---
 = SSH 다단계 인증(MFA) 지원
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

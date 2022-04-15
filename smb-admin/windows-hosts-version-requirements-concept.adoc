@@ -5,6 +5,7 @@ keywords: ontap, branch, office, windows, host, version, requirement, configure,
 summary: BranchCache를 구성하려면 ONTAP 및 지점 Windows 호스트가 특정 버전 요구 사항을 충족해야 합니다. 
 ---
 = ONTAP 및 Windows 호스트 버전 요구 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

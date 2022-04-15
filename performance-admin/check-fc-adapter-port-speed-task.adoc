@@ -5,6 +5,7 @@ keywords: check, fc, adapter, port, speed
 summary: 어댑터 대상 포트 속도는 성능을 최적화하기 위해 연결된 장치의 속도와 일치해야 합니다. 포트가 autonegotiation으로 설정된 경우 테이크오버 및 반환 또는 기타 중단이 발생한 후 다시 연결하는 데 시간이 더 오래 걸릴 수 있습니다. 
 ---
 = FC 어댑터의 포트 속도를 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

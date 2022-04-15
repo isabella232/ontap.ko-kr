@@ -5,6 +5,7 @@ keywords: guaranteeing, throughput, qos, understand, ceilings, floors, shared, p
 summary: '스토리지 QoS(서비스 품질)를 사용하여 주요 워크로드의 성능이 다른 워크로드에 의해 저하되지 않도록 보장할 수 있습니다. 경쟁 워크로드에 대한 처리 성능 제한을 설정하여 시스템 리소스에 미치는 영향을 제한하거나 중요한 워크로드에 대한 처리 속도를 설정할 수 있습니다. 따라서 경쟁 워크로드에 의한 요구 사항에 관계없이 최소 처리량 목표를 충족할 수 있습니다. 동일한 워크로드에 대해 천장과 바닥을 설정할 수도 있습니다.' 
 ---
 = QoS 개요를 통해 처리량 보장
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -6,6 +6,7 @@ summary: ONTAP 9.7 및 이전 버전에서는 유지 관리를 위해 결함이 
 ---
 = ONTAP 9.7 이전 버전의 노드에서 NIC 제거
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

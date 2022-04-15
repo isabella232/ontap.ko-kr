@@ -6,6 +6,7 @@ summary: '최선의 보안 방법으로, 텔넷 및 RSH는 미리 정의된 관�
 ---
 = 클러스터에 대한 Telnet 또는 RSH 액세스를 활성화합니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

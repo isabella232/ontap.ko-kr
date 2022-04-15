@@ -8,6 +8,7 @@ summary: Anti_랜섬웨어_backup이라는 스냅샷 복사본은 잠재적 공�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

@@ -6,6 +6,7 @@ summary: SnapMirror 관계 및 일관성 그룹 초기화가 실패합니다.
 ---
 = SnapMirror 관계 생성 및 일관성 그룹 초기화 실패
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

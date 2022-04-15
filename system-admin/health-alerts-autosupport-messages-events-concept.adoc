@@ -5,6 +5,7 @@ keywords: system, health, alerts, trigger, autosupport, ems, event, management, 
 summary: '시스템 상태 알림은 EMS(이벤트 관리 시스템)에서 AutoSupport 메시지 및 이벤트를 트리거하여, 상태 모니터링 시스템을 직접 사용하는 것 외에도 AutoSupport 메시지 및 EMS를 사용하여 시스템의 상태를 모니터링할 수 있습니다.' 
 ---
 = 상태 알림이 AutoSupport 메시지 및 이벤트를 트리거하는 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

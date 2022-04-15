@@ -5,6 +5,7 @@ keywords: iscsi, endpoint, isolation, add, remove, initiator, address, range
 summary: ONTAP 9.1부터 기존 iSCSI 보안 명령이 IP 주소 범위 또는 여러 IP 주소를 사용할 수 있도록 향상되었습니다. 
 ---
 = iSCSI 엔드포인트 격리
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: what, chap, authentication, challenge handshake authentication protoco
 summary: 'CHAP(Challenge Handshake Authentication Protocol)는 iSCSI 이니시에이터와 타겟 간의 인증된 통신을 활성화합니다. CHAP 인증을 사용하는 경우 이니시에이터와 스토리지 시스템 모두에서 CHAP 사용자 이름 및 암호를 정의합니다.' 
 ---
 = CHAP 인증입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

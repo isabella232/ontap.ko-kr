@@ -5,6 +5,7 @@ keywords: svm, migrate, pause, resume, restart
 summary: '마이그레이션 컷오버를 시작하기 전에 SVM 마이그레이션을 일시 중지할 수 있습니다. "vserver migrate pause" 명령을 사용하여 SVM 마이그레이션을 일시 중지할 수 있습니다.' 
 ---
 = SVM 마이그레이션 일시 중지 및 재개
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

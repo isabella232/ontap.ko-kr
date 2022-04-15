@@ -6,6 +6,7 @@ summary: 이 절차에서는 ONTAP 9.0 - 9.7 릴리즈의 NAS 경로 페일오�
 ---
 = 이 네트워크 관리 정보의 사용 여부를 결정합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

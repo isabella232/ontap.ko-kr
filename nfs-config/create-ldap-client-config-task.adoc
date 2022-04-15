@@ -5,6 +5,7 @@ keywords: create, ldap, client, configuration
 summary: ONTAP가 사용자 환경의 외부 LDAP 서버에 액세스하도록 하려면 먼저 스토리지 시스템에서 LDAP 클라이언트를 설정해야 합니다. 
 ---
 = LDAP 클라이언트 구성을 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

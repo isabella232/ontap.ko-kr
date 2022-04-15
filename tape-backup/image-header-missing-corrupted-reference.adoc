@@ -5,6 +5,7 @@ keywords: image, header, missing, corrupted, smtape, backup, valid
 summary: 테이프에 유효한 SMTape 백업이 없습니다. 
 ---
 = 이미지 헤더가 없거나 손상되었습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

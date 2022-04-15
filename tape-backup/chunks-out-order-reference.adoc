@@ -5,6 +5,7 @@ keywords: chunk, out, order, correct, backup, tape
 summary: 백업 테이프가 올바른 순서로 복구되지 않습니다. 
 ---
 = 청크가 순서가 아닙니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

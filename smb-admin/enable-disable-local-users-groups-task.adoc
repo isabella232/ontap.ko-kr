@@ -5,6 +5,7 @@ keywords: enable, disable, local, user, group, smb, access, storage, virtual, ma
 summary: 'SVM(스토리지 가상 머신)에서 SMB 액세스를 위해 로컬 사용자 및 그룹을 설정하거나 해제할 수 있습니다. 로컬 사용자 및 그룹 기능은 기본적으로 활성화되어 있습니다.' 
 ---
 = 로컬 사용자 및 그룹을 설정하거나 해제합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

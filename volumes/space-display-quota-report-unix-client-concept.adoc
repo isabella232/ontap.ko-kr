@@ -5,6 +5,7 @@ keywords: difference, space usage, displayed, quota report, unix client
 summary: FlexVol 볼륨 또는 qtree에 대한 할당량 보고서에 표시되는 사용된 디스크 공간의 값은 동일한 볼륨 또는 qtree에 대해 UNIX 클라이언트가 표시하는 값과 다를 수 있습니다. 사용 값의 차이는 볼륨 또는 qtree의 데이터 블록을 계산하기 위한 할당량 보고서 및 UNIX 명령이 이어지는 방법의 차이로 인해 나타납니다. 
 ---
 = 할당량 보고서 및 UNIX 클라이언트 개요로 표시되는 공간 사용량 차이
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: initiate, media, error, corrective, action, fix, problem, tape, drive,
 summary: 미디어를 초기화할 수 없습니다. 
 ---
 = 미디어를 초기화할 수 없습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

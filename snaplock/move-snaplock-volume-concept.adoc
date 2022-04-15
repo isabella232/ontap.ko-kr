@@ -5,6 +5,7 @@ keywords: move, snaplock, volume, aggregate, security, role, enterprise, complia
 summary: ONTAP 9.8부터 SnapLock 볼륨을 엔터프라이즈부터 규정 준수까지 동일한 유형의 대상 Aggregate로 이동할 수 있습니다. SnapLock 볼륨을 이동하려면 SnapLock 보안 역할이 할당되어야 합니다. 
 ---
 = SnapLock 볼륨을 이동합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

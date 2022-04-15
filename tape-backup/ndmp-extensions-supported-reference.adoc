@@ -5,6 +5,7 @@ keywords: ndmp, extensions, supported, ontap, v4, protocols, core, modify, exten
 summary: NDMP v4는 핵심 NDMP v4 프로토콜을 수정하지 않고 NDMP v4 프로토콜 확장을 생성하는 메커니즘을 제공합니다. ONTAP에서 지원하는 NDMP v4 확장에 대해 알고 있어야 합니다. 
 ---
 = ONTAP에서 지원되는 NDMP 확장
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

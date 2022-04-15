@@ -5,6 +5,7 @@ keywords: reinitialize, quotas, after making, extensive, changes
 summary: 할당량을 적용하지 않은 타겟에 대해 할당량을 추가하거나 삭제하는 등 기존 할당량을 광범위하게 변경하는 경우 영향을 받는 모든 볼륨에서 할당량을 변경하고 할당량을 다시 초기화해야 합니다. 
 ---
 = 대대적인 변경 작업을 수행한 후 할당량을 다시 초기화합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

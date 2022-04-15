@@ -6,6 +6,7 @@ summary: 방화벽 정책은 클러스터의 보안을 강화합니다
 ---
 = LIF의 방화벽 정책을 구성합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

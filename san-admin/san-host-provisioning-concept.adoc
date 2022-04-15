@@ -5,6 +5,7 @@ keywords: understand, san host, provisioning
 summary: 'SAN 환경에서 스토리지 시스템은 스토리지 대상 디바이스가 있는 타겟입니다. iSCSI 및 FC의 경우 스토리지 타겟 디바이스를 LUN(논리 유닛)이라고 합니다. Fibre Channel을 통한 NVMe(Non-Volatile Memory Express)의 경우 스토리지 타겟 디바이스를 네임스페이스라고 합니다.' 
 ---
 = iSCSI를 사용한 SAN 프로비저닝
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

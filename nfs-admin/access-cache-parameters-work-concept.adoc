@@ -5,6 +5,7 @@ keywords: access, cache, parameter, work
 summary: 여러 매개 변수는 액세스 캐시의 항목에 대한 새로 고침 기간을 제어합니다. 이러한 매개 변수의 작동 방식을 이해하면 액세스 캐시를 조정하고 저장된 정보의 최근 성능과 균형을 유지하도록 매개 변수를 수정할 수 있습니다. 
 ---
 = 액세스 캐시 매개 변수의 작동 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

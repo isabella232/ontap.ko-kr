@@ -5,6 +5,7 @@ keywords: considerations, recommendations, when, moving, volumes, flexclone volu
 summary: 볼륨 이동에는 이동할 볼륨 또는 MetroCluster 구성과 같은 시스템 구성에 따라 영향을 받는 다양한 고려 사항과 권장 사항이 있습니다. 볼륨 이동과 관련된 고려 사항과 권장 사항을 이해해야 합니다. 
 ---
 = 볼륨 이동 시 고려 사항 및 권장 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

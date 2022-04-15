@@ -5,6 +5,7 @@ keywords: enable, storage, efficiency, visualization
 summary: 스토리지 aggregate show-Efficiency 명령을 사용하면 시스템에 있는 모든 애그리게이트의 스토리지 효율성에 대한 정보를 표시할 수 있습니다. 
 ---
 = 스토리지 효율성 시각화 지원
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

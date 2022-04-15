@@ -8,6 +8,7 @@ summary: System Manager를 사용하면 스토리지 VM 재해 복구 관계를 
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

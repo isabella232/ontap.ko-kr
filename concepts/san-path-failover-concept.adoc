@@ -5,6 +5,7 @@ keywords: san path failover
 summary: 'SAN 호스트는 ALUA(Asymmetric Logical Unit Access) 및 MPIO(다중 경로 I/O)를 사용하여 링크 장애 후 정상 LIF로 트래픽을 다시 라우팅합니다. 사전 정의된 경로는 SVM이 제공하는 LUN으로 연결되는 가능한 경로를 결정합니다.' 
 ---
 = SAN 경로 페일오버
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

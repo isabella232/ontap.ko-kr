@@ -5,6 +5,7 @@ keywords: Remote Direct Memory Access, NFS over RDMA, RoCE, intercluster
 summary: RDMA를 통한 NFS 및 RDMA 클러스터 상호 연결은 RDMA를 활용하여 고대역폭 워크로드의 성능을 향상시킵니다. 
 ---
 = RDMA 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: configuring, snmp, traphosts, receive, event notifications
 summary: SNMP traaphost에서 이벤트 알림을 수신하려면 traphost를 구성해야 합니다. 
 ---
 = 이벤트 알림을 수신하도록 SNMP traaphosts를 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

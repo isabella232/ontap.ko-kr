@@ -6,6 +6,7 @@ summary: ONTAP 9.8 이상에서는 물리적 네트워크 토폴로지가 ONTAP 
 ---
 = ONTAP 9.8 이상에서 네트워크 포트의 연결 상태를 모니터링합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -5,6 +5,7 @@ keywords: configure, standard, ntfs, file, permission, file, folder, windows, se
 summary: Windows 속성 창의 Windows 보안 탭을 사용하여 파일 및 폴더에 대한 표준 NTFS 파일 권한을 구성할 수 있습니다. 
 ---
 = Windows 보안 탭을 사용하여 고급 NTFS 파일 권한을 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

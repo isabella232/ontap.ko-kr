@@ -5,6 +5,7 @@ keywords: display, list, local, user, summary, form, determine, account, setting
 summary: 모든 로컬 사용자의 목록을 요약 양식에 표시할 수 있습니다. 특정 사용자에 대해 구성된 계정 설정을 확인하려면 해당 사용자에 대한 자세한 계정 정보와 여러 사용자에 대한 계정 정보를 표시할 수 있습니다. 이 정보를 통해 사용자의 설정을 수정해야 하는지 여부를 확인하고 인증 또는 파일 액세스 문제를 해결할 수 있습니다. 
 ---
 = 로컬 사용자에 대한 정보를 표시합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: configure, unix, symbol, link, support, smb, share, share-property, se
 summary: SMB 공유를 생성할 때 또는 언제든지 기존 SMB 공유를 수정하여 심볼 링크 공유 속성 설정을 지정하여 SMB 공유에 대한 UNIX 심볼 링크 지원을 구성할 수 있습니다. UNIX 심볼 링크 지원은 기본적으로 활성화되어 있습니다. 공유에서 UNIX 심볼 링크 지원을 해제할 수도 있습니다. 
 ---
 = SMB 공유에 대한 UNIX 심볼 링크 지원을 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

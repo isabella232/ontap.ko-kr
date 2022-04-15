@@ -5,6 +5,7 @@ keywords: scalability, limits, smtap, backup, restore, session, ndmp, cli, tape,
 summary: 'NDMP 또는 CLI(테이프 시드)를 통해 SMTape 백업 및 복원 작업을 수행하는 동안 시스템 메모리 용량이 서로 다른 스토리지 시스템에서 동시에 수행할 수 있는 SMTape 백업 및 복원 세션의 최대 수를 알고 있어야 합니다. 이 최대 개수는 스토리지 시스템의 시스템 메모리에 따라 다릅니다.' 
 ---
 = SMTape 백업 및 복구 세션에 대한 확장성 제한
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

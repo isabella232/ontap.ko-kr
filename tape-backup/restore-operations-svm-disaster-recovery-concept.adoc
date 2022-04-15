@@ -5,6 +5,7 @@ keywords: tape, backup, restore, operations, disaster, recovery, metrocluster, c
 summary: MetroCluster 구성에서 재해 복구 중에 테이프 백업 및 복원 작업을 동시에 수행할 수 있습니다. 재해 복구 중에 이러한 작업이 어떻게 영향을 받는지 알아야 합니다. 
 ---
 = MetroCluster 구성에서 재해 복구 중에 테이프 백업 및 복원 작업이 영향을 받는 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

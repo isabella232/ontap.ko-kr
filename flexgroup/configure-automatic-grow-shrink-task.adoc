@@ -5,6 +5,7 @@ keywords: configure, flexgroup, volume, automatic, grow, shrink, size
 summary: ONTAP 9.3부터는 현재 필요한 공간에 따라 FlexGroup 볼륨이 자동으로 증가 및 축소되도록 구성할 수 있습니다. 
 ---
 = 크기가 자동으로 확장 및 축소되도록 FlexGroup 볼륨을 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

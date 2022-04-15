@@ -5,6 +5,7 @@ keywords: perform, snapmirror, single, file, restore, flexgroup, volume, snap mi
 summary: ONTAP 9.8부터 FlexGroup SnapMirror 볼트 또는 UDP 대상에서 단일 파일을 복원할 수 있습니다. 
 ---
 = FlexGroup 볼륨에서 SnapMirror 단일 파일 복원을 수행합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

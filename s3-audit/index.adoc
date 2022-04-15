@@ -5,6 +5,7 @@ keywords: S3, audit, management events
 summary: 이 기사에서는 ONTAP S3 환경에서 데이터 및 관리 이벤트를 감사하는 방법을 설명합니다. 
 ---
 = S3 이벤트를 감사합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

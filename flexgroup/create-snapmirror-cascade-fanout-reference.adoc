@@ -5,6 +5,7 @@ keywords: consider, create, snapmirror, cascade, fanout, relationship, flexgroup
 summary: FlexGroup 볼륨에 대한 계단식 배열 및 팬아웃 관계를 만들 때 유의해야 할 지원 고려 사항 및 제한 사항이 있습니다. 
 ---
 = FlexGroups에 대한 계단식 SnapMirror 및 팬아웃 관계를 생성할 때의 고려 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

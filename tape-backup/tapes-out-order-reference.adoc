@@ -5,6 +5,7 @@ keywords: tape, order, out, sequence, restore, operation, image, header
 summary: 복원 작업에 대한 테이프 시퀀스의 첫 번째 테이프에는 이미지 헤더가 없습니다. 
 ---
 = 테이프 순서가 없습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

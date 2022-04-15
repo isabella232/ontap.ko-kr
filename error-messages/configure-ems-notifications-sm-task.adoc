@@ -5,6 +5,7 @@ keywords: system manager, ems, event, notifications, email, syslog, webhook, des
 summary: 'System Manager를 사용하면 즉각적인 주의가 필요한 시스템 문제를 알릴 수 있도록 이벤트 관리 시스템(EMS)에서 이벤트 알림을 보내는 방법을 구성할 수 있습니다.' 
 ---
 = System Manager로 EMS 이벤트 알림 및 필터를 구성합니다
+:allow-uri-read: 
 
 
 [role="lead"]

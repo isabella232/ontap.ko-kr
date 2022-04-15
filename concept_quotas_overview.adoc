@@ -8,6 +8,7 @@ summary: 할당량을 통해 사용자, 그룹 또는 qtree가 사용하는 파�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

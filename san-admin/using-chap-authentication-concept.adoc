@@ -5,6 +5,7 @@ keywords: guidelines, use, chap, authentication
 summary: CHAP 인증을 사용할 때는 특정 지침을 따라야 합니다. 
 ---
 = CHAP 인증 사용에 대한 지침입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

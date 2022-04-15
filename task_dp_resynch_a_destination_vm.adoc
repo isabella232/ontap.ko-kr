@@ -8,6 +8,7 @@ summary: ONTAP 9.8부터는 System Manager를 사용하여 소스 스토리지 V
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

@@ -5,6 +5,7 @@ keywords: considerations, changing, maximum number of files, allowed, flexvol vo
 summary: FlexVol 볼륨에는 포함할 수 있는 최대 파일 수가 있습니다. 볼륨에 대한 최대 파일 수를 변경할 수 있지만 변경하기 전에 이 변경이 볼륨에 미치는 영향을 이해해야 합니다. 
 ---
 = FlexVol 볼륨에서 허용되는 최대 파일 수를 변경하기 위한 고려 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

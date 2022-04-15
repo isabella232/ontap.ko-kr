@@ -5,6 +5,7 @@ keywords: setting, up, alibaba cloud object, storage, cloud tier
 summary: ONTAP 9.6 이상을 실행하는 경우 Alibaba 클라우드 오브젝트 스토리지를 FabricPool의 클라우드 계층으로 설정할 수 있습니다. 
 ---
 = Alibaba Cloud Object Storage를 클라우드 계층으로 설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

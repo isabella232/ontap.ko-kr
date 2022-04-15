@@ -5,6 +5,7 @@ keywords: configure, backup, application
 summary: NDMP 액세스용으로 클러스터를 구성한 후에는 클러스터 구성에서 정보를 수집한 다음 백업 애플리케이션에서 나머지 백업 프로세스를 구성해야 합니다. 
 ---
 = 백업 애플리케이션을 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

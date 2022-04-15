@@ -8,6 +8,7 @@ summary: FlexGroup 볼륨은 자동 로드 분산과 함께 고성능을 제공�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

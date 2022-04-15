@@ -5,6 +5,7 @@ keywords: make, svm, destination, volume, writable
 summary: 클라이언트에 데이터를 제공하려면 SVM 대상 볼륨을 쓰기 가능하게 해야 합니다. 이 절차는 볼륨 복제 절차와 크게 동일하지만 한 가지 예외가 있습니다. SVM 복제 관계를 생성할 때 -identity-preserve를 true로 설정한 경우, 대상 SVM을 활성화하기 전에 소스 SVM을 중지해야 합니다. 
 ---
 = SVM 타겟 볼륨을 쓰기 가능하게 만듭니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

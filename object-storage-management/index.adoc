@@ -6,6 +6,7 @@ summary: S3 오브젝트 스토리지 관리
 ---
 = S3 오브젝트 스토리지 관리
 :hardbreaks:
+:allow-uri-read: 
 :linkattrs: 
 :imagesdir: ./media/
 

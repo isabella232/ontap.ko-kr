@@ -5,6 +5,7 @@ keywords: use, deduplication, data compression, and data compaction. increase, s
 summary: '중복제거, 데이터 압축, 데이터 컴팩션을 함께 실행하거나 독립적으로 실행하여 FlexVol 볼륨에서 최적의 공간 절약 효과를 달성할 수 있습니다. 중복 제거는 중복되는 데이터 블록을 제거합니다. 데이터 압축: 데이터 블록을 압축하여 필요한 물리적 스토리지의 양을 줄입니다. 데이터 컴팩션은 더 적은 공간에 더 많은 데이터를 저장하여 스토리지 효율성을 높입니다.' 
 ---
 = 중복제거, 데이터 압축, 데이터 컴팩션을 사용하여 스토리지 효율성 개요를 높이십시오
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

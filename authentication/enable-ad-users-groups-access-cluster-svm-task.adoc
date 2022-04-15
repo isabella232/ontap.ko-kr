@@ -5,6 +5,7 @@ keywords: configure, active directory, domain, controller access
 summary: AD 계정이 SVM에 액세스하려면 먼저 클러스터 또는 SVM에 대한 AD 도메인 컨트롤러 액세스를 구성해야 합니다. 데이터 SVM을 위해 SMB 서버를 이미 구성한 경우, SVM을 클러스터에 대한 AD 액세스를 위한 게이트웨이 또는 터널로 구성할 수 있습니다. SMB 서버를 구성하지 않은 경우 AD 도메인에서 SVM에 대한 컴퓨터 계정을 생성할 수 있습니다. 
 ---
 = Active Directory 도메인 컨트롤러 액세스 개요 구성
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

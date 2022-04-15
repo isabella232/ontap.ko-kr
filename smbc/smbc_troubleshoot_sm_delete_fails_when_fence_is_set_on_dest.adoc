@@ -6,6 +6,7 @@ summary: 대상 볼륨에 리디렉션 펜스 세트가 있으면 SnapMirror 삭
 ---
 = 대상 볼륨에 Fence가 설정되어 있으면 SM-BC SnapMirror 삭제 작업이 실패합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

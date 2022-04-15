@@ -5,6 +5,7 @@ keywords: create, modify, access, policy, statements
 summary: S3 리소스에 대한 사용자 및 그룹 액세스는 버킷 및 오브젝트 저장소 서버 정책에 의해 제어됩니다. 사용자 또는 그룹이 적은 경우 버킷 수준에서 액세스를 제어하는 것이 충분하지만 사용자 및 그룹이 많은 경우에는 오브젝트 저장소 서버 수준에서 액세스를 제어하는 것이 더 쉽습니다. 
 ---
 = 버킷 및 오브젝트 저장소 서버 정책에 대해 설명합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

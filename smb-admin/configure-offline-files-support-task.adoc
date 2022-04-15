@@ -5,6 +5,7 @@ keywords: configure, offline, file, support, ontap, cli, smb, modify, exist, smb
 summary: SMB 공유를 생성할 때 또는 언제든지 기존 SMB 공유를 수정하여 오프라인 파일 4개 설정 중 하나를 지정하여 ONTAP CLI를 사용하여 오프라인 파일 지원을 구성할 수 있습니다. 수동 오프라인 파일 지원은 기본 설정입니다. 
 ---
 = CLI를 사용하여 SMB 공유에서 오프라인 파일 지원을 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

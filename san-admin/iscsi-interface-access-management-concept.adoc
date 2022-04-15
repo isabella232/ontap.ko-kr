@@ -5,6 +5,7 @@ keywords: How, using, iscsi, interface, access, lists, limit, initiator, interfa
 summary: iSCSI 인터페이스 액세스 목록을 사용하면 이니시에이터가 액세스할 수 있는 SVM의 LIF 수를 제한하여 성능과 보안을 강화할 수 있습니다. 
 ---
 = iSCSI 인터페이스 액세스 목록을 사용하여 이니시에이터 인터페이스를 제한하는 방법은 성능과 보안을 향상시킬 수 있습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

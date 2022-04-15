@@ -5,6 +5,7 @@ keywords: determine, drive, raid group, information, aggregate
 summary: 일부 애그리게이트 관리 작업에서는 애그리게이트를 구성하는 드라이브 유형, 드라이브 크기, 체크섬 및 상태, 드라이브가 다른 애그리게이트와 공유되는지 여부, RAID 그룹의 크기 및 구성을 알아야 합니다. 
 ---
 = Aggregate에 대한 드라이브 및 RAID 그룹 정보를 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

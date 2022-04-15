@@ -5,6 +5,7 @@ keywords: create, unified, data, protection, relationship, flexgroup, volume, sn
 summary: ONTAP 9.3부터는 SnapMirror 통합 데이터 보호 관계를 생성 및 구성하여 동일한 타겟 볼륨에서 재해 복구 및 아카이빙을 구성할 수 있습니다. 
 ---
 = FlexGroup 볼륨에 대한 통합 데이터 보호 관계를 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

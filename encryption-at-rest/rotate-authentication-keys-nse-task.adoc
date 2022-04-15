@@ -5,6 +5,7 @@ keywords: rotating, authentication, keys, netapp, storage, encryption
 summary: 'NSE(NetApp Storage Encryption)를 사용할 때 인증 키를 회전할 수 있습니다.' 
 ---
 = NetApp Storage Encryption의 인증 키를 회전합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

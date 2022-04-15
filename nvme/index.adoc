@@ -5,6 +5,7 @@ keywords:
 summary:  
 ---
 = NVMe를 참조하십시오
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

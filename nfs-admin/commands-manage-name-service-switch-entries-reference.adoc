@@ -5,6 +5,7 @@ keywords: command, manage, name, service, switch, entry
 summary: 이름 서비스 스위치 항목은 생성, 표시, 수정 및 삭제하여 관리할 수 있습니다. 
 ---
 = 이름 서비스 스위치 항목을 관리하는 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

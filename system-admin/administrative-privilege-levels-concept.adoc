@@ -5,6 +5,7 @@ keywords: administrative, privilege, levels, parameters, commands, admin, advanc
 summary: ONTAP 명령 및 매개 변수는 관리, 고급 및 진단의 세 가지 권한 레벨로 정의됩니다. 권한 수준은 작업을 수행하는 데 필요한 기술 수준을 반영합니다. 
 ---
 = 관리 권한 수준 사용
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

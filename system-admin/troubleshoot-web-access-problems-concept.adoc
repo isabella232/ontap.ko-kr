@@ -5,6 +5,7 @@ keywords: troubleshoot, web, services, access, problems, lif, firewall, policy, 
 summary: 구성 오류로 인해 웹 서비스 액세스 문제가 발생합니다. LIF, 방화벽 정책, 웹 프로토콜 엔진, 웹 서비스, 디지털 인증서를 확인하여 오류를 해결할 수 있습니다. 사용자 액세스 권한이 모두 올바르게 구성되어 있습니다. 
 ---
 = 웹 서비스 액세스 문제를 해결합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -6,6 +6,7 @@ summary: SnapMirror 페일오버 시작 명령을 실행한 후 SnapMirror 페�
 ---
 = 중재자가 연락할 수 없거나 중재 쿼럼 상태가 거짓입니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

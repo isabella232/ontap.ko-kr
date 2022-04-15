@@ -5,6 +5,7 @@ keywords: previous, configure, branchcache, branch, office, client, cache, conte
 summary: 이전에 BranchCache를 구성했지만 지사 클라이언트가 캐시된 콘텐츠를 사용하지 않도록 하려면 CIFS 서버에서 캐싱을 해제할 수 있습니다. BranchCache를 사용하지 않도록 설정하면 어떤 일이 발생하는지 알고 있어야 합니다. 
 ---
 = CIFS 서버에서 BranchCache를 해제하거나 다시 설정하면 어떻게 됩니까
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

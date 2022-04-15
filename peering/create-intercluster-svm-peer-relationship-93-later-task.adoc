@@ -5,6 +5,7 @@ keywords: create, intercluster, svm, peer, relationship
 summary: SVM 피어 생성 명령을 사용하여 로컬 및 원격 클러스터에서 SVM 간에 피어 관계를 생성할 수 있습니다. 
 ---
 = 인터클러스터 SVM 피어 관계 생성(ONTAP 9.3 이상)
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

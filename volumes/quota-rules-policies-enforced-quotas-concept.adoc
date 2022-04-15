@@ -5,6 +5,7 @@ keywords: what are, quota rules, quota policies, quotas
 summary: '할당량은 FlexVol 볼륨에 대한 할당량 규칙에서 정의됩니다. 이러한 할당량 규칙은 SVM(Storage Virtual Machine)의 할당량 정책에 따라 수집되고 SVM의 각 볼륨에서 활성화됩니다.' 
 ---
 = 할당량 규칙, 할당량 정책 및 할당량이란 무엇입니까
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

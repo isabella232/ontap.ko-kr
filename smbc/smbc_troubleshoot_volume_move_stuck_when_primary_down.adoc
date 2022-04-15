@@ -6,6 +6,7 @@ summary: 제로 RTO 동기식 SnapMirror 보호를 제거하고 SM-BC 관계 구
 ---
 = 1차 볼륨이 다운될 때 볼륨 이동 작업이 중단됩니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -5,6 +5,7 @@ keywords: delete, local, user, account, storage, virtual, machine, svm, smb, aut
 summary: 'CIFS 서버에 대한 로컬 SMB 인증이 더 이상 필요하지 않거나 SVM에 포함된 데이터에 대한 액세스 권한을 결정하기 위해 SVM(스토리지 가상 시스템)에서 로컬 사용자 계정을 삭제할 수 있습니다.' 
 ---
 = 로컬 사용자 계정을 삭제합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

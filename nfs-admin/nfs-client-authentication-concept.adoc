@@ -5,6 +5,7 @@ keywords: ontap, nfs, client, authentication
 summary: NFS 클라이언트가 SVM에서 데이터에 액세스하려면 먼저 제대로 인증되어야 합니다. ONTAP는 UNIX 자격 증명을 구성하는 이름 서비스와 비교하여 클라이언트를 인증합니다. 
 ---
 = ONTAP에서 NFS 클라이언트 인증을 처리하는 방법 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

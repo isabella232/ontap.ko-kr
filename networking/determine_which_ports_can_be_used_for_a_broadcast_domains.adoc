@@ -6,6 +6,7 @@ summary: 새 IPspace에 추가할 브로드캐스트 도메인을 구성하려�
 ---
 = 브로드캐스트 도메인에 사용할 수 있는 포트 결정
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

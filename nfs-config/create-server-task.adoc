@@ -5,6 +5,7 @@ keywords: create, nfs, server
 summary: 클러스터에서 NFS 라이센스가 등록되었는지 확인한 후 vserver NFS create 명령을 사용하여 SVM에 NFS 서버를 생성하고 이 서버에서 지원하는 NFS 버전을 지정할 수 있습니다. 
 ---
 = NFS 서버를 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

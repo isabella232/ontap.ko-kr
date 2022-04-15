@@ -5,6 +5,7 @@ keywords: branchcache, caching, cache, service, smb, disable, share, share-by-sh
 summary: 특정 SMB 공유에서 BranchCache 캐싱 서비스를 제공하지 않고 나중에 이러한 공유에 캐싱 서비스를 제공하려는 경우 공유별로 BranchCache를 사용하지 않도록 설정할 수 있습니다. BranchCache가 모든 공유에서 캐싱을 제공하도록 구성되었지만 모든 캐싱 서비스를 일시적으로 해제하려면 BranchCache 구성을 수정하여 모든 공유에서 자동 캐싱을 중지할 수 있습니다. 
 ---
 = SMB 공유에서 BranchCache를 해제합니다. 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

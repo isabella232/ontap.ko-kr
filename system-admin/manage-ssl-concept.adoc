@@ -5,6 +5,7 @@ keywords: manage, ssl, security, web, access, digital, certificate, encrypted, c
 summary: SSL 프로토콜은 웹 서버와 브라우저 간에 암호화된 연결을 설정하기 위해 디지털 인증서를 사용하여 웹 액세스의 보안을 개선합니다. 
 ---
 = SSL 관리
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

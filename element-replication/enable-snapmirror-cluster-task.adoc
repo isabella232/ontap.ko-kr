@@ -5,6 +5,7 @@ keywords: enable, snapmirror, element, cluster
 summary: 복제 관계를 생성하려면 먼저 Element 클러스터에서 SnapMirror를 활성화해야 합니다. Element 소프트웨어 웹 UI에서만 이 작업을 수행할 수 있습니다. 
 ---
 = Element 클러스터에서 SnapMirror를 사용하도록 설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

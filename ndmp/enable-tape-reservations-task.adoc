@@ -5,6 +5,7 @@ keywords: enable, tape, reservation
 summary: NDMP 백업 작업을 위해 테이프 드라이브가 백업 애플리케이션에서 사용하도록 예약되어 있는지 확인해야 합니다. 
 ---
 = 테이프 예약을 활성화합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: start, nvme, service, svm, supported, protocols
 summary: '스토리지 가상 시스템(SVM)에서 NVMe 프로토콜을 사용하려면 먼저 SVM에서 NVMe 서비스를 시작해야 합니다.' 
 ---
 = SVM을 위한 NVMe 서비스를 시작합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

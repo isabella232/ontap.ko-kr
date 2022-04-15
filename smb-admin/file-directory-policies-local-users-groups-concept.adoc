@@ -5,6 +5,7 @@ keywords: guideline, mind, apply, file-directory, policies, policy, storage, vir
 summary: '파일 디렉토리 정책 구성에서 보안 설명자나 DACL 또는 SACL 항목의 로컬 사용자 또는 그룹을 사용하는 경우 ID 폐기 구성의 SVM(Storage Virtual Machine) 재해 복구 대상에 파일 디렉토리 정책을 적용하기 전에 염두에 두어야 할 몇 가지 지침이 있습니다.' 
 ---
 = SVM 재해 복구 대상에서 로컬 사용자 또는 그룹을 사용하는 파일 디렉토리 정책을 적용하기 위한 지침
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

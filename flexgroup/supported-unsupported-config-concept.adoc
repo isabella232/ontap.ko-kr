@@ -5,6 +5,7 @@ keywords: support, unsupported, configuration, flexgroup, volumes
 summary: ONTAP 9의 FlexGroup 볼륨에서 지원되고 지원되지 않는 ONTAP 기능에 대해 알고 있어야 합니다. 
 ---
 = FlexGroup 볼륨에 대해 지원 및 지원되지 않는 구성입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

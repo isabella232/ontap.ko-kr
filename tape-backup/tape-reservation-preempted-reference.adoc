@@ -5,6 +5,7 @@ keywords: tape, drive, reservation, preempted, close, prematurely, operation, dm
 summary: 테이프 드라이브가 다른 작업에서 사용 중이거나 테이프가 너무 일찍 닫혔습니다. 
 ---
 = 테이프 예약이 사전 비어 있습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

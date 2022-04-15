@@ -5,6 +5,7 @@ keywords: configure, volume, provisioning, options
 summary: 씬 프로비저닝, 일반 프로비저닝 또는 반씩 프로비저닝을 위해 볼륨을 구성할 수 있습니다. 
 ---
 = 볼륨 프로비저닝 옵션을 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

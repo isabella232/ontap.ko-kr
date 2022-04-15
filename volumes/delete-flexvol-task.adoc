@@ -5,6 +5,7 @@ keywords: delete, flexvol volume
 summary: 더 이상 필요하지 않거나 손상된 데이터가 포함된 FlexVol 볼륨을 삭제할 수 있습니다. 
 ---
 = FlexVol 볼륨을 삭제합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

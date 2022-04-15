@@ -5,6 +5,7 @@ keywords: physical, path, names, ppn, numerical, address, tape, drive, electrica
 summary: '물리적 경로 이름(PPN)은 ONTAP가 스토리지 시스템에 접속된 SCSI-2/3 어댑터 또는 스위치(특정 위치)를 기반으로 테이프 드라이브 및 테이프 라이브러리에 할당하는 숫자 주소 시퀀스입니다. PPN은 전기 이름이라고도 합니다.' 
 ---
 = 물리적 경로 이름이 무엇입니까
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

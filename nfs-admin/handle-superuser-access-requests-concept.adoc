@@ -5,6 +5,7 @@ keywords: how, handle, superuser, access, request
 summary: 엑스포트 정책을 구성할 때는 스토리지 시스템이 사용자 ID 0의 클라이언트 액세스 요청을 받으면 수행할 작업을 고려해야 합니다. 즉, 고급 사용자로서 엑스포트 규칙을 설정해야 합니다. 
 ---
 = 고급 사용자 액세스 요청을 관리합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

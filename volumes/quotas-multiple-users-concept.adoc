@@ -5,6 +5,7 @@ keywords: how quotas work, with multiple users
 summary: 여러 사용자를 동일한 할당량 대상에 넣으면 해당 할당량에 의해 정의된 할당량 제한이 각 개별 사용자에게 적용되지 않습니다. 이 경우 할당량 대상에 나열된 모든 사용자 간에 할당량 제한이 공유됩니다. 
 ---
 = 여러 사용자의 할당량 작동 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

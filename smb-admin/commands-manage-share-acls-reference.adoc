@@ -5,6 +5,7 @@ keywords: command, managing, manage, smb, access, control, list, acl, creating, 
 summary: 'SMB ACL(액세스 제어 목록)을 관리하기 위한 명령을 알아야 합니다. 여기에는 ACL 생성, 표시, 수정 및 삭제가 포함됩니다.' 
 ---
 = SMB 공유 액세스 제어 목록을 관리하는 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

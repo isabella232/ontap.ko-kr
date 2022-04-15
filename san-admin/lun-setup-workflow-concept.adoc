@@ -5,6 +5,7 @@ keywords: map, lun, setup, san, create, provision, provisioning, vmware, datasto
 summary: LUN을 설정하려면 요구사항에 가장 적합한 LUN 유형을 결정해야 합니다. 그런 다음 일련의 작업을 수행하여 프로토콜 라이센스를 확인하고, 블록 액세스를 사용하도록 설정하고, LUN을 생성 및 매핑하고, 호스트에서 블록 액세스를 설정할 수 있습니다. 선택적으로 포트 세트를 LUN 설정 워크플로우의 일부로 생성 및 바인딩할 수도 있습니다. 
 ---
 = LUN 설정 워크플로우
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

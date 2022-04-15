@@ -5,6 +5,7 @@ keywords: keyboard, shortcuts, edit, cli, commands, unix, tcsh, shell, emacs, ed
 summary: 현재 명령 프롬프트에 있는 명령은 활성 명령입니다. 바로 가기 키를 사용하면 활성 명령을 빠르게 편집할 수 있습니다. 이러한 바로 가기 키는 UNIX tcsh 셸 및 Emacs 편집기의 바로 가기와 유사합니다. 
 ---
 = CLI 명령 편집을 위한 바로 가기 키
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

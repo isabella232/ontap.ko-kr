@@ -5,6 +5,7 @@ keywords: tape, write, error, backup, data, capacity, minimum, backup, job
 summary: 테이프 용량이 부족하여 백업 데이터를 포함할 수 없습니다. 
 ---
 = 테이프 쓰기 오류입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

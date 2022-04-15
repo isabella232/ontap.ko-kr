@@ -5,6 +5,7 @@ keywords: delete, lif, san, environment
 summary: LIF를 삭제하기 전에 LIF에 연결된 호스트가 다른 경로를 통해 LUN에 액세스할 수 있는지 확인해야 합니다. 
 ---
 = SAN 환경에서 LIF를 삭제합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: configure, slag, volume, qtree, matrix, define, configuration, applica
 summary: 볼륨 또는 qtree 또는 둘 다에서 슬래그를 구성할 수 있습니다. 슬래그 매트릭스는 표에 나열된 다양한 시나리오에서 적용 가능한 슬래그 구성인 볼륨 또는 qtree를 정의합니다. 
 ---
 = 효과적인 슬래그 매트릭스
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

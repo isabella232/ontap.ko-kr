@@ -5,6 +5,7 @@ keywords: ndmp, data, connection, type, cab, extension, backup, application, svm
 summary: 'SVM(스토리지 가상 머신) 범위의 NDMP 모드에서 지원되는 NDMP 데이터 연결 유형은 NDMP 제어 연결 LIF 유형과 CAB 확장 상태에 따라 다릅니다. 이 NDMP 데이터 연결 유형은 로컬 또는 3방향 NDMP 백업 또는 복구 작업을 수행할 수 있는지 여부를 나타냅니다.' 
 ---
 = NDMP 데이터 연결 유형입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: increment, chain, backups, path, restore
 summary: 증분 체인은 동일한 경로의 일련의 증분 백업입니다. 언제든지 백업 레벨을 지정할 수 있으므로 백업 및 복원을 효과적으로 수행할 수 있도록 증분 체인을 이해해야 합니다. 31가지 레벨의 증분 백업 작업을 수행할 수 있습니다. 
 ---
 = 체인 증분이 무엇입니까
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

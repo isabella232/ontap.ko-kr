@@ -5,6 +5,7 @@ keywords: odx, copy, offload, token-based, mechanism, read, write, writing, cifs
 summary: ODX 복사 오프로드는 토큰 기반 메커니즘을 사용하여 ODX 지원 CIFS 서버 내부 또는 간에 데이터를 읽고 씁니다. CIFS 서버는 데이터를 호스트를 통해 라우팅하는 대신 데이터를 나타내는 작은 토큰을 클라이언트에 보냅니다. ODX 클라이언트는 해당 토큰을 대상 서버에 제공하고, 이 토큰을 통해 표시되는 데이터를 소스에서 타겟으로 전송할 수 있습니다. 
 ---
 = ODX의 작동 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

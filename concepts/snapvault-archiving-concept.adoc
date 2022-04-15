@@ -5,6 +5,7 @@ keywords: snapvault archive
 summary: SnapMirror 라이센스는 백업에 대한 SnapVault 관계와 재해 복구를 위한 SnapMirror 관계를 모두 지원하는 데 사용됩니다. SnapVault 라이센스는 더 이상 사용되지 않으며, 이제 볼트, 미러 및 미러-볼트 관계를 구성하는 데 SnapMirror 라이센스를 사용할 수 있습니다. SnapMirror 복제는 Snapshot 복사본의 ONTAP-to-ONTAP 복제에 사용되어 백업 및 재해 복구 사용 사례를 모두 지원합니다. 
 ---
 = SnapVault 아카이빙
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

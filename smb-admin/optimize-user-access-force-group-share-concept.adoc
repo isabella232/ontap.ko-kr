@@ -5,6 +5,7 @@ keywords: create, share, ontap, command, line, data, unix, effective, security, 
 summary: ONTAP 명령줄에서 UNIX 효과적인 보안이 설정된 데이터에 대한 공유를 생성할 때 해당 공유의 SMB 사용자가 생성한 모든 파일이 UNIX 그룹 데이터베이스에서 미리 정의된 그룹인 force-group이라는 동일한 그룹에 속하도록 지정할 수 있습니다. force-group을 사용하면 다양한 그룹에 속한 SMB 사용자가 파일에 쉽게 액세스할 수 있습니다. 
 ---
 = force-group 공유 설정을 사용하여 SMB 사용자 액세스를 최적화합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

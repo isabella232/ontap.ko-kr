@@ -5,6 +5,7 @@ keywords: features, do not support, volume rehost
 summary: 볼륨 재호스트를 지원하지 않는 특정 기능이 있습니다. 
 ---
 = 볼륨 재호스트를 지원하지 않는 기능입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

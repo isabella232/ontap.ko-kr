@@ -8,6 +8,7 @@ summary: ONTAP 9.7 이상 ONTAP 9 릴리즈에서 제공되는 System Manager를
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

@@ -5,6 +5,7 @@ keywords: command, deleting, delete, branchcache, service, storage, virtual, mac
 summary: 'SVM(스토리지 가상 시스템)에서 BranchCache 서비스를 삭제하는 데 사용하는 명령은 기존 해시를 삭제하거나 유지할지 여부에 따라 달라집니다.' 
 ---
 = BranchCache 구성을 삭제합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: setting, file, access, nfs
 summary: '고객이 NFS를 사용하여 SVM(스토리지 가상 시스템)의 파일에 액세스할 수 있도록 하려면 여러 단계를 완료해야 합니다. 환경의 현재 구성에 따라 몇 가지 추가 단계가 선택적으로 제공됩니다.' 
 ---
 = NFS 개요를 사용하여 파일 액세스 설정
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -6,6 +6,7 @@ summary: 브로드캐스트 도메인을 분할하여 ONTAP 9.0과 9.7 구성을
 ---
 = 브로드캐스트 도메인을 분할합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

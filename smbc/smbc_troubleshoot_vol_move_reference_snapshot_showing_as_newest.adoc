@@ -6,6 +6,7 @@ summary: 볼륨 이동 작업 후 볼륨 이동 작업의 참조 스냅샷 복�
 ---
 = 볼륨 이동 참조 스냅샷 복사본이 최신 로 표시됩니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

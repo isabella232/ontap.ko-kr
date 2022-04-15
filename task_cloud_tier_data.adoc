@@ -8,6 +8,7 @@ summary: 데이터를 계층에 저장하면 스토리지 시스템의 효율성
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

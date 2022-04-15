@@ -5,6 +5,7 @@ keywords: create, scanner pools, metrocluster, configurations
 summary: 클러스터의 운영 및 2차 SVM에 해당하는 MetroCluster 구성의 각 클러스터에 기본 및 2차 스캐너 풀을 생성해야 합니다. 
 ---
 = MetroCluster 구성에서 스캐너 풀을 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

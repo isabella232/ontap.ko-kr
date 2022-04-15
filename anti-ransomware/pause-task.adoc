@@ -8,6 +8,7 @@ summary: 비정상적인 워크로드 이벤트가 발생할 것으로 예상되
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

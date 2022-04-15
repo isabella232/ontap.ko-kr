@@ -5,6 +5,7 @@ keywords: change, uta2, port, cna mode, fc mode
 summary: 'UTA2 포트를 CNA(Converged Network Adapter) 모드에서 FC(Fibre Channel) 모드로 변경하여 FC 이니시에이터 및 FC 타겟 모드를 지원해야 합니다. 포트를 네트워크에 연결하는 물리적 미디어를 변경해야 하는 경우 CNA 모드에서 FC 모드로 속성을 변경해야 합니다.' 
 ---
 = UTA2 포트를 CNA 모드에서 FC 모드로 변경합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

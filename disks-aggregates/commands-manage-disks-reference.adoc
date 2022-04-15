@@ -5,6 +5,7 @@ keywords: commands, manage, disks
 summary: 스토리지 디스크 및 스토리지 애그리게이트 명령을 사용하여 디스크를 관리할 수 있습니다. 
 ---
 = 디스크 관리를 위한 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

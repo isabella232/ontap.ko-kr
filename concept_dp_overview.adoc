@@ -8,6 +8,7 @@ summary: 스냅샷 복사본, 미러링, 볼트, 미러 및 소산 관계를 작
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

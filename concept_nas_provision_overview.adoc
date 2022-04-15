@@ -8,6 +8,7 @@ summary: ONTAP를 사용하면 Linux 및 Windows 클라이언트에 데이터를
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

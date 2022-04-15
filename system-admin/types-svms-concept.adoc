@@ -5,6 +5,7 @@ keywords: types, svm, data, acces, resources, admin, node, system
 summary: 클러스터는 4가지 SVM 유형으로 구성되어 클러스터와 리소스, 클라이언트 및 애플리케이션에 대한 데이터 액세스를 관리하는 데 도움이 됩니다. 
 ---
 = SVM의 유형
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

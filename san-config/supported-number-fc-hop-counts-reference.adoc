@@ -5,6 +5,7 @@ keywords: supported, number, fc, hop counts
 summary: 호스트와 스토리지 시스템 간에 지원되는 최대 FC 홉 수는 스위치 공급업체와 FC 구성에 대한 스토리지 시스템 지원에 따라 다릅니다. 
 ---
 = 지원되는 FC 홉 수
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

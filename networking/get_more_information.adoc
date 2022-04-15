@@ -6,6 +6,7 @@ summary: ONTAP 9.8 이상의 네트워킹에 대한 자세한 내용을 확인�
 ---
 = 자세한 정보를 확인하십시오
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

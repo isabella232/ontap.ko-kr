@@ -5,6 +5,7 @@ keywords: destination, qtree, read, only, restore
 summary: 복원이 시도되는 qtree는 읽기 전용입니다. 
 ---
 = 타겟 qtree는 읽기 전용입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

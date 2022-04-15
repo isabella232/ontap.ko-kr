@@ -5,6 +5,7 @@ keywords: volume, offline, backup, online, retry, backup
 summary: 백업 중인 볼륨이 오프라인 상태입니다. 
 ---
 = 볼륨이 오프라인 상태입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

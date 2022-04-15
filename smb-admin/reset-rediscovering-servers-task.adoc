@@ -5,6 +5,7 @@ keywords: reset, discover, rediscover, server, cifs, server, discard, store, inf
 summary: CIFS 서버에서 서버를 재설정하고 재검색하면 CIFS 서버가 LDAP 서버 및 도메인 컨트롤러에 대한 저장된 정보를 삭제할 수 있습니다. 서버 정보를 폐기한 후 CIFS 서버는 이러한 외부 서버에 대한 현재 정보를 다시 가져옵니다. 이 기능은 연결된 서버가 적절하게 응답하지 않는 경우에 유용할 수 있습니다. 
 ---
 = 서버를 재설정하고 재검색합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

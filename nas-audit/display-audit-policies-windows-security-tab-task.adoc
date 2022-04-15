@@ -5,6 +5,7 @@ keywords: display, information, audit policies, windows security tab
 summary: Windows 속성 창의 보안 탭을 사용하여 파일 및 디렉터리에 적용된 감사 정책에 대한 정보를 표시할 수 있습니다. 이는 Windows 서버에 있는 데이터에 사용되는 것과 동일한 방법으로, 고객이 익숙한 GUI 인터페이스를 사용할 수 있습니다. 
 ---
 = Windows 보안 탭을 사용하여 감사 정책에 대한 정보를 표시합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

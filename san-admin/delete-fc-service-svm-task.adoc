@@ -5,6 +5,7 @@ keywords: delete, fc, service, svm
 summary: '더 이상 필요하지 않은 경우 SVM(스토리지 가상 머신)에 대한 FC 서비스를 삭제할 수 있습니다.' 
 ---
 = SVM을 위한 FC 서비스를 삭제합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

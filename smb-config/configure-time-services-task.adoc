@@ -5,6 +5,7 @@ keywords: creating, create, smb, server, active, domain, controller, ensure, clu
 summary: Active Domain 컨트롤러에서 SMB 서버를 생성하기 전에 SMB 서버가 속할 도메인의 도메인 컨트롤러에 대한 클러스터 시간 및 시간이 5분 이내에 일치하는지 확인해야 합니다. 
 ---
 = 시간 서비스를 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

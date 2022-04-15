@@ -6,6 +6,7 @@ summary: '기존 제로 복구 지점 보호(제로 RPO) 동기식 SnapMirror �
 ---
 = 기존 관계를 SM-BC 관계로 전환
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

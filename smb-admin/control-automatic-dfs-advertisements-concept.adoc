@@ -5,6 +5,7 @@ keywords: cifs, server, option, control, dfs, capabilities, advertise, smb, clie
 summary: CIFS 서버 옵션은 공유에 연결할 때 SMB 클라이언트에 DFS 기능을 알리는 방법을 제어합니다. ONTAP는 클라이언트가 SMB를 통해 심볼 링크에 액세스할 때 DFS 조회를 사용하므로 이 옵션을 비활성화하거나 활성화할 때 어떤 영향이 있는지 알고 있어야 합니다. 
 ---
 = CIFS 서버 옵션을 사용하여 ONTAP에서 자동 DFS 광고를 제어합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

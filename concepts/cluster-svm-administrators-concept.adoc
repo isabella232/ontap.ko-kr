@@ -5,6 +5,7 @@ keywords: cluster, svm administration
 summary: 클러스터 관리자가 클러스터의 admin SVM에 액세스합니다. 클러스터 설정 시 admin 이름의 클러스터 관리자와 SVM 관리자가 자동으로 생성됩니다. 
 ---
 = 클러스터 및 SVM 관리
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

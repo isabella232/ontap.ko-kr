@@ -8,6 +8,7 @@ summary: 이 섹션의 항목에서는 IPspace, 브로드캐스트 도메인, �
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

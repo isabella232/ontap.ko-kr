@@ -6,6 +6,7 @@ summary: 네트워크 포트의 페일오버 그룹을 생성하면 링크 장�
 ---
 = 페일오버 그룹을 생성합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

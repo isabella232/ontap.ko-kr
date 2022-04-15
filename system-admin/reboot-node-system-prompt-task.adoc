@@ -5,6 +5,7 @@ keywords: reboot, node, system, prompt, normal, boot, device, pc, compactflash, 
 summary: 시스템 프롬프트에서 일반 모드로 노드를 재부팅할 수 있습니다. 노드는 PC CompactFlash 카드와 같은 부팅 장치에서 부팅하도록 구성됩니다. 
 ---
 = 시스템 프롬프트에서 노드를 재부팅합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

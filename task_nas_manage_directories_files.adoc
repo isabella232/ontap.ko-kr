@@ -8,6 +8,7 @@ summary: System Manager 볼륨 표시를 확장하여 디렉토리 및 파일을
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

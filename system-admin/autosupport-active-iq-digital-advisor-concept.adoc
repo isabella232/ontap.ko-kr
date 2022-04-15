@@ -5,6 +5,7 @@ keywords: autosupport, active, iq, digital, advisor, telemetry, artificial, inte
 summary: ONTAP의 AutoSupport 구성 요소는 원격 측정을 수집하여 분석을 위해 전송합니다. Active IQ 디지털 어드바이저는 AutoSupport의 데이터를 분석하고 능동적인 관리 및 최적화를 제공합니다. Active IQ은 인공 지능을 사용하여 잠재적인 문제를 파악하고 비즈니스에 영향을 미치기 전에 이를 해결하도록 지원합니다. 
 ---
 = AutoSupport 및 Active IQ 디지털 자문업체 사용
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

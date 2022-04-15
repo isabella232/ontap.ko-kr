@@ -5,6 +5,7 @@ keywords: nfs, smb, file, directory, naming, dependency
 summary: 파일 및 디렉토리 명명 규칙은 ONTAP 클러스터 및 클라이언트의 언어 설정과 함께 네트워크 클라이언트의 운영 체제 및 파일 공유 프로토콜에 따라 다릅니다. 
 ---
 = 부록: NFS 및 SMB 파일 및 디렉토리 이름 지정 종속성
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

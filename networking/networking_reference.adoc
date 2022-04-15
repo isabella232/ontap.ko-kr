@@ -6,6 +6,7 @@ summary: ONTAP 9 네트워킹 참조 설명서 포털에 오신 것을 환영합
 ---
 = 네트워크 관리 개요
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

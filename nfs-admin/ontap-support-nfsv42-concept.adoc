@@ -5,6 +5,7 @@ keywords: ontap, support, nfsv4.2
 summary: ONTAP 9.8부터 NFSv4.2 클라이언트에 대한 액세스를 허용하는 NFSv4.2 프로토콜이 지원됩니다. 
 ---
 = NFSv4.2에 대한 ONTAP 지원
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

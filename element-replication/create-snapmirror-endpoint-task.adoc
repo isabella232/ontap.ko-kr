@@ -5,6 +5,7 @@ keywords: create, snapmirror, endpoint
 summary: 복제 관계를 생성하려면 먼저 SnapMirror 엔드포인트를 생성해야 합니다. Element 소프트웨어 웹 UI에서만 이 작업을 수행할 수 있습니다. 
 ---
 = SnapMirror 끝점을 만듭니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -8,6 +8,7 @@ summary: NVMe 프로토콜을 사용하여 SUSE Linux 서버의 스토리지를 
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

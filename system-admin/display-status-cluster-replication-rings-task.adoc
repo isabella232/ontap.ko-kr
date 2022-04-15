@@ -5,6 +5,7 @@ keywords: display, status, cluster, replication, ring, diagnose, problems, troub
 summary: 클러스터 복제 링의 상태를 표시하여 클러스터 전체 문제를 진단할 수 있도록 지원할 수 있습니다. 클러스터에 문제가 있는 경우 지원 담당자가 문제 해결을 위해 이 작업을 수행하도록 요청할 수 있습니다. 
 ---
 = 클러스터 복제 링의 상태를 표시합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

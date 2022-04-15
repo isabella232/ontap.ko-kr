@@ -5,6 +5,7 @@ keywords: allocate, memory, failed, run, out
 summary: 시스템의 메모리가 부족합니다. 
 ---
 = 메모리를 할당하지 못했습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

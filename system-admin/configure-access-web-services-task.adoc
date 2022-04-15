@@ -5,6 +5,7 @@ keywords: configure, access, web, services, http, https, svm
 summary: '웹 서비스에 대한 액세스를 구성하면 권한 있는 사용자가 HTTP 또는 HTTPS를 사용하여 클러스터의 서비스 콘텐츠 또는 SVM(스토리지 가상 머신)에 액세스할 수 있습니다.' 
 ---
 = 웹 서비스에 대한 액세스를 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

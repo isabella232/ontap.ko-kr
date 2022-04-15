@@ -5,6 +5,7 @@ keywords: end, tape, correction, action, rewind
 summary: 테이프에 데이터가 포함되어 있지 않거나 되감아야 합니다. 
 ---
 = 이미 테이프 끝에 있습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

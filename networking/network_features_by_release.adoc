@@ -6,6 +6,7 @@ summary: 각 ONTAP 9 릴리즈에서 사용할 수 있는 네트워크 기능의
 ---
 = 릴리스별 네트워크 기능
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

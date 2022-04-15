@@ -5,6 +5,7 @@ keywords: synchronous, asynchronous, notifications
 summary: FPolicy는 FPolicy 인터페이스를 통해 외부 FPolicy 서버에 알림을 보냅니다. 알림은 동기 또는 비동기 모드로 전송됩니다. 알림 모드는 FPolicy 서버에 알림을 보낸 후 ONTAP에서 수행하는 작업을 결정합니다. 
 ---
 = 동기식 및 비동기식 알림입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

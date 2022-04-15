@@ -5,6 +5,7 @@ keywords: decide, ndmp, configuration, network, data, management, protocol, back
 summary: '타사 백업 애플리케이션을 사용하여 데이터를 테이프에 직접 백업하기 위해 NDMP(네트워크 데이터 관리 프로토콜)를 사용하도록 ONTAP 9 클러스터를 빠르게 구성할 수 있습니다.' 
 ---
 = NDMP 구성 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

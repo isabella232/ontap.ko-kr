@@ -5,6 +5,7 @@ keywords: disks, disk sanitization, overwriting disks, disk sanitization process
 summary: 디스크 삭제는 디스크 또는 SSD를 지정된 바이트 패턴 또는 랜덤 데이터로 덮어써서 데이터를 물리적으로 삭제함으로써 원래 데이터의 복구가 불가능하게 하는 프로세스입니다. 삭제 프로세스를 사용하면 아무도 디스크에 있는 데이터를 복구할 수 없습니다. 
 ---
 = 디스크 삭제 개요
+:allow-uri-read: 
 
 
 [role="lead"]

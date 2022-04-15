@@ -5,6 +5,7 @@ keywords: understanding, fabricpool, tiering, policies, types, modify, volume, c
 summary: FabricPool 계층화 정책을 사용하면 데이터가 핫 또는 콜드 데이터가 될 때 계층 간에 데이터를 효율적으로 이동할 수 있습니다. 계층화 정책을 이해하면 스토리지 관리 요구 사항에 적합한 정책을 선택할 수 있습니다. 
 ---
 = FabricPool 계층화 정책 정보
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

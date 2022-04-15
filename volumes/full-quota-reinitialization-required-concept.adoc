@@ -5,6 +5,7 @@ keywords: when, full, quota, reinitialization, required
 summary: 할당량의 크기를 조정하는 것이 더 빠르기는 하지만, 할당량에 대한 소규모의 변경 또는 광범위한 변경 작업을 수행하는 경우에는 전체 할당량을 다시 초기화해야 합니다. 
 ---
 = 전체 할당량 재초기화가 필요한 경우
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

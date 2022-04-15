@@ -5,6 +5,7 @@ keywords: secure, access, dynamic, control, creating, create, central, policies,
 summary: '동적 액세스 제어를 사용하고 Active Directory에서 중앙 액세스 정책을 생성한 후 적용된 GPO(그룹 정책 개체)를 통해 SVM의 파일 및 폴더에 적용하여 액세스를 보호할 수 있습니다. 중앙 액세스 정책 스테이징 이벤트를 사용하여 변경 내용을 적용하기 전에 중앙 액세스 정책에 대한 영향을 확인할 수 있도록 감사를 구성할 수 있습니다.' 
 ---
 = DAC(Dynamic Access Control) 개요를 사용하여 파일 액세스 보호
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

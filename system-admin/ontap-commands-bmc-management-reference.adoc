@@ -5,6 +5,7 @@ keywords: ontap, command, bmc, management, baseboard, controller
 summary: '이러한 ONTAP 명령은 베이스보드 관리 컨트롤러(BMC)에서 지원됩니다.' 
 ---
 = BMC 관리용 ONTAP 명령
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: checking, object, tagging, status, fabricpool, volumes
 summary: 하나 이상의 FabricPool 볼륨에서 태깅이 완료되었는지 확인할 수 있습니다. 
 ---
 = FabricPool 볼륨에서 객체 태그 지정 상태를 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

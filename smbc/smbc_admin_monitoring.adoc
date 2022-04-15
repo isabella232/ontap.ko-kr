@@ -6,6 +6,7 @@ summary: 모니터링할 수 있는 SM-BC 구성 요소 및 작업은 여러 가
 ---
 = 기본 모니터링
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

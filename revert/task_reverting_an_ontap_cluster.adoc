@@ -5,6 +5,7 @@ keywords: ontap, revert, reverting, reversion, cluster
 summary: 클러스터를 오프라인으로 전환하여 이전 ONTAP 릴리즈로 되돌리려면 스토리지 페일오버 및 데이터 LIF를 비활성화하고, 리버전 전제 조건을 해결하며, 노드에서 클러스터 및 파일 시스템 구성을 되돌린 다음 클러스터의 각 추가 노드에 대해 이 프로세스를 반복해야 합니다. 
 ---
 = ONTAP 클러스터를 되돌립니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

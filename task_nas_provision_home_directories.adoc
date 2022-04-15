@@ -8,6 +8,7 @@ summary: 볼륨을 생성하여 SMB 프로토콜을 사용하여 홈 디렉토�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

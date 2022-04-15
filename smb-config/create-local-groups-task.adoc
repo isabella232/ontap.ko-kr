@@ -5,6 +5,7 @@ keywords: create, local, group, authorize, authorizing, access, data, associate,
 summary: SMB 연결을 통해 SVM과 관련된 데이터에 대한 액세스 권한을 부여하는 데 사용할 수 있는 로컬 그룹을 생성할 수 있습니다. 그룹의 구성원이 보유한 사용자 권한 또는 기능을 정의하는 권한을 할당할 수도 있습니다. 
 ---
 = 로컬 그룹을 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

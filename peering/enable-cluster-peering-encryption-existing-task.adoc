@@ -5,6 +5,7 @@ keywords: enable, cluster, peering, encryption, existing, peer, relationship
 summary: 'ONTAP 9.6부터 클러스터 피어링 암호화는 새로 생성한 모든 클러스터 피어링 관계에서 기본적으로 활성화됩니다. 클러스터 피어링 암호화는 미리 공유된 키(PSK) 및 전송 보안 계층(TLS)을 사용하여 클러스터 간 피어링 통신을 보호합니다. 그러면 피어링된 클러스터 사이에 보안 계층이 추가됩니다.' 
 ---
 = 기존 피어 관계에서 클러스터 피어링 암호화를 활성화합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

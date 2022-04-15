@@ -5,6 +5,7 @@ keywords: consistency groups, consistency group, application protection, parent,
 summary: S3 감사를 구현하려면 먼저 S3 기반 SVM에서 영구 오브젝트 저장소 감사 구성을 생성한 다음 구성을 활성화합니다. 
 ---
 = S3 감사 구성을 생성하고 설정합니다
+:allow-uri-read: 
 
 
 [role="lead"]

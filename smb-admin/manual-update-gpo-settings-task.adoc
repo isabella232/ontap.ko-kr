@@ -5,6 +5,7 @@ keywords: update, group, policy, object, gpo, setting, cifs, server, manual, upd
 summary: 'CIFS 서버에서 GPO(그룹 정책 개체) 설정을 즉시 업데이트하려면 설정을 수동으로 업데이트할 수 있습니다. 변경된 설정만 업데이트하거나 이전에 적용되었지만 변경되지 않은 설정을 포함하여 모든 설정에 대해 업데이트를 적용할 수 있습니다.' 
 ---
 = CIFS 서버에서 GPO 설정을 수동으로 업데이트합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

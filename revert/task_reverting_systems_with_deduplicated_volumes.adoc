@@ -5,6 +5,7 @@ keywords: ontap, revert, reverting, reversion, systems, deduplication, deduplica
 summary: ONTAP 9 버전에서 되돌리기 전에 볼륨에 복원 작업을 위한 충분한 여유 공간이 있는지 확인해야 합니다. 
 ---
 = 되돌리기 전에 중복 제거된 볼륨의 사용 가능한 공간이 충분한지 확인하십시오
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

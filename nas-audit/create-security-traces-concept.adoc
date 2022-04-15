@@ -5,6 +5,7 @@ keywords: considerations, create, security traces
 summary: 'SVM(스토리지 가상 머신)에 보안 추적을 생성할 때는 몇 가지 사항을 염두에 두어야 합니다. 예를 들어 추적을 만들 수 있는 프로토콜, 지원되는 보안 스타일 및 최대 활성 트레이스 수를 알아야 합니다.' 
 ---
 = 보안 추적을 만들 때 고려해야 할 사항입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

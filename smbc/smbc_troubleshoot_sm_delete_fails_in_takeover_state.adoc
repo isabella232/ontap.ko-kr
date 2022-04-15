@@ -6,6 +6,7 @@ summary: '클러스터에 ONTAP 9.9.1이 설치된 경우 SM-BC 정합성 보장
 ---
 = takover 상태에서 SnapMirror 삭제 작업이 실패합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

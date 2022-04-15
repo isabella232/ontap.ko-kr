@@ -5,6 +5,7 @@ keywords: ontap, upgrade, post, after, san, verify
 summary: SAN 환경에서 업그레이드하는 경우, 업그레이드를 완료한 후 LIF에 연결된 각 이니시에이터가 LIF에 성공적으로 다시 연결되었는지 확인해야 합니다. 
 ---
 = 업그레이드 후 SAN 구성을 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

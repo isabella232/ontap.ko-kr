@@ -5,6 +5,7 @@ keywords: networking, NFS over RDMA, NVIDIA, NFS, v4 grace period
 summary: 이 문서에서는 RDMA 상의 NFS 성능을 최적화하기 위한 선택적 단계에 대해 설명합니다. 
 ---
 = NFS 구성을 수정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

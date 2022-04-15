@@ -5,6 +5,7 @@ keywords: ipv6, network, enable, cluster, setup, administrator, smb, enable ipv6
 summary: 클러스터 설정 중에 IPv6 네트워크가 활성화되지 않습니다. SMB용 IPv6를 사용하려면 클러스터 설정이 완료된 후 클러스터 관리자가 IPv6을 사용하도록 설정해야 합니다. 클러스터 관리자가 IPv6을 사용하도록 설정하면 전체 클러스터에 대해 설정됩니다. 
 ---
 = SMB용 IPv6 사용(클러스터 관리자만 해당)
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

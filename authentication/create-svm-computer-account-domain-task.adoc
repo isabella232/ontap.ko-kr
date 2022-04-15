@@ -5,6 +5,7 @@ keywords: create, svm, computer, account, domain, cifs server
 summary: 데이터 SVM을 위해 SMB 서버를 구성하지 않은 경우 vserver active-directory create 명령을 사용하여 도메인에서 SVM을 위한 컴퓨터 계정을 생성할 수 있습니다. 
 ---
 = 도메인에서 SVM 컴퓨터 계정을 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

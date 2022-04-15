@@ -5,6 +5,7 @@ keywords: traverse, directories, directory, path, file, permission, sechangenoti
 summary: '사용자가 이동 중인 디렉토리에 대한 사용 권한이 없더라도 경로 내의 모든 디렉토리를 파일에 통과할 수 있도록 하려면 SVM(Storage Virtual Machine)의 로컬 SMB 사용자 또는 그룹에 SeChangeNotifyPrivilege 권한을 추가하면 됩니다. 기본적으로 사용자는 디렉터리 통과 확인을 건너뛸 수 있습니다.' 
 ---
 = 사용자 또는 그룹이 디렉토리 통과 확인을 건너뛰도록 허용합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

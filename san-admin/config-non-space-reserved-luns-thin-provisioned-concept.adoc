@@ -5,6 +5,7 @@ keywords: configuration, settings, non-space-reserved, files, luns with thin-pro
 summary: 이 FlexVol 볼륨 및 파일 또는 LUN 구성 조합을 사용하려면 가장 적은 양의 스토리지를 미리 할당해야 하지만 공간 부족으로 인한 오류를 방지하기 위해 활성 여유 공간 관리가 필요합니다. 
 ---
 = 공간이 예약되지 않은 파일 또는 씬 프로비저닝된 볼륨이 있는 LUN에 대한 구성 설정입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

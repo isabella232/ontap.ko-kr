@@ -5,6 +5,7 @@ keywords: expand, destination, flexgroup, volume, snapmirror, relationship
 summary: 대상 FlexGroup 볼륨을 확장하고 SnapMirror 관계를 자동 또는 수동으로 다시 설정할 수 있습니다. 기본적으로 SnapMirror 관계는 자동 확장을 위해 설정되고 소스 볼륨이 확장되면 대상 FlexGroup 볼륨이 자동으로 확장됩니다. 
 ---
 = SnapMirror 관계의 대상 FlexGroup 볼륨을 확장합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

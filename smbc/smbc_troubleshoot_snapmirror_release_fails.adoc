@@ -6,6 +6,7 @@ summary: 스냅샷 복사본을 삭제할 수 없으면 SnapMirror 릴리즈 작
 ---
 = 스냅샷 복사본을 삭제할 수 없을 때 SnapMirror가 릴리즈되지 않습니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

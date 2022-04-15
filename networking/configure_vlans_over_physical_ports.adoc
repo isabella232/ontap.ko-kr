@@ -6,6 +6,7 @@ summary: VLAN은 네트워크의 논리적 세분화를 제공합니다
 ---
 = 물리적 포트를 통해 VLAN을 구성합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

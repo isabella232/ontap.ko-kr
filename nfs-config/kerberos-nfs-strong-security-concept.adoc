@@ -5,6 +5,7 @@ keywords: use, kerberos, nfs, strong, security
 summary: Kerberos가 강력한 인증을 위해 사용자 환경에서 사용되는 경우 Kerberos 관리자와 협력하여 요구사항 및 적절한 스토리지 시스템 구성을 결정한 다음 SVM을 Kerberos 클라이언트로 사용하도록 설정해야 합니다. 
 ---
 = 강력한 보안을 위해 NFS와 Kerberos 사용 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

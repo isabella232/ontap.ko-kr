@@ -5,6 +5,7 @@ keywords: display, export, policy, netgroup, queue, cache
 summary: ONTAP는 넷그룹 큐를 가져와 확인할 때 넷그룹 큐를 사용하고 넷그룹 캐시를 사용하여 결과 정보를 저장합니다. 내보내기 정책 넷그룹 관련 문제를 해결할 때 vserver export-policy netgroup queue show 및 vserver export-policy netgroup cache show 명령을 사용하여 넷그룹 큐의 상태와 넷그룹 캐시의 내용을 표시할 수 있습니다. 
 ---
 = 엑스포트 정책 넷그룹 큐 및 캐시를 표시합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

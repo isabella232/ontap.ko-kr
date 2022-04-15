@@ -5,6 +5,7 @@ keywords: ontap platforms
 summary: ONTAP 데이터 관리 소프트웨어는 고속 플래시, 저렴한 회전식 미디어, 클라우드 기반 오브젝트 스토리지 등 스토리지 구성에서 블록 또는 파일 액세스 프로토콜을 통해 데이터를 읽고 쓰는 애플리케이션을 위한 유니파이드 스토리지를 제공합니다. 
 ---
 = ONTAP 플랫폼
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: determine, impact, cache, size, ssds, storage pool
 summary: 스토리지 풀에 SSD를 추가하여 플랫폼 모델의 캐시 한도를 초과할 경우 ONTAP에서 새로 추가된 용량을 Flash Pool 애그리게이트에 할당하지 않습니다. 이로 인해 새로 추가된 일부 또는 모든 용량을 사용할 수 없게 될 수 있습니다. 
 ---
 = SSD 스토리지 풀에 SSD를 추가하는 캐시 크기에 미치는 영향을 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

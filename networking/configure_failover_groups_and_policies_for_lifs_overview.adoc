@@ -6,6 +6,7 @@ summary: LIF 페일오버는 링크 장애에 대한 응답으로 LIF를 다른 
 ---
 = 개요
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

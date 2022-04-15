@@ -5,6 +5,7 @@ keywords: application aware data management
 summary: 'AppDM(Application Aware Data Management)을 사용하면 스토리지 용어가 아닌 애플리케이션 측면에서 ONTAP를 통해 배포하려는 애플리케이션을 설명할 수 있습니다. System Manager 및 REST API를 사용하여 최소한의 입력만으로 애플리케이션을 구성하여 데이터를 빠르게 제공할 수 있습니다.' 
 ---
 = 애플리케이션 인식 데이터 관리
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

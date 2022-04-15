@@ -5,6 +5,7 @@ keywords: command, manage, web, service, vserver, svm, storage, virtual. machine
 summary: 'SVM 서비스 웹 명령을 사용하여 클러스터 또는 SVM(스토리지 가상 머신)의 웹 서비스 가용성을 관리할 수 있습니다. SVM 서비스 웹 액세스 명령을 사용하여 웹 서비스에 대한 역할의 액세스를 제어합니다.' 
 ---
 = 웹 서비스 관리를 위한 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: create, nfs, kerberos, realm, configuration
 summary: ONTAP가 사용자 환경에서 외부 Kerberos 서버에 액세스하도록 하려면 먼저 기존 Kerberos 영역을 사용하도록 SVM을 구성해야 합니다. 이렇게 하려면 Kerberos KDC 서버의 구성 값을 수집한 다음 vserver NFS Kerberos 영역 생성 명령을 사용하여 SVM에서 Kerberos 영역 구성을 생성해야 합니다. 
 ---
 = NFS Kerberos 영역 구성을 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

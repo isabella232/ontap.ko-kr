@@ -5,6 +5,7 @@ keywords: configure, flexvol volume, automatically, delete, flexclone files, fle
 summary: FlexVol 볼륨에서 사용 가능한 공간이 특정 임계값 아래로 감소할 경우 자동 삭제가 설정된 상태로 FlexClone 파일과 FlexClone LUN을 자동으로 삭제하도록 설정할 수 있습니다. 
 ---
 = FlexClone 파일과 FlexClone LUN을 자동으로 삭제하도록 FlexVol 볼륨을 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

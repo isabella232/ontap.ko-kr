@@ -5,6 +5,7 @@ keywords: considerations, lifs, cluster, san environments
 summary: SAN 환경에서는 특정 LIF 고려 사항을 알고 있어야 합니다. 
 ---
 = 클러스터 SAN 환경의 LIF 고려 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

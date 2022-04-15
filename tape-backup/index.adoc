@@ -5,6 +5,7 @@ keywords: tape, backup, flexvol, volumes, overview, ndmp, network, data, managem
 summary: ONTAP는 네트워크 데이터 관리 프로토콜을 통해 테이프 백업 및 복원을 지원합니다. 
 ---
 = FlexVol 볼륨의 테이프 백업 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

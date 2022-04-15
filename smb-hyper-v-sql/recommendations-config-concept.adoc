@@ -5,6 +5,7 @@ keywords: recommendations, sql, server, hyper, v, smb, configuration
 summary: SQL Server 및 Hyper-V over SMB 구성이 강력하고 작동 가능한지 확인하려면 솔루션 구성 시 권장 모범 사례를 숙지해야 합니다. 
 ---
 = SMB 구성을 통한 SQL Server 및 Hyper-V 권장 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

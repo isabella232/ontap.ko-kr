@@ -5,6 +5,7 @@ keywords: system, administration, reference, overview, cluster, access, node, ma
 summary: 'CLI(Command-Line Interface)를 사용하여 ONTAP 시스템을 관리할 수 있습니다.' 
 ---
 = CLI를 사용한 관리 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

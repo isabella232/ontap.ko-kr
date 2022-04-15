@@ -5,6 +5,7 @@ keywords: understand, host-side, space, management
 summary: 씬 프로비저닝된 환경에서 호스트 측 공간 관리는 호스트 파일 시스템에서 확보된 스토리지 시스템의 공간 관리 프로세스를 완료합니다. 
 ---
 = 호스트측 공간 관리 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

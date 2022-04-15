@@ -5,6 +5,7 @@ keywords: determine, flash pool, aggregate, ssd storage pool
 summary: SSD 스토리지 풀을 사용하여 캐시를 제공할 때는 Flash Pool 애그리게이트를 개별 SSD를 사용할 때와 다르게 관리합니다. 
 ---
 = Flash Pool Aggregate가 SSD 스토리지 풀을 사용하고 있는지 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

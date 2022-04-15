@@ -5,6 +5,7 @@ keywords: change, branchcache, server, key, modify, configuration, storage, virt
 summary: 'SVM(스토리지 가상 시스템)에서 BranchCache 구성을 수정하고 다른 서버 키를 지정하여 BranchCache 서버 키를 변경할 수 있습니다.' 
 ---
 = BranchCache 서버 키를 변경합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

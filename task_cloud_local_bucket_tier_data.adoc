@@ -8,6 +8,7 @@ summary: ONTAP 9.8부터 ONTAP S3를 사용하여 데이터를 로컬 오브젝�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

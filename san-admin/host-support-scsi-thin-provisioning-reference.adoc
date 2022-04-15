@@ -5,6 +5,7 @@ keywords: ontap 9.2, host, support, scsi, thin, provisioning
 summary: SCSI 씬 프로비저닝의 이점을 활용하려면 호스트에서 이를 지원해야 합니다. SCSI 씬 프로비저닝은 SCSI SBC-3 표준에 정의된 대로 논리적 블록 프로비저닝 기능을 사용합니다. 이 표준을 지원하는 호스트만 ONTAP에서 SCSI 씬 프로비저닝을 사용할 수 있습니다. 
 ---
 = SCSI 씬 프로비저닝을 위한 호스트 지원
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -8,6 +8,7 @@ summary: ONTAP 9.10.1 이전 릴리즈에서 S3 구성을 업그레이드한 경
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

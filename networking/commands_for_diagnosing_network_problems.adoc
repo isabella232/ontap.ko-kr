@@ -6,6 +6,7 @@ summary: 네트워크의 문제를 진단합니다
 ---
 = 네트워크 문제를 진단하는 명령입니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

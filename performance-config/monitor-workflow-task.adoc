@@ -5,6 +5,7 @@ keywords: performance, monitor, workflow
 summary: 성능 모니터링 워크플로우 
 ---
 = 성능 모니터링 워크플로우
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: methods, create, space, aggregate
 summary: Aggregate에 여유 공간이 부족할 경우 다양한 문제로 인해 데이터 손실부터 볼륨 보증 비활성화까지 다양한 문제가 발생할 수 있습니다. 여러 가지 방법으로 애그리게이트에서 더 많은 공간을 만들 수 있습니다. 
 ---
 = Aggregate에 공간을 만드는 방법입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

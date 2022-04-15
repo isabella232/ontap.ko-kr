@@ -8,6 +8,7 @@ summary: NFS 및 SMB 서버가 Linux 및 Windows 클라이언트에 데이터를
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

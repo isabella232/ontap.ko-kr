@@ -5,6 +5,7 @@ keywords: configue, name, service, switch, table
 summary: ONTAP가 로컬 또는 외부 이름 서비스에 문의하여 호스트, 사용자, 그룹, 넷그룹 또는 이름 매핑 정보를 검색할 수 있도록 이름 서비스 스위치 테이블을 올바르게 구성해야 합니다. 
 ---
 = 이름 서비스 스위치 테이블을 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

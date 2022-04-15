@@ -5,6 +5,7 @@ keywords: display, cluster, node, attributes
 summary: 이름, 소유자, 위치 등과 같이 클러스터에 있는 하나 이상의 노드의 속성을 표시할 수 있습니다. 모델 번호, 일련 번호, 노드의 실행 시간, 상태 및 클러스터에 대한 참여 자격 
 ---
 = 노드 속성을 표시합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

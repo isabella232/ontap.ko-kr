@@ -5,6 +5,7 @@ keywords: ontap, support, storing, store, windows, roam, profile, cifs, server, 
 summary: 'ONTAP는 SVM(스토리지 가상 머신)과 연결된 CIFS 서버에 Windows 로밍 프로필을 저장할 수 있도록 지원합니다. 사용자 로밍 프로파일을 구성하면 사용자가 로그인하는 위치에 관계없이 자동 리소스 사용 가능 여부 등의 이점이 제공됩니다. 또한 로밍 프로필은 사용자 프로필의 관리 및 관리를 간소화합니다.' 
 ---
 = 로밍 프로필을 사용하여 SVM 개요와 관련된 SMB 서버에 사용자 프로필을 중앙에서 저장합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

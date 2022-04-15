@@ -5,6 +5,7 @@ keywords: vscan, server installation, configuration
 summary: 시스템의 파일에 바이러스가 있는지 검사하려면 하나 이상의 Vscan 서버를 설정해야 합니다. 공급업체에서 제공한 지침에 따라 서버에 바이러스 백신 소프트웨어를 설치하고 구성합니다. NetApp에서 제공하는 readme 파일의 지침에 따라 ONTAP 바이러스 백신 커넥터를 설치하고 구성합니다. 
 ---
 = Vscan 서버 설치 및 구성
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

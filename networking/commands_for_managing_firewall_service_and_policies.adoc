@@ -6,6 +6,7 @@ summary: 방화벽 서비스를 관리합니다
 ---
 = 방화벽 서비스 및 정책을 관리하는 명령입니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

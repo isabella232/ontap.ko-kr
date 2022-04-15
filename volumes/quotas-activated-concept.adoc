@@ -5,6 +5,7 @@ keywords: how quotas are activated, activation, manage, disruptively
 summary: 새 할당량과 할당량 변경 사항은 활성화될 때까지 적용되지 않습니다. 할당량 활성화 방법을 알면 할당량을 중단 없이 관리하는 데 도움이 됩니다. 
 ---
 = 할당량 활성화 방법 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

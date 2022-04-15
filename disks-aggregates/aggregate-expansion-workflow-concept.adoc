@@ -5,6 +5,7 @@ keywords: aggregate, expansion, workflow
 summary: Aggregate를 확장하려면 확장할 Aggregate를 확인하고, 새 스토리지 필요 용량을 결정하고, 새 디스크를 설치하고, 디스크 소유권을 할당하고, 필요한 경우 새로운 RAID 그룹을 생성해야 합니다. 
 ---
 = 애그리게이트 확장 워크플로우
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

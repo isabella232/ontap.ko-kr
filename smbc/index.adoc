@@ -6,6 +6,7 @@ summary: 'ONTAP 9.8부터 SM-BC(SnapMirror Business Continuity)를 사용하여 
 ---
 = 개요
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

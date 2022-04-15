@@ -5,6 +5,7 @@ keywords: how, you, use, tracking, quotas
 summary: 할당량 추적은 디스크 및 파일 사용량에 대한 보고서를 생성하며 리소스 사용량을 제한하지 않습니다. 할당량 추적 기능을 사용하면 할당량 값을 껐다가 다시 켜는 대신 할당량 크기를 조정할 수 있으므로 할당량 값을 수정할 때 업무 중단이 줄어듭니다. 
 ---
 = 할당량 추적 사용 방법
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

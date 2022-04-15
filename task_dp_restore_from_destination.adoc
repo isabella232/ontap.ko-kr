@@ -8,6 +8,7 @@ summary: 재해 발생 후 원래 소스 볼륨을 다시 사용할 수 있으�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

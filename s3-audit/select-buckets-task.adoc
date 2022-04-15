@@ -5,6 +5,7 @@ keywords: s3 audit, select, buckets
 summary: 감사 가능 SVM에서 감사할 버킷은 지정해야 합니다. 
 ---
 = S3 감사에 사용할 버킷을 선택합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

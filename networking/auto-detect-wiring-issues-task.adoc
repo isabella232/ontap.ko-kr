@@ -6,6 +6,7 @@ summary: 'ONTAP는 브로드캐스트 도메인 구성(이더넷 포트) 계층 
 ---
 = 네트워크 배선 문제에 대한 자동 감지 및 수리 권장 사항
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

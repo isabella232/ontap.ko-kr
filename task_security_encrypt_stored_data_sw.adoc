@@ -8,6 +8,7 @@ summary: 볼륨 암호화를 사용하여 기본 장치를 용도 변경, 반환
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

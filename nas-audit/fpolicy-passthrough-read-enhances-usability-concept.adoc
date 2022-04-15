@@ -5,6 +5,7 @@ keywords: fpolicy, passthrough-read, enhances, usability, hierarchical, storage 
 summary: '패스스루 읽기를 통해 FPolicy 서버(계층적 스토리지 관리(HSM) 서버로 작동)가 보조 스토리지 시스템에서 기본 스토리지 시스템으로 파일을 리콜하지 않고 오프라인 파일에 대한 읽기 액세스를 제공할 수 있습니다.' 
 ---
 = FPolicy 패스스루 읽기를 통해 어떻게 계층적 스토리지 관리의 사용성을 개선합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

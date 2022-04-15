@@ -5,6 +5,7 @@ keywords: enable, ssh, public key, accounts
 summary: 보안 로그인 create 명령을 사용하여 관리자 계정이 SSH 공개 키로 admin 또는 data SVM에 액세스할 수 있도록 할 수 있습니다. 
 ---
 = SSH 공개 키 계정을 활성화합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

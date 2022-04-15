@@ -5,6 +5,7 @@ keywords: troubleshoot, audit, stage, volume space, issues
 summary: 스테이징 볼륨 또는 감사 이벤트 로그가 포함된 볼륨에 공간이 부족할 때 문제가 발생할 수 있습니다. 공간이 부족하면 새 감사 레코드를 생성할 수 없으므로 클라이언트가 데이터에 액세스하지 못하게 되고 액세스 요청이 실패합니다. 이러한 볼륨 공간 문제를 해결하고 해결하는 방법을 알아야 합니다. 
 ---
 = 감사 및 스테이징 볼륨 공간 문제를 해결합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

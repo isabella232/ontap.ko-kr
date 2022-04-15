@@ -5,6 +5,7 @@ keywords: enable, smb, automatic, node, referral, client, access, performance, d
 summary: SMB 자동 노드 조회를 활성화하여 SMB 클라이언트 액세스 성능을 높일 수 있습니다. ONTAP가 SMB 클라이언트에 조회를 하지 않도록 하려면 자동 노드 조회를 사용하지 않도록 설정할 수 있습니다. 
 ---
 = SMB 자동 노드 조회를 설정하거나 해제합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

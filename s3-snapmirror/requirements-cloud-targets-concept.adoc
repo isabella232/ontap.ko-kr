@@ -8,6 +8,7 @@ summary: 소스 및 타겟 환경이 S3 SnapMirror 클라우드 백업 보호에
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

@@ -5,6 +5,7 @@ keywords: upgrade, ontap
 summary: ONTAP 업그레이드 절차 
 ---
 = Upgrade ONTAP 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: auto, location, smb, automatic, node, referral, increase, client, perf
 summary: '자동 위치에서는 SMB 자동 노드 조회를 사용하여 스토리지 가상 시스템(SVM)에서 SMB 클라이언트 성능을 높입니다. 자동 노드 조수는 요청 클라이언트를 데이터가 상주하는 볼륨을 호스팅하는 노드 SVM의 LIF로 자동으로 리디렉션하여 클라이언트 응답 시간을 향상할 수 있습니다.' 
 ---
 = 자동 위치 개요를 통해 SMB 자동 노드 조회를 제공하여 클라이언트 응답 시간을 단축합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

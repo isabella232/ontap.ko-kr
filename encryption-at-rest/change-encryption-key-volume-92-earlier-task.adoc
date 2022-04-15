@@ -5,6 +5,7 @@ keywords: changing, encryption key, volume, volume move start, command
 summary: 볼륨의 암호화 키를 정기적으로 변경하는 것이 가장 좋은 방법입니다. 볼륨 이동 시작 명령을 사용하여 암호화 키를 변경할 수 있습니다. ONTAP 9.2 이하에서는 볼륨 이동 시작을 사용해야 합니다. 이동된 볼륨은 동일한 애그리게이트 또는 다른 애그리게이트에 있을 수 있습니다. 
 ---
 = 볼륨 이동 시작 명령을 사용하여 볼륨의 암호화 키를 변경합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

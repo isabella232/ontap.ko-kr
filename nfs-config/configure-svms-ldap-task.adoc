@@ -5,6 +5,7 @@ keywords: verify, ldap, sources, name, service, switch, table
 summary: SVM을 위한 네임 서비스 스위치 테이블에 네임 서비스에 대한 LDAP 소스가 올바르게 나열되어 있는지 확인해야 합니다. 
 ---
 = 이름 서비스 스위치 테이블에서 LDAP 소스를 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

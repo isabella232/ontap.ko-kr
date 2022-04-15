@@ -5,6 +5,7 @@ keywords: display, information, mount, volume, storage, virtual, machine, svm, j
 summary: '스토리지 가상 시스템(SVM)에 대해 마운트된 볼륨 및 볼륨이 마운트된 접합 지점에 대한 정보를 표시할 수 있습니다. 또한 어느 볼륨이 분기점에 마운트되지 않는지 확인할 수 있습니다. 이 정보를 사용하여 SVM 네임스페이스를 이해하고 관리할 수 있습니다.' 
 ---
 = 볼륨 마운트 및 접합 지점 정보를 표시합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

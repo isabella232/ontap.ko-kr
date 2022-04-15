@@ -5,6 +5,7 @@ keywords: changing, onboard, key, management, passphrase
 summary: 온보드 키 관리 암호를 정기적으로 변경하는 것이 가장 좋습니다. 나중에 사용할 수 있도록 새로운 온보드 키 관리 암호를 스토리지 시스템 외부의 안전한 위치에 복사해야 합니다. 
 ---
 = 온보드 키 관리 암호를 변경합니다
+:allow-uri-read: 
 
 
 [role="lead"]

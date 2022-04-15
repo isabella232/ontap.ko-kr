@@ -5,6 +5,7 @@ keywords: enable, disable, presentation, ntfs, acl, smb, client, unix, security-
 summary: 'UNIX 보안 스타일 데이터(UNIX 보안 스타일 볼륨 및 UNIX 효과적인 보안이 포함된 혼합 보안 스타일 볼륨)를 위해 SMB 클라이언트에 NTFS ACL 표시를 활성화 또는 비활성화할 수 있습니다.' 
 ---
 = UNIX 보안 스타일 데이터에 대한 NTFS ACL 표시를 활성화 또는 비활성화합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

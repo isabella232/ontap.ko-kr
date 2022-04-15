@@ -5,6 +5,7 @@ keywords: site, dns, server, entry, point, smb, name, netbios, alias, ip, addres
 summary: Windows 사용자가 SMB 서버 이름에 드라이브를 매핑할 수 있도록 사이트의 DNS 서버에는 SMB 서버 이름 및 모든 NetBIOS 별칭을 가리키는 항목이 데이터 LIF의 IP 주소에 있어야 합니다. 
 ---
 = DNS 서버의 SMB 서버를 매핑합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

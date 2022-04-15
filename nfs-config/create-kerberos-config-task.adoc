@@ -5,6 +5,7 @@ keywords: enable, kerberos, data, lif
 summary: SVM NFS Kerberos 인터페이스 설정 명령을 사용하여 데이터 LIF에서 Kerberos를 설정할 수 있습니다. 그러면 SVM에서 NFS에 Kerberos 보안 서비스를 사용할 수 있습니다. 
 ---
 = 데이터 LIF에서 Kerberos를 사용하도록 설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

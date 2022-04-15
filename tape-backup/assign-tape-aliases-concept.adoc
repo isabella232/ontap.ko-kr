@@ -5,6 +5,7 @@ keywords: aliasing, ppn, physical, path, name, sn, serial, number, medium, chang
 summary: '에일리어싱은 장치 식별 과정을 간소화합니다. 앨리어싱은 테이프 또는 미디어 체인저의 물리적 경로 이름(PPN) 또는 일련 번호(SN)를 영구적이지만 수정할 수 있는 별칭 이름에 바인딩합니다.' 
 ---
 = 테이프 앨리어싱 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: nonqualified, tape, drive, storage, system, emulate, qualified
 summary: 검증된 테이프 드라이브를 에뮬레이트할 수 있는 경우 스토리지 시스템에서 검증되지 않은 테이프 드라이브를 사용할 수 있습니다. 그런 다음 자격 있는 테이프 드라이브처럼 취급됩니다. 검증되지 않은 테이프 드라이브를 사용하려면 먼저 정규화된 테이프 드라이브를 에뮬레이트하는지 여부를 확인해야 합니다. 
 ---
 = 검증되지 않은 테이프 드라이브를 사용합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

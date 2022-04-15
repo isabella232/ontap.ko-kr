@@ -6,6 +6,7 @@ summary: 페일오버 그룹에 대한 정보를 봅니다
 ---
 = 페일오버 그룹에 대한 정보를 표시합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

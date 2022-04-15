@@ -5,6 +5,7 @@ keywords: baseboard, management, controller, bmc, cli, command, hardware, softwa
 summary: '특정 하드웨어 플랫폼에서 ONTAP 9.1부터 베이스보드 관리 컨트롤러(BMC)라는 새로운 온보드 컨트롤러를 지원하도록 소프트웨어가 사용자 정의됩니다. BMC에는 장치를 원격으로 관리하는 데 사용할 수 있는 CLI(Command-Line Interface) 명령이 있습니다.' 
 ---
 = 베이스보드 관리 컨트롤러의 기능
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

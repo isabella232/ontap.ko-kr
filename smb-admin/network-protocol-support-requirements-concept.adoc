@@ -5,6 +5,7 @@ keywords: network, protocol, requirement, implement, ontap, branchcache, support
 summary: ONTAP BranchCache를 구축하기 위한 네트워크 프로토콜 요구 사항을 알고 있어야 합니다. 
 ---
 = 네트워크 프로토콜 지원 요구 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

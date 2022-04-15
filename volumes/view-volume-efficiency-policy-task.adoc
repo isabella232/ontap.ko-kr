@@ -5,6 +5,7 @@ keywords: view, volume, efficiency, policy
 summary: 볼륨 효율성 정책 show 명령을 사용하여 볼륨 효율성 정책 이름, 스케줄, 기간, 설명을 확인할 수 있습니다. 
 ---
 = 볼륨 효율성 정책을 봅니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

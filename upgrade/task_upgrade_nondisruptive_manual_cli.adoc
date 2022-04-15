@@ -5,6 +5,7 @@ keywords: netapp, ontap, upgrade, nondisruptive, nondisruptively, non-disruptive
 summary: '수동 무중단 방법을 사용하여 2개 이상의 노드 클러스터를 업그레이드하려면 HA 쌍의 각 노드에서 페일오버 작업을 시작하고, "장애가 발생한" 노드를 업데이트하고, 반환을 시작한 다음 클러스터의 각 HA 쌍에 대해 프로세스를 반복해야 합니다.' 
 ---
 = CLI(non-MetroCluster 시스템)를 사용한 수동 무중단 업그레이드
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

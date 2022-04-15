@@ -5,6 +5,7 @@ keywords: ontap, exports, differ, 7-mode, exports
 summary: ONTAP에서 NFS 엑스포트를 구축하는 방법에 대한 생소한 사용자는 7-Mode와 ONTAP 엑스포트 구성 툴을 비교할 수 있을 뿐만 아니라, 클러스터 정책 및 규칙을 사용하는 샘플 7-Mode/etc/exports 파일을 비교할 수 있습니다. 
 ---
 = ONTAP 내보내기는 7-Mode 내보내기와는 어떻게 다릅니까
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

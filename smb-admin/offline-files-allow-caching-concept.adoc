@@ -5,6 +5,7 @@ keywords: ontap, support, microsoft, offline, file, feature, client-side, cachin
 summary: ONTAP는 Microsoft 오프라인 파일 기능 또는 클라이언트측 캐싱을 지원하므로 파일을 로컬 호스트에 캐싱하여 오프라인으로 사용할 수 있습니다. 사용자는 오프라인 파일 기능을 사용하여 네트워크에서 연결이 끊어진 경우에도 파일 작업을 계속할 수 있습니다. 
 ---
 = 오프라인 파일을 사용하여 오프라인 사용을 위한 파일 캐싱 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

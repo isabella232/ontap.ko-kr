@@ -5,6 +5,7 @@ keywords: configure, netapp, volume encryption, nve, aggregate-level, support de
 summary: 'NetApp Volume Encryption(NVE)은 유휴 데이터를 한 번에 하나의 볼륨으로 암호화하는 소프트웨어 기반 기술입니다. 스토리지 시스템에서만 액세스할 수 있는 암호화 키를 사용하면 기본 장치를 용도 변경, 반환, 잘못된 위치 변경 또는 도난 당한 경우 볼륨 데이터를 읽을 수 없습니다.' 
 ---
 = NetApp 볼륨 암호화 구성 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

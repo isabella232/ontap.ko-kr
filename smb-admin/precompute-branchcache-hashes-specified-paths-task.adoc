@@ -5,6 +5,7 @@ keywords: configure, branchcache, service, pre-compute, hash, file, directory, s
 summary: BranchCache 서비스를 구성하여 단일 파일, 디렉토리 또는 디렉토리 구조의 모든 파일에 대한 해시를 사전 계산할 수 있습니다. 이 방법은 사용량이 많지 않은 시간 동안 BranchCache 사용 공유의 데이터에 대한 해시를 계산할 때 유용합니다. 
 ---
 = 지정된 경로에 대한 BranchCache 해시 사전 계산
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: advantage, security, kerberos-based, communication, aes-256, aes-128, 
 summary: 'Kerberos 기반 통신을 사용하여 가장 강력한 보안을 활용하기 위해 SMB 서버에서 AES-256 및 AES-128 암호화를 활성화할 수 있습니다. SMB 서버가 AD(Active Directory) KDC와 Kerberos 기반 통신을 위해 AES 암호화 유형을 선택하지 않도록 하려면 AES 암호화를 사용하지 않도록 설정할 수 있습니다. 기본적으로 AES 암호화는 비활성화되어 있습니다.' 
 ---
 = Kerberos 기반 통신을 위해 AES 암호화를 사용하거나 사용하지 않도록 설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

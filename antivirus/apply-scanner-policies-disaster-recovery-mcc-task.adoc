@@ -5,6 +5,7 @@ keywords: apply, scanner policies, metrocluster, configurations
 summary: 스캐너 정책은 스캐너 풀이 활성 상태인지 여부를 결정합니다. MetroCluster 구성에서 각 클러스터의 기본 및 보조 스캐너 풀에 스캐너 정책을 적용해야 합니다. 
 ---
 = MetroCluster 구성에서 스캐너 정책을 적용합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

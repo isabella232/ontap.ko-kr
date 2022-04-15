@@ -5,6 +5,7 @@ keywords: ndmp, tape, backup, topologies, storage, system, local, data, server
 summary: 'NDMP는 백업 애플리케이션과 스토리지 시스템 또는 데이터(파일 시스템)와 테이프 서비스를 제공하는 다른 NDMP 서버 간의 다양한 토폴로지 및 구성을 지원합니다.' 
 ---
 = 일반적인 NDMP 테이프 백업 토폴로지
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

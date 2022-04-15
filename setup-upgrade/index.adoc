@@ -6,6 +6,7 @@ summary: ONTAP 및 시스템 구성 요소의 설정, 업그레이드 및 되돌
 ---
 = ONTAP 및 시스템 구성 요소의 설정, 업그레이드 및 되돌리기
 :hardbreaks:
+:allow-uri-read: 
 :linkattrs: 
 :imagesdir: ./media/
 

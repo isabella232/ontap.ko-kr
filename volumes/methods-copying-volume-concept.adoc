@@ -5,6 +5,7 @@ keywords: methods to, copy, volume
 summary: 볼륨을 복사하면 테스트 및 기타 목적으로 사용할 수 있는 볼륨의 독립 실행형 복사본이 생성됩니다. 볼륨을 복사하는 방법은 사용 사례에 따라 다릅니다. 
 ---
 = 볼륨을 복사하는 방법입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

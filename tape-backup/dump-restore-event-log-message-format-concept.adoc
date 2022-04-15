@@ -5,6 +5,7 @@ keywords: event, dump, restore, log, message,
 summary: 각 덤프 및 복원 이벤트에 대해 백업 로그 파일에 메시지가 기록됩니다. 
 ---
 = 이벤트 로그 메시지 형식 덤프 및 복원 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

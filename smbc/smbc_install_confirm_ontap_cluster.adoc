@@ -6,6 +6,7 @@ summary: 소스 및 대상 클러스터가 올바르게 구성되어 있는지 �
 ---
 = ONTAP 중재자 서비스를 설치하고 ONTAP 클러스터 구성을 확인합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

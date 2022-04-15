@@ -5,6 +5,7 @@ keywords: ontap, revert, reverting, reversion, requirements, snapmirror, snapvau
 summary: 시스템 노드 되돌리기 명령은 재조정 프로세스를 완료하기 위해 삭제하거나 재구성해야 하는 SnapMirror 및 SnapVault 관계를 알려 줍니다. 그러나 재버전을 시작하기 전에 이러한 요구 사항을 알고 있어야 합니다. 
 ---
 = SnapMirror 및 SnapVault 관계에 대한 되돌리기 요구 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

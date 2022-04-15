@@ -8,6 +8,7 @@ summary: ONTAP 9.8부터 System Manager를 사용하면 비활성 데이터 보�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

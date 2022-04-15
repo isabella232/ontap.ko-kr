@@ -5,6 +5,7 @@ keywords: manage, unix, permission, windows, security, tab
 summary: SVM에서 혼합 보안 스타일 볼륨 또는 qtree의 파일 또는 폴더에 대한 UNIX 권한을 조작하려는 경우 Windows 클라이언트의 보안 탭을 사용할 수 있습니다. 또는 Windows ACL을 쿼리하고 설정할 수 있는 응용 프로그램을 사용할 수도 있습니다. 
 ---
 = Windows 보안 탭을 사용하여 UNIX 사용 권한을 관리합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: troubleshoot, iscsi luns, not visible, host
 summary: iSCSI LUN은 호스트에 로컬 디스크로 표시됩니다. 스토리지 시스템 LUN을 호스트에서 디스크로 사용할 수 없는 경우 구성 설정을 확인해야 합니다. 
 ---
 = 호스트에 표시되지 않는 iSCSI LUN 문제를 해결합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

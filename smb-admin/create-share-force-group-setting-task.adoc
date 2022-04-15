@@ -5,6 +5,7 @@ keywords: create, smb, share, force-group, setting, user, access, data, volume, 
 summary: UNIX 파일 보안이 설정된 볼륨 또는 Qtree에서 데이터에 액세스하는 SMB 사용자가 ONTAP 동일한 UNIX 그룹에 속한 것으로 간주하도록 하려면 force-group 공유 설정을 사용하여 SMB 공유를 생성할 수 있습니다. 
 ---
 = 그룹 강제 공유 설정을 사용하여 SMB 공유를 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

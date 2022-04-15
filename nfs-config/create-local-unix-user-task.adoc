@@ -5,6 +5,7 @@ keywords: create, local, unix, user
 summary: vserver services name-service unix-user create 명령을 사용하여 로컬 UNIX 사용자를 생성할 수 있습니다. 로컬 UNIX 사용자는 이름 매핑 처리에 사용되는 UNIX 이름 서비스 옵션으로 SVM에서 생성하는 UNIX 사용자입니다. 
 ---
 = 로컬 UNIX 사용자를 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

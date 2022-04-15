@@ -5,6 +5,7 @@ keywords: updating, configurations, flexcache, relationship
 summary: 볼륨 이동, 애그리게이트 재배치 또는 스토리지 페일오버와 같은 이벤트가 발생하면 원래 볼륨 및 FlexCache 볼륨의 볼륨 구성 정보가 자동으로 업데이트됩니다. 자동 업데이트가 실패하는 경우 EMS 메시지가 생성되어 FlexCache 관계에 대한 구성을 수동으로 업데이트해야 합니다. 
 ---
 = FlexCache 관계의 구성을 업데이트합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

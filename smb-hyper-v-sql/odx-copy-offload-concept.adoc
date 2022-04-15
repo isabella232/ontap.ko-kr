@@ -5,6 +5,7 @@ keywords: offload, data, transfer, odx, copy, application, server, copy, operati
 summary: '복사 오프로드라고도 하는 오프로드 데이터 전송(ODX)을 사용하면 호스트 컴퓨터를 통해 데이터를 전송하지 않고도 호환되는 스토리지 장치 내부 또는 간에 데이터를 직접 전송할 수 있습니다. ONTAP ODX 복사 오프로드를 사용하면 SMB 설치를 통해 애플리케이션 서버에서 복사 작업을 수행할 때 성능 이점을 얻을 수 있습니다.' 
 ---
 = SMB 공유를 통해 Hyper-V 및 SQL Server에서 ODX 복사 오프로드를 사용하는 방법
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

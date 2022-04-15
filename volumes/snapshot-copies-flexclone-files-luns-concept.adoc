@@ -5,6 +5,7 @@ keywords: how, snapshot copies, work, flexclone files, flexclone luns
 summary: FlexVol 볼륨에 포함된 상위 파일 및 상위 LUN의 기존 스냅샷 복사본에서 FlexClone 파일과 FlexClone LUN을 생성할 수 있습니다. 
 ---
 = FlexClone 파일 및 FlexClone LUN의 Snapshot 복사본 작동 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

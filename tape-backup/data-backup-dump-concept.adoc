@@ -5,6 +5,7 @@ keywords: dump, engine, flexvol, volumes, backup, recovery, snapshot, copy, tape
 summary: 덤프는 ONTAP의 스냅샷 복사본 기반 백업 및 복구 솔루션으로, 스냅샷 복사본의 파일과 디렉토리를 테이프 장치로 백업하고 백업된 데이터를 스토리지 시스템으로 복구할 수 있도록 도와줍니다. 
 ---
 = FlexVol 볼륨의 덤프 엔진 정보
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

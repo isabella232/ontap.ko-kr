@@ -5,6 +5,7 @@ keywords: smb, functionality, support, nondisruptive, operations, shares, client
 summary: SMB 3.0은 SMB 공유를 통해 Hyper-V 및 SQL Server의 무중단 운영을 지원하는 중요한 기능을 제공합니다. 여기에는 지속적으로 사용 가능한 공유 속성과 SMB 클라이언트가 파일 열기 상태를 다시 확보하고 SMB 연결을 투명하게 다시 설정할 수 있도록 영구 핸들로 알려진 파일 핸들 유형이 포함됩니다. 
 ---
 = SMB 3.0 기능이 SMB 공유에서 무중단 운영을 지원하는 방법
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

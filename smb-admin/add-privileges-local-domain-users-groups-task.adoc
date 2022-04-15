@@ -5,6 +5,7 @@ keywords: manage, right, user, local, domain, add, privilege, override, default,
 summary: 권한을 추가하여 로컬 또는 도메인 사용자 또는 그룹의 사용자 권한을 관리할 수 있습니다. 추가된 권한은 이러한 개체에 할당된 기본 권한을 재정의합니다. 사용자 또는 그룹에 있는 권한을 사용자 지정할 수 있으므로 보안이 강화됩니다. 
 ---
 = 로컬 또는 도메인 사용자 또는 그룹에 권한을 추가합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: security, style, creating, create, flexvol, volume, qtree, inherit, ho
 summary: 새 FlexVol 볼륨 또는 qtree를 생성할 때 보안 스타일을 지정하지 않으면 보안 스타일이 다른 방식으로 상속됩니다. 
 ---
 = 보안 스타일 상속의 작동 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

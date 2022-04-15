@@ -5,6 +5,7 @@ keywords: create, bucket
 summary: S3 오브젝트는 버킷에 보관되므로 다른 디렉토리 내의 파일 안으로 중첩되지 않습니다. 
 ---
 = 버킷을 만듭니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

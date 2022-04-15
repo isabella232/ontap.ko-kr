@@ -5,6 +5,7 @@ keywords: prerequisites, cluster, peering. connectivity, requirements, port, fir
 summary: 클러스터 피어링을 설정하기 전에 연결, 포트, IP 주소, 서브넷, 방화벽, 클러스터 명명 요구사항이 충족됩니다. 
 ---
 = 클러스터 피어링을 위한 사전 요구사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

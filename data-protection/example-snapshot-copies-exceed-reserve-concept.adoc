@@ -5,6 +5,7 @@ keywords: delete, protected, files, less file space
 summary: 블록을 사용한 파일을 삭제해도 스냅샷 복사본은 블록을 가리킵니다. 이 때문에 스냅샷 복사본 예약이 모두 소모되면 직관적인 결과가 발생하여 전체 파일 시스템을 삭제하면 사용 중인 파일 시스템보다 사용 가능한 공간이 적어질 수 있습니다. 
 ---
 = 보호된 파일을 삭제하면 예상보다 파일 공간이 줄어들 수 있습니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

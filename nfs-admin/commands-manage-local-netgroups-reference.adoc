@@ -5,6 +5,7 @@ keywords: command, manage, local, netgroup
 summary: 로컬 넷그룹을 URI에서 로드하고, 노드 간에 상태를 확인하고, 표시하고, 삭제하여 관리할 수 있습니다. 
 ---
 = 로컬 넷그룹을 관리하기 위한 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

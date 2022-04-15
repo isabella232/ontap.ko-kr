@@ -5,6 +5,7 @@ keywords: benefits, vlans, iscsi, configurations, static, dynamic, security, lim
 summary: VLAN은 브로드캐스트 도메인으로 그룹화된 스위치 포트 그룹으로 구성됩니다. VLAN은 단일 스위치에 있거나 여러 스위치 섀시에 걸쳐 있을 수 있습니다. 정적 및 동적 VLAN을 사용하면 IP 네트워크 인프라 내에서 보안을 강화하고, 문제를 격리하고, 사용 가능한 경로를 제한할 수 있습니다. 
 ---
 = iSCSI 구성에서 VLAN을 사용할 때의 이점
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

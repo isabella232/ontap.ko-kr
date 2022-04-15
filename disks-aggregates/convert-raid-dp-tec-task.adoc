@@ -5,6 +5,7 @@ keywords: convert, raid-dp, raid-tec
 summary: 3중 패리티 보호를 추가하려면 RAID-DP에서 RAID-TEC로 전환할 수 있습니다. Aggregate에 사용된 디스크 크기가 4TiB보다 큰 경우 RAID-TEC를 사용하는 것이 좋습니다. 
 ---
 = RAID-DP에서 RAID-TEC로 변환
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

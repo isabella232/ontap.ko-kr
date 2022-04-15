@@ -6,6 +6,7 @@ summary: 브로드캐스트 도메인을 만듭니다
 ---
 = 브로드캐스트 도메인을 만듭니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

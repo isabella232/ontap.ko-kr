@@ -5,6 +5,7 @@ keywords: dynamic, access, control, dac, cifs, server, understand, ontap, suppor
 summary: 'CIFS 서버에서 DAC(동적 액세스 제어)를 사용하려면 ONTAP가 Active Directory 환경에서 동적 액세스 제어 기능을 지원하는 방법을 이해해야 합니다.' 
 ---
 = 지원되는 동적 액세스 제어 기능
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

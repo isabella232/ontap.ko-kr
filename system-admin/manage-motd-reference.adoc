@@ -5,6 +5,7 @@ keywords: manage, motd, message, day, cluster, svm, administrator
 summary: '클러스터 또는 SVM 레벨에서 하루 중 메시지(MOTD)를 관리할 수 있습니다. 기본적으로 클러스터에 구성된 MOTD도 모든 SVM에 대해 활성화됩니다. 또한 SVM별로 MOTD를 구성할 수 있습니다. 클러스터 관리자가 각 SVM에 대해 클러스터 레벨 MOTD를 설정하거나 해제할 수 있습니다.' 
 ---
 = MOTD 관리
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

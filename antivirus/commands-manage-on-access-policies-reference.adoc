@@ -5,6 +5,7 @@ keywords: commands, manage, on-access, policies
 summary: 액세스 시 정책을 수정, 비활성화 또는 삭제할 수 있습니다. 정책의 요약 및 세부 정보를 볼 수 있습니다. 
 ---
 = 액세스 시 정책을 관리하는 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

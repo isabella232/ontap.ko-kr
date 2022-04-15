@@ -5,6 +5,7 @@ keywords: mirrored, aggregates, work
 summary: '미러링된 애그리게이트에는 두 개의 플렉스가 있습니다(데이터의 복사본). 이 플렉스는 SyncMirror 기능을 사용하여 데이터를 복제하여 이중화를 제공합니다.' 
 ---
 = 미러링된 데이터의 작동 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

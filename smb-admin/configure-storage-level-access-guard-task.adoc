@@ -5,6 +5,7 @@ keywords: level, storage, access, security, provide, guard, applies, access, app
 summary: 볼륨 또는 qtree에 스토리지 레벨 액세스 가드를 구성하려면 여러 단계를 수행해야 합니다. Storage-Level Access Guard는 스토리지 레벨에서 설정된 액세스 보안 수준을 제공합니다. 모든 NAS 프로토콜에서 적용된 스토리지 객체에 대한 모든 액세스에 적용되는 보안을 제공합니다. 
 ---
 = Storage-Level Access Guard를 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

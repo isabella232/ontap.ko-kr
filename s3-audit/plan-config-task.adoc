@@ -5,6 +5,7 @@ keywords: s3, audit, create, configure s3 audit
 summary: 이 작업에서는 S3 감사에 사용되는 매개 변수에 대해 설명합니다. 
 ---
 = S3 감사 구성 계획
+:allow-uri-read: 
 
 
 [role="lead"]

@@ -5,6 +5,7 @@ keywords: disabling, encryption, default, ontap 9.7, later
 summary: 'ONTAP 9.7부터 볼륨 암호화(VE) 라이센스가 있고 온보드 키 관리자 또는 외부 키 관리자를 사용하는 경우 애그리게이트 및 볼륨 암호화가 기본적으로 활성화됩니다. 필요한 경우 기본적으로 암호화를 사용하지 않도록 설정할 수 있습니다.' 
 ---
 = ONTAP 9.7 이상에서는 기본적으로 암호화를 사용하지 않도록 설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

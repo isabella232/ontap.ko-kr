@@ -8,6 +8,7 @@ summary: FabricPool를 사용하면 데이터 액세스 빈도에 따라 데이�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

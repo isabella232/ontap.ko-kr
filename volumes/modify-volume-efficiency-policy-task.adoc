@@ -5,6 +5,7 @@ keywords: modify, volume, efficiency, policy
 summary: 볼륨 효율성 정책 수정 명령을 사용하여 볼륨 효율성 정책을 수정하여 다른 기간 동안 중복제거 및 데이터 압축을 실행하거나 작업 일정을 변경할 수 있습니다. 
 ---
 = 볼륨 효율성 정책을 수정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

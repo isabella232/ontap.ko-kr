@@ -5,6 +5,7 @@ keywords: system, manager, manage, node, boot, menu, configuration, problems, pa
 summary: 부팅 메뉴를 사용하여 노드의 구성 문제를 해결하고, admin 암호를 재설정하고, 디스크를 초기화하고, 노드 구성을 재설정하고, 노드 구성 정보를 부팅 장치로 복원할 수 있습니다. 
 ---
 = 부팅 메뉴를 사용하여 노드를 관리합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

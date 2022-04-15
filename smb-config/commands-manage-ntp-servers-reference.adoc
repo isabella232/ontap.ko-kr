@@ -5,6 +5,7 @@ keywords: ontap, network, time, protocol, ntp, version, support, ntpv3, symmetri
 summary: 'ONTAP 9.5부터 NTP(네트워크 시간 프로토콜) 버전 3이 지원됩니다. NTPv3에는 SHA-1 키를 사용한 대칭 인증이 포함되어 있어 네트워크 보안을 강화합니다.' 
 ---
 = NTP 서버에서 대칭 인증을 관리하는 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

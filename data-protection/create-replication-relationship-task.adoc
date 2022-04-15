@@ -5,6 +5,7 @@ keywords: create, replication, relationship
 summary: 운영 스토리지의 소스 볼륨과 2차 스토리지의 타겟 볼륨 간의 관계를 데이터 보호 관계라고 합니다. SnapMirror create 명령을 사용하여 SnapMirror DR, SnapVault 또는 유니파이드 복제 데이터 보호 관계를 생성할 수 있습니다. 
 ---
 = 복제 관계를 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: decide, performance, management
 summary: 기본적인 성과 관리 작업을 설정하고 일반적인 성능 문제를 식별하고 해결할 수 있습니다. 
 ---
 = 성능 관리 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

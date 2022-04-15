@@ -5,6 +5,7 @@ keywords: supported, fc, ports
 summary: FC용으로 구성된 온보드 FC 포트 및 CNA/UTA2 포트 수는 컨트롤러 모델에 따라 다릅니다. FC 포트는 지원되는 FC 타겟 확장 어댑터 또는 FC SFP+ 어댑터로 구성된 추가 UTA2 카드를 통해서도 사용할 수 있습니다. 
 ---
 = 지원되는 FC 포트
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

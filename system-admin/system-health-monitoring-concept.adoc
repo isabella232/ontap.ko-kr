@@ -5,6 +5,7 @@ keywords: monitor, health, system, cluster, conditions, alert, fault, risk, degr
 summary: 상태 모니터는 클러스터의 특정 중요한 상태를 능동적으로 모니터링하고 장애 또는 위험을 감지하는 경우 경고를 표시합니다. 활성 경고가 있는 경우 시스템 상태는 클러스터에 대한 성능 저하 상태를 보고합니다. 알림에는 저하된 시스템 상태에 응답하는 데 필요한 정보가 포함됩니다. 
 ---
 = 시스템 상태 모니터링 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: checking, status, performance, tier, promotion
 summary: 성능 계층 프로모션의 상태를 확인하여 작업이 완료되는 시기를 결정할 수 있습니다. 
 ---
 = 성능 계층 프로모션의 상태를 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

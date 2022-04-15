@@ -5,6 +5,7 @@ keywords: method, access, snapshot, directory, windows, client, smb, data, store
 summary: SMB 2.x를 사용하여 Windows 클라이언트에서 ~snapshot 디렉토리에 액세스하는 방법은 SMB 1.0에 사용되는 방법과 다릅니다. SMB 2.x 연결을 사용할 때 ~snapshot 디렉토리에 액세스하여 스냅샷 복사본에 저장된 데이터에 성공적으로 액세스하는 방법을 이해해야 합니다. 
 ---
 = SMB 2.x를 사용하여 Windows 클라이언트에서 ~snapshot 디렉토리에 액세스합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

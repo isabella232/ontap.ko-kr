@@ -5,6 +5,7 @@ keywords: group, policy, object, gpo, smb, server, system, requirement, requirem
 summary: 'SMB 서버에서 GPO(그룹 정책 개체)를 사용하려면 시스템이 여러 요구 사항을 충족해야 합니다.' 
 ---
 = SMB 서버에 GPO를 사용하기 위한 요구 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

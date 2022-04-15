@@ -5,6 +5,7 @@ keywords: commands, managing, fc, adapters
 summary: FC 명령을 사용하여 스토리지 컨트롤러에 대한 FC 타겟 어댑터, FC 이니시에이터 어댑터 및 온보드 FC 어댑터를 관리할 수 있습니다. FC 프로토콜과 FC-NVMe 프로토콜을 위해 FC 어댑터를 관리하는 데 동일한 명령이 사용됩니다. 
 ---
 = FC 어댑터를 관리하는 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

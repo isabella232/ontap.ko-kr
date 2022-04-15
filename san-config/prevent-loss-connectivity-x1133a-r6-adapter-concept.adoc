@@ -5,6 +5,7 @@ keywords: how, prevent, loss, connectivity, using, x1133a-r6, adapter
 summary: 별도의 X1133A-R6 HBA에 대한 중복 경로를 사용하여 시스템을 구성하면 포트 장애 시 연결이 끊어지지 않습니다. 
 ---
 = X1133A-R6 어댑터를 사용할 경우 연결 끊김 방지
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -8,6 +8,7 @@ summary: 소스 버킷의 데이터를 사용할 수 없는 경우 SnapMirror �
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

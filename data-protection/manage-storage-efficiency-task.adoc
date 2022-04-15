@@ -5,6 +5,7 @@ keywords: manage, storage, efficiency, snapmirror, snap mirror, compression, com
 summary: SnapMirror는 대상에서 사후 처리 데이터 압축이 활성화된 경우를 제외하고 소스 및 타겟 볼륨의 스토리지 효율성을 유지합니다. 이 경우 대상에서 모든 스토리지 효율성이 손실됩니다. 이 문제를 해결하려면 대상에서 사후 처리 압축을 비활성화하고 관계를 수동으로 업데이트하며 스토리지 효율성을 다시 활성화해야 합니다. 
 ---
 = 스토리지 효율성 관리
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

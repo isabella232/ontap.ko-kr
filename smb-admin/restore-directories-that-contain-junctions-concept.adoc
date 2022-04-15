@@ -5,6 +5,7 @@ keywords: guideline, version, restore, folder, junction, point, guidelines for r
 summary: 이전 버전을 사용하여 교차점이 포함된 폴더를 복원할 때 유의해야 할 몇 가지 지침이 있습니다. 
 ---
 = 교차점이 포함된 디렉토리 복원 지침
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: interpret, security trace, results
 summary: 보안 추적 결과는 요청이 허용 또는 거부된 이유를 제공합니다. 출력 액세스 허용 또는 거부 이유와 액세스가 허용되거나 거부된 액세스 확인 경로 내의 위치를 조합하여 결과를 표시합니다. 결과를 사용하여 작업을 격리하고 작업이 허용되지 않는 이유를 식별할 수 있습니다. 
 ---
 = 보안 추적 결과를 해석합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

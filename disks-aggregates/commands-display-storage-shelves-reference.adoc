@@ -5,6 +5,7 @@ keywords: commands, display, information, storage, shelves
 summary: storage shelf show 명령을 사용하면 디스크 쉘프의 구성 및 오류 정보를 표시할 수 있습니다. 
 ---
 = 스토리지 쉘프에 대한 정보를 표시하는 명령입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

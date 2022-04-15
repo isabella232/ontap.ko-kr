@@ -5,6 +5,7 @@ keywords: configure, default, user
 summary: 사용자의 다른 모든 매핑 시도가 실패하거나 UNIX와 Windows 간에 개별 사용자를 매핑하지 않으려는 경우 사용할 기본 사용자를 구성할 수 있습니다. 또는 매핑되지 않은 사용자의 인증에 실패하도록 하려면 기본 사용자를 구성하지 않아야 합니다. 
 ---
 = 기본 사용자를 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

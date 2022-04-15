@@ -5,6 +5,7 @@ keywords: verify, security, style, svm, root, volume, ntfs, storage, virtual, ma
 summary: 'Hyper-V 및 SQL Server over SMB의 무중단 운영이 성공하려면 NTFS 보안 스타일로 볼륨을 만들어야 합니다. 루트 볼륨의 보안 스타일은 스토리지 가상 시스템(SVM)에서 생성된 볼륨에 기본적으로 적용되므로 루트 볼륨의 보안 스타일을 NTFS로 설정해야 합니다.' 
 ---
 = SVM 루트 볼륨의 보안 스타일이 NTFS로 설정되어 있는지 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

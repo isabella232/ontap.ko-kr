@@ -5,6 +5,7 @@ keywords: odx, copy, offload, aware, guideline, volume, intra-cluster, inter-clu
 summary: 복사 오프로드에 ODX를 사용하려면 먼저 지침을 숙지하고 있어야 합니다. 예를 들어, ODX를 사용할 수 있는 볼륨 유형을 파악하고 클러스터 내부 및 클러스터 간 ODX 고려 사항을 파악해야 합니다. 
 ---
 = ODX 사용 지침
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

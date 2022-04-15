@@ -5,6 +5,7 @@ keywords: how, svms, interact, isns, server
 summary: 'iSNS 서버는 SVM 관리 LIF를 통해 각 SVM(스토리지 가상 시스템)과 통신합니다. 관리 LIF는 특정 SVM을 위한 iSNS 서비스를 사용하여 모든 iSCSI 대상 노드 이름, 별칭 및 포털 정보를 등록합니다.' 
 ---
 = SVM이 iSNS 서버와 상호 작용하는 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

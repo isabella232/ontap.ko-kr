@@ -5,6 +5,7 @@ keywords: snaplock, complianceclock, initialize, worm, retention, period, node
 summary: SnapLock ComplianceClock은 WORM 파일의 보존 기간을 변경할 수 있는 변조를 방지합니다. SnapLock 애그리게이트를 호스팅하는 각 노드에서 ComplianceClock 시스템을 초기화해야 합니다. 노드에서 ComplianceClock을 초기화하면 다시 초기화할 수 없습니다. 
 ---
 = ComplianceClock을 초기화합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

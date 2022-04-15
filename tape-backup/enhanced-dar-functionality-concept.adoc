@@ -5,6 +5,7 @@ keywords: dar, functionality, direct, access, recovery, files, nt, stream
 summary: '디렉토리 DAR 및 파일 및 NT 스트림의 DAR에 향상된 직접 액세스 복구(DAR) 기능을 사용할 수 있습니다. 기본적으로 향상된 DAR 기능은 활성화되어 있습니다.' 
 ---
 = 향상된 DAR 기능은 무엇입니까
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

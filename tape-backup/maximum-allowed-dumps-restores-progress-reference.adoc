@@ -5,6 +5,7 @@ keywords: maximum, number, allowed, dumps, restore, jobs, session, limit, progre
 summary: 최대 백업 또는 복원 작업 수가 이미 실행 중입니다. 
 ---
 = 진행 중인 최대 허용 덤프 또는 복원 수(최대 세션 제한)
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

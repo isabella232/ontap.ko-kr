@@ -5,6 +5,7 @@ keywords: modify, cifs, server, kerberos, security, setting, clock, skew, time, 
 summary: 허용되는 최대 Kerberos 클록 비뚤어짐 시간, Kerberos 티켓 수명 및 티켓 갱신 최대 일 수를 비롯한 특정 CIFS 서버 Kerberos 보안 설정을 수정할 수 있습니다. 
 ---
 = CIFS 서버 Kerberos 보안 설정을 수정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

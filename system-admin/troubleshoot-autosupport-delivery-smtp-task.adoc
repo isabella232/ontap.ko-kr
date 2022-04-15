@@ -5,6 +5,7 @@ keywords: troubleshoot, autosupport, deliver, system, smtp, settings, resolve, p
 summary: 시스템이 SMTP를 통해 AutoSupport 메시지를 전달할 수 없는 경우 여러 설정을 확인하여 문제를 해결할 수 있습니다. 
 ---
 = SMTP를 통한 AutoSupport 메시지 전달 문제를 해결합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

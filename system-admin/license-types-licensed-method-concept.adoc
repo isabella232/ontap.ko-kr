@@ -5,6 +5,7 @@ keywords: license, types, method, cluster, manage, install, add, nlf
 summary: 라이센스 유형과 라이센스 방법을 이해하면 클러스터의 라이센스를 관리하는 데 도움이 됩니다. 
 ---
 = 라이센스 유형 및 라이센스 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

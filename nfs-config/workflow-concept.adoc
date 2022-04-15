@@ -5,6 +5,7 @@ keywords: nfs, configuration, workflow
 summary: NFS를 구성하려면 물리적 스토리지 및 네트워킹 요구사항을 평가한 다음, 새로운 SVM 또는 기존 SVM에 대한 NFS 액세스를 구성하거나, NFS 액세스용으로 이미 구성된 기존 SVM에 볼륨 또는 qtree를 추가하여 목표에 맞는 워크플로우를 선택해야 합니다. 
 ---
 = NFS 구성 워크플로우
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: add, sesecurityprivilege, privilege, user, aacount, sql, server, smb, 
 summary: 'SQL Server 설치에 사용되는 도메인 사용자 계정에는 도메인 사용자에게 기본적으로 할당되지 않은 권한이 필요한 CIFS 서버에서 특정 작업을 수행하려면 "SeSecurityPrivilege" 권한이 할당되어야 합니다.' 
 ---
 = sSecurityPrivilege 권한을 사용자 계정에 추가합니다(SMB 공유의 SQL Server에 해당).
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

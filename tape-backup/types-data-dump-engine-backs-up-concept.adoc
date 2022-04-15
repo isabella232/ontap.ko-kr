@@ -5,6 +5,7 @@ keywords: types, data, dump, engine, backs, up, files, directory, qtree, volumes
 summary: 덤프 엔진을 사용하여 데이터를 테이프에 백업함으로써 재해 또는 컨트롤러 중단을 방지할 수 있습니다. 덤프 엔진은 파일, 디렉토리, qtree 또는 전체 볼륨과 같은 데이터 오브젝트를 백업할 뿐 아니라 각 파일에 대한 여러 유형의 정보를 백업할 수 있습니다. 덤프 엔진이 백업할 수 있는 데이터의 유형과 고려해야 할 제한 사항을 알면 재해 복구에 대한 접근 방식을 계획하는 데 도움이 됩니다. 
 ---
 = 덤프 엔진이 백업하는 데이터 유형입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: 'load balance, workload, latency, overload, reduce load, ceiling, limi
 summary: '노드의 작업 양이 사용 가능한 리소스를 초과하면 워크로드의 성능이 지연 시간의 영향을 받기 시작합니다. 사용 가능한 리소스를 증가(디스크 또는 CPU 업그레이드)하거나 로드를 감소(필요에 따라 볼륨 또는 LUN을 다른 노드로 이동)하여 과부하된 노드를 관리할 수 있습니다.' 
 ---
 = 로드 밸런싱
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

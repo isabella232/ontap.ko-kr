@@ -5,6 +5,7 @@ keywords: disks, disk sanitization, unsupported disk sanitization, disk sanitiza
 summary: 일부 디스크 유형에서는 디스크 삭제가 지원되지 않습니다. 또한 디스크 삭제를 수행할 수 없는 경우도 있습니다. 
 ---
 = 디스크 삭제를 수행할 수 없는 경우
+:allow-uri-read: 
 
 
 [role="lead"]

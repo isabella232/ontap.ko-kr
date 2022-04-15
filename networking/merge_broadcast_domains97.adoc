@@ -6,6 +6,7 @@ summary: 하나의 브로드캐스트 도메인의 포트를 기존 브로드캐
 ---
 = 브로드캐스트 도메인을 병합합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

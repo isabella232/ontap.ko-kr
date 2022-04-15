@@ -5,6 +5,7 @@ keywords: ems, configuration, workflow
 summary: EMS 구성 작업 흐름 
 ---
 = EMS 구성 작업 흐름
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

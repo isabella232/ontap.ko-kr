@@ -5,6 +5,7 @@ keywords: comparison, exports, 7-mode ontap
 summary: ONTAP의 내보내기는 7-Mode 환경에 있는 내보내기와 다르게 정의 및 사용됩니다. 
 ---
 = 7-Mode 및 ONTAP의 엑스포트 비교
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

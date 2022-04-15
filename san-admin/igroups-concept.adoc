@@ -5,6 +5,7 @@ keywords: understand, igroups
 summary: '이니시에이터 그룹(igroup)은 FC 프로토콜 호스트 WWPN 또는 iSCSI 호스트 노드 이름의 테이블입니다. igroup을 정의하고 LUN에 매핑하여 LUN에 액세스할 수 있는 이니시에이터를 제어할 수 있습니다.' 
 ---
 = Igroup 정보
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

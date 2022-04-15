@@ -5,6 +5,7 @@ keywords: transfer, failed, arl, initialized, abort, smtap, operation, abort
 summary: SMTape 작업이 진행 중인 동안 집계 재배치를 시작하면 SMTape 작업이 중단됩니다. 
 ---
 = 전송 실패(ARL 시작 중단)
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: networking, NICs, NFS over RDMA, NVIDIA, NFS
 summary: 이 문서에서는 ONTAP에서 RDMA 상의 NFS를 사용하기 위해 NIC에 대한 요구 사항과 클라이언트 시스템 및 스토리지 플랫폼 구성 프로세스를 모두 수행하는 방법을 설명합니다. 
 ---
 = RDMA를 통해 NFS용 NIC를 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

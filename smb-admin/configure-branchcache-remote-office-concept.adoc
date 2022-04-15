@@ -5,6 +5,7 @@ keywords: configuring, configure, branchcache, cifs, server, install, configure,
 summary: SMB 서버에서 BranchCache를 구성한 후에는 클라이언트 컴퓨터에 BranchCache를 설치하고 구성해야 하며, 필요에 따라 원격 사무실의 캐싱 서버에 BranchCache를 설치하고 구성해야 합니다. Microsoft는 원격 사무소에서 BranchCache를 구성하는 지침을 제공합니다. 
 ---
 = 원격 사무소에서 BranchCache 구성에 대한 정보를 찾을 수 있는 위치
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

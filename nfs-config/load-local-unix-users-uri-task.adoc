@@ -5,6 +5,7 @@ keywords: load, local, unix, users, uri
 summary: 'SVM에서 개별 로컬 UNIX 사용자를 수동으로 생성하는 대신 로컬 UNIX 사용자 목록을 URI(Uniform Resource Identifier)에서 SVM으로 로드하여 작업을 단순화할 수 있습니다(vserver services name-service unix-user load-from-Uri).' 
 ---
 = URI에서 로컬 UNIX 사용자를 로드합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

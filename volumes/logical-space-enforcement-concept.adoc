@@ -5,6 +5,7 @@ keywords: what, logical, space, enforcement, does
 summary: 'ONTAP 9.5 이상에서 논리적 공간 적용을 활성화하면 ONTAP는 볼륨에서 논리적 사용 블록을 계산하여 해당 볼륨에서 여전히 사용 가능한 공간을 결정합니다. 볼륨에 사용 가능한 공간이 없는 경우 시스템은 ENOSPC(공간 부족) 오류 메시지를 반환합니다.' 
 ---
 = 논리적 공간 적용의 기능
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

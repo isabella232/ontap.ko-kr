@@ -6,6 +6,7 @@ summary: 자동 상태 모니터링과 상태 모니터 세트를 사용하면 L
 ---
 = 네트워크 포트의 상태를 모니터링합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

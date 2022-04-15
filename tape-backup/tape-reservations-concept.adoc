@@ -5,6 +5,7 @@ keywords: tape, reservation, drive, medium, changer, bridge, libraries, scsi, pe
 summary: 여러 스토리지 시스템이 테이프 드라이브, 미디어 체인저, 브리지 또는 테이프 라이브러리에 대한 액세스를 공유할 수 있습니다. 테이프 예약은 SCSI 예약/해제 메커니즘 또는 모든 테이프 드라이브, 미디어 체인저, 브리지 및 테이프 라이브러리에 대한 SCSI 영구 예약을 활성화하여 특정 시간에 한 스토리지 시스템만 디바이스에 액세스할 수 있도록 합니다. 
 ---
 = 테이프 예약이란
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: cifs, create, server
 summary: 소스 SVM에 SMB 구성이 있고 ID 보존이 false로 설정된 경우, 대상 SVM을 위한 SMB 서버를 생성해야 합니다. SMB 서버는 SnapMirror 관계를 초기화하는 동안 공유와 같은 일부 SMB 구성에 필요합니다. 
 ---
 = SMB만 해당: SMB 서버를 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

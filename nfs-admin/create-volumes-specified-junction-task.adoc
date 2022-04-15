@@ -5,6 +5,7 @@ keywords: create, data, volume, specify, junction, point
 summary: 데이터 볼륨을 생성할 때 교차점을 지정할 수 있습니다. 결과 볼륨은 교차점에 자동으로 마운트되며 NAS 액세스를 위해 즉시 구성할 수 있습니다. 
 ---
 = 지정된 교차점으로 데이터 볼륨을 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

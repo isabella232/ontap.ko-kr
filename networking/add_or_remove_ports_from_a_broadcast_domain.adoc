@@ -6,6 +6,7 @@ summary: 브로드캐스트 도메인에서 포트를 수동으로 추가 및 �
 ---
 = 브로드캐스트 도메인에서 포트를 추가하거나 제거합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

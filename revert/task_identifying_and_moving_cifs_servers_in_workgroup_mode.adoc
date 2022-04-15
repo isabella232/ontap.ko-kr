@@ -5,6 +5,7 @@ keywords: ontap, revert, reverting, reversion, identifying, identify, move, movi
 summary: 되돌리기 작업을 수행하기 전에 작업 그룹 모드에서 모든 SMB 서버를 삭제하거나 해당 서버를 도메인으로 이동해야 합니다. 작업 그룹 모드는 ONTAP 9 이전 버전의 ONTAP에서는 지원되지 않습니다. 
 ---
 = 워크그룹 모드에서 SMB 서버를 식별하고 이동합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

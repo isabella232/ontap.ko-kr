@@ -5,6 +5,7 @@ keywords: destination, volume, read, only, restore, operation
 summary: 복구 작업이 시도되는 경로는 읽기 전용입니다. 
 ---
 = 대상 볼륨이 읽기 전용입니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

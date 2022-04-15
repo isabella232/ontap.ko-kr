@@ -5,6 +5,7 @@ keywords: snapmirror, svm, replication, aggregate, disaster recovery, svm-dr, sv
 summary: '재해 복구 SVM이 생성되면 "vserver modify" 명령으로 "aggr-list" 옵션을 사용하여 SVM DR 대상 볼륨을 호스팅하는 데 사용되는 애그리게이트를 제한할 수 있습니다.' 
 ---
 = SVM DR 관계에 사용할 애그리게이트를 지정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

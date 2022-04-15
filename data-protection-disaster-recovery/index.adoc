@@ -6,6 +6,7 @@ summary: 데이터 보호 및 재해 복구
 ---
 = 데이터 보호 및 재해 복구
 :hardbreaks:
+:allow-uri-read: 
 :linkattrs: 
 :imagesdir: ./media/
 

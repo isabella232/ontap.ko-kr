@@ -5,6 +5,7 @@ keywords: enable, file, access, user, group, share, configure, ntfs, permission,
 summary: 공유에 대한 액세스 권한이 있는 사용자 또는 그룹에 대한 파일 액세스를 설정하려면 Windows 클라이언트에서 공유하는 파일 및 디렉토리에 대한 NTFS 파일 권한을 구성해야 합니다. 
 ---
 = 공유에서 NTFS 파일 권한을 구성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: commands for, managing, configuring, qtrees, manage
 summary: 특정 ONTAP 명령을 사용하여 qtree를 관리하고 구성할 수 있습니다. 
 ---
 = Qtree 관리 및 구성을 위한 명령
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

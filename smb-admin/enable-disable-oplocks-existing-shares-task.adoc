@@ -5,6 +5,7 @@ keywords: oplock, enable, smb, share, storage, virtual, machine, svm, default, c
 summary: 'oplocks는 기본적으로 스토리지 가상 시스템(SVM)의 SMB 공유에 설정됩니다. 경우에 따라 oplocks를 해제할 수도 있습니다. 이전에 공유에서 oplocks를 해제한 경우에는 oplocks를 다시 설정할 수도 있습니다.' 
 ---
 = 기존 SMB 공유에서 oplocks를 설정하거나 해제합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

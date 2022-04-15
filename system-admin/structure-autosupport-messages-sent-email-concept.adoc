@@ -5,6 +5,7 @@ keywords: structure, autosupport, messages, sent, email, subject, standard, brie
 summary: AutoSupport 메시지를 전자 메일로 보내면 메시지에 표준 제목, 간단한 본문 및 데이터가 포함된 7z 파일 형식의 대용량 첨부 파일이 포함됩니다. 
 ---
 = 전자 메일로 보낸 AutoSupport 메시지의 구조
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

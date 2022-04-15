@@ -5,6 +5,7 @@ keywords: ways, configure, iscsi, san, hosts, single, nodes
 summary: 단일 노드에 직접 접속하거나 하나 이상의 IP 스위치를 사용하여 iSCSI SAN 호스트를 구성할 수 있습니다. 완전히 중복되지 않는 단일 스위치 구성인지 완전히 이중화된 다중 스위치 구성인지 결정해야 합니다. 
 ---
 = 단일 노드로 iSCSI SAN 호스트를 구성하는 방법
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -8,6 +8,7 @@ summary: 하나 이상의 FlexVol 볼륨을 실수로 삭제한 경우 이러한
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

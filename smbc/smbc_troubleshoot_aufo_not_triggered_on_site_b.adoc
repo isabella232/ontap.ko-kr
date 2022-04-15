@@ -6,6 +6,7 @@ summary: 사이트 A에서 장애가 발생해도 사이트 B에서 계획되지
 ---
 = 사이트 B에서 예기치 않은 자동 페일오버가 트리거되지 않습니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

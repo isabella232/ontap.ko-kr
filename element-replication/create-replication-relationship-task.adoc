@@ -5,6 +5,7 @@ keywords: create, relationship, element, source, ontap, destination
 summary: SnapMirror를 사용하여 Element 볼륨의 스냅샷 복사본을 ONTAP 대상 시스템으로 복제할 수 있습니다. Element 사이트에서 재해가 발생할 경우 ONTAP 시스템에서 클라이언트로 데이터를 제공하고 서비스가 복원되면 Element 소스 볼륨을 다시 활성화할 수 있습니다. 
 ---
 = 요소 소스에서 ONTAP 대상으로 관계를 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

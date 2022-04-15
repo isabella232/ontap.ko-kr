@@ -5,6 +5,7 @@ keywords: stop, cifs, server, svm, perform, task, user, access, data, smb, share
 summary: '사용자가 SMB 공유를 통해 데이터에 액세스하지 않는 상태에서 작업을 수행할 때 유용할 수 있는 SVM에서 CIFS 서버를 중지할 수 있습니다. CIFS 서버를 시작하여 SMB 액세스를 재시작할 수 있습니다. CIFS 서버를 중지하면 스토리지 가상 시스템(SVM)에서 허용되는 프로토콜도 수정할 수 있습니다.' 
 ---
 = CIFS 서버를 중지하거나 시작합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

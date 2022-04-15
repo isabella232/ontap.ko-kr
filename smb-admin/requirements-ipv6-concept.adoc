@@ -5,6 +5,7 @@ keywords: ipv6, smb, cifs, server, version, ontap, smb, support, license, requir
 summary: SMB 서버에서 IPv6를 사용하려면 먼저 IPv6를 지원하는 ONTAP 및 SMB 버전과 라이센스 요구 사항이 무엇인지 알아야 합니다. 
 ---
 = IPv6을 사용하기 위한 요구 사항
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

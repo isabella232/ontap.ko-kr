@@ -8,6 +8,7 @@ summary: 'ONTAP System Manager(9.7 이상)에서 NFS 프로토콜을 사용하�
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

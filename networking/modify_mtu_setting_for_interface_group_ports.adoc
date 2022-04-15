@@ -6,6 +6,7 @@ summary: 브로드캐스트 도메인의 MTU를 수정합니다
 ---
 = 인터페이스 그룹 포트에 대한 MTU 설정을 수정합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

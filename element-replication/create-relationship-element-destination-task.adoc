@@ -5,6 +5,7 @@ keywords: create, relationship, ontap, source, element, destination, snapshot, s
 summary: ONTAP 9.4부터는 SnapMirror를 사용하여 ONTAP 소스에서 생성한 LUN의 스냅샷 복사본을 Element 타겟으로 복제할 수 있습니다. LUN을 사용하여 ONTAP에서 Element 소프트웨어로 데이터를 마이그레이션할 수 있습니다. 
 ---
 = ONTAP 소스에서 요소 대상으로 관계를 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

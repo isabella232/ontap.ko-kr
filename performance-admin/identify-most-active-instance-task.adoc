@@ -5,6 +5,7 @@ keywords: identify, high-traffic, clients files
 summary: 'ONTAP 활성 개체 기술을 사용하여 불균형적으로 많은 양의 클러스터 트래픽을 담당하는 클라이언트 또는 파일을 식별할 수 있습니다. 이러한 "상위" 클라이언트 또는 파일을 확인한 후에는 클러스터 워크로드를 재조정하거나 다른 단계를 수행하여 문제를 해결할 수 있습니다.' 
 ---
 = 트래픽이 높은 클라이언트 또는 파일을 식별합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

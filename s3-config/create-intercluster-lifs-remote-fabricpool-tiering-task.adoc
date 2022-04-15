@@ -5,6 +5,7 @@ keywords: create, intercluster, lifs, remote fabricpool, tiering
 summary: 'ONTAP S3를 사용하여 원격 FabricPool 용량(클라우드) 계층화를 활성화하는 경우 인터클러스터 LIF를 구성해야 합니다. 데이터 네트워크와 공유하는 포트에 대한 인터클러스터 LIF를 구성할 수 있습니다. 이렇게 하면 인터클러스터 네트워킹에 필요한 포트 수가 줄어듭니다.' 
 ---
 = 원격 FabricPool 계층화에 대한 인터클러스터 LIF를 생성합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: enable, sp, bmc, automatic, network, configuration
 summary: SP 네트워크를 수동으로 구성하는 대신 자동 네트워크 구성을 사용하도록 SP를 설정하는 것이 좋습니다. SP 자동 네트워크 구성은 클러스터 전체에 있으므로 개별 노드의 SP 네트워크를 수동으로 관리할 필요가 없습니다. 
 ---
 = SP/BMC 자동 네트워크 구성을 사용하도록 설정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

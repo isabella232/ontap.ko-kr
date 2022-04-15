@@ -6,6 +6,7 @@ summary: 일관성 그룹을 생성한 후에는 이를 초기화해야 합니�
 ---
 = 일관성 그룹 초기화
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

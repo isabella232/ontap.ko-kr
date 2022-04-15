@@ -5,6 +5,7 @@ keywords: dump, flexvol, volume, full
 summary: 증분 덤프 백업 작업을 수행하기 전에 FlexVol 볼륨에 충분한 여유 공간이 있는지 확인해야 합니다. 
 ---
 = FlexVol 볼륨이 꽉 찼을 때 덤프가 작동하는 방식
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

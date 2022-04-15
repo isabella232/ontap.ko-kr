@@ -5,6 +5,7 @@ keywords: convert, directory, qtree
 summary: FlexVol 볼륨의 루트에 qtree로 변환할 디렉토리가 있는 경우 클라이언트 애플리케이션을 사용하여 디렉토리에 포함된 데이터를 이름이 같은 새 qtree로 마이그레이션해야 합니다. 
 ---
 = 디렉토리를 qtree 개요로 변환합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: disks, interrupted disk sanitization, power outage, disk sanitization,
 summary: 사용자 개입 또는 정전 등의 예기치 않은 이벤트에 의해 디스크 삭제가 중단된 경우 ONTAP는 삭제 중인 디스크를 알려진 상태로 되돌리기 위한 조치를 취하지만 삭제 프로세스를 완료하기 전에 조치를 취해야 합니다. 
 ---
 = 디스크 삭제가 중단되면 발생하는 현상
+:allow-uri-read: 
 
 
 [role="lead"]

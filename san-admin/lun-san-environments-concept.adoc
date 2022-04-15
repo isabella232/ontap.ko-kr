@@ -5,6 +5,7 @@ keywords: lun, guidelines
 summary: 클러스터에서 LUN을 설정하기 전에 LUN 지침을 검토해야 합니다. 
 ---
 = LUN 지침을 따릅니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

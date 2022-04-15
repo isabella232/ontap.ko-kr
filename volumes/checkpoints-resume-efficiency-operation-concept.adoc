@@ -5,6 +5,7 @@ keywords: efficiency operation checkpoints, use, resume
 summary: '체크포인트는 효율성 작업의 실행 프로세스를 기록하는 데 내부적으로 사용됩니다. 어떤 이유로든 효율성 작업이 중지된 경우(예: 시스템 중지, 시스템 중단, 재부팅 또는 마지막 효율성 작업 실패 또는 중지) 체크포인트 데이터가 있으면 최신 체크포인트 파일에서 효율성 작업을 다시 시작할 수 있습니다.' 
 ---
 = 체크포인트를 사용하여 효율성 작업을 다시 시작하십시오
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

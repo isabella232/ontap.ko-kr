@@ -5,6 +5,7 @@ keywords: host, support, multipathing
 summary: 'ONTAP는 항상 FC 및 iSCSI 경로 모두에 ALUA(Asymmetric Logical Unit Access)를 사용합니다. FC 및 iSCSI 프로토콜에서 ALUA를 지원하는 호스트 구성을 사용해야 합니다.' 
 ---
 = 다중 경로 개요를 위한 호스트 지원
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

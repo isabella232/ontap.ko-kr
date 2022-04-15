@@ -5,6 +5,7 @@ keywords: quota, targets, types
 summary: 할당량은 사용자, 그룹 또는 트리일 수 있습니다. 할당량 지정 대상은 할당량 제한이 적용되는 사용자, 그룹 또는 qtree를 지정합니다. 
 ---
 = 할당량 대상 및 유형
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

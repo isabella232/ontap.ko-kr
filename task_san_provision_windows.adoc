@@ -8,6 +8,7 @@ summary: LUN을 생성하여 FC 또는 iSCSI SAN 프로토콜을 사용하여 Wi
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

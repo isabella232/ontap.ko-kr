@@ -5,6 +5,7 @@ keywords: specify, user, domain, nfsv4
 summary: 사용자 ID 도메인을 지정하려면 -v4-id-domain 옵션을 설정합니다. 
 ---
 = NFSv4의 사용자 ID 도메인을 지정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

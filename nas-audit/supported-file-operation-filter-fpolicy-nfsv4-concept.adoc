@@ -5,6 +5,7 @@ keywords: ontap 9, supported file operation, filter combinations, fpolicy, monit
 summary: FPolicy 이벤트를 구성할 때는 NFSv4 파일 액세스 작업을 모니터링하기 위해 특정 파일 작업 및 필터 조합만 지원된다는 점에 유의해야 합니다. 
 ---
 = FPolicy에서 NFSv4를 모니터링할 수 있는 파일 작업 및 필터 조합이 지원됩니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

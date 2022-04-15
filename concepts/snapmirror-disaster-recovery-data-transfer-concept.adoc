@@ -5,6 +5,7 @@ keywords: snapmirror disaster recovery, data transfer
 summary: SnapMirror는 재해 복구 기술로, 지리적으로 원격 사이트의 운영 스토리지에서 2차 스토리지로 페일오버하도록 설계되었습니다. 그 이름이 시사하는 것처럼 SnapMirror는 운영 사이트에서 재해가 발생한 경우에도 데이터를 계속 제공할 수 있는 보조 스토리지에 작업 데이터의 복제본 또는 미러를 생성합니다. 
 ---
 = SnapMirror 재해 복구 및 데이터 전송
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: manage, lifs, san protocols
 summary: 'LIF는 SAN 호스트에 연결됩니다. 포트 세트에서 제거하고 SVM(스토리지 가상 시스템) 내의 다른 노드로 이동시키고 삭제할 수 있습니다.' 
 ---
 = 모든 SAN 프로토콜에 대한 LIF 관리
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: reactivate. original, source, volume
 summary: 대상에서 데이터를 더 이상 제공할 필요가 없을 때 소스 볼륨과 타겟 볼륨 간에 원래 데이터 보호 관계를 다시 설정할 수 있습니다. 
 ---
 = 원본 소스 볼륨을 다시 활성화합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

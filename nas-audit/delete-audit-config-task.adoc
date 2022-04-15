@@ -5,6 +5,7 @@ keywords: delete, audit configuration
 summary: '더 이상 SVM(스토리지 가상 시스템)의 파일 및 디렉토리 이벤트를 감사하지 않고 SVM에 대한 감사 구성을 유지하고 싶지 않으면 감사 구성을 삭제할 수 있습니다.' 
 ---
 = 감사 구성을 삭제합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

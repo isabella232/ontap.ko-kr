@@ -5,6 +5,7 @@ keywords: ontap, upgrade, verify, verifying, deduplication, deduplicated, volume
 summary: ONTAP를 업그레이드하기 전에 중복제거된 볼륨 및 볼륨이 포함된 애그리게이트에 중복제거 메타데이터를 위한 여유 공간이 있는지 확인해야 합니다. 사용 가능한 공간이 부족하면 ONTAP 업그레이드가 완료될 때 중복 제거가 비활성화됩니다. 
 ---
 = 중복제거된 볼륨 및 애그리게이트에 충분한 가용 공간이 있는지 확인합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

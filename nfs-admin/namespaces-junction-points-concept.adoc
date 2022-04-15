@@ -5,6 +5,7 @@ keywords: namespace, junction, point
 summary: NAS 네임스페이스는 단일 파일 시스템 계층 구조를 생성하기 위해 접합 지점에서 서로 결합된 볼륨의 논리적 그룹입니다. 권한이 충분한 클라이언트는 저장소에 있는 파일의 위치를 지정하지 않고 네임스페이스의 파일에 액세스할 수 있습니다. Junced 볼륨은 클러스터의 모든 위치에 상주할 수 있습니다. 
 ---
 = 네임스페이스 및 교차점 개요
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

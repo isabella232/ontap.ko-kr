@@ -5,6 +5,7 @@ keywords: remove, vss, concepts, volume, shadow, copy, service, hyper, v, smb, c
 summary: 'SMB를 통한 Hyper-V 구성의 백업 서비스에서 원격 VSS(Volume Shadow Copy Service)를 사용하는 방법을 이해하는 데 필요한 특정 개념을 이해해야 합니다.' 
 ---
 = 원격 VSS 개념
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

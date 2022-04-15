@@ -5,6 +5,7 @@ keywords: upload, performance, archive, files, autosupport, message, technical
 summary: 성능 아카이브가 포함된 AutoSupport 메시지를 생성하고 보낼 수 있습니다. 기본적으로 NetApp 기술 지원에는 AutoSupport 메시지가 표시되고 성능 아카이브는 NetApp Support 사이트에 업로드됩니다. 메시지에 대한 대체 대상을 지정하고 업로드할 수 있습니다. 
 ---
 = 성능 아카이브 파일을 업로드합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

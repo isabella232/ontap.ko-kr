@@ -6,6 +6,7 @@ summary: 클러스터의 SVM을 모니터링하도록 SNMP를 구성합니다
 ---
 = 개요
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

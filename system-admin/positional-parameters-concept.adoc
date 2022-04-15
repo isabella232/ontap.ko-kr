@@ -5,6 +5,7 @@ keywords: understand, positional, parameters, cli, command, input, query
 summary: ONTAP CLI의 위치 매개 변수 기능을 활용하여 명령 입력의 효율성을 높일 수 있습니다. 명령을 쿼리하여 명령의 위치 매개 변수를 식별할 수 있습니다. 
 ---
 = 위치 매개변수 정보
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

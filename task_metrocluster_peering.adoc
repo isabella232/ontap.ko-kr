@@ -8,6 +8,7 @@ summary: ONTAP 9.8부터 System Manager로 IP MetroCluster 사이트 운영을 �
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

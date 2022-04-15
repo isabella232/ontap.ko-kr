@@ -5,6 +5,7 @@ keywords: provide, smb, storage, client, verify, network, configure, provision, 
 summary: SMB 스토리지를 클라이언트에 제공하기 전에 네트워킹이 SMB 프로비저닝 요구 사항을 충족하도록 올바르게 구성되었는지 확인해야 합니다. 
 ---
 = 네트워킹 요구 사항을 평가합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

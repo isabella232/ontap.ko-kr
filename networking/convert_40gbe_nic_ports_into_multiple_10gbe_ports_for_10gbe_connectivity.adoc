@@ -6,6 +6,7 @@ summary: 40GbE NIC는 4개의 10GbE 포트를 지원할 수 있습니다
 ---
 = 10GbE 연결을 위해 40GbE NIC 포트를 여러 10GbE 포트로 변환합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

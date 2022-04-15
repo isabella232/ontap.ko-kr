@@ -5,6 +5,7 @@ keywords: specify, nfsv4, lock, grace, period
 summary: 'NFSv4 잠금 유예 기간(즉, 클라이언트가 서버 복구 중에 ONTAP에서 잠금 상태를 재확보하려는 기간)을 지정하려면 -v4-grace-seconds 옵션을 수정할 수 있습니다.' 
 ---
 = NFSv4 잠금 유예 기간을 지정합니다
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

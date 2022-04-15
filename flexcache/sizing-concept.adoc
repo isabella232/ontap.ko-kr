@@ -5,6 +5,7 @@ keywords: guidelines, sizing, flexcache, volume
 summary: 볼륨 프로비저닝을 시작하기 전에 FlexCache 볼륨의 제한을 알고 있어야 합니다. 
 ---
 = FlexCache 볼륨 크기 조정 지침
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

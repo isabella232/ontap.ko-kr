@@ -8,6 +8,7 @@ summary: 새 S3 오브젝트 저장소에 S3 버킷을 추가하거나 기존 �
 :toc: macro
 :hardbreaks:
 :toclevels: 1
+:allow-uri-read: 
 :toc: 
 :toclevels: 1
 :nofooter: 

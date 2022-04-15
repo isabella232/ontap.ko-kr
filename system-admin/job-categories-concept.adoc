@@ -5,6 +5,7 @@ keywords: job, categories, server, cluster, affiliated, private
 summary: 관리할 수 있는 작업 범주는 서버 계열 작업, 클러스터 계열 작업 및 개인입니다. 
 ---
 = 작업 범주
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
