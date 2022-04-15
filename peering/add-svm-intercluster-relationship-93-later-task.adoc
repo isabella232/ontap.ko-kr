@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: add, intercluster, svm, peer, relationship 
 summary: 클러스터 피어 관계를 구성한 후 SVM을 생성할 경우 SVM에 대한 피어 관계를 수동으로 추가해야 합니다. SVM 피어 생성 명령을 사용하여 SVM 간에 피어 관계를 생성할 수 있습니다. 피어 관계가 생성된 후 원격 클러스터에서 SVM 피어 승인을 실행하여 피어 관계를 승인할 수 있습니다. 
 ---
-= 인터클러스터 SVM 피어 관계 추가(ONTAP 9.3 이상)
+= 인터클러스터 SVM 피어 관계를 추가합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -56,10 +56,10 @@ vs1 -applications snapmirror -peer-cluster cluster01
 [listing]
 ----
 cluster01::> vserver peer show-all
-                   Peer              Peer                        Peering
-Vserver            Vserver           State       Peer Cluster    Applications
------------        -----------       ----------  --------------  ------------
-pvs1               vs1               initiated   Cluster02       snapmirror
+            Peer        Peer                      Peering
+Vserver     Vserver     State      Peer Cluster   Applications
+--------    --------    ---------  -------------  ------------
+pvs1        vs1         initiated   Cluster02       snapmirror
 ----
 . 데이터 보호 대상 클러스터에서 보류 중인 SVM 피어 관계를 표시합니다.
 +

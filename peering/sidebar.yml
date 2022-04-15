@@ -22,20 +22,14 @@ entries:
     url: "/peering/configure-intercluster-lifs-use-dedicated-ports-task.html"
   - title: 사용자 지정 IPspace에서 인터클러스터 LIF를 구성합니다
     url: "/peering/configure-intercluster-lifs-use-ports-own-networks-task.html"
-- title: 피어 관계 구성(ONTAP 9.3 이상)
+- title: 피어 관계를 구성합니다
   entries:
-  - title: 클러스터 피어 관계 생성(ONTAP 9.3 이상)
+  - title: 클러스터 피어 관계를 생성합니다
     url: "/peering/create-cluster-relationship-93-later-task.html"
-  - title: 인터클러스터 SVM 피어 관계 생성(ONTAP 9.3 이상)
+  - title: 인터클러스터 SVM 피어 관계를 생성합니다
     url: "/peering/create-intercluster-svm-peer-relationship-93-later-task.html"
-  - title: 인터클러스터 SVM 피어 관계 추가(ONTAP 9.3 이상)
+  - title: 인터클러스터 SVM 피어 관계를 추가합니다
     url: "/peering/add-svm-intercluster-relationship-93-later-task.html"
-- title: 피어 관계 구성(ONTAP 9.2 이하)
-  entries:
-  - title: 클러스터 피어 관계 생성(ONTAP 9.2 이하)
-    url: "/peering/create-cluster-relationship-92-earlier-task.html"
-  - title: 인터클러스터 SVM 피어 관계 생성(ONTAP 9.2 이하)
-    url: "/peering/create-intercluster-svm-relationship-92-earlier-task.html"
 - title: 기존 피어 관계에서 클러스터 피어링 암호화를 활성화합니다
   url: "/peering/enable-cluster-peering-encryption-existing-task.html"
 - title: 기존 피어 관계에서 클러스터 피어링 암호화를 제거합니다

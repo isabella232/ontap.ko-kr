@@ -15,7 +15,7 @@ summary: 소스 및 타겟 SVM이 서로 다른 서브넷에 있는 경우 SnapM
 
 소스 및 타겟 클러스터와 SVM을 피어링해야 합니다.
 
-자세한 내용은 을 참조하십시오 link:../peering/create-cluster-relationship-93-later-task.html["클러스터 피어 관계 생성(ONTAP 9.3 이상)"] 및 link:../peering/create-intercluster-svm-peer-relationship-93-later-task.html["SVM 인터클러스터 피어 관계 생성(ONTAP 9.3 이상)"].
+자세한 내용은 을 참조하십시오 link:../peering/create-cluster-relationship-93-later-task.html["클러스터 피어 관계를 생성합니다"] 및 link:../peering/create-intercluster-svm-peer-relationship-93-later-task.html["SVM 인터클러스터 피어 관계를 생성합니다"].
 
 SVM 복제 관계를 생성할 때 'napmirror create' 명령의 '-identity-preserve' 옵션을 'true'로 설정해야 합니다.
 
@@ -39,7 +39,7 @@ cluster_dst:> vserver create -vserver svm_backup -subtype dp-destination
 ----
 . 대상 클러스터에서 'vserver peer create' 명령을 사용하여 SVM 피어 관계를 생성합니다.
 +
-자세한 내용은 을 참조하십시오 link:../peering/create-intercluster-svm-peer-relationship-93-later-task.html["SVM 인터클러스터 피어 관계 생성(ONTAP 9.3 이상)"].
+자세한 내용은 을 참조하십시오 link:../peering/create-intercluster-svm-peer-relationship-93-later-task.html["SVM 인터클러스터 피어 관계를 생성합니다"].
 
 . 작업 일정 생성:
 +
