@@ -32,6 +32,9 @@ image:../media/consistency-group-nested-diagram.gif["특정 볼륨이 포함된 
 일관성 그룹은 스냅샷 정책을 통해 SM-BC(SnapMirror Business Continuity) 및 로컬 보호를 통해 원격 보호를 제공합니다. 원격 보호를 활용하려면 에 대한 요구 사항을 충족해야 합니다 xref:../smbc/smbc_plan_prerequisites.html#licensing[SnapMirror 비즈니스 연속성 구현]. 기본적으로 정합성 보장 그룹에는 보호 정책이 설정되어 있지 않으며 정책이 선택되어 있지 않으면 데이터를 보호하지 않습니다. 을 참조하십시오 link:protect-task.html[""정합성 보장 그룹 보호""] 를 참조하십시오.
 
 
+NOTE: NAS 액세스를 위해 마운트된 볼륨에 SM-BC 관계를 설정할 수 없습니다.
+
+
 
 == 업그레이드 고려 사항
 
