@@ -20,13 +20,13 @@ entries:
   entries:
   - title: SMB 서버를 수정합니다
     url: "/smb-admin/modify-servers-task.html"
-  - title: 옵션을 사용하여 CIFS 서버를 사용자 지정합니다
+  - title: 옵션을 사용하여 SMB 서버를 사용자 지정합니다
     entries:
     - title: 사용 가능한 SMB 서버 옵션
       url: "/smb-admin/server-options-reference.html"
-    - title: CIFS 서버 옵션을 구성합니다
+    - title: SMB 서버 옵션을 구성합니다
       url: "/smb-admin/configure-server-options-task.html"
-    - title: CIFS 사용자에게 UNIX 그룹 권한 부여 를 구성합니다
+    - title: SMB 사용자에게 UNIX 그룹 권한 부여 를 구성합니다
       url: "/smb-admin/configure-grant-unix-group-permission-users-task.html"
     - title: 익명 사용자의 액세스 제한을 구성합니다
       url: "/smb-admin/configure-access-restrictions-anonymous-users-task.html"
@@ -679,7 +679,7 @@ entries:
         url: "/smb-admin/configure-branchcache-concept.html"
       - title: BranchCache 구성 요구 사항
         url: "/smb-admin/requirements-configuring-branchcache-concept.html"
-      - title: CIFS 서버에서 BranchCache를 구성합니다
+      - title: SMB 서버에서 BranchCache를 구성합니다
         url: "/smb-admin/configure-branchcache-task.html"
       - title: 원격 사무소에서 BranchCache 구성에 대한 정보를 찾을 수 있는 위치
         url: "/smb-admin/configure-branchcache-remote-office-concept.html"

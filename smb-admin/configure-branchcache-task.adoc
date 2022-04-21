@@ -157,16 +157,16 @@ cluster1::> vserver cifs branchcache show -vserver vs1
 Encryption Key Used to Secure the Hashes: -
         CIFS BranchCache Operating Modes: per_share
 ----
-xref:requirements-guidelines-concept.adoc[요구사항 및 지침]
+xref:branchcache-version-support-concept.html[요구 사항 및 지침: BranchCache 버전 지원]
 
 xref:configure-branchcache-remote-office-concept.adoc[원격 사무소에서 BranchCache 구성에 대한 정보를 찾을 수 있는 위치]
 
-xref:create-branchcache-enabled-share-task.adoc[BranchCache 지원 SMB 공유 생성]
+xref:create-branchcache-enabled-share-task.adoc[BranchCache 지원 SMB 공유를 생성합니다]
 
 xref:enable-branchcache-existing-share-task.adoc[기존 SMB 공유에서 BranchCache를 사용하도록 설정합니다]
 
-xref:manage-monitor-branchcache-config-concept.adoc[BranchCache 구성 관리 및 모니터링]
+xref:manage-monitor-branchcache-config-concept.adoc[BranchCache 구성을 수정합니다]
 
-xref:disable-enable-branchcache-svm-concept.adoc[SVM에서 BranchCache를 사용하지 않도록 설정하거나 사용하도록 설정합니다]
+xref:disable-branchcache-shares-concept.html[SMB 공유에서 BranchCache를 해제합니다. 개요]
 
-xref:delete-branchcache-config-svms-concept.adoc[SVM에서 BranchCache 구성을 삭제합니다]
+xref:delete-branchcache-config-task.html[SVM에서 BranchCache 구성을 삭제합니다]

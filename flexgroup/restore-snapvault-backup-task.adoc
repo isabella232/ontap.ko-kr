@@ -5,6 +5,7 @@ keywords: restore, flexgroup, volume, snapvault, backup
 summary: SnapVault 보조 볼륨의 스냅샷 복사본에서 FlexGroup 볼륨에 대한 전체 볼륨 복원 작업을 수행할 수 있습니다. FlexGroup 볼륨을 원래 소스 볼륨이나 새 FlexGroup 볼륨으로 복원할 수 있습니다. 
 ---
 = SnapVault 백업에서 FlexGroup 볼륨을 복원합니다
+:hardbreaks:
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,32 +14,13 @@ summary: SnapVault 보조 볼륨의 스냅샷 복사본에서 FlexGroup 볼륨�
 [role="lead"]
 SnapVault 보조 볼륨의 스냅샷 복사본에서 FlexGroup 볼륨에 대한 전체 볼륨 복원 작업을 수행할 수 있습니다. FlexGroup 볼륨을 원래 소스 볼륨이나 새 FlexGroup 볼륨으로 복원할 수 있습니다.
 
-FlexGroup 볼륨 복원에 대한 특정 고려 사항을 알고 있어야 합니다.
+FlexGroup 볼륨에 대한 SnapVault 백업에서 복구할 때는 특정 고려 사항을 염두에 두어야 합니다.
 
-xref:snapvault-restore-operations-concept.adoc[FlexGroup 볼륨에 대한 SnapVault 복구 작업에 대한 고려 사항]
-
-또한 FlexGroup 볼륨에 대한 SnapVault 백업에서 복원할 때 고려해야 할 몇 가지 사항에 대해서도 알고 있어야 합니다.
-
-* SnapVault 백업에서는 기본 복원만 부분 스냅샷 복사본과 함께 지원됩니다.
-+
-타겟 볼륨의 구성요소 수는 스냅샷 복사본이 생성된 시점에 소스 볼륨의 구성요소 수와 일치해야 합니다.
-
-* 복구 작업이 실패하면 복구 작업이 완료될 때까지 다른 작업은 허용되지 않습니다.
-+
-복구 작업을 다시 시도하거나 cleanup 매개 변수를 사용하여 복구 작업을 실행할 수 있습니다.
-
-* FlexGroup 볼륨은 하나의 백업 관계나 복구 관계의 소스 볼륨일 수 있습니다.
-+
-FlexGroup 볼륨은 두 SnapVault 관계, 두 개의 복원 관계 또는 SnapVault 관계 및 복원 관계의 소스가 될 수 없습니다.
-
-* SnapVault 백업 및 복원 작업을 병렬로 실행할 수 없습니다.
-+
-기준 복원 작업 또는 증분 복원 작업이 진행 중인 경우 백업 작업을 중지해야 합니다.
-
-* 대상 FlexGroup 볼륨에서 부분 스냅샷 복사본의 복원 작업을 중단해야 합니다.
-+
-소스 볼륨에서 부분 스냅샷 복사본의 복원 작업을 중단할 수 없습니다.
-
+* SnapVault 백업에서는 기본 복원만 부분 스냅샷 복사본과 함께 지원됩니다. 타겟 볼륨의 구성요소 수는 스냅샷 복사본이 생성된 시점에 소스 볼륨의 구성요소 수와 일치해야 합니다.
+* 복구 작업이 실패하면 복구 작업이 완료될 때까지 다른 작업은 허용되지 않습니다. 복구 작업을 다시 시도하거나 cleanup 매개 변수를 사용하여 복구 작업을 실행할 수 있습니다.
+* FlexGroup 볼륨은 하나의 백업 관계나 복구 관계의 소스 볼륨일 수 있습니다. FlexGroup 볼륨은 두 SnapVault 관계, 두 개의 복원 관계 또는 SnapVault 관계 및 복원 관계의 소스가 될 수 없습니다.
+* SnapVault 백업 및 복원 작업을 병렬로 실행할 수 없습니다. 기준 복원 작업 또는 증분 복원 작업이 진행 중인 경우 백업 작업을 중지해야 합니다.
+* 대상 FlexGroup 볼륨에서 부분 스냅샷 복사본의 복원 작업을 중단해야 합니다. 소스 볼륨에서 부분 스냅샷 복사본의 복원 작업을 중단할 수 없습니다.
 * 복원 작업을 중단하는 경우 이전 복원 작업에 사용된 것과 동일한 스냅샷 복사본으로 복구 작업을 다시 시작해야 합니다.
 
 
@@ -47,10 +29,7 @@ FlexGroup 볼륨은 두 SnapVault 관계, 두 개의 복원 관계 또는 SnapVa
 복원 작업이 완료된 후 "volume quota modify" 명령을 사용하여 할당량 규칙을 다시 활성화할 수 있습니다.
 
 .단계
-. FlexGroup 볼륨 복원:'스냅샷 복구 - 소스 경로 src_svm: src_flexgroup -destination-path dest_svm: dest_flexgroup -snapshot_name'을 복구합니다
-+
-'sapshot_name'은 소스 볼륨에서 타겟 볼륨으로 복구할 스냅샷 복사본입니다. 스냅샷 복사본을 지정하지 않으면 최신 스냅샷 복사본에서 타겟 볼륨이 복원됩니다.
-
+. FlexGroup 볼륨 복원:'sapmirror restore-source-path_src_svm: src_flexgroup_-destination-path_dest_svm: dest_flexgroup_-snapshot_snapshot_name_'s 스냅샷 복제본은 소스 볼륨에서 대상 볼륨으로 복구할 스냅샷 복사본입니다. 스냅샷 복사본을 지정하지 않으면 최신 스냅샷 복사본에서 타겟 볼륨이 복원됩니다.
 +
 [listing]
 ----

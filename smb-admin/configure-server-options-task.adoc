@@ -1,23 +1,23 @@
 ---
 permalink: smb-admin/configure-server-options-task.html 
 sidebar: sidebar 
-keywords: configure, cifs, server, option, create, storage, virtual, machine, svm, configure cifs server options 
-summary: 'SVM(스토리지 가상 시스템)에서 CIFS 서버를 생성한 후에는 언제든지 CIFS 서버 옵션을 구성할 수 있습니다.' 
+keywords: configure, cifs, server, option, create, storage, virtual, machine, svm, configure SMB server options 
+summary: 'SVM(스토리지 가상 시스템)에서 SMB 서버를 생성한 후에는 언제든지 SMB 서버 옵션을 구성할 수 있습니다.' 
 ---
-= CIFS 서버 옵션을 구성합니다
+= SMB 서버 옵션 구성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-SVM(스토리지 가상 시스템)에서 CIFS 서버를 생성한 후에는 언제든지 CIFS 서버 옵션을 구성할 수 있습니다.
+SVM(스토리지 가상 시스템)에서 SMB 서버를 생성한 후에는 언제든지 SMB 서버 옵션을 구성할 수 있습니다.
 
 .단계
 . 원하는 작업을 수행합니다.
 +
 |===
-| CIFS 서버 옵션을 구성하려면... | 명령 입력... 
+| SMB 서버 옵션을 구성하려면... | 명령 입력... 
 
 
  a| 
@@ -37,6 +37,6 @@ SVM(스토리지 가상 시스템)에서 CIFS 서버를 생성한 후에는 언�
 
 |===
 +
-CIFS 서버 옵션 구성에 대한 자세한 내용은 'vserver cifs options modify' 명령의 man 페이지를 참조하십시오.
+SMB 서버 옵션 구성에 대한 자세한 내용은 'vserver cifs options modify' 명령의 man 페이지를 참조하십시오.
 
 
