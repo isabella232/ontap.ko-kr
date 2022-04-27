@@ -62,7 +62,6 @@ ONTAP 9.4부터 SAN 환경에서 NVMe(Non-Volatile Memory Express) 프로토콜�
 * 7-Mode로 운영되는 Data ONTAP에서 전환된 볼륨에 네임스페이스 생성
 * 동기화
 * 가상 스토리지 콘솔
-* 애플리케이션 인식(AppDM/안정적인 배치)
 
 
 를 참조하십시오 https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"^] NVMe 제한의 전체 목록을 확인하십시오.

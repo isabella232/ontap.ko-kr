@@ -22,7 +22,7 @@ ONTAP 9.10.1부터 새 AFF 볼륨을 생성할 때 스토리지 효율성 모드
 .단계
 . 효율성 모드가 활성화된 새 볼륨 생성:
 +
-'* volume create-vserver <vserver name> - volume <volume name> - aggregate <aggregate name> - size <volume size> - storage-Efficiency-mode Efficient * '
+'volume create-vserver <vserver name> - volume <volume name> - aggregate <aggregate name> - size <volume size> - storage-Efficiency-mode Efficient'
 
 +
 [listing]
@@ -40,13 +40,11 @@ volume create -vserver vs1 -volume aff_vol1 -aggregate aff_aggr1 -storage-effici
 .단계
 . 효율성 모드가 활성화된 새 볼륨 생성:
 +
-'* volume create-vserver <vserver name> - volume <volume name> - aggregate <aggregate name> - size <volume size> - storage-Efficiency-mode default * '
+'volume create-vserver <vserver name> - volume <volume name> - aggregate <aggregate name> - size <volume size> - storage-Efficiency-mode default'
 
 +
-[listing]
-----
-volume create -vserver vs1 -volume aff_vol1 -aggregate aff_aggr1 -storage-efficiency-mode default -size 10g
-----
+'volume create-vserver vs1-volume aff_vol1-aggregate aff_aggr1-storage-Efficiency-mode default-size 10g
+
 
 
 

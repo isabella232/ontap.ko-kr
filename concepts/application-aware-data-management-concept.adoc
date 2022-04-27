@@ -2,7 +2,7 @@
 permalink: concepts/application-aware-data-management-concept.html 
 sidebar: sidebar 
 keywords: application aware data management 
-summary: 'AppDM(Application Aware Data Management)을 사용하면 스토리지 용어가 아닌 애플리케이션 측면에서 ONTAP를 통해 배포하려는 애플리케이션을 설명할 수 있습니다. System Manager 및 REST API를 사용하여 최소한의 입력만으로 애플리케이션을 구성하여 데이터를 빠르게 제공할 수 있습니다.' 
+summary: 애플리케이션 인식 데이터 관리를 사용하면 스토리지 용어가 아니라 ONTAP를 통해 배포하려는 애플리케이션을 설명할 수 있습니다. System Manager 및 REST API를 사용하여 최소한의 입력만으로 애플리케이션을 구성하여 데이터를 빠르게 제공할 수 있습니다. 
 ---
 = 애플리케이션 인식 데이터 관리
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'AppDM(Application Aware Data Management)을 사용하면 스토리지 
 
 
 [role="lead"]
-AppDM(Application Aware Data Management)을 사용하면 스토리지 용어가 아닌 애플리케이션 측면에서 ONTAP를 통해 배포하려는 애플리케이션을 설명할 수 있습니다. System Manager 및 REST API를 사용하여 최소한의 입력만으로 애플리케이션을 구성하여 데이터를 빠르게 제공할 수 있습니다.
+애플리케이션 인식 데이터 관리를 사용하면 스토리지 용어가 아니라 ONTAP를 통해 배포하려는 애플리케이션을 설명할 수 있습니다. System Manager 및 REST API를 사용하여 최소한의 입력만으로 애플리케이션을 구성하여 데이터를 빠르게 제공할 수 있습니다.
 
 애플리케이션 인식 데이터 관리 기능을 사용하면 개별 애플리케이션 수준에서 스토리지를 설정, 관리 및 모니터링할 수 있습니다. 이 기능은 관련 ONTAP 모범 사례를 통합하여 애플리케이션을 최적의 상태로 프로비저닝하며 원하는 성능 서비스 수준과 사용 가능한 시스템 리소스를 기반으로 스토리지 오브젝트를 균형 있게 배치합니다.
 
@@ -24,5 +24,5 @@ AppDM(Application Aware Data Management)을 사용하면 스토리지 용어가 
 * 응용 프로그램을 수정 또는 삭제합니다
 * 응용 프로그램을 봅니다
 * 애플리케이션의 스냅샷 복사본을 관리합니다
-* 같은 볼륨 또는 다른 볼륨에서 여러 LUN을 선택하여 데이터 보호 기능을 제공하는 일관성 그룹을 생성합니다
+* 생성 xref:../consistency-groups/index.html[정합성 보장 그룹] 동일한 볼륨 또는 다른 볼륨에서 여러 LUN을 선택하여 데이터 보호 기능을 제공합니다
 
