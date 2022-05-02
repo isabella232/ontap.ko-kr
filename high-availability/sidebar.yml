@@ -22,3 +22,5 @@ entries:
   url: "/high-availability/ha_monitor_an_ha_pair_overview.html"
 - title: 스토리지 페일오버를 설정 및 해제하는 명령입니다
   url: "/high-availability/ha_commands_for_enabling_and_disabling_storage_failover.html"
+- title: 테이크오버를 시작하지 않고 노드를 중단 또는 재부팅합니다
+  url: "/high-availability/halt-reboot-node-wo-takeover-task.html"
