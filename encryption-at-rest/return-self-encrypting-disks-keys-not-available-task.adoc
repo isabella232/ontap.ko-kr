@@ -2,7 +2,7 @@
 permalink: encryption-at-rest/return-self-encrypting-disks-keys-not-available-task.html 
 sidebar: sidebar 
 keywords: returning, fips, drive, sed, service, authentication, keys, lost 
-summary: FIPS 드라이브 또는 SED가 영구적으로 인증 키를 분실하여 KMIP 서버에서 검색할 수 없는 경우, 시스템은 FIPS 드라이브 또는 SED를 파손된 것으로 처리합니다. 디스크의 데이터에 액세스하거나 복구할 수 없지만 SED의 사용되지 않은 공간을 데이터에 다시 사용할 수 있도록 하는 단계를 수행할 수 있습니다. 
+summary: FIPS 드라이브 또는 SED가 영구적으로 인증 키를 분실하여 KMIP 서버에서 검색할 수 없는 경우, 시스템은 FIPS 드라이브 또는 SED를 파손된 것으로 처리합니다. 디스크의 데이터에 액세스하거나 복구할 수 없지만 SED의 미사용 공간을 데이터에 다시 사용할 수 있도록 하는 단계를 수행할 수 있습니다. 
 ---
 = 인증 키가 손실되면 FIPS 드라이브 또는 SED를 서비스에 반환합니다
 :hardbreaks:
@@ -17,6 +17,8 @@ FIPS 드라이브 또는 SED가 영구적으로 인증 키를 분실하여 KMIP 
 이 작업을 수행하려면 클러스터 관리자여야 합니다.
 
 FIPS 드라이브 또는 SED의 인증 키가 영구적으로 손실되어 복구할 수 없는 경우에만 이 프로세스를 사용해야 합니다.
+
+디스크가 분할되어 있는 경우 이 프로세스를 시작하기 전에 먼저 분할되지 않아야 합니다. 포함 항목::../_include/unpartition-disk.adoc [ ]
 
 .단계
 . FIPS 드라이브 또는 SED를 서비스 상태로 되돌리기:
