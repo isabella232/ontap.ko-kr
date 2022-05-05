@@ -18,10 +18,10 @@ CLI(Command-Line Interface) 대신 그래픽 인터페이스를 사용하여 클
 * 브라우저에서 쿠키 및 사이트 데이터를 활성화해야 합니다.
 
 
-클러스터 관리 LIF 또는 노드 관리 LIF를 사용하여 System Manager에 액세스할 수 있습니다. System Manager에 중단 없이 액세스하려면 클러스터 관리 LIF를 사용해야 합니다.
+클러스터 관리 네트워크 인터페이스(LIF) 또는 노드 관리 네트워크 인터페이스(LIF)를 사용하여 System Manager에 액세스할 수 있습니다. System Manager에 중단 없이 액세스하려면 클러스터 관리 네트워크 인터페이스(LIF)를 사용해야 합니다.
 
 .단계
-. 웹 브라우저에서 클러스터 관리 LIF의 IP 주소를 가리킵니다.
+. 웹 브라우저에서 클러스터 관리 네트워크 인터페이스의 IP 주소를 가리킵니다.
 +
 ** IPv4를 사용하는 경우: ``https://__cluster-mgmt-LIF__*`
 ** IPv6를 사용하는 경우: ``https://[_cluster-mgmt-LIF_]*`
@@ -44,6 +44,10 @@ SAML(Security Assertion Markup Language) 인증이 활성화된 시스템에서�
 
 
 . 클러스터 관리자 자격 증명을 사용하여 System Manager에 로그인합니다.
++
+
+NOTE: ONTAP 9.11.1부터 시스템 관리자에 로그인할 때 로캘을 지정할 수 있습니다. 로캘은 언어, 통화, 시간 및 날짜 형식, 유사한 설정 등의 특정 지역화 설정을 지정합니다. ONTAP 9.10.1 이하 버전의 경우 브라우저에서 로캘이 검색됩니다. 로캘을 변경하려면 브라우저의 로캘을 변경해야 합니다.
+
 
 
 link:manage-access-web-services-concept.html["웹 서비스에 대한 액세스 관리"]

@@ -130,6 +130,14 @@ nsswitch는 * ONTAP 9.4 * 에서 지원됩니다
 인증 순서는 항상 공개 키와 암호 순서로 표시됩니다.
  a| 
 
+
+
+ a| 
+'-is-ldap-fastbind'
+ a| 
+ONTAP 9.11.1부터 true로 설정하면 nsswitch 인증에 대한 LDAP 고속 바인딩이 설정됩니다. 기본값은 false 입니다. LDAP fast bind를 사용하려면 '-authentication-method' 값을 nsswitch로 설정해야 한다. link:../nfs-admin/ldap-fast-bind-nsswitch-authentication-task.html["nsswitch 인증을 위한 LDAP fastbind에 대해 알아봅니다."]
+ a| 
+
 |===
 
 

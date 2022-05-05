@@ -5,6 +5,7 @@ keywords: snapmirror, synchronous, disaster, recovery
 summary: 'ONTAP 9.5부터 최소 16GB의 메모리와 모든 ONTAP Select 플랫폼에서 SM-S(SnapMirror Synchronous) 기술이 모든 FAS 및 AFF 플랫폼에서 지원됩니다. SnapMirror Synchronous 기술은 노드 단위로 라이센스가 부여된 기능이며 볼륨 레벨에서 동기식 데이터 복제를 제공합니다.' 
 ---
 = SnapMirror Synchronous 재해 복구 기본 사항
+:hardbreaks:
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -20,7 +21,7 @@ HA 쌍당 SnapMirror Synchronous 복제 작업 수의 제한은 컨트롤러 모
 |===
 
 
-| 플랫폼 | ONTAP 9.9.1 이전 릴리즈의 HA 쌍당 허용되는 SnapMirror Synchronous 작업 수입니다 | ONTAP 9.9.1에서 HA 쌍당 허용되는 SnapMirror Synchronous 작업의 수입니다 | ONTAP 9.10.1의 HA 쌍당 허용되는 SnapMirror Synchronous 작업 수입니다 
+| 플랫폼 | ONTAP 9.9.1 이전 릴리즈의 HA 쌍당 허용되는 SnapMirror Synchronous 작업 수입니다 | ONTAP 9.9.1에서 HA 쌍당 허용되는 SnapMirror Synchronous 작업의 수입니다 | ONTAP 9.10.1의 HA 쌍당 허용되는 SnapMirror Synchronous 작업 수입니다 | ONTAP 9.11.1의 HA 쌍당 허용되는 SnapMirror Synchronous 작업 수입니다 
 
 
  a| 
@@ -31,6 +32,8 @@ AFF
 160
  a| 
 200
+ a| 
+400
 
 
 
@@ -42,6 +45,8 @@ FAS
 80
  a| 
 80
+ a| 
+80
 
 
 
@@ -49,6 +54,8 @@ FAS
 ONTAP Select
  a| 
 20
+ a| 
+40
  a| 
 40
  a| 
@@ -68,15 +75,9 @@ ONTAP 9.5 이상에서 SnapMirror Synchronous 기술은 지연 시간이 10ms를
 
 ONTAP 9.7에서 SnapMirror Synchronous 기술에 지원되는 기능은 다음과 같습니다.
 
-* 애플리케이션 생성 Snapshot 복사본 복제
-+
-Sync 또는 Strict Sync 정책과 연결된 규칙과 일치하는 SnapMirror 레이블이 있는 스냅샷 복사본만 제공됩니다. 스냅샷 정책을 사용하여 생성한 예약된 스냅샷 복사본은 복제되지 않습니다.
-
+* 애플리케이션 생성 Snapshot 복사본의 복제에는 Sync 또는 Strict Sync 정책과 연결된 규칙과 일치하는 SnapMirror 레이블이 있는 Snapshot 복사본만 사용됩니다. 스냅샷 정책을 사용하여 생성한 예약된 스냅샷 복사본은 복제되지 않습니다.
 * FC-NVMe를 참조하십시오
-* LUN 클론 및 NVMe 네임스페이스 클론
-+
-애플리케이션 생성 Snapshot 복사본으로 지원되는 LUN 클론도 지원됩니다.
-
+* LUN 클론 및 NVMe 네임스페이스 클론 - 애플리케이션에서 생성한 스냅샷 복사본으로 지원되는 LUN 클론도 지원됩니다.
 
 
 소스 및 대상 클러스터의 모든 노드가 ONTAP 9.6을 실행하는 경우 ONTAP 9.6에서 SnapMirror Synchronous 기술에 지원되는 기능은 다음과 같습니다.
@@ -84,33 +85,18 @@ Sync 또는 Strict Sync 정책과 연결된 규칙과 일치하는 SnapMirror �
 * SVM DR
 +
 ** SnapMirror Synchronous 소스는 예를 들어, SM-S가 1개 구간으로 구성된 팬아웃 구성과 SVM DR이 1개 구간인 SVM DR이 될 수 있습니다.
-** SM-S는 DP 소스 캐스케이딩 기능을 지원하지 않으므로 SnapMirror Synchronous 소스는 SVM DR 타겟이 될 수 없습니다.
-+
-타겟 클러스터에서 SVM DR 플립 재동기화를 수행하기 전에 동기식 관계를 해제해야 합니다.
-
-** SVM DR은 DP 볼륨 복제를 지원하지 않으므로 SnapMirror Synchronous 대상은 SVM DR 소스가 될 수 없습니다.
-+
-동기식 소스의 플립 재동기화를 사용하면 타겟 클러스터의 DP 볼륨을 제외하고 SVM DR이 수행됩니다.
-
+** SM-S는 DP 소스 캐스케이딩 기능을 지원하지 않으므로 SnapMirror Synchronous 소스는 SVM DR 타겟이 될 수 없습니다. 타겟 클러스터에서 SVM DR 플립 재동기화를 수행하기 전에 동기식 관계를 해제해야 합니다.
+** SVM DR은 DP 볼륨 복제를 지원하지 않으므로 SnapMirror Synchronous 대상은 SVM DR 소스가 될 수 없습니다. 동기식 소스의 플립 재동기화를 사용하면 타겟 클러스터의 DP 볼륨을 제외하고 SVM DR이 수행됩니다.
 
 
 * NFSv4.0 및 NFSv4.1을 참조하십시오
 * SMB 2.0 이상
 * 혼합 프로토콜 액세스(NFSv3 및 SMB)
 * SnapMirror Synchronous 관계의 기본 볼륨에 대한 바이러스 백신입니다
-* SnapMirror Synchronous 관계의 기본 볼륨에 대한 하드 또는 소프트 할당량입니다
-+
-할당량 규칙은 대상에 복제되지 않으므로 할당량 데이터베이스가 대상에 복제되지 않습니다.
-
+* SnapMirror Synchronous 관계의 기본 볼륨에 대한 하드 또는 소프트 할당량 할당량 할당량 규칙은 대상에 복제되지 않으므로 할당량 데이터베이스가 대상에 복제되지 않습니다.
 * SnapMirror Synchronous 관계의 기본 볼륨의 FPolicy
-* SnapMirror 동기식 미러 - 계단식 배열
-+
-SnapMirror Synchronous 관계의 타겟 볼륨의 관계는 비동기식 SnapMirror 관계여야 합니다.
-
-* NAS에 대한 소스 볼륨과 대상 볼륨 간의 타임 스탬프 패리티입니다
-+
-ONTAP 9.5에서 ONTAP 9.6으로 업그레이드한 경우 소스 볼륨의 새 파일 및 수정된 파일에 대해서만 타임스탬프가 복제됩니다. 소스 볼륨의 기존 파일 타임스탬프가 동기화되지 않습니다.
-
+* SnapMirror Synchronous 미러 - 미러는 SnapMirror Synchronous 관계의 타겟 볼륨과의 관계를 계단식으로 배열합니다. 이 관계는 비동기식 SnapMirror 관계여야 합니다.
+* NAS의 소스 볼륨과 대상 볼륨 간의 타임스탬프 ONTAP 9.5에서 ONTAP 9.6으로 업그레이드한 경우 소스 볼륨의 새 파일 및 수정된 파일에 대해서만 타임스탬프가 복제됩니다. 소스 볼륨의 기존 파일 타임스탬프가 동기화되지 않습니다.
 * 높은 메타데이터 작업 빈도 제한을 제거합니다
 * TLS 1.2 암호화를 사용하여 전송 중인 중요한 데이터에 대한 보안
 * 클론 자동 삭제
@@ -126,14 +112,8 @@ ONTAP 9.5에서 ONTAP 9.6으로 업그레이드한 경우 소스 볼륨의 새 �
 * SFMAD
 * SFCoD
 * VVOL
-* 혼합 SAN 및 NAS 액세스
-+
-SnapMirror Synchronous 관계의 기본 볼륨은 NAS 데이터 또는 SAN 데이터를 제공할 수 있습니다. SnapMirror Synchronous 관계의 기본 볼륨에서 SAN 및 NAS 액세스가 모두 지원되지 않습니다.
-
-* SAN 및 NVMe 혼합 액세스
-+
-LUN 및 NVMe 네임스페이스는 동일한 볼륨 또는 SVM에서 지원되지 않습니다.
-
+* 혼합 SAN 및 NAS 액세스 SnapMirror Synchronous 관계의 기본 볼륨은 NAS 데이터 또는 SAN 데이터를 제공할 수 있습니다. SnapMirror Synchronous 관계의 기본 볼륨에서 SAN 및 NAS 액세스가 모두 지원되지 않습니다.
+* 혼합 SAN 및 NVMe 액세스 LUN과 NVMe 네임스페이스는 동일한 볼륨 또는 SVM에서 지원되지 않습니다.
 * SnapLock 볼륨
 * FlexGroup 볼륨
 * FlexCache 볼륨
@@ -152,20 +132,8 @@ LUN 및 NVMe 네임스페이스는 동일한 볼륨 또는 SVM에서 지원되�
 
 SnapMirror Synchronous는 사용되는 SnapMirror 정책의 유형에 따라 두 가지 운영 모드가 있습니다.
 
-* * 동기화 모드 *
-+
-동기화 모드에서는 운영 스토리지에 대한 입출력이 먼저 보조 스토리지에 복제됩니다. 그런 다음 입출력이 운영 스토리지에 기록되고 입출력된 애플리케이션으로 확인 메시지가 전송됩니다 어떤 이유로든 보조 스토리지에 대한 쓰기가 완료되지 않으면 애플리케이션이 운영 스토리지에 계속 쓸 수 있습니다. 오류 상태가 해결되면 SnapMirror Synchronous 기술은 보조 스토리지와 자동으로 재동기화되고 동기 모드의 운영 스토리지에서 보조 스토리지로 복제를 재개합니다.
-
-+
-동기화 모드에서 RPO=0과 RTO는 2차 복제 장애가 발생할 때까지 매우 낮지만 RPO 및 RTO가 결정되지 않습니다. 그러나 2차 복제가 실패하고 재동기화가 완료된 문제를 복구하는 데 걸리는 시간과 동일합니다.
-
-* * StrictSync 모드 *
-+
-SnapMirror Synchronous는 선택적으로 StrictSync 모드에서 작동할 수 있습니다. 어떤 이유로든 보조 스토리지에 대한 쓰기가 완료되지 않으면 애플리케이션 입출력이 실패하여 운영 스토리지와 보조 스토리지가 동일한지 확인합니다. SnapMirror 관계가 'InSync' 상태로 되돌아간 후에만 기본 애플리케이션에 대한 애플리케이션 입출력이 재개됩니다. 운영 스토리지에 장애가 발생할 경우 페일오버 후 데이터 손실 없이 보조 스토리지에서 애플리케이션 입출력을 재개할 수 있습니다.
-
-+
-StrictSync 모드에서는 RPO가 항상 0이고 RTO는 매우 낮습니다.
-
+* * 동기화 모드 * 동기화 모드에서는 기본 스토리지에 대한 입출력이 먼저 보조 스토리지에 복제됩니다. 그런 다음 입출력이 운영 스토리지에 기록되고 입출력된 애플리케이션으로 확인 메시지가 전송됩니다 어떤 이유로든 보조 스토리지에 대한 쓰기가 완료되지 않으면 애플리케이션이 운영 스토리지에 계속 쓸 수 있습니다. 오류 상태가 해결되면 SnapMirror Synchronous 기술은 보조 스토리지와 자동으로 재동기화되고 동기 모드의 운영 스토리지에서 보조 스토리지로 복제를 재개합니다. 동기화 모드에서 RPO=0과 RTO는 2차 복제 장애가 발생할 때까지 매우 낮지만 RPO 및 RTO가 결정되지 않습니다. 그러나 2차 복제가 실패하고 재동기화가 완료된 문제를 복구하는 데 걸리는 시간과 동일합니다.
+* * StrictSync 모드 * SnapMirror Synchronous는 선택적으로 StrictSync 모드에서 작동할 수 있습니다. 어떤 이유로든 보조 스토리지에 대한 쓰기가 완료되지 않으면 애플리케이션 입출력이 실패하여 운영 스토리지와 보조 스토리지가 동일한지 확인합니다. SnapMirror 관계가 'InSync' 상태로 되돌아간 후에만 기본 애플리케이션에 대한 애플리케이션 입출력이 재개됩니다. 운영 스토리지에 장애가 발생할 경우 페일오버 후 데이터 손실 없이 보조 스토리지에서 애플리케이션 입출력을 재개할 수 있습니다. StrictSync 모드에서는 RPO가 항상 0이고 RTO는 매우 낮습니다.
 
 
 

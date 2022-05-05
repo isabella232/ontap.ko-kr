@@ -1,0 +1,30 @@
+---
+permalink: nvme/convert-namespace-to-lun-task.html 
+sidebar: sidebar 
+keywords: nvme, convert, namespace, lun 
+summary: ONTAP 9.11.1부터 ONTAP CLI를 사용하여 데이터 손실 없이 기존 단일 NVMe 네임스페이스를 LUN으로 전환할 수 있습니다. 
+---
+= 네임스페이스를 LUN으로 변환합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.11.1부터 ONTAP CLI를 사용하여 현재 위치에서 기존 NVMe 네임스페이스를 LUN으로 변환할 수 있습니다.
+
+
+
+== 시작하기 전에
+
+* 지정된 NVMe 네임스페이스에는 하위 시스템에 대한 기존 맵이 없어야 합니다.
+* 네임스페이스가 스냅샷의 일부이거나 SnapMirror 관계의 대상 측에 읽기 전용 네임스페이스로 있어서는 안 됩니다.
+* NVMe 네임스페이스는 특정 플랫폼 및 네트워크 카드에서만 지원되므로 이 기능은 특정 하드웨어에서만 작동합니다.
+
+
+.단계
+. 다음 명령을 입력하여 NVMe 네임스페이스를 LUN으로 변환합니다.
++
+'LUN convert-from-namespace-vserver-namespace-path'
+
+

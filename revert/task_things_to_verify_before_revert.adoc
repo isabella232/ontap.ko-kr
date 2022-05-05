@@ -32,8 +32,10 @@ node1                 true    true
 +
 노드가 정상 상태가 아니거나 적합하지 않은 경우 EMS 로그에서 오류를 확인하고 수정 조치를 취합니다.
 
-. 권한 수준을 Advanced:'Set-Privilege advanced'로 설정합니다
-. 계속하려면 y를 입력하십시오.
+. 권한 수준을 advanced:+'et-Privilege advanced로 설정합니다
++
+계속하려면 y를 입력하십시오.
+
 . 각 RDB 프로세스에 대한 구성 세부 정보를 확인합니다.
 +
 ** 관계형 데이터베이스 epoch 및 데이터베이스 epoch는 각 노드에 대해 일치해야 합니다.
@@ -41,10 +43,7 @@ node1                 true    true
 +
 각 링에는 다른 쿼럼 마스터가 있을 수 있습니다.
 
-
-
-
-
++
 [cols="2*"]
 |===
 | 이 RDB 프로세스를 표시하려면... | 이 명령을 입력하십시오... 
@@ -77,8 +76,10 @@ SAN 관리 데몬
 '클러스터 링 쇼-언이트네임 bcomd'
 
 |===
++
 이 예에서는 볼륨 위치 데이터베이스 프로세스를 보여 줍니다.
 
++
 [listing]
 ----
 cluster1::*> cluster ring show -unitname vldb
@@ -90,20 +91,22 @@ node2     vldb     154      154      14847    node0     secondary
 node3     vldb     154      154      14847    node0     secondary
 4 entries were displayed.
 ----
-. SAN 환경에서 작동 중인 경우 각 노드가 SAN quorum에 있는지 확인합니다. '이벤트 로그 show-messagename scsibe블레이드. *
+
+
+. 관리자 권한 수준으로 돌아가기: + 'Set-Privilege admin
+. SAN 환경에서 작동 중인 경우 각 노드가 SAN quorum에 있는지 확인합니다. '이벤트 로그 show-severity Informational-message-name scsibeBlade. *
 +
 각 노드에 대한 가장 최근의 scsib블레이드 이벤트 메시지는 SCSI 블레이드가 quorum에 있음을 나타내야 합니다.
 
 +
 [listing]
 ----
-cluster1::*> event log show -messagename scsiblade.*
-Time                Node             Severity      Event
-------------------- ---------------- ------------- ---------------------------
-MM/DD/YYYY TIME  node0            INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
-MM/DD/YYYY TIME  node1            INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+cluster1::*> event log show  -severity informational -message-name scsiblade.*
+Time             Node       Severity       Event
+---------------  ---------- -------------- ---------------------------
+MM/DD/YYYY TIME  node0      INFORMATIONAL  scsiblade.in.quorum: The scsi-blade ...
+MM/DD/YYYY TIME  node1      INFORMATIONAL  scsiblade.in.quorum: The scsi-blade ...
 ----
-. admin 권한 수준으로 복귀:'et-Privilege admin'입니다
 
 
 link:../system-admin/index.html["시스템 관리"]

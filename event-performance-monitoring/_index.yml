@@ -27,7 +27,7 @@ indexpage:
       url: "/../performance-config/identify-performance-issues-unified-manager-task.html"
   - title: 있습니다
     links:
-    - title: 시스템 관리자를 사용하여 알림 설정(ONTAP 9.10.1의 새로운 기능)
+    - title: System Manager로 알림을 설정합니다
       url: "/../error-messages/configure-ems-notifications-sm-task.html"
     - title: CLI를 사용하여 알림을 설정합니다
       url: "/../error-messages/config-workflow-task.html"

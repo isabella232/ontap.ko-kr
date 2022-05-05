@@ -1,0 +1,76 @@
+---
+sidebar: sidebar 
+permalink: encryption-at-rest/configure-cluster-key-server-task.html 
+keywords: KMIP, clustered key server, external key server, secondary key server 
+summary: 클러스터를 생성하여 외부 키 관리 서버에 대한 추가 지원을 설정합니다. 
+---
+= 클러스터링된 외부 키 서버를 구성합니다
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.11.1부터 SVM에서 클러스터링된 외부 키 관리 서버에 대한 연결을 구성할 수 있습니다. 클러스터링된 키 서버를 사용하면 SVM에서 기본 및 보조 키 서버를 지정할 수 있습니다. 키를 등록할 때 ONTAP는 작업이 성공적으로 완료될 때까지 2차 서버에 액세스하기 전에 먼저 1차 키 서버에 대한 액세스를 시도하여 키 중복을 방지합니다.
+
+외부 키 서버는 NSE, NVE, NAE, SED 키에 사용할 수 있습니다. SVM은 최대 4개의 1차 외부 KMIP 서버를 지원할 수 있습니다. 각 운영 서버는 최대 3개의 보조 키 서버를 지원할 수 있습니다.
+
+
+
+== 시작하기 전에
+
+* link:install-ssl-certificates-hardware-task.html["KMIP 키 관리가 SVM에 대해 이미 활성화되어 있습니다"].
+* 이 프로세스는 KMIP를 사용하는 주요 서버만 지원합니다. 지원되는 키 서버 목록을 보려면 를 확인하십시오 link:http://mysupport.netapp.com/matrix/["NetApp 상호 운용성 매트릭스 툴"^].
+* 클러스터의 모든 노드에서 ONTAP 9.11.1 이상이 실행되고 있어야 합니다.
+* '-secondary-key-servers' 매개 변수의 서버 목록 인수 순서는 외부 키 관리(KMIP) 서버의 액세스 순서를 반영합니다.
+
+
+
+
+== 클러스터링된 키 서버를 생성합니다
+
+구성 절차는 기본 키 서버를 구성했는지 여부에 따라 달라집니다.
+
+[role="tabbed-block"]
+====
+.SVM에 1차 및 2차 키 서버를 추가합니다
+--
+. 클러스터에 대해 활성화된 키 관리 기능이 없는지 확인합니다. '보안 키 관리자 external show -vserver_vserver_name_' SVM에 이미 최대 4개의 기본 키 서버가 활성화되어 있는 경우 새 키 서버를 추가하기 전에 기존 기본 키 서버 중 하나를 제거해야 합니다.
+. 기본 키 관리자를 활성화합니다. '보안 키 - 관리자 외부 활성화 - vserver_vserver_name_ -key -servers_server_ip_ -client -cert_client_cert_name_ -server-ca-certs_server_ca_cert_names_'
+. 2차 키 서버를 추가하도록 1차 키 서버를 수정합니다. '-secondary-key-servers' 매개변수는 최대 3개의 키 서버로 구성된 쉼표로 구분된 목록을 허용합니다. '보안 키-관리자 외부 수정-server-vserver_vserver_name_-key-servers_primary_key_server_-secondary-key-servers_list_of_key_servers_'
+
+
+--
+.기존 기본 키 서버에 보조 키 서버를 추가합니다
+--
+. 2차 키 서버를 추가하도록 1차 키 서버를 수정합니다. '-secondary-key-servers' 매개변수는 최대 3개의 키 서버로 구성된 쉼표로 구분된 목록을 허용합니다. 2차 키 서버에 대한 자세한 내용은 '보안 키-관리자 외부 수정-server-vserver_vserver_name_-key-servers_primary_key_server_-secondary-key-servers_list_of_key_servers_'를 참조하십시오 <<mod-secondary>>.
+
+
+--
+====
+
+
+== 클러스터링된 키 서버를 수정합니다
+
+특정 키 서버의 상태(기본 또는 보조)를 변경하거나, 보조 키 서버를 추가 및 제거하거나, 보조 키 서버의 액세스 순서를 변경하여 외부 키 서버 클러스터를 수정할 수 있습니다.
+
+
+
+=== 기본 및 보조 키 서버 변환
+
+1차 키 서버를 2차 키 서버로 변환하려면 먼저 '보안 키 관리자 외부 remove-servers' 명령을 사용하여 SVM에서 이를 제거해야 합니다.
+
+보조 키 서버를 기본 키 서버로 변환하려면 먼저 기존 기본 키 서버에서 보조 키 서버를 제거해야 합니다. 을 참조하십시오 <<mod-secondary>>. 기존 키를 제거하는 동안 보조 키 서버를 기본 서버로 변환하면 제거 및 변환을 완료하기 전에 새 서버를 추가하려고 하면 키가 중복될 수 있습니다.
+
+
+
+=== 보조 키 서버 수정
+
+2차 키 서버는 보안 키 관리자 외부 수정-서버 명령어의 '-2차-키-서버' 매개변수로 관리된다. '-secondary-key-servers' 매개변수는 쉼표로 구분된 목록을 허용합니다. 목록에 있는 보조 키 서버의 지정된 순서에 따라 보조 키 서버의 액세스 순서가 결정됩니다. 액세스 순서는 2차 키 서버가 다른 순서로 입력된 상태에서 보안 키 관리자 외부 수정 서버 명령을 실행하여 수정할 수 있습니다.
+
+2차 키 서버를 제거하려면 제거할 키 서버를 생략하면서 유지하고자 하는 키 서버가 '-2차 키 서버' 인수에 포함되어야 합니다. 모든 보조 키 서버를 제거하려면 '-' 인수를 사용하여 아무 것도 표시하지 않습니다.
+
+자세한 내용은 의 보안 키 관리자 외부 페이지를 참조하십시오 link:https://docs.netapp.com/ontap-9/topic/com.netapp.nav.cr/home.html["ONTAP 명령 참조입니다"^].

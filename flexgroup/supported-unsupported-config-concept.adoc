@@ -15,6 +15,32 @@ ONTAP 9의 FlexGroup 볼륨에서 지원되고 지원되지 않는 ONTAP 기능�
 
 
 
+== ONTAP 9.11.1부터 지원되는 기능입니다
+
+* SnapLock 볼륨
++
+SnapLock는 FlexGroup 볼륨에서 다음 기능을 지원하지 않습니다.
+
++
+** 법적 증거 자료 보관
+** 이벤트 기반 보존
+** LockVault용 SnapLock
+
+
+
+
+FlexGroup 레벨에서 SnapLock를 구성합니다. 구성 요소 수준에서는 SnapLock를 구성할 수 없습니다.
+
+xref:../snaplock/snaplock-concept.adoc[SnapLock란]
+
+* 클라이언트 비동기 디렉토리 삭제
++
+xref:manage-client-async-dir-delete-task.adoc[클라이언트 권한을 관리하여 디렉토리를 신속하게 삭제합니다]
+
+
+
+
+
 == ONTAP 9.10.1부터 지원되는 피처
 
 * SVM-DR 소스에서 FlexVol 볼륨을 FlexGroup 볼륨으로 변환합니다
@@ -215,7 +241,7 @@ FlexGroup 볼륨은 여러 ONTAP 기능을 지원하며 ONTAP 9.1에 도입되�
 * 산
 
  a| 
-* SnapLock 볼륨
+* SnapLock 볼륨(ONTAP 9.10.1 이하)
 * SMTape
 
  a| 

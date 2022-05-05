@@ -96,6 +96,53 @@ Compliance-mode Aggregate가 포함된 디스크는 다시 초기화할 수 없�
  a| 
 예, ONTAP 9.5부터 시작합니다
 
+|===
+
+
+== SnapLock에서 지원 및 지원되지 않는 기능
+
+다음 표에는 SnapLock 규정 준수 모드, SnapLock 엔터프라이즈 모드 또는 둘 다에서 지원되는 기능이 나와 있습니다.
+
+|===
+
+
+| 피처 | SnapLock 규정 준수 지원 | SnapLock Enterprise에서 지원됩니다 
+
+
+ a| 
+일관성 그룹
+ a| 
+아니요
+ a| 
+아니요
+
+
+
+ a| 
+산
+ a| 
+아니요
+ a| 
+아니요
+
+
+
+ a| 
+SnapMirror Synchronous
+ a| 
+아니요
+ a| 
+아니요
+
+
+
+ a| 
+SnapMirror 비즈니스 연속성
+ a| 
+아니요
+ a| 
+아니요
+
 
 
  a| 
@@ -154,7 +201,7 @@ SnapLock 규정 준수 또는 엔터프라이즈 애그리게이트는 MetroClus
 
 모든 MetroCluster 구성은 미러링된 애그리게이트를 지원합니다. MetroCluster 구성에서 미러링되지 않은 애그리게이트를 지원하는지 확인하려면 ONTAP 릴리즈 노트를 참조하십시오.
 
-https://library.netapp.com/ecmdocs/ECMLP2492508/html/frameset.html["ONTAP 9 릴리즈 노트"]
+https://library.netapp.com/ecmdocs/ECMLP2492508/html/frameset.html["ONTAP 9 릴리즈 노트"^]
  a| 
 아니요
 
@@ -172,6 +219,37 @@ SnapLock 애그리게이트에서 Fabric Pool 지원
 FabricPool에서 퍼블릭 또는 프라이빗 클라우드로 계층화하는 데이터는 클라우드 관리자가 삭제할 수 있으므로 SnapLock에서 더 이상 보호되지 않습니다.
 
 ====
+
+
+ a| 
+FlexGroup 볼륨
+ a| 
+예. ONTAP 9.11.1부터 사용할 수 있지만 다음 기능은 지원되지 않습니다.
+
+* 법적 증거 자료 보관
+* 이벤트 기반 보존
+* LockVault용 SnapLock
+
+
+또한 다음과 같은 행동을 인지해야 합니다.
+
+* FlexGroup 볼륨의 VCC(Volume Compliance Clock)는 루트 구성 요소 VCC에 의해 결정됩니다. 모든 비루트 구성 요소들은 VCC를 루트 VCC와 긴밀히 동기화하게 됩니다.
+* SnapLock 구성 속성은 FlexGroup 전체에 대해서만 설정됩니다. 개별 구성 요소마다 기본 보존 시간 및 자동 커밋 기간과 같은 서로 다른 구성 속성을 사용할 수 없습니다.
+
+ a| 
+예. ONTAP 9.11.1부터 사용할 수 있지만 다음 기능은 지원되지 않습니다.
+
+* 법적 증거 자료 보관
+* 이벤트 기반 보존
+* LockVault용 SnapLock
+
+
+또한 다음과 같은 행동을 인지해야 합니다.
+
+* FlexGroup 볼륨의 VCC(Volume Compliance Clock)는 루트 구성 요소 VCC에 의해 결정됩니다. 모든 비루트 구성 요소들은 VCC를 루트 VCC와 긴밀히 동기화하게 됩니다.
+* SnapLock 구성 속성은 FlexGroup 전체에 대해서만 설정됩니다. 개별 구성 요소마다 기본 보존 시간 및 자동 커밋 기간과 같은 서로 다른 구성 속성을 사용할 수 없습니다.
+
+
 |===
 
 

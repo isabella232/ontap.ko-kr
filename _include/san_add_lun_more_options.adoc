@@ -68,3 +68,5 @@ QoS를 비활성화하거나 사용자 지정 QoS 정책을 선택합니다
 | ONTAP 9.8 
 |===
 
+
+link:san-admin/manage-san-initiators-task.html["SAN 이니시에이터 및 igroup을 보고 관리합니다"]

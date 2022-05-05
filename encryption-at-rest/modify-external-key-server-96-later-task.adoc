@@ -13,7 +13,7 @@ summary: ONTAP 9.6부터 보안 키 관리자 외부 수정 서버 명령을 사
 [role="lead"]
 ONTAP 9.6부터, 외부 키 관리 서버의 I/O 제한 시간 및 사용자 이름을 변경하기 위해 'Security key-manager external modify-server' 명령어를 사용할 수 있다.
 
-.무엇을 &#8217;필요로 할거야
+.시작하기 전에
 * 이 작업을 수행하려면 클러스터 또는 SVM 관리자여야 합니다.
 * 이 작업에는 고급 권한이 필요합니다.
 

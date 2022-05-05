@@ -29,13 +29,14 @@ xref:enable-nis-ldap-users-access-cluster-task.adoc[LDAP 또는 NIS 서버 액�
 xref:modify-role-assigned-administrator-task.adoc[관리자에게 할당된 역할 수정]
 
 * ONTAP 9.4부터 LDAP 또는 NIS 서버를 통한 원격 사용자에 대해 MFA(Multifactor Authentication)가 지원됩니다.
+* ONTAP 9.11.1부터 를 사용할 수 있습니다 link:../nfs-admin/ldap-fast-bind-nsswitch-authentication-task.html["nsswitch 인증을 위한 LDAP 빠른 바인딩"] LDAP 서버에서 지원하는 경우
 * 알려진 LDAP 문제로 인해 LDAP 사용자 계정 정보 필드(예: "gecos", "userPassword" 등)에 ":"(콜론) 문자를 사용해서는 안 됩니다. 그렇지 않으면 해당 사용자에 대한 조회 작업이 실패합니다.
 
 
 .단계
 . LDAP 또는 NIS 사용자 또는 그룹 계정을 사용하여 SVM에 액세스:
 +
-'보안 로그인 생성 - vserver SVM_name -user -or -group -name user_name -application application -AuthMethod nsswitch -role role role -comment comment -is -ns -switch -group yes | no'
+'보안 로그인 생성 - vserver SVM_name -user -or -group -name user_name -application application -AuthMethod nsswitch -role role -comment comment comment -is -ns -switch -group yes | no [-is -ldap -fastbind true]'를 참조하십시오
 
 +
 전체 명령 구문은 을 참조하십시오 link:config-worksheets-reference.html["워크시트"].

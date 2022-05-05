@@ -1,7 +1,7 @@
 ---
 permalink: data-protection/reactivate-original-source-svm-task.html 
 sidebar: sidebar 
-keywords: reactivate, original, source, svm 
+keywords: reactivate, original, source, svm, quick resync, resynchronize, reverse resync 
 summary: 대상에서 데이터를 더 이상 사용할 필요가 없을 경우 소스 및 타겟 SVM 간에 원래 데이터 보호 관계를 다시 설정할 수 있습니다. 이 절차는 볼륨 복제 절차와 크게 동일하지만 한 가지 예외가 있습니다. 소스 SVM을 다시 활성화하기 전에 타겟 SVM을 중지해야 합니다. 
 ---
 = 원래 소스 SVM을 다시 활성화합니다
@@ -16,6 +16,11 @@ summary: 대상에서 데이터를 더 이상 사용할 필요가 없을 경우 
 데이터를 제공하는 동안 대상 볼륨의 크기를 늘인 경우 소스 볼륨을 다시 활성화하기 전에 원본 소스 볼륨의 최대 크기 자동 크기 조정을 수동으로 늘려 충분히 성장할 수 있도록 해야 합니다.
 
 link:destination-volume-grows-automatically-concept.html["타겟 볼륨이 자동으로 증가하는 경우"]
+
+ONTAP 9.11.1부터 SVM DR 관계의 역재동기화를 수행하는 동안 '미러본 재동기화' 명령의 '-quick-resync true' 옵션을 사용하여 재해 복구 리허설 동안 재동기화 시간을 줄일 수 있습니다. 빠른 재동기화를 통해 데이터 웨어하우스 재구축 및 복원 작업을 바이패스하여 운영 상태로 돌아가는 데 걸리는 시간을 줄일 수 있습니다.
+
+
+NOTE: 빠른 재동기화는 타겟 볼륨의 스토리지 효율성을 유지하지 않습니다. 빠른 재동기화를 설정하면 대상 볼륨에서 사용하는 볼륨 공간이 증가할 수 있습니다.
 
 이 절차에서는 원본 소스 볼륨의 기준선이 온전한 것으로 가정합니다. 기준선이 변경되지 않은 경우 절차를 수행하기 전에 데이터를 제공하는 볼륨과 원본 소스 볼륨 간의 관계를 생성하고 초기화해야 합니다.
 
@@ -66,6 +71,14 @@ cluster_src::> snapmirror create -source-path svm_backup: -destination-path svm1
 [listing]
 ----
 cluster_src::> snapmirror resync -source-path svm_backup: -destination-path svm1:
+----
++
+사용 예 - 빠른 재동기화 옵션:
+
++
+[listing]
+----
+cluster_src::> snapmirror resync -source-path svm_backup: -destination-path svm1: -quick-resync true
 ----
 . 원래 소스 SVM에 대한 데이터 액세스를 다시 설정할 준비가 되면 원래 타겟 SVM을 중지하고 원래 타겟 SVM에 현재 연결된 모든 클라이언트의 연결을 끊습니다.
 +

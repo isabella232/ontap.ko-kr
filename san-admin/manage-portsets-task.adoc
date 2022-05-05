@@ -32,6 +32,8 @@ ONTAP 9.10.1부터 System Manager를 사용하여 포트 세트를 생성하고 
 
 
 
+link:manage-san-initiators-task.html["이니시에이터 및 igroup을 보고 관리합니다"]
+
 
 
 == 포트셋 관련 네트워크 인터페이스를 변경합니다

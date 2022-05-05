@@ -41,6 +41,8 @@ link:../flexgroup/index.html["FlexGroup 볼륨 관리"]
 
 
 
+* 참고: * Cloud Volumes ONTAP에서 버킷을 제공하는 경우 기본 애그리게이트를 수동으로 선택하여 해당 애그리게이트가 하나의 노드만 사용하는지 확인하는 것이 좋습니다. 두 노드의 애그리게이트를 사용하면 지리적으로 서로 분리되어 있는 가용성 영역에 노드가 있기 때문에 지연 시간 문제가 발생하기 때문에 성능에 영향을 미칠 수 있습니다.
+
 스토리지 서비스 수준은 _value_, _performance_ 및 _extreme_default 수준으로 사전 정의된 QoS(Adaptive Quality of Service) 정책 그룹입니다. 기본 스토리지 서비스 수준 대신 맞춤형 QoS 정책 그룹을 정의하여 버킷에 적용할 수도 있습니다.
 
 link:storage-service-definitions-reference.html["스토리지 서비스 정의"]

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: svm, migrate, client, cutover, manual 
 summary: 기본적으로 SVM 마이그레이션이 컷오버를 위한 준비 상태에 도달할 경우 타겟 클러스터로 전환하는 클라이언트가 자동으로 수행됩니다. 자동 클라이언트 컷오버를 사용하지 않도록 선택하는 경우 클라이언트 컷오버를 수동으로 수행해야 합니다. 
 ---
-= SVM 마이그레이션 후 클라이언트를 수동으로 컷오버합니다
+= 클라이언트를 수동으로 잘라냅니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

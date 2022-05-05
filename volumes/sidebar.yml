@@ -44,10 +44,6 @@ entries:
     entries:
     - title: 개요
       url: "/volumes/delete-directories-concept.html"
-    - title: CLI를 사용하여 빠른 디렉토리 삭제를 수행합니다
-      url: "/volumes/fast-directory-delete-task.html"
-    - title: 디렉토리 삭제 작업을 취소합니다
-      url: "/volumes/cancel-directory-delete-job-task.html"
   - title: FlexVol 볼륨을 관리하는 명령입니다
     url: "/volumes/commands-manage-flexvol-volumes-reference.html"
   - title: 공간 사용 정보를 표시하는 명령입니다

@@ -4,7 +4,7 @@ permalink: task_admin_add_disks_to_local_tier.html
 keywords: add, expand, aggregate, add drives, add disks, add capacity, local tier, add disks to local tier, add disks to aggregate, increase storage, increase aggregate size, local tier, capacity, disk, expand storage, add drives, add disks, add capacity 
 summary: '용량 디스크를 추가하여 기존 애그리게이트(로컬 계층)의 크기를 늘릴 수 있습니다' 
 ---
-= 로컬 계층에 디스크 추가(애그리게이트에 용량 추가)
+= 로컬 계층에 용량 추가(애그리게이트에 디스크 추가)
 :toc: macro
 :hardbreaks:
 :toclevels: 1
@@ -19,7 +19,7 @@ summary: '용량 디스크를 추가하여 기존 애그리게이트(로컬 계�
 
 
 [role="lead"]
-용량 디스크를 추가하여 기존 애그리게이트(로컬 계층)의 크기를 늘릴 수 있습니다.
+System Manager를 사용하면 용량 디스크를 추가하여 기존 로컬 계층(애그리게이트)의 크기를 늘릴 수 있습니다.
 
 용량을 늘리기 위해 사용하는 프로세스는 설치한 ONTAP 버전에 따라 다릅니다.
 
@@ -79,8 +79,33 @@ ONTAP 9.8 이상을 설치한 경우에만 이 작업을 수행합니다. 이전
 
 NOTE: 추가할 수 있는 스페어 디스크가 없는 경우 * Add Capacity * 옵션이 표시되지 않으며 로컬 계층의 용량을 늘릴 수 없습니다.
 
-. 노드에 여러 스토리지 계층이 포함된 경우 로컬 계층에 추가할 디스크 수를 선택합니다. 그렇지 않으면 노드에 단일 스토리지 계층만 포함된 경우 추가된 용량이 자동으로 추정됩니다.
-. 추가 * 를 클릭합니다.
+. 설치된 ONTAP 버전에 따라 다음 단계를 수행하십시오.
++
+[cols="30,70"]
+|===
+
+
+| 이 버전의 ONTAP가 설치된 경우... | 다음 단계를 수행합니다. 
+
+
+ a| 
+ONTAP 9.8, 9.9 또는 9.10.1
+ a| 
+.. 노드에 여러 스토리지 계층이 포함된 경우 로컬 계층에 추가할 디스크 수를 선택합니다. 그렇지 않으면 노드에 단일 스토리지 계층만 포함된 경우 추가된 용량이 자동으로 추정됩니다.
+.. 추가 * 를 클릭합니다.
+
+
+
+
+ a| 
+ONTAP 9.11.1
+ a| 
+.. 디스크 유형과 디스크 수를 선택합니다.
+.. 새 RAID 그룹에 디스크를 추가하려면 확인란을 선택합니다. RAID 할당이 표시됩니다.
+.. 저장 * 을 클릭합니다.
+
+
+|===
 . (선택 사항) 이 프로세스를 완료하는 데 약간의 시간이 걸립니다. 백그라운드에서 프로세스를 실행하려면 * 백그라운드에서 실행 * 을 선택합니다.
 . 프로세스가 완료되면 * Storage > Tiers * 의 로컬 계층 정보에서 증가된 용량을 볼 수 있습니다.
 

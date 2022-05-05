@@ -118,6 +118,8 @@ entries:
         url: "/nfs-admin/config-options-ldap-directory-searches-concept.html"
       - title: LDAP 디렉토리 Netgroup-by-host 검색 성능 향상
         url: "/nfs-admin/improve-performance-ldap-directory-searches-task.html"
+      - title: nsswitch 인증에 LDAP 고속 바인딩을 사용합니다
+        url: "/nfs-admin/ldap-fast-bind-nsswitch-authentication-task.html"
       - title: LDAP 통계를 표시합니다
         url: "/nfs-admin/display-ldap-statistics-task.html"
   - title: 이름 매핑을 구성합니다

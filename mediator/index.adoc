@@ -23,9 +23,18 @@ ONTAP 중재자 서비스를 설치하려면 모든 필수 구성 요소가 충�
 
 
  a| 
+1.4
+ a| 
+* Red Hat Enterprise Linux: 7.6, 7.7, 7.8, 7.9, 8.1, 8.2, 8.3, 8.4, 8.5
+* CentOS: 7.6, 7.7, 7.8, 7.9
+
+
+
+
+ a| 
 1.3
  a| 
-* Red Hat Enterprise Linux: 7.6, 7.7, 7.8, 7.9, 8.0, 8.1, 8.2, 8.3
+* Red Hat Enterprise Linux: 7.6, 7.7, 7.8, 7.9, 8.1, 8.2, 8.3
 * CentOS: 7.6, 7.7, 7.8, 7.9
 
 
@@ -34,7 +43,7 @@ ONTAP 중재자 서비스를 설치하려면 모든 필수 구성 요소가 충�
  a| 
 1.2
  a| 
-* Red Hat Enterprise Linux: 7.6, 7.7, 7.8, 8.0, 8.1
+* Red Hat Enterprise Linux: 7.6, 7.7, 7.8, 8.1
 * CentOS: 7.6, 7.7, 7.8
 
 
@@ -61,7 +70,7 @@ NOTE: 커널 버전이 운영 체제 버전과 일치해야 합니다.
 
 
  a| 
-* Red Hat Enterprise Linux: 7.6, 7.7, 7.8, 8.0, 8.1
+* Red Hat Enterprise Linux: 7.6, 7.7, 7.8, 8.1
 * CentOS: 7.6, 7.7, 7.8
 
  a| 
@@ -90,7 +99,7 @@ NOTE: 커널 버전이 운영 체제 버전과 일치해야 합니다.
 
 
  a| 
-* Red Hat Enterprise Linux: 7.6, 7.7, 7.8, 7.9, 8.0, 8.1, 8.2, 8.3
+* Red Hat Enterprise Linux: 7.6, 7.7, 7.8, 7.9, 8.1, 8.2, 8.3
 * CentOS: 7.6, 7.7, 7.8, 7.9
 
  a| 
@@ -101,10 +110,24 @@ NOTE: 커널 버전이 운영 체제 버전과 일치해야 합니다.
 . 즉시 이전 버전에서 현재 버전으로 중재자를 업그레이드합니다.
 
 
+
+
+ a| 
+* Red Hat Enterprise Linux: 7.6, 7.7, 7.8, 7.9, 8.1, 8.2, 8.3, 8.4
+* CentOS: 7.6, 7.7, 7.8, 7.9
+
+ a| 
+1.4
+ a| 
+. RHEL/CentOS 버전에서 운영 체제를 업그레이드합니다.
+. 호스트를 재부팅하여 커널 모듈 변경 사항을 적용합니다.
+. 즉시 이전 버전에서 현재 버전으로 중재자를 업그레이드합니다.
+
+
 |===
 Red Hat Enterprise Linux 또는 CentOS를 설치하는 모범 사례와 시스템에 연결된 리포지토리를 설치하는 방법은 다음과 같습니다. 다른 방식으로 설치 또는 구성된 시스템은 추가 단계가 필요할 수 있습니다.
 
-* Red Hat 모범 사례에 따라 Red Hat Enterprise Linux 또는 CentOS를 설치해야 합니다. CentOS 8.x 버전에 대한 지원 기간이 종료되므로 RHEL 또는 CentOS 7.x 호환 버전을 사용하지 않는 것이 좋습니다
+* Red Hat 모범 사례에 따라 Red Hat Enterprise Linux 또는 CentOS를 설치해야 합니다. CentOS 8.x 버전에 대한 지원 종료로 인해 CentOS 8.x 호환 버전은 권장되지 않습니다.
 * Red Hat Enterprise Linux 또는 CentOS에 ONTAP 중재자 서비스를 설치하는 동안 시스템은 설치 프로그램이 필요한 모든 소프트웨어 종속성을 액세스하고 설치할 수 있도록 적절한 리포지토리에 액세스할 수 있어야 합니다.
 * yum installer가 Red Hat Enterprise Linux 리포지토리에서 종속 소프트웨어를 찾으려면 Red Hat Enterprise Linux를 설치하는 동안 또는 유효한 Red Hat 서브스크립션을 사용하여 시스템을 등록해야 합니다.
 +
@@ -117,7 +140,7 @@ Red Hat 서브스크립션 관리자에 대한 자세한 내용은 Red Hat 설�
 
 
 * 타사 방화벽을 사용하는 경우 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_mediator_requirements.html#firewall-requirements-for-ontap-mediator["ONTAP 중재자를 위한 방화벽 요구 사항"^]
-* Linux 호스트가 인터넷에 액세스할 수 없는 위치에 있는 경우 패키지를 수동으로 설치하거나 필요한 패키지를 로컬 저장소에서 사용할 수 있는지 확인해야 합니다.
+* Linux 호스트가 인터넷에 액세스할 수 없는 위치에 있는 경우 필요한 패키지를 로컬 저장소에서 사용할 수 있는지 확인해야 합니다.
 +
 리포지토리 설정에 대한 자세한 내용은 다음 링크를 참조하십시오.
 
@@ -161,22 +184,6 @@ ONTAP 중재자 서비스에는 다음 패키지가 필요합니다.
 
 
 |===
-* 서명 확인이 구성된 경우 이를 비활성화해야 합니다. 이 작업은 다음 두 가지 방법 중 하나로 수행할 수 있습니다.
-+
-** UEFI SecureBoot 메커니즘이 구성된 경우 이를 비활성화합니다.
-** grub.cfg 파일을 업데이트하고 다시 생성하여 서명 확인 메커니즘을 비활성화합니다.
-+
-... /etc/default/grub 파일을 엽니다.
-... GRUB_CMDLINE_LINUX 문 끝에 문자열 module.SIG_WERYCE=0을 추가합니다.
-... grub.cfg 파일을 다시 생성하여 변경 사항을 구현합니다.
-+
-'update-bootloader||update-grub||grub2-mkconfig-o/boot/grub2/grub.cfg'
-
-... 호스트를 재부팅합니다.
-
-
-
-
 
 
 중재자 설치 패키지는 다음을 포함하는 자동 압축 tar 파일입니다.
@@ -305,6 +312,9 @@ Repository 'rhel-8-for-x86_64-appstream-rpms' is enabled for this system.
 
 운영 체제가 * CentOS 7.x * 인 경우:
 
+
+NOTE: 다음 예는 CentOS 7.6의 리포지토리를 보여 주고 있으며 다른 CentOS 버전에서는 작동하지 않을 수 있습니다. 사용 중인 CentOS 버전에 대한 기본 리포지토리를 사용합니다.
+
 .단계
 . C7.6.1810-Base 리포지토리를 추가합니다. C7.6.1810 - 기본 볼트 리포지토리에는 ONTAP 중재자를 위해 필요한 커널-devel 패키지가 포함되어 있습니다.
 . /etc/yum.repos.d/CentOS-Vault.repo에 다음 줄을 추가합니다.
@@ -360,7 +370,7 @@ https://mysupport.netapp.com/site/products/all/details/ontap-mediator/downloads-
 [listing]
 ----
 [root@mediator-host ~]#ls
-./ontap-mediator_1.3
+ontap-mediator
 ----
 +
 인터넷에 액세스할 수 없는 위치에 있는 경우 설치 프로그램이 필요한 패키지에 액세스할 수 있는지 확인해야 합니다.
@@ -372,18 +382,82 @@ https://mysupport.netapp.com/site/products/all/details/ontap-mediator/downloads-
 
 == ONTAP 중재자 설치 패키지를 설치합니다
 
+.이 작업에 대해
+* ONTAP 중재자 1.4부터 UEFI 시스템에서 보안 부팅 메커니즘이 활성화됩니다. 보안 부팅이 활성화되면 설치 후 보안 키를 등록하기 위한 추가 단계를 수행해야 합니다.
++
+** README 파일의 '/opt/netapp/lib/ONTAP_중재자/ONTAP_중재자/SCST_mod_keys/README.MODULE-SIGNING'에 있는 지침에 따라 SCST 커널 모듈에 서명합니다.
+** 필요한 키를 찾습니다: '/opt/netapp/lib/ONTAP_중재자/ONTAP_중재자/SCST_mod_keys'
+
+
++
+
+NOTE: 설치 후 README 파일과 키 위치도 시스템 출력에 제공됩니다.
+
+
+
 .단계
 . 중재자 설치 패키지를 설치하고 필요에 따라 프롬프트에 응답합니다.
 +
-'./ONTAP-중재자_1.3'
+'./ONTAP - 중재자'
 
 +
 설치 프로세스가 진행되어 필요한 계정을 생성하고 필요한 패키지를 설치합니다. 호스트에 이전 버전의 중재자가 설치되어 있는 경우 업그레이드할지 확인하는 메시지가 표시됩니다.
 
 
 
-link:../media/console_output_mediator_installation.txt["ONTAP 중재자 설치의 예(콘솔 출력)"^]
+.ONTAP 중재자 1.4 설치의 예(콘솔 출력)
+====
+[listing]
+----
+[root@scs000065018 ~]# ./ontap-mediator
+ONTAP Mediator: Self Extracting Installer
+ONTAP Mediator requires two user accounts. One for the service (netapp), and one for use by ONTAP to the mediator API (mediatoradmin).
+Would you like to use the default account names: netapp + mediatoradmin? (Y(es)/n(o)): y
+Enter ONTAP Mediator user account (mediatoradmin) password:
+Re-Enter ONTAP Mediator user account (mediatoradmin) password:
+Checking if SELinux is in enforcing mode
+Checking for default Linux firewall
+Linux firewall is running. Open ports 31784 and 3260? y(es)/n(o): y
+success
+success
 
+
+
+Preparing for installation of ONTAP Mediator packages.
+Do you wish to continue? Y(es)/n(o): y
++ Installing required packages.
+Last metadata expiration check: 1:56:17 ago on Thu 07 Apr 2022 11:35:42 AM EDT.
+Package openssl-1:1.1.1k-6.el8_5.x86_64 is already installed.
+Package openssl-devel-1:1.1.1k-6.el8_5.x86_64 is already installed.
+
+.
+.
+.
+.
+
+Dependencies resolved.
+Nothing to do.
+Complete!
+OS package installations finished
++ Installing ONTAP Mediator. (Log: /tmp/ontap_mediator.5gmxnI/ontap-mediator/install_20220407133105.log)
+    This step will take several minutes. Use the log file to view progress.
+Sudo include verified
+ONTAP Mediator logging enabled
++ Install successful. (Moving log to /opt/netapp/lib/ontap_mediator/log/install_20220407133105.log)
++ WARNING: This system supports UEFI
+           Secure Boot (SB) is currently enabled on this system.
+           The following action need be taken:
+           Using the keys in /opt/netapp/lib/ontap_mediator/ontap_mediator/SCST_mod_keys follow
+           instructions in /opt/netapp/lib/ontap_mediator/ontap_mediator/SCST_mod_keys/README.module-signing
+           to sign the SCST kernel module. Note that reboot will be needed.
+     SCST will not start automatically when Secure Boot is enabled and not configured properly.
++ Note: ONTAP Mediator uses a kernel module compiled specifically for the current
+        system OS. Using 'yum update' to upgrade the kernel may cause a service
+        interruption.
+    For more information, see /opt/netapp/lib/ontap_mediator/README
+[root@scs000065018 ~]#
+----
+====
 
 
 == 설치를 확인합니다
@@ -391,70 +465,50 @@ link:../media/console_output_mediator_installation.txt["ONTAP 중재자 설치�
 .단계
 . 다음 명령을 실행하여 ONTAP 중재자 서비스의 상태를 확인합니다.
 +
-'스타emctl'입니다
-
+.. 'stemctl status ontap_중재자'를 실행하십시오
 +
 [listing]
 ----
- [root@scspr1915530002 ~]# systemctl status ontap_mediator mediator-scst
+[root@scspr1915530002 ~]# systemctl status ontap_mediator
 
-        ∙ ontap_mediator.service - ONTAP Mediator
-            Loaded: loaded (/opt/netapp/lib/ontap_mediator/systemd/ontap_mediator.service; enabled; vendor preset: disabled)
+ ontap_mediator.service - ONTAP Mediator
+Loaded: loaded (/etc/systemd/system/ontap_mediator.service; enabled; vendor preset: disabled)
+Active: active (running) since Mon 2022-04-18 10:41:49 EDT; 1 weeks 0 days ago
+Process: 286710 ExecStop=/bin/kill -s INT $MAINPID (code=exited, status=0/SUCCESS)
+Main PID: 286712 (uwsgi)
+Status: "uWSGI is ready"
+Tasks: 3 (limit: 49473)
+Memory: 139.2M
+CGroup: /system.slice/ontap_mediator.service
+      ├─286712 /opt/netapp/lib/ontap_mediator/pyenv/bin/uwsgi --ini /opt/netapp/lib/ontap_mediator/uwsgi/ontap_mediator.ini
+      ├─286716 /opt/netapp/lib/ontap_mediator/pyenv/bin/uwsgi --ini /opt/netapp/lib/ontap_mediator/uwsgi/ontap_mediator.ini
+      └─286717 /opt/netapp/lib/ontap_mediator/pyenv/bin/uwsgi --ini /opt/netapp/lib/ontap_mediator/uwsgi/ontap_mediator.ini
 
-            Active: active (running) since Thu 2020-06-18 09:55:02 EDT; 3 days ago
-
-         Main PID: 3559 (uwsgi)
-
-            Status: "uWSGI is ready"
-
-            CGroup: /system.slice/ontap_mediator.service
-
-                    \u251c\u25003559 /opt/netapp/lib/ontap_mediator/pyenv/bin/uwsgi --ini /opt/netapp/lib/ontap_mediator/uwsgi/ontap_mediator.ini
-
-                    \u251c\u25004510 /opt/netapp/lib/ontap_mediator/pyenv/bin/uwsgi --ini /opt/netapp/lib/ontap_mediator/uwsgi/ontap_mediator.ini
-
-                    \u2514\u25004512 /opt/netapp/lib/ontap_mediator/pyenv/bin/uwsgi --ini /opt/netapp/lib/ontap_mediator/uwsgi/ontap_mediator.ini
-
-
-
-         Jun 18 09:54:43 scspr1915530002 systemd[1]: Starting ONTAP Mediator...
-
-         Jun 18 09:54:45 scspr1915530002 ontap_mediator[3559]: [uWSGI] getting INI configuration from /opt/netapp/lib/ontap_mediator/uwsgi/ontap_mediator.ini
-
-         Jun 18 09:55:02 scspr1915530002 systemd[1]: Started ONTAP Mediator.
-
-
-
-         ∙ mediator-scst.service
-            Loaded: loaded (/opt/netapp/lib/ontap_mediator/systemd/mediator-scst.service; enabled; vendor preset: disabled)
-
-            Active: active (running) since Thu 2020-06-18 09:54:51 EDT; 3 days ago
-
-           Process: 3564 ExecStart=/etc/init.d/scst start (code=exited, status=0/SUCCESS)
-
-         Main PID: 4202 (iscsi-scstd)
-
-            CGroup: /system.slice/mediator-scst.service
-
-                    \u2514\u25004202 /usr/local/sbin/iscsi-scstd
-
-
-
-         Jun 18 09:54:43 scspr1915530002 systemd[1]: Starting mediator-scst.service...
-
-         Jun 18 09:54:48 scspr1915530002 iscsi-scstd[4200]: max_data_seg_len 1048576, max_queued_cmds 2048
-
-         Jun 18 09:54:51 scspr1915530002 scst[3564]: Loading and configuring SCST[  OK  ]
-
-         Jun 18 09:54:51 scspr1915530002 systemd[1]: Started mediator-scst.service.
-
-         [root@scspr1915530002 ~]#
+[root@scspr1915530002 ~]#
 ----
-. ONTAP 중재자 서비스가 사용하는 포트를 확인합니다. netstat
+.. 'stemctl status 중재자 - scst'를 실행하십시오
 +
 [listing]
 ----
-         [root@scspr1905507001 ~]# netstat -anlt | grep -E '3260|31784'
+[root@scspr1915530002 ~]# systemctl status mediator-scst
+   Loaded: loaded (/etc/systemd/system/mediator-scst.service; enabled; vendor preset: disabled)
+   Active: active (running) since Mon 2022-04-18 10:41:47 EDT; 1 weeks 0 days ago
+  Process: 286595 ExecStart=/etc/init.d/scst start (code=exited, status=0/SUCCESS)
+ Main PID: 286662 (iscsi-scstd)
+    Tasks: 1 (limit: 49473)
+   Memory: 1.2M
+   CGroup: /system.slice/mediator-scst.service
+           └─286662 /usr/local/sbin/iscsi-scstd
+
+[root@scspr1915530002 ~]#
+----
+
+
+. ONTAP 중재자 서비스가 사용하는 포트를 확인합니다
++
+[listing]
+----
+[root@scspr1905507001 ~]# netstat -anlt | grep -E '3260|31784'
 
          tcp   0   0 0.0.0.0:31784   0.0.0.0:*      LISTEN
 
@@ -471,5 +525,5 @@ link:../media/console_output_mediator_installation.txt["ONTAP 중재자 설치�
 이제 ONTAP 중재자 서비스가 설치 및 실행됩니다. 중재자 기능을 사용하려면 ONTAP 스토리지 시스템에서 추가 구성을 수행해야 합니다.
 
 * MetroCluster IP 구성에서 ONTAP 중재자 서비스를 사용하려면 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_configuring_the_ontap_mediator_service_from_a_metrocluster_ip_configuration.html["MetroCluster IP 구성에서 ONTAP 중재자 서비스 구성"^]
-* SnapMirror 비즈니스 연속성을 사용하려면 을 참조하십시오 xref:../smbc/smbc_install_confirm_ontap_cluster.html[ONTAP 중재자 서비스를 설치하고 ONTAP 클러스터 구성을 확인합니다]
+* SnapMirror 비즈니스 연속성을 사용하려면 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap/smbc/smbc_install_confirm_ontap_cluster.html["ONTAP 중재자 서비스를 설치하고 ONTAP 클러스터 구성을 확인합니다"^]
 

@@ -28,8 +28,10 @@ entries:
     url: "/flexgroup/shrink-flexgroup-volume-task.html"
   - title: 크기가 자동으로 확장 및 축소되도록 FlexGroup 볼륨을 구성합니다
     url: "/flexgroup/configure-automatic-grow-shrink-task.html"
-  - title: 파일 및 디렉토리를 비동기적으로 삭제하여 빠른 디렉토리 삭제를 수행합니다
+  - title: 클러스터에서 파일과 디렉토리를 빠르게 삭제합니다
     url: "/flexgroup/fast-directory-delete-asynchronous-task.html"
+  - title: 클라이언트 권한을 관리하여 디렉토리를 신속하게 삭제합니다
+    url: "/flexgroup/manage-client-async-dir-delete-task.html"
   - title: FlexGroup 볼륨으로 qtree를 생성합니다
     url: "/flexgroup/create-qtrees-task.html"
   - title: FlexGroup 볼륨에 할당량을 사용합니다

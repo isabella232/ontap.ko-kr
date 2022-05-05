@@ -1,8 +1,8 @@
 ---
 permalink: svm-migrate/monitor-volume-task.html 
 sidebar: sidebar 
-keywords: svm, migrate, monitor, volume, status 
-summary: 전체 SVM 마이그레이션을 모니터링할 뿐만 아니라 SVM에 포함된 볼륨의 마이그레이션 상태를 모니터링할 수 있습니다. 
+keywords: svm, vserver, migrate, monitor, volume, status 
+summary: '"vserver migrate show" 명령을 사용하여 전체 SVM 마이그레이션을 모니터링하는 것 외에도 SVM에 포함된 볼륨의 마이그레이션 상태를 모니터링할 수 있습니다.' 
 ---
 = 볼륨 마이그레이션을 모니터링합니다
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 전체 SVM 마이그레이션을 모니터링할 뿐만 아니라 SVM�
 
 
 [role="lead"]
-전체 SVM 마이그레이션을 모니터링할 뿐만 아니라 SVM에 포함된 볼륨의 마이그레이션 상태를 모니터링할 수 있습니다.
+'vserver migrate show' 명령을 사용하여 전체 SVM 마이그레이션을 모니터링하는 것 외에도 SVM에 포함된 볼륨의 마이그레이션 상태를 모니터링할 수 있습니다.
 
 .단계
 . 볼륨 마이그레이션 상태 확인:

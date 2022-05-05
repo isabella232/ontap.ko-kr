@@ -16,3 +16,5 @@ entries:
   url: "/anti-ransomware/respond-abnormal-task.html"
 - title: 공격 후 데이터 복구
   url: "/anti-ransomware/recover-data-task.html"
+- title: 스냅샷 복사본 옵션을 수정합니다
+  url: "/anti-ransomware/modify-automatic-shapshot-options-task.html"

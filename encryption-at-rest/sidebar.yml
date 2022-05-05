@@ -66,6 +66,8 @@ entries:
       url: "/encryption-at-rest/enable-external-key-management-96-later-hw-task.html"
     - title: ONTAP 9.5 이전 버전에서 외부 키 관리를 활성화합니다
       url: "/encryption-at-rest/enable-exernal-key-management-95-earlier-hw-task.html"
+    - title: 클러스터링된 외부 키 서버를 구성합니다
+      url: "/encryption-at-rest/configure-cluster-key-server-task.html"
     - title: ONTAP 9.6 이상에서 인증 키를 생성합니다
       url: "/encryption-at-rest/create-authentication-keys-96-later-task.html"
     - title: ONTAP 9.5 이전 버전에서 인증 키를 만듭니다

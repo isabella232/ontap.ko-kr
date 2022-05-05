@@ -79,7 +79,7 @@ indexpage:
       url: "/../insights-system-optimization-task.html"
     - title: CLI를 사용한 AutoSupport 및 Active IQ 개요
       url: "/../system-admin/autosupport-active-iq-digital-advisor-concept.html"
-  - title: SVM 마이그레이션(ONTAP 9.10.1의 새로운 기능)
+  - title: SVM 마이그레이션
     links:
     - title: 개요
       url: /../svm-migrate/index.html"

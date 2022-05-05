@@ -82,3 +82,17 @@ entries:
     url: "/authentication/manage-failed-login-attempts-reference.html"
   - title: 관리자 계정 암호에 SHA-2를 적용합니다
     url: "/authentication/enforce-sha2-user-account-passwords-task.html"
+- title: 여러 관리자 검증 관리
+  entries:
+  - title: 개요
+    url: "/multi-admin-verify/index.html"
+  - title: 관리자 그룹을 관리합니다
+    url: "/multi-admin-verify/manage-groups-task.html"
+  - title: 다중 관리 확인을 활성화 및 비활성화합니다
+    url: "/multi-admin-verify/enable-disable-task.html"
+  - title: 보호된 작업 규칙을 관리합니다
+    url: "/multi-admin-verify/manage-rules-task.html"
+  - title: 보호된 작업의 실행을 요청합니다
+    url: "/multi-admin-verify/request-operation-task.html"
+  - title: 보호된 작업 요청을 관리합니다
+    url: "/multi-admin-verify/manage-requests-task.html"

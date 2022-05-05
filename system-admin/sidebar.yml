@@ -214,14 +214,16 @@ entries:
       url: "/system-admin/bmc-cli-commands-reference.html"
 - title: 관리 활동에 대한 감사 로깅을 관리합니다
   entries:
-  - title: ONTAP 9의 감사 로깅을 변경합니다
-    url: "/system-admin/changes-audit-logging-ontap-9-concept.html"
   - title: ONTAP에서 감사 로깅을 구현하는 방법
     url: "/system-admin/ontap-implements-audit-logging-concept.html"
-  - title: 감사 로그를 대상으로 전달합니다
+  - title: ONTAP 9의 감사 로깅을 변경합니다
+    url: "/system-admin/changes-audit-logging-ontap-9-concept.html"
+  - title: 감사 로그 내용을 표시합니다
+    url: "/system-admin/audit-display-log-contents-task.html"
+  - title: 감사 가져오기 요청 설정을 관리합니다
+    url: "/system-admin/audit-manage-get-requests-task.html"
+  - title: 감사 로그 대상을 관리합니다
     url: "/system-admin/forward-command-history-log-file-destination-task.html"
-  - title: 관리 작업에 대한 감사 설정을 관리하는 명령입니다
-    url: "/system-admin/commands-manage-audit-settings-reference.html"
 - title: 클러스터 시간 관리(클러스터 관리자만 해당)
   url: "/system-admin/manage-cluster-time-concept.html"
 - title: 클러스터 시간을 관리하는 명령입니다

@@ -13,13 +13,7 @@ summary: '하나 이상의 외부 키 관리 서버를 사용하여 클러스터
 [role="lead"]
 하나 이상의 외부 키 관리 서버를 사용하여 클러스터가 암호화된 데이터에 액세스하는 데 사용하는 키를 보호할 수 있습니다. 외부 키 관리 서버는 KMIP(Key Management Interoperability Protocol)를 사용하여 노드에 키를 제공하는 스토리지 환경의 타사 시스템입니다.
 
-[NOTE]
-====
-ONTAP 9.1 이전 버전의 경우 노드 관리 LIF를 외부 키 관리자를 사용하려면 먼저 노드 관리 역할로 구성된 포트에 할당해야 합니다.
 
-====
-[NOTE]
-====
-NetApp 볼륨 암호화(NVE)는 ONTAP 9.1 이상에서 온보드 키 관리자를 지원합니다. ONTAP 9.3 이상에서는 NVE가 외부 키 관리(KMIP)와 온보드 키 관리자를 지원합니다.
+NOTE: ONTAP 9.1 이전 버전의 경우 노드 관리 LIF를 외부 키 관리자를 사용하려면 먼저 노드 관리 역할로 구성된 포트에 할당해야 합니다.
 
-====
+NetApp 볼륨 암호화(NVE)는 ONTAP 9.1 이상에서 온보드 키 관리자를 지원합니다. ONTAP 9.3부터 NVE는 외부 키 관리(KMIP) 및 온보드 키 관리자를 지원합니다. ONTAP 9.10.1부터 를 사용할 수 있습니다 xref:manage-keys-azure-google-task.html[Azure Key Vault 또는 Google Cloud Key Manager Service] NVE 키를 보호합니다. ONTAP 9.11.1부터는 클러스터의 여러 외부 키 관리자를 구성할 수 있습니다. 을 참조하십시오 xref:configure-cluster-key-server-task.html[클러스터링된 키 서버를 구성합니다.]

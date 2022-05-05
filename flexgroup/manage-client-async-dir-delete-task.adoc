@@ -1,0 +1,107 @@
+---
+permalink: flexgroup/manage-client-async-dir-delete-task.html 
+sidebar: sidebar 
+keywords: perform, directory, enable, delete, files, asynchronous, client rights, SMB, NFS, share, flexvol, flex vol, flexgroup, flex group 
+summary: ONTAP 9.11.1부터 스토리지 관리자는 볼륨에 대한 권한을 부여하여 NFS 및 SMB 클라이언트가 짧은 지연 시간_빠른 디렉토리 삭제_작업을 수행할 수 있도록 할 수 있습니다. 비동기식 삭제가 설정된 경우 NFS 클라이언트는 mv 명령을 사용할 수 있으며 SMB 클라이언트는 rename 명령을 사용하여 지정된 볼륨의 디렉토리를 삭제하고 기본적으로 이름이 .ontaptrashbin인 숨겨진 디렉토리로 디렉토리를 이동할 수 있습니다. 
+---
+= 클라이언트 권한을 관리하여 디렉토리를 신속하게 삭제합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.11.1부터 스토리지 관리자는 볼륨에 대한 권한을 부여하여 NFS 및 SMB 클라이언트가 짧은 지연 시간_빠른 디렉토리 삭제_작업을 직접 수행할 수 있도록 할 수 있습니다. 클러스터에서 비동기 삭제가 활성화된 경우 Linux 클라이언트 사용자는 mv 명령을 사용할 수 있으며 Windows 클라이언트 사용자는 rename 명령을 사용하여 지정된 볼륨에서 디렉토리를 기본적으로 이름이 .ontaptrashbin인 숨겨진 디렉토리로 이동하여 해당 디렉토리를 신속하게 삭제할 수 있습니다.
+
+
+
+== 클라이언트 비동기 디렉토리 삭제를 설정합니다
+
+.단계
+. 클러스터 CLI에서 고급 권한 모드(- Privilege advance)를 입력합니다
+. 클라이언트 비동기 삭제를 활성화하고 필요한 경우 trashbin 디렉토리에 대한 대체 이름을 제공합니다.
++
+'볼륨 파일 비동기 삭제 클라이언트 활성화 volume_volname_vserver_vserverName_trashbinname_name_'
+
++
+기본 휴지통 이름을 사용한 예:
+
++
+[listing]
+----
+cluster1::*> volume file async-delete client enable -volume v1 -vserver  vs0
+
+Info: Async directory delete from the client has been enabled on volume "v1" in
+      Vserver "vs0".
+----
++
+대체 휴지통 이름을 지정하는 예:
+
++
+[listing]
+----
+cluster1::*> volume file async-delete client enable -volume test -trashbin ntaptrash -vserver vs1
+
+Success: Async directory delete from the client is enabled on volume "v1" in
+      Vserver "vs0".
+----
+. 클라이언트 비동기식 삭제가 설정되었는지 확인합니다.
++
+'볼륨 파일 비동기 삭제 클라이언트 표시'
+
++
+예:
+
++
+[listing]
+----
+cluster1::*> volume file async-delete client show
+
+Vserver Volume      async-delete client TrashBinName
+------------ ------------ ----------------------- -------------
+vs1          vol1         Enabled          .ntaptrash
+vs2          vol2         Disabled          -
+
+2 entries were displayed.
+----
+
+
+
+
+== 클라이언트 비동기 디렉터리 삭제를 비활성화합니다
+
+.단계
+. 클러스터 CLI에서 client asychronous directory delete:
++
+'volume file async-delete client disable volume_volname_vserver_Name_'
+
++
+예:
+
++
+[listing]
+----
+cluster1::*> volume file async-delete client disable -volume vol1 -vserver vs1
+
+       Success: Asynchronous directory delete client disabled successfully on volume.
+----
+. 클라이언트 비동기식 삭제가 비활성화되어 있는지 확인합니다.
++
+'볼륨 파일 비동기 삭제 클라이언트 표시'
+
++
+예:
+
++
+[listing]
+----
+cluster1::*> volume file async-delete client show
+
+Vserver      Volume      async-delete client      TrashBinName
+------------ ------------ ----------------------- -------------
+vs1          vol1         Disabled                -
+vs2          vol2         Disabled                -
+
+2 entries were displayed.
+----
+

@@ -59,7 +59,7 @@ indexpage:
       url: "/../nfs-config/kerberos-nfs-strong-security-concept.html"
     - title: Kerberos에 대한 ONTAP 지원
       url: "/../nfs-admin/ontap-support-kerberos-concept.html"
-  - title: RDMA 상의 NFS(ONTAP 9.10.1의 새로운 기능)
+  - title: RDMA 상의 NFS
     links:
     - title: 개요
       url: "/../nfs-rdma/index.html"

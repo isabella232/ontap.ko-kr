@@ -2,7 +2,7 @@
 permalink: svm-migrate/index.html 
 sidebar: sidebar 
 keywords: svm, migrate, workflow, relocate, prerequisites, data mobility 
-summary: ONTAP 9.10.1부터 클러스터 관리자는 SVM을 소스 클러스터에서 대상 클러스터로 중단 없이 재배치하여 용량과 로드 밸런싱을 관리하거나 장비 업그레이드 또는 데이터 센터 통합을 지원할 수 있습니다. 이 기능은 ONTAP 9.10.1의 AFF 어레이에서만 지원됩니다. iSCSI 워크로드는 지원되지 않습니다. 
+summary: ONTAP 9.10.1부터 클러스터 관리자는 SVM을 소스 클러스터에서 대상 클러스터로 중단 없이 재배치하여 용량과 로드 밸런싱을 관리하거나 장비 업그레이드 또는 데이터 센터 통합을 지원할 수 있습니다. 이 기능은 AFF 어레이에서만 지원됩니다. 
 ---
 = SVM 데이터 이동성 개요
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: ONTAP 9.10.1부터 클러스터 관리자는 SVM을 소스 클러스터
 
 
 [role="lead"]
-ONTAP 9.10.1부터 클러스터 관리자는 SVM을 소스 클러스터에서 대상 클러스터로 중단 없이 재배치하여 용량과 로드 밸런싱을 관리하거나 장비 업그레이드 또는 데이터 센터 통합을 지원할 수 있습니다. 이 기능은 ONTAP 9.10.1의 AFF 어레이에서만 지원됩니다. iSCSI 워크로드는 지원되지 않습니다.
+ONTAP 9.10.1부터 클러스터 관리자는 SVM을 소스 클러스터에서 대상 클러스터로 중단 없이 재배치하여 용량과 로드 밸런싱을 관리하거나 장비 업그레이드 또는 데이터 센터 통합을 지원할 수 있습니다. 이 기능은 AFF 어레이에서만 지원됩니다.
 
 마이그레이션 후에도 SVM의 이름과 UUID는 변경되지 않으며 데이터 LIF 이름, IP 주소, 볼륨 이름과 같은 개체 이름도 그대로 유지됩니다. SVM에서 개체의 UUID는 다릅니다.
 
@@ -27,13 +27,23 @@ image::../media/workflow_svm_migrate.gif[워크플로 svm 마이그레이션]
 
 == 지원되는 구성
 
-지원되는 구성은 다음과 같습니다.
+이 표에는 지원되는 구성과 지원 가능한 ONTAP 릴리즈가 나와 있습니다.
 
-* AFF 어레이만 해당
-* 소스 및 타겟에 2개의 노드 클러스터만 있습니다
-* 데이터 센터 내에서 2ms의 최대 네트워크 지연 시간으로 마이그레이션하십시오
+[cols="3,2*"]
+|===
 
 
+| 에서 지원되는 구성... | ONTAP 9.10.1 | ONTAP 9.11.1 
+
+
+| AFF 어레이만 해당 | 예 | 예 
+
+
+| 총 스토리지/노드 쌍 | 1 | 3 
+
+
+| 데이터 센터와 2ms의 최대 네트워크 지연 시간으로 마이그레이션 | 예 | 예 
+|===
 
 
 == 필수 구성 요소
@@ -44,10 +54,10 @@ image::../media/workflow_svm_migrate.gif[워크플로 svm 마이그레이션]
 * 소스 클러스터의 모든 노드에서 ONTAP 9.10.1 이상이 실행되고 있어야 합니다
 * 소스 클러스터의 모든 노드에서 동일한 ONTAP 버전을 실행해야 합니다
 * 대상 클러스터가 소스 클러스터와 같은 최신 ECV(유효 클러스터 버전)에 있습니다
-* 소스 및 대상 클러스터는 동일한 L2 네트워크에 있으며 동일한 VLAN에 있어야 합니다
+* 소스 클러스터와 대상 클러스터가 동일한 데이터 네트워크에 있습니다
 * 소스 SVM에는 릴리즈를 위해 지원되는 최대 데이터 볼륨 수보다 적게 포함됩니다.
 +
-ONTAP 9.10.1에서 지원되는 최대 데이터 볼륨 수는 100입니다.
+지원되는 최대 데이터 볼륨 수는 100개입니다.
 
 * 대상에서 볼륨 배치를 위한 충분한 공간을 사용할 수 있습니다
 * 소스 SVM에서 볼륨을 암호화한 경우 온보드 Key Manager를 타겟에 구성해야 합니다
@@ -62,7 +72,6 @@ SVM 마이그레이션과 충돌할 수 있는 작업을 확인해야 합니다.
 * 진행 중인 페일오버 작업이 없습니다
 * WAFLIRON을 실행할 수 없습니다
 * 지문이 진행 중이 아닙니다
-* SMTape가 진행 중이 아닙니다
 * 볼륨 이동, 리호스트, 클론, 생성, 변환 또는 분석이 실행되지 않습니다
 
 
@@ -70,42 +79,71 @@ SVM 마이그레이션과 충돌할 수 있는 작업을 확인해야 합니다.
 
 == 지원되는 기능
 
-ONTAP 9.10.1에서 지원되는 기능은 다음과 같습니다.
+이 표에는 지원되는 기능과 지원을 사용할 수 있는 ONTAP 릴리즈가 나와 있습니다.
 
-* NFS v3, NFS v4.1 및 NFS v4.2 프로토콜
-* NetApp 볼륨 암호화
+[cols="3,1,1,4"]
+|===
 
 
+| 지원되는 기능... | ONTAP 9.10.1 | ONTAP 9.11.1 | 추가 정보 
+
+
+| NFS v3, NFS v4.1 및 NFS v4.2 프로토콜 | 예 | 예 |  
+
+
+| NetApp 볼륨 암호화 | 예 | 예 |  
+
+
+| 비동기식 SnapMirror 소스 | 아니요 | 예  a| 
+* 대부분의 마이그레이션 동안 FlexVol SnapMirror 관계에서도 정상적으로 전송을 계속할 수 있습니다.
+* 전환 중에 진행 중인 전송이 취소되고 전환 중에 새 전송이 실패하며 마이그레이션이 완료될 때까지 다시 시작할 수 없습니다.
+* 마이그레이션 중에 취소되거나 누락된 예약된 전송은 마이그레이션이 완료된 후 자동으로 시작되지 않습니다.
+
+
+
+
+| SnapMirror 애플리케이션용 SVM 피어링 | 아니요 | 예 |  
+
+
+| 외부 키 관리자 | 아니요 | 예 |  
+
+
+| 팬아웃 관계(마이그레이션 소스에 둘 이상의 대상이 있는 SnapMirror 소스 볼륨이 있음) | 아니요 | 예 |  
+
+
+| 작업 스케줄 복제 | 아니요 | 예 | ONTAP 9.10.1에서는 마이그레이션 중에 작업 일정이 복제되지 않으므로 대상에서 수동으로 생성해야 합니다. ONTAP 9.11.1부터는 마이그레이션 중에 소스에서 사용하는 작업 일정이 자동으로 복제됩니다. 
+|===
 
 
 == 지원되지 않는 기능입니다
 
 SVM 마이그레이션에서는 다음 기능이 지원되지 않습니다.
 
-* iSCSI 워크로드
-* IPv6 LIF
-* 소스 클러스터의 온보드 키 관리자(OKM)에 CC(Common Criteria) 모드가 활성화된 경우 SVM 마이그레이션
-* SVM 피어링, SnapMirror, 데이터 보호 볼륨
-* SAN, NVMe over Fibre, CIFS, Vscan, NFS v4.0, vStorage, S3 복제
-* 감사
-* NDMP
-* VIP/BGP LIF
-* IPsec 정책
 * 랜섬웨어 방지
-* Qtree, 할당량
-* SVM-DR
-* 대상 클러스터의 외부 키 관리자
-* SnapMirror를 참조하십시오
-* SnapLock
-* FlexGroups를 선택합니다
-* FlexCache
+* 비동기식 SnapMirror 타겟
+* 감사
+* Cloud Volumes ONTAP
+* 데이터 보호 볼륨
 * FabricPools
+* FAS 스토리지
 * Flash Pool 애그리게이트로 전환 가능
+* FlexCache 볼륨
+* FlexGroup 볼륨
+* IPsec 정책
+* IPv6 LIF
+* iSCSI 워크로드
+* 로드 공유 미러
 * MetroCluster
+* NDMP
+* SAN, NVMe over Fibre, CIFS, Vscan, NFS v4.0, vStorage, S3 복제
+* SMTape
+* SnapLock
+* SVM-DR
+* 소스 클러스터의 온보드 키 관리자(OKM)에 CC(Common Criteria) 모드가 활성화된 경우 SVM 마이그레이션
+* 동기 SnapMirror, SnapMirror 비즈니스 연속성
 * 시스템 관리자
+* Qtree, 할당량
+* VIP/BGP LIF
 * VMware vSphere용 가상 스토리지 콘솔(VSC는 의 일부입니다 https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere/index.html["VMware vSphere 가상 어플라이언스인 ONTAP 툴"^] VSC 7.0부터 시작)
 * 볼륨 클론
-* FAS 스토리지
-* 로드 공유 미러
-* Cloud Volumes ONTAP
 

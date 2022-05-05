@@ -24,6 +24,8 @@ entries:
     url: "/san-admin/create-luns-mapping-igroups-task.html"
   - title: 특정 호스트에 대해 블록 액세스를 설정합니다
     url: "/san-admin/enable-block-access-specific-host-task.html"
+  - title: LUN을 네임스페이스로 변환
+    url: "/san-admin/convert-lun-to-namespace.html"
 - title: NVMe용 네임스페이스 설정
   entries:
   - title: NVMe 네임스페이스 고려 사항
@@ -34,6 +36,8 @@ entries:
     url: "/san-admin/create-nvme-namespace-subsystem-task.html"
   - title: NVMe 네임스페이스를 하위 시스템에 매핑
     url: "/san-admin/map-nvme-namespace-subsystem-task.html"
+  - title: 네임스페이스를 LUN으로 변환합니다
+    url: "/nvme/convert-namespace-to-lun-task.html"
 - title: FC 및 iSCSI용 LUN 관리
   entries:
   - title: LUN의 크기를 늘립니다

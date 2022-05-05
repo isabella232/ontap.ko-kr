@@ -42,6 +42,8 @@ entries:
     url: "/revert/task_preparing_snapshot_copies_before_reverting.html"
   - title: SHA-2 해시 기능을 사용하는 사용자 계정
     url: "/revert/identify-user-sha2-hash-user-accounts.html"
+  - title: 랜섬웨어 방지 라이센스
+    url: "/revert/anti-ransomware-license-task.html"
 - title: 복원 소프트웨어 이미지를 구해서 설치하려면 어떻게 해야 합니까?
   url: "/revert/task_download_and_install_ontap_software_image.html"
 - title: 내 클러스터를 되돌립니다

@@ -1,0 +1,36 @@
+---
+permalink: system-admin/audit-manage-get-requests-task.html 
+sidebar: sidebar 
+keywords: audit, log, cluster, get request 
+summary: '설정된 요청이 기본적으로 기록되지만 GET 요청은 기록되지 않습니다. 그러나 settings 명령을 사용하여 ONTAP HTML(-HttpGet), ONTAP CLI(-cliget) 또는 ONTAP API(-ontapiget)에서 보낸 GET 요청이 파일에 기록되는지 여부를 제어할 수 있습니다.' 
+---
+= 감사 가져오기 요청 설정을 관리합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+설정된 요청이 기본적으로 기록되지만 GET 요청은 기록되지 않습니다. 그러나 ONTAP HTML('-HttpGet'), ONTAP CLI('-cliget') 또는 ONTAP API('-ontapiget')에서 보낸 GET 요청이 파일에 기록되는지 여부를 제어할 수 있습니다.
+
+시스템 관리자에서 감사 로깅 설정을 ONTAP CLI에서 수정할 수 있으며 ONTAP 9.11.1부터 시작할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+. 이벤트 및 작업 > 감사 로그 * 를 선택합니다.
+. 을 클릭합니다 image:icon_gear.gif["설정 아이콘"] 오른쪽 위 모서리에서 추가 또는 제거할 요청을 선택합니다.
+
+
+--
+.CLI를 참조하십시오
+--
+* ONTAP CLI 또는 API의 GET 요청을 감사 로그(audit.log 파일)에 기록하도록 지정하려면 기본 설정 요청 외에 + '보안 감사 수정[-cliget{on|off}][-HttpGet{ on|off}][-ontapiget{on|off}]'을 입력합니다
+* 현재 설정을 표시하려면 + 보안 감사 표시 를 입력합니다
+
+
+자세한 내용은 man 페이지를 참조하십시오.
+
+--
+====

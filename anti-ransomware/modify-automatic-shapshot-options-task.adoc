@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: anti-ransomware/modify-automatic-shapshot-options-task.html 
+keywords: anti-ransomware, automatic Snapshot copy, suspected attack, vserver options command 
+summary: 'ONTAP 9.11.1부터 ARW(안티 랜섬웨어) 스냅샷 복사본의 수와 보존 기간을 제어할 수 있으며, 이 수는 의심되는 랜섬웨어 공격에 대응하여 자동으로 생성됩니다.' 
+---
+= 자동 스냅샷 복사본에 대한 옵션을 수정합니다
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:allow-uri-read: 
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+ONTAP 9.11.1부터 ARW(안티 랜섬웨어) 스냅샷 복사본의 수와 보존 기간을 제어할 수 있으며, 이 수는 의심되는 랜섬웨어 공격에 대응하여 자동으로 생성됩니다.
+
+* 참고 *: 'vserver options' 명령은 숨겨진 명령입니다. man 페이지를 보려면 ONTAP CLI에서 '가상 서버 옵션'을 입력하십시오.
+
+자동 스냅샷 복사본에 대한 다음 옵션을 수정할 수 있습니다.
+
+ARW.SNAP.최대 개수:: 특정 시간에 볼륨에 존재할 수 있는 최대 ARW 스냅샷 복사본 수를 지정합니다. 이전 복사본은 삭제된 총 ARW 스냅샷 복사본 수가 지정된 제한 내에 있는지 확인합니다.
+arw.snap.create.interval.hours:: ARW 스냅샷 복사본 간의 간격(시간)을 지정합니다. 공격이 의심되고 이전에 생성된 복제본이 지정된 간격보다 오래된 경우 새 스냅샷 복사본이 생성됩니다.
+arw.snap.normal.retain.interval.hours:: ARW 스냅샷 복사본이 유지되는 기간(시간)을 지정합니다. ARW 스냅샷 복사본이 오래되면 이 기간에 도달하기 위해 최신 복사본 전에 생성된 다른 ARW 스냅샷 복사본이 삭제됩니다. 이 기간보다 오래된 ARW 스냅샷 복사본을 사용할 수 없습니다.
+arw.snap.max.retain.interval.days:: ARW 스냅샷 복사본을 보존할 수 있는 최대 기간(일)을 지정합니다. 이 기간보다 오래된 ARW 스냅샷 복사본은 볼륨에 보고된 공격이 없으면 삭제됩니다.
+arw.snap.create.interval.hours.post.max.count:: 볼륨에 ARW 스냅샷 복사본의 최대 수가 이미 포함된 경우 ARW 스냅샷 복사본 간의 간격(시간)을 지정합니다. 최대 수에 도달하면 ARW 스냅샷 복사본이 삭제되어 새 복사본을 위한 공간을 만듭니다. 이 옵션을 사용하면 새 ARW 스냅샷 복사본 생성 속도를 줄여 이전 복사본을 보존할 수 있습니다. 볼륨에 이미 최대 수의 ARW 스냅샷 복사본이 포함되어 있는 경우 이 옵션에 지정된 이 간격은 arw.snap.create.interval.hours 대신 다음 ARW 스냅샷 복사본을 생성하는 데 사용됩니다.
+arw.surge.snap.interval.days:: ARW 서지 스냅샷 복사본 간의 간격(일)을 지정합니다. 입출력 트래픽이 급증하고 마지막으로 생성된 ARW 스냅샷 복사본이 지정된 간격보다 오래된 경우 새 ARW 스냅샷 서지 복사본이 생성됩니다. 이 옵션은 ARW 서지 스냅샷 복사본이 유지되는 기간(일)도 지정합니다.
+
+
+
+
+== CLI 절차
+
+현재 모든 ARW 스냅샷 복사 설정을 표시하려면 'vserver options-vserver_svm_name_arw *'를 입력합니다
+
+선택한 현재 ARW 스냅샷 복사 설정을 표시하려면 'vserver options-vserver_svm_name_-option-name_arw_setting_name_'을 입력합니다
+
+ARW 스냅샷 복사 설정을 수정하려면 'vserver options-vserver_svm_name_-option-name_arw_setting_name_-option-value_arw_setting_value_'를 입력합니다

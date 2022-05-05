@@ -32,6 +32,8 @@ entries:
     url: "/flexcache/synchronize-properties-origin-volume-task.html"
   - title: FlexCache 관계의 구성을 업데이트합니다
     url: "/flexcache/refresh-config-relationship-task.html"
+  - title: 파일 액세스 시간 업데이트를 활성화합니다
+    url: "/flexcache/enable-file-access-time-updates-task.html"
   - title: 글로벌 파일 잠금을 설정합니다
     url: "/flexcache/global-file-locking-task.html"
   - title: FlexCache 볼륨을 미리 채웁니다

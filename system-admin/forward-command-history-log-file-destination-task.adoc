@@ -1,39 +1,40 @@
 ---
 permalink: system-admin/forward-command-history-log-file-destination-task.html 
 sidebar: sidebar 
-keywords: forward, audit, log, destination, cluster, forwarding, splunk, create, command 
-summary: 클러스터 로그 전달 create 명령을 사용하여 지정한 최대 10개의 대상으로 감사 로그를 전달할 수 있습니다. 예를 들어, 모니터링, 분석 또는 백업을 위해 로그를 Splunk 또는 syslog 서버로 전달할 수 있습니다. 
+keywords: forward, audit, log, destination, cluster, forwarding, splunk 
+summary: 감사 로그를 최대 10개의 대상으로 전달할 수 있습니다. 예를 들어, 모니터링, 분석 또는 백업을 위해 로그를 Splunk 또는 syslog 서버로 전달할 수 있습니다. 
 ---
-= 감사 로그를 대상으로 전달합니다
+= 감사 로그 대상을 관리합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-'cluster log-forwarding create' 명령을 사용하여 지정한 최대 10개의 대상으로 감사 로그를 전달할 수 있습니다. 예를 들어, 모니터링, 분석 또는 백업을 위해 로그를 Splunk 또는 syslog 서버로 전달할 수 있습니다.
+감사 로그를 최대 10개의 대상으로 전달할 수 있습니다. 예를 들어, 모니터링, 분석 또는 백업을 위해 로그를 Splunk 또는 syslog 서버로 전달할 수 있습니다.
 
-"cluster log-forwarding create" 명령이 대상 호스트를 ping하여 연결을 확인할 수 없으면 명령이 실패하고 오류가 표시됩니다. 권장하지는 않지만 명령과 함께 '-force' 매개 변수를 사용하면 연결 확인이 생략됩니다.
+전달을 구성하려면 syslog 또는 Splunk 호스트의 IP 주소, 포트 번호, 전송 프로토콜 및 전달된 로그에 사용할 syslog 기능을 제공해야 합니다. https://datatracker.ietf.org/doc/html/rfc5424["syslog 기능에 대해 자세히 알아보십시오"^].
 
-로그 파일을 전달할 때 전송 보안 옵션을 구성할 수 있습니다.
+다음 전송 값 중 하나를 선택할 수 있습니다.
 
-* 대상에 메시지를 보내는 프로토콜입니다
-+
-다음 '-protocol' 값 중 하나를 선택할 수 있습니다.
-
-+
-** 'UDP-암호화되지 않음': 보안이 없는 사용자 데이터그램 프로토콜(기본값)
-** TCP 암호화되지 않은 전송 제어 프로토콜(보안 없음
-** TCP 암호화: 전송 계층 보안(TLS)이 있는 전송 제어 프로토콜
+UDP 암호화되지 않음:: 보안이 없는 사용자 데이터그램 프로토콜(기본값)
+TCP 암호화되지 않음:: 보안 기능이 없는 전송 제어 프로토콜
+TCP 암호화:: 전송 계층 보안(TLS)이 있는 전송 제어 프로토콜 + A * 서버 확인 * 옵션은 TCP 암호화 프로토콜이 선택된 경우에 사용할 수 있습니다.
 
 
-* 대상 서버 ID 확인
-+
-'-verify-server' 매개 변수를 'true'로 설정하면 로그 전달 대상 ID가 인증서의 유효성을 확인하여 확인됩니다. 프로토콜 필드에서 TCP 암호화 값을 선택한 경우에만 이 값을 'true'로 설정할 수 있습니다.
+ONTAP CLI에서 감사 로그를 전달하고 ONTAP 9.11.1부터 System Manager에서 전달할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+* 감사 로그 대상을 표시하려면 * 클러스터 > 설정 * 을 선택합니다. +로그 대상 수가 * 알림 관리 타일 * 에 표시됩니다. 을 클릭합니다 image:../media/icon_kabob.gif["케밥 아이콘"] 를 눌러 세부 정보를 표시합니다.
+* 감사 로그 대상을 추가, 수정 또는 삭제하려면 * 이벤트 및 작업 > 감사 로그 * 를 선택한 다음 화면 오른쪽 상단의 * 감사 대상 관리 * 를 클릭합니다. 를 누릅니다 image:icon_add.gif["추가 아이콘"]또는 을 클릭합니다 image:../media/icon_kabob.gif["케밥 아이콘"] 항목을 편집하거나 삭제하려면 * 호스트 주소 * 열에 입력합니다.
 
 
-
-.단계
+--
+.CLI를 참조하십시오
+--
 . 감사 로그를 전달할 각 대상에 대해 대상 IP 주소 또는 호스트 이름 및 보안 옵션을 지정합니다.
 +
 [listing]
@@ -44,6 +45,11 @@ cluster1::> cluster log-forwarding create -destination 192.168.123.96
 cluster1::> cluster log-forwarding create -destination 192.168.123.98
 -port 514 -protocol tcp-encrypted -facility user
 ----
++
+** "cluster log-forwarding create" 명령이 대상 호스트를 ping하여 연결을 확인할 수 없으면 명령이 실패하고 오류가 표시됩니다. 권장하지는 않지만 명령과 함께 '-force' 매개 변수를 사용하면 연결 확인이 생략됩니다.
+** '-verify-server' 매개 변수를 'true'로 설정하면 로그 전달 대상 ID가 인증서의 유효성을 확인하여 확인됩니다. 프로토콜 필드에서 TCP 암호화 값을 선택한 경우에만 이 값을 'true'로 설정할 수 있습니다.
+
+
 . cluster log-forwarding show 명령을 사용하여 대상 레코드가 올바른지 확인합니다.
 +
 [listing]
@@ -59,4 +65,7 @@ Destination Host          Port   Protocol        Server Facility
 ----
 
 
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"]
+자세한 내용은 man 페이지를 참조하십시오.
+
+--
+====

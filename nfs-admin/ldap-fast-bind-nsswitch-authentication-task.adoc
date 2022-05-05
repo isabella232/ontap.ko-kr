@@ -1,0 +1,66 @@
+---
+permalink: /nfs-admin/ldap-fast-bind-nsswitch-authentication-task.html 
+sidebar: sidebar 
+keywords: use, ldap, fast, bind, authentication, configure 
+summary: 'ONTAP 9.11.1부터는 LDAP_Fast BIND_FUNGION(_CONNEC동시 바인드_)을 활용하여 클라이언트 인증 요청을 더 빠르고 간편하게 수행할 수 있습니다. 이 기능을 사용하려면 LDAP 서버가 빠른 바인딩 기능을 지원해야 합니다' 
+---
+= nsswitch 인증에 LDAP 고속 바인딩을 사용합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.11.1부터는 LDAP_Fast BIND_FUNGION(_CONNEC동시 바인드_)을 활용하여 클라이언트 인증 요청을 더 빠르고 간편하게 수행할 수 있습니다. 이 기능을 사용하려면 LDAP 서버가 빠른 바인딩 기능을 지원해야 합니다.
+
+빠른 바인딩이 없으면 ONTAP는 LDAP 단순 바인드를 사용하여 LDAP 서버에서 관리자 사용자를 인증합니다. 이 인증 방법을 사용하면 ONTAP에서 사용자 또는 그룹 이름을 LDAP 서버로 보내고, 저장된 해시 암호를 받고, 서버 해시 코드를 사용자 암호에서 로컬로 생성된 해시 암호와 비교합니다. 동일한 경우 ONTAP는 로그인 권한을 부여합니다.
+
+빠른 바인딩 기능을 사용하면 ONTAP는 보안 연결을 통해 사용자 자격 증명(사용자 이름 및 암호)만 LDAP 서버로 전송합니다. 그런 다음 LDAP 서버가 이러한 자격 증명을 검증하고 ONTAP에 로그인 권한을 부여하도록 지시합니다.
+
+빠른 바인딩의 한 가지 장점은 LDAP 서버에서 암호 해싱이 수행되기 때문에 ONTAP가 LDAP 서버에서 지원하는 모든 새로운 해싱 알고리즘을 지원할 필요가 없다는 것입니다.
+
+link:https://docs.microsoft.com/en-us/openspecs/windows_protocols/ms-adts/dc4eb502-fb94-470c-9ab8-ad09fa720ea6["빠른 바인딩 사용에 대해 알아보십시오."^]
+
+LDAP 고속 바인딩에 기존 LDAP 클라이언트 구성을 사용할 수 있습니다. 그러나 LDAP 클라이언트를 TLS 또는 LDAPS용으로 구성하는 것이 좋습니다. 그렇지 않으면 암호를 일반 텍스트로 유선으로 보냅니다.
+
+ONTAP 환경에서 LDAP 고속 바인딩을 사용하려면 다음 요구 사항을 충족해야 합니다.
+
+* ONTAP admin 사용자는 빠른 바인딩을 지원하는 LDAP 서버에 구성해야 합니다.
+* ONTAP SVM은 이름 서비스 스위치(nsswitch) 데이터베이스에서 LDAP에 대해 구성해야 합니다.
+* ONTAP admin 사용자 및 그룹 계정은 빠른 바인딩을 사용하여 nsswitch 인증에 맞게 구성해야 합니다.
+
+
+.단계
+. LDAP 관리자에게 LDAP 서버에서 LDAP 고속 바인딩이 지원되는지 확인하십시오.
+. ONTAP 관리자 사용자 자격 증명이 LDAP 서버에 구성되어 있는지 확인합니다.
+. LDAP 고속 바인딩에 대해 admin 또는 data SVM이 올바르게 구성되었는지 확인합니다.
++
+.. LDAP 빠른 바인딩 서버가 LDAP 클라이언트 구성에 나열되는지 확인하려면 다음을 입력합니다.
++
+'vserver services name-service ldap client show'
+
++
+link:https://docs.netapp.com/us-en/ontap/nfs-config/create-ldap-client-config-task.html["LDAP 클라이언트 구성에 대해 자세히 알아보십시오."]
+
+.. LDAP가 nsswitch 'passwd' 데이터베이스에 대해 구성된 소스 중 하나인지 확인하려면 다음을 입력합니다.
++
+'vserver services name-service ns-switch show'
+
++
+link:https://docs.netapp.com/us-en/ontap/nfs-config/configure-name-service-switch-table-task.html["nsswitch 구성에 대해 알아봅니다."]
+
+
+
+. admin 사용자가 nsswitch를 사용하여 인증하는지, 그리고 계정에서 LDAP 빠른 바인딩 인증이 활성화되어 있는지 확인합니다.
++
+** 기존 사용자의 경우 '보안 로그인 수정'을 입력하고 다음 파라미터 설정을 확인합니다.
++
+'-authentication-method nsswitch'
+
++
+'-is-ldap-fastbind true'
+
+** 새 관리자 사용자는 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap/authentication/grant-access-nis-ldap-user-accounts-task.html["LDAP 또는 NIS 계정 액세스를 설정합니다."]
+
+
+

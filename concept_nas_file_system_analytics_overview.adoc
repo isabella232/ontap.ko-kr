@@ -39,32 +39,41 @@ image::fsa-listview.png[FSA 목록 보기의 화면 캡처. 4개의 디렉토리
 
 * 릴리스별 기능 가용성 *
 
-[cols="3,1,1,1"]
+[cols="3,1,1,1,1"]
 |===
 
 
-|  | ONTAP 9.8 | ONTAP 9.9.1 | ONTAP 9.10.1 
+|  | ONTAP 9.8 | ONTAP 9.9.1 | ONTAP 9.10.1 | ONTAP 9.11.1 
 
 
-| System Manager의 시각화 | X | X | X 
+| System Manager의 시각화 | X | X | X | X 
 
 
-| 용량 분석 | X | X | X 
+| 용량 분석 | X | X | X | X 
 
 
-| 비활성 데이터 정보 | X | X | X 
+| 비활성 데이터 정보 | X | X | X | X 
 
 
-| 7-Mode 시스템에서 전환된 볼륨의 가용성 |  | X | X 
+| 7-Mode 시스템에서 전환된 볼륨의 가용성 |  | X | X | X 
 
 
-| System Manager에서 비활성 기간을 변경하는 옵션입니다 |  | X | X 
+| System Manager에서 비활성 기간을 변경하는 옵션입니다 |  | X | X | X 
 
 
-| 활동 추적 |  |  | X 
+| 활동 추적(볼륨 수준) |  |  | X | X 
 
 
-| CSV로 다운로드(활동 추적) |  |  | X 
+| CSV로 다운로드(활동 추적, 볼륨 레벨) |  |  | X | X 
+
+
+| 활동 추적(SVM 레벨) |  |  |  | X 
+
+
+| CSV로 다운로드(활동 추적, SVM 레벨) |  |  |  | X 
+
+
+| 타임라인 |  |  |  | X 
 |===
 
 

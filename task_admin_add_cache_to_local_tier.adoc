@@ -40,7 +40,7 @@ SSD 캐시를 프로비저닝하고 로컬 계층에 추가하는 데 사용하�
 ONTAP 9.8 이상에서 CLI를 사용하여 SSD 스토리지 풀을 생성하여 2~4개의 Flash Pool 애그리게이트를 위한 SSD 캐시를 제공합니다.
 
 .단계
-. 에 대한 절차를 수행합니다 xref:disks-aggregates/create-ssd-storage-pool-task.html[SSD 스토리지 풀을 생성합니다].
+. 에 대한 절차를 수행합니다 link:disks-aggregates/create-ssd-storage-pool-task.html["SSD 스토리지 풀을 생성합니다"].
 
 
 

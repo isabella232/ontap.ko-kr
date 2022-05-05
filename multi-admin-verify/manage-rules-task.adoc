@@ -1,0 +1,158 @@
+---
+sidebar: sidebar 
+permalink: multi-admin-verify/manage-rules-task.html 
+keywords: ontap, mav, multi, admin, verification, administrator, protected, operation, rules, manage 
+summary: 'MAV(Multi-admin verification) 규칙을 만들어 승인이 필요한 작업을 지정합니다. 작업이 시작될 때마다 보호된 작업이 차단되고 승인 요청이 생성됩니다' 
+---
+= 보호된 작업 규칙을 관리합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+MAV(Multi-admin verification) 규칙을 만들어 승인이 필요한 작업을 지정합니다. 작업이 시작될 때마다 보호된 작업이 차단되고 승인 요청이 생성됩니다.
+
+적절한 RBAC 기능이 있는 관리자가 MAV를 활성화하기 전에 규칙을 만들 수 있지만, M5V가 활성화되면 규칙 집합을 수정하려면 MAV 승인이 필요합니다.
+
+ONTAP 9.11.1에서 다음 명령에 대한 규칙을 만들 수 있습니다.
+
+[cols="2*"]
+|===
+
+
+ a| 
+'클러스터 피어 삭제'
+
+이벤트 구성 수정
+
+'보안 로그인 생성'
+
+'보안 로그인 삭제
+
+보안 로그인 수정
+
+'시스템 노드 실행
+
+'시스템 노드 시스템 쉘'
+
+'볼륨 삭제'
+
+볼륨 FlexCache 삭제
+ a| 
+'볼륨 스냅샷 자동 삭제 수정'
+
+'볼륨 스냅샷 삭제'
+
+볼륨 스냅샷 정책 추가 스케줄
+
+볼륨 스냅샷 정책 생성
+
+볼륨 스냅샷 정책 삭제
+
+볼륨 스냅샷 정책 수정
+
+볼륨 스냅샷 정책 수정 스케줄
+
+볼륨 스냅샷 정책 제거 스케줄
+
+'볼륨 스냅샷 복원'
+
+'vserver peer delete
+
+|===
+또한 다음 명령은 MAV가 활성화된 경우 기본적으로 보호되지만 규칙을 수정하여 이러한 명령에 대한 보호를 제거할 수 있습니다.
+
+* '보안 로그인 비밀번호
+* 보안 로그인 잠금 해제
+* '세트'
+
+
+MAV SYSTEM - default 명령인 'Security multi-admin-verify' 명령어는 변경할 수 없다.
+
+규칙을 만들 때 선택적으로 '-query' 옵션을 지정하여 명령 기능의 하위 집합으로 요청을 제한할 수 있습니다. 예를 들어, 기본 set 명령에서 -query는 -privilege diag로 설정되어 있으면 -privilege diag가 지정된 경우에만 set 명령에 대한 요청이 생성됩니다.
+
+[listing]
+----
+smci-vsim20::> security multi-admin-verify rule show
+                                               Required  Approval
+Vserver Operation                              Approvers Groups
+------- -------------------------------------- --------- -------------
+vs01    set                                    -         -
+          Query: -privilege diagnostic
+----
+기본적으로 규칙은 보호된 작업을 입력할 때 해당 '보안 다중 관리 확인 요청 create_“protected_operation”_' 명령이 자동으로 생성되도록 지정합니다. 이 기본값을 수정하여 'quest create' 명령을 별도로 입력하도록 할 수 있습니다.
+
+기본적으로 규칙별 예외를 지정할 수 있지만 규칙은 다음과 같은 전역 MAV 설정을 상속합니다.
+
+* 필요한 승인자 수
+* 승인 그룹
+* 승인 만료 기간
+* 실행 만료 기간
+
+
+
+
+== System Manager 절차
+
+보호된 작업 규칙을 처음으로 추가하려면 에 System Manager 절차를 참조하십시오 link:enable-disable-task.html#system-manager-procedure["다중 관리 검증을 활성화합니다."]
+
+기존 규칙 집합을 수정하려면 다음을 수행합니다.
+
+. 클러스터 > 설정 * 을 클릭합니다.
+. 을 클릭합니다 image:icon_gear.gif["기어 아이콘"] 보안 * 섹션의 * 다중 관리자 승인 * 옆에 있습니다.
+. 을 클릭합니다 image:icon_add.gif["추가 아이콘"] 규칙을 하나 이상 추가하려면 기존 규칙을 수정하거나 삭제할 수도 있습니다.
++
+** 작업 - 목록에서 지원되는 명령을 선택합니다.
+** 쿼리 - 원하는 명령 옵션 및 값을 입력합니다.
+** 선택적 매개 변수 – 글로벌 설정을 적용하려면 비워 두거나 글로벌 설정을 재정의하기 위해 특정 규칙에 다른 값을 할당합니다.
++
+*** 필요한 승인자 수 – L
+*** 승인 그룹
+
+
+
+
+
+
+
+
+== CLI 절차
+
+
+NOTE: 모든 '보안 멀티 관리-검증 규칙' 명령은 '보안 멀티-관리-검증 규칙 표시'를 제외하고 실행 전에 MAV 관리자의 승인이 필요합니다.
+
+[cols="50,50"]
+|===
+| 원하는 사항 | 이 명령을 입력합니다 
+
+
+| 규칙을 만듭니다  a| 
+'Security multi-admin-verify rule create-operation_"protected_operation"_[-query_operation_subset_][_parameters_]'
+
+
+
+| 현재 관리자의 자격 증명을 수정합니다  a| 
+'Security login modify_<parameters>_'
+
+* 예 *: 다음 규칙에 따라 루트 볼륨을 삭제해야 합니다.
+
+보안 multi-admin-verify rule create-operation "volume delete" -query" -vserver vs0"
+
+
+
+| 규칙을 수정합니다  a| 
+'Security multi-admin-verify rule modify -operation_“protected_operation”_[_parameters_]'
+
+
+
+| 규칙을 삭제합니다  a| 
+'Security multi-admin - verify rule delete - operation_“protected_operation” _'
+
+
+
+| 규칙 표시  a| 
+'보안 멀티-관리-검증 규칙 표시'
+
+|===
+명령 구문에 대한 자세한 내용은 보안 다중 관리 확인 규칙 man 페이지를 참조하십시오.

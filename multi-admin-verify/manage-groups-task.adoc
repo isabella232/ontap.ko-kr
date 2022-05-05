@@ -1,0 +1,164 @@
+---
+sidebar: sidebar 
+permalink: multi-admin-verify/manage-groups-task.html 
+keywords: ontap, mav, multi, admin, verification, administrator, approval groups, manage, system, manager, cli, approvers, access, protected, operation 
+summary: 'MAV(Multi-admin verification)를 활성화하기 전에 승인 또는 거부권을 부여할 관리자가 하나 이상 포함된 관리자 승인 그룹을 만들어야 합니다.' 
+---
+= 관리자 승인 그룹을 관리합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+MAV(Multi-admin verification)를 활성화하기 전에 승인 또는 거부권을 부여할 관리자가 하나 이상 포함된 관리자 승인 그룹을 만들어야 합니다. 다중 관리자 확인을 활성화한 경우 승인 그룹 구성원을 수정하려면 기존의 검증된 관리자 중 한 명의 승인이 필요합니다.
+
+기존 관리자를 MAV 그룹에 추가하거나 새 관리자를 만들 수 있습니다.
+
+MAV 기능은 기존의 역할 기반 액세스 제어(RBAC) 설정을 그대로 사용합니다. 잠재적인 MAV 관리자는 MAV 관리자 그룹에 추가하기 전에 보호 작업을 실행할 수 있는 충분한 권한이 있어야 합니다. link:../authentication/create-svm-user-accounts-task.html["RBAC에 대해 자세히 알아보십시오."]
+
+승인 요청이 보류 중이라는 것을 MAV 관리자에게 알리도록 MAV를 구성할 수 있습니다. 이렇게 하려면 이메일 알림(특히, 'Mail From' 및 'Mail Server' 매개 변수)을 구성하거나 이러한 매개 변수를 지워 알림을 비활성화해야 합니다. 이메일 알림이 없으면 MAV 관리자는 승인 대기열을 수동으로 확인해야 합니다.
+
+
+
+== System Manager 절차
+
+처음으로 MAV 승인 그룹을 만들려면 System Manager 절차 - 를 참조하십시오 link:enable-disable-task.html#system-manager-procedure["다중 관리 검증을 활성화합니다."]
+
+기존 승인 그룹을 수정하거나 추가 승인 그룹을 만들려면:
+
+. 여러 관리자 검증을 받을 관리자 식별
++
+.. 클러스터 > 설정 * 을 클릭합니다
+.. 을 클릭합니다 image:icon_arrow.gif["파란색 화살표 아이콘"] 사용자 및 역할 * 옆에 있습니다
+.. 을 클릭합니다 image:icon_add.gif["추가 아이콘"] 사용자 * 에서
+.. 필요에 따라 명단을 수정합니다.
++
+자세한 내용은 을 참조하십시오 link:../task_security_administrator_access.html["관리자 액세스 제어."]
+
+
+
+. MAV 승인 그룹 생성 또는 수정:
++
+.. 클러스터 > 설정 * 을 클릭합니다
+.. 을 클릭합니다 image:icon_arrow.gif["파란색 화살표 아이콘"] 보안 * 섹션의 * 다중 관리자 승인 * 옆에 있습니다. (이 표시됩니다 image:icon_gear.gif["기어 아이콘"] MAV가 아직 구성되지 않은 경우 아이콘).
++
+*** 이름: 그룹 이름을 입력합니다.
+*** 승인자: 사용자 목록에서 승인자를 선택합니다.
+*** 이메일 주소: 이메일 주소를 입력합니다.
+*** Default group(기본 그룹): 그룹을 선택합니다.
+
+
+
+
+
+
+MAV가 활성화되면 기존 구성을 편집하려면 MAV 승인이 필요합니다.
+
+
+
+== CLI 절차
+
+. 'Mail From' 및 'Mail Server' 매개 변수에 값이 설정되어 있는지 확인합니다. 입력:
++
+이벤트 구성 쇼
+
++
+디스플레이는 다음과 비슷해야 합니다.
+
++
+[listing]
+----
+cluster01::> event config show
+                           Mail From:  admin@localhost
+                         Mail Server:  localhost
+                           Proxy URL:  -
+                          Proxy User:  -
+ Publish/Subscribe Messaging Enabled:  true
+----
++
+이러한 매개 변수를 구성하려면 다음을 입력합니다.
+
++
+''이벤트 구성 수정-메일-보낸 사람_이메일_주소_-메일-서버_서버_이름_'
+
+. 여러 관리자 검증을 받을 관리자 식별
++
+[cols="50,50"]
+|===
+| 원하는 사항 | 이 명령을 입력합니다 
+
+
+| 현재 관리자를 표시합니다  a| 
+'보안 로그인 쇼'
+
+
+
+| 현재 관리자의 자격 증명을 수정합니다  a| 
+'Security login modify_<parameters>_'
+
+
+
+| 새 관리자 계정을 만듭니다  a| 
+'Security login create-user-or-group-name_admin_name_-application ssh-authentication-method password
+
+|===
+. MAV 승인 그룹 생성:
++
+'보안 다중 관리자 - 승인 확인 - 그룹 작성 [-vserver_svm_name_] -name_group_name_-approver_approver1_[,_approver2_…] [-email_address1_],_address1_...]'
+
++
+** '-vserver' - 이번 릴리즈에서는 관리 SVM만 지원됩니다.
+** '-name' - 최대 64자의 MAV 그룹 이름입니다.
+** '-승인자' - 하나 이상의 승인자 목록입니다.
+** '-email' - 요청을 작성, 승인, 거부하거나 실행할 때 통지되는 하나 이상의 이메일 주소입니다.
++
+* 예: * 다음 명령을 실행하면 멤버 2개와 관련 이메일 주소가 있는 MAV 그룹이 생성됩니다.
+
++
+[listing]
+----
+cluster-1::> security multi-admin-verify approval-group create -name mav-grp1 -approvers pavan,julia -email pavan@myfirm.com,julia@myfirm.com
+----
+
+
+. 그룹 생성 및 구성원 자격 확인:
++
+'보안 멀티-관리-검증승인그룹 쇼[-instance]'
+
++
+* 예: *
+
++
+[listing]
+----
+cluster-1::> security multi-admin-verify approval-group show -instance
+Vserver  Name        Approvers        Email
+-------  ---------------- ------------------  ------------------------------------------------------------
+svm-1    mav-grp1   pavan,julia      email pavan@myfirm.com,julia@myfirm.com
+----
+
+
+이 명령을 사용하여 초기 MAV 그룹 구성을 수정합니다.
+
+* 참고: * 모두 실행 전에 MAV 관리자의 승인이 필요합니다.
+
+[cols="50,50"]
+|===
+| 원하는 사항 | 이 명령을 입력합니다 
+
+
+| 그룹 특성을 수정하거나 기존 구성원 정보를 수정합니다  a| 
+'Security multi-admin - Verify approval-group modify[_parameters_]'
+
+
+
+| 구성원을 추가 또는 제거합니다  a| 
+'보안 다중 관리자 - 승인 확인 - 그룹 바꾸기[-vserver_svm_name_] - name_group_name_[-approver-to-add_approver1_[,_approver2_…]] [-approver-to-remove_approver1_[,_approver2_…]'
+
+
+
+| 그룹을 삭제합니다  a| 
+'보안 multi-admin-verify approval-group delete[-vserver_svm_name_]-name_group_name_'
+
+|===

@@ -21,6 +21,47 @@ summary: 현재 릴리스에서 랜섬웨어 보호는 NAS 환경에 가장 적�
 [role="lead"]
 현재 릴리스에서 랜섬웨어 보호는 NAS 환경에 가장 적합합니다. 다른 환경에 대한 지원은 향후 릴리즈에서 제공될 예정입니다.
 
+ONTAP 플랫폼 지원:
+
+[cols="2*"]
+|===
+| 플랫폼 | 시작 가능... 
+
+
+ a| 
+ONTAP 온프레미스
+ a| 
+ONTAP 9.10.1
+
+
+
+ a| 
+Cloud Volumes ONTAP
+ a| 
+ONTAP 9.11.1
+
+
+
+ a| 
+AWS 및 Google Cloud용 Cloud Volume Services
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+Azure NetApp Files
+ a| 
+지원되지 않습니다
+
+
+
+ a| 
+ONTAP Select
+ a| 
+지원되지 않습니다
+
+|===
 적합한 워크로드:
 
 * 데이터베이스를 NFS 스토리지에 저장합니다
@@ -46,11 +87,6 @@ summary: 현재 릴리스에서 랜섬웨어 보호는 NAS 환경에 가장 적�
 * 알아보십시오
 * ONTAP S3 환경
 * NFS의 VMDK
-* Cloud Volumes ONTAP
-* AWS 및 Google Cloud용 Cloud Volume Services
-* Azure NetApp Files
-* ONTAP용 Amazon FSx
-* ONTAP Select
 
 
 볼륨 요구 사항:
@@ -90,3 +126,5 @@ summary: 현재 릴리스에서 랜섬웨어 보호는 NAS 환경에 가장 적�
 == 랜섬웨어 탐지 시 자동 스냅샷 사본의 작동 방식
 
 가능한 최상의 복구 지점을 얻기 위해 랜섬웨어 방지 기능은 비정상적인 파일 활동을 감지하는 즉시 자동 스냅샷 복사본을 생성합니다. 하지만 랜섬웨어 방지 기능은 경고에 즉시 플래그를 지정하는 것이 아니라, 분석을 실행하여 의심스러운 활동이 랜섬웨어 프로필과 일치하는지 확인해야 합니다. 이 프로세스는 최대 60분이 소요될 수 있습니다. 분석에서 의심스러운 활동이 아닌 것으로 확인되면 알림이 생성되지 않고 자동으로 생성된 스냅샷 복사본이 최소 2일 동안 파일 시스템에 남아 있습니다.
+
+ONTAP 9.11.1부터, 랜섬웨어 공격이 의심되는 경우 자동으로 생성되는 랜섬웨어 방지 스냅샷 복사본의 수와 보존 기간을 제어할 수 있습니다. 자세한 내용을 알아보십시오 link:modify-automatic-shapshot-options-task.html["자동 스냅샷 복사본에 대한 옵션을 수정합니다"].

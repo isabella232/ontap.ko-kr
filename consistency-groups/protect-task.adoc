@@ -1,10 +1,11 @@
 ---
 permalink: consistency-groups/protect-task.html 
 sidebar: sidebar 
-keywords: consistency groups, consistency group, application protection, parent, child, configure 
+keywords: consistency groups, consistency group, application protection, parent, child, configure, two-phase commit, 2 phase 
 summary: 정합성 보장 그룹에 대한 보호 정책을 설정하여 로컬 스냅샷 정책 또는 원격 SM-BC 보호를 통해 애플리케이션 백업을 설정합니다 
 ---
 = 일관성 그룹 보호
+:hardbreaks:
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,7 +14,7 @@ summary: 정합성 보장 그룹에 대한 보호 정책을 설정하여 로컬 
 [role="lead"]
 일관성 그룹은 여러 볼륨에 걸쳐 있는 SAN, NAS 및 NVMe 애플리케이션에 대해 쉽게 관리되는 로컬 및 원격 보호를 제공합니다.
 
-일관성 그룹을 생성해도 보호가 자동으로 설정되지는 않습니다. 로컬 및/또는 원격 보호 정책은 생성 시 또는 정합성 보장 그룹을 생성한 후에 설정할 수 있습니다. 보호 정책에는 로컬 Snapshot 복사본 또는 SM-BC(SnapMirror Business Continuity)를 사용한 원격 SnapMirror 보호 기능이 포함될 수 있습니다. 중첩된 일관성 그룹을 활용하는 경우 개별 볼륨에 대해 서로 다른 보호 정책을 설정할 수 있습니다.
+일관성 그룹을 생성해도 보호가 자동으로 설정되지는 않습니다. 로컬 및/또는 원격 보호 정책은 생성 시 또는 정합성 보장 그룹을 생성한 후에 설정할 수 있습니다. 보호 정책에는 로컬 Snapshot 복사본 또는 SM-BC(SnapMirror Business Continuity)를 사용한 원격 SnapMirror 보호 기능이 포함될 수 있습니다. 중첩된 일관성 그룹을 활용하는 경우 개별 볼륨에 대해 서로 다른 보호 정책을 설정할 수 있습니다. ONTAP 9.11.1부터 정합성 보장 그룹이 제공됩니다 <<two-phase,2단계 일관성 그룹 스냅샷 생성>>.
 
 원격 SM-BC 보호를 활용하는 경우, 정합성 보장 그룹에 생성된 정합성 보장 그룹의 스냅샷 복사본이 타겟으로 복제되도록 하려면 소스 및 타겟 클러스터의 정책 레이블이 일치해야 합니다. SnapMirror 레이블이 있는 규칙이 미리 정의된 AutomatedFailOver 정책에 추가되고 해당 레이블을 사용하여 스냅샷 복사본이 만들어지지 않는 한 SM-BC는 기본적으로 스냅샷 복사본을 복제하지 않습니다. 이 프로세스에 대한 자세한 내용은 을 참조하십시오 link:../task_san_configure_protection_for_business_continuity.html["무중단 업무 운영을 위한 보호 구성"].
 
@@ -40,7 +41,8 @@ ONTAP 9.10.1부터 System Manager는 * 보호 > 관계 * 메뉴에서 LUN 맵을
 
 .단계
 . SM-BC 사용을 위한 사전 요구 사항을 충족하는지 확인합니다. 을 참조하십시오 link:../smbc/smbc_plan_prerequisites.html["SM-BC 필수 구성 요소"]
-+
+
+
 
 NOTE: NAS 액세스를 위해 마운트된 볼륨에 SM-BC 관계를 설정할 수 없습니다.
 
@@ -52,4 +54,42 @@ NOTE: NAS 액세스를 위해 마운트된 볼륨에 SM-BC 관계를 설정할 �
 . 정합성 보장 그룹을 초기화하고 동기화해야 합니다. 이 작업이 완료되면 * SnapMirror(원격) * 에서 상태가 옆에 ""보호됨""으로 표시되어야 합니다 image:../media/icon_shield.png["Alt = 녹색 차폐 아이콘"].
 
 
-link:../task_dp_configure_snapshot.html["스냅샷 복사본을 구성합니다"] 를 누릅니다link:../task_dp_create_custom_data_protection_policies.html["사용자 지정 데이터 보호 정책을 생성합니다"] 를 누릅니다link:../task_dp_recover_snapshot.html["Snapshot 복사본에서 복구"] 를 누릅니다link:../task_dp_restore_from_vault.html["이전 스냅샷 복사본에서 볼륨을 복원합니다"]
+
+
+== 2단계 CG 스냅샷 생성
+
+ONTAP 9.11.1부터 일관성 그룹은 일관성 그룹(CG) 스냅샷 생성을 위한 2단계 커밋을 지원합니다. 이 기능은 ONTAP REST API에서만 사용할 수 있습니다. 2단계 CG 스냅샷 생성은 스냅샷 생성에만 사용할 수 있고 일관성 그룹을 프로비저닝하거나 일관성 그룹을 복원하는 경우에는 사용할 수 없습니다.
+
+2단계 CG 스냅샷 생성은 "/application/consistency-groups/{consistency_group_uuuid}/snapshots" 엔드포인트에 대한 POST 요청으로 호출된 스냅샷 생성 프로세스를 2단계 시퀀스로 분할합니다. POST 요청으로 시작된 첫 번째 단계에서는 API가 사전 점검을 수행하고 스냅샷 생성을 트리거하며 지정된 간격에 대한 타이머를 시작합니다. 1단계의 POST 요청이 201 상태 코드로 완료되면 첫 번째 단계에서 지정된 간격 내에 두 번째 단계를 호출하여 스냅샷을 해당 끝점에 커밋할 수 있습니다.
+
+2단계 CG 스냅샷 생성을 사용하려면 클러스터의 모든 노드에서 ONTAP 9.11.1을 실행해야 합니다. "action=start" 매개 변수를 사용하여 2단계 CG 스냅샷 생성을 호출할 수 있습니다. 또한 스냅샷 생성 프로세스에서 수행할 수 있는 최대 시간(초)을 지정하는 "action_timeout" 매개 변수를 사용할 수도 있습니다. action_timeout 매개 변수는 5에서 120 사이의 정수로 설정할 수 있다. Action_timeout의 기본값은 7입니다.
+
+일관성 그룹 스냅샷 생성 작업의 활성 호출은 한 번에 한 단계이든 두 단계이든 일관성 그룹 인스턴스에서 지원됩니다. 다른 스냅샷이 진행 중인 동안 스냅샷 생성을 호출하면 오류가 발생합니다.
+
+ONTAP REST API에 대한 자세한 내용은 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap-automation/reference/api_reference.html["API 참조입니다"^] 또는 를 방문하십시오 link:https://devnet.netapp.com/restapi.php["ONTAP REST API 페이지입니다"^] API 엔드포인트의 전체 목록을 보려면 NetApp Developer Network 를 참조하십시오.
+
+.2단계 커밋을 생성합니다
+. "action=start" 매개 변수를 사용하여 정합성 보장 그룹 끝점에 대한 POST 요청으로 스냅샷 생성을 호출합니다.
++
+[source, curl]
+----
+curl -k -X POST 'https://<IP_address>/application/consistency-groups/<cg-uuid>/snapshots?action=start&action_timeout=7' -H "accept: application/hal+json" -H "content-type: application/json" -d '
+{
+  "name": "name_of_this_snapshot",
+  "consistency_type": "crash",
+  "comment": "<comment>",
+  "snapmirror_label": "<snap_mirror label>"
+}'
+----
+. POST 요청이 성공하면 출력에 스냅샷 uuid가 포함됩니다. 이 정보를 사용하여 스냅샷을 커밋하기 위한 패치 요청을 제출합니다.
++
+[source, curl]
+----
+curl -k -X PATCH 'https://<IP_address>/application/consistency-groups/<cg_uuid>/snapshots/<snapshot_id>?action=commit' -H "accept: application/hal+json" -H "content-type: application/json"
+----
+
+
+link:../task_dp_configure_snapshot.html["스냅샷 복사본을 구성합니다"]
+link:../task_dp_create_custom_data_protection_policies.html["사용자 지정 데이터 보호 정책을 생성합니다"]
+link:../task_dp_recover_snapshot.html["Snapshot 복사본에서 복구"]
+link:../task_dp_restore_from_vault.html["이전 스냅샷 복사본에서 볼륨을 복원합니다"]

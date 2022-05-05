@@ -16,7 +16,7 @@ summary: SnapMirror 관계 및 일관성 그룹 초기화가 실패합니다.
 [role="lead"]
 SnapMirror 관계 및 일관성 그룹 초기화가 실패합니다.
 
-ONTAP 9.8 또는 9.9.1을 사용하는 경우 구성에 5개 이상의 정합성 보장 그룹이 없는지 확인합니다. ONTAP 9.10.1부터 제한은 20입니다. 을 참조하십시오 link:smbc_plan_additional_restrictions_and_limitations.html["추가 제한 및 제한 사항"].
+클러스터당 일관성 그룹 제한을 초과하지 않았는지 확인합니다. SM-BC의 정합성 보장 그룹 제한은 플랫폼에 독립적이며 ONTAP 버전에 따라 다릅니다. 을 참조하십시오 link:smbc_plan_additional_restrictions_and_limitations.html["추가 제한 및 제한 사항"] ONTAP 버전에 따른 제한 사항
 
 정합성 보장 그룹의 초기화가 중단된 경우 ONTAP REST API, System Manager 또는 'show-Expand' 명령을 사용하여 정합성 보장 그룹 초기화의 상태를 확인하십시오.
 
@@ -25,7 +25,7 @@ ONTAP 9.8 또는 9.9.1을 사용하는 경우 구성에 5개 이상의 정합성
 |===
 
 
-| ONTAP 9.8-9.9.1을 사용하는 경우 | ONTAP 9.10.1을 사용하는 경우 
+| ONTAP 9.8-9.9.1을 사용하는 경우 | ONTAP 9.10.1 이상을 사용하는 경우 
 
 
  a| 

@@ -1,0 +1,29 @@
+---
+permalink: san-admin/convert-lun-to-namespace.html 
+sidebar: sidebar 
+keywords: lun, convert, namespace, nvme 
+summary: ONTAP 9.11.1부터 ONTAP CLI를 사용하여 데이터 손실 없이 기존 LUN을 단일 NVMe 네임스페이스로 전환할 수 있습니다 
+---
+= LUN을 네임스페이스로 변환
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.11.1부터 ONTAP CLI를 사용하여 현재 위치에서 기존 LUN을 NVMe 네임스페이스로 변환할 수 있습니다.
+
+.무엇을 &#8217;필요로 할거야
+* 지정한 LUN에 iGroup에 대한 기존 맵이 없어야 합니다.
+* LUN은 MetroCluster에서 구성된 Vserver 또는 SMBC 관계에 있을 수 없습니다.
+* LUN은 프로토콜 엔드포인트이거나 프로토콜 엔드포인트에 바인딩되지 않아야 합니다.
+* LUN에 0이 아닌 접두사 및/또는 접미사 스트림이 있어서는 안 됩니다.
+* LUN은 스냅샷의 일부이거나 SnapMirror 관계의 대상 측에서 읽기 전용 LUN일 수 없습니다.
+
+
+.단계
+. 다음 명령을 입력하여 LUN을 NVMe 네임스페이스로 변환합니다.
++
+'vserver NVMe namespace convert-from-lun-vserver-lun-path
+
+

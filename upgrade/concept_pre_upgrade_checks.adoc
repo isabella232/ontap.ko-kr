@@ -60,4 +60,7 @@ summary: 다양한 구성 설정이 클러스터 업그레이드 준비에 영�
 
 
 | 세션 지향 프로토콜을 사용하고 있습니까? | xref:concept_considerations_for_session_oriented_protocols.html[세션 지향 프로토콜에 대한 고려 사항을 검토합니다] 
+
+
+| 관리자 계정이 SSH 공개 키로 인증하는 클러스터에서 SSL FIPS 모드가 활성화됩니까? | xref:considerations-authenticate-ssh-public-key-fips-concept.html[SSH 공개 키에 대한 요구 사항을 검토합니다] 
 |===

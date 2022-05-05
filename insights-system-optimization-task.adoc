@@ -2,7 +2,7 @@
 permalink: insights-system-optimization-task.html 
 sidebar: sidebar 
 keywords: system manager, optimize, optimise, optimization, optimisation, insight, cluster, system, analysis, analyze, perform, performing, performance, capacity, local tier, storage tier, telnet, remote shell, rsh, autosupport, auto support, auto-support, insecure protocol, login banner, log in banner, ssh, secure shell, cbc cipher, ntp server, admin user, administrative, user, best practice, practise, fabricpool, fabric pool, physical capacity, aggregate, cloud, snapshot, directories, directory, file, remote access, transport protocol, https, http, autogrow, auto grow, auto-grow, shrink, reduce, reduction, dismiss, undismiss, explore, fix, remove, replace, analytic, security, compliance, secure, comply, volume, applications, reclaim, space, full, provisioning, provisioned cluster, serial, port, node 
-summary: ONTAP 9.11.0부터 시스템 용량 및 보안 규정 준수를 최적화하는 데 도움이 되는 시스템 관리자에 대한 정보를 볼 수 있습니다. 
+summary: System Manager를 사용하면 시스템 최적화를 위한 통찰력을 얻을 수 있습니다. 
 ---
 = 시스템 최적화를 위한 통찰력 확보
 :allow-uri-read: 
@@ -11,7 +11,13 @@ summary: ONTAP 9.11.0부터 시스템 용량 및 보안 규정 준수를 최적�
 
 
 [role="lead"]
-ONTAP 9.11.0부터 시스템 용량 및 보안 규정 준수를 최적화하는 데 도움이 되는 시스템 관리자에 대한 정보를 볼 수 있습니다. 모범 사례에 따라 이러한 통찰력은 한 페이지에 표시되어 즉시 조치를 시작하여 시스템을 최적화할 수 있습니다.
+System Manager를 사용하면 시스템 최적화를 위한 통찰력을 얻을 수 있습니다.
+
+ONTAP 9.11.0부터 시스템 용량 및 보안 규정 준수를 최적화하는 데 도움이 되는 시스템 관리자에 대한 정보를 볼 수 있습니다.
+
+ONTAP 9.11.1부터 시스템의 용량, 보안 준수 및 구성을 최적화하는 데 도움이 되는 추가 정보를 볼 수 있습니다.
+
+모범 사례에 따라 이러한 통찰력은 한 페이지에 표시되어 즉시 조치를 시작하여 시스템을 최적화할 수 있습니다.
 
 
 
@@ -28,10 +34,12 @@ Insights * 페이지에는 인사이트 그룹이 표시됩니다. 각 인사이
 ** 스토리지를 최적화하십시오
 
 
-. (선택 사항) 페이지의 오른쪽 위 모서리에 있는 다음 단추 중 하나를 클릭하여 표시되는 통찰력을 필터링합니다.
+. (선택 사항) 페이지의 오른쪽 위 모서리에 있는 다음 단추를 클릭하여 표시되는 통찰력을 필터링합니다.
 +
-** image:icon-security-filter.gif["파란색 잠금 아이콘"] 보안 관련 통찰력을 제시합니다.
-** image:icon-capacity-filter.gif["파란색 디스크 아이콘"] 용량 관련 인사이트를 제시합니다.
+** image:icon-security-filter.gif["보안 필터 아이콘"] 보안 관련 통찰력을 표시합니다.
+** image:icon-capacity-filter.gif["용량 필터 아이콘"] 용량 관련 인사이트를 표시합니다.
+** image:icon-config-filter.gif["구성 필터 아이콘"] 구성 관련 통찰력을 표시합니다.
+** image:icon-all-filter.png["모든 인사이트 필터 아이콘"] 모든 통찰력을 표시합니다.
 
 
 
@@ -58,13 +66,24 @@ NOTE: 이러한 작업 중 일부는 System Manager의 다른 페이지에서 �
 
 
 
-== 인사이트를 위한 설정을 사용자 지정합니다
+== 통찰력을 위한 설정을 사용자 지정합니다
 
 System Manager에서 통보할 통찰력을 사용자 정의할 수 있습니다.
 
 .단계
 . System Manager의 왼쪽 탐색 열에서 * Insights * 를 클릭합니다.
-. 페이지의 오른쪽 위 모서리에서 을 클릭합니다 image:icon_gear.gif["설정 아이콘"].
+. 페이지의 오른쪽 위 모서리에서 을 클릭합니다 image:icon_kabob.gif["케밥 아이콘"]그런 다음 * 설정 * 을 선택합니다.
 . 설정 * 페이지에서 알림을 받을 인사이트 옆에 있는 확인란이 있는지 확인합니다. 이전에 통찰력을 거부했다면, 체크 박스에 체크 표시를 하여 "해제"할 수 있습니다.
 . 저장 * 을 클릭합니다.
+
+
+
+
+== 통찰력을 PDF 파일로 내보냅니다
+
+해당하는 모든 통찰력을 PDF 파일로 내보낼 수 있습니다.
+
+.단계
+. System Manager의 왼쪽 탐색 열에서 * Insights * 를 클릭합니다.
+. 페이지의 오른쪽 위 모서리에서 을 클릭합니다 image:icon_kabob.gif["케밥 아이콘"]그런 다음 * 내보내기 * 를 선택합니다.
 

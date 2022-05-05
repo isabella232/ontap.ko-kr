@@ -1,0 +1,168 @@
+---
+sidebar: sidebar 
+permalink: multi-admin-verify/manage-requests-task.html 
+keywords: ontap, mav, multi, admin, verification, administrator, protected, operation, rules, request, cluster, approve, rbac, manage, cli, system, manager 
+summary: 'MAV 승인 그룹(MAV 관리자)의 관리자가 보류 중인 작업 실행 요청을 통지받으면 정해진 기간(승인 만료) 내에 승인 또는 거부 메시지로 응답해야 합니다.' 
+---
+= 보호된 작업 요청을 관리합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+MAV 승인 그룹(MAV 관리자)의 관리자가 보류 중인 작업 실행 요청을 통지받으면 정해진 기간(승인 만료) 내에 승인 또는 거부 메시지로 응답해야 합니다. 충분한 수의 승인을 받지 못한 경우 요청자는 요청을 삭제하고 다른 요청을 해야 합니다.
+
+승인 요청은 인덱스 번호로 식별되며, 이 번호는 이메일 메시지와 요청 대기열의 디스플레이에 포함됩니다.
+
+요청 대기열의 다음 정보를 표시할 수 있습니다.
+
+작동:: 요청이 생성되는 보호된 작업입니다.
+쿼리:: 사용자가 작업을 적용하려는 개체(또는 개체)입니다.
+상태:: 요청의 현재 상태, 보류, 승인, 거부, 만료됨, 실행됨. 한 승인자가 요청을 거부하면 추가 작업이 불가능합니다.
+필수 승인자:: 요청을 승인하는 데 필요한 MAV 관리자 수 사용자는 작업 규칙에 필요한 승인자 매개 변수를 설정할 수 있습니다. 사용자가 필수 승인자를 규칙에 설정하지 않으면 전역 설정의 필수 승인자가 적용됩니다.
+보류 중인 승인자:: 요청을 승인하기 위해 승인 요청을 승인해야 하는 MAV 관리자 수.
+승인 만료:: MAV 관리자가 승인 요청에 응답해야 하는 기간. 권한이 있는 사용자는 작업 규칙에 대한 승인 만료 기간을 설정할 수 있습니다. 규칙에 대해 승인-만료가 설정되어 있지 않으면 전역 설정의 승인-만료가 적용됩니다.
+실행 만료:: 요청 관리자가 작업을 완료해야 하는 기간. 권한이 있는 사용자는 작업 규칙에 대해 실행 만료 기간을 설정할 수 있습니다. 규칙에 대해 execution-expiry를 설정하지 않으면 전역 설정에서의 execution-expiry가 적용됩니다.
+사용자가 승인했습니다:: 요청을 승인한 MAV 관리자
+사용자가 거부했습니다:: 요청에 거부권을 행사한 MAV 관리자
+스토리지 VM(SVM):: 요청이 연결된 SVM 이 릴리즈에서는 admin SVM만 지원합니다.
+사용자가 요청되었습니다:: 요청을 생성한 사용자의 사용자 이름입니다.
+생성 시간:: 요청이 생성된 시간입니다.
+시간이 승인되었습니다:: 요청 상태가 승인으로 변경된 시간입니다.
+설명:: 요청과 관련된 모든 메모.
+사용자 허용:: 요청이 승인된 보호된 작업을 수행하도록 허용된 사용자 목록입니다. '사용자 허용'이 비어 있으면 적절한 권한을 가진 모든 사용자가 작업을 수행할 수 있습니다.
+
+
+1000개의 요청이 한계에 도달하거나 만료된 요청에 대해 만료된 시간이 8시간을 초과할 경우 만료되거나 실행된 모든 요청이 삭제됩니다. 거부된 요청은 만료됨으로 표시되면 삭제됩니다.
+
+
+
+== System Manager 절차
+
+MAV 관리자는 승인 요청 세부 정보, 요청 만료 기간 및 요청을 승인 또는 거부할 수 있는 링크가 포함된 전자 메일 메시지를 수신합니다. 이메일의 링크를 클릭하여 승인 대화 상자에 액세스하거나 System Manager의 * 이벤트 및 작업 > 요청 * 으로 이동할 수 있습니다.
+
+복수 관리자 확인이 활성화된 경우 사용자의 로그인 ID 및 MAV 역할(승인자 여부)을 기준으로 보류 중인 요청을 표시하는 * 요청 * 창을 사용할 수 있습니다.
+
+* 작동
+* 색인(숫자)
+* 상태(보류, 승인됨, 거부됨, 실행됨 또는 만료됨)
++
+한 승인자가 요청을 거부하면 추가 작업이 불가능합니다.
+
+* 쿼리(요청된 작업의 매개 변수 또는 값)
+* 사용자를 요청하는 중입니다
+* 요청이 에 만료됩니다
+* (수) 보류 중인 승인자
+* (수) 잠재적 승인자
+
+
+MAV 관리자는 이 창에 개별 작업 또는 선택한 작업 그룹을 승인, 거부 또는 삭제할 수 있는 추가 컨트롤이 있습니다. 그러나 MAV 관리자가 요청 사용자인 경우 자신의 요청을 승인, 거부 또는 삭제할 수 없습니다.
+
+
+
+== CLI 절차
+
+. 대기 중인 요청을 이메일로 통지할 경우 요청의 인덱스 번호 및 승인 만료 기간을 기록합니다. 색인 번호는 아래에 언급된 * show * 또는 * show-pending * 옵션을 사용하여 표시할 수도 있습니다.
+. 요청을 승인 또는 거부하십시오.
++
+[cols="50,50"]
+|===
+| 원하는 사항 | 이 명령을 입력합니다 
+
+
+ a| 
+요청을 승인합니다
+ a| 
+'보안 multi-admin-verify request approve_nn_'
+
+
+
+ a| 
+요청을 거부하십시오
+ a| 
+'보안 다수 관리 - 확인 요청 거부_nn_'
+
+
+
+ a| 
+모든 요청, 보류 중인 요청 또는 단일 요청을 표시합니다
+ a| 
+'보안 다중 관리 - 확인 요청{show | show-pending}[_nn_] {-fields_field1_[,_field2_...] [-instance]}'
+
+대기열에 있는 모든 요청 또는 보류 중인 요청만 표시할 수 있습니다. 인덱스 번호를 입력하면 해당 에 대한 정보만 표시됩니다. 특정 필드('-fields' 매개 변수 사용) 또는 모든 필드('-instance' 매개 변수 사용)에 대한 정보를 표시할 수 있습니다.
+
+
+
+ a| 
+요청을 삭제합니다
+ a| 
+'보안 multi-admin-verify request delete_nn_'
+
+|===
+
+
+다음 시퀀스는 MAV 관리자가 이미 하나의 승인이 있는 색인 번호 3의 요청 이메일을 받은 후에 요청을 승인합니다.
+
+[listing]
+----
+          cluster1::> security multi-admin-verify request show-pending
+                                   Pending
+Index Operation      Query State   Approvers Requestor
+----- -------------- ----- ------- --------- ---------
+    3 volume delete  -     pending 1         julia
+
+
+cluster-1::> security multi-admin-verify request approve 3
+
+cluster-1::> security multi-admin-verify request show 3
+
+     Request Index: 3
+         Operation: volume delete
+             Query: -
+             State: approved
+Required Approvers: 2
+ Pending Approvers: 0
+   Approval Expiry: 2/25/2022 14:32:03
+  Execution Expiry: 2/25/2022 14:35:36
+         Approvals: mav-admin2
+       User Vetoed: -
+           Vserver: cluster-1
+    User Requested: julia
+      Time Created: 2/25/2022 13:32:03
+     Time Approved: 2/25/2022 13:35:36
+           Comment: -
+   Users Permitted: -
+----
+다음 시퀀스는 MAV 관리자가 이미 하나의 승인이 있는 색인 번호 3의 요청 이메일을 받은 후에 요청을 거부한다.
+
+[listing]
+----
+      cluster1::> security multi-admin-verify request show-pending
+                                   Pending
+Index Operation      Query State   Approvers Requestor
+----- -------------- ----- ------- --------- ---------
+    3 volume delete  -     pending 1         pavan
+
+
+cluster-1::> security multi-admin-verify request veto 3
+
+cluster-1::> security multi-admin-verify request show 3
+
+     Request Index: 3
+         Operation: volume delete
+             Query: -
+             State: vetoed
+Required Approvers: 2
+ Pending Approvers: 0
+   Approval Expiry: 2/25/2022 14:32:03
+  Execution Expiry: 2/25/2022 14:35:36
+         Approvals: mav-admin1
+       User Vetoed: mav-admin2
+           Vserver: cluster-1
+    User Requested: pavan
+      Time Created: 2/25/2022 13:32:03
+     Time Approved: 2/25/2022 13:35:36
+           Comment: -
+   Users Permitted: -
+----

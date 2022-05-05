@@ -1,0 +1,63 @@
+---
+permalink: flexcache/enable-file-access-time-updates-task.html 
+sidebar: sidebar 
+keywords: atime, atime-update, flexcache, flex cache, access time 
+summary: 'FlexCache 볼륨의 "-atime-update" 필드를 활성화하여 파일 액세스 시간 업데이트를 허용할 수 있습니다. 또한 "-atime-update-period" 속성을 사용하여 액세스 시간 업데이트 기간을 설정할 수 있습니다. atime-update-period는 업데이트가 발생하는 빈도와 오리진 볼륨에 언제 전파될 수 있는지를 제어합니다.' 
+---
+= 파일 액세스 시간 업데이트를 활성화합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.11.1부터 FlexCache 볼륨의 '-atime-update' 필드를 활성화하여 파일 액세스 시간 업데이트를 허용할 수 있습니다. 또한 '-atime-update-period' 속성을 사용하여 액세스 시간 업데이트 기간을 설정할 수 있습니다. '-atime-update-period' 속성은 액세스 시간 업데이트가 발생할 수 있는 빈도와 오리진 볼륨으로 전파될 수 있는 시기를 제어합니다.
+
+
+
+== 개요
+
+ONTAP는 읽기, READLINK 및 readdir을 사용하여 읽은 파일 및 디렉터리에 대한 액세스 시간 업데이트를 관리할 수 있는 "-atime-update"라는 볼륨 수준 필드를 제공합니다. aTime은 자주 액세스하지 않는 파일과 디렉토리의 데이터 수명 주기 결정에 사용됩니다. 자주 액세스하지 않는 파일은 결국 아카이브 스토리지로 마이그레이션되며 나중에 테이프로 이동하는 경우가 많습니다.
+
+atime-update 필드는 기존 볼륨과 새로 생성된 FlexCache 볼륨에서 기본적으로 비활성화됩니다. 9.11.1 이전의 ONTAP 릴리스에서 FlexCache 볼륨을 사용하는 경우, atime-update 필드를 사용하지 않도록 설정해야 합니다. 그러면 오리진 볼륨에서 읽기 작업을 수행할 때 캐시가 불필요하게 제거됩니다. 그러나 대규모 FlexCache 캐시를 사용하는 경우 관리자는 특수한 도구를 사용하여 데이터를 관리하고 핫 데이터가 캐시에 남아 있고 콜드 데이터가 제거되도록 합니다. atime-update가 비활성화된 경우에는 이 기능을 사용할 수 없습니다. 그러나 ONTAP 9.11.1부터 '-atime-update' 및 '-atime-update-period'를 활성화하고 캐시된 데이터를 관리하는 데 필요한 도구를 사용할 수 있습니다.
+
+
+
+== 시작하기 전에
+
+모든 FlexCache 볼륨에서 ONTAP 9.11.1 이상이 실행되고 있어야 합니다.
+
+
+
+== 이 작업에 대해
+
+'-atime-update-period'를 86400초로 설정하면 파일에 대해 수행된 읽기 유사 작업의 수에 관계없이 24시간 간격으로 한 번 이상의 액세스 시간을 업데이트할 수 없습니다.
+
+'-atime-update-period'를 0으로 설정하면 각 읽기 액세스에 대한 메시지가 오리진으로 전송됩니다. 그런 다음 오리진에서 각 FlexCache 볼륨에 atime이 오래되어 성능에 영향을 미친다는 정보를 제공합니다.
+
+.단계
+. 파일 액세스 시간 업데이트를 활성화하고 업데이트 빈도를 설정합니다.
++
+'volume modify -volume vol_name -vserver_SVM_name_-atime-update true-atime-update-period_seconds_'
+
++
+다음 예에서는 `-atime-update'를 활성화하고 '-atime-update-period'를 86400초 또는 24시간으로 설정합니다.
+
++
+[listing]
+----
+c1: volume modify -volume origin1 vs1_c1 -atime-update true -atime-update-period 86400
+----
+. '-atime-update'가 활성화되어 있는지 확인합니다.
++
+'volume show-volume_vol_name_-fields atime-update, atime-update-period'
+
++
+[listing]
+----
+c1::*> volume show -volume cache1_origin1 -fields atime-update,atime-update-period
+vserver volume         atime-update atime-update-period
+------- -------------- ------------ -------------------
+vs2_c1  cache1_origin1 true         86400
+----
+

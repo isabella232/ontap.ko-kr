@@ -7,7 +7,7 @@ indexpage:
       url: "/../concept_security_overview.html"
     - title: 인증 및 RBAC 개요
       url: "/../authentication/index.html"
-    - title: 랜섬웨어 방지 개요(ONTAP 9.10.1의 새로운 기능)
+    - title: 랜섬웨어 방지 개요
       url: "/../anti-ransomware/index.html"
     - title: 바이러스 백신 개요
       url: "/../antivirus/index.html"
@@ -27,6 +27,8 @@ indexpage:
       url: "/../authentication/setup-ssh-multifactor-authentication-task.html"
     - title: Active Directory 도메인 컨트롤러 액세스 개요
       url: "/../authentication/enable-ad-users-groups-access-cluster-svm-task.html"
+    - title: 다중 관리 검증(ONTAP 9.11.1의 새로운 기능)
+      url: "/../multi-admin-verify/index.html"
   - title: 안티바이러스
     links:
     - title: Vscan 서버 설치 및 구성
@@ -63,7 +65,7 @@ indexpage:
       url: "/../nas-audit/perform-security-traces-task.html"
     - title: 보안 추적 결과를 해석합니다
       url: "/../nas-audit/interpret-security-trace-results-concept.html"
-  - title: 랜섬웨어 방지(ONTAP 9.10.1의 새로운 기능)
+  - title: 랜섬웨어 보호
     links:
     - title: 사용 사례 및 제한사항
       url: "/../anti-ransomware/use-cases-restrictions-concept.html"
