@@ -18,10 +18,12 @@ ONTAP 9.5부터 최소 16GB의 메모리와 모든 ONTAP Select 플랫폼에서 
 
 HA 쌍당 SnapMirror Synchronous 복제 작업 수의 제한은 컨트롤러 모델에 따라 다릅니다.
 
+다음 표에는 플랫폼 유형과 ONTAP 릴리즈에 따라 HA 쌍당 허용되는 SnapMirror Synchronous 작업 수가 나와 있습니다.
+
 |===
 
 
-| 플랫폼 | ONTAP 9.9.1 이전 릴리즈의 HA 쌍당 허용되는 SnapMirror Synchronous 작업 수입니다 | ONTAP 9.9.1에서 HA 쌍당 허용되는 SnapMirror Synchronous 작업의 수입니다 | ONTAP 9.10.1의 HA 쌍당 허용되는 SnapMirror Synchronous 작업 수입니다 | ONTAP 9.11.1의 HA 쌍당 허용되는 SnapMirror Synchronous 작업 수입니다 
+| 플랫폼 | ONTAP 9.9.1 이전 릴리즈 | ONTAP 9.9.1 | ONTAP 9.10.1 | ONTAP 9.11.1 
 
 
  a| 
@@ -108,7 +110,7 @@ ONTAP 9.7에서 SnapMirror Synchronous 기술에 지원되는 기능은 다음�
 
 동기식 SnapMirror 관계에서는 다음 기능이 지원되지 않습니다.
 
-* MCC
+* MetroCluster 구성
 * SFMAD
 * SFCoD
 * VVOL
