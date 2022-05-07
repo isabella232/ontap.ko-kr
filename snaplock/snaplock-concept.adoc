@@ -67,7 +67,7 @@ Compliance-mode Aggregate가 포함된 디스크는 다시 초기화할 수 없�
  a| 
 아니요
  a| 
-예
+예. SnapLock 감사 로그 볼륨을 제외하고 가능합니다
 
 
 
