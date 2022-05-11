@@ -228,7 +228,7 @@ FlexGroup 볼륨
 
 * 법적 증거 자료 보관
 * 이벤트 기반 보존
-* LockVault용 SnapLock
+* SnapVault용 SnapLock
 
 
 또한 다음과 같은 행동을 인지해야 합니다.
