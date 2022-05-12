@@ -26,15 +26,15 @@ NIC 및 데이터 스위치와 같은 중간 네트워크 장치는 네트워크
 +
 네트워크 포트 show-instance
 
-. MTU 포트 설정을 9000으로 변경합니다.
+. 포트에서 사용하는 브로드캐스트 도메인의 MTU를 변경합니다.
 +
-'network port modify -node_nodename_-port_port_-mtu 9000'
+'network port broadcast-domain modify -IPSpace_IPSpace_-broadcast-domain_broadcast_domain_-MTU_new_MTU_'
 
 
 
-다음 예에서는 "e0a"에 대한 MTU 포트 설정을 9000으로 변경합니다.
+다음 예에서는 MTU 포트 설정을 9000으로 변경합니다.
 
 [listing]
 ----
-cluster1::*> network port modify -node node0 -port e0a -mtu 9000
+network port broadcast-domain modify -ipspace Cluster -broadcast-domain Cluster -mtu 9000
 ----
