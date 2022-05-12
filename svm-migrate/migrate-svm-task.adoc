@@ -19,7 +19,7 @@ xref:manual-client-cutover-task.adoc[SVM 마이그레이션 후 클라이언트 
 
 * advance privilege '-auto-source-cleanup false' 옵션을 사용하여 컷오버 이후 소스 SVM의 제거를 해제한 다음 나중에 컷오버를 통해 수동으로 소스 정리를 트리거할 수 있습니다.
 +
-xref:manual-source-remove-task.adoc[컷오버 이후 소스 SVM 수동 제거]
+xref:manual-source-removal-task.adoc[컷오버 이후 소스 SVM 수동 제거]
 
 
 
@@ -32,11 +32,11 @@ xref:manual-source-remove-task.adoc[컷오버 이후 소스 SVM 수동 제거]
 .단계
 . 타겟 클러스터에서 사전 점검을 수행합니다.
 +
-dest_cluster>vserver migrate start -vserver <vserver name> -source-cluster <cluster name> -check-only true"
+dest_cluster > vserver migrate start -vserver_SVM_name_-source-cluster_cluster_name_-check-only true"
 
 . 대상 클러스터에서 SVM 마이그레이션을 시작합니다.
 +
-dest_cluster> vserver migrate start -vserver <vserver name> -source-cluster <cluster name>'입니다
+dest_cluster > vserver migrate start -vserver_SVM_name_-source-cluster_cluster_name_'입니다
 
 . 마이그레이션 상태 확인:
 +
@@ -56,11 +56,11 @@ SVM 마이그레이션이 완료되면 상태가 Migrate-Complete로 표시됩�
 .단계
 . 타겟 클러스터에서 사전 점검을 수행합니다.
 +
-dest_cluster>vserver migrate start -vserver <vserver name> -source-cluster <cluster name> -check-only true"
+dest_cluster > vserver migrate start -vserver_SVM_name_-source-cluster_cluster_name_-check-only true"
 
 . 대상 클러스터에서 SVM 마이그레이션을 시작합니다.
 +
-dest_cluster>vserver migrate start-vserver <vserver name> -source-cluster <cluster name> -auto-cutover false"
+dest_cluster > vserver migrate start -vserver_SVM_name_-source-cluster_cluster_name_-auto-cutover false"
 
 . 마이그레이션 상태 확인:
 +
@@ -77,11 +77,11 @@ advance privilege-auto-source-cleanup false 옵션을 사용하여 컷오버 이
 .단계
 . 타겟 클러스터에서 사전 점검을 수행합니다.
 +
-dest_cluster * > vserver migrate start -vserver <vserver name> -source-cluster <cluster name> -check-only true"
+dest_cluster * > vserver migrate start -vserver_SVM_name_-source-cluster_cluster_name_-check-only true"
 
 . 대상 클러스터에서 SVM 마이그레이션을 시작합니다.
 +
-dest_cluster * > vserver migrate start -vserver <vserver name> -source-cluster <cluster name> -auto-source-cleanup false'
+dest_cluster * > vserver migrate start -vserver_SVM_name_-source-cluster_cluster_name_-auto-source-cleanup false
 
 . 마이그레이션 상태 확인:
 +

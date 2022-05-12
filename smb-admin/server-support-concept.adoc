@@ -22,6 +22,6 @@ SMB 서버를 생성하기 전에 데이터 제공을 위해 사용 중인 SVM �
 
 link:../networking/index.html["네트워크 관리"]
 
-xref:manage-servers-concept.adoc[SMB 서버 관리]
+xref:modify-servers-task.html[SMB 서버를 수정합니다]
 
 link:../system-admin/index.html["시스템 관리"]

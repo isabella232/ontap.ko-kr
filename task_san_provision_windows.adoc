@@ -110,7 +110,7 @@ link:san-admin/manage-san-initiators-task.html["SAN 이니시에이터 및 igrou
 . Windows 서버가 LUN에 데이터를 쓰고 읽을 수 있는지 확인합니다.
 
 
-SAN 관리에 대한 자세한 내용은 를 참조하십시오 link:../san-admin/index.html["SAN 관리 개요"].
+SAN 관리에 대한 자세한 내용은 를 참조하십시오 link:./san-admin/index.html["SAN 관리 개요"].
 
 
 

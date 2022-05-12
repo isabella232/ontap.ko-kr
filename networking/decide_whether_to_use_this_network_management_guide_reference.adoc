@@ -30,7 +30,7 @@ NAS 경로 페일오버 모범 사례를 따르고 ONTAP 9.8 이상 릴리즈를
 
 NAS 경로 페일오버 Best Practice를 따르고 ONTAP 9.0-9.7 릴리즈를 실행 중인 경우 다음 설명서를 참조하십시오.
 
-* link:https://docs.netapp.com/us-en/ontap/networking-manual-config/index.html["ONTAP 9.0-9.7 NAS 경로 페일오버 워크플로우"^]
+* link:https://docs.netapp.com/us-en/ontap/networking/worksheet_for_nas_path_failover_configuration_manual.html["ONTAP 9.0-9.7 NAS 경로 페일오버 워크플로우"^]
 
 
 System Manager를 사용하여 ONTAP 9.7 이상을 위한 네트워크를 구성하려면 다음 문서를 선택해야 합니다.

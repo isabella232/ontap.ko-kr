@@ -50,7 +50,7 @@ UNIX, NTFS, 혼합 및 통합 등 네 가지 보안 유형이 있습니다. 각 
 |===
 FlexVol 볼륨은 UNIX, NTFS 및 혼합 보안 스타일을 지원합니다. 보안 스타일이 혼합 또는 통합된 경우 사용자가 보안 스타일을 개별적으로 설정하므로 사용자가 마지막으로 권한을 수정한 클라이언트 유형에 따라 유효 사용 권한이 달라집니다. 권한을 수정한 마지막 클라이언트가 NFSv3 클라이언트인 경우 사용 권한은 UNIX NFSv3 모드 비트입니다. 마지막 클라이언트가 NFSv4 클라이언트인 경우 사용 권한은 NFSv4 ACL입니다. 마지막 클라이언트가 SMB 클라이언트인 경우 사용 권한은 Windows NTFS ACL입니다.
 
-통합 보안 스타일은 ONTAP 9.5 이상 릴리스에서 더 이상 지원되지 않는 무한 볼륨에서만 사용할 수 있습니다. 자세한 내용은 을 참조하십시오 link:../flexgroup/index.html["FlexGroup 볼륨 관리 개요"].
+통합 보안 스타일은 ONTAP 9.5 이상 릴리스에서 더 이상 지원되지 않는 무한 볼륨에서만 사용할 수 있습니다. 자세한 내용은 을 참조하십시오 xref:../flexgroup/index.html[FlexGroup 볼륨 관리 개요].
 
 ONTAP 9.2부터 vserver security file-directory 명령에 대한 'show-Effective-permissions' 매개 변수를 사용하면 지정된 파일 또는 폴더 경로에서 Windows 또는 UNIX 사용자에게 부여된 유효한 권한을 표시할 수 있습니다. 또한 선택적 매개 변수 '-share-name'을 사용하면 유효 공유 권한을 표시할 수 있습니다.
 

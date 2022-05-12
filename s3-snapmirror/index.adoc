@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: s3-snapmirror/index.html 
-keywords: s3 snapmirror overview, snapmirror, s3 snapmirror, s3 snapmirror mirroring and backup, s3 snapmirror requirments, s3 snapmirror buckets, snapmirror buckets SVM, s3 snapmirror new buckets, s3 snapmirror buckets with data protection, s3 snapmirror data protection bundle, s3 snapmirror data protection bundle and hybrid cloud bundle, s3 snapmirror relationship, VM peering, cluster and storage VM peering, s3 SnapMirror considerations and restrictions, Fan-in deployments, data protection relationships, s3 snapmirror policy, peering 
+keywords: s3 snapmirror buckets, snapmirror buckets SVM, s3 snapmirror data protection, hybrid cloud bundle, s3 snapmirror relationship, VM peering, cluster and storage VM peering, s3 SnapMirror considerations and restrictions, Fan-in deployments, data protection relationships, s3 snapmirror policy, peering 
 summary: ONTAP 9.10.1부터 친숙한 SnapMirror 미러링 및 백업 기능을 사용하여 ONTAP S3 오브젝트 저장소의 버킷을 보호할 수 있습니다 
 ---
 = S3 SnapMirror 개요
@@ -45,7 +45,7 @@ ONTAP S3
 |===
 ONTAP S3 서버에서 기존 버킷을 보호하거나 데이터 보호를 즉시 활성화할 수 있는 새로운 버킷을 생성할 수 있습니다.
 
-S3 SnapMirror는 팬아웃 및 캐스케이드 관계를 지원합니다. 개요를 보려면 을 참조하십시오 link:..data-protection/supported-deployment-config-concept.html["팬아웃 및 캐스케이드 데이터 보호 구축"].
+S3 SnapMirror는 팬아웃 및 캐스케이드 관계를 지원합니다. 개요를 보려면 을 참조하십시오 link:../data-protection/supported-deployment-config-concept.html["팬아웃 및 캐스케이드 데이터 보호 구축"].
 
 
 

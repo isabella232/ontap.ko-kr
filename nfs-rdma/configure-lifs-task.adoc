@@ -13,12 +13,12 @@ summary: 이 문서에서는 LIF가 RDMA 기능을 지원하도록 구성하는 
 [role="lead"]
 RDMA 상에서 NFS를 활용하려면 LIF가 RDMA 호환되도록 구성해야 합니다. LIF와 페일오버 쌍 모두 RDMA를 지원해야 합니다.
 
-ONTAP 9.10.1부터는 네트워크 인터페이스 명령에 RDMA_protocols 매개 변수가 추가되어 지원을 구성할 수 있으며 적절한 서비스 정책을 설정할 수 있습니다.
+ONTAP 9.10.1부터, 적절한 서비스 정책 설정과 함께 지원을 구성할 수 있는 네트워크 인터페이스 명령에 새로운 '-RDMA_protocols' 매개변수가 있습니다.
 
 .새 LIF를 생성하는 절차입니다
 . LIF 생성:
 +
-'network interface create-vserver_vserver_name_-lif_lif_name_-service-policy_service_policy_name_-home-node_node_name_-home-port_port_name_{-address_netmask_netmask_value_|-subnet-name_subnet_name_} -firewall-policy_mRDMA_policy_name_auto-tridc_midc_midc_auto-tridc_cols_auto-tridc_cols
+'network interface create-vserver_SVM_name_-lif_lif_name_-service-policy_service_policy_name_-home-node_node_name_-home-port_port_name_{-address_netmask_netmask_value_|-subnet_subnet_name_} -firewall-policy_mdma_policy_name_auto-tridc-midc-midc_name_
 
 +
 .. 서비스 정책은 default-data-files 또는 data-nfs 네트워크 인터페이스 서비스를 포함하는 사용자 지정 정책이어야 합니다.
@@ -31,12 +31,11 @@ ONTAP 9.10.1부터는 네트워크 인터페이스 명령에 RDMA_protocols 매�
 . 'network interface show' 명령을 사용하여 LIF의 상태를 확인할 수 있습니다. 서비스 정책은 data-nfs 네트워크 인터페이스 서비스를 포함해야 합니다. RDMA-protocols 목록에는 RoCE가 포함되어야 합니다. 이러한 조건 중 하나가 참이 아니면 LIF를 수정하십시오.
 . LIF를 수정하려면 다음을 실행합니다.
 +
-'network interface modify vserver_vserver_name_-lif_lif_name_-service-policy_service_policy_name_-home-node_name_-home-port_port_name_{-address_-netmask_netmask_value_|-subnet_name_} -firewall-policy_policy_name_mdma-auto-tridc_mref_auto-midc_auto-midc_protocol
+'network interface modify vserver_SVM_name_-lif_lif_name_-service-policy_service_policy_name_-home-node_name_-home-port_port_name_{-address_-netmask_netmask_value_|-subnet_name_} -firewall-policy_policy_name_mdma-auto-tridf-protocol
 
 
 
-LIF가 현재 해당 프로토콜을 지원하는 포트에 할당되지 않은 경우 LIF에서 특정 오프로드 프로토콜을 요구하도록 수정하면 오류가 발생합니다.
 
-link:../networking/create_a_lif.html["LIF를 생성합니다"]
+NOTE: LIF가 현재 해당 프로토콜을 지원하는 포트에 할당되지 않은 경우 LIF에서 특정 오프로드 프로토콜을 요구하도록 수정하면 오류가 발생합니다.
 
-link:../networking/what_lifs_are.html["LIF의 정의"]
+xref:../networking/create_a_lif.html[LIF를 생성합니다]

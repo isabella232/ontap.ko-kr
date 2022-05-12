@@ -14,7 +14,7 @@ summary: 일반 디스크를 교체하는 것과 동일한 방법으로 FIPS 드
 일반 디스크를 교체하는 것과 동일한 방법으로 FIPS 드라이브 또는 SED를 교체할 수 있습니다. 새 데이터 인증 키를 교체 드라이브에 할당하십시오. FIPS 드라이브의 경우 새 FIPS 140-2 인증 키를 할당할 수도 있습니다.
 
 
-NOTE: HA 쌍이 를 사용 중인 경우 xref:../encryption-at-rest/support-storage-encryption-concept.html[SAS 또는 NVMe 드라이브(SED, NSE, FIPS) 암호화], 항목의 지침을 따라야 합니다 xref:../encryption-at-rest/return-seds-unprotected-mode-task.html[FIPS 드라이브 또는 SED를 보호되지 않는 모드로 되돌리는 중입니다] 시스템을 초기화하기 전에 HA 쌍 내의 모든 드라이브(부팅 옵션 4 또는 9) 이렇게 하지 않을 경우 드라이브를 용도 변경할 경우 향후의 데이터 손실이 발생할 수 있습니다.
+NOTE: HA 쌍이 를 사용 중인 경우 link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/support-storage-encryption-concept.html["SAS 또는 NVMe 드라이브(SED, NSE, FIPS) 암호화"], 항목의 지침을 따라야 합니다 xref:https://docs.netapp.com/us-en/ontap/encryption-at-rest/encryption-at-rest/return-seds-unprotected-mode-task.html[FIPS 드라이브 또는 SED를 보호되지 않는 모드로 되돌리는 중입니다] 시스템을 초기화하기 전에 HA 쌍 내의 모든 드라이브(부팅 옵션 4 또는 9) 이렇게 하지 않을 경우 드라이브를 용도 변경할 경우 향후의 데이터 손실이 발생할 수 있습니다.
 
 .무엇을 &#8217;필요로 할거야
 * 드라이브에서 사용하는 인증 키의 키 ID를 알아야 합니다.

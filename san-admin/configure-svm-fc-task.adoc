@@ -39,4 +39,4 @@ https://mysupport.netapp.com/site/global/dashboard["NetApp 지원"]
 
 https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"^]
 
-xref:life-cluster-concept.adoc[클러스터 SAN 환경의 LIF 고려 사항]
+xref:lifs-cluster-concept.adoc[클러스터 SAN 환경의 LIF 고려 사항]

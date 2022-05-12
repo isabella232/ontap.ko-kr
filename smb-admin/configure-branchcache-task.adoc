@@ -165,7 +165,7 @@ xref:create-branchcache-enabled-share-task.adoc[BranchCache 지원 SMB 공유를
 
 xref:enable-branchcache-existing-share-task.adoc[기존 SMB 공유에서 BranchCache를 사용하도록 설정합니다]
 
-xref:manage-monitor-branchcache-config-concept.adoc[BranchCache 구성을 수정합니다]
+xref:modify-branchcache-config-task.html[BranchCache 구성을 수정합니다]
 
 xref:disable-branchcache-shares-concept.html[SMB 공유에서 BranchCache를 해제합니다. 개요]
 

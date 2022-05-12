@@ -28,5 +28,5 @@ summary: ONTAP 9.8+ NAS 경로 페일오버 워크플로우에 오신 것을 환
 
 네트워크 관리 세부 정보를 원할 경우 네트워크 관리 참조 자료를 사용해야 합니다.
 
-* xref:networking/networking_reference.index.adoc[네트워크 관리 개요]
+* xref:networking_reference.adoc[네트워크 관리 개요]
 

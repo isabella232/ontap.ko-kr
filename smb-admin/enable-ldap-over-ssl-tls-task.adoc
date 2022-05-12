@@ -28,6 +28,6 @@ SVM이 이름 매핑 또는 기타 UNIX 정보(예: 사용자, 그룹 및 넷그
 ====
 
 
-xref:ldaps-concepts-concept.adoc[LDAPS 개념]
+link:../nfs-admin/ldaps-concept.adoc["LDAPS 개념"]
 
 link:../nfs-admin/index.html["NFS 관리"]

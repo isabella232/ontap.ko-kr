@@ -16,4 +16,4 @@ summary: '2노드 또는 4노드 MetroCluster 구성을 되돌리기 전에 자�
 . MetroCluster의 두 클러스터 모두에서 'MetroCluster modify-auto-switchover-failure-domain auso-disabled'라는 예기치 않은 자동 전환을 비활성화합니다
 
 
-https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_install_configure_mediator.html["MetroCluster 관리 및 재해 복구"]
+link:https://docs.netapp.com/us-en/ontap-metrocluster/disaster-recovery/concept_dr_workflow.html["MetroCluster 관리 및 재해 복구"^]

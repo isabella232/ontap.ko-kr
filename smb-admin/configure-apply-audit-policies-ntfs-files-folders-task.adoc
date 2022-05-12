@@ -15,11 +15,9 @@ ONTAP CLI를 사용할 때 NTFS 파일 및 폴더에 감사 정책을 적용하�
 
 보안 정책을 적용한 후 보안 정책 작업을 모니터링하고 적용된 감사 정책의 설정을 확인할 수 있습니다.
 
-[NOTE]
-====
-감사 정책 및 관련 SACL이 적용되면 기존의 모든 DACL을 덮어씁니다. 새 보안 정책을 만들고 적용하기 전에 기존 보안 정책을 검토해야 합니다.
 
-====
+NOTE: 감사 정책 및 관련 SACL이 적용되면 기존의 모든 DACL을 덮어씁니다. 새 보안 정책을 만들고 적용하기 전에 기존 보안 정책을 검토해야 합니다.
+
 xref:secure-file-access-storage-level-access-guard-concept.adoc[Storage-Level Access Guard를 사용하여 파일 액세스 보호]
 
 xref:limits-when-cli-set-file-folder-security-concept.adoc[CLI를 사용하여 파일 및 폴더 보안을 설정할 때의 제한 사항]
@@ -28,4 +26,4 @@ xref:security-descriptors-apply-file-folder-security-concept.adoc[보안 설명�
 
 link:../nas-audit/index.html["SMB 및 NFS 감사 및 보안 추적"]
 
-xref:../nas-audit/create-ntfs-security-descriptor-file-task.adoc[CLI를 사용하여 NTFS 파일 및 폴더에 파일 보안을 구성하고 적용합니다]
+xref:create-ntfs-security-descriptor-file-task.adoc[CLI를 사용하여 NTFS 파일 및 폴더에 파일 보안을 구성하고 적용합니다]

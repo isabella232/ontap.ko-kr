@@ -16,10 +16,10 @@ summary: 새 S3 버킷을 생성하기 전에 새 SVM이나 기존 SVM에 배치
 .선택
 * S3에 대해 활성화되지 않은 새 SVM 또는 SVM에서 버킷을 프로비저닝하려면 다음 항목의 단계를 완료하십시오.
 +
-link:configure-s3-access-svm-task.html["SVM에 대한 S3 액세스 구성"]
+link:create-svm-s3-task.html["S3를 위해 SVM을 생성합니다"]
 
 +
-link:add-storage-capacity-s3-enabled-svm-concept.html["S3 지원 SVM에 스토리지 용량 추가"]
+link:create-bucket-task.html["S3에 대한 버킷을 생성합니다"]
 
 +
 S3는 NFS 및 SMB와 SVM에서 공존할 수 있지만, 다음 중 하나가 참인 경우 새 SVM을 생성하도록 선택할 수 있습니다.
@@ -32,6 +32,6 @@ S3는 NFS 및 SMB와 SVM에서 공존할 수 있지만, 다음 중 하나가 참
 
 * 기존 S3 기반 SVM에서 초기 버킷 또는 추가 버킷을 프로비저닝하려면 다음 항목의 단계를 완료하십시오.
 +
-link:add-storage-capacity-s3-enabled-svm-concept.html["S3 지원 SVM에 스토리지 용량 추가"]
+link:create-bucket-task.html["S3에 대한 버킷을 생성합니다"]
 
 

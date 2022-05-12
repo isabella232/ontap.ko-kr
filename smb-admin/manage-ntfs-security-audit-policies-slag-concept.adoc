@@ -19,11 +19,9 @@ ONTAP에서 SVM 볼륨에 적용한 또 다른 보안 계층인 스토리지 레
 
 스토리지 레벨 액세스 가드는 ONTAP CLI에서만 구성 및 관리할 수 있습니다. SMB 클라이언트에서 스토리지 수준 액세스 가드 설정을 관리할 수 없습니다. 또한 NFS 또는 SMB 클라이언트의 파일 또는 디렉토리에 대한 보안 설정을 볼 경우 Storage-Level Access Guard 보안이 표시되지 않습니다. 시스템(Windows 또는 UNIX) 관리자도 클라이언트에서 스토리지 수준 액세스 가드 보안을 취소할 수 없습니다. 따라서 Storage-Level Access Guard는 스토리지 관리자가 독립적으로 설정하고 관리하는 데이터 액세스를 위한 추가 보안 계층을 제공합니다.
 
-[NOTE]
-====
-스토리지 레벨 액세스 가드에 대해 NTFS 액세스 권한만 지원되지만, ONTAP는 UNIX 사용자가 볼륨을 소유하는 SVM에서 Windows 사용자에게 매핑될 경우 스토리지 레벨 액세스 가드가 적용되는 볼륨의 데이터에 대해 NFS에 대한 액세스를 위한 보안 검사를 수행할 수 있습니다.
 
-====
+NOTE: 스토리지 레벨 액세스 가드에 대해 NTFS 액세스 권한만 지원되지만, ONTAP는 UNIX 사용자가 볼륨을 소유하는 SVM에서 Windows 사용자에게 매핑될 경우 스토리지 레벨 액세스 가드가 적용되는 볼륨의 데이터에 대해 NFS에 대한 액세스를 위한 보안 검사를 수행할 수 있습니다.
+
 
 
 == NTFS 보안 스타일 볼륨
@@ -54,10 +52,10 @@ UNIX 보안 스타일 볼륨 및 qtree에는 UNIX 유효 보안(모드 비트 �
 * SVM과 타겟 볼륨에 CIFS 서버가 포함된 경우 "vserver security file-directory" 명령 제품군을 사용하여 UNIX 보안 스타일 볼륨에서 Storage-Level Access Guard를 구성할 수 있습니다.
 
 
-xref:display-file-security-audit-policies-concept.adoc[파일 보안 및 감사 정책에 대한 정보 표시]
+xref:display-file-security-audit-policies-concept.adoc[파일 보안 및 감사 정책에 대한 정보를 표시합니다]
 
-xref:../nas-audit/create-ntfs-security-descriptor-file-task.adoc[CLI를 사용하여 NTFS 파일 및 폴더에 파일 보안을 구성하고 적용합니다]
+xref:create-ntfs-security-descriptor-file-task.adoc[CLI를 사용하여 NTFS 파일 및 폴더에 파일 보안을 구성하고 적용합니다]
 
-xref:configure-apply-audit-policies-ntfs-files-folders-task.adoc[CLI를 사용하여 NTFS 파일 및 폴더에 감사 정책 구성 및 적용]
+xref:configure-apply-audit-policies-ntfs-files-folders-task.adoc[CLI를 사용하여 NTFS 파일 및 폴더에 감사 정책을 구성하고 적용합니다]
 
-xref:secure-file-access-storage-level-access-guard-concept.adoc[Storage-Level Access Guard를 사용하여 파일 액세스 보호]
+xref:secure-file-access-storage-level-access-guard-concept.adoc[Storage-Level Access Guard를 사용하여 파일 액세스를 보호합니다]

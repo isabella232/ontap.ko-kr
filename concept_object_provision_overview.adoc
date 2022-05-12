@@ -54,6 +54,6 @@ ONTAP는 가장 적합한 디스크가 있는 로컬 계층에서 이 버킷을 
 
 == Cloud Volumes ONTAP에서 S3 버킷 구성
 
-Cloud Volumes ONTAP에서 버킷 서비스를 제공하려면 기본 애그리게이트를 수동으로 선택하여 해당 애그리게이트가 하나의 노드만 사용하는지 확인하는 것이 좋습니다. 두 노드의 애그리게이트를 사용하면 지리적으로 서로 분리되어 있는 가용성 영역에 노드가 있기 때문에 지연 시간 문제가 발생하기 때문에 성능에 영향을 미칠 수 있습니다. 따라서 Cloud Volumes ONTAP 환경에서는 이 작업을 수행해야 합니다 link:s3config/create-bucket-task.html["CLI에서 S3 버킷을 구성합니다"].
+Cloud Volumes ONTAP에서 버킷 서비스를 제공하려면 기본 애그리게이트를 수동으로 선택하여 해당 애그리게이트가 하나의 노드만 사용하는지 확인하는 것이 좋습니다. 두 노드의 애그리게이트를 사용하면 지리적으로 서로 분리되어 있는 가용성 영역에 노드가 있기 때문에 지연 시간 문제가 발생하기 때문에 성능에 영향을 미칠 수 있습니다. 따라서 Cloud Volumes ONTAP 환경에서는 이 작업을 수행해야 합니다 link:s3-config/create-bucket-task.html["CLI에서 S3 버킷을 구성합니다"].
 
 그렇지 않으면 Cloud Volumes ONTAP의 S3 서버가 사내 환경과 Cloud Volumes ONTAP에서 동일하게 구성 및 관리됩니다

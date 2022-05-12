@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: upgrade/task_upgrade_nondisruptive_manual_cli.html 
-keywords: netapp, ontap, upgrade, nondisruptive, nondisruptively, non-disruptive update, nondisruptive upgrade, upgrade a cluster, shift workload between clusters, hardware platform, configuration, software image, update, update ONTAP, update software, ndu 
+keywords: upgrade, nondisruptive, , non-disruptive update, nondisruptive upgrade, shift workload between clusters, hardware platform, configuration, software image, update, update ONTAP, update software, ndu 
 summary: '수동 무중단 방법을 사용하여 2개 이상의 노드 클러스터를 업그레이드하려면 HA 쌍의 각 노드에서 페일오버 작업을 시작하고, "장애가 발생한" 노드를 업데이트하고, 반환을 시작한 다음 클러스터의 각 HA 쌍에 대해 프로세스를 반복해야 합니다.' 
 ---
 = CLI(non-MetroCluster 시스템)를 사용한 수동 무중단 업그레이드
@@ -175,7 +175,7 @@ GiveStatus 필드에 반환할 애그리게이트가 없다고 표시되면 모�
 +
 .. 거부권을 행사할 수 있는 대안을 검토하여 "받는 사람" 조건을 해결할지 또는 거부권을 무시할지 여부를 결정합니다.
 +
-link:../ontap/high-availability/index.html["고가용성 구성"]
+link:../high-availability/index.html["고가용성 구성"]
 
 .. 필요한 경우 오류 메시지에 설명된 "받는 사람" 조건을 해결하여 식별된 작업이 정상적으로 종료되도록 합니다.
 .. 스토리지 페일오버 반환 명령을 다시 실행합니다.
