@@ -71,6 +71,7 @@ ONTAP Select
 소스 및 대상 클러스터의 모든 노드에서 ONTAP 9.10.1을 실행하는 경우 ONTAP 9.10.1에서 SnapMirror Synchronous 기술에 대해 다음 기능이 지원됩니다.
 
 * NFSv4.2
+* NVMe/TCP
 
 
 ONTAP 9.5 이상에서 SnapMirror Synchronous 기술은 지연 시간이 10ms를 초과하지 않는 모든 네트워크에서 NFSv3, FC 및 iSCSI 프로토콜을 지원합니다.

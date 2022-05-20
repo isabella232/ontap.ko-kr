@@ -26,3 +26,9 @@ ONTAP 9.11.1에 대한 수동 페이지를 사용할 수 있습니다 link:https
 * link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2573244["ONTAP 9.1"^]
 * link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2492714["ONTAP 9.0"^]
 
+
+
+
+== CLI 비교 툴
+
+의 CLI 비교 툴을 사용하여 ONTAP 릴리즈 간에 CLI(Command-Line Interface) 명령의 변경 사항을 확인할 수 있습니다 link:https://mysupport.netapp.com/site/info/cli-comparison["NetApp Support 사이트"^].
