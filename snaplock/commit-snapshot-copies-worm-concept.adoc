@@ -47,15 +47,15 @@ image::../media/snapvault-steps-clustered.gif[이 그림에서는 SnapVault 관�
 
 .단계
 . 대상 클러스터를 식별합니다.
-. 에 설명된 대로 대상 클러스터에서 SnapLock 라이센스를 설치하고 ComplianceClock을 초기화하며 SnapLock 애그리게이트를 생성합니다 xref:workflow-concept.html[SnapLock 워크플로].
+. 대상 클러스터에서 SnapLock 라이센스를 설치하고 ComplianceClock을 초기화하며 9.10.1 이전의 ONTAP 릴리스를 사용하는 경우 에 설명된 대로 SnapLock 애그리게이트를 생성합니다 xref:workflow-concept.html[SnapLock 워크플로].
 . 대상 클러스터에서 소스 볼륨보다 크거나 같은 dP 유형의 SnapLock 대상 볼륨을 생성합니다.
 +
-'* 볼륨 생성 - vserver_SVM_name_-volume_volume_name_-aggregate_aggregate_name_-type dp-size_size_*'
+'* 볼륨 생성 - vserver_SVM_name_-volume_volume_name_-aggregate_aggregate_name_-snaplock-type compliance|enterprise-type dp-size_size_ *'
 
 +
 [NOTE]
 ====
-SnapLock 모드인 Compliance 또는 Enterprise는 Aggregate에서 상속됩니다. 버전에 상관없이 유연한 타겟 볼륨이 지원되지 않습니다. 대상 볼륨의 언어 설정은 소스 볼륨의 언어 설정과 일치해야 합니다.
+ONTAP 9.10.1 이전의 ONTAP 릴리즈에서는 SnapLock 모드, 규정 준수 또는 엔터프라이즈가 aggregate에서 상속됩니다. 버전에 상관없이 유연한 타겟 볼륨이 지원되지 않습니다. 대상 볼륨의 언어 설정은 소스 볼륨의 언어 설정과 일치해야 합니다.
 
 ====
 +
@@ -64,7 +64,7 @@ SnapLock 모드인 Compliance 또는 Enterprise는 Aggregate에서 상속됩니�
 +
 [listing]
 ----
-cluster2::> volume create -vserver SVM2 -volume dstvolB -aggregate node01_aggr -type DP -size 2GB
+cluster2::> volume create -vserver SVM2 -volume dstvolB -aggregate node01_aggr -snaplock-type compliance -type DP -size 2GB
 ----
 . 에 설명된 대로 대상 클러스터에서 기본 보존 기간을 설정합니다 xref:set-default-retention-period-task.adoc[기본 보존 기간을 설정합니다].
 +

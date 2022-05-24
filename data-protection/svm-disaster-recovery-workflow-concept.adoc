@@ -13,4 +13,4 @@ summary: 재해를 복구하고 타겟 SVM에서 데이터를 제공하려면 �
 [role="lead"]
 재해를 복구하고 타겟 SVM에서 데이터를 제공하려면 타겟 SVM을 활성화해야 합니다. 타겟 SVM을 활성화하려면 예약된 SnapMirror 전송을 중지하고, 지속적인 SnapMirror 전송을 중단하고, 복제 관계를 중단하고, 소스 SVM을 중지하고, 타겟 SVM을 시작해야 합니다.
 
-image::../media/activating-destination-svm-workflow.gif[대상 svm 워크플로를 활성화합니다]
+image::../media/svm-disaster-recovery-workflow.gif[SVM 재해 복구 워크플로우]
