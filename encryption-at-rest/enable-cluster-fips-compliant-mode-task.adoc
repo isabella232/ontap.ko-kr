@@ -22,6 +22,22 @@ summary: 보안 구성 수정 명령을 -is-FIPS 지원 옵션과 함께 사용�
 
 클러스터 전체 보안 구성을 수정한 후에는 클러스터 노드를 수동으로 재부팅해야 합니다.
 
+
+
+== ONTAP 9.11.1 RC1 고려 사항
+
+ONTAP 버전 9.11.1RC1의 변경으로 인해 FIPS 140-2 규정 준수 관리 모드는 더 이상 FIPS 140-2 검증 소프트웨어 모듈을 사용하지 않습니다.
+
+ONTAP 9.11.1 RC1은 HTTPS용 관리 및 컨트롤 플레인 연결에 사용되는 OpenSSL 버전을 업그레이드했습니다. 이 버전의 OpenSSL(OpenSSL 3.x FIPS Provider)은 FIPS 140-2 CMVP(Cryptographic Module Validation Program) 검증 프로세스를 아직 완료하지 않았습니다.
+
+FIPS 준수 모드가 활성화되면 HTTPS 연결에 사용되는 암호화 알고리즘은 CAVP(Cryptographic Algorithm Validation Program) 인증서 A1938에서 발급된 OpenSSL Project OpenSSL 3.x FIPS Provider 알고리즘과 동일합니다. * 이 변경은 FIPS 준수 모드로 구성된 ONTAP 시스템에만 영향을 줍니다. *
+
+ONTAP 9.11.1 RC1에 있는 업그레이드된 OpenSSL 모듈이 NIST와 함께 FIPS 140-2 검증을 완료하면 이 문제가 해결됩니다. FIPS 140-2 CMVP 검증 모듈을 사용하여 ONTAP 클러스터 관리 컨트롤 플레인을 실행해야 하는 환경에서는 9.11.1 RC1로 업그레이드하지 않는 것이 좋습니다.
+
+NSE, NVE, NAE와 같은 유휴 데이터의 NetApp 암호화 기술에는 영향을 미치지 않습니다. 이러한 기능이 ONTAP의 OpenSSL에서 제공하는 암호화 모듈과 다른 암호화 모듈을 사용하기 때문입니다.
+
+자세한 내용은 을 참조하십시오 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Upgrading_to_ONTAP_9.11.1RC1_results_in_FIPS_140-2_compliance_management_configuration_that_is_not_validated["ONTAP 9.11.1 RC1로 업그레이드하면 FIPS 140-2 규정 준수 관리 구성이 확인되지 않습니다"^]
+
 .단계
 . 권한 수준을 고급으로 설정합니다.
 +

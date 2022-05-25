@@ -21,7 +21,7 @@ System Manager를 사용하면 즉각적인 주의가 필요한 시스템 문제
  a| 
 ONTAP 9.10.1
  a| 
-e-메일 주소, syslog 서버, REST API 클라이언트(webhook) 및 SNMP traphosts를 구성합니다.
+e-메일 주소, syslog 서버, webhook 애플리케이션 및 SNMP traphosts를 구성합니다.
 
 
 

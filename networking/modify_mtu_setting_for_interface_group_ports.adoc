@@ -34,12 +34,12 @@ Do you want to continue? {y|n}: y
 . 계속하려면 y를 입력하십시오.
 . MTU 설정이 올바르게 수정되었는지 확인합니다.
 +
-넷 포트 쇼
+네트워크 포트 쇼
 
 
 
 ....
-net port show
+network port show
 (network port show)
 Node: vsim-01
                                                               Ignore

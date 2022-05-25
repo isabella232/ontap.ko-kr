@@ -10,8 +10,6 @@ entries:
   entries:
   - title: 워크플로우
     url: "/error-messages/config-workflow-task.html"
-  - title: 이벤트 알림을 보낼 위치를 결정합니다
-    url: "/error-messages/decide-send-event-notifications-task.html"
   - title: 이메일 알림을 보내도록 EMS 이벤트를 구성합니다
     url: "/error-messages/configure-ems-events-send-email-task.html"
   - title: 알림을 syslog 서버로 전달하도록 EMS 이벤트를 구성합니다
