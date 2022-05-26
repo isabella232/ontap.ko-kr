@@ -30,12 +30,12 @@ Use the "network port reachability show -detail" command for more details.
 . 클러스터 LIF의 홈 포트를 올바른 포트로 재설정합니다.
 +
 ....
-net port modify -home-port
+network port modify -home-port
 ....
 . 클러스터 LIF가 구성되어 있지 않은 포트를 클러스터 브로드캐스트 도메인에서 제거합니다.
 +
 ....
-net port broadcast-domain remove-ports
+network port broadcast-domain remove-ports
 ....
 . 클러스터를 생성합니다.
 +

@@ -49,7 +49,7 @@ cluster01-02
 ----
 . 시스템 SVM에 대한 인터클러스터 LIF 생성:
 +
-'network interface create-vserver cluster-lif LIF_name-service-policy default-인터클러스터 홈 노드-홈-포트 포트-주소 port_ip-넷마스크 넷마스크 넷마스크'
+'network interface create-vserver cluster-lif_LIF_name_-service-policy default-인터클러스터-home-node_node_-home-port_port_-address_port_ip_-netmask_mask_'
 
 +
 다음 예에서는 인터클러스터 LIF 'cluster01_icl01'과 'cluster01_icl02'를 생성합니다.

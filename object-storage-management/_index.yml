@@ -3,9 +3,7 @@ indexpage:
   tiles:
   - title: 시작하십시오
     links:
-    - title: S3 구성 개요(System Manager)
-      url: "/../concept_object_provision_overview.html"
-    - title: S3 구성 개요(CLI)
+    - title: S3 구성 개요
       url: "/../s3-config/index.html"
     - title: S3 SnapMirror 개요
       url: "/../s3-snapmirror/index.html"
@@ -13,17 +11,11 @@ indexpage:
       url: "/../s3-audit/index.html"
   - title: S3 서버 구성
     links:
-    - title: System Manager에서 사용하도록 설정합니다
-      url: "/../task_object_provision_enable_s3_server.html"
-    - title: CLI에서 사용하도록 설정합니다
+    - title: S3을 사용하도록 설정합니다
       url: "/../s3-config/create-s3-object-store-server-task.html"
-    - title: System Manager로 버킷 프로비저닝
-      url: "/../task_object_provision_buckets.html"
-    - title: CLI를 통해 버킷 프로비저닝
+    - title: 버킷을 프로비저닝합니다
       url: "/../s3-config/create-bucket-task.html"
-    - title: System Manager로 사용자 및 그룹을 추가합니다
-      url: "/../task_object_provision_add_s3_users_groups.html"
-    - title: CLI를 사용하여 사용자 및 그룹을 추가합니다
+    - title: 사용자 및 그룹을 추가합니다
       url: "/../s3-config/create-s3-user-task.html"
   - title: S3 SnapMirror
     links:

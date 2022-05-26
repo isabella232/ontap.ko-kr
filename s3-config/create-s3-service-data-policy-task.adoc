@@ -26,7 +26,7 @@ SVM 및 LIF에 여러 프로토콜을 구성할 수 있지만 오브젝트 데�
 
 . 서비스 데이터 정책 생성:
 +
-'network interface service-policy create-vserver svm_name-policy_name-services data-core, data-s3-server'
+'network interface service-policy create-vserver_svm_name_-policy_policy_name_-services data-core, data-s3-server'
 
 +
 ONTAP S3을 활성화하는 데 필요한 서비스는 데이터 코어(Data-Core) 및 데이터-S3-서버(Data-S3-Server) 서비스뿐입니다. 단, 다른 서비스는 필요에 따라 포함할 수 있습니다.

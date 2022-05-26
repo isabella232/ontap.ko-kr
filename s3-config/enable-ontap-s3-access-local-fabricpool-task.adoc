@@ -24,7 +24,7 @@ ONTAP S3 서버 이름과 버킷 이름이 있어야 하며, 클러스터 LIF("-
 .단계
 . 로컬 용량 계층에 대한 객체 저장소 생성:
 +
-'Storage aggregate object-store config create-object-store-name store_name-IPSpace Cluster-provider-type ONTAP_S3-server_name-container-name bucket_name-access-key access-key-secret-password password password'
+'스토리지 집계 객체 저장 구성 create-object-store-name_store_name_-IPSpace 클러스터 공급자 유형 ONTAP_S3-server_name_-container-name_bucket_name_-access-key_access-secret-password password"
 
 +
 ** container-name은 사용자가 만든 S3 버킷입니다.
@@ -50,10 +50,10 @@ cluster1::> storage aggregate object-store config create
 
 . 오브젝트 저장소를 Aggregate에 연결합니다.
 +
-'STORAGE 집계 객체 저장소 연결 집계 aggr_name-object-store-name store_name'입니다
+'STORAGE 집계 객체-STORE ATTACH-AGGATE_AGGr_NAME_-OBJECT-STORE-NAME_STORE_NAME_'
 
 +
-"allow-flexgroup" * true *" 옵션을 사용하여 FlexGroup 볼륨 구성요소를 포함하는 애그리게이트를 연결할 수 있습니다.
+'allow-flexgroup * true *' 옵션을 사용하면 FlexGroup 볼륨 구성요소를 포함하는 애그리게이트를 연결할 수 있습니다.
 
 +
 [listing]

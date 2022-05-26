@@ -27,7 +27,7 @@ NetApp 모범 사례로서 이 루트 사용자를 사용하지 마십시오. �
 .단계
 . S3 서버 생성:
 +
-'vserver object-store-server create-vserver svm_name-object-store-server s3_server_name-certificate-name ca_cert_name-comment text [additional_options]'
+'vserver object-store-server create-vserver_svm_name_-object-store-server_s3_server_name_-certificate-name_ca_cert_name_-comment_text_[additional_options]'
 
 +
 S3 서버를 생성할 때 또는 나중에 언제든지 추가 옵션을 지정할 수 있습니다.

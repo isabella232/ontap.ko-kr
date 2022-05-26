@@ -17,11 +17,9 @@ S3 서버와 버킷을 포함하는 S3 기반 SVM이 이미 존재해야 합니�
 
 오브젝트 스토리지 서버 그룹에서 기본 정책 또는 사용자 지정 정책을 지정하여 SVM 레벨에서 액세스 정책을 활성화할 수 있습니다. 정책은 그룹 정의에 지정될 때까지 적용되지 않습니다.
 
-[NOTE]
-====
-개체 스토리지 서버 정책을 사용할 때는 정책 자체가 아니라 그룹 정의에서 보안 주체(사용자 및 그룹)를 지정합니다.
 
-====
+NOTE: 개체 스토리지 서버 정책을 사용할 때는 정책 자체가 아니라 그룹 정의에서 보안 주체(사용자 및 그룹)를 지정합니다.
+
 ONTAP S3 리소스에 액세스하기 위한 세 가지 읽기 전용 기본 정책이 있습니다.
 
 * 전체 액세스
@@ -29,16 +27,22 @@ ONTAP S3 리소스에 액세스하기 위한 세 가지 읽기 전용 기본 정
 * ReadOnlyAccess 를 참조하십시오
 
 
-또한 새 사용자 지정 정책을 만든 다음 새 사용자 및 그룹에 대한 새 문을 추가하거나 기존 문의 특성을 수정할 수도 있습니다. 더 많은 옵션은 'vserver object-store-server policy' man 페이지를 참조하십시오.
+또한 새 사용자 지정 정책을 만든 다음 새 사용자 및 그룹에 대한 새 문을 추가하거나 기존 문의 특성을 수정할 수도 있습니다. 자세한 옵션은 'vserver object-store-server policy'를 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli-9111/index.html["명령 참조"^].
 
+ONTAP 9.9.1 이상 릴리즈를 시작할 때 ONTAP S3 서버에서 AWS 클라이언트 개체 태그 기능을 지원하려는 경우 버킷 또는 그룹 정책을 사용하여 GetObjectTagging, PutObjectTagging, DeleteObjectTagging 등의 작업을 허용해야 합니다.
+
+[role="tabbed-block"]
+====
+.CLI를 참조하십시오
+--
 .단계
 . 오브젝트 스토리지 서버 정책 생성:
 +
-'vserver object-store-server policy create-vserver svm_name-policy policy_name[-comment text]'
+'vserver object-store-server policy create-vserver_svm_name_-policy_policy_name_[-comment_text_]'
 
 . 정책에 대한 문을 생성합니다.
 +
-'vserver object-store-server policy statement create -vserver svm_name] -policy policy_name -effect{allow|deny} -action object_store_actions -resource object_store_resources[-sid text]'를 입력합니다
+'vserver object-store-server policy statement create-vserver_svm_name_-policy_policy_name_-effect{allow|deny}-action_object_store_actions_-resource_object_store_resources_[sid text]'입니다
 
 +
 다음 매개 변수는 액세스 권한을 정의합니다.
@@ -75,3 +79,36 @@ ONTAP S3 리소스에 액세스하기 위한 세 가지 읽기 전용 기본 정
 기본적으로 새 문은 순서대로 처리되는 문 목록의 끝에 추가됩니다. 나중에 문을 추가하거나 수정할 때 문장의 '-index' 설정을 수정하여 처리 순서를 변경할 수 있습니다.
 
 
+
+--
+.시스템 관리자
+--
+.단계
+. 스토리지 VM 편집: * 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 클릭한 다음 * 설정 * 을 클릭하고 을 클릭합니다 image:icon_pencil.gif["연필 아이콘"] S3 아래.
+. 사용자 추가: * Policies * 를 클릭한 다음 * Add * 를 클릭합니다.
++
+.. 정책 이름을 입력하고 그룹 목록에서 선택합니다.
+.. 기존 기본 정책을 선택하거나 새 정책을 추가합니다.
++
+그룹 정책을 추가하거나 수정할 때 다음 매개 변수를 지정할 수 있습니다.
+
++
+*** Group(그룹): 액세스 권한이 부여된 그룹입니다.
+*** 효과: 하나 이상의 그룹에 대한 액세스를 허용하거나 거부합니다.
+*** 조치: 주어진 그룹에 대해 하나 이상의 버킷에서 허용되는 조치.
+*** 리소스: 액세스가 부여되거나 거부되는 하나 이상의 버킷 내에 있는 오브젝트의 경로 및 이름입니다. 예를 들면 다음과 같습니다.
++
+**** *** 스토리지 VM의 모든 버킷에 대한 액세스 권한을 부여합니다.
+**** * bucketname * 및 * bucketname/** 특정 버킷의 모든 물체에 대한 액세스 권한을 부여합니다.
+**** * bucketname/readme.txt * 특정 버킷의 개체에 대한 액세스 권한을 부여합니다.
+
+
+
+
+.. 필요한 경우 기존 정책에 구문을 추가합니다.
+
+
+
+
+--
+====

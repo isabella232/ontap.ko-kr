@@ -44,4 +44,3 @@ image::../media/snapmirror.gif[SnapMirror를 참조하십시오]
 SnapMirror를 사용하여 NetApp Data Fabric의 엔드포인트 간에 데이터를 복제할 수도 있습니다. SnapMirror 정책을 생성할 때 1회 복제 또는 반복 복제 중에서 선택할 수 있습니다.
 
 |===
-2021년 12월 16일, Jira IE-412

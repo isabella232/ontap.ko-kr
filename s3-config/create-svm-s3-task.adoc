@@ -15,7 +15,17 @@ S3는 SVM에서 다른 프로토콜과 공존할 수 있지만, 네임스페이�
 
 이 SVM에서 S3 오브젝트 스토리지만 제공하는 경우 S3 서버는 DNS 구성이 필요하지 않습니다. 그러나 다른 프로토콜을 사용하는 경우 SVM에서 DNS를 구성할 수 있습니다.
 
+System Manager를 사용하여 새 스토리지 VM 또는 기존 스토리지 VM에 대한 S3 액세스를 구성하면 인증서 및 네트워킹 정보를 입력하라는 메시지가 표시되고 S3 오브젝트 스토리지 서버가 단일 작업으로 생성됩니다.
+
+인터페이스 역할 데이터에 대한 S3 서버 이름(FQDN) 및 IP 주소를 입력할 준비가 되어 있어야 합니다.
+
+외부 CA 서명 인증서를 사용하는 경우 이 절차를 수행하는 동안 해당 인증서를 입력하라는 메시지가 표시됩니다. 또한 시스템에서 생성한 인증서를 사용할 수도 있습니다.
+
+[role="tabbed-block"]
 .단계
+====
+.CLI를 참조하십시오
+--
 . S3 라이센스가 클러스터에서 라이센스되었는지 확인합니다.
 +
 'System license show-package s3'을 선택합니다
@@ -25,7 +35,7 @@ S3는 SVM에서 다른 프로토콜과 공존할 수 있지만, 네임스페이�
 
 . SVM 생성:
 +
-'vserver create-vserver svm_name-rootvolume root_volume_name-aggregate aggregate_name-rootvolume-security-style UNIX-language C. UTF-8-IPSpace IPSpace_name'을 선택합니다
+'vserver create-vserver_svm_name_-rootvolume_root_volume_name_-aggregate_aggregate_name_-rootvolume-security-style UNIX-language C. UTF-8-IPSpace_IPSpace_name_'
 
 +
 ** '-rootvolume-security-style' 옵션에 UNIX 설정을 사용합니다.
@@ -35,7 +45,7 @@ S3는 SVM에서 다른 프로토콜과 공존할 수 있지만, 네임스페이�
 
 . 새로 생성한 SVM의 구성 및 상태 확인:
 +
-'vserver show-vserver svm_name'을 선택합니다
+'vserver show -vserver_svm_name_'
 
 +
 'Vserver 작동 상태' 필드에는 '실행 중' 상태가 표시되어야 합니다. 초기화 중 상태가 표시되는 경우 루트 볼륨 생성 등 일부 중간 작업이 실패한 것으로, SVM을 삭제하고 다시 생성해야 합니다.
@@ -80,3 +90,36 @@ cluster-1::> vserver show -vserver svm1.example.com
                                 Config Lock: false
                                IPspace Name: ipspaceA
 ----
+--
+.시스템 관리자
+--
+. 스토리지 VM에서 S3를 설정합니다.
++
+.. 새 스토리지 VM 추가: * 스토리지 > 스토리지 VM * 을 클릭한 다음 * 추가 * 를 클릭합니다.
++
+기존 스토리지 VM이 없는 새 시스템인 경우 * 대시보드 > 프로토콜 구성 * 을 클릭합니다.
+
++
+기존 스토리지 VM에 S3 서버를 추가하는 경우 * 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 선택한 다음 * 설정 * 을 클릭하고 을 클릭합니다 image:icon_gear.gif["설정 아이콘"] S3 * 아래.
+
+.. S3 * 활성화 를 클릭한 다음 S3 서버 이름 을 입력합니다.
++
+이 이름은 클라이언트가 사용할 FQDN(정규화된 도메인 이름)입니다.
+
+.. 인증서 유형을 선택합니다.
++
+시스템에서 생성한 인증서 또는 사용자 인증서 중 하나를 선택하든 클라이언트 액세스에 필요합니다.
+
+.. 네트워크 인터페이스를 입력합니다.
+
+
+. 시스템에서 생성한 인증서를 선택한 경우 새 스토리지 VM 생성이 확인되면 인증서 정보가 표시됩니다. 다운로드 * 를 클릭하고 클라이언트 액세스를 위해 저장합니다.
++
+** 비밀 키는 다시 표시되지 않습니다.
+** 인증서 정보가 다시 필요한 경우 * 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 선택한 다음 * 설정 * 을 클릭합니다.
+
+
+
+
+--
+====

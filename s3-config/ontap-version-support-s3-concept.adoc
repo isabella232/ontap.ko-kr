@@ -19,7 +19,7 @@ ONTAP는 ONTAP 9.8부터 사내 환경을 위한 S3 오브젝트 스토리지를
 
 ONTAP S3는 Cloud Volumes ONTAP에서 사내 환경과 동일하게 구성 및 작동합니다. 단 한 가지 예외가 있습니다.
 
-* 기본 애그리게이트는 한 노드에서만 사용해야 함 에 대해 자세히 알아보십시오 link:create-bucket-task.html["CVO 환경에서 버킷 생성"].
+* 기본 애그리게이트는 한 노드에서만 사용해야 함 에 대해 자세히 알아보십시오 link:create-svm-s3-task.html["CVO 환경에서 버킷 생성"].
 
 
 |===

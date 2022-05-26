@@ -26,7 +26,7 @@ link:../authentication/index.html["관리자 인증 및 RBAC"]
 .단계
 . 자체 서명된 디지털 인증서 생성:
 +
-'Security certificate create - vserver svm_name - type root-ca-common-name ca_cert_name'
+'Security certificate create - vserver_svm_name _ -type root-ca-common-name_ca_cert_name _'
 
 +
 '-type root-ca' 옵션은 자체 서명된 디지털 인증서를 만들어 설치하여 CA(인증 기관)를 사용하여 다른 인증서에 서명합니다.
@@ -52,7 +52,7 @@ The certificate's generated name for reference: svm1_ca_159D1587CE21E9D4_svm1_ca
 
 . 인증서 서명 요청 생성:
 +
-'Security certificate generate - csr-common-name s3_server_name [Additional_options]'
+'Security certificate generate - csr-common-name_s3_server_name_[additional_options]'
 
 +
 서명 요청의 '-common-name' 매개변수는 S3 서버 이름(FQDN)이어야 합니다.
@@ -65,7 +65,7 @@ The certificate's generated name for reference: svm1_ca_159D1587CE21E9D4_svm1_ca
 
 . SVM_CA를 사용하여 CSR에 서명하여 S3 서버의 인증서를 생성합니다.
 +
-'보안 인증서 서명 - vserver svm_name -ca_cert_name -ca -serial ca_cert_serial_number [additional_options]'
+'보안 인증서 서명 - vserver_svm_name_-ca_ca_cert_name_-ca-serial_ca_cert_serial_number_[additional_options]'
 
 +
 이전 단계에서 사용한 명령 옵션을 입력합니다.
@@ -86,7 +86,7 @@ The certificate's generated name for reference: svm1_ca_159D1587CE21E9D4_svm1_ca
 
 . S3 기반 SVM에 서명된 인증서 설치:
 +
-'Security certificate install-type server-vserver svm_name'입니다
+'Security certificate install-type server-vserver_svm_name_'
 
 +
 메시지가 표시되면 인증서와 개인 키를 입력합니다.
@@ -99,7 +99,7 @@ The certificate's generated name for reference: svm1_ca_159D1587CE21E9D4_svm1_ca
 
 . 공개 키 인증서 받기:
 +
-'Security certificate show -vserver svm_name -common-name ca_cert_name -type root-ca-instance'
+'Security certificate show -vserver_svm_name_-common-name_ca_cert_name_-type root-ca-instance'
 
 +
 나중에 클라이언트 측 구성을 위해 공개 키 인증서를 저장합니다.

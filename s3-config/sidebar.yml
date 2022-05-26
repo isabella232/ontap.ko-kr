@@ -1,6 +1,6 @@
 ---
 section: s3-config
-title: CLI를 사용한 S3 구성
+title: S3 구성
 entries:
 - title: 개요
   url: "/s3-config/index.html"
