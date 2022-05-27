@@ -2,7 +2,7 @@
 permalink: s3-config/index.html 
 sidebar: sidebar 
 keywords: decide, s3, configuration, client, access, configure, object, bucket, svm 
-summary: ONTAP 9 CLI 명령을 사용하여 SVM의 버킷에 포함된 오브젝트에 대한 S3 클라이언트 액세스를 구성할 수 있습니다. 
+summary: 'ONTAP 9.8부터 ONTAP 클러스터에서 ONTAP S3(Simple Storage Service) 오브젝트 스토리지 서버를 활성화할 수 있습니다.' 
 ---
 = S3 구성 개요
 :allow-uri-read: 
@@ -11,7 +11,13 @@ summary: ONTAP 9 CLI 명령을 사용하여 SVM의 버킷에 포함된 오브젝
 
 
 [role="lead"]
-ONTAP 9.8부터 ONTAP 클러스터에서 ONTAP S3(Simple Storage Service) 오브젝트 스토리지 서버를 활성화할 수 있습니다. 자세한 내용은 을 참조하십시오 xref:s3-support-concept.html[ONTAP 9에서 S3 지원].
+ONTAP 9.8부터 ONTAP 클러스터에서 ONTAP S3(Simple Storage Service) 오브젝트 스토리지 서버를 활성화할 수 있습니다.
+
+ONTAP은 S3 오브젝트 스토리지를 지원하기 위한 두 가지 사내 사용 사례 시나리오를 지원합니다.
+
+* 로컬 클러스터(로컬 버킷에 계층화) 또는 원격 클러스터(클라우드 계층)의 버킷에 대한 FabricPool 계층
+* S3 클라이언트 애플리케이션이 로컬 클러스터 또는 원격 클러스터의 버킷에 액세스합니다.
+
 
 다음과 같은 방법으로 S3 오브젝트 스토리지를 구성하려면 다음 절차를 따라야 합니다.
 
@@ -28,15 +34,7 @@ ONTAP S3는 추가 하드웨어 및 관리 없이 기존 클러스터에서 S3 �
 
 System Manager 및 ONTAP CLI를 사용하여 ONTAP S3를 구성 및 관리할 수 있습니다. System Manager를 사용하여 S3를 활성화하고 버킷을 생성할 때 ONTAP은 단순한 구성을 위한 모범 사례 기본값을 선택합니다. 구성 매개 변수를 지정해야 하는 경우 ONTAP CLI를 사용할 수도 있습니다. CLI에서 S3 서버 및 버킷을 구성할 경우에도 원하는 경우 System Manager로 관리하거나 그 반대로 구성할 수 있습니다.
 
-System Manager는 S3 오브젝트 스토리지를 지원하기 위한 두 가지 사내 사용 사례 시나리오를 지원합니다.
-
-* 로컬 클러스터(로컬 버킷에 계층화) 또는 원격 클러스터(클라우드 계층)의 버킷에 대한 FabricPool 계층
-* S3 클라이언트 애플리케이션이 로컬 클러스터 또는 원격 클러스터의 버킷에 액세스합니다.
-
-
 System Manager를 사용하여 S3 버킷을 생성하는 경우, ONTAP은 시스템에서 가장 가용성이 높은 기본 성능 서비스 수준을 구성합니다. 예를 들어, AFF 시스템에서 기본 설정은 * Extreme * 입니다. 성능 서비스 수준은 사전 정의된 QoS(Quality of Service) 정책 그룹입니다. 기본 서비스 수준 대신 사용자 지정 QoS 정책 그룹 또는 정책 그룹을 지정할 수 있습니다.
-
-FabricPool 계층화에 대한 자세한 내용은 를 참조하십시오 xref:../concept_cloud_overview.html[System Manager를 이용한 FabricPool 계층 관리 개요].
 
 사전 정의된 적응형 QoS 정책 그룹은 다음과 같습니다.
 
@@ -52,8 +50,7 @@ FabricPool 계층화에 대한 자세한 내용은 를 참조하십시오 xref:.
 
 ONTAP는 가장 적합한 디스크가 있는 로컬 계층에서 이 버킷을 프로비저닝하려고 시도하여 선택한 서비스 수준을 충족시킵니다. 그러나 버킷에 포함할 디스크를 지정해야 하는 경우 로컬 계층(애그리게이트)을 지정하여 CLI에서 S3 오브젝트 스토리지를 구성하는 것이 좋습니다. CLI에서 S3 서버를 구성할 경우에도 원할 경우 System Manager로 관리할 수 있습니다.
 
-* 버킷에 사용할 애그리게이트를 지정할 수 있는 기능은 CLI를 통해서만 지정할 수 있습니다.
-
+버킷에 사용할 애그리게이트를 지정할 수 있는 기능은 CLI를 통해서만 지정할 수 있습니다.
 
 
 
