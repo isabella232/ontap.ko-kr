@@ -54,7 +54,7 @@ vs1       clone1           40.73MB
 
 . 분할 작업을 시작합니다.
 +
-'볼륨 클론 분할 시작 - SVM vserver_name - FlexClone clone_volume_name'
+'볼륨 클론 분할 시작 - vserver_vserver_name_-FlexClone_clone_volume_name_'
 
 +
 다음 예에서는 FlexClone 볼륨 clone1을 상위 볼륨 vol1에서 분리하는 프로세스를 시작하는 방법을 보여줍니다.
@@ -70,7 +70,7 @@ Warning: Are you sure you want to split clone volume clone1 in Vserver vs1 ?
 ----
 . FlexClone 분할 작업의 상태를 모니터링합니다.
 +
-'볼륨 클론 분할 표시 - vserver vserver_name - FlexClone clone_volume_name'
+'볼륨 클론 분할 표시 - vserver_vserver_name_-FlexClone_clone_volume_name_'
 
 +
 다음 예제는 AFF 시스템에서 FlexClone 분할 작업의 상태를 보여줍니다.
@@ -87,7 +87,7 @@ vs1       clone1        0         0       411247   153600         0        37
 ----
 . 분할 볼륨이 더 이상 FlexClone 볼륨이 아닌지 확인합니다.
 +
-'volume show-volume volume_name-fields clone-volume
+'volume show-volume_volume_name_-fields_clone-volume_'
 
 +
 FlexClone 볼륨이 아닌 볼륨에 대해 "clone-volume" 옵션의 값은 "false"입니다.

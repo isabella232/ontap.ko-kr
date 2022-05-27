@@ -43,15 +43,15 @@ NOTE: 기존 SVM에서 NAS 감사가 이미 활성화되어 있는 경우 애그
 
 . SVM을 생성할 때 스냅샷 정책을 지정할 계획이고 정책 이름을 모를 경우 사용 가능한 정책을 나열하고 사용할 스냅샷 정책의 이름을 식별하고 기록합니다.
 +
-' 볼륨 스냅샷 정책 표시 - vserver <vserver_name>'
+'볼륨 스냅샷 정책 표시 - vserver_vserver_name_'
 
 . SVM을 생성할 때 할당량 정책을 지정할 계획이고 정책 이름을 모를 경우, 사용 가능한 정책을 나열하고 사용할 할당량 정책의 이름을 식별하고 기록합니다.
 +
-'볼륨 할당량 정책 표시 - vserver <vserver_name>'
+'볼륨 할당량 정책 표시 - vserver_vserver_name_'
 
 . SVM 생성:
 +
-'vserver create-vserver <vserver_name> -aggregate <aggregate_name> -rootvolume <root_volume_name> -rootvolume -security-style{unix|NTFS|MIXED} [-IPSpace<hIPspace_name>] [-language <language>] [-snapshot-snapshot-policy <snapshot_policy_name>] [-quota-policy <quota_policy_policy_name>] 주석] [- comment>
+'vserver create-vserver_vserver_name_-aggregate_aggregate_name_-rootvolume_root_volume_name_-rootvolume-security-style{unix|ntfs|mixed}[-IPSpace_hIPspace_name_] [-language>] [-snapshot-policy_snapshot_snapshot_policy_name_] [-quota-policy_policy_name_ comment_comment_comment_comment]'] - comment_
 
 +
 ....

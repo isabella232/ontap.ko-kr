@@ -38,14 +38,14 @@ HA 쌍이 공장 출하 시 루트 데이터 데이터 파티셔닝을 사용하
 
 . 패시브 노드가 될 노드가 소유하는 각 데이터 1 파티션에 대해 액티브 노드에 할당합니다.
 +
-'storage disk assign-force-data1-owner_active_node_name_-disk disk disk disk_name'
+'storage disk assign-force-data1-owner_active_node_name_-disk_disk_name_'
 
 +
 디스크 이름의 일부로 파티션을 포함할 필요는 없습니다
 
 . 패시브 노드가 될 노드가 소유하는 각 데이터 2 파티션에 대해 액티브 노드에 할당합니다.
 +
-'storage disk assign-force-data2-owner active_node_name-disk disk disk_name'
+'storage disk assign-force-data2-owner_active_node_name_-disk_disk_name_'
 
 +
 디스크 이름의 일부로 파티션을 포함할 필요는 없습니다

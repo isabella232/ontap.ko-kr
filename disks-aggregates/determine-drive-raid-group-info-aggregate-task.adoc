@@ -16,7 +16,7 @@ summary: 일부 애그리게이트 관리 작업에서는 애그리게이트를 
 .단계
 . Aggregate의 드라이브를 RAID 그룹별 표시:
 +
-'Storage aggregate show-status_aggr_name_'
+'Storage aggregate show-status_aggregate_name_'
 
 +
 드라이브는 애그리게이트의 각 RAID 그룹에 대해 표시됩니다.

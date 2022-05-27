@@ -45,7 +45,7 @@ FlexGroups에서 사용할 Aggregate를 여러 개 생성할 경우 Aggregate의
 
 . Aggregate가 생성되었는지 확인하기 위해 Aggregate를 표시합니다.
 +
-'Storage aggregate show-status aggregate_name'입니다
+'Storage aggregate show-status_aggregate_name_'
 
 
 

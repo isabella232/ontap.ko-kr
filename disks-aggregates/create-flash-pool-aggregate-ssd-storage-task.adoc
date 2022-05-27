@@ -69,7 +69,7 @@ SSD 캐시를 애그리게이트에 추가하여 Flash Pool 애그리게이트�
 
 . SSD 캐시의 존재 및 크기 확인:
 +
-'스토리지 집계 show_aggr_name_'
+'STORAGE AGGATE SHOW_AGGATE_NAME_'
 
 +
 캐시 크기는 총 하이브리드 캐시 크기 아래에 나열됩니다.
