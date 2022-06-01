@@ -43,8 +43,8 @@ SQL Server는 Windows 2012 Server 이상에서 설치 및 구성해야 합니다
 
 ====
 * Microsoft 클러스터 만들기 및 SQL Server 설치 및 구성에 대한 자세한 내용은 Microsoft 웹 사이트를 참조하십시오.
-* SnapManager for Microsoft SQL Server는 SMB 구성을 통해 SQL Server와 통합되도록 설계된, 신속한 Snapshot 복사본 기반 백업 서비스를 지원하는 호스트 기반 애플리케이션입니다.
+* Microsoft SQL Server용 SnapCenter 플러그인은 SMB 구성을 통해 SQL Server와 통합되도록 설계된, 신속한 Snapshot 복사본 기반 백업 서비스를 지원하는 호스트 기반 애플리케이션입니다.
 +
-Microsoft SQL Server용 SnapManager 사용에 대한 자세한 내용은 _SnapManager for Microsoft SQL Server 설치 및 관리 가이드_를 참조하십시오.
+Microsoft SQL Server용 SnapCenter 플러그인 사용에 대한 자세한 내용은 를 참조하십시오 https://docs.netapp.com/us-en/snapcenter/protect-scsql/concept_snapcenter_plug_in_for_microsoft_sql_server_overview.html["Microsoft SQL Server용 SnapCenter 플러그인"] 문서화:
 
 

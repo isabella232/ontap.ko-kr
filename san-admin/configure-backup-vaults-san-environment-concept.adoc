@@ -17,9 +17,7 @@ SnapVault 백업에는 소스 볼륨의 읽기 전용 복제본 세트가 포함
 
 LUN이 포함된 운영 볼륨과 SnapVault 백업 역할을 하는 보조 볼륨 간의 SnapVault 관계를 생성하고 초기화하는 절차는 파일 프로토콜에 사용되는 FlexVol 볼륨에서 사용되는 절차와 동일합니다. 이 절차는 에 자세히 설명되어 있습니다 link:../data-protection/index.html["데이터 보호"].
 
-link:../data-protection/index.html["데이터 보호"]
-
-스냅샷 복사본이 생성되고 SnapVault 2차 볼륨으로 복제되기 전에 백업되는 LUN이 일관된 상태인지 확인하는 것이 중요합니다. Microsoft SQL Server용 SnapManager와 같은 제품으로 스냅샷 복사본 생성을 자동화하면 백업된 LUN이 원본 애플리케이션에서 완전하고 사용할 수 있습니다.
+스냅샷 복사본이 생성되고 SnapVault 2차 볼륨으로 복제되기 전에 백업되는 LUN이 일관된 상태인지 확인하는 것이 중요합니다. SnapCenter를 통한 스냅샷 복사본 생성을 자동화하면 백업된 LUN이 원본 애플리케이션에서 완전하고 사용할 수 있습니다.
 
 SnapVault 2차 볼륨에서 LUN을 복구하는 기본적인 세 가지 선택 사항은 다음과 같습니다.
 

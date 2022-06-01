@@ -1,7 +1,7 @@
 ---
 permalink: smb-hyper-v-sql/continuously-available-share-sql-concept.html 
 sidebar: sidebar 
-keywords: continuously, share, requirements, considerations, sql, server, smb, nondisuptive 
+keywords: continuously, share, requirements, considerations, sql, server, smb, nondisuptive, snapcenter plug-in 
 summary: 무중단 운영을 지원하는 SMB 구성을 통해 SQL Server에 대해 지속적으로 사용 가능한 공유를 구성할 때 특정 요구사항과 고려 사항을 알고 있어야 합니다. 
 ---
 = SMB를 통한 SQL Server의 지속적인 가용성 공유 요구 사항 및 고려 사항
@@ -26,7 +26,7 @@ summary: 무중단 운영을 지원하는 SMB 구성을 통해 SQL Server에 대
 지속적으로 사용 가능한 공유에 연결되는 애플리케이션 서버에는 SMB 공유에 중단 없이 다시 연결할 수 있는 영구 핸들이 제공되며, 테이크오버, 반환, 애그리게이트 재배치와 같은 운영 중단 이벤트가 발생한 후 파일 잠금을 재확보할 수 있습니다.
 
 * 데이터베이스 파일이 포함된 볼륨에는 접합부가 포함될 수 있지만 SQL Server는 데이터베이스 디렉토리 구조를 생성할 때 접합을 교차하지 않습니다.
-* Microsoft SQL Server용 SnapManager 백업 작업이 성공하려면 볼륨에 충분한 공간이 있어야 합니다.
+* Microsoft SQL Server용 SnapCenter 플러그인을 성공적으로 사용하려면 볼륨에 충분한 공간이 있어야 합니다.
 +
 SQL Server 데이터베이스 파일이 있는 볼륨은 데이터베이스 디렉토리 구조와 공유 내에 있는 모든 포함된 파일을 저장할 수 있을 만큼 커야 합니다.
 
