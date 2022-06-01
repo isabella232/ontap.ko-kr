@@ -100,7 +100,6 @@ ONTAP Select
 * 오프라인 볼륨
 * 제한된 볼륨
 * SnapLock 볼륨
-* SnapLock 볼륨
 * FlexGroup 볼륨
 * FlexCache 볼륨(랜섬웨어 방지 기능은 원래 FlexVol 볼륨에서 지원되지만 캐시 볼륨에서는 지원되지 않음)
 * SAN 전용 볼륨
