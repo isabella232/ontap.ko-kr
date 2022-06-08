@@ -76,4 +76,4 @@ ONTAP를 처음 사용하는 경우, 다음과 같은 몇 가지 다른 개념�
 
 == System Manager 사용 사례 비디오
 
-video::PrpfVnN3dyk[youtube, width=848,height=480]
+video::PrpfVnN3dyk[youtube,width=848,height=480]

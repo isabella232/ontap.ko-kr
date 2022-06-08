@@ -51,9 +51,9 @@ NOTE: HA 쌍이 를 사용 중인 경우 link:https://docs.netapp.com/us-en/onta
 
 === FlexCache를 통해 글로벌 데이터의 WAN 지연 시간 및 읽기 시간을 줄이는 방법
 
-video::rbbH0l74RWc[youtube, width=848,height=480]
+video::rbbH0l74RWc[youtube,width=848,height=480]
 
 
 === ONTAP FlexCache의 성능 이점에 대해 알아보십시오!
 
-video::bWi1-8Ydkpg[youtube, width=848,height=480]
+video::bWi1-8Ydkpg[youtube,width=848,height=480]

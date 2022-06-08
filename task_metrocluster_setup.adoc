@@ -83,4 +83,4 @@ Submit * 을 클릭하면 클러스터가 생성 및 구성될 때까지 기다�
 
 == 새 클러스터 비디오에서 ONTAP를 구성합니다
 
-video::PiX41bospbQ[youtube, width=848,height=480]
+video::PiX41bospbQ[youtube,width=848,height=480]

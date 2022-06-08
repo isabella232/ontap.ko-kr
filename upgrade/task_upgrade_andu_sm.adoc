@@ -178,4 +178,4 @@ Resume * 을 클릭합니다.
 
 ONTAP 9.8에서 System Manager의 간소화된 ONTAP 업그레이드 기능을 살펴보십시오.
 
-video::xwwX8vrrmIk[youtube, width=848,height=480]
+video::xwwX8vrrmIk[youtube,width=848,height=480]

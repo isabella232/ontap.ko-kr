@@ -100,4 +100,4 @@ SM-BC를 사용하는 경우 을 참조하십시오 link:../smbc/smbc_plan_addit
 
 == 일관성 그룹에 대해 자세히 알아보십시오
 
-video::j0jfXDcdyzE[youtube, width=848,height=480]
+video::j0jfXDcdyzE[youtube,width=848,height=480]

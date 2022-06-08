@@ -47,4 +47,4 @@ image:workflow_admin_upgrade_ontap.gif["업그레이드 작업의 워크플로 �
 
 ONTAP 9.8 System Manager에서 제공되는 단순화된 ONTAP 업그레이드 기능을 살펴보십시오.
 
-video::xwwX8vrrmIk[youtube, width=848,height=480]
+video::xwwX8vrrmIk[youtube,width=848,height=480]

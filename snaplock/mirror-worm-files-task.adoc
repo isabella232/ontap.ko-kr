@@ -54,7 +54,7 @@ image::../media/snapmirror_steps_clustered.png[이 그림에서는 SnapMirror �
 +
 [NOTE]
 ====
-ONTAP 9.10.1 이전 버전의 ONTAP 릴리스에서는 SnapLock 모드(준수 또는 엔터프라이즈)가 aggregate에서 상속됩니다. 버전에 상관없이 유연한 타겟 볼륨이 지원되지 않습니다. 대상 볼륨의 언어 설정은 소스 볼륨의 언어 설정과 일치해야 합니다.
+ONTAP 9.10.1부터 SnapLock 및 비 SnapLock 볼륨은 동일한 애그리게이트에 존재할 수 있으므로, ONTAP 9.10.1을 사용하는 경우 더 이상 별도의 SnapLock 애그리게이트를 생성할 필요가 없습니다. volume-snaplock-type 옵션을 사용하여 Compliance 또는 Enterprise SnapLock 볼륨 유형을 지정합니다. ONTAP 9.10.1 이전 버전의 ONTAP 릴리스에서는 SnapLock 모드(준수 또는 엔터프라이즈)가 aggregate에서 상속됩니다. 버전에 상관없이 유연한 타겟 볼륨이 지원되지 않습니다. 대상 볼륨의 언어 설정은 소스 볼륨의 언어 설정과 일치해야 합니다.
 
 ====
 +

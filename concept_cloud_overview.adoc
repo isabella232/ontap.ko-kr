@@ -38,4 +38,4 @@ FabricPool은 All-Flash(All-SSD) 애그리게이트를 성능 계층으로 사�
 
 == 데이터 계층화 및 비용 절감 사용 사례 비디오
 
-video::Vs1-WMvj9fI[youtube, width=848,height=480]
+video::Vs1-WMvj9fI[youtube,width=848,height=480]
