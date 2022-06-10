@@ -187,7 +187,7 @@ Vserver: vs1
    -----  -----------  ---------------  --------  ---------- ---------------
    1      /datavol1    slag             ntfs      propagate  sd1
 ----
-. 'vserver security file-directory policy apply' 명령을 사용하여 Storage-Level Access Guard 보안 정책을 적용합니다.
+. 'vserver security file-directory apply' 명령을 사용하여 Storage-Level Access Guard 보안 정책을 적용합니다.
 +
 'vserver security file-directory apply-vserver vs1-policy-name policy1'
 
