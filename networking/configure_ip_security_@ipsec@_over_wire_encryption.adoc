@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: networking/configure_ip_security_@ipsec@_over_wire_encryption.html 
-keywords: 'ipsec, security, internet protocol, on wire, in transit, encrypt, encryption, secure, configure ip security (ipsec) over wire encryption, ensure data is continuously secure and encrypted, ipsec protocol, enable ipsec on the cluster, security ipsec config show, ipsec enabled, ipsec config modify, ipsec config show, security ipsec policy create, protocols, local-ports, remote-ports, define the security policy database (spd), use ipsec identities, subnet configuration, allow all clients configuration, ipsec statistics' 
+keywords: ipsec, security, internet protocol, on wire, in transit, encrypt, encryption, secure, enable ipsec, security ipsec config show, ipsec config modify, ipsec config show, security ipsec policy create, protocols, local-ports, remote-ports, spd, security policy database,ipsec identities 
 summary: 전송 중에도 데이터를 지속적으로 보호하고 암호화하기 위해 ONTAP는 전송 모드에서 IPsec 프로토콜을 사용합니다 
 ---
 = 유선 암호화를 통해 IP 보안(IPsec)을 구성합니다
@@ -15,6 +15,8 @@ summary: 전송 중에도 데이터를 지속적으로 보호하고 암호화하
 
 [role="lead"]
 ONTAP 9.8부터 ONTAP는 전송 모드에서 IPsec 프로토콜을 사용하여 전송 중에도 데이터를 지속적으로 보호하고 암호화합니다. IPsec은 NFS, iSCSI 및 SMB 프로토콜을 포함한 모든 IP 트래픽에 대한 데이터 암호화를 제공합니다. IPsec은 iSCSI 트래픽에 대해 전송 중인 유일한 암호화 옵션을 제공합니다.
+
+ONTAP 9.9.1부터 IPsec에서 사용하는 암호화 알고리즘은 FIPS 140-2 검증을 거쳤습니다. 알고리즘은 FIPS 140-2 검증을 수행하는 ONTAP의 NetApp 암호화 모듈에 의해 생성됩니다.
 
 ONTAP 9.10.1부터 사전 공유 키(PSK) 또는 인증서를 사용하여 IPsec을 통한 인증을 수행할 수 있습니다. 이전에는 PSK만 IPsec에서 지원되었습니다.
 

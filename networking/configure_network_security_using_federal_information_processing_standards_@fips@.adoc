@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: networking/configure_network_security_using_federal_information_processing_standards_@fips@.html 
-keywords: 'federal, information, processing, standards, fips, 140-2, compliant, ssl, connections, tlsv1.2, tlsv1.1, tlsv1, enable, enabling, disable, disabling, view, status, federal information processing standards (fips) 140-2 compliant for all ssl connections, configure network security using federal information processing standards (fips), enable fips, disable fips, view fips compliance status' 
+keywords: fips 140-2, compliant, ssl, connections, tlsv1.2, tlsv1.1, tlsv1, enable fips, disable fips, compliance status, SSL 
 summary: '모든 SSL 연결에 대해 FIPS(Federal Information Processing Standards) 140-2 준수' 
 ---
 = FIPS(Federal Information Processing Standards)를 사용하여 네트워크 보안 구성
@@ -81,6 +81,9 @@ NSE, NVE, NAE와 같은 유휴 데이터의 NetApp 암호화 기술에는 영향
 == FIPS를 사용하도록 설정합니다
 
 모든 보안 사용자는 시스템 설치 또는 업그레이드 직후 보안 구성을 조정하는 것이 좋습니다. SSL FIPS 모드가 활성화되면 ONTAP에서 외부 클라이언트 또는 ONTAP 외부의 서버 구성 요소로의 SSL 통신은 SSL에 FIPS 호환 암호화를 사용합니다.
+
+
+NOTE: FIPS가 설정되어 있으면 RSA 키 길이 4096으로 인증서를 설치하거나 생성할 수 없습니다.
 
 .단계
 . 고급 권한 레벨로 변경:
