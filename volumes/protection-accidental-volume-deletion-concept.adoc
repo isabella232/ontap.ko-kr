@@ -14,3 +14,5 @@ summary: 기본 볼륨 삭제 동작은 실수로 삭제된 FlexVol 볼륨을 �
 기본 볼륨 삭제 동작은 실수로 삭제된 FlexVol 볼륨을 복구하는 데 도움이 됩니다.
 
 RW 또는 DP(volume show 명령 출력에서 볼 수 있음)가 있는 볼륨에 대한 볼륨 삭제 요청이 발생하면 볼륨이 부분적으로 삭제된 상태로 이동합니다. 기본적으로 이 항목은 완전히 삭제되기 전에 최소 12시간 동안 복구 대기열에 유지됩니다.
+
+자세한 내용은 기술 자료 문서를 참조하십시오 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_use_the_Volume_Recovery_Queue["볼륨 복구 대기열 사용 방법"^].
