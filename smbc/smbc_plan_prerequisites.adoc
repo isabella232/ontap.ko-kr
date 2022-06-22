@@ -83,13 +83,14 @@ NOTE: 2019년 6월 이전에 ONTAP 스토리지 시스템을 구입한 경우 �
 == 네트워킹 환경
 
 * 클러스터 간 지연 RTT(Round Trip Time)는 10밀리초 미만이어야 합니다
+* SCSI-3 영구 예약은 **지원되지 않습니다** SM-BC에서 지원됩니다
 
 
 
 
 == 지원되는 프로토콜
 
-* SAN 프로토콜만 지원(NFS/CIFS 제외)
+* SAN 프로토콜만 지원(NFS/SMB 제외)
 * Fibre Channel 및 iSCSI 프로토콜만 지원됩니다
 * 클러스터 피어 관계를 위해 SM-BC에서 기본 IPspace가 필요합니다. 사용자 지정 IPspace는 지원되지 않습니다.
 
