@@ -1,0 +1,34 @@
+---
+permalink: system-admin/different-shells-cli-commands-concept-cluster-admin.html 
+sidebar: sidebar 
+keywords: diag, secd, different, shells, cli, commands, cluster, administrators, clustershell, nodeshell, systemshell 
+summary: 클러스터에는 클러스터 셸, 노드 쉘, 시스템 쉘과 같은 CLI 명령을 위한 서로 다른 세 개의 셸이 있습니다. 쉘은 서로 다른 용도로 사용되며 각각 다른 명령 집합을 가집니다. 
+---
+= CLI 명령에 대한 다양한 셸 정보 개요(클러스터 관리자만 해당)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+클러스터에는 CLI 명령을 위한 _clustershell_, _nodeshell_ 및 _systemshell_의 세 가지 셸이 있습니다. 쉘은 서로 다른 용도로 사용되며 각각 다른 명령 집합을 가집니다.
+
+* 클러스터 쉘은 클러스터에 로그인할 때 자동으로 시작되는 네이티브 셸입니다.
++
+클러스터 구성 및 관리에 필요한 모든 명령을 제공합니다. 클러스터 쉘의 CLI 도움말(? 로 트리거됨 클러스터 셸 프롬프트에서 사용 가능한 클러스터 셸 명령을 표시합니다. 클러스터 쉘의 man_command_name_ 명령은 지정된 클러스터 쉘 명령에 대한 man 페이지를 표시합니다.
+
+* 노드 수준에서만 적용되는 명령을 위한 특수 셸입니다.
++
+System node run 명령을 통해 노드 쉘에 액세스할 수 있다.
+
++
+notes지옥의 CLI 도움말 (? 로 트리거됨 또는 '도움말'을 선택하면 사용 가능한 노드 지옥의 명령이 표시됩니다. 노드 쉘의 man_command_name_ 명령은 지정된 노드 쉘의 명령에 대한 man 페이지를 표시합니다.
+
++
+일반적으로 사용되는 노드 쉘의 명령 및 옵션은 클러스터 쉘에 터널링되거나 별칭되어 클러스터 쉘에서도 실행될 수 있습니다.
+
+* 시스템 셸은 진단 및 문제 해결용으로만 사용되는 하위 셸입니다.
++
+시스템 쉘과 관련 "DIAG" 계정은 하위 수준 진단 목적으로 사용됩니다. 이러한 액세스를 위해서는 진단 권한 수준이 필요하며, 문제 해결 작업을 수행하기 위한 기술 지원용으로만 예약되어 있습니다.
+
+

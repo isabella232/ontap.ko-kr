@@ -43,3 +43,8 @@ ONTAP 설명서 페이지에서는 ONTAP CLI 명령을 사용하는 방법을 �
 == CLI 비교 툴
 
 의 CLI 비교 툴을 사용하여 ONTAP 릴리즈 간에 CLI(Command-Line Interface) 명령의 변경 사항을 확인할 수 있습니다 link:https://mysupport.netapp.com/site/info/cli-comparison["NetApp Support 사이트"^].
+
+.추가 참고 자료
+* xref:../system-admin/command-line-interface-concept.html[ONTAP 명령줄 인터페이스를 사용합니다]
+* xref:../system-admin/methods-navigating-cli-command-directories-concept.html[CLI 명령 디렉토리 탐색 방법]
+

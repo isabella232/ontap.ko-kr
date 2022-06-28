@@ -36,7 +36,7 @@ entries:
       url: "/system-admin/command-line-interface-concept.html"
     - title: CLI 명령에 대한 여러 셸 정보(클러스터 관리자만 해당)
       entries:
-      - title: 정보
+      - title: 개요
         url: "/system-admin/different-shells-cli-commands-concept.html"
       - title: 클러스터 쉘에서 노드 명령 및 옵션 액세스
         url: "/system-admin/access-nodeshell-commands-options-clustershell-concept.html"
@@ -82,8 +82,9 @@ entries:
   url: "/system-admin/command-line-interface-concept.html"
   entries:
   - title: CLI 명령에 대한 여러 셸 정보(클러스터 관리자만 해당)
-    url: "/system-admin/different-shells-cli-commands-concept.html"
     entries:
+    - title: 개요
+      url: "/system-admin/different-shells-cli-commands-concept-cluster-admin.html"
     - title: 클러스터 쉘에서 노드 명령 및 옵션 액세스
       url: "/system-admin/access-nodeshell-commands-options-clustershell-concept.html"
     - title: 사용 가능한 노드 대체 명령을 표시합니다
