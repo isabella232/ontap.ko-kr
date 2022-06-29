@@ -100,7 +100,9 @@ AutoSupport 메시지가 처리되었지만 AutoSupport OnDemand 서비스에서
  a| 
 초기화 또는 수집 실패
  a| 
-AutoSupport에서 메시지를 생성할 수 없으므로 기술 지원 부서에 문의하십시오.
+AutoSupport에서 메시지를 생성할 수 없으므로 NetApp 지원에 문의하십시오. 다음 기술 자료 문서를 언급합니다.
+
+link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/AutoSupport_is_failing_to_deliver%3A_status_is_stuck_in_initializing["AutoSupport에서 전송 실패: 초기화 중에 상태가 고착됨"^]
 
 
 
