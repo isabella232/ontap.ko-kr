@@ -42,6 +42,9 @@ ONTAP S3
 
 
 | 설치하고 |  | image:status-enabled-perf-config.gif["확인 표시"] 
+
+
+| Azure용 Cloud Volumes ONTAP |  | image:status-enabled-perf-config.gif["확인 표시"] 
 |===
 ONTAP S3 서버에서 기존 버킷을 보호하거나 데이터 보호를 즉시 활성화할 수 있는 새로운 버킷을 생성할 수 있습니다.
 
