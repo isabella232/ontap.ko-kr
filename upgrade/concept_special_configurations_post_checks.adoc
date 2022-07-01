@@ -40,4 +40,7 @@ summary: 클러스터가 다음 기능 중 하나와 함께 구성된 경우 업
 
 
 | ONTAP 9.0 이전에 만든 관리자 계정이 있습니까? | xref:task_enforcing_sha_2_on_user_account_passwords_dot_9_0_upgrade_guide.html[관리자 암호에 SHA-2를 적용합니다] 
+
+
+| ONTAP 9.9.1 이전에 생성된 서비스 프로세서(SP) 액세스에 대한 사용자 계정이 있습니까? | xref:sp-user-accounts-change-concept.html[서비스 프로세서에 액세스할 수 있는 계정의 변경 사항을 확인합니다] 
 |===

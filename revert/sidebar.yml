@@ -66,3 +66,5 @@ entries:
     url: "/revert/task_reverting_password_hash_function.html"
   - title: SP 펌웨어를 업데이트합니다
     url: "/revert/concept_support_of_sp_firmware_automatic_revert.html"
+  - title: 서비스 프로세서에 액세스할 수 있는 사용자 계정을 확인합니다
+    url: "/revert/verify-sp-user-accounts-task.html"

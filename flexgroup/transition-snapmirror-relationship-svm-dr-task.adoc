@@ -20,8 +20,14 @@ summary: 기존 FlexGroup 볼륨 SnapMirror 관계를 전환하여 FlexGroup SVM
 
 .단계
 . SnapMirror 대상에서 FlexGroup 레벨 SnapMirror 관계인 '스냅샷 재동기화'를 다시 동기화합니다
-. FlexGroup SVM DR SnapMirror 관계를 생성합니다. '스냅샷 생성 정책 DPDefault-identity-preserve true-destination-path dest_svm:dest_flexgroup-source-path src_svm:src_flexgroup'
-. 'sapmirror show-destination-path dest_svm: dest_flexgroup-source-path src_svm: src_flexgroup' 관계가 끊어졌는지 확인합니다
+. FlexGroup SVM DR SnapMirror 관계를 생성합니다. FlexGroup 볼륨 SnapMirror 관계에 구성된 동일한 SnapMirror 정책을 사용하십시오. 'napmirror create-destination-path dest_svm: -source-path src_svm: -identity-preserve true-policy MirrorAllSnapshots'
+
+
+====
+복제 관계를 생성할 때 'napmirror create' 명령의 '-identity-preserve true' 옵션을 사용해야 합니다.
+
+====
+. 'sapmirror show-destination-path dest_svm:-source-path src_svm:'의 관계가 끊어졌는지 확인합니다
 +
 [listing]
 ----
@@ -42,7 +48,7 @@ vserver stop -vserver fg_vs_renamed
 [Job 245] Job is queued: Vserver Stop fg_vs_renamed.
 [Job 245] Done
 ----
-. SVM SnapMirror 관계를 재동기화합니다. 'sapmirror resync-destination-path dest_svm: dest_flexgroup-source-path src_svm: src_flexgroup'
+. SVM SnapMirror 관계를 재동기화합니다. 'sapmirror resync-destination-path dest_svm:-source-path src_svm:
 +
 [listing]
 ----

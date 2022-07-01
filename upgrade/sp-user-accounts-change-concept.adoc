@@ -1,0 +1,16 @@
+---
+permalink: upgrade/sp-user-accounts-change-concept.html 
+sidebar: sidebar 
+keywords: sp, service processor, user acoount, after, upgrade 
+summary: 'ONTAP 9.8 및 이전 릴리즈에서 관리자 역할을 사용하여 서비스 프로세서(SP)에 액세스할 수 있는 사용자 계정을 만들고 ONTAP 9.9.1 이상으로 업그레이드하면 -role 매개 변수의 admin이 아닌 값이 admin으로 수정됩니다.' 
+---
+= 서비스 프로세서에 액세스할 수 있는 사용자 계정의 변경
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.8 이하 릴리스에서 admin 역할이 아닌 역할을 사용하여 서비스 프로세서(SP)에 액세스할 수 있는 사용자 계정을 만들고 ONTAP 9.9.1 이상으로 업그레이드하면 '-role' 매개 변수의 admin이 아닌 값이 'admin'으로 수정됩니다.
+
+자세한 내용은 을 참조하십시오 link:../system-admin/accounts-access-sp-concept.html["SP에 액세스할 수 있는 계정입니다"].

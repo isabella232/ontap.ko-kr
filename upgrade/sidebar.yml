@@ -130,5 +130,7 @@ entries:
       url: "/upgrade/task_setting_the_desired_nt_acl_permissions_display_level_for_nfs_clients.html"
     - title: 관리자 암호에 SHA-2를 적용합니다
       url: "/upgrade/task_enforcing_sha_2_on_user_account_passwords_dot_9_0_upgrade_guide.html"
+    - title: 서비스 프로세서에 액세스할 수 있는 사용자 계정의 변경
+      url: "/upgrade/sp-user-accounts-change-concept.html"
   - title: DQP를 업데이트합니다
     url: "/upgrade/concept_when_you_need_to_update_the_disk_qualification_package.html"

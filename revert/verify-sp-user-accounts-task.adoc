@@ -1,0 +1,18 @@
+---
+permalink: revert/verify-sp-user-accounts-task.html 
+sidebar: sidebar 
+keywords: sp, service processor, user account, revert 
+summary: 'ONTAP 9.8 이전 버전에서 사용자 계정을 만들고 ONTAP 9.9.1 이상으로 업그레이드한 다음(role 매개 변수가 admin으로 변경된 경우) ONTAP 9.8로 되돌린 경우 -role 매개 변수는 ONTAP 9.8 이전 버전에서 원래 값으로 복원됩니다. 그러나 수정된 값이 허용 가능한지 확인해야 합니다.' 
+---
+= 서비스 프로세서에 액세스할 수 있는 사용자 계정의 변경
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.8 이전 버전에서 사용자 계정을 만든 경우 ONTAP 9.9.1 이상('-role' 매개 변수가 'admin'으로 변경된 경우)으로 업그레이드한 다음 ONTAP 9.8 이전 버전으로 되돌린 다음 '-role' 매개 변수가 원래 값으로 복원됩니다. 그러나 수정된 값이 허용 가능한지 확인해야 합니다.
+
+되돌리는 동안 SP 사용자의 역할이 삭제된 경우 "rbac.spuser.role.notfound" EMS 메시지가 기록됩니다.
+
+자세한 내용은 을 참조하십시오 link:../system-admin/accounts-access-sp-concept.html["SP에 액세스할 수 있는 계정입니다"].
