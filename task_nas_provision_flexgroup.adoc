@@ -54,6 +54,6 @@ NOTE: ONTAP 9.8부터는 스토리지 용량 할당 시 QoS가 기본적으로 �
 video::gB-yF1UTv2I[youtube,width=848,height=480]
 
 
-== FlexGrop 볼륨 - 적은 비용으로 더 많은 작업 수행
+== FlexGroup 볼륨 - 더 적은 리소스로 더 많은 작업 수행
 
 video::0B4nlChf0b4[youtube,width=848,height=480]
