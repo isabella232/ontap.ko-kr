@@ -42,7 +42,7 @@ SnapMirror 글로벌 스로틀은 동기 중일 때 SnapMirror Synchronous 관�
 ----
 cluster_dst::> options -option-name replication.throttle.enable on
 ----
-. 들어오는 전송에 사용되는 최대 총 대역폭을 지정합니다.
+. 대상 클러스터에서 들어오는 전송에 사용되는 최대 총 대역폭을 지정합니다.
 +
 'options-option-name replication.throttle.incoming.max_kbs_kbps_'
 
@@ -63,7 +63,7 @@ cluster_dst::> options -option-name replication.throttle.incoming.max_kbs 12500
 100Mbps = 12500kbps
 
 ====
-. 송신 전송에 사용되는 최대 총 대역폭을 지정합니다.
+. 소스 클러스터에서 보내는 전송에 사용되는 최대 총 대역폭을 지정합니다.
 +
 옵션-옵션-이름 복제.throttle.outgoing.max_ksb_cps_
 
@@ -76,6 +76,6 @@ kbps는 초당 킬로바이트 단위의 최대 전송 속도입니다. 유효�
 +
 [listing]
 ----
-cluster_dst::> options -option-name replication.throttle.outgoing.max_kbs 12500
+cluster_src::> options -option-name replication.throttle.outgoing.max_kbs 12500
 ----
 

@@ -25,7 +25,7 @@ link:create-audit-log-task.html["감사 로그를 생성합니다"].
 .단계
 . 보안 연결을 사용하여 ONTAP 클러스터 관리 LIF에 로그인합니다.
 +
-' * ssh SnapLock_user@node_mgmt_ip * '
+' * ssh SnapLock_user@cluster_mgmt_ip *'
 
 . SnapLock 볼륨 이동:
 +
