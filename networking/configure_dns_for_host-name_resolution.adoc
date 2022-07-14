@@ -30,7 +30,7 @@ SVM에서 DNS를 사용하도록 설정하려면 'vserver services name-service 
 
 단일 장애 지점을 방지하려면 둘 이상의 DNS 서버를 구성해야 합니다. DNS 서버 이름을 하나만 입력하면 'vserver services name-service dns create' 명령이 경고를 보냅니다.
 
-네트워크 관리 가이드에는 SVM에서 동적 DNS를 구성하는 방법에 대한 정보가 포함되어 있습니다.
+을 참조하십시오 xref:configure_dynamic_dns_services.html[동적 DNS 서비스를 구성합니다] SVM에서 동적 DNS 구성에 대한 자세한 내용은 를 참조하십시오.
 
 .단계
 . SVM에서 DNS 활성화:

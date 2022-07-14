@@ -68,9 +68,7 @@ ONTAP를 처음 사용하는 경우, 다음과 같은 몇 가지 다른 개념�
 * * NVMe 네임스페이스 * – 플래시 스토리지의 미래 NVMe 프로토콜은 SSD 기반 스토리지를 위해 최적화되어 있으며 매우 빠릅니다. NVMe는 SAN의 한 가지 취향이지만 LUN 대신 기본 스토리지 단위를 _namespace_라고 합니다.
 
 
-이제 ONTAP의 기본 사항을 모두 파악했으므로 이제 바로 작업할 수 있습니다. System Manager로 클러스터를 설정하고 관리하는 방법에 대한 자세한 내용은 다음 섹션을 참조하십시오.
-
-자세한 내용은 ONTAP를 참조하십시오 link:./concepts/index.html["개념 가이드"]. NetApp 커뮤니티에 가입하십시오. 다른 항목은 그냥 클릭하면 됩니다.
+ONTAP에 대한 자세한 내용은 ONTAP를 참조하십시오 link:./concepts/index.html["개념 개요"].
 
 
 

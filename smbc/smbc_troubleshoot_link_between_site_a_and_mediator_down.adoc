@@ -16,47 +16,17 @@ summary: 사이트 A와 중재 다운 및 사이트 B 다운 사이의 문제 �
 [role="lead"]
 SM-BC를 사용하면 중재자나 피어링된 클러스터 간의 연결이 끊어질 수 있습니다. SM-BC 관계의 여러 부분에 대한 연결, 가용성 및 합의 상태를 확인한 후 강제로 연결을 재개하여 문제를 진단할 수 있습니다.
 
-사이트 A에서 스냅미러 중재자 표시 명령을 사용하여 중재자의 상태를 확인합니다.
-
-....
-C1_cluster::*> snapmirror mediator show
-Mediator Address Peer Cluster     Connection Status Quorum Status
----------------- ---------------- ----------------- -------------
-10.237.86.17     C2_cluster       unreachable       true
-
-C1_cluster::*> snapmirror list-destinations
-                                                  Progress
-Source             Destination         Transfer   Last         Relationship
-Path         Type  Path         Status Progress   Updated      Id
------------ ----- ------------ ------- --------- ------------ ---------------
-vs0:/cg/src_cg_1  XDP   vs1:/cg/dst_cg_1  OutOfSync  -         -            bba7d354-06f6-11eb-9138-005056acec19
-....
-"cluster peer show" 명령을 사용하여 사이트 B 연결을 확인합니다.
-
-....
-C1_sti78-vsim-ucs188a_cluster::*> cluster peer show
-Peer Cluster Name         Cluster Serial Number Availability   Authentication
-------------------------- --------------------- -------------- --------------
-C2_cluster                1-80-000011           Unavailable    ok
-....
-sm-bc volume의 합의 상태를 'volume show_volume_name_-fields smbc-Consensus' 명령으로 확인한다.
-
-....
-C1_cluster::*> volume show zrto_cg_894191_188b_RW1 -fields smbc-consensus
-vserver volume                  smbc-consensus
-------- ----------------------- ------------------
-vs0     zrto_cg_894191_188b_RW1 Awaiting-consensus
-....
-SM-BC 합의를 무시하고 사이트 A에서 강제로 I/O를 재개하려면 다음 단계를 수행하십시오.
+[cols="3"]
+|===
+| 확인할 사항 | CLI 명령 | 표시기 
 
 
-NOTE: 이 솔루션은 NetApp 지원에 문의해야 하는 DIAG 레벨 명령을 사용합니다.
+| 사이트 A의 중재자 | 스냅미러 중재자 쇼 | 연결 상태는 Unreachable(연결 불가) 상태가 됩니다 
 
-. 사이트 A에서 LUN 매핑을 해제합니다
-. 사이트 A의 '-force ' 및 ' override-smbc-Consensus ' 옵션을 사용하여 'napMirror release' 명령을 실행합니다
-. LUN을 다시 매핑합니다.
-. 먼저 중재자를 불러 사이트 B 노드를 가져옵니다.
-. '스냅샷 재동기화'를 사용하여 정합성 보장 그룹 관계를 다시 동기화하십시오.
-. 사이트 B가 가동된 후 정합성 보장 그룹 관계가 설정되어 있고 동기화되어 있는지 확인합니다.
-. 호스트에서 LUN 재검색을 수행하여 LUN에 대한 모든 경로를 복구합니다.
 
+| 사이트 B 연결 | 클러스터 피어 쇼 | 이용 가능 여부는 불가할 것입니다 
+
+
+| SM-BC 볼륨의 합의 상태 | 'volume show_volume_name_-fields smbc-Consensus' | '중도합의' 필드는 '대기합의'로 읽혀질 것이다 
+|===
+이 문제의 진단 및 해결에 대한 자세한 내용은 기술 자료 문서를 참조하십시오 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapMirror/Link_between_Site_A_and_Mediator_down_and_Site_B_down_when_using_SM-BC["SM-BC 사용 시 사이트 A와 중재자를 다운시키고 사이트 B를 다운합니다"^].
