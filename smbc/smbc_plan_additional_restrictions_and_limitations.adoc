@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: smbc/smbc_plan_additional_restrictions_and_limitations.html 
-keywords: SM-BC, SMBC, restrictions, consistency group, endpoint limits, solaris 
+keywords: SM-BC, SMBC, restrictions, consistency group, endpoint limits, solaris, aix 
 summary: SnapMirror 비즈니스 연속성 솔루션을 사용할 때는 몇 가지 추가 제한 사항과 제한이 있습니다. 
 ---
 = 추가 제한 및 제한 사항
@@ -100,6 +100,16 @@ NTFS 보안 스타일은 SM-BC 볼륨에서 지원되지 않습니다.
 SM-BC 지원 xref:../data-protection/supported-deployment-config-concept.html[팬아웃 구성] ONTAP 9.11.1부터 무르안볼트(MirorAllSnapshots) 정책과 함께. 팬아웃 구성은 XDPDefault 정책으로 지원되지 않습니다.
 
 팬아웃 구성의 SM-BC 대상에서 페일오버가 발생하면 수동으로 페일오버해야 합니다 xref:resume-protection-fan-out-configuration.html[팬아웃 구성에서 보호를 재개합니다].
+
+
+
+== AIX
+
+ONTAP 9.11.1부터 AIX는 SM-BC에서 지원됩니다. AIX 구성에서 운영 클러스터는 "활성" 클러스터입니다.
+
+AIX 구성에서 페일오버는 중단을 야기합니다. 각 페일오버 시 호스트에서 재검색을 수행하여 I/O 작업을 재개해야 합니다.
+
+SM-BC를 사용하는 AIX 호스트에 대해 구성하려면 기술 자료 문서를 참조하십시오 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapMirror/How_to_configure_an_AIX_host_for_SnapMirror_Business_Continuity_(SM-BC)["SnapMirror 비즈니스 연속성(SM-BC)에 대한 AIX 호스트를 구성하는 방법"].
 
 
 

@@ -266,6 +266,8 @@ entries:
     url: "/volumes/check-efficiency-task.html"
   - title: 볼륨 효율성 모드를 변경합니다
     url: "/volumes/change-efficiency-mode-task.html"
+  - title: 온도에 민감한 스토리지 효율성 물리적 설치 공간 절감 효과 확인
+    url: "/volumes/view-footprint-savings-task.html"
   - title: 볼륨에 대해 데이터 압축을 설정합니다
     url: "/volumes/enable-data-compression-volume-task.html"
   - title: 보조 압축과 적응형 압축 간에 이동

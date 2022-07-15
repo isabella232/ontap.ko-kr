@@ -1,0 +1,49 @@
+---
+permalink: volumes/view-footprint-savings-task.html 
+sidebar: sidebar 
+keywords: view, temperature, sensitive, storage, efficiency, footprint, savings, volume 
+summary: ONTAP 9.11.1부터 온도에 민감한 스토리지 효율성이 볼륨에 설정되어 있을 때 물리적 설치 공간이 얼마나 절약되었는지 확인할 수 있습니다. 
+---
+= 온도에 민감한 스토리지 효율성 물리적 설치 공간 절감 효과 확인
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.11.1부터 온도에 민감한 스토리지 효율성이 볼륨에 설정되어 있을 때 물리적 설치 공간이 얼마나 절약되었는지 확인할 수 있습니다.
+
+.단계
+. 온도에 민감한 스토리지 효율성을 위한 설치 공간 확인:
++
+볼륨 쇼 풋프린트
+
++
+다음 예에서는 온도에 민감한 스토리지 효율성을 사용할 경우 Footprint Data Reduction 및 Auto Adaptive Compression을 통해 설치 공간 감소 또는 절감 효과를 표시합니다.
+
++
+[listing]
+----
+*> volume show-footprint <vol>
+
+      Vserver : vs0
+      Volume  : vol1
+
+      Feature                                         Used       Used%
+      --------------------------------             ----------    -----
+      Volume Data Footprint                            4.61MB       0%
+      Volume Guarantee                                     0B       0%
+      Flexible Volume Metadata                          208KB       0%
+      Deduplication Metadata                            156KB       0%
+           Deduplication                                 80KB       0%
+           Temporary Deduplication                       72KB       0%
+           Cross Volume Deduplication                     4KB       0%
+      Delayed Frees                                     116KB       0%
+
+      Total Footprint                                  5.07MB       0%
+
+      Footprint Data Reduction                           40KB       0%
+           Auto Adaptive Compression                     40KB       0%
+      Effective Total Footprint                        5.04MB       0%
+----
+

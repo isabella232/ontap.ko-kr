@@ -26,6 +26,19 @@ summary: 각 ONTAP 9 릴리즈에서 사용할 수 있는 네트워크 기능의
  a| 
 ONTAP 9.11.1
  a| 
+iSCSI LIF 페일오버
+ a| 
+새로운 iSCSI LIF 페일오버 기능은 SFO 파트너 페일오버 및 로컬 페일오버에서 iSCSI LIF의 자동 및 수동 마이그레이션을 지원합니다.
+
+모든 SAN 어레이(ASA) 플랫폼에서 사용할 수 있습니다.
+
+link:../san-admin/asa-iscsi-lif-fo-task.html.html["ASA 플랫폼의 iSCSI LIF 페일오버"]
+
+
+
+ a| 
+ONTAP 9.11.1
+ a| 
 LIF 서비스
  a| 
 새로운 클라이언트 측 LIF 서비스는 아웃바운드 AD, DNS, LDAP 및 NIS 요청에 사용되는 LIF를 보다 효과적으로 제어합니다.
