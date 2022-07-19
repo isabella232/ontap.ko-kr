@@ -17,7 +17,7 @@ summary: 더 이상 필요하지 않거나 손상된 데이터가 포함된 Flex
 
 [NOTE]
 ====
-실수로 볼륨을 삭제한 경우 기술 지원 부서에 지원을 요청하십시오.
+실수로 볼륨을 삭제한 경우 기술 자료 문서를 참조하십시오 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_use_the_Volume_Recovery_Queue["볼륨 복구 대기열 사용 방법"^].
 
 ====
 .단계

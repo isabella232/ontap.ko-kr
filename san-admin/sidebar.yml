@@ -104,6 +104,8 @@ entries:
     url: "/san-admin/resolve-iscsi-error-messages-reference.html"
   - title: 호스트에 표시되지 않는 iSCSI LUN 문제를 해결합니다
     url: "/san-admin/troubleshoot-iscsi-luns-not-visible-reference.html"
+  - title: ASA 플랫폼의 iSCSI LIF 페일오버
+    url: "/san-admin/asa-iscsi-lif-fo-task.html"
 - title: FC 프로토콜을 관리합니다
   entries:
   - title: SVM을 위한 FC 서비스를 삭제합니다
