@@ -135,7 +135,7 @@ ONTAP 9.7에서 SnapMirror Synchronous 기술에 지원되는 기능은 다음�
 
 SnapMirror Synchronous는 사용되는 SnapMirror 정책의 유형에 따라 두 가지 운영 모드가 있습니다.
 
-* * 동기화 모드 * 동기화 모드에서는 기본 스토리지에 대한 입출력이 먼저 보조 스토리지에 복제됩니다. 그런 다음 입출력이 운영 스토리지에 기록되고 입출력된 애플리케이션으로 확인 메시지가 전송됩니다 어떤 이유로든 보조 스토리지에 대한 쓰기가 완료되지 않으면 애플리케이션이 운영 스토리지에 계속 쓸 수 있습니다. 오류 상태가 해결되면 SnapMirror Synchronous 기술은 보조 스토리지와 자동으로 재동기화되고 동기 모드의 운영 스토리지에서 보조 스토리지로 복제를 재개합니다. 동기화 모드에서 RPO=0과 RTO는 2차 복제 장애가 발생할 때까지 매우 낮지만 RPO 및 RTO가 결정되지 않습니다. 그러나 2차 복제가 실패하고 재동기화가 완료된 문제를 복구하는 데 걸리는 시간과 동일합니다.
+* * 동기화 모드 * 동기화 모드에서는 애플리케이션 I/O 작업이 운영 및 보조 스토리지 시스템과 병렬로 전송됩니다. 어떤 이유로든 보조 스토리지에 대한 쓰기가 완료되지 않으면 애플리케이션이 운영 스토리지에 계속 쓸 수 있습니다. 오류 상태가 해결되면 SnapMirror Synchronous 기술은 보조 스토리지와 자동으로 재동기화되고 동기 모드의 운영 스토리지에서 보조 스토리지로 복제를 재개합니다. 동기화 모드에서 RPO=0과 RTO는 2차 복제 장애가 발생할 때까지 매우 낮지만 RPO 및 RTO가 결정되지 않습니다. 그러나 2차 복제가 실패하고 재동기화가 완료된 문제를 복구하는 데 걸리는 시간과 동일합니다.
 * * StrictSync 모드 * SnapMirror Synchronous는 선택적으로 StrictSync 모드에서 작동할 수 있습니다. 어떤 이유로든 보조 스토리지에 대한 쓰기가 완료되지 않으면 애플리케이션 입출력이 실패하여 운영 스토리지와 보조 스토리지가 동일한지 확인합니다. SnapMirror 관계가 'InSync' 상태로 되돌아간 후에만 기본 애플리케이션에 대한 애플리케이션 입출력이 재개됩니다. 운영 스토리지에 장애가 발생할 경우 페일오버 후 데이터 손실 없이 보조 스토리지에서 애플리케이션 입출력을 재개할 수 있습니다. StrictSync 모드에서는 RPO가 항상 0이고 RTO는 매우 낮습니다.
 
 
@@ -149,4 +149,4 @@ SnapMirror Synchronous 관계의 경우 시스템은 일정한 간격으로 관�
 
 StrictSync 모드에서 SnapMirror Synchronous 관계에 대한 관계 상태가 "OutOfSync"가 되면 운영 볼륨에 대한 모든 I/O 작업이 중지됩니다. 동기 모드의 SnapMirror Synchronous 관계에 대한 "OutOfSync" 상태는 운영 볼륨에 영향을 주는 것이 아니라 I/O 작업이 운영 볼륨에 허용됩니다.
 
-http://www.netapp.com/us/media/tr-4733.pdf["NetApp 기술 보고서 4733: ONTAP 9.6용 SnapMirror Synchronous"^]
+http://www.netapp.com/us/media/tr-4733.pdf["NetApp 기술 보고서 4733: ONTAP 9.11.1에 대한 SnapMirror Synchronous"^]

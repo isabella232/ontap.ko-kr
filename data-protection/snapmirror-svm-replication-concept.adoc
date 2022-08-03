@@ -1,7 +1,7 @@
 ---
 permalink: data-protection/snapmirror-svm-replication-concept.html 
 sidebar: sidebar 
-keywords: understand, snapmirror, svm, replication 
+keywords: understand, snapmirror, svm, replication, SVM DR storage limits 
 summary: SnapMirror를 사용하여 SVM 간에 데이터 보호 관계를 생성할 수 있습니다. 이러한 유형의 데이터 보호 관계에서는 SVM이 소유한 볼륨의 데이터뿐만 아니라 NFS 엑스포트 및 SMB 공유에서 RBAC에 이르는 SVM 구성 전체 또는 일부를 복제합니다. 
 ---
 = SnapMirror SVM 복제에 대해 알아보십시오
@@ -824,5 +824,38 @@ V3 사용자
 예
  a| 
 아니요
+
+|===
+
+
+== SVM DR 스토리지 제한
+
+다음 표에는 스토리지 오브젝트별로 지원되는 권장 최대 볼륨 및 SVM DR 관계 수가 나와 있습니다. 제한 사항은 플랫폼에 따라 다를 수 있습니다. 을 참조하십시오 link:https://hwu.netapp.com/["Hardware Universe"^] 특정 구성에 대한 제한 사항을 알아봅니다.
+
+[cols="2*"]
+|===
+
+
+| 스토리지 객체 | 제한 
+
+
+ a| 
+SVM
+ a| 
+300개의 유연한 볼륨
+
+
+
+ a| 
+HA 쌍
+ a| 
+1,000개의 유연한 볼륨
+
+
+
+ a| 
+클러스터
+ a| 
+128개의 SVM DR 관계
 
 |===

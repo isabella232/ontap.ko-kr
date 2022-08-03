@@ -21,45 +21,10 @@ summary: 현재 릴리스에서 랜섬웨어 보호는 NAS 환경에 가장 적�
 [role="lead"]
 ONTAP 플랫폼 지원:
 
-[cols="2*"]
-|===
-| 플랫폼 | 시작 가능... 
+* 랜섬웨어 방지 기능은 ONTAP 9.10.1부터 시작하는 모든 사내 ONTAP 시스템에서 사용할 수 있습니다.
+* 현재 Cloud Volumes ONTAP 환경에서는 사용할 수 없습니다.
 
 
- a| 
-ONTAP 온프레미스
- a| 
-ONTAP 9.10.1
-
-
-
- a| 
-Cloud Volumes ONTAP
- a| 
-ONTAP 9.11.1
-
-
-
- a| 
-AWS 및 Google Cloud용 Cloud Volume Services
- a| 
-지원되지 않습니다
-
-
-
- a| 
-Azure NetApp Files
- a| 
-지원되지 않습니다
-
-
-
- a| 
-ONTAP Select
- a| 
-지원되지 않습니다
-
-|===
 적합한 워크로드:
 
 * 데이터베이스를 NFS 스토리지에 저장합니다

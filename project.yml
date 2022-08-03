@@ -26,5 +26,7 @@ sidebar:
   - section: security-encryption
   - section: data-protection-disaster-recovery
   - section: event-performance-monitoring
+  - title: ONTAP 설명서 페이지
+    url: https://docs.netapp.com/us-en/ontap-cli-9111/index.html
   - title: 법적 고지
     url: "/reference_legal_notices.html"

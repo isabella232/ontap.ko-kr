@@ -107,7 +107,7 @@ Do you want to continue? {y|n}: y
 FlexGroup 볼륨은 클러스터의 각 노드에 8개의 구성요소를 통해 생성됩니다. 각 노드에서 가장 큰 두 Aggregate 사이에 균등하게 분산됩니다.
 
 +
-FlexGroup 볼륨은 AFF 시스템을 제외하고 '볼륨' 공간 보장으로 생성됩니다. AFF 시스템의 경우 FlexGroup 볼륨은 'none' 공간 보장으로 생성됩니다.
+기본적으로 FlexGroup 볼륨은 AFF 시스템을 제외하고 '볼륨' 공간 보장 설정으로 생성됩니다. AFF 시스템의 경우 기본적으로 FlexGroup 볼륨은 'none' 공간 보장으로 생성됩니다.
 
 . "volume mount -vserver vserver_name -volume vol_name -junction-path junction_path" 접합 경로로 FlexGroup 볼륨을 마운트합니다
 +

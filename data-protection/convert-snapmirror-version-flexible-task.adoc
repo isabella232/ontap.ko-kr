@@ -24,7 +24,90 @@ SnapMirror 관계 유형을 DP에서 XDP로 변환한 후에는 자동 크기 �
 
 ====
 .단계
-. 기존 DP 유형 관계 중지:
+. 대상 클러스터에서 SnapMirror 관계가 DP 유형이고, 미러 상태가 SnapMired 상태이고, 관계 상태가 Idle 상태이고, 관계가 정상 상태인지 확인합니다.
++
+'스냅샷 표시-대상-경로_SVM:볼륨_|_클러스터://SVM/볼륨_'
+
++
+다음 예제는 'napmirror show' 명령의 출력을 보여줍니다.
+
++
+[listing]
+----
+cluster_dst::>snapmirror show -destination-path svm_backup:volA_dst
+
+Source Path: svm1:volA
+Destination Path: svm_backup:volA_dst
+Relationship Type: DP
+SnapMirror Schedule: -
+Tries Limit: -
+Throttle (KB/sec): unlimited
+Mirror State: Snapmirrored
+Relationship Status: Idle
+Transfer Snapshot: -
+Snapshot Progress: -
+Total Progress: -
+Snapshot Checkpoint: -
+Newest Snapshot: snapmirror.10af643c-32d1-11e3-954b-123478563412_2147484682.2014-06-27_100026
+Newest Snapshot Timestamp: 06/27 10:00:55
+Exported Snapshot: snapmirror.10af643c-32d1-11e3-954b-123478563412_2147484682.2014-06-27_100026
+Exported Snapshot Timestamp: 06/27 10:00:55
+Healthy: true
+----
++
+[NOTE]
+====
+관계 설정의 기존 상태를 추적하기 위해 'napmirror show' 명령 출력의 복사본을 유지하는 것이 유용할 수 있습니다.
+
+====
+. 소스 볼륨과 타겟 볼륨에서 두 볼륨 모두에 공통 스냅샷 복사본이 있는지 확인합니다.
++
+'volume snapshot show -vserver_SVM_-volume_volume_'
+
++
+다음 예에서는 souce 및 대상 볼륨에 대한 'volume snapshot show' 출력을 보여 줍니다.
+
++
+[listing]
+----
+cluster_src:> volume snapshot show -vserver vsm1 -volume volA
+---Blocks---
+Vserver Volume Snapshot State Size Total% Used%
+-------- ------- ------------------------------- -------- -------- ------ -----
+svm1 volA
+weekly.2014-06-09_0736 valid 76KB 0% 28%
+weekly.2014-06-16_1305 valid 80KB 0% 29%
+daily.2014-06-26_0842 valid 76KB 0% 28%
+hourly.2014-06-26_1205 valid 72KB 0% 27%
+hourly.2014-06-26_1305 valid 72KB 0% 27%
+hourly.2014-06-26_1405 valid 76KB 0% 28%
+hourly.2014-06-26_1505 valid 72KB 0% 27%
+hourly.2014-06-26_1605 valid 72KB 0% 27%
+daily.2014-06-27_0921 valid 60KB 0% 24%
+hourly.2014-06-27_0921 valid 76KB 0% 28%
+snapmirror.10af643c-32d1-11e3-954b-123478563412_2147484682.2014-06-27_100026
+valid 44KB 0% 19%
+11 entries were displayed.
+
+
+cluster_dest:> volume snapshot show -vserver svm_backup -volume volA_dst
+---Blocks---
+Vserver Volume Snapshot State Size Total% Used%
+-------- ------- ------------------------------- -------- -------- ------ -----
+svm_backup volA_dst
+weekly.2014-06-09_0736 valid 76KB 0% 30%
+weekly.2014-06-16_1305 valid 80KB 0% 31%
+daily.2014-06-26_0842 valid 76KB 0% 30%
+hourly.2014-06-26_1205 valid 72KB 0% 29%
+hourly.2014-06-26_1305 valid 72KB 0% 29%
+hourly.2014-06-26_1405 valid 76KB 0% 30%
+hourly.2014-06-26_1505 valid 72KB 0% 29%
+hourly.2014-06-26_1605 valid 72KB 0% 29%
+daily.2014-06-27_0921 valid 60KB 0% 25%
+hourly.2014-06-27_0921 valid 76KB 0% 30%
+snapmirror.10af643c-32d1-11e3-954b-123478563412_2147484682.2014-06-27_100026
+----
+. 변환 중에 예약된 업데이트가 실행되지 않도록 하려면 기존 DP 유형 관계를 중지합니다.
 +
 '스냅샷 중지-소스-경로_SVM:볼륨_|_클러스터://SVM/볼륨 _,... -destination-path_SVM:volume_|_cluster://SVM/volume_,
 
@@ -43,11 +126,11 @@ SnapMirror 관계 유형을 DP에서 XDP로 변환한 후에는 자동 크기 �
 +
 [listing]
 ----
-cluster_dst::> snapmirror quiesce -source-path svm1:volA -destination-path svm_backup:volA_dst
+cluster_dst::> snapmirror quiesce -destination-path svm_backup:volA_dst
 ----
 . 기존 DP 유형 관계 끊기:
 +
-스냅샷/SVM/VOLUME_PATH:VOLUME_|_cluster://SVM/VOLUME_,... -destination-path_SVM:volume_|_cluster://SVM/volume_,
+'스냅샷/대상-경로_SVM: volume_|_cluster://SVM/volume_,...
 
 +
 전체 명령 구문은 man 페이지를 참조하십시오.
@@ -64,9 +147,9 @@ cluster_dst::> snapmirror quiesce -source-path svm1:volA -destination-path svm_b
 +
 [listing]
 ----
-cluster_dst::> snapmirror break -source-path svm1:volA -destination-path svm_backup:volA_dst
+cluster_dst::> snapmirror break -destination-path svm_backup:volA_dst
 ----
-. 타겟 볼륨에서 스냅샷 복사본의 자동 삭제 비활성화:
+. 타겟 볼륨에서 스냅샷 복사본 자동 삭제가 활성화되어 있는 경우 다음을 수행하십시오.
 +
 '볼륨 스냅샷 자동 삭제 수정 - vserver_SVM_-volume_volume_-enabled false'
 
@@ -80,7 +163,7 @@ cluster_dst::> volume snapshot autodelete modify -vserver svm_backup -volume vol
 ----
 . 기존 DP 유형 관계 삭제:
 +
-'스냅샷 삭제 - 소스 경로 - SVM: volume_|_cluster://SVM/volume_,... -destination-path_SVM:volume_|_cluster://SVM/volume_,
+'스냅샷 삭제 대상 - path_SVM: volume_|_cluster://SVM/volume_,...
 
 +
 전체 명령 구문은 man 페이지를 참조하십시오.
@@ -97,9 +180,9 @@ cluster_dst::> volume snapshot autodelete modify -vserver svm_backup -volume vol
 +
 [listing]
 ----
-cluster_dst::> snapmirror delete -source-path svm1:volA -destination-path svm_backup:volA_dst
+cluster_dst::> snapmirror delete -destination-path svm_backup:volA_dst
 ----
-. 새로운 XDP 유형 관계 생성:
+. 'napmirror show' 명령에서 보존한 출력을 사용하여 새로운 XDP 유형 관계를 생성할 수 있습니다.
 +
 '스냅샷 생성 - 소스 경로 - SVM: volume_|_cluster://SVM/volume_,... -destination-path_SVM:volume_|_cluster://SVM/volume_,... -type XDP-schedule_schedule_-policy_policy_'
 
@@ -142,6 +225,13 @@ cluster_dst::> snapmirror create -source-path svm1:volA -destination-path svm_ba
 ----
 cluster_dst::> snapmirror resync -source-path svm1:volA -destination-path svm_backup:volA_dst
 ----
+. 스냅샷 복사본의 자동 삭제를 사용하지 않도록 설정한 경우 다음을 다시 사용하도록 설정합니다.
++
+'볼륨 스냅샷 자동 삭제 수정 - vserver_SVM_-volume_volume_-enabled true'
 
 
-'snapmirror show' 명령을 사용하여 SnapMirror 관계가 생성되었는지 확인합니다. 전체 명령 구문은 man 페이지를 참조하십시오.
+
+.작업을 마친 후
+. 'snapmirror show' 명령을 사용하여 SnapMirror 관계가 생성되었는지 확인합니다. 전체 명령 구문은 man 페이지를 참조하십시오.
+. SnapMirror 정책에 정의된 대로 SnapMirror XDP 대상 볼륨이 스냅샷 복제본 업데이트를 시작하면 소스 클러스터에서 'snapmirror list-destinations' 명령의 출력을 사용하여 새로운 SnapMirror XDP 관계를 표시할 수 있습니다.
+

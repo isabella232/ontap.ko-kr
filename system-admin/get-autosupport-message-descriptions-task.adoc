@@ -1,8 +1,8 @@
 ---
 permalink: system-admin/get-autosupport-message-descriptions-task.html 
 sidebar: sidebar 
-keywords: getting, autosupport, message, descriptions, matrices 
-summary: 수신하는 AutoSupport 메시지에 대한 설명은 온라인 AutoSupport 메시지 매트릭스 페이지를 통해 확인할 수 있습니다. 
+keywords: getting, autosupport, message, descriptions, matrices, syslog translator 
+summary: 수신하는 AutoSupport 메시지에 대한 설명은 ONTAP Syslog Translator를 통해 확인할 수 있습니다. 
 ---
 = AutoSupport 메시지 설명을 봅니다
 :allow-uri-read: 
@@ -11,15 +11,10 @@ summary: 수신하는 AutoSupport 메시지에 대한 설명은 온라인 AutoSu
 
 
 [role="lead"]
-수신하는 AutoSupport 메시지에 대한 설명은 온라인 AutoSupport 메시지 매트릭스 페이지를 통해 확인할 수 있습니다.
+수신하는 AutoSupport 메시지에 대한 설명은 ONTAP Syslog Translator를 통해 확인할 수 있습니다.
 
 .단계
-. AutoSupport 메시지 매트릭스 페이지로 이동합니다.
-+
-http://support.netapp.com/NOW/knowledge/docs/olio/autosupport/matrices/["support.netapp.com/NOW/knowledge/docs/olio/autosupport/matrices/"]
-
-. 릴리스 선택 아래의 AutoSupport 메시지 매트릭스 페이지에서 ONTAP 버전을 선택한 다음 * 매트릭스 보기 * 를 클릭합니다.
-+
-Syslog Translator 페이지에 모든 AutoSupport 메시지 설명이 제목줄에 알파벳 순으로 나열되어 있습니다.
-
+. 로 이동합니다 link:https://mysupport.netapp.com/site/bugs-online/syslog-translator["Syslog 변환기"^].
+. [릴리스**] 필드에 사용 중인 ONTAP 버전을 입력합니다. ** 검색 문자열** 필드에 "callhome"을 입력합니다. Translate * 를 선택합니다.
+. Syslog Translator는 사용자가 입력한 메시지 문자열과 일치하는 모든 이벤트를 알파벳 순으로 나열합니다.
 
