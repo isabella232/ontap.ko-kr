@@ -193,17 +193,19 @@ SMTape
  a| 
 MetroCluster 구성
  a| 
-SnapLock 규정 준수 또는 엔터프라이즈 애그리게이트는 MetroCluster 구성에서 SnapLock 감사 로그 볼륨을 호스팅할 수 있으며, 다음과 같은 제한 사항이 있습니다.
+예, 다음 조건에서 가능합니다.
 
-* SnapLock Enterprise는 미러링된 Aggregate 및 미러링되지 않은 Aggregate에서 지원됩니다.
-* SnapLock 규정 준수는 미러링되지 않은 애그리게이트에서만 지원됩니다.
+* ONTAP 9.3부터 SnapLock 규정 준수는 미러링되지 않은 MetroCluster 애그리게이트에서 지원됩니다.
+* ONTAP 9.3부터 SnapLock 규정 준수는 미러링된 애그리게이트에서 SnapLock 감사 로그 볼륨을 호스팅하는 데 사용되는 경우에만 지원됩니다.
+* MetroCluster를 사용하여 SVM별 SnapLock 구성을 운영 사이트 및 2차 사이트에 복제할 수 있습니다.
 
-
-모든 MetroCluster 구성은 미러링된 애그리게이트를 지원합니다. MetroCluster 구성에서 미러링되지 않은 애그리게이트를 지원하는지 확인하려면 ONTAP 릴리즈 노트를 참조하십시오.
-
-https://library.netapp.com/ecmdocs/ECMLP2492508/html/frameset.html["ONTAP 9 릴리즈 노트"^]
  a| 
-아니요
+예, 다음 조건에서 가능합니다.
+
+* ONTAP 9부터 SnapLock 엔터프라이즈 애그리게이트가 지원됩니다.
+* ONTAP 9.3부터는 권한이 있는 삭제 기능이 있는 SnapLock 엔터프라이즈 애그리게이트가 지원됩니다.
+* MetroCluster를 사용하여 SVM별 SnapLock 구성을 두 사이트 모두에 복제할 수 있습니다.
+
 
 
 

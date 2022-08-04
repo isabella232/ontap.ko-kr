@@ -53,7 +53,7 @@ Awa는 지정된 aggregate와 연결된 볼륨의 워크로드 데이터 수집�
 
 . 워크로드 분석 표시:
 +
-'Storage automated-working-set-analyzer show -node_node_name_'
+'Storage automated-working-set-analyzer show -node_node_name_-instance'
 
 . AWA 중지:
 +
