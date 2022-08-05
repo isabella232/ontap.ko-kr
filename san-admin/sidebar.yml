@@ -25,7 +25,7 @@ entries:
   - title: 특정 호스트에 대해 블록 액세스를 설정합니다
     url: "/san-admin/enable-block-access-specific-host-task.html"
   - title: LUN을 네임스페이스로 변환
-    url: "/san-admin/convert-lun-to-namespace.html"
+    url: "/san-admin/convert-lun-to-namespace-task.html"
 - title: NVMe용 네임스페이스 설정
   entries:
   - title: NVMe 네임스페이스 고려 사항

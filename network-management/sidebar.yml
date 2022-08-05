@@ -127,6 +127,8 @@ entries:
         url: "/networking/configure_broadcast_domains_@cluster_administrators_only@_overview.html"
       - title: 브로드캐스트 도메인 사용 예
         url: "/networking/example_of_using_broadcast_domains.html"
+      - title: 브로드캐스트 도메인을 추가합니다
+        url: "/networking/add_broadcast_domain.html"
       - title: 브로드캐스트 도메인에서 포트를 추가하거나 제거합니다
         url: "/networking/add_or_remove_ports_from_a_broadcast_domain.html"
       - title: 브로드캐스트 도메인을 분할합니다

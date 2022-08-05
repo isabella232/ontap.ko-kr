@@ -29,7 +29,7 @@ ONTAP 업그레이드 프로세스에는 SP 펌웨어 업데이트가 자동으�
 +
 [NOTE]
 ====
-ONTAP는 장애가 발생한 SP 자동 업데이트를 감지하고 수정 조치를 트리거하여 SP 자동 업데이트를 최대 3배까지 재시도하십시오. 세 번 재시도 모두 실패하면 기술 지원 부서에 문의해야 합니다.
+ONTAP는 장애가 발생한 SP 자동 업데이트를 감지하고 수정 조치를 트리거하여 SP 자동 업데이트를 최대 3배까지 재시도하십시오. 세 번 재시도 모두 실패하면 기술 문서 링크 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Health_Monitor_SPAutoUpgradeFailedMajorAlert__SP_upgrade_fails_-_AutoSupport_Message[Health SPAutoUpgradeFailedMajorAlert SP 업그레이드 실패 - AutoSupport 메시지]를 참조하십시오.
 
 ====
 ** NetApp Support 사이트에서 SP 펌웨어 버전을 다운로드하고 다운로드한 버전이 현재 SP에서 실행 중인 버전보다 최신입니다

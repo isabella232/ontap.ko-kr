@@ -24,6 +24,50 @@ summary: 각 ONTAP 9 릴리즈에서 사용할 수 있는 네트워크 기능의
 
 
  a| 
+ONTAP 9.12.0
+ a| 
+System Manager 네트워킹 개선 사항
+ a| 
+System Manager는 다음과 같은 네트워킹 기능을 보다 효과적으로 제어합니다.
+
+* LAG(Link Aggregation Group)
+* VLAN
+* 브로드캐스트 도메인
+* 서브넷
+* 네트워크 인터페이스
+
+
+link:https://docs.netapp.com/us-en/ontap/networking/combine_physical_ports_to_create_interface_groups.html["물리적 포트를 결합하여 인터페이스 그룹을 생성합니다"]
+
+link:https://docs.netapp.com/us-en/ontap/networking/configure_vlans_over_physical_ports.html["물리적 포트를 통해 VLAN을 구성합니다"]
+
+link:https://docs.netapp.com/us-en/ontap/networking/add_broadcast_domain.html["브로드캐스트 도메인을 추가합니다"]
+
+link:https://docs.netapp.com/us-en/ontap/networking/delete_a_broadcast_domain.html["브로드캐스트 도메인을 삭제합니다"]
+
+link:https://docs.netapp.com/us-en/ontap/networking/display_subnets.html["서브넷을 표시합니다"]
+
+link:https://docs.netapp.com/us-en/ontap/networking/create_a_subnet.html["서브넷을 생성합니다"]
+
+link:https://docs.netapp.com/us-en/ontap/networking/delete_a_subnet.html["서브넷을 삭제합니다"]
+
+link:https://docs.netapp.com/us-en/ontap/networking/add_or_remove_ip_addresses_from_a_subnet.html["서브넷에서 IP 주소를 추가하거나 제거합니다"]
+
+link:https://docs.netapp.com/us-en/ontap/networking/change_subnet_properties.html["서브넷 속성을 변경합니다"]
+
+link:https://docs.netapp.com/us-en/ontap/networking/create_a_lif.html["LIF를 생성합니다"]
+
+link:https://docs.netapp.com/us-en/ontap/networking/modify_a_lif.html["LIF를 수정합니다"]
+
+link:https://docs.netapp.com/us-en/ontap/networking/migrate_a_lif.html["LIF 마이그레이션"]
+
+link:https://docs.netapp.com/us-en/ontap/networking/revert_a_lif_to_its_home_port.html["LIF를 홈 포트로 되돌립니다"]
+
+link:https://docs.netapp.com/us-en/ontap/concept_admin_viewing_managing_network.html["네트워크 보기 및 관리"]
+
+
+
+ a| 
 ONTAP 9.11.1
  a| 
 iSCSI LIF 페일오버

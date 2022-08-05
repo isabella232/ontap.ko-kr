@@ -22,6 +22,25 @@ LIF가 페일오버된 후 홈 포트로 되돌아가거나 수동으로 또는 
 * LIF가 홈 포트로 되돌아가려면 "자동 되돌리기" 옵션이 설정되어 있는지 확인해야 합니다.
 
 
+다음 절차는 사용하는 인터페이스, 즉 System Manager 또는 CLI에 따라 다릅니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+* System Manager를 사용하여 네트워크 인터페이스를 홈 포트로 되돌립니다 *
+
+.단계
+. Network > Overview > Network Interfaces * 를 선택합니다.
+. 를 선택합니다 image:icon_kabob.gif["kebob 아이콘"] 변경하려는 네트워크 인터페이스 옆의 * > 되돌리기 * 를 선택합니다.
+. 변경 사항을 저장합니다.
+
+
+--
+.CLI를 참조하십시오
+--
+* CLI를 사용하여 LIF를 홈 포트로 되돌릴 수 있습니다 *
+
 LIF를 홈 포트로 수동 또는 자동으로 되돌리기:
 
 [cols="30,70"]
@@ -31,8 +50,10 @@ LIF를 홈 포트로 수동 또는 자동으로 되돌리기:
 | LIF를 홈 포트로 되돌리려면... | 그런 다음 다음 다음 명령을 입력합니다. 
 
 
-| 수동 | 네트워크 인터페이스 revert-vserver vserver_name-lif lif_name 
+| 수동 | 'network interface revert-vserver vserver_name-lif lif_name' 
 
 
-| 자동으로 | 네트워크 인터페이스 modify -vserver vserver_name -lif lif_name -auto-revert true입니다 
+| 자동으로 | 'network interface modify -vserver vserver_name -lif lif_name -auto-revert true' 
 |===
+--
+====

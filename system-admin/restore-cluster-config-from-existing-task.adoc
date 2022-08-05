@@ -19,6 +19,8 @@ summary: 클러스터 장애 후 기존 구성에서 클러스터 구성을 복�
 ====
 구성 백업 파일에서 클러스터를 다시 생성하는 경우 기술 지원 부서에 문의하여 구성 백업 파일과 클러스터에 있는 구성 간의 불일치 문제를 해결해야 합니다.
 
+구성 백업 파일에서 클러스터를 복구하는 경우 백업이 수행된 이후에 변경된 구성이 손실됩니다. 복구 후 구성 백업 파일과 현재 구성 간의 불일치 문제를 해결해야 합니다. 기술 자료 문서를 참조하십시오 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/ONTAP_Configuration_Backup_Resolution_Guide["문제 해결 지침을 위한 ONTAP 구성 백업 해결 가이드"].
+
 ====
 .단계
 . 각 HA 쌍에 대해 스토리지 페일오버 해제:

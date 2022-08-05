@@ -36,7 +36,6 @@ Hyper-V 및 SQL Server 애플리케이션 서버에서 Hyper-V 가상 머신 및
 
 * 'attributecache
 * 브랜치캐시
-* '액세스 기반 열거'
 
 
 .단계
