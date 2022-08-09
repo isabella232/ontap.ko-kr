@@ -20,7 +20,7 @@ ONTAP 9.7부터 FlexGroup 볼륨은 FlexCache 관계의 시작점에서도 지�
 .단계
 . 생성할 FlexCache 볼륨이 다른 클러스터에 있는 경우 클러스터 피어 관계를 생성합니다.
 +
-.. 대상 클러스터에서 데이터 보호 소스 클러스터와 피어 관계를 생성합니다. + 'cluster peer create-generate-passphrase-Offer-expiration MM/DD/YYYY HH:MM:SS|1...7일|1...168시간 - peer-addrs peer_LIF_IPs-initial-allowed-vserver-peer svm_name...| * -IPSpace IPSpace_name
+.. 대상 클러스터에서 데이터 보호 소스 클러스터와 피어 관계를 생성합니다. + 'cluster peer create-generate-passphrase-Offer-expiration MM/DD/YYYY HH:MM:SS|1...7일|1...168시간 - peer-addrs_peer_LIF_IPs_-initial-allowed-vserver_svm_name_IPSpace..| * -IPSpace_IPSpace_IPSpace
 +
 ONTAP 9.6부터는 클러스터 피어 관계를 만들 때 TLS 암호화가 기본적으로 활성화됩니다. TLS 암호화는 오리진과 FlexCache 볼륨 간의 인터클러스터 통신에 지원됩니다. 필요한 경우 클러스터 피어 관계에 대해 TLS 암호화를 비활성화할 수도 있습니다.
 
@@ -37,7 +37,7 @@ cluster02::> cluster peer create -generate-passphrase -offer-expiration 2days -i
 
 Warning: make a note of the passphrase - it cannot be displayed again.
 ----
-.. 소스 클러스터에서 대상 클러스터에 대한 소스 클러스터를 인증합니다. + 'cluster peer create-peer-addrs peer_LIF_ips-IPSpace IPSpace'
+.. 소스 클러스터에서 대상 클러스터에 대한 소스 클러스터를 인증합니다. + 'cluster peer create-peer-addrs_peer_LIF_ips_-IPSpace_IPSpace_'
 +
 [listing]
 ----
@@ -55,7 +55,7 @@ Clusters cluster02 and cluster01 are peered.
 
 . FlexCache 볼륨이 원본 볼륨과 다른 SVM에 있는 경우 애플리케이션으로서 "FlexCache"와 SVM 피어 관계를 생성합니다.
 +
-.. SVM이 다른 클러스터에 있는 경우 피어링 SVM에 대한 SVM 권한을 생성합니다. + 'vserver peer permission create-peer-cluster cluster cluster_name-vserver svm-name-applications FlexCache'
+.. SVM이 다른 클러스터에 있는 경우 피어링 SVM에 대한 SVM 권한을 생성합니다. + 'vserver peer permission create-peer-cluster_cluster_name_-vserver_svm-name_-applications FlexCache'
 +
 다음 예에서는 모든 로컬 SVM에 적용되는 SVM 피어 권한을 생성하는 방법을 보여줍니다.
 
@@ -68,12 +68,12 @@ Warning: This Vserver peer permission applies to all local Vservers. After that 
 "vserver peer accept" command required for Vserver peer relationship creation request
 from peer cluster "cluster2" with any of the local Vservers. Do you want to continue? {y|n}: y
 ----
-.. SVM 피어 관계를 생성합니다. + 'vserver peer create -vserver local_SVM-peer-vserver remote_SVM-peer cluster cluster cluster_name -applications FlexCache'
+.. SVM 피어 관계를 생성합니다. + 'vserver peer create -vserver local_SVM-peer-vserver_remote_SVM_-peer-cluster_cluster_name_-applications FlexCache'
 
 
 . FlexCache 볼륨 생성:
 +
-'volume FlexCache create-vserver cache_svm-volume cache_vol_name-auto-provision-as FlexGroup-size vol_size-origin-vserver origin_svm-origin-volume origin_vol_name'
+'volume FlexCache create-vserver_cache_svm_-volume_cache_vol_name_-auto-provision-as FlexGroup-size_vol_size_-origin-vserver_origin_svm_-origin-volume_origin_vol_name_'
 
 +
 다음 예에서는 FlexCache 볼륨을 생성하고 프로비저닝할 기존 애그리게이트를 자동으로 선택합니다.

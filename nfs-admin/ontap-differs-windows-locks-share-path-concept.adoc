@@ -15,4 +15,6 @@ Windows와 달리 ONTAP는 파일이 열려 있는 동안 열려 있는 파일�
 
 ONTAP는 경로의 각 구성 요소를 잠그지 않으므로 열려 있는 파일 또는 공유 위에 있는 경로 구성 요소의 이름을 바꿀 수 있습니다. 이렇게 하면 특정 응용 프로그램에 문제가 발생하거나 SMB 구성의 공유 경로가 잘못될 수 있습니다. 이로 인해 공유에 액세스할 수 없게 될 수 있습니다.
 
-경로 구성 요소의 이름을 변경하여 발생하는 문제를 방지하려면 사용자나 응용 프로그램이 중요한 디렉터리의 이름을 바꾸지 못하도록 보안 설정을 적용할 수 있습니다.
+경로 구성 요소의 이름을 변경하여 발생하는 문제를 방지하기 위해 사용자 또는 응용 프로그램이 중요한 디렉터리의 이름을 바꾸지 못하도록 하는 Windows ACL(액세스 제어 목록) 보안 설정을 적용할 수 있습니다.
+
+에 대해 자세히 알아보십시오 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_prevent_directories_from_being_renamed_while_clients_are_accessing_them["클라이언트가 액세스하는 동안 디렉토리의 이름을 변경하지 못하도록 하는 방법"^].

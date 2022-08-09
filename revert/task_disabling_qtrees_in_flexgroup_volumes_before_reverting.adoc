@@ -20,7 +20,7 @@ qtree를 생성하거나 기본 qtree의 보안 스타일 및 oplock 모드 특�
 .. 고급 권한 수준 'Set-Privilege Advanced'에 로그인합니다
 .. qtree 기능이 있는 FlexGroup 볼륨이 활성화되어 있는지 확인합니다.
 +
-ONTAP 9.6 이상에서는 'volume show is-qtree-caching-enabled true'를 사용합니다
+ONTAP 9.6 이상에서는 'volume show-is-qtree-caching-enabled true'를 사용합니다
 
 +
 ONTAP 9.5 이전 버전의 경우 'volume show-is-flexgroup-qtree-enabled true'를 사용합니다
