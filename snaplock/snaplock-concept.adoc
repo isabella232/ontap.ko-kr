@@ -193,9 +193,7 @@ SMTape
  a| 
 MetroCluster 구성
  a| 
-예, 하지만 몇 가지 제한 사항이 있습니다
-
-SnapLock 규정 준수 또는 엔터프라이즈 애그리게이트는 MetroCluster 구성에서 SnapLock 감사 로그 볼륨을 호스팅할 수 있으며, 다음과 같은 제한 사항이 있습니다.
+예, 다음 조건에서 가능합니다.
 
 * ONTAP 9.3부터 SnapLock 규정 준수는 미러링되지 않은 MetroCluster 애그리게이트에서 지원됩니다.
 * ONTAP 9.3부터 SnapLock 규정 준수는 미러링된 애그리게이트에서 SnapLock 감사 로그 볼륨을 호스팅하는 데 사용되는 경우에만 지원됩니다.

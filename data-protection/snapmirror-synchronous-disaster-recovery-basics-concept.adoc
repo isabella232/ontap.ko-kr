@@ -78,7 +78,7 @@ ONTAP 9.5 이상에서 SnapMirror Synchronous 기술은 지연 시간이 10ms를
 
 ONTAP 9.7에서 SnapMirror Synchronous 기술에 지원되는 기능은 다음과 같습니다.
 
-* 애플리케이션 생성 스냅샷 복사본 복제 스냅샷 복사본이 '스냅샷 생성' 작업 시점에 해당 레이블로 태그가 지정된 경우, CLI 또는 ONTAP API를 사용하여 SnapMirror Synchronous는 애플리케이션을 일시 중지한 후 사용자가 생성하거나 외부 스크립트로 생성한 스냅샷 복사본을 복제합니다. 스냅샷 정책을 사용하여 생성한 예약된 스냅샷 복사본은 복제되지 않습니다. 애플리케이션에서 생성한 스냅샷 복사본 복제에 대한 자세한 내용은 다음 기술 문서를 참조하십시오. link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapMirror/How_to_replicate_application_created_snapshots_with_SnapMirror_Synchronous["SnapMirror Synchronous로 애플리케이션 생성 스냅샷을 복제하는 방법"^]
+* 애플리케이션 생성 스냅샷 복사본 복제 스냅샷 복사본이 '스냅샷 생성' 작업 시점에 해당 레이블로 태그가 지정된 경우, CLI 또는 ONTAP API를 사용하여 SnapMirror Synchronous는 애플리케이션을 일시 중지한 후 사용자가 생성하거나 외부 스크립트로 생성한 스냅샷 복사본을 복제합니다. 스냅샷 정책을 사용하여 생성한 예약된 스냅샷 복사본은 복제되지 않습니다. 애플리케이션에서 생성한 스냅샷 복사본 복제에 대한 자세한 내용은 다음 기술 문서를 참조하십시오. link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapMirror/How_to_replicate_application_created_snapshots_with_SnapMirror_Synchronous["SnapMirror Synchronous로 애플리케이션 생성 스냅샷을 복제하는 방법"^].
 * FC-NVMe를 참조하십시오
 * LUN 클론 및 NVMe 네임스페이스 클론 - 애플리케이션에서 생성한 스냅샷 복사본으로 지원되는 LUN 클론도 지원됩니다.
 
