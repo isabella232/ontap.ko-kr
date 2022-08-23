@@ -41,8 +41,8 @@ link:../smb-admin/index.html["SMB 관리"] 지원되는 SMB 버전 및 기능에
 
 . 필요에 따라 클라이언트 연결에 대해 SMB 프로토콜을 설정하거나 해제합니다.
 +
-** SMB 버전을 활성화하려면: 'vserver cifs options modify -vserver vserver_namesmb_version true'
-** SMB 버전을 사용하지 않으려면 'vserver cifs options modify -vserver vserver_namesmb_version false'로 설정합니다. 'smb_version'에 사용할 수 있는 값은 다음과 같습니다.
+** SMB 버전을 활성화하려면: 'vserver cifs options modify -vserver vserver_name smb_version true'
+** SMB 버전을 사용하지 않으려면 'vserver cifs options modify -vserver vserver_name smb_version false'로 설정합니다. 가능한 값은 'MB_version'입니다.
 ** '-SMB1-활성화됨'
 ** '-SMB2-ENABLED'입니다
 ** '-SMB3-enabled'입니다
