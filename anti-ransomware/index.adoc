@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: anti-ransomware/index.html 
-keywords: anti-ransomware overview, ransomware, security, introduce, protection, detect, detection, threat, attack, suspect, what ontap anti-ransomware detects, entropy, abnormal volume activity, ransomware, antiransomware, extension conformity, recover data after a ransomware attack, ransomware protection strategy 
-summary: 'ONTAP 9.10.1부터 안티 랜섬웨어 기능은 NAS(NFS 및 SMB) 환경에서 워크로드 분석을 사용하여 랜섬웨어 공격을 나타낼 수 있는 비정상적인 활동을 사전에 감지하고 경고합니다.' 
+keywords: anti-ransomware overview, ransomware, security, introduce, autonomous, protection, arp, detect, detection, threat, attack, suspect, what ontap anti-ransomware detects, entropy, abnormal volume activity, ransomware, antiransomware, extension conformity, recover data after a ransomware attack, ransomware protection strategy 
+summary: 'ONTAP 9.10.1부터 ARP(Autonomous 랜섬웨어 보호) 기능은 NAS(NFS 및 SMB) 환경에서 워크로드 분석을 사용하여 랜섬웨어 공격을 나타낼 수 있는 비정상적인 활동을 사전에 감지하여 경고합니다.' 
 ---
-= 랜섬웨어 방지 개요
+= 자율 랜섬웨어 보호 개요
 :toc: macro
 :hardbreaks:
 :toclevels: 1
@@ -19,11 +19,11 @@ summary: 'ONTAP 9.10.1부터 안티 랜섬웨어 기능은 NAS(NFS 및 SMB) 환�
 
 
 [role="lead"]
-ONTAP 9.10.1부터 안티 랜섬웨어 기능은 NAS(NFS 및 SMB) 환경에서 워크로드 분석을 사용하여 랜섬웨어 공격을 나타낼 수 있는 비정상적인 활동을 사전에 감지하고 경고합니다.
+ONTAP 9.10.1부터 ARP(Autonomous 랜섬웨어 보호) 기능은 NAS(NFS 및 SMB) 환경에서 워크로드 분석을 사용하여 랜섬웨어 공격을 나타낼 수 있는 비정상적인 활동을 사전에 감지하여 경고합니다.
 
-공격이 의심되는 경우, 안티 랜섬웨어도 예약된 Snapshot 복사본으로부터 기존 보호 기능뿐만 아니라 새 Snapshot 복사본도 생성합니다.
+공격이 의심되면 ARP는 예약된 Snapshot 복제본으로부터 기존 보호 기능 외에 새 Snapshot 복제본도 생성합니다.
 
-랜섬웨어 방지 기능은 다음 라이센스로 활성화됩니다.
+ARP 기능은 다음 라이센스로 활성화됩니다.
 
 [cols="2*"]
 |===
@@ -43,11 +43,11 @@ ONTAP 9.10.1
 Mt_EK_MGMT(멀티 테넌트 키 관리)
 
 |===
-* ONTAP 9.11.1 이상으로 업그레이드하고 랜섬웨어 방지 보호를 이미 시스템에 구성한 경우 새로운 Anti-랜섬웨어 라이센스를 구입할 필요가 없습니다. 새로운 랜섬웨어 방지 구성의 경우 새 라이센스가 필요합니다.
-* ONTAP 9.11.1 이상에서 ONTAP 9.10.1로 되돌려고 안티랜섬웨어 라이센스를 사용하여 랜섬웨어 보호를 활성화한 경우 경고 메시지가 표시되고 랜섬웨어 방지 기능을 다시 구성해야 할 수 있습니다. link:../revert/anti-ransomware-license-task.html["랜섬웨어 방지 보호를 되돌리는 방법에 대해 알아보십시오"].
+* ONTAP 9.11.1 이상으로 업그레이드하고 ARP가 이미 시스템에 구성되어 있는 경우, 새로운 Anti-랜섬웨어 라이센스를 구입할 필요가 없습니다. 새 ARP 구성의 경우 새 라이센스가 필요합니다.
+* ONTAP 9.11.1 이상에서 ONTAP 9.10.1로 되돌려지는 경우, 안티랜섬웨어 라이센스로 ARP를 활성화한 경우 경고 메시지가 표시되고 ARP를 다시 구성해야 할 수 있습니다. link:../revert/anti-ransomware-license-task.html["ARP를 되돌리는 방법에 대해 알아보십시오"].
 
 
-ONTAP System Manager 또는 ONTAP CLI(Command Line Interface)를 사용하여 볼륨별로 랜섬웨어 방지 보호를 구성할 수 있습니다.
+ONTAP 시스템 관리자 또는 ONTAP CLI(Command Line Interface)를 사용하여 볼륨별로 ARP를 구성할 수 있습니다.
 
 
 
@@ -57,13 +57,13 @@ ONTAP System Manager 또는 ONTAP CLI(Command Line Interface)를 사용하여 �
 
 예를 들어, 차량의 안전 기능을 들 수 있습니다. 안전 벨트와 같은 단일 기능에 의존하여 사고 시 사용자를 완벽하게 보호하고 싶지 않을 것입니다. 에어백, 안티 브레이크 및 전방 충돌 경고는 모두 추가적인 안전 기능으로 훨씬 더 나은 결과를 제공합니다. 랜섬웨어 보호는 동일한 방법으로 확인해야 합니다.
 
-ONTAP에는 FPolicy, Snapshot 복사본, SnapLock, Active IQ 디지털 자문과 같은 기능이 포함되어 있어 랜섬웨어로부터 보호하지만, 다음 정보는 머신 러닝 기능을 갖춘 ONTAP 안티 랜섬웨어 온박스 기능에 초점을 맞춥니다.
+ONTAP에는 FPolicy, Snapshot 복사본, SnapLock, Active IQ 디지털 자문과 같은 기능이 포함되어 있어 랜섬웨어로부터 보호하지만, 다음 정보는 머신 러닝 기능을 갖춘 ONTAP ARP의 온박스 기능에 초점을 맞춥니다.
 
 ONTAP의 기타 랜섬웨어 방지 기능에 대한 자세한 내용은 다음을 참조하십시오. https://www.netapp.com/media/7334-tr4572.pdf["TR-4572: 랜섬웨어용 NetApp 솔루션"^]
 
 
 
-== ONTAP의 랜섬웨어 차단 탐지 기능
+== ONTAP ARP가 감지하는 것
 
 랜섬웨어 공격에는 두 가지 유형이 있습니다.
 
@@ -71,7 +71,7 @@ ONTAP의 기타 랜섬웨어 방지 기능에 대한 자세한 내용은 다음�
 . 중요한 독점 데이터의 도난. 공격자는 대가를 지불하지 않는 한 이 데이터를 공개 도메인에 배포하겠다고 위협합니다.
 
 
-ONTAP 랜섬웨어 차단 메커니즘은 다음과 같이 첫 번째 유형을 해결합니다.
+ONTAP ARP는 다음을 기반으로 하는 안티 랜섬웨어 탐지 메커니즘을 사용하여 첫 번째 유형을 해결합니다.
 
 . 들어오는 데이터를 암호화된 데이터 또는 일반 텍스트로 식별합니다.
 . 탐지 분석
@@ -84,7 +84,7 @@ ONTAP 랜섬웨어 차단 메커니즘은 다음과 같이 첫 번째 유형을 
 
 
 
-NOTE: 랜섬웨어 탐지 또는 방지 시스템이 랜섬웨어 공격에서 안전을 완벽하게 보장할 수는 없습니다. 공격은 감지되지 않을 수도 있지만 바이러스 백신 소프트웨어가 침입을 감지하지 못한 경우 NetApp 랜섬웨어 보호는 중요한 추가 방어 계층으로 작동합니다. Anti-랜섬웨어는 소수의 파일만 암호화한 후 대부분의 랜섬웨어 공격 확산을 감지하고 자동으로 조치를 취하여 데이터를 보호하고 의심스러운 공격이 발생하고 있음을 경고할 수 있습니다.
+NOTE: 랜섬웨어 탐지 또는 방지 시스템이 랜섬웨어 공격에서 안전을 완벽하게 보장할 수는 없습니다. 공격이 감지되지 않을 수도 있지만, 안티바이러스 소프트웨어가 침입을 감지하지 못하면 NetApp ARP는 중요한 추가 방어 계층으로 작동합니다. ARP는 적은 수의 파일만 암호화한 후 대부분의 랜섬웨어 공격의 확산을 감지하고 자동으로 조치를 취하여 데이터를 보호하고 의심스러운 공격이 발생하고 있음을 사용자에게 알릴 수 있습니다.
 
 
 
@@ -96,7 +96,7 @@ NOTE: 랜섬웨어 탐지 또는 방지 시스템이 랜섬웨어 공격에서 �
 
 영향을 받는 파일과 공격 시간을 알고 있으면 전체 볼륨을 스냅샷 중 하나로 되돌리는 대신 다양한 Snapshot 복제본에서 영향을 받는 파일을 선택적으로 복구할 수 있습니다.
 
-따라서 안티 랜섬웨어는 검증된 ONTAP 데이터 보호 및 재해 복구 기술을 기반으로 구축되며 랜섬웨어 공격에 대응합니다. 데이터 복구에 대한 자세한 내용은 다음 항목을 참조하십시오.
+ARP는 검증된 ONTAP 데이터 보호 및 재해 복구 기술을 기반으로 구축되며, 랜섬웨어 공격에 대응합니다. 데이터 복구에 대한 자세한 내용은 다음 항목을 참조하십시오.
 
 * link:../task_dp_recover_snapshot.html["Snapshot 복사본에서 복구(System Manager)"]
 * link:../data-protection/restore-contents-volume-snapshot-task.html["스냅샷 복사본에서 파일 복원(CLI)"]

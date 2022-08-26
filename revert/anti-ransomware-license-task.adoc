@@ -1,18 +1,18 @@
 ---
 permalink: revert/anti-ransomware-license-task.html 
 sidebar: sidebar 
-keywords: revert, reverting, reversion, anti-ransomware, protection, license, licensing 
+keywords: revert, reverting, reversion, anti-ransomware, autonomous, protection, arp, license, licensing 
 summary: 랜섬웨어 방지 보호를 구성했고 ONTAP 9.11.1 이상에서 ONTAP 9.10.1로 복원하면 경고 메시지와 제한된 랜섬웨어 방지 기능이 나타날 수 있습니다. 
 ---
-= ONTAP 9.11.1 이상에서 되돌리기 전에 랜섬웨어 방지 라이센스를 확인하십시오
+= ONTAP 9.11.1 이상에서 되돌리기 전에 자율 랜섬웨어 보호 라이센스를 확인하십시오
 :allow-uri-read: 
 
 
 [role="lead"]
-랜섬웨어 방지 보호를 구성했고 ONTAP 9.11.1 이상에서 ONTAP 9.10.1 이하로 되돌릴 경우 경고 메시지와 제한적인 랜섬웨어 방지 기능이 나타날 수 있습니다.
+자동 랜섬웨어 보호(ARP)를 구성하고 ONTAP 9.11.1 이상에서 ONTAP 9.10.1 이전 버전으로 되돌릴 경우 경고 메시지와 제한된 ARP 기능이 나타날 수 있습니다.
 
-ONTAP 9.11.1에서 Anti-랜섬웨어 라이센스는 멀티 테넌트 키 관리(MTKM) 라이센스를 대체합니다. 시스템에 Anti_랜섬웨어 라이센스가 있지만 MT_EK_MGMT 라이센스가 없는 경우 되돌리기 중에 새 볼륨에서 Anti-랜섬웨어를 활성화할 수 없다는 경고가 표시됩니다.
+ONTAP 9.11.1에서 Anti-랜섬웨어 라이센스는 멀티 테넌트 키 관리(MTKM) 라이센스를 대체합니다. 시스템에 Anti_랜섬웨어 라이센스가 있지만 MT_EK_MGMT 라이센스가 없는 경우 되돌리기 중에 ARP가 새 볼륨에 대해 활성화될 수 없다는 경고가 표시됩니다.
 
-기존의 안티 랜섬웨어 보호 기능이 있는 볼륨은 복원 후에도 계속 정상적으로 작동하며 랜섬웨어 방지 상태는 ONTAP CLI를 사용하여 표시할 수 있습니다. 그러나 System Manager는 MTKM 라이센스 없이 랜섬웨어 방지 상태를 표시할 수 없습니다.
+기존 보호 기능이 있는 볼륨은 복원 후에도 계속 정상적으로 작동하며 ONTAP CLI를 사용하여 ARP 상태를 표시할 수 있습니다. 그러나 MTKM 라이센스 없이는 System Manager가 ARP 상태를 표시할 수 없습니다.
 
-따라서 ONTAP 9.10.1로 되돌린 후 랜섬웨어 방지 보호를 계속하려면 되돌리기 전에 MTKM 라이센스가 설치되어 있는지 확인하십시오. link:../anti-ransomware/index.html["랜섬웨어 방지 라이센스에 대해 알아보십시오."]
+따라서 ONTAP 9.10.1로 되돌린 후 ARP를 계속하려면 되돌리기 전에 MTKM 라이센스가 설치되어 있는지 확인하십시오. link:../anti-ransomware/index.html["ARP 라이센스에 대해 알아보십시오."]
