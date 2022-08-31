@@ -24,8 +24,8 @@ ONTAP 9.8부터는 ONTAP CLI를 사용하여 빠른 디렉토리 삭제 기능�
 .CLI를 참조하십시오
 --
 .CLI를 사용하여 빠른 디렉토리 삭제 수행:
-. 고급 권한 모드 '-Privilege advance'로 진입한다
-. FlexVol 또는 FlexGroup 볼륨에서 파일 또는 디렉토리를 삭제합니다. 'volume file async-delete start-vserver vserver_name-volume volume_name-path file_path-throttle'
+. 'Set-Privilege Advance' 고급 권한 모드로 진입한다
+. FlexVol 또는 FlexGroup 볼륨에서 파일 또는 디렉토리를 삭제합니다. 'volume file async-delete start-vserver_SVM_name_-volume_volume_name_-path_file_path_-throttle_throttle_value_'
 +
 최소 스로틀 값은 10, 최대값은 100,000, 기본값은 5000입니다.
 
@@ -54,7 +54,7 @@ MM/DD/YYYY 00:11:11  cluster-vsim     INFORMATIONAL asyncDelete.message.success:
 .디렉토리 삭제 작업을 취소합니다
 . 고급 권한 모드 시작:
 +
-프리빌리지 어드밴스드
+세트 프리빌리지 고급
 
 . 디렉토리 삭제가 진행 중인지 확인합니다.
 +
@@ -65,7 +65,7 @@ MM/DD/YYYY 00:11:11  cluster-vsim     INFORMATIONAL asyncDelete.message.success:
 
 . 디렉토리 삭제 취소:
 +
-'볼륨 파일 async-delete cancel-vserver SVM_name-volume volume_name-jobid job_id'
+'볼륨 파일 async-delete cancel-vserver_SVM_name_-volume_volume_name_-jobid_job_id_'
 
 
 
