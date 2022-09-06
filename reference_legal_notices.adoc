@@ -50,6 +50,7 @@ https://www.netapp.com/us/legal/privacypolicy/index.aspx[]
 
 이 제품에 사용된 타사 저작권 및 라이센스에 대한 정보를 제공합니다.
 
+link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2883760["ONTAP 9.12.0에 대한 고지 사항"^]
 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2882103["ONTAP 9.11.1에 대한 고지 사항"^]
 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2879817["ONTAP 9.10.1에 대한 고지 사항"^]
 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2876856["ONTAP 9.9.1에 대한 참고 사항"^]

@@ -28,7 +28,7 @@ summary: 스토리지 암호화 디스크 수정 명령을 사용하여 데이�
 +
 [NOTE]
 ====
-'Security key-manager query-key-type NSE-AK' 명령어를 이용하여 키 ID를 확인할 수 있다.
+'Security key-manager key query-key-type NSE-AK' 명령어를 이용하여 키 ID를 확인할 수 있다.
 
 ====
 +
