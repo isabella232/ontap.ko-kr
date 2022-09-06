@@ -80,4 +80,7 @@ image::fsa-listview.png[FSA 목록 보기의 화면 캡처. 4개의 디렉토리
 == 파일 시스템 분석에 대해 자세히 알아보십시오
 
 video::0oRHfZIYurk[youtube,width=848,height=480]
-link:https://www.netapp.com/media/20707-tr-4867.pdf["TR 4687: ONTAP 파일 시스템 분석에 대한 모범 사례 지침"^]
+.추가 참고 자료
+* link:https://www.netapp.com/media/20707-tr-4867.pdf["TR 4687: ONTAP 파일 시스템 분석에 대한 모범 사례 지침"^]
+* link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/High_or_fluctuating_latency_after_turning_on_NetApp_ONTAP_File_System_Analytics["기술 자료: NetApp ONTAP 파일 시스템 분석을 켠 후 지연 시간이 길거나 변동이 심한 경우"^].
+
