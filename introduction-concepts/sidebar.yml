@@ -5,5 +5,3 @@ url: "/introduction-concepts/index.html"
 entries:
 - section: concepts
 - section: cloud
-- title: ONTAP 설명서 페이지
-  url: "/concepts/manual-pages.html"

@@ -7,14 +7,14 @@ settings:
     pdf_enabled: true
     harmony_enabled: false
   search: ontap, ontap-metrocluster, ontap-sm-classic, ontap-fli, ontap-flexarray,
-    ontap-automation
+    ontap-automation, ontap-cli-9111, ontap-ems-9111
   langs: ko-kr,us-en,ja-jp,zh-cn,zh-tw
 sidebar:
   entries:
   - title: ONTAP 문서
     url: "/index.html"
   - title: 릴리즈 노트
-    url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508
+    url: "/release-notes.html"
   - section: introduction-concepts
   - section: setup-upgrade
   - section: cluster-admin
@@ -27,6 +27,6 @@ sidebar:
   - section: data-protection-disaster-recovery
   - section: event-performance-monitoring
   - title: ONTAP 설명서 페이지
-    url: https://docs.netapp.com/us-en/ontap-cli-9111/index.html
+    url: "/concepts/manual-pages.html"
   - title: 법적 고지
     url: "/reference_legal_notices.html"
