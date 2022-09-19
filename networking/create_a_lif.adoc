@@ -66,7 +66,7 @@ link:../san-admin/asa-iscsi-lif-fo-task.html["ASA 플랫폼의 iSCSI LIF 페일�
 
 
 
-ONTAP 9.12.0부터는 사용하는 인터페이스(시스템 관리자 또는 CLI)에 따라 절차가 달라집니다.
+ONTAP 9.12.0부터는 -- System Manager 또는 CLI를 사용하는 인터페이스에 따라 절차가 달라집니다.
 
 [role="tabbed-block"]
 ====

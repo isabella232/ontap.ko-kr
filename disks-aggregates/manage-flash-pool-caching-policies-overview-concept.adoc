@@ -1,0 +1,26 @@
+---
+permalink: disks-aggregates/manage-flash-pool-caching-policies-overview-concept.html 
+sidebar: sidebar 
+keywords: local tier, aggregate, disks, RAID, manage disks, overview 
+summary: Flash Pool 캐싱 정책 관리 개요 
+---
+= Flash Pool 캐싱 정책 관리 개요
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+CLI를 사용하면 시스템에서 Flash Pool 캐싱 정책을 관리하는 다양한 절차를 수행할 수 있습니다.
+
+* * 준비 *
++
+** link:determine-modify-caching-policy-flash-pool-task.html["Flash Pool 로컬 계층(Aggregate)의 캐싱 정책을 수정할지 결정"]
+
+
+* * 캐싱 정책 수정 *
++
+** link:modify-caching-policies-flash-pool-aggregates-task.html["Flash Pool 로컬 계층(애그리게이트)의 캐싱 정책 수정"]
+** link:set-cache-data-retention-policy-flash-pool-task.html["Flash Pool 로컬 계층(애그리게이트)에 대한 캐시 보존 정책 설정"]
+
+
+

@@ -1,0 +1,22 @@
+---
+permalink: disks-aggregates/set-media-cost-local-tier-task.html 
+sidebar: sidebar 
+keywords: media cost, local tier, aggregate, expense 
+summary: 'ONTAP 9.11.1부터 System Manager를 사용하여 로컬 계층의 미디어 비용(애그리게이트)을 설정할 수 있습니다.' 
+---
+= 로컬 계층의 미디어 비용 설정(애그리게이트)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.11.1부터 System Manager를 사용하여 로컬 계층(집계)의 미디어 비용을 설정할 수 있습니다.
+
+.단계
+. System Manager에서 * Storage > Tiers * 를 클릭한 다음 원하는 로컬 계층(집계) 타일에서 * Set Media Cost * 를 클릭합니다.
+. 비교를 활성화하려면 * 활성 및 비활성 계층 * 을 선택합니다.
+. 통화 유형 및 금액을 입력합니다.
+
+
+미디어 비용을 입력하거나 변경하면 모든 미디어 유형에 변경 사항이 적용됩니다.

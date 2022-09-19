@@ -11,11 +11,11 @@ summary: System Manager를 사용하면 사용된 스토리지 용량과 클러�
 [role="lead"]
 System Manager를 사용하면 사용된 스토리지 용량과 클러스터에 사용할 수 있는 스토리지 용량을 확인할 수 있습니다. 또한 ONTAP 9.10.1부터 System Manager를 사용하여 클러스터의 용량 및 향후 사용 가능한 용량에 대한 기간별 데이터를 볼 수 있습니다.
 
-* <<cap-measurements-sm>>
-* <<measurements-used-cap>>
-* <<measurement-terms>>
-* <<cap-measurement-units>>
-* <<view-cap-measurements>>
+* 
+* 
+* 
+* 
+* 
 
 
 

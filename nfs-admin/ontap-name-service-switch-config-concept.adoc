@@ -176,4 +176,4 @@ svm_1           netgroup       nis,
 
 SVM svm_1의 테이블에는 이름 매핑에 대한 이름 서비스 항목이 없습니다. 따라서 ONTAP는 기본적으로 로컬 소스 파일만 참조합니다.
 
-https://www.netapp.com/pdf.html?item=/media/16328-tr-4668pdf.pdf["NetApp 기술 보고서 4668: 이름 서비스 모범 사례 가이드"]
+https://www.netapp.com/pdf.html?item=/media/16328-tr-4668pdf.pdf["NetApp 기술 보고서 4668: 이름 서비스 모범 사례 가이드"^]

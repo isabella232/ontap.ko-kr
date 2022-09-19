@@ -1,43 +1,43 @@
 ---
 permalink: disks-aggregates/create-flash-pool-aggregate-ssd-storage-task.html 
 sidebar: sidebar 
-keywords: create, flash pool, aggregate, ssd, storage pool, allocation units 
-summary: SSD 스토리지 풀에서 기존 HDD 애그리게이트에 하나 이상의 할당 유닛을 추가하여 Flash Pool 애그리게이트를 구성할 수 있습니다. 
+keywords: create, flash pool, aggregate, local tier, ssd, storage pool, allocation units 
+summary: 'SSD 스토리지 풀에서 기존 HDD 로컬 계층에 하나 이상의 할당 유닛을 추가하여 Flash Pool 로컬 계층(애그리게이트)을 구성할 수 있습니다.' 
 ---
-= SSD 스토리지 풀 할당 유닛을 사용하여 Flash Pool 애그리게이트를 생성합니다
+= SSD 스토리지 풀 할당 유닛을 사용하여 Flash Pool 로컬 계층(애그리게이트)을 생성합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-SSD 스토리지 풀에서 기존 HDD 애그리게이트에 하나 이상의 할당 유닛을 추가하여 Flash Pool 애그리게이트를 구성할 수 있습니다.
+SSD 스토리지 풀에서 기존 HDD 로컬 계층에 하나 이상의 할당 유닛을 추가하여 Flash Pool 로컬 계층(애그리게이트)을 구성할 수 있습니다.
 
 .무엇을 &#8217;필요로 할거야
-* Flash Pool 애그리게이트로 변환하려면 HDD로 구성된 유효한 애그리게이트를 식별해야 합니다.
-* Aggregate와 연결된 볼륨의 쓰기 캐싱 적격성을 확인하고 자격 문제를 해결하기 위해 필요한 단계를 완료해야 합니다.
-* SSD 캐시를 이 Flash Pool 애그리게이트에 제공하려면 SSD 스토리지 풀을 생성해야 합니다.
+* Flash Pool 로컬 계층으로 변환하려면 HDD로 구성된 유효한 로컬 계층을 식별해야 합니다.
+* 로컬 계층과 연결된 볼륨의 쓰기 캐싱 적격성을 확인하고 자격 문제를 해결하기 위해 필요한 모든 단계를 완료해야 합니다.
+* SSD 캐시를 이 Flash Pool 로컬 계층에 제공하려면 SSD 스토리지 풀을 생성해야 합니다.
 +
-사용할 스토리지 풀의 할당 유닛은 Flash Pool 애그리게이트를 소유하는 동일한 노드에서 소유해야 합니다.
+사용할 스토리지 풀의 할당 유닛은 Flash Pool 로컬 계층을 소유하는 동일한 노드에서 소유해야 합니다.
 
-* Aggregate에 추가할 캐시의 양을 결정해야 합니다.
+* 로컬 계층에 추가할 캐시의 양을 결정해야 합니다.
 +
-할당 단위로 애그리게이트에 캐시를 추가합니다. 여유 공간이 있는 경우 나중에 스토리지 풀에 SSD를 추가하여 할당 유닛의 크기를 늘릴 수 있습니다.
+할당 단위로 캐시를 로컬 계층에 추가합니다. 여유 공간이 있는 경우 나중에 스토리지 풀에 SSD를 추가하여 할당 유닛의 크기를 늘릴 수 있습니다.
 
 * SSD 캐시에 사용할 RAID 유형을 결정해야 합니다.
 +
-SSD 스토리지 풀에서 애그리게이트에 캐시를 추가한 후에는 캐시 RAID 그룹의 RAID 유형을 변경할 수 없습니다.
+SSD 스토리지 풀에서 로컬 계층에 캐시를 추가한 후에는 캐시 RAID 그룹의 RAID 유형을 변경할 수 없습니다.
 
-* 시스템의 최대 캐시 크기를 확인하고 애그리게이트에 SSD 캐시를 추가할 때 캐시 크기를 초과하지 않는지 확인해야 합니다.
+* 시스템의 최대 캐시 크기를 결정하고 SSD 캐시를 로컬 계층에 추가할 때 캐시 크기를 초과하지 않는지 확인해야 합니다.
 +
 'storage pool show' 명령을 사용하면 총 캐시 크기에 추가될 캐시의 양을 확인할 수 있습니다.
 
-* Flash Pool 애그리게이트는 구성 요구사항에 익숙해야 합니다.
+* Flash Pool 로컬 계층에 대한 구성 요구사항을 숙지하고 있어야 합니다.
 
 
-캐시의 RAID 유형을 HDD RAID 그룹과 다르게 지정하려면 SSD 용량을 추가할 때 캐시 RAID 유형을 지정해야 합니다. SSD 용량을 애그리게이트에 추가한 후에는 캐시의 RAID 유형을 더 이상 변경할 수 없습니다.
+캐시의 RAID 유형을 HDD RAID 그룹과 다르게 하려면 SSD 용량을 추가할 때 캐시 RAID 유형을 지정해야 합니다. SSD 용량을 로컬 계층에 추가한 후에는 캐시의 RAID 유형을 더 이상 변경할 수 없습니다.
 
-SSD 캐시를 애그리게이트에 추가하여 Flash Pool 애그리게이트를 생성한 후에는 SSD 캐시를 제거하여 애그리게이트를 다시 원래 구성으로 전환할 수 없습니다.
+SSD 캐시를 로컬 계층에 추가하여 Flash Pool 로컬 계층을 생성한 후에는 SSD 캐시를 제거하여 로컬 계층을 다시 원래 구성으로 변환할 수 없습니다.
 
 .단계
 . 애그리게이트를 Flash Pool 애그리게이트로 사용할 수 있는 것으로 표시:
@@ -76,4 +76,4 @@ SSD 캐시를 애그리게이트에 추가하여 Flash Pool 애그리게이트�
 
 
 
-http://www.netapp.com/us/media/tr-4070.pdf["NetApp 기술 보고서 4070: Flash Pool 설계 및 구축 가이드 를 참조하십시오"]
+http://www.netapp.com/us/media/tr-4070.pdf["NetApp 기술 보고서 4070: Flash Pool 설계 및 구축 가이드 를 참조하십시오"^]

@@ -25,5 +25,5 @@ summary: '데이터 주권은 데이터의 수집, 저장 및 전송에 관한 �
 * https://azure.microsoft.com/en-us/blog/questions-on-data-residency-and-compliance-in-azure-we-got-answers/["Microsoft Azure의 데이터 상주 및 규정 준수에 대한 질문"]
 * https://aws.amazon.com/compliance/gdpr-center/["Amazon Web Services를 위한 GDPR(General Data Protection Regulation) Center 에서 이용할 수 있습니다"]
 * https://cloud.google.com/security/compliance["Google Cloud용 규정 준수 리소스 센터"]
-* https://www.alibabacloud.com/trust-center["Alibaba Cloud Security & amp; Compliance Center 를 참조하십시오"]
+* https://www.alibabacloud.com/trust-center["Alibaba Cloud Security  amp; Compliance Center 를 참조하십시오"]
 

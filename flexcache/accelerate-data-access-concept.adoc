@@ -19,7 +19,7 @@ ONTAP 9.7부터는 FlexGroup 볼륨도 소스 볼륨으로 지원됩니다.
 
 [NOTE]
 ====
-FlexVol 9 릴리즈 9.5 이전 버전에서는 원본 FlexCache 볼륨이 7-Mode에서 작동하는 Data ONTAP 8.2.x를 실행하는 시스템에서 생성된 ONTAP 볼륨에만 데이터를 제공할 수 있습니다. FlexVol 9.5부터 오리진 ONTAP 볼륨은 ONTAP 9 시스템의 FlexCache 볼륨에 데이터를 제공할 수도 있습니다. 7-Mode FlexCache에서 ONTAP 9 FlexCache로 마이그레이션하는 방법에 대한 자세한 내용은 link:http://www.netapp.com/us/media/tr-4743.pdf["NetApp 기술 보고서 4743: NetApp ONTAP의 FlexCache 볼륨"].
+FlexVol 9 릴리즈 9.5 이전 버전에서는 원본 FlexCache 볼륨이 7-Mode에서 작동하는 Data ONTAP 8.2.x를 실행하는 시스템에서 생성된 ONTAP 볼륨에만 데이터를 제공할 수 있습니다. FlexVol 9.5부터 오리진 ONTAP 볼륨은 ONTAP 9 시스템의 FlexCache 볼륨에 데이터를 제공할 수도 있습니다. 7-Mode FlexCache에서 ONTAP 9 FlexCache로 마이그레이션하는 방법에 대한 자세한 내용은 link:http://www.netapp.com/us/media/tr-4743.pdf["NetApp 기술 보고서 4743: NetApp ONTAP의 FlexCache 볼륨"^].
 
 ====
 FlexCache 볼륨은 클라이언트에 의해 요청된 데이터가 볼륨에 포함되어 있는 경우 읽기 요청을 직접 처리합니다. 그렇지 않으면 FlexCache 볼륨이 클라이언트 요청을 처리하기 전에 원래 볼륨에서 데이터를 요청하고 데이터를 저장합니다. 이후 데이터에 대한 읽기 요청은 FlexCache 볼륨에서 직접 제공됩니다. 따라서 첫 번째 요청 후 데이터가 더 이상 네트워크를 통해 이동하거나 오버로드된 시스템에서 데이터를 처리하지 않아도 되므로 동일한 데이터에 반복적으로 액세스할 때 성능이 향상됩니다.

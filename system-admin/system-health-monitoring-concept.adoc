@@ -19,7 +19,7 @@ summary: 상태 모니터는 클러스터의 특정 중요한 상태를 능동�
 
 ONTAP가 클러스터에서 시스템 상태 모니터링을 위해 클러스터 스위치를 지원하는 방법에 대한 자세한 내용은 _Hardware Universe_를 참조하십시오.
 
-https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe에서 지원되는 스위치입니다"]
+https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe에서 지원되는 스위치입니다"^]
 
 CSMM(Cluster Switch Health Monitor) AutoSupport 메시지의 원인과 이러한 경고를 해결하는 데 필요한 조치에 대한 자세한 내용은 기술 자료 문서를 참조하십시오.
 

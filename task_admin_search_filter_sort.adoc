@@ -23,11 +23,11 @@ System Manager에서 다양한 작업 및 개체를 검색할 수 있습니다. 
 
 System Manager에서는 두 가지 유형의 검색을 제공합니다.
 
-* <<Global searching>>
+*  searching
 +
 각 페이지 상단의 필드에 검색 인수를 입력하면 System Manager가 인터페이스 전체를 검색하여 일치하는 항목을 찾습니다. 그런 다음 결과를 정렬하고 필터링할 수 있습니다.
 
-* <<Table-grid searching>>
+*  searching
 +
 ONTAP 9.8부터 표 눈금 맨 위의 필드에 검색 인수를 입력하면, System Manager에서는 해당 테이블의 열과 행만 검색하여 일치하는 항목을 찾습니다.
 

@@ -1,8 +1,8 @@
 ---
 permalink: disks-aggregates/correct-misaligned-spare-partitions-task.html 
 sidebar: sidebar 
-keywords: correct, misaligned, partition 
-summary: 분할된 디스크를 Aggregate에 추가하는 경우 모든 노드에 대해 루트 및 데이터 파티션을 모두 사용할 수 있는 디스크를 스페어로 남겨두어야 합니다. 노드가 중단되지 않고 노드가 중단되면 ONTAP은 코어를 스페어 데이터 파티션으로 덤프할 수 없습니다. 
+keywords: correct, misaligned, partition, disk 
+summary: '파티션이 설정된 디스크를 로컬 계층(Aggregate)에 추가하는 경우 모든 노드에 대해 여유 디스크로 사용할 수 있는 루트 및 데이터 파티션이 있는 디스크를 남겨두어야 합니다. 노드가 중단되지 않고 노드가 중단되면 ONTAP은 코어를 스페어 데이터 파티션으로 덤프할 수 없습니다.' 
 ---
 = 잘못 정렬된 스페어 파티션을 수정합니다
 :allow-uri-read: 
@@ -11,12 +11,12 @@ summary: 분할된 디스크를 Aggregate에 추가하는 경우 모든 노드�
 
 
 [role="lead"]
-분할된 디스크를 Aggregate에 추가하는 경우 모든 노드에 대해 루트 및 데이터 파티션을 모두 사용할 수 있는 디스크를 스페어로 남겨두어야 합니다. 노드가 중단되지 않고 노드가 중단되면 ONTAP은 코어를 스페어 데이터 파티션으로 덤프할 수 없습니다.
+파티션이 설정된 디스크를 로컬 계층(Aggregate)에 추가하는 경우 모든 노드에 대해 여유 디스크로 사용할 수 있는 루트 및 데이터 파티션이 있는 디스크를 남겨두어야 합니다. 노드가 중단되지 않고 노드가 중단되면 ONTAP은 코어를 스페어 데이터 파티션으로 덤프할 수 없습니다.
 
 동일한 노드에서 소유하는 동일한 디스크 유형에 스페어 데이터 파티션과 스페어 루트 파티션이 모두 있어야 합니다.
 
 .단계
-. 노드에 대한 스페어 파티션을 표시합니다.
+. CLI를 사용하여 노드에 대한 스페어 파티션을 표시합니다.
 +
 'Storage aggregate show-spare-disks-original-owner_node_name_'
 
@@ -39,7 +39,7 @@ summary: 분할된 디스크를 Aggregate에 추가하는 경우 모든 노드�
 'Storage aggregate show-spare-disks-original-owner_node_name_'
 
 +
-Local Data Usable과 Local Root Usable 아래에 여유 공간이 있는 여유 디스크가 있어야 합니다.
+"Local Data Usable" 및 "Local Root Usable" 아래에 사용 가능한 공간이 있는 여유 디스크가 있어야 합니다.
 
 
 
@@ -52,12 +52,12 @@ c1::> storage aggregate show-spare-disks -original-owner c1-01
 Original Owner: c1-01
  Pool0
   Shared HDD Spares
-                                                            Local    Local
-                                                             Data     Root Physical
- Disk                        Type     RPM Checksum         Usable   Usable     Size
- --------------------------- ----- ------ -------------- -------- -------- --------
- 1.0.1                       BSAS    7200 block           753.8GB       0B  828.0GB
- 1.0.10                      BSAS    7200 block                0B  73.89GB  828.0GB
+                              Local    Local
+                               Data     Root  Physical
+ Disk    Type   RPM Checksum Usable   Usable      Size
+ ------- ----- ---- -------- ------- ------- --------
+ 1.0.1   BSAS  7200 block    753.8GB     0B   828.0GB
+ 1.0.10  BSAS  7200 block         0B 73.89GB  828.0GB
 ----
 디스크 교체 작업을 시작합니다.
 
@@ -75,17 +75,17 @@ Owner Node: c1-01
  Aggregate: aggr0_1 (online, raid_dp) (block checksums)
   Plex: /aggr0_1/plex0 (online, normal, active, pool0)
    RAID Group /aggr0_1/plex0/rg0 (normal, block checksums)
-                                                              Usable Physical
-     Position Disk                        Pool Type     RPM     Size     Size Status
-     -------- --------------------------- ---- ----- ------ -------- -------- ----------
-     shared   1.0.1                        0   BSAS    7200  73.89GB  828.0GB (replacing, copy in progress)
-     shared   1.0.10                       0   BSAS    7200  73.89GB  828.0GB (copy 63% completed)
-     shared   1.0.0                        0   BSAS    7200  73.89GB  828.0GB (normal)
-     shared   1.0.11                       0   BSAS    7200  73.89GB  828.0GB (normal)
-     shared   1.0.6                        0   BSAS    7200  73.89GB  828.0GB (normal)
-     shared   1.0.5                        0   BSAS    7200  73.89GB  828.0GB (normal)
+                                    Usable Physical
+ Position Disk    Pool Type   RPM     Size     Size Status
+ -------- ------- ---- ---- ----- -------- -------- ----------
+ shared   1.0.1    0   BSAS  7200  73.89GB  828.0GB (replacing,copy in progress)
+ shared   1.0.10   0   BSAS  7200  73.89GB  828.0GB (copy 63% completed)
+ shared   1.0.0    0   BSAS  7200  73.89GB  828.0GB (normal)
+ shared   1.0.11   0   BSAS  7200  73.89GB  828.0GB (normal)
+ shared   1.0.6    0   BSAS  7200  73.89GB  828.0GB (normal)
+ shared   1.0.5    0   BSAS  7200  73.89GB  828.0GB (normal)
 ----
-교체 작업이 완료되면 전체 스페어 디스크가 있음을 확인합니다.
+교체 작업이 완료된 후 전체 스페어 디스크가 있는지 확인합니다.
 
 [listing]
 ----
@@ -94,9 +94,9 @@ ie2220::> storage aggregate show-spare-disks -original-owner c1-01
 Original Owner: c1-01
  Pool0
   Shared HDD Spares
-                                                            Local    Local
-                                                             Data     Root Physical
- Disk                        Type     RPM Checksum         Usable   Usable     Size
- --------------------------- ----- ------ -------------- -------- -------- --------
- 1.0.1                       BSAS    7200 block           753.8GB  73.89GB  828.0GB
+                             Local    Local
+                              Data     Root  Physical
+ Disk   Type   RPM Checksum Usable   Usable      Size
+ ------ ----- ---- -------- -------- ------- --------
+ 1.0.1  BSAS  7200 block    753.8GB  73.89GB  828.0GB
 ----

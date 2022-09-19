@@ -1,43 +1,45 @@
 ---
 permalink: disks-aggregates/determine-space-usage-aggregate-concept.html 
 sidebar: sidebar 
-keywords: determine, space, usage, aggregate 
-summary: aggregate show-space 명령을 사용하여 하나 이상의 aggregate에서 모든 볼륨의 공간 사용량을 확인할 수 있습니다. 이렇게 하면 포함된 Aggregate에서 가장 많은 공간을 차지하는 볼륨을 볼 수 있으므로 여유 공간을 확보하기 위해 작업을 수행할 수 있습니다. 
+keywords: space, usage, aggregate, local tier, volume 
+summary: '하나 이상의 로컬 계층(애그리게이트)에서 모든 볼륨에서 사용하는 공간 양을 볼 수 있으므로 작업을 통해 더 많은 공간을 확보할 수 있습니다.' 
 ---
-= 애그리게이트에서 공간 사용량을 확인합니다
+= 로컬 계층에서 공간 사용량 확인(애그리게이트)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
+하나 이상의 로컬 계층(애그리게이트)에서 모든 볼륨에서 사용하는 공간 양을 볼 수 있으므로 작업을 통해 더 많은 공간을 확보할 수 있습니다.
+
 'aggregate show-space' 명령을 사용하면 하나 이상의 애그리게이트에 있는 모든 볼륨의 공간 사용량을 확인할 수 있습니다. 이렇게 하면 포함된 Aggregate에서 가장 많은 공간을 차지하는 볼륨을 볼 수 있으므로 여유 공간을 확보하기 위해 작업을 수행할 수 있습니다.
 
 Aggregate의 사용된 공간은 이 애그리게이트에 있는 FlexVol 볼륨에 사용된 공간의 직접적인 영향을 받습니다. 볼륨의 공간을 늘리기 위해 취하는 측정도 애그리게이트의 공간에 영향을 미칩니다.
 
 다음 행은 'aggregate show-space' 명령 출력에 포함됩니다.
 
-* 볼륨 풋프린트
+* * 볼륨 풋프린트 *
 +
 애그리게이트 내 모든 볼륨 설치 공간 합계입니다. 포함된 애그리게이트에 있는 모든 볼륨의 모든 데이터와 메타데이터에서 사용되거나 예약된 모든 공간이 여기에 포함됩니다.
 
-* '메타데이터 집계'
+* * 집계 메타데이터 *
 +
 비트맵과 inode 파일 할당 등 Aggregate에 필요한 총 파일 시스템 메타데이터입니다.
 
-* 스냅샷 리저브
+* * 스냅숏 예비 공간 *
 +
 볼륨 크기에 따라 애그리게이트 Snapshot 복사본에 예약된 공간의 양입니다. 사용된 공간으로 간주되어 볼륨 또는 애그리게이트 데이터 또는 메타데이터에 사용할 수 없습니다.
 
-* '스냅샷 보존 사용 불가'
+* * Snapshot Reserve Unusable(스냅샷 예비 공간 사용 불가
 +
 Aggregate 스냅샷 복사본에 원래 할당된 공간 중 Aggregate와 연결된 볼륨에서 사용 중이므로 애그리게이트 스냅샷 복사본에 사용할 수 없는 공간의 양입니다. Aggregate 스냅샷 예약 공간이 0이 아닌 Aggregate에만 발생할 수 있습니다.
 
-* 총 사용량
+* * 총 사용량 *
 +
 볼륨, 메타데이터 또는 스냅샷 복사본별 애그리게이트에 사용되거나 예약된 모든 공간의 합계입니다.
 
-* 총 물리적 사용량
+* * 총 물리적 사용량 *
 +
 현재 데이터에 사용 중인 공간(향후 사용을 위해 예약되지 않음). Aggregate Snapshot 복사본에서 사용하는 공간을 포함합니다.
 
@@ -45,8 +47,7 @@ Aggregate 스냅샷 복사본에 원래 할당된 공간 중 Aggregate와 연결
 
 다음 예제는 Snapshot 예약 공간이 5%인 애그리게이트의 show-space 집계 명령 출력을 보여줍니다. 스냅숏 예비 공간이 0인 경우 행이 표시되지 않습니다.
 
-[listing]
-----
+....
 cluster1::> storage aggregate show-space
 
 						Aggregate : wqa_gx106_aggr1
@@ -59,4 +60,4 @@ cluster1::> storage aggregate show-space
 
       Total Used                              6.07GB         5%
       Total Physical Used                    34.82KB         0%
-----
+....

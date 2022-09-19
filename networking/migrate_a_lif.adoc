@@ -44,7 +44,7 @@ System Manager를 사용하여 iSCSI LIF를 마이그레이션할 수도 있습�
 * 소스 또는 대상 LIF를 마이그레이션할 때 VMware VAAI 복사본 오프로드 작업이 실패합니다. VMware VAAI에 대한 자세한 내용은 를 참조하십시오 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/GUID-39C8E616-EAE8-46A4-881A-87C4B8421281.html["NFS 참조입니다"^] 또는 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/GUID-D97EE182-9068-4BD8-A3BF-F5C458303740.html["SAN 관리"^].
 
 
-다음 절차는 사용하는 인터페이스, 즉 System Manager 또는 CLI에 따라 다릅니다.
+다음 절차는 사용하는 인터페이스에 따라 다릅니다. -- System Manager 또는 CLI:
 
 [role="tabbed-block"]
 ====

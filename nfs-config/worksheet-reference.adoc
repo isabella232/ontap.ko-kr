@@ -110,11 +110,9 @@ v3 -v4.0 -v4.1 -v4.1 -v4.1 -pNFS
  a| 
 필요에 따라 NFS 버전을 사용하도록 설정합니다.
 
-[NOTE]
-====
-v4.2는 v4.1이 활성화된 경우 ONTAP 9.8 이상에서도 지원됩니다.
 
-==== a| 
+NOTE: v4.2는 v4.1이 활성화된 경우 ONTAP 9.8 이상에서도 지원됩니다.
+ a| 
 
 
 
@@ -557,6 +555,8 @@ TLS를 통해 LDAP를 활성화합니다. 기본값은 false 입니다.
 이러한 값은 'vserver NFS Kerberos realm create' 명령을 사용하여 입력합니다. 일부 값은 KDC(Key Distribution Center) 서버로 Microsoft Active Directory를 사용할지, MIT 또는 기타 UNIX KDC 서버를 사용하는지에 따라 달라집니다.
 
 |===
+
+
 | 필드에 입력합니다 | 설명 | 귀사의 가치 
 
 
@@ -667,6 +667,8 @@ KDC 공급업체.
 이러한 값은 'vserver NFS Kerberos interface enable' 명령을 사용하여 제공합니다.
 
 |===
+
+
 | 필드에 입력합니다 | 설명 | 귀사의 가치 
 
 
@@ -734,6 +736,8 @@ Microsoft KDC의 영역을 사용하여 Kerberos를 설정할 때 Microsoft Acti
 이러한 값은 'vserver export-policy create' 명령을 사용하여 제공합니다.
 
 |===
+
+
 | 필드에 입력합니다 | 설명 | 귀사의 가치 
 
 
@@ -755,6 +759,8 @@ Microsoft KDC의 영역을 사용하여 Kerberos를 설정할 때 Microsoft Acti
 각 규칙에 대해 'vserver export-policy rule create' 명령을 사용하여 이러한 값을 제공합니다.
 
 |===
+
+
 | 필드에 입력합니다 | 설명 | 귀사의 가치 
 
 
@@ -817,6 +823,8 @@ Microsoft KDC의 영역을 사용하여 Kerberos를 설정할 때 Microsoft Acti
 각 엑스포트 정책에 대해 하나 이상의 규칙을 생성해야 합니다.
 
 |===
+
+
 | '*-ruleindex*' | '* - clientmatch * ' | ' * -rorule * ' | '*-rwrule * ' | '*-슈퍼유저 * ' | '*-anon * ' 
 
 
@@ -889,6 +897,8 @@ krb5
 Qtree 대신 볼륨을 생성하는 경우 이 값에 'volume create' 명령을 입력합니다.
 
 |===
+
+
 | 필드에 입력합니다 | 설명 | 귀사의 가치 
 
 
@@ -969,6 +979,8 @@ Qtree 대신 볼륨을 생성하는 경우 이 값에 'volume create' 명령을 
 볼륨 대신 qtree를 생성하는 경우 이 값에 'volume qtree create' 명령을 입력합니다.
 
 |===
+
+
 | 필드에 입력합니다 | 설명 | 귀사의 가치 
 
 

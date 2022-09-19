@@ -113,4 +113,4 @@ ONTAP 9.6 이하 버전을 실행 중이고 SVM(스토리지 가상 시스템)�
 # ls /mnt/fg2
 file1  file2
 ----
-http://www.netapp.com/us/media/tr-4571.pdf["NetApp 기술 보고서 4571: NetApp FlexGroup 모범 사례 및 구현 가이드"]
+http://www.netapp.com/us/media/tr-4571.pdf["NetApp 기술 보고서 4571: NetApp FlexGroup 모범 사례 및 구현 가이드"^]

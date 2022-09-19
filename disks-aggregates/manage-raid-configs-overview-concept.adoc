@@ -1,0 +1,38 @@
+---
+permalink: disks-aggregates/manage-raid-configs-overview-concept.html 
+sidebar: sidebar 
+keywords: RAID, configuration, overview 
+summary: RAID 구성 관리 개요 
+---
+= RAID 구성 관리 개요
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+시스템에서 RAID 구성을 관리하는 다양한 절차를 수행할 수 있습니다.
+
+* * RAID 구성 관리의 측면 *:
++
+** link:default-raid-policies-aggregates-concept.html["로컬 계층에 대한 기본 RAID 정책(애그리게이트)"]
+** link:raid-protection-levels-disks-concept.html["디스크의 RAID 보호 수준"]
+
+
+* * 로컬 계층에 대한 드라이브 및 RAID 그룹 정보(애그리게이트) *
++
+** link:determine-drive-raid-group-info-aggregate-task.html["로컬 계층에 대한 드라이브 및 RAID 그룹 정보 확인(애그리게이트)"]
+
+
+* * RAID 구성 변환 *
++
+** link:convert-raid-dp-tec-task.html["RAID-DP에서 RAID-TEC로 변환"]
+** link:convert-raid-tec-dp-task.html["RAID-TEC에서 RAID-DP로 변환"]
+
+
+* * RAID 그룹 사이징 *
++
+** link:sizing-raid-groups-concept.html["RAID 그룹의 크기를 조정할 때의 고려 사항"]
+** link:customize-size-raid-groups-task.html["RAID 그룹의 크기를 사용자 지정합니다"]
+
+
+

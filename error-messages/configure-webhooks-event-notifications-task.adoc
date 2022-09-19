@@ -31,9 +31,11 @@ ONTAP 이벤트 알림을 받을 수 있는 웹 후크 응용 프로그램이 �
 
 TLS(Transport Layer Security) 프로토콜을 사용하는 방법에 따라 몇 가지 보안 옵션을 사용할 수 있습니다. 선택한 옵션에 따라 필요한 ONTAP 구성이 결정됩니다.
 
+[NOTE]
+====
+TLS는 인터넷에서 널리 사용되는 암호화 프로토콜입니다. 하나 이상의 공개 키 인증서를 사용하여 개인 정보 보호와 데이터 무결성 및 인증을 제공합니다. 인증서는 신뢰할 수 있는 인증 기관에서 발급합니다.
 
-NOTE: TLS는 인터넷에서 널리 사용되는 암호화 프로토콜입니다. 하나 이상의 공개 키 인증서를 사용하여 개인 정보 보호와 데이터 무결성 및 인증을 제공합니다. 인증서는 신뢰할 수 있는 인증 기관에서 발급합니다.
-
+====
 HTTP:: HTTP를 사용하여 이벤트 알림을 전송할 수 있습니다. 이 구성에서는 연결이 안전하지 않습니다. ONTAP 클라이언트 및 웹 후크 응용 프로그램의 ID가 확인되지 않습니다. 또한 네트워크 트래픽은 암호화되거나 보호되지 않습니다. 을 참조하십시오 link:configure-webhooks-event-notifications-task.html#configure-a-webhook-destination-to-use-http["HTTP를 사용하도록 웹 후크 대상을 구성합니다"] 를 참조하십시오.
 HTTPS:: 추가 보안을 위해 Webhook 루틴을 호스팅하는 서버에 인증서를 설치할 수 있습니다. ONTAP는 HTTPS 프로토콜을 사용하여 웹 후크 응용 프로그램 서버의 ID와 네트워크 트래픽의 개인 정보 보호와 무결성을 보장합니다. 을 참조하십시오 link:configure-webhooks-event-notifications-task.html#configure-a-webhook-destination-to-use-https["HTTPS를 사용하도록 웹 후크 대상을 구성합니다"] 를 참조하십시오.
 상호 인증을 사용하는 HTTPS:: 웹북 요청을 실행하는 ONTAP 시스템에 클라이언트 인증서를 설치하여 HTTPS 보안을 강화할 수 있습니다. webhook 응용 프로그램 서버의 ID를 확인하고 네트워크 트래픽을 보호하는 ONTAP 외에도 webhook 응용 프로그램은 ONTAP 클라이언트의 ID를 확인합니다. 이 양방향 피어 인증을 _Mutual TLS_라고 합니다. 을 참조하십시오 link:configure-webhooks-event-notifications-task.html#configure-a-webhook-destination-to-use-https-with-mutual-authentication["상호 인증과 함께 HTTPS를 사용하도록 웹 후크 대상을 구성합니다"] 를 참조하십시오.

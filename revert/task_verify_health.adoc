@@ -6,6 +6,8 @@ summary: 클러스터를 되돌리거나 다운그레이드한 후에는 노드�
 ---
 = 다운그레이드 또는 되돌리기 후 클러스터 및 스토리지 상태를 확인합니다
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
 
 [role="lead"]

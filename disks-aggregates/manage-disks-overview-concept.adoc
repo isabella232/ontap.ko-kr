@@ -1,0 +1,38 @@
+---
+permalink: disks-aggregates/manage-disks-overview-concept.html 
+sidebar: sidebar 
+keywords: local tier, aggregate, disks, RAID, manage disks, overview 
+summary: 디스크 관리 개요 
+---
+= 디스크 관리 개요
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+시스템에서 디스크를 관리하는 다양한 절차를 수행할 수 있습니다.
+
+* * 디스크 관리의 측면 *
++
+** link:update-disk-qualification-package-concept.html["디스크 검증 패키지를 업데이트해야 하는 경우"]
+** link:hot-spare-disks-work-concept.html["핫 스페어 디스크의 작동 방식"]
+** link:low-spare-warnings-manage-spare-disks-concept.html["스페어 디스크 관리에 도움이 되는 스페어 부족 경고입니다"]
+** link:root-data-partitioning-management-concept.html["추가 루트 데이터 파티셔닝 관리 옵션"]
+
+
+* * 디스크 및 파티션 소유권 *
++
+** link:disk-partition-ownership-overview-concept.html["디스크 및 파티션 소유권"]
+
+
+* * 디스크 제거 실패 *
++
+** link:remove-failed-disk-task.html["오류가 발생한 디스크를 제거합니다"]
+
+
+* * 디스크 삭제 *
++
+** link:sanitization-overview-concept.html["디스크 삭제"]
+
+
+

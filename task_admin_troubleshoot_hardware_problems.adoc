@@ -29,9 +29,9 @@ ONTAP 9.8 이상에서는 System Manager를 사용하여 네트워크 하드웨�
 다양한 유형의 정보를 볼 수 있습니다.
 
 +
-** <<Information about controllers>>
-** <<Information about disk shelves>>
-** <<Information about storage switches>>
+**  about controllers
+**  about disk shelves
+**  about storage switches
 
 
 

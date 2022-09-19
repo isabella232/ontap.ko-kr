@@ -43,11 +43,11 @@ SMB 2 기능, 구성 세부 정보 및 ONTAP에서의 구축에 대해 설명합
 +
 NFS 프로토콜을 사용하여 파일 액세스를 구성 및 관리하는 방법에 대한 설명은 에 나와 있습니다.
 
-* https://www.netapp.com/us/media/tr-4067.pdf["NetApp 기술 보고서 4067: NFS 모범 사례 및 구축 가이드"]
+* https://www.netapp.com/us/media/tr-4067.pdf["NetApp 기술 보고서 4067: NFS 모범 사례 및 구축 가이드"^]
 +
 NFSv3 및 NFSv4 운영 가이드 역할을 하며 NFSv4를 중심으로 ONTAP 운영 체제에 대한 개요를 제공합니다.
 
-* https://www.netapp.com/pdf.html?item=/media/16328-tr-4668pdf.pdf["NetApp 기술 보고서 4668: 이름 서비스 모범 사례 가이드"]
+* https://www.netapp.com/pdf.html?item=/media/16328-tr-4668pdf.pdf["NetApp 기술 보고서 4668: 이름 서비스 모범 사례 가이드"^]
 +
 인증을 위해 LDAP, NIS, DNS 및 로컬 사용자 및 그룹 파일을 구성할 때 고려해야 할 사항과 제한 사항, 권장 사항 및 사항에 대한 포괄적인 목록을 제공합니다.
 

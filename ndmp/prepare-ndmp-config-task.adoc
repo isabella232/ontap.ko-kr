@@ -32,8 +32,7 @@ https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"^]
 +
 .. CLI에서 Storage tape show-supported-status 명령을 사용하여 내장 테이프 구성 파일을 봅니다.
 +
-[listing]
-----
+....
 cluster1::> storage tape show-supported-status
 
 Node: cluster1-1
@@ -44,7 +43,6 @@ Certance Ultrium 2              true       Dynamically Qualified
 Certance Ultrium 3              true       Dynamically Qualified
 Digital DLT2000                 true       Qualified
 ....
-----
 .. 테이프 드라이브를 출력의 적격 드라이브 목록과 비교합니다.
 +
 [NOTE]

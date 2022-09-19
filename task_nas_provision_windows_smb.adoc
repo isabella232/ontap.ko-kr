@@ -39,12 +39,12 @@ SMB 프로토콜로 구성된 스토리지 VM만 나열됩니다. SMB 프로토�
 
 +
 *** 이때 * 저장 * 을 클릭하면 시스템 관리자가 시스템 기본값을 사용하여 FlexVol 볼륨을 생성하고 추가합니다.
-*** 추가 옵션 * 을 클릭하여 권한 부여, 서비스 품질 및 데이터 보호와 같은 서비스를 사용하도록 볼륨 구성을 사용자 지정할 수 있습니다. 을 참조하십시오 <<Customize the volume configuration>>그런 다음 여기로 돌아와 다음 단계를 완료합니다.
+*** 추가 옵션 * 을 클릭하여 권한 부여, 서비스 품질 및 데이터 보호와 같은 서비스를 사용하도록 볼륨 구성을 사용자 지정할 수 있습니다. 을 참조하십시오  the volume configuration그런 다음 여기로 돌아와 다음 단계를 완료합니다.
 
 
 
 
-. [[워크플로의 2단계, 2단계]] Windows 클라이언트로 전환하여 공유에 액세스할 수 있는지 확인합니다.
+. [[step2-coml-prov-win, 워크플로의 2단계]] 공유에 액세스할 수 있는지 확인하기 위해 Windows 클라이언트로 전환합니다.
 +
 .. Windows 탐색기에서 '+\\_SMB_Server_Name__Share_Name_+' 형식으로 드라이브를 공유에 매핑합니다
 .. 새로 생성된 드라이브에서 테스트 파일을 만들고 텍스트를 기록한 다음 파일을 삭제합니다.
@@ -52,7 +52,7 @@ SMB 프로토콜로 구성된 스토리지 VM만 나열됩니다. SMB 프로토�
 
 
 
-액세스를 확인한 후 공유 ACL을 사용하여 클라이언트 액세스를 제한하고 매핑된 드라이브에서 원하는 보안 속성을 설정할 수 있습니다. 을 참조하십시오 xref:smb-config/create-share-task.html[SMB 공유를 생성합니다] 를 참조하십시오.
+액세스를 확인한 후 공유 ACL을 사용하여 클라이언트 액세스를 제한하고 매핑된 드라이브에서 원하는 보안 속성을 설정할 수 있습니다. 을 참조하십시오 link:smb-config/create-share-task.html["SMB 공유를 생성합니다"] 를 참조하십시오.
 
 
 
@@ -67,8 +67,8 @@ SMB 프로토콜로 구성된 스토리지 VM만 나열됩니다. SMB 프로토�
 +
 ** SMB 데이터를 통해 Hyper-V 및 SQL Server를 포함하는 공유에 대해 지속적인 가용성을 지원합니다(ONTAP 9.10.1부터 시작). 참고 항목:
 +
-*** xref:smb-hyper-v-sql/continuously-available-share-hyper-v-concept.html[SMB를 통한 Hyper-V의 지속적인 가용성 공유 요구사항]
-*** xref:smb-hyper-v-sql/continuously-available-share-sql-concept.html[SMB를 통한 SQL Server의 지속적인 가용성 공유 요구 사항]
+*** link:smb-hyper-v-sql/continuously-available-share-hyper-v-concept.html["SMB를 통한 Hyper-V의 지속적인 가용성 공유 요구사항"]
+*** link:smb-hyper-v-sql/continuously-available-share-sql-concept.html["SMB를 통한 SQL Server의 지속적인 가용성 공유 요구 사항"]
 
 
 ** 이 공유에 액세스하는 동안 SMB 3.0으로 데이터를 암호화합니다.
@@ -94,7 +94,7 @@ SMB 프로토콜로 구성된 스토리지 VM만 나열됩니다. SMB 프로토�
 
 SMB 지원 볼륨에 새 공유를 추가하려면** 스토리지 > 공유** 를 클릭하고** 추가** 를 클릭한 다음** 공유** 를 선택합니다.
 
-기존 공유를 수정하려면** 스토리지 > 공유** 를 클릭한 다음 을 클릭합니다 image:icon_kabob.gif["세 개의 점 교정 kabob 아이콘"] 을 클릭하고 ** 편집** 을 선택합니다.
+기존 공유를 수정하려면** 스토리지 > 공유** 를 클릭한 다음 을 클릭합니다 image:icon_kabob.gif["세 점 세로 kabob 아이콘"] 을 클릭하고 ** 편집** 을 선택합니다.
 
 
 
@@ -155,7 +155,7 @@ ONTAP 9.8부터 사용자 지정 QoS 정책을 지정하거나 QoS를 사용하�
 
 
 
-NOTE: 볼륨을 저장한 후 로 돌아갑니다 <<step2>> SMB를 사용하여 Windows 서버에 대한 프로비저닝을 완료하려면 다음을 수행합니다.
+NOTE: 볼륨을 저장한 후 로 돌아갑니다  SMB를 사용하여 Windows 서버에 대한 프로비저닝을 완료하려면 다음을 수행합니다.
 
 
 

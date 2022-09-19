@@ -1,0 +1,32 @@
+---
+permalink: disks-aggregates/create-flash-pool-ssds-storage-pools-overview-concept.html 
+sidebar: sidebar 
+keywords: local tier, aggregate, disks, RAID, manage disks, overview 
+summary: 'SSD 스토리지 풀을 사용하여 Flash Pool 로컬 계층(애그리게이트)을 생성하는 개요' 
+---
+= SSD 스토리지 풀을 사용하여 Flash Pool 로컬 계층(애그리게이트)을 생성하는 개요
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+SSD 스토리지 풀을 사용하여 Flash Pool 로컬 계층(애그리게이트)을 생성하는 다양한 절차를 수행할 수 있습니다.
+
+* * 준비 *
++
+** link:determine-flash-pool-aggregate-ssd-storage-task.html["Flash Pool 로컬 계층(애그리게이트)에서 SSD 스토리지 풀을 사용하고 있는지 확인합니다"]
+
+
+* * SSD 스토리지 풀 생성 *
++
+** link:create-ssd-storage-pool-task.html["SSD 스토리지 풀을 생성합니다"]
+** link:add-storage-ssd-pool-task.html["SSD 스토리지 풀에 SSD를 추가합니다"]
+
+
+* * SSD 스토리지 풀을 사용하여 Flash Pool 생성 * 을 참조하십시오
++
+** link:create-flash-pool-aggregate-ssd-storage-task.html["SSD 스토리지 풀 할당 유닛을 사용하여 Flash Pool 로컬 계층(애그리게이트)을 생성합니다"]
+** link:determine-impact-cache-size-adding-ssds-task.html["SSD 스토리지 풀에 SSD를 추가하는 캐시 크기에 미치는 영향을 확인합니다"]
+
+
+

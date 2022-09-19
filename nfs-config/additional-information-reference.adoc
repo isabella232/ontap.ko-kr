@@ -23,7 +23,7 @@ NFS 클라이언트 액세스를 성공적으로 테스트한 후 추가 NFS 구
 +
 NFS를 사용하여 파일 액세스를 구성 및 관리하는 방법에 대한 설명은 에 나와 있습니다.
 
-* http://www.netapp.com/us/media/tr-4067.pdf["NetApp 기술 보고서 4067: NFS 모범 사례 및 구축 가이드"]
+* http://www.netapp.com/us/media/tr-4067.pdf["NetApp 기술 보고서 4067: NFS 모범 사례 및 구축 가이드"^]
 +
 NFSv3 및 NFSv4 운영 가이드 역할을 하며 NFSv4를 중심으로 ONTAP 운영 체제에 대한 개요를 제공합니다.
 
@@ -51,7 +51,7 @@ NFS 스토리지 인증을 위한 UNIX 기반 Kerberos 버전 5(krb5) 서버 및
 +
 ONTAP 네트워크 구성의 구현을 설명하고 일반적인 네트워크 배포 시나리오 및 모범 사례 권장 사항을 제공합니다.
 
-* https://www.netapp.com/pdf.html?item=/media/16328-tr-4668pdf.pdf["NetApp 기술 보고서 4668: 이름 서비스 모범 사례 가이드"]
+* https://www.netapp.com/pdf.html?item=/media/16328-tr-4668pdf.pdf["NetApp 기술 보고서 4668: 이름 서비스 모범 사례 가이드"^]
 +
 인증을 위해 LDAP, NIS, DNS 및 로컬 파일 구성을 구성하는 방법은 에 나와 있습니다.
 

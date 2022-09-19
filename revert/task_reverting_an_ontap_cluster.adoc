@@ -150,8 +150,8 @@ node1
 +
 상태는 완료 로 표시되어야 합니다.
 
-. 반복합니다 <<step-5>> 부터 까지 <<step-17>> 두 HA 쌍 중 다른 노드에 대해
+. 반복합니다  부터 까지  두 HA 쌍 중 다른 노드에 대해
 . 클러스터가 2개의 노드로만 구성된 경우 클러스터 HA를 다시 활성화합니다. 즉, 클러스터 ha 수정 구성 true입니다
 . [[step-18]]스토리지 페일오버가 이전에 해제된 경우 두 노드에서 스토리지 페일오버를 다시 설정합니다. 'Storage failover modify -node nodename -enabled true
-. 반복합니다 <<step-6>> 부터 까지 <<step-18>> MetroCluster 구성의 각 추가 HA 쌍과 두 클러스터에 대해
+. 반복합니다  부터 까지  MetroCluster 구성의 각 추가 HA 쌍과 두 클러스터에 대해
 

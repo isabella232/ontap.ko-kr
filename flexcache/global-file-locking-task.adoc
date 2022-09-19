@@ -24,8 +24,8 @@ NOTE: FlexCache 볼륨이 오프라인 상태일 때 일시 중지 및 수정 �
 
 글로벌 파일 잠금을 설정하는 프로세스는 오리진에 기존 캐시가 있는지 여부에 따라 달라집니다.
 
-* <<enable-gfl-new>>
-* <<enable-gfl-existing>>
+* 
+* 
 
 
 

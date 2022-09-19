@@ -16,7 +16,7 @@ summary: '클러스터 스위치 상태 모니터는 CDP(Cisco Discovery Protoco
 'system cluster-switch show' 명령은 상태 모니터가 검색한 스위치를 나열합니다. 목록에 표시할 스위치가 없는 경우 상태 모니터에서 스위치를 자동으로 검색할 수 없습니다.
 
 .단계
-. 자동 검색에 CDP를 사용하려면 다음을 수행합니다. 그렇지 않으면 단계로 이동합니다 <<STEP_E357491362A44CF782A64EFC6C7B2B09,2>>:
+. 자동 검색에 CDP를 사용하려면 다음을 수행합니다. 그렇지 않으면 단계로 이동합니다 ,2:
 +
 .. 스위치에서 CDP(Cisco Discovery Protocol)가 활성화되어 있는지 확인합니다.
 +

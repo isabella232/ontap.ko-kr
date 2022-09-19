@@ -1,17 +1,19 @@
 ---
 permalink: disks-aggregates/create-ssd-storage-pool-task.html 
 sidebar: sidebar 
-keywords: create, ssd storage pool 
-summary: '2~4개의 Flash Pool 애그리게이트를 위한 SSD 캐시를 제공하기 위해 SSD(Solid State Drive) 스토리지 풀을 생성할 수 있습니다.' 
+keywords: create, provision, ssd, storage, flash, pool, add, cache, local tier, aggregate 
+summary: '2~4개의 Flash Pool 로컬 계층(애그리게이트)에 SSD 캐시를 제공하기 위해 SSD(Solid State Drive) 스토리지 풀을 생성할 수 있습니다.' 
 ---
-= SSD 스토리지 풀을 생성합니다
+= SSD 스토리지 풀을 생성하여 캐시를 로컬 계층(애그리게이트)에 추가합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-2~4개의 Flash Pool 애그리게이트를 위한 SSD 캐시를 제공하기 위해 SSD(Solid State Drive) 스토리지 풀을 생성할 수 있습니다.
+SSD(Solid State Drive)를 추가하여 기존 로컬 계층(애그리게이트)을 Flash Pool 로컬 계층(애그리게이트)으로 변환하여 캐시를 프로비저닝할 수 있습니다.
+
+2~4개의 Flash Pool 로컬 계층(애그리게이트)에 SSD 캐시를 제공하기 위해 SSD(Solid State Drive) 스토리지 풀을 생성할 수 있습니다. Flash Pool 애그리게이트는 사용 중인 데이터 세트에 플래시를 고성능 캐시로 구축하는 동시에 저렴한 HDD를 사용하여 자주 액세스하지 않는 데이터를 지원합니다.
 
 .이 작업에 대해
 * 스토리지 풀에 디스크를 생성하거나 추가할 때 디스크 목록을 제공해야 합니다.
@@ -20,6 +22,31 @@ summary: '2~4개의 Flash Pool 애그리게이트를 위한 SSD 캐시를 제공
 
 * 스토리지 풀에 사용된 SSD의 크기는 같아야 합니다.
 
+
+다음 절차는 사용하는 인터페이스에 따라 다릅니다. -- System Manager 또는 CLI
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+* System Manager를 사용하여 SSD 캐시를 추가합니다(ONTAP 9.7만 해당). *
+
+
+NOTE: 9.7 이외의 ONTAP 버전을 사용하는 경우 CLI 절차를 사용하십시오
+
+.단계
+. (클래식 버전으로 돌아가기) * 를 클릭합니다.
+. 스토리지 > 애그리게이트 및 디스크 > 애그리게이트 * 를 클릭합니다.
+. 로컬 계층(집계)을 선택한 다음 * 작업 > 캐시 추가 * 를 클릭합니다.
+. 캐시 소스를 "스토리지 풀" 또는 "전용 SSD"로 선택합니다.
+. (새로운 환경으로 전환) * 을 클릭합니다.
+. Storage > Tiers * 를 클릭하여 새 애그리게이트의 크기를 확인합니다.
+
+
+--
+.CLI를 참조하십시오
+--
+* CLI를 사용하여 SSD 스토리지 풀을 생성합니다 *
 
 .단계
 . 사용 가능한 스페어 SSD의 이름을 확인합니다.
@@ -39,4 +66,6 @@ summary: '2~4개의 Flash Pool 애그리게이트를 위한 SSD 캐시를 제공
 
 
 
+--
+====
 스토리지 풀에 SSD를 배치한 후에는 스토리지 풀에서 제공하는 스토리지가 Flash Pool 캐시에 아직 할당되지 않았더라도 클러스터에서 스페어로 표시되지 않습니다. RAID 그룹에 SSD를 개별 드라이브로 추가할 수는 없습니다. SSD의 스토리지는 SSD가 속한 스토리지 풀의 할당 유닛을 통해서만 프로비저닝할 수 있습니다.

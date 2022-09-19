@@ -30,3 +30,7 @@ sidebar:
     url: "/concepts/manual-pages.html"
   - title: 법적 고지
     url: "/reference_legal_notices.html"
+product-family:
+  name: ONTAP
+  repo: ontap-family
+  sidebar_label: 모든 ONTAP 제품 설명서

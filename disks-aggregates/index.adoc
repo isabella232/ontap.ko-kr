@@ -1,21 +1,55 @@
 ---
 permalink: disks-aggregates/index.html 
 sidebar: sidebar 
-keywords: decide, overview, disks, aggregates, manage, physical, storage, aggregates, flash pool, disks, raid, policies 
-summary: CLI를 사용하여 ONTAP 물리적 스토리지를 관리할 수 있습니다. 
+keywords: decide, overview, disk, aggregate, local tier, manage, physical, storage, flash pool, raid, policies, policy 
+summary: 'System Manager 및 CLI를 사용하여 ONTAP 물리적 스토리지를 관리할 수 있습니다. 로컬 계층(애그리게이트)을 생성, 확장, 관리하고, Flash Pool 로컬 계층(애그리게이트)에서 작업하고, 디스크를 관리하고, RAID 정책을 관리할 수 있습니다.' 
 ---
-= 디스크 및 애그리게이트 개요
+= 디스크 및 로컬 계층(애그리게이트) 개요
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-CLI를 사용하여 ONTAP 물리적 스토리지를 관리할 수 있습니다. 애그리게이트를 생성, 확장, 관리하고, Flash Pool 애그리게이트로 작업하고, 디스크를 관리하고, RAID 정책을 관리할 수 있습니다.
+System Manager 및 CLI를 사용하여 ONTAP 물리적 스토리지를 관리할 수 있습니다. 로컬 계층(애그리게이트)을 생성, 확장, 관리하고, Flash Pool 로컬 계층(애그리게이트)에서 작업하고, 디스크를 관리하고, RAID 정책을 관리할 수 있습니다.
+
+
+
+== 어떤 로컬 계층(애그리게이트)인지 확인합니다
+
+_Local 계층_(또는 _aggregate_)은 노드에서 관리하는 디스크의 컨테이너입니다. 로컬 계층을 사용하여 다양한 성능 요구사항에 따라 워크로드를 격리하거나, 다른 액세스 패턴으로 데이터를 계층화하거나, 규정 준수를 위해 데이터를 분리할 수 있습니다.
+
+* 지연 시간이 가장 짧고 성능이 가장 높은 비즈니스 크리티컬 애플리케이션의 경우 SSD로만 구성된 로컬 계층을 생성할 수 있습니다.
+* 서로 다른 액세스 패턴으로 데이터를 계층화하려면 _ 하이브리드 로컬 계층 _ 을(를) 생성하고, 사용 중인 데이터 세트에 플래시를 고성능 캐시로 구축하는 동시에, 액세스 빈도가 낮은 데이터에 저비용 HDD 또는 오브젝트 스토리지를 사용할 수 있습니다.
++
+** A_Flash Pool_은 SSD와 HDD로 구성됩니다.
+** A_FabricPool_는 오브젝트 저장소가 연결된 전체 SSD 로컬 계층으로 구성됩니다.
+
+
+* 규정 준수를 위해 아카이빙된 데이터를 활성 데이터에서 분리해야 하는 경우 용량 HDD로 구성된 로컬 계층 또는 성능과 용량 HDD를 조합하여 사용할 수 있습니다.
+
+
+image::../media/data-tiering.gif[데이터 계층화]
+
+
+
+== 로컬 계층 작업(애그리게이트)
+
+다음 작업을 수행할 수 있습니다.
+
+* link:manage-local-tiers-overview-concept.html["로컬 계층 관리(애그리게이트)"]
+* link:manage-disks-overview-concept.html["디스크를 관리합니다"]
+* link:manage-raid-configs-overview-concept.html["RAID 구성을 관리합니다"]
+* link:manage-flash-pool-tiers-overview-concept.html["Flash Pool 계층 관리"]
+
 
 다음과 같은 경우에 이러한 작업을 수행합니다.
 
-* System Manager나 자동화된 스크립팅 도구가 아니라 CLI(Command-Line Interface)를 사용하려는 경우
+* 자동 스크립팅 도구를 사용하고 싶지 않습니다.
 * 사용 가능한 모든 옵션을 탐색하는 것이 아니라 모범 사례를 사용하려고 합니다.
-* MetroCluster 구성이 있고 의 절차를 따르고 있습니다 link:https://docs.netapp.com/us-en/ontap-metrocluster["MetroCluster"^] Aggregate 및 디스크 관리를 위한 초기 구성 및 지침 문서.
+* MetroCluster 구성이 있고 의 절차를 따르고 있습니다 link:https://docs.netapp.com/us-en/ontap-metrocluster["MetroCluster"^] 로컬 계층(애그리게이트) 및 디스크 관리에 대한 초기 구성 및 지침 문서:
+
+
+.관련 정보
+* link:../fabricpool/index.html["FabricPool 클라우드 계층 관리"]
 

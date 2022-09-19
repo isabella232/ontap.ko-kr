@@ -19,14 +19,6 @@ entries:
     url: "/insights-system-optimization-task.html"
   - title: 하드웨어 구성을 보고 문제를 확인합니다
     url: "/task_admin_troubleshoot_hardware_problems.html"
-  - title: 로컬 계층을 추가(생성)합니다
-    url: "/add-create-local-tier-task.html"
-  - title: 로컬 계층을 편집합니다
-    url: "/edit-local-tier-task.html"
-  - title: 로컬 계층에 용량 추가
-    url: "/task_admin_add_disks_to_local_tier.html"
-  - title: 로컬 계층에 캐시를 추가합니다
-    url: "/task_admin_add_cache_to_local_tier.html"
   - title: 노드 관리
     entries:
     - title: 노드를 재부팅, 종료, 테이크오버하고 돌려제공합니다

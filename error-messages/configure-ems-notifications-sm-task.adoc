@@ -33,12 +33,12 @@ SNMP traphosts만 구성합니다. ONTAP CLI로 다른 EMS 대상을 구성할 �
 |===
 다음 절차를 수행할 수 있습니다.
 
-* <<add-ems-destination>>
-* <<create-ems-filter>>
-* <<edit-ems-destination>>
-* <<edit-ems-filter>>
-* <<delete-ems-destination>>
-* <<delete-ems-filter>>
+* 
+* 
+* 
+* 
+* 
+* 
 
 
 .관련 정보

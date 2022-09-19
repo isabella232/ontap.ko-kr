@@ -26,6 +26,6 @@ Azure NetApp Files 및 NetApp Cloud Volumes Service for Google Cloud를 사용�
 
 https://docs.netapp.com/us-en/occm/concept_security.html["Cloud Volumes ONTAP에 저장된 데이터의 암호화"]
 
-https://www.netapp.com/us/media/ds-3899.pdf["NetApp 볼륨 암호화 및 NetApp 애그리게이트 암호화"]
+https://www.netapp.com/us/media/ds-3899.pdf["NetApp 볼륨 암호화 및 NetApp 애그리게이트 암호화"^]
 
 https://docs.netapp.com/us-en/occm/task_encrypting_volumes.html["NetApp 암호화 솔루션으로 Cloud Volumes ONTAP의 볼륨 암호화"]

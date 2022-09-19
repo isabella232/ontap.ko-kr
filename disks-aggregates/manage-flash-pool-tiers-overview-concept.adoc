@@ -1,0 +1,37 @@
+---
+permalink: disks-aggregates/manage-flash-pool-tiers-overview-concept.html 
+sidebar: sidebar 
+keywords: flash pool tier, aggregate 
+summary: 플래시 풀 계층을 관리할 수 있습니다 
+---
+= Flash Pool 계층 관리(애그리게이트)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+다양한 절차를 수행하여 시스템에서 Flash Pool 계층(애그리게이트)을 관리할 수 있습니다.
+
+* * 캐싱 정책 *
++
+** link:flash-pool-aggregate-caching-policies-concept.html["Flash Pool 로컬 계층(애그리게이트) 캐싱 정책"]
+** link:manage-flash-pool-caching-policies-overview-concept.html["Flash Pool 캐싱 정책 관리"]
+
+
+* SSD 파티셔닝 *
++
+** link:flash-pool-ssd-partitioning-aggregates-concept.html["스토리지 풀을 사용하여 Flash Pool 로컬 계층(애그리게이트)에서 Flash Pool SSD 파티셔닝"]
+
+
+* * 적합성 및 캐시 크기 *
++
+** link:determine-flash-pool-candidacy-cache-size-task.html["Flash Pool 적합성 및 최적의 캐시 크기를 결정합니다"]
+
+
+* * Flash Pool 생성 *
++
+** link:create-flash-pool-aggregate-physical-ssds-task.html["물리적 SSD를 사용하여 Flash Pool 로컬 계층(애그리게이트)을 생성합니다"]
+** link:create-flash-pool-ssds-storage-pools-overview-concept.html["SSD 스토리지 풀을 사용하여 Flash Pool 로컬 계층(애그리게이트)을 생성합니다"]
+
+
+

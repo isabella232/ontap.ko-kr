@@ -1,23 +1,23 @@
 ---
 permalink: disks-aggregates/default-raid-policies-aggregates-concept.html 
 sidebar: sidebar 
-keywords: ontap 9,raid-dp,raid-tec, default raid policies, aggregates 
-summary: RAID-DP 또는 RAID-TEC가 모든 새 애그리게이트를 위한 기본 RAID 정책입니다. RAID 정책은 디스크 장애 시 발생하는 패리티 보호를 결정합니다. 
+keywords: raid-dp, raid-tec, default raid policies, raid policy, aggregate, local tier 
+summary: 'RAID-DP 또는 RAID-TEC가 모든 새로운 로컬 계층(애그리게이트)에 대한 기본 RAID 정책입니다. RAID 정책은 디스크 장애 시 발생하는 패리티 보호를 결정합니다.' 
 ---
-= 애그리게이트를 위한 기본 RAID 정책
+= 로컬 계층에 대한 기본 RAID 정책(애그리게이트)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-RAID-DP 또는 RAID-TEC가 모든 새 애그리게이트를 위한 기본 RAID 정책입니다. RAID 정책은 디스크 장애 시 발생하는 패리티 보호를 결정합니다.
+RAID-DP 또는 RAID-TEC가 모든 새로운 로컬 계층(애그리게이트)에 대한 기본 RAID 정책입니다. RAID 정책은 디스크 장애 시 발생하는 패리티 보호를 결정합니다.
 
-RAID-DP는 단일 또는 이중 디스크 장애 시 이중 패리티 보호를 제공합니다. RAID-DP는 다음과 같은 애그리게이트 유형의 기본 RAID 정책입니다.
+RAID-DP는 단일 또는 이중 디스크 장애 시 이중 패리티 보호를 제공합니다. RAID-DP는 다음 로컬 계층(애그리게이트) 유형에 대한 기본 RAID 정책입니다.
 
-* 모두 플래시 집약입니다
-* Flash Pool 애그리게이트로 전환 가능
-* 고성능 하드 디스크 드라이브(HDD) 애그리게이트입니다
+* All-Flash 로컬 계층을 활용할 수 있습니다
+* Flash Pool 로컬 계층
+* 고성능 하드 디스크 드라이브(HDD) 로컬 계층
 
 
-RAID-TEC라는 새로운 RAID 정책을 사용할 수 있습니다. RAID-TEC는 모든 디스크 유형과 AFF를 포함한 모든 플랫폼에서 지원됩니다. 더 큰 디스크가 포함된 애그리게이트는 동시 디스크 장애가 발생할 가능성이 더 높습니다. RAID-TEC는 데이터를 최대 3개의 동시 디스크 장애로부터 보호할 수 있도록 3중 패리티 보호를 제공하여 이러한 위험을 완화할 수 있도록 도와줍니다. RAID-TEC는 6TB 이상의 디스크를 사용하는 용량 HDD 애그리게이트를 위한 기본 RAID 정책입니다.
+RAID-TEC라는 새로운 RAID 정책을 사용할 수 있습니다. RAID-TEC는 모든 디스크 유형과 AFF를 포함한 모든 플랫폼에서 지원됩니다. 더 큰 디스크가 포함된 로컬 계층은 동시 디스크 장애가 발생할 가능성이 더 높습니다. RAID-TEC는 데이터를 최대 3개의 동시 디스크 장애로부터 보호할 수 있도록 3중 패리티 보호를 제공하여 이러한 위험을 완화할 수 있도록 도와줍니다. RAID-TEC는 용량이 6TB 이상인 디스크를 사용하는 대용량 HDD 로컬 계층에 대한 기본 RAID 정책입니다.

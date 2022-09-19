@@ -13,8 +13,9 @@ summary: 특정 ONTAP 명령을 사용하여 qtree를 관리하고 구성할 수
 [role="lead"]
 특정 ONTAP 명령을 사용하여 qtree를 관리하고 구성할 수 있습니다.
 
-[cols="2*"]
 |===
+
+
 | 원하는 작업 | 이 명령 사용... 
 
 
@@ -37,11 +38,9 @@ qtree를 삭제합니다
  a| 
 '볼륨 qtree 삭제'
 
-[NOTE]
-====
-qtree가 비어 있거나 '-force true' 플래그가 추가되지 않으면 qtree 명령 'volume qtree delete'가 실패합니다.
 
-====
+NOTE: qtree가 비어 있거나 '-force true' 플래그가 추가되지 않으면 qtree 명령 'volume qtree delete'가 실패합니다.
+
 
 
  a| 

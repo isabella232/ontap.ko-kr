@@ -1,0 +1,31 @@
+---
+permalink: disks-aggregates/prepare-add-local-tier-overview-task.html 
+sidebar: sidebar 
+keywords: local tier, aggregate, prepare, add, create, disks, RAID, RAID group 
+summary: 로컬 계층을 추가하기 전에 로컬 계층에 대한 RAID 그룹 및 RAID 보호 수준 및 정책에 대해 알아볼 수 있습니다. 
+---
+= 로컬 계층 추가 준비(애그리게이트)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+로컬 계층을 추가하기 전에 다음 항목을 이해해야 합니다.
+
+* 로컬 계층에 대한 RAID 그룹, RAID 보호 수준 및 RAID 정책에 대해 알아봅니다.
++
+** link:../concepts/aggregates-raid-groups-concept.html["로컬 계층(애그리게이트) 및 RAID 그룹"]
+
+
+* 미러링 및 미러링되지 않은 로컬 계층과 드라이브를 프로비저닝하기 전에 신속하게 제로화하는 방법에 대해 알아보십시오.
++
+** link:mirrored-unmirrored-aggregates-concept.html["미러링되지 않은 로컬 계층(애그리게이트)"]
+** link:fast-zeroing-drives-concept.html["드라이브 고속 제로화"]
+
+
+* 로컬 계층을 프로비저닝하기 전에 디스크 소유권을 수동으로 할당합니다.
++
+** link:manual-assign-disks-ownership-prep-task.html["디스크 소유권을 수동으로 할당합니다"]
+
+
+

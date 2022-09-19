@@ -46,7 +46,7 @@ link:../san-admin/asa-iscsi-lif-fo-task.html["ASA 플랫폼의 iSCSI LIF 페일�
 
 
 
-다음 절차는 사용하는 인터페이스, 즉 System Manager 또는 CLI에 따라 다릅니다.
+다음 절차는 사용하는 인터페이스에 따라 다릅니다. -- System Manager 또는 CLI:
 
 [role="tabbed-block"]
 ====

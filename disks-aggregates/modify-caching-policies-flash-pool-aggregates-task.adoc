@@ -1,29 +1,29 @@
 ---
 permalink: disks-aggregates/modify-caching-policies-flash-pool-aggregates-task.html 
 sidebar: sidebar 
-keywords: modify, cache, policy, flash pool aggregates 
+keywords: modify, cache, policy, flash pool, aggregate, local tier 
 summary: 다른 캐싱 정책이 더 나은 성능을 제공할 것으로 예상되는 경우에만 볼륨의 캐싱 정책을 수정해야 합니다. Flash Pool 애그리게이트에서 볼륨의 캐싱 정책을 수정할 수 있습니다. 
 ---
-= Flash Pool 애그리게이트의 캐싱 정책을 수정합니다
+= Flash Pool 로컬 계층(애그리게이트)의 캐싱 정책 수정
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-다른 캐싱 정책이 더 나은 성능을 제공할 것으로 예상되는 경우에만 볼륨의 캐싱 정책을 수정해야 합니다. Flash Pool 애그리게이트에서 볼륨의 캐싱 정책을 수정할 수 있습니다.
+다른 캐싱 정책이 더 나은 성능을 제공할 것으로 예상되는 경우에만 볼륨의 캐싱 정책을 수정해야 합니다. Flash Pool 로컬 계층(애그리게이트)에서 볼륨의 캐싱 정책을 수정할 수 있습니다.
 
 캐싱 정책을 수정할지 여부를 결정해야 합니다.
 
-대부분의 경우 'auto'의 기본 캐싱 정책은 사용할 수 있는 최상의 캐싱 정책입니다. 다른 정책이 워크로드에 더 나은 성능을 제공하는 경우에만 캐싱 정책을 변경해야 합니다. 잘못된 캐싱 정책을 구성하면 볼륨 성능이 심각하게 저하될 수 있으며 시간이 지남에 따라 성능 저하가 점차 증가할 수 있습니다. 캐싱 정책을 수정할 때는 주의해야 합니다. 캐시 정책이 변경된 볼륨에서 성능 문제가 발생하는 경우 캐싱 정책을 'auto'로 되돌려야 합니다.
+대부분의 경우 기본 캐싱 정책 ""자동""은 사용할 수 있는 최상의 캐싱 정책입니다. 다른 정책이 워크로드에 더 나은 성능을 제공하는 경우에만 캐싱 정책을 변경해야 합니다. 잘못된 캐싱 정책을 구성하면 볼륨 성능이 심각하게 저하될 수 있으며 시간이 지남에 따라 성능 저하가 점차 증가할 수 있습니다. 캐싱 정책을 수정할 때는 주의해야 합니다. 캐시 정책이 변경된 볼륨에서 성능 문제가 발생하는 경우 캐싱 정책을 ""자동""으로 되돌려야 합니다.
 
 .단계
-. 볼륨의 캐싱 정책을 수정합니다.
+. CLI를 사용하여 볼륨의 캐싱 정책을 수정합니다.
 +
 'volume modify -volume_volume_name_-caching-policy_policy_name_'
 
 
 
-다음 예에서는 ""vol2"" 볼륨의 캐싱 정책을 "none" 정책으로 수정합니다.
+다음 예에서는 ""vol2"" 볼륨의 캐싱 정책을 ""none"" 정책으로 수정합니다.
 
 'volume modify-volume vol2-caching-policy none'

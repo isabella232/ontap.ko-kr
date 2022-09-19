@@ -1,0 +1,49 @@
+= 
+:allow-uri-read: 
+
+
+[role="lead"]
+일부 로컬 계층(집계) 관리 작업에서는 로컬 계층을 구성하는 드라이브 유형, 드라이브 크기, 체크섬 및 상태, 드라이브가 다른 로컬 계층과 공유되는지 여부, RAID 그룹의 크기와 구성을 알아야 합니다.
+
+.단계
+. Aggregate의 드라이브를 RAID 그룹별 표시:
++
+'Storage aggregate show-status_aggr_name_'
+
++
+드라이브는 애그리게이트의 각 RAID 그룹에 대해 표시됩니다.
+
++
+'위치' 열에서 드라이브의 RAID 유형(데이터, 패리티, dparity)을 확인할 수 있습니다. Position 열에 'Shared'가 표시되면 드라이브가 공유되고 HDD인 경우 분할된 디스크이고, SSD인 경우 스토리지 풀의 일부입니다.
+
+
+
+....
+cluster1::> storage aggregate show-status nodeA_fp_1
+
+Owner Node: cluster1-a
+ Aggregate: nodeA_fp_1 (online, mixed_raid_type, hybrid) (block checksums)
+  Plex: /nodeA_fp_1/plex0 (online, normal, active, pool0)
+   RAID Group /nodeA_fp_1/plex0/rg0 (normal, block checksums, raid_dp)
+
+                                             Usable Physical
+     Position Disk       Pool Type     RPM     Size     Size Status
+     -------- ---------- ---- ----- ------ -------- -------- -------
+     shared   2.0.1       0   SAS    10000  472.9GB  547.1GB (normal)
+     shared   2.0.3       0   SAS    10000  472.9GB  547.1GB (normal)
+     shared   2.0.5       0   SAS    10000  472.9GB  547.1GB (normal)
+     shared   2.0.7       0   SAS    10000  472.9GB  547.1GB (normal)
+     shared   2.0.9       0   SAS    10000  472.9GB  547.1GB (normal)
+     shared   2.0.11      0   SAS    10000  472.9GB  547.1GB (normal)
+
+   RAID Group /nodeA_flashpool_1/plex0/rg1
+   (normal, block checksums, raid4) (Storage Pool: SmallSP)
+
+                                             Usable Physical
+     Position Disk       Pool Type     RPM     Size     Size Status
+     -------- ---------- ---- ----- ------ -------- -------- -------
+     shared   2.0.13      0   SSD        -  186.2GB  745.2GB (normal)
+     shared   2.0.12      0   SSD        -  186.2GB  745.2GB (normal)
+
+8 entries were displayed.
+....

@@ -22,7 +22,7 @@ summary: 현재 릴리스에서 랜섬웨어 보호는 NAS 환경에 가장 적�
 ONTAP 플랫폼 지원:
 
 * 자율 랜섬웨어 보호(ARP) 기능은 ONTAP 9.10.1부터 시작하는 모든 사내 ONTAP 시스템에서 사용할 수 있습니다.
-* 현재 Cloud Volumes ONTAP 환경에서는 사용할 수 없습니다.
+* Cloud Volumes ONTAP 환경에서는 사용할 수 없습니다.
 
 
 적합한 워크로드:

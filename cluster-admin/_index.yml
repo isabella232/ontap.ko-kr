@@ -13,30 +13,18 @@ indexpage:
       url: "/../fabricpool/index.html"
     - title: 고가용성 개요
       url: "/../high-availability/index.html"
-  - title: 디스크와 애그리게이트
+  - title: 디스크 및 계층(애그리게이트)
     links:
-    - title: 애그리게이트 확장 워크플로우
-      url: "/../disks-aggregates/aggregate-expansion-workflow-concept.html"
-    - title: 디스크의 RAID 보호 수준
-      url: "/../disks-aggregates/raid-protection-levels-disks-concept.html"
-    - title: 애그리게이트를 위한 기본 RAID 정책
-      url: "/../disks-aggregates/default-raid-policies-aggregates-concept.html"
-    - title: 디스크를 완전 살균합니다
-      url: "/../disks-aggregates/sanitize-disk-maintenance-mode-task.html"
-    - title: Flash Pool 애그리게이트 개요입니다
-      url: "/../disks-aggregates/flash-pool-aggregate-caching-policies-concept.html"
-  - title: FabricPool 계층
-    links:
-    - title: System Manager로 계층화를 지원합니다
-      url: "/../task_cloud_tier_data.html"
-    - title: CLI를 사용하여 계층화를 설정합니다
-      url: "/../fabricpool/prepare-config-task.html"
-    - title: System Manager로 비활성 데이터 보고를 활성화합니다
-      url: "/../task_cloud_enable_inactive_data_reporting.html"
-    - title: CLI를 사용하여 비활성 데이터 보고를 활성화합니다
-      url: "/../fabricpool/determine-data-inactive-reporting-task.html"
-    - title: 고려 사항 및 요구 사항
-      url: "/../fabricpool/requirements-concept.html"
+    - title: 로컬 계층 관리(애그리게이트)
+      url: "/../disks-aggregates/manage-local-tiers-overview-concept.html"
+    - title: 디스크를 관리합니다
+      url: "/../disks-aggregates/manage-disks-overview-concept.html"
+    - title: RAID 구성을 관리합니다
+      url: "/../disks-aggregates/manage-raid-config-overview-concept.html"
+    - title: Flash Pool 계층 관리
+      url: "/../disks-aggregates/manage-flash-pool-tiers-overview-concept.html"
+    - title: FabricPool 클라우드 계층 관리
+      url: "/../fabricpool/index.html"
   - title: 클러스터 노드
     links:
     - title: System Manager로 관리

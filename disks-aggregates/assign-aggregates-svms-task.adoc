@@ -1,24 +1,24 @@
 ---
 permalink: disks-aggregates/assign-aggregates-svms-task.html 
 sidebar: sidebar 
-keywords: assign, aggregates, svms 
-summary: '하나 이상의 애그리게이트를 스토리지 가상 머신(SVM, 이전의 Vserver)에 할당한 경우, 해당 SVM에 대한 볼륨을 포함하는 데 해당 애그리게이트만 사용할 수 있습니다. 멀티 테넌시 환경에서는 SVM에 애그리게이트를 할당하는 것이 특히 중요합니다.' 
+keywords: assign, aggregate, local tier, svm, storage vm, vserver 
+summary: '하나 이상의 로컬 계층(애그리게이트)을 스토리지 가상 머신(스토리지 VM 또는 SVM, 이전의 Vserver)에 할당한 경우, 해당 로컬 계층만 사용하여 해당 SVM의 볼륨을 포함할 수 있습니다. A' 
 ---
-= SVM에 애그리게이트 할당
+= SVM(스토리지 VM)에 로컬 계층(애그리게이트) 할당
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-하나 이상의 애그리게이트를 스토리지 가상 머신(SVM, 이전의 Vserver)에 할당한 경우, 해당 SVM에 대한 볼륨을 포함하는 데 해당 애그리게이트만 사용할 수 있습니다. 멀티 테넌시 환경에서는 SVM에 애그리게이트를 할당하는 것이 특히 중요합니다.
+스토리지 가상 머신(스토리지 VM 또는 SVM, 이전의 Vserver)에 하나 이상의 로컬 계층(애그리게이트)을 할당하는 경우, 해당 로컬 계층만 사용하여 해당 스토리지 VM(SVM)의 볼륨을 포함할 수 있습니다.
 
-SVM과 해당 SVM에 할당할 애그리게이트가 이미 존재해야 합니다.
+스토리지 VM에 할당할 스토리지 VM과 로컬 계층이 이미 있어야 합니다.
 
-SVM에 애그리게이트를 할당하면 SVM을 서로 격리할 수 있습니다. 이는 멀티 테넌시 환경에서 특히 중요합니다.
+스토리지 VM에 로컬 계층을 할당하면 스토리지 VM이 서로 격리되도록 할 수 있습니다. 이는 멀티 테넌시 환경에서 특히 중요합니다.
 
 .단계
-. SVM에 이미 할당된 애그리게이트 목록을 확인합니다.
+. SVM에 이미 할당된 로컬 계층(애그리게이트) 목록을 확인합니다.
 +
 'vserver show-fields aggr-list'를 선택합니다
 
