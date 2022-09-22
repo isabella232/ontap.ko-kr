@@ -4,7 +4,7 @@ permalink: high-availability/index.html
 keywords: high availability, ha, overview 
 summary: 테이크오버는 노드가 파트너의 스토리지를 제어하는 프로세스입니다. 반환 프로세스는 스토리지가 파트너에게 반환되는 프로세스입니다. 
 ---
-= 고가용성 관리 개요
+= HA 쌍 관리 개요
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

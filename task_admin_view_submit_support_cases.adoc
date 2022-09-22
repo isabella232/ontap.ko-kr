@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: task_admin_view_submit_support_cases.html 
-keywords: support, case, view, submit, active iq 
-summary: ONTAP 9.9.1부터, 클러스터와 관련된 Active IQ의 지원 사례를 보고 새 지원 케이스를 제출하는 데 필요한 정보를 볼 수 있습니다. 
+keywords: support, case, view, submit, active iq, telemetry, log, logging 
+summary: ONTAP 9.9.1부터, 클러스터와 관련된 Active IQ의 지원 사례를 보고 새 지원 케이스를 제출하는 데 필요한 정보를 볼 수 있습니다. ONTAP 9.10.1부터 원격 측정 로깅을 활성화할 수 있어 지원 담당자가 문제를 해결하는 데 도움이 됩니다. 
 ---
 = 지원 케이스를 보고 제출합니다
 :toc: macro
@@ -19,10 +19,10 @@ summary: ONTAP 9.9.1부터, 클러스터와 관련된 Active IQ의 지원 사례
 
 
 [role="lead"]
-ONTAP 9.9.1부터 클러스터와 연결된 Active IQ에서 지원 케이스를 볼 수 있습니다. 또한 NetApp Support 사이트에서 새로운 지원 케이스를 제출하는 데 필요한 클러스터 세부 정보를 복사할 수도 있습니다.
+ONTAP 9.9.1부터 클러스터와 연결된 Active IQ에서 지원 케이스를 볼 수 있습니다. 또한 NetApp Support 사이트에서 새로운 지원 케이스를 제출하는 데 필요한 클러스터 세부 정보를 복사할 수도 있습니다. ONTAP 9.10.1부터 원격 측정 로깅을 활성화할 수 있어 지원 담당자가 문제를 해결하는 데 도움이 됩니다.
 
 
-NOTE: ONTAP 9.9.1로 작업할 때 펌웨어 업데이트에 대한 경고를 받으려면 Active IQ Unified Manager에 등록되어 있어야 합니다. 을 참조하십시오 link:https://netapp.com/support-and-training/documentation/active-iq-unified-manager["Active IQ Unified Manager 문서 리소스"^].
+NOTE: 펌웨어 업데이트에 대한 알림을 받으려면 Active IQ Unified Manager에 등록되어 있어야 합니다. 을 참조하십시오 link:https://netapp.com/support-and-training/documentation/active-iq-unified-manager["Active IQ Unified Manager 문서 리소스"^].
 
 .단계
 . System Manager에서 * Support * 를 선택합니다.
@@ -37,4 +37,15 @@ NOTE: ONTAP 9.9.1로 작업할 때 펌웨어 업데이트에 대한 경고를 �
 ** * 클러스터 세부 정보 보기 *: 새 케이스를 제출할 때 필요한 정보를 보고 복사합니다.
 
 
+
+
+
+
+== 원격 측정 로깅을 활성화합니다
+
+ONTAP 9.10.1부터 System Manager를 사용하여 원격 측정 로깅을 활성화할 수 있습니다. 원격 측정 로깅이 허용되는 경우 System Manager에 의해 기록되는 메시지에는 메시지를 트리거한 정확한 프로세스를 나타내는 특정 원격 측정 식별자가 제공됩니다. 해당 프로세스와 관련하여 발급된 모든 메시지는 동일한 식별자를 가지며, 이 식별자는 작업 워크플로의 이름과 번호(예: "add-volume-1941290")로 구성됩니다. 이러한 유형의 로깅을 통해 지원 담당자는 메시지가 발행된 특정 프로세스를 보다 쉽게 식별할 수 있습니다. 원격 측정 식별자가 메시지에 추가되면 로그 파일이 약간 확대됩니다.
+
+.단계
+. System Manager에서 * 클러스터 > 설정 * 을 선택합니다.
+. UI 설정 * 섹션에서 * 원격 측정 로깅 허용 * 확인란을 클릭합니다.
 

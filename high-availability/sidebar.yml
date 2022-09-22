@@ -1,6 +1,6 @@
 ---
 section: high-availability
-title: 고가용성 관리
+title: HA 쌍 관리
 entries:
 - title: 개요
   url: "/high-availability/index.html"
