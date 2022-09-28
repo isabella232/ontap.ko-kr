@@ -4,7 +4,7 @@ permalink: concept_san_provision_overview.html
 keywords: netapp, ontap, SAN, provision, provisioning, overview, iSCSI protocol, FC protocol, FCP, storage, LUN, initiator group, igroup, FC host WWp, host node name, FC switch, host-side adapter, world-wide port name, Ethernet network adapter, NIC, TCP offload engine, TOE card, software initiator, converged network adapter, CNA, HBA, host bust adapter, iSCSI qualified name, IQN 
 summary: iSCSI 및 FC 프로토콜을 사용하여 System Manager와 함께 SAN 환경의 스토리지를 제공할 수 있습니다. 
 ---
-= System Manager를 이용한 SAN 관리 개요
+= SAN 관리 개요
 :toc: macro
 :hardbreaks:
 :toclevels: 1
@@ -19,7 +19,7 @@ summary: iSCSI 및 FC 프로토콜을 사용하여 System Manager와 함께 SAN 
 
 
 [role="lead"]
-이 섹션의 항목에서는 ONTAP 9.7 이상 릴리즈에서 System Manager를 사용하여 SAN 환경을 구성하고 관리하는 방법을 보여 줍니다.
+이 섹션의 내용은 ONTAP 9.7 이상 릴리즈에서 ONTAP CLI(Command Line Interface) 및 System Manager를 사용하여 SAN 환경을 구성하고 관리하는 방법을 보여줍니다.
 
 클래식 시스템 관리자(ONTAP 9.7 이전에서만 사용 가능)를 사용하는 경우 다음 항목을 참조하십시오.
 

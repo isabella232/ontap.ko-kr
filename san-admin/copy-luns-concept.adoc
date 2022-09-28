@@ -1,17 +1,17 @@
 ---
 permalink: san-admin/copy-luns-concept.html 
 sidebar: sidebar 
-keywords: considerations, copying, luns 
-summary: LUN을 복제할 때 고려해야 할 사항이 있습니다. 
+keywords: considerations, copying, luns, before 
+summary: LUN을 복제하기 전에 몇 가지 사항을 숙지해야 합니다. 
 ---
-= LUN을 복제할 때의 고려 사항
+= LUN을 복제하기 전에 알아야 할 사항
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-LUN을 복제할 때 고려해야 할 사항이 있습니다.
+LUN을 복제하기 전에 몇 가지 사항을 숙지해야 합니다.
 
 클러스터 관리자는 'lun copy' 명령을 사용하여 클러스터 내의 SVM(스토리지 가상 머신)에서 LUN을 복제할 수 있습니다. 클러스터 관리자는 SVM 간 LUN 복사 작업을 수행하기 전에 'vserver peer create' 명령을 사용하여 SVM(스토리지 가상 시스템) 피어링 관계를 설정해야 합니다. 소스 볼륨에 SIS 클론에 대한 충분한 공간이 있어야 합니다.
 

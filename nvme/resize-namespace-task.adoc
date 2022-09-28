@@ -17,22 +17,23 @@ ONTAP 9.10.1부터 ONTAP CLI를 사용하여 NVMe 네임스페이스의 크기�
 
 == 네임스페이스의 크기를 늘립니다
 
-|===
-
-
-| System Manager 사용 | CLI 사용 
-
-
- a| 
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
 . 스토리지 > NVMe 네임스페이스 * 를 클릭합니다.
 . 증가하려는 네임스페이스 위로 후버 를 클릭합니다 image:icon_kabob.gif["Kabob 아이콘"]를 클릭한 다음 * 편집 * 을 클릭합니다.
 . capacity * 에서 네임스페이스의 크기를 변경합니다.
 
- a| 
+
+--
+.CLI를 참조하십시오
+--
 . 'vserver NVMe namespace modify -vserver_SVM_name_-path_path_ –size_new_size_of_namespace_' 명령을 입력합니다
 
 
-|===
+--
+====
 
 
 == 네임스페이스의 크기를 줄입니다

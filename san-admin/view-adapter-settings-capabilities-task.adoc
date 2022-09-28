@@ -1,8 +1,8 @@
 ---
 permalink: san-admin/view-adapter-settings-capabilities-task.html 
 sidebar: sidebar 
-keywords: view, adapter, settings 
-summary: '통합 타겟 어댑터(X1143A-R6)의 설정을 보려면 시스템 하드웨어 Unified-connect show 명령을 실행하여 컨트롤러의 모든 모듈을 표시해야 합니다.' 
+keywords: view, adapter, settings, display, information, x1143a-r6 
+summary: 특정 명령을 사용하여 FC/UTA 어댑터에 대한 정보를 볼 수 있습니다. 
 ---
 = 어댑터 설정을 봅니다
 :allow-uri-read: 
@@ -11,7 +11,22 @@ summary: '통합 타겟 어댑터(X1143A-R6)의 설정을 보려면 시스템 �
 
 
 [role="lead"]
-통합 타겟 어댑터(X1143A-R6)의 설정을 보려면 컨트롤러의 모든 모듈을 표시하려면 'system hardware unified-connect show' 명령을 실행해야 합니다.
+특정 명령을 사용하여 FC/UTA 어댑터에 대한 정보를 볼 수 있습니다.
+
+
+
+== FC 타겟 어댑터
+
+.단계
+. 네트워크 FCP 어댑터 show 명령을 사용하여 어댑터 정보를 표시합니다. 네트워크 FCP 어댑터 show-instance-node node1-adapter 0a
++
+출력에는 사용되는 각 슬롯의 시스템 구성 정보와 어댑터 정보가 표시됩니다.
+
+
+
+
+
+== UTA(Unified Target Adapter) X1143A-R6
 
 .단계
 . 케이블을 연결하지 않고 컨트롤러를 부팅합니다.

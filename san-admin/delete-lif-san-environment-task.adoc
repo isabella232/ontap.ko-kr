@@ -15,7 +15,23 @@ LIF를 삭제하기 전에 LIF에 연결된 호스트가 다른 경로를 통해
 
 삭제하려는 LIF가 포트 세트의 구성원인 경우 LIF를 삭제하려면 먼저 포트 세트에서 LIF를 제거해야 합니다.
 
+[role="tabbed-block"]
 .단계
+====
+.시스템 관리자
+--
+ONTAP 시스템 관리자(9.7 이상)가 설치된 LIF를 삭제합니다.
+
+. System Manager에서 * Network > Overview * 를 클릭한 다음 * Network Interfaces * 를 선택합니다.
+. LIF를 삭제할 스토리지 VM을 선택합니다.
+. 을 클릭합니다 image:icon_kabob.gif["Kabob 아이콘"] 를 선택하고 * 삭제 * 를 선택합니다.
+
+
+--
+.CLI를 참조하십시오
+--
+ONTAP CLI에서 LIF를 삭제합니다.
+
 . 삭제할 LIF와 현재 포트의 이름을 확인합니다.
 +
 'network interface show – vserver_vserver_name _'
@@ -46,3 +62,6 @@ vs1
         lif3       up/up      192.168.2.73/24  node-01   e0b     true
 ----
 
+
+--
+====

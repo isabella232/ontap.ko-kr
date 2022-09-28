@@ -15,7 +15,25 @@ summary: 태그 이름을 변경하거나, 개체 저장소의 기존 개체에 
 
 'volume modify' 명령을 '-Tiering-object-tags' 옵션과 함께 사용하면 기존 태그를 사용자가 제공하는 새로운 값으로 바꿀 수 있습니다.
 
-.단계
+
+
+== 절차를 참조하십시오
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+. Storage > Tiers * 로 이동합니다.
+. 수정할 태그가 포함된 볼륨이 있는 스토리지 계층을 찾습니다.
+. 볼륨 * 탭을 클릭합니다.
+. 수정할 태그가 있는 볼륨을 찾은 다음 * 개체 태그 * 열에서 태그 이름을 클릭합니다.
+. 태그를 수정합니다.
+. 적용 * 을 클릭합니다.
+
+
+--
+.CLI를 참조하십시오
+--
 . '-Tiering-object-tags' 옵션과 함께 'volume modify' 명령을 사용하여 기존 태그를 수정합니다.
 +
 [listing]
@@ -32,3 +50,6 @@ volume modify [ -vserver <vserver name> ] -volume <volume_name> -tiering-object-
 vol create -volume fp_volume1 -vserver vs0 -tiering-object-tags project=fabricpool,type=xyz,content=data
 ----
 
+
+--
+====

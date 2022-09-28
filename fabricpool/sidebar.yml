@@ -1,6 +1,6 @@
 ---
 section: fabricpool
-title: CLI를 사용한 FabricPool 계층 관리
+title: FabricPool 계층 관리
 entries:
 - title: 개요
   url: "/fabricpool/index.html"
@@ -18,33 +18,28 @@ entries:
     entries:
     - title: 개요
       url: "/fabricpool/prepare-config-task.html"
+    - title: 클라우드에 연결을 추가합니다
+      url: "/fabricpool/add-connection-to-cloud-task.html"
     - title: FabricPool 라이센스를 설치합니다
       url: "/fabricpool/install-license-aws-azure-ibm-task.html"
-    - title: FabricPool 라이센스 설치(비디오)
-      url: "/fabricpool/install-license-video-reference.html"
     - title: StorageGRID를 사용하는 경우 CA 인증서를 설치합니다
       url: "/fabricpool/install-ca-certificate-storagegrid-task.html"
     - title: ONTAP S3을 사용하는 경우 CA 인증서를 설치합니다
       url: "/fabricpool/install-ca-certificate-ontap-s3-task.html"
     - title: 오브젝트 저장소를 FabricPool의 클라우드 계층으로 설정합니다
       entries:
-      - title: StorageGRID 구성 정보를 지정합니다
+      - title: 개요
         url: "/fabricpool/setup-object-store-as-cloud-tier-task.html"
       - title: StorageGRID를 클라우드 계층으로 설정합니다
         url: "/fabricpool/setup-storagegrid-cloud-tier-task.html"
-      - title: StorageGRID를 FabricPool 클라우드 계층으로 연결(비디오)
-        url: "/fabricpool/attach-storagegrid-cloud-tier-video-reference.html"
       - title: ONTAP S3를 클라우드 계층으로 설정합니다
         url: "/fabricpool/setup-ontap-s3-cloud-tier-task.html"
       - title: Alibaba Cloud Object Storage를 클라우드 계층으로 설정합니다
         url: "/fabricpool/setup-alibaba-object-storage-cloud-tier-task.html"
-      - title: 클라우드 계층으로 AWS S3 사용
+      - title: AWS S3를 클라우드 계층으로 설정
         url: "/fabricpool/setup-aws-s3-cloud-tier-task.html"
-        entries:
-        - title: AWS S3 구성 정보를 지정합니다
-          url: "/fabricpool/setup-aws-s3-cloud-tier-task.html"
-        - title: AWS S3를 FabricPool 클라우드 계층으로 연결(비디오)
-          url: "/fabricpool/attach-aws-s3-cloud-tier-video-reference.html"
+      - title: AWS S3 구성 정보를 지정합니다
+        url: "/fabricpool/setup-aws-s3-cloud-tier-task.html"
       - title: Google Cloud Storage를 클라우드 계층으로 설정합니다
         url: "/fabricpool/setup-google-storage-cloud-tier-task.html"
       - title: IBM 클라우드 오브젝트 스토리지를 클라우드 계층으로 설정
@@ -55,11 +50,13 @@ entries:
         url: "/fabricpool/setup-object-stores-mcc-task.html"
     - title: 클라우드 계층을 Aggregate에 연결합니다
       url: "/fabricpool/attach-cloud-tier-aggregate-task.html"
+    - title: 데이터를 로컬 버킷에 계층화
+      url: "/fabricpool/local-bucket-tier-data-task.html"
 - title: FabricPool 관리
   entries:
   - title: 개요
     url: "/fabricpool/manage-task.html"
-  - title: 비활성 데이터 보고를 사용하여 볼륨의 데이터 양이 얼마나 비활성인지 결정합니다
+  - title: 비활성 데이터 보고를 사용하여 볼륨의 비활성 데이터 양을 결정합니다
     url: "/fabricpool/determine-data-inactive-reporting-task.html"
   - title: 필요에 따라 FabricPool에 볼륨을 추가하거나 이동합니다
     entries:

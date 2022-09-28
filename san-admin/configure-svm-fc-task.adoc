@@ -17,7 +17,37 @@ FC 라이센스가 있어야 하며 활성화해야 합니다. FC 라이센스�
 
 NetApp은 각 SVM에서 FC 프로토콜을 통해 데이터를 제공하는 FC LIF를 노드당 1개 이상 지원합니다. 노드당 LIF 2개와 Fabric 2개를 사용해야 하며, 연결된 노드당 LIF 1개가 있어야 합니다. 이는 노드 계층과 패브릭에서 이중화를 제공합니다.
 
+[role="tabbed-block"]
 .단계
+====
+.시스템 관리자
+--
+ONTAP System Manager(9.7 이상)를 사용하여 iSCSI용 스토리지 VM을 구성합니다.
+
+[cols="2"]
+|===
+| 새 스토리지 VM에서 FC를 구성합니다 | 기존 스토리지 VM에서 FC를 구성합니다 
+
+
+ a| 
+. System Manager에서 * 스토리지 > 스토리지 VM * 을 클릭한 다음 * 추가 * 를 클릭합니다.
+. 스토리지 VM의 이름을 입력합니다.
+. 액세스 프로토콜 * 으로 * FC * 를 선택합니다.
+. FC * 활성화 를 클릭합니다. + FC 포트가 자동으로 할당됩니다.
+. 저장 * 을 클릭합니다.
+
+ a| 
+. System Manager에서 * 스토리지 > 스토리지 VM * 을 클릭합니다.
+. 구성할 스토리지 VM을 클릭합니다.
+. 설정 * 탭을 클릭한 다음 을 클릭합니다 image:icon_gear.gif[""] FC 프로토콜 옆에 있습니다.
+. FC * 활성화 를 클릭하고 네트워크 인터페이스의 IP 주소와 서브넷 마스크를 입력합니다. + FC 포트가 자동으로 할당됩니다.
+. 저장 * 을 클릭합니다.
+
+
+|===
+--
+.CLI를 참조하십시오
+--
 . SVM에서 FC 서비스 활성화:
 +
 'vserver fcp create-vserver_vserver_name_-status-admin up'
@@ -35,6 +65,8 @@ role 매개 변수는 data로, data-protocol 매개 변수는 fcp로 지정해�
 
 
 
+--
+====
 https://mysupport.netapp.com/site/global/dashboard["NetApp 지원"]
 
 https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"^]

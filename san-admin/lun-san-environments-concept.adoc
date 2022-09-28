@@ -1,17 +1,25 @@
 ---
 permalink: san-admin/lun-san-environments-concept.html 
 sidebar: sidebar 
-keywords: lun, guidelines 
+keywords: lun, guidelines, assigning, assign, ids, mapping, map, igroups 
 summary: 클러스터에서 LUN을 설정하기 전에 LUN 지침을 검토해야 합니다. 
 ---
-= LUN 지침을 따릅니다
+= LUN을 생성하기 전에 알아야 할 사항
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
-[role="lead"]
-FC 프로토콜과 iSCSI 프로토콜은 모두 LUN을 사용하여 스토리지를 프로비저닝합니다. LUN을 설정한 후에는 LUN 크기를 늘리거나 줄이는 등의 다양한 관리 작업을 수행할 수 있습니다. 볼륨을 구성하고 적절한 OS 유형을 설정한 후에는 LUN을 설정하는 데 필요한 단계를 완료해야 합니다.
+
+
+== 실제 LUN 크기가 약간 다른 이유
+
+LUN의 크기와 관련하여 다음 사항에 유의하십시오.
+
+* LUN을 생성할 때 LUN의 실제 크기는 LUN의 OS 유형에 따라 약간 다를 수 있습니다. LUN을 생성한 후에는 LUN OS 유형을 수정할 수 없습니다.
+* 최대 16TB 크기의 LUN을 생성하는 경우 LUN의 실제 크기는 약간 더 적을 수 있습니다. ONTAP는 한계치를 약간 낮추어 줍니다.
+* 각 LUN의 메타데이터는 포함하는 애그리게이트에서 약 64KB의 공간을 필요로 합니다. LUN을 생성할 때 포함하는 애그리게이트에 LUN의 메타데이터를 위한 충분한 공간이 있는지 확인해야 합니다. Aggregate에 LUN의 메타데이터를 위한 충분한 공간이 없을 경우 일부 호스트에서 LUN에 액세스하지 못할 수 있습니다.
+
 
 
 

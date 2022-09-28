@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: metrocluster environments, considerations, san configuration, metrocluster, environments, san, configurations, cisco switch, brocade switch, 
 summary: MetroCluster 환경에서 SAN 구성을 사용할 때는 몇 가지 고려 사항을 염두에 두어야 합니다. 
 ---
-= MetroCluster 환경의 SAN 구성에 대한 고려 사항
+= MetroCluster 환경의 SAN 구성입니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -101,7 +101,7 @@ Enforce FLOGI/FDISC login: (0..2) [0] 1
 
 
 |===
-MetroCluster 관련 호스트 정보에 대한 자세한 내용은 다음 NetApp 기술 자료 문서를 참조하십시오.
+MetroCluster 관련 호스트 정보에 대한 자세한 내용은 다음 NetApp 기술 문서를 참조하십시오.
 
 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/What_are_AIX_Host_support_considerations_in_a_MetroCluster_configuration%3F["MetroCluster 구성에서 AIX 호스트 지원 고려 사항은 무엇입니까?"]
 

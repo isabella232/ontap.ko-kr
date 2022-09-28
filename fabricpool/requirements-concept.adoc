@@ -25,7 +25,7 @@ FabricPool 사용에 관한 몇 가지 고려 사항 및 요구 사항을 숙지
 link:tiering-policies-concept.html#types-of-fabricpool-tiering-policies["FabricPool 계층화 정책의 유형입니다"]
 
 ** 계층화 최소 냉각 기간 지정
-** 비활성 데이터 보고
+** 비활성 데이터 보고(IDR)
 ** 클라우드에 Microsoft Azure Blob Storage를 FabricPool의 클라우드 계층으로 사용
 ** ONTAP Select와 함께 FabricPool 사용
 
@@ -109,7 +109,7 @@ HDD FabricPool은 다음 모델을 포함하여 6개 이상의 CPU 코어가 있
 +
 ** AFF 시스템에서는 FabricPool에 All-Flash(All SSD) 애그리게이트만 사용할 수 있습니다.
 +
-Flash Pool 애그리게이트(SSD와 HDD를 모두 포함하는)는 사용할 수 없습니다.
+SSD와 HDD를 모두 포함하는 Flash Pool 애그리게이트는 사용할 수 없습니다.
 
 ** FAS 시스템에서는 FabricPool에 All-Flash(All-SSD) 또는 HDD 애그리게이트를 사용할 수 있습니다.
 ** Cloud Volumes ONTAP 및 ONTAP Select에서는 FabricPool에 SSD 또는 HDD 애그리게이트를 사용할 수 있습니다.
@@ -147,136 +147,6 @@ http://www.netapp.com/us/media/tr-4598.pdf["NetApp 기술 보고서 4598: ONTAP 
 == Cloud Volumes ONTAP 사용 시 추가 고려 사항
 
 사용 중인 오브젝트 저장소 공급자에 관계없이 Cloud Volumes ONTAP에는 FabricPool 라이센스가 필요하지 않습니다.
-
-
-
-== FabricPool와 함께 StorageGRID를 사용하기 위한 추가 고려 사항
-
-* 인증서 확인을 명시적으로 해제하지 않는 한 StorageGRID용 CA 인증서를 설치해야 합니다.
-* 오브젝트 저장소 버킷에서 StorageGRID 오브젝트 버전 관리를 사용하도록 설정하면 안 됩니다.
-* FabricPool 라이센스는 필요하지 않습니다.
-* StorageGRID 노드가 NetApp AFF 시스템에서 할당된 스토리지가 있는 가상 머신에 구축된 경우 해당 볼륨에 FabricPool 계층화 정책이 활성화되어 있지 않은지 확인하십시오.
-+
-StorageGRID 노드와 함께 사용되는 볼륨에 대해 FabricPool 계층화를 사용하지 않도록 설정하면 문제 해결과 스토리지 작업이 간소화됩니다.
-
-+
-[NOTE]
-====
-FabricPool를 사용하여 StorageGRID 관련 데이터를 StorageGRID 자체로 계층화하지 마십시오. StorageGRID 데이터를 StorageGRID로 다시 계층화하면 문제 해결과 운영 복잡성이 늘어납니다.
-
-====
-
-
-
-
-== Alibaba 클라우드 개체 스토리지를 FabricPool와 함께 사용하기 위한 추가 고려 사항
-
-* FabricPool 라이센스가 필요할 수 있습니다.
-+
-새로 주문한 AFF 시스템에는 FabricPool를 사용할 수 있는 10TB의 여유 용량이 제공됩니다. AFF 시스템에서 추가 용량이 필요하거나, 비 AFF 시스템에서 Alibaba 클라우드 오브젝트 스토리지를 사용하거나, 기존 클러스터에서 업그레이드하는 경우 FabricPool 라이센스가 필요합니다.
-
-* AFF 및 FAS 시스템과 ONTAP Select에서 FabricPool는 다음 Alibaba 개체 스토리지 서비스 클래스를 지원합니다.
-+
-** Alibaba 개체 스토리지 서비스 표준
-** Alibaba Object Storage Service 낮은 액세스 빈도
-+
-https://www.alibabacloud.com/help/doc-detail/51374.htm["Alibaba Cloud: 스토리지 클래스 소개"]
-
-
-
-
-
-목록에 없는 스토리지 클래스에 대한 자세한 내용은 NetApp 세일즈 담당자에게 문의하십시오.
-
-
-
-== FabricPool에서 AWS S3를 사용하기 위한 추가 고려사항
-
-* FabricPool 라이센스가 필요할 수 있습니다.
-+
-** 새로 주문한 AFF 시스템에는 FabricPool를 사용할 수 있는 10TB의 여유 용량이 제공됩니다.
-+
-AFF 시스템에서 추가 용량이 필요하거나, 비 AFF 시스템에서 AWS S3를 사용하거나, 기존 클러스터에서 업그레이드하는 경우 FabricPool 라이센스가 필요합니다.
-
-+
-기존 클러스터에 대해 FabricPool를 처음으로 주문하는 경우 가용 용량이 10TB인 FabricPool 라이센스를 사용할 수 있습니다.
-
-
-
-* ONTAP에서 AWS S3 오브젝트 서버에 연결하는 데 사용하는 LIF는 10Gbps 포트에 있어야 합니다.
-* AFF 및 FAS 시스템과 ONTAP Select에서 FabricPool은 다음과 같은 Amazon S3 스토리지 클래스를 지원합니다.
-+
-** Amazon S3 Standard
-** Amazon S3 Standard - 낮은 액세스 빈도(Standard-IA)
-** Amazon S3 ONE Zone - 낮은 액세스 빈도(Zone-IA 1개)
-** Amazon S3 지능형 계층화
-** Amazon 상용 클라우드 서비스
-+
-https://aws.amazon.com/s3/storage-classes/["AWS(Amazon Web Services) 문서: Amazon S3 스토리지 클래스"]
-
-
-
-+
-목록에 없는 스토리지 클래스에 대한 자세한 내용은 영업 담당자에게 문의하십시오.
-
-* Cloud Volumes ONTAP에서 FabricPool는 EBS(Elastic Block Store)의 GP2(General Purpose SSD) 및 st1(Throughput Optimized HDD) 볼륨의 계층화를 지원합니다.
-
-
-
-
-== FabricPool에서 Google 클라우드 스토리지를 사용할 때 고려해야 할 추가 사항
-
-* FabricPool 라이센스가 필요할 수 있습니다.
-+
-새로 주문한 AFF 시스템에는 FabricPool를 사용할 수 있는 10TB의 여유 용량이 제공됩니다. AFF 시스템에서 추가 용량이 필요하거나, 비 AFF 시스템에서 Google Cloud 스토리지를 사용하거나, 기존 클러스터에서 업그레이드하는 경우 FabricPool 라이센스가 필요합니다.
-
-* ONTAP이 Google 클라우드 스토리지 오브젝트 서버에 연결하는 데 사용하는 LIF는 10Gbps 포트에 있어야 합니다.
-* AFF 및 FAS 시스템과 ONTAP Select에서 FabricPool은 다음과 같은 Google Cloud Object 스토리지 클래스를 지원합니다.
-+
-** Google Cloud 다중 지역
-** Google Cloud 지역
-** Google Cloud Nearline
-** Google Cloud Coldline
-+
-https://cloud.google.com/storage/docs/storage-classes["Google Cloud: 스토리지 클래스"]
-
-
-
-
-
-
-
-== FabricPool에서 IBM 클라우드 오브젝트 스토리지를 사용하기 위한 추가 고려 사항
-
-* FabricPool 라이센스가 필요할 수 있습니다.
-+
-새로 주문한 AFF 시스템에는 FabricPool를 사용할 수 있는 10TB의 여유 용량이 제공됩니다. AFF 시스템에서 추가 용량이 필요하거나, 비 AFF 시스템에서 IBM 클라우드 오브젝트 스토리지를 사용하거나, 기존 클러스터에서 업그레이드하는 경우 FabricPool 라이센스가 필요합니다.
-
-+
-기존 클러스터에 대해 FabricPool를 처음으로 주문하는 경우 가용 용량이 10TB인 FabricPool 라이센스를 사용할 수 있습니다.
-
-* ONTAP이 IBM 클라우드 오브젝트 서버에 연결하는 데 사용하는 LIF는 10Gbps 포트에 있어야 합니다.
-
-
-
-
-== FabricPool와 함께 Microsoft Azure Blob Storage를 사용하기 위한 추가 고려 사항
-
-* FabricPool 라이센스가 필요할 수 있습니다.
-+
-새로 주문한 AFF 시스템에는 FabricPool를 사용할 수 있는 10TB의 여유 용량이 제공됩니다. AFF 시스템에서 추가 용량이 필요하거나, 비 AFF 시스템에서 Azure Blob Storage를 사용하거나, 기존 클러스터에서 업그레이드하는 경우 FabricPool 라이센스가 필요합니다.
-
-+
-기존 클러스터에 대해 FabricPool를 처음으로 주문하는 경우 가용 용량이 10TB인 FabricPool 라이센스를 사용할 수 있습니다.
-
-* Cloud Volumes ONTAP와 함께 Azure Blob Storage를 사용하는 경우 FabricPool 라이센스가 필요하지 않습니다.
-* ONTAP가 Azure Blob 스토리지 오브젝트 서버에 연결하는 데 사용하는 LIF는 10Gbps 포트에 있어야 합니다.
-* FabricPool은 현재 온프레미스 Azure 서비스인 Azure 스택을 지원하지 않습니다.
-* Microsoft Azure Blob Storage의 계정 수준에서 FabricPool는 핫 및 쿨 스토리지 계층만 지원합니다.
-+
-FabricPool는 BLOB 레벨 계층화를 지원하지 않습니다. 또한 Azure의 아카이브 스토리지 계층화도 지원하지 않습니다.
-
-
 
 
 

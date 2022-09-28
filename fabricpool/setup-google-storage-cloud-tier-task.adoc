@@ -13,6 +13,28 @@ summary: ONTAP 9.6 이상을 실행 중인 경우 FabricPool용 클라우드 계
 [role="lead"]
 ONTAP 9.6 이상을 실행 중인 경우 FabricPool용 클라우드 계층으로 Google 클라우드 스토리지를 설정할 수 있습니다.
 
+
+
+== FabricPool에서 Google 클라우드 스토리지를 사용할 때 고려해야 할 추가 사항
+
+* FabricPool 라이센스가 필요할 수 있습니다.
++
+새로 주문한 AFF 시스템에는 FabricPool를 사용할 수 있는 10TB의 여유 용량이 제공됩니다. AFF 시스템에서 추가 용량이 필요하거나, 비 AFF 시스템에서 Google Cloud 스토리지를 사용하거나, 기존 클러스터에서 업그레이드하는 경우 FabricPool 라이센스가 필요합니다.
+
+* ONTAP이 Google 클라우드 스토리지 오브젝트 서버에 연결하는 데 사용하는 LIF는 10Gbps 포트에 있어야 합니다.
+* AFF 및 FAS 시스템과 ONTAP Select에서 FabricPool은 다음과 같은 Google Cloud Object 스토리지 클래스를 지원합니다.
++
+** Google Cloud 다중 지역
+** Google Cloud 지역
+** Google Cloud Nearline
+** Google Cloud Coldline
++
+https://cloud.google.com/storage/docs/storage-classes["Google Cloud: 스토리지 클래스"]
+
+
+
+
+
 .단계
 . '-provider-type ' GoogleCloud ' 매개 변수를 사용하여 'storage aggregate object-store config create' 명령을 사용하여 Google Cloud 스토리지 구성 정보를 지정합니다.
 +

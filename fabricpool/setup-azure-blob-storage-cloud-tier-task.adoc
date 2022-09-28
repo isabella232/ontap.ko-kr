@@ -13,6 +13,23 @@ summary: ONTAP 9.4 이상을 실행 중인 경우 클라우드용 Azure Blob 스
 [role="lead"]
 ONTAP 9.4 이상을 실행 중인 경우 클라우드용 Azure Blob 스토리지를 FabricPool용 클라우드 계층으로 설정할 수 있습니다.
 
+.FabricPool와 함께 Microsoft Azure Blob Storage를 사용할 때의 고려 사항
+* FabricPool 라이센스가 필요할 수 있습니다.
++
+새로 주문한 AFF 시스템에는 FabricPool를 사용할 수 있는 10TB의 여유 용량이 제공됩니다. AFF 시스템에서 추가 용량이 필요하거나, 비 AFF 시스템에서 Azure Blob Storage를 사용하거나, 기존 클러스터에서 업그레이드하는 경우 FabricPool 라이센스가 필요합니다.
+
++
+기존 클러스터에 대해 FabricPool를 처음으로 주문하는 경우 가용 용량이 10TB인 FabricPool 라이센스를 사용할 수 있습니다.
+
+* Cloud Volumes ONTAP와 함께 Azure Blob Storage를 사용하는 경우 FabricPool 라이센스가 필요하지 않습니다.
+* ONTAP가 Azure Blob 스토리지 오브젝트 서버에 연결하는 데 사용하는 LIF는 10Gbps 포트에 있어야 합니다.
+* FabricPool은 현재 온프레미스 Azure 서비스인 Azure 스택을 지원하지 않습니다.
+* Microsoft Azure Blob Storage의 계정 수준에서 FabricPool는 핫 및 쿨 스토리지 계층만 지원합니다.
++
+FabricPool는 BLOB 레벨 계층화를 지원하지 않습니다. 또한 Azure의 아카이브 스토리지 계층화도 지원하지 않습니다.
+
+
+
 FabricPool은 현재 온프레미스 Azure 서비스인 Azure 스택을 지원하지 않습니다.
 
 .단계

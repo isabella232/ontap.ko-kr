@@ -13,29 +13,22 @@ summary: ONTAP 9.10.1부터 System Manager를 사용하여 LUN을 오프라인 �
 [role="lead"]
 ONTAP 9.10.1부터 System Manager를 사용하여 LUN을 오프라인 상태로 전환할 수 있습니다. ONTAP 9.10.1 이전에는 ONTAP CLI를 사용하여 LUN을 오프라인 상태로 전환해야 합니다.
 
-
-
-== System Manager 절차
-
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
 .단계
 . System Manager에서 * 스토리지 > LUN * 을 클릭합니다.
 . 단일 LUN 또는 여러 LUN을 오프라인 상태로 전환합니다
 
 
+[cols="2"]
 |===
-
-
-| 원하는 사항 
-
-
-| 이렇게 하십시오. 
+| 원하는 사항 | 이렇게 하십시오. 
 
 
  a| 
 단일 LUN을 오프라인 상태로 전환합니다
-
-
-
  a| 
 LUN 이름 옆에 있는 을 클릭합니다 image:icon_kabob.gif["Kabob 아이콘"] 을 클릭하고 * 오프라인 상태로 전환 * 을 선택합니다.
 
@@ -43,21 +36,20 @@ LUN 이름 옆에 있는 을 클릭합니다 image:icon_kabob.gif["Kabob 아이�
 
  a| 
 여러 LUN을 오프라인 상태로 전환
-
-
-
  a| 
 . 오프라인 상태로 전환할 LUN을 선택합니다.
 . More * 를 클릭하고 * Take Offline * 을 선택합니다.
 
 
 |===
-
-
-== CLI 절차
-
+--
+.CLI를 참조하십시오
+--
 CLI를 사용할 때는 한 번에 하나의 LUN만 오프라인 상태로 전환할 수 있습니다.
 
 .단계
 . LUN을 오프라인 상태로 전환합니다. 'lun offline lun_name - vserver SVM_name
 
+
+--
+====

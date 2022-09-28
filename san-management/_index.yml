@@ -13,19 +13,19 @@ indexpage:
       url: "/../san-config/index.html"
   - title: SAN 스토리지 용량 할당
     links:
-    - title: System Manager가 설치된 VMware 데이터 저장소
+    - title: VMware 데이터 저장소
       url: "/../task_san_provision_vmware.html"
-    - title: Linux 서버에 설치합니다
+    - title: Linux 서버에서
       url: "/../task_san_provision_linux.html"
-    - title: System Manager가 설치된 Windows 서버
+    - title: Windows 서버에서
       url: "/../task_san_provision_windows.html"
-    - title: CLI를 사용하는 FC 및 iSCSI 호스트의 경우
-      url: "/../san-admin/lun-setup-workflow-concept.html"
+    - title: 기타 FC 및 iSCSI 호스트
+      url: "/../san-admin/provision_storage.html"
   - title: NVMe 스토리지 프로비저닝
     links:
-    - title: 시스템 관리자가 있는 SUSE Linux에서
+    - title: SUSE Linux에서
       url: "/../task_nvme_provision_suse_linux.html"
-    - title: CLI를 사용한 네임스페이스 및 하위 시스템
+    - title: 기타 NVMe 호스트
       url: "/../san-admin/create-nvme-namespace-subsystem-task.html"
   - title: SAN 스토리지를 구성합니다
     links:

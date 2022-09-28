@@ -1,21 +1,13 @@
 ---
 sidebar: sidebar 
-permalink: task_add_connection_to_cloud.html 
+permalink: fabricpool/add-connection-to-cloud-task.html 
 keywords: netapp, ontap, connection, cloud, cloud insights, cloud agent 
 summary: ONTAP 9.9.0부터는 System Manager를 사용하여 클라우드에 연결을 추가할 수 있습니다. 
 ---
 = 클라우드에 연결을 추가합니다
-:toc: macro
-:hardbreaks:
-:toclevels: 1
 :allow-uri-read: 
-:toc: 
-:toclevels: 1
-:nofooter: 
 :icons: font
-:linkattrs: 
-:imagesdir: ./media/
-:toc-position: content
+:imagesdir: ../media/
 
 
 [role="lead"]

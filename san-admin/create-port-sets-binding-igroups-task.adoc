@@ -1,25 +1,49 @@
 ---
 permalink: san-admin/create-port-sets-binding-igroups-task.html 
 sidebar: sidebar 
-keywords: create, port, sets, binding, igroups, port sets 
-summary: 'SLM(Selective LUN Map)을 사용하는 것 외에도 포트 세트를 생성하고 포트 세트를 igroup에 바인딩하여 이니시에이터가 LUN에 액세스하는 데 사용할 수 있는 LIF를 추가로 제한할 수 있습니다. 포트 세트를 igroup에 바인딩하지 않으면 igroup의 모든 이니시에이터가 LUN과 소유 노드의 HA 파트너를 소유하는 노드의 모든 LIF를 통해 매핑된 LUN에 액세스할 수 있습니다.' 
+keywords: create, port, sets, binding, igroups, portsets,portset 
+summary: 'SLM(Selective LUN Map)을 사용하는 것 외에도, 포트셋 및 igroup에 바인딩하여 이니시에이터에서 LUN에 액세스하는 데 사용할 수 있는 LIF를 추가로 제한할 수 있습니다. 포트셋 를 igroup에 바인딩하지 않으면 igroup의 모든 이니시에이터가 LUN과 소유 노드의 HA 파트너가 있는 노드의 모든 LIF를 통해 매핑된 LUN에 액세스할 수 있습니다.' 
 ---
-= 포트 세트를 생성하고 포트 세트에 igroup을 바인딩합니다
+= 포트 세트를 생성하고 igroup에 바인딩합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-SLM(Selective LUN Map)을 사용하는 것 외에도 포트 세트를 생성하고 포트 세트를 igroup에 바인딩하여 이니시에이터가 LUN에 액세스하는 데 사용할 수 있는 LIF를 추가로 제한할 수 있습니다. 포트 세트를 igroup에 바인딩하지 않으면 igroup의 모든 이니시에이터가 LUN과 소유 노드의 HA 파트너가 소유하는 노드의 모든 LIF를 통해 매핑된 LUN에 액세스할 수 있습니다.
+또한 를 사용할 수 있습니다 link:selective-lun-map-concept.html["선택적 LUN 맵(SLM)"]포트셋 를 생성하고 포트셋 를 igroup에 바인딩하여 이니시에이터에서 LUN에 액세스하는 데 사용할 수 있는 LIF를 더 제한할 수 있습니다.
+
+포트셋 를 igroup에 바인딩하지 않으면 igroup의 모든 이니시에이터가 LUN과 소유 노드의 HA 파트너가 소유하는 노드의 모든 LIF를 통해 매핑된 LUN에 액세스할 수 있습니다.
 
 LIF가 하나 이상, igroup 하나가 있어야 합니다.
 
 인터페이스 그룹을 사용하지 않는 경우 iSCSI와 FC 모두에서 중복성을 위해 두 개의 LIF가 권장됩니다. 인터페이스 그룹에서는 LIF가 하나만 권장됩니다.
 
-노드에 LIF가 2개 이상 있고 특정 이니시에이터를 LIF의 하위 집합으로 제한하려는 경우 SLM에 포트 세트를 사용하는 것이 좋습니다. 포트 세트가 없으면 LUN과 소유 노드의 HA 파트너가 있는 노드를 통해 LUN에 액세스할 수 있는 모든 이니시에이터가 노드의 모든 타겟에 액세스할 수 있습니다.
+노드에 LIF가 2개 이상 있고 특정 이니시에이터를 LIF의 하위 집합으로 제한하려는 경우 SLM에 Portset을 사용하는 것이 좋습니다. 포트 세트가 없으면 LUN 및 소유 노드의 HA 파트너를 소유하는 노드를 통해 LUN에 액세스할 수 있는 모든 이니시에이터가 노드의 모든 타겟에 액세스할 수 있습니다.
 
+[role="tabbed-block"]
 .단계
+====
+.시스템 관리자
+--
+ONTAP 9.10.1부터 System Manager를 사용하여 포트 세트를 생성하고 igroup에 바인딩할 수 있습니다.
+
+9.10.1 이전의 ONTAP 릴리즈에서 포트셋 및 igroup을 바인딩해야 하는 경우 ONTAP CLI 절차를 사용해야 합니다.
+
+. System Manager에서 * Network > Overview > Portsets * 를 클릭하고 * Add * 를 클릭합니다.
+. 새 포트셋 정보를 입력하고 * 추가 * 를 클릭합니다.
+. 호스트 > SAN 이니시에이터 그룹 * 을 클릭합니다.
+. 포트셋 를 새 igroup에 바인딩하려면 * 추가 * 를 클릭합니다.
++
+포트셋 를 기존 igroup에 바인딩하려면 igroup을 선택하고 을 클릭합니다 image:icon_kabob.gif["Kabob 아이콘"]을 클릭한 다음 * 이니시에이터 그룹 편집 * 을 클릭합니다.
+
+
+
+link:manage-san-initiators-task.html["이니시에이터 및 igroup을 보고 관리합니다"]
+
+--
+.CLI를 참조하십시오
+--
 . 적절한 LIF가 포함된 포트 세트를 생성합니다.
 +
 ' create-vserver_vserver_name_-포트셋_이름_-protocol_protocol_-port-name_port_name_'
@@ -43,3 +67,6 @@ Vserver   Portset   Protocol Port Names    Igroups
 vs3       portset0  iscsi    lif0,lif1     igroup1
 ----
 
+
+--
+====

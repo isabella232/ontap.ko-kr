@@ -101,7 +101,7 @@ Enforce FLOGI/FDISC login: (0..2) [0] 1
 
 
 |===
-MetroCluster 관련 호스트 정보에 대한 자세한 내용은 다음 NetApp 기술 자료 문서를 참조하십시오.
+MetroCluster 관련 호스트 정보에 대한 자세한 내용은 다음 NetApp 기술 문서를 참조하십시오.
 
 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/What_are_AIX_Host_support_considerations_in_a_MetroCluster_configuration%3F["MetroCluster 구성에서 AIX 호스트 지원 고려 사항은 무엇입니까?"]
 

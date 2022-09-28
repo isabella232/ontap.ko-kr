@@ -38,9 +38,12 @@ LUN을 다음 볼륨으로 이동할 수 없습니다.
 1TB 이상인 Solaris OS_TYPE LUN의 경우 LUN 이동 중에 호스트에서 시간 초과가 발생할 수 있습니다. 이 LUN 유형의 경우 이동을 시작하기 전에 LUN을 마운트 해제해야 합니다.
 
 ====
-
-
-== System Manager 절차
+[role="tabbed-block"]
+.단계
+====
+.시스템 관리자
+--
+ONTAP System Manager(9.7 이상)를 사용하여 LUN을 이동합니다.
 
 ONTAP 9.10.1부터 단일 LUN을 이동할 때 시스템 관리자를 사용하여 새 볼륨을 생성할 수 있습니다. ONTAP 9.8 및 9.9.1에서는 LUN 이동을 시작하기 전에 LUN을 이동할 볼륨이 있어야 합니다.
 
@@ -57,11 +60,11 @@ ONTAP 9.10.1에서 LUN을 * 기존 볼륨 * 또는 * 새 볼륨 * 으로 이동�
 . 이동 * 을 클릭합니다.
 
 
+--
+.CLI를 참조하십시오
+--
+ONTAP CLI를 사용하여 LUN을 이동합니다.
 
-
-== CLI 절차
-
-.단계
 . LUN 이동:
 +
 LUN 이동 시작.
@@ -75,6 +78,8 @@ LUN move show.
 
 
 
+--
+====
 .관련 정보
 * link:selective-lun-map-concept.html["선택적 LUN 맵입니다"]
 * link:modify-slm-reporting-nodes-task.html["SLM 보고 노드 목록 수정"]
