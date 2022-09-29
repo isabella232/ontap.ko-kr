@@ -1,21 +1,36 @@
 ---
-permalink: san-admin/index.html 
 sidebar: sidebar 
-keywords: decide, san, administration, host, provisioning, iscsi, fc, nvme 
-summary: 이 정보는 기본적인 SAN 호스트 프로비저닝을 설명합니다. 
+permalink: san-admin/index.html 
+keywords: netapp, ontap, SAN, provision, provisioning, overview, iSCSI protocol, FC protocol, FCP, storage, LUN, initiator group, igroup, FC host WWp, host node name, FC switch, host-side adapter, world-wide port name, Ethernet network adapter, NIC, TCP offload engine, TOE card, software initiator, converged network adapter, CNA, HBA, host bust adapter, iSCSI qualified name, IQN 
+summary: iSCSI 및 FC 프로토콜을 사용하여 System Manager와 함께 SAN 환경의 스토리지를 제공할 수 있습니다. 
 ---
-= CLI를 사용한 SAN 관리 개요
+= SAN 관리 개요
+:toc: macro
+:hardbreaks:
+:toclevels: 1
 :allow-uri-read: 
+:toc: 
+:toclevels: 1
+:nofooter: 
 :icons: font
-:imagesdir: ../media/
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
 
 
 [role="lead"]
-다음 절차에 따라 기본 SAN 호스트 프로비저닝을 수행합니다. iSCSI 및 FC 프로토콜을 사용하여 LUN, igroup, 그리고 NVMe/FC 프로토콜을 사용하여 네임스페이스 및 서브시스템을 구성하고 관리할 수 있습니다.
+이 섹션의 내용은 ONTAP 9.7 이상 릴리즈에서 ONTAP CLI(Command Line Interface) 및 System Manager를 사용하여 SAN 환경을 구성하고 관리하는 방법을 보여줍니다.
 
-다음과 같은 상황에서 이러한 절차를 사용해야 합니다.
+클래식 시스템 관리자(ONTAP 9.7 이전에서만 사용 가능)를 사용하는 경우 다음 항목을 참조하십시오.
 
-* ONTAP SAN 호스트 프로비저닝 기능의 범위를 이해하려고 합니다.
-* 기본적인 SAN 구성이 아닌, 덜 일반적인 구성 및 유지보수 작업을 수행하려는 경우
-* System Manager나 자동화된 스크립팅 도구가 아니라 CLI(Command-Line Interface)를 사용하려는 경우
+* https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_iscsi_protocol.html["iSCSI 프로토콜"^]
+* https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_fc_fcoe_protocol.html["FC/FCoE 프로토콜"^]
 
+
+iSCSI 및 FC 프로토콜을 사용하여 SAN 환경에 스토리지를 제공할 수 있습니다.
+
+image:conceptual_overview_san.gif["개념적 개요 다이어그램"]
+
+iSCSI 및 FC에서는 스토리지 타겟을 LUN(논리 유닛)이라고 하며 호스트에 표준 블록 디바이스로 제공됩니다. LUN을 생성한 다음 이를 이니시에이터 그룹(igroup)에 매핑합니다. 이니시에이터 그룹은 FC 호스트 WWP 및 iSCSI 호스트 노드 이름의 테이블이며 어떤 이니시에이터가 LUN을 액세스할 수 있는지 제어합니다.
+
+FC 대상은 FC 스위치 및 호스트 측 어댑터를 통해 네트워크에 연결되며 WWPN(World Wide Port Name)으로 식별됩니다. iSCSI 대상은 표준 이더넷 네트워크 어댑터(NIC), 소프트웨어 이니시에이터가 있는 TCP 오프로드 엔진(TOE) 카드, 통합 네트워크 어댑터(CNA) 또는 전용 호스트 파스트 어댑터(HBA)를 통해 네트워크에 연결되며 iSCSI 공인 이름(IQN)으로 식별됩니다.

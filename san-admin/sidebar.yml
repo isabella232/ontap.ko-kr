@@ -5,7 +5,7 @@ entries:
 - title: SAN 프로비저닝
   entries:
   - title: 개요
-    url: "/concept_san_provision_overview.html"
+    url: "/san-admin/index.html"
   - title: FCoE에 대한 스위치를 구성합니다
     url: "/san-admin/configure-switches-fcoe-task.html"
   - title: 시스템 요구 사항

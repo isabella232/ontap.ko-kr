@@ -187,7 +187,7 @@ NOTE: 노드 패닉이 발생하는 다른 이유로 인해 테이크오버 발�
 | `-onpanic true '-auto-반환 true '-auto-반환-after-panic true' | 예 
 
 
-| `-on패닉 true '-auto-반환 true '-auto-반환-after-panic false' | 아니요 
+| `-on패닉 true '-auto-반환 true '-auto-반환-after-panic false' | 예 
 
 
 | `-on패닉 true '- auto-반환 false '- auto-반환-after-panic true' | 예 
