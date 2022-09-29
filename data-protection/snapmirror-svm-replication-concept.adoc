@@ -104,7 +104,7 @@ MirrorAndVault(통합 복제)
 
 [NOTE]
 ====
-SVM 복제에서는 버전에 상관없이 지원되지 않습니다.
+SVM 복제에서는 버전에 상관없이 지원되지 않습니다. SVM DR 구성에서 페일오버 및 페일백 작업을 지원하기 위해 소스 SVM 클러스터와 동일한 ONTAP 버전을 실행하는 클러스터에 타겟 SVM이 있어야 합니다.
 
 ====
 link:compatible-ontap-versions-snapmirror-concept.html["SnapMirror 관계에 대한 호환 ONTAP 버전"]
