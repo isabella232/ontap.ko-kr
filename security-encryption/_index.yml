@@ -91,3 +91,7 @@ indexpage:
       url: https://www.netapp.com/pdf.html?item=/media/10674-tr4569.pdf
     - title: 'TR-4572: 랜섬웨어용 NetApp 솔루션'
       url: https://www.netapp.com/media/7334-tr4572.pdf
+    - title: 제로 트러스트 보안 ONTAP 실습 랩을 사용해 보십시오(기존 고객용).
+      url: https://handsonlabs.netapp.com/lab/securing-ontap-zero-trust
+    - title: 시험 구동이 포함된 NetApp 제품 시험 사용(신규 고객의 경우)
+      url: https://www.netapp.com/test-drives/
