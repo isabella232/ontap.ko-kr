@@ -78,6 +78,8 @@ entries:
       url: "/upgrade/task_configuring_ldap_clients_to_use_tls_for_highest_security.html"
     - title: 세션 지향 프로토콜
       url: "/upgrade/concept_considerations_for_session_oriented_protocols.html"
+    - title: SSH 공개 키
+      url: "/upgrade/considerations-authenticate-ssh-public-key-fips-concept.html"
 - title: 업그레이드 소프트웨어 이미지를 구해서 설치하려면 어떻게 해야 합니까?
   url: "/upgrade/task_download_and_install_ontap_software_image.html"
 - title: 어떤 업그레이드 방법을 사용해야 합니까?

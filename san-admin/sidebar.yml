@@ -26,15 +26,17 @@ entries:
   entries:
   - title: 개요
     url: "/san-admin/manage-nvme-concept.html"
+  - title: 라이센스 요구 사항
+    url: "/nvme/license-requirements.html"
+  - title: NVMe 지원 및 제한 사항
+    url: "/nvme/support-limitations.html"
   - title: NVMe를 위한 SVM 구성
     url: "/san-admin/configure-svm-nvme-task.html"
-  - title: NVMe 네임스페이스 지원
-    url: "/san-admin/nvme-namespaces-considerations-concept.html"
   - title: SUSE Linux
     url: "/task_nvme_provision_suse_linux.html"
   - title: 기타 NVMe 호스트
     url: "/san-admin/create-nvme-namespace-subsystem-task.html"
-  - title: NVMe 네임스페이스를 하위 시스템에 매핑
+  - title: NVMe 네임스페이스를 하위 시스템에 매핑합니다
     url: "/san-admin/map-nvme-namespace-subsystem-task.html"
 - title: LUN 관리
   entries:
@@ -120,8 +122,6 @@ entries:
     url: "/san-admin/start-nvme-fc-service-svm-task.html"
   - title: SVM에서 NVMe/FC 서비스를 삭제합니다
     url: "/san-admin/delete-nvme-fc-service-task.html"
-  - title: NVMe를 위한 SVM 구성
-    urL: "/san-admin/configure-svm-nvme-task.html"
   - title: NVMe 네임스페이스 크기 조정
     url: "/nvme/resize-namespace-task.html"
   - title: 네임스페이스를 LUN으로 변환합니다

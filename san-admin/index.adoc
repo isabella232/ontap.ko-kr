@@ -14,7 +14,7 @@ summary: iSCSI 및 FC 프로토콜을 사용하여 System Manager와 함께 SAN 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 :toc-position: content
 
 
