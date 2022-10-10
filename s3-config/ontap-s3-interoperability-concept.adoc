@@ -35,16 +35,16 @@ Cloud Volumes ONTAP
 데이터 보호
  a| 
 * Cloud Sync
+* link:ontap-s3-supported-actions-reference.html#bucket-operations["오브젝트 버전 관리"] (ONTAP 9.11.1부터)
+* link:../s3-snapmirror/index.html["S3 SnapMirror"] (ONTAP 9.10.1부터)
 
  a| 
 * 삭제 코딩
 * 정보 수명 주기 관리
 * MetroCluster
 * NDMP
-* 오브젝트 버전 관리
 * SMTape
 * SnapLock
-* SnapMirror를 참조하십시오
 * SnapMirror 클라우드
 * SVM 재해 복구
 * SyncMirror
@@ -105,9 +105,9 @@ NetApp FlexArray 가상화
  a| 
 추가 기능
  a| 
--
+* link:../s3-audit/index.html["S3 이벤트를 감사합니다"] (ONTAP 9.10.1부터)
+
  a| 
-* 감사
 * FlexCache 볼륨
 * FPolicy를 참조하십시오
 * Qtree
