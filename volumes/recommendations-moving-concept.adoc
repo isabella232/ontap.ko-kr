@@ -45,7 +45,10 @@ summary: 볼륨 이동에는 이동할 볼륨 또는 MetroCluster 구성과 같�
 == FlexClone 볼륨 고려 사항 및 권장 사항
 
 * FlexClone 볼륨은 이동 중에 오프라인 상태가 될 수 없습니다.
-* FlexClone 볼륨을 분할하지 않고 동일한 노드 또는 동일한 SVM의 다른 노드에 있는 한 Aggregate에서 다른 aggregate로 이동할 수 있습니다.
+* 'vol clone split start' 명령을 실행하지 않고도 동일한 노드 또는 동일한 SVM의 다른 노드에 있는 하나의 Aggregate에서 다른 aggregate로 FlexClone 볼륨을 이동할 수 있습니다.
++
+FlexClone 볼륨에서 볼륨 이동 작업을 초기화하면 이동 중에 클론 볼륨이 다른 애그리게이트로 분리됩니다. 클론 볼륨에서 볼륨 이동이 완료된 후 이동한 볼륨이 더 이상 클론으로 표시되지 않고 이전 상위 볼륨과의 클론 관계 없이 독립 볼륨으로 표시됩니다.
+
 * FlexClone 볼륨 스냅샷 복사본은 클론 이동 후 손실되지 않습니다.
 * FlexClone 상위 볼륨을 한 Aggregate에서 다른 aggregate로 이동할 수 있습니다.
 +
