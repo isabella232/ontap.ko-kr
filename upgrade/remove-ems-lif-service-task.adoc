@@ -1,0 +1,71 @@
+---
+permalink: upgrade/remove-ems-lif-service-task.html 
+sidebar: sidebar 
+keywords: ontap, upgrade, after, post, ems, event, management, system, lifs, messages, not, delivered 
+summary: Active IQ 디지털 어드바이저의 Upgrade Advisor 서비스는 업그레이드 계획을 수립하고 불확실성과 위험을 최소화할 수 있는 인텔리전스를 제공합니다. 
+---
+= EMS LIF 서비스를 네트워크 서비스 정책에서 제거합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.7 이전 버전에서 ONTAP 9.8 이상으로 업그레이드하기 전에 EMS(이벤트 관리 시스템) 메시지가 설정되어 있는 경우 업그레이드 후 EMS 메시지가 전달되지 않을 수 있습니다.
+
+업그레이드 중에 EMS LIF 서비스인 Management-EMS가 기존의 모든 서비스 정책에 추가됩니다. 이를 통해 서비스 정책과 연결된 LIF에서 EMS 메시지를 전송할 수 있습니다. 선택한 LIF에 이벤트 알림 대상에 대한 연결 기능이 없으면 메시지가 전달되지 않습니다.
+
+이를 방지하려면 업그레이드 후 대상에 대한 도달 기능을 제공하지 않는 네트워크 서비스 정책을 통해 EMS LIF 서비스를 제거해야 합니다.
+
+.단계
+. EMS 메시지를 전송할 수 있는 LIF 및 관련 네트워크 서비스 정책을 식별합니다.
++
+네트워크 인터페이스 show-fields service-policy-services management-EMS
+
++
+[listing]
+----
+vserver        lif            service-policy
+-------------- ------------ ------------------
+cluster-1      cluster_mgmt
+                                      default-management
+cluster-1      node1-mgmt
+                                      default-management
+cluster-1      node2-mgmt
+                                      default-management
+cluster-1      inter_cluster
+                                      default-intercluster
+4 entries were displayed.
+----
+. 각 LIF에서 EMS 대상에 대한 연결을 확인합니다.
++
+'network ping-lif lif_name - vserver svm_name - destination destination_address'
+
++
+각 노드에서 이 작업을 수행합니다.
+
++
+.예
+[listing]
+----
+cluster-1::> network ping -lif node1-mgmt -vserver cluster-1 -destination 10.10.10.10
+10.10.10.10 is alive
+
+cluster-1::> network ping -lif inter_cluster -vserver cluster-1 -destination 10.10.10.10
+no answer from 10.10.10.10
+----
+. 고급 권한 수준 입력:
++
+진일진일보한 것
+
+. 도달 가능한 LIF가 없는 LIF의 경우 관리 - EMS LIF 서비스를 해당 서비스 정책 에서 제거합니다.
++
+'network interface service-policy remove-service-vserver svm_name-policy service_policy_name-service management-EMS'
+
+. 관리 - EMS LIF가 이제 EMS 타겟에 대한 연결 기능을 제공하는 LIF에만 연결되어 있는지 확인합니다.
++
+네트워크 인터페이스 show-fields service-policy-services management-EMS
+
+
+
+link:https://docs.netapp.com/us-en/ontap/networking/lifs_and_service_policies96.html#service-policies-for-system-svms.["ONTAP 9.6 이상의 LIF 및 서비스 정책"]
