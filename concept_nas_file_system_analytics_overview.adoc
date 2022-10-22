@@ -19,31 +19,45 @@ summary: 파일 시스템 분석은 FlexGroup 또는 FlexVol 볼륨의 콘텐츠
 
 
 [role="lead"]
-ONTAP 9.8부터 사용할 수 있는 FSA(파일 시스템 분석)는 ONTAP FlexGroup 또는 FlexVol 볼륨의 콘텐츠에 대한 주요 데이터 포인트를 수집하고 시각화하기 위한 프레임워크입니다. FSA는 데이터 지역성, 스토리지 소비, 스토리지 최적화, 데이터 보호와 관련된 조직의 데이터 과제를 해결하는 데 도움이 됩니다. FSA는 데이터 사용량에 대한 실시간 통찰력을 제공함으로써 처리량에 대한 서비스 품질 변경, 볼륨을 다른 컨트롤러 또는 애그리게이트로 이동하는 등 효율적인 데이터 관리 및 운영을 위한 의사 결정을 지원합니다.
+ONTAP 9.8에서 파일 시스템 분석(FSA)이 처음 도입되어 ONTAP FlexGroup 또는 FlexVol 볼륨 내의 파일 사용 및 스토리지 용량 추세를 실시간으로 파악할 수 있게 되었습니다. 이 기본 기능을 사용하면 외부 툴이 필요하지 않으며 스토리지 활용 방법과 비즈니스 요구 사항에 맞게 스토리지를 최적화할 수 있는 기회가 있는지 여부에 대한 주요 통찰력을 얻을 수 있습니다.
 
-FSA는 볼륨의 파일 시스템 계층 구조의 각 레벨에 대한 자세한 정보를 제공하므로 다음을 수행할 수 있습니다.
+FSA를 사용하면 NAS에서 볼륨의 파일 시스템 계층 구조의 모든 수준에 대한 가시성을 확보할 수 있습니다. 예를 들어, SVM(Storage VM), 볼륨, 디렉토리, 파일 레벨에서 사용량 및 용량 인사이트를 얻을 수 있습니다. FSA를 사용하여 다음과 같은 질문에 답할 수 있습니다.
 
-* link:task_nas_file_system_analytics_view.html["용량 사용 현황 및 추세를 평가합니다"]
-* link:task_nas_file_system_analytics_view.html["파일 및 디렉토리 수를 모니터링합니다"]
-* link:./file-system-analytics/activity-tracking-task.html["파일 활동 및 기록을 평가합니다"]
-* link:task_nas_file_system_analytics_view.html["비활성 데이터에 대한 정보를 캡처합니다"]
-* link:task_nas_file_system_analytics_take_corrective_action.html["통찰력을 바탕으로 시정 조치 수행(ONTAP 9.9.1부터 시작)"]
-* link:./file-system-analytics/activity-tracking-task.html["높은 트래픽 및 높은 처리량 활동에 대한 정보 분석 및 다운로드(ONTAP 9.10.1부터 시작)"]
+* 내 저장소를 채우는 것은 무엇이며, 다른 저장 위치로 이동할 수 있는 대용량 파일이 있습니까?
+* 가장 활성화된 볼륨, 디렉토리 및 파일은 무엇입니까? 스토리지 성능이 사용자의 요구사항에 최적화되어 있습니까?
+* 지난 달에 추가된 데이터의 양은 어느 정도입니까?
+* 가장 활동적이거나 활동이 적은 스토리지 사용자는 누구입니까?
+* 기본 스토리지에 얼마나 비활성 또는 휴면 데이터가 있습니까? 해당 데이터를 저비용 콜드 계층으로 이동할 수 있습니까?
+* 계획된 서비스 품질 변경이 자주 액세스하는 중요한 파일에 대한 액세스에 부정적인 영향을 미칩니까?
 
 
-파일 시스템 분석은 데이터의 목록과 그래픽 뷰를 제공합니다. 그래픽 뷰에서 다양한 크기의 블록과 색상 음영은 디렉토리의 그래픽 표현을 제공합니다. 아래 표시된 목록 보기에서 각 디렉토리가 사용하는 공간의 양과 각 디렉토리에 대한 대화형 그래프 및 숫자 형식의 수정 및 액세스 기록을 확인할 수 있습니다.
+파일 시스템 분석은 ONTAP 시스템 관리자에 통합됩니다. System Manager 내에서 제공되는 뷰:
 
-image::fsa-listview.png[FSA 목록 보기의 화면 캡처. 4개의 디렉토리는 데이터 사용량의 내림차순으로 표시됩니다. 각 디렉터리는 각각의 액세스 및 수정 기록을 보여 주는 두 개의 선형 차트로 애니메이션됩니다.]
+* 실시간 가시성을 통해 데이터를 효과적으로 관리하고 운영할 수 있습니다
+* 실시간 데이터 수집 및 집계
+* 관련 성능 프로파일과 함께 하위 디렉토리와 파일 크기 및 개수를 계산합니다
+* 수정 및 액세스 기록을 위한 파일 에이지 히스토그램
 
-파일 시스템 분석 데이터는 ONTAP 시스템 관리자를 사용하여 표시됩니다. ONTAP REST API를 사용하여 데이터에 프로그래밍 방식으로 액세스할 수도 있습니다.
 
-* 릴리스별 기능 가용성 *
+image:flexgroup1.png["FlexGroup 분석"]
+
+
+
+== 지원되는 볼륨 유형
+
+파일 시스템 분석은 FlexCache 캐시 및 SnapMirror 대상 볼륨을 제외하고 활성 NAS 데이터가 있는 볼륨에 대한 가시성을 제공하도록 설계되었습니다.
+
+
+
+== 파일 시스템 분석 기능 가용성
+
+각 ONTAP 릴리즈는 파일 시스템 분석의 분석 범위를 확장합니다.
 
 [cols="3,1,1,1,1"]
 |===
 
 
-|  | ONTAP 9.8 | ONTAP 9.9.1 | ONTAP 9.10.1 | ONTAP 9.11.1 
+|  | ONTAP 9.11.1 | ONTAP 9.10.1 | ONTAP 9.9.1 | ONTAP 9.8 
 
 
 | System Manager의 시각화 | X | X | X | X 
@@ -55,25 +69,22 @@ image::fsa-listview.png[FSA 목록 보기의 화면 캡처. 4개의 디렉토리
 | 비활성 데이터 정보 | X | X | X | X 
 
 
-| 7-Mode 시스템에서 전환된 볼륨의 가용성 |  | X | X | X 
+| Data ONTAP 7-Mode에서 전환된 볼륨 지원 | X | X | X |  
 
 
-| System Manager에서 비활성 기간을 변경하는 옵션입니다 |  | X | X | X 
+| System Manager에서 비활성 기간을 사용자 지정할 수 있습니다 | X | X | X |  
 
 
-| 활동 추적(볼륨 수준) |  |  | X | X 
+| 볼륨 레벨 활동 추적 | X | X |  |  
 
 
-| CSV로 다운로드(활동 추적, 볼륨 레벨) |  |  | X | X 
+| 활동 추적 데이터를 CSV로 다운로드합니다 | X | X |  |  
 
 
-| 활동 추적(SVM 레벨) |  |  |  | X 
+| SVM 레벨의 활동 추적 을 참조하십시오 | X |  |  |  
 
 
-| CSV로 다운로드(활동 추적, SVM 레벨) |  |  |  | X 
-
-
-| 타임라인 |  |  |  | X 
+| 타임라인 | X |  |  |  
 |===
 
 
@@ -82,5 +93,5 @@ image::fsa-listview.png[FSA 목록 보기의 화면 캡처. 4개의 디렉토리
 video::0oRHfZIYurk[youtube,width=848,height=480]
 .추가 참고 자료
 * link:https://www.netapp.com/media/20707-tr-4867.pdf["TR 4687: ONTAP 파일 시스템 분석에 대한 모범 사례 지침"^]
-* link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/High_or_fluctuating_latency_after_turning_on_NetApp_ONTAP_File_System_Analytics["기술 자료: NetApp ONTAP 파일 시스템 분석을 켠 후 지연 시간이 길거나 변동이 심한 경우"^].
+* link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/High_or_fluctuating_latency_after_turning_on_NetApp_ONTAP_File_System_Analytics["기술 자료: NetApp ONTAP 파일 시스템 분석을 켠 후 지연 시간이 길거나 변동이 심한 경우"^]
 
