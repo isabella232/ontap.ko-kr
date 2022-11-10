@@ -17,7 +17,7 @@ iSCSI 스토리지를 프로비저닝한 후에는 온프레미스 iSCSI 액세�
 
 스냅샷 복사본, 중복제거, 압축, 씬 프로비저닝과 같이 사내에서 사용할 수 있는 동일한 iSCSI SAN 기능도 클라우드에서 사용할 수 있으며 이와 동일한 방식으로 작동합니다.
 
-https://cloud.netapp.com/blog/cvo-blg-announcement-of-new-feature-in-cloud-manager["Cloud Manager로 블록 스토리지 프로비저닝"]
+https://cloud.netapp.com/blog/cvo-blg-announcement-of-new-feature-in-cloud-manager["BlueXP를 사용한 블록 스토리지 용량 할당"]
 
 https://docs.netapp.com/us-en/occm/task_provisioning_storage.html?q=nfs#provisioning-iscsi-luns["Cloud Volumes ONTAP에서 iSCSI LUN 프로비저닝"]
 

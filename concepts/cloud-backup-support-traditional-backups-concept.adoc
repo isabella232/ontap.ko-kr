@@ -17,10 +17,10 @@ summary: 이전에는 D2D 전용이었었던 SnapMirror 및 SnapVault 데이터 
 
 ONTAP 9.8부터 SnapMirror Cloud는 ONTAP 인스턴스에서 오브젝트 스토리지 엔드포인트로 Snapshot 복사본을 비동기식으로 복제합니다. SnapMirror 클라우드 복제에는 데이터 보호 워크플로우의 오케스트레이션 및 관리를 위한 라이센스가 부여된 애플리케이션이 필요합니다. SnapMirror 클라우드 관계는 ONTAP 시스템에서 지원되며 AWS S3, Google 클라우드 스토리지 플랫폼 또는 Microsoft Azure Blob Storage를 포함하여 사내 및 퍼블릭 클라우드 오브젝트 스토리지 대상을 선택할 수 있어 공급업체 백업 소프트웨어의 효율성이 향상됩니다. 지원되는 인증 애플리케이션 및 오브젝트 스토리지 공급업체 목록은 NetApp 담당자에게 문의하십시오.
 
-클라우드 네이티브 데이터 보호에 관심이 있는 경우 Cloud Manager를 사용하여 사내 볼륨과 퍼블릭 클라우드의 Cloud Volumes ONTAP 인스턴스 간에 SnapMirror 또는 SnapVault 관계를 구성할 수 있습니다.
+클라우드 네이티브 데이터 보호에 관심이 있는 경우, BlueXP를 사용하여 사내 볼륨과 퍼블릭 클라우드의 Cloud Volumes ONTAP 인스턴스 간에 SnapMirror 또는 SnapVault 관계를 구성할 수 있습니다.
 
-또한, Cloud Manager는 SaaS(Software as a Service) 모델을 사용하여 Cloud Volumes ONTAP 인스턴스의 백업도 제공합니다. 사용자는 NetApp Cloud Central에서 제공되는 Cloud Backup을 사용하여 Cloud Volumes ONTAP 인스턴스를 S3 및 S3 호환 퍼블릭 클라우드 오브젝트 스토리지에 백업할 수 있습니다.
+또한 BlueXP는 SaaS(Software as a Service) 모델을 사용하여 Cloud Volumes ONTAP 인스턴스의 백업도 제공합니다. 사용자는 NetApp Cloud Central에서 제공되는 Cloud Backup을 사용하여 Cloud Volumes ONTAP 인스턴스를 S3 및 S3 호환 퍼블릭 클라우드 오브젝트 스토리지에 백업할 수 있습니다.
 
-https://www.netapp.com/cloud-services/cloud-manager/documentation/["Cloud Volumes ONTAP 및 Cloud Manager 문서 리소스"]
+https://www.netapp.com/cloud-services/cloud-manager/documentation/["Cloud Volumes ONTAP 및 BlueXP 문서 리소스"]
 
 https://cloud.netapp.com["NetApp Cloud Central에서"]

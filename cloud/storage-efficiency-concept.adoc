@@ -17,4 +17,4 @@ summary: 사내 ONTAP의 동일한 스토리지 효율성 기능을 클라우드
 
 https://cloud.netapp.com/blog/storage-efficiency-success-stories-with-cloud-volumes-ontap["Cloud Volumes ONTAP 기능 소개: 스토리지 효율성 사례 연구"]
 
-https://docs.netapp.com/us-en/occm/task_planning_your_config.html["Cloud Manager에서 볼륨 사용 프로필을 사용하여 클라우드 스토리지 효율성 관리"]
+https://docs.netapp.com/us-en/occm/task_planning_your_config.html["BlueXP의 볼륨 사용 프로필을 사용하여 클라우드 스토리지 효율성을 관리합니다"]

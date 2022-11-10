@@ -22,7 +22,7 @@ SnapMirror 클라우드 관계는 ONTAP 시스템 간에 구성할 수 있으며
 SnapMirror 클라우드 복제는 라이센스가 부여된 ONTAP 기능이며 데이터 보호 워크플로우를 오케스트레이션하기 위해 승인된 애플리케이션이 필요합니다. SnapMirror 클라우드 백업을 관리할 수 있는 몇 가지 오케스트레이션 옵션을 사용할 수 있습니다.
 
 * SnapMirror 클라우드 복제를 지원하는 여러 타사 백업 파트너 참여 공급업체는 에서 이용할 수 있습니다 xref:https://www.netapp.com/blog/new-backup-architecture-snapdiff-v3/[NetApp 블로그].
-* ONTAP 환경을 위한 NetApp 기본 솔루션을 위한 Cloud Manager 및 Cloud Backup
+* ONTAP 환경을 위한 NetApp 기본 솔루션인 BlueXP 및 클라우드 백업
 * 데이터 보호 워크플로우를 위한 맞춤형 소프트웨어를 개발하거나 자동화 툴을 활용하기 위한 API
 
 

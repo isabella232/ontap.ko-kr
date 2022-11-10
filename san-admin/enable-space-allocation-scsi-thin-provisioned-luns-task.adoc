@@ -16,6 +16,10 @@ summary: 공간 할당 옵션을 Enabled로 설정하면 ONTAP는 볼륨에 공�
 기본적으로 'pace-allocation' 옵션은 'disabled'로 설정되어 있으며, 공간 할당을 활성화하려면 LUN을 오프라인 상태로 전환해야 합니다. 공간 할당을 설정한 후에는 호스트에서 검색을 수행해야 호스트에서 공간 할당이 설정되었음을 인식할 수 있습니다.
 
 .단계
+. LUN을 오프라인 상태로 전환합니다.
++
+`lun modify -vserver vserver_name -volume volume_name -lun lun_name -state offline`
+
 . '-space-allocation' 파라미터를 'ENABLED'로 설정한다.
 +
 'lun modify -vserver_vserver_name_-volume_volume_name_-lun_lun_name_-space-allocation enabled

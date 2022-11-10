@@ -15,7 +15,7 @@ FlexCache 볼륨을 미리 채워 캐시된 데이터에 액세스하는 데 걸
 
 .무엇을 &#8217;필요로 할거야
 * 고급 권한 레벨의 클러스터 관리자여야 합니다
-* 선행 모집단에 대해 전달하는 경로가 유효해야 하거나 미리 채우기 작업이 실패합니다.
+* Prepopulation에 대해 전달하는 경로가 존재해야 하거나 미리 채우기 작업이 실패합니다.
 
 
 .이 작업에 대해
@@ -47,6 +47,18 @@ cluster1::*> flexcache prepopulate start -cache-vserver vs2 -cache-volume fg_cac
 cluster1::*> flexcache prepopulate start -cache-vserver vs2 -cache-volume fg_cachevol_1 -path-list /dir1,/dir2,/dir3,/dir4
   (volume flexcache prepopulate start)
 [JobId 208]: FlexCache prepopulate job queued.
+----
++
+이 예제에는 선행 모집단의 잘못된 경로가 포함되어 있습니다.
+
++
+[listing]
+----
+cluster1::*> flexcache prepopulate start -cache-volume vol_cache2_vs3_c2_vol_origin1_vs1_c1 -cache-vserver vs3_c2 -path-list /dir1, dir5, dir6
+  (volume flexcache prepopulate start)
+
+Error: command failed: Path(s) "dir5, dir6" does not exist in origin volume
+       "vol_origin1_vs1_c1" in Vserver "vs1_c1".
 ----
 . 읽은 파일 수 표시:
 +

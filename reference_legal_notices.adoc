@@ -50,6 +50,10 @@ https://www.netapp.com/us/legal/privacypolicy/index.aspx[]
 
 이 제품에 사용된 타사 저작권 및 라이센스에 대한 정보를 제공합니다.
 
+
+
+=== ONTAP
+
 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2883760["ONTAP 9.12.0에 대한 고지 사항"^]
 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2882103["ONTAP 9.11.1에 대한 고지 사항"^]
 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2879817["ONTAP 9.10.1에 대한 고지 사항"^]
@@ -62,3 +66,11 @@ link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2844310["ONTAP 9.4에
 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2839209["ONTAP 9.3에 대한 고지 사항"^]
 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2702054["ONTAP 9.2에 대한 고지 사항"^]
 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2516795["ONTAP 9.1에 대한 참고 사항"^]
+
+
+
+=== MCC IP를 위한 ONTAP 중재자
+
+link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2870521["9.9.1 MCC IP에 대한 ONTAP 중재자를 위한 고지 사항"^]
+link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2870521["9.8 MCC IP용 ONTAP 중재자 공지"^]
+link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2870521["9.7 MCC IP에 대한 ONTAP 중재자를 위한 고지 사항"^]
