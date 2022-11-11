@@ -36,14 +36,16 @@ entries:
     url: "/revert/task_identifying_and_moving_cifs_servers_in_workgroup_mode.html"
   - title: 중복제거된 볼륨
     url: "/revert/task_reverting_systems_with_deduplicated_volumes.html"
-  - title: 2 또는 4노드 MetroCluster
-    url: "/revert/task_disable_asuo.html"
   - title: Snapshot 복사본
     url: "/revert/task_preparing_snapshot_copies_before_reverting.html"
   - title: SHA-2 해시 기능을 사용하는 사용자 계정
     url: "/revert/identify-user-sha2-hash-user-accounts.html"
   - title: 랜섬웨어 방지 라이센스
     url: "/revert/anti-ransomware-license-task.html"
+  - title: 2 또는 4노드 MetroCluster
+    url: "/revert/task_disable_asuo.html"
+  - title: IPsec을 비활성화합니다
+    url: "/revert/task-disable-ipsec.html"
 - title: 복원 소프트웨어 이미지를 구해서 설치하려면 어떻게 해야 합니까?
   url: "/revert/task_download_and_install_ontap_software_image.html"
 - title: 내 클러스터를 되돌립니다

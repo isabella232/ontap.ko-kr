@@ -1,0 +1,64 @@
+---
+permalink: s3-multiprotocol/create-nas-bucket-task.html 
+sidebar: sidebar 
+keywords: s3, svm, bucket, object, server, versioning, protocol, filesystems, nas, directories 
+summary: S3 NAS 버킷은 S3 버킷 이름과 NAS 경로 사이의 매핑입니다. 
+---
+= S3 NAS 버킷을 생성합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+S3 NAS 버킷은 S3 버킷 이름과 NAS 경로 사이의 매핑입니다. S3 NAS 버킷을 사용하면 기존 볼륨 및 디렉토리 구조가 있는 SVM 네임스페이스의 모든 부분에 S3 액세스를 제공할 수 있습니다.
+
+.시작하기 전에
+* S3 오브젝트 서버는 NAS 데이터를 포함하는 SVM으로 구성됩니다.
+* NAS 데이터는 에 부합합니다 link:nas-data-requirements-client-access-reference.html["S3 클라이언트 액세스에 대한 요구 사항"].
+
+
+SVM의 루트 디렉토리 내에 모든 파일 및 디렉토리 세트를 지정하도록 S3 NAS 버킷을 구성할 수 있습니다.
+
+다음 매개 변수의 조합을 기반으로 NAS 데이터에 대한 액세스를 허용하거나 허용하지 않는 버킷 정책을 설정할 수도 있습니다.
+
+* 파일 및 디렉터리
+* 사용자 및 그룹 권한
+* S3 작업
+
+
+예를 들어, 대규모 사용자 그룹에 읽기 전용 데이터 액세스 권한을 부여하는 별도의 버킷 정책과 제한된 그룹이 해당 데이터의 하위 집합에 대한 작업을 수행할 수 있도록 하는 다른 버킷 정책이 필요할 수 있습니다.
+
+S3 NAS “버킷”은 맵핑이며 S3 버킷이 아니기 때문에 표준 S3 버킷의 다음 속성은 S3 NAS 버킷에 적용되지 않습니다.
+
+* * aggr-list\aggr-list-multiplier\storage-service-level\volume\size\exclude-aggr-list\QoS-policy-group * + S3 NAS 버킷을 구성할 때 볼륨 또는 qtree가 생성되지 않습니다.
+* 역할 * 이 보호됨\is-protected-on-ONTAP\is-protected-on-cloud * + S3 NAS 버킷은 S3 SnapMirror를 사용하여 보호되거나 미러링되지 않지만 볼륨 단위로 제공되는 일반 SnapMirror 보호를 사용합니다.
+* * 버전 관리 상태 * + NAS 볼륨에는 일반적으로 서로 다른 버전을 저장할 수 있는 스냅샷 기술이 있습니다. 그러나 버전 관리는 현재 S3 NAS 버킷에서 사용할 수 없습니다.
+* 볼륨 명령을 통해 NAS 볼륨에 대해 * logical-used\object-count * + 등가 통계를 사용할 수 있습니다.
+
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+NAS 지원 스토리지 VM에 새 S3 NAS 버킷을 추가합니다.
+
+. 스토리지 > 버킷 * 을 클릭한 다음 * 추가 * 를 클릭합니다.
+. S3 NAS 버킷의 이름을 입력하고 스토리지 VM을 선택한 다음 크기를 입력하지 말고 * More Options * 를 클릭합니다.
+. 유효한 경로 이름을 입력하거나 찾아보기를 클릭하여 유효한 경로 이름 목록에서 선택합니다. + 올바른 경로 이름을 입력하면 S3 NAS 구성과 관련이 없는 옵션이 숨겨집니다.
+. S3 사용자를 NAS 사용자 및 생성된 그룹에 이미 매핑한 경우 해당 사용 권한을 구성한 다음 * 저장 * 을 클릭합니다. +이 단계에서 사용 권한을 구성하기 전에 S3 사용자를 NAS 사용자에게 이미 매핑해야 합니다.
+
+
+그렇지 않으면 * 저장 * 을 클릭하여 S3 NAS 버킷 구성을 완료합니다.
+
+--
+.CLI를 참조하십시오
+--
+NAS 파일 시스템이 포함된 SVM에서 S3 NAS 버킷 생성 를 누릅니다
+`vserver object-store-server bucket create -vserver _svm_name_ -bucket _bucket_name_ -type nas -nas-path _junction_path_ [-comment _text_]`
+
+예: +
+`cluster1::> vserver object-store-server bucket create -bucket testbucket -type nas -path /vol1`
+
+--
+====

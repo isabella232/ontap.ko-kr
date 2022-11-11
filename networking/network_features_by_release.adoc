@@ -24,6 +24,30 @@ summary: 각 ONTAP 9 릴리즈에서 사용할 수 있는 네트워크 기능의
 
 
  a| 
+ONTAP 9.12.1
+ a| 
+LIF 서비스
+ a| 
+를 사용할 수 있습니다 `management-log-forwarding` 감사 로그를 원격 syslog 서버로 전달하는 데 사용되는 LIF를 제어하는 서비스입니다.
+
+로그 전달 기능에 대한 자세한 내용은 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap/system-admin/forward-command-history-log-file-destination-task.html["감사 로그 대상을 관리합니다"].
+
+link:lifs_and_service_policies96.html["ONTAP 9.6 이상의 LIF 및 서비스 정책"]
+
+
+
+ a| 
+ONTAP 9.12.1
+ a| 
+System Manager 네트워킹 개선 사항
+ a| 
+System Manager는 네트워크 인터페이스를 생성하는 동안 서브넷 및 홈 포트 선택에 대한 제어 기능을 제공합니다. System Manager는 NFS/RDMA 연결의 구성도 지원합니다.
+
+link:https://docs.netapp.com/us-en/ontap/networking/create_svms.html["SVM을 생성합니다"]
+
+
+
+ a| 
 ONTAP 9.12.0
  a| 
 System Manager 네트워킹 개선 사항

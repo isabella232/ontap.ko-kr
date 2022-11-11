@@ -17,7 +17,21 @@ SnapLock 라이센스를 사용하면 SnapLock 준수 모드와 SnapLock 엔터�
 
 영업 담당자로부터 SnapLock 라이센스 키를 받아야 합니다.
 
-.단계
+ONTAP 시스템 관리자 또는 ONTAP CLI를 사용하여 이 작업을 수행합니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+. 클러스터 > 설정 > 라이센스 > 라이센스 추가 * 로 이동합니다.
+. 추가 * 를 클릭합니다.
+. 찾아보기 * 를 클릭하여 NetApp 라이센스 파일을 찾습니다.
+. 추가 * 를 클릭합니다.
+
+
+--
+.CLI를 참조하십시오
+--
 . 노드에 대한 SnapLock 라이센스를 설치합니다.
 +
 '* 시스템 사용권 추가-사용권-코드_사용권_키_*'
@@ -32,3 +46,6 @@ cluster1::> system license add -license-code AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 ----
 . 각 노드 라이센스에 대해 이전 단계를 반복합니다.
 
+
+--
+====

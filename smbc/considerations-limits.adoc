@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
-permalink: smbc/smbc_plan_additional_restrictions_and_limitations.html 
+permalink: smbc/considerations-limits.html 
 keywords: SM-BC, SMBC, restrictions, consistency group, endpoint limits, solaris, aix 
 summary: SnapMirror 비즈니스 연속성 솔루션을 사용할 때는 몇 가지 추가 제한 사항과 제한이 있습니다. 
 ---
-= 추가 제한 및 제한 사항
+= 고려 사항 및 제한 사항
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,11 +14,15 @@ summary: SnapMirror 비즈니스 연속성 솔루션을 사용할 때는 몇 가
 
 
 [role="lead"]
-SnapMirror 비즈니스 연속성 솔루션을 사용할 때는 몇 가지 추가 제한 사항과 제한이 있습니다.
+SnapMirror 비즈니스 연속성 솔루션 사용을 고려해야 할 몇 가지 고려사항, 제한사항 및 제한사항이 있습니다.
 
 
 
-== 클러스터의 일관성 그룹
+== 개체 제한
+
+
+
+=== 클러스터의 일관성 그룹
 
 SM-BC가 포함된 클러스터의 정합성 보장 그룹 제한은 관계를 기준으로 계산되며 사용되는 ONTAP 버전에 따라 달라집니다. 제한은 플랫폼에 독립적입니다.
 
@@ -36,13 +40,13 @@ SM-BC가 포함된 클러스터의 정합성 보장 그룹 제한은 관계를 �
 |===
 
 
-== 정합성 보장 그룹당 볼륨
+=== 정합성 보장 그룹당 볼륨
 
 ONTAP 9.8 ~ 9.9.1에서 SM-BC 정합성 보장 그룹 관계당 지원되는 최대 볼륨 수는 12개이며, 이는 플랫폼과 무관한 제한입니다. ONTAP 9.10.1부터 SM-BC 관계당 지원되는 최대 볼륨 수는 16개입니다.
 
 
 
-== 볼륨
+=== 볼륨
 
 SM-BC의 제한은 관계 수가 아닌 끝점 수를 기준으로 계산됩니다. 12개의 볼륨이 있는 정합성 보장 그룹은 소스와 대상 모두에 12개의 엔드포인트를 제공합니다. SM-BC 및 SnapMirror Synchronous 관계는 총 엔드포인트 수에 기여합니다.
 
@@ -62,7 +66,7 @@ SM-BC의 제한은 관계 수가 아닌 끝점 수를 기준으로 계산됩니�
 |===
 
 
-== SAN 오브젝트 제한
+=== SAN 오브젝트 제한
 
 다음 표에는 플랫폼에 관계없이 적용되는 다음과 같은 SAN 오브젝트 제한사항이 나와 있습니다.
 
@@ -89,21 +93,25 @@ SM-BC의 제한은 관계 수가 아닌 끝점 수를 기준으로 계산됩니�
 |===
 
 
-== NTFS 보안 스타일
-
-NTFS 보안 스타일은 SM-BC 볼륨에서 지원되지 않습니다.
+== 지원되는 구성 및 기능
 
 
 
-== 팬아웃 구성
+=== 부분 파일 복원
 
-SM-BC 지원 xref:../data-protection/supported-deployment-config-concept.html[팬아웃 구성] ONTAP 9.11.1부터 무르안볼트(MirorAllSnapshots) 정책과 함께. 팬아웃 구성은 XDPDefault 정책으로 지원되지 않습니다.
+ONTAP 9.12.1부터 SM-BC 볼륨에 대해 부분 LUN 복원이 지원됩니다. 이 프로세스에 대한 자세한 내용은 을 참조하십시오 link:../data-protection/restore-part-file-snapshot-task.html["스냅샷 복사본에서 파일 일부를 복원합니다"].
+
+
+
+=== 팬아웃 구성
+
+SM-BC 지원 xref:../data-protection/supported-deployment-config-concept.html[팬아웃 구성] 를 사용하여 `MirrorAllSnapshots` 정책 및 은 ONTAP 9.11.1부터 시작됩니다 `MirrorAndVault` 정책. 의 SM-BC에서는 팬아웃 구성이 지원되지 않습니다 `XDPDefault` 정책.
 
 팬아웃 구성의 SM-BC 대상에서 페일오버가 발생하면 수동으로 페일오버해야 합니다 xref:resume-protection-fan-out-configuration.html[팬아웃 구성에서 보호를 재개합니다].
 
 
 
-== AIX
+=== AIX
 
 ONTAP 9.11.1부터 AIX는 SM-BC에서 지원됩니다. AIX 구성에서 운영 클러스터는 "활성" 클러스터입니다.
 
@@ -113,7 +121,7 @@ SM-BC를 사용하는 AIX 호스트에 대해 구성하려면 기술 자료 문�
 
 
 
-== SM-BC 구성에 대한 Solaris 호스트 설정 권장 사항
+=== SM-BC 구성에 대한 Solaris 호스트 설정 권장 사항
 
 ONTAP 9.10.1부터 SM-BC는 Solaris 11.4를 지원합니다. SM-BC 환경에서 계획되지 않은 사이트 장애 조치 전환이 발생할 때 Solaris 클라이언트 응용 프로그램이 중단되지 않도록 하려면 "f_tpgs" 매개 변수를 사용하여 Solaris 11.4 호스트를 구성해야 합니다.
 
@@ -146,7 +154,7 @@ NOTE: scsi-vhci-failover-override가 적용되면 conf는 sVL_FOPS_NAME에 추�
 
 
 
-== HP-UX SM-BC 구성에 대해 알려진 문제 및 제한 사항
+=== HP-UX SM-BC 구성에 대해 알려진 문제 및 제한 사항
 
 ONTAP 9.10.1부터 HP-UX용 SM-BC가 지원됩니다. SM-BC 구성의 격리된 마스터 클러스터에서 자동 비계획 페일오버(AUFO) 이벤트가 발생하면 HP-UX 호스트에서 입출력이 재개되는 데 120초 이상이 걸릴 수 있습니다. 실행 중인 애플리케이션에 따라 I/O 중단 또는 오류 메시지가 발생할 수 없습니다. 격리된 마스터 클러스터에서 AUFO 이벤트가 발생하면 HP-UX 호스트에서 중단 허용 시간이 120초 미만인 애플리케이션을 재시작해야 합니다.
 

@@ -37,25 +37,6 @@ ONTAP 9.10.1부터 System Manager는 * 보호 > 관계 * 메뉴에서 LUN 맵을
 
 
 
-== 원격 SM-BC 정책을 설정합니다
-
-.단계
-. SM-BC 사용을 위한 사전 요구 사항을 충족하는지 확인합니다. 을 참조하십시오 link:../smbc/smbc_plan_prerequisites.html["SM-BC 필수 구성 요소"]
-
-
-
-NOTE: NAS 액세스를 위해 마운트된 볼륨에 SM-BC 관계를 설정할 수 없습니다.
-
-. 정합성 보장 그룹 메뉴에서 생성한 정합성 보장 그룹을 선택합니다.
-. 개요 페이지 오른쪽 상단에서 * 자세히 * 를 선택한 다음 * 보호 * 를 선택합니다.
-. 소스 측 정보는 페이지의 왼쪽에 자동으로 맞추어야 합니다.
-. 대상에 적합한 클러스터 및 스토리지 VM을 선택합니다. 보호 정책을 선택합니다. Initialize relationship * 이 선택되어 있는지 확인합니다.
-. 저장 * 을 클릭합니다.
-. 정합성 보장 그룹을 초기화하고 동기화해야 합니다. 이 작업이 완료되면 * SnapMirror(원격) * 에서 상태가 옆에 ""보호됨""으로 표시되어야 합니다 image:../media/icon_shield.png["Alt = 녹색 차폐 아이콘"].
-
-
-
-
 == 2단계 CG 스냅샷 생성
 
 ONTAP 9.11.1부터 일관성 그룹은 일관성 그룹(CG) 스냅샷 생성을 위한 2단계 커밋을 지원합니다. 이 기능은 ONTAP REST API에서만 사용할 수 있습니다. 2단계 CG 스냅샷 생성은 스냅샷 생성에만 사용할 수 있고 일관성 그룹을 프로비저닝하거나 일관성 그룹을 복원하는 경우에는 사용할 수 없습니다.
@@ -75,10 +56,10 @@ ONTAP REST API에 대한 자세한 내용은 를 참조하십시오 link:https:/
 ----
 curl -k -X POST 'https://<IP_address>/application/consistency-groups/<cg-uuid>/snapshots?action=start&action_timeout=7' -H "accept: application/hal+json" -H "content-type: application/json" -d '
 {
-  "name": "name_of_this_snapshot",
+  "name": "<snapshot_name>",
   "consistency_type": "crash",
   "comment": "<comment>",
-  "snapmirror_label": "<snap_mirror label>"
+  "snapmirror_label": "<SnapMirror_label>"
 }'
 ----
 . POST 요청이 성공하면 출력에 스냅샷 uuid가 포함됩니다. 이 정보를 사용하여 스냅샷을 커밋하기 위한 패치 요청을 제출합니다.
@@ -89,7 +70,30 @@ curl -k -X PATCH 'https://<IP_address>/application/consistency-groups/<cg_uuid>/
 ----
 
 
+
+
+== 원격 SM-BC 정책을 설정합니다
+
+.단계
+. SM-BC 사용을 위한 사전 요구 사항을 충족하는지 확인합니다. 을 참조하십시오 link:../smbc/smbc_plan_prerequisites.html["SM-BC 필수 구성 요소"]
+
+
+
+NOTE: NAS 액세스를 위해 마운트된 볼륨에 SM-BC 관계를 설정할 수 없습니다.
+
+. 정합성 보장 그룹 메뉴에서 생성한 정합성 보장 그룹을 선택합니다.
+. 개요 페이지 오른쪽 상단에서 * 자세히 * 를 선택한 다음 * 보호 * 를 선택합니다.
+. 소스 측 정보는 페이지의 왼쪽에 자동으로 맞추어야 합니다.
+. 대상에 적합한 클러스터 및 스토리지 VM을 선택합니다. 보호 정책을 선택합니다. Initialize relationship * 이 선택되어 있는지 확인합니다.
+. 저장 * 을 클릭합니다.
+. 정합성 보장 그룹을 초기화하고 동기화해야 합니다. 이 작업이 완료되면 * SnapMirror(원격) * 에서 상태가 옆에 ""보호됨""으로 표시되어야 합니다 image:../media/icon_shield.png["Alt = 녹색 차폐 아이콘"].
+
+
+SM-BC에 대한 자세한 내용은 를 참조하십시오 link:../smbc/index.html["SM-BC 개요"].
+
+link:clone-task.html["일관성 그룹의 클론을 생성합니다"]
 link:../task_dp_configure_snapshot.html["스냅샷 복사본을 구성합니다"]
 link:../task_dp_create_custom_data_protection_policies.html["사용자 지정 데이터 보호 정책을 생성합니다"]
 link:../task_dp_recover_snapshot.html["Snapshot 복사본에서 복구"]
 link:../task_dp_restore_from_vault.html["이전 스냅샷 복사본에서 볼륨을 복원합니다"]
+link:../smbc/index.html["SM-BC 개요"]

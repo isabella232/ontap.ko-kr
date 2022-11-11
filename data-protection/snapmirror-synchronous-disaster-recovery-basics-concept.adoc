@@ -23,7 +23,7 @@ HA 쌍당 SnapMirror Synchronous 복제 작업 수의 제한은 컨트롤러 모
 |===
 
 
-| 플랫폼 | ONTAP 9.9.1 이전 릴리즈 | ONTAP 9.9.1 | ONTAP 9.10.1 | ONTAP 9.11.1 
+| 플랫폼 | ONTAP 9.9.1 이전 릴리즈 | ONTAP 9.9.1 | ONTAP 9.10.1 | ONTAP 9.11.1\ONTAP 9.12.1 
 
 
  a| 
@@ -68,6 +68,8 @@ ONTAP Select
 
 == 지원되는 기능
 
+ONTAP 9.12.1은 AFF/ASA 플랫폼에서 무중단 SnapMirror Synchronous 운영(NDO)을 지원합니다. 무중단 운영을 지원하므로 업무 중단 시간을 예약하지 않고 일반적인 여러 유지보수 작업을 수행할 수 있습니다. 지원되는 운영에는 2개의 클러스터 각각에서 단일 노드가 정상 작동하는 경우 테이크오버 및 반환, 볼륨 이동이 포함됩니다.
+
 소스 및 대상 클러스터의 모든 노드에서 ONTAP 9.10.1을 실행하는 경우 ONTAP 9.10.1에서 SnapMirror Synchronous 기술에 대해 다음 기능이 지원됩니다.
 
 * NFSv4.2
@@ -111,6 +113,8 @@ ONTAP 9.7에서 SnapMirror Synchronous 기술에 지원되는 기능은 다음�
 
 동기식 SnapMirror 관계에서는 다음 기능이 지원되지 않습니다.
 
+* 스냅샷 복사본을 무단 복제했습니다
+* 정합성 보장 그룹
 * MetroCluster 구성
 * SFMAD
 * SFCoD
@@ -149,4 +153,4 @@ SnapMirror Synchronous 관계의 경우 시스템은 일정한 간격으로 관�
 
 StrictSync 모드에서 SnapMirror Synchronous 관계에 대한 관계 상태가 "OutOfSync"가 되면 운영 볼륨에 대한 모든 I/O 작업이 중지됩니다. 동기 모드의 SnapMirror Synchronous 관계에 대한 "OutOfSync" 상태는 운영 볼륨에 영향을 주는 것이 아니라 I/O 작업이 운영 볼륨에 허용됩니다.
 
-http://www.netapp.com/us/media/tr-4733.pdf["NetApp 기술 보고서 4733: ONTAP 9.11.1에 대한 SnapMirror Synchronous"^]
+http://www.netapp.com/us/media/tr-4733.pdf["NetApp 기술 보고서 4733: SnapMirror Synchronous 구성 및 모범 사례"^]

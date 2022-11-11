@@ -21,5 +21,4 @@ entries:
     url: "/software_setup/reference_commands_for_managing_ntp_servers.html"
   - title: 완료해야 할 추가 시스템 구성 작업
     url: "/software_setup/concept_additional_system_configuration_tasks_to_complete.html"
-- title: 모든 SAN 어레이 소프트웨어를 구성합니다
-  url: "/task_asa_software_configuration.html"
+- section: asa

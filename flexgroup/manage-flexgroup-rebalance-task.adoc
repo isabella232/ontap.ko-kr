@@ -1,0 +1,257 @@
+---
+permalink: flexgroup/manage-flexgroup-rebalance-task.html 
+sidebar: sidebar 
+keywords: enable, storage, rebalance, modify, stop, status, flexgroup, volume 
+summary: ONTAP 9.12.1부터 FlexGroup의 한 구성 요소에서 다른 구성 요소까지 중단 없이 파일을 이동하여 FlexGroup 볼륨의 균형을 재조정할 수 있습니다. 
+---
+= FlexGroup 볼륨을 재조정합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.12.1부터 FlexGroup의 한 구성 요소에서 다른 구성 요소까지 중단 없이 파일을 이동하여 FlexGroup 볼륨의 균형을 재조정할 수 있습니다.
+
+FlexGroup 재조정은 새 파일과 파일 증가로 인해 시간이 지남에 따라 불균형이 발생할 때 용량을 재분배하는 데 도움이 됩니다. 재조정 작업을 수동으로 시작한 후 ONTAP가 파일을 선택하고 중단 없이 자동으로 이동합니다.
+
+자동 재조정은 클러스터의 모든 노드에서 ONTAP 9.12.1 이상 릴리즈를 실행 중인 경우에만 사용할 수 있습니다. 재조정 작업을 실행하는 모든 FlexGroup 볼륨에서 다중 부분 inode 세부 데이터 기능을 활성화해야 합니다. 해당 기능이 활성화되면 FlexGroup를 삭제하고 이전 버전을 복원하지 않는 한 이전 ONTAP 버전으로 되돌릴 수 없습니다.
+
+
+
+== FlexGroup 재조정 고려 사항
+
+FlexGroup 재조정의 작동 방식과 이 기능이 다른 ONTAP 기능과 어떻게 상호 작용하는지 알고 있어야 합니다.
+
+* FlexVol에서 FlexGroup로의 변환
++
+FlexVol to FlexGroup 변환 후 자동 FlexGroup 재조정을 _NOT_사용할 것을 권장합니다. 대신 을 입력하여 ONTAP 9.10.1 이상에서 사용할 수 있는 중단 소급 파일 이동 기능을 사용할 수 있습니다 `volume rebalance file-move` 명령. 명령 구문은 을 참조하십시오 `volume rebalance file-move start` Man 페이지.
+
+* 최소 및 최대 파일 크기입니다
++
+자동 재조정을 위한 파일 선택은 저장된 블록을 기반으로 합니다. 재조정에 고려되는 최소 파일 크기는 기본적으로 100MB이며(아래 표시된 min-file-size 매개 변수를 사용하여 4KB만큼 낮게 구성할 수 있음) 최대 파일 크기는 100GB입니다.
+
+* Snapshot 복사본 내의 파일
++
+FlexGroup 재조정은 현재 스냅샷 복사본에 없는 파일을 이동만 고려하도록 구성할 수 있습니다. 재조정이 시작되면 재조정 작업 중에 언제든지 스냅샷 복사본 작업이 예약되는지 알림이 표시됩니다.
+
++
+파일이 이동 중이며 대상에서 프레이밍을 진행 중인 경우 스냅샷 복사본이 제한됩니다. 파일 재조정이 진행 중인 동안에는 스냅샷 복사본 복원 작업이 허용되지 않습니다.
+
+* SnapMirror 작업
++
+FlexGroup 재조정은 예약된 SnapMirror 작업 간에 수행해야 합니다. 24분 SnapMirror 재시도 기간 내에 파일 이동이 완료되지 않은 경우 SnapMirror 작업을 시작하기 전에 파일을 재배치하면 SnapMirror 작업이 실패할 수 있습니다. SnapMirror 전송이 시작된 후 시작되는 새 파일 재배치가 실패하지 않습니다.
+
+* 파일 기반 압축 스토리지 효율성
++
+파일 기반 압축 스토리지 효율성을 사용하면 파일이 타겟으로 이동하기 전에 압축이 풀리기 때문에 압축 절약 효과가 사라집니다. 재조정 후 FlexGroup 볼륨에서 백그라운드 검사기를 수동으로 시작한 후 압축 축소가 다시 실현됩니다. 하지만 어떤 볼륨에서든 스냅샷 복사본과 연결되어 있는 파일이 있다면 해당 파일은 압축에서 무시됩니다.
+
+* 중복 제거
++
+중복제거된 파일을 이동하면 FlexGroup 볼륨의 전체 사용량이 증가할 수 있습니다. 파일 재조정 중에 고유한 블록만 타겟으로 이동되므로 소스에서 해당 용량을 확보할 수 있습니다. 공유 블록은 소스에 남아 있고 타겟으로 복제됩니다. 이는 거의 전체 소스 구성요소에서 사용된 용량을 줄이는 것을 목표로 하지만, 새 대상의 공유 블록 복사본으로 인해 FlexGroup 볼륨의 전체 사용량이 증가할 수도 있습니다. 이는 스냅샷 복사본의 일부인 파일이 이동된 경우에도 가능합니다. 스냅샷 복사본 일정이 재순환되고 스냅샷 복사본에 파일의 복사본이 더 이상 없을 때까지 공간 절약이 완전히 인식되지 않습니다.
+
+* FlexClone 볼륨
++
+FlexClone 볼륨 생성 시 파일 재조정이 진행되고 있으면 FlexClone 볼륨에서 재조정이 수행되지 않습니다. FlexClone 볼륨에서 재조정은 생성된 후에 수행해야 합니다.
+
+* 파일 이동
++
+FlexGroup 재조정 작업 중에 파일이 이동되면 소스 및 대상 구성 요소 모두에서 파일 크기가 할당량 고려의 일부로 보고됩니다. 이동이 완료되면 할당량 계정이 정상으로 돌아가고 파일 크기는 새 대상에서만 보고됩니다.
+
+
+
+
+
+== FlexGroup 재조정을 활성화합니다
+
+ONTAP 9.12.1부터 FlexGroup 구성요소 간에 파일을 재분배하기 위해 무중단 FlexGroup 볼륨 자동 재조정을 활성화할 수 있습니다.
+
+을(를) 활성화해야 합니다 `granular-data` FlexGroup 재조정을 활성화하기 전에 FlexGroup 볼륨에 대한 옵션입니다. 다음 방법 중 하나를 사용하여 활성화할 수 있습니다.
+
+* 를 사용하여 FlexGroup 볼륨을 생성할 때 `volume create` 명령
+* 를 사용하여 설정을 활성화하기 위해 기존 FlexGroup 볼륨을 수정합니다 `volume modify` 명령
+* 을 사용하여 FlexGroup 재조정이 시작될 때 자동으로 설정합니다 `volume rebalance` 명령
+
+
+ONTAP System Manager 또는 ONTAP CLI를 사용하여 FlexGroup 재조정을 관리할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+.단계
+. 저장소 > 볼륨 * 으로 이동하고 재조정할 FlexGroup 볼륨을 찾습니다.
+. 을 클릭합니다 image:icon_dropdown_arrow.gif["세부 정보 표시 아이콘"] 볼륨 세부 정보를 봅니다.
+. Rebalance * 를 클릭합니다.
+
+
+--
+.CLI를 참조하십시오
+--
+.단계
+. 자동 재조정 시작: `volume rebalance start -vserver _SVM_name_ -volume _volume_name_`
++
+선택적으로 [[-max-runtime] <time interval>] Maximum Runtime[-max-threshold < percent>] Maximum Imbalance Threshold per Constituent[-min-threshold < percent>] Minimum Imbalance Threshold per Constitutent [-max-file-moves <integer>] Constitutent [-min-file-size | false | snapshots | false | integer |
+
++
+예:
+
++
+[listing]
+----
+volume rebalance start -vserver vs0 -volume fg1
+----
+. 필요한 경우 * Rebalance Volume * (볼륨 재조정 *) 창에서 기본 설정을 변경합니다.
+. 기본 설정을 적용하려면 * 저장 * 을 클릭합니다.
+
+
+--
+====
+
+
+== FlexGroup 재조정 구성을 수정합니다
+
+FlexGroup 재조정 구성을 변경하여 불균형 임계값, 동시 파일 수 최소 파일 크기, 최대 런타임 및 스냅샷 복사본을 포함 또는 제외할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+.단계
+. 저장소 > 볼륨 * 으로 이동하고 재조정할 FlexGroup 볼륨을 찾습니다.
+. 을 클릭합니다 image:icon_dropdown_arrow.gif["세부 정보 표시 아이콘"] 볼륨 세부 정보를 봅니다.
+. Rebalance * 를 클릭합니다.
+. Rebalance Volume * (볼륨 재조정 *) 창에서 필요에 따라 기본 설정을 변경합니다.
+. 저장 * 을 클릭합니다.
+
+
+--
+.CLI를 참조하십시오
+--
+.단계
+. 자동 재조정 수정: `volume rebalance modify -vserver _SVM_name_ -volume _volume_name_`
++
+[[-max-runtime] <time interval>] Maximum Runtime[-max-threshold < percent>] Maximum Imbalance Threshold per Constituent [-min-threshold < percent>] Minimum Imbalance Threshold per Constitutent [-max-file-moves <integer>] Constitutent [-min-file-in Snapshot | false size |
+
+
+
+--
+====
+
+
+== FlexGroup 재조정을 중지합니다
+
+FlexGroup 재조정이 활성화된 후에는 언제든지 중지할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+.단계
+. 저장소 > 볼륨 * 으로 이동하여 FlexGroup 볼륨을 찾습니다.
+. 을 클릭합니다 image:icon_dropdown_arrow.gif["세부 정보 표시 아이콘"] 볼륨 세부 정보를 봅니다.
+. Stop Rebalance * 를 클릭합니다.
+
+
+--
+.CLI를 참조하십시오
+--
+.단계
+. FlexGroup 재조정 중지: `volume rebalance stop -vserver _SVM_name_ -volume _volume_name_`
+
+
+--
+====
+
+
+== FlexGroup 재조정 상태를 봅니다
+
+FlexGroup 재조정 작업, FlexGroup 재조정 구성, 재조정 작업 시간 및 재조정 인스턴스 세부 정보에 대한 상태를 표시할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+.단계
+. 저장소 > 볼륨 * 으로 이동하여 FlexGroup 볼륨을 찾습니다.
+. 을 클릭합니다 image:icon_dropdown_arrow.gif["세부 정보 표시 아이콘"] FlexGroup 세부 정보를 봅니다.
+. * FlexGroup 잔액 상태 * 는 세부 정보 창의 하단 근처에 표시됩니다.
+. 마지막 재조정 작업에 대한 정보를 보려면 * Last Volume Rebalance Status * 를 클릭합니다.
+
+
+--
+.CLI를 참조하십시오
+--
+.단계
+. FlexGroup 재조정 작업의 상태를 봅니다. `volume rebalance show`
++
+재조정 상태의 예:
+
++
+[listing]
+----
+> volume rebalance show
+Vserver: vs0
+                                                        Target     Imbalance
+Volume       State                  Total      Used     Used       Size     %
+------------ ------------------ --------- --------- --------- --------- -----
+fg1          idle                     4GB   115.3MB         -       8KB    0%
+----
++
+재조정 구성 세부 정보의 예:
+
++
+[listing]
+----
+> volume rebalance show -config
+Vserver: vs0
+                    Max            Threshold         Max          Min          Exclude
+Volume              Runtime        Min     Max       File Moves   File Size    Snapshot
+---------------     ------------   -----   -----     ----------   ---------    ---------
+fg1                 6h0m0s         5%      20%          25          4KB          true
+----
++
+재조정 시간 세부 정보의 예:
+
++
+[listing]
+----
+> volume rebalance show -time
+Vserver: vs0
+Volume               Start Time                    Runtime        Max Runtime
+----------------     -------------------------     -----------    -----------
+fg1                  Wed Jul 20 16:06:11 2022      0h1m16s        6h0m0s
+----
++
+인스턴스 재조정 세부 정보의 예:
+
++
+[listing]
+----
+    > volume rebalance show -instance
+    Vserver Name: vs0
+    Volume Name: fg1
+    Is Constituent: false
+    Rebalance State: idle
+    Rebalance Notice Messages: -
+    Total Size: 4GB
+    AFS Used Size: 115.3MB
+    Constituent Target Used Size: -
+    Imbalance Size: 8KB
+    Imbalance Percentage: 0%
+    Moved Data Size: -
+    Maximum Constituent Imbalance Percentage: 1%
+    Rebalance Start Time: Wed Jul 20 16:06:11 2022
+    Rebalance Stop Time: -
+    Rebalance Runtime: 0h1m32s
+    Rebalance Maximum Runtime: 6h0m0s
+    Maximum Imbalance Threshold per Constituent: 20%
+    Minimum Imbalance Threshold per Constituent: 5%
+    Maximum Concurrent File Moves per Constituent: 25
+    Minimum File Size: 4KB
+    Exclude Files Stuck in Snapshot Copies: true
+----
+
+
+--
+====

@@ -27,10 +27,12 @@ entries:
     url: "/concept_nas_file_system_analytics_overview.html"
   - title: 파일 시스템 분석 설정
     url: "/task_nas_file_system_analytics_enable.html"
-  - title: 파일 시스템 작업을 봅니다
+  - title: 파일 시스템의 작업을 봅니다
     url: "/task_nas_file_system_analytics_view.html"
   - title: 활동 추적을 활성화합니다
     url: "/file-system-analytics/activity-tracking-task.html"
+  - title: 사용 분석 지원
+    url: "/file-system-analytics/usage-size-task.html"
   - title: 분석을 기반으로 수정 조치 수행
     url: "/task_nas_file_system_analytics_take_corrective_action.html"
   - title: 고려 사항

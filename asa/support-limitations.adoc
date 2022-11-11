@@ -1,0 +1,62 @@
+---
+permalink: asa/support-limitations.html 
+sidebar: sidebar 
+keywords: all san array, asa, san, array, software, configuration, configure, configuring, setup, set up, limitations, restrictions, nvme, mcc ip, persistent ports, host, settings, utilities, ways to identify 
+summary: 다음 절차에 따라 System Manager를 사용하여 모든 SAN 어레이를 구성하십시오. 
+---
+= 모든 SAN 어레이 구성 제한 및 지원
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:allow-uri-read: 
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+AFF ASA(All SAN 어레이) 컨트롤러에 대해 설정된 테스트를 통해 지원되는 최대 구성 제한을 사용해야 합니다.
+
+안정적인 작동을 위해 에 나와 있는 현재 테스트 및 지원되는 제한을 초과해서는 안 됩니다 link:https://hwu.netapp.com/["NetApp Hardware Universe를 참조하십시오"^].
+
+
+
+== ASA 구성 제한
+
+ONTAP 9.9.1 AFF ASA 컨트롤러부터 비 MetroCluster IP 구성을 위해 최대 12개의 노드를 지원하고 MetroCluster IP 구성을 위해 최대 8개의 노드를 지원할 수 있습니다.
+
+또한 ONTAP 9.9.1부터 MetroCluster용으로 구성된 프로토콜을 제외한 모든 AFF ASA 컨트롤러에서 NVMe-oF 프로토콜이 지원됩니다. MetroCluster 구성은 NVMe-oF를 지원하지 않습니다.
+
+
+
+== 영구 포트 지원
+
+ONTAP 9.8부터는 FC 프로토콜을 사용하도록 구성된 모든 SAN 어레이(ASA)에서 영구 포트가 기본적으로 사용하도록 설정됩니다. 영구 포트는 FC에만 사용할 수 있으며 WWPN(World Wide Port Name)으로 식별되는 영역 구성원이 필요합니다.
+
+영구 포트는 HA 파트너의 해당 물리적 포트에 섀도 LIF를 생성하여 테이크오버의 영향을 줄입니다. 노드가 되면 파트너 노드의 섀도 LIF는 WWPNe를 포함하여 원래 LIF의 ID를 가정합니다. 가져온 오버 노드의 경로 상태가 장애 발생으로 변경되기 전에 섀도우 LIF는 호스트 MPIO 스택에 대한 Active/Optimized 경로로 표시되고 I/O가 이동됩니다. 따라서 스토리지 페일오버 작업 중에도 호스트가 항상 동일한 수의 경로를 타겟으로 인식하기 때문에 I/O 중단이 줄어듭니다.
+
+영구 포트의 경우 HA 쌍 내에서 다음과 같은 FCP 포트 특성이 동일해야 합니다.
+
+* FCP 포트의 개수
+* FCP 포트 이름
+* FCP 포트의 속도입니다
+* FCP LIF WWPN 기반 조닝
+
+
+HA Pair 내에서 동일 특성이 아닌 경우, 다음과 같은 EMS 메시지가 발생한다.
+
+"EMS: scsiblade.lif.persistent.ports.fcp.init.error`
+
+영구 포트에 대한 자세한 내용은 를 참조하십시오 link:http://www.netapp.com/us/media/tr-4080.pdf["NetApp 기술 보고서 4080: 확장형 SAN ONTAP 9에 대한 모범 사례"^].
+
+
+
+== NVMe-oF 프로토콜 지원
+
+ONTAP 9.9.1부터 모든 SAN 어레이는 NVMe-oF 프로토콜을 지원합니다.
+
+ONTAP 9.12.1부터 4노드 MetroCluster IP 구성은 NVMe/FC를 지원합니다. MetroCluster 구성은 9.12.1 이전의 NVMe에 대해서는 지원되지 않습니다.

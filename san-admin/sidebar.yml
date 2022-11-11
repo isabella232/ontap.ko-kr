@@ -126,6 +126,10 @@ entries:
     url: "/nvme/resize-namespace-task.html"
   - title: 네임스페이스를 LUN으로 변환합니다
     url: "/nvme/convert-namespace-to-lun-task.html"
+  - title: NVMe/TCP를 통한 보안 인증 설정
+    url: "/nvme/setting-up-secure-authentication-nvme-tcp-task.html"
+  - title: NVMe/TCP를 통한 보안 인증을 비활성화합니다
+    url: "/nvme/disable-secure-authentication-nvme-tcp-task.html"
 - title: FC 어댑터를 사용하여 시스템을 관리합니다
   entries:
   - title: 개요

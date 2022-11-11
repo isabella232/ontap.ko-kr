@@ -1,0 +1,45 @@
+---
+permalink: snaplock/enable-snapshot-lock-task.html 
+sidebar: sidebar 
+keywords: snaplock, snapshot copy, lock, tamperproof, enable 
+summary: 'ONTAP 9.12.1부터 새 볼륨을 만들거나 를 사용하여 기존 볼륨을 수정할 때 스냅샷 복사본 잠금을 활성화할 수 있습니다 `-snapshot-locking-enabled` 의 옵션 `volume create` 및 `volume modify` 명령.' 
+---
+= 스냅샷 복사본 잠금을 설정합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.12.1부터 새 볼륨을 만들거나 를 사용하여 기존 볼륨을 수정할 때 스냅샷 복사본 잠금을 활성화할 수 있습니다 `-snapshot-locking-enabled` 의 옵션 `volume create` 및 `volume modify` 명령.
+
+
+
+== 볼륨을 생성할 때 스냅샷 복사본 잠금을 설정합니다
+
+. 새 볼륨을 생성하고 스냅샷 복사본 잠금을 활성화하려면 다음 명령을 입력합니다.
++
+`volume create -vserver _vserver_name_ -volume _volume_name_ -snapshot-locking-enabled true`
+
++
+다음 명령을 실행하면 vol1이라는 새 볼륨에서 스냅샷 복사본 잠금이 설정됩니다.
+
++
+[listing]
+----
+> volume create -volume vol1 -aggregate aggr1 -size 100m -snapshot-locking-enabled true
+Warning: Snapshot copy locking is being enabled on volume “vol1” in Vserver “vs1”. It cannot be disabled until all locked Snapshot copies are past their expiry time. A volume with unexpired locked Snapshot copies cannot be deleted.
+Do you want to continue: {yes|no}: y
+[Job 32] Job succeeded: Successful
+----
+
+
+
+
+== 기존 볼륨에서 스냅샷 복사본 잠금 을 활성화합니다
+
+. 스냅샷 복사본 잠금을 사용하도록 기존 볼륨을 수정하려면 다음 명령을 입력합니다.
++
+`volume modify -vserver _vserver_name_ -volume _volume_name_ -snapshot-locking-enabled true`
+
+

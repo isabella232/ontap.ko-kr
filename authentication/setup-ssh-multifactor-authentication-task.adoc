@@ -1,7 +1,7 @@
 ---
 permalink: authentication/setup-ssh-multifactor-authentication-task.html 
 sidebar: sidebar 
-keywords: enable, ssh, multifactor authentication, mfa 
+keywords: enable, ssh, multifactor authentication, mfa, hardware authentication device 
 summary: ONTAP 9.3부터 보안 로그인 생성 명령을 사용하면 관리자가 SSH 공개 키와 사용자 암호를 모두 사용하여 admin 또는 data SVM에 로그인하도록 요구하여 보안을 강화할 수 있습니다. 
 ---
 = SSH 다단계 인증(MFA) 지원
@@ -11,7 +11,11 @@ summary: ONTAP 9.3부터 보안 로그인 생성 명령을 사용하면 관리�
 
 
 [role="lead"]
-ONTAP 9.3부터는 'Security login create' 명령을 사용하여 관리자가 SSH 공개 키와 사용자 암호를 모두 사용하여 admin 또는 data SVM에 로그인하도록 함으로써 보안을 강화할 수 있습니다.
+ONTAP 9.3부터 을 사용할 수 있습니다 `security login create` 관리자가 SSH 공개 키와 사용자 암호를 모두 사용하여 admin 또는 data SVM에 로그인하도록 하여 보안을 강화합니다.
+
+ONTAP 9.12.1부터 FIDO2(Fast Identity Online) 또는 PIV(Personal Identity Verification) 인증 표준을 사용하여 SSH 클라이언트 MFA에 Yubikey 하드웨어 인증 장치를 사용할 수 있습니다.
+
+에 대해 자세히 알아보십시오 link:https://www.netapp.com/pdf.html?item=/media/17055-tr4647pdf.pdf["ONTAP 9의 다단계 인증(TR-4647)"^].
 
 이 작업을 수행하려면 클러스터 관리자여야 합니다.
 

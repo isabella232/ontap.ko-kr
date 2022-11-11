@@ -66,5 +66,13 @@ entries:
     url: "/snaplock/create-snaplock-security-administrator-account-task.html"
   - title: SnapLock 볼륨을 이동합니다
     url: "/snaplock/move-snaplock-volume-task.html"
+- title: 스냅샷 복사본의 무단 잠금 방지
+  entries:
+  - title: 스냅샷 복사본의 무단 잠금 개요를 제공합니다
+    url: "/snaplock/snapshot-lock-concept.html"
+  - title: 무단 스냅샷 복사 방지 잠금을 설정합니다
+    url: "/snaplock/enable-snapshot-lock-task.html"
+  - title: 잠긴 스냅샷 복사본을 생성합니다
+    url: "/snaplock/create-locked-snapshot-task.html"
 - title: SnapLock API
   url: "/snaplock/snaplock-apis-reference.html"

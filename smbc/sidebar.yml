@@ -10,8 +10,8 @@ entries:
   entries:
   - title: 필수 구성 요소
     url: "/smbc/smbc_plan_prerequisites.html"
-  - title: 추가 제한 및 제한 사항
-    url: "/smbc/smbc_plan_additional_restrictions_and_limitations.html"
+  - title: 고려 사항 및 제한 사항
+    url: "/smbc/considerations-limits.html"
   - title: ONTAP 액세스 옵션
     url: "/smbc/smbc_plan_ontap_access_options.html"
   - title: ONTAP CLI 사용을 준비합니다

@@ -53,9 +53,3 @@ SnapMirror 비즈니스 연속성은 다음과 같은 이점을 제공합니다.
 다음 그림에서는 개략적인 SnapMirror 비즈니스 연속성 기능의 작동을 보여 줍니다.
 
 image:workflow_san_snapmirror_business_continuity.png["SnapMirror 비즈니스 연속성 워크플로우"]
-
-
-
-== 추가 정보
-
-SnapMirror Synchronous를 사용하는 데이터 보호에 대한 자세한 내용은 를 참조하십시오 link:../data-protection/snapmirror-synchronous-disaster-recovery-basics-concept.html["SnapMirror Synchronous 재해 복구 문서"].

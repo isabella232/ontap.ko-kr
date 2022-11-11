@@ -21,6 +21,9 @@ summary: 기본 FPolicy 구성 유형은 두 가지입니다. 하나의 구성�
 +
 알림은 내부적으로 스크리닝됩니다. FPolicy 범위에 구성된 파일 확장명 설정에 따라 요청이 허용되거나 거부됩니다.
 
++
+* 참고 *: 거부된 파일 확장 요청은 기록되지 않습니다.
+
 
 
 
@@ -43,6 +46,8 @@ summary: 기본 FPolicy 구성 유형은 두 가지입니다. 하나의 구성�
 * 기본 파일 차단 기능은 파일 내용이 아닌 확장자에 따라 파일을 심사합니다.
 * 심볼 링크의 경우 네이티브 파일 차단은 루트 파일의 파일 확장명을 사용합니다.
 
+
+에 대해 자세히 알아보십시오 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/FPolicy%3A_Native_File_Blocking["FPolicy: 기본 파일 차단"^].
 
 
 

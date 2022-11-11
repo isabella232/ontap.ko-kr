@@ -19,6 +19,8 @@ ONTAP은 S3 오브젝트 스토리지를 지원하기 위한 두 가지 사내 �
 * S3 클라이언트 애플리케이션이 로컬 클러스터 또는 원격 클러스터의 버킷에 액세스합니다.
 
 
+ONTAP 9.12.1부터 MetroCluster IP 구성의 미러링되지 않은 Aggregate에서 SVM에서 S3 오브젝트 스토리지 서버를 활성화할 수 있습니다. MetroCluster IP 구성에서 미러링되지 않은 애그리게이트의 제한에 대한 자세한 내용은 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/considerations_unmirrored_aggrs.html?q=unmirrored+aggregates["미러링되지 않은 애그리게이트의 고려 사항"].
+
 다음과 같은 방법으로 S3 오브젝트 스토리지를 구성하려면 다음 절차를 따라야 합니다.
 
 * ONTAP을 실행 중인 기존 클러스터에서 S3 오브젝트 스토리지를 제공하려고 합니다.

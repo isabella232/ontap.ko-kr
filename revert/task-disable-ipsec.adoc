@@ -1,0 +1,16 @@
+---
+permalink: revert/task-disable-ipsec.html 
+sidebar: sidebar 
+keywords: ontap, revert, reversion, reverting, two-node, 2-node, four-node, 4-node, metrocluster, mcc, configurations 
+summary: MetroCluster 구성을 되돌리기 전에 IPsec을 비활성화해야 합니다. 
+---
+= MetroCluster 구성을 되돌리기 전에 IPsec을 비활성화합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+MetroCluster 구성을 되돌리기 전에 IPsec을 비활성화해야 합니다.
+
+ONTAP 9.12.1을 실행하는 MetroCluster 구성에서 IPsec이 활성화된 ONTAP를 되돌릴 수 없습니다. MetroCluster 구성 내에 IPsec 구성이 없는지 확인하기 위해 되돌리기 전에 검사가 수행됩니다. 복원을 계속하기 전에 존재하는 IPsec 구성을 제거하고 IPsec을 비활성화해야 합니다. 사용자 정책을 구성하지 않은 경우에도 IPsec을 사용하도록 설정하면 ONTAP를 되돌릴 수 없습니다.

@@ -1,0 +1,14 @@
+---
+section: s3-multiprotocol
+title: NAS 데이터에 S3 클라이언트 액세스 제공
+entries:
+- title: 개요
+  url: "/s3-multiprotocol/index.html"
+- title: NAS 데이터 요구 사항
+  url: "/s3-multiprotocol/nas-data-requirements-client-access-reference.html"
+- title: S3 멀티 프로토콜 액세스를 활성화합니다
+  url: "/s3-multiprotocol/enable-access-nas-data-task.html"
+- title: S3 NAS 버킷을 생성합니다
+  url: "/s3-multiprotocol/create-nas-bucket-task.html"
+- title: S3 클라이언트 사용자를 활성화합니다
+  url: "/s3-multiprotocol/enable-client-users-task.html"

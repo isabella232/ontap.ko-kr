@@ -15,6 +15,14 @@ ONTAP 9의 FlexGroup 볼륨에서 지원되고 지원되지 않는 ONTAP 기능�
 
 
 
+== ONTAP 9.12.1부터 지원되는 기능입니다
+
+* FlexGroup 재조정
+* SnapVault용 SnapLock
+
+
+
+
 == ONTAP 9.11.1부터 지원되는 기능입니다
 
 * SnapLock 볼륨

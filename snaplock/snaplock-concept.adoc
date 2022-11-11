@@ -230,7 +230,7 @@ FlexGroup 볼륨
 
 * 법적 증거 자료 보관
 * 이벤트 기반 보존
-* SnapVault용 SnapLock
+* SnapLock for SnapVault(ONTAP 9.12.1부터 지원됨)
 
 
 또한 다음과 같은 행동을 인지해야 합니다.
@@ -243,7 +243,7 @@ FlexGroup 볼륨
 
 * 법적 증거 자료 보관
 * 이벤트 기반 보존
-* SnapVault용 SnapLock
+* SnapLock for SnapVault(ONTAP 9.12.1부터 지원됨)
 
 
 또한 다음과 같은 행동을 인지해야 합니다.

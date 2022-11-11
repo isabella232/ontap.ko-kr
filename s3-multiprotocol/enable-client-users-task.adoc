@@ -1,0 +1,92 @@
+---
+permalink: s3-multiprotocol/enable-client-users-task.html 
+sidebar: sidebar 
+keywords: s3, nas, vserver, configuration, nas, certificate, linux, unix, installation 
+summary: S3 클라이언트 사용자가 NAS 데이터에 액세스할 수 있도록 하려면 S3 사용자 이름을 해당 NAS 사용자에게 매핑한 다음 버킷 서비스 정책을 사용하여 NAS 데이터에 액세스할 수 있는 권한을 부여해야 합니다. 
+---
+= S3 클라이언트 사용자를 활성화합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+S3 클라이언트 사용자가 NAS 데이터에 액세스할 수 있도록 하려면 S3 사용자 이름을 해당 NAS 사용자에게 매핑한 다음 버킷 서비스 정책을 사용하여 NAS 데이터에 액세스할 수 있는 권한을 부여해야 합니다.
+
+클라이언트 액세스의 사용자 이름(Linux/UNIX, Windows 및 S3 클라이언트 사용자)이 이미 있어야 합니다.
+
+S3 사용자 이름을 해당 Linux/UNIX 또는 Windows 사용자에게 매핑하면 S3 클라이언트가 NAS 파일에 액세스할 때 NAS 파일에 대한 권한 부여 검사를 수행할 수 있습니다. S3-NAS 매핑은 단일 이름 또는 POSIX 정규식으로 표현될 수 있는 S3 사용자 이름_Pattern_과 Linux/UNIX 또는 Windows 사용자 이름_Replacement_를 제공하여 지정합니다.
+
+이름 매핑이 없는 경우 기본 이름 매핑이 사용됩니다. 여기서 S3 사용자 이름 자체는 UNIX 사용자 이름 및 Windows 사용자 이름으로 사용됩니다. 를 사용하여 UNIX 및 Windows 기본 사용자 이름 매핑을 수정할 수 있습니다 `vserver object-store-server modify` 명령.
+
+로컬 이름 매핑 구성만 지원되며 LDAP는 지원되지 않습니다.
+
+S3 사용자를 NAS 사용자에게 매핑한 후에는 액세스 권한이 있는 리소스(디렉토리 및 파일)와 해당 사용자가 액세스할 수 있거나 수행할 수 없는 작업을 지정하는 권한을 사용자에게 부여할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+. UNIX 또는 Windows 클라이언트(또는 둘 다)에 대한 로컬 이름 매핑을 생성합니다.
++
+.. 스토리지 > 버킷 * 을 클릭한 다음 S3/NAS 지원 스토리지 VM을 선택합니다.
+.. 설정 * 을 선택한 다음 을 클릭합니다 image:../media/icon_arrow.gif["오른쪽 화살표"] 이름 매핑 * (* 호스트 사용자 및 그룹 * 아래).
+.. S3 to Windows * 또는 * S3 to UNIX * 타일(또는 둘 다)에서 * 추가 * 를 클릭한 다음 원하는 * 패턴 * (S3) 및 * 교체 * (NAS) 사용자 이름을 입력합니다.
+
+
+. 버킷 정책을 생성하여 클라이언트 액세스를 제공합니다.
++
+.. 스토리지 > 버킷 * 을 클릭하고 을 클릭합니다 image:../media/icon_kabob.gif["케밥 아이콘"] 원하는 S3 버킷 옆에 있는 * 편집 * 을 클릭합니다.
+.. 추가 * 를 클릭하고 원하는 값을 입력합니다.
++
+*** * Principal * - S3 사용자 이름을 제공하거나 기본값(모든 사용자)을 사용합니다.
+*** * 효과 * - * 허용 * 또는 * 거부 / * 를 선택합니다
+*** * 조치 * - 이러한 사용자 및 리소스에 대한 조치를 입력합니다. 현재 오브젝트 저장소 서버가 S3 NAS 버킷에 대해 지원하는 리소스 작업 집합은 GetObject , PutObject , DeleteObject , ListBucket , GetBuckketAcl 입니다. GetObjectAcl, GetObjectTagging, PutObjectTagging, DeleteObjectTagging, GetBucketLocation, GetBuckketVersioning, PutBucketVersioning 및 ListBuckketVersions. 이 매개 변수에는 와일드카드를 사용할 수 있습니다.
+*** * 리소스 * - 작업이 허용 또는 거부된 폴더나 파일 경로를 입력하거나 기본(버킷의 루트 디렉터리)을 사용합니다.
+
+
+
+
+
+
+--
+.CLI를 참조하십시오
+--
+. UNIX 또는 Windows 클라이언트(또는 둘 다)에 대한 로컬 이름 매핑을 생성합니다. 를 누릅니다
+`vserver name-mapping create -vserver svm_name> -direction {s3-win|s3-unix} -position _integer_ -pattern _s3_user_name_ -replacement _nas_user_name_`
++
+** `-position` 매핑 평가의 우선 순위 번호입니다. 1 또는 2를 입력합니다.
+** `-pattern` - S3 사용자 이름 또는 정규식입니다
+** `-replacement` - Windows 또는 UNIX 사용자 이름입니다
+
+
+
+
+예 +
+`vserver name-mapping create -direction s3-win -position 1 -pattern s3_user_1 -replacement win_user_1
+vserver name-mapping create -direction s3-unix -position 2 -pattern s3_user_1 -replacement unix_user_1`
+
+. 버킷 정책을 생성하여 클라이언트 액세스를 제공합니다. 를 누릅니다
+`vserver object-store-server bucket policy add-statement -vserver svm_name -bucket bucket_name -effect {deny|allow}  -action list_of_actions -principal list_of_users_or_groups -resource [-sid alphanumeric_text]`
++
+** `-effect {deny|allow}` - 사용자가 작업을 요청할 때 액세스를 허용할지 또는 거부할지 여부를 지정합니다.
+** `-action <Action>, ...` - 허용 또는 거부된 리소스 작업을 지정합니다. 현재 오브젝트 저장소 서버가 S3 NAS 버킷에 대해 지원하는 리소스 작업 집합은 GetObject , PutObject , DeleteObject , ListBucket , GetBuckketAcl 입니다. GetObjectAcl, GetObjectTagging, PutObjectTagging, DeleteObjectTagging, GetBucketLocation, GetBuckketVersioning, PutBucketVersioning 및 ListBuckketVersions. 이 매개 변수에는 와일드카드를 사용할 수 있습니다.
+** `-principal <Objectstore Principal>, ...` - 이 매개 변수에 지정된 개체 저장소 서버 사용자 또는 그룹에 대해 액세스를 요청하는 사용자의 유효성을 검사합니다.
++
+*** 개체 저장소 서버 그룹은 그룹 이름에 접두사 그룹 / 을 추가하여 지정합니다.
+*** `-principal` -(하이픈 문자)는 모든 사용자에게 액세스 권한을 부여합니다.
+
+
+** `-resource <text>, ...` - 허용/거부 권한이 설정된 버킷, 폴더 또는 개체를 지정합니다. 이 매개 변수에는 와일드카드를 사용할 수 있습니다.
+** `[-sid <SID>]` - 오브젝트 저장소 서버 버킷 정책 문에 대한 선택적 텍스트 설명을 지정합니다.
+
+
+
+
+예 +
+`cluster1::> vserver object-store-server bucket policy add-statement -bucket testbucket -effect allow -action  GetObject,PutObject,DeleteObject,ListBucket,GetBucketAcl,GetObjectAcl, GetBucketLocation,GetBucketPolicy,PutBucketPolicy,DeleteBucketPolicy -principal user1 -resource testbucket,testbucket/* sid "FullAccessForUser1"`
+
+`cluster1::> vserver object-store-server bucket policy statement create -vserver vs1 -bucket bucket1 -effect allow -action GetObject -principal - -resource bucket1/readme/* -sid "ReadAccessToReadmeForAllUsers"`
+
+--
+====

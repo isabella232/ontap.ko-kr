@@ -25,7 +25,21 @@ ComplianceClock 시스템의 시간은 볼륨의 WORM 파일에 대한 보존 �
 ComplianceClock의 초기 설정은 현재 시스템 클록을 기반으로 합니다. 따라서 ComplianceClock을 초기화하기 전에 시스템 시간 및 시간대가 올바른지 확인해야 합니다. 노드에서 ComplianceClock을 초기화하면 다시 초기화할 수 없습니다.
 
 ====
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+ONTAP 9.12.1부터 시스템 관리자를 사용하여 SnapLock 준수 시계를 초기화할 수 있습니다.
+
 .단계
+. 클러스터 > 개요 * 로 이동합니다.
+. 노드 * 섹션에서 * SnapLock 준수 클럭 초기화 * 를 클릭합니다.
+. 준수 클럭 열을 표시하고 준수 시계가 초기화되었는지 확인하려면 * 클러스터 > 개요 > 노드 * 섹션에서 * 표시/숨기기 * 를 클릭하고 * SnapLock 준수 시계 * 를 선택합니다.
+
+
+--
+--
+.CLI를 참조하십시오
 . 시스템 초기화 ComplianceClock:
 +
 ' * SnapLock compliance-clock initialize-node_node_name_ * '
@@ -53,3 +67,6 @@ Do you want to continue? (y|n): y
 ----
 . SnapLock 애그리게이트를 호스팅하는 각 노드에 대해 이 절차를 반복합니다.
 
+
+--
+====

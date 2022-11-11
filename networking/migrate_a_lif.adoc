@@ -41,6 +41,7 @@ System Manager를 사용하여 iSCSI LIF를 마이그레이션할 수도 있습�
 +
 이 제한을 해결하려면 대상 노드에 iSCSI LIF를 생성해야 합니다. iSCSI LIF 생성 지침에 대한 자세한 내용은 를 참조하십시오 link:../san-admin/index.html["SAN 관리"^].
 
+* RDMA를 통해 NFS용 LIF(네트워크 인터페이스)를 마이그레이션하려면 대상 포트가 RoCE를 지원하는지 확인해야 합니다. CLI에서 LIF를 마이그레이션하려면 ONTAP 9.10.1 이상을 실행해야 하며, System Manager를 사용하여 마이그레이션하려면 ONTAP 9.12.1을 실행해야 합니다. System Manager에서 RoCE 가능 대상 포트를 선택한 후에는 * RoCE 포트 사용 * 옆의 확인란을 선택하여 마이그레이션을 성공적으로 완료해야 합니다. 자세한 내용은 을 참조하십시오 xref:../nfs-rdma/configure-lifs-task.html[RDMA를 통해 NFS용 LIF를 구성합니다].
 * 소스 또는 대상 LIF를 마이그레이션할 때 VMware VAAI 복사본 오프로드 작업이 실패합니다. VMware VAAI에 대한 자세한 내용은 를 참조하십시오 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.cdot-famg-nfs/GUID-39C8E616-EAE8-46A4-881A-87C4B8421281.html["NFS 참조입니다"^] 또는 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/GUID-D97EE182-9068-4BD8-A3BF-F5C458303740.html["SAN 관리"^].
 
 
@@ -92,7 +93,7 @@ System Manager를 사용하여 iSCSI LIF를 마이그레이션할 수도 있습�
 'network interface migrate-all-node <node> - port <port>'
 
 |===
-다음 예에서는 SVM vs0의 datalif1이라는 LIF를 노드 0b의 포트 e0d로 마이그레이션하는 방법을 보여 줍니다.
+다음 예제에서는 이라는 LIF를 마이그레이션하는 방법을 보여 줍니다 `datalif1` SVM에서 `vs0` 포트에 연결합니다 `e0d` 켜짐 `node0b`:
 
 ....
 network interface migrate -vserver vs0 -lif datalif1 -dest-node node0b -dest-port e0d

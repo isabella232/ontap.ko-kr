@@ -13,6 +13,8 @@ summary: 'ONTAP 9.3부터 SnapMirror 확장 데이터 보호(XDP) 모드가 Snap
 [role="lead"]
 ONTAP 9.3부터 SnapMirror 확장 데이터 보호(XDP) 모드가 SnapMirror 기본값으로 SnapMirror 데이터 보호(DP) 모드를 대체합니다.
 
+ONTAP 9.12.1로 업그레이드하기 전에 기존 DP 유형 관계를 XDP로 변환해야 ONTAP 9.12.1 이상 릴리즈로 업그레이드할 수 있습니다. 자세한 내용은 을 참조하십시오 link:convert-snapmirror-version-flexible-task.html["기존 DP 유형 관계를 XDP로 변환합니다"].
+
 ONTAP 9.3까지 SnapMirror는 DP 모드에서 호출되고 SnapMirror는 XDP 모드에서 호출될 때까지 서로 다른 복제 엔진을 사용했으며, 버전 의존성에 대한 접근법도 다릅니다.
 
 * DP 모드에서 호출된 SnapMirror는 ONTAP 버전이 운영 스토리지와 2차 스토리지에서 동일해야 하는 _version-dependent_replication 엔진을 사용합니다.

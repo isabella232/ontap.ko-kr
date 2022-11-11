@@ -25,16 +25,36 @@ image:../media/consistency-group-single-diagram.gif["구성 볼륨 및 로컬 �
 
 image:../media/consistency-group-nested-diagram.gif["연결된 볼륨이 있는 중첩된 일관성 그룹의 다이어그램"]
 
+ONTAP 9.12.1부터 정합성 보장 그룹이 지원됩니다 xref:clone-task.html[클론 복제] 를 사용하여 정합성 보장 구성 구성원을 수정합니다 xref:modify-task.html[볼륨 추가 또는 제거] System Manager 및 ONTAP REST API 모두에서 ONTAP 9.12.1부터 ONTAP REST API는 다음 기능도 지원합니다.
+
+* 새 NFS 또는 SMB 볼륨 또는 NVMe 네임스페이스를 사용하여 일관성 그룹 생성
+* 기존 일관성 그룹에 새 NFS 또는 SMB 볼륨 또는 NVMe 네임스페이스 추가
+
+
+ONTAP REST API에 대한 자세한 내용은 [ONTAP REST API 참조 설명서]를 참조하십시오.(https://docs.netapp.com/us-en/ontap-automation/reference/api_reference.html#access-a-copy-of-the-ontap-rest-api-reference-documentation)[].
+
 
 
 == 보호
 
-일관성 그룹은 스냅샷 정책을 통해 SM-BC(SnapMirror Business Continuity) 및 로컬 보호를 통해 원격 보호를 제공합니다. 원격 보호를 활용하려면 에 대한 요구 사항을 충족해야 합니다 xref:../smbc/smbc_plan_prerequisites.html#licensing[SnapMirror 비즈니스 연속성 구현]. 기본적으로 정합성 보장 그룹에는 보호 정책이 설정되어 있지 않으며 정책이 선택되어 있지 않으면 데이터를 보호하지 않습니다. 을 참조하십시오 link:protect-task.html[""정합성 보장 그룹 보호""] 를 참조하십시오.
+일관성 그룹은 SM-BC(SnapMirror Business Continuity)를 통해 스냅샷 정책과 원격 보호를 통해 로컬 보호를 제공합니다. 일관성 그룹을 생성해도 보호가 자동으로 설정되지는 않습니다. 정합성 보장 그룹을 생성하거나 생성한 후에 로컬 및/또는 원격 보호 정책을 설정할 수 있습니다.
+
+정합성 보장 그룹을 사용하여 로컬 보호를 구성하려면 를 참조하십시오 link:protect-task.html["일관성 그룹 보호"]. ONTAP 9.11.1부터 정합성 보장 그룹이 제공됩니다 link:protect-task.html#two-phase-CG-snapshot-creation["2단계 정합성 보장 그룹 스냅샷 생성"].
+
+원격 보호를 활용하려면 에 대한 요구 사항을 충족해야 합니다 xref:../smbc/smbc_plan_prerequisites.html#licensing[SnapMirror 비즈니스 연속성 구현].
 
 
 NOTE: NAS 액세스를 위해 마운트된 볼륨에 SM-BC 관계를 설정할 수 없습니다.
 
-ONTAP 9.11.1부터는 의 정합성 보장 그룹에 대한 추가 지원이 제공됩니다 link:protect-task.html#two-phase-CG-snapshot-creation["2단계 정합성 보장 그룹 스냅샷 생성"].
+
+
+== 응용 프로그램 및 구성 요소 태그
+
+ONTAP 9.12.1부터 정합성 보장 그룹은 구성 요소와 애플리케이션 태깅을 지원합니다. 애플리케이션 및 구성 요소 태그는 관리 툴로서 일관성 그룹의 다양한 워크로드를 필터링하고 식별할 수 있습니다.
+
+애플리케이션 태그는 개별 및 상위 일관성 그룹에 적용됩니다. 애플리케이션 태그는 MongoDB, Oracle, SQL Server와 같은 워크로드에 대한 레이블링을 제공합니다. 일관성 그룹의 기본 애플리케이션 태그는 기타입니다. 계층 정합성 보장 그룹의 하위 요소에는 응용 프로그램 태그 대신 구성 요소 태그가 있습니다. 구성 요소 태그에 대한 옵션은 "데이터", "로그" 또는 "기타"입니다. 기본값은 기타 입니다.
+
+일관성 그룹을 생성하거나 일관성 그룹을 생성한 후에 태그를 적용할 수 있습니다. 정합성 보장 그룹에 SM-BC 관계가 있는 경우 * Other * 를 애플리케이션 또는 구성 요소 태그로 사용해야 합니다.
 
 
 

@@ -29,7 +29,10 @@ PutBucket 및 DeleteBucket
 
 S3 및 NFS 감사 구성의 경우 결합된 제한은 클러스터당 50개의 SVM입니다.
 
-ONTAP S3 프로토콜 및 스토리지를 위한 * 코어 번들이 필요합니다
+다음 라이센스 번들이 필요합니다.
+
+* 코어 번들, ONTAP S3 프로토콜 및 스토리지용
+
 
 자세한 내용은 을 참조하십시오 link:../nas-audit/auditing-process-concept.html["ONTAP 감사 프로세스의 작동 방식"].
 

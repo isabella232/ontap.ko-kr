@@ -44,6 +44,8 @@ entries:
     url: "/flexgroup/move-constituents-task.html"
   - title: 기존 FlexGroup 볼륨에 대해 FabricPool의 애그리게이트를 사용합니다
     url: "/flexgroup/fabricpool-aggregates-existing-volumes-task.html"
+  - title: FlexGroup 볼륨을 재조정합니다
+    url: "/flexgroup/manage-flexgroup-rebalance-task.html"
 - title: FlexGroup 볼륨에 대한 데이터 보호
   entries:
   - title: 워크플로우
