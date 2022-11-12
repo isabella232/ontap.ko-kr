@@ -135,7 +135,7 @@ ONTAP CLI를 사용하면 새 iSCSI LIF 생성 및 기존 LIF에 대한 iSCSI LI
 
 ASA 플랫폼 HA 쌍이 있어야 하며 ONTAP 9.11.1 이상이 실행되고 있어야 합니다.
 
-를 참조하십시오 https://docs.netapp.com/us-en/ontap-cli-9111/index.html["ONTAP 9.11.1 명령 참조"^] 네트워크 인터페이스 명령어 전체 목록
+를 참조하십시오 https://docs.netapp.com/us-en/ontap-cli-9121/index.html["ONTAP 명령 참조"^] 을 참조하십시오 `network interface` 명령.
 
 |===
 
@@ -143,20 +143,22 @@ ASA 플랫폼 HA 쌍이 있어야 하며 ONTAP 9.11.1 이상이 실행되고 있
 | 원하는 작업 | 이 명령 사용... 
 
 
-| iSCSI LIF를 생성합니다 | 'network interface create-vserver_vserver_name_-lif_iscsi_lif_-service-policy default-data-blocks-data-protocol iscsi-home-node_node_name_-home-port_name_-address_netmask_mask_value_'가 필요한 경우 를 참조하십시오 link:../networking/create_a_lif.html["LIF를 생성합니다"] 를 참조하십시오. 
+| iSCSI LIF를 생성합니다 | `network interface create -vserver _SVM_name_ -lif _iscsi_lif_ -service-policy default-data-blocks -data-protocol iscsi -home-node _node_name_ -home-port _port_name_ -address _IP_address_ -netmask _netmask_value_`필요한 경우 를 참조하십시오 link:../networking/create_a_lif.html["LIF를 생성합니다"] 를 참조하십시오. 
 
 
-| LIF가 성공적으로 생성되었는지 확인합니다 | 'network interface show -vserver_vserver_name_-fields failover-policy, failover-group, auto-revert, is-home' 
+| LIF가 성공적으로 생성되었는지 확인합니다 | `network interface show -vserver _SVM_name_ -fields failover-policy,failover-group,auto-revert,is-home` 
 
 
-| iSCSI LIF에서 자동 되돌리기 기본값을 재정의할 수 있는지 확인합니다 | 'network interface modify -vserver_vserver_name_-lif_iscsi_lif_-auto-revert false' 
+| iSCSI LIF에서 자동 되돌리기 기본값을 재정의할 수 있는지 확인합니다 | `network interface modify -vserver _SVM_name_ -lif _iscsi_lif_ -auto-revert false` 
 
 
 | iSCSI LIF에서 스토리지 페일오버를 수행합니다 | 'storage failover - ofnode_node_name_ - option normal' 경고 메시지가 표시됩니다. '테이크오버가 시작됩니다. 파트너 노드가 재부팅되면 반환이 자동으로 시작됩니다. 계속 하시겠습니까? {y/n}:'y' 응답은 HA 파트너의 인수 메시지를 표시합니다. 
 
 
-| 기존 LIF에 대해 iSCSI LIF 페일오버 기능을 설정합니다 | 클러스터를 ONTAP 9.11.1 이상으로 업그레이드하기 전에 생성된 iSCSI LIF의 경우 iSCSI LIF 페일오버 기능을 사용하도록 설정할 수 있습니다(페일오버 정책을 'fo-partner-only'로 수정하고 자동 되돌리기 기능을 'true'로 수정). "network interface modify -vserver_vserver_name_-lif_iscsi_lif_ –failover -policy SFO -파트너 전용 -auto-revert true" 이 명령은 스토리지 VM의 모든 iSCSI LIF에서 "-lif * "를 지정하고 다른 모든 매개 변수를 동일하게 유지하여 실행할 수 있습니다. 
+| 기존 LIF에 대해 iSCSI LIF 페일오버 기능을 설정합니다 | 클러스터를 ONTAP 9.11.1 이상으로 업그레이드하기 전에 생성된 iSCSI LIF의 경우 페일오버 정책을 으로 수정하여 iSCSI LIF 페일오버 기능을 사용하도록 설정할 수 있습니다 `sfo-partner-only` 자동 되돌리기 기능을 로 수정합니다 `true`):
+`network interface modify -vserver _SVM_name_ -lif _iscsi_lif_ –failover-policy sfo-partner-only -auto-revert true`이 명령은 스토리지 VM의 모든 iSCSI LIF에서 "-lif * "를 지정하고 다른 모든 매개 변수를 동일하게 유지하여 실행할 수 있습니다. 
 
 
-| 기존 LIF에 대해 iSCSI LIF 페일오버 기능을 사용하지 않도록 설정합니다 | 클러스터를 ONTAP 9.11.1 이상으로 업그레이드하기 전에 생성된 iSCSI LIF의 경우 iSCSI LIF 페일오버 기능 및 자동 복원 기능을 사용하지 않도록 설정할 수 있습니다. "network interface modify -vserver_vserver_name_-lif_iscsi_lif_ –failover -policy disabled -auto-revert false" 이 명령은 스토리지 VM의 모든 iSCSI LIF에서 "-lif * "를 지정하고 다른 모든 매개 변수를 동일하게 유지하여 실행할 수 있습니다. 
+| 기존 LIF에 대해 iSCSI LIF 페일오버 기능을 사용하지 않도록 설정합니다 | 클러스터를 ONTAP 9.11.1 이상으로 업그레이드하기 전에 생성된 iSCSI LIF의 경우 iSCSI LIF 페일오버 기능 및 자동 복원 기능을 사용하지 않도록 설정할 수 있습니다.
+`network interface modify -vserver _SVM_name_ -lif _iscsi_lif_ –failover-policy disabled -auto-revert false`이 명령은 스토리지 VM의 모든 iSCSI LIF에서 "-lif * "를 지정하고 다른 모든 매개 변수를 동일하게 유지하여 실행할 수 있습니다. 
 |===

@@ -18,7 +18,7 @@ ONTAP 9.12.1 보안부터 DH-HMAC-CHAP 인증 프로토콜을 사용하여 NVMe 
 .단계
 . DH-HMAC-CHAP 인증을 NVMe 하위 시스템에 추가합니다.
 +
-`vserver nvme subsystem host add -vserver svm_name -subsystem subsystem -host-nqn host_nqn -dhchap-host-secret authentication_host_secret -dhchap-controller-secret authentication_controller_secret -dhchap-hash-function {sha-256|sha-512} -dhchap-group {none|2048-bit|3072-bit|4096-bit|6144-bit|8192-bit}`
+`vserver nvme subsystem host add -vserver _svm_name_ -subsystem _subsystem_ -host-nqn _host_nqn_ -dhchap-host-secret _authentication_host_secret_ -dhchap-controller-secret _authentication_controller_secret_ -dhchap-hash-function {sha-256|sha-512} -dhchap-group {none|2048-bit|3072-bit|4096-bit|6144-bit|8192-bit}`
 
 . DH-HMAC CHAP 인증 프로토콜이 호스트에 추가되었는지 확인합니다.
 +
