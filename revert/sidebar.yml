@@ -42,6 +42,8 @@ entries:
     url: "/revert/identify-user-sha2-hash-user-accounts.html"
   - title: 랜섬웨어 방지 라이센스
     url: "/revert/anti-ransomware-license-task.html"
+  - title: S3 NAS 버킷
+    url: "/revert/remove-nas-bucket-task.html"
   - title: 2 또는 4노드 MetroCluster
     url: "/revert/task_disable_asuo.html"
   - title: IPsec을 비활성화합니다
