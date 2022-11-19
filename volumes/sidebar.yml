@@ -234,7 +234,7 @@ entries:
         url: "/volumes/du-command-space-usage-concept.html"
     - title: 할당량 구성의 예
       url: "/volumes/examples-quota-config-concept.html"
-  - title: anSVM에서 할당량 설정
+  - title: SVM에서 할당량 설정
     url: "/volumes/setup-quotas-svm-task.html"
   - title: 할당량 제한을 수정(또는 크기 조정)합니다
     url: "/volumes/change-existing-quota-limits-task.html"
