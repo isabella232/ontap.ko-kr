@@ -25,7 +25,7 @@ NAS 볼륨에 사용량 측정 파일 스토리지를 제공하는 클라우드 
 
 +
 ** Azure NetApp Files
-** AWS 환경을 위한 Cloud Volumes Service
+** ONTAP용 Amazon FSx
 ** Google Cloud용 Cloud Volumes Service
 
 
