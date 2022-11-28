@@ -1,85 +1,37 @@
 ---
 permalink: disks-aggregates/configure-auto-assignment-disk-ownership-task.html 
 sidebar: sidebar 
-keywords: configure, automatic, assignment, disk ownership 
-summary: 디스크 스택, 쉘프 또는 베이에 따라 디스크 소유권을 자동으로 할당하도록 ONTAP를 구성할 수 있습니다. 구성된 경우, 자동 디스크 소유권 할당은 시스템 초기화 후 10분, 정상적인 시스템 작동 중에는 5분 간격으로 수행됩니다. 
+keywords: change, modify, automatic, assignment, disk ownership 
+summary: 스토리지 디스크 옵션 수정 명령을 사용하여 자동으로 디스크 소유권을 할당하거나 디스크 소유권을 자동으로 할당하지 않도록 기본 정책이 아닌 정책을 선택할 수 있습니다. 
 ---
-= 디스크 소유권 자동 할당을 구성합니다
+= 디스크 소유권을 자동으로 할당하는 설정을 변경합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-CLI를 사용하면 디스크 스택, 쉘프 또는 베이에 따라 ONTAP에서 디스크 소유권을 자동으로 할당하도록 구성할 수 있습니다. 구성된 경우, 자동 디스크 소유권 할당은 시스템 초기화 후 10분, 정상적인 시스템 작동 중에는 5분 간격으로 수행됩니다.
+를 사용할 수 있습니다 `storage disk option modify` 디스크 소유권을 자동으로 할당하거나 디스크 소유권을 자동으로 할당하지 않도록 하는 기본 정책이 아닌 정책을 선택하는 명령입니다.
 
-.무엇을 &#8217;필요로 할거야
-* 시스템은 자동 디스크 소유권 요구 사항을 준수해야 합니다.
-* 소유권이 서로 달라야 하는 스택 또는 쉘프가 여러 개인 경우, 각 스택 또는 쉘프에 대해 자동 소유권 할당이 작동하도록 각 스택 또는 쉘프에 디스크 하나를 수동으로 할당해야 합니다.
-
-
-.사용할 디스크 자동 할당 정책입니다
---
-
-NOTE: 보급형 플랫폼에만 ""bay autoconfigure-policy""를 사용하십시오. 기본이 아닌 플랫폼에 대해 베이 자동 할당 정책(bay autoconfigure-policy)을 사용하려 하면 실패하게 됩니다.
-
---
-일반적으로 기본 자동 할당 정책은 대부분의 시스템에 대한 "스택" 정책과 엔트리급 시스템(AFF A2xx, FAS2xxx)에 대한 ""베이" 정책과 동일합니다. 그러나 일부 구성의 경우 자동 할당 정책을 변경해야 할 수도 있습니다.
-
-구성에 따라 적절한 자동 할당을 선택해야 합니다.
-
-[cols="70,30"]
-|===
-
-
-| 사용 중인 경우... | 그런 다음 이 자동 할당 정책을 사용합니다... 
-
-
- a| 
-독립 실행형 엔트리 레벨 시스템
- a| 
-스택
-
-
-
- a| 
-단일 공유 쉘프가 있는 HA 구성의 엔트리 레벨 시스템
- a| 
-베이
-
-
-
- a| 
-2개 이상의 쉘프로 구성된 HA 구성의 엔트리 레벨 시스템
- a| 
-쉘프
-
-
-
- a| 
-MetroCluster 구성: 노드당 하나의 스택, 2개 이상의 쉘프
- a| 
-쉘프
-
-
-
- a| 
-기타 모든 설정
- a| 
-스택
-
-|===
-자동 할당 정책의 동작은 시스템 모델에 따라 다릅니다. 기본형 모델의 경우, "기본" 정책은 "베이" 정책과 동일합니다. 다른 모든 시스템에 대해서는 '가용정책'과 동등합니다.
+에 대해 자세히 알아보십시오 link:disk-autoassignment-policy-concept.html["디스크 소유권을 자동으로 할당합니다"].
 
 .단계
-. 자동 디스크 할당 구성:
+. 자동 디스크 할당 수정:
++
+.. 기본값이 아닌 정책을 선택하려면 다음을 입력합니다.
 +
 '스토리지 디스크 옵션 modify-autoassign-policy_autoconfigure_policy_-node_node_name_'
 
 +
-** 스택 또는 루프 수준에서 자동 소유권을 구성하려면 '_autoassign_policy_'로 'stack'을 사용합니다.
-** shelf 레벨에서 자동 소유권을 구성하려면 '_autoconfigure_policy_'로 'shelf'를 사용합니다.
-** 베이 수준에서 자동 소유권을 구성하려면 '_autoconfigure_policy_'로 'bay'를 사용합니다.
+*** 스택 또는 루프 수준에서 자동 소유권을 구성하려면 '_autoassign_policy_'로 'stack'을 사용합니다.
+*** shelf 레벨에서 자동 소유권을 구성하려면 '_autoconfigure_policy_'로 'shelf'를 사용합니다.
+*** 베이 수준에서 자동 소유권을 구성하려면 '_autoconfigure_policy_'로 'bay'를 사용합니다.
+
+
+.. 자동 디스크 소유권 할당을 해제하려면 다음을 입력합니다.
++
+`storage disk option modify -autoassign off -node _node_name_`
+
 
 
 . 디스크의 자동 할당 설정을 확인합니다.

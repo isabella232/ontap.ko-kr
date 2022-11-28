@@ -22,6 +22,8 @@ HA 쌍이 공장 출하 시 루트 데이터 파티셔닝을 사용하도록 구
 
 이 절차는 분할된 디스크에서 데이터 로컬 계층(집계)이 생성되지 않은 노드를 위해 설계되었습니다.
 
+에 대해 자세히 알아보십시오 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/What_are_the_rules_for_Advanced_Disk_Partitioning%3F["고급 디스크 파티셔닝"^].
+
 모든 명령은 클러스터 쉘에 입력됩니다.
 
 . 데이터 파티션의 현재 소유권을 봅니다.

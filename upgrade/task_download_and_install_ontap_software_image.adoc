@@ -36,6 +36,9 @@ ONTAP 버전에 따라 NetApp Support 사이트에서 네트워크의 HTTP, HTTP
 
 .단계
 . 에서 대상 ONTAP 소프트웨어를 찾습니다 link:http://mysupport.netapp.com/NOW/cgi-bin/software["소프트웨어 다운로드"] NetApp Support 사이트의 영역입니다.
++
+ONTAP Select 업그레이드의 경우 * ONTAP Select 노드 업그레이드 * 를 선택합니다.
+
 . 소프트웨어 이미지(예: 97_q_image.tgz)를 적절한 위치에 복사합니다.
 +
 ONTAP 릴리스에 따라 이미지는 로컬 시스템 또는 스토리지 시스템의 로컬 폴더에 서비스될 HTTP, HTTPS 또는 FTP 서버 디렉토리입니다.

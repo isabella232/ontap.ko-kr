@@ -12,25 +12,19 @@ entries:
   url: "/ndmp/verify-tape-device-connections-task.html"
 - title: 테이프 예약을 활성화합니다
   url: "/ndmp/enable-tape-reservations-task.html"
-- title: SVM 레벨 또는 노드 레벨에서 NDMP를 구성합니다
+- title: SVM 범위 NDMP를 구성합니다
   entries:
-  - title: 개요
-    url: "/ndmp/configure-ndmp-at-svm-node-level-concept.html"
-  - title: SVM 범위 NDMP를 구성합니다
-    entries:
-    - title: 개요
-      url: "/ndmp/configure-svm-scoped-ndmp-task.html"
-    - title: 클러스터에서 SVM 범위의 NDMP를 사용하도록 설정합니다
-      url: "/ndmp/enable-svm-scoped-ndmp-cluster-task.html"
-    - title: 클러스터의 백업 사용자를 구성합니다
-      url: "/ndmp/configure-backup-user-cluster-task.html"
-    - title: LIF를 구성합니다
-      url: "/ndmp/configure-lifs-svm-scoped-task.html"
-  - title: 노드 범위 NDMP를 구성합니다
-    entries:
-    - title: 클러스터에서 노드 범위의 NDMP를 사용하도록 설정합니다
-      url: "/ndmp/enable-node-scoped-ndmp-cluster-task.html"
-    - title: LIF를 구성합니다
-      url: "/ndmp/configure-lifs-node-scoped-task.html"
+  - title: 클러스터에서 SVM 범위의 NDMP를 사용하도록 설정합니다
+    url: "/ndmp/enable-svm-scoped-ndmp-cluster-task.html"
+  - title: NDMP 인증에 대한 백업 사용자를 설정합니다
+    url: "/ndmp/configure-backup-user-cluster-task.html"
+  - title: LIF를 구성합니다
+    url: "/ndmp/configure-lifs-svm-scoped-task.html"
+- title: 노드 범위 NDMP를 구성합니다
+  entries:
+  - title: 클러스터에서 노드 범위의 NDMP를 사용하도록 설정합니다
+    url: "/ndmp/enable-node-scoped-ndmp-cluster-task.html"
+  - title: LIF를 구성합니다
+    url: "/ndmp/configure-lifs-node-scoped-task.html"
 - title: 백업 애플리케이션을 구성합니다
   url: "/ndmp/configure-backup-application-task.html"

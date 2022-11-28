@@ -27,6 +27,8 @@ image::../media/root-data-data.gif[루트 데이터]
 
 두 가지 유형의 루트 데이터 파티셔닝은 ONTAP_ADP(고급 드라이브 파티셔닝)_기능의 일부입니다. 두 가지 모두 엔트리 레벨 FAS2xxx, FAS9000, FAS8200, FAS80xx 및 AFF 시스템을 위한 루트 데이터 파티셔닝, AFF 시스템만을 위한 루트 데이터 데이터 파티셔닝으로 구성되어 있습니다.
 
+에 대해 자세히 알아보십시오 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/What_are_the_rules_for_Advanced_Disk_Partitioning["고급 드라이브 파티셔닝"^].
+
 
 
 == 드라이브를 파티셔닝하고 루트 애그리게이트에 사용됩니다
