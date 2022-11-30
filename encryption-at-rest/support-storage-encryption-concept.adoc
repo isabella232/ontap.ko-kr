@@ -108,4 +108,7 @@ MetroCluster(MCC)
 
 
 |===
-https://hwu.netapp.com/["NetApp Hardware Universe를 참조하십시오"^]
+.관련 정보
+* link:https://hwu.netapp.com/["NetApp Hardware Universe를 참조하십시오"^]
+* link:https://www.netapp.com/pdf.html?item=/media/17070-ds-3899.pdf["NetApp 볼륨 암호화 및 NetApp 애그리게이트 암호화"^]
+

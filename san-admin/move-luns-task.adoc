@@ -38,8 +38,8 @@ LUN을 다음 볼륨으로 이동할 수 없습니다.
 1TB 이상인 Solaris OS_TYPE LUN의 경우 LUN 이동 중에 호스트에서 시간 초과가 발생할 수 있습니다. 이 LUN 유형의 경우 이동을 시작하기 전에 LUN을 마운트 해제해야 합니다.
 
 ====
-[role="tabbed-block"]
 .단계
+[role="tabbed-block"]
 ====
 .시스템 관리자
 --

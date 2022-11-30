@@ -138,8 +138,8 @@ indexpage:
       url: "/concept_nas_file_system_analytics_overview.html"
     - title: EMS 구성
       url: "/error-messages/index.html"
-    - title: ONTAP 9.11.1 EMS 참조
-      url: https://docs.netapp.com/us-en/ontap-ems-9111/
+    - title: ONTAP 9.12.1 EMS 참조
+      url: https://docs.netapp.com/us-en/ontap-ems-9121/
   - title: 더 많은 리소스
     links:
     - title: AFF/FAS 플랫폼

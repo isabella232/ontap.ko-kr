@@ -13,8 +13,8 @@ summary: 'FC 또는 iSCSI를 사용하여 SVM(스토리지 가상 시스템)에 
 [role="lead"]
 FC 또는 iSCSI를 사용하여 SVM(스토리지 가상 시스템)에 대한 블록 액세스를 활성화하려면 먼저 라이센스가 있어야 합니다.
 
-[role="tabbed-block"]
 .단계
+[role="tabbed-block"]
 ====
 .시스템 관리자
 --

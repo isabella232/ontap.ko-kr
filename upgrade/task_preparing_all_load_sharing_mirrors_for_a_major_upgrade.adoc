@@ -4,14 +4,17 @@ sidebar: sidebar
 keywords: ontap, upgrade, prepare, preparing, load-sharing, load, sharing, mirrors 
 summary: ONTAP 8.3에서 주요 업그레이드를 수행하기 전에 모든 로드 공유 미러 소스 볼륨을 마지막으로 업그레이드할 노드의 aggregate로 이동해야 합니다. 이렇게 하면 로드 공유 미러 대상 볼륨이 ONTAP의 이후 버전과 동일하거나 같은 버전인지 확인할 수 있습니다. 
 ---
-= 주요 업그레이드를 위해 모든 로드 공유 미러를 준비합니다
+= ONTAP 8.3에서 업그레이드하기 전에 모든 로드 공유 미러를 준비하십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-ONTAP 8.3에서 주요 업그레이드를 수행하기 전에 모든 로드 공유 미러 소스 볼륨을 마지막으로 업그레이드할 노드의 aggregate로 이동해야 합니다. 이렇게 하면 로드 공유 미러 대상 볼륨이 ONTAP의 이후 버전과 동일하거나 같은 버전인지 확인할 수 있습니다.
+ONTAP 8.3에서 업그레이드하기 전에 모든 로드 공유 미러 소스 볼륨을 마지막 업그레이드 대상 노드의 aggregate로 이동해야 합니다. 이렇게 하면 로드 공유 미러 대상 볼륨이 ONTAP의 이후 버전과 동일하거나 같은 버전인지 확인할 수 있습니다.
+
+
+NOTE: ONTAP 8.3에서 업그레이드할 때만 이 절차를 수행하면 됩니다.
 
 . 모든 로드 공유 미러 소스 볼륨의 위치를 기록합니다.
 +

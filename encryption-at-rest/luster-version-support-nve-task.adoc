@@ -33,6 +33,6 @@ cluster1::> version -v
 NetApp Release 9.1.0: Tue May 10 19:30:23 UTC 2016 <1Ono-DARE>
 ----
 +
-명령 출력의 ""1Ono-DARE"" 텍스트는 클러스터 버전에서 NVE가 지원되지 않음을 나타냅니다.
+의 출력입니다 `1Ono-DARE` NVE가 클러스터 버전에서 지원되지 않음을 나타냅니다.
 
 

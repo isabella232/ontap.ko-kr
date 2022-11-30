@@ -26,8 +26,8 @@ NetApp 모범 사례로서 이 루트 사용자를 사용하지 마십시오. �
 ====
 추가 구성 및 표시 옵션은 'vserver object-store-server' man 페이지를 참조하십시오.
 
-[role="tabbed-block"]
 .단계
+[role="tabbed-block"]
 ====
 .CLI를 참조하십시오
 --

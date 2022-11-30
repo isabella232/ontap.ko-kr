@@ -28,6 +28,7 @@ SSD(Solid State Drive)를 추가하여 기존 로컬 계층(애그리게이트)�
 .시스템 관리자
 --
 .시스템 관리자를 사용하여 SSD 캐시 추가(ONTAP 9.12.1 이상)
+[%collapsible%open]
 =====
 ONTAP 9.12.1부터 시스템 관리자를 사용하여 SSD 캐시를 추가할 수 있습니다.
 
@@ -46,6 +47,7 @@ NOTE: AFF 시스템에서는 스토리지 풀 옵션을 사용할 수 없습니�
 
 =====
 .System Manager를 사용하여 SSD 캐시 추가(ONTAP 9.7만 해당)
+[%collapsible%open]
 =====
 
 NOTE: ONTAP 9.7 이상 또는 ONTAP 9.12.1 이전 버전의 ONTAP를 사용하는 경우 CLI 절차를 사용하십시오.

@@ -249,14 +249,14 @@ Job ID Name                 Vserver    Node           State
 
 Hyper-V 또는 Microsoft SQL Server 클라이언트가 SMB 3.0 프로토콜을 사용하여 액세스하는 지속적으로 사용 가능한 SMB 공유는 업그레이드 또는 다운그레이드하기 전에 종료할 필요가 없습니다.
 
-. 계속 사용할 수 없는 설정된 SMB 세션을 식별합니다. 'vserver cifs session show-Continuously-available Yes-instance'
+. 지속적으로 사용할 수 없는 설정된 SMB 세션을 식별합니다. `vserver cifs session show -continuously-available No -instance`
 +
 이 명령은 무중단 가용성이 없는 SMB 세션에 대한 자세한 정보를 표시합니다. ONTAP 다운그레이드를 진행하기 전에 종료해야 합니다.
 
 +
 [listing]
 ----
-cluster1::> vserver cifs session show -continuously-available Yes -instance
+cluster1::> vserver cifs session show -continuously-available No -instance
 
                         Node: node1
                      Vserver: vs1

@@ -504,6 +504,7 @@ openssl dgst -sha256 -verify ONTAP-Mediator-production.pub -signature ontap-medi
 
 
 .ONTAP 중재자 코드 서명 확인(콘솔 출력)의 예
+[%collapsible]
 ====
 [listing]
 ----
@@ -630,6 +631,7 @@ NOTE: 설치 후 README 파일과 키 위치도 시스템 출력에 제공됩니
 
 
 .ONTAP 중재자 1.5 설치의 예(콘솔 출력)
+[%collapsible]
 ====
 [listing]
 ----
