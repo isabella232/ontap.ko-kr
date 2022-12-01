@@ -21,10 +21,6 @@ entries:
     url: "/task_dp_prepare_mirror.html"
   - title: 미러와 볼트를 구성합니다
     url: "/task_dp_configure_mirror.html"
-  - title: 스토리지 VM 재해 복구 구성
-    url: "/task_dp_configure_storage_vm_dr.html"
-  - title: 데이터를 대상에 제공합니다
-    url: "/task_dp_serve_data_from_destination.html"
   - title: 보호 관계를 다시 동기화합니다
     url: "/task_dp_restore_from_destination.html"
   - title: 이전 스냅샷 복사본에서 볼륨을 복원합니다
@@ -35,6 +31,10 @@ entries:
     url: "/task_dp_restore_to_new_volume.html"
   - title: 보호 관계를 다시 동기화합니다
     url: "/task_dp_reverse_resynch_a_destination_vm.html"
+  - title: 데이터를 대상에 제공합니다
+    url: "/task_dp_serve_data_from_destination.html"
+  - title: 스토리지 VM 재해 복구 구성
+    url: "/task_dp_configure_storage_vm_dr.html"
   - title: 소스 스토리지 VM을 다시 활성화합니다
     url: "/task_dp_reactivate_storage_vm.html"
   - title: 대상 스토리지 VM을 다시 동기화합니다
