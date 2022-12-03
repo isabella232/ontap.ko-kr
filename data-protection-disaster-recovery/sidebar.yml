@@ -35,6 +35,8 @@ entries:
     url: "/task_dp_serve_data_from_destination.html"
   - title: 스토리지 VM 재해 복구 구성
     url: "/task_dp_configure_storage_vm_dr.html"
+  - title: SVM DR 대상에서 데이터 제공
+    url: "/task-dp-serve-data-from-dest-svm.html"
   - title: 소스 스토리지 VM을 다시 활성화합니다
     url: "/task_dp_reactivate_storage_vm.html"
   - title: 대상 스토리지 VM을 다시 동기화합니다

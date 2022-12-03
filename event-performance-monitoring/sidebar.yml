@@ -3,19 +3,16 @@ section: event-performance-monitoring
 title: 이벤트 및 성능 모니터링
 url: "/event-performance-monitoring/index.html"
 entries:
-- title: System Manager로 클러스터 성능을 봅니다
+- title: System Manager로 클러스터 성능을 모니터링합니다
   entries:
-  - title: 클러스터 성능 개요
-    url: "/concept_cluster_performance_overview.html"
+  - title: 개요
+    url: "/task_cp_monitor_cluster_performance_sm.html"
   - title: 대시보드 투어
     url: "/task_cp_dashboard_tour.html"
   - title: 핫 객체를 식별합니다
     url: "/task_cp_id_hot_objects.html"
   - title: QoS를 수정합니다
     url: "/task_admin_modify_qos.html"
-- title: System Manager를 사용하여 클러스터 성능을 모니터링합니다
-  url: "/task_cp_monitor_cluster_performance_sm.html"
-- section: performance-config
 - section: performance-admin
 - title: Unified Manager로 클러스터 성능 모니터링
   url: "/task_cp_monitor_cluster_performance_um.html"

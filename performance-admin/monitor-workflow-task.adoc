@@ -4,13 +4,13 @@ sidebar: sidebar
 keywords: performance, monitoring, workflow 
 summary: 클러스터 성능 모니터링에는 Active IQ Unified Manager 소프트웨어 설치, 기본 모니터링 작업 설정 및 성능 문제 식별 등이 포함됩니다. 
 ---
-= 성능 모니터링 워크플로우 개요
+= 성능 모니터링 및 유지 관리 워크플로우 개요
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-클러스터 성능 모니터링에는 Active IQ Unified Manager 소프트웨어 설치, 기본 모니터링 작업 설정 및 성능 문제 식별 등이 포함됩니다.
+클러스터 성능을 모니터링하고 유지하려면 Active IQ Unified Manager 소프트웨어 설치, 기본 모니터링 작업 설정, 성능 문제 식별 및 필요에 따라 조정 작업이 필요합니다.
 
 image::../media/performance-monitoring-workflow-perf-admin.gif[이 워크플로는 성능 모니터링을 완료하는 데 필요한 단계를 보여 줍니다.]

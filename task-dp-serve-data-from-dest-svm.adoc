@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: task-dp-serve-data-from-dest-svm.html 
+keywords: netapp, ontap, system manager, VM, storage, destination, source, source storage VM, disaster, activate, activating, protection, protection relationship, relationship, relationships, destination activation 
+summary: ONTAP 9.8부터 System Manager를 사용하여 재해 발생 후 대상 스토리지 VM을 활성화할 수 있습니다. 대상 스토리지 VM을 활성화하면 SVM 대상 볼륨을 쓸 수 있고 데이터를 클라이언트에 제공할 수 있습니다. 
+---
+= SVM DR 대상에서 데이터 제공
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:allow-uri-read: 
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+ONTAP 9.8부터 System Manager를 사용하여 재해 발생 후 대상 스토리지 VM을 활성화할 수 있습니다. 대상 스토리지 VM을 활성화하면 SVM 대상 볼륨을 쓸 수 있고 데이터를 클라이언트에 제공할 수 있습니다.
+
+.단계
+. 소스 클러스터에 액세스할 수 있는 경우 SVM이 중지되었는지 확인합니다. * 스토리지 > 스토리지 VM * 으로 이동하고 SVM을 위한 * 상태 * 열을 확인합니다.
+. 소스 SVM 상태가 "실행 중"인 경우 중지하고 선택하십시오 image:icon_kabob.gif["Kabob 아이콘"] 를 선택하고 * Stop * 을 선택합니다.
+. 대상 클러스터에서 원하는 보호 관계를 찾습니다. * 보호 > 관계 * 로 이동합니다.
+. 을 클릭합니다 image:icon_kabob.gif["Kabob 아이콘"] 및 * Activate Destination Storage VM * 을 선택합니다.
+

@@ -18,6 +18,8 @@ Active IQ Unified Manager를 설치, 구성 및 연결하기 전에 사용자 �
 == Unified Manager 설치 정보
 
 |===
+
+
 | 소프트웨어가 구축된 가상 머신입니다 | 귀사의 가치 
 
 
@@ -85,6 +87,8 @@ ESXi 서버 IP 주소입니다
 == Unified Manager 구성 정보
 
 |===
+
+
 | 설정 | 귀사의 가치 
 
 
@@ -173,6 +177,8 @@ Active Directory 암호입니다
 Unified Manager의 각 클러스터에 대해 다음 정보를 수집합니다.
 
 |===
+
+
 | 클러스터 1/N | 귀사의 가치 
 
 

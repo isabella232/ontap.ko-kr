@@ -19,9 +19,9 @@ summary: '소프트웨어를 설치하려면 가상 어플라이언스(VA) 설�
 https://mysupport.netapp.com/products/index.html[]
 
 . Select Platform * (플랫폼 선택 *) 드롭다운 메뉴에서 * VMware vSphere * 를 선택하고 * Go! * (이동! *)를 클릭합니다
-. VMware vSphere Client에서 액세스할 수 있는 로컬 또는 네트워크 위치에 "OVA" 파일을 저장합니다.
+. VMware vSphere Client에서 액세스할 수 있는 로컬 또는 네트워크 위치에 ""OVA"" 파일을 저장합니다.
 . VMware vSphere Client에서 * File * > * Deploy OVF Template * 을 클릭합니다.
-. "OVA" 파일을 찾아 마법사를 사용하여 ESXi 서버에 가상 어플라이언스를 구축합니다.
+. ""OVA" 파일을 찾아 마법사를 사용하여 ESXi 서버에 가상 어플라이언스를 구축합니다.
 +
 마법사의 * 속성 * 탭을 사용하여 정적 구성 정보를 입력할 수 있습니다.
 

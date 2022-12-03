@@ -148,7 +148,7 @@ ONTAP 클라우드 인스턴스에는 SnapMirror Synchronous가 지원되지 않
 
 [NOTE]
 ====
-DP 유형 미러는 ONTAP 9.11.1부터 초기화할 수 없으며 향후 릴리스에서 완전히 사용되지 않습니다. 자세한 내용은 을 참조하십시오 link:https://mysupport.netapp.com/info/communications/ECMLP2880221.html["데이터 보호 SnapMirror 관계의 사용 중단"^].
+DP 유형 미러는 ONTAP 9.11.1부터 초기화할 수 없으며 ONTAP 9.12.1에서 완전히 사용되지 않습니다. 자세한 내용은 을 참조하십시오 link:https://mysupport.netapp.com/info/communications/ECMLP2880221.html["데이터 보호 SnapMirror 관계의 사용 중단"^].
 
 ====
 [NOTE]

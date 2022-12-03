@@ -1,6 +1,6 @@
 ---
 section: performance-admin
-title: CLI를 통한 성능 관리
+title: CLI를 사용하여 클러스터 성능을 모니터링하고 관리합니다
 entries:
 - title: 개요
   url: "/performance-admin/index.html"
@@ -19,7 +19,7 @@ entries:
     - title: 초기 Active IQ Unified Manager 설정을 구성합니다
       url: "/performance-admin/configure-initial-unified-manager-settings-task.html"
   - title: 모니터링할 클러스터를 지정합니다
-    url: "/performance-admin/specify-clusters-monito-task.html"
+    url: "/performance-admin/specify-clusters-monitor-task.html"
   - title: 기본 모니터링 작업을 설정합니다
     entries:
     - title: 매일 모니터링을 수행합니다
@@ -32,6 +32,8 @@ entries:
       url: "/performance-admin/set-performance-thresholds-task.html"
     - title: 알림을 추가합니다
       url: "/performance-admin/add-alerts-task.html"
+    - title: 경고 설정을 구성합니다
+      url: "/performance-admin/configure-alert-settings-task.html"
   - title: Active IQ Unified Manager의 성능 문제를 식별합니다
     url: "/performance-admin/identify-performance-issues-unified-manager-task.html"
 - title: Active IQ 디지털 어드바이저를 사용하여 시스템 성능을 확인합니다
