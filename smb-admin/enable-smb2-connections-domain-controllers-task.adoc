@@ -13,13 +13,20 @@ summary: ONTAP 9.1부터 SMB 버전 2.0을 사용하여 도메인 컨트롤러�
 [role="lead"]
 ONTAP 9.1부터 SMB 버전 2.0을 사용하여 도메인 컨트롤러에 연결할 수 있습니다. 도메인 컨트롤러에서 SMB 1.0을 사용하지 않도록 설정한 경우 이 작업이 필요합니다. ONTAP 9.2부터는 SMB2가 기본적으로 설정됩니다.
 
+.이 작업에 대해
 'MB2-enabled-for-dc-connections' 명령 옵션을 사용하면 사용 중인 ONTAP 릴리스에 대한 시스템 기본값을 사용할 수 있습니다. ONTAP 9.1의 시스템 기본값은 SMB 1.0에 대해 사용되고 SMB 2.0에는 사용되지 않습니다. ONTAP 9.2의 시스템 기본값은 SMB 1.0에 대해 활성화되어 있고 SMB 2.0에 대해 활성화되어 있습니다. 도메인 컨트롤러가 처음에 SMB 2.0을 협상할 수 없는 경우 SMB 1.0을 사용합니다.
 
 SMB 1.0은 ONTAP에서 도메인 컨트롤러로 비활성화할 수 있습니다. ONTAP 9.1에서 SMB 1.0을 사용하지 않도록 설정한 경우 도메인 컨트롤러와 통신하려면 SMB 2.0을 활성화해야 합니다.
 
+자세히 알아보기:
+
+* link:../smb-config/verify-enabled-versions-task.html["활성화된 SMB 버전을 확인하는 중입니다"].
+* link:supported-versions-functionality-concept.html["지원되는 SMB 버전 및 기능"].
+
+
 [NOTE]
 ====
-SMB1-enabled-for-dc-connections가 false로 설정되어 있고 -SMB1-enabled가 true로 설정되어 있으면 ONTAP는 SMB 1.0 연결을 클라이언트로 거부하지만 인바운드 SMB 1.0 연결을 서버로 계속 허용합니다. 이 설명서의 _ SMB 버전 활성화 및 비활성화 항목을 참조하십시오.
+SMB1-enabled-for-dc-connections가 false로 설정되어 있고 -SMB1-enabled가 true로 설정되어 있으면 ONTAP는 SMB 1.0 연결을 클라이언트로 거부하지만 인바운드 SMB 1.0 연결을 서버로 계속 허용합니다.
 
 ====
 .단계
@@ -45,5 +52,3 @@ SMB1-enabled-for-dc-connections가 false로 설정되어 있고 -SMB1-enabled가
 
 |===
 
-
-xref:supported-versions-functionality-concept.adoc[지원되는 SMB 버전 및 기능]

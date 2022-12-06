@@ -18,6 +18,7 @@ summary: 복제 관계를 생성하려면 먼저 Element 클러스터에서 Snap
 * SnapMirror는 NetApp ONTAP 볼륨과 함께 사용되는 Element 클러스터에 대해서만 활성화할 수 있습니다.
 
 
+.이 작업에 대해
 Element 시스템에는 기본적으로 SnapMirror가 비활성화되어 있습니다. SnapMirror는 새로운 설치 또는 업그레이드의 일부로 자동 활성화되지 않습니다.
 
 [NOTE]

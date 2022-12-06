@@ -58,7 +58,7 @@ ONTAP 9.10.1부터 추가 정보가 표시됩니다.
  a| 
 System Manager의 권장 사항을 수락합니다.
  a| 
-로 진행합니다 ,암호화를 위해 Onboard Key Manager를 구성하는 단계입니다.
+로 진행합니다 <<step5-okm-encrypt,암호화를 위해 Onboard Key Manager를 구성하는 단계입니다>>.
 
 
 
@@ -90,8 +90,10 @@ System Manager의 권장 사항을 수락합니다.
 
 'Storage aggregate auto-provision' 명령을 실행하여 애그리게이트 레이아웃 권장 사항을 생성합니다. 그런 다음 ONTAP 권장사항을 검토하고 승인한 후 애그리게이트를 생성할 수 있습니다.
 
+.필요한 것
 ONTAP 9.2 이상이 클러스터에서 실행 중이어야 합니다.
 
+.이 작업에 대해
 'Storage aggregate auto-provision' 명령을 통해 생성된 기본 요약에는 이름과 사용 가능한 크기를 비롯하여 생성할 권장 애그리게이트가 나열됩니다. 목록을 보고 메시지가 표시될 때 권장 애그리게이트를 만들 것인지 결정할 수 있습니다.
 
 다음 보고서를 표시하는 '-verbose' 옵션을 사용하여 자세한 요약을 표시할 수도 있습니다.
@@ -147,4 +149,5 @@ Info: Creating node1_SSD_1 ...
 
 --
 ====
+.관련 정보
 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"^]

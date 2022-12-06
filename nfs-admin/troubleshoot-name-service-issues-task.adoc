@@ -187,4 +187,5 @@ DNS 구성
 최상위 도메인(TLD) 쿼리에 대한 DNS 구성 vserver services name-service dns modify 명령에 대한 `-is-tLD-query-enabled false ' 옵션을 사용하여 TLD 쿼리를 비활성화할 수 있습니다.
 
 |===
+.관련 정보
 https://www.netapp.com/pdf.html?item=/media/16328-tr-4668pdf.pdf["NetApp 기술 보고서 4668: 이름 서비스 모범 사례 가이드"^]

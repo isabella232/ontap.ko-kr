@@ -13,8 +13,10 @@ summary: FlexClone 파일 및 FlexClone LUN을 자동으로 삭제하도록 Flex
 [role="lead"]
 FlexClone 파일 및 FlexClone LUN을 자동으로 삭제하도록 FlexVol 볼륨을 구성하는 경우 지정한 조건에 맞는 모든 클론을 삭제할 수 있습니다. 보존하려는 특정 FlexClone 파일 또는 FlexClone LUN이 있는 경우 자동 FlexClone 삭제 프로세스에서 해당 LUN을 제외할 수 있습니다.
 
+.필요한 것
 FlexClone 라이센스를 설치해야 합니다.
 
+.이 작업에 대해
 FlexClone 파일 또는 FlexClone LUN을 생성할 때 기본적으로 클론에 대한 자동 삭제 설정이 사용되지 않습니다. 자동 삭제가 비활성화된 FlexClone 파일 및 FlexClone LUN은 FlexVol 볼륨을 구성하여 볼륨의 공간을 자동으로 재확보하도록 구성할 때 보존됩니다.
 
 [NOTE]

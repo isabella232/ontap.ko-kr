@@ -22,4 +22,5 @@ BUILTIN 그룹의 이름을 바꾼 후 잘 알려진 이름으로 다른 로컬 
 * 로컬 게스트 계정이 없습니다.
 
 
+.관련 정보
 xref:builtin-groups-default-privileges-reference.adoc[사전 정의된 BUILTIN 그룹 및 기본 권한]

@@ -19,6 +19,7 @@ NFS 및 SMB 프로토콜은 네트워크를 통해 클라이언트 애플리케�
 
 NetApp SnapMirror 기술은 사내 ONTAP 시스템과 Cloud Volumes ONTAP 간에 파일 데이터를 이동하고 동기화합니다. 데이터를 클라우드 간에, 또는 클라우드 공급자 간에 쉽게 이동할 수 있습니다.
 
+.관련 정보
 https://docs.netapp.com/us-en/occm/task_provisioning_storage.html#creating-flexvol-volumes["BlueXP: 스토리지 용량 할당"]
 
 https://docs.netapp.com/us-en/occm/task_manage_anf.html["Azure NetApp Files의 볼륨 관리"]

@@ -35,4 +35,5 @@ NOTE: 이 단계에서는 NSE 인증서가 제거되지 않습니다.
 
 업그레이드가 완료된 후 KMIP 서버 연결을 다시 구성해야 합니다.
 
+.관련 정보
 xref:task_reconfiguring_kmip_servers_connections_after_upgrading_to_ontap_9_3_or_later.adoc[ONTAP 9.3 이상으로 업그레이드한 후 KMIP 서버 연결을 재구성합니다]

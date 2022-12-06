@@ -13,6 +13,7 @@ summary: ONTAP가 사용자 환경에서 외부 Kerberos 서버에 액세스하�
 [role="lead"]
 ONTAP가 사용자 환경에서 외부 Kerberos 서버에 액세스하도록 하려면 먼저 기존 Kerberos 영역을 사용하도록 SVM을 구성해야 합니다. 이렇게 하려면 Kerberos KDC 서버에 대한 구성 값을 수집한 다음 "vserver NFS Kerberos realm create" 명령을 사용하여 SVM에서 Kerberos 영역 구성을 생성해야 합니다.
 
+.필요한 것
 클러스터 관리자는 인증 문제를 방지하기 위해 스토리지 시스템, 클라이언트 및 KDC 서버에서 NTP를 구성해야 합니다. 클라이언트와 서버 간의 시간 차이(클럭 편중)는 인증 실패의 일반적인 원인입니다.
 
 .단계
@@ -27,6 +28,7 @@ ONTAP가 사용자 환경에서 외부 Kerberos 서버에 액세스하도록 하
 
 
 
+.예
 다음 명령을 실행하면 Microsoft Active Directory 서버를 KDC 서버로 사용하는 SVM VS1 용 NFS Kerberos 영역 구성이 생성됩니다. Kerberos 영역은 AUTH.EXAMPLE.COM 입니다. Active Directory 서버의 이름은 ad-1이고 IP 주소는 10.10.8.14입니다. 허용되는 시간 편중은 300초(기본값)입니다. KDC 서버의 IP 주소는 10.10.8.14이고 포트 번호는 88(기본값)입니다. "Microsoft Kerberos 구성"이 주석입니다.
 
 [listing]

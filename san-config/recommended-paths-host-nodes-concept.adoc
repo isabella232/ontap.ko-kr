@@ -26,4 +26,5 @@ SLM은 호스트에서 LUN으로의 경로 수를 LUN과 소유 노드의 HA 파
 * FC 스위치 조닝
 
 
+.관련 정보
 link:../san-admin/index.html["SAN 관리"]

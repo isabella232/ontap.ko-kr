@@ -13,7 +13,7 @@ summary: 'SPI(Service Processor Infrastructure) 웹 서비스는 기본적으로
 [role="lead"]
 Service Processor Infrastructure(S pi) 웹 서비스는 기본적으로 활성화되어 웹 브라우저가 클러스터에 있는 노드의 로그, 코어 덤프 및 MIB 파일에 액세스할 수 있도록 합니다. 노드가 다운된 경우에도 파일이 액세스 가능 상태로 유지됩니다. 단, 해당 노드가 파트너에 의해 인계됩니다.
 
-.무엇을 &#8217;필요로 할거야
+.필요한 것
 * 클러스터 관리 LIF가 가동되어야 합니다.
 +
 클러스터의 관리 LIF나 노드를 사용하여 'pi' 웹 서비스에 액세스할 수 있습니다. 그러나 클러스터 관리 LIF를 사용하는 것이 좋습니다.
@@ -35,6 +35,7 @@ network interface show 명령은 클러스터에 있는 모든 LIF의 상태를 
 
 
 
+.이 작업에 대해
 기본적으로 'spi' 웹 서비스가 활성화되어 있으며 서비스를 수동으로 비활성화할 수 있습니다('vserver services web modify -vserver * -name spi -enabled false').
 
 "admin" 역할은 기본적으로 'spi' 웹 서비스에 대한 액세스 권한이 부여되며, 액세스를 수동으로 비활성화할 수 있습니다('services web access delete -vserver_cluster_name_-name spi-role admin').

@@ -26,4 +26,5 @@ FlexClone LUN을 생성할 때 FlexClone LUN 자동 삭제 기능은 기본적�
 스냅샷 복사본에서 FlexClone LUN을 생성하면 공간 효율적인 백그라운드 프로세스를 통해 스냅샷 복사본에서 LUN이 자동으로 분리되므로 LUN이 스냅샷 복사본에 계속 종속되거나 추가 공간을 사용하지 않습니다. 이 백그라운드 스플릿이 완료되지 않고 이 스냅샷 복사본이 자동으로 삭제된 경우 해당 FlexClone LUN에 대한 FlexClone 자동 삭제 기능을 비활성화한 경우에도 해당 FlexClone LUN이 삭제됩니다. 백그라운드 분열이 완료된 후에는 스냅샷 복사본이 삭제되더라도 FlexClone LUN이 삭제되지 않습니다.
 
 ====
+.관련 정보
 link:../volumes/index.html["논리적 스토리지 관리"]

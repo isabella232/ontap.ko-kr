@@ -75,4 +75,5 @@ ntp1.example.com     auto
 ----
 
 
+.관련 정보
 link:../system-admin/index.html["시스템 관리"]

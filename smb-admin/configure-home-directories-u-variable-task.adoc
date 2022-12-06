@@ -81,6 +81,7 @@ Windows 사용자 이름이 해당 UNIX 사용자 이름으로 매핑됩니다. 
 
 
 
+.예
 다음 예제의 명령은 다음과 같은 설정으로 홈 디렉토리 구성을 만듭니다.
 
 * 공유 이름은 %W입니다
@@ -130,6 +131,7 @@ Vserver        Direction Position
 vs1            win-unix  5        Pattern: user1
                               Replacement: unixuser1
 ----
+.관련 정보
 xref:create-home-directory-config-w-d-variables-task.adoc[%w 및 %d 변수를 사용하여 홈 디렉토리 설정을 작성합니다]
 
 xref:home-directory-config-concept.adoc[추가 홈 디렉토리 구성]

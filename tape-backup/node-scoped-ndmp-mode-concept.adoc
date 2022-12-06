@@ -20,4 +20,5 @@ summary: 노드 범위의 NDMP 모드에서는 노드 수준에서 테이프 백
 이 모드는 더 이상 사용되지 않으며 향후 주요 릴리즈에서 제거될 예정입니다.
 
 ====
+.관련 정보
 xref:manage-node-scoped-ndmp-mode-concept.adoc[FlexVol 볼륨에 대한 노드 범위 NDMP 모드 관리]

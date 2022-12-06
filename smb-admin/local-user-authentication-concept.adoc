@@ -38,4 +38,5 @@ ONTAP는 먼저 로컬 사용자로 인증을 시도합니다. 로컬 사용자�
 
 로컬 사용자의 NTLM 인증에 대한 자세한 내용은 Microsoft Windows 설명서를 참조하십시오.
 
+.관련 정보
 xref:enable-disable-local-user-authentication-task.adoc[로컬 사용자 인증 활성화 또는 비활성화]

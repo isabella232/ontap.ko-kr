@@ -13,7 +13,7 @@ summary: 운영 스토리지의 소스 볼륨과 2차 스토리지의 타겟 볼
 [role="lead"]
 운영 스토리지의 소스 볼륨과 2차 스토리지의 타겟 볼륨 간의 관계를 _ 데이터 보호 관계라고 합니다. _ '스냅샷 생성' 명령을 사용하여 SnapMirror DR, SnapVault 또는 통합 복제 데이터 보호 관계를 생성할 수 있습니다.
 
-.무엇을 &#8217;필요로 할거야
+.필요한 것
 * 소스 및 타겟 클러스터와 SVM을 피어링해야 합니다.
 +
 https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["클러스터 및 SVM 피어링"]
@@ -21,6 +21,7 @@ https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["클러스터 
 * 대상 볼륨의 언어는 소스 볼륨의 언어와 동일해야 합니다.
 
 
+.이 작업에 대해
 ONTAP 9.3까지 SnapMirror는 DP 모드에서 호출되고 SnapMirror는 XDP 모드에서 호출될 때까지 서로 다른 복제 엔진을 사용했으며, 버전 의존성에 대한 접근법도 다릅니다.
 
 * DP 모드에서 호출된 SnapMirror는 ONTAP 버전이 운영 스토리지와 2차 스토리지에서 동일해야 하는 _version-dependent_replication 엔진을 사용합니다.
@@ -201,6 +202,7 @@ cluster_dst::> snapmirror create -source-path svm1:volA -destination-path svm_ba
 ====
 
 
+.작업을 마친 후
 'snapmirror show' 명령을 사용하여 SnapMirror 관계가 생성되었는지 확인합니다. 전체 명령 구문은 man 페이지를 참조하십시오.
 
 

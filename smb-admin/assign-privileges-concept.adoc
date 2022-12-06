@@ -20,6 +20,7 @@ summary: 로컬 사용자 또는 도메인 사용자에게 직접 권한을 할�
 * 기본 권한이 해당 사용자에게 부여할 권한과 일치하는 미리 정의된 그룹에 로컬 사용자 및 도메인 사용자를 할당할 수도 있습니다.
 
 
+.관련 정보
 xref:add-privileges-local-domain-users-groups-task.adoc[로컬 또는 도메인 사용자 또는 그룹에 권한 추가]
 
 xref:remove-privileges-local-domain-users-groups-task.adoc[로컬 또는 도메인 사용자 또는 그룹에서 권한을 제거합니다]

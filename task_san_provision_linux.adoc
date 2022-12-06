@@ -211,6 +211,7 @@ NOTE: NVFAIL 옵션은 볼륨에 LUN이 생성될 때 자동으로 활성화됩�
 
 --
 ====
+.관련 정보
 link:./san-admin/index.html["SAN 관리 개요"]
 https://docs.netapp.com/us-en/ontap-sanhost/index.html["ONTAP SAN 호스트 구성"]
 https://docs.netapp.com/us-en/ontap/san-admin/manage-san-initiators-task.html["System Manager에서 SAN 이니시에이터 그룹을 보고 관리합니다"]

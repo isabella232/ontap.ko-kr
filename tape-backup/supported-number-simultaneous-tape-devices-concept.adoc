@@ -20,4 +20,5 @@ ONTAP는 Fibre Channel, SCSI 또는 SAS 접속 장치를 혼합하여 각 스토
 스토리지 시스템에서 64개의 테이프 드라이브 연결을 감지할 수 있지만 동시에 수행할 수 있는 최대 백업 및 복구 세션 수는 백업 엔진의 확장성 제한에 따라 달라집니다.
 
 ====
+.관련 정보
 xref:scalability-limits-dump-backup-restore-sessions-concept.adoc[덤프 백업 및 복원 세션에 대한 확장성 제한]

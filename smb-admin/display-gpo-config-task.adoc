@@ -13,6 +13,7 @@ summary: 'Active Directory에 정의된 GPO(그룹 정책 개체) 구성과 CIFS
 [role="lead"]
 Active Directory에 정의된 GPO(그룹 정책 개체) 구성과 CIFS 서버에 적용된 GPO 구성에 대한 정보를 표시할 수 있습니다.
 
+.이 작업에 대해
 CIFS 서버가 속한 도메인의 Active Directory에 정의된 모든 GPO 구성에 대한 정보를 표시하거나 CIFS 서버에 적용된 GPO 구성에 대한 정보만 표시할 수 있습니다.
 
 .단계
@@ -37,6 +38,7 @@ CIFS 지원 스토리지 가상 시스템(SVM)에 적용
 |===
 
 
+.예
 다음 예에서는 VS1 이라는 CIFS 지원 SVM이 속한 Active Directory에 정의된 GPO 구성을 보여 줍니다.
 
 [listing]
@@ -219,4 +221,5 @@ Vserver: vs1
       Policies: cap1
                 cap2
 ----
+.관련 정보
 xref:enable-disable-gpo-support-task.adoc[CIFS 서버에서 GPO 지원을 설정하거나 해제합니다]

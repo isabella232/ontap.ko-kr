@@ -16,6 +16,7 @@ summary: SNMP 관리자에서 SNMP 유틸리티를 실행하도록 SNMPv3 사용
 [role="lead"]
 SNMPv3는 SNMPv1 및 SNMPv2c와 비교할 때 보안 프로토콜입니다. SNMPv3을 사용하려면 SNMP 관리자에서 SNMP 유틸리티를 실행하도록 SNMPv3 사용자를 구성해야 합니다.
 
+.단계
 "security login create command"를 사용하여 SNMPv3 사용자를 생성합니다.
 
 다음 정보를 제공하라는 메시지가 표시됩니다.
@@ -27,6 +28,7 @@ SNMPv3는 SNMPv1 및 SNMPv2c와 비교할 때 보안 프로토콜입니다. SNMP
 * 개인 정보 프로토콜 암호
 
 
+.결과
 SNMPv3 사용자는 사용자 이름 및 암호를 사용하여 SNMP 관리자에서 로그인하고 SNMP 유틸리티 명령을 실행할 수 있습니다.
 
 

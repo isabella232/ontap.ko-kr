@@ -19,6 +19,7 @@ summary: ONTAP 9.8부터 파일 액세스 문제를 추적하고 볼 수 있습�
 
 
 .단계
+[role="lead"]
 . System Manager에서 * 스토리지 > 스토리지 VM * 을 선택합니다.
 . 추적을 수행할 스토리지 VM을 선택합니다.
 . 을 클릭합니다 image:icon_kabob.gif["케밥 아이콘"] 추가 정보 *.

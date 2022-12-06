@@ -21,6 +21,7 @@ summary: vserver services name-service unix-group adduser 명령을 사용하여
 
 '-name''_group_name_'은 사용자의 기본 그룹 외에도 사용자를 추가할 UNIX 그룹의 이름을 지정합니다.
 
+.예
 다음 명령을 실행하면 이름이 max인 사용자가 이름이 eng인 로컬 UNIX 그룹에 이름이 vs1 인 SVM에 추가됩니다.
 
 [listing]

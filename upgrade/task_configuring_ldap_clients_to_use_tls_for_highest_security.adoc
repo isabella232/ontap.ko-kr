@@ -27,4 +27,5 @@ summary: 대상 ONTAP 릴리즈로 업그레이드하기 전에 TLS를 사용하
 . LDAP 클라이언트에 대해 SSL 사용이 더 이상 허용되지 않는지 확인합니다. 'vserver services name-service ldap client show'
 
 
+.관련 정보
 link:../nfs-admin/index.html["NFS 관리"]

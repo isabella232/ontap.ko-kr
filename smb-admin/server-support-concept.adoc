@@ -20,6 +20,7 @@ SMB 클라이언트가 클러스터의 파일에 액세스할 수 있도록 SVM(
 
 SMB 서버를 생성하기 전에 데이터 제공을 위해 사용 중인 SVM 및 LIF를 구성해야 합니다. 데이터 네트워크가 편평하지 않은 경우 IPspace, 브로드캐스트 도메인 및 서브넷을 구성해야 할 수도 있습니다. 자세한 내용은 _Network Management Guide_를 참조하십시오.
 
+.관련 정보
 link:../networking/index.html["네트워크 관리"]
 
 xref:modify-servers-task.html[SMB 서버를 수정합니다]

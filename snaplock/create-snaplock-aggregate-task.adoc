@@ -13,15 +13,17 @@ summary: '볼륨 "-snaplock-type" 옵션을 사용하여 Compliance 또는 Enter
 [role="lead"]
 볼륨 '-snaplock-type' 옵션을 사용하여 Compliance 또는 Enterprise SnapLock 볼륨 유형을 지정합니다. ONTAP 9.10.1 이전 릴리스의 경우 별도의 SnapLock 애그리게이트를 만들어야 합니다. ONTAP 9.10.1부터 SnapLock 및 비 SnapLock 볼륨은 동일한 애그리게이트에 존재할 수 있으므로, ONTAP 9.10.1을 사용하는 경우 더 이상 별도의 SnapLock 애그리게이트를 생성할 필요가 없습니다.
 
-.무엇을 &#8217;필요로 할거야
+.필요한 것
 * 이 작업을 수행하려면 클러스터 관리자여야 합니다.
 * SnapLock 라이센스가 노드에 설치되어 있어야 합니다.
 * 노드의 ComplianceClock을 초기화해야 합니다.
 * 디스크를 "루트", "루트", "다토1" 및 "다토2"로 분할한 경우 스페어 디스크를 사용할 수 있는지 확인해야 합니다.
 
 
+.업그레이드 고려 사항
 ONTAP 9.10.1로 업그레이드할 때 기존 SnapLock 및 비 SnapLock 애그리게이트는 SnapLock 볼륨과 비 SnapLock 볼륨 모두를 지원하도록 업그레이드되지만 기존 SnapLock 볼륨 특성은 자동으로 업데이트되지 않습니다. 예를 들어, 데이터 컴팩션, 볼륨 간 중복제거, 볼륨 간 백그라운드 중복제거 필드는 변경되지 않습니다. 기존 애그리게이트에 생성된 새로운 SnapLock 볼륨의 기본값이 비 SnapLock 볼륨과 같고, 새 볼륨 및 애그리게이트의 기본 값은 플랫폼에 따라 다릅니다.
 
+.되돌리기 고려 사항
 9.10.1 이전의 ONTAP 버전으로 복구해야 하는 경우 모든 SnapLock 규정 준수, SnapLock 엔터프라이즈 및 SnapLock 볼륨을 고유한 SnapLock 애그리게이트로 이동해야 합니다.
 
 .이 작업에 대해

@@ -47,6 +47,7 @@ Microsoft Windows Server 2012 Hyper-V의 백업 및 복원 작업을 자동화�
 
 
 
+.관련 정보
 xref:nondisruptive-operations-glossary-concept.adoc[SMB를 통한 Hyper-V 및 SQL Server의 무중단 운영에 대한 주요 개념입니다]
 
 xref:share-based-backups-remote-vss-concept.adoc[원격 VSS와 공유 기반 백업]

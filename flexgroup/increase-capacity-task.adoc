@@ -13,8 +13,10 @@ summary: FlexGroup 볼륨의 기존 구성요소에 용량을 추가하거나 �
 [role="lead"]
 FlexGroup 볼륨의 기존 구성요소에 용량을 추가하거나 새로운 구성 요소와 함께 FlexGroup 볼륨을 확장하여 FlexGroup 볼륨의 크기를 늘릴 수 있습니다.
 
+.필요한 것
 Aggregate에 충분한 공간이 있어야 합니다.
 
+.이 작업에 대해
 공간을 더 추가하려면 FlexGroup 볼륨의 전체 크기를 늘릴 수 있습니다. FlexGroup 볼륨의 크기를 늘리면 FlexGroup 볼륨의 기존 구성 요소의 크기가 조정됩니다.
 
 성능을 향상시키려면 FlexGroup 볼륨을 확장할 수 있습니다. 다음과 같은 상황에서 FlexGroup 볼륨을 확장하고 새 구성 요소를 추가할 수 있습니다.
@@ -60,6 +62,7 @@ ONTAP 9.5에서 FabricPool용 FlexGroup 볼륨을 확장하려면 사용된 새 
 
 가능하면 FlexGroup 볼륨의 용량을 늘려야 합니다. FlexGroup 볼륨을 확장해야 하는 경우 일관된 성능을 보장하기 위해 기존 FlexGroup 볼륨의 구성 요소와 동일한 배수의 구성 요소들을 추가해야 합니다. 예를 들어, 기존 FlexGroup 볼륨에 노드당 8개의 구성 요소와 함께 16개의 구성 구성요소가 있는 경우 기존 FlexGroup 볼륨을 8개 또는 16개의 구성 요소별로 확장할 수 있습니다.
 
+.예
 * 기존 구성요소의 용량 증가 예 *
 
 다음 예에서는 FlexGroup 볼륨 volX에 20TB 공간을 추가하는 방법을 보여 줍니다.

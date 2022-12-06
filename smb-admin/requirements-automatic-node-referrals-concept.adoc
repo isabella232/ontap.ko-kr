@@ -91,6 +91,7 @@ SMB 협상 중에 불합격입니다. 연결이 설정되기 전에 의뢰합니
 
 Mac OS X 클라이언트는 Microsoft의 DFS(Distributed File System)를 지원하지만 SMB 자동 노드 조회를 지원하지 않습니다. Windows 클라이언트는 SMB 공유에 연결하기 전에 DFS 참조 요청을 합니다. ONTAP는 요청된 데이터를 호스팅하는 동일한 노드에 있는 데이터 LIF를 지칭하여 클라이언트 응답 시간을 개선합니다. Mac OS는 DFS를 지원하지만 Mac OS 클라이언트는 이 영역의 Windows 클라이언트와 정확히 작동하지 않습니다.
 
+.관련 정보
 xref:dynamic-home-directories-concept.html[ONTAP에서 동적 홈 디렉터리를 활성화하는 방법]
 
 link:../networking/index.html["네트워크 관리"]

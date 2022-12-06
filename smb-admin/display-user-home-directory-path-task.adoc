@@ -28,4 +28,5 @@ summary: '스토리지 가상 시스템(SVM)에 SMB 사용자의 홈 디렉토�
 ----
 
 
+.관련 정보
 xref:manage-accessibility-users-home-directories-task.adoc[사용자의 홈 디렉터리에 대한 액세스 가능성 관리]

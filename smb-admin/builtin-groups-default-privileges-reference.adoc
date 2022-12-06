@@ -75,6 +75,7 @@ ONTAP에서 제공하는 미리 정의된 BUILTIN 그룹 집합에 로컬 사용
 '스변경NotifyPrivilege'입니다
 
 |===
+.관련 정보
 xref:builtin-groups-local-administrator-account-concept.adoc[BUILTIN 그룹 및 로컬 관리자 계정 사용에 대한 지침]
 
 xref:list-supported-privileges-reference.adoc[지원되는 권한 목록입니다]

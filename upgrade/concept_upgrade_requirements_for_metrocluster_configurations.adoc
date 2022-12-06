@@ -72,4 +72,5 @@ DR 사이트의 루트 애그리게이트는 특정 전환 단계 중에 오프�
 * 모든 볼륨이 온라인 상태여야 합니다.
 
 
+.관련 정보
 link:task_verifying_the_networking_and_storage_status_for_metrocluster_cluster_is_ready.html["MetroCluster 구성에 대한 네트워킹 및 스토리지 상태 확인"]

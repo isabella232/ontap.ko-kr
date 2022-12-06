@@ -19,6 +19,7 @@ SVM(스토리지 가상 시스템) 범위의 NDMP 모드에서는 NDMP 사용자
 
 이 모드에서는 사용자 계정이 SSH 애플리케이션 및 ""사용자 암호" 인증 방법과 연결되어 있어야 합니다.
 
+.관련 정보
 xref:commands-manage-svm-scoped-ndmp-reference.adoc[SVM 범위의 NDMP 모드를 관리하는 명령입니다]
 
 link:../system-admin/index.html["시스템 관리"]

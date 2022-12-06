@@ -17,6 +17,7 @@ summary: 볼륨 효율성 정책 수정 명령을 사용하여 볼륨 효율성 
 . 볼륨 효율성 정책을 수정하려면 'volume Efficiency policy modify' 명령을 사용하십시오.
 
 
+.예
 다음 명령을 실행하면 정책1이라는 볼륨 효율성 정책이 매시간마다 실행되도록 수정됩니다.
 
 '볼륨 효율성 정책 수정 - vserver vs1-policy policy1-schedule hourly'

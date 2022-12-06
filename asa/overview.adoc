@@ -23,6 +23,7 @@ ONTAP 9.7부터 NetApp All SAN 어레이(ASA)를 사용할 수 있습니다. ASA
 
 ASA 플랫폼은 2노드 스위치 클러스터 또는 스위치가 없는 클러스터에서 사용할 수 있으며 FC 또는 iSCSI에 맞게 구성할 수 있으며 다중 경로에 대칭 액티브-액티브를 사용할 수 있습니다. 모든 경로가 액티브/최적화되어 있으므로 스토리지 페일오버 시 호스트는 I/O를 재개하기 위해 페일오버 경로의 ALUA 전환을 기다릴 필요가 없습니다 그러면 페일오버 시간이 단축됩니다.
 
+.관련 정보
 link:http://www.netapp.com/us/media/tr-4515.pdf["NetApp 기술 보고서 4515: ONTAP AFF All SAN 어레이 시스템"^]
  link:http://www.netapp.com/us/media/tr-4080.pdf["NetApp 기술 보고서 4080: 확장형 SAN ONTAP 9에 대한 모범 사례"^]
 

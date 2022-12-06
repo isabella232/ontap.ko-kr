@@ -13,6 +13,7 @@ summary: SnapMirror 페일오버 시작 명령을 실행한 후 SnapMirror 페�
 :imagesdir: ../media/
 
 
+.문제:
 [role="lead"]
 'napmirror failover start' 명령을 실행한 후 'napmirror failover show' 명령의 출력에 중재자가 구성되지 않았다는 메시지가 표시됩니다.
 
@@ -26,8 +27,10 @@ Path Path Type Status start-time end-time Reason
 vs0:/cg/cg vs1:/cg/cg planned failed 10/1/2020 10/1/2020 SnapMirror failover cannot start because the source-side precheck failed. reason: Mediator not configured.
 05:50:42 05:50:43
 ....
+.원인:
 중재자가 구성되지 않았거나 네트워크 연결 문제가 있습니다.
 
+.솔루션:
 중재자가 구성되지 않은 경우 SM-BC 관계를 설정하기 전에 중재자를 구성해야 합니다. 네트워크 연결 문제를 해결합니다. SnapMirror 중재자 show 명령을 사용하여 중재자가 연결되어 있고 소스 사이트와 대상 사이트 모두에서 쿼럼 상태가 true 인지 확인합니다.
 
 ....

@@ -13,6 +13,7 @@ summary: vserver name-mapping create 명령을 사용하여 이름 매핑을 생
 [role="lead"]
 'vserver name-mapping create' 명령을 사용하여 이름 매핑을 생성할 수 있습니다. 이름 매핑을 사용하여 Windows 사용자가 UNIX 보안 스타일 볼륨에 액세스하고 그 반대로 액세스할 수 있습니다.
 
+.이 작업에 대해
 각 SVM에서 ONTAP은 각 방향에 대해 최대 12,500개의 이름 매핑을 지원합니다.
 
 .단계
@@ -31,6 +32,7 @@ Windows와 UNIX 간 매핑이 생성될 때 새 매핑이 생성될 때 ONTAP �
 
 
 
+.예
 다음 명령을 실행하면 이름이 VS1 인 SVM에 이름 매핑이 생성됩니다. 매핑은 우선 순위 목록의 위치 1에서 UNIX에서 Windows로의 매핑입니다. 매핑은 UNIX 사용자 johnd를 Windows 사용자 ENG\JohnnDoe에 매핑합니다.
 
 [listing]

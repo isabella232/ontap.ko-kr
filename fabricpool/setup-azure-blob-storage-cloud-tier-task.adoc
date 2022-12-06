@@ -30,6 +30,7 @@ FabricPool는 BLOB 레벨 계층화를 지원하지 않습니다. 또한 Azure�
 
 
 
+.이 작업에 대해
 FabricPool은 현재 온프레미스 Azure 서비스인 Azure 스택을 지원하지 않습니다.
 
 .단계

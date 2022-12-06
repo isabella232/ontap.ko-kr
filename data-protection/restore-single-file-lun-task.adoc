@@ -13,8 +13,10 @@ summary: 단일 파일, LUN, 스냅샷 복사본에서 파일 또는 LUN 세트 
 [role="lead"]
 단일 파일, LUN, 스냅샷 복사본에서 파일 또는 LUN 세트 또는 SnapMirror 타겟 볼륨에서 NVMe 네임스페이스를 복원할 수 있습니다. ONTAP 9.7부터 SnapMirror Synchronous 대상에서 NVMe 네임스페이스를 복원할 수도 있습니다. 파일을 원래 소스 볼륨이나 다른 볼륨으로 복원할 수 있습니다.
 
+.필요한 것
 SnapMirror Synchronous 대상(ONTAP 9.5부터 지원됨)에서 파일 또는 LUN을 복원하려면 먼저 관계를 삭제한 후 해제해야 합니다.
 
+.이 작업에 대해
 파일 또는 LUN(대상 볼륨)을 복원하는 볼륨은 읽기-쓰기 볼륨이어야 합니다.
 
 * 소스 및 타겟 볼륨에 공통 스냅샷 복사본이 있는 경우 SnapMirror는 _incremental restore_를 수행합니다. 이는 일반적으로 원래 소스 볼륨으로 복원할 때와 같습니다.

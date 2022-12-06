@@ -25,6 +25,7 @@ summary: 개별 버킷의 감사 매개 변수 또는 SVM에서 감사를 위해
 'vserver object-store-server audit modify -vserver_svm_name_[_parameters to modify _]'
 
 |===
+.예
 다음 예에서는 쓰기 전용 액세스 이벤트만 감사하도록 개별 버킷 감사 구성을 수정합니다.
 
 [listing]

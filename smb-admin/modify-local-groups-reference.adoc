@@ -30,6 +30,7 @@ summary: 기존 로컬 그룹에 대한 설명을 변경하거나 그룹의 이�
 'vserver cifs users-and-groups local-group rename - vserver_vserver_name_-group-name_group_name_-new-group-name_new_group_name_'
 
 |===
+.예
 다음 예에서는 로컬 그룹 ""cifs_server\engineering""의 이름을 ""cifs_server\engineering_new""로 바꿉니다.
 
 [listing]

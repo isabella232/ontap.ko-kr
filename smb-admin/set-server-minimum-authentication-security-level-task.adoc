@@ -59,4 +59,5 @@ SVM은 Kerberos 인증 보안만 수락합니다. SVM은 LM, NTLM 및 NTLMv2 인
 . 인증 보안 수준이 원하는 수준('vserver cifs security show -vserver_vserver_name_')으로 설정되어 있는지 확인합니다
 
 
+.관련 정보
 xref:enable-disable-aes-encryption-kerberos-task.adoc[Kerberos 기반 통신을 위한 AES 암호화 활성화 또는 비활성화]

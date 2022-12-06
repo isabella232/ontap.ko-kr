@@ -13,6 +13,7 @@ summary: CIFS 및 SMB, 감사 및 BranchCache 해시에 대한 통계를 비롯�
 [role="lead"]
 CIFS 및 SMB, 감사 및 BranchCache 해시에 대한 통계를 비롯한 다양한 통계를 표시하여 성능을 모니터링하고 문제를 진단할 수 있습니다.
 
+.시작하기 전에
 객체에 대한 정보를 표시하려면 먼저 '통계 시작' 및 '통계 중지' 명령을 사용하여 데이터 샘플을 수집해야 합니다.
 
 .단계
@@ -77,6 +78,7 @@ BranchCache 해시 서비스입니다
 . admin 권한 수준으로 복귀:'et-Privilege admin'입니다
 
 
+.관련 정보
 xref:determine-statistics-objects-counters-available-task.adoc[사용할 수 있는 통계 개체 및 카운터 결정]
 
 xref:monitor-signed-session-statistics-task.adoc[SMB 서명 세션 통계 모니터링]

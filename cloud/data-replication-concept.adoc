@@ -19,6 +19,7 @@ image::../media/data-replication-cloud.png[데이터 복제 클라우드]
 
 NetApp Cloud Backup은 데이터를 보호하고 클라우드의 오브젝트 스토리지에 보관하기 위한 완벽하고 비용 효율적인 백업 및 복원 기능을 제공합니다. Cloud Backup은 클라우드 기반 데이터 및 사내 데이터에 모두 사용할 수 있습니다.
 
+.관련 정보
 https://tv.netapp.com/detail/video/6056551157001/setup-a-disaster-recovery-copy-with-in-the-cloud-with-netapp-cloud-volumes-ontap?autoStart=true&page=1&q=ontap%20cloud["Cloud Volumes ONTAP를 사용하여 클라우드에서 재해 복구 설정"]
 
 https://cloud.netapp.com/blog/simplified-disaster-recovery-ontap-cloud-snapmirror["Cloud Volumes ONTAP 및 SnapMirror를 사용한 효율적인 데이터 복제"]

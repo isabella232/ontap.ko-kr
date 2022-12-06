@@ -65,6 +65,7 @@ LUN에 대한 액세스를 구성하고, LUN을 관리하며, Windows 또는 UNI
 
 대부분의 기존 테이프 드라이브 지원은 ONTAP에 포함되어 있으며 테이프 공급업체가 새 디바이스에 대한 지원을 동적으로 추가하는 방법도 포함되어 있습니다. 또한 ONTAP는 RMT(Remote Magnetic Tape) 프로토콜을 지원하여 모든 가능 시스템에 백업 및 복구를 수행할 수 있습니다.
 
+.관련 정보
 http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30050["NetApp 설명서: UNIX용 SnapDrive"]
 
 http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30049["NetApp 설명서:SnapDrive for Windows(최신 릴리스)"]

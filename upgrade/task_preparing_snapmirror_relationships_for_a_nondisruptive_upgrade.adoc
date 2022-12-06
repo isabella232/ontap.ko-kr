@@ -61,4 +61,5 @@ ONTAP 업그레이드를 수행하기 전에 전송이 완료될 때까지 기�
 |===
 
 
+.관련 정보
 xref:concept_upgrade_requirements_for_snapmirror.adoc[SnapMirror의 업그레이드 요구 사항]

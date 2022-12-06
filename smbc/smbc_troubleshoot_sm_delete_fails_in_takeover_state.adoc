@@ -13,6 +13,7 @@ summary: '클러스터에 ONTAP 9.9.1이 설치된 경우 SM-BC 정합성 보장
 :imagesdir: ../media/
 
 
+.문제:
 [role="lead"]
 클러스터에 ONTAP 9.9.1이 설치된 경우 SM-BC 정합성 보장 그룹 관계가 Takeover 상태에 있을 때 'napmirror delete' 명령을 실행하면 실패합니다.
 
@@ -21,6 +22,7 @@ C2_cluster::> snapmirror delete  vs1:/cg/dd
 
 Error: command failed: RPC: Couldn't make connection
 ....
+.해결 방법
 SM-BC 관계에 있는 노드가 Takeover 상태에 있는 경우 "-force" 옵션을 true로 설정하여 SnapMirror 삭제 및 릴리즈 작업을 수행합니다.
 
 ....

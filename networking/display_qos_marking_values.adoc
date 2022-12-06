@@ -16,6 +16,7 @@ summary: IPspace별로 다양한 프로토콜에 대한 QoS 마킹 값을 표시
 [role="lead"]
 IPspace별로 다양한 프로토콜에 대한 QoS 표시 값을 표시할 수 있습니다.
 
+.단계
 'network QoS-marking show' 명령어를 이용하여 QoS marking 값을 출력한다.
 
 다음 명령을 실행하면 기본 IPspace의 모든 프로토콜에 대한 QoS 마킹이 표시됩니다.

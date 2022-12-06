@@ -244,6 +244,7 @@ Expanded Dos Attributes: -
 ----
 
 
+.관련 정보
 xref:manage-ntfs-security-audit-policies-slag-concept.adoc[CLI를 사용하여 SVM에서 NTFS 파일 보안, NTFS 감사 정책 및 Storage-Level Access Guard를 관리합니다]
 
 xref:workflow-config-storage-level-access-guard-concept.adoc[Storage-Level Access Guard를 구성하는 워크플로우]

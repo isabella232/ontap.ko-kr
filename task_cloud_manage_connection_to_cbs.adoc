@@ -21,6 +21,7 @@ summary: Cloud Backup에 대한 연결을 관리하고 서비스를 사용하여
 [role="lead"]
 ONTAP 9.9.1부터 Cloud Backup을 사용하여 System Manager를 사용하여 클라우드의 데이터를 백업할 수 있습니다. Cloud Backup에 대한 연결을 관리하고 서비스를 사용하여 백업된 볼륨의 수와 용량에 대한 세부 정보를 볼 수 있습니다.
 
+.시작하기 전에
 BlueXP에서 계정을 설정해야 합니다. 서비스 계정의 경우 "계정 관리자" 역할을 생성해야 합니다. (다른 서비스 계정 역할에는 System Manager와의 연결을 설정하는 데 필요한 권한이 없습니다.) 을 참조하십시오 link:task_cloud_backup_data_using_cbs.html["Cloud Backup을 사용하여 데이터를 백업합니다"] 를 참조하십시오.
 
 

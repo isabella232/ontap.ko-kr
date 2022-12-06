@@ -166,6 +166,7 @@ ID를 도출하려면 임의의 64비트 16진수 숫자를 선택합니다.
 
 | IPv6 주소입니다 | 네트워크 ping6 
 |===
+.예
 다음 명령을 실행하면 LIF가 생성되고 '-address' 및 '-netmask' 매개 변수를 사용하여 IP 주소와 네트워크 마스크 값이 지정됩니다.
 
 ....
@@ -183,5 +184,6 @@ network interface create -vserver vs1.example.com -lif datalif1 -data-protocol n
 ....
 --
 ====
+.추가 정보
 xref:modify_a_lif.html[LIF를 수정합니다]
 xref:../nfs-rdma/configure-lifs-task.html[RDMA를 통해 NFS용 LIF를 구성합니다]

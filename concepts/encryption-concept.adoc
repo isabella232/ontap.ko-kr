@@ -103,4 +103,5 @@ KMIP 서버는 데이터와 별도로 인증 키를 저장합니다.
 
 
 |===
+.관련 정보
 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/FAQ%3A_NetApp_Volume_Encryption_and_NetApp_Aggregate_Encryption["FAQ - NetApp 볼륨 암호화 및 NetApp 애그리게이트 암호화"^]

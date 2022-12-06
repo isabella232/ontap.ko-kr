@@ -13,6 +13,7 @@ summary: 'MAV(Multi-admin verification)를 명시적으로 활성화해야 합�
 [role="lead"]
 MAV(Multi-admin verification)를 명시적으로 활성화해야 합니다. 다중 관리 확인을 사용하도록 설정한 후에는 MAV 승인 그룹(MAV 관리자)의 관리자가 이를 삭제해야 합니다.
 
+.이 작업에 대해
 MAV가 활성화되면 MAV를 수정하거나 사용하지 않도록 하려면 MAV 관리자의 승인이 필요합니다.
 
 

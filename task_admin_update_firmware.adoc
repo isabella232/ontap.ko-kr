@@ -23,14 +23,15 @@ System Manager를 사용하면 디스크, 디스크 쉘프, DQP(Disk Qualificati
 
 펌웨어 업데이트를 수동 또는 자동으로 적용할 수 있습니다. 다음 절차 중 하나를 선택합니다.
 
-* 
-* 
+* <<update-firmware-manually>>
+* <<update-firmware-automatically>>
 
 
 
 
 == 펌웨어를 수동으로 업데이트합니다
 
+.이 작업에 대해
 ONTAP 9.9.1부터 클러스터에서 펌웨어 업데이트가 보류 중인 경우 알려주는 Active IQ 알림을 받을 수 있습니다. 그런 다음 System Manager를 사용하여 펌웨어 이미지를 다운로드하고 업로드할 수 있습니다.
 
 image:workflow_admin_update_firmware.gif["펌웨어 업데이트 작업의 워크플로 다이어그램"]
@@ -62,8 +63,9 @@ NOTE: ONTAP 9.9.1로 작업할 때 펌웨어 업데이트에 대한 경고를 �
 
 NOTE: ONTAP 9.8의 경우, 업데이트된 펌웨어 이미지 패키지를 다운로드하려면 NetApp Support 사이트로 이동해야 합니다.
 
-ONTAP 9.9.1부터 펌웨어 경고를 볼 때 시스템 관리자를 사용하여 * 업데이트 * 페이지에서 펌웨어 업데이트를 다운로드할 수 있습니다( 참조)  firmware update alerts from Active IQ참조).
+ONTAP 9.9.1부터 펌웨어 경고를 볼 때 시스템 관리자를 사용하여 * 업데이트 * 페이지에서 펌웨어 업데이트를 다운로드할 수 있습니다( 참조) <<Active IQ에서 펌웨어 업데이트 경고를 봅니다>>참조).
 
+.단계
 클러스터에 설치된 ONTAP 버전에 해당하는 절차를 수행합니다.
 
 |===
@@ -120,7 +122,7 @@ ONTAP 9.10.0 이하
  a| 
 ONTAP 9.10.1
  a| 
-* 참고: * 수정 및 업데이트가 자동으로 실행되도록 예약하고 업데이트에 대한 권장 사항을 받으려면 을 참조하십시오 .
+* 참고: * 수정 및 업데이트가 자동으로 실행되도록 예약하고 업데이트에 대한 권장 사항을 받으려면 을 참조하십시오 <<update-firmware-automatically>>.
 
 . 권장 업데이트 목록에서 * 조치 * 버튼을 선택하여 다음 작업을 수행합니다.
 +
@@ -155,8 +157,10 @@ NOTE: 펌웨어 업데이트 요약 * 에서 업데이트를 모니터링하거�
 
 ONTAP 9.10.1부터 System Manager를 사용하면 자동 업데이트 기능을 활성화할 수 있습니다. 이 기능을 사용하면 ONTAP에서 권장하는 펌웨어 패치, 업그레이드 및 업데이트(기본 동작)를 자동으로 다운로드하여 설치할 수 있습니다.
 
+.시작하기 전에
 자동 업데이트 기능을 사용하려면 HTTPS를 통한 AutoSupport 연결이 필요합니다. 연결 문제를 해결하려면 을 참조하십시오 link:./system-admin/troubleshoot-autosupport-http-https-task.html["HTTP 또는 HTTPS를 통한 AutoSupport 메시지 전송 문제를 해결합니다"].
 
+.이 작업에 대해
 업데이트에는 다음 범주의 펌웨어 패치, 업그레이드 및 업데이트가 포함됩니다.
 
 * * 스토리지 펌웨어 *: 스토리지 장치, DQP(Disk Qualification Package), 디스크 및 디스크 선반
@@ -169,9 +173,9 @@ System Manager에서 범주별 기본 동작을 변경하여 펌웨어 업데이
 
 image:../media/sm-firmware-auto-update.gif["자동 업데이트 워크플로"]
 
-*  the Automatic Update feature is enabled
-*  default actions for update recommendations
-*  automatic update recommendations
+* <<자동 업데이트 기능이 활성화되어 있는지 확인합니다>>
+* <<업데이트 권장 사항에 대한 기본 작업을 지정합니다>>
+* <<자동 업데이트 권장 사항을 관리합니다>>
 
 
 
@@ -180,6 +184,7 @@ image:../media/sm-firmware-auto-update.gif["자동 업데이트 워크플로"]
 
 System Manager에서 자동 업데이트 기능을 활성화하려면 NetApp에서 지정한 약관에 동의해야 합니다.
 
+.시작하기 전에
 자동 업데이트 기능을 사용하려면 AutoSupport가 활성화되어 있고 HTTPS 프로토콜을 사용해야 합니다.
 
 .단계

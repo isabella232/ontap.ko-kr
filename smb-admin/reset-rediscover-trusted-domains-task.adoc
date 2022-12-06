@@ -20,4 +20,5 @@ summary: 신뢰할 수 있는 모든 도메인을 강제로 다시 검색할 수
 
 
 
+.관련 정보
 xref:display-discovered-trusted-domains-task.adoc[검색된 신뢰할 수 있는 도메인에 대한 정보 표시]

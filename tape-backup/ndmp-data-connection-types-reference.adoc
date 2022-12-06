@@ -85,6 +85,7 @@ TCP, TCP/IPv6
 로컬, TCP, TCP/IPv6
 
 |===
+.관련 정보
 xref:cluster-aware-backup-extension-concept.adoc[Cluster Aware Backup 확장의 기능]
 
 link:../networking/index.html["네트워크 관리"]

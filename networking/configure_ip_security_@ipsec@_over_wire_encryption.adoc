@@ -126,12 +126,15 @@ ONTAP와 클라이언트 모두 일치하는 IPsec 정책을 설정하고 인증
 
 미리 공유된 키 인증 방법의 경우 IPSEC 클라이언트(예: Libreswan)에서 요구하지 않는 한 ID는 선택 사항입니다. PKI/인증서 인증 방법의 경우 로컬 및 원격 ID가 모두 필수입니다. ID는 각 측의 인증서 내에서 인증되고 확인 프로세스에 사용되는 ID를 지정합니다. 원격 ID를 알 수 없거나 다른 ID가 많을 수 있는 경우 특수성을 '무엇이든'로 사용하십시오.
 
+.이 작업에 대해
 ONTAP 내에서 SPD 항목을 수정하거나 SPD 정책을 생성하는 동안 ID를 지정합니다. SPD는 IP 주소 또는 문자열 형식 ID 이름일 수 있습니다.
 
+.단계
 기존 SPD의 ID 설정을 수정하려면 다음 명령을 사용합니다.
 
 보안 IPsec 정책 수정
 
+.샘플 명령
 '보안 IPsec 정책 수정 - vserver_vs1_-name_test34_-local-identity_192.168.134.34_-remote-identity _client.fooboo.com_`
 
 
@@ -140,6 +143,7 @@ ONTAP 내에서 SPD 항목을 수정하거나 SPD 정책을 생성하는 동안 
 
 적은 수의 클라이언트가 IPsec을 활용해야 하는 경우 각 클라이언트에 대해 단일 SPD 항목을 사용하는 것이 충분합니다. 하지만 수백 또는 수천 개의 클라이언트가 IPsec을 활용해야 하는 경우 NetApp은 IPsec 다중 클라이언트 구성을 사용할 것을 권장합니다.
 
+.이 작업에 대해
 ONTAP는 IPsec을 사용하여 여러 네트워크의 여러 클라이언트를 단일 SVM IP 주소에 연결할 수 있도록 지원합니다. 다음 방법 중 하나를 사용하여 이 작업을 수행할 수 있습니다.
 
 * * 서브넷 구성 *
@@ -170,6 +174,7 @@ NOTE: 서브넷 구성에서 단일 정책 항목을 사용하는 경우 해당 
 '보안 IPsec 정책 생성 - vserver_vserver_name_-name_policy_name_-local-ip-subnets_ipsec_ip_address /32_-remote-ip_subnets_ip_address/subnet_-local-identity_local_id_-remote-identity_remote_id_'
 
 +
+.샘플 명령
 '보안 IPsec 정책 생성 - vserver_vs1_-name_subnet134_-local-ip-subnet134_-local_192.168.134.34 /32_-remote-ip-subnets_192.168.134.0 /24_-local-identity_ontaity_-remote-identity_client_side_identity_'
 
 ... 를 사용하여 여러 IPsec 클라이언트를 지원하는 모든 클라이언트 구성 * 허용 을 사용하는 경우:
@@ -177,6 +182,7 @@ NOTE: 서브넷 구성에서 단일 정책 항목을 사용하는 경우 해당 
 '보안 IPsec 정책 생성 - vserver_vserver_name_-name_policy_name_-local-ip-subnets_ipsec_ip_address /32_-remote-ip-subnets_0.0.0.0/0_-local-ports_port_number_-local-identity_local_id_-remote_identity_remote_id_'입니다
 
 +
+.샘플 명령
 '보안 IPsec 정책 생성 - vserver_vs1_-name_test35_-local-ip-subnets_ipsec_ip_address/32_-remote-ip-subnets_0.0.0.0/0_-local-ports_2049_-local-identity_side_identity_-remote-identity_client_side_identity_'입니다
 
 
@@ -193,6 +199,7 @@ NOTE: 서브넷 구성에서 단일 정책 항목을 사용하는 경우 해당 
 
 통계 명령을 사용하여 IPsec SAS 및 IKE SAS의 상태를 확인할 수 있습니다.
 
+.샘플 명령
 IKE SA 샘플 명령:
 
 SECURN IPSEC SHOW-Ikesasa-NODE_H호스팅_NODE_NAME_FOR_svm_ip_'

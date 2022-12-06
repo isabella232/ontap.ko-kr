@@ -25,7 +25,7 @@ iSCSI LIF 페일오버가 자동으로 활성화되며 새로 생성된 iSCSI LI
 ** ASA HA 쌍을 ONTAP 9.11.1로 업그레이드한 후, 지정된 스토리지 VM에 iSCSI LIF가 없거나 지정된 스토리지 VM의 기존 iSCSI LIF가 iSCSI LIF 페일오버로 이미 활성화되어 있는 경우, 새로 생성된 iSCSI LIF에서 이 기능이 자동으로 활성화됩니다.
 ** ONTAP 9.11.1로 업그레이드하기 전에 생성된 iSCSI LIF의 경우 iSCSI LIF 페일오버 기능을 사용하려면 ONTAP CLI를 사용하여 LIF를 사용하도록 설정해야 합니다. (페일오버 기능과 자동 되돌리기 기능을 사용하면 페일오버 정책을 'fo-파트너 전용'으로 변경하고 자동 되돌리기 값을 'true'로 지정할 수 있습니다.)
 +
- iSCSI LIFs using the ONTAP CLI
+<<ONTAP CLI를 사용하여 iSCSI LIF를 관리합니다>>
 
 +
 기존 iSCSI LIF에서 iSCSI LIF 페일오버를 사용하도록 설정하지 않으면 페일오버 이벤트가 발생할 때 iSCSI LIF가 페일오버되지 않습니다.
@@ -37,7 +37,7 @@ iSCSI LIF 페일오버가 자동으로 활성화되며 새로 생성된 iSCSI LI
 
 * iSCSI LIF의 수동 마이그레이션은 LIF 마이그레이션 및 복원이며, ONTAP CLI 또는 System Manager를 사용하여 클러스터 관리자가 시작합니다.
 +
- and revert an iSCSI LIF
+<<iSCSI LIF를 마이그레이션하고 되돌립니다>>
 
 +
 다음과 같은 상황에서 iSCSI LIF를 수동으로 마이그레이션 및 되돌릴 수 있습니다.
@@ -80,6 +80,7 @@ System Manager 또는 ONTAP CLI를 사용하여 iSCSI LIF를 동일한 노드의
 [role="Lead"]
 System Manager를 사용하면 하나 이상의 iSCSI LIF(네트워크 인터페이스)를 동일한 노드의 다른 포트 또는 HA 파트너의 포트로 수동으로 마이그레이션하고 되돌릴 수 있습니다.
 
+.시작하기 전에
 ASA 플랫폼 HA 쌍이 있어야 하며 ONTAP 9.11.1 이상이 실행되고 있어야 합니다.
 
 
@@ -114,6 +115,7 @@ NOTE: 확인란을 선택하여 iSCSI LIF를 영구적으로 마이그레이션�
 [role="Lead"]
 ONTAP CLI를 사용하면 하나 이상의 iSCSI LIF를 수동으로 마이그레이션 및 동일한 노드의 다른 포트 또는 HA 파트너의 포트로 되돌릴 수 있습니다.
 
+.시작하기 전에
 ASA 플랫폼 HA 쌍이 있어야 하며 ONTAP 9.11.1 이상이 실행되고 있어야 합니다.
 
 |===
@@ -133,8 +135,10 @@ ASA 플랫폼 HA 쌍이 있어야 하며 ONTAP 9.11.1 이상이 실행되고 있
 
 ONTAP CLI를 사용하면 새 iSCSI LIF 생성 및 기존 LIF에 대한 iSCSI LIF 페일오버 기능 활성화를 포함하여 iSCSI LIF를 관리할 수 있습니다.
 
+.시작하기 전에
 ASA 플랫폼 HA 쌍이 있어야 하며 ONTAP 9.11.1 이상이 실행되고 있어야 합니다.
 
+.이 작업에 대해
 를 참조하십시오 https://docs.netapp.com/us-en/ontap-cli-9121/index.html["ONTAP 명령 참조"^] 을 참조하십시오 `network interface` 명령.
 
 |===

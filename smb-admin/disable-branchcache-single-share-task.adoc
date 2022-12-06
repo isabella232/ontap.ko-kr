@@ -20,6 +20,7 @@ BranchCache 공유 속성이 제거됩니다. 다른 적용된 공유 속성은 
 
 
 
+.예
 다음 명령을 실행하면 이름이 "data2"인 기존 SMB 공유에서 BranchCache가 비활성화됩니다.
 
 [listing]

@@ -26,4 +26,5 @@ summary: '어댑터에 대해 선택한 퍼스낼리티 모드를 지원하도�
 
 
 
+.관련 정보
 https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"^]

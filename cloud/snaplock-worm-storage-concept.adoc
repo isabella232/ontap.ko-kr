@@ -17,6 +17,7 @@ summary: '규정 준수의 중요한 측면은 특정 데이터가 필요한 기
 
 새로운 작업 환경을 생성할 때 Cloud Volumes ONTAP 시스템에서 WORM 스토리지를 활성화할 수 있습니다. 여기에는 파일의 기본 보존 기간 설정이 포함됩니다. 개별 볼륨에서 WORM 스토리지를 활성화할 수 없습니다. -시스템 레벨에서 CmWORM을 활성화해야 합니다.
 
+.관련 정보
 https://docs.netapp.com/us-en/occm/concept_worm.html#activating-worm-storage["WORM 스토리지"]
 
 link:../snaplock/index.html["SnapLock 기술을 사용한 아카이브 및 규정 준수"]

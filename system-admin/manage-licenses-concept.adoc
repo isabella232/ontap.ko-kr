@@ -55,6 +55,7 @@ ONTAP를 사용하면 다음과 같은 방법으로 기능 사용 및 라이센�
 참고: ONTAP 9.10.1은 System Manager 또는 CLI를 사용하여 28자의 라이센스 키도 지원합니다. 그러나 기능용으로 NLF 라이센스가 설치되어 있는 경우 동일한 기능에 대해 NLF 라이센스 위에 28자의 라이센스 키를 설치할 수 없습니다. System Manager를 사용하여 NLF 또는 라이센스 키를 설치하는 방법에 대한 자세한 내용은 " 새 기능 사용 "을 참조하십시오.
 
 ====
+.관련 정보
 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/What_are_Data_ONTAP_8.2_and_8.3_licensing_overview_and_references%3F["Data ONTAP 8.2 및 8.3 라이센스 개요 및 참조 자료는 무엇입니까?"^]
 
 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_verify_Data_ONTAP_Software_Entitlements_and_related_License_Keys_using_the_Support_Site["지원 사이트를 통해 Data ONTAP 소프트웨어 사용 권한 및 관련 라이센스 키를 확인하는 방법"^]

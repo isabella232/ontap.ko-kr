@@ -18,6 +18,7 @@ summary: 특정 명령을 사용하여 FC/UTA 어댑터에 대한 정보를 볼 
 == FC 타겟 어댑터
 
 .단계
+[role="lead"]
 . 네트워크 FCP 어댑터 show 명령을 사용하여 어댑터 정보를 표시합니다. 네트워크 FCP 어댑터 show-instance-node node1-adapter 0a
 +
 출력에는 사용되는 각 슬롯의 시스템 구성 정보와 어댑터 정보가 표시됩니다.

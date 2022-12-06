@@ -13,8 +13,10 @@ summary: 특정 기간 동안 볼륨에 대해 중복제거 또는 데이터 압
 [role="lead"]
 특정 기간 동안 볼륨에 대해 중복제거 또는 데이터 압축을 실행한 후 볼륨 효율성 정책을 생성하고 '볼륨 효율성 정책 생성' 명령을 사용하여 작업 일정을 지정할 수 있습니다.
 
+.시작하기 전에
 job schedule cron create 명령을 사용하여 cron 일정을 만들어야 합니다. cron 일정 관리에 대한 자세한 내용은 를 참조하십시오 link:../system-admin/index.html["시스템 관리 참조"].
 
+.이 작업에 대해
 기본 사전 정의된 역할을 가진 SVM 관리자는 중복제거 정책을 관리할 수 없습니다. 그러나 클러스터 관리자는 맞춤형 역할을 사용하여 SVM 관리자에게 할당된 권한을 수정할 수 있습니다. SVM 관리자 기능에 대한 자세한 내용은 를 참조하십시오 link:../authentication/index.html["관리자 인증 및 RBAC"].
 
 [NOTE]
@@ -26,6 +28,7 @@ job schedule cron create 명령을 사용하여 cron 일정을 만들어야 합�
 . 'volume Efficiency policy create' 명령을 사용하여 볼륨 효율성 정책을 생성합니다.
 
 
+.예
 다음 명령을 실행하면 효율성 작업을 매일 트리거하는 pol1이라는 볼륨 효율성 정책이 생성됩니다.
 
 '볼륨 효율성 정책 생성 - vserver vs1-policy pol1-schedule daily'

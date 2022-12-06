@@ -29,6 +29,7 @@ summary: vserver services name-service unix-user create 명령을 사용하여 �
 
 
 
+.예
 다음 명령을 실행하면 이름이 johnm인 로컬 UNIX 사용자가 이름이 vs1 인 SVM에 생성됩니다. 사용자는 ID 123 및 기본 그룹 ID 100을 가지고 있습니다.
 
 [listing]

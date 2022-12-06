@@ -13,7 +13,7 @@ summary: ONTAP 9.3부터 법적 증거 자료 보관 기능을 사용하여 소�
 [role="lead"]
 ONTAP 9.3부터는 _Legal Hold_기능을 사용하여 소송 기간 동안 컴플라이언스 모드 WORM 파일을 유지할 수 있습니다.
 
-.무엇을 &#8217;필요로 할거야
+.필요한 것
 * 이 작업을 수행하려면 SnapLock 관리자여야 합니다.
 +
 link:create-compliance-administrator-account-task.html["SnapLock 관리자 계정을 만듭니다"]
@@ -21,6 +21,7 @@ link:create-compliance-administrator-account-task.html["SnapLock 관리자 계�
 * 보안 연결(SSH, 콘솔 또는 ZAPI)에 로그인해야 합니다.
 
 
+.이 작업에 대해
 법적 증거 자료 보관 아래에 있는 파일은 무기한 보존 기간이 있는 WORM 파일처럼 작동합니다. 법적 증거 자료 보관 기간이 끝나는 시기를 지정하는 것은 귀하의 책임입니다.
 
 법적 증거 자료 보관 아래에 넣을 수 있는 파일 수는 볼륨에서 사용 가능한 공간에 따라 다릅니다.

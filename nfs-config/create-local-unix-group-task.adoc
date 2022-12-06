@@ -26,6 +26,7 @@ summary: vserver services name-service unix-group create 명령을 사용하여 
 
 
 
+.예
 다음 명령을 실행하면 이름이 VS1 인 SVM에서 eng인 로컬 그룹이 생성됩니다. 그룹에 ID 101이 있습니다.
 
 [listing]

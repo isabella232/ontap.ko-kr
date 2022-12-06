@@ -46,4 +46,5 @@ vs1             CIFS1.EXAMPLE.COM
 ----
 
 
+.관련 정보
 xref:add-remove-replace-trusted-domains-preferred-lists-task.adoc[기본 설정 신뢰할 수 있는 도메인 목록에서 신뢰할 수 있는 도메인 추가, 제거 또는 대체]

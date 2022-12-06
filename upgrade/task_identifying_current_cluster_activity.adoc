@@ -120,4 +120,5 @@ Path: \file1.txt
 ----
 
 
+.관련 정보
 xref:concept_considerations_for_session_oriented_protocols.adoc[세션 지향 프로토콜에 대한 고려 사항]

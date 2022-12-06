@@ -31,6 +31,7 @@ SVM에 넷그룹을 로드한 후 'vserver services name-service netgroup status
 
 
 
+.예
 권한 수준을 설정한 후 다음 명령을 실행하면 모든 SVM에 대한 넷그룹 상태가 표시됩니다.
 
 [listing]

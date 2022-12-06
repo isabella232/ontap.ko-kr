@@ -31,6 +31,7 @@ BranchCache를 구성할 때는 해시를 저장할 위치와 해시 저장소�
 
 
 
+.관련 정보
 xref:configure-branchcache-task.adoc[SMB 서버에서 BranchCache를 구성합니다]
 
 xref:modify-branchcache-config-task.html[BranchCache 구성을 수정합니다]

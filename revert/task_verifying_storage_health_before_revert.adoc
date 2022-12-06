@@ -65,4 +65,5 @@ There are no entries matching your query.
 
 
 
+.관련 정보
 link:../disks-aggregates/index.html["디스크 및 애그리게이트 관리"]

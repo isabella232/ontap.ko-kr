@@ -23,6 +23,7 @@ IPv6이 활성화되었습니다. SMB 액세스를 위한 IPv6 데이터 LIF를 
 
 
 
+.관련 정보
 xref:monitor-display-ipv6-sessions-task.adoc[IPv6 SMB 세션에 대한 정보 모니터링 및 표시]
 
 link:../networking/index.html["네트워크 관리"]

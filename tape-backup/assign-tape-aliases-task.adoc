@@ -39,6 +39,7 @@ cluster-01::> storage tape alias set  -node cluster-01 -name mc1 -mapping SN[654
 ----
 
 
+.관련 정보
 xref:assign-tape-aliases-concept.adoc[테이프 앨리어싱이란 무엇입니까]
 
 xref:remove-tape-aliases-task.adoc[테이프 별칭을 제거하는 중입니다]

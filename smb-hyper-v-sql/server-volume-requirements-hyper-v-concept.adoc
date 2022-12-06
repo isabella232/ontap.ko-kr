@@ -54,4 +54,5 @@ ONTAP는 원격 VSS에 대한 Kerberos 서비스를 광고하지 않으므로 NT
 
 
 
+.관련 정보
 http://technet.microsoft.com/en-us/library/["Microsoft TechNet 라이브러리: technet.microsoft.com/en-us/library/"]

@@ -13,10 +13,12 @@ summary: vserver services name-service dns 명령을 사용하여 SVM에서 DNS�
 [role="lead"]
 SVM에서 DNS를 사용하도록 설정하려면 'vserver services name-service dns' 명령을 사용하고, 호스트 이름 확인을 위해 DNS를 사용하도록 구성할 수 있습니다. 호스트 이름은 외부 DNS 서버를 사용하여 확인됩니다.
 
+.시작하기 전에
 호스트 이름 조회에 사이트 전체 DNS 서버를 사용할 수 있어야 합니다.
 
 단일 장애 지점을 방지하려면 둘 이상의 DNS 서버를 구성해야 합니다. DNS 서버 이름을 하나만 입력하면 'vserver services name-service dns create' 명령이 경고를 보냅니다.
 
+.이 작업에 대해
 네트워크 관리 가이드 _ 에는 SVM에서 동적 DNS를 구성하는 방법에 대한 정보가 포함되어 있습니다.
 
 .단계

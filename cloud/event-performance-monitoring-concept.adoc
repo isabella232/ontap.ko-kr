@@ -15,6 +15,7 @@ summary: 사내 워크로드를 클라우드로 이동할 때 ONTAP 이벤트 �
 
 사내 성능 모니터링에 System Manager 또는 Active IQ Unified Manager를 이미 사용하고 있다면 클라우드에서 계속 사용할 수 있습니다. System Manager와 Unified Manager는 모두 Cloud Volumes ONTAP 상태, 용량 및 성능에 대한 상세한 보고 및 경고를 제공합니다.
 
+.관련 정보
 https://cloud.netapp.com/blog/how-to-define-an-effective-cloud-monitoring-strategy["효과적인 클라우드 모니터링 전략을 정의하는 방법"]
 
 link:../data-protection/index.html["10 클라우드 모니터링 툴 알아야 할 사항"]

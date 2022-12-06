@@ -55,4 +55,5 @@ There are no entries matching your query.
 . 일관되지 않은 볼륨이 없는지 확인합니다. '볼륨 표시 - 불일치 - 참'이라는 기술 자료 문서를 참조하십시오 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Volume_Showing_WAFL_Inconsistent["WAFL가 일치하지 않는 볼륨으로 표시됩니다"] 정합성이 보장되지 않는 볼륨을 처리하는 방법에 대해 설명합니다.
 
 
+.관련 정보
 link:../volumes/index.html["논리적 스토리지 관리"]

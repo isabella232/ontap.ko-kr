@@ -13,8 +13,10 @@ summary: Windows 속성 창의 Windows 보안 탭을 사용하여 파일 및 폴
 [role="lead"]
 Windows 속성 창의 * Windows 보안 * 탭을 사용하여 파일 및 폴더에 대한 표준 NTFS 파일 권한을 구성할 수 있습니다.
 
+.시작하기 전에
 이 작업을 수행하는 관리자는 선택한 개체에 대한 권한을 변경할 수 있는 충분한 NTFS 권한이 있어야 합니다.
 
+.이 작업에 대해
 NTFS 파일 사용 권한 구성은 NTFS 보안 설명자와 연결된 NTFS DACL(임의 액세스 제어 목록)에 항목을 추가하여 Windows 호스트에서 수행됩니다. 그런 다음 보안 설명자가 NTFS 파일 및 디렉터리에 적용됩니다. 이러한 작업은 Windows GUI에서 자동으로 처리됩니다.
 
 .단계
@@ -145,6 +147,7 @@ NOTE: 이 설정을 선택할 때는 주의하십시오. 이 설정은 모든 �
 
 
 
+.관련 정보
 xref:create-ntfs-security-descriptor-file-task.adoc[CLI를 사용하여 NTFS 파일 및 폴더에 파일 보안을 구성하고 적용합니다]
 
 xref:display-file-security-ntfs-style-volumes-task.adoc[NTFS 보안 스타일 볼륨의 파일 보안에 대한 정보 표시]

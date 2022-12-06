@@ -13,6 +13,7 @@ summary: 'system health alert show 명령을 사용하여 시스템 상태 알�
 [role="lead"]
 'system health alert show' 명령을 사용하여 시스템 상태 경고를 수동으로 볼 수 있습니다. 그러나 상태 모니터에서 알림을 생성할 때 알림을 자동으로 수신하려면 특정 EMS(이벤트 관리 시스템) 메시지에 가입해야 합니다.
 
+.이 작업에 대해
 다음 절차에서는 모든 HM.ALERT.Raised 메시지 및 모든 HM.ALERT.clLEALEed 메시지에 대한 알림을 설정하는 방법을 보여 줍니다.
 
 모든 HM.ALERT.Raised 메시지 및 모든 HM.ALERT.ALLEALEAN 메시지에는 SNMP 트랩이 포함됩니다. SNMP 트랩의 이름은 HealthMonitorAlertRaised와 HealthMonitorAlertCleared입니다. SNMP 트랩에 대한 자세한 내용은 _Network Management Guide_를 참조하십시오.
@@ -32,4 +33,5 @@ cluster1::> event route add-destinations -messagename hm.alert* -destinations he
 ----
 
 
+.관련 정보
 link:../networking/index.html["네트워크 관리"]

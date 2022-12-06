@@ -13,6 +13,7 @@ summary: 'RAID 그룹의 크기를 사용자 지정하여 로컬 계층(애그�
 [role="lead"]
 RAID 그룹의 크기를 사용자 지정하여 로컬 계층(애그리게이트)에 포함할 스토리지 크기에 맞게 RAID 그룹 크기를 조정할 수 있습니다.
 
+.이 작업에 대해
 표준 로컬 계층(애그리게이트)의 경우 각 로컬 계층에 대한 RAID 그룹의 크기를 개별적으로 변경합니다. Flash Pool 로컬 계층의 경우 SSD RAID 그룹 및 HDD RAID 그룹에 대한 RAID 그룹 크기를 독립적으로 변경할 수 있습니다.
 
 다음 목록에서는 RAID 그룹 크기 변경에 대한 몇 가지 사항을 설명합니다.
@@ -48,6 +49,7 @@ Flash Pool 애그리게이트의 SSD RAID 그룹의 최대 RAID 그룹 크기를
 |===
 
 
+.예
 다음 명령을 실행하면 aggregate n1_A4의 최대 RAID 그룹 크기가 20개의 디스크 또는 어레이 LUN으로 변경됩니다.
 
 'Storage aggregate modify -aggregate n1_A4-maxraidsize 20'을 선택합니다

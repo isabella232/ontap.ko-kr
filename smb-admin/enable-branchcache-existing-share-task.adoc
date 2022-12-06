@@ -39,6 +39,7 @@ BranchCache 공유 속성이 기존 공유 속성 목록에 추가됩니다. 'vs
 . SMB 공유에서 BranchCache 공유 속성이 설정되어 있는지 확인합니다. 'vserver cifs share show -vserver vserver_name -share-name share_name'
 
 
+.예
 다음 명령을 실행하면 SVM VS1 에서 " data2 " 라는 기존 SMB 공유에서 "/data2 " 경로를 사용하여 BranchCache를 사용할 수 있습니다.
 
 [listing]
@@ -86,6 +87,7 @@ File Attribute Cache Lifetime: 10s
                 Offline Files: manual
 Vscan File-Operations Profile: standard
 ----
+.관련 정보
 xref:add-remove-share-properties-eexisting-share-task.adoc[기존 SMB 공유에서 공유 속성 추가 또는 제거]
 
 xref:disable-branchcache-single-share-task.adoc[단일 SMB 공유에서 BranchCache를 사용하지 않도록 설정합니다]

@@ -60,6 +60,7 @@ CLI를 사용하여 SVM에서 로컬 SMB 사용자 및 그룹에 대한 통과 �
 ====
 
 
+.관련 정보
 xref:allow-users-groups-bypass-directory-traverse-task.adoc[사용자 또는 그룹이 디렉토리 통과 확인을 건너뛰도록 허용합니다]
 
 xref:disallow-users-groups-bypass-directory-traverse-task.adoc[디렉토리 통과 확인을 거치지 않고 사용자 또는 그룹을 허용하지 않습니다]

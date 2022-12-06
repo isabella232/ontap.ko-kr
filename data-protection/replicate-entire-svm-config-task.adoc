@@ -13,10 +13,12 @@ summary: SnapMirror create 명령의 -identity-preserve true 옵션을 사용하
 [role="lead"]
 'napmirror create' 명령의 '-identity-preserve true' 옵션을 사용하여 전체 SVM 구성을 복제할 수 있습니다.
 
+.시작하기 전에
 소스 및 타겟 클러스터와 SVM을 피어링해야 합니다. 자세한 내용은 을 참조하십시오 link:../peering/create-cluster-relationship-93-later-task.html["클러스터 피어 관계를 생성합니다"] 및 link:../peering/create-intercluster-svm-peer-relationship-93-later-task.html["SVM 인터클러스터 피어 관계를 생성합니다"].
 
 전체 명령 구문은 man 페이지를 참조하십시오.
 
+.이 작업에 대해
 이 워크플로우에서는 이미 기본 정책 또는 사용자 지정 복제 정책을 사용하고 있다고 가정합니다.
 
 ONTAP 9.9.1부터 미러 소산 정책을 사용할 경우 소스 및 타겟 SVM에 서로 다른 스냅샷 정책을 생성할 수 있으며, 소스의 스냅샷 복사본에 의해 대상의 스냅샷 복사본을 덮어쓰지 않습니다. 자세한 내용은 을 참조하십시오 link:snapmirror-svm-replication-concept.html["SnapMirror SVM 복제 이해"].

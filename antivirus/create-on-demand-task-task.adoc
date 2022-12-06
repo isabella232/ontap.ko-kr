@@ -69,4 +69,5 @@ Max File Size Allowed for Scanning: 5GB
 ----
 
 
+.작업을 마친 후
 작업을 실행하도록 예약하기 전에 SVM에서 스캔을 활성화해야 합니다.

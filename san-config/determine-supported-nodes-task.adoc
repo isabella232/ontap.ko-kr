@@ -13,6 +13,7 @@ summary: ONTAP에서 지원하는 클러스터당 노드 수는 ONTAP 버전, �
 [role="lead"]
 ONTAP에서 지원하는 클러스터당 노드 수는 ONTAP 버전, 클러스터의 스토리지 컨트롤러 모델, 클러스터 노드의 프로토콜에 따라 다릅니다.
 
+.이 작업에 대해
 클러스터의 노드가 FC, FC-NVMe, FCoE 또는 iSCSI에 대해 구성된 경우 해당 클러스터는 SAN 노드 제한으로 제한됩니다. 클러스터의 컨트롤러에 기반한 노드 제한은 _Hardware Universe_에 나열되어 있습니다.
 
 .단계
@@ -28,4 +29,5 @@ ONTAP에서 지원하는 클러스터당 노드 수는 ONTAP 버전, 클러스�
 . 결과 표시 * 를 클릭합니다.
 
 
+.관련 정보
 https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"^]

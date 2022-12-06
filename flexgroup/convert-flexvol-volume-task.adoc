@@ -13,7 +13,7 @@ summary: ONTAP 9.7부터 데이터 복사본이나 추가 디스크 공간 없�
 [role="lead"]
 ONTAP 9.7부터 데이터 복사본이나 추가 디스크 공간 없이 FlexVol 볼륨을 FlexGroup 볼륨으로 데이터 이동 없이 전환할 수 있습니다.
 
-.무엇을 &#8217;필요로 할거야
+.필요한 것
 * 전환된 볼륨은 ONTAP 9.8부터 FlexGroup 볼륨으로 변환할 수 있습니다. 전환된 볼륨을 FlexGroup로 변환하는 경우 기술 자료 문서를 참조하십시오 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_To_Convert_a_Transitioned_FlexVol_to_FlexGroup["전환된 FlexVol를 FlexGroup로 변환하는 방법"] 를 참조하십시오.
 * 변환 중인 FlexVol 볼륨은 온라인이어야 합니다.
 * FlexVol 볼륨의 작업 및 구성은 변환 프로세스와 호환되어야 합니다.
@@ -78,6 +78,8 @@ vs0     my_volume online flexgroup
 ----
 
 
+.결과
 FlexVol 볼륨은 단일 멤버 FlexGroup 볼륨으로 변환됩니다.
 
+.작업을 마친 후
 필요에 따라 FlexGroup 볼륨을 확장할 수 있습니다.

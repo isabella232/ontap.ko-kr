@@ -19,6 +19,7 @@ CIFS 서버에서 DAC(Dynamic Access Control) 활성화, Active Directory에서 
 * 필요한 명령을 실행하려면 SVM(스토리지 가상 머신)에 대한 충분한 관리 액세스 권한이 있어야 합니다.
 
 
+.이 작업에 대해
 중앙 액세스 정책은 Active Directory의 GPO(그룹 정책 개체)에 정의되고 적용됩니다. 중앙 액세스 정책 및 GPO 구성에 대한 지침은 Microsoft TechNet 라이브러리를 참조하십시오.
 
 http://technet.microsoft.com/library/["Microsoft TechNet 라이브러리"]
@@ -137,6 +138,7 @@ Vserver: vs1
 ----
 
 
+.관련 정보
 xref:display-gpo-config-task.adoc[GPO 구성에 대한 정보 표시]
 
 xref:display-central-access-policies-task.adoc[중앙 액세스 정책에 대한 정보 표시]

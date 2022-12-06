@@ -13,6 +13,7 @@ summary: 사용자 환경의 LDAP 스키마가 ONTAP 기본값과 다른 경우 
 [role="lead"]
 사용자 환경의 LDAP 스키마가 ONTAP 기본값과 다른 경우 LDAP 클라이언트 구성을 생성하기 전에 ONTAP에 대한 새 LDAP 클라이언트 스키마를 만들어야 합니다.
 
+.이 작업에 대해
 대부분의 LDAP 서버는 ONTAP에서 제공하는 기본 스키마를 사용할 수 있습니다.
 
 * MS-AD-BIS(대부분의 Windows 2012 이상 AD 서버에 대한 기본 스키마)

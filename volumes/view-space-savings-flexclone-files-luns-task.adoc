@@ -29,6 +29,7 @@ volname은 FlexVol 볼륨의 이름입니다.
 ====
 
 
+.예
 다음 예제에서는 FlexClone 볼륨 테스트1에서 절약되는 공간을 보여 줍니다.
 
 [listing]

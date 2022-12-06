@@ -13,6 +13,7 @@ summary: notes지옥의 rdfile 명령을 사용하여 /etc/log/directory에서 �
 [role="lead"]
 notes지옥의 'rdfile' 명령을 사용하여 '/etc/log/' 디렉토리에서 테이프 백업 및 복구 작업을 위한 이벤트 로그 파일에 액세스할 수 있습니다. 이러한 이벤트 로그 파일을 보고 테이프 백업 및 복원 작업을 모니터링할 수 있습니다.
 
+.이 작업에 대해
 'pi' 웹 서비스를 이용할 수 있는 액세스 제어 역할 또는 'http' 액세스 방식으로 설정된 사용자 계정 등의 추가 구성을 통해 웹 브라우저를 사용하여 이러한 로그 파일에 액세스할 수도 있습니다.
 
 .단계
@@ -29,6 +30,7 @@ node_name은 노드의 이름입니다.
 
 
 
+.관련 정보
 link:../system-admin/index.html["시스템 관리"]
 
 link:../concepts/index.html["ONTAP 개념"]

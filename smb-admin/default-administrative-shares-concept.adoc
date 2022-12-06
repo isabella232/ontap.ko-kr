@@ -58,4 +58,5 @@ c$ 공유의 특징은 다음과 같습니다.
 * c$ 공유는 Microsoft 관리 콘솔을 사용하여 액세스할 수 있습니다.
 
 
+.관련 정보
 xref:configure-ntfs-windows-security-tab-task.adoc[Windows 보안 탭을 사용하여 고급 NTFS 파일 권한 구성]

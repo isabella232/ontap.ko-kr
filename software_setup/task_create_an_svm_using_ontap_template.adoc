@@ -13,8 +13,10 @@ summary: ONTAP 9.3부터는 사전 구성된 템플릿을 사용하여 SVM을 �
 [role="lead"]
 ONTAP 9.3부터는 사전 구성된 템플릿을 사용하여 SVM을 생성하고 프로비저닝할 수 있습니다. 템플릿에 정의된 매개 변수의 값을 입력해야 합니다.
 
+.시작하기 전에
 필요한 모든 기능 라이센스가 클러스터에 설치되어 있어야 합니다.
 
+.이 작업에 대해
 VserverEnvironmentSetup 템플릿은 SVM 구성에 사용할 수 있는 사전 구성된 템플릿입니다. VserverEnvironmentSetup 템플릿을 사용하면 다음 구성을 설정할 수 있습니다.
 
 * SVM의 보안 스타일, 언어 설정 및 IPspace

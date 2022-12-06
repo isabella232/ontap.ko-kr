@@ -26,4 +26,5 @@ NDMP 호환 백업 애플리케이션을 사용하여 덤프 백업 또는 복�
 Data ONTAP 8.3 이전의 릴리즈로 되돌린 후에는 증분 백업 작업을 수행하기 전에 기본 백업 작업을 수행해야 합니다.
 
 ====
+.관련 정보
 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-ug-rdg/home.html["업그레이드, 되돌리기 또는 다운그레이드를 수행할 수 있습니다"]

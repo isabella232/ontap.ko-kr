@@ -23,6 +23,7 @@ image::../media/volume-management-cloud.png[볼륨 관리 클라우드]
 * SnapMirror 기술 또는 Cloud Sync 서비스를 사용하여 기존 온프레미스 볼륨을 새 클라우드 볼륨 대상에 복제합니다.
 
 
+.관련 정보
 https://docs.netapp.com/us-en/occm/task_provisioning_storage.html["BlueXP: 스토리지 용량 할당"]
 
 https://docs.netapp.com/us-en/occm/task_manage_anf.html["Azure NetApp Files의 볼륨 관리"]

@@ -13,6 +13,7 @@ summary: 'SSL 서버에서 클러스터 또는 SVM(Storage Virtual Machine)을 S
 [role="lead"]
 SSL 서버에서 클러스터 또는 SVM(Storage Virtual Machine)을 SSL 클라이언트로 인증할 수 있도록 하려면 클러스터 또는 SVM에 클라이언트 유형과 함께 디지털 인증서를 설치합니다. 그런 다음 서버에 설치하기 위해 SSL 서버 관리자에게 클라이언트-CA 인증서를 제공합니다.
 
+.필요한 것
 SSL 서버의 루트 인증서를 이미 클러스터 또는 SVM에 'server-ca' 인증서 유형으로 설치해야 합니다.
 
 .단계

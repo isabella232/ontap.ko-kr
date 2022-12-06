@@ -210,4 +210,5 @@ ONTAP 관리자 암호입니다
  a| 
 
 |===
+.관련 정보
 link:../authentication/index.html["관리자 인증 및 RBAC"]

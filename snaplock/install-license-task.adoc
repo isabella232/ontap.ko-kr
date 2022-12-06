@@ -13,8 +13,10 @@ summary: SnapLock 라이센스를 사용하면 SnapLock 준수 모드와 SnapLoc
 [role="lead"]
 SnapLock 라이센스를 사용하면 SnapLock 준수 모드와 SnapLock 엔터프라이즈 모드를 모두 사용할 수 있습니다. SnapLock 라이센스는 노드 단위로 발급됩니다. SnapLock 애그리게이트를 호스팅하는 각 노드에 대해 라이센스를 설치해야 합니다.
 
+.필요한 것
 이 작업을 수행하려면 클러스터 관리자여야 합니다.
 
+.이 작업에 대해
 영업 담당자로부터 SnapLock 라이센스 키를 받아야 합니다.
 
 ONTAP 시스템 관리자 또는 ONTAP CLI를 사용하여 이 작업을 수행합니다.

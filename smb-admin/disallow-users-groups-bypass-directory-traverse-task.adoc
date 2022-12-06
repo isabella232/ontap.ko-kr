@@ -13,8 +13,10 @@ summary: '사용자가 이동 중인 디렉토리에 대한 권한이 없기 때
 [role="lead"]
 사용자가 이동 중인 디렉토리에 대한 권한이 없기 때문에 경로 내의 모든 디렉토리를 이동하지 않으려면 SVM(Storage Virtual Machine)의 로컬 SMB 사용자 또는 그룹에서 'seChangeNotifyPrivilege' 권한을 제거할 수 있습니다.
 
+.시작하기 전에
 권한을 제거할 로컬 또는 도메인 사용자 또는 그룹이 이미 있어야 합니다.
 
+.이 작업에 대해
 도메인 사용자 또는 그룹에서 권한을 제거할 때 ONTAP는 도메인 컨트롤러에 문의하여 도메인 사용자 또는 그룹의 유효성을 검사할 수 있습니다. ONTAP가 도메인 컨트롤러에 연결할 수 없으면 명령이 실패할 수 있습니다.
 
 .단계
@@ -25,6 +27,7 @@ summary: '사용자가 이동 중인 디렉토리에 대한 권한이 없기 때
 . 지정된 사용자 또는 그룹이 통과 확인을 사용하지 않도록 설정했는지 확인합니다. 'vserver cifs users-and-groups privilege show-vserver_name_-user-or-group-name_name_'
 
 
+.예
 다음 명령을 실행하면 디렉토리 트래버스 검사를 거치지 않고 "'example\eng'" 그룹에 속한 사용자가 사용할 수 없습니다.
 
 [listing]
@@ -41,4 +44,5 @@ Vserver   User or Group Name    Privileges
 --------- --------------------- -----------------------
 vs1       EXAMPLE\eng           -
 ----
+.관련 정보
 xref:allow-users-groups-bypass-directory-traverse-task.adoc[사용자 또는 그룹이 디렉토리 통과 확인을 생략하도록 허용합니다]

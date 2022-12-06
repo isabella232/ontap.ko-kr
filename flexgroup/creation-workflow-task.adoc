@@ -15,6 +15,8 @@ summary: 최적의 성능을 위한 모범 사례에 따라 ONTAP가 애그리�
 
 image::../media/flexgroups-setup-workflow.gif[FlexGroup 볼륨 설정 워크플로우]
 
+.필요한 것
 SVM에 대해 허용되는 프로토콜 목록에 NFS 및 SMB를 추가하여 SVM을 생성해야 합니다.
 
+.이 작업에 대해
 4개 미만의 노드가 있는 클러스터에서만 FlexGroup 볼륨을 자동으로 프로비저닝할 수 있습니다. 노드가 4개 이상인 클러스터에서는 FlexGroup 볼륨을 수동으로 생성해야 합니다.

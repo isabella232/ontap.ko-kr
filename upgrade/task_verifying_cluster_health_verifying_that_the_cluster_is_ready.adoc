@@ -41,4 +41,5 @@ MM/DD/YYYY TIME  node1      INFORMATIONAL  scsiblade.in.quorum: The scsi-blade .
 ----
 
 
+.관련 정보
 link:../system-admin/index.html["시스템 관리"]

@@ -368,6 +368,7 @@ X
 X
 
 |===
+.관련 정보
 xref:signing-enhance-network-security-concept.adoc[SMB 서명을 사용하여 네트워크 보안을 강화합니다]
 
 xref:set-server-minimum-authentication-security-level-task.adoc[SMB 서버 최소 인증 보안 수준 설정]

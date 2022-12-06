@@ -17,8 +17,8 @@ summary: 스토리지 아키텍처를 계획 및 관리할 때 고려해야 할 
 
 제한 사항은 다음 섹션에 나와 있습니다.
 
-* 
-* 
+* <<vollimits>>
+* <<flexclone>>
 
 
 Cloud Volumes ONTAP에 대한 스토리지 제한은 에 설명되어 있습니다 link:https://docs.netapp.com/us-en/cloud-volumes-ontap/["Cloud Volumes ONTAP 릴리즈 노트"^].
@@ -263,4 +263,5 @@ link:../san-config/index.html["SAN 구성"]
 
 
 
+.관련 정보
 https://www.netapp.com/cloud-services/cloud-manager/documentation/["사용 중인 Cloud Volumes ONTAP 버전에 대한 릴리즈 노트를 참조하십시오"]

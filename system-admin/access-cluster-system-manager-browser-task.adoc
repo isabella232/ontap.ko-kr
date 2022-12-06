@@ -13,11 +13,12 @@ summary: 'CLI(Command-Line Interface) 대신 그래픽 인터페이스를 사용
 [role="lead"]
 CLI(Command-Line Interface) 대신 그래픽 인터페이스를 사용하여 클러스터를 액세스하고 관리하려면 ONTAP에 웹 서비스로 포함되어 있는 System Manager를 기본적으로 사용해야 하며 브라우저를 사용하여 액세스할 수 있습니다.
 
-.무엇을 &#8217;필요로 할거야
+.필요한 것
 * "admin" 역할과 ""http""" 및 ""console""" 애플리케이션 유형으로 구성된 클러스터 사용자 계정이 있어야 합니다.
 * 브라우저에서 쿠키 및 사이트 데이터를 활성화해야 합니다.
 
 
+.이 작업에 대해
 클러스터 관리 네트워크 인터페이스(LIF) 또는 노드 관리 네트워크 인터페이스(LIF)를 사용하여 System Manager에 액세스할 수 있습니다. System Manager에 중단 없이 액세스하려면 클러스터 관리 네트워크 인터페이스(LIF)를 사용해야 합니다.
 
 .단계
@@ -83,6 +84,7 @@ image:icon-dark-theme-moon.png["어두운 테마 아이콘"] (오른쪽)
 
 
 
+.관련 정보
 link:manage-access-web-services-concept.html["웹 서비스에 대한 액세스 관리"]
 
 link:accessg-node-log-core-dump-mib-files-task.html["웹 브라우저를 사용하여 노드의 로그, 코어 덤프 및 MIB 파일에 액세스합니다"]

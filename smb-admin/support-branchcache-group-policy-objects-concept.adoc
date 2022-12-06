@@ -23,4 +23,5 @@ BranchCache GPO의 해시 버전 지원은 '-versions' 매개 변수에 해당�
 
 
 
+.관련 정보
 xref:applying-group-policy-objects-concept.adoc[CIFS 서버에 그룹 정책 객체 적용]

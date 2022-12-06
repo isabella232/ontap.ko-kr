@@ -18,6 +18,7 @@ SVM(Storage Virtual Machine) 내에서 정적 경로를 생성하여 LIF가 아�
 
 SVM과 관련된 경로 항목을 생성하면 해당 경로가 지정된 SVM이 소유하고 게이트웨이와 동일한 서브넷에 있는 모든 LIF에서 사용됩니다.
 
+.단계
 'network route create' 명령어를 이용하여 경로를 생성한다.
 
 ....

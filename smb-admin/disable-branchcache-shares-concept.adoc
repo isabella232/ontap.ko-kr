@@ -15,4 +15,5 @@ summary: 특정 SMB 공유에서 BranchCache 캐싱 서비스를 제공하지 �
 
 SMB 공유의 BranchCache가 이후에 처음 설정된 후 비활성화되면 ONTAP는 요청된 클라이언트로 메타데이터 전송을 중지합니다. 데이터가 필요한 클라이언트는 콘텐츠 서버(SVM(Storage Virtual Machine)의 CIFS 서버)에서 직접 데이터를 검색합니다.
 
+.관련 정보
 xref:configure-branchcache-enabled-shares-concept.adoc[BranchCache 지원 SMB 공유 구성]

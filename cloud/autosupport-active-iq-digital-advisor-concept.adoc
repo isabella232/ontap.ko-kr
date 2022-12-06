@@ -15,6 +15,7 @@ AutoSupport은 시스템의 상태를 능동적으로 모니터링하고 원격 
 
 온프레미스에서 사용하는 것과 동일한 AutoSupport 및 Active IQ 디지털 자문 기능을 클라우드에서도 사용할 수 있습니다. AutoSupport는 Cloud Volumes ONTAP를 지원하는 기본 하드웨어에 대한 데이터를 수집할 수 없지만 Active IQ에서 중요한 정보를 얻을 수 있습니다.
 
+.관련 정보
 https://www.netapp.com/us/products/data-infrastructure-management/active-iq.aspx["NetApp Active IQ를 참조하십시오"]
 
 https://docs.netapp.com/us-en/occm/task_setting_up_ontap_cloud.html["Cloud Volumes ONTAP용 AutoSupport"]

@@ -13,8 +13,10 @@ summary: 데이터 SVM을 위해 SMB 서버를 구성하지 않은 경우 vserve
 [role="lead"]
 데이터 SVM용으로 SMB 서버를 구성하지 않은 경우 'vserver active-directory create' 명령을 사용하여 도메인의 SVM에 대한 컴퓨터 계정을 생성할 수 있습니다.
 
+.필요한 것
 이 작업을 수행하려면 클러스터 또는 SVM 관리자여야 합니다.
 
+.이 작업에 대해
 'vserver active-directory create' 명령을 입력하면 도메인의 지정된 조직 단위에 컴퓨터를 추가할 수 있는 충분한 권한이 있는 AD 사용자 계정에 대한 자격 증명을 제공하라는 메시지가 표시됩니다. 계정의 암호는 비워둘 수 없습니다.
 
 .단계

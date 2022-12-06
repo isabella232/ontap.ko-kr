@@ -13,6 +13,7 @@ summary: 볼륨 효율성 정책 show 명령을 사용하여 볼륨 효율성 �
 [role="lead"]
 'volume Efficiency policy show' 명령을 사용하면 볼륨 효율성 정책 이름, 스케줄, 기간 및 설명을 볼 수 있습니다.
 
+.이 작업에 대해
 클러스터 범위에서 'volume Efficiency policy show' 명령을 실행하면 클러스터 범위 정책이 표시되지 않습니다. 그러나 SVM(스토리지 가상 시스템) 컨텍스트에서 클러스터 범위 정책을 볼 수 있습니다.
 
 .단계
@@ -22,6 +23,7 @@ summary: 볼륨 효율성 정책 show 명령을 사용하여 볼륨 효율성 �
 
 
 
+.예
 다음 명령을 실행하면 SVM VS1용으로 생성된 정책에 대한 정보가 표시됩니다. 'volume Efficiency policy show -vserver vs1
 
 다음 명령을 실행하면 기간이 10시간으로 설정된 정책이 볼륨 효율성 정책 표시 기간 10으로 표시됩니다

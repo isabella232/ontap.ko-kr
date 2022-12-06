@@ -21,6 +21,7 @@ summary: ONTAP 9.8부터 System Manager로 IP MetroCluster 사이트 운영을 �
 [role="lead"]
 ONTAP 9.8부터 System Manager를 사용하여 MetroCluster 작업의 IP 구성을 관리할 수 있습니다. 두 클러스터를 설정한 후 클러스터 간에 피어링을 설정합니다.
 
+.시작하기 전에
 두 클러스터를 설정하려면 다음 절차를 완료해야 합니다.
 
 * link:task_metrocluster_setup.html["IP MetroCluster 사이트를 설정합니다"]
@@ -67,4 +68,5 @@ ONTAP 9.8부터 System Manager를 사용하여 MetroCluster 작업의 IP 구성�
 . 피어링 프로세스를 완료하려면 * 피어 * 를 선택합니다.
 
 
+.다음 단계
 피어링 프로세스가 성공적으로 완료되면 클러스터를 구성합니다. 을 참조하십시오 link:task_metrocluster_configure.html["IP MetroCluster 사이트를 구성합니다"].

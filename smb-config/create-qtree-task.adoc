@@ -26,6 +26,7 @@ summary: Qtree 생성을 통해 데이터를 포함할 수 있으며 볼륨 qtre
 . qtree가 'volume qtree show-vserver vserver_name{-volume volume_name-qtree qtree qtree_name|-qtree-path qtree path}' 접합 경로로 생성되었는지 확인합니다
 
 
+.예
 다음 예에서는 junction path '/vol/data1'이 있는 SVM vs1.example.com 에 qt01이라는 이름의 qtree를 생성합니다.
 
 [listing]

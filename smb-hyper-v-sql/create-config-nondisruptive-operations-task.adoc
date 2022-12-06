@@ -24,6 +24,7 @@ SMB를 통해 Hyper-V 및 SQL Server의 무중단 운영을 위한 ONTAP 구성�
 * SMB 서버를 생성해야 합니다.
 
 
+.관련 정보
 xref:volume-config-worksheet-reference.html[SMB를 통한 Hyper-V 또는 SQL Server 구성 계획]
 
 xref:licensing-requirements-concept.html[구성 요구 사항 및 고려 사항]

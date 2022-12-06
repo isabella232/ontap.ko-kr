@@ -15,7 +15,11 @@ SMB 서버가 Active Directory LDAP 서버와의 보안 통신에 TLS를 사용�
 
 ONTAP 9.10.1부터 LDAP 채널 바인딩은 AD(Active Directory) 및 이름 서비스 LDAP 연결에 대해 기본적으로 지원됩니다. ONTAP는 시작 TLS 또는 LDAPS가 활성화되고 세션 보안이 서명 또는 봉인으로 설정된 경우에만 LDAP 연결을 사용하여 채널 바인딩을 시도합니다. AD 서버에서 LDAP 채널 바인딩을 비활성화하거나 다시 설정하려면 ' vserver cifs security modify ' 명령을 사용하여 '-try-channel-binding-for-ad-ldap' 매개 변수를 사용합니다.
 
-자세한 내용은 을 참조하십시오link:https://support.microsoft.com/en-us/topic/2020-ldap-channel-binding-and-ldap-signing-requirements-for-windows-ef185fb8-00f7-167d-744c-f299a66fc00a["Windows의 2020 LDAP 채널 바인딩 및 LDAP 서명 요구 사항"^].
+자세한 내용은 다음을 참조하십시오.
+
+* link:../nfs-admin/using-ldap-concept.html["LDAP 개요"]
+* link:https://support.microsoft.com/en-us/topic/2020-ldap-channel-binding-and-ldap-signing-requirements-for-windows-ef185fb8-00f7-167d-744c-f299a66fc00a["Windows의 2020 LDAP 채널 바인딩 및 LDAP 서명 요구 사항"^].
+
 
 .단계
 . Active Directory LDAP 서버와 보안 LDAP 통신을 허용하는 SMB 서버 보안 설정을 구성합니다. 'vserver cifs security modify -vserver_vserver_name_-use-start-tls-for-ad-ldap true'
@@ -27,7 +31,3 @@ SVM이 이름 매핑 또는 기타 UNIX 정보(예: 사용자, 그룹 및 넷그
 
 ====
 
-
-link:../nfs-admin/ldaps-concept.adoc["LDAPS 개념"]
-
-link:../nfs-admin/index.html["NFS 관리"]

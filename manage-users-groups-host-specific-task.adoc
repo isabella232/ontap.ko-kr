@@ -20,14 +20,14 @@ ONTAP 9.10.1부터 System Manager를 사용하여 UNIX 또는 Windows 호스트�
 
 
  a| 
-*  Windows users and groups
-* 
-* 
+* <<Windows 사용자 및 그룹을 봅니다>>
+* <<add-edit-delete-Windows>>
+* <<manage-windows-users>>
 
  a| 
-*  UNIX users and groups
-* 
-* 
+* <<UNIX 사용자 및 그룹 보기>>
+* <<add-edit-delete-UNIX>>
+* <<manage-unix-users>>
 
 
 |===
@@ -56,7 +56,7 @@ Windows * 섹션은 선택한 스토리지 VM과 연결된 각 그룹의 사용�
 System Manager에서 Windows 그룹을 추가, 편집 또는 삭제하여 관리할 수 있습니다.
 
 .단계
-. System Manager에서 Windows 그룹 목록을 봅니다. 을 참조하십시오  Windows users and groups.
+. System Manager에서 Windows 그룹 목록을 봅니다. 을 참조하십시오 <<Windows 사용자 및 그룹을 봅니다>>.
 . 그룹 * 탭에서 다음 작업으로 그룹을 관리할 수 있습니다.
 
 
@@ -104,7 +104,7 @@ System Manager에서 Windows 그룹을 추가, 편집 또는 삭제하여 관리
 System Manager에서 Windows 사용자를 추가, 편집, 삭제, 활성화 또는 비활성화하여 관리할 수 있습니다. Windows 사용자의 암호를 변경할 수도 있습니다.
 
 .단계
-. System Manager에서 그룹의 사용자 목록을 봅니다. 을 참조하십시오  Windows users and groups.
+. System Manager에서 그룹의 사용자 목록을 봅니다. 을 참조하십시오 <<Windows 사용자 및 그룹을 봅니다>>.
 . 사용자 * 탭에서 다음 작업을 통해 사용자를 관리할 수 있습니다.
 
 
@@ -195,7 +195,7 @@ UNIX * 섹션에는 선택한 스토리지 VM과 연결된 각 그룹의 사용�
 System Manager에서는 UNIX 그룹을 추가, 편집 또는 삭제하여 관리할 수 있습니다.
 
 .단계
-. System Manager에서 UNIX 그룹 목록을 봅니다. 을 참조하십시오  UNIX users and groups.
+. System Manager에서 UNIX 그룹 목록을 봅니다. 을 참조하십시오 <<UNIX 사용자 및 그룹 보기>>.
 . 그룹 * 탭에서 다음 작업으로 그룹을 관리할 수 있습니다.
 
 
@@ -241,7 +241,7 @@ System Manager에서는 UNIX 그룹을 추가, 편집 또는 삭제하여 관리
 System Manager에서 Windows 사용자를 추가, 편집 또는 삭제하여 관리할 수 있습니다.
 
 .단계
-. System Manager에서 그룹의 사용자 목록을 봅니다. 을 참조하십시오  UNIX users and groups.
+. System Manager에서 그룹의 사용자 목록을 봅니다. 을 참조하십시오 <<UNIX 사용자 및 그룹 보기>>.
 . 사용자 * 탭에서 다음 작업을 통해 사용자를 관리할 수 있습니다.
 
 

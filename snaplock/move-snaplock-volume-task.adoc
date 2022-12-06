@@ -13,7 +13,7 @@ summary: 볼륨 이동 명령을 사용하여 SnapLock 볼륨을 대상 애그�
 [role="lead"]
 'volume move' 명령을 사용하여 SnapLock 볼륨을 대상 애그리게이트로 이동할 수 있습니다.
 
-.무엇을 &#8217;필요로 할거야
+.필요한 것
 * SnapLock 볼륨 이동을 수행하기 전에 SnapLock으로 보호되는 감사 로그를 생성해야 합니다.
 +
 link:create-audit-log-task.html["감사 로그를 생성합니다"].

@@ -68,4 +68,5 @@ no answer from 10.10.10.10
 
 
 
+.관련 링크
 link:https://docs.netapp.com/us-en/ontap/networking/lifs_and_service_policies96.html#service-policies-for-system-svms.["ONTAP 9.6 이상의 LIF 및 서비스 정책"]

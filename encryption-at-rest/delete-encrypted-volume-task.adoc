@@ -13,7 +13,7 @@ summary: 볼륨 삭제 명령을 사용하여 암호화된 볼륨을 삭제할 �
 [role="lead"]
 'volume delete' 명령을 사용하여 암호화된 볼륨을 삭제할 수 있습니다.
 
-.무엇을 &#8217;필요로 할거야
+.필요한 것
 * 이 작업을 수행하려면 클러스터 관리자이거나 클러스터 관리자가 권한을 위임한 SVM 관리자여야 합니다.
 +
 link:delegate-volume-encryption-svm-administrator-task.html["볼륨 이동 명령을 실행하는 위임 권한"]
@@ -48,6 +48,7 @@ cluster1::> volume delete -vserver vs1 -volume vol1
 
 
 
+.작업을 마친 후
 'volume recovery-queue' 명령을 사용하여 'volume delete' 명령을 실행한 후 보존 기간 동안 삭제된 볼륨을 복구할 수 있습니다.
 
 'volume recovery-queue SVM_name-volume volume volume_name

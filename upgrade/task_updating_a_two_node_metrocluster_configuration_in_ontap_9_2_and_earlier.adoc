@@ -167,4 +167,5 @@ cluster_A::*> metrocluster operation show
 
 업그레이드 후 작업을 수행해야 합니다.
 
+.관련 정보
 link:https://docs.netapp.com/us-en/ontap-metrocluster/disaster-recovery/concept_dr_workflow.html["MetroCluster 재해 복구"]

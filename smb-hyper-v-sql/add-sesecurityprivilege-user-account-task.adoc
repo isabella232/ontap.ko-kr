@@ -13,8 +13,10 @@ summary: 'SQL Server 설치에 사용되는 도메인 사용자 계정에는 도
 [role="lead"]
 SQL Server 설치에 사용되는 도메인 사용자 계정에는 "'seSecurityPrivilege'" 권한이 할당되어 있어야 도메인 사용자에게 기본적으로 할당되지 않은 권한이 필요한 CIFS 서버에서 특정 작업을 수행할 수 있습니다.
 
+.필요한 것
 SQL Server 설치에 사용되는 도메인 계정이 이미 있어야 합니다.
 
+.이 작업에 대해
 SQL Server 설치 관리자의 계정에 권한을 추가할 때 ONTAP는 도메인 컨트롤러에 연락하여 계정의 유효성을 검사할 수 있습니다. ONTAP가 도메인 컨트롤러에 연결할 수 없으면 명령이 실패할 수 있습니다.
 
 .단계
@@ -31,6 +33,7 @@ SQL Server 설치 관리자의 계정에 권한을 추가할 때 ONTAP는 도메
 
 
 
+.예
 다음 명령을 실행하면 SVM(Storage Virtual Machine) VS1 예제 도메인의 SQL Server 설치 관리자 계정에 "seSecurityPrivilege" 권한이 추가됩니다.
 
 [listing]

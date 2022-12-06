@@ -22,6 +22,7 @@ summary: '스토리지 시스템에서 SVM(스토리지 가상 머신)에 대한
 . 'tortisics show' 명령어를 사용해 예시 데이터를 볼 수 있다.
 
 
+.예: NFSv3 성능 모니터링
 다음 예제에는 NFSv3 프로토콜의 성능 데이터가 나와 있습니다.
 
 다음 명령을 실행하면 새 샘플의 데이터 수집이 시작됩니다.
@@ -50,4 +51,5 @@ Cluster: cluster1
     write_success                                   1492052
     write_total                                     1492052
 ----
+.관련 정보
 link:../performance-config/index.html["성능 모니터링 설정"]

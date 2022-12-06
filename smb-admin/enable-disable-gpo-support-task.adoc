@@ -45,6 +45,7 @@ GPO를 비활성화합니다
 
 
 
+.예
 다음 예에서는 SVM(Storage Virtual Machine) VS1 에 대한 GPO 지원을 설정합니다.
 
 [listing]
@@ -56,6 +57,7 @@ cluster1::> vserver cifs group-policy show -vserver vs1
             Vserver: vs1
 Group Policy Status: enabled
 ----
+.관련 정보
 xref:supported-gpos-concept.adoc[지원되는 GPO]
 
 xref:requirements-gpos-concept.adoc[GPO를 CIFS 서버와 함께 사용하기 위한 요구 사항]

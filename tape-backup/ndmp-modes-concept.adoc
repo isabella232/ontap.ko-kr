@@ -17,6 +17,7 @@ Data ONTAP 8.2에서 Data ONTAP 8.3으로 업그레이드할 경우 8.2에서 �
 
 Data ONTAP 8.2 이상을 사용하여 새 클러스터를 설치하는 경우 NDMP는 기본적으로 SVM 범위의 NDMP 모드에 있습니다. 노드 범위 NDMP 모드에서 테이프 백업 및 복구 작업을 수행하려면 노드 범위 NDMP 모드를 명시적으로 설정해야 합니다.
 
+.관련 정보
 xref:commands-manage-node-scoped-ndmp-reference.adoc[노드 범위의 NDMP 모드를 관리하는 명령입니다]
 
 xref:manage-node-scoped-ndmp-mode-concept.adoc[FlexVol 볼륨에 대한 노드 범위 NDMP 모드 관리]

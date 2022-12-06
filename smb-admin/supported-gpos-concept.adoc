@@ -292,6 +292,7 @@ Local Policies/Security Options GPO에서 Network access: restrict anonymous acc
 
 
 
+.관련 정보
 xref:enable-disable-gpo-support-task.adoc[CIFS 서버에서 GPO 지원을 설정하거나 해제합니다]
 
 xref:secure-file-access-dynamic-access-control-concept.adoc[DAC(Dynamic Access Control)를 사용하여 파일 액세스 보안]

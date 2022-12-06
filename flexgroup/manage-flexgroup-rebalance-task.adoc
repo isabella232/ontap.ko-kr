@@ -66,6 +66,7 @@ FlexGroup 재조정 작업 중에 파일이 이동되면 소스 및 대상 구�
 
 ONTAP 9.12.1부터 FlexGroup 구성요소 간에 파일을 재분배하기 위해 무중단 FlexGroup 볼륨 자동 재조정을 활성화할 수 있습니다.
 
+.시작하기 전에
 을(를) 활성화해야 합니다 `granular-data` FlexGroup 재조정을 활성화하기 전에 FlexGroup 볼륨에 대한 옵션입니다. 다음 방법 중 하나를 사용하여 활성화할 수 있습니다.
 
 * 를 사용하여 FlexGroup 볼륨을 생성할 때 `volume create` 명령

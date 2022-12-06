@@ -32,6 +32,7 @@ summary: BranchCache 공유 속성을 설정하여 공유를 생성할 때 SMB �
 . 'vserver cifs share show' 명령을 사용하여 SMB 공유에 BranchCache 공유 속성이 설정되어 있는지 확인합니다.
 
 
+.예
 다음 명령을 실행하면 SVM VS1 에서 "/data " 경로를 사용하여 " data " 라는 BranchCache 지원 SMB 공유가 생성됩니다. 기본적으로 오프라인 파일 설정은 '수동'으로 설정됩니다.
 
 [listing]
@@ -57,4 +58,5 @@ File Attribute Cache Lifetime: -
                 Offline Files: manual
 Vscan File-Operations Profile: standard
 ----
+.관련 정보
 xref:disable-branchcache-single-share-task.adoc[단일 SMB 공유에서 BranchCache를 사용하지 않도록 설정합니다]

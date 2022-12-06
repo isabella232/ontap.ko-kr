@@ -35,6 +35,7 @@ ONTAP가 볼륨을 FAT로 보고하는 경우 응용 프로그램은 ACL을 변�
 
 
 
+.관련 정보
 xref:configure-security-styles-task.adoc[FlexVol 볼륨에서 보안 스타일 구성]
 
 xref:configure-security-styles-qtrees-task.adoc[Qtree에서 보안 스타일 구성]

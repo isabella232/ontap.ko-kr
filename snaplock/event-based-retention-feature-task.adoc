@@ -13,7 +13,7 @@ summary: 'ONTAP 9.3부터 EBR(SnapLock 이벤트 기반 보존) 기능을 사용
 [role="lead"]
 ONTAP 9.3부터 EBR(SnapLock_Event Based Retention)_Feature를 사용하여 이벤트 발생 후 파일이 유지되는 기간을 정의할 수 있습니다.
 
-.무엇을 &#8217;필요로 할거야
+.필요한 것
 * 이 작업을 수행하려면 SnapLock 관리자여야 합니다.
 +
 link:create-compliance-administrator-account-task.html["SnapLock 관리자 계정을 만듭니다"]
@@ -21,6 +21,7 @@ link:create-compliance-administrator-account-task.html["SnapLock 관리자 계�
 * 보안 연결(SSH, 콘솔 또는 ZAPI)에 로그인해야 합니다.
 
 
+.이 작업에 대해
 이벤트 보존 정책 _ 은(는) 이벤트가 발생한 후 파일의 보존 기간을 정의합니다. 정책은 단일 파일 또는 디렉토리의 모든 파일에 적용할 수 있습니다.
 
 * 파일이 WORM 파일이 아닌 경우 정책에 정의된 보존 기간 동안 WORM 상태로 커밋됩니다.

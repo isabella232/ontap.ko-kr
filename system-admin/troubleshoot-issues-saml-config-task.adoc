@@ -13,6 +13,7 @@ summary: 'SAML(Security Assertion Markup Language) 인증을 구성하지 못한
 [role="lead"]
 SAML(Security Assertion Markup Language) 인증을 구성하지 못한 경우 SAML 구성이 실패한 각 노드를 수동으로 복구하고 장애를 복구할 수 있습니다. 복구 프로세스 중에 웹 서버가 다시 시작되고 활성 HTTP 연결 또는 HTTPS 연결이 중단됩니다.
 
+.이 작업에 대해
 SAML 인증을 구성할 경우 ONTAP는 노드별로 SAML 구성을 적용합니다. SAML 인증을 설정하면 구성 문제가 있는 경우 ONTAP에서 자동으로 각 노드를 복구하려고 시도합니다. 노드에서 SAML 구성에 문제가 있는 경우 SAML 인증을 비활성화한 다음 SAML 인증을 다시 활성화할 수 있습니다. SAML 인증을 다시 설정한 후에도 하나 이상의 노드에 SAML 구성이 적용되지 않는 경우가 있을 수 있습니다. SAML 구성이 실패한 노드를 확인한 다음 해당 노드를 수동으로 복구할 수 있습니다.
 
 .단계

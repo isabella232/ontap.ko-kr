@@ -36,4 +36,5 @@ SAN 환경에서는 7-Mode 볼륨을 ONTAP로 전환하는 동안 서비스 중�
 * 볼륨에 캡처된 스냅샷 복사본 지원 LUN 클론에 액세스합니다
 
 
+.관련 정보
 link:https://docs.netapp.com/us-en/ontap-7mode-transition/copy-based/index.html["복사 기반 전환"]

@@ -13,7 +13,7 @@ summary: 'ONTAP 9.3부터 웹 서비스에 대한 SAML(Security Assertion Markup
 [role="lead"]
 ONTAP 9.3부터 웹 서비스에 대한 SAML(Security Assertion Markup Language) 인증을 구성할 수 있습니다. SAML 인증이 구성 및 설정되면 사용자는 Active Directory 및 LDAP와 같은 디렉터리 서비스 공급자 대신 외부 ID 공급자(IDP)에 의해 인증됩니다.
 
-.무엇을 &#8217;필요로 할거야
+.필요한 것
 * SAML 인증을 위해 IDP를 구성해야 합니다.
 * IDP URI가 있어야 합니다.
 
@@ -104,4 +104,5 @@ admin1         http        password      backup           no     none
 
 
 
+.관련 정보
 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"^]

@@ -123,6 +123,7 @@ l, m, h 또는 a에 대해 원하는 밀도 코드에 해당하는 SCSI 모드 �
 |===
 NetApp Support 사이트에서 테이프 구성 파일을 다운로드하고 볼 수 있습니다.
 
+.테이프 구성 파일 형식의 예
 HP LTO5 Ultrium 테이프 드라이브의 테이프 구성 파일 형식은 다음과 같습니다.
 
 전성자(ndor_id) = "HP"
@@ -161,4 +162,5 @@ m_algorithm'=0x01
 
 "자동 로드" = "예"
 
+.관련 정보
 https://mysupport.netapp.com/site/tools/tool-eula/5f4d322319c1ab1cf34fd063["NetApp 툴: 테이프 장치 구성 파일"]

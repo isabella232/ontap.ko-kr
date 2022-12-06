@@ -79,4 +79,5 @@ cluster1::> volume snapshot delete -vserver vs0 -volume fg -snapshot daily.2017-
 
 
 
+.관련 정보
 link:../flexgroup/index.html["FlexGroup 볼륨 관리"]

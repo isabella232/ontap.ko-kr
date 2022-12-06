@@ -21,6 +21,7 @@ summary: '사내 데이터 센터에서 물리적 노드는 내결함성 및 무
 
 각 클라우드 공급자는 자체 HA 아키텍처 및 구성 옵션을 제공합니다. Cloud Volumes Service의 경우 서비스 수준 계약을 통해 고가용성을 보장합니다.
 
+.관련 정보
 https://docs.netapp.com/us-en/occm/concept_ha.html["AWS의 고가용성 쌍"]
 
 https://docs.netapp.com/us-en/occm/concept_ha_azure.html["Azure의 고가용성 쌍"]

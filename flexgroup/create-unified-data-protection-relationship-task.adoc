@@ -13,6 +13,7 @@ summary: ONTAP 9.3부터는 SnapMirror 통합 데이터 보호 관계를 생성 
 [role="lead"]
 ONTAP 9.3부터는 SnapMirror 통합 데이터 보호 관계를 생성 및 구성하여 동일한 타겟 볼륨에서 재해 복구 및 아카이빙을 구성할 수 있습니다.
 
+.필요한 것
 FlexGroup 볼륨에 대한 통합 데이터 보호 관계를 생성할 때 고려해야 할 사항에 대해 알고 있어야 합니다.
 
 link:snapvault-backup-concept.html["SnapVault 백업 관계를 생성할 때의 고려 사항 및 FlexGroup 볼륨에 대한 통합 데이터 보호 관계"]

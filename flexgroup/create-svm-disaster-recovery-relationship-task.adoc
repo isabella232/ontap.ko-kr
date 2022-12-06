@@ -13,6 +13,7 @@ summary: 'ONTAP 9.9.1부터 FlexGroup 볼륨을 사용하여 SVM 재해 복구(S
 [role="lead"]
 ONTAP 9.9.1부터 FlexGroup 볼륨을 사용하여 SVM 재해 복구(SVM DR) 관계를 생성할 수 있습니다. SVM DR 관계는 SVM 구성과 데이터를 동기화 및 복제하여 재해 발생 시 FlexGroups를 복구하는 이중화 및 기능을 제공합니다. SVM DR에는 SnapMirror 라이센스가 필요합니다.
 
+.시작하기 전에
 FlexGroup SVM DR 관계를 생성할 수 없는 경우 조건에 주의해야 합니다.
 
 * FlexClone FlexGroup 구성이 있습니다

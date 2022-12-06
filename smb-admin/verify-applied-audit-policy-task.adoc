@@ -13,12 +13,14 @@ summary: '감사 정책을 확인하여 보안 정책을 적용한 SVM(스토리
 [role="lead"]
 감사 정책을 확인하여 보안 정책을 적용한 SVM(스토리지 가상 시스템)의 파일 또는 폴더에 원하는 감사 보안 설정이 있는지 확인할 수 있습니다.
 
+.이 작업에 대해
 'vserver security file-directory show' 명령을 사용하여 감사 정책 정보를 표시합니다. 표시할 파일 또는 폴더 감사 정책 정보를 가진 데이터의 경로와 데이터가 들어 있는 SVM의 이름을 제공해야 합니다.
 
 .단계
 . 감사 정책 설정 표시: 'vserver security file-directory show -vserver_vserver_name_-path_path_'
 
 
+.예
 다음 명령을 실행하면 SVM VS1 경로의 ""/Corp" 경로에 적용된 감사 정책 정보가 표시됩니다. 경로에 성공 및 성공/실패 SACL 항목이 모두 적용됩니다.
 
 [listing]

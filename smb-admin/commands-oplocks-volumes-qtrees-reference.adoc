@@ -39,4 +39,5 @@ oplock 모드 설정은 qtree ID 0의 속성으로, 모든 볼륨에 있는 기�
 '-oplock-mode' 매개 변수가 '사용할 수 있음'으로 설정된 볼륨 qtree oplocks입니다
 
 |===
+.관련 정보
 xref:monitor-oplock-status-task.adoc[oplock 상태 모니터링]

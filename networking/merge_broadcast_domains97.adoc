@@ -18,6 +18,7 @@ summary: 하나의 브로드캐스트 도메인의 포트를 기존 브로드캐
 
 이 작업은 브로드캐스트 도메인에서 모든 포트를 제거한 다음 기존 브로드캐스트 도메인에 포트를 추가하는 경우에 필요한 단계를 줄여줍니다.
 
+.단계
 한 브로드캐스트 도메인의 포트를 기존 브로드캐스트 도메인으로 병합:
 
 ....
@@ -28,6 +29,7 @@ network port broadcast-domain merge -ipspace <ipspace_name> -broadcast-domain <b
 * '-브로드캐스트-도메인'은 추가 포트를 받을 브로드캐스트 도메인의 이름입니다.
 
 
+.예
 다음 예에서는 브로드캐스트 도메인 BD-data1을 브로드캐스트 도메인 BD-data2에 병합합니다.
 
 네트워크 포트-IPSpace Default broadcast-domain bd-data1을 broadcast-domain bd-data2로 설정합니다

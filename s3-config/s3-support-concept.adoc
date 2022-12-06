@@ -50,4 +50,5 @@ HTTPS는 ONTAP S3 서버에서 기본적으로 활성화됩니다. 클라이언�
 
 자세한 내용은 을 참조하십시오 https://www.netapp.com/pdf.html?item=/media/17219-tr4814pdf.pdf["기술 보고서: ONTAP 모범 사례의 S3"]
 
+.관련 정보
 link:../flexgroup/index.html["FlexGroup 볼륨 관리"]

@@ -16,6 +16,7 @@ summary: 클러스터의 모든 노드에서 NDMP 서비스와 클러스터에�
 
 NOTE: 노드 범위 NDMP는 ONTAP 9에서 더 이상 사용되지 않습니다.
 
+.이 작업에 대해
 노드 범위 모드에서 NDMP를 사용하는 경우 노드 단위로 인증을 구성해야 합니다. 자세한 내용은 을 참조하십시오 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/NDMP/How_to_configure_NDMP_authentication_in_the_%E2%80%98node-scope%E2%80%99_mode["기술 자료 문서 "'노드 범위' 모드에서 NDMP 인증을 구성하는 방법""^].
 
 .단계

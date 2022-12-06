@@ -24,6 +24,7 @@ SnapLock for SnapVault를 사용하여 2차 스토리지에서 WORM 상태로 �
 * 볼륨 자동 확장 기능을 사용하지 않는 경우 대상 볼륨의 여유 공간은 소스 볼륨의 사용된 공간보다 최소 5% 이상 커야 합니다.
 
 
+.이 작업에 대해
 소스 볼륨에서 NetApp 또는 타사 스토리지를 사용할 수 있습니다. 타사 스토리지의 경우 FlexArray 가상화를 사용해야 합니다.
 
 
@@ -111,6 +112,7 @@ cluster2::> snapshot show -vserver SVM2 -volume dstvolB -fields snapmirror-label
 ----
 
 
+.관련 정보
 https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["클러스터 및 SVM 피어링"]
 
 https://docs.netapp.com/us-en/ontap-sm-classic/volume-backup-snapvault/index.html["SnapVault를 사용한 볼륨 백업"]

@@ -13,8 +13,10 @@ summary: 공유 속성을 추가하거나 제거하여 기존 SMB 공유를 사�
 [role="lead"]
 공유 속성을 추가하거나 제거하여 기존 SMB 공유를 사용자 지정할 수 있습니다. 이 기능은 환경의 변화하는 요구 사항에 맞게 공유 구성을 변경하려는 경우에 유용합니다.
 
+.시작하기 전에
 수정할 속성이 있는 공유가 있어야 합니다.
 
+.이 작업에 대해
 공유 속성 추가 지침:
 
 * 쉼표로 구분된 목록을 사용하여 하나 이상의 공유 속성을 추가할 수 있습니다.
@@ -58,6 +60,7 @@ summary: 공유 속성을 추가하거나 제거하여 기존 SMB 공유를 사�
 . 공유 속성 설정을 확인합니다. 'vserver cifs share show -vserver vserver_name -share-name share_name'
 
 
+.예
 다음 명령을 실행하면 SVM VS1 에서 "shhowsnapshot" 공유 속성이 "share1"이라는 공유에 추가됩니다.
 
 [listing]
@@ -84,4 +87,5 @@ Vserver    Share   Path      Properties   Comment    ACL
 vs1        share2  /share2   oplocks      -          Everyone / Full Control
                              changenotify
 ----
+.관련 정보
 xref:commands-manage-shares-reference.adoc[SMB 공유를 관리하는 명령입니다]

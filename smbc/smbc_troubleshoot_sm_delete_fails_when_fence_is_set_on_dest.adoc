@@ -13,9 +13,11 @@ summary: 대상 볼륨에 리디렉션 펜스 세트가 있으면 SnapMirror 삭
 :imagesdir: ../media/
 
 
+.문제:
 [role="lead"]
 대상 볼륨에 리디렉션 펜스 세트가 있으면 SnapMirror 삭제 작업이 실패합니다.
 
+.해결 방법
 다음 작업을 수행하여 리디렉션을 재시도하고 대상 볼륨에서 Fence를 제거합니다.
 
 * SnapMirror 재동기화

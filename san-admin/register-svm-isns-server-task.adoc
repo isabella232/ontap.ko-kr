@@ -13,6 +13,7 @@ summary: 'vserver iSCSI iSNS 명령을 사용하여 iSNS 서버에 등록할 SVM
 [role="lead"]
 "vserver iSCSI iSNS" 명령을 사용하여 iSNS 서버에 등록할 SVM(스토리지 가상 시스템)을 구성할 수 있습니다.
 
+.이 작업에 대해
 'vserver iscsi iSNS create' 명령은 iSNS 서버에 등록할 SVM을 구성합니다. SVM은 iSNS 서버를 구성하거나 관리할 수 있는 명령을 제공하지 않습니다. iSNS 서버를 관리하려면 공급업체에서 제공하는 iSNS 서버 관리 도구 또는 인터페이스를 사용할 수 있습니다.
 
 .단계

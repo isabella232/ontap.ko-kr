@@ -43,6 +43,7 @@ BranchCache를 비활성화합니다
 . BranchCache 작동 모드가 'vserver cifs BranchCache show -vserver vserver vserver_name' 설정으로 구성되어 있는지 확인합니다
 
 
+.예
 다음 예에서는 SVM VS1 에서 BranchCache를 사용하지 않도록 설정합니다.
 
 [listing]

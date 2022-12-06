@@ -35,4 +35,5 @@ GPO 설정이 변경되었습니다
 |===
 
 
+.관련 정보
 xref:gpos-updated-server-concept.adoc[CIFS 서버에서 GPO를 업데이트하는 방법]

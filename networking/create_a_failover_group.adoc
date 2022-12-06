@@ -16,6 +16,7 @@ summary: 네트워크 포트의 페일오버 그룹을 생성하면 링크 장�
 [role="lead"]
 네트워크 포트의 페일오버 그룹을 생성하면 LIF의 현재 포트에서 링크 장애가 발생할 경우 LIF가 자동으로 다른 포트로 마이그레이션할 수 있습니다. 이렇게 하면 시스템이 네트워크 트래픽을 클러스터의 사용 가능한 다른 포트로 재라우팅할 수 있습니다.
 
+.이 작업에 대해
 'network interface failover-groups create' 명령을 사용하여 그룹을 생성하고 그룹에 포트를 추가합니다.
 
 * 페일오버 그룹에 추가된 포트는 네트워크 포트, VLAN 또는 인터페이스 그룹(ifgrp)일 수 있습니다.
@@ -25,6 +26,7 @@ summary: 네트워크 포트의 페일오버 그룹을 생성하면 링크 장�
 * SAN iSCSI 또는 FC 환경에서는 페일오버 그룹이 적용되지 않습니다.
 
 
+.단계
 페일오버 그룹 생성:
 
 'network interface failover-groups create-vserver_vserver_name_-failover-group_failover_group_name_-targets_ports_list_'

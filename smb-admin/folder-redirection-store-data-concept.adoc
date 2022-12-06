@@ -22,6 +22,7 @@ ONTAP는 사용자 또는 관리자가 로컬 폴더의 경로를 CIFS 서버의
 * 관리자는 폴더 리디렉션 및 오프라인 파일을 함께 사용하여 로컬 폴더의 데이터 스토리지를 CIFS 서버로 리디렉션하는 동시에 사용자가 콘텐츠를 로컬로 캐시할 수 있습니다.
 
 
+.관련 정보
 xref:offline-files-allow-caching-concept.adoc[오프라인 파일을 사용하여 오프라인 사용을 위해 파일 캐싱을 허용합니다]
 
 xref:roaming-profiles-store-user-profiles-concept.adoc[로밍 프로필을 사용하여 SVM과 연결된 CIFS 서버에 사용자 프로필을 중앙에서 저장합니다]

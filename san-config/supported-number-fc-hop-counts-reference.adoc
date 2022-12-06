@@ -33,6 +33,7 @@ Cisco의
 7 FC5의 경우 최대 3개의 스위치가 FCoE 스위치일 수 있습니다.
 
 |===
+.관련 정보
 http://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Brocade/san_download.shtml#scale["NetApp 다운로드: Brocade 확장성 매트릭스 문서"]
 
 http://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/download.shtml#scale["NetApp 다운로드: Cisco Scalability Matrix Documents"]

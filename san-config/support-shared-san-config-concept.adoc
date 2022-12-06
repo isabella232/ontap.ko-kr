@@ -25,4 +25,5 @@ summary: 공유 SAN 구성은 ONTAP 스토리지 시스템과 다른 공급업�
 * Windows의 경우 구성의 상호 운용성 매트릭스 툴에 나열된 Windows Host Utilities 버전을 설치해야 합니다.
 
 
+.관련 정보
 https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"^]

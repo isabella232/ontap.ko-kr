@@ -13,6 +13,7 @@ summary: Active Domain 컨트롤러에서 SMB 서버를 생성하기 전에 SMB 
 [role="lead"]
 Active Domain 컨트롤러에서 SMB 서버를 생성하기 전에 SMB 서버가 속할 도메인의 도메인 컨트롤러에 대한 클러스터 시간 및 시간이 5분 이내에 일치하는지 확인해야 합니다.
 
+.이 작업에 대해
 Active Directory 도메인에서 사용하는 시간 동기화를 위해 클러스터 NTP 서비스를 구성해야 합니다.
 
 ONTAP 9.5부터 대칭 인증을 사용하여 NTP 서버를 설정할 수 있습니다.

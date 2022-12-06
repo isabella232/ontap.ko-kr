@@ -42,6 +42,7 @@ _User Rights Management_ 는 SMB 서버 관리자가 SVM에 대한 사용자 및
 
 
 
+.관련 정보
 xref:local-user-authentication-concept.adoc[로컬 사용자 인증의 작동 방식]
 
 xref:list-supported-privileges-reference.html[지원되는 권한 목록입니다]

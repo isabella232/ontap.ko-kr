@@ -28,8 +28,10 @@ cluster-01::>storage tape alias clear -node cluster-01 -clear-scope tape
 ----
 
 
+.작업을 마친 후
 NDMP를 사용하여 테이프 백업 또는 복구 작업을 수행하는 경우 테이프 드라이브 또는 미디어 체인저에서 별칭을 제거한 후 테이프 디바이스에 계속 액세스하려면 테이프 드라이브 또는 미디어 체인저에 새 별칭 이름을 할당해야 합니다.
 
+.관련 정보
 xref:assign-tape-aliases-concept.adoc[테이프 앨리어싱이란 무엇입니까]
 
 xref:assign-tape-aliases-task.adoc[테이프 별칭 할당]

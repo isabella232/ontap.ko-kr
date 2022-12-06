@@ -44,6 +44,7 @@ BlueXP에서 지원되지 않는 기존 클러스터 구성에 대해 최초 Fab
 
 
 
+.관련 정보
 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/ONTAP_FabricPool_(FP)_Licensing_Overview["FP(ONTAP FabricPool) 라이센스 개요"]
 
 http://mysupport.netapp.com/licenses["NetApp 소프트웨어 라이센스 검색"]

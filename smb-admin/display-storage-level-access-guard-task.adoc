@@ -13,6 +13,7 @@ summary: Storage-Level Access Guard는 볼륨 또는 qtree에 적용되는 세 �
 [role="lead"]
 Storage-Level Access Guard는 볼륨 또는 qtree에 적용되는 세 번째 보안 계층입니다. Windows 속성 창을 사용하면 저장소 수준 액세스 가드 설정을 볼 수 없습니다. ONTAP CLI를 사용하여 스토리지 레벨 액세스 가드 보안에 대한 정보를 확인해야 합니다. 이 정보는 구성을 확인하거나 파일 액세스 문제를 해결하는 데 사용할 수 있습니다.
 
+.이 작업에 대해
 SVM(Storage Virtual Machine)의 이름과 스토리지 레벨 액세스 가드 보안 정보를 표시할 볼륨 또는 qtree의 경로를 입력해야 합니다. 출력을 요약 양식 또는 상세 목록으로 표시할 수 있습니다.
 
 .단계
@@ -37,6 +38,7 @@ SVM(Storage Virtual Machine)의 이름과 스토리지 레벨 액세스 가드 �
 |===
 
 
+.예
 다음 예에서는 SVM VS1 에서 경로 '/datavol1'을 사용하여 NTFS 보안 스타일 볼륨에 대한 Storage-Level Access Guard 보안 정보를 표시합니다.
 
 [listing]

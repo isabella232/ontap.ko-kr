@@ -23,14 +23,14 @@ System Manager를 사용하면 호스트에서 더 많은 공간을 사용할 �
 
 ONTAP 9.12.1부터 볼륨에 대한 새 용량을 입력하면 * 볼륨 크기 조정 * 창에 볼륨 크기 조정이 데이터 공간과 스냅샷 복사본 예비공간에 미치는 영향이 표시됩니다.
 
-*  the size of a volume
-*  the size of a LUN
+* <<볼륨 크기를 늘립니다>>
+* <<LUN의 크기를 늘립니다>>
 
 
 또한 기존 볼륨에 LUN을 추가할 수도 있습니다. ONTAP 9.7 또는 9.8과 함께 System Manager를 사용할 때는 프로세스가 다릅니다
 
-*  a LUN to an existing volume (ONTAP 9.7)
-*  a LUN to an existing volume (ONTAP 9.8)
+* <<기존 볼륨에 LUN 추가(ONTAP 9.7)>>
+* <<기존 볼륨에 LUN 추가(ONTAP 9.8)>>
 
 
 또한 ONTAP 9.8부터 System Manager를 사용하여 기존 볼륨에 LUN을 추가할 수 있습니다.

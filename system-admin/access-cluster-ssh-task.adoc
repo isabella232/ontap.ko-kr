@@ -13,7 +13,7 @@ summary: 클러스터에 SSH 요청을 실행하여 관리 작업을 수행할 �
 [role="lead"]
 클러스터에 SSH 요청을 실행하여 관리 작업을 수행할 수 있습니다. SSH는 기본적으로 사용하도록 설정됩니다.
 
-.무엇을 &#8217;필요로 할거야
+.필요한 것
 * 'sh'를 액세스 방법으로 사용하도록 구성된 사용자 계정이 있어야 합니다.
 +
 '보안 로그인' 명령어의 '-application' 파라미터는 사용자 계정에 대한 접속 방식을 지정한다. '보안 로그인' man 페이지에는 추가 정보가 포함되어 있습니다.
@@ -67,6 +67,7 @@ AD 도메인 사용자 계정을 사용하는 경우 '_username_'을 '_domainnam
 
 SSH-Interactive 세션에는 '_command_'가 필요하지 않습니다.
 
+.SSH 요청의 예
 다음 예에서는 사용자 계정 ""Joe""가 클러스터 관리 LIF가 10.72.137.28인 클러스터에 액세스하는 SSH 요청을 발행하는 방법을 보여줍니다.
 
 [listing]
@@ -127,4 +128,5 @@ node1                 true    true
 node2                 true    true
 2 entries were displayed.
 ----
+.관련 정보
 link:../authentication/index.html["관리자 인증 및 RBAC"]

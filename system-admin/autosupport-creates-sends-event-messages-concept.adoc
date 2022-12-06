@@ -32,6 +32,7 @@ AutoSupport는 트리거와 연결된 하위 시스템으로부터 기본 및 �
 
 
 
+.특정 이벤트에 대해 전송된 데이터의 예
 Storage shelf PSU failed EMS 이벤트는 Mandatory, Log Files, Storage, RAID, HA의 기본 데이터가 포함된 메시지를 플랫폼, 네트워킹 하위 시스템 및 필수, 로그 파일 및 스토리지 하위 시스템의 데이터 문제 해결
 
 향후 '스토리지 셸프 PSU 실패' 이벤트에 대한 응답으로 전송된 AutoSupport 메시지에 NFS에 대한 데이터를 포함시키기로 결정합니다. callhome.shlf.ps.fault 이벤트에 대해 NFS에 대한 문제 해결 수준 데이터를 활성화하려면 다음 명령을 입력합니다.

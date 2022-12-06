@@ -77,4 +77,5 @@ network interface failover-groups modify -vserver vs0 -failover-group fg1 -targe
 ----
 
 
+.관련 정보
 link:../networking/networking_reference.html["네트워크 및 LIF 관리"]

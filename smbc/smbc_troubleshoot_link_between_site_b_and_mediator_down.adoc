@@ -40,6 +40,7 @@ Peer Cluster Name         Cluster Serial Number Availability   Authentication
 ------------------------- --------------------- -------------- --------------
 C1_cluster 			  1-80-000011           Unavailable    ok
 ....
+.해결 방법
 사이트 B에서 입출력을 사용하도록 페일오버를 강제 실행한 다음 사이트 B에서 사이트 A로 RTO 관계를 0으로 설정합니다
 
 사이트 B에서 강제 대체 작동을 수행하려면 다음 단계를 완료합니다

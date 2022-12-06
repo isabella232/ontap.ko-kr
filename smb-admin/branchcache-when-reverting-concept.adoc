@@ -26,4 +26,5 @@ ONTAP를 BranchCache를 지원하지 않는 릴리즈로 되돌릴 경우 어떤
 
 
 
+.관련 정보
 xref:delete-branchcache-config-task.html[SVM에서 BranchCache 구성을 삭제합니다]

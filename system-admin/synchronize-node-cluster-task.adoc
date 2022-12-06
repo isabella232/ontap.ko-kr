@@ -36,4 +36,5 @@ All cluster applications on node "node2" will be restarted. Verify that the clus
 ----
 
 
+.결과
 RDB가 노드로 복제되고 노드가 클러스터에 참여할 수 있게 됩니다.

@@ -55,6 +55,7 @@ SVM(스토리지 가상 머신)의 볼륨 내에 포함된 파일 및 디렉토�
 * 혼합(오브젝트에 NTFS 유효 보안이 있는 경우)
 
 
+.관련 정보
 xref:secure-file-access-storage-level-access-guard-concept.adoc[Storage-Level Access Guard를 사용하여 파일 액세스 보호]
 
 xref:display-storage-level-access-guard-task.adoc[Storage-Level Access Guard에 대한 정보 표시]

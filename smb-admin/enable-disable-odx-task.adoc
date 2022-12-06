@@ -13,8 +13,10 @@ summary: '스토리지 가상 시스템(SVM)에서 ODX를 사용하거나 사용
 [role="lead"]
 스토리지 가상 시스템(SVM)에서 ODX를 사용하거나 사용하지 않도록 설정할 수 있습니다. 기본적으로 SMB 3.0도 사용하도록 설정된 경우 ODX 복사 오프로드를 지원합니다.
 
+.시작하기 전에
 SMB 3.0을 활성화해야 합니다.
 
+.이 작업에 대해
 SMB 3.0을 비활성화하면 ONTAP도 SMB ODX를 비활성화합니다. SMB 3.0을 다시 설정하는 경우 SMB ODX를 수동으로 다시 설정해야 합니다.
 
 .단계
@@ -41,6 +43,7 @@ SMB 3.0을 비활성화하면 ONTAP도 SMB ODX를 비활성화합니다. SMB 3.0
 . admin 권한 수준으로 복귀:'et-Privilege admin'입니다
 
 
+.예
 다음 예에서는 SVM VS1 에서 ODX 복사 오프로드를 활성화합니다.
 
 [listing]
@@ -54,4 +57,5 @@ cluster1::*> vserver cifs options modify -vserver vs1 -copy-offload-enabled true
 
 cluster1::*> set -privilege admin
 ----
+.관련 정보
 xref:server-options-reference.adoc[사용 가능한 SMB 서버 옵션]

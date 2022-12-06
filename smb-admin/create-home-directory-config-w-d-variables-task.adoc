@@ -52,6 +52,7 @@ summary: '%w 및 %d 변수를 사용하여 홈 디렉토리 구성을 생성할 
 
 
 
+.예
 다음 예제의 명령은 다음과 같은 설정으로 홈 디렉토리 구성을 만듭니다.
 
 * 공유 이름은 %W입니다
@@ -93,6 +94,7 @@ Vserver     Position Path
 ----------- -------- -----------------
 vs1         1        /home1
 ----
+.관련 정보
 xref:configure-home-directories-u-variable-task.adoc[%u 변수를 사용하여 홈 디렉토리를 구성하는 중입니다]
 
 xref:home-directory-config-concept.adoc[추가 홈 디렉토리 구성]

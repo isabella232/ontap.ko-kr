@@ -24,6 +24,7 @@ Active IQ을 사용하면 클라우드 기반 포털 및 모바일 앱을 통해
 * 인벤토리 및 구성을 봅니다. Active IQ는 전체 인벤토리 및 소프트웨어 및 하드웨어 구성 정보를 표시합니다. 서비스 계약이 만료되는 시점을 확인하여 서비스 계약이 계속 보장되는지 확인합니다.
 
 
+.관련 정보
 https://docs.netapp.com/us-en/active-iq/["NetApp 설명서: Active IQ 디지털 자문업체"]
 
 https://aiq.netapp.com/custom-dashboard/search["Active IQ를 시작합니다"]

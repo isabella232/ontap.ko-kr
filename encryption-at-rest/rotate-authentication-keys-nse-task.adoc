@@ -13,6 +13,7 @@ summary: 'NSE(NetApp Storage Encryption)를 사용할 때 인증 키를 회전�
 [role="lead"]
 NSE(NetApp Storage Encryption)를 사용할 때 인증 키를 회전할 수 있습니다.
 
+.이 작업에 대해
 NSE 환경에서 인증 키를 회전하면 외부 키 관리자(KMIP)를 사용할 수 있습니다.
 
 [NOTE]

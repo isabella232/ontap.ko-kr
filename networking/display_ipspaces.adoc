@@ -16,6 +16,7 @@ summary: IPspace를 나열하고 클러스터에 대한 IPspace 정보를 표시
 [role="lead"]
 클러스터에 존재하는 IPspace 목록을 표시할 수 있으며 SVM(스토리지 가상 머신), 브로드캐스트 도메인 및 각 IPspace에 할당된 포트를 볼 수 있습니다.
 
+.단계
 클러스터에서 IPspace 및 SVM 표시:
 
 ....

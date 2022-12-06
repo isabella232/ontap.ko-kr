@@ -44,6 +44,7 @@ summary: 기존 사용자의 전체 이름 또는 설명을 변경하고 사용�
 'vserver cifs users-and-groups local-user rename-vserver_name_-user-name_user_name_-new-user-name_new_user_name_' 로컬 사용자의 이름을 바꿀 때 새 사용자 이름은 이전 사용자 이름과 동일한 CIFS 서버와 연결된 상태로 유지되어야 합니다.
 
 |===
+.예
 다음 예에서는 스토리지 가상 머신(SVM, 이전 명칭 Vserver)의 로컬 사용자 "'cifs_server\sue""를 "'cifs_server\sue_new""로 바꿉니다.1
 
 [listing]

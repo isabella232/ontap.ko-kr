@@ -13,8 +13,10 @@ summary: 권한을 제거하여 로컬 또는 도메인 사용자 또는 그룹�
 [role="lead"]
 권한을 제거하여 로컬 또는 도메인 사용자 또는 그룹에 대한 사용자 권한을 관리할 수 있습니다. 이렇게 하면 사용자와 그룹이 보유한 최대 권한을 사용자 지정할 수 있으므로 보안이 강화됩니다.
 
+.시작하기 전에
 권한을 제거할 로컬 또는 도메인 사용자 또는 그룹이 이미 있어야 합니다.
 
+.이 작업에 대해
 로컬 또는 도메인 사용자 또는 그룹에서 권한을 제거할 때는 다음 사항을 염두에 두어야 합니다.
 
 * 하나 이상의 권한을 제거할 수 있습니다.
@@ -29,6 +31,7 @@ ONTAP가 도메인 컨트롤러에 연결할 수 없는 경우 명령이 실패�
 . 원하는 권한이 'vserver cifs users-and-groups privilege show-vserver_name_-user-or-group-name_name_' 객체에서 제거되었는지 확인합니다
 
 
+.예
 다음 예에서는 스토리지 가상 머신(SVM, 이전 명칭 Vserver)의 사용자 " cifs_server\sue "(cifs_server\sue ")에서 "'seTcbPrivilege' 및 "'setegenershipPrivilege'" 권한을 제거합니다1.
 
 [listing]

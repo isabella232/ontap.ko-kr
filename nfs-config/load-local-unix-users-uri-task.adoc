@@ -48,6 +48,7 @@ URI는 파일이 있는 위치를 나타내기 위해 스토리지 시스템에 
 
 
 
+.예
 다음 명령을 실행하면 URI '+ftp://ftp.example.com/passwd+` 에서 이름이 VS1 인 SVM으로 로컬 UNIX 사용자 목록이 로드됩니다. SVM의 기존 사용자는 URI의 정보로 덮어써지지 않습니다.
 
 [listing]

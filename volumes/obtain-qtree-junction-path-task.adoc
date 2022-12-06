@@ -13,6 +13,7 @@ summary: 'qtree의 접합 경로 또는 네임스페이스 경로를 획득하�
 [role="lead"]
 qtree의 접합 경로 또는 네임스페이스 경로를 획득하여 개별 qtree를 마운트할 수 있습니다. CLI 명령 'qtree show-instance'에 표시되는 qtree 경로는 '/vol/<volume_name>/<qtree_name>' 형식입니다. 그러나 이 경로는 qtree의 접합 경로 또는 네임스페이스 경로를 참조하지 않습니다.
 
+.이 작업에 대해
 Qtree의 접합 경로 또는 네임스페이스 경로를 확인하려면 볼륨의 접합 경로를 알아야 합니다.
 
 .단계

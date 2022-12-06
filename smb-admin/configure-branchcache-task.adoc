@@ -13,6 +13,7 @@ summary: BranchCache를 구성하여 공유별로 BranchCache 서비스를 제�
 [role="lead"]
 BranchCache를 구성하여 공유별로 BranchCache 서비스를 제공할 수 있습니다. 또는 BranchCache를 구성하여 모든 SMB 공유에서 캐싱을 자동으로 설정할 수 있습니다.
 
+.이 작업에 대해
 SVM에서 BranchCache를 구성할 수 있습니다.
 
 * CIFS 서버의 모든 SMB 공유 내에 포함된 모든 콘텐츠에 대해 캐싱 서비스를 제공하려는 경우 모든 공유 BranchCache 구성을 생성할 수 있습니다.
@@ -102,6 +103,7 @@ SVM BranchCache 구성을 추가할 때 동일한 서버 키를 사용하려면 
 . BranchCache 구성이 올바른지 확인합니다. 'vserver cifs BranchCache show -vserver_vserver_name_'
 
 
+.예
 다음 명령을 실행하면 SMB 2.1과 3.0이 모두 활성화되어 있고 SVM VS1의 모든 SMB 공유에서 캐싱이 자동으로 활성화되도록 BranchCache가 구성됩니다.
 
 [listing]
@@ -157,6 +159,7 @@ cluster1::> vserver cifs branchcache show -vserver vs1
 Encryption Key Used to Secure the Hashes: -
         CIFS BranchCache Operating Modes: per_share
 ----
+.관련 정보
 xref:branchcache-version-support-concept.html[요구 사항 및 지침: BranchCache 버전 지원]
 
 xref:configure-branchcache-remote-office-concept.adoc[원격 사무소에서 BranchCache 구성에 대한 정보를 찾을 수 있는 위치]

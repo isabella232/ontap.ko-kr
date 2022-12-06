@@ -13,12 +13,14 @@ summary: 'vserver cifs create 명령을 사용하여 SVM에 SMB 서버를 생성
 [role="lead"]
 "vserver cifs create" 명령을 사용하여 SVM에 SMB 서버를 생성하고 해당 서버가 속한 AD(Active Directory) 도메인을 지정할 수 있습니다.
 
+.시작하기 전에
 데이터 제공을 위해 사용하는 SVM 및 LIF는 SMB 프로토콜을 허용하도록 구성되어 있어야 합니다. LIF는 SVM에 구성된 DNS 서버와 SMB 서버에 연결할 도메인의 AD 도메인 컨트롤러에 연결할 수 있어야 합니다.
 
 SMB 서버에 연결할 AD 도메인에서 시스템 계정을 만들 수 있는 권한이 있는 모든 사용자는 SVM에 SMB 서버를 생성할 수 있습니다. 여기에는 다른 도메인의 사용자가 포함될 수 있습니다.
 
 ONTAP 9.7부터 AD 관리자는 권한이 있는 Windows 계정에 이름과 암호를 제공하는 대신 keytab 파일에 대한 URI를 제공할 수 있습니다. URI를 받으면 '-keytab-Uri' 매개 변수에 vserver cifs' 명령을 포함하여 포함시키십시오.
 
+.이 작업에 대해
 Activity Directory 도메인에서 SMB 서버를 생성하는 경우:
 
 * 도메인을 지정할 때는 FQDN(정규화된 도메인 이름)을 사용해야 합니다.
@@ -91,6 +93,7 @@ Default Site Used by LIFs Without Site Membership:
 . 필요한 경우 도메인 컨트롤러(ONTAP 9.8 이상)와의 암호화된 통신을 활성화합니다. 'vserver cifs security modify -vserver svm_name -encryption -required-for-dc-connection true'
 
 
+.예
 다음 명령을 실행하면 ""example.com`"" 도메인의 SVM vs2.example.com 에 "sMB_server02" 이름의 SMB 서버가 생성됩니다. 컴퓨터 계정은 ""OU=ENG,OU=Corp,DC=example,DC=com" 컨테이너에 생성됩니다. SMB 서버에는 NetBIOS 별칭이 할당됩니다.
 
 [listing]

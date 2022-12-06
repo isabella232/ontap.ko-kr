@@ -26,7 +26,7 @@ link:delete-key-management-database-task.html["외부 키 관리에서 온보드
 == ONTAP 9.6 이상에 대한 단계
 
 . 키를 복원해야 하는지 확인합니다. +'보안 키 관리자 키 쿼리 - node_node_'
-. ONTAP 9.8 이상을 실행 중이고 루트 볼륨이 암호화된 경우 이 작업이 완료됩니다 .
+. ONTAP 9.8 이상을 실행 중이고 루트 볼륨이 암호화된 경우 이 작업이 완료됩니다 <<root_volume_encrypted>>.
 +
 ONTAP 9.6 또는 9.7을 실행 중이거나 ONTAP 9.8 이상을 실행 중이고 루트 볼륨이 암호화되지 않은 경우 이 단계를 건너뜁니다.
 

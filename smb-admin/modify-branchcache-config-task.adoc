@@ -75,4 +75,5 @@ BranchCache 버전 지원을 변경합니다
 . 'vserver cifs BranchCache show' 명령을 사용하여 구성 변경 사항을 확인합니다.
 
 
+.관련 정보
 link:../volumes/index.html["논리적 스토리지 관리 가이드"]

@@ -17,6 +17,7 @@ FlexGroup 볼륨에 대한 SnapMirror DR(재해 복구) 관계를 생성할 수 
 
 image::../media/flexgroups-data-protection-workflow.gif[FlexGroup 볼륨 탈수 복구 준비 워크플로]
 
+.이 작업에 대해
 FlexGroup 볼륨에 대한 SnapMirror 관계 유형은 항상 XDP입니다. SnapMirror 관계에서 제공하는 데이터 보호 유형은 사용하는 복제 정책에 따라 결정됩니다. 생성할 복제 관계에 필요한 유형의 기본 정책이나 사용자 지정 정책을 사용할 수 있습니다. 다음 표에서는 기본 정책 유형과 다양한 유형의 데이터 보호 관계에 대해 지원되는 사용자 지정 정책 유형을 보여 줍니다.
 
 |===

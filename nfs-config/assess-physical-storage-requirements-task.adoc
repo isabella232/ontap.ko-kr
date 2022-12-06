@@ -44,4 +44,5 @@ aggr_5     239.0GB   239.0GB   95% online       4 node4  raid_dp,
 . 충분한 공간이 있는 애그리게이트가 없는 경우 'Storage aggregate add-disks' 명령을 사용하여 기존 애그리게이트에 디스크를 추가하거나 'Storage aggregate create' 명령을 사용하여 새로운 애그리게이트를 생성합니다.
 
 
+.관련 정보
 link:../concepts/index.html["ONTAP 개념"]

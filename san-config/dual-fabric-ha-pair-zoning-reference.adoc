@@ -39,4 +39,5 @@ image::../media/scm-en-drw-dual-fabric-zoning.gif[듀얼 패브릭 조닝]
 호스트 운영 체제 및 다중 경로 소프트웨어는 노드의 LUN에 액세스하는 데 사용되는 경로 수를 지원해야 합니다.
 
 ====
+.관련 정보
 https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"^]

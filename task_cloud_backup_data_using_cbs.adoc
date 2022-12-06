@@ -24,6 +24,7 @@ ONTAP 9.9.1부터 Cloud Backup을 사용하여 System Manager를 사용하여 �
 
 NOTE: Cloud Backup은 FlexVol 읽기-쓰기 볼륨 및 데이터 보호(DP) 볼륨을 지원합니다. FlexGroup 볼륨 및 SnapLock 볼륨은 지원되지 않습니다.
 
+.시작하기 전에
 BlueXP에서 계정을 설정하려면 다음 절차를 수행해야 합니다. 서비스 계정의 경우 "계정 관리자" 역할을 생성해야 합니다. (다른 서비스 계정 역할에는 System Manager와의 연결을 설정하는 데 필요한 권한이 없습니다.)
 
 . link:https://docs.netapp.com/us-en/occm/task_logging_in.html["BlueXP에서 계정을 만듭니다"^].
@@ -199,6 +200,7 @@ Azure 또는 AWS에 대해 아카이브를 설정하는 경우 다음을 지정�
 * 클러스터가 ONTAP 9.9.1을 실행 중이어야 합니다.
 
 
+.이 작업에 대해
 다음과 같은 클러스터 구성에서는 클라우드에서 새 볼륨 또는 LUN을 보호할 수 없습니다.
 
 * 클러스터가 MetroCluster 환경에 있을 수 없습니다.

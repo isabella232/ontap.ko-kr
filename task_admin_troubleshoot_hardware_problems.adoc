@@ -21,6 +21,7 @@ summary: 네트워크에서 노드, 디스크 쉘프 및 스토리지 스위치�
 [role="lead"]
 ONTAP 9.8 이상에서는 System Manager를 사용하여 네트워크 하드웨어 구성을 확인하고 문제가 발생할 수 있는지 확인할 수 있습니다.
 
+.단계
 하드웨어 구성을 보려면 다음 단계를 수행하십시오.
 
 . System Manager에서 * Cluster > Hardware * 를 선택합니다.
@@ -29,14 +30,14 @@ ONTAP 9.8 이상에서는 System Manager를 사용하여 네트워크 하드웨�
 다양한 유형의 정보를 볼 수 있습니다.
 
 +
-**  about controllers
-**  about disk shelves
-**  about storage switches
+** <<컨트롤러에 대한 정보>>
+** <<디스크 쉘프 정보>>
+** <<스토리지 스위치에 대한 정보>>
 
 
 . ONTAP 9.12.1부터 시스템 관리자에서 케이블 연결 정보를 볼 수 있습니다. 케이블 표시 * 확인란을 클릭하여 케이블 연결을 확인한 다음 케이블 위로 마우스를 가져가면 연결 정보를 볼 수 있습니다.
 +
-**  about cabling
+** <<케이블 연결에 대한 정보>>
 
 
 

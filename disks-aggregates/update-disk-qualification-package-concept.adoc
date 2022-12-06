@@ -27,6 +27,7 @@ DQP는 ONTAP 업그레이드의 일부로 업데이트되지 않습니다.
 
 
 
+.관련 정보
 https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware/download/DISKQUAL/ALL/qual_devices.zip["NetApp 다운로드: 디스크 검증 패키지"^]
 
 https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp 다운로드: 디스크 드라이브 펌웨어"^]

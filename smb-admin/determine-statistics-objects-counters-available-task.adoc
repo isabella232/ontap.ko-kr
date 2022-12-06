@@ -47,6 +47,7 @@ CIFS, SMB, 감사 및 BranchCache 해시 통계에 대한 정보를 얻고 성�
 . admin 권한 수준으로 복귀:'et-Privilege admin'입니다
 
 
+.예
 다음 명령을 실행하면 고급 권한 수준에 표시된 대로 클러스터에서 CIFS 및 SMB 액세스와 관련된 선택한 통계 개체에 대한 설명이 표시됩니다.
 
 [listing]
@@ -131,4 +132,5 @@ Object: client
 
 [...]
 ----
+.관련 정보
 xref:display-statistics-task.adoc[통계를 표시합니다]

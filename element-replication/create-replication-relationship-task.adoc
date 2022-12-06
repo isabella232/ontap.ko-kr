@@ -27,6 +27,7 @@ Element 소프트웨어 웹 UI에서만 이 작업을 수행할 수 있습니다
 ====
 
 
+.이 작업에 대해
 요소 소스 경로는 "_hostip:_/lun/_name_" 형식으로 지정해야 합니다. 여기서 ""lun"은 실제 문자열 ""lun""이고 "name"은 요소 볼륨의 이름입니다.
 
 Element 볼륨은 ONTAP LUN과 거의 동일합니다. SnapMirror는 Element 소프트웨어와 ONTAP 간의 데이터 보호 관계가 초기화될 때 Element 볼륨의 이름을 사용하여 LUN을 생성합니다. SnapMirror는 LUN이 Element 소프트웨어에서 ONTAP로 복제 시 요구 사항을 충족하는 경우 데이터를 기존 LUN에 복제합니다.
@@ -81,4 +82,5 @@ cluster_dst::> snapmirror create -source-path 10.0.0.11:/lun/0005 -destination-p
 ----
 
 
+.작업을 마친 후
 'snapmirror show' 명령을 사용하여 SnapMirror 관계가 생성되었는지 확인합니다. 전체 명령 구문은 man 페이지를 참조하십시오.

@@ -13,4 +13,5 @@ summary: TLS를 통해 LDAP를 구성하려면 자체 서명된 루트 CA 인증
 [role="lead"]
 TLS를 통해 LDAP를 구성하려면 자체 서명된 루트 CA 인증서 복사본을 내보내고, 내보낸 파일을 사용하여 자체 서명된 루트 CA 인증서를 설치한 다음 SVM에서 TLS를 통해 LDAP를 활성화해야 합니다.
 
+.관련 정보
 link:../system-admin/index.html["시스템 관리"]

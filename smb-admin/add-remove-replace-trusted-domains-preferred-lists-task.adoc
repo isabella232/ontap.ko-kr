@@ -53,6 +53,7 @@ SMB 서버의 기본 설정 신뢰할 수 있는 도메인 목록에서 신뢰�
 |===
 
 
+.예
 다음 명령을 실행하면 SVM VS1 에서 사용하는 신뢰할 수 있는 도메인 2개(cifs1.example.com 및 cifs2.example.com 추가할 수 있습니다.
 
 [listing]
@@ -71,4 +72,5 @@ cluster1::> vserver cifs domain name-mapping-search remove -vserver vs1 -trusted
 ----
 cluster1::> vserver cifs domain name-mapping-search modify -vserver vs1 -trusted-domains cifs3.example.com
 ----
+.관련 정보
 xref:display-preferred-trusted-domain-list-task.adoc[신뢰할 수 있는 기본 도메인 목록에 대한 정보 표시]

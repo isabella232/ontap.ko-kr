@@ -41,6 +41,7 @@ ONTAP 9.7부터 AD 관리자는 권한이 있는 Windows 계정에 이름과 암
 . CIFS 서버가 원하는 Active Directory 도메인에 있는지 확인합니다. 'vserver cifs show'
 
 
+.예
 다음 예에서는 SVM VS1 의 SMB 서버 ""CIFSSERVER1""이 keytab 인증을 사용하여 example.com 도메인에 연결됩니다.
 
 [listing]

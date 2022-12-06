@@ -108,6 +108,7 @@ cluster_dst::> snapmirror policy create -vserver svm1 -policy my_strictsync -typ
 ----
 
 
+.작업을 마친 후
 "볼트" 및 "미러 볼트" 정책 유형의 경우 초기화 및 업데이트 중에 전송할 스냅샷 복사본을 결정하는 규칙을 정의해야 합니다.
 
 'snapmirror policy show' 명령을 사용하여 SnapMirror 정책이 생성되었는지 확인합니다. 전체 명령 구문은 man 페이지를 참조하십시오.

@@ -53,6 +53,7 @@ ACE는 DACL 또는 SACL의 개별 항목입니다.
 
 
 
+.관련 정보
 xref:../nas-audit/create-ntfs-security-descriptor-file-task.adoc[CLI를 사용하여 NTFS 파일 및 폴더에 파일 보안을 구성하고 적용합니다]
 
 link:../nas-audit/index.html["SMB 및 NFS 감사 및 보안 추적"]

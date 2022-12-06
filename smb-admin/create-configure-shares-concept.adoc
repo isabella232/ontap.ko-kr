@@ -17,6 +17,7 @@ SMB 공유를 생성할 때 ONTAP는 모든 사용자에 대한 모든 권한 �
 
 SMB 공유는 스토리지 가상 머신(SVM)의 CIFS 서버에 연결됩니다. SVM이 삭제되거나 SMB 공유가 연결된 CIFS 서버가 SVM에서 삭제된 경우 SMB 공유가 삭제됩니다. SVM에서 CIFS 서버를 다시 생성하는 경우 SMB 공유를 다시 생성해야 합니다.
 
+.관련 정보
 xref:local-users-groups-concepts-concept.html[SMB를 사용하여 파일 액세스를 관리합니다]
 
 link:../smb-hyper-v-sql/index.html["Microsoft Hyper-V 및 SQL Server를 위한 SMB 구성"]

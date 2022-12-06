@@ -13,6 +13,7 @@ summary: 'Active Directory에서 GPO(그룹 정책 개체)로 정의되고 CIFS 
 [role="lead"]
 Active Directory에서 GPO(그룹 정책 개체)로 정의되고 CIFS 서버에 적용되는 제한된 그룹에 대한 자세한 정보를 표시할 수 있습니다.
 
+.이 작업에 대해
 기본적으로 다음 정보가 표시됩니다.
 
 * 그룹 정책 이름입니다
@@ -59,6 +60,7 @@ CIFS 서버에 적용됩니다
 |===
 
 
+.예
 다음 예에서는 VS1 이라는 CIFS 지원 SVM이 속한 Active Directory 도메인에 정의된 제한된 그룹 GPO에 대한 정보를 표시합니다.
 
 [listing]
@@ -105,4 +107,5 @@ Vserver: vs1
                Members: user1
               MemberOf: EXAMPLE\group9
 ----
+.관련 정보
 xref:display-gpo-config-task.adoc[GPO 구성에 대한 정보 표시]

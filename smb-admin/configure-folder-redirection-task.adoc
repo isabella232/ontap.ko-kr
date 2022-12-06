@@ -29,4 +29,5 @@ Windows 속성 창을 사용하여 폴더 리디렉션을 구성할 수 있습�
 
 
 
+.관련 정보
 http://technet.microsoft.com/en-us/library/["Microsoft TechNet 라이브러리: technet.microsoft.com/en-us/library/"]

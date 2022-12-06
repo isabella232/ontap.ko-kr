@@ -16,8 +16,10 @@ summary: NFS 또는 SMB 서버를 생성하기 전에 SVM을 위한 DNS 서비�
 [role="lead"]
 Active Directory 통합 DNS 서버가 DNS에 있는 NFS 또는 SMB 서버의 DNS 레코드를 동적으로 등록하도록 하려면 SVM에서 DDNS(동적 DNS)를 구성해야 합니다.
 
+.시작하기 전에
 SVM에서 DNS 이름 서비스를 구성해야 합니다. 보안 DDNS를 사용하는 경우 Active Directory 통합 DNS 이름 서버를 사용해야 하며 SVM을 위해 NFS 또는 SMB 서버 또는 Active Directory 계정을 생성해야 합니다.
 
+.이 작업에 대해
 지정된 FQDN은 고유해야 합니다.
 
 

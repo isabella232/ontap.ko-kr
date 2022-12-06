@@ -15,4 +15,5 @@ summary: 인공 지능을 기반으로 하는 NetApp은 클라우드 데이터 �
 
 인공 지능을 기반으로 하는 NetApp은 클라우드 데이터 감지(이전의 Cloud Compliance 서비스)를 제공하여 다양한 규정을 준수하도록 지원합니다. 이 상시 가동 서비스는 복잡한 규정 준수 규제를 처리하는 가장 좋은 방법입니다.
 
+.관련 정보
 https://cloud.netapp.com/netapp-cloud-data-sense["NetApp 클라우드 데이터 감지"]
