@@ -2,9 +2,9 @@
 permalink: software_setup/index.html 
 sidebar: sidebar 
 keywords: home, software, setup, ontap, documentation 
-summary: 소프트웨어 설치 안내서 
+summary: 소프트웨어 설정 
 ---
-= 소프트웨어 설치 안내서
+= 소프트웨어 설정
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -21,6 +21,7 @@ Service Processor Infrastructure(S pi) 웹 서비스는 기본적으로 활성�
 +
 network interface show 명령은 클러스터에 있는 모든 LIF의 상태를 표시합니다.
 
+* 에 액세스하려면 로컬 사용자 계정을 사용해야 합니다 `spi` 웹 서비스, 도메인 사용자 계정은 지원되지 않습니다.
 * 사용자 계정에 'admin' 역할(기본적으로 'pi' 웹 서비스에 액세스할 수 있는 역할)이 없으면 액세스 제어 역할에 'pi' 웹 서비스에 대한 액세스 권한이 부여되어야 합니다.
 +
 'vserver services web access show' 명령은 어떤 역할이 어떤 웹 서비스에 대한 액세스 권한이 부여되어 있는지 보여줍니다.

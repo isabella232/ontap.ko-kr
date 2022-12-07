@@ -147,7 +147,6 @@ SVM 마이그레이션에서는 다음 기능이 지원되지 않습니다.
 
 * 감사
 * Cloud Volumes ONTAP
-* 데이터 보호 볼륨
 * FabricPools
 * Flash Pool 애그리게이트로 전환 가능
 * FlexCache 볼륨
