@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: download-cluster-config-details-task.html 
+keywords: netapp, ontap, system manager, cluster, config, configure, configuration, download, copy 
+summary: ONTAP 9.11.1부터 클러스터 구성 세부 정보를 다운로드할 수 있습니다. 
+---
+= 클러스터 구성의 세부 정보를 다운로드합니다
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:allow-uri-read: 
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+ONTAP 9.11.1부터 클러스터 구성 세부 정보를 다운로드할 수 있습니다.
+
+.단계
+. System Manager에서 * 클러스터 > 개요 * 로 이동합니다.
+. 을 클릭합니다 image:icon-more-kebab-blue-bg.gif["더 많은 선택 항목을 보려면 클릭합니다"] 작업 목록을 표시합니다.
+. 구성 다운로드 * 를 클릭합니다
+. HA 쌍을 선택합니다.
+. 다운로드 * 를 클릭합니다.
+

@@ -16,6 +16,8 @@ sidebar:
     url: "/index.html"
   - title: 릴리즈 노트
     url: "/release-notes.html"
+  - title: System Manager와 BlueXP의 통합
+    url: "/sysmgr-integration-bluexp-concept.html"
   - section: introduction-concepts
   - section: setup-upgrade
   - section: cluster-admin

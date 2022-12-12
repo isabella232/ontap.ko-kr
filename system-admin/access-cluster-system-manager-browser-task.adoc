@@ -13,6 +13,15 @@ summary: 'CLI(Command-Line Interface) 대신 그래픽 인터페이스를 사용
 [role="lead"]
 CLI(Command-Line Interface) 대신 그래픽 인터페이스를 사용하여 클러스터를 액세스하고 관리하려면 ONTAP에 웹 서비스로 포함되어 있는 System Manager를 기본적으로 사용해야 하며 브라우저를 사용하여 액세스할 수 있습니다.
 
+[NOTE]
+====
+ONTAP 9.12.1부터 시스템 관리자는 BlueXP와 완벽하게 통합됩니다.
+
+BlueXP를 사용하면 친숙한 System Manager 대시보드를 유지하면서 단일 제어 플레인에서 하이브리드 멀티 클라우드 인프라를 관리할 수 있습니다.
+
+을 참조하십시오 link:../sysmgr-integration-bluexp-concept.html["System Manager와 BlueXP의 통합"].
+
+====
 .필요한 것
 * "admin" 역할과 ""http""" 및 ""console""" 애플리케이션 유형으로 구성된 클러스터 사용자 계정이 있어야 합니다.
 * 브라우저에서 쿠키 및 사이트 데이터를 활성화해야 합니다.
