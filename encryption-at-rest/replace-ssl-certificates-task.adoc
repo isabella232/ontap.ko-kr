@@ -17,6 +17,7 @@ summary: 모든 SSL 인증서의 만료 날짜가 있습니다. 인증서가 만
 * 클러스터를 위한 대체 공용 인증서 및 개인 키를 확보해야 합니다(KMIP 클라이언트 인증서).
 * KMIP 서버용 대체 공용 인증서(KMIP 서버-CA 인증서)를 받아야 합니다.
 * 이 작업을 수행하려면 클러스터 또는 SVM 관리자여야 합니다.
+* MetroCluster 환경에서는 두 클러스터 모두에서 KMIP SSL 인증서를 교체해야 합니다.
 
 
 
@@ -36,7 +37,9 @@ NOTE: 클러스터에 인증서를 설치하기 전이나 후에 KMIP 서버에 
 '보안 키 관리자 외부 수정 - vserver <>-client-cert <>-server-ca-certs <>'
 
 +
+MetroCluster 환경에서 ONTAP 9.6 이상을 실행하고 있고 admin SVM에서 key manager 구성을 수정하려는 경우 구성의 두 클러스터 모두에서 명령을 실행해야 합니다.
+
+
+
 
 NOTE: 새로 설치된 인증서를 사용하도록 키 관리자 구성을 업데이트하면 새 클라이언트 인증서의 공개/개인 키가 이전에 설치된 키와 다른 경우 오류가 반환됩니다. 기술 자료 문서를 참조하십시오 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/The_new_client_certificate_public_or_private_keys_are_different_from_the_existing_client_certificate["새 클라이언트 인증서 공개 키 또는 개인 키가 기존 클라이언트 인증서와 다릅니다"^] 이 오류를 재정의하는 방법에 대한 지침은 을 참조하십시오.
-
-

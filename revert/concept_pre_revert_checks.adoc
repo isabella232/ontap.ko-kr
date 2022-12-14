@@ -65,5 +65,5 @@ MetroCluster 구성에 따라 되돌리기 전에 특정 요인을 고려해야 
 | 2노드 또는 4노드 MetroCluster 구성이 있습니까? | xref:task_disable_asuo.html[예기치 않은 자동 전환을 비활성화합니다] 
 
 
-| ONTAP 9.12.1 이상을 실행하는 4노드 또는 8노드 MetroCluster IP 구성이 있습니까? | xref:task-disable-ipsec.html [IPsec을 비활성화합니다] 
+| ONTAP 9.12.1 이상을 실행하는 4노드 또는 8노드 MetroCluster IP 또는 패브릭 연결 구성이 있습니까? | xref:task-disable-ipsec.html [IPsec을 비활성화합니다] 
 |===

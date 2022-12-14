@@ -106,7 +106,7 @@ cluster01::> event config show
 |===
 . MAV 승인 그룹 생성:
 +
-'보안 다중 관리자 - 승인 확인 - 그룹 작성 [-vserver_svm_name_] -name_group_name_-approver_approver1_[,_approver2_…] [-email_address1_],_address1_...]'
+`security multi-admin-verify approval-group create [ -vserver _svm_name_] -name _group_name_ -approvers _approver1_[,_approver2_…] [[-email _address1_], _address1_...]`
 
 +
 ** '-vserver' - 이번 릴리즈에서는 관리 SVM만 지원됩니다.

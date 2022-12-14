@@ -63,6 +63,7 @@ SnapLock 컴플라이언스 클록 기능을 사용하면 만료 시간에 도�
 * 정합성 보장 그룹
 * FlexCache 볼륨
 * SMTape
+* SnapCenter
 * SnapMirror 비즈니스 연속성(SM-BC)
 * SnapMirror Synchronous
 

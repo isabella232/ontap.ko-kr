@@ -41,6 +41,10 @@ link:remove-external-key-server-93-later-task.html["외부 키 관리자 연결�
 +
 'Security key-manager external disable-vserver_admin_SVM_'
 
++
+
+NOTE: MetroCluster 환경에서는 admin SVM에 대해 두 클러스터 모두에서 명령을 반복해야 합니다.
+
 
 
 --

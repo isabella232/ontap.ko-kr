@@ -21,6 +21,7 @@ summary: '클러스터와 KMIP 서버는 KMIP SSL 인증서를 사용하여 서�
 SSL KMIP 클라이언트 인증서는 암호로 보호되어 있지 않아야 합니다.
 
 * KMIP 서버의 루트 CA(인증 기관)에 대한 SSL 공용 인증서를 얻어야 합니다.
+* MetroCluster 환경에서는 두 클러스터 모두에 KMIP SSL 인증서를 설치해야 합니다.
 
 
 [NOTE]

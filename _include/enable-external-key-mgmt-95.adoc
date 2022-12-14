@@ -9,6 +9,7 @@
 * KMIP SSL 클라이언트 및 서버 인증서를 설치해야 합니다.
 * 이 작업을 수행하려면 클러스터 관리자여야 합니다.
 * 외부 키 관리자를 구성하기 전에 MetroCluster 환경을 구성해야 합니다.
+* MetroCluster 환경에서는 두 클러스터 모두에 KMIP SSL 인증서를 설치해야 합니다.
 
 
 .이 작업에 대해
@@ -22,6 +23,10 @@ ONTAP는 클러스터의 모든 노드에 대해 KMIP 서버 연결을 구성합
 +
 키 관리자 설정이 시작됩니다.
 
++
+
+NOTE: MetroCluster 환경에서는 두 클러스터 모두에서 이 명령을 실행해야 합니다.
+
 . 각 프롬프트에 적절한 응답을 입력합니다.
 . KMIP 서버 추가:
 +
@@ -32,6 +37,10 @@ ONTAP는 클러스터의 모든 노드에 대해 KMIP 서버 연결을 구성합
 ----
 clusterl::> security key-manager add -address 20.1.1.1
 ----
++
+
+NOTE: MetroCluster 환경에서는 두 클러스터 모두에서 이 명령을 실행해야 합니다.
+
 . 이중화를 위해 KMIP 서버를 추가로 추가합니다.
 +
 'Security key-manager add-address key_management_server_ipaddress
@@ -41,6 +50,10 @@ clusterl::> security key-manager add -address 20.1.1.1
 ----
 clusterl::> security key-manager add -address 20.1.1.2
 ----
++
+
+NOTE: MetroCluster 환경에서는 두 클러스터 모두에서 이 명령을 실행해야 합니다.
+
 . 구성된 모든 KMIP 서버가 연결되어 있는지 확인합니다.
 +
 보안 키 관리자 표시 상태
