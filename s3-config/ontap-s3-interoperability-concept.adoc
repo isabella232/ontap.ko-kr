@@ -23,10 +23,10 @@ Cloud Volumes ONTAP
  a| 
 * ONTAP 9.9.1 이상 릴리즈의 Azure 클라이언트
 * ONTAP 9.11.0 이상 릴리즈의 AWS 클라이언트
+* ONTAP 9.12.1 이상 릴리스의 Google Cloud 클라이언트
 
  a| 
 * ONTAP 9.8 및 이전 릴리스의 모든 클라이언트용 Cloud Volumes ONTAP
-* Google Cloud 클라이언트
 
 
 

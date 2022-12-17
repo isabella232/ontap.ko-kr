@@ -125,7 +125,7 @@ cluster-1::> security multi-admin-verify approval-group create -name mav-grp1 -a
 
 . 그룹 생성 및 구성원 자격 확인:
 +
-'보안 멀티-관리-검증승인그룹 쇼[-instance]'
+`security multi-admin-verify approval-group show`
 
 +
 * 예: *
@@ -133,7 +133,7 @@ cluster-1::> security multi-admin-verify approval-group create -name mav-grp1 -a
 +
 [listing]
 ----
-cluster-1::> security multi-admin-verify approval-group show -instance
+cluster-1::> security multi-admin-verify approval-group show
 Vserver  Name        Approvers        Email
 -------  ---------------- ------------------  ------------------------------------------------------------
 svm-1    mav-grp1   pavan,julia      email pavan@myfirm.com,julia@myfirm.com
