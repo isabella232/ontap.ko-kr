@@ -5,7 +5,7 @@ entries:
 - title: 개요
   url: "/consistency-groups/index.html"
 - title: 개체 제한
-  url: "/consistency-group/limits.html"
+  url: "/consistency-groups/limits.html"
 - title: 단일 일관성 그룹을 구성합니다
   url: "/consistency-groups/configure-task.html"
 - title: 계층적 일관성 그룹을 구성합니다
