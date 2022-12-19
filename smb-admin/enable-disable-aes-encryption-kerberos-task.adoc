@@ -14,11 +14,80 @@ summary: 'Kerberos 기반 통신을 사용하여 가장 강력한 보안을 활�
 Kerberos 기반 통신을 사용하여 가장 강력한 보안을 활용하기 위해 SMB 서버에서 AES-256 및 AES-128 암호화를 활성화할 수 있습니다. SMB 서버가 AD(Active Directory) KDC와 Kerberos 기반 통신을 위해 AES 암호화 유형을 선택하지 않도록 하려면 AES 암호화를 사용하지 않도록 설정할 수 있습니다. 기본적으로 AES 암호화는 비활성화되어 있습니다.
 
 .이 작업에 대해
+ONTAP 9.12.1부터 AES 암호화는 을 사용하여 활성화 및 비활성화됩니다 `-advertised-enc-types` 옵션: AD KDC에 보급된 암호화 유형을 지정할 수 있습니다. 기본 설정은 입니다 `rc4` 및 `des`그러나 AES 유형이 지정되면 AES 암호화가 활성화됩니다. 이 옵션을 사용하여 약한 RC4 및 DES 암호화 유형을 명시적으로 비활성화할 수도 있습니다. 이전 ONTAP 릴리스에서는 을 사용해야 합니다 `-is-aes-encryption-enabled` AES 암호화를 활성화 및 비활성화하는 옵션과 암호화 유형을 지정할 수 없습니다.
+
 보안을 강화하기 위해 SVM(Storage Virtual Machine)은 AES 보안 옵션을 수정할 때마다 AD에서 시스템 계정 암호를 변경합니다. 암호를 변경하려면 컴퓨터 계정이 포함된 OU(조직 구성 단위)에 대한 관리 AD 자격 증명이 필요할 수 있습니다.
 
 SVM이 ID가 보존되지 않는 재해 복구 대상으로 구성된 경우( SnapMirror 구성에서 '-identity-preserve' 옵션이 'false'로 설정된 경우), 기본이 아닌 SMB 서버 보안 설정이 대상에 복제되지 않습니다. 소스 SVM에서 AES 암호화를 사용하도록 설정한 경우 SnapMirror 관계가 깨진 후 대상이 읽기-쓰기 상태가 되면 대상 SVM에서 수동으로 AES 암호화를 활성화해야 합니다.
 
 .단계
+[role="tabbed-block"]
+====
+.ONTAP 9.12.1 이상
+--
+. 다음 작업 중 하나를 수행합니다.
++
+|===
+| Kerberos 통신을 위한 AES 암호화 유형을 원하는 경우... | 명령 입력... 
+
+
+ a| 
+활성화됨
+ a| 
+`vserver cifs security modify -vserver vserver_name -advertised-enc-types aes-128,aes-256`
+
+
+
+ a| 
+사용 안 함
+ a| 
+`vserver cifs security modify -vserver vserver_name -advertised-enc-types des,rc4`
+
+|===
++
+* 참고: * `-is-aes-encryption-enabled` 옵션은 ONTAP 9.12.1에서 사용되지 않으며 이후 릴리스에서 제거될 수 있습니다.
+
+. AES 암호화가 필요에 따라 활성화 또는 비활성화되었는지 확인합니다. `vserver cifs security show -vserver vserver_name -fields advertised-enc-types`
+
+
+.예
+다음 예에서는 SVM VS1 기반 SMB 서버에 대한 AES 암호화 유형을 사용하도록 설정합니다.
+
+[listing]
+----
+cluster1::> vserver cifs security modify -vserver vs1 -advertised-enc-types aes-128,aes-256
+
+cluster1::> vserver cifs security show -vserver vs1 -fields advertised-enc-types
+
+vserver  advertised-enc-types
+-------- --------------------
+vs1      aes-128,aes-256
+----
+다음 예에서는 SVM VS2에서 SMB 서버에 대한 AES 암호화 유형을 사용하도록 설정합니다. 관리자는 SMB 서버가 포함된 OU에 대한 관리 AD 자격 증명을 입력하라는 메시지가 표시됩니다.
+
+[listing]
+----
+cluster1::> vserver cifs security modify -vserver vs2 -advertised-enc-types aes-128,aes-256
+
+Info: In order to enable SMB AES encryption, the password for the SMB server
+machine account must be reset. Enter the username and password for the
+SMB domain "EXAMPLE.COM".
+
+Enter your user ID: administrator
+
+Enter your password:
+
+cluster1::> vserver cifs security show -vserver vs2 -fields advertised-enc-types
+
+vserver  advertised-enc-types
+-------- --------------------
+vs2      aes-128,aes-256
+
+
+----
+--
+.ONTAP 9.11.1 이전 버전
+--
 . 다음 작업 중 하나를 수행합니다.
 +
 |===
@@ -45,13 +114,14 @@ AES 암호화가 활성화된 경우 is-aes-encryption-enabled 필드가 true로
 
 
 .예
-다음 예에서는 SVM VS1에서 CIFS 서버에 대한 AES 암호화 유형을 설정합니다.
+다음 예에서는 SVM VS1 기반 SMB 서버에 대한 AES 암호화 유형을 사용하도록 설정합니다.
 
 [listing]
 ----
 cluster1::> vserver cifs security modify -vserver vs1 -is-aes-encryption-enabled true
 
 cluster1::> vserver cifs security show -vserver vs1 -fields is-aes-encryption-enabled
+
 vserver  is-aes-encryption-enabled
 -------- -------------------------
 vs1      true
@@ -62,7 +132,7 @@ vs1      true
 ----
 cluster1::> vserver cifs security modify -vserver vs2 -is-aes-encryption-enabled true
 
-Info: In order to enable SMB AES encryption, the password for the SMB server
+Info: In order to enable SMB AES encryption, the password for the CIFS server
 machine account must be reset. Enter the username and password for the
 SMB domain "EXAMPLE.COM".
 
@@ -70,9 +140,11 @@ Enter your user ID: administrator
 
 Enter your password:
 
-
 cluster1::> vserver cifs security show -vserver vs2 -fields is-aes-encryption-enabled
+
 vserver  is-aes-encryption-enabled
 -------- -------------------------
 vs2      true
 ----
+--
+====

@@ -2,7 +2,7 @@
 permalink: smb-admin/configure-kerberos-aes-encryption-concept.html 
 sidebar: sidebar 
 keywords: security, kerberos-based, communication, enable, aes-256, aes-128, aes, encryption, smb, server, default, svm, advanced encryption standard, configure, configure strong security for kerberos-based communication by using aes encryption 
-summary: 'Kerberos 기반 통신을 사용하여 보안을 강화하기 위해 SMB 서버에서 AES-256 및 AES-128 암호화를 활성화할 수 있습니다. 기본적으로 SVM에서 SMB 서버를 생성할 때 AES 암호화가 사용되지 않습니다. AES(Advanced Encryption Standard) 암호화에서 제공하는 강력한 보안을 활용하려면 이 기능을 활성화해야 합니다.' 
+summary: 'Kerberos 기반 통신을 사용하여 보안을 강화하기 위해 SMB 서버에서 AES-256 및 AES-128 암호화를 활성화할 수 있습니다. 기본적으로 SVM에서 SMB 서버를 생성할 때 AES(고급 암호화 표준) 암호화가 사용되지 않습니다. AES 암호화로 제공되는 강력한 보안을 활용하려면 이 기능을 활성화해야 합니다.' 
 ---
 = AES 암호화를 사용하여 Kerberos 기반 통신을 위한 강력한 보안을 구성합니다
 :allow-uri-read: 
@@ -11,24 +11,26 @@ summary: 'Kerberos 기반 통신을 사용하여 보안을 강화하기 위해 S
 
 
 [role="lead"]
-Kerberos 기반 통신을 사용하여 보안을 강화하기 위해 SMB 서버에서 AES-256 및 AES-128 암호화를 활성화할 수 있습니다. 기본적으로 SVM에서 SMB 서버를 생성할 때 AES 암호화가 사용되지 않습니다. AES(Advanced Encryption Standard) 암호화에서 제공하는 강력한 보안을 활용하려면 이 기능을 활성화해야 합니다.
+Kerberos 기반 통신을 사용하여 보안을 강화하기 위해 SMB 서버에서 AES-256 및 AES-128 암호화를 활성화할 수 있습니다. 기본적으로 SVM에서 SMB 서버를 생성할 때 AES(고급 암호화 표준) 암호화가 사용되지 않습니다. AES 암호화로 제공되는 강력한 보안을 활용하려면 이 기능을 활성화해야 합니다.
 
 SMB를 위한 Kerberos 관련 통신은 SVM에서 SMB 서버를 생성하는 동안이나 SMB 세션 설정 단계에서 사용됩니다. SMB 서버는 Kerberos 통신을 위해 다음과 같은 암호화 유형을 지원합니다.
 
-* RC4-HMAC
-* DES
-* AES 128
 * AES 256
+* AES 128
+* DES
+* RC4-HMAC
 
 
 Kerberos 통신에 가장 높은 보안 암호화 유형을 사용하려면 SVM에서 Kerberos 통신에 AES 암호화를 사용하도록 설정해야 합니다.
+
+SMB 서버가 생성되면 도메인 컨트롤러는 Active Directory에 컴퓨터 시스템 계정을 만듭니다. 이때 KDC는 특정 컴퓨터 계정의 암호화 기능을 인식합니다. 그런 다음 인증 중에 클라이언트가 서버에 제공하는 서비스 티켓을 암호화하기 위해 특정 암호화 유형을 선택합니다.
+
+ONTAP 9.12.1부터 Active Directory(AD) KDC에 알릴 암호화 유형을 지정할 수 있습니다. 를 사용할 수 있습니다 `-advertised-enc-types` 권장 암호화 유형을 활성화하는 옵션으로, 약한 암호화 유형을 비활성화하는 데 사용할 수 있습니다. 자세한 내용을 알아보십시오 link:enable-disable-aes-encryption-kerberos-task.html["Kerberos 기반 통신을 위한 암호화 유형을 활성화 및 비활성화합니다"].
 
 [NOTE]
 ====
 인텔 AES 새 명령어(인텔 AES NI)는 SMB 3.0에서 사용할 수 있으며, AES 알고리즘을 개선하고 지원되는 프로세서 제품군에서 데이터 암호화를 가속화합니다. SMB 3.1.1부터 AES-128-GCM은 SMB 암호화에 사용되는 해시 알고리즘으로 AES-128-CCM을 대체합니다.
 
 ====
-SMB 서버가 생성되면 도메인 컨트롤러는 Active Directory에 컴퓨터 시스템 계정을 만듭니다. 이때 KDC는 특정 컴퓨터 계정의 암호화 기능을 인식합니다. 그런 다음 인증 중에 클라이언트가 서버에 제공하는 서비스 티켓을 암호화하기 위해 특정 암호화 유형을 선택합니다.
-
 .관련 정보
 xref:modify-server-kerberos-security-settings-task.adoc[CIFS 서버 Kerberos 보안 설정을 수정합니다]
