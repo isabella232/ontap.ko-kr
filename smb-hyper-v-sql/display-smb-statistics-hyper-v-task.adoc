@@ -43,7 +43,7 @@ SMB 2.x 및 SMB 3.0
 
 
  a| 
-노드의 CIFS 하위 시스템입니다
+노드의 SMB 하위 시스템입니다
  a| 
 '* statistics show -object nblade_cifs * '
 
@@ -52,7 +52,7 @@ SMB 2.x 및 SMB 3.0
 
 에 대해 자세히 알아보십시오 `statistics` 명령:
 
-* 링크: https://docs.netapp.com/us-en/ontap-cli-9121/statistics-show.html[`statistics show`^]
-* 링크: https://docs.netapp.com/us-en/ontap-cli-9121/statistics-start.html[`statistics start`^]
-* 링크: https://docs.netapp.com/us-en/ontap-cli-9121/statistics-stop.html[`statistics stop`^]
+* link:https://docs.netapp.com/us-en/ontap-cli-9121/statistics-show.html["통계 표시"^]
+* link:https://docs.netapp.com/us-en/ontap-cli-9121/statistics-start.html["통계 시작"^]
+* link:https://docs.netapp.com/us-en/ontap-cli-9121/statistics-stop.html["통계 중지"^]
 
