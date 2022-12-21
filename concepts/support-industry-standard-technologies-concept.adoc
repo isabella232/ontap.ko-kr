@@ -35,12 +35,8 @@ DNS 부하 분산 _ 을(를) 사용하여 사용 가능한 포트 간에 사용�
 
 _snmp trap_을 사용하여 주기적으로 작동 임계값 또는 오류를 확인할 수 있습니다. SNMP 트랩은 SNMP 에이전트에서 SNMP 관리자로 비동기적으로 전송되는 시스템 모니터링 정보를 캡처합니다.
 
-|===
 
 
- a| 
-FIPS 규정 준수 _ *
+== FIPS 규정 준수
 
 ONTAP는 모든 SSL 연결에 대해 FIPS(Federal Information Processing Standards) 140-2를 준수합니다. SSL FIPS 모드를 설정 및 끄고, SSL 프로토콜을 전역적으로 설정하고, RC4와 같은 약한 암호를 해제할 수 있습니다.
-
-|===
