@@ -22,6 +22,7 @@ FlexVol 볼륨에 비호환성이 있으며 볼륨 변환이 취소되면 오류
 
 
 .단계
+. 고급 권한 모드를 사용하여 로그인: `set -privilege advanced`
 . 대상에서 SVM-DR 관계를 업데이트합니다.
 +
 '* SnapMirror update-destination-path destination_svm_name:-source-path source_svm_name: * '
@@ -33,6 +34,9 @@ FlexVol 볼륨에 비호환성이 있으며 볼륨 변환이 취소되면 오류
 . 대상 SVM에서 FlexVol 볼륨을 변환할 준비가 되었는지 확인합니다.
 +
 '* 볼륨 변환 시작 - vserver svm_name - volume vol_name - check-only true *
+
++
+이 명령에서 "This is a destination SVMDR volume" 이외의 오류가 발생하는 경우 적절한 수정 조치를 수행하고 명령을 다시 실행한 다음 변환을 계속할 수 있습니다.
 
 . 대상에서 SVM-DR 관계의 전송을 사용하지 않도록 설정:
 +
