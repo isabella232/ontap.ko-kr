@@ -1,0 +1,19 @@
+---
+permalink: snaplock/delete-worm-files-concept.html 
+sidebar: sidebar 
+keywords: delete, worm, file, privileged, delete, enterprise, mode, retention, period, overview 
+summary: 권한 있는 삭제 기능을 사용하여 보존 기간 동안 엔터프라이즈 모드 WORM 파일을 삭제할 수 있습니다. 
+---
+= WORM 파일 삭제 개요
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+권한 있는 삭제 기능을 사용하여 보존 기간 동안 엔터프라이즈 모드 WORM 파일을 삭제할 수 있습니다. 이 기능을 사용하려면 먼저 SnapLock 관리자 계정을 만든 다음 계정을 사용하여 기능을 활성화해야 합니다.
+
+* link:https://docs.netapp.com/us-en/ontap/snaplock/create-compliance-administrator-account-task.html["SnapLock 관리자 계정을 만듭니다"]
+* link:https://docs.netapp.com/us-en/ontap/snaplock/enable-privileged-delete-task.html["권한 있는 삭제 기능을 활성화합니다"]
+* link:https://docs.netapp.com/us-en/ontap/snaplock/implement-privileged-delete-functionality-task.html["WORM 파일을 삭제합니다"]
+

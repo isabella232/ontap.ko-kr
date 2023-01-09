@@ -1,37 +1,8 @@
 ---
 permalink: snaplock/create-snaplock-security-administrator-account-task.html 
-sidebar: sidebar 
-keywords: create, snaplock, security, administrator, support, volume, move, user, cluster, role 
-summary: SnapLock 볼륨 이동을 수행하려면 SnapLock 보안 관리자 권한이 있어야 합니다. 이 권한은 ONTAP 9.8에 도입된 SnapLock 역할을 통해 부여됩니다. 해당 역할이 아직 할당되지 않은 경우 클러스터 관리자에게 이 SnapLock 보안 역할을 가진 SnapLock 보안 사용자를 만들도록 요청할 수 있습니다. 
+redirect: snaplock/move-snaplock-volume-concept.html 
 ---
-= SnapLock 보안 관리자 계정을 만듭니다
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
-
-[role="lead"]
-SnapLock 볼륨 이동을 수행하려면 SnapLock 보안 관리자 권한이 있어야 합니다. 이 권한은 ONTAP 9.8에 도입된 _SnapLock_역할을 통해 부여됩니다. 해당 역할이 아직 할당되지 않은 경우 클러스터 관리자에게 이 SnapLock 보안 역할을 가진 SnapLock 보안 사용자를 만들도록 요청할 수 있습니다.
-
-.필요한 것
-* 이 작업을 수행하려면 클러스터 관리자여야 합니다.
-* 보안 연결(SSH, 콘솔 또는 ZAPI)에 로그인해야 합니다.
-
-
-.이 작업에 대해
-SnapLock 역할은 데이터 SVM과 연결된 vsadmin-SnapLock 역할과는 달리 관리 SVM과 연결됩니다.
-
-.단계
-. SnapLock 관리자 역할을 사용하여 SVM 관리자 계정을 생성합니다.
-+
-'* 보안 로그인 create-vserver_SVM_name_-user-or-group-name_user_or_group_name_-application_application_-AuthMethod_authentication_method_-role_role_-comment_comment_*'
-
-+
-다음 명령을 실행하면 미리 정의된 "SnapLock" 역할을 사용하여 SVM 관리자 계정 'napLockAdmin'에서 암호를 사용하여 admin SVM 'cluster1'에 액세스할 수 있습니다.
-
-+
-[listing]
-----
-cluster1::> security login create -vserver cluster1 -user-or-group-name SnapLockAdmin -application ssh -authmethod password -role snaplock
-----
 

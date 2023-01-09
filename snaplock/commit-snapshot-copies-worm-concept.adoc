@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: snaplock, commit, snapshot, copy, worm, snapvault, protect, snapmirror 
 summary: SnapLock for SnapVault를 사용하여 2차 스토리지에서 WORM 상태로 스냅샷 복사본을 보호할 수 있습니다. SnapVault 대상에서 모든 기본 SnapLock 작업을 수행합니다. 타겟 볼륨이 읽기 전용으로 자동 마운트되므로 Snapshot 복사본을 WORM에 명시적으로 커밋할 필요가 없습니다. 따라서 SnapMirror 정책을 사용하여 타겟 볼륨에 예약된 Snapshot 복사본을 생성하는 것은 지원되지 않습니다. 
 ---
-= WORM에 스냅샷 복사본 커밋
+= 볼트 대상에서 WORM에 스냅샷 복사본을 커밋합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

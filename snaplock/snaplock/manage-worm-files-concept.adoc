@@ -1,0 +1,21 @@
+---
+permalink: snaplock/manage-worm-files-concept.html 
+sidebar: sidebar 
+keywords:  
+summary: 여러 가지 방법으로 WORM 파일을 관리할 수 있습니다. 파일을 WORM에 수동 또는 자동으로 커밋하고, 볼트 대상에서 WORM에 스냅샷 복사본을 커밋하고, WORM 파일을 미러링하고, 소송 중에 WORM 파일을 보존하고, WORM 파일을 삭제할 수 있습니다. 
+---
+= WORM 파일 관리
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+WORM 파일은 다음과 같은 방법으로 관리할 수 있습니다.
+
+* link:https://docs.netapp.com/us-en/ontap/snaplock/commit-files-worm-state-manual-task.html["WORM에 파일을 커밋합니다"]
+* link:https://docs.netapp.com/us-en/ontap/snaplock/commit-snapshot-copies-worm-concept.html["볼트 대상에서 WORM에 스냅샷 복사본을 커밋합니다"]
+* link:https://docs.netapp.com/us-en/ontap/snaplock/mirror-worm-files-task.html["재해 복구를 위해 WORM 파일을 미러링합니다"]
+* link:https://docs.netapp.com/us-en/ontap/snaplock/hold-tamper-proof-files-indefinite-period-task.html["소송 중에 WORM 파일 보존"]
+* link:https://docs.netapp.com/us-en/ontap/snaplock/delete-worm-files-concept.html["WORM 파일을 삭제합니다"]
+

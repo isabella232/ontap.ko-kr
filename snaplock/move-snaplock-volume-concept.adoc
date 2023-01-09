@@ -1,7 +1,7 @@
 ---
 permalink: snaplock/move-snaplock-volume-concept.html 
 sidebar: sidebar 
-keywords: move, snaplock, volume, aggregate, security, role, enterprise, compliance 
+keywords: move, snaplock, volume, aggregate, security, role, enterprise, compliance, create, administrator, support, user, cluster, destination, command 
 summary: ONTAP 9.8부터 SnapLock 볼륨을 엔터프라이즈부터 규정 준수까지 동일한 유형의 대상 Aggregate로 이동할 수 있습니다. SnapLock 볼륨을 이동하려면 SnapLock 보안 역할이 할당되어야 합니다. 
 ---
 = SnapLock 볼륨을 이동합니다
@@ -12,3 +12,62 @@ summary: ONTAP 9.8부터 SnapLock 볼륨을 엔터프라이즈부터 규정 준�
 
 [role="lead"]
 ONTAP 9.8부터 SnapLock 볼륨을 엔터프라이즈부터 규정 준수까지 동일한 유형의 대상 Aggregate로 이동할 수 있습니다. SnapLock 볼륨을 이동하려면 SnapLock 보안 역할이 할당되어야 합니다.
+
+
+
+== SnapLock 보안 관리자 계정을 만듭니다
+
+SnapLock 볼륨 이동을 수행하려면 SnapLock 보안 관리자 권한이 있어야 합니다. 이 권한은 ONTAP 9.8에 도입된 _SnapLock_역할을 통해 부여됩니다. 해당 역할이 아직 할당되지 않은 경우 클러스터 관리자에게 이 SnapLock 보안 역할을 가진 SnapLock 보안 사용자를 만들도록 요청할 수 있습니다.
+
+.필요한 것
+* 이 작업을 수행하려면 클러스터 관리자여야 합니다.
+* 보안 연결(SSH, 콘솔 또는 ZAPI)에 로그인해야 합니다.
+
+
+.이 작업에 대해
+SnapLock 역할은 데이터 SVM과 연결된 vsadmin-SnapLock 역할과는 달리 관리 SVM과 연결됩니다.
+
+.단계
+. SnapLock 관리자 역할을 사용하여 SVM 관리자 계정을 생성합니다.
++
+'* 보안 로그인 create-vserver_SVM_name_-user-or-group-name_user_or_group_name_-application_application_-AuthMethod_authentication_method_-role_role_-comment_comment_*'
+
++
+다음 명령을 실행하면 미리 정의된 "SnapLock" 역할을 사용하여 SVM 관리자 계정 'napLockAdmin'에서 암호를 사용하여 admin SVM 'cluster1'에 액세스할 수 있습니다.
+
++
+[listing]
+----
+cluster1::> security login create -vserver cluster1 -user-or-group-name SnapLockAdmin -application ssh -authmethod password -role snaplock
+----
+
+
+
+
+== SnapLock 볼륨을 이동합니다
+
+'volume move' 명령을 사용하여 SnapLock 볼륨을 대상 애그리게이트로 이동할 수 있습니다.
+
+.필요한 것
+* SnapLock 볼륨 이동을 수행하기 전에 SnapLock으로 보호되는 감사 로그를 생성해야 합니다.
++
+link:create-audit-log-task.html["감사 로그를 생성합니다"].
+
+* ONTAP 9.10.1 이전 버전의 ONTAP를 사용하는 경우 대상 애그리게이트는 이동할 SnapLock 볼륨과 동일한 SnapLock 유형이어야 합니다. Compliance to Compliance 또는 Enterprise to Enterprise입니다. ONTAP 9.10.1부터는 이러한 제한이 없어지기 때문에 aggregate에 Compliance 및 Enterprise SnapLock 볼륨과 비 SnapLock 볼륨이 모두 포함될 수 있습니다.
+* SnapLock 보안 역할을 가진 사용자여야 합니다.
+
+
+.단계
+. 보안 연결을 사용하여 ONTAP 클러스터 관리 LIF에 로그인합니다.
++
+' * ssh SnapLock_user@cluster_mgmt_ip *'
+
+. SnapLock 볼륨 이동:
++
+'* volume move start -vserver_SVM_name_-volume_snaplock_volume_name_-destination-aggregate_destination_name_*'
+
+. 볼륨 이동 작업의 상태를 확인합니다.
++
+'* 볼륨 이동 표시 -volume_snaplock_volume_name_-vserver_SVM_name_-필드 볼륨, 단계, SVM*
+
+

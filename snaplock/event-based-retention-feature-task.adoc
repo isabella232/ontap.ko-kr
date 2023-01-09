@@ -2,9 +2,9 @@
 permalink: snaplock/event-based-retention-feature-task.html 
 sidebar: sidebar 
 keywords: event, based, retention, ebr, feature, snaplock, file, snap lock, worm 
-summary: 'ONTAP 9.3부터 EBR(SnapLock 이벤트 기반 보존) 기능을 사용하여 이벤트 발생 후 파일이 유지되는 기간을 정의할 수 있습니다.' 
+summary: 'ONTAP 9.3부터 EBR(SnapLock_Event Based Retention)_Feature를 사용하여 이벤트 발생 후 파일이 유지되는 기간을 정의할 수 있습니다.' 
 ---
-= EBR(Event Based Retention) 기능을 사용합니다
+= 이벤트 후 파일 보존 기간을 설정합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

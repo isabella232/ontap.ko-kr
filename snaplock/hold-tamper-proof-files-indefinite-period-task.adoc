@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: legal, hold, feature, compliance, mode, worm, files, retain 
 summary: ONTAP 9.3부터 법적 증거 자료 보관 기능을 사용하여 소송 기간 동안 규정 준수 모드 WORM 파일을 유지할 수 있습니다. 
 ---
-= 법적 증거 자료 보관 기능을 사용합니다
+= 법적 증거 자료 보관 을 사용하여 소송 중에 WORM 파일을 보관하십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-ONTAP 9.3부터는 _Legal Hold_기능을 사용하여 소송 기간 동안 컴플라이언스 모드 WORM 파일을 유지할 수 있습니다.
+ONTAP 9.3부터는 _Legal Hold_ 기능을 사용하여 소송 기간 동안 준수 모드 WORM 파일을 보존할 수 있습니다.
 
 .필요한 것
 * 이 작업을 수행하려면 SnapLock 관리자여야 합니다.
