@@ -45,17 +45,20 @@ cluster_dst::> snapmirror delete -source-path svm1:volA -destination-path svm_ba
 전체 명령 구문은 man 페이지를 참조하십시오.
 
 +
-이 명령은 타겟 SVM 또는 타겟 클러스터에서 실행해야 합니다. 재동기화에는 기본 전송이 필요하지 않지만 시간이 오래 걸릴 수 있습니다. 사용량이 적은 시간에 재동기화를 실행할 수 있습니다.
+[NOTE]
+====
+이 명령은 원래 소스 SVM 또는 원래 소스 클러스터에서 실행해야 합니다. 재동기화에는 기본 전송이 필요하지 않지만 시간이 오래 걸릴 수 있습니다. 사용량이 적은 시간에 재동기화를 실행할 수 있습니다. 소스 및 타겟에 공통 스냅샷 복사본이 존재하지 않으면 명령이 실패합니다. 사용 `snapmirror initialize` 관계를 다시 초기화합니다.
 
+====
 +
 다음 예에서는 svm1의 원본 소스 볼륨 VolA와 SVM_BACKUP의 데이터 제공 볼륨 VolA_DST 사이의 관계를 반전시킵니다.
 
 +
 [listing]
 ----
-cluster_dst::> snapmirror resync -source-path svm_backup:volA_dst -destination-path svm1:volA
+cluster_src::> snapmirror resync -source-path svm_backup:volA_dst -destination-path svm1:volA
 ----
-. 소스 SVM에서 역방향 관계를 중지합니다.
+. 원래 소스에 대한 데이터 액세스를 다시 설정할 준비가 되면 원래 타겟 볼륨에 대한 액세스를 중지하십시오. 한 가지 방법은 원래 대상 SVM을 중지하는 것입니다.
 +
 'vserver stop-vserver_SVM_'
 
@@ -63,12 +66,18 @@ cluster_dst::> snapmirror resync -source-path svm_backup:volA_dst -destination-p
 전체 명령 구문은 man 페이지를 참조하십시오.
 
 +
-다음 예에서는 역방향 관계를 위해 소스 SVM을 중지합니다.
+[NOTE]
+====
+이 명령은 원래 대상 SVM 또는 원래 대상 클러스터에서 실행해야 합니다. 이 명령을 사용하면 사용자가 전체 원래 대상 SVM에 액세스할 수 없습니다. 다른 방법을 사용하여 원래 대상 볼륨에 대한 액세스를 중지할 수 있습니다.
+
+====
++
+다음 예에서는 원래 대상 SVM을 중지합니다.
 
 +
 [listing]
 ----
-cluster_src::> vserver stop svm_backup
+cluster_dst::> vserver stop svm_backup
 ----
 . 반대 관계 업데이트:
 +
@@ -80,7 +89,7 @@ cluster_src::> vserver stop svm_backup
 +
 [NOTE]
 ====
-대상 SVM 또는 타겟 클러스터에서 이 명령을 실행해야 합니다. 공통 스냅샷 복사본이 소스 및 대상에 없으면 명령이 실패합니다. '스냅샷 초기화'를 사용하여 관계를 다시 초기화합니다.
+이 명령은 원래 소스 SVM 또는 원래 소스 클러스터에서 실행해야 합니다.
 
 ====
 +
@@ -89,9 +98,9 @@ cluster_src::> vserver stop svm_backup
 +
 [listing]
 ----
-cluster_dst::> snapmirror update -source-path svm_backup:volA_dst -destination-path svm1:volA
+cluster_src::> snapmirror update -source-path svm_backup:volA_dst -destination-path svm1:volA
 ----
-. 역방향 관계에 대한 예약된 전송 중지:
+. 원래 소스 SVM 또는 원래 소스 클러스터에서 역방향 관계에 대한 예약된 전송을 중지합니다.
 +
 '스냅샷 중지-소스-경로_SVM:볼륨_|_클러스터://SVM/볼륨 _,... -destination-path_SVM:volume_|_cluster://SVM/volume_,
 
@@ -101,39 +110,18 @@ cluster_dst::> snapmirror update -source-path svm_backup:volA_dst -destination-p
 +
 [NOTE]
 ====
-이 명령은 타겟 SVM 또는 타겟 클러스터에서 실행해야 합니다.
+이 명령은 원래 소스 SVM 또는 원래 소스 클러스터에서 실행해야 합니다.
 
 ====
 +
-다음 예에서는 데이터를 제공하고 있는 볼륨 간의 예약된 전송을 'sVM_backup'의 VolA_DST와 'svm1'의 원본 소스 볼륨 VolA를 중지합니다.
+다음 예에서는 원래 대상 볼륨 간의 예약된 전송을 중지합니다. `volA_dst` 켜짐 `svm_backup`및 원본 소스 볼륨, `volA` 켜짐 `svm1`:
 
 +
 [listing]
 ----
-cluster_dst::> snapmirror quiesce -source-path svm_backup:volA_dst -destination-path svm1:volA
+cluster_src::> snapmirror quiesce -source-path svm_backup:volA_dst -destination-path svm1:volA
 ----
-. 취소된 관계에 대한 진행 중인 전송 중지:
-+
-'스냅샷 미러 중단 - 소스 경로_SVM: volume_|_cluster://SVM/volume_,... -destination-path_SVM:volume_|_cluster://SVM/volume_,
-
-+
-전체 명령 구문은 man 페이지를 참조하십시오.
-
-+
-[NOTE]
-====
-이 명령은 타겟 SVM 또는 타겟 클러스터에서 실행해야 합니다.
-
-====
-+
-다음 예에서는 데이터를 제공하고 있는 볼륨, 'sVM_backup'의 VolA_DST와 'svm1'의 원본 소스 볼륨 VolA 간의 지속적인 전송을 중지합니다.
-
-+
-[listing]
-----
-cluster_dst::> snapmirror abort -source-path svm_backup:volA_dst -destination-path svm1:volA
-----
-. 역관계를 끊는 경우:
+. 최종 업데이트가 완료되고 관계가 관계 상태에 "중지됨"으로 표시되면 원래 소스 SVM 또는 원래 소스 클러스터에서 다음 명령을 실행하여 역방향 관계를 분리합니다.
 +
 스냅샷/SVM/VOLUME_PATH:VOLUME_|_cluster://SVM/VOLUME_,... -destination-path_SVM:volume_|_cluster://SVM/volume_,
 
@@ -143,33 +131,18 @@ cluster_dst::> snapmirror abort -source-path svm_backup:volA_dst -destination-pa
 +
 [NOTE]
 ====
-이 명령은 타겟 SVM 또는 타겟 클러스터에서 실행해야 합니다.
+이 명령은 원래 소스 SVM 또는 소스 클러스터에서 실행해야 합니다.
 
 ====
 +
-다음 예에서는 데이터를 제공하고 있는 볼륨, VM_BACKUP의 VolA_DST, Svm1의 원본 소스 볼륨 VolA의 관계를 다음과 같이 나눕니다.
+다음 예에서는 원래 대상 볼륨 간의 관계를 끊는 경우를 보여 줍니다. `volA_dst` 켜짐 `svm_backup`및 원본 소스 볼륨, `volA` 켜짐 `svm1`:
 
 +
 [listing]
 ----
-cluster_dst::> snapmirror break -source-path svm_backup:volA_dst -destination-path svm1:volA
+cluster_scr::> snapmirror break -source-path svm_backup:volA_dst -destination-path svm1:volA
 ----
-. 원본 소스 SVM 시작:
-+
-'vserver start-vserver_SVM_'
-
-+
-전체 명령 구문은 man 페이지를 참조하십시오.
-
-+
-다음 예에서는 원본 소스 SVM을 시작합니다.
-
-+
-[listing]
-----
-cluster_dst::> vserver start svm1
-----
-. 역방향 데이터 보호 관계를 삭제합니다.
+. 원래 소스 SVM 또는 원래 소스 클러스터에서 역방향 데이터 보호 관계를 삭제합니다.
 +
 '스냅샷 삭제 - 소스 경로 - SVM: volume_|_cluster://SVM/volume_,... -destination-path_SVM:volume_|_cluster://SVM/volume_,
 
@@ -177,8 +150,11 @@ cluster_dst::> vserver start svm1
 전체 명령 구문은 man 페이지를 참조하십시오.
 
 +
-역관계를 위해서는 소스 SVM이나 소스 클러스터에서 이 명령을 실행해야 합니다.
+[NOTE]
+====
+이 명령은 원래 소스 SVM 또는 원래 소스 클러스터에서 실행해야 합니다.
 
+====
 +
 다음 예에서는 svm1의 원래 소스 볼륨 VolA와 SVM_BACKUP의 VolA_DST에서 데이터를 제공하고 있는 볼륨 간의 역방향 관계를 삭제합니다.
 
@@ -187,7 +163,41 @@ cluster_dst::> vserver start svm1
 ----
 cluster_src::> snapmirror delete -source-path svm_backup:volA_dst -destination-path svm1:volA
 ----
-. 원래 데이터 보호 관계를 다시 설정합니다.
+. 원래 대상 SVM 또는 원래 대상 클러스터에서 역방향 관계를 해제합니다.
++
+'스냅샷 해제 - 소스 경로_SVM:볼륨 _ | _ 클러스터://SVM/볼륨 _,... -destination-path_SVM:volume_|_cluster://SVM/volume_,
+
++
+[NOTE]
+====
+이 명령은 원래 대상 SVM 또는 원래 대상 클러스터에서 실행해야 합니다.
+
+====
++
+다음 예에서는 원래 타겟 볼륨 간의 역방향 관계를 해제하며 `volA_dst` 켜짐 `svm_backup`및 원본 소스 볼륨, `volA` 켜짐 `svm1`:
+
+
+
+[listing]
+----
+cluster_dst::> snapmirror release -source-path svm_backup:volA_dst -destination-path svm1:volA
+----
+. 필요한 경우 원래 대상 SVM을 시작합니다.
++
+'vserver start-vserver_SVM_'
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+다음 예에서는 원래 대상 SVM을 시작합니다.
+
++
+[listing]
+----
+cluster_dst::> vserver start svm_backup
+----
+. 원래 대상에서 원래 데이터 보호 관계를 다시 설정합니다.
 +
 '스냅샷 재동기화 - 소스 경로_SVM:볼륨_|_클러스터://SVM/볼륨 _,... -destination-path_SVM:volume_|_cluster://SVM/volume_,
 

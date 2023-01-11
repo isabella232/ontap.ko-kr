@@ -41,8 +41,6 @@ entries:
       url: "/snaplock/implement-privileged-delete-functionality-task.html"
 - title: 감사 로그를 생성합니다
   url: "/snaplock/create-audit-log-task.html"
-- title: 이벤트 후 파일 보존 기간을 설정합니다
-  url: "/snaplock/event-based-retention-feature-task.html"
 - title: SnapLock 볼륨을 이동합니다
   url: "/snaplock/create-snaplock-security-administrator-account-task.html"
 - title: 스냅샷 복사본의 무단 잠금 방지
