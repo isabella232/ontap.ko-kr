@@ -25,6 +25,7 @@ ONTAP 플랫폼 지원:
 * ARP는 현재 다음 Cloud Volumes ONTAP 환경에서 사용할 수 없습니다.
 +
 ** 아마존 FSx
+** 설치하고
 ** Azure를 지원합니다
 ** Google 클라우드
 
