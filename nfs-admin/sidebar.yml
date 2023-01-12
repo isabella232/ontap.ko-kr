@@ -286,7 +286,7 @@ entries:
     url: "/nfs-admin/configure-number-group-ids-allowed-nfs-users-task.html"
   - title: NTFS 보안 스타일 데이터에 대한 루트 사용자 액세스를 제어합니다
     url: "/nfs-admin/control-root-user-access-ntfs-security-data-task.html"
-- title: '부록: 지원되는 NFS 버전 및 클라이언트'
+- title: 지원되는 NFS 버전 및 클라이언트
   entries:
   - title: 개요
     url: "/nfs-admin/supported-versions-clients-reference.html"
@@ -302,7 +302,7 @@ entries:
     url: "/nfs-admin/ontap-support-parallel-nfs-concept.html"
   - title: 하드 마운트 사용
     url: "/nfs-admin/hard-mounts-concept.html"
-- title: '부록: NFS 및 SMB 파일 및 디렉토리 이름 지정 종속성'
+- title: NFS 및 SMB 파일 및 디렉토리 명명 종속성
   entries:
   - title: 개요
     url: "/nfs-admin/nfs-smb-file-directory-naming-concept.html"

@@ -1,10 +1,10 @@
 ---
 permalink: nfs-admin/supported-versions-clients-reference.html 
 sidebar: sidebar 
-keywords: appendix, support, nfs, version, client 
+keywords: support, nfs, version, client 
 summary: 네트워크에서 NFS를 사용하려면 먼저 ONTAP가 지원하는 NFS 버전과 클라이언트를 알아야 합니다. 
 ---
-= 부록: 지원되는 NFS 버전 및 클라이언트
+= 지원되는 NFS 버전 및 클라이언트의 개요
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
