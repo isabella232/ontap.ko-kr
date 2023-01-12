@@ -39,7 +39,10 @@ summary: 클러스터에서 필요 없는 노드를 한 번에 하나씩 제거�
 * 스토리지 페일오버가 수행되었습니다 link:../high-availability/ha_commands_for_enabling_and_disabling_storage_failover.html["사용 안 함"] 를 선택합니다.
 * 모든 LIF 페일오버 규칙은 입니다 link:../networking/commands_for_managing_failover_groups_and_policies.html["수정됨"] 노드에서 포트를 제거합니다.
 * 노드의 모든 VLAN은 입니다 link:../networking/configure_vlans_over_physical_ports.html#delete-a-vlan["삭제됨"].
-* 제거하려는 노드에 선택적 LUN 매핑을 사용하는 LUN이 포함되어 있는 경우 클러스터에서 노드를 제거하기 전에 LUN 매핑에서 노드를 제거해야 합니다.
+* 제거할 노드에 LUN이 있는 경우 다음을 수행해야 합니다 link:https://docs.netapp.com/us-en/ontap/san-admin/modify-slm-reporting-nodes-task.html["SLM(Selective LUN Map) 보고 노드 목록을 수정합니다"] 노드를 제거하기 전에
++
+SLM 보고 노드 목록에서 노드 및 해당 HA 파트너를 제거하지 않을 경우 LUN이 포함된 볼륨이 다른 노드로 이동되었더라도 노드에서 이전에 LUN에 액세스하지 못할 수 있습니다.
+
 
 
 AutoSupport 메시지를 발행하여 노드 제거가 진행 중임을 NetApp 기술 지원에 알리는 것이 좋습니다.
