@@ -13,23 +13,11 @@ summary: SnapLock를 사용하기 전에 여러 구성 작업을 수행해야 �
 [role="lead"]
 SnapLock를 사용하기 전에 다음 작업을 완료하여 SnapLock를 구성해야 합니다.
 
-* link:https://docs.netapp.com/us-en/ontap/snaplock/install-license-task.html["라이센스를 설치합니다"].
-* link:https://docs.netapp.com/us-en/ontap/snaplock/initialize-complianceclock-task.html["준수 시계를 초기화합니다"].
-* link:https://docs.netapp.com/us-en/ontap/snaplock/create-snaplock-aggregate-task.html["SnapLock Aggregate를 생성합니다"] (ONTAP 9.10.1 이전 버전의 경우만 해당).
-* link:https://docs.netapp.com/us-en/ontap/snaplock/create-snaplock-volume-task.html["SnapLock 볼륨을 생성합니다"].
-* link:https://docs.netapp.com/us-en/ontap/snaplock/mount-snaplock-volume-task.html["SnapLock 볼륨을 마운트합니다"].
-* 보존 시간 설정:
-+
-** link:https://docs.netapp.com/us-en/ontap/snaplock/set-retention-time-file-explicitly-task.html["파일의 보존 시간을 명시적 형식으로 설정합니다"].
-** link:https://docs.netapp.com/us-en/ontap/snaplock/set-default-retention-period-task.html["기본 보존 기간을 설정합니다"].
-
-
-* link:https://docs.netapp.com/us-en/ontap/snaplock/verify-file-volume-settings-file-fingerprint-task.html["SnapLock 설정을 확인합니다"]
-* WORM에 커밋:
-+
-** link:https://docs.netapp.com/us-en/ontap/snaplock/commit-files-worm-state-manual-task.html["WORM에 파일을 수동으로 커밋합니다"].
-** link:https://docs.netapp.com/us-en/ontap/snaplock/autocommit-files-worm-task.html["WORM에 파일을 자동 커밋합니다"].
-
-
-* link:https://docs.netapp.com/us-en/ontap/snaplock/mirror-worm-files-task.html["재해 복구를 위해 WORM 파일을 미러링합니다"].
+. link:https://docs.netapp.com/us-en/ontap/snaplock/install-license-task.html["SnapLock 라이센스를 설치합니다"].
+. link:https://docs.netapp.com/us-en/ontap/snaplock/initialize-complianceclock-task.html["규정 준수 시계를 초기화하여 변조를 방지합니다"].
+. link:https://docs.netapp.com/us-en/ontap/snaplock/create-snaplock-aggregate-task.html["SnapLock Aggregate를 생성합니다"] (ONTAP 9.10.1 이전 버전에만 해당).
+. link:https://docs.netapp.com/us-en/ontap/snaplock/create-snaplock-volume-task.html["SnapLock 볼륨을 생성합니다"].
+. link:https://docs.netapp.com/us-en/ontap/snaplock/mount-snaplock-volume-task.html["SnapLock 볼륨을 마운트합니다"].
+. link:https://docs.netapp.com/us-en/ontap/snaplock/set-retention-period-task.htm["기본값을 사용하거나 명시적으로 설정하여 보존 시간을 설정합니다"].
+. link:https://docs.netapp.com/us-en/ontap/snaplock/verify-file-volume-settings-file-fingerprint-task.html["SnapLock 설정을 확인합니다"].
 

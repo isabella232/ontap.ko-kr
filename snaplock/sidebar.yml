@@ -5,8 +5,9 @@ entries:
 - title: SnapLock란
   url: "/snaplock/index.html"
 - title: SnapLock를 구성합니다
-  url: "/snaplock/snaplock-config-overview-concept.html"
   entries:
+  - title: 개요
+    url: "/snaplock/snaplock-config-overview-concept.html"
   - title: 라이센스를 설치합니다
     url: "/snaplock/install-license-task.html"
   - title: ComplianceClock을 초기화합니다
@@ -20,8 +21,9 @@ entries:
   - title: SnapLock 설정을 확인합니다
     url: "/snaplock/verify-file-volume-settings-file-fingerprint-task.html"
 - title: WORM 파일 관리
-  url: "/snaplock/manage-worm-files-concept.html"
   entries:
+  - title: 개요
+    url: "/snaplock/manage-worm-files-concept.html"
   - title: WORM에 파일을 커밋합니다
     url: "/snaplock/commit-files-worm-state-manual-task.html"
   - title: 볼트 대상에서 WORM에 스냅샷 복사본을 커밋합니다
@@ -32,17 +34,10 @@ entries:
     url: "/snaplock/hold-tamper-proof-files-indefinite-period-task.html"
   - title: WORM 파일을 삭제합니다
     url: "/snaplock/delete-worm-files-concept.html"
-    entries:
-    - title: SnapLock 관리자 계정을 만듭니다
-      url: "/snaplock/create-compliance-administrator-account-task.html"
-    - title: 권한 있는 삭제 기능을 활성화합니다
-      url: "/snaplock/enable-privileged-delete-task.html"
-    - title: 엔터프라이즈 모드 WORM 파일을 삭제합니다
-      url: "/snaplock/implement-privileged-delete-functionality-task.html"
 - title: 감사 로그를 생성합니다
   url: "/snaplock/create-audit-log-task.html"
 - title: SnapLock 볼륨을 이동합니다
-  url: "/snaplock/create-snaplock-security-administrator-account-task.html"
+  url: "/snaplock/move-snaplock-volume-concept.html"
 - title: 스냅샷 복사본의 무단 잠금 방지
   url: "/snaplock/snapshot-lock-concept.html"
 - title: SnapLock API
