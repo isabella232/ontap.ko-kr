@@ -10,10 +10,11 @@ summary: 'ONTAP 9.10.1부터 System Manager를 사용하여 여러 LUN에 QoS(�
 :imagesdir: ../media/
 
 
+[role="lead"]
 ONTAP 9.10.1부터 System Manager를 사용하여 여러 LUN에 QoS(서비스 품질) 정책을 동시에 할당 또는 제거할 수 있습니다.
 
 
-NOTE: 볼륨 레벨에서 QoS 정책이 할당된 경우 볼륨 레벨에서 QoS 정책이 변경되어야 합니다. LUN 레벨에서 원래 할당된 LUN 레벨에서만 QoS 정책을 편집할 수 있습니다.
+NOTE: 볼륨 레벨에서 QoS 정책이 할당된 경우 볼륨 레벨에서 QoS 정책을 변경해야 합니다. LUN 레벨에서 원래 할당된 LUN 레벨에서만 QoS 정책을 편집할 수 있습니다.
 
 .단계
 . System Manager에서 * 스토리지 > LUN * 을 클릭합니다.

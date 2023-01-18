@@ -24,8 +24,9 @@ Solaris LUN의 크기는 조정할 수 없습니다.
 
 LUN을 늘릴 수 있는 크기는 ONTAP 버전에 따라 다릅니다.
 
-[cols="2"]
 |===
+
+
 | ONTAP 버전입니다 | 최대 LUN 크기입니다 
 
 
@@ -75,9 +76,9 @@ ONTAP CLI를 사용하여 LUN의 크기를 늘립니다.
 ====
 ONTAP 작업은 LUN의 실제 최대 크기를 반올림하여 예상 값보다 약간 작습니다. 또한 실제 LUN 크기는 LUN의 OS 유형에 따라 약간 다를 수 있습니다. 정확한 크기 조정 값을 얻으려면 고급 모드에서 다음 명령을 실행합니다.
 
-세트 B
+`set -unit B`
 
-''LUN show-fields max-resize-volume_volume_name_-lun_lun_name_'
+`lun show -fields max-resize-size -volume _volume_name_ -lun _lun_name_`
 
 ====
 . 호스트에서 LUN을 다시 검색합니다.
@@ -90,7 +91,6 @@ ONTAP 작업은 LUN의 실제 최대 크기를 반올림하여 예상 값보다 
 
 == LUN 크기를 줄입니다
 
-[role="lead"]
 LUN 크기를 줄이기 전에 호스트는 LUN 데이터가 포함된 블록을 더 작은 LUN 크기의 바운더리로 마이그레이션해야 합니다. Windows용 SnapDrive와 같은 툴을 사용하면 LUN 데이터가 포함된 블록을 잘라내지 않고도 LUN이 제대로 감소하는지 확인할 수 있습니다. LUN 크기를 수동으로 줄이는 것은 권장되지 않습니다.
 
 LUN 크기를 줄이면 ONTAP에서 자동으로 LUN 크기가 줄어들었음을 이니시에이터에 알립니다. 그러나 호스트에서 새 LUN 크기를 인식하려면 추가 단계가 필요할 수 있습니다. 호스트 파일 구조의 크기 감소에 대한 자세한 내용은 호스트 설명서를 참조하십시오.

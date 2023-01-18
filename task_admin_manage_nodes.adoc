@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: task_admin_manage_nodes.html 
 keywords: netapp, ontap, administration, manage, nodes, node, reboot, shutdown, shut, down, takeover, take over, giveback, give, back, node workload, HA partner, managing a cluster, switch node workload, managing nodes 
-summary: '노드를 재부팅하거나 종료하기 전에 노드의 워크로드를 HA 파트너(테이크오버)로 전환해야 합니다.' 
+summary: '재부팅하기 전에 노드의 워크로드를 해당 HA 파트너(테이크오버)로 전환해야 합니다.' 
 ---
-= 노드를 재부팅, 종료, 테이크오버하고 돌려제공합니다
+= 노드를 재부팅하고 다시 제공합니다
 :toc: macro
 :hardbreaks:
 :toclevels: 1
@@ -19,7 +19,10 @@ summary: '노드를 재부팅하거나 종료하기 전에 노드의 워크로�
 
 
 [role="lead"]
-노드를 재부팅하거나 종료하기 전에 노드의 워크로드를 HA 파트너(테이크오버)로 전환해야 합니다.
+재부팅하기 전에 노드의 워크로드를 해당 HA 파트너(테이크오버)로 전환해야 합니다.
+
+
+NOTE: System Manager를 사용하여 노드를 종료(중지)할 수 없으며 CLI 명령을 사용해야 합니다. 또한 노드가 중단되면 CLI 명령을 사용하여 노드를 다시 온라인 상태로 만들어야 합니다. 을 참조하십시오 link:system-admin/start-stop-storage-system-concept.html["노드 개요 시작 또는 중지"].
 
 .단계
 . 클러스터 > 개요 * 를 클릭합니다.

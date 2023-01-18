@@ -2,9 +2,6 @@
 :allow-uri-read: 
 
 
-[role="lead"]
-MetroCluster 환경에서 SAN 구성을 사용할 때는 몇 가지 고려 사항을 염두에 두어야 합니다.
-
 * MetroCluster 구성은 프런트엔드 FC 패브릭 ""라우팅된" vSAN 구성을 지원하지 않습니다.
 * MetroCluster 구성은 프론트 엔드 NVMe 호스트 연결을 지원하지 않습니다.
 * 다른 SAN 프로토콜은 MetroCluster 구성에서 지원됩니다.

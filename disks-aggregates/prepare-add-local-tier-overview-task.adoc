@@ -10,6 +10,7 @@ summary: 로컬 계층을 추가하기 전에 로컬 계층에 대한 RAID 그�
 :imagesdir: ../media/
 
 
+[role="lead"]
 로컬 계층을 추가하기 전에 다음 항목을 이해해야 합니다.
 
 * 로컬 계층에 대한 RAID 그룹, RAID 보호 수준 및 RAID 정책에 대해 알아봅니다.

@@ -10,6 +10,7 @@ summary: 다른 방법을 사용하여 특정 워크플로우를 따라 용량�
 :imagesdir: ../media/
 
 
+[role="lead"]
 다른 방법을 사용하여 특정 워크플로우를 따라 용량을 추가합니다.
 
 * link:aggregate-expansion-workflow-concept.html["로컬 계층에 용량을 추가하는 워크플로우(애그리게이트)"]

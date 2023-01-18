@@ -1,0 +1,84 @@
+---
+permalink: encryption-at-rest/enable-external-key-management-95-earlier-task.html 
+sidebar: sidebar 
+keywords: enabling, external key management, ontap 9.5, earlier 
+summary: 하나 이상의 KMIP 서버를 사용하여 클러스터에서 암호화된 데이터에 액세스하는 데 사용하는 키를 보호할 수 있습니다. 하나의 노드에 KMIP 서버를 최대 4개까지 연결할 수 있습니다. 이중화 및 재해 복구를 위해 최소 2대의 서버를 사용하는 것이 좋습니다. 
+---
+= ONTAP 9.5 이전 버전에서 외부 키 관리를 활성화합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+하나 이상의 KMIP 서버를 사용하여 클러스터에서 암호화된 데이터에 액세스하는 데 사용하는 키를 보호할 수 있습니다. 하나의 노드에 KMIP 서버를 최대 4개까지 연결할 수 있습니다. 이중화 및 재해 복구를 위해 최소 2대의 서버를 사용하는 것이 좋습니다.
+
+.필요한 것
+* KMIP SSL 클라이언트 및 서버 인증서를 설치해야 합니다.
+* 이 작업을 수행하려면 클러스터 관리자여야 합니다.
+* 외부 키 관리자를 구성하기 전에 MetroCluster 환경을 구성해야 합니다.
+* MetroCluster 환경에서는 두 클러스터 모두에 KMIP SSL 인증서를 설치해야 합니다.
+
+
+.이 작업에 대해
+ONTAP는 클러스터의 모든 노드에 대해 KMIP 서버 연결을 구성합니다.
+
+.단계
+. 클러스터 노드에 대한 Key Manager 접속 구성:
++
+보안 키 관리자 설정
+
++
+키 관리자 설정이 시작됩니다.
+
++
+
+NOTE: MetroCluster 환경에서는 두 클러스터 모두에서 이 명령을 실행해야 합니다.
+
+. 각 프롬프트에 적절한 응답을 입력합니다.
+. KMIP 서버 추가:
++
+'Security key-manager add-address key_management_server_ipaddress
+
++
+[listing]
+----
+clusterl::> security key-manager add -address 20.1.1.1
+----
++
+
+NOTE: MetroCluster 환경에서는 두 클러스터 모두에서 이 명령을 실행해야 합니다.
+
+. 이중화를 위해 KMIP 서버를 추가로 추가합니다.
++
+'Security key-manager add-address key_management_server_ipaddress
+
++
+[listing]
+----
+clusterl::> security key-manager add -address 20.1.1.2
+----
++
+
+NOTE: MetroCluster 환경에서는 두 클러스터 모두에서 이 명령을 실행해야 합니다.
+
+. 구성된 모든 KMIP 서버가 연결되어 있는지 확인합니다.
++
+보안 키 관리자 표시 상태
+
++
+전체 명령 구문은 man 페이지를 참조하십시오.
+
++
+[listing]
+----
+cluster1::> security key-manager show -status
+
+Node            Port      Registered Key Manager  Status
+--------------  ----      ----------------------  ---------------
+cluster1-01     5696      20.1.1.1                available
+cluster1-01     5696      20.1.1.2                available
+cluster1-02     5696      20.1.1.1                available
+cluster1-02     5696      20.1.1.2                available
+----
+
