@@ -34,6 +34,16 @@ System Manager를 사용하면 디스크, 디스크 쉘프, DQP(Disk Qualificati
 .이 작업에 대해
 ONTAP 9.9.1부터 클러스터에서 펌웨어 업데이트가 보류 중인 경우 알려주는 Active IQ 알림을 받을 수 있습니다. 그런 다음 System Manager를 사용하여 펌웨어 이미지를 다운로드하고 업로드할 수 있습니다.
 
+.시작하기 전에
+다음 권한 중 하나가 있어야 합니다.
+
+* 아이코스(AIQEXPERT)
+* AIQADVISOR
+* AIQUPGRADE
+
+
+권한 및 보유 권한에 대한 자세한 내용은 에서 확인할 수 있습니다 link:/system-admin/manage-licenses-concept.html["라이센스 관리 개요(클러스터 관리자만 해당)"].
+
 image:workflow_admin_update_firmware.gif["펌웨어 업데이트 작업의 워크플로 다이어그램"]
 
 

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task_admin_clone_data.html 
-keywords: netapp, ontap, administration, clone, cloning, data, volumes, LUN, testing, clone volume, clone LUN, testing, termporary data, FlexClone license, clone deletion 
+keywords: netapp, ontap, administration, clone, cloning, data, volumes, LUN, testing, clone volume, clone LUN, testing, temporary data, FlexClone license, clone deletion 
 summary: 볼륨 및 LUN을 클론 복제하여 테스트할 복사본을 생성하거나 운영 데이터에 대한 액세스 권한을 부여하지 않고 데이터에 액세스할 수 있습니다. 
 ---
 = 테스트할 볼륨 및 LUN의 클론 생성
@@ -32,7 +32,7 @@ NOTE: FlexClone 라이센스는 스토리지 시스템에 설치해야 합니다
 
 .단계
 . 스토리지 > 볼륨 * 을 클릭합니다.
-. 을 클릭합니다 image:icon_kabob.gif["케밥 아이콘"] 복제할 볼륨의 이름 옆에 있습니다.
+. 을 클릭합니다 image:icon_kabob.gif["선택하십시오"] 복제할 볼륨의 이름 옆에 있습니다.
 . 목록에서 * Clone * 을 선택합니다.
 . 클론의 이름을 지정하고 다른 선택을 완료합니다.
 . 클론 * 을 클릭하고 볼륨 목록에 볼륨 클론이 나타나는지 확인합니다.
@@ -48,7 +48,7 @@ NOTE: FlexClone 라이센스는 스토리지 시스템에 설치해야 합니다
 
 .단계
 . 스토리지 > LUN * 을 클릭합니다.
-. 을 클릭합니다 image:icon_kabob.gif["케밥 아이콘"] 복제할 LUN 이름 옆의 LUN을 선택합니다.
+. 을 클릭합니다 image:icon_kabob.gif["선택하십시오"] 복제할 LUN 이름 옆의 LUN을 선택합니다.
 . 목록에서 * Clone * 을 선택합니다.
 . 클론의 이름을 지정하고 다른 선택을 완료합니다.
 . 클론 * 을 클릭하고 LUN 클론이 LUN 목록에 표시되는지 확인합니다.

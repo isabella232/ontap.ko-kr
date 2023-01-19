@@ -15,6 +15,11 @@ ONTAP 9.9.0부터는 System Manager를 사용하여 클라우드에 연결을 �
 
 먼저 NetApp Cloud Insights를 사용하여 Collector를 구성합니다. 구성 프로세스 중에 Cloud Insights에서 생성한 페어링 코드를 복사한 다음 System Manager를 사용하여 클러스터에 로그온합니다. 여기서 해당 페어링 코드를 사용하여 클라우드 연결을 추가합니다. 나머지 프로세스는 Cloud Insights에서 완료됩니다.
 
+[NOTE]
+====
+Cloud Volumes ONTAP에서 Cloud Insights 서비스로 연결을 추가할 때 프록시 서버를 사용하는 옵션을 선택하는 경우 URL이 올바른지 확인해야 합니다 https://example.com[] 프록시 서버에서 액세스할 수 있습니다. "The HTTP Proxy configuration is not valid(HTTP 프록시 구성이 유효하지 않습니다)"라는 메시지가 에 표시됩니다 https://example.com[] 에 액세스할 수 없습니다.
+
+====
 .단계
 . Cloud Insights에서 수집기를 구성하는 프로세스 중에 생성된 페어링 코드를 복사합니다.
 . ONTAP 9.9.0 이상과 함께 System Manager를 사용하여 클러스터에 로그온합니다.
