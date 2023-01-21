@@ -23,9 +23,6 @@ SMBv3에서 지속적으로 사용 가능한(CA) 공유를 제공하는 경우 S
 SMBv1 또는 SMBv2와 함께 공유 또는 SMBv3과 비 CA 공유를 제공하는 경우 업그레이드 테이크오버 및 재부팅 작업 중에 클라이언트 세션이 중단됩니다. 업그레이드하기 전에 사용자에게 세션을 종료하도록 안내해야 합니다.
 
 +
-자세한 내용은 을 참조하십시오 link:https://www.netapp.com/pdf.html?item=/media/16338-tr-4100pdf.pdf["TR-4100: SMB 파일 공유를 통한 무중단 운영 ONTAP 9.x"^].
-
-+
 SMB를 통한 Hyper-V 및 SQL Server는 무중단 운영(NDO)을 지원합니다. SMB 솔루션을 통해 Hyper-V 또는 SQL Server를 구성한 경우, 애플리케이션 서버와 포함된 가상 머신 또는 데이터베이스는 ONTAP 업그레이드 중에 온라인 상태를 유지하고 지속적인 가용성을 제공합니다.
 
 * NFSv4.x
