@@ -2,7 +2,7 @@
 permalink: smb-admin/default-administrative-shares-concept.html 
 sidebar: sidebar 
 keywords: create, cifs, server, storage, virtual, machine, svm, default, administrative, share, automatic, what the default administrative shares are 
-summary: 'SVM(스토리지 가상 시스템)에서 CIFS 서버를 생성하면 세 가지 기본 관리 공유가 자동으로 생성됩니다. 이러한 기본 공유가 무엇이고 어떻게 사용되는지 이해해야 합니다.' 
+summary: 'SVM(스토리지 가상 시스템)에서 CIFS 서버를 생성하면 기본 관리 공유가 자동으로 생성됩니다. 이러한 기본 공유가 무엇이고 어떻게 사용되는지 이해해야 합니다.' 
 ---
 = 기본 관리 공유는 무엇입니까
 :allow-uri-read: 
@@ -11,12 +11,15 @@ summary: 'SVM(스토리지 가상 시스템)에서 CIFS 서버를 생성하면 �
 
 
 [role="lead"]
-SVM(스토리지 가상 시스템)에서 CIFS 서버를 생성하면 세 가지 기본 관리 공유가 자동으로 생성됩니다. 이러한 기본 공유가 무엇이고 어떻게 사용되는지 이해해야 합니다.
+SVM(스토리지 가상 시스템)에서 CIFS 서버를 생성하면 기본 관리 공유가 자동으로 생성됩니다. 이러한 기본 공유가 무엇이고 어떻게 사용되는지 이해해야 합니다.
 
 ONTAP는 CIFS 서버를 생성할 때 다음과 같은 기본 관리 공유를 생성합니다.
 
+
+NOTE: ONTAP 9.8부터 관리자$ 공유는 기본적으로 더 이상 생성되지 않습니다.
+
 * IPC$
-* 관리 비용
+* 관리 비용(ONTAP 9.7 이하 버전에만 해당)
 * c$
 
 
@@ -32,7 +35,11 @@ IPC$ 및 admin$ 공유는 ONTAP에서 사용되며 Windows 관리자가 SVM에 �
 +
 IPC$ 공유는 프로그램 간 통신에 필수적인 명명된 파이프를 공유하는 리소스입니다. IPC$ 공유는 컴퓨터의 원격 관리 및 컴퓨터의 공유 리소스를 볼 때 사용됩니다. IPC$ 공유의 공유 설정, 공유 속성 또는 ACL은 변경할 수 없습니다. IPC$ 공유의 이름을 바꾸거나 삭제할 수도 없습니다.
 
-* admin$ 공유
+* 관리 비용 공유(ONTAP 9.7 이하만 해당)
++
+
+NOTE: ONTAP 9.8부터 관리자$ 공유는 기본적으로 더 이상 생성되지 않습니다.
+
 +
 SVM의 원격 관리 중에 admin$ 공유가 사용됩니다. 이 리소스의 경로는 항상 SVM 루트로 연결되는 경로입니다. admin$ 공유에 대한 공유 설정, 공유 속성 또는 ACL은 변경할 수 없습니다. admin$ 공유의 이름을 바꾸거나 삭제할 수도 없습니다.
 
