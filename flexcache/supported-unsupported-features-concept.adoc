@@ -182,6 +182,19 @@ Microsoft ODX(Offloaded Data Transfer)
 
 
  a| 
+NetApp 애그리게이트 암호화(NAE)
+ a| 
+예
+
+ONTAP 9.6부터 지원됩니다
+ a| 
+예
+
+ONTAP 9.6부터 지원됩니다
+
+
+
+ a| 
 NetApp 볼륨 암호화(NVE)
  a| 
 예

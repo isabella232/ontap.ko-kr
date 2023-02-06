@@ -19,5 +19,6 @@ SnapLock를 사용하기 전에 다음 작업을 완료하여 SnapLock를 구성
 . link:https://docs.netapp.com/us-en/ontap/snaplock/create-snaplock-volume-task.html["SnapLock 볼륨을 생성합니다"].
 . link:https://docs.netapp.com/us-en/ontap/snaplock/mount-snaplock-volume-task.html["SnapLock 볼륨을 마운트합니다"].
 . link:https://docs.netapp.com/us-en/ontap/snaplock/set-retention-period-task.htm["기본값을 사용하거나 명시적으로 설정하여 보존 시간을 설정합니다"].
+. link:https://docs.netapp.com/us-en/ontap/snaplock/create-audit-log-task.html["감사 로그를 생성합니다"].
 . link:https://docs.netapp.com/us-en/ontap/snaplock/verify-file-volume-settings-file-fingerprint-task.html["SnapLock 설정을 확인합니다"].
 

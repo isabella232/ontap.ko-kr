@@ -16,7 +16,8 @@ summary: '스냅샷 복사본의 파일 또는 LUN을 스냅샷 복사본에서 
 .단계
 . 스냅샷 디렉토리 액세스 상태를 확인합니다.
 +
- `volume show -vserver _SVM_name_ -volume _vol_name_ -fields snapdir-access`
+`volume show -vserver _SVM_name_ -volume _vol_name_ -fields snapdir-access`
+
 +
 예:
 
@@ -31,7 +32,7 @@ vs0     vol1   false
 ----
 . 스냅샷 복사본 디렉토리 액세스 설정 또는 해제:
 +
-'volume modify -volume_vol_name_-snapdir-access true|false'
+`volume modify -vserver _SVM_name_ -volume _vol_name_ -snapdir-access true|false`
 
 +
 다음 예에서는 vol1에서 스냅샷 복사본 디렉토리 액세스를 설정합니다.
@@ -40,7 +41,7 @@ vs0     vol1   false
 [listing]
 ----
 
-clus1::> volume modify -volume vol1 -snapdir-access true
+clus1::> volume modify -vserver vs0 -volume vol1 -snapdir-access true
 Volume modify successful on volume vol1 of Vserver vs0.
 ----
 

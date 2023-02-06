@@ -18,6 +18,8 @@ entries:
     url: "/snaplock/create-snaplock-volume-task.html"
   - title: 보존 시간을 설정합니다
     url: "/snaplock/set-retention-period-task.html"
+  - title: 감사 로그를 생성합니다
+    url: "/snaplock/create-audit-log-task.html"
   - title: SnapLock 설정을 확인합니다
     url: "/snaplock/verify-file-volume-settings-file-fingerprint-task.html"
 - title: WORM 파일 관리
@@ -34,8 +36,6 @@ entries:
     url: "/snaplock/hold-tamper-proof-files-indefinite-period-task.html"
   - title: WORM 파일을 삭제합니다
     url: "/snaplock/delete-worm-files-concept.html"
-- title: 감사 로그를 생성합니다
-  url: "/snaplock/create-audit-log-task.html"
 - title: SnapLock 볼륨을 이동합니다
   url: "/snaplock/move-snaplock-volume-concept.html"
 - title: 스냅샷 복사본의 무단 잠금 방지

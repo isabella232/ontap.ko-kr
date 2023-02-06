@@ -13,13 +13,9 @@ summary: NetApp SnapLock 기술을 사용하면 규정 및 거버넌스 목적�
 [role="lead"]
 SnapLock는 WORM 스토리지를 사용하여 규정 및 거버넌스 목적으로 수정되지 않은 형태로 파일을 유지하는 조직을 위한 고성능 규정 준수 솔루션입니다.
 
-SnapLock는 SEC 17a-4, HIPAA, FINRA, CFTC 및 GDPR과 같은 규정을 준수하기 위해 데이터의 삭제, 변경 또는 이름 변경을 방지합니다. SnapLock를 사용하면 파일을 저장한 후 지정된 보존 기간 또는 무기한으로 삭제할 수 없고 쓸 수 없는 상태로 커밋하는 특수한 용도의 볼륨을 생성할 수 있습니다.
+SnapLock는 SEC 17a-4, HIPAA, FINRA, CFTC 및 GDPR과 같은 규정을 준수하기 위해 데이터의 삭제, 변경 또는 이름 변경을 방지합니다. SnapLock를 사용하면 파일을 저장한 후 지정된 보존 기간 또는 무기한으로 삭제할 수 없고 쓸 수 없는 상태로 커밋하는 특수한 용도의 볼륨을 생성할 수 있습니다. SnapLock에서는 CIFS 및 NFS와 같은 표준 개방형 파일 프로토콜을 통해 파일 레벨에서 이 보존을 수행할 수 있습니다. SnapLock에서 지원되는 개방형 파일 프로토콜은 NFS(버전 2, 3 및 4) 및 CIFS(SMB 1.0, 2.0 및 3.0)입니다.
 
-SnapLock를 사용하면 파일 및 스냅샷 복사본을 WORM 스토리지에 커밋하고 WORM 보호 데이터에 대한 보존 기간을 설정할 수 있습니다.
-
-SnapLock에서 지원되는 개방형 파일 프로토콜은 NFS(버전 2, 3 및 4) 및 CIFS(SMB 1.0, 2.0 및 3.0)입니다.
-
-SnapLock에는 특수 하드웨어가 필요하지 않습니다. SnapLock는 모든 AFF 및 FAS 시스템과 ONTAP Select에서 지원됩니다. SnapLock는 소프트웨어 전용 솔루션이 아니라 통합 하드웨어 및 소프트웨어 솔루션입니다. 이러한 차이는 SEC 17a-4와 같이 통합 하드웨어 및 소프트웨어 솔루션이 필요한 엄격한 WORM 규정에 중요합니다. 자세한 내용은 SEC Interpretation: Electronic Storage of Broker - Dealer Records 를 참조하십시오.
+SnapLock를 사용하면 파일 및 스냅샷 복사본을 WORM 스토리지에 커밋하고 WORM 보호 데이터에 대한 보존 기간을 설정할 수 있습니다. SnapLock WORM 스토리지는 NetApp 스냅샷 기술을 사용하고 SnapMirror 복제 및 SnapVault 백업을 데이터에 대한 백업 복구 보호를 제공하는 기본 기술로 활용할 수 있습니다. WORM 스토리지에 대한 자세한 내용: link:https://www.netapp.com/pdf.html?item=/media/6158-tr4526pdf.pdf["NetApp SnapLock-TR-4526을 사용하여 WORM 스토리지를 준수합니다"].
 
 애플리케이션을 사용하여 NFS 또는 CIFS를 통해 WORM에 파일을 커밋하거나 SnapLock 자동 커밋 기능을 사용하여 파일을 WORM에 자동으로 커밋할 수 있습니다. _WORM 추가 가능 파일_을 사용하여 로그 정보와 같이 점증적으로 기록된 데이터를 보존할 수 있습니다. 자세한 내용은 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap/snaplock/volume-append-mode-create-worm-appendable-files-task.html["볼륨 추가 모드를 사용하여 WORM 추가 가능 파일을 생성합니다"].
 
@@ -31,37 +27,24 @@ SnapLock는 대부분의 규정 준수 요구사항을 충족하는 데이터 �
 
 SnapLock는 NetApp ONTAP의 라이센스 기반 기능입니다. 단일 라이센스를 사용하면 SnapLock를 엄격한 규정 준수 모드로 사용하여 SEC Rule 17a-4 및 느슨한 엔터프라이즈 모드와 같은 외부 규정을 충족함으로써 디지털 자산 보호를 위해 내부적으로 규정된 규정을 준수할 수 있습니다. SnapLock 라이센스는 보안 및 규정 준수 번들의 일부입니다.
 
-SnapLock 지원 범위는 ONTAP 9 릴리즈에서 개선되었습니다. 가장 중요한 확장은 다음과 같습니다.
+SnapLock는 모든 AFF 및 FAS 시스템과 ONTAP Select에서 지원됩니다. SnapLock는 소프트웨어 전용 솔루션이 아니라 통합 하드웨어 및 소프트웨어 솔루션입니다. 이러한 차이는 SEC 17a-4와 같이 통합 하드웨어 및 소프트웨어 솔루션이 필요한 엄격한 WORM 규정에 중요합니다. 자세한 내용은 을 참조하십시오 link:https://www.sec.gov/rules/interp/34-47806.htm["SEC Interpretation: 중개업체의 전자 저장 - 딜러 기록"].
 
-스토리지 효율성: ONTAP 9.9.1부터 SnapLock은 데이터 컴팩션, 볼륨 간 중복제거, SnapLock 볼륨 및 애그리게이트를 위한 적응형 압축과 같은 스토리지 효율성 기능을 지원합니다. 스토리지 효율성에 대한 자세한 내용은 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap/volumes/index.html["CLI를 통한 논리적 스토리지 관리 개요"].
-
-FlexGroup 볼륨: ONTAP 9.11.1부터 SnapLock는 법적 증거 자료 보관, 이벤트 기반 보존 및 SnapVault용 SnapLock를 사용하는 경우를 제외하고 FlexGroup 볼륨을 지원합니다. ONTAP 9.12.1부터 SnapVault용 SnapLock는 FlexGroup 볼륨에서 지원됩니다.
-
-SnapLock WORM 스토리지는 NetApp Snapshot ™ 기술을 사용하고 SnapMirror ® 복제 및 SnapVault ® 백업을 데이터 백업 복구 보호를 위한 기본 기술로 활용할 수 있습니다.
-
-[NOTE]
-====
-System Manager를 사용하면 SnapLock 라이센스 설치, 규정 준수 시계 설정, SnapLock 애그리게이트 및 볼륨 생성, SnapLock 볼륨 구성 등의 SnapLock 작업을 수행할 수 있습니다. 기타 SnapLock 작업의 경우 SnapLock API를 사용합니다.
-
-====
 
 
 == SnapLock로 할 수 있는 일
 
-다음 작업을 완료할 수 있습니다.
+SnapLock를 구성한 후 다음 작업을 수행할 수 있습니다.
 
-* SnapLock를 구성합니다
-* 재해 복구를 위해 WORM 파일을 관리합니다
-* WORM에 파일을 커밋합니다
-* 2차 스토리지를 위해 WORM에 스냅샷 복사본 커밋
-* 재해 복구를 위해 WORM 파일을 미러링합니다
-* 법적 증거 자료 보관 을 사용하여 소송 중에 WORM 파일을 보관하십시오
-* 권한 있는 삭제 기능을 사용하여 WORM 파일을 삭제합니다
-* 파일 보존 기간을 설정합니다
-* SnapLock 볼륨을 이동합니다
-* 랜섬웨어 공격을 차단하려면 스냅샷 복사본을 잠그십시오
-* 감사 로그와 함께 SnapLock 사용을 검토합니다
-* SnapLock API 사용
+* link:https://docs.netapp.com/us-en/ontap/snaplock/commit-files-worm-state-manual-task.html["WORM에 파일을 커밋합니다"]
+* link:https://docs.netapp.com/us-en/ontap/snaplock/commit-snapshot-copies-worm-concept.html["2차 스토리지를 위해 WORM에 스냅샷 복사본 커밋"]
+* link:https://docs.netapp.com/us-en/ontap/snaplock/mirror-worm-files-task.html["재해 복구를 위해 WORM 파일을 미러링합니다"]
+* link:https://docs.netapp.com/us-en/ontap/snaplock/hold-tamper-proof-files-indefinite-period-task.html["법적 증거 자료 보관 을 사용하여 소송 중에 WORM 파일을 보관하십시오"]
+* link:https://docs.netapp.com/us-en/ontap/snaplock/delete-worm-files-concept.html["권한 있는 삭제 기능을 사용하여 WORM 파일을 삭제합니다"]
+* link:https://docs.netapp.com/us-en/ontap/snaplock/set-retention-period-task.html["파일 보존 기간을 설정합니다"]
+* link:https://docs.netapp.com/us-en/ontap/snaplock/move-snaplock-volume-concept.html["SnapLock 볼륨을 이동합니다"]
+* link:https://docs.netapp.com/us-en/ontap/snaplock/snapshot-lock-concept.html["랜섬웨어 공격을 차단하려면 스냅샷 복사본을 잠그십시오"]
+* link:https://docs.netapp.com/us-en/ontap/snaplock/create-audit-log-task.html["감사 로그와 함께 SnapLock 사용을 검토합니다"]
+* link:https://docs.netapp.com/us-en/ontap/snaplock/snaplock-apis-reference.html["SnapLock API 사용"]
 
 
 
@@ -146,7 +129,7 @@ Aggregate 또는 볼륨의 이름을 바꿉니다
  a| 
 아니요
  a| 
-예(FlexArray 가상화 사용)
+예(와 함께 link:https://docs.netapp.com/us-en/ontap-flexarray/index.html["FlexArray 가상화"])
 
 
 
@@ -180,17 +163,21 @@ Aggregate 또는 볼륨의 이름을 바꿉니다
 
 
  a| 
+암호화된 볼륨
+ a| 
+예, ONTAP 9.2부터 시작합니다. 에 대해 자세히 알아보십시오 xref:Encryption[암호화 및 SnapLock].
+ a| 
+예, ONTAP 9.2부터 시작합니다. 에 대해 자세히 알아보십시오 xref:Encryption[암호화 및 SnapLock].
+
+
+
+ a| 
 SnapLock 애그리게이트에서 Fabric으로 구성
  a| 
 아니요
  a| 
-예, ONTAP 9.8부터 시작합니다. 그러나 클라우드 관리자가 해당 데이터를 삭제할 수 있으므로 FabricPool 데이터를 퍼블릭 또는 프라이빗 클라우드로 계층화하면 SnapLock에서 더 이상 보호되지 않는다는 사실을 NetApp 어카운트 팀이 설명하는 제품 분산 요청을 개설해야 합니다.
+예, ONTAP 9.8부터 시작합니다. Xref:SnapLock 엔터프라이즈 애그리게이트 기반 FabricPool에 대해 자세히 알아보십시오.
 
-[NOTE]
-====
-FabricPool에서 퍼블릭 또는 프라이빗 클라우드로 계층화하는 데이터는 클라우드 관리자가 삭제할 수 있으므로 SnapLock에서 더 이상 보호되지 않습니다.
-
-====
 
 
  a| 
@@ -214,31 +201,9 @@ SnapLock 볼륨의 클론을 생성할 수는 있지만 SnapLock 볼륨의 파�
  a| 
 FlexGroup 볼륨
  a| 
-예. ONTAP 9.11.1부터 사용할 수 있지만 다음 기능은 지원되지 않습니다.
-
-* 법적 증거 자료 보관
-* 이벤트 기반 보존
-* SnapLock for SnapVault(ONTAP 9.12.1부터 지원됨)
-
-
-또한 다음과 같은 행동을 인지해야 합니다.
-
-* FlexGroup 볼륨의 VCC(Volume Compliance Clock)는 루트 구성 요소 VCC에 의해 결정됩니다. 모든 비루트 구성 요소들은 VCC를 루트 VCC와 긴밀히 동기화하게 됩니다.
-* SnapLock 구성 속성은 FlexGroup 전체에 대해서만 설정됩니다. 개별 구성 요소마다 기본 보존 시간 및 자동 커밋 기간과 같은 서로 다른 구성 속성을 사용할 수 없습니다.
-
+예, ONTAP 9.11.1부터 시작합니다. 에 대해 자세히 알아보십시오 xref:FlexGroup volumes[FlexGroup 볼륨에 대한 SnapLock 지원].
  a| 
-예. ONTAP 9.11.1부터 사용할 수 있지만 다음 기능은 지원되지 않습니다.
-
-* 법적 증거 자료 보관
-* 이벤트 기반 보존
-* SnapLock for SnapVault(ONTAP 9.12.1부터 지원됨)
-
-
-또한 다음과 같은 행동을 인지해야 합니다.
-
-* FlexGroup 볼륨의 VCC(Volume Compliance Clock)는 루트 구성 요소 VCC에 의해 결정됩니다. 모든 비루트 구성 요소들은 VCC를 루트 VCC와 긴밀히 동기화하게 됩니다.
-* SnapLock 구성 속성은 FlexGroup 전체에 대해서만 설정됩니다. 개별 구성 요소마다 기본 보존 시간 및 자동 커밋 기간과 같은 서로 다른 구성 속성을 사용할 수 없습니다.
-
+예, ONTAP 9.11.1부터 시작합니다. 에 대해 자세히 알아보십시오 xref:FlexGroup volumes[FlexGroup 볼륨에 대한 SnapLock 지원].
 
 
 
@@ -254,19 +219,9 @@ LUN을 클릭합니다
  a| 
 MetroCluster 구성
  a| 
-예, 다음 조건에서 가능합니다.
-
-* ONTAP 9.3부터 SnapLock 규정 준수는 미러링되지 않은 MetroCluster 애그리게이트에서 지원됩니다.
-* ONTAP 9.3부터 SnapLock 규정 준수는 미러링된 애그리게이트에서 SnapLock 감사 로그 볼륨을 호스팅하는 데 사용되는 경우에만 지원됩니다.
-* MetroCluster를 사용하여 SVM별 SnapLock 구성을 운영 사이트 및 2차 사이트에 복제할 수 있습니다.
-
+예, ONTAP 9.3부터 시작합니다. xref:MetroCluster 지원에 대해 자세히 알아보십시오.
  a| 
-예, 다음 조건에서 가능합니다.
-
-* ONTAP 9부터 SnapLock 엔터프라이즈 애그리게이트가 지원됩니다.
-* ONTAP 9.3부터는 권한이 있는 삭제 기능이 있는 SnapLock 엔터프라이즈 애그리게이트가 지원됩니다.
-* MetroCluster를 사용하여 SVM별 SnapLock 구성을 두 사이트 모두에 복제할 수 있습니다.
-
+예, ONTAP 9.3부터 시작합니다. xref:MetroCluster 지원에 대해 자세히 알아보십시오.
 
 
 
@@ -331,11 +286,63 @@ SSD를 지원합니다
  a| 
 예, ONTAP 9.1부터 사용 가능합니다.
 
+
+
+ a| 
+스토리지 효율성 기능
+ a| 
+예, ONTAP 9.9.1부터 시작합니다. 에 대해 자세히 알아보십시오 xref:Storage efficiency[스토리지 효율성 지원].
+ a| 
+예, ONTAP 9.9.1부터 시작합니다. 에 대해 자세히 알아보십시오 xref:Storage efficiency[스토리지 효율성 지원].
+
 |===
 
 
-== MetroCluster 구성 및 규정 준수 클럭
+== FabricPool on SnapLock 엔터프라이즈 애그리게이트
 
+FabricPool은 ONTAP 9.8부터 SnapLock 엔터프라이즈 애그리게이트에서 지원됩니다. 그러나 클라우드 관리자가 해당 데이터를 삭제할 수 있으므로 FabricPool 데이터를 퍼블릭 또는 프라이빗 클라우드로 계층화하면 SnapLock에서 더 이상 보호되지 않는다는 사실을 NetApp 어카운트 팀이 설명하는 제품 분산 요청을 개설해야 합니다.
+
+[NOTE]
+====
+FabricPool에서 퍼블릭 또는 프라이빗 클라우드로 계층화하는 데이터는 클라우드 관리자가 삭제할 수 있으므로 SnapLock에서 더 이상 보호되지 않습니다.
+
+====
+
+
+== FlexGroup 볼륨
+
+SnapLock는 ONTAP 9.11.1부터 FlexGroup 볼륨을 지원하지만 다음 기능은 지원되지 않습니다.
+
+* 법적 증거 자료 보관
+* 이벤트 기반 보존
+* SnapLock for SnapVault(ONTAP 9.12.1부터 지원됨)
+
+
+또한 다음과 같은 행동을 인지해야 합니다.
+
+* FlexGroup 볼륨의 VCC(Volume Compliance Clock)는 루트 구성 요소 VCC에 의해 결정됩니다. 모든 비루트 구성 요소들은 VCC를 루트 VCC와 긴밀히 동기화하게 됩니다.
+* SnapLock 구성 속성은 FlexGroup 전체에 대해서만 설정됩니다. 개별 구성 요소마다 기본 보존 시간 및 자동 커밋 기간과 같은 서로 다른 구성 속성을 사용할 수 없습니다.
+
+
+
+
+== MetroCluster 지원
+
+MetroCluster 구성에서 SnapLock 지원은 SnapLock 규정 준수 모드와 SnapLock 엔터프라이즈 모드 간에 다릅니다.
+
+.SnapLock 규정 준수
+* ONTAP 9.3부터 SnapLock 규정 준수는 미러링되지 않은 MetroCluster 애그리게이트에서 지원됩니다.
+* ONTAP 9.3부터 SnapLock 규정 준수는 미러링된 애그리게이트에서 SnapLock 감사 로그 볼륨을 호스팅하는 데 사용되는 경우에만 지원됩니다.
+* MetroCluster를 사용하여 SVM별 SnapLock 구성을 운영 사이트 및 2차 사이트에 복제할 수 있습니다.
+
+
+.SnapLock 엔터프라이즈
+* ONTAP 9부터 SnapLock 엔터프라이즈 애그리게이트가 지원됩니다.
+* ONTAP 9.3부터는 권한이 있는 삭제 기능이 있는 SnapLock 엔터프라이즈 애그리게이트가 지원됩니다.
+* MetroCluster를 사용하여 SVM별 SnapLock 구성을 두 사이트 모두에 복제할 수 있습니다.
+
+
+.MetroCluster 구성 및 규정 준수 클럭
 MetroCluster 구성에는 VCC(Volume Compliance Clock)와 SCC(System Compliance Clock)라는 두 가지 준수 클록 메커니즘이 사용됩니다. VCC 및 SCC는 모든 SnapLock 구성에 사용할 수 있습니다. 노드에 새 볼륨을 생성할 때 해당 노드에 있는 SCC의 현재 값으로 VCC가 초기화됩니다. 볼륨이 생성된 후에는 항상 VCC를 통해 볼륨 및 파일 보존 시간을 추적합니다.
 
 볼륨이 다른 사이트에 복제되면 해당 VCC도 복제됩니다. 예를 들어, 사이트 A에서 사이트 B로 볼륨 전환이 발생하면 사이트 A의 SCC가 사이트 A가 오프라인이 되면 사이트 B에서 VCC가 계속 업데이트됩니다.
@@ -344,9 +351,9 @@ MetroCluster 구성에는 VCC(Volume Compliance Clock)와 SCC(System Compliance 
 
 
 
-== 7-Mode 전환
+== 스토리지 효율성
 
-7-Mode 전환 도구의 CBT(Copy-Based Transition) 기능을 사용하여 SnapLock 볼륨을 7-Mode에서 ONTAP로 마이그레이션할 수 있습니다. 대상 볼륨의 SnapLock 모드인 Compliance 또는 Enterprise는 소스 볼륨의 SnapLock 모드와 일치해야 합니다. CFT(Copy-Free Transition)를 사용하여 SnapLock 볼륨을 마이그레이션할 수는 없습니다.
+ONTAP 9.9.1부터 SnapLock은 데이터 컴팩션, 볼륨 간 중복제거, SnapLock 볼륨 및 애그리게이트를 위한 적응형 압축과 같은 스토리지 효율성 기능을 지원합니다. 스토리지 효율성에 대한 자세한 내용은 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap/volumes/index.html["CLI를 통한 논리적 스토리지 관리 개요"].
 
 
 
@@ -361,3 +368,8 @@ ONTAP는 스토리지 미디어의 용도 변경, 반환, 잘못된 위치 변�
 ONTAP 9.2부터는 SnapLock 애그리게이트에서 암호화된 볼륨이 지원됩니다.
 
 ====
+
+
+== 7-Mode 전환
+
+7-Mode 전환 도구의 CBT(Copy-Based Transition) 기능을 사용하여 SnapLock 볼륨을 7-Mode에서 ONTAP로 마이그레이션할 수 있습니다. 대상 볼륨의 SnapLock 모드인 Compliance 또는 Enterprise는 소스 볼륨의 SnapLock 모드와 일치해야 합니다. CFT(Copy-Free Transition)를 사용하여 SnapLock 볼륨을 마이그레이션할 수는 없습니다.

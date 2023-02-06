@@ -61,7 +61,7 @@ cluster_dst::> snapmirror abort -source-path svm1:volA -destination-path svm_bac
 전체 명령 구문은 man 페이지를 참조하십시오.
 
 +
-다음 예에서는 svm1의 소스 볼륨 VolA와 sm_backup의 대상 볼륨 VolA_dst와 sm_backup의 대상 볼륨 VolA_dst 간의 관계를 다음과 같이 나눕니다.
+다음 예에서는 svm1의 소스 볼륨 VolA와 sm_backup의 대상 볼륨 VolA_dst의 관계를 나눕니다.
 
 +
 [listing]
