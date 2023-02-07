@@ -129,7 +129,7 @@ Aggregate 또는 볼륨의 이름을 바꿉니다
  a| 
 아니요
  a| 
-예(와 함께 link:https://docs.netapp.com/us-en/ontap-flexarray/index.html["FlexArray 가상화"])
+예(와 함께 link:https://docs.netapp.com/us-en/ontap-flexarray/index.html["FlexArray 가상화"^])
 
 
 
@@ -353,7 +353,7 @@ MetroCluster 구성에는 VCC(Volume Compliance Clock)와 SCC(System Compliance 
 
 == 스토리지 효율성
 
-ONTAP 9.9.1부터 SnapLock은 데이터 컴팩션, 볼륨 간 중복제거, SnapLock 볼륨 및 애그리게이트를 위한 적응형 압축과 같은 스토리지 효율성 기능을 지원합니다. 스토리지 효율성에 대한 자세한 내용은 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap/volumes/index.html["CLI를 통한 논리적 스토리지 관리 개요"].
+ONTAP 9.9.1부터 SnapLock은 데이터 컴팩션, 볼륨 간 중복제거, SnapLock 볼륨 및 애그리게이트를 위한 적응형 압축과 같은 스토리지 효율성 기능을 지원합니다. 스토리지 효율성에 대한 자세한 내용은 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap/volumes/index.html["CLI를 통한 논리적 스토리지 관리 개요"^].
 
 
 
