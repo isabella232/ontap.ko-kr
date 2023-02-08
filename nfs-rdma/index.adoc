@@ -30,6 +30,9 @@ ONTAP 9.10.1부터 RDMA 상의 NFS가 지원됩니다. RDMA 상 NFS 구성은 Me
 * 클라이언트는 Mellanox RDMA 지원 NIC 카드 및 Mellanox OFED(MOFED) 네트워크 소프트웨어를 사용해야 합니다.
 
 
+
+NOTE: RDMA 상의 NFS에서는 인터페이스 그룹이 지원되지 않습니다.
+
 .다음 단계
 * xref:./configure-nics-task.adoc[RDMA를 통해 NFS용 NIC를 구성합니다]
 * xref:./configure-lifs-task.adoc[RDMA를 통해 NFS용 LIF를 구성합니다]

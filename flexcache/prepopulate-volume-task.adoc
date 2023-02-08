@@ -20,16 +20,19 @@ FlexCache 볼륨을 미리 채워 캐시된 데이터에 액세스하는 데 걸
 
 .이 작업에 대해
 * 미리 채우기는 파일만을 읽고 디렉토리를 통과합니다
-* is-recursion 플래그는 미리 채워지도록 전달된 전체 디렉터리 목록에 적용됩니다
+* 를 클릭합니다 `-isRecursion` Flag 미리 채우기에 전달된 전체 디렉터리 목록에 적용됩니다
 
 
 .단계
 . FlexCache 볼륨을 미리 채웁니다.
 +
-'volume FlexCache prefulate-cache-vserver vserver_name-cache-volume-path-list path_list-is-recursion true|false'
+`volume flexcache prepopulate -cache-vserver vserver_name -cache-volume -path-list _path_list_ -isRecursion true|false`
 
 +
-이 예제에는 프리모집단:
+** 를 클릭합니다 `-path-list` 매개 변수는 원래 루트 디렉터리부터 시작하여 미리 채울 상대 디렉터리 경로를 나타냅니다. 예를 들어, 오리진 루트 디렉토리의 이름이 /origin이고 디렉토리 /origin/dir1 및 /origin/dir2가 포함된 경우 다음과 같이 경로 목록을 지정할 수 있습니다. `-path-list dir1, dir2` 또는 `-path-list /dir1, /dir2`.
+** 의 기본값입니다 `-isRecursion` 매개 변수는 True입니다.
++
+이 예에서는 단일 디렉토리 경로를 미리 채웁니다.
 
 +
 [listing]
@@ -39,7 +42,7 @@ cluster1::*> flexcache prepopulate start -cache-vserver vs2 -cache-volume fg_cac
 [JobId 207]: FlexCache prepopulate job queued.
 ----
 +
-이 예제에는 미리 채우기용으로 사용할 수 있는 여러 경로 목록이 포함되어 있습니다.
+다음 예제에서는 여러 디렉터리의 파일을 미리 채웁니다.
 
 +
 [listing]
@@ -47,6 +50,26 @@ cluster1::*> flexcache prepopulate start -cache-vserver vs2 -cache-volume fg_cac
 cluster1::*> flexcache prepopulate start -cache-vserver vs2 -cache-volume fg_cachevol_1 -path-list /dir1,/dir2,/dir3,/dir4
   (volume flexcache prepopulate start)
 [JobId 208]: FlexCache prepopulate job queued.
+----
++
+다음 예제에서는 단일 파일을 미리 채웁니다.
+
++
+[listing]
+----
+cluster1::*> flexcache prepopulate start -cache-vserver vs2 -cache-volume fg_cachevol_1 -path-list /dir1/file1.txt
+  (volume flexcache prepopulate start)
+[JobId 209]: FlexCache prepopulate job queued.
+----
++
+이 예제에서는 오리진에서 가져온 모든 파일을 미리 채웁니다.
+
++
+[listing]
+----
+cluster1::*> flexcache prepopulate start -cache-vserver vs2 -cache-volume fg_cachevol_1 -path-list / -isRecursion true
+  (volume flexcache prepopulate start)
+[JobId 210]: FlexCache prepopulate job queued.
 ----
 +
 이 예제에는 선행 모집단의 잘못된 경로가 포함되어 있습니다.
@@ -60,6 +83,8 @@ cluster1::*> flexcache prepopulate start -cache-volume vol_cache2_vs3_c2_vol_ori
 Error: command failed: Path(s) "dir5, dir6" does not exist in origin volume
        "vol_origin1_vs1_c1" in Vserver "vs1_c1".
 ----
+
+
 . 읽은 파일 수 표시:
 +
 job show-id job_ID-ins를 선택합니다

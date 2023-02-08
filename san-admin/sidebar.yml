@@ -227,7 +227,11 @@ entries:
   - title: 호스트 백업 시스템을 통해 LUN을 백업합니다
     url: "/san-admin/backup-lun-host-backup-system-task.html"
 - title: MetroCluster 환경의 SAN 구성입니다
-  url: "/san-admin/san-config-mcc-concept.html"
+  entries:
+  - title: 개요
+    url: "/san-admin/san-config-mcc-concept.html"
+  - title: 스위치오버와 스위치백 간에 포트가 중복되지 않도록 합니다
+    url: "/san-admin/prevent_port_overlap_between_switchover.html"
 - title: SAN 개념
   entries:
   - title: SAN 호스트 프로비저닝에 대해 설명합니다

@@ -1,0 +1,86 @@
+---
+permalink: san-admin/prevent_port_overlap_between_switchover.html 
+sidebar: sidebar 
+keywords: metrocluster environments, considerations, san configuration, metrocluster, environments, san, configurations, cisco switch, brocade switch, 
+summary: 이전 포트가 오프라인이 되고 새 포트가 온라인 상태가 될 때 중첩되지 않도록 프런트엔드 스위치를 구성할 수 있습니다. 
+---
+= 스위치오버와 스위치백 간에 포트가 중복되지 않도록 합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SAN 환경에서는 이전 포트가 오프라인이 되고 새 포트가 온라인 상태가 될 때 겹치지 않도록 프런트엔드 스위치를 구성할 수 있습니다.
+
+스위치오버 중에 정상적인 사이트의 FC 포트가 패브릭에 로그인한 후 패브릭에서 재해 사이트의 FC 포트가 오프라인이며 이름 및 디렉토리 서비스에서 이 포트를 제거했습니다.
+
+재해의 FC 포트가 아직 제거되지 않은 경우 중복 WWPN으로 인해 정상적인 사이트에서 FC 포트의 패브릭 로그인 시도가 거부될 수 있습니다. FC 스위치의 이러한 동작은 기존 디바이스가 아닌 이전 디바이스의 로그인을 사용하도록 변경할 수 있습니다. 이 동작이 다른 패브릭 디바이스에 미치는 영향을 확인해야 합니다. 자세한 내용은 스위치 공급업체에 문의하십시오.
+
+스위치 유형에 따라 올바른 절차를 선택하십시오.
+
+.단계
+[role="tabbed-block"]
+====
+.Cisco 스위치
+--
+. 스위치에 연결하고 로그인합니다.
+. 구성 모드 시작:
++
+....
+switch# config t
+switch(config)#
+....
+. 이름 서버 데이터베이스의 첫 번째 장치 항목을 새 장치로 덮어씁니다.
++
+[listing]
+----
+switch(config)# no fcns reject-duplicate-pwwn vsan 1
+----
+. NX-OS 8.x를 실행 중인 스위치에서 flogi 일시 중지 시간 초과가 0으로 설정되었는지 확인합니다.
++
+.. 일시 중지 시간 표시:
++
+`switch(config)# show flogi interval info \| i quiesce`
+
++
+....
+ Stats:  fs flogi quiesce timerval:  0
+....
+.. 이전 단계의 출력이 시간 간격이 0임을 나타내지 않으면 0으로 설정합니다.
++
+'Switch (config)#flogi scale enable'
+
++
+'스위치(config)$flogi 시간 제한 0'
+
+
+
+
+
+--
+.Brocade 스위치
+--
+. 스위치에 연결하고 로그인합니다.
+. 'witchDisable' 명령어를 입력한다.
+. configure 명령을 입력하고 프롬프트에 y를 누릅니다.
++
+....
+ F-Port login parameters (yes, y, no, n): [no] y
+....
+. 설정 1 선택:
++
+....
+- 0: First login take precedence over the second login (default)
+- 1: Second login overrides first login.
+- 2: the port type determines the behavior
+Enforce FLOGI/FDISC login: (0..2) [0] 1
+....
+. 나머지 프롬프트에 응답하거나 * Ctrl+D * 를 누릅니다.
+. 'witchEnable' 명령어를 입력한다.
+
+
+--
+====
+.관련 정보
+link:https://docs.netapp.com/us-en/ontap-metrocluster/manage/task_perform_switchover_for_tests_or_maintenance.html["테스트 또는 유지 관리를 위한 전환 수행"^]
