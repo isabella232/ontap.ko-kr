@@ -36,8 +36,18 @@ ONTAP에서 기능을 사용하면 인식하지 못하는 공간 또는 예상�
 이 관점에는 aggregate에 포함된 모든 볼륨의 볼륨 설치 공간, 애그리게이트 스냅샷 복사본에 예약된 공간, 기타 애그리게이트 메타데이터의 합계가 포함됩니다.
 
 +
+WAFL는 애그리게이트 레벨의 메타데이터 및 성능을 위해 전체 디스크 공간의 10%를 예약합니다. Aggregate에서 볼륨을 유지 관리하는 데 사용되는 공간은 WAFL 예비 공간에서 나오며 변경할 수 없습니다.
+
++
+ONTAP 9.12.1 이상부터 AFF(All Flash FAS) 및 FAS500f 플랫폼의 경우 30TB보다 큰 애그리게이트를 위한 WAFL 예비량이 10%에서 5%로 줄어들어 애그리게이트 가용 공간이 증가합니다.
+
++
 'storage aggregate show-space' 명령을 사용하면 애그리게이트의 공간 사용량을 확인할 수 있습니다.
 
 
 
 테이프 백업 및 중복 제거와 같은 특정 기능은 메타데이터의 공간을 볼륨과 애그리게이트에서 직접 사용합니다. 이러한 기능은 볼륨 및 볼륨 풋프린트의 관점에서 다양한 공간 사용을 보여줍니다.
+
+.관련 정보
+link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Space_Usage["지식 기반 문서: 공간 사용"]
+link:https://www.netapp.com/blog/free-up-storage-capacity-upgrade-ontap/["ONTAP 9.12.1로 업그레이드하여 스토리지 용량의 5%를 확보하십시오"]

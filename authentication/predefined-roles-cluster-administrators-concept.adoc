@@ -31,6 +31,43 @@ summary: 클러스터 관리자를 위한 사전 정의된 역할은 대부분�
 
 
  a| 
+Admin-no-FSA(ONTAP 9.12.1부터 사용 가능)
+ a| 
+읽기/쓰기
+ a| 
+* 모든 명령 디렉토리(기본값)
+* `security login rest-role`
+* `security login role`
+
+
+
+
+ a| 
+읽기 전용
+ a| 
+* `security login rest-role create`
+* `security login rest-role delete`
+* `security login rest-role modify`
+* `security login rest-role show`
+* `security login role create`
+* `security login role create`
+* `security login role delete`
+* `security login role modify`
+* `security login role show`
+* `volume activity-tracking`
+* `volume analytics`
+
+
+
+
+ a| 
+없음
+ a| 
+`volume file show-disk-usage`
+
+
+
+ a| 
 AutoSupport
  a| 
 모두

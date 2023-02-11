@@ -32,6 +32,8 @@ entries:
     url: "/file-system-analytics/usage-size-task.html"
   - title: 분석을 기반으로 수정 조치 수행
     url: "/task_nas_file_system_analytics_take_corrective_action.html"
+  - title: 역할 기반 액세스 제어
+    url: "/file-system-analytics/role-based-access-control-task.html"
   - title: 고려 사항
     url: "/file-system-analytics/considerations-concept.html"
 - section: error-messages

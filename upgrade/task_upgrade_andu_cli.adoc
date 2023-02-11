@@ -39,10 +39,12 @@ SupportEdge Digital Advisor의 데이터 중심 인사이트와 권장사항은 
 * 업그레이드 준비 요구 사항을 충족해야 합니다.
 * 각 HA 쌍에 대해 각 노드에는 동일한 브로드캐스트 도메인에 하나 이상의 포트가 있어야 합니다.
 +
-일괄 업그레이드 중에 노드 세트가 업그레이드되면 LIF가 HA 파트너 노드로 마이그레이션됩니다. 파트너가 동일한 브로드캐스트 도메인에 포트가 없는 경우 LIF 마이그레이션이 실패합니다.
+노드가 8개 이상인 경우 자동 무중단 업그레이드에 배치 업그레이드 방법이 사용됩니다. ONTAP 9.7 이하에서 배치 방법을 사용하면 LIF가 업그레이드 중인 노드의 HA 파트너로 마이그레이션됩니다. 파트너가 동일한 브로드캐스트 도메인에 포트가 없는 경우 LIF 마이그레이션이 실패합니다.
 
-* ONTAP 9.3에서 9.7로 업그레이드하는 경우 9.5 및 9.7용 소프트웨어 이미지를 획득해야 합니다.
-* ONTAP 9.5에서 9.9.1로 업그레이드하는 경우 9.7 및 9.9.1용 소프트웨어 이미지를 획득해야 합니다.
++
+ONTAP 9.8 이상에서는 일괄 처리 방법을 사용하면 LIF가 다른 일괄 그룹으로 마이그레이션됩니다.
+
+* 를 수행하는 경우 link:https://docs.netapp.com/us-en/ontap/upgrade/concept_upgrade_paths.html#types-of-upgrade-paths["직접 멀티 홉 업그레이드"]에 따라 필요한 올바른 ONTAP 이미지를 모두 획득해야 합니다 link:https://docs.netapp.com/us-en/ontap/upgrade/concept_upgrade_paths.html#supported-upgrade-paths["업그레이드 경로"].
 
 
 .이 작업에 대해

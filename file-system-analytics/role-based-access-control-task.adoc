@@ -1,0 +1,114 @@
+---
+permalink: file-system-analytics/role-based-access-control-task.html 
+sidebar: sidebar 
+keywords: rbac, file system analytics, control, pre-defined, admin-no-fsa 
+summary: 사용 중인 ONTAP 버전에 따라 파일 시스템 분석을 사용하기 위해 사용자 지정 RBAC 역할을 생성해야 할 수 있습니다. 
+---
+= 파일 시스템 분석을 통한 역할 기반 액세스 제어
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.12.1부터 ONTAP에는 라는 사전 정의된 역할 기반 액세스 제어(RBAC) 역할이 포함되어 있습니다 `admin-no-fsa`. 를 클릭합니다 `admin-no-fsa` 역할은 관리자 수준의 권한을 부여하지만 사용자가 와 관련된 작업을 수행할 수 없습니다 `files` ONTAP CLI, REST API 및 System Manager의 엔드포인트(예: 파일 시스템 분석)
+
+에 대한 자세한 내용은 를 참조하십시오 `admin-no-fsa` 역할, 을 참조하십시오 xref:../authentication/predefined-roles-cluster-administrators-concept.html[클러스터 관리자를 위한 사전 정의된 역할].
+
+ONTAP 9.12.1 이전 버전의 ONTAP를 사용하는 경우 파일 시스템 분석에 대한 액세스를 제어하는 전용 역할을 만들어야 합니다. ONTAP 9.12.1 이전의 ONTAP 버전에서는 ONTAP CLI 또는 ONTAP REST API를 통해 RBAC 권한을 구성해야 합니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+ONTAP 9.12.1부터는 System Manager를 사용하여 파일 시스템 분석에 대한 RBAC 권한을 구성할 수 있습니다.
+
+.단계
+. 클러스터 > 설정 * 을 선택합니다. Security * 에서 * Users and Roles * 로 이동한 후 를 선택합니다 image:icon_arrow.gif["화살표 아이콘"].
+. 역할 * 에서 을 선택합니다 image:icon_add.gif["추가 아이콘"].
+. 역할의 이름을 지정하십시오. 역할 속성 에서 적절한 를 제공하여 사용자 역할에 대한 액세스 또는 제한을 구성합니다 link:https://docs.netapp.com/us-en/ontap-automation/reference/api_reference.html#access-the-ontap-api-documentation-page["API 엔드포인트"^]. File System Analytics 액세스 또는 제한을 구성하기 위한 기본 경로 및 보조 경로는 아래 표를 참조하십시오.
++
+|===
+| 제한 | 기본 경로 | 보조 경로 
+
+
+| 볼륨의 활동 추적 | `/api/storage/volumes`  a| 
+** `/_:uuid_/top-metrics/directories`
+** `/_:uuid_/top-metrics/files`
+** `/_:uuid_/top-metrics/clients`
+** `/_:uuid_/top-metrics/users`
+
+
+
+
+| SVM에서 활동 추적 | `/api/svm/svms`  a| 
+** `/_:uuid_/top-metrics/directories`
+** `/_:uuid_/top-metrics/files`
+** `/_:uuid_/top-metrics/clients`
+** `/_:uuid_/top-metrics/users`
+
+
+
+
+| 모든 파일 시스템 분석 작업 | `/api/storage/volumes` | `/_:uuid_/files` 
+|===
++
+을 사용할 수 있습니다 `/{asterisk}/` 엔드포인트에서 모든 볼륨 또는 SVM에 대한 정책을 설정할 UUID가 아닌
+
++
+각 엔드포인트에 대한 액세스 권한을 선택합니다.
+
+. 저장 * 을 선택합니다.
+. 사용자 또는 사용자에게 역할을 할당하려면 을 참조하십시오 xref:../task_security_administrator_access.html[관리자 액세스 제어].
+
+
+--
+.CLI를 참조하십시오
+--
+ONTAP 9.12.1 이전 버전의 ONTAP를 사용하는 경우 ONTAP CLI를 사용하여 사용자 지정 역할을 만듭니다.
+
+.단계
+. 모든 기능에 액세스할 수 있는 기본 역할을 만듭니다.
++
+이 작업은 제한된 역할을 생성하기 전에 수행해야 하며, 해당 역할이 활동 추적에서만 제한적인지 확인해야 합니다.
+
++
+'Security login role create-cmddirname default-access all-role StorageAdmin
+
+. 제한적인 역할 생성:
++
+보안 로그인 역할 create-cmddirname "volume file show-disk-usage" -access none-role StorageAdmin"
+
+. SVM의 웹 서비스에 액세스할 수 있는 역할 승인:
++
+** REST API 호출의 경우 'st'입니다
+** 암호 보호를 위한 보안
+** System Manager 액세스를 위한 sysmgr입니다
++
+'vserver services web access create-vserver_svm-name_-name rest-role StorageAdmin'
+
++
+'vserver services web access create-vserver_svm-name_-name security-role StorageAdmin'
+
++
+'vserver services web access create-vserver_svm-name_-name sysmgr-role StorageAdmin'
+
+
+
+. 사용자를 생성합니다.
++
+사용자에게 적용하려는 각 응용 프로그램에 대해 고유한 create 명령을 실행해야 합니다. 같은 사용자에 대해 여러 번 만들기 를 호출하면 해당 사용자에게 모든 응용 프로그램이 적용되고 매번 새 사용자가 작성되지는 않습니다. 애플리케이션 유형에 대한 http 파라미터는 ONTAP REST API와 System Manager에 적용된다.
+
++
+보안 로그인 create-user-or-group-name storageUser-authentication-method password-application http-role StorageAdmin
+
+. 새로운 사용자 자격 증명을 사용하여 System Manager에 로그인하거나 ONTAP REST API를 사용하여 파일 시스템 분석 데이터에 액세스할 수 있습니다.
+
+
+--
+====
+.추가 정보
+* xref:../authentication/predefined-roles-cluster-administrators-concept.html[클러스터 관리자를 위한 사전 정의된 역할^]
+* xref:../task_security_administrator_access.html[System Manager^를 사용하여 관리자 액세스 제어]
+* link:https://docs.netapp.com/us-en/ontap-automation/rest/rbac_overview.html["RBAC 역할 및 ONTAP REST API에 대해 자세히 알아보십시오"^]
+
