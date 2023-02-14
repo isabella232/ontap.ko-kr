@@ -33,7 +33,7 @@ NOTE: WORM 상태로 커밋된 스냅샷 복사본의 이름은 변경할 수 �
 SnapLock 볼륨의 클론을 생성할 수는 있지만 SnapLock 볼륨의 파일은 복제할 수 없습니다.
 
 
-NOTE: LUN은 SnapLock 볼륨에서 지원되지 않습니다. 기존 기술을 사용하여 SnapLock 볼륨으로 LUN을 이동할 수는 있지만 이 작업은 지원되지 않으며 SnapLock 볼륨에 LUN을 포함하는 다른 작업은 지원되지 않습니다.
+NOTE: LUN은 SnapLock 볼륨에서 지원되지 않습니다. 기존 기술을 사용하여 SnapLock 볼륨으로 LUN을 이동할 수는 있지만 이 작업은 지원되지 않으며 SnapLock 볼륨에 LUN을 포함하는 다른 작업은 지원되지 않습니다. ONTAP 9.9.0부터 SnapLock 볼륨의 LUN은 비 SnapLock 소스 볼륨의 스냅샷 복사본이 복제되고 SnapLock 대상에서 잠기는 SnapVault 관계에 대해 SnapLock_OVJOVJPY_에서 지원됩니다. 이러한 스냅샷 복사본에는 LUN이 포함될 수 있습니다.
 
 MetroCluster 구성의 경우 다음 사항에 유의해야 합니다.
 

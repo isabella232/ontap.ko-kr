@@ -25,10 +25,10 @@ FlexGroup 재조정의 작동 방식과 이 기능이 다른 ONTAP 기능과 어
 
 * FlexVol에서 FlexGroup로의 변환
 +
-FlexVol to FlexGroup 변환 후 자동 FlexGroup 재조정을 _NOT_사용할 것을 권장합니다. 대신 을 입력하여 ONTAP 9.10.1 이상에서 사용할 수 있는 중단 소급 파일 이동 기능을 사용할 수 있습니다 `volume rebalance file-move` 명령. 명령 구문은 을 참조하십시오 `volume rebalance file-move start` Man 페이지.
+FlexVol to FlexGroup 변환 후 자동 FlexGroup 재조정을 _NOT_사용하는 것이 좋습니다. 대신 을 입력하여 ONTAP 9.10.1 이상에서 사용할 수 있는 중단 소급 파일 이동 기능을 사용할 수 있습니다 `volume rebalance file-move` 명령. 명령 구문은 을 참조하십시오 `volume rebalance file-move start` Man 페이지.
 
 +
-재조정으로 인해 많은 수의 경우 성능이 저하될 수 있는 멀티파트 inode가 생성됩니다. 변환 시 FlexVol 볼륨의 데이터 중 약 50-85%가 새 구성요소로 이동되어 해당 파일에 대해 여러 개의 멀티파트 inode가 생성됩니다.
+무중단 소급 파일 이동 기능을 사용하여 재조정하면 FlexVol에서 FlexGroup로의 전환을 수행할 때와 같이 많은 수의 파일을 이동할 때 성능을 저하시킬 수 있으며 FlexVol 볼륨의 데이터 중 50%~85%가 새 구성요소에서 이동합니다.
 
 * 최소 및 최대 파일 크기입니다
 +

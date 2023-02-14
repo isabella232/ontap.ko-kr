@@ -51,16 +51,14 @@ indexpage:
     links:
     - title: 개요
       url: "/../consistency-groups/index.html"
+    - title: 제한
+      url: "/../consistency-groups/limits.html"
     - title: 정합성 보장 그룹을 구성합니다
       url: "/../consistency-groups/configure-task.html"
-    - title: 데이터 보호
+    - title: 일관성 그룹 보호
       url: "/../consistency-groups/protect-task.html"
     - title: SnapMirror 비즈니스 연속성 개요
       url: "/../concept_san_smbc_overview.html"
-    - title: System Manager를 이용한 구축
-      url: "/../task_san_configure_protection_for_business_continuity.html"
-    - title: CLI를 사용한 구축
-      url: "/../smbc/smbc_install_high_level_deployment_workflow.html"
   - title: SnapMirror 클라우드
     links:
     - title: SnapMirror 클라우드 라이센스

@@ -1,10 +1,10 @@
 ---
 section: consistency-groups
-title: 정합성 보장 그룹 관리
+title: 일관성 그룹 관리
 entries:
 - title: 개요
   url: "/consistency-groups/index.html"
-- title: 개체 제한
+- title: 정합성 보장 그룹 제한
   url: "/consistency-groups/limits.html"
 - title: 단일 일관성 그룹을 구성합니다
   url: "/consistency-groups/configure-task.html"
