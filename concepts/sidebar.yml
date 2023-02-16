@@ -76,6 +76,8 @@ entries:
     url: "/concepts/deduplication-concept.html"
   - title: 압축
     url: "/concepts/compression-concept.html"
+  - title: System Manager의 용량 측정
+    url: "/concepts/capacity-measurements-in-sm-concept.html"
   - title: FlexClone 볼륨, 파일 및 LUN을 사용할 수 있습니다
     url: "/concepts/flexclone-volumes-files-luns-concept.html"
 - title: 보안

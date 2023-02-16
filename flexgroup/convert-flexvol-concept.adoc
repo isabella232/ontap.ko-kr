@@ -51,7 +51,6 @@ FlexVol 볼륨을 FlexGroup 볼륨으로 변환하기 전에 지원되는 기능
 
 * 오프라인 또는 제한된 볼륨
 * SVM 루트 볼륨
-* SnapLock 볼륨
 * 산
 * SMB 1.0
 * NVMe 네임스페이스
