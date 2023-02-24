@@ -14,9 +14,10 @@ summary: ONTAP 9.6부터 FlexGroup 볼륨의 크기를 현재 크기보다 작�
 ONTAP 9.6부터 FlexGroup 볼륨의 크기를 현재 크기보다 작은 값으로 조정하여 볼륨에서 사용되지 않는 공간을 확보할 수 있습니다. FlexGroup 볼륨의 크기를 줄일 경우 ONTAP는 모든 FlexGroup 구성요소의 크기를 자동으로 조정합니다.
 
 .단계
-. FlexGroup 볼륨의 크기를 줄입니다: 'volume size - vserver vserver_name - volume fg_name - size new_size'
+. 현재 FlexGroup 볼륨 크기 확인: 'volume size - vserver_vserver_name_-volume_fg_name_'
+. FlexGroup 볼륨의 크기를 줄입니다. `volume size -vserver _vserver_name_ -volume _fg_name_ _new_size_`
 +
-new_size는 FlexGroup 볼륨의 크기입니다. 현재 크기보다 작은 값을 지정하거나 FlexGroup 볼륨의 현재 크기를 줄이는 음수 값을 지정할 수 있습니다.
+새 크기를 지정할 때 FlexGroup 볼륨의 현재 크기가 축소되는 빼기 기호(-)를 사용하여 현재 크기보다 작은 값 또는 음수 값을 지정할 수 있습니다.
 
 +
 [NOTE]
@@ -25,13 +26,31 @@ new_size는 FlexGroup 볼륨의 크기입니다. 현재 크기보다 작은 값�
 
 ====
 +
-[listing]
-----
-cluster1::> volume size -vserver svm1 -volume volX -size 10TB
-----
+다음 예에서는 volX라는 FlexGroup 볼륨의 현재 볼륨 크기를 표시하고 볼륨을 10TB로 조정합니다.
+
 +
 [listing]
 ----
-cluster1::> volume size -vserver svm1 -volume volX -size -5TB
+cluster1::> volume size -vserver svm1 -volume volX
+(volume size)
+vol size: FlexGroup volume 'svm1:volX' has size 15TB.
+
+cluster1::> volume size -vserver svm1 -volume volX 10TB
+(volume size)
+vol size: FlexGroup volume 'svm1:volX' size set to 10TB.
+----
++
+다음 예에서는 volX라는 FlexGroup 볼륨의 현재 볼륨 크기를 표시하고 볼륨의 크기를 5TB까지 줄여 줍니다.
+
++
+[listing]
+----
+cluster1::> volume size -vserver svm1 -volume volX
+(volume size)
+vol size: FlexGroup volume 'svm1:volX' has size 15TB.
+
+cluster1::> volume size -vserver svm1 -volume volX -5TB
+(volume size)
+vol size: FlexGroup volume 'svm1:volX' size set to 10TB.
 ----
 
