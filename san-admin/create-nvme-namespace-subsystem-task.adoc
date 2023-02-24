@@ -97,17 +97,3 @@ NVMe 서브시스템은 Subsystem 열에 표시되어야 한다.
 
 --
 ====
-
-
-== NVMe 하위 시스템 정보
-
-NVMe 하위 시스템에는 하나 이상의 컨트롤러, 하나 이상의 네임스페이스, 하나 이상의 비휘발성 메모리(NVM) 하위 시스템 포트(FC-NVMe 또는 RDMA 전송 포트), NVM 스토리지 미디어, 컨트롤러와 NVM 스토리지 미디어 간의 인터페이스가 포함됩니다. 컨트롤러 매핑 및 관리를 위해 NVM 하위 시스템은 ONTAP의 가상 서버에 매핑됩니다.
-
-NVMe over Fabric(NVMeoF) 하위 시스템은 FreeBSD 커널에 상주하는 별도의 커널 개체입니다. NVMeoF 서브시스템은 다음 구성 요소와 연결됩니다.
-
-* BCOMKA, FCT 및 VDOM과 같은 SAN 구성 요소
-* WAFL
-* CM, ASUP, EMS 등의 RAS 구성 요소
-
-
-NVMeoF 서브시스템이 있는 모든 인터페이스는 ONTAP에 있는 현재 정의 및 패턴을 따릅니다.

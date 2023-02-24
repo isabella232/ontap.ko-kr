@@ -25,7 +25,7 @@ AFF 시스템에서 추가 용량이 필요하거나, 비 AFF 시스템에서 AW
 
 
 
-* ONTAP에서 AWS S3 오브젝트 서버에 연결하는 데 사용하는 LIF는 10Gbps 포트에 있어야 합니다.
+* ONTAP에서 사용하는 LIF는 AWS S3 오브젝트 서버에 연결하는 데 10Gbps 포트를 사용하는 것이 좋습니다.
 * AFF 및 FAS 시스템과 ONTAP Select에서 FabricPool은 다음과 같은 Amazon S3 스토리지 클래스를 지원합니다.
 +
 ** Amazon S3 Standard
