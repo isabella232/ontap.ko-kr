@@ -127,7 +127,7 @@ cluster1> volume snapshot policy create -policy policy_name -enabled true -sched
 .수동 스냅샷 복사본 생성 중에 보존 기간을 적용합니다
 . 스냅샷 복사본을 수동으로 생성하고 잠금 보존 기간을 적용하려면 다음 명령을 입력합니다.
 +
-`volume snapshot create -volume _volume_name_ -snapshot _snapshot_copy_name_ -expiry-time _expiration_date_time_`
+`volume snapshot create -volume _volume_name_ -snapshot _snapshot_copy_name_ -snaplock-expiry-time _expiration_date_time_`
 
 +
 다음 명령을 실행하면 새 스냅샷 복사본이 생성되고 보존 기간이 설정됩니다.
