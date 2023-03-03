@@ -35,7 +35,7 @@ ONTAP 버전에 따라 NetApp Support 사이트에서 네트워크의 HTTP, HTTP
 
 
 .단계
-. 에서 대상 ONTAP 소프트웨어를 찾습니다 link:http://mysupport.netapp.com/NOW/cgi-bin/software["소프트웨어 다운로드"] NetApp Support 사이트의 영역입니다.
+. 에서 대상 ONTAP 소프트웨어를 찾습니다 link:https://mysupport.netapp.com/site/products/all/details/ontap9/downloads-tab["소프트웨어 다운로드"] NetApp Support 사이트의 영역입니다.
 +
 ONTAP Select 업그레이드의 경우 * ONTAP Select 노드 업그레이드 * 를 선택합니다.
 
