@@ -28,7 +28,7 @@ System Manager를 사용하면 디스크, 디스크 쉘프, 서비스 프로세�
 원활한 펌웨어 업데이트를 준비하려면 업데이트를 시작하기 전에 SP 또는 BMC를 재부팅해야 합니다.
 
 .단계
-. 업그레이드 전에 SP 또는 BMC를 재부팅합니다. `system service-processor reboot-sp -node node_name`
+. 업데이트하기 전에 SP 또는 BMC를 재부팅합니다. `system service-processor reboot-sp -node node_name`
 
 
 
