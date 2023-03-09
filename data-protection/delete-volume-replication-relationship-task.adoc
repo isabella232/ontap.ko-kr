@@ -26,7 +26,7 @@ summary: SnapMirror 삭제 및 SnapMirror 릴리즈 명령을 사용하여 볼�
 ----
 cluster_dst::> snapmirror quiesce -destination-path svm_backup:volA_dst
 ----
-. 복제 관계 중단:
+. (선택 사항) 대상 볼륨이 읽기/쓰기 볼륨이어야 하는 경우 복제 관계를 끊으십시오. 대상 볼륨을 삭제할 계획이거나 읽기/쓰기가 필요한 볼륨이 없는 경우 이 단계를 건너뛸 수 있습니다.
 +
 '스냅샷 break-source-path SVM: volume | cluster://SVM/volume, … m. s.-destination-path SVM: volume|cluster://SVM/volume, … s.
 
