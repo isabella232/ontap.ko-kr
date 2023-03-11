@@ -7,7 +7,7 @@ indexpage:
       url: "/../concept_security_overview.html"
     - title: 인증 및 RBAC 개요
       url: "/../authentication/index.html"
-    - title: 랜섬웨어 방지 개요
+    - title: 자율 랜섬웨어 보호 개요
       url: "/../anti-ransomware/index.html"
     - title: 바이러스 백신 개요
       url: "/../antivirus/index.html"

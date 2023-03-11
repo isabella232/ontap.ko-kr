@@ -12,13 +12,12 @@ summary: ONTAP 설명서 페이지에서는 ONTAP CLI 명령을 사용하는 방
 
 
 [role="lead"]
-ONTAP 설명서 페이지에서는 ONTAP CLI 명령을 사용하는 방법을 설명합니다. man 페이지는 man 명령으로 ONTAP 명령줄에서 사용할 수 있습니다.
+주요 ONTAP 릴리즈마다 일반적으로 사용할 수 있는 CLI 명령(ONTAP 수동 페이지 또는 man 페이지)이 _command reference_에 번들로 제공됩니다. 이러한 명령 참조는 각 ONTAP 릴리즈에서 CLI 명령을 사용하는 방법을 설명합니다. man 페이지는 와 함께 ONTAP 명령줄에서도 사용할 수 있습니다 `man` 명령.
 
 
 
-== 버전별 명령 참조
+== 지원되는 ONTAP 버전에 대한 명령 참조입니다
 
-.지원되는 ONTAP 버전
 * link:https://docs.netapp.com/us-en/ontap-cli-9121/index.html["ONTAP 9.12.1"^]
 * link:https://docs.netapp.com/us-en/ontap-cli-9111/index.html["ONTAP 9.11.1"^]
 * link:https://docs.netapp.com/us-en/ontap-cli-9101/index.html["ONTAP 9.10.1"^]
@@ -30,9 +29,10 @@ ONTAP 설명서 페이지에서는 ONTAP CLI 명령을 사용하는 방법을 �
 * link:https://docs.netapp.com/us-en/ontap-cli-93/index.html["ONTAP 9.3"^]
 
 
-제한된 지원 기능을 통해 ONTAP 버전에 대한 명령 참조는 PDF로 제공됩니다.
 
-.보관된 명령 참조
+
+== 제한된 ONTAP 지원 버전에 대한 명령 참조(PDF만 해당)
+
 * link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2843631["ONTAP 9.4"^]
 * link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2674477["ONTAP 9.2"^]
 * link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2573244["ONTAP 9.1"^]
@@ -43,7 +43,7 @@ ONTAP 설명서 페이지에서는 ONTAP CLI 명령을 사용하는 방법을 �
 
 == CLI 비교 툴
 
-의 CLI 비교 툴을 사용하여 ONTAP 릴리즈 간에 CLI(Command-Line Interface) 명령의 변경 사항을 확인할 수 있습니다 link:https://mysupport.netapp.com/site/info/cli-comparison["NetApp Support 사이트"^].
+을 사용하여 ONTAP 릴리스 간에 CLI(Command-Line Interface) 명령의 변경 사항을 확인할 수 있습니다 link:https://mysupport.netapp.com/site/info/cli-comparison["CLI 비교 도구"^] 를 방문하십시오.
 
 .추가 참고 자료
 * xref:../system-admin/command-line-interface-concept.html[ONTAP 명령줄 인터페이스를 사용합니다]
