@@ -36,7 +36,7 @@ entries:
   - title: 검색, 필터링 및 정렬
     url: "/task_admin_search_filter_sort.html"
   - title: 용량 측정
-    url: "/concept_capacity_measurements_in_sm.html"
+    url: "/concepts/capacity-measurements-in-sm-concept.html"
 - section: volumes
 - title: System Manager를 사용하여 FlexGroup 볼륨 관리
   url: "/task_nas_provision_flexgroup.html"
