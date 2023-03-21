@@ -15,17 +15,15 @@ NFS 구성 워크시트를 사용하면 클라이언트에 대한 NFS 액세스�
 
 스토리지 용량 할당 위치에 대한 결정에 따라 워크시트의 섹션 중 하나 또는 두 섹션을 모두 완료해야 합니다.
 
-* SVM에 대한 NFS 액세스를 구성하는 경우 두 섹션을 모두 완료해야 합니다.
-+
-link:worksheet-reference.html#configuring-nfs-access-to-an-svm["SVM에 대한 NFS 액세스 구성"]
+SVM에 대한 NFS 액세스를 구성하는 경우 두 섹션을 모두 완료해야 합니다.
 
-+
-link:worksheet-reference.html#adding-storage-capacity-to-an-nfs-enabled-svm["NFS 지원 SVM에 스토리지 용량 추가"]
+* SVM에 대한 NFS 액세스 구성
+* NFS 지원 SVM에 스토리지 용량 추가
 
-* NFS 지원 SVM에 스토리지 용량을 추가하려면 두 번째 섹션만 완료해야 합니다.
-+
-link:worksheet-reference.html#adding-storage-capacity-to-an-nfs-enabled-svm["NFS 지원 SVM에 스토리지 용량 추가"]
 
+NFS 지원 SVM에 스토리지 용량을 추가하는 경우 다음 작업만 완료해야 합니다.
+
+* NFS 지원 SVM에 스토리지 용량 추가
 
 
 매개 변수에 대한 자세한 내용은 명령 man 페이지를 참조하십시오.

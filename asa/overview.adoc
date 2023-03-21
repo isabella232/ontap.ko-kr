@@ -33,7 +33,7 @@ link:http://www.netapp.com/us/media/tr-4515.pdf["NetApp 기술 보고서 4515: O
 
 모든 SAN 어레이(ASA)는 비 ASA 시스템과 동일한 설정 절차를 따릅니다.
 
-System Manager는 클러스터를 초기화하고, 로컬 계층을 생성하고, 프로토콜을 구성하고, ASA에 대한 스토리지를 프로비저닝하는 데 필요한 절차를 안내합니다. 의 단계를 참조하십시오 xref:task_configure_ontap.html[ONTAP를 구성합니다].
+System Manager는 클러스터를 초기화하고, 로컬 계층을 생성하고, 프로토콜을 구성하고, ASA에 대한 스토리지를 프로비저닝하는 데 필요한 절차를 안내합니다. 의 단계를 참조하십시오 xref:../software_setup/concept_decide_whether_to_use_ontap_cli.html[ONTAP를 구성합니다].
 
 
 

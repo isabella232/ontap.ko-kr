@@ -62,7 +62,7 @@ ONTAP REST API에 대한 자세한 내용은 를 참조하십시오 https://docs
 
 NOTE: NAS 액세스를 위해 마운트된 볼륨에 SM-BC 관계를 설정할 수 없습니다.
 
-ONTAP 9.11.1부터 정합성 보장 그룹도 지원합니다 link:protect-task.html#two-phase-CG-snapshot-creation["2단계 정합성 보장 그룹 스냅샷 생성"].
+ONTAP 9.11.1부터 정합성 보장 그룹도 지원합니다 link:protect-task.html#two-phase["2단계 정합성 보장 그룹 스냅샷 생성"].
 
 
 

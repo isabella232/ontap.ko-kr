@@ -73,6 +73,6 @@ ONTAP에는 지원되는 권한이 미리 정의되어 있습니다. 미리 정�
 
 |===
 .관련 정보
-xref:manage-local-privileges-concept.adoc[로컬 권한 관리]
+* xref:assign-privileges-concept.adoc[로컬 권한을 할당합니다]
+* xref:configure-bypass-traverse-checking-concept.adoc[통과 확인 우회 구성]
 
-xref:configure-bypass-traverse-checking-concept.adoc[통과 확인 우회 구성]

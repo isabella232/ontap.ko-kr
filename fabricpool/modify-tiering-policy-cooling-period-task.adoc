@@ -34,7 +34,7 @@ link:tiering-policies-concept.html#what-happens-when-you-modify-the-tiering-poli
 ** 모두
 ** "없음"
 +
-link:tiering-policies-concept.html#types-of-fabricPool-tiering-policies["FabricPool 계층화 정책의 유형입니다"]
+link:tiering-policies-concept.html#types-of-fabricpool-tiering-policies["FabricPool 계층화 정책의 유형입니다"]
 
 
 

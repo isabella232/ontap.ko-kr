@@ -34,6 +34,5 @@ summary: 이니시에이터 목록과 해당 인증 방법을 정의할 수 있�
 
 .관련 정보
 * xref:iscsi-authentication-concept.adoc[iSCSI 인증의 작동 방식]
-* xref:using-chap-authentication-concept.adoc[CHAP 인증 사용에 대한 지침입니다]
 * xref:chap-authentication-concept.adoc[CHAP 인증입니다]
 

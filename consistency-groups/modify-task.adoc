@@ -20,7 +20,7 @@ ONTAP 9.12.1부터는 볼륨을 제거하거나 기존 볼륨을 추가하여(�
 .고려 사항
 * 다른 일관성 그룹에 연결된 볼륨은 추가할 수 없습니다.
 * 일관성 그룹은 NAS, SAN 및 NVMe 프로토콜을 지원합니다. 일관성 그룹에 대한 자세한 내용은 를 참조하십시오 xref:index.html[일관성 그룹 개요].
-* 조정이 전체 내에 있는 경우 일관성 그룹에 한 번에 최대 16개의 볼륨을 추가할 수 있습니다 xref:index.html#consistency-group-object-limits[정합성 보장 그룹 제한].
+* 조정이 전체 내에 있는 경우 일관성 그룹에 한 번에 최대 16개의 볼륨을 추가할 수 있습니다 xref:limits.html[정합성 보장 그룹 제한].
 * SM-BC(SnapMirror Business Continuity) 관계에서 일관성 그룹에 볼륨을 추가할 수 없습니다. 정합성 보장 그룹을 수정하려면 먼저 SM-BC 관계를 해제해야 합니다.
 * ONTAP REST API는 _ new _ 또는 기존 볼륨을 일관성 그룹에 추가할 수 있도록 지원합니다. ONTAP REST API에 대한 자세한 내용은 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap-automation/reference/api_reference.html#access-a-copy-of-the-ontap-rest-api-reference-documentation["ONTAP REST API 참조 설명서"^].
 * 일관성 그룹을 확장할 경우 확장 작업 전에 캡처된 일관성 그룹의 스냅샷 복사본은 부분적으로 간주됩니다. 해당 스냅샷 복제본을 기반으로 하는 모든 복구 작업은 스냅샷 시점의 정합성 보장 그룹을 반영합니다.

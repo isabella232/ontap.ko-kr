@@ -11,14 +11,4 @@ summary: SnapLock를 사용하기 전에 여러 구성 작업을 수행해야 �
 
 
 [role="lead"]
-SnapLock를 사용하기 전에 다음 작업을 완료하여 SnapLock를 구성해야 합니다.
-
-. link:https://docs.netapp.com/us-en/ontap/snaplock/install-license-task.html["SnapLock 라이센스를 설치합니다"].
-. link:https://docs.netapp.com/us-en/ontap/snaplock/initialize-complianceclock-task.html["규정 준수 시계를 초기화하여 변조를 방지합니다"].
-. link:https://docs.netapp.com/us-en/ontap/snaplock/create-snaplock-aggregate-task.html["SnapLock Aggregate를 생성합니다"] (ONTAP 9.10.1 이전 버전에만 해당).
-. link:https://docs.netapp.com/us-en/ontap/snaplock/create-snaplock-volume-task.html["SnapLock 볼륨을 생성합니다"].
-. link:https://docs.netapp.com/us-en/ontap/snaplock/mount-snaplock-volume-task.html["SnapLock 볼륨을 마운트합니다"].
-. link:https://docs.netapp.com/us-en/ontap/snaplock/set-retention-period-task.htm["기본값을 사용하거나 명시적으로 설정하여 보존 시간을 설정합니다"].
-. link:https://docs.netapp.com/us-en/ontap/snaplock/create-audit-log-task.html["감사 로그를 생성합니다"].
-. link:https://docs.netapp.com/us-en/ontap/snaplock/verify-file-volume-settings-file-fingerprint-task.html["SnapLock 설정을 확인합니다"].
-
+SnapLock를 사용하기 전에 SnapLock 라이센스 설치, 준수 클럭 초기화, SnapLock 집계 생성 등 다양한 작업을 수행하여 SnapLock를 구성해야 합니다.
