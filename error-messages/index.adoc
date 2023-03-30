@@ -11,24 +11,10 @@ summary: '중요한 EMS(이벤트 관리 시스템) 이벤트 알림을 전자 �
 
 
 [role="lead"]
-중요한 EMS(이벤트 관리 시스템) 이벤트 알림을 이메일 주소, syslog 서버, SNMP(Simple Management Network Protocol) 트라프호스트 또는 REST API 서버로 직접 보내도록 ONTAP 9를 빠르게 구성할 수 있으므로 즉각적인 주의가 필요한 시스템 문제를 즉시 알 수 있습니다.
+즉각적인 주의가 필요한 시스템 문제를 즉시 알 수 있도록 중요한 EMS(이벤트 관리 시스템) 이벤트 알림을 이메일 주소, syslog 서버, SNMP(Simple Management Network Protocol) 트라프호스트 또는 웹후크 애플리케이션에 직접 보내도록 ONTAP 9를 구성할 수 있습니다.
 
-시스템에서 가장 중요한 작업을 모니터링하려면 중요한 EMS 이벤트를 모니터링해야 합니다.
+중요 이벤트 알림은 기본적으로 활성화되어 있지 않으므로 이메일 주소, syslog 서버, SNMP traphost 또는 webhook 애플리케이션에 알림을 보내도록 EMS를 구성해야 합니다.
 
-중요 이벤트 알림은 기본적으로 활성화되어 있지 않으므로 e-메일 주소, syslog 서버, SNMP traphost 또는 REST API 서버로 알림을 보내도록 EMS를 구성해야 합니다.
+의 릴리스 특정 버전을 검토합니다 link:https://docs.netapp.com/us-en/ontap-ems-9121/["ONTAP 9 EMS 참조"^].
 
-다음과 같은 경우 중요한 이벤트에 대한 EMS 이벤트 알림을 구성합니다.
-
-* 다음 시나리오 중 하나를 구현하고 있습니다.
-+
-** EMS가 구성되지 않은 ONTAP 9를 실행하는 새 시스템을 설정하는 중입니다.
-** EMS가 구성되지 않은 ONTAP 9를 실행하는 기존 시스템이 있습니다.
-** EMS가 구성되지 않은 ONTAP 9로 업그레이드하는 중입니다.
-** 방금 7-Mode에서 운영되는 Data ONTAP을 ONTAP 9로 전환했습니다.
-
-
-* 사용 가능한 모든 옵션을 탐색하는 것이 아니라 모범 사례를 사용하려고 합니다.
-* 많은 개념적 배경을 읽고 싶지 않습니다.
-
-
-이 페이지의 추가 리소스 아래에서 EMS 이벤트 카탈로그를 찾을 수 있습니다. link:https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=62286["ONTAP 9 제품 라이브러리"^]. 을 참조하십시오 xref:convert-ems-routing-to-notifications-task.html[레거시 이벤트 경로 기반 라우팅을 이벤트 알림으로 변환합니다] 알림 기반 모델 변환을 수행하는 방법에 대한 자세한 내용은 를 참조하십시오. 를 참조할 수도 있습니다 link:https://docs.netapp.com/us-en/ontap-ems-9121/["EMS 참조"^].
+EMS 이벤트 매핑에 사용되지 않는 ONTAP 명령 집합(예: 이벤트 대상, 이벤트 경로)을 사용하는 경우 매핑을 업데이트하는 것이 좋습니다. link:https://docs.netapp.com/us-en/ontap/error-messages/convert-ems-routing-to-notifications-task.html["사용되지 않는 ONTAP 명령에서 EMS 매핑을 업데이트하는 방법을 알아보십시오"^].
