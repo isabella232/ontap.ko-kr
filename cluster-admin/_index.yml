@@ -20,7 +20,7 @@ indexpage:
     - title: 디스크를 관리합니다
       url: "/../disks-aggregates/manage-disks-overview-concept.html"
     - title: RAID 구성을 관리합니다
-      url: "/../disks-aggregates/manage-raid-config-overview-concept.html"
+      url: "/../disks-aggregates/manage-raid-configs-overview-concept.html"
     - title: Flash Pool 계층 관리
       url: "/../disks-aggregates/manage-flash-pool-tiers-overview-concept.html"
     - title: FabricPool 클라우드 계층 관리

@@ -132,6 +132,9 @@ SnapMirror 소스를 마이그레이션한 경우 ONTAP는 이후에 SnapMirror 
 | NFS v3, NFS v4.1 및 NFS v4.2 프로토콜 | 예 | 예 | 예 |  
 
 
+| NFS v4.0 프로토콜 | 아니요 | 아니요 | 예 |  
+
+
 | SMB 프로토콜 | 아니요 | 아니요 | 예  a| 
 * ONTAP 9.12.1부터 SVM 마이그레이션에는 SMB의 운영 중단 마이그레이션이 포함됩니다.
 
@@ -158,7 +161,7 @@ SVM 마이그레이션에서는 다음 기능이 지원되지 않습니다.
 * 로드 공유 미러
 * MetroCluster
 * NDMP
-* SAN, NVMe over Fibre, Vscan, NFS v4.0, vStorage, S3 복제
+* SAN, NVMe over Fibre, Vscan, vStorage, S3 복제
 * SMTape
 * SnapLock
 * SVM-DR

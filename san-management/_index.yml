@@ -20,7 +20,7 @@ indexpage:
     - title: Windows 서버에서
       url: "/../task_san_provision_windows.html"
     - title: 기타 FC 및 iSCSI 호스트
-      url: "/../san-admin/provision_storage.html"
+      url: "/../san-admin/provision-storage.html"
   - title: NVMe 스토리지 프로비저닝
     links:
     - title: SUSE Linux에서

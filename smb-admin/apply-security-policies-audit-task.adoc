@@ -11,10 +11,13 @@ summary: 감사 정책을 SVMsis에 적용 NTFS ACL을 만들어 파일 또는 �
 
 
 [role="lead"]
-감사 정책을 SVMsis에 적용 NTFS ACL을 만들어 파일 또는 폴더에 적용하는 마지막 단계입니다.
+파일 또는 폴더에 NTFS ACL을 생성하고 적용하는 마지막 단계는 SVM에 감사 정책을 적용하는 것입니다.
 
 .이 작업에 대해
 보안 정책에 정의된 보안 설정을 FlexVol 볼륨(NTFS 또는 혼합 보안 스타일) 내에 있는 NTFS 파일 및 폴더에 적용할 수 있습니다.
+
+
+NOTE: 감사 정책 및 관련 SACL이 적용되면 기존의 모든 DACL을 덮어씁니다. 보안 정책과 관련 DACL을 적용하면 기존 DACL을 덮어씁니다. 새 보안 정책을 만들고 적용하기 전에 기존 보안 정책을 검토해야 합니다.
 
 .단계
 . 'vserver security file-directory apply-vserver vserver_name-policy-name policy_name' 보안 정책을 적용합니다

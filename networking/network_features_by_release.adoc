@@ -100,7 +100,7 @@ iSCSI LIF 페일오버
 
 모든 SAN 어레이(ASA) 플랫폼에서 사용할 수 있습니다.
 
-link:../san-admin/asa-iscsi-lif-fo-task.html.html["ASA 플랫폼의 iSCSI LIF 페일오버"]
+link:../san-admin/asa-iscsi-lif-fo-task.html["ASA 플랫폼의 iSCSI LIF 페일오버"]
 
 
 

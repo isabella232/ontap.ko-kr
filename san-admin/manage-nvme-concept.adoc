@@ -64,6 +64,6 @@ NVMe 하위 시스템에는 하나 이상의 NVMe 컨트롤러, 네임스페이�
 
 .관련 정보
 * link:../task_nvme_provision_suse_linux.html["SUSE Linux용 NVMe 스토리지 프로비저닝"]
-* link:../create-nvme-namespace-subsystem-task.html["다른 호스트를 위한 Provisione NVMe 스토리지"]
+* link:create-nvme-namespace-subsystem-task.html["다른 호스트를 위한 Provisione NVMe 스토리지"]
 * link:map-nvme-namespace-subsystem-task.html["NVMe 네임스페이스를 하위 시스템에 매핑합니다"]
 

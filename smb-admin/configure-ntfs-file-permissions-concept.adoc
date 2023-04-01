@@ -16,3 +16,18 @@ ONTAP CLI를 사용하여 파일 및 디렉토리에 대한 NTFS 파일 권한�
 NTFS 보안 설명자와 연결된 NTFS DACL(임의 액세스 제어 목록)에 항목을 추가하여 NTFS 파일 권한을 구성할 수 있습니다. 그런 다음 보안 설명자가 NTFS 파일 및 디렉터리에 적용됩니다.
 
 명령줄을 사용해서만 NTFS 파일 권한을 구성할 수 있습니다. CLI를 사용하여 NFSv4 ACL을 구성할 수 없습니다.
+
+.단계
+. NTFS 보안 설명자를 만듭니다.
++
+`vserver security file-directory ntfs create -vserver _svm_name_ -ntfs-sd _ntfs_security_descriptor_name_ -owner _owner_name_ -group _primary_group_name_ -control-flags-raw _raw_control_flags_`
+
+. NTFS 보안 설명자에 DACL을 추가합니다.
++
+`vserver security file-directory ntfs dacl add -vserver _svm_name_ -ntfs-sd _ntfs_security_descriptor_name_ -access-type {deny|allow} -account _account_name_ -rights {no-access|full-control|modify|read-and-execute|read|write} -apply-to {this-folder|sub-folders|files}`
+
+. 파일/디렉토리 보안 정책을 생성합니다.
++
+`vserver security file-directory policy create -vserver _svm_name_ -policy-name _policy_name_`
+
+
