@@ -108,7 +108,7 @@ ONTAP 9.12.1 이전 버전의 ONTAP를 사용하는 경우 ONTAP CLI를 사용�
 --
 ====
 .추가 정보
-* xref:../authentication/predefined-roles-cluster-administrators-concept.html[클러스터 관리자를 위한 사전 정의된 역할^]
-* xref:../task_security_administrator_access.html[System Manager^를 사용하여 관리자 액세스 제어]
+* xref:../authentication/predefined-roles-cluster-administrators-concept.html[클러스터 관리자를 위한 사전 정의된 역할]
+* xref:../task_security_administrator_access.html[System Manager로 관리자 액세스 제어]
 * link:https://docs.netapp.com/us-en/ontap-automation/rest/rbac_overview.html["RBAC 역할 및 ONTAP REST API에 대해 자세히 알아보십시오"^]
 
