@@ -98,8 +98,6 @@ admin이 여러 개인 검증이 필요한 명령 세트 제어
 '볼륨 삭제'
 
 볼륨 FlexCache 삭제
-
-`volume snaplock modify`
  a| 
 '볼륨 스냅샷 자동 삭제 수정'
 
