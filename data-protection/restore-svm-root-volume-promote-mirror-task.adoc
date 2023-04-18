@@ -68,5 +68,5 @@ y를 입력합니다. ONTAP는 LSM 볼륨을 읽기/쓰기 볼륨으로 만들�
 ----
 cluster_src::> volume rename -vserver svm11 -volume svm1_m2 -newname svm1_root
 ----
-. 단계에서 설명한 대로 이름이 변경된 루트 볼륨을 보호합니다 link:create-load-sharing-mirror-task.html#steps["3"] 단계를 수행합니다 link:create-load-sharing-mirror-task.html#steps["4"] 인치 link:create-load-sharing-mirror-task.html["로드 공유 미러 관계 생성 및 초기화"].
+. 의 3단계에서 4단계에 설명된 대로 이름이 변경된 루트 볼륨을 보호합니다 link:create-load-sharing-mirror-task.html["로드 공유 미러 관계 생성 및 초기화"].
 
