@@ -176,7 +176,7 @@ SnapLock 애그리게이트에서 Fabric으로 구성
  a| 
 아니요
  a| 
-예, ONTAP 9.8부터 시작합니다. Xref:SnapLock 엔터프라이즈 애그리게이트 기반 FabricPool에 대해 자세히 알아보십시오.
+예, ONTAP 9.8부터 시작합니다. 에 대해 자세히 알아보십시오 xref:FabricPool on SnapLock Enterprise aggregates[FabricPool on SnapLock 엔터프라이즈 애그리게이트].
 
 
 
@@ -219,9 +219,9 @@ LUN을 클릭합니다
  a| 
 MetroCluster 구성
  a| 
-예, ONTAP 9.3부터 시작합니다. xref:MetroCluster 지원에 대해 자세히 알아보십시오.
+예, ONTAP 9.3부터 시작합니다. 에 대해 자세히 알아보십시오 xref:MetroCluster support[MetroCluster 지원].
  a| 
-예, ONTAP 9.3부터 시작합니다. xref:MetroCluster 지원에 대해 자세히 알아보십시오.
+예, ONTAP 9.3부터 시작합니다. 에 대해 자세히 알아보십시오 xref:MetroCluster support[MetroCluster 지원].
 
 
 
