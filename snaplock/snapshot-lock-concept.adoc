@@ -52,6 +52,7 @@ SnapLock 컴플라이언스 클록 기능을 사용하면 만료 시간에 도�
 다음 기능은 현재 무단 스냅샷 복사본에서는 지원되지 않습니다.
 
 * 정합성 보장 그룹
+* FabricPool
 * FlexCache 볼륨
 * SMTape
 * SnapCenter
