@@ -150,6 +150,8 @@ entries:
     url: "/nfs-admin/enable-disable-nfsv40-task.html"
   - title: NFSv4.1을 설정 또는 해제합니다
     url: "/nfs-admin/enable-disable-nfsv41-task.html"
+  - title: NFSv4 저장소 풀 제한 컨트롤을 설정하거나 해제합니다
+    url: "/nfs-admin/manage-nfsv4-storepool-controls-task.html"
   - title: pNFS를 사용하거나 사용하지 않도록 설정합니다
     url: "/nfs-admin/enable-disable-pnfs-task.html"
   - title: TCP 및 UDP를 통한 NFS 액세스 제어

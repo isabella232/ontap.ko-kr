@@ -5,6 +5,5 @@ url: "/setup-upgrade/index.html"
 entries:
 - section: software_setup
 - section: upgrade
-- title: 펌웨어를 업데이트합니다
-  url: "/task_admin_update_firmware.html"
+- section: update
 - section: revert

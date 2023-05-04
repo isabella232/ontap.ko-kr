@@ -1,7 +1,7 @@
 ---
 permalink: volumes/run-efficiency-operations-manual-task.html 
 sidebar: sidebar 
-keywords: starting deduplication manually, starting data compression manually, efficiency, run 
+keywords: starting deduplication manually, starting data compression manually, efficiency, run, sequential packing 
 summary: 볼륨 효율성 시작 명령을 사용하여 볼륨에 대해 효율성 작업을 수동으로 실행할 수 있습니다. 
 ---
 = 효율성 작업을 수동으로 실행합니다
@@ -17,17 +17,44 @@ summary: 볼륨 효율성 시작 명령을 사용하여 볼륨에 대해 효율�
 수동으로 실행할 효율성 작업에 따라 볼륨에서 중복제거 또는 데이터 압축과 중복제거가 모두 활성화되어 있어야 합니다.
 
 .이 작업에 대해
-볼륨에 중복제거 및 데이터 압축이 활성화되어 있으면 데이터 압축이 처음에 실행된 후 중복제거가 실행됩니다.
+볼륨에 대해 온도에 민감한 스토리지 효율성을 설정하면 중복제거를 먼저 실행한 다음 데이터 압축을 수행합니다.
 
 중복제거는 실행 중에 시스템 리소스를 사용하는 백그라운드 프로세스입니다. 볼륨에서 데이터가 자주 변경되지 않는 경우 중복제거를 더 자주 실행하는 것이 좋습니다. 스토리지 시스템에서 여러 개의 중복 제거 작업을 동시에 실행하면 시스템 리소스가 더 많이 소모됩니다.
 
 노드당 최대 8개의 동시 중복제거 또는 데이터 압축 작업을 실행할 수 있습니다. 더 많은 효율성 작업이 예약되면 작업이 큐에 대기됩니다.
 
+ONTAP 9.13.1 부터 볼륨에 온도에 민감한 스토리지 효율성이 활성화되어 있으면 기존 데이터에 대해 볼륨 효율성을 실행하여 순차적 압축을 활용하여 스토리지 효율성을 더욱 향상할 수 있습니다.
+
+
+
+== 효율성을 수동으로 실행합니다
+
 .단계
-. 볼륨에 대한 효율성 작업을 시작하려면 'volume Efficiency start' 명령을 사용합니다.
-
-
+. 볼륨에 대한 효율성 작업을 시작합니다. `volume efficiency start`
++
 .예
-다음 명령을 사용하면 중복제거 또는 데이터 압축만 수동으로 시작한 후 볼륨 VolA에서 중복제거를 실행할 수 있습니다.
+다음 명령을 사용하면 볼륨 VolA에서 중복제거 또는 중복제거만 수동으로 시작한 후 논리적 압축 및 컨테이너 압축을 시작할 수 있습니다
 
-'볼륨 효율성 시작 - SVM VS1 - 볼륨 볼라'
++
+[listing]
+----
+volume efficiency start -vserver vs1 -volume VolA
+----
+
+
+
+
+== 기존 데이터를 다시 압축합니다
+
+온도에 민감한 스토리지 효율성을 사용하는 볼륨에 대해 ONTAP 9.13.1 에 도입된 순차적 데이터 압축 기능을 활용하려면 기존 데이터를 다시 포장할 수 있습니다. 이 명령을 사용하려면 고급 권한 모드여야 합니다.
+
+.단계
+. 권한 수준 설정: `set -privilege advanced`
+. 기존 데이터 리팩: `volume efficiency inactive-data-compression start -vserver _vserver_name_ -volume _volume_name_ -scan-mode extended_recompression`
++
+.예
+[listing]
+----
+volume efficiency inactive-data-compression start -vserver vs1 -volume vol1 -scan-mode extended_recompression
+----
+

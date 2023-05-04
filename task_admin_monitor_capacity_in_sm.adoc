@@ -1,20 +1,25 @@
 ---
 sidebar: sidebar 
 permalink: task_admin_monitor_capacity_in_sm.html 
-keywords: system manager, monitor, capacity, view, measurement, physical, logical, storage, used storage, local tier capacity, aggregate capacity, block, add capacity, volume, used capacity, available capacity, total capacity, snapshot copy, snapshot copies, inactive data, overprovision, over provision, overflows, snapshot copy reserves, reserves, clone 
-summary: System Manager를 사용하면 사용된 스토리지 용량과 클러스터 또는 로컬 계층에서 사용할 수 있는 스토리지 용량을 모니터링할 수 있습니다. 
+keywords: used storage, local tier capacity, aggregate capacity, add capacity, used capacity, available capacity, total capacity, inactive data, overprovision, overflows, snapshot copy reserves, reserves, clone, maximum capacity limit, storage VM, allocated 
+summary: System Manager를 사용하면 사용된 스토리지 용량과 클러스터, 로컬 계층 또는 스토리지 VM에 대해 사용 가능한 스토리지 용량을 모니터링할 수 있습니다. 
 ---
 = System Manager에서 용량을 모니터링합니다
 :allow-uri-read: 
 
 
 [role="lead"]
-System Manager를 사용하면 사용된 스토리지 용량과 클러스터 또는 로컬 계층에서 사용할 수 있는 스토리지 용량을 모니터링할 수 있습니다.
+System Manager를 사용하면 사용된 스토리지 용량과 클러스터, 로컬 계층 또는 스토리지 VM에 대해 사용 가능한 스토리지 용량을 모니터링할 수 있습니다.
 
-또한 ONTAP 9.10.1부터 System Manager를 사용하여 클러스터의 용량 및 향후 사용 가능한 용량에 대한 기간별 데이터를 볼 수 있습니다. 로컬 계층 및 볼륨의 용량을 모니터링할 수도 있습니다. 또한 ONTAP 9.12.1부터 시스템 관리자는 로컬 계층에 대해 커밋된 용량도 표시합니다.
+각 ONTAP 버전에서 System Manager는 더욱 강력한 용량 모니터링 정보를 제공합니다.
+
+* ONTAP 9.10.1부터 System Manager를 사용하면 클러스터 용량에 대한 기간별 데이터를 보고 향후 사용 또는 사용 가능한 용량을 예측할 수 있습니다. 로컬 계층 및 볼륨의 용량을 모니터링할 수도 있습니다.
+* ONTAP 9.12.1부터 시스템 관리자는 로컬 계층에 대해 커밋된 용량을 표시합니다.
+* ONTAP 9.13.1 부터는 스토리지 VM에 대해 최대 용량 제한을 설정하고 사용된 스토리지가 최대 용량의 특정 비율에 도달하면 경고를 트리거하도록 임계값을 설정할 수 있습니다.
 
 
-NOTE: 사용된 용량의 측정값은 에 설명된 대로 사용 중인 System Manager 버전에 따라 다르게 표시됩니다 link:concepts/capacity-measurements-in-sm-concept.html["System Manager의 용량 측정"].
+
+NOTE: 사용된 용량의 측정치는 ONTAP 버전에 따라 다르게 표시됩니다. 자세한 내용은 을 참조하십시오 link:./concepts/capacity-measurements-in-sm-concept.html["System Manager의 용량 측정"].
 
 
 
@@ -44,14 +49,36 @@ System Manager의 대시보드에서 클러스터의 용량 측정값을 볼 수
 
 NOTE: System Manager에서 용량 표현은 루트 스토리지 계층(애그리게이트) 용량을 고려하지 않습니다.
 
-. 을 클릭합니다 image:../media/icon_arrow.gif["오른쪽 화살표"] 클러스터 용량에 대한 자세한 내용을 보려면
+. 차트를 클릭하여 클러스터 용량에 대한 자세한 정보를 확인하십시오.
++
+용량 측정값은 두 개의 막대 차트로 표시됩니다.
 
++
+--
+** 위 차트에는 물리적 용량, 즉 물리적 용량, 예약된 공간 및 사용 가능한 공간이 표시됩니다.
+** 아래쪽 차트에는 클라이언트 데이터 크기, 스냅샷 복사본 및 클론, 총 논리적 사용 공간 등의 논리적 용량이 표시됩니다.
+
+
+--
++
+막대 차트 아래에는 데이터 감소를 위한 측정값이 나와 있습니다.
+
++
+--
+** 클라이언트 데이터(스냅샷 복사본 및 클론 제외)에 대한 데이터 축소율
+** 전체 데이터 축소율:
+
+
+--
+
+
+자세한 내용은 을 참조하십시오 link:./concepts/capacity-measurements-in-sm-concept.html["System Manager의 용량 측정"].
 
 
 
 == 로컬 계층의 용량을 봅니다
 
-로컬 계층의 용량에 대한 세부 정보를 볼 수 있습니다. 또한 ONTAP 9.12.1부터 로컬 계층에 대해 커밋된 용량을 확인하여 커밋된 용량을 수용하기 위해 로컬 계층에 용량을 추가해야 하는지, 여유 공간이 부족하지 않도록 해야 하는지 여부를 결정할 수 있습니다.
+로컬 계층의 용량에 대한 세부 정보를 볼 수 있습니다. ONTAP 9.12.1부터 * 용량 * 보기에는 로컬 계층에 대해 커밋된 용량이 포함되므로, 커밋된 용량을 수용하기 위해 로컬 계층에 용량을 추가해야 하는지, 여유 공간이 부족하지 않도록 해야 하는지 여부를 결정할 수 있습니다.
 
 .단계
 . Storage > Tiers * 를 클릭합니다.
@@ -79,14 +106,66 @@ NOTE: System Manager에서 용량 표현은 루트 스토리지 계층(애그리
 
 +
 --
-** 전체 데이터 축소율:
 ** 클라이언트 데이터(스냅샷 복사본 및 클론 제외)에 대한 데이터 축소율
+** 전체 데이터 축소율:
 
 
 --
 
 
+자세한 내용은 을 참조하십시오 link:./concepts/capacity-measurements-in-sm-concept.html["System Manager의 용량 측정"].
+
 .선택적 작업입니다
 * 커밋된 용량이 로컬 계층의 용량보다 큰 경우 사용 가능한 공간이 부족해지기 전에 로컬 계층에 용량을 추가하는 것을 고려할 수 있습니다. 을 참조하십시오 link:./disks-aggregates/add-disks-local-tier-aggr-task.html["로컬 계층에 용량 추가(애그리게이트에 디스크 추가)"].
-* 볼륨 * 탭을 선택하여 특정 볼륨이 로컬 계층에서 사용하는 용량을 볼 수도 있습니다.
+* 볼륨 * 탭을 선택하여 특정 볼륨이 로컬 계층에서 사용하는 스토리지를 볼 수도 있습니다.
+
+
+
+
+== 스토리지 VM의 볼륨 용량을 봅니다
+
+스토리지 VM의 볼륨에서 사용하는 스토리지 양과 사용 가능한 용량을 확인할 수 있습니다. 사용 중인 스토리지와 사용 가능한 스토리지의 총 측정값을 "볼륨 간 용량"이라고 합니다.
+
+.단계
+. 스토리지 * > * 스토리지 VM * 을 선택합니다.
+. 스토리지 VM의 이름을 클릭합니다.
+. 다음 측정값이 있는 막대 차트를 보여 주는 * Capacity * 섹션으로 스크롤합니다.
++
+--
+** * 물리적 사용 *: 이 스토리지 VM의 모든 볼륨에서 사용된 물리적 스토리지의 합계
+** * 사용 가능 *: 이 스토리지 VM의 모든 볼륨에서 사용 가능한 용량의 합계입니다.
+** * Logical Used *: 이 스토리지 VM의 모든 볼륨에서 사용된 논리적 스토리지의 합계
+
+
+--
+
+
+측정에 대한 자세한 내용은 을 참조하십시오 link:./concepts/capacity-measurements-in-sm-concept.html["System Manager의 용량 측정"].
+
+
+
+== 스토리지 VM의 최대 용량 한도를 봅니다
+
+ONTAP 9.13.1 부터는 스토리지 VM의 최대 용량 한도를 확인할 수 있습니다.
+
+.시작하기 전에
+반드시 해야 합니다 link:manage-max-cap-limit-svm-in-sm-task.html["스토리지 VM의 최대 용량 제한을 설정합니다"] 먼저 볼 수 있습니다.
+
+.단계
+. 스토리지 * > * 스토리지 VM * 을 선택합니다.
++
+최대 용량 측정값은 다음 두 가지 방법으로 볼 수 있습니다.
+
++
+--
+** 스토리지 VM의 행에서 사용된 용량, 사용 가능한 용량 및 최대 용량을 보여주는 막대 차트가 포함된 * 최대 용량 * 열을 확인합니다.
+** 스토리지 VM의 이름을 클릭합니다. Overview * (개요 *) 탭에서 왼쪽 열의 최대 용량, 할당된 용량 및 용량 경고 임계값을 스크롤하여 봅니다.
+
+
+--
+
+
+.관련 정보
+* link:manage-max-cap-limit-svm-in-sm-task.html#edit-max-cap-limit-svm["스토리지 VM의 최대 용량 한도를 편집합니다"]
+* link:./concepts/capacity-measurements-in-sm-concept.html["System Manager의 용량 측정"]
 

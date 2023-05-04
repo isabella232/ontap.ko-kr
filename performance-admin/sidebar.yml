@@ -82,3 +82,5 @@ entries:
         url: "/performance-admin/set-throughput-floor-qos-task.html"
       - title: 적응형 QoS 정책 그룹을 사용합니다
         url: "/performance-admin/adaptive-qos-policy-groups-task.html"
+      - title: 적응형 정책 그룹 템플릿을 설정합니다
+        url: "/performance-admin/adaptive-policy-template-task.html"

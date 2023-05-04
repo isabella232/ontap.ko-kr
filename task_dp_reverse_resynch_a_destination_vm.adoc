@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task_dp_reverse_resynch_a_destination_vm.html 
-keywords: netapp, ontap, system manager, data, volume, volumes, destination volume, protection, relationship, relationships, protection relationship, Snapshot copy, reverse, reverse resynchronization, reverse resynchronizing, resynch, repair, replace, source 
+keywords: netapp, ontap, system manager, data, volume, volumes, destination volume, protection, relationship, relationships, protection relationship, Snapshot copy, reverse, reverse resynchronization, reverse resynchronizing, resynch, resync, repair, replace, source 
 summary: ONTAP 9.8부터 System Manager를 사용하여 역방향 재동기화 작업을 수행하여 기존 보호 관계를 삭제하고 소스 볼륨과 대상 볼륨의 기능을 반대로 되돌릴 수 있습니다. 
 ---
 = 보호 관계를 역재동기화합니다
@@ -21,6 +21,11 @@ summary: ONTAP 9.8부터 System Manager를 사용하여 역방향 재동기화 �
 [role="lead"]
 ONTAP 9.8부터 System Manager를 사용하여 역방향 재동기화 작업을 수행하여 기존 보호 관계를 삭제하고 소스 볼륨과 대상 볼륨의 기능을 반대로 되돌릴 수 있습니다. 그런 다음, 소스를 복구 또는 교체하고 소스를 업데이트하고 시스템의 원래 구성을 다시 설정하는 동안 대상 볼륨을 사용하여 데이터를 제공합니다.
 
+[NOTE]
+====
+System Manager는 클러스터 내 관계와의 역방향 재동기화를 지원하지 않습니다. ONTAP CLI를 사용하여 클러스터 내 관계와 역방향 재동기화 작업을 수행할 수 있습니다.
+
+====
 역방향 재동기화 작업을 수행할 때 공통 스냅샷 복사본의 데이터보다 최신 소스 볼륨의 데이터가 삭제됩니다.
 
 .단계

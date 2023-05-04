@@ -124,6 +124,8 @@ entries:
     url: "/volumes/logical-space-enforcement-concept.html"
   - title: 논리적 공간 보고 및 적용을 설정합니다
     url: "/volumes/enable-logical-space-reporting-enforcement-task.html"
+  - title: SVM 용량 관리
+    url: "/volumes/manage-svm-capacity.html"
 - title: 할당량을 사용하여 리소스 사용을 제한하거나 추적합니다
   entries:
   - title: 할당량 프로세스 개요
@@ -314,7 +316,7 @@ entries:
       url: "/volumes/run-efficiency-operations-scheduling-task.html"
   - title: 볼륨 효율성 작업을 모니터링합니다
     entries:
-    - title: 효율성 작업의 상태를 봅니다
+    - title: 효율성 작업 및 상태 보기
       url: "/volumes/view-status-efficiency-operations-task.html"
     - title: 효율성 공간 절약 효과 확인
       url: "/volumes/view-efficiency-space-savings-task.html"

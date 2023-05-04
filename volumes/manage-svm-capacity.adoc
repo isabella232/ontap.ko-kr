@@ -1,0 +1,151 @@
+---
+permalink: volumes/manage-svm-capacity.html 
+sidebar: sidebar 
+keywords: svm capacity, size, auto size, auto size alert 
+summary: ONTAP 9.13.1 부터는 SVM에 대한 최대 용량 한도를 설정할 수 있습니다. 
+---
+= SVM 용량 한도 관리
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.13.1 부터 스토리지 VM(SVM)의 최대 용량을 설정할 수 있습니다. SVM이 임계값 용량 수준에 도달할 경우에도 경고를 구성할 수 있습니다.
+
+.이 작업에 대해
+SVM의 용량은 FlexVol, FlexGroup 볼륨, FlexClone, FlexCache 볼륨의 합으로 계산됩니다. 볼륨이 제한, 오프라인 또는 삭제 후 복구 대기열에 있더라도 용량 계산에 영향을 미칩니다. 자동 증량으로 구성된 볼륨이 있는 경우 볼륨의 최대 자동 크기 조정 값은 SVM 크기를 기준으로 계산되며, 자동 증가 없이 볼륨의 실제 크기가 계산됩니다.
+
+다음 표는 방법을 보여줍니다 `autosize-mode` 매개 변수는 용량 계산에 영향을 줍니다.
+
+|===
+
+
+| `autosize-mode off` | 크기 매개 변수는 계산에 사용됩니다 
+
+
+| `autosize-mode grow` | 를 클릭합니다 `max-autosize` 매개 변수는 계산에 사용됩니다 
+
+
+| `autosize-mode grow-shrink` | 를 클릭합니다 `max-autosize` 매개 변수는 계산에 사용됩니다 
+|===
+.시작하기 전에
+* SVM 한도를 설정하려면 클러스터 관리자여야 합니다.
+* 데이터 보호 볼륨, SnapMirror 관계의 볼륨 또는 MetroCluster 구성이 포함된 SVM에는 스토리지 제한을 구성할 수 없습니다.
+* SVM을 마이그레이션할 때 소스 SVM에서 스토리지 제한을 설정할 수 없습니다. 마이그레이션 작업을 완료하려면 소스에서 스토리지 제한을 해제한 다음 마이그레이션을 완료합니다.
+* SVM 용량은 와 다릅니다 xref:../volumes/quotas-concept.html[할당량]. 할당량은 최대 크기를 초과할 수 없습니다.
+* SVM에서 다른 작업이 진행 중인 경우에는 스토리지 제한을 설정할 수 없습니다. 를 사용합니다 `job show vservser _svm_name_` 명령을 사용하여 기존 작업을 확인합니다. 작업이 완료되면 명령을 다시 실행해 보십시오.
+
+
+
+
+== 용량 영향
+
+용량 제한에 도달하면 다음 작업이 실패합니다.
+
+* LUN, 네임스페이스 또는 볼륨 생성
+* LUN, 네임스페이스 또는 볼륨의 클론 생성
+* LUN, 네임스페이스 또는 볼륨 수정
+* LUN, 네임스페이스 또는 볼륨의 크기 늘리기
+* LUN, 네임스페이스 또는 볼륨 확장
+* LUN, 네임스페이스 또는 볼륨을 재호스팅
+
+
+
+
+== 새 SVM에 용량 한도를 설정합니다
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+.단계
+. 스토리지 * > * 스토리지 VM * 을 선택합니다.
+. 를 선택합니다 image:icon_add_blue_bg.gif["추가 아이콘"] SVM을 생성합니다.
+. SVM의 이름을 지정하고 * 액세스 프로토콜 * 을 선택합니다.
+. 스토리지 VM 설정 * 에서 * 최대 용량 제한 사용 * 을 선택합니다.
++
+SVM의 최대 용량 크기를 제공합니다.
+
+. 저장 * 을 선택합니다.
+
+
+--
+.CLI를 참조하십시오
+--
+.단계
+. SVM을 생성합니다. 저장소 제한을 설정하려면 을 제공합니다 `storage-limit` 값. 스토리지 제한에 대한 임계값 알림을 설정하려면 에 대한 백분율 값을 제공합니다 `-storage-limit-threshold-alert`.
++
+`vserver create -vserver _vserver_name_ -aggregate _aggregate_name_ -rootvolume _root_volume_name_ -rootvolume-security-style {unix|ntfs|mixed} -storage-limit _value_ [GiB|TIB] -storage-limit-threshold-alert _percentage_ [-ipspace IPspace_name] [-language <language>] [-snapshot-policy _snapshot_policy_name_] [-quota-policy _quota_policy_name_] [-comment _comment_]`
+
++
+임계값을 제공하지 않으면 기본적으로 SVM이 90% 용량에 도달하면 경고가 트리거됩니다. 임계값 경고를 비활성화하려면 값을 0으로 입력합니다.
+
+. SVM이 성공적으로 생성되었는지 확인합니다.
++
+'vserver show -vserver_vserver_name_'
+
+. 스토리지 제한값을 해제하려면 으로 SVM을 수정합니다 `-storage-limit` 0으로 설정된 매개 변수:
++
+`vserver modify -vserver _vserver_name_ -storage-limit 0`
+
+
+
+--
+====
+
+
+== 기존 SVM의 용량 제한을 설정하거나 수정합니다
+
+기존 SVM에 대해 용량 한도 및 임계값 알림을 설정하거나 용량 한도를 비활성화할 수 있습니다.
+
+용량 제한을 설정한 후에는 현재 할당된 용량보다 작은 값으로 제한을 수정할 수 없습니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+.단계
+. 스토리지 * > * 스토리지 VM * 을 선택합니다.
+. 수정할 SVM을 선택합니다. SVM 이름 옆에서 를 선택합니다 image:icon_kabob.gif["케밥 아이콘"] 그런 다음 * 편집 * 을 클릭합니다.
+. 용량 제한을 활성화하려면 * Enable capacity limit(용량 제한 활성화) * 옆의 상자를 선택합니다. 최대 용량 * 의 값과 * 경고 임계값 * 의 백분율 값을 입력합니다.
++
+용량 제한을 비활성화하려면 2단계의 확인란을 선택 취소합니다.
+
+. 저장 * 을 선택합니다.
+
+
+--
+.CLI를 참조하십시오
+--
+.단계
+. SVM을 호스팅하는 클러스터에서 를 실행합니다 `vserver modify` 명령. 에 대한 숫자 값을 입력합니다 `-storage-limit` 에 대한 백분율 값을 표시합니다 `-storage-limit-threshold-alert`.
++
+`vserver modify -vserver _vserver_name_ -storage-limit _value_ [GiB|TIB] -storage-limit-threshold-alert _percentage_`
+
++
+임계값을 제공하지 않으면 90% 용량으로 기본 경고가 표시됩니다. 임계값 경고를 비활성화하려면 값을 0으로 입력합니다.
+
+. 스토리지 제한값을 해제하려면 으로 SVM을 수정합니다 `-storage-limit` 0으로 설정:
++
+`vserver modify -vserver _vserver_name_ -storage-limit 0`
+
+
+
+--
+====
+
+
+== 용량 제한에 도달했습니다
+
+최대 용량 또는 경고 임계값에 도달하면 를 참조할 수 있습니다 `vserver.storage.threshold` EMS 메시지를 표시하거나 System Manager의 * Insights * 페이지를 사용하여 가능한 작업에 대해 알아봅니다. 가능한 해결 방법은 다음과 같습니다.
+
+* SVM의 최대 용량 한도 편집
+* 볼륨 복구 대기열을 삭제하여 공간을 확보합니다
+* 볼륨을 위한 공간을 제공하려면 스냅샷을 삭제하십시오
+
+
+.추가 정보
+* xref:../concepts/capacity-measurements-in-sm-concept.adoc[System Manager의 용량 측정]
+* xref:../task_admin_monitor_capacity_in_sm.html[System Manager에서 용량을 모니터링합니다]
+

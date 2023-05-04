@@ -1,0 +1,28 @@
+---
+permalink: update/modify-automatic-updates-task.html 
+sidebar: sidebar 
+keywords: ontap, modify, upgrade, update, automatic, automated, firmware, bmc, sp, system, timezone database, timezone 
+summary: 자동 업데이트가 활성화되면 기본적으로 ONTAP는 모든 권장 업데이트를 자동으로 검색, 다운로드 및 설치합니다. 권장 업데이트를 설치하기 전에 보거나 권장 사항을 자동으로 무시하려면 기본 설정을 기본 동작으로 수정할 수 있습니다. 
+---
+= 자동 업데이트를 수정합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+자동 업데이트가 활성화되면 기본적으로 ONTAP는 모든 권장 펌웨어 업데이트를 자동으로 검색, 다운로드 및 설치하고 ONTAP 9.13.1, ONTAP 표준 시간대 데이터베이스 업데이트를 시작합니다. 권장 업데이트를 설치하기 전에 보거나 권장 사항을 자동으로 무시하려면 기본 설정을 기본 동작으로 수정할 수 있습니다.
+
+.단계
+. System Manager에서 * 클러스터 > 설정 * 을 클릭합니다.
+. 자동 업데이트 * 섹션에서 를 클릭합니다 image:icon_kabob.gif["Kabob 아이콘"] 작업 목록을 봅니다.
+. 자동 업데이트 설정 편집 * 을 클릭합니다.
+. 각 이벤트 유형에 대해 수행할 기본 작업을 지정합니다.
++
+각 이벤트 유형에 대한 업데이트를 자동으로 업데이트, 알림 표시 또는 자동으로 해제하도록 선택할 수 있습니다.
+
++
+
+NOTE: ONTAP 시간대 데이터베이스는 시스템 파일 이벤트 유형에 의해 제어됩니다.
+
+

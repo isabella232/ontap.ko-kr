@@ -26,3 +26,5 @@ NDMP 호환 백업 애플리케이션을 사용하여 덤프 또는 SMTape 백�
 == SMTape를 사용한 테이프 백업
 
 SMTape는 데이터 블록을 테이프로 백업하는 ONTAP의 Snapshot 복사본 기반 재해 복구 솔루션입니다. SMTape를 사용하여 테이프에 볼륨 백업을 수행할 수 있습니다. 그러나 qtree 또는 하위 트리 레벨에서 백업을 수행할 수 없습니다. SMTape는 기본 백업, 차등 백업 및 증분 백업을 지원합니다.
+
+ONTAP 9.13.1 부터는 SMTape를 사용한 테이프 백업이 에서 지원되고 있습니다 xref:../smbc/index.html[SnapMirror 비즈니스 연속성].

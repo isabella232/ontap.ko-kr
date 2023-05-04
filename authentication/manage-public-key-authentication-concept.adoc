@@ -27,21 +27,19 @@ SSH 공개 키 인증의 경우 계정에서 SVM에 액세스할 수 있으려�
 '보안 로그인 공개 키 생성 - vserver_SVM_name_-username_user_name_-index_index_-publickey_certificate_-comment_comment_'
 
 +
-전체 명령 구문은 을 참조하십시오 link:config-worksheets-reference.html["워크시트"].
+전체 명령 구문은 에 대한 워크시트 참조를 참고하십시오 link:config-worksheets-reference.html["공개 키를 사용자 계정과 연결"^].
 
+. 공개 키를 확인하여 변경 사항을 확인합니다.
 +
-link:config-worksheets-reference.html["공개 키를 사용자 계정과 연결"]
+`security login publickey show -vserver _SVM_name_ -username _user_name_ -index _index_`
 
-+
-다음 명령을 실행하면 SVM 관리자 계정 'engData1'의 vmadmin1과 공용 키가 연결됩니다. 공개 키에는 인덱스 번호 5가 할당됩니다.
 
-+
+
+.예
+다음 명령을 실행하면 공용 키가 SVM 관리자 계정에 연결됩니다 `svmadmin1` SVM을 위해 `engData1`. 공개 키에는 인덱스 번호 5가 할당됩니다.
+
 [listing]
 ----
-cluster1::>security login publickey create -vserver engData1 -username svmadmin1 -index 5 -publickey
-"ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAIEAspH64CYbUsDQCdW22JnK6J
-/vU9upnKzd2zAk9C1f7YaWRUAFNs2Qe5lUmQ3ldi8AD0Vfbr5T6HZPCixNAIza
-FciDy7hgnmdj9eNGedGr/JNrftQbLD1hZybX+72DpQB0tYWBhe6eDJ1oPLob
-ZBGfMlPXh8VjeU44i7W4+s0hG0E=tsmith@publickey.example.com"
+cluster1::> security login publickey create -vserver engData1 -username svmadmin1 -index 5 -publickey
+"<key text>"
 ----
-

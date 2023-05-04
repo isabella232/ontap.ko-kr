@@ -4,7 +4,7 @@ permalink: networking/create_a_lif.html
 keywords: example LIFs, add LIFs, configure LIFs, create, creation, creating, add, adding, logical, interface, service, policies, policy, create a lif, network interface capacity show, lif examples 
 summary: 물리적 또는 논리적 포트와 연결된 IP 주소인 LIF를 생성합니다. 
 ---
-= LIF를 생성합니다
+= LIF(네트워크 인터페이스) 생성
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 물리적 또는 논리적 포트와 연결된 IP 주소인 LIF를 생�
 
 
 [role="lead"]
-LIF는 물리적 포트 또는 논리적 포트와 연결된 IP 주소입니다. 구성요소 장애가 발생할 경우 LIF가 다른 물리적 포트로 페일오버되거나 마이그레이션되어 네트워크와 계속 통신할 수 있습니다.
+LIF(네트워크 인터페이스)는 물리적 포트 또는 논리적 포트와 연결된 IP 주소입니다. 구성요소 장애가 발생할 경우 LIF가 다른 물리적 포트로 페일오버되거나 마이그레이션되어 네트워크와 계속 통신할 수 있습니다.
 
 .시작하기 전에
 * 기본 물리적 또는 논리적 네트워크 포트가 관리 작동 상태로 구성되어 있어야 합니다.

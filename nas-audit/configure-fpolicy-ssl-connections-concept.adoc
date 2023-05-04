@@ -33,4 +33,4 @@ FPolicy가 외부 FPolicy 서버에 연결할 때 상호 인증에 인증서를 
 
 == SSL용 인증서를 설치합니다
 
-FPolicy 서버 인증서에 서명하는 데 사용되는 CA의 공개 인증서는 '-type' 매개 변수를 'client_ca'로 설정한 '보안 인증서 설치' 명령을 사용하여 설치됩니다. SVM 인증을 위해 필요한 개인키와 공증서는 '-type' 매개 변수가 'server'로 설정된 'security certificate install' 명령을 사용하여 설치된다.
+FPolicy 서버 인증서에 서명하는 데 사용되는 CA의 공개 인증서는 을 사용하여 설치됩니다 `security certificate install` 명령과 함께 `-type` 매개 변수를 로 설정합니다 `client-ca`. SVM 인증에 필요한 개인 키와 공개 인증서는 을 사용하여 설치합니다 `security certificate install` 명령과 함께 `-type` 매개 변수를 로 설정합니다 `server`.

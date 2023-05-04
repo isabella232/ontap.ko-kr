@@ -25,7 +25,7 @@ indexpage:
     - title: ONTAP를 업그레이드합니다
       url: "/upgrade/index.html"
     - title: 펌웨어를 업데이트합니다
-      url: "/task_admin_update_firmware.html"
+      url: "/update/firmware-task.html"
     - title: ONTAP를 되돌립니다
       url: "/revert/index.html"
   - title: 클러스터 관리
@@ -134,7 +134,7 @@ indexpage:
       url: "/performance-config/index.html"
     - title: CLI를 통한 성능 관리
       url: "/performance-admin/index.html"
-    - title: System Manager를 통한 파일 시스템 분석
+    - title: 파일 시스템 분석 개요
       url: "/concept_nas_file_system_analytics_overview.html"
     - title: EMS 구성
       url: "/error-messages/index.html"

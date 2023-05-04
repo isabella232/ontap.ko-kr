@@ -1,0 +1,42 @@
+---
+permalink: authentication/configure-local-account-mfa-totp-task.html 
+sidebar: sidebar 
+keywords: enable, ssh, multifactor authentication, mfa, hardware authentication device 
+summary: 'TOTP(Time-Based One-Time Password)를 통한 MFA(Multifactor Authentication)를 통해 계정 보안 강화를 활용하려면 TOTP 사용을 위한 로컬 사용자 계정을 구성해야 합니다.' 
+---
+= TOTP로 MFA에 대한 로컬 사용자 계정을 구성합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.13.1 부터는 TOTP(Time-Based One-Time Password)를 사용하여 MFA(Multifactor Authentication)로 사용자 계정을 구성할 수 있습니다.
+
+.시작하기 전에
+* 스토리지 관리자는 을(를) 사용해야 합니다 link:setup-ssh-multifactor-authentication-task.html#enable-mfa-with-totp["TOTP로 MFA를 활성화합니다"] 사용자 계정에 대한 두 번째 인증 방법입니다.
+* 기본 사용자 계정 인증 방법은 사용자 암호 또는 공용 SSH 키여야 합니다.
+* TOTP 앱이 스마트폰과 연동되도록 구성하고 TOTP 비밀 키를 만들어야 합니다.
++
+TOTP는 Google Authenticator와 같은 다양한 인증 앱에서 지원됩니다.
+
+
+
+.단계
+. 현재 인증 방법으로 사용자 계정에 로그인합니다.
++
+현재 인증 방법은 사용자 암호 또는 SSH 공개 키여야 합니다.
+
+. 계정에 TOTP 구성을 생성합니다.
++
+[source, cli]
+----
+security login totp create -vserver "<svm_name>" -username "<account_username >"
+----
+. TOTP 구성이 계정에서 활성화되어 있는지 확인합니다.
++
+[source, cli]
+----
+security login totp show -vserver "<svm_name>" -username "<account_username>"
+----
+

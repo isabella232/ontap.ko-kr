@@ -54,10 +54,12 @@ https://www.netapp.com/us/legal/privacypolicy/index.aspx[]
 
 === ONTAP
 
+link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2885801["ONTAP 9.13.1 참고 사항"^]
 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2884813["ONTAP 9.12.1에 대한 고지 사항"^]
 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2883760["ONTAP 9.12.0에 대한 고지 사항"^]
 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2882103["ONTAP 9.11.1에 대한 고지 사항"^]
 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2879817["ONTAP 9.10.1에 대한 고지 사항"^]
+link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2878927["ONTAP 9.10.0에 대한 고지 사항"^]
 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2876856["ONTAP 9.9.1에 대한 참고 사항"^]
 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2873871["ONTAP 9.8에 대한 고지 사항"^]
 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2860921["ONTAP 9.7에 대한 고지 사항"^]

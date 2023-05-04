@@ -2,44 +2,45 @@
 permalink: authentication/setup-ssh-multifactor-authentication-task.html 
 sidebar: sidebar 
 keywords: enable, ssh, multifactor authentication, mfa, hardware authentication device 
-summary: ONTAP 9.3부터 보안 로그인 생성 명령을 사용하면 관리자가 SSH 공개 키와 사용자 암호를 모두 사용하여 admin 또는 data SVM에 로그인하도록 요구하여 보안을 강화할 수 있습니다. 
+summary: '다단계 인증(MFA)을 사용하면 사용자가 admin 또는 data SVM에 로그인하기 위한 두 가지 인증 방법을 제공하도록 요구하여 보안을 강화할 수 있습니다.' 
 ---
-= SSH 다단계 인증(MFA) 지원
+= 다단계 인증 을 활성화합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-ONTAP 9.3부터 을 사용할 수 있습니다 `security login create` 관리자가 SSH 공개 키와 사용자 암호를 모두 사용하여 admin 또는 data SVM에 로그인하도록 하여 보안을 강화합니다.
-
-ONTAP 9.12.1부터 FIDO2(Fast Identity Online) 또는 PIV(Personal Identity Verification) 인증 표준을 사용하여 SSH 클라이언트 MFA에 Yubikey 하드웨어 인증 장치를 사용할 수 있습니다.
-
-에 대해 자세히 알아보십시오 link:https://www.netapp.com/pdf.html?item=/media/17055-tr4647pdf.pdf["ONTAP 9의 다단계 인증(TR-4647)"^].
-
-.시작하기 전에
-이 작업을 수행하려면 클러스터 관리자여야 합니다.
+다단계 인증(MFA)을 사용하면 사용자가 admin 또는 data SVM에 로그인하기 위한 두 가지 인증 방법을 제공하도록 요구하여 보안을 강화할 수 있습니다.
 
 .이 작업에 대해
-* 계정이 SVM에 액세스하려면 먼저 공개 키를 계정에 연결해야 합니다.
+* 이 작업을 수행하려면 클러스터 관리자여야 합니다.
+* 로그인 계정에 할당할 액세스 제어 역할을 잘 모르는 경우 '보안 로그인 수정' 명령을 사용하여 나중에 역할을 추가할 수 있습니다.
++
+link:modify-role-assigned-administrator-task.html["관리자에게 할당된 역할 수정"]
+
+* 인증을 위해 공개 키를 사용하는 경우, 계정이 SVM에 액세스하려면 먼저 공개 키를 계정에 연결해야 합니다.
 +
 link:manage-public-key-authentication-concept.html["공개 키를 사용자 계정에 연결합니다"]
 
 +
 계정 액세스를 활성화하기 전이나 후에 이 작업을 수행할 수 있습니다.
 
-* 로그인 계정에 할당할 액세스 제어 역할을 잘 모르는 경우 '보안 로그인 수정' 명령을 사용하여 나중에 역할을 추가할 수 있습니다.
+* ONTAP 9.12.1부터 FIDO2(Fast Identity Online) 또는 PIV(Personal Identity Verification) 인증 표준을 사용하여 SSH 클라이언트 MFA에 Yubikey 하드웨어 인증 장치를 사용할 수 있습니다.
+
+
+
+
+== SSH 공개 키 및 사용자 암호로 MFA를 사용하도록 설정합니다
+
+ONTAP 9.3부터 클러스터 관리자는 SSH 공개 키 및 사용자 암호를 사용하여 MFA로 로그인하도록 로컬 사용자 계정을 설정할 수 있습니다.
+
+. SSH 공개 키 및 사용자 암호를 사용하여 로컬 사용자 계정에서 MFA를 사용하도록 설정합니다.
 +
-link:modify-role-assigned-administrator-task.html["관리자에게 할당된 역할 수정"]
-
-* 사용자는 항상 공개 키 인증 후 암호 인증을 통해 인증됩니다.
-
-
-.단계
-. SSH MFA를 사용하여 SVM에 액세스하려면 로컬 관리자 계정 필요:
-+
-'보안 로그인 생성 - vserver_SVM_ -user-or-group-name_user_name_ -application ssh-authentication-method password|publickey-role admin-second-authentication-method password|publickey'
-
+[source, cli]
+----
+security login create -vserver <svm_name> -user-or-group-name <user_name> -application ssh -authentication-method <password|publickey> -role admin -second-authentication-method <password|publickey>
+----
 +
 다음 명령을 수행하려면 미리 정의된 "admin" 역할을 가진 SVM 관리자 계정 "admin2"가 SSH 공개 키와 사용자 암호를 사용하여 SVM "engData1"에 로그인해야 합니다.
 
@@ -54,7 +55,89 @@ Warning: To use public-key authentication, you must create a public key for user
 ----
 
 
-.작업을 마친 후
-공개 키를 관리자 계정에 연결하지 않은 경우, 계정이 SVM에 액세스하려면 먼저 연결해야 합니다.
 
+
+== TOTP로 MFA를 활성화합니다
+
+ONTAP 9.13.1 부터는 로컬 사용자가 SSH 공개 키 또는 사용자 암호와 TOTP(Time-Based One-Time Password)를 사용하여 admin 또는 data SVM에 로그인하도록 하여 보안을 강화할 수 있습니다. TOTP로 MFA에 대해 계정을 활성화한 후 로컬 사용자는 에 로그인해야 합니다 link:configure-local-account-mfa-totp-task.html["구성을 완료합니다"].
+
+TOTP는 현재 시간을 사용하여 1회 암호를 생성하는 컴퓨터 알고리즘입니다. TOTP를 사용하는 경우 SSH 공개 키 또는 사용자 암호 뒤에 항상 두 번째 인증 형태입니다.
+
+.시작하기 전에
+이러한 작업을 수행하려면 스토리지 관리자여야 합니다.
+
+.단계
+사용자 암호 또는 SSH 공개 키를 사용하여 MFA를 에 설정하고 TOTP를 두 번째 인증 방법으로 설정할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.사용자 암호 및 TOTP로 MFA를 활성화합니다
+--
+. 사용자 암호 및 TOTP를 사용하여 다단계 인증을 위한 사용자 계정을 활성화합니다.
++
+* 신규 사용자 계정의 경우 *
+
++
+[source, cli]
+----
+security login create -vserver <svm_name> -user-or-group-name <user_or_group_name> -application ssh -authentication-method password -second-authentication-method totp -role <role> -comment <comment>
+----
++
+* 기존 사용자 계정의 경우 *
+
++
+[source, cli]
+----
+security login modify -vserver <svm_name> -user-or-group-name <user_or_group_name> -application ssh -authentication-method password -second-authentication-method totp -role <role> -comment <comment>
+----
+. TOTP로 MFA가 활성화되었는지 확인합니다.
++
+[listing]
+----
+security login show
+----
+
+
+--
+.SSH 공개 키 및 TOTP로 MFA를 활성화합니다
+--
+. SSH 공개 키 및 TOTP를 사용하여 다단계 인증을 위한 사용자 계정을 활성화합니다.
++
+* 신규 사용자 계정의 경우 *
+
++
+[source, cli]
+----
+security login create -vserver <svm_name> -user-or-group-name <user_or_group_name> -application ssh -authentication-method publickey -second-authentication-method totp -role <role> -comment <comment>
+----
++
+* 기존 사용자 계정의 경우 *
+
++
+[source, cli]
+----
+security login modify -vserver <svm_name> -user-or-group-name <user_or_group_name> -application ssh -authentication-method publickey -second-authentication-method totp -role <role> -comment <comment>
+----
+. TOTP로 MFA가 활성화되었는지 확인합니다.
++
+[listing]
+----
+security login show
+----
+
+
+--
+====
+.작업을 마친 후
+* 공개 키를 관리자 계정에 연결하지 않은 경우, 계정이 SVM에 액세스하려면 먼저 연결해야 합니다.
++
 link:manage-public-key-authentication-concept.html["공개 키를 사용자 계정과 연결"]
+
+* TOTP로 MFA 구성을 완료하려면 로컬 사용자가 로그인해야 합니다.
++
+link:configure-local-account-mfa-totp-task.html["TOTP로 MFA에 대한 로컬 사용자 계정을 구성합니다"]
+
+
+
+.관련 정보
+에 대해 자세히 알아보십시오 link:https://www.netapp.com/pdf.html?item=/media/17055-tr4647pdf.pdf["ONTAP 9의 다단계 인증(TR-4647)"^].

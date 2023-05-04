@@ -33,7 +33,7 @@ ONTAP 9.11.1부터 일정 기능을 사용할 수 있으므로 볼륨 또는 SVM
 
 == 단일 볼륨에 대해 활동 추적을 활성화합니다
 
-ONTAP 시스템 관리자 또는 ONTAP CLI를 사용하여 활동 추적을 설정할 수 있습니다.
+ONTAP 시스템 관리자 또는 CLI를 사용하여 활동 추적을 설정할 수 있습니다.
 
 .이 작업에 대해
 ONTAP REST API 또는 시스템 관리자와 함께 RBAC를 사용하는 경우 활동 추적에 대한 액세스를 관리하기 위해 사용자 지정 역할을 만들어야 합니다. 을 참조하십시오 xref:role-based-access-control-task.html[역할 기반 액세스 제어] 참조하십시오.
@@ -56,7 +56,7 @@ ONTAP REST API 또는 시스템 관리자와 함께 RBAC를 사용하는 경우 
 +
 '볼륨 활동 - vssverver_svm_name_-volume_volume_name_'
 
-. 다음 명령을 사용하여 볼륨에 대한 활동 추적 상태가 ON 또는 OFF 상태인지 확인할 수 있습니다.
+. 다음 명령을 사용하여 볼륨에 대한 Activity Tracking 상태가 On 또는 Off 인지 확인합니다.
 +
 'volume activity-tracking show -vsverver_svm_name_-volume_volume_name_-state
 
@@ -76,20 +76,40 @@ ONTAP REST API 또는 시스템 관리자와 함께 RBAC를 사용하는 경우 
 
 [role="tabbed-block"]
 ====
-.특정 볼륨에 대해
+.시스템 관리자
 --
-.단계
+.특정 볼륨에 대해 활성화합니다
 . 스토리지 > 볼륨 * 을 선택합니다. 원하는 볼륨을 선택합니다. 개별 볼륨 메뉴에서 파일 시스템 을 선택한 다음 활동 탭을 선택합니다.
 . 활동 추적을 활성화할 볼륨을 선택합니다. 볼륨 목록 상단에서 * 추가 옵션 * 버튼을 선택합니다. 작업 추적 활성화 * 를 선택합니다.
 . SVM 레벨에서 활동 추적을 보려면 * 스토리지 > 볼륨 * 에서 보려는 특정 SVM을 선택합니다. File System(파일 시스템) 탭, Activity(활동) 로 이동하면 Activity Tracking(활동 추적)이 활성화된 볼륨에 대한 데이터가 표시됩니다.
 
 
---
-.SVM에서 모든 볼륨의 볼륨을 지원합니다
---
-.단계
+.모든 볼륨에 대해 활성화
 . 스토리지 > 볼륨 * 을 선택합니다. 메뉴에서 SVM을 선택합니다.
 . File System * 탭으로 이동하고 * More * 탭을 선택하여 SVM의 모든 볼륨에서 활동 추적을 활성화합니다.
+
+
+--
+.CLI를 참조하십시오
+--
+ONTAP 9.13.1 부터는 ONTAP CLI를 사용하여 여러 볼륨의 활동 추적을 활성화할 수 있습니다.
+
+.단계
+. 활동 추적 활성화:
++
+`volume activity-tracking on -vserver _svm_name_ -volume [*|!_volume_names_]`
+
++
+사용 `*` 지정된 스토리지 VM의 모든 볼륨에 대해 작업 추적을 설정하려면 다음을 수행합니다.
+
++
+사용 `!` 볼륨 이름 다음에 볼륨 이름을 사용하여 SVM의 모든 볼륨에서 활동 추적을 활성화합니다. 단, 볼륨 이름은 예외입니다.
+
+. 작업이 성공했는지 확인합니다.
++
+`volume show -fields activity-tracking-state`
+
+. 활성화되면 ONTAP 시스템 관리자 또는 ONTAP REST API를 사용하여 활동 추적 데이터를 표시합니다.
 
 
 --

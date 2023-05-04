@@ -26,6 +26,7 @@ xref:enable-ad-users-groups-access-cluster-svm-task.adoc[Active Directory 도메
 +
 계정 액세스를 활성화하기 전이나 후에 이 작업을 수행할 수 있습니다.
 
+* ONTAP 9.13.1 부터는 SSH 공개 키를 AD 사용자 암호와 함께 기본 또는 보조 인증 방법으로 사용할 수 있습니다.
 * ONTAP 9.11.1부터 를 사용할 수 있습니다 link:../nfs-admin/ldap-fast-bind-nsswitch-authentication-task.html["nsswitch 인증을 위한 LDAP 빠른 바인딩"] AD LDAP 서버에서 지원하는 경우
 * 로그인 계정에 할당할 액세스 제어 역할을 잘 모르는 경우 '보안 로그인 수정' 명령을 사용하여 나중에 역할을 추가할 수 있습니다.
 +
@@ -35,36 +36,66 @@ xref:modify-role-assigned-administrator-task.adoc[관리자에게 할당된 역�
 
 [NOTE]
 ====
-AD 그룹 계정 액세스는 'SH' 및 'ontapi' 애플리케이션에서만 지원됩니다.
+AD 그룹 계정 액세스는 에서만 지원됩니다 `SSH` 및 `ontapi` 응용 프로그램. 다단계 인증에는 일반적으로 사용되는 SSH 공개 키 인증에서는 AD 그룹이 지원되지 않습니다.
 
 ====
 .단계
 . AD 사용자 또는 그룹 관리자 계정을 사용하여 SVM에 액세스:
 +
-'보안 로그인 생성 - vserver SVM_name -user -or -group -name user_or_group_name -application application application -AuthMethod domain -role role role -comment comment comment[-is-ldap-fastbind true]'
+* AD 사용자용: *
 
 +
-전체 명령 구문은 을 참조하십시오 link:config-worksheets-reference.html["워크시트"].
+[cols="1,1,1,4"]
+|===
+| ONTAP 버전 | 기본 인증 | 보조 인증 | 명령 
 
-+
-link:config-worksheets-reference.html["로그인 계정 생성 또는 수정"]
 
-+
-다음 명령을 실행하면 AD 클러스터 관리자 계정 DOMAIN1\guest1에 미리 정의된 "백업" 역할을 사용하여 admin SVM "engCluster"에 액세스할 수 있습니다.
-
-+
+| 9.13.1 이상 | 공개 키 | 없음  a| 
 [listing]
 ----
-cluster1::>security login create -vserver engCluster -user-or-group-name DOMAIN1\guest1 -application ssh -authmethod domain -role backup
+security login create -vserver <svm_name> -user-or-group-name <user_name> -application ssh -authentication-method publickey -role <role>
 ----
-+
-다음 명령을 사용하면 AD 그룹 계정 DOMAIN1\adgroup의 SVM 관리자 계정을 미리 정의된 "vsadmin-volume" 역할로 사용하여 SVM "engData"에 액세스할 수 있습니다.
 
-+
+
+| 9.13.1 이상 | 도메인 | 공개 키  a| 
+* 신규 사용자용 *
+
 [listing]
 ----
-cluster1::>security login create -vserver engData -user-or-group-name DOMAIN1\adgroup -application ssh -authmethod domain -role vsadmin-volume
+security login create -vserver <svm_name> -user-or-group-name <user_name> -application ssh -authentication-method domain -second-authentication-method publickey -role <role>
 ----
+* 기존 사용자의 경우 *
+
+[listing]
+----
+security login modify -vserver <svm_name> -user-or-group-name <user_name> -application ssh -authentication-method domain -second-authentication-method publickey -role <role>
+----
+
+
+| 9.0 이상 | 도메인 | 없음  a| 
+[listing]
+----
+security login create -vserver <svm_name> -user-or-group-name <user_name> -application <application> -authentication-method domain -role <role> -comment <comment> [-is-ldap-fastbind true]
+----
+|===
++
+AD 그룹의 경우 *
+
++
+[cols="1,1,1,4"]
+|===
+| ONTAP 버전입니다 | 기본 인증 | 보조 인증 | 명령 
+
+
+| 9.0 이상 | 도메인 | 없음  a| 
+[listing]
+----
+security login create -vserver <svm_name> -user-or-group-name <user_name> -application <application> -authentication-method domain -role <role> -comment <comment> [-is-ldap-fastbind true]
+----
+|===
++
+전체 명령 구문은 을 참조하십시오 link:config-worksheets-reference.html["관리자 인증 및 RBAC 구성을 위한 워크시트"]
+
 
 
 .작업을 마친 후

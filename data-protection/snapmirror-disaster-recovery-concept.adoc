@@ -33,13 +33,14 @@ image::../media/snapmirror-for-dp-pg.gif[SnapMirror 데이터 보호 관계 그�
 
 볼륨 간 또는 볼륨을 소유한 SVM 간에 직접 데이터 보호 관계를 생성할 수 있습니다. SVM 데이터 보호 관계에서는 NFS 엑스포트 및 SMB 공유에서 RBAC에 이르는 SVM 구성의 전체 또는 일부를 복제할 뿐만 아니라 SVM이 소유한 볼륨의 데이터도 복제됩니다.
 
-또한 다음과 같은 두 가지 특수 데이터 보호 애플리케이션에 SnapMirror를 사용할 수 있습니다.
+또한 다음과 같은 특수 데이터 보호 애플리케이션용 SnapMirror를 사용할 수도 있습니다.
 
 * SVM 루트 볼륨의 _load 공유 mirror_copy를 사용하면 노드 운영 중단 또는 페일오버 발생 시에도 데이터에 액세스할 수 있습니다.
 * SnapLock 볼륨 _ 간의 데이터 보호 관계를 통해 WORM 파일을 보조 스토리지로 복제할 수 있습니다.
 +
 link:../snaplock/index.html["SnapLock 기술을 사용한 아카이브 및 규정 준수"]
 
+* ONTAP 9.13.1 부터는 비동기식 SnapMirror를 사용하여 보호할 수 있습니다 xref:../consistency-groups/index.html[정합성 보장 그룹]
 
 
 

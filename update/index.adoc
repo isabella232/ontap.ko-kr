@@ -1,0 +1,40 @@
+---
+permalink: update/index.html 
+sidebar: sidebar 
+keywords: ontap, upgrade, update, automatic, automated, firmware, bmc, sp, system, timezone database, timezone 
+summary: ONTAP 버전에 따라 자동 펌웨어 및 시스템 업데이트를 활성화할 수 있습니다. 
+---
+= 펌웨어 및 시스템 업데이트 개요
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 버전에 따라 자동 펌웨어 및 시스템 업데이트를 활성화할 수 있습니다.
+
+[cols="25,75"]
+|===
+| ONTAP 버전 | 자동 업데이트에 포함된 내용 
+
+
+| 9.13.1 이상  a| 
+* ONTAP 시간대 데이터베이스
+* 스토리지 장치, 디스크 및 디스크 쉘프를 위한 스토리지 펌웨어
+* 서비스 프로세서 및 BMC 모듈용 SP/BMC 펌웨어
+
+
+
+
+| 9.10.1 이상  a| 
+* 스토리지 장치, 디스크 및 디스크 쉘프를 위한 스토리지 펌웨어
+* 서비스 프로세서 및 BMC 모듈용 SP/BMC 펌웨어
+
+
+
+
+| 9.9.1 이전 버전 | 지원되지 않습니다 
+|===
+ONTAP 9.9.1 이전 버전을 실행 중이거나 를 실행하고 있지 않은 경우 link:enable-automatic-updates-task.html["자동 시스템 업데이트"] 사용할 수 있습니다 link:firmware-task.html["펌웨어를 수동으로 업데이트합니다"].
+
+ONTAP 9.12.1 이하를 실행 중이거나 가 없는 경우 link:enable-automatic-updates-task.html["자동 시스템 업데이트"] 이 옵션을 사용하면 표준 시간대 데이터베이스를 수동으로 업데이트할 수 있습니다. 자세한 내용은 기술 자료 문서, link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_update_time_zone_information_in_ONTAP_9["ONTAP 9에서 시간대 정보를 업데이트하는 방법"^]자세한 내용은 를 참조하십시오.

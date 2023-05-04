@@ -13,11 +13,9 @@ summary: 볼륨 할당량 정책 규칙 명령을 사용하여 할당량 규칙�
 [role="lead"]
 볼륨 할당량 정책 규칙 명령을 사용하여 할당량 규칙을 구성하고 '볼륨 할당량 정책' 명령과 일부 'vserver' 명령을 사용하여 할당량 정책을 구성할 수 있습니다.
 
-[NOTE]
-====
-다음 명령은 FlexVol 볼륨에서만 실행할 수 있습니다.
 
-====
+NOTE: 다음 명령은 FlexVol 볼륨에서만 실행할 수 있습니다.
+
 
 
 == 할당량 규칙을 관리하는 명령입니다
@@ -99,16 +97,16 @@ summary: 볼륨 할당량 정책 규칙 명령을 사용하여 할당량 규칙�
 
 
  a| 
-anSVM에 할당량 정책을 지정합니다
+SVM에 할당량 정책을 지정합니다
  a| 
-'vserver modify(가상 서버 수정)'
+`vserver modify -quota-policy _policy_name_`
 
 
 
  a| 
-anSVM에 할당된 할당량 정책의 이름을 표시합니다
+SVM에 할당된 할당량 정책의 이름을 표시합니다
  a| 
 'vserver show'
 
 |===
-자세한 내용은 각 명령에 대한 man 페이지를 참조하십시오.
+를 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli-9121["ONTAP 명령 참조입니다"^] 를 참조하십시오.

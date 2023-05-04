@@ -16,7 +16,7 @@ summary: 클러스터에 SSH 요청을 실행하여 관리 작업을 수행할 �
 .필요한 것
 * 'sh'를 액세스 방법으로 사용하도록 구성된 사용자 계정이 있어야 합니다.
 +
-'보안 로그인' 명령어의 '-application' 파라미터는 사용자 계정에 대한 접속 방식을 지정한다. '보안 로그인' man 페이지에는 추가 정보가 포함되어 있습니다.
+를 클릭합니다 `-application` 의 매개 변수입니다 `security login` 명령은 사용자 계정에 대한 액세스 방법을 지정합니다. 를 클릭합니다 `security login` https://review.docs.netapp.com/us-en/ontap-cli-9131_main/security-login-create.html#description["Man 페이지"^] 추가 정보를 포함합니다.
 
 * AD(Active Directory) 도메인 사용자 계정을 사용하여 클러스터에 액세스하는 경우 CIFS 지원 SVM(스토리지 가상 머신)을 통해 클러스터의 인증 터널을 설정했을 수 있습니다. 또한 AD 도메인 사용자 계정도 액세스 방법으로 "sh"를 사용하고 인증 방법으로 "domain"을 사용하여 클러스터에 추가되어야 합니다.
 * IPv6 연결을 사용하는 경우 IPv6가 이미 클러스터에서 구성 및 활성화되어 있어야 하며, 방화벽 정책이 이미 IPv6 주소로 구성되어 있어야 합니다.
@@ -45,11 +45,15 @@ AES는 키 길이가 128, 192 및 256비트인 경우 지원됩니다. 3DES는 �
 +
 AD 사용자 이름과 도메인 이름은 대소문자를 구분하지 않습니다. 그러나 ONTAP 사용자 이름은 대/소문자를 구분합니다. ONTAP에서 생성된 사용자 이름과 AD에서 생성된 사용자 이름 간의 케이스 불일치로 인해 로그인 오류가 발생합니다.
 
-* ONTAP 9.3부터 로컬 관리자 계정에 대한 SSH 다단계 인증을 활성화할 수 있습니다.
+
+
+.SSH 인증 옵션
+* ONTAP 9.3부터 가능합니다 link:../authentication/setup-ssh-multifactor-authentication-task.html["SSH 다단계 인증 지원"^] 로컬 관리자 계정의 경우.
 +
 SSH 다단계 인증을 사용하면 공개 키와 암호를 사용하여 사용자를 인증할 수 있습니다.
 
-* ONTAP 9.4부터 LDAP 및 NIS 원격 사용자에 대한 SSH 다중 인증을 설정할 수 있습니다.
+* ONTAP 9.4부터 가능합니다 link:../authentication/grant-access-nis-ldap-user-accounts-task.html["SSH 다단계 인증 지원"^] LDAP 및 NIS 원격 사용자의 경우
+* ONTAP 9.13.1 부터는 선택적으로 SSH 인증 프로세스에 인증서 유효성 검사를 추가하여 로그인 보안을 강화할 수 있습니다. 이렇게 하려면 link:../authentication/manage-ssh-public-keys-and-certificates.html["X.509 인증서를 공개 키와 연결합니다"^] 계정이 사용하는 것입니다. SSH 공개 키와 X.509 인증서를 모두 사용하여 SSH에 로그인하는 경우 ONTAP는 SSH 공개 키로 인증하기 전에 X.509 인증서의 유효성을 검사합니다. 인증서가 만료되거나 해지되고 SSH 공개 키가 자동으로 비활성화되면 SSH 로그인이 거부됩니다.
 
 
 .단계

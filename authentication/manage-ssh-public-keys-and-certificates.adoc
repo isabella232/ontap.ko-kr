@@ -1,0 +1,115 @@
+---
+permalink: authentication/manage-ssh-public-keys-and-certificates.html 
+sidebar: sidebar 
+keywords: associate, public key, administrator account 
+summary: SSH 공개 키 인증의 경우 관리자 계정의 공개 키와 X.509 인증서와의 연결을 관리할 수 있습니다. 보안 로그인 공개 키 명령을 사용하여 관리자 계정의 공개 키와 인증서를 관리할 수 있습니다. 
+---
+= 관리자 계정에 대한 SSH 공개 키와 X.509 인증서를 관리합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+관리자 계정으로 SSH 인증 보안을 강화하기 위해 를 사용할 수 있습니다 `security login publickey` SSH 공개 키 및 X.509 인증서와의 연결을 관리하는 명령 집합입니다.
+
+
+
+== 공개 키와 X.509 인증서를 관리자 계정에 연결합니다
+
+ONTAP 9.13.1 부터는 X.509 인증서를 관리자 계정과 연결된 공개 키와 연결할 수 있습니다. 이렇게 하면 해당 계정에 대한 SSH 로그인 시 인증서 만료 또는 해지 확인을 추가로 보호할 수 있습니다.
+
+.시작하기 전에
+* 이 작업을 수행하려면 클러스터 또는 SVM 관리자여야 합니다.
+* SSH 키를 생성해야 합니다.
+* X.509 인증서만 만료 여부를 확인해야 하는 경우 자체 서명된 인증서를 사용할 수 있습니다.
+* X.509 인증서의 만료 및 해지 여부를 확인해야 하는 경우:
++
+** CA(인증 기관)로부터 인증서를 받아야 합니다.
+** 를 사용하여 인증서 체인(중간 및 루트 CA 인증서)을 설치해야 합니다 `security certificate install` 명령.
+** SSH용 OCSP를 활성화해야 합니다. 을 참조하십시오 link:../system-admin/verify-digital-certificates-valid-ocsp-task.html["디지털 인증서가 OCSP를 사용하여 유효한지 확인합니다"^] 를 참조하십시오.
+
+
+
+
+.이 작업에 대해
+SSH 공개 키와 X.509 인증서를 모두 사용하여 SSH를 통해 계정을 인증하는 경우 ONTAP는 SSH 공개 키로 인증하기 전에 X.509 인증서의 유효성을 검사합니다. 인증서가 만료되거나 해지되면 SSH 로그인이 거부되고 공개 키는 자동으로 비활성화됩니다.
+
+.단계
+. 공개 키와 X.509 인증서를 관리자 계정에 연결합니다.
++
+`security login publickey create -vserver _SVM_name_ -username _user_name_ -index _index_ -publickey _certificate_ -x509-certificate install`
+
++
+전체 명령 구문은 에 대한 워크시트 참조를 참고하십시오 link:config-worksheets-reference.html#associate-a-public-key-with-a-user-account["공개 키를 사용자 계정과 연결"^].
+
+. 공개 키를 확인하여 변경 사항을 확인합니다.
++
+`security login publickey show -vserver _SVM_name_ -username _user_name_ -index _index_`
+
+
+
+.예
+다음 명령을 실행하면 공용 키와 X.509 인증서가 SVM 관리자 계정에 연결됩니다 `svmadmin2` SVM을 위해 `engData2`. 공개 키에는 인덱스 번호 6이 할당됩니다.
+
+[listing]
+----
+cluster1::> security login publickey create -vserver engData2 -username svmadmin2 -index 6 -publickey
+"<key text>" -x509-certificate install
+Please enter Certificate: Press <Enter> when done
+<certificate text>
+----
+
+
+== 관리자 계정의 SSH 공개 키에서 인증서 연결을 제거합니다
+
+공개 키를 유지하면서 계정의 SSH 공개 키에서 현재 인증서 연결을 제거할 수 있습니다.
+
+.시작하기 전에
+이 작업을 수행하려면 클러스터 또는 SVM 관리자여야 합니다.
+
+.단계
+. 관리자 계정에서 X.509 인증서 연결을 제거하고 기존 SSH 공개 키를 유지합니다.
++
+`security login publickey modify -vserver SVM_name -username user_name -index index -x509-certificate delete`
+
+. 공개 키를 확인하여 변경 사항을 확인합니다.
++
+`security login publickey show -vserver _SVM_name_ -username _user_name_ -index _index_`
+
+
+
+.예
+다음 명령을 실행하면 SVM 관리자 계정에서 X.509 인증서 연결이 제거됩니다 `svmadmin2` SVM을 위해 `engData2` 인덱스 번호 6.
+
+[listing]
+----
+cluster1::> security login publickey modify -vserver engData2 -username svmadmin2 -index 6 -x509-certificate delete
+----
+
+
+== 관리자 계정에서 공개 키 및 인증서 연결을 제거합니다
+
+계정에서 현재 공개 키 및 인증서 구성을 제거할 수 있습니다.
+
+.시작하기 전에
+이 작업을 수행하려면 클러스터 또는 SVM 관리자여야 합니다.
+
+.단계
+. 관리자 계정에서 공개 키와 X.509 인증서 연결을 제거합니다.
++
+`security login publickey delete -vserver _SVM_name_ -username _user_name_ -index _index_`
+
+. 공개 키를 확인하여 변경 사항을 확인합니다.
++
+`security login publickey show -vserver _SVM_name_ -username _user_name_ -index _index_`
+
+
+
+.예
+다음 명령을 실행하면 SVM 관리자 계정에서 공개 키와 X.509 인증서가 제거됩니다 `svmadmin3` SVM을 위해 `engData3` 인덱스 번호 7.
+
+[listing]
+----
+cluster1::> security login publickey delete -vserver engData3 -username svmadmin3 -index 7
+----

@@ -39,6 +39,15 @@ NOTE: AutoSupport는 기본적으로 사용하도록 설정되어 있습니다.
 Type yes to confirm and continue {yes}: yes
 ----
 . 화면의 지침에 따라 노드에 IP 주소를 할당합니다.
++
+ONTAP 9.13.1 부터는 A800 및 FAS8700 플랫폼에서 관리 LIF에 IPv6 주소를 할당할 수 있습니다. ONTAP 9.13.1 이전 릴리즈 또는 다른 플랫폼에서 9.13.1 이상인 경우 관리 LIF에 IPv4 주소를 할당한 다음 클러스터 설정을 완료한 후 IPv6로 변환해야 합니다.
+
+. 계속하려면 * Enter * 를 누르십시오.
++
+[listing]
+----
+Do you want to create a new cluster or join an existing cluster? {create, join}:
+----
 . 클러스터에 노드를 가입시킵니다
 . 화면의 지침에 따라 노드를 설정하고 클러스터에 연결합니다.
 . 설치가 완료된 후 노드가 정상 상태이며 클러스터에 참여할 자격이 있는지 'cluster show'인지 확인합니다
@@ -59,3 +68,6 @@ cluster1-02           true    true
 
 . 나머지 각 노드에 대해 이 작업을 반복합니다.
 
+
+.작업을 마친 후
+필요한 경우 link:convert-ipv4-to-ipv6-task.html["IPv4에서 IPv6로 변환"].

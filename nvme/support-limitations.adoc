@@ -27,7 +27,7 @@ NVMe 지원 및 제한 사항은 사용 중인 ONTAP 버전, 플랫폼 및 구�
 | TCP | ONTAP 9.10.1 | 기본값 
 
 
-| FCP | ONTAP 9.4 | 기본값 
+| FC | ONTAP 9.4 | 기본값 
 |===
 
 

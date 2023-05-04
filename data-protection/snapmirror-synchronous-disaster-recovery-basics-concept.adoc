@@ -109,6 +109,8 @@ ONTAP 9.7에서 SnapMirror Synchronous 기술에 지원되는 기능은 다음�
 * 클론 자동 삭제
 
 
+ONTAP 9.13.1 버전부터 NDMP는 SnapMirror Synchronous에서 지원됩니다. SnapMirror Synchronous에 NDMP를 사용하려면 소스 클러스터와 대상 클러스터 모두 ONTAP 9.13.1 이상을 실행해야 합니다. 자세한 내용은 을 참조하십시오 xref:../tape-backup/transfer-data-ndmpcopy-task.html[NDMP 복제본을 사용하여 데이터를 전송합니다].
+
 
 
 == 지원되지 않는 기능입니다

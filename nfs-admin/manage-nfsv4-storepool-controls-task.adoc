@@ -1,0 +1,117 @@
+---
+permalink: nfs-admin/manage-nfsv4-storepool-controls-task.html 
+sidebar: sidebar 
+keywords: enable, disable, nfsv4, storepool, controls, limit, client, resource, blocked, 
+summary: ONTAP 9.13부터 관리자는 클라이언트 저장소 풀 리소스 제한당 한도에 도달하면 NFS 서버가 NFS 클라이언트에 대한 리소스를 거부하도록 설정할 수 있습니다. 
+---
+= NFSv4 저장소 풀 제한을 관리합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.13부터 관리자는 NFSv4 서버가 클라이언트 저장소 풀 리소스 제한당 한도에 도달하면 NFSv4 클라이언트에 대한 리소스를 거부하도록 설정할 수 있습니다. 클라이언트가 NFSv4 저장소 풀 리소스를 너무 많이 사용하면 NFSv4 저장소 풀 리소스를 사용할 수 없어 다른 NFSv4 클라이언트가 차단될 수 있습니다.
+
+또한 이 기능을 사용하면 각 클라이언트에서 사용하는 활성 저장소 리소스를 볼 수 있습니다. 이렇게 하면 시스템 리소스가 소진되는 클라이언트를 쉽게 식별할 수 있으며 클라이언트 리소스 제한에 따라 적용할 수 있습니다.
+
+
+
+== 사용된 저장소 풀 리소스를 봅니다
+
+를 클릭합니다 `vserver nfs storepool show` 명령 사용된 저장소 리소스 수를 표시합니다. 저장소 풀은 NFSv4 클라이언트가 사용하는 리소스 풀입니다.
+
+.단계
+. 관리자 권한으로 를 실행합니다 `vserver nfs storepool show` NFSv4 클라이언트의 저장소 풀 정보를 표시하는 명령입니다.
+
+
+.예
+이 예에서는 NFSv4 클라이언트의 저장소 풀 정보를 표시합니다.
+
+[listing]
+----
+cluster1::*> vserver nfs storepool show
+
+Node: node1
+
+Vserver: vs1
+
+Data-Ip: 10.0.1.1
+
+Client-Ip Protocol IsTrunked OwnerCount OpenCount DelegCount LockCount
+
+-------------- --------- --------- ---------- ---------- ---------- ---------
+
+10.0.2.1          nfs4.1     true    2 1 0 4
+
+10.0.2.2          nfs4.2     true    2 1 0 4
+
+2 entries were displayed.
+----
+
+
+== 저장소 풀 제한 컨트롤을 사용하거나 사용하지 않도록 설정합니다
+
+관리자는 다음 명령을 사용하여 저장소 풀 제한 컨트롤을 사용하거나 사용하지 않도록 설정할 수 있습니다.
+
+.단계
+. 관리자는 다음 작업 중 하나를 수행합니다.
++
+[cols="2*"]
+|===
+| 원하는 작업 | 다음 명령을 입력합니다... 
+
+
+ a| 
+저장소 풀 제한 컨트롤을 활성화합니다
+ a| 
+`vserver nfs storepool config modify -limit-enforce enabled`
+
+
+
+ a| 
+저장소 풀 제한 컨트롤을 비활성화합니다
+ a| 
+`vserver nfs storepool config modify -limit-enforce disabled`
+
+|===
+
+
+
+
+== 차단된 클라이언트 목록을 봅니다
+
+저장소 풀 제한이 설정된 경우 관리자는 클라이언트별 리소스 임계값에 도달하면 차단된 클라이언트를 확인할 수 있습니다. 관리자는 다음 명령을 사용하여 차단된 클라이언트로 표시된 클라이언트를 확인할 수 있습니다.
+
+.단계
+. 를 사용합니다 `vserver nfs storepool blocked-client show` NFSv4 차단된 클라이언트 목록을 표시하는 명령입니다.
+
+
+
+
+== 차단된 클라이언트 목록에서 클라이언트를 제거합니다
+
+클라이언트별 임계값에 도달한 클라이언트는 연결이 끊어지고 블록 클라이언트 캐시에 추가됩니다. 관리자는 다음 명령을 사용하여 클라이언트를 블록 클라이언트 캐시에서 제거할 수 있습니다. 이렇게 하면 클라이언트가 ONTAP NFSv4 서버에 접속할 수 있습니다.
+
+.단계
+. 를 사용합니다 `vserver nfs storepool blocked-client flush -client-ip <ip address>` 차단된 클라이언트 캐시를 플러시하는 명령입니다.
+. 를 사용합니다 `vserver nfs storepool blocked-client show` 클라이언트가 블록 클라이언트 캐시에서 제거되었는지 확인하는 명령입니다.
+
+
+.예
+이 예에서는 모든 노드에서 IP 주소 "10.2.1.1"이 플러시되는 차단된 클라이언트를 표시합니다.
+
+[listing]
+----
+cluster1::*>vserver nfs storepool blocked-client flush -client-ip 10.2.1.1
+
+cluster1::*>vserver nfs storepool blocked-client show
+
+Node: node1
+
+Client IP
+----------
+10.1.1.1
+
+1 entries were displayed.
+----

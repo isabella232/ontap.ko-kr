@@ -14,6 +14,8 @@ entries:
   url: "/consistency-groups/protect-task.html"
 - title: 수정
   url: "/consistency-groups/modify-task.html"
+- title: 아키텍처 수정
+  url: "/consistency-groups/modify-geometry-task.html"
 - title: 복제
   url: "/consistency-groups/clone-task.html"
 - title: 삭제

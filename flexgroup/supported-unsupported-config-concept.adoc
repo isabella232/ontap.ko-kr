@@ -15,18 +15,27 @@ ONTAP 9의 FlexGroup 볼륨에서 지원되고 지원되지 않는 ONTAP 기능�
 
 
 
+== ONTAP 9.13.1 버전부터 지원되는 기능
+
+* FlexGroup 볼륨에 대한 자율 ARP(랜섬웨어 보호): 지원되는 기능:
++
+** FlexGroup 운영 확장: 새로운 구성요소에서 자율 랜섬웨어 보호 속성을 상속합니다.
+** FlexVol에서 FlexGroup로 전환: 능동적 자율 랜섬웨어 보호를 사용하여 FlexVol을 변환할 수 있습니다.
+** FlexGroup 재조정: 운영 중단 및 무중단 재조정 작업 중에 inode 간에 자율적 랜섬웨어 보호가 복사됩니다.
+
+
+* 단일 FlexGroup 재조정 작업을 예약합니다.
+* FlexGroup 볼륨에서 SVM DR과의 SnapMirror 팬아웃 관계 8개 사이트로 팬아웃 지원
+
+
+
+
 == ONTAP 9.12.1부터 지원되는 기능입니다
 
 * FlexGroup 재조정
 * SnapVault용 SnapLock
 * SVM 마이그레이션
-* FabricPool, FlexGroup 및 SVM-DR이 함께 작동합니다.
-+
-[NOTE]
-====
-ONTAP 9.12.1 이전 버전에서는 이러한 기능 중 두 가지가 함께 작동하지만 세 가지 기능이 모두 함께 작동하지는 않습니다.
-
-====
+* FabricPool, FlexGroup 및 SVM DR이 함께 작동합니다. (ONTAP 9.12.1 이전 버전에서는 이러한 기능 중 두 가지가 함께 작동하지만 세 가지 기능이 모두 함께 작동하지는 않습니다.)
 
 
 
@@ -63,7 +72,7 @@ xref:manage-client-async-dir-delete-task.adoc[클라이언트 권한을 관리�
 +
 xref:convert-flexvol-svm-dr-relationship-task.adoc[SVM-DR 관계 내에서 FlexVol 볼륨을 FlexGroup 볼륨으로 변환합니다]
 
-* FlexGroup 볼륨에 대한 SVM-DR FlexClone 지원
+* FlexGroup 볼륨에 대한 SVM DR FlexClone 지원
 +
 xref:../volumes/create-flexclone-task.adoc[FlexClone 볼륨 생성에 대해 자세히 알아보십시오.]
 

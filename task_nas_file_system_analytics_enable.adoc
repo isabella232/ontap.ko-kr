@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task_nas_file_system_analytics_enable.html 
-keywords: capacity analytics, data visualization, File System Analytics, System Manager, storage, explorer 
+keywords: capacity analytics, data visualization, File System Analytics 
 summary: 용량 분석과 같은 사용 데이터를 수집하고 표시하려면 파일 시스템 분석을 설정해야 합니다. 
 ---
 = 파일 시스템 분석 설정
@@ -21,7 +21,10 @@ summary: 용량 분석과 같은 사용 데이터를 수집하고 표시하려�
 [role="lead"]
 용량 분석과 같은 사용 데이터를 수집하고 표시하려면 볼륨에 대해 File System Analytics를 활성화해야 합니다.
 
-ONTAP 9.8부터 새 볼륨이나 기존 볼륨에서 파일 시스템 분석을 활성화할 수 있습니다. 시스템을 ONTAP 9.8 이상으로 업그레이드하는 경우 파일 시스템 분석을 활성화하기 전에 모든 업그레이드 프로세스가 완료되었는지 확인하십시오.
+.이 작업에 대해
+* ONTAP 9.8부터 새 볼륨이나 기존 볼륨에서 파일 시스템 분석을 활성화할 수 있습니다. 시스템을 ONTAP 9.8 이상으로 업그레이드하는 경우 파일 시스템 분석을 활성화하기 전에 모든 업그레이드 프로세스가 완료되었는지 확인하십시오.
+* 볼륨의 크기와 내용에 따라 분석을 사용하는 데 시간이 걸릴 수 있으며 ONTAP에서는 볼륨의 기존 데이터를 처리합니다. System Manager에서 진행 상황을 표시하고 완료되면 분석 데이터를 표시합니다. 초기화 진행률에 대한 보다 정확한 정보가 필요한 경우 ONTAP CLI 명령 'volume analytics show'를 사용할 수 있습니다.
+
 
 .이 작업에 대해
 볼륨의 크기와 내용에 따라 분석을 사용하는 데 시간이 걸릴 수 있으며 ONTAP에서는 볼륨의 기존 데이터를 처리합니다. System Manager에서 진행 상황을 표시하고 완료되면 분석 데이터를 표시합니다. 초기화 진행률에 대한 보다 정확한 정보가 필요한 경우 ONTAP CLI 명령 'volume analytics show'를 사용할 수 있습니다.
@@ -44,9 +47,52 @@ ONTAP System Manager 또는 CLI를 사용하여 파일 시스템 분석을 활�
 --
 .CLI를 참조하십시오
 --
-.CLI를 사용하여 파일 시스템 분석을 설정하려면 다음을 따르십시오.
+.CLI를 사용하여 File System Analytics를 설정합니다
 . 다음 명령을 실행합니다. 'volume analytics on-vserver_svm_name_-volume_volume_name_[-foreground{true|false}]' 명령은 기본적으로 포그라운드에서 실행되며, ONTAP는 진행률을 표시하고 완료되면 분석 데이터를 표시합니다. 보다 정확한 정보가 필요한 경우 '-foreground false' 옵션을 사용하여 백그라운드에서 명령을 실행한 다음 'volume analytics show' 명령을 사용하여 CLI에서 초기화 진행률을 표시할 수 있습니다.
-. 파일 시스템 분석을 성공적으로 사용하도록 설정한 후 ONTAP System Manager를 사용하여 분석 데이터를 표시합니다.
+. 파일 시스템 분석을 성공적으로 활성화한 후 System Manager 또는 ONTAP REST API를 사용하여 분석 데이터를 표시할 수 있습니다.
+
+
+--
+====
+
+
+== 기본 파일 시스템 분석 설정을 수정합니다
+
+ONTAP 9.13.1 부터는 SVM 또는 클러스터 설정을 수정하여 새 볼륨에서 파일 시스템 분석을 기본적으로 사용하도록 설정할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+System Manager를 사용하는 경우, 기본적으로 볼륨 생성 시 용량 분석 및 활동 추적을 사용하도록 스토리지 VM 또는 클러스터 설정을 수정할 수 있습니다. 기본 활성화는 기존 볼륨이 아니라 설정을 수정한 후에만 생성된 볼륨에만 적용됩니다.
+
+.클러스터에서 파일 시스템 분석 설정을 수정합니다
+. System Manager에서 ** 클러스터 설정**으로 이동합니다.
+. Cluster settings** 에서 File System Settings 탭을 검토합니다. 설정을 수정하려면 을 선택합니다 image:icon_gear.gif["설정 기어"] 아이콘을 클릭합니다.
+. [활동 추적**] 필드에 기본적으로 활동 추적을 활성화할 SVM의 이름을 입력합니다. 필드를 비워 두면 모든 SVM에서 활동 추적이 비활성화됩니다.
++
+새 스토리지 VM에서 기본적으로 활성 추적을 해제하려면 ** 새 스토리지 VM에서 활성화 ** 상자의 선택을 취소합니다.
+
+. 분석** 필드에 용량 분석을 기본적으로 활성화할 스토리지 VM의 이름을 입력합니다. 필드를 비워 두면 모든 SVM에서 용량 분석이 비활성화됩니다.
++
+새 스토리지 VM에서 기본적으로 용량 분석을 사용하지 않도록 설정하려면** Enable on new storage VMs** 확인란의 선택을 취소합니다.
+
+. ** 저장**을 선택합니다.
+
+
+.SVM에서 파일 시스템 분석 설정을 수정합니다
+. 수정할 SVM을 선택한 다음 ** 스토리지 VM 설정**을 선택합니다.
+. ** File System Analytics** 카드에서 토글을 사용하여 스토리지 VM의 모든 새 볼륨에 대한 활동 추적 및 용량 분석을 활성화 또는 비활성화합니다.
+
+
+--
+.CLI를 참조하십시오
+--
+ONTAP CLI를 사용하여 새 볼륨에서 파일 시스템 분석을 기본적으로 사용하도록 스토리지 VM을 구성할 수 있습니다.
+
+.SVM에서 기본적으로 파일 시스템 분석 지원
+. 새로 생성된 모든 볼륨에서 용량 분석 및 활동 추적을 기본적으로 사용하도록 SVM 수정:
+`vserver modify -vserver _svm_name_ -auto-enable-activity-tracking true -auto-enable-analytics true`
 
 
 --

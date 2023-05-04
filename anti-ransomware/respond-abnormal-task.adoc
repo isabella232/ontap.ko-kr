@@ -4,7 +4,7 @@ permalink: anti-ransomware/respond-abnormal-task.html
 keywords: Respond to abnormal activity, anti-ransomware abnormal activity, data entropy, unusual file extensions, potential ransomware attack, false positive, suspected ransomware attack, abnormal activity notification, security, ransomware alert message, detected abnormal volume, suspected file types, attack report, anti-ransomware attack, autonomous, ransomware, protection, arp 
 summary: 'ARP(Autonomous 랜섬웨어 Protection)가 보호 볼륨에서 비정상적인 활동을 감지하면 경고를 표시합니다. 알림을 평가하여 작업이 예상되는지, 허용되는지, 공격이 진행 중인지 여부를 확인해야 합니다.' 
 ---
-= 비정상적인 활동에 응답합니다.
+= 비정상적인 활동에 응답합니다
 :toc: macro
 :hardbreaks:
 :toclevels: 1
@@ -68,7 +68,12 @@ NOTE: 전체 볼륨을 복원한 경우 지울 수 있는 알림이 없습니다
 | 이 값을 선택한 경우... | 이 조치를 취하십시오… 
 
 
-| 거짓 양성 | Update * 및 * Clear Suspect File Types * 를 클릭하여 결정 사항을 기록하고 일반적인 Anti-랜섬웨어 모니터링을 재개합니다. 
+| 거짓 양성  a| 
+귀하의 결정을 기록하고 정상적인 ARP 모니터링을 재개하려면 * 업데이트 * 및 * 의심스러운 파일 유형 지우기 * 를 클릭하십시오.
+
+
+NOTE: ONTAP 9.13.1 부터, ARP 설정을 보호하기 위해 MAV를 사용하는 경우, 의심스러운 작업이 하나 이상의 추가 관리자의 승인을 얻으라는 메시지를 표시합니다. link:../multi-admin-verify/request-operation-task.html["모든 관리자로부터 승인을 받아야 합니다"] MAV 승인 그룹과 연관되거나 작업이 실패합니다.
+
 
 
 | 잠재적인 랜섬웨어 공격 | 공격에 대응하고 보호된 데이터를 복원합니다. 그런 다음 * 업데이트 * 와 * 의심스러운 파일 유형 지우기 * 를 클릭하여 결정을 기록하고 정상적인 ARP 모니터링을 재개합니다. + 전체 볼륨을 복원한 경우 삭제할 의심스러운 파일 유형이 없습니다. 
@@ -121,14 +126,15 @@ EMS 메시지를 확인할 수도 있습니다.
 +
 ** 거짓 양성
 +
-다음 명령을 입력하여 허용되는 항목 목록에 새 확장명을 추가하여 정상적인 랜섬웨어 방지 모니터링을 재개하십시오. 'Anti-랜섬웨어 volume attack clear-vserver_svm_name_-volume_vol_name_[_extension identifier_] - false-positive true
+다음 명령을 입력하여 결정 사항을 기록하고, 허용되는 확장자 목록에 새 확장을 추가한 후, 정상적인 안티 랜섬웨어 모니터링을 재개합니다.
+`anti-ransomware volume attack clear-suspect -vserver _svm_name_ -volume _vol_name_ [_extension identifiers_] -false-positive true`
 
 +
 다음 매개 변수 중 하나를 사용하여 의심되는 목록에 있는 파일의 '[-seq-no_integer_]' 시퀀스 번호를 식별합니다. `[-extension_text_,… [-start-time_date_time_-end-time_date_time_]"" MM/DD/YYYY HH:MM:SS 형식으로 지울 파일 범위의 시작 및 종료 시간.
 
 ** 잠재적인 랜섬웨어 공격
 +
-공격에 대응하고 데이터를 복구합니다. 그런 다음 다음 다음 명령을 입력하여 결정을 기록하고 일반 ARP 모니터링을 재개합니다.
+공격에 대한 대응 및 link:../anti-ransomware/recover-data-task.html["ARP 생성 백업 스냅샷으로부터 데이터를 복구합니다"]. 데이터가 복구된 후 다음 명령을 입력하여 결정을 기록하고 정상적인 ARP 모니터링을 재개합니다.
 
 +
 '안티 랜섬웨어 볼륨 공격 clear-suspect-vserver_svm_name_-volume_vol_name_[_extension identifier_]-false-positive false'
@@ -137,9 +143,28 @@ EMS 메시지를 확인할 수도 있습니다.
 다음 매개 변수 중 하나를 사용하여 확장자가 무엇인지 확인하십시오. "[-seq-no_integer_]" 의심되는 목록에 있는 파일의 시퀀스 번호 [-extension_text_,… [-start-time_date_time_-end-time_date_time_]"" MM/DD/YYYY HH:MM:SS 형식으로 지울 파일 범위의 시작 및 종료 시간.
 
 +
-전체 볼륨을 복원한 경우 삭제할 의심스러운 파일 유형이 없습니다.
+전체 볼륨을 복원한 경우 삭제할 의심스러운 파일 유형이 없습니다. ARP 생성 백업 스냅샷이 제거되고 공격 보고서가 지워집니다.
 
 
+
+. MAV를 사용하고 있고 예상되는 경우 `clear-suspect` 운영에는 추가 승인이 필요합니다. 각 MAV 그룹 승인자는 다음을 수행합니다.
++
+.. 요청 표시:
++
+`security multi-admin-verify request show`
+
+.. 정상적인 랜섬웨어 방지 모니터링 재개 요청을 승인합니다.
++
+`security multi-admin-verify request approve -index[_number returned from show request_]`
+
++
+마지막 그룹 승인자에 대한 응답은 볼륨이 수정되었고 가양성이 기록되었음을 나타냅니다.
+
+
+
+. MAV를 사용하고 있고 MAV 그룹 승인자인 경우 의심스러운 요청을 거부할 수도 있습니다.
++
+`security multi-admin-verify request veto -index[_number returned from show request_]`
 
 
 

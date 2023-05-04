@@ -14,13 +14,7 @@ entries:
     url: "/san-admin/lun-san-environments-concept.html"
   - title: FC 또는 iSCSI 라이센스를 확인하거나 추가합니다
     url: "/san-admin/verify-license-fc-iscsi-task.html"
-  - title: VMware 데이터 저장소
-    url: "/task_san_provision_vmware.html"
-  - title: Linux 서버
-    url: "/task_san_provision_linux.html"
-  - title: 지원합니다
-    url: "/task_san_provision_windows.html"
-  - title: 기타 호스트
+  - title: SAN 스토리지 용량 할당
     url: "/san-admin/provision-storage.html"
 - title: NVMe 프로비저닝
   entries:
@@ -32,9 +26,7 @@ entries:
     url: "/nvme/support-limitations.html"
   - title: NVMe를 위한 SVM 구성
     url: "/san-admin/configure-svm-nvme-task.html"
-  - title: SUSE Linux
-    url: "/task_nvme_provision_suse_linux.html"
-  - title: 기타 NVMe 호스트
+  - title: NVMe 스토리지 프로비저닝
     url: "/san-admin/create-nvme-namespace-subsystem-task.html"
   - title: NVMe 네임스페이스를 하위 시스템에 매핑합니다
     url: "/san-admin/map-nvme-namespace-subsystem-task.html"

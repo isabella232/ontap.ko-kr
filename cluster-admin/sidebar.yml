@@ -13,6 +13,8 @@ entries:
     url: "/task_admin_enable_new_features.html"
   - title: 지원 케이스를 보고 제출합니다
     url: "/task_admin_view_submit_support_cases.html"
+  - title: 스토리지 VM의 최대 용량 제한을 관리합니다
+    url: "/manage-max-cap-limit-svm-in-sm-task.html"
   - title: System Manager로 용량을 모니터링합니다
     url: "/task_admin_monitor_capacity_in_sm.html"
   - title: Active IQ 디지털 자문으로 위험 모니터링

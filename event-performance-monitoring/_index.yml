@@ -12,7 +12,7 @@ indexpage:
     - title: SNMP 개요
       url: "/../networking/manage_snmp_on_the_cluster_@cluster_administrators_only@_overview.html"
     - title: 파일 시스템 분석 개요
-      url: "/../flexgroup/monitor-volume-usage-file-system-analytics-task.html"
+      url: "../concept_nas_file_system_analytics_overview.html"
   - title: 성능
     links:
     - title: System Manager로 서비스 품질 구성
@@ -35,12 +35,12 @@ indexpage:
       url: https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=62286
   - title: 파일 시스템 분석
     links:
-    - title: System Manager로 구성합니다
-      url: "/../task_nas_file_system_analytics_enable.html"
-    - title: CLI를 사용하여 구성합니다
-      url: "/../flexgroup/monitor-volume-usage-file-system-analytics-task.html"
-    - title: System Manager로 파일 시스템 작업을 봅니다
-      url: "/../task_nas_file_system_analytics_view.html"
+    - title: 파일 시스템 분석 설정
+      url: "../task_nas_file_system_analytics_enable.html"
+    - title: 활동 추적을 활성화합니다
+      url: "../file-system-analytics/activity-tracking-task.html"
+    - title: 파일 시스템의 작업을 봅니다
+      url: "../task_nas_file_system_analytics_view.html"
     - title: System Manager를 사용하여 분석을 기반으로 수정 조치 수행
       url: "/../task_nas_file_system_analytics_take_corrective_action.html"
   - title: 더 많은 리소스

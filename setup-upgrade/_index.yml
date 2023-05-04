@@ -24,7 +24,7 @@ indexpage:
     - title: CLI를 통한 무중단 업그레이드 자동화
       url: "/../upgrade/task_upgrade_andu_cli.html"
     - title: 펌웨어를 업데이트합니다
-      url: "/../task_admin_update_firmware.html"
+      url: "/../update/firmware-task.html"
   - title: 클러스터를 되돌립니다
     links:
     - title: 되돌리기 경로

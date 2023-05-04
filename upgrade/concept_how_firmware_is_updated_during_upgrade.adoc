@@ -28,11 +28,11 @@ ONTAP 업그레이드 전에 펌웨어를 수동으로 업데이트할 필요는
 . 업그레이드 전에 SP 또는 BMC를 재부팅합니다. `system service-processor reboot-sp -node node_name`
 
 
-원하는 경우, 를 사용할 수도 있습니다 link:https://docs.netapp.com/us-en/ontap/task_admin_update_firmware.html#update-firmware-manually["펌웨어를 수동으로 업데이트합니다"] ONTAP 업그레이드 간 Active IQ가 있다면 가능합니다 link:https://activeiq.netapp.com/system-firmware/["ONTAP 이미지에 현재 포함되어 있는 펌웨어 버전 목록을 봅니다"].
+원하는 경우, 를 사용할 수도 있습니다 link:../update/firmware-task.html["펌웨어를 수동으로 업데이트합니다"] ONTAP 업그레이드 간 Active IQ가 있다면 가능합니다 link:https://activeiq.netapp.com/system-firmware/["ONTAP 이미지에 현재 포함되어 있는 펌웨어 버전 목록을 봅니다"^].
 
 업데이트된 펌웨어 버전은 다음과 같습니다.
 
-* link:https://mysupport.netapp.com/site/downloads/firmware/system-firmware-diagnostics["시스템 펌웨어(BIOS, BMC, SP)"]
-* link:https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["쉘프 펌웨어"]
-* link:https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["디스크 및 플래시 캐시 펌웨어입니다"]
+* link:https://mysupport.netapp.com/site/downloads/firmware/system-firmware-diagnostics["시스템 펌웨어(BIOS, BMC, SP)"^]
+* link:https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["쉘프 펌웨어"^]
+* link:https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["디스크 및 플래시 캐시 펌웨어입니다"^]
 

@@ -95,11 +95,39 @@ SM-BC의 제한은 관계 수가 아닌 끝점 수를 기준으로 계산됩니�
 
 == 지원되는 구성 및 기능
 
+SM-BC는 다음을 비롯한 수많은 운영 체제와 ONTAP 기능을 지원합니다.
+
+* AIX(ONTAP 9.11.1 시작)
+* 팬아웃 구성
+* HP-UX(ONTAP 9.10.1 시작)
+* NDMP 복제(ONTAP 9.13.1 시작)
+* 부분 파일 복원(ONTAP 9.12.1 시작)
+* Solaris 11.4(ONTAP 9.10.1 시작)
 
 
-=== 부분 파일 복원
 
-ONTAP 9.12.1부터 SM-BC 볼륨에 대해 부분 LUN 복원이 지원됩니다. 이 프로세스에 대한 자세한 내용은 을 참조하십시오 link:../data-protection/restore-part-file-snapshot-task.html["스냅샷 복사본에서 파일 일부를 복원합니다"].
+
+=== AIX
+
+ONTAP 9.11.1부터 AIX는 SM-BC에서 지원됩니다. AIX 구성에서 운영 클러스터는 "활성" 클러스터입니다.
+
+AIX 구성에서 페일오버는 중단을 야기합니다. 각 페일오버 시 호스트에서 재검색을 수행하여 I/O 작업을 재개해야 합니다.
+
+SM-BC를 사용하는 AIX 호스트에 대해 구성하려면 기술 자료 문서를 참조하십시오 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapMirror/How_to_configure_an_AIX_host_for_SnapMirror_Business_Continuity_(SM-BC)["SnapMirror 비즈니스 연속성(SM-BC)에 대한 AIX 호스트를 구성하는 방법"].
+
+
+
+=== HP-UX SM-BC 구성에 대해 알려진 문제 및 제한 사항
+
+ONTAP 9.10.1부터 HP-UX용 SM-BC가 지원됩니다. SM-BC 구성의 격리된 마스터 클러스터에서 자동 비계획 페일오버(AUFO) 이벤트가 발생하면 HP-UX 호스트에서 입출력이 재개되는 데 120초 이상이 걸릴 수 있습니다. 실행 중인 애플리케이션에 따라 I/O 중단 또는 오류 메시지가 발생할 수 없습니다. 격리된 마스터 클러스터에서 AUFO 이벤트가 발생하면 HP-UX 호스트에서 중단 허용 시간이 120초 미만인 애플리케이션을 재시작해야 합니다.
+
+격리된 마스터 클러스터의 AUFO 이벤트는 운영 클러스터와 보조 클러스터 간의 연결이 끊겼고 기본 클러스터와 중재자 사이의 연결도 끊어졌을 때 이중 이벤트 장애를 일으킬 수 있습니다. 이것은 다른 AUFO 이벤트와 달리 드문 사건으로 간주됩니다.
+
+
+
+=== FabricPool
+
+SM-BC는 FabricPool 애그리게이트에서 소스 볼륨과 타겟 볼륨을 지원하지 않음, 스냅샷 또는 자동 계층화 정책을 사용합니다. SM-S SM-BC는 ALL의 계층화 정책을 사용하는 FabricPool 애그리게이트를 지원하지 않습니다.
 
 
 
@@ -111,13 +139,17 @@ SM-BC 지원 xref:../data-protection/supported-deployment-config-concept.html[�
 
 
 
-=== AIX
+=== NDMP 복구입니다
 
-ONTAP 9.11.1부터 AIX는 SM-BC에서 지원됩니다. AIX 구성에서 운영 클러스터는 "활성" 클러스터입니다.
+ONTAP 9.13.1 부터는 NDMP를 사용하여 SM-BC로 데이터를 복제 및 복구할 수 있습니다. NDMP를 사용하면 데이터를 SM-BC 소스로 이동하여 보호를 일시 중지하지 않고 복구를 완료할 수 있습니다. 이 기능은 특히 팬아웃 구성에 유용합니다.
 
-AIX 구성에서 페일오버는 중단을 야기합니다. 각 페일오버 시 호스트에서 재검색을 수행하여 I/O 작업을 재개해야 합니다.
+이 프로세스에 대한 자세한 내용은 을 참조하십시오 xref:../tape-backup/transfer-data-ndmpcopy-task.html[NDMP 복제본을 사용하여 데이터를 전송합니다].
 
-SM-BC를 사용하는 AIX 호스트에 대해 구성하려면 기술 자료 문서를 참조하십시오 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapMirror/How_to_configure_an_AIX_host_for_SnapMirror_Business_Continuity_(SM-BC)["SnapMirror 비즈니스 연속성(SM-BC)에 대한 AIX 호스트를 구성하는 방법"].
+
+
+=== 부분 파일 복원
+
+ONTAP 9.12.1부터 SM-BC 볼륨에 대해 부분 LUN 복원이 지원됩니다. 이 프로세스에 대한 자세한 내용은 을 참조하십시오 link:../data-protection/restore-part-file-snapshot-task.html["스냅샷 복사본에서 파일 일부를 복원합니다"].
 
 
 
@@ -151,11 +183,3 @@ svl_fops_name = 0xa00298d69e0 "conf f_tpgs"
 
 
 NOTE: scsi-vhci-failover-override가 적용되면 conf는 sVL_FOPS_NAME에 추가된다. 기본 설정에 대한 추가 정보 및 권장 변경 사항은 NetApp KB 문서 를 참조하십시오 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapMirror/Solaris_Host_support_recommended_settings_in_SnapMirror_Business_Continuity_(SM-BC)_configuration["Solaris 호스트 지원 SM-BC(SnapMirror Business Continuity) 구성에서 권장되는 설정입니다"].
-
-
-
-=== HP-UX SM-BC 구성에 대해 알려진 문제 및 제한 사항
-
-ONTAP 9.10.1부터 HP-UX용 SM-BC가 지원됩니다. SM-BC 구성의 격리된 마스터 클러스터에서 자동 비계획 페일오버(AUFO) 이벤트가 발생하면 HP-UX 호스트에서 입출력이 재개되는 데 120초 이상이 걸릴 수 있습니다. 실행 중인 애플리케이션에 따라 I/O 중단 또는 오류 메시지가 발생할 수 없습니다. 격리된 마스터 클러스터에서 AUFO 이벤트가 발생하면 HP-UX 호스트에서 중단 허용 시간이 120초 미만인 애플리케이션을 재시작해야 합니다.
-
-격리된 마스터 클러스터의 AUFO 이벤트는 운영 클러스터와 보조 클러스터 간의 연결이 끊겼고 기본 클러스터와 중재자 사이의 연결도 끊어졌을 때 이중 이벤트 장애를 일으킬 수 있습니다. 이것은 다른 AUFO 이벤트와 달리 드문 사건으로 간주됩니다.

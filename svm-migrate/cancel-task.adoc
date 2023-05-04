@@ -20,9 +20,13 @@ dest_cluster>vserver migrate show -vserver <vserver name>'을(를) 선택합니�
 
 . 마이그레이션 취소:
 +
-dest_cluster>vserver migrate abort-vserver <vserver name>' 취소 작업의 진행률을 확인합니다.
+`dest_cluster> vserver migrate abort -vserver <vserver name>`
+
+. 취소 작업의 진행 상태를 점검한다.
++
+dest_cluster > vserver migrate show"를 선택합니다
 
 +
-dest_cluster>vserver Migrate show"취소 작업이 진행 중인 동안 마이그레이션 상태가 migrate-aborting으로 표시됩니다. 취소 작업이 완료되면 마이그레이션 상태가 아무것도 표시되지 않습니다.
+취소 작업이 진행 중인 동안 마이그레이션 상태가 migrate-aborting으로 표시됩니다. 취소 작업이 완료되면 마이그레이션 상태가 아무것도 표시되지 않습니다.
 
 

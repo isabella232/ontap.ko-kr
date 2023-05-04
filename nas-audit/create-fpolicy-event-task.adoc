@@ -14,12 +14,15 @@ summary: FPolicy 정책 구성을 생성하는 과정에서 FPolicy 이벤트를
 FPolicy 정책 구성을 생성하는 과정에서 FPolicy 이벤트를 생성해야 합니다. 이벤트가 생성될 때 FPolicy 정책에 이벤트를 연결합니다. 이벤트는 모니터링하고 필터링할 파일 액세스 이벤트와 모니터링할 프로토콜을 정의합니다.
 
 .시작하기 전에
-FPolicy 이벤트 워크시트를 작성해야 합니다.
+FPolicy 이벤트를 완료해야 합니다 link:https://docs.netapp.com/us-en/ontap/nas-audit/fpolicy-event-config-worksheet-reference.html["워크시트"].
 
-.단계
+
+
+== FPolicy 이벤트를 생성합니다
+
 . 'vserver FPolicy event create' 명령을 사용하여 FPolicy 이벤트를 생성합니다.
 +
-'vserver FPolicy policy event create-vserver-name vs1.example.com -event-name event1 -protocol cifs-file-operations open, close, read, write'
+`vserver fpolicy policy event create -vserver vs1.example.com -event-name event1 -protocol cifs -file-operations open,close,read,write`
 
 . 'vserver FPolicy event show' 명령을 사용하여 FPolicy 이벤트 구성을 확인하십시오.
 +
@@ -35,4 +38,16 @@ Vserver           Name      Protocols Operations    Filters   Operation
 vs1.example.com   event1    cifs      open, close,  -         false
                                       read, write
 ----
+
+
+
+
+== FPolicy 액세스 거부 이벤트를 생성합니다
+
+ONTAP 9.13.1 부터는 권한이 없어 실패한 파일 작업에 대한 알림을 받을 수 있습니다. 이러한 알림은 보안, 랜섬웨어 보호 및 거버넌스에 유용합니다.
+
+. 'vserver FPolicy event create' 명령을 사용하여 FPolicy 이벤트를 생성합니다.
++
+`vserver fpolicy policy event create -vserver vs1.example.com -event-name event1 -protocol cifs -monitor-fileop-failure true -file-operations open`
+
 

@@ -42,6 +42,8 @@ entries:
   entries:
   - title: 버킷을 만듭니다
     url: "/s3-config/create-bucket-task.html"
+  - title: 버킷 수명주기 규칙을 생성합니다
+    url: "/s3-config/create-bucket-lifecycle-rule-task.html"
   - title: S3 사용자를 생성합니다
     url: "/s3-config/create-s3-user-task.html"
   - title: S3 그룹을 생성하거나 수정합니다

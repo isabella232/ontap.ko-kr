@@ -1,0 +1,96 @@
+---
+permalink: s3-config/create-bucket-lifecycle-rule-task.html 
+sidebar: sidebar 
+keywords: s3, bucket, cli, lifecycle, rule 
+summary: ONTAP 9.13.1 부터 S3 오브젝트 만료를 구현할 수 있습니다. 
+---
+= 버킷 수명 주기 관리 규칙을 생성합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.13.1 부터 S3 오브젝트 만료를 구현할 수 있습니다. 만료 작업은 버킷의 객체가 만료되는 시기를 정의합니다. 따라서 오브젝트 버전을 관리할 수 있으므로 보존 요구사항을 충족하고 전체 S3 오브젝트 스토리지를 효과적으로 관리할 수 있습니다.
+
+.시작하기 전에
+S3 서버와 버킷을 포함하는 S3 기반 SVM이 이미 존재해야 합니다. 을 참조하십시오 link:create-svm-s3-task.html["S3를 위해 SVM을 생성합니다"] 를 참조하십시오.
+
+.이 작업에 대해
+버킷 수명 주기 관리 규칙을 생성할 때 다음 세 가지 만료 작업 유형 중 하나를 선택해야 합니다.
+
+* `Expiration` – 만료 작업은 규칙에 의해 식별된 객체를 만료시킵니다. 케이스 버전 관리가 버킷에서 활성화된 경우 S3는 만료된 모든 오브젝트를 사용할 수 없게 만듭니다. 버전 관리를 사용하지 않는 경우 이 규칙은 개체를 영구적으로 삭제합니다.
+* `NoncurrentVersionExpiration` – 이 작업은 S3이 현재 개체가 아닌 개체를 영구적으로 제거할 시기를 지정하는 데 사용됩니다. 삭제된 이러한 객체는 복구할 수 없습니다.
+* `AbortIncompleteMultipartUpload` – 관리자는 이 요소를 사용하여 멀티파트 업로드가 진행 중인 상태로 유지되기를 원하는 최대 시간(일)을 설정할 수 있습니다
+
+
+버킷 수명 주기 관리 규칙을 생성할 때 각 만료 작업 유형에 대한 필수 필드를 정의해야 합니다. 이러한 필드는 초기 생성 후 수정할 수 있습니다. 다음 표에는 각 작업 유형에 대한 고유 필드가 표시됩니다.
+
+[cols="30,70"]
+|===
+
+
+| 작업 유형 | 고유 필드 
+
+
+ a| 
+NonCurrentVersionExpiration 을 참조하십시오
+ a| 
+* `-non-curr-days` - 현재 버전이 아닌 버전이 삭제될 때까지 남은 일 수입니다
+* `-new-non-curr-versions` - 유지할 최신 버전이 아닌 버전 수입니다
+
+
+
+
+ a| 
+만료
+ a| 
+* `-obj-age-days` - 생성 후 현재 버전의 오브젝트를 삭제할 수 있는 일 수입니다
+* `-obj-exp-date` 객체가 만료되는 특정 날짜입니다
+* `-expired-obj-del-markers` - 객체를 정리해 마커를 삭제합니다
+
+
+
+
+ a| 
+AbortIncompleteMultipartUpload를 중단합니다
+ a| 
+* `-after-initiation-days` - 시작 일수입니다. 이후 업로드가 중단될 수 있습니다
+
+
+|===
+버킷 수명주기 관리 규칙을 특정 객체 하위 집합에만 적용하려면 관리자는 규칙을 생성할 때 각 필터를 설정해야 합니다. 규칙을 생성할 때 이러한 필터를 설정하지 않으면 버킷 내의 모든 오브젝트에 규칙이 적용됩니다.
+
+다음을 제외한 _ 을(를) 처음 생성한 후 모든 필터를 수정할 수 있습니다. +
+
+* `-prefix`
+* `-tags`
+* `-obj-size-greater-than`
+* `-obj-size-less-than`
+
+
+.단계
+. 를 사용합니다 `vserver object-store-server bucket lifecycle-management-rule create` 버킷 수명 주기 관리 규칙을 생성하기 위해 만료 작업 유형에 필요한 필드가 있는 명령입니다.
+
+
+.예
+다음 명령을 실행하면 NonCurrentVersionExpiration 버킷 수명주기 관리 규칙이 생성됩니다.
+
+[listing]
+----
+vserver object-store-server bucket lifecycle-management-rule create -vserver <svm_name> -bucket <bucket_name> -rule-id <rule_name> -action NonCurrentVersionExpiration -index <lifecycle_rule_index_integer> -is-enabled {true|false} -prefix <object_name> -tags <text> -obj-size-greater-than {<integer>[KB|MB|GB|TB|PB]} -obj-size-less-than {<integer>[KB|MB|GB|TB|PB]} -new-non-curr-versions <integer> -non-curr-days <integer>
+----
+.예
+다음 명령을 실행하면 만료 버킷 수명주기 관리 규칙이 생성됩니다.
+
+[listing]
+----
+vserver object-store-server bucket lifecycle-management-rule create -vserver <svm_name> -bucket <bucket_name> -rule-id <rule_name> -action Expiration -index <lifecycle_rule_index_integer> -is-enabled {true|false} -prefix <object_name> -tags <text> -obj-size-greater-than {<integer>[KB|MB|GB|TB|PB]} -obj-size-less-than {<integer>[KB|MB|GB|TB|PB]} -obj-age-days <integer> -obj-exp-date <"MM/DD/YYYY HH:MM:SS"> -expired-obj-del-marker {true|false}
+----
+.예
+다음 명령을 실행하면 AbortIncompleteMultipartUpload 버킷 수명주기 관리 규칙이 생성됩니다.
+
+[listing]
+----
+vserver object-store-server bucket lifecycle-management-rule create -vserver <svm_name> -bucket <bucket_name> -rule-id <rule_name> -action AbortIncompleteMultipartUpload -index <lifecycle_rule_index_integer> -is-enabled {true|false} -prefix <object_name> -tags <text> -obj-size-greater-than {<integer>[KB|MB|GB|TB|PB]} -obj-size-less-than {<integer>[KB|MB|GB|TB|PB]} -after-initiation-days <integer>
+----

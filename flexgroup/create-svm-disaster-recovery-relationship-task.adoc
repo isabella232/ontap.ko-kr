@@ -1,7 +1,7 @@
 ---
 permalink: flexgroup/create-svm-disaster-recovery-relationship-task.html 
 sidebar: sidebar 
-keywords: create, svm, disaster, recovery, relationship, flexgroup, volume, flex group, flexclone, flex clone 
+keywords: create, svm, disaster, recovery, svm dr, svm-dr, relationship, flexgroup, volume, flex group, flexclone, flex clone 
 summary: 'ONTAP 9.9.1부터 FlexGroup 볼륨을 사용하여 SVM 재해 복구(SVM DR) 관계를 생성할 수 있습니다. SVM DR 관계는 SVM 구성과 데이터를 동기화 및 복제하여 재해 발생 시 FlexGroups를 복구하는 이중화 및 기능을 제공합니다. SVM DR에는 SnapMirror 라이센스가 필요합니다.' 
 ---
 = FlexGroup 볼륨에 대한 SVM 재해 복구 관계를 생성합니다
@@ -14,16 +14,23 @@ summary: 'ONTAP 9.9.1부터 FlexGroup 볼륨을 사용하여 SVM 재해 복구(S
 ONTAP 9.9.1부터 FlexGroup 볼륨을 사용하여 SVM 재해 복구(SVM DR) 관계를 생성할 수 있습니다. SVM DR 관계는 SVM 구성과 데이터를 동기화 및 복제하여 재해 발생 시 FlexGroups를 복구하는 이중화 및 기능을 제공합니다. SVM DR에는 SnapMirror 라이센스가 필요합니다.
 
 .시작하기 전에
-FlexGroup SVM DR 관계를 생성할 수 없는 경우 조건에 주의해야 합니다.
+다음 항목을 사용하여 FlexGroup SVM DR 관계를 _ 생성할 수 없습니다.
 
 * FlexClone FlexGroup 구성이 있습니다
 * FlexGroup 볼륨에는 FabricPool 구성이 포함되어 있습니다
-* FlexGroup 볼륨은 팬아웃 또는 계단식 관계의 일부입니다
+* FlexGroup 볼륨은 계단식 관계의 일부입니다
+* FlexGroup 볼륨은 팬아웃 관계의 일부이며 클러스터에서 ONTAP 9.12.1 이전의 ONTAP 버전을 실행하고 있습니다. (ONTAP 9.13.1 부터는 팬아웃 관계가 지원됩니다.)
 
 
 .이 작업에 대해
 * 두 클러스터의 모든 노드는 SVM DR 지원을 추가한 노드(ONTAP 9.9.1 이상)와 동일한 ONTAP 버전을 실행해야 합니다.
 * 1차 사이트와 2차 사이트 간의 SVM DR 관계는 상태가 양호해야 하며, FlexGroup 볼륨을 지원할 수 있는 1차 및 2차 SVM 모두에 충분한 공간이 있어야 합니다.
+* FlexGroup 볼륨이 팬아웃 관계에 속하는 FlexGroup SVM DR 관계를 생성할 때 다음 요구사항을 알아야 합니다.
++
+** 소스 및 타겟 클러스터에서 ONTAP 9.13.1 이상이 실행되고 있어야 합니다.
+** FlexGroup 볼륨을 사용하는 SVM DR은 8개 사이트에 대한 SnapMirror 팬아웃 관계를 지원합니다.
+
+
 
 
 SVM DR 관계 생성에 대한 자세한 내용은 를 참조하십시오 https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-svm-replication-workflow-concept.html["SnapMirror SVM 복제 관리"].
@@ -40,7 +47,10 @@ link:create-task.html["FlexGroup 볼륨을 생성하는 중입니다"].
 +
 계속하기 전에 FlexGroup 및 모든 구성 구성요소가 생성될 때까지 기다리십시오.
 
-. FlexGroup 볼륨을 복제하려면 보조 사이트에서 'sapmirror update-destination-path destination_svm_name: - source-path source_svm_name:'+'sapmirror show-fields schedule'을 입력하여 예약된 SnapMirror 업데이트가 이미 있는지 확인할 수도 있습니다
+. FlexGroup 볼륨을 복제하려면 2차 사이트에서 SVM을 업데이트합니다. `snapmirror update -destination-path destination_svm_name: -source-path source_svm_name:`
++
+를 입력하여 예약된 SnapMirror 업데이트가 이미 있는지 확인할 수도 있습니다 `snapmirror show -fields schedule`
+
 . 2차 사이트에서 SnapMirror 관계가 정상인지 '스냅샷 표시'인지 확인합니다
 +
 [listing]

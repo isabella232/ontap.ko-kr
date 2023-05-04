@@ -143,7 +143,7 @@ entries:
       entries:
       - title: 개요
         url: "/nas-audit/plan-fpolicy-event-config-concept.html"
-      - title: FPolicy가 SMB용으로 모니터링할 수 있는 지원되는 파일 작업 및 필터 조합 목록입니다
+      - title: FPolicy가 SMB용으로 모니터링할 수 있는 지원되는 파일 작업 및 필터 조합
         url: "/nas-audit/supported-file-operation-filter-fpolicy-smb-concept.html"
       - title: FPolicy에서 NFSv3을 모니터링할 수 있는 지원되는 파일 작업 및 필터 조합
         url: "/nas-audit/supported-file-operation-filter-fpolicy-nfsv3-concept.html"

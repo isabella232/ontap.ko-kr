@@ -13,15 +13,19 @@ summary: SMB 클라이언트에 데이터 액세스를 제공하기 위해 클�
 [role="lead"]
 SMB 클라이언트에 데이터 액세스를 제공하기 위해 클러스터에 SVM을 하나 이상 가지고 있지 않은 경우 하나 생성해야 합니다.
 
+.시작하기 전에
+* ONTAP 9.13.1 부터는 스토리지 VM의 최대 용량을 설정할 수 있습니다. SVM이 임계값 용량 수준에 도달할 경우에도 경고를 구성할 수 있습니다. 자세한 내용은 을 참조하십시오 xref:../system-admin/manage-svm-capacity.html[SVM 용량 관리].
+
+
 .단계
-. SVM:'vserver create-vserver vserver_name-rootvolume root_volume_name-aggregate aggregate_name-rootvolume-security-style NTFS-language C. UTF-8-IPSpace IPSpace_name'을 생성합니다
+. SVM 생성: `vserver create -vserver _svm_name_ -rootvolume _root_volume_name_ -aggregate _aggregate_name_ -rootvolume-security-style ntfs -language C.UTF-8 -ipspace _ipspace_name_`
 +
 ** '-rootvolume-security-style' 옵션에 NTFS 설정을 사용합니다.
 ** 기본 C. UTF-8 '-language' 옵션을 사용합니다.
 ** IPSpace 설정은 선택 사항입니다.
 
 
-. 새로 생성된 SVM의 구성 및 상태를 확인합니다. 'vserver show -vserver vserver_name'
+. 새로 생성한 SVM의 구성 및 상태 확인: `vserver show -vserver _vserver_name_`
 +
 허용되는 프로토콜 필드에는 CIFS가 포함되어야 합니다. 나중에 이 목록을 편집할 수 있습니다.
 
@@ -31,7 +35,7 @@ SMB 클라이언트에 데이터 액세스를 제공하기 위해 클러스터�
 
 
 .예
-다음 명령은 IPspace에서 데이터 액세스를 위한 SVM을 생성합니다. spaceba:
+다음 명령은 IPspace에서 데이터 액세스를 위한 SVM을 생성합니다 `ipspaceA`:
 
 [listing]
 ----
@@ -70,3 +74,5 @@ cluster1::> vserver show -vserver vs1.example.com
                                 Config Lock: false
                                IPspace Name: ipspaceA
 ----
+
+NOTE: ONTAP 9.13.1 부터는 SVM의 볼륨에 처리량 플로어 및 최대 한도를 적용하여 적응형 QoS 정책 그룹 템플릿을 설정할 수 있습니다. SVM을 생성한 후에만 이 정책을 적용할 수 있습니다. 이 프로세스에 대한 자세한 내용은 을 참조하십시오 xref:../performance-admin/adaptive-policy-template-task.html[적응형 정책 그룹 템플릿을 설정합니다].

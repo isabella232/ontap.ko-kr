@@ -24,6 +24,32 @@ summary: 각 ONTAP 9 릴리즈에서 사용할 수 있는 네트워크 기능의
 
 
  a| 
+ONTAP 9.13.1
+ a| 
+데이터 LIF 제한이 증가합니다
+ a| 
+ONTAP는 HA Pair 및 클러스터 모두에 대해 데이터 LIF 확장 제한을 늘려 유연성을 강화합니다.
+
+각 노드에서 구성할 수 있는 IP 데이터 LIF의 수를 보려면 를 실행합니다 `network interface capacity details show` 명령.
+
+LIF 추가에 대한 자세한 내용은 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap/networking/create_a_lif.html["LIF를 생성합니다"].
+
+사용자 환경의 최신 데이터 LIF 한도를 보려면 를 참조하십시오 link:https://hwu.netapp.com/["NetApp Hardware Universe를 참조하십시오"^].
+
+
+
+ a| 
+ONTAP 9.13.1
+ a| 
+IPv6 클러스터 설정
+ a| 
+ONTAP 9.13.1 부터는 A800 및 FAS8700 플랫폼에서 관리 LIF에 IPv6 주소를 할당할 수 있습니다. ONTAP 9.13.1 이전 릴리즈 또는 다른 플랫폼에서 9.13.1 이상인 경우, 클러스터 설정을 완료한 후 관리 LIF에 IPv4 주소를 할당한 다음 IPv6 주소로 변환해야 합니다.
+
+IPv4에서 IPv6로 변환하는 방법에 대한 자세한 내용은 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap/software_setup/convert-ipv4-to-ipv6-task.html["IPv4에서 IPv6로 변환"].
+
+
+
+ a| 
 ONTAP 9.12.1
  a| 
 LIF 서비스

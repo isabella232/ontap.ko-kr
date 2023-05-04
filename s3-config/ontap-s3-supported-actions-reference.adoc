@@ -51,6 +51,12 @@ ONTAP S3 작업은 아래 명시된 경우를 제외하고 표준 S3 REST API에
 
 
 | BucketPolicy를 참조하십시오 | ONTAP 9.12.1 
+
+
+| PutBucketLifecycleConfiguration을 참조하십시오 | ONTAP 9.13.1+ * 만료 동작만 지원됩니다 
+
+
+| GetBuckLifecycleConfiguration 을 참조하십시오 | ONTAP 9.13.1+ * 만료 동작만 지원됩니다 
 |===
 
 

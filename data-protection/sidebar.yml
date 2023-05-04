@@ -48,8 +48,6 @@ entries:
       url: "/data-protection/restore-contents-volume-snapshot-task.html"
 - title: SnapMirror 볼륨 복제
   entries:
-  - title: 정보
-    url: "/data-protection/snapmirror-replication-concept.html"
   - title: 비동기식 SnapMirror 재해 복구 기본 사항
     url: "/data-protection/snapmirror-disaster-recovery-concept.html"
   - title: SnapMirror Synchronous 재해 복구 기본 사항

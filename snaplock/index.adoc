@@ -1,7 +1,7 @@
 ---
 permalink: snaplock/index.html 
 sidebar: sidebar 
-keywords: decide, about, archive, compliance, snaplock, unmodified, file, worm, storage, snap lock, mirror, unmirror. license, compliance clock, regulatory, governance, rules, govern 
+keywords: decide, about, archive, compliance, snaplock, unmodified, file, worm, storage, snap lock, mirror, unmirror. license, compliance clock, regulatory, governance, rules, govern, MAV, multi-admin verification, supported, unsupported 
 summary: NetApp SnapLock 기술을 사용하면 규정 및 거버넌스 목적으로 수정되지 않은 형식으로 파일을 보존할 수 있습니다. 
 ---
 = SnapLock란
@@ -226,6 +226,15 @@ MetroCluster 구성
 
 
  a| 
+MAV(Multi-admin verification)
+ a| 
+예, ONTAP 9.13.1. 에 대해 자세히 알아보십시오 xref:Multi-admin verification (MAV) support[MAV 지원].
+ a| 
+예, ONTAP 9.13.1. 에 대해 자세히 알아보십시오 xref:Multi-admin verification (MAV) support[MAV 지원].
+
+
+
+ a| 
 산
  a| 
 아니요
@@ -348,6 +357,12 @@ MetroCluster 구성에는 VCC(Volume Compliance Clock)와 SCC(System Compliance 
 볼륨이 다른 사이트에 복제되면 해당 VCC도 복제됩니다. 예를 들어, 사이트 A에서 사이트 B로 볼륨 전환이 발생하면 사이트 A의 SCC가 사이트 A가 오프라인이 되면 사이트 B에서 VCC가 계속 업데이트됩니다.
 
 사이트 A가 다시 온라인 상태가 되고 볼륨 스위치백을 수행하면 볼륨의 VCC가 계속 업데이트되는 동안 사이트 A SCC 클록이 다시 시작됩니다. 스위치오버 및 스위치백 작업과 관계없이 VCC가 지속적으로 업데이트되기 때문에 파일 보존 시간은 SCC 클럭에 의존하지 않고 늘어나지 않습니다.
+
+
+
+== MAV(Multi-admin verification) 지원
+
+ONTAP 9.13.1 부터는 클러스터 관리자가 일부 SnapLock 작업을 실행하기 전에 쿼럼을 승인해야 하는 클러스터에서 다중 관리 검증을 명시적으로 활성화할 수 있습니다. MAV가 활성화되면 기본 보존 시간, 최소 보존 시간, 최대 보존 시간, 볼륨 추가 모드, 자동 커밋 기간 및 권한 삭제 등의 SnapLock 볼륨 속성에 쿼럼이 승인되어야 합니다. 에 대해 자세히 알아보십시오 link:https://docs.netapp.com/us-en/ontap/multi-admin-verify/index.html#how-multi-admin-verification-works["5일"^].
 
 
 

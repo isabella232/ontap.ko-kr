@@ -1,0 +1,74 @@
+---
+permalink: software_setup/convert-ipv4-to-ipv6-task.html 
+sidebar: sidebar 
+keywords: software, setup, ontap, covert, converting, ipv4, ipv6 
+summary: ONTAP 9.13.1 부터는 FAS8700 및 플랫폼에서 관리 LIF에 IPv6 주소를 할당할 수 있습니다. 다른 플랫폼에서 9.13.1 이전의 ONTAP 릴리스의 경우, 관리 LIF에 IPv4 주소를 할당한 다음 클러스터 설정을 완료한 후 IPv6 주소를 변환해야 합니다. 
+---
+= 관리 LIF를 IPv4에서 IPv6로 변환합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.13.1 부터는 초기 클러스터 설정 중에 A800 및 FAS8700 플랫폼의 관리 LIF에 IPv6 주소를 할당할 수 있습니다. ONTAP 9.13.1 이전 릴리즈 또는 다른 플랫폼에서 9.13.1 이상인 경우, 먼저 관리 LIF에 IPv4 주소를 할당한 다음 클러스터 설정을 완료한 후 IPv6 주소로 변환해야 합니다.
+
+.단계
+. 클러스터에 대해 IPv6 사용:
++
+[source, cli]
+----
+network options ipv6 modify -enable true
+----
+. 권한을 고급으로 설정:
++
+[source, cli]
+----
+set priv advanced
+----
+. 다양한 인터페이스에서 학습한 RA 접두사 목록을 봅니다.
++
+[source, cli]
+----
+network ndp prefix show
+----
+. IPv6 관리 LIF 생성:
++
+형식을 사용합니다 `prefix::id` IPv6 주소를 수동으로 구성할 address 매개 변수에 있습니다.
+
++
+[source, cli]
+----
+network interface create -vserver <svm_name> -lif <LIF> -home-node <home_node> -home-port <home_port> -address <IPv6prefix::id> -netmask-length <netmask_length> -failover-policy <policy> -service-policy <service_policy> -auto-revert true
+----
+. LIF가 생성되었는지 확인합니다.
++
+[source, cli]
+----
+network interface show
+----
+. 구성된 IP 주소에 연결할 수 있는지 확인합니다.
++
+[source, cli]
+----
+network ping6
+----
+. IPv4 LIF를 관리 목적으로 사용 중지됨으로 표시합니다.
++
+[source, cli]
+----
+network interface modify -vserver <svm_name> -lif <lif_name> -status-admin down
+----
+. IPv4 관리 LIF를 삭제합니다.
++
+[source, cli]
+----
+network interface delete -vserver <svm_name> -lif <lif_name>
+----
+. IPv4 관리 LIF가 삭제되었는지 확인합니다.
++
+[source, cli]
+----
+network interface show
+----
+

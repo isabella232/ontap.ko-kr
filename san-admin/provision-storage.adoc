@@ -19,8 +19,6 @@ summary: LUN을 생성하여 FC 또는 iSCSI SAN 프로토콜을 사용하여 �
 
 
 [role="lead"]
-특정 호스트에 대한 절차를 사용할 수 없는 경우 다음 단계를 수행하여 지원되는 SAN 호스트에 대한 스토리지를 프로비저닝할 수 있습니다.
-
 이 절차를 수행하면 FC 또는 iSCSI 프로토콜이 이미 구성된 기존 스토리지 VM에 새 LUN이 생성됩니다.
 
 새 스토리지 VM을 생성하고 FC 또는 iSCSI 프로토콜을 구성해야 하는 경우 를 참조하십시오 link:configure-svm-fc-task.html["FC용 SVM 구성"] 또는 link:configure-svm-iscsi-task.html["iSCSI용 SVM을 구성합니다"].
@@ -131,6 +129,10 @@ System Manager Classic(9.7 이하에서 사용 가능)을 사용하여 이 작�
 
 . FC의 경우 WWPN으로 FC 스위치를 조닝(Zoning)하십시오. 이니시에이터당 하나의 존을 사용하고 각 존에 모든 타겟 포트를 포함합니다.
 . 호스트에서 LUN을 검색합니다.
++
+VMware vSphere의 경우 VSC(가상 스토리지 콘솔)를 사용하여 LUN을 검색하고 초기화할 수 있습니다.
+
+. LUN을 초기화하고 필요에 따라 파일 시스템을 생성합니다.
 . 호스트가 LUN에 데이터를 쓰고 읽을 수 있는지 확인합니다.
 
 
@@ -139,10 +141,12 @@ System Manager Classic(9.7 이하에서 사용 가능)을 사용하여 이 작�
 --
 ONTAP CLI에서 FC 또는 iSCSI 프로토콜을 사용하여 SAN 호스트에 스토리지를 제공할 LUN을 생성합니다.
 
-. 'system license show' 명령을 사용하여 FC 또는 iSCSI 라이센스가 있는지 확인합니다.
+. FC 또는 iSCSI에 대한 라이센스가 있는지 확인합니다.
 +
-'시스템 사용권 프로그램'
-
+[source, cli]
+----
+system license show
+----
 +
 [listing]
 ----
@@ -157,30 +161,48 @@ Package           Type    Description           Expiration
 ----
 . FC 또는 iSCSI 라이센스가 없는 경우 'license add' 명령을 사용합니다.
 +
-'license add-license-code_your_license_code_'
-
+[source, cli]
+----
+license add -license-code <your_license_code>
+----
 . SVM에서 프로토콜 서비스 지원:
 +
-iSCSI의 경우: * 'vserver iSCSI create-vserver_vserver_name_-target-alias_vserver_name_'
+* iSCSI의 경우: *
 
 +
-FC: * 의 경우 * 'vserver FCP create-vserver_vserver_name_-status-admin up'
+[source, cli]
+----
+vserver iscsi create -vserver <svm_name> -target-alias <svm_name>
+----
++
+* FC: *
 
++
+[source, cli]
+----
+vserver fcp create -vserver <svm_name> -status-admin up
+----
 . 각 노드에서 SVM에 대해 2개의 LIF를 생성합니다.
 +
-'network interface create-vserver_vserver_name_-lif_lif_name_-role data-protocol iscsi|fc-home-node_node_name_-home-port_port_name_-address_netmask-mask'
-
+[source, cli]
+----
+network interface create -vserver <svm_name> -lif <lif_name> -role data -data-protocol <iscsi|fc> -home-node <node_name> -home-port <port_name> -address <ip_address> -netmask <netmask>
+----
 +
 NetApp은 각 SVM에서 데이터를 제공할 수 있도록 노드당 최소 하나의 iSCSI 또는 FC LIF를 지원합니다. 그러나 이중화를 위해서는 노드당 두 개의 LIF가 필요합니다.
 
 . LIF가 생성되었으며 운영 상태가 '온라인'인지 확인합니다.
 +
-'network interface show -vserver_vserver_name__lif_name_'
-
+[source, cli]
+----
+network interface show -vserver <svm_name> <lif_name>
+----
 . LUN 생성:
 +
-'lun create - vserver vserver_name - volume_volume_name_-lun_lun_name_-size_lun_size_-OSType linux-space-reserve enabled|disabled'
-
+[source, cli]
+----
+lun create -vserver <svm_name> -volume <volume_name> -lun <lun_name> -size <lun_size> -ostype linux -space-reserve <enabled|disabled>
+----
 +
 LUN 이름은 255자를 초과할 수 없으며 공백을 포함할 수 없습니다.
 
@@ -190,19 +212,28 @@ NOTE: NVFAIL 옵션은 볼륨에 LUN이 생성될 때 자동으로 활성화됩�
 
 . Igroup 생성:
 +
-'igroup create-vserver_vserver_name_-igroup_name_-protocol fcp|iscsi|mixed-OSType linux-initiator_initiator_name_'
-
+[source, cli]
+----
+igroup create -vserver <svm_name> -igroup <igroup_name> -protocol <fcp|iscsi|mixed> -ostype linux -initiator <initiator_name>
+----
 . LUN을 igroup에 매핑:
 +
-'LUN 매핑 create-vserver_vserver_name_-volume_volume_name_-lun_lun_name_-igroup_igroup_name_'
-
+[source, cli]
+----
+lun mapping create -vserver <svm__name> -volume <volume_name> -lun <lun_name> -igroup <igroup_name>
+----
 . LUN이 올바르게 구성되었는지 확인합니다.
 +
-'lun show -vserver_vserver_name _'
+[source, cli]
+----
+lun show -vserver <svm_name>
 
-. link:create-port-sets-binding-igroups-task.html["포트 세트를 생성하고 igroup에 바인딩합니다"] (선택 사항).
-. 호스트 설명서의 단계를 따라 특정 호스트에서 블록 액세스를 설정합니다.
-. Host Utilities를 사용하여 FC 또는 iSCSI 매핑을 완료하고 호스트에서 LUN을 검색할 수 있습니다.
+. Optionally, link:create-port-sets-binding-igroups-task.html[Create a port set and bind to an igroup].
+
+. Follow steps in your host documentation for enabling block access on your specific hosts.
+
+. Use the Host Utilities to complete the FC or iSCSI mapping and to discover your LUNs on the host.
+----
 
 
 --

@@ -13,6 +13,10 @@ summary: NFS 클라이언트에 데이터 액세스를 제공하기 위해 클�
 [role="lead"]
 NFS 클라이언트에 데이터 액세스를 제공하기 위해 클러스터에 SVM이 하나 이상 없으면 하나 이상의 SVM을 생성해야 합니다.
 
+.시작하기 전에
+* ONTAP 9.13.1 부터는 스토리지 VM의 최대 용량을 설정할 수 있습니다. SVM이 임계값 용량 수준에 도달할 경우에도 경고를 구성할 수 있습니다. 자세한 내용은 을 참조하십시오 xref:../system-admin/manage-svm-capacity.html[SVM 용량 관리].
+
+
 .단계
 . SVM 생성:
 +
@@ -76,3 +80,5 @@ cluster1::> vserver show -vserver vs1.example.com
                                 Config Lock: false
                                IPspace Name: ipspaceA
 ----
+
+NOTE: ONTAP 9.13.1 부터는 SVM의 볼륨에 처리량 플로어 및 최대 한도를 적용하여 적응형 QoS 정책 그룹 템플릿을 설정할 수 있습니다. SVM을 생성한 후에만 이 정책을 적용할 수 있습니다. 이 프로세스에 대한 자세한 내용은 을 참조하십시오 xref:../performance-admin/adaptive-policy-template-task.html[적응형 정책 그룹 템플릿을 설정합니다].
