@@ -2,9 +2,9 @@
 permalink: encryption-at-rest/manage-keys-azure-google-task.html 
 sidebar: sidebar 
 keywords: key management, Azure, AKV, key vault, NVE keys, third-party, GCP, google cloud, Cloud KMS 
-summary: 'AKV(Azure Key Vault)를 사용하여 ONTAP 암호화 키 보호를 간소화합니다.' 
+summary: Azure 또는 Google Cloud를 사용하여 ONTAP 암호화 키 보호를 간소화합니다. 
 ---
-= Azure Key Vault 또는 Google Cloud KMS로 키를 관리합니다
+= 클라우드 공급자를 통해 키를 관리합니다
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -62,4 +62,5 @@ AKV 또는 Cloud KMS를 사용할 때는 기본적으로 데이터 SVM LIF가 �
 
 --
 ====
-하나 이상의 암호화된 볼륨이 데이터 SVM용으로 이미 구성되어 있고 admin SVM 온보드 키 관리자가 해당 NVE 키를 관리하는 경우 이러한 키를 외부 키 관리 서비스로 마이그레이션해야 합니다. CLI에서 이를 수행하려면 'Security key-manager key migrate-from-Vserver_admin_SVM_-to-Vserver_DATA_SVM_' 명령을 실행하십시오. 데이터 SVM의 모든 NVE 키가 성공적으로 마이그레이션될 때까지 테넌트의 데이터 가상 서버에 대해 암호화된 새 볼륨을 생성할 수 없습니다.
+하나 이상의 암호화된 볼륨이 데이터 SVM용으로 이미 구성되어 있고 admin SVM 온보드 키 관리자가 해당 NVE 키를 관리하는 경우 이러한 키를 외부 키 관리 서비스로 마이그레이션해야 합니다. CLI에서 이 작업을 수행하려면 다음 명령을 실행합니다.
+`security key-manager key migrate -from-Vserver _admin_SVM_ -to-Vserver _data_SVM_`데이터 SVM의 모든 NVE 키가 성공적으로 마이그레이션될 때까지 테넌트의 데이터 SVM에 대해 암호화된 새 볼륨을 생성할 수 없습니다.

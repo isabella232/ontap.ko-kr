@@ -201,106 +201,105 @@ SnapLock 볼륨의 클론을 생성할 수는 있지만 SnapLock 볼륨의 파�
  a| 
 FlexGroup 볼륨
  a| 
-예, ONTAP 9.11.1부터 시작합니다. 에 대해 자세히 알아보십시오 xref:FlexGroup volumes[FlexGroup 볼륨에 대한 SnapLock 지원].
+예, ONTAP 9.11.1부터 시작합니다. 에 대해 자세히 알아보십시오 <<flexgroup>>.
  a| 
-예, ONTAP 9.11.1부터 시작합니다. 에 대해 자세히 알아보십시오 xref:FlexGroup volumes[FlexGroup 볼륨에 대한 SnapLock 지원].
+예, ONTAP 9.11.1부터 시작합니다. 에 대해 자세히 알아보십시오 <<flexgroup>>.
 
 
 
+ a| 
  a| 
 LUN을 클릭합니다
  a| 
 아니요
+
+
+
  a| 
 아니요
-
-
-
  a| 
 MetroCluster 구성
  a| 
 예, ONTAP 9.3부터 시작합니다. 에 대해 자세히 알아보십시오 xref:MetroCluster support[MetroCluster 지원].
+
+
+
  a| 
 예, ONTAP 9.3부터 시작합니다. 에 대해 자세히 알아보십시오 xref:MetroCluster support[MetroCluster 지원].
-
-
-
  a| 
 MAV(Multi-admin verification)
  a| 
 예, ONTAP 9.13.1. 에 대해 자세히 알아보십시오 xref:Multi-admin verification (MAV) support[MAV 지원].
+
+
+
  a| 
 예, ONTAP 9.13.1. 에 대해 자세히 알아보십시오 xref:Multi-admin verification (MAV) support[MAV 지원].
-
-
-
  a| 
 산
  a| 
 아니요
+
+
+
  a| 
 아니요
-
-
-
  a| 
 단일 파일 SnapRestore
  a| 
 아니요
+
+
+
  a| 
 예
-
-
-
  a| 
 SnapMirror 비즈니스 연속성
  a| 
 아니요
+
+
+
  a| 
 아니요
-
-
-
  a| 
 SnapRestore
  a| 
 아니요
+
+
+
  a| 
 예
-
-
-
  a| 
 SMTape
  a| 
 아니요
+
+
+
  a| 
 아니요
-
-
-
  a| 
 SnapMirror Synchronous
  a| 
 아니요
+
+
+
  a| 
 아니요
-
-
-
  a| 
 SSD를 지원합니다
  a| 
 예, ONTAP 9.1부터 사용 가능합니다.
+
+
+
  a| 
 예, ONTAP 9.1부터 사용 가능합니다.
-
-
-
  a| 
 스토리지 효율성 기능
- a| 
-예, ONTAP 9.9.1부터 시작합니다. 에 대해 자세히 알아보십시오 xref:Storage efficiency[스토리지 효율성 지원].
  a| 
 예, ONTAP 9.9.1부터 시작합니다. 에 대해 자세히 알아보십시오 xref:Storage efficiency[스토리지 효율성 지원].
 

@@ -76,8 +76,7 @@ NetApp Support 사이트가 표시됩니다.
 --
 --
 .ONTAP 9.8 이상(Active IQ 제외
-. NetApp Support 사이트로 이동합니다.
-. NetApp Support 사이트에 로그인합니다.
+. 로 이동합니다 link:https://mysupport.netapp.com/site/downloads["NetApp Support 사이트"] 로그인한 다음
 . 클러스터 펌웨어를 업데이트하는 데 사용할 펌웨어 패키지를 선택합니다.
 . 네트워크 또는 로컬 폴더에 있는 HTTP 또는 FTP 서버로 파일을 복사합니다.
 . System Manager에서 * Cluster > Overview * 를 클릭합니다.

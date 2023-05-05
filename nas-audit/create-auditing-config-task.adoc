@@ -47,7 +47,7 @@ SVM이 SVM 재해 복구 소스인 경우 타겟 경로가 루트 볼륨에 있�
  a| 
 로그 크기
  a| 
-'vserver audit create-vserver vserver_name-destination path-events[{file-ops|cifs-logon-logoff|cap-staging|file-share|audit-policy-change|user-account|security-group|authorization-policy-change}][-format{xml|evtx}][-rotate-size{integer[KB|MB|MB
+`vserver audit create -vserver vserver_name -destination path -events [{file-ops|cifs-logon-logoff|cap-staging|file-share|authorization-policy-change|user-account|security-group|authorization-policy-change}] [-format {xml|evtx}] [-rotate-limit integer] [-rotate-size {integer[KB|MB|GB|TB|PB]}]`
 
 
 

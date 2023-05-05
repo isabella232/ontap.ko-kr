@@ -15,7 +15,7 @@ summary: 볼륨 재호스트를 지원하지 않는 특정 기능이 있습니�
 
 다음 기능은 볼륨 재호스트를 지원하지 않습니다.
 
-* VDR 설정
+* SVM DR
 * MetroCluster 구성
 * SnapLock 볼륨
 * NVE(NetApp Volume Encryption) 볼륨

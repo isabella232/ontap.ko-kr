@@ -210,7 +210,7 @@ cluster_dst::> snapmirror create -source-path svm1:volA -destination-path svm_ba
 '스냅샷 재동기화 - 소스 경로_SVM:볼륨_|_클러스터://SVM/볼륨 _,... -destination-path_SVM:volume_|_cluster://SVM/volume_,
 
 +
-재동기화 시간을 개선하려면 을 사용합니다 `-quick-resync` 단, 스토리지 효율성 절약 효과는 손실될 수 있다는 점을 알아야 합니다. 전체 명령 구문은 man 페이지를 참조하십시오. link:https://docs.netapp.com/us-en/ontap-cli-9121/snapmirror-resync.html#parameters.html["SnapMirror 재동기화 명령"].
+재동기화 시간을 개선하려면 을 사용합니다 `-quick-resync` 단, 스토리지 효율성 절약 효과는 손실될 수 있다는 점을 알아야 합니다. 전체 명령 구문은 man 페이지를 참조하십시오. link:https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-resync.html#parameters.html["SnapMirror 재동기화 명령"].
 
 +
 [NOTE]

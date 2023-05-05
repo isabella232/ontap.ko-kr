@@ -35,7 +35,7 @@ AutoSupport OnDemand 클라이언트는 AutoSupport 메시지가 전송되는 �
 AutoSupport OnDemand는 "AutoSupport" 사용자 계정을 사용하여 기술 지원 팀과 통신합니다. ONTAP에서는 이 계정을 삭제할 수 없습니다.
 
 ====
-AutoSupport OnDemand를 사용하지 않도록 설정하고 AutoSupport를 계속 사용하려면 다음 명령을 사용하십시오. link:https://docs.netapp.com/us-en/ontap-cli-95/system-node-autosupport-modify.html#parameters["06502a0599b03511ba3f6a4dcdcbba45"].
+AutoSupport OnDemand를 사용하지 않도록 설정하고 AutoSupport를 계속 사용하려면 다음 명령을 사용하십시오. link: https://docs.netapp.com/us-en/ontap-cli-9121/system-node-autosupport-modify.html#parameters[`system node autosupport modify -ondemand-state disable`].
 
 다음 그림에서는 AutoSupport OnDemand가 기술 지원 부서에 HTTPS 요청을 보내 전달 지침을 얻는 방법을 보여 줍니다.
 

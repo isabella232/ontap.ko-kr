@@ -109,4 +109,4 @@ SVM에 할당된 할당량 정책의 이름을 표시합니다
 'vserver show'
 
 |===
-를 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli-9121["ONTAP 명령 참조입니다"^] 를 참조하십시오.
+를 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli-9131["ONTAP 명령 참조입니다"^] 를 참조하십시오.

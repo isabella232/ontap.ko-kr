@@ -73,4 +73,4 @@ ONTAP 9.11.1부터 SVM에서 클러스터링된 외부 키 관리 서버에 대�
 
 2차 키 서버를 제거하려면 제거할 키 서버를 생략하면서 유지하고자 하는 키 서버가 '-2차 키 서버' 인수에 포함되어야 합니다. 모든 보조 키 서버를 제거하려면 '-' 인수를 사용하여 아무 것도 표시하지 않습니다.
 
-자세한 내용은 를 참조하십시오 `security key-manager external` 페이지의 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli-9121/["ONTAP 명령 참조입니다"^].
+자세한 내용은 를 참조하십시오 `security key-manager external` 페이지의 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli-9131/["ONTAP 명령 참조입니다"^].

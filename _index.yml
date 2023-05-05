@@ -15,7 +15,7 @@ indexpage:
     - title: ONTAP와 클라우드
       url: "/cloud/index.html"
     - title: ONTAP 설명서 페이지
-      url: https://docs.netapp.com/us-en/ontap-cli-9121/index.html
+      url: https://docs.netapp.com/us-en/ontap-cli-9131/index.html
   - title: 설정, 업그레이드 및 되돌리기
     links:
     - title: 모든 항목
@@ -116,7 +116,7 @@ indexpage:
       url: "/data-protection-disaster-recovery/index.html"
     - title: SnapLock 기술을 사용한 아카이브 및 규정 준수
       url: "/snaplock/index.html"
-    - title: System Manager와 SnapMirror 비즈니스 연속성
+    - title: SnapMirror 비즈니스 연속성
       url: "/concept_san_smbc_overview.html"
     - title: System Manager로 MetroCluster 사이트를 관리합니다
       url: "/concept_metrocluster_manage_nodes.html"
@@ -134,11 +134,11 @@ indexpage:
       url: "/performance-config/index.html"
     - title: CLI를 통한 성능 관리
       url: "/performance-admin/index.html"
-    - title: 파일 시스템 분석 개요
+    - title: 파일 시스템 분석
       url: "/concept_nas_file_system_analytics_overview.html"
     - title: EMS 구성
       url: "/error-messages/index.html"
-    - title: ONTAP 9.12.1 EMS 참조
+    - title: ONTAP EMS 참조
       url: https://docs.netapp.com/us-en/ontap-ems-9121/
   - title: 더 많은 리소스
     links:

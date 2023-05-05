@@ -52,7 +52,7 @@ SMB 2.x 및 SMB 3.0
 
 에 대해 자세히 알아보십시오 `statistics` 명령:
 
-* link:https://docs.netapp.com/us-en/ontap-cli-9121/statistics-show.html["통계 표시"^]
-* link:https://docs.netapp.com/us-en/ontap-cli-9121/statistics-start.html["통계 시작"^]
-* link:https://docs.netapp.com/us-en/ontap-cli-9121/statistics-stop.html["통계 중지"^]
+* link:https://docs.netapp.com/us-en/ontap-cli-9131/statistics-show.html["통계 표시"^]
+* link:https://docs.netapp.com/us-en/ontap-cli-9131/statistics-start.html["통계 시작"^]
+* link:https://docs.netapp.com/us-en/ontap-cli-9131/statistics-stop.html["통계 중지"^]
 

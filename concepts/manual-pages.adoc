@@ -18,6 +18,7 @@ summary: ONTAP 설명서 페이지에서는 ONTAP CLI 명령을 사용하는 방
 
 == 지원되는 ONTAP 버전에 대한 명령 참조입니다
 
+* link:https://docs.netapp.com/us-en/ontap-cli-9131/index.html["ONTAP 9.13.1"^]
 * link:https://docs.netapp.com/us-en/ontap-cli-9121/index.html["ONTAP 9.12.1"^]
 * link:https://docs.netapp.com/us-en/ontap-cli-9111/index.html["ONTAP 9.11.1"^]
 * link:https://docs.netapp.com/us-en/ontap-cli-9101/index.html["ONTAP 9.10.1"^]

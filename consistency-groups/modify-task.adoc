@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: consistency groups, shrink, expand, add volumes, remove volumes, move volumes, smbc 
 summary: 볼륨을 추가 또는 제거하거나 하위 일관성 그룹 간에 볼륨을 이동하여 정합성 보장 그룹을 수정할 수 있습니다. 
 ---
-= 일관성 그룹 수정
+= 일관성 그룹의 구성원 볼륨을 수정합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
