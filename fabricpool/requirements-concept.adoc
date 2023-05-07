@@ -154,6 +154,10 @@ http://www.netapp.com/us/media/tr-4598.pdf["NetApp 기술 보고서 4598: ONTAP 
 
 SAN 프로토콜에서 액세스하는 데이터를 계층화할 경우 연결 고려사항으로 인해 StorageGRID와 같은 프라이빗 클라우드를 사용하는 것이 좋습니다.
 
+* 중요 *
+
++Windows 호스트가 있는 SAN 환경에서 FabricPool를 사용할 때 데이터를 클라우드로 계층화할 때 오브젝트 스토리지를 장기간 사용할 수 없게 될 경우 Windows 호스트의 NetApp LUN 파일에 액세스할 수 없거나 파일이 사라질 수 있습니다. 기술 자료 문서를 참조하십시오 link:https://kb.netapp.com/onprem/ontap/os/During_FabricPool_S3_object_store_unavailable_Windows_SAN_host_reported_filesystem_corruption["FabricPool S3 오브젝트 저장소를 사용할 수 없는 동안 Windows SAN 호스트가 파일 시스템 손상을 보고했습니다"^].
+
 
 
 == FabricPool에서 지원하지 않는 기능 또는 기능입니다

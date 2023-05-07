@@ -34,7 +34,7 @@ ONTAP 9.8부터는 ONTAP CLI를 사용하여 빠른 디렉토리 삭제 기능�
 +
 특권 진전
 
-. FlexVol 또는 FlexGroup 볼륨에서 파일 또는 디렉토리 삭제:
+. FlexVol 또는 FlexGroup 볼륨에서 디렉토리 삭제:
 +
 '볼륨 파일 비동기 삭제 시작 - vserver vserver_name - volume volume_name - path file_path - throttle
 

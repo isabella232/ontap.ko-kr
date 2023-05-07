@@ -179,7 +179,6 @@ SVM 마이그레이션은 FabricPool의 볼륨에서 다음 플랫폼용 지원�
 SVM 마이그레이션에서는 다음 기능이 지원되지 않습니다.
 
 * Cloud Volumes ONTAP
-* Flash Pool 애그리게이트로 전환 가능
 * FlexCache 볼륨
 * FlexGroup 볼륨
 * IPsec 정책
