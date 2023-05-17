@@ -41,15 +41,6 @@ RHEL 8.x를 참조하십시오
 
 
  a| 
-RHEL 9.x를 참조하십시오
- a| 
-** RHEL-9-for-x86_64-baseos-rpms
-** RHEL-9-for-x86_64-appstream-rpms
-
-
-
-
- a| 
 CentOS 7.x
  a| 
 ** C7.6.1810 - 기본 리포지토리입니다
@@ -139,40 +130,9 @@ repolist: 46,205
 [listing]
 ----
 [root@localhost ~]# subscription-manager repos --enable rhel-8-for-x86_64-baseos-rpms
-Repository 'rhel-8-for-x86_64-baseos-rpms' is enabled for this system.
 [root@localhost ~]# subscription-manager repos --enable rhel-8-for-x86_64-appstream-rpms
+Repository 'rhel-8-for-x86_64-baseos-rpms' is enabled for this system.
 Repository 'rhel-8-for-x86_64-appstream-rpms' is enabled for this system.
-----
-. yum repolist 명령을 실행합니다.
-+
-새로 가입된 리포지토리가 목록에 나타납니다.
-
-
-
-====
-.RHEL 9.x 운영 체제에 대한 절차
-[#rhel9x%collapsible]
-====
-운영 체제가 * RHEL 9.x * 인 경우 다음 절차를 사용하여 리포지토리에 액세스할 수 있습니다.
-
-.단계
-. 필요한 리포지토리 구독:
-+
-`subscription-manager repos --enable rhel-9-for-x86_64-baseos-rpms`
-
-+
-`subscription-manager repos --enable rhel-9-for-x86_64-appstream-rpms`
-
-+
-다음 예제에서는 이 명령의 실행을 보여 줍니다.
-
-+
-[listing]
-----
-[root@localhost ~]# subscription-manager repos --enable rhel-9-for-x86_64-baseos-rpms
-Repository 'rhel-9-for-x86_64-baseos-rpms' is enabled for this system.
-[root@localhost ~]# subscription-manager repos --enable rhel-9-for-x86_64-appstream-rpms
-Repository 'rhel-9-for-x86_64-appstream-rpms' is enabled for this system.
 ----
 . yum repolist 명령을 실행합니다.
 +
