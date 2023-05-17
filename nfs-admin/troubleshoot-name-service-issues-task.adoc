@@ -188,4 +188,4 @@ DNS 구성
 
 |===
 .관련 정보
-https://www.netapp.com/pdf.html?item=/media/16328-tr-4668pdf.pdf["NetApp 기술 보고서 4668: 이름 서비스 모범 사례 가이드"^]
+https://["NetApp 기술 보고서 4668: 이름 서비스 모범 사례 가이드"^]

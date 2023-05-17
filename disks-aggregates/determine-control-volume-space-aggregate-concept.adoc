@@ -97,4 +97,4 @@ Aggregate에서 볼륨이 사용하는 총 공간입니다. 모든 행의 합계
 
 |===
 .관련 정보
-http://www.netapp.com/us/media/tr-3483.pdf["NetApp 기술 보고서 3483: NetApp SAN 또는 IP SAN 엔터프라이즈 환경에서 씬 프로비저닝"^]
+http://["NetApp 기술 보고서 3483: NetApp SAN 또는 IP SAN 엔터프라이즈 환경에서 씬 프로비저닝"^]

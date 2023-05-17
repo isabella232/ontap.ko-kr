@@ -25,4 +25,4 @@ ONTAP 9.5부터 NVMe를 사용한 호스트 데이터 액세스를 지원하려�
 'System license add-license-code_NVMe_license_key_'
 
 .관련 정보
-http://www.netapp.com/us/media/tr-4684.pdf["NetApp 기술 보고서 4684: NVMe/FC를 사용하여 최신 SAN 구현 및 구성"]
+http://["NetApp 기술 보고서 4684: NVMe/FC를 사용하여 최신 SAN 구현 및 구성"]

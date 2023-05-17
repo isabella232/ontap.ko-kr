@@ -29,7 +29,7 @@ ONTAP 9.6 이상을 실행 중인 경우 FabricPool용 클라우드 계층으로
 ** Google Cloud Nearline
 ** Google Cloud Coldline
 +
-https://cloud.google.com/storage/docs/storage-classes["Google Cloud: 스토리지 클래스"]
+https://["Google Cloud: 스토리지 클래스"]
 
 
 

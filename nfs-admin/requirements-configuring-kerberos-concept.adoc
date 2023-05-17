@@ -266,9 +266,9 @@ NFS 클라이언트 사용자 SPN에 의해 식별된 사용자에게 루트 권
 
 
 .관련 정보
-http://www.netapp.com/us/media/tr-4073.pdf["NetApp 기술 보고서 4073: 안전한 통합 인증"]
+http://["NetApp 기술 보고서 4073: 안전한 통합 인증"]
 
-https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"^]
+https://["NetApp 상호 운용성 매트릭스 툴"^]
 
 link:../system-admin/index.html["시스템 관리"]
 

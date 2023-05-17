@@ -218,7 +218,7 @@ SAN 프로토콜이 구성된 클러스터당 최대 수
 . ONTAP 9.3 이전 버전에서는 볼륨에 최대 255개의 스냅샷 복사본이 포함될 수 있습니다. ONTAP 9.4 이상에서는 볼륨에 최대 1023개의 스냅샷 복사본을 포함할 수 있습니다.
 . ONTAP 9.7부터 최소 128GB의 메모리를 사용하는 AFF 플랫폼에서 지원되는 최대 FlexVol 볼륨 수가 노드당 2,500개의 FlexVol 볼륨으로 증가했지만 노드당 1,000개의 볼륨만 한 번에 활성화될 수 있습니다(운영 워크로드).
 +
-플랫폼별 정보 및 최신 지원 정보는 를 참조하십시오 https://hwu.netapp.com/["Hardware Universe"^].
+플랫폼별 정보 및 최신 지원 정보는 를 참조하십시오 https://["Hardware Universe"^].
 
 . 20억 = 2 × 10^9^.
 . 단일 FlexVol 볼륨에서 생성할 수 있는 FlexClone 볼륨의 중첩 계층 구조의 최대 깊이
@@ -264,4 +264,4 @@ link:../san-config/index.html["SAN 구성"]
 
 
 .관련 정보
-https://www.netapp.com/cloud-services/cloud-manager/documentation/["사용 중인 Cloud Volumes ONTAP 버전에 대한 릴리즈 노트를 참조하십시오"]
+https://["사용 중인 Cloud Volumes ONTAP 버전에 대한 릴리즈 노트를 참조하십시오"]

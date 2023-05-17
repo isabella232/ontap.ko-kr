@@ -34,7 +34,7 @@ AFF 시스템에서 추가 용량이 필요하거나, 비 AFF 시스템에서 AW
 ** Amazon S3 지능형 계층화
 ** Amazon 상용 클라우드 서비스
 +
-https://aws.amazon.com/s3/storage-classes/["AWS(Amazon Web Services) 문서: Amazon S3 스토리지 클래스"]
+https://["AWS(Amazon Web Services) 문서: Amazon S3 스토리지 클래스"]
 
 
 

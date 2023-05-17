@@ -276,4 +276,4 @@ FlexGroup 볼륨은 여러 ONTAP 기능을 지원하며 ONTAP 9.1에 도입되�
 
 |===
 .관련 정보
-https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9 문서 센터"]
+https://["ONTAP 9 문서 센터"]

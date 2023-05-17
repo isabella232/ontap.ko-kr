@@ -91,7 +91,7 @@ NetApp Support 사이트에서 새 소프트웨어 이미지를 추가합니다
 .. 서버에서 추가 * 를 클릭합니다.
 .. 새 소프트웨어 이미지 추가 대화 상자에서 NetApp Support 사이트에서 다운로드한 이미지를 저장한 HTTP 서버 또는 FTP 서버의 URL을 입력합니다.
 +
-익명 FTP의 경우 에서 URL을 지정해야 합니다 ftp://anonymous@ftpserver[] 형식.
+익명 FTP의 경우 에서 URL을 지정해야 합니다 ftp://[] 형식.
 
 .. 추가 * 를 클릭합니다.
 

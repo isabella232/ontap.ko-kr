@@ -139,7 +139,7 @@ ONTAP CLI를 사용하면 새 iSCSI LIF 생성 및 기존 LIF에 대한 iSCSI LI
 ASA 플랫폼 HA 쌍이 있어야 하며 ONTAP 9.11.1 이상이 실행되고 있어야 합니다.
 
 .이 작업에 대해
-를 참조하십시오 https://docs.netapp.com/us-en/ontap-cli-9131/index.html["ONTAP 명령 참조"^] 을 참조하십시오 `network interface` 명령.
+를 참조하십시오 https://["ONTAP 명령 참조"^] 을 참조하십시오 `network interface` 명령.
 
 |===
 

@@ -19,7 +19,7 @@ S3 기반 SVM에서 S3 버킷을 생성할 때 FlexGroup 볼륨이 자동으로 
 Aggregate 및 FlexGroup 구성 요소(예: 기본 디스크에 특정한 성능 요구 사항이 있는 경우)를 지정하려는 경우, 애그리게이트 구성이 FlexGroup 볼륨 프로비저닝을 위한 모범 사례 지침을 준수해야 합니다. 자세한 내용:
 
 * link:../flexgroup/index.html["FlexGroup 볼륨 관리"]
-* https://www.netapp.com/pdf.html?item=/media/17251-tr4571apdf.pdf["NetApp 기술 보고서 4571-A: NetApp ONTAP FlexGroup 볼륨 모범 사례"^]
+* https://["NetApp 기술 보고서 4571-A: NetApp ONTAP FlexGroup 볼륨 모범 사례"^]
 
 
 Cloud Volumes ONTAP에서 버킷을 제공하는 경우 기본 애그리게이트를 수동으로 선택하여 하나의 노드만 사용하도록 하는 것이 좋습니다. 두 노드의 애그리게이트를 사용하면 지리적으로 서로 분리되어 있는 가용성 영역에 노드가 있기 때문에 지연 시간 문제가 발생하기 때문에 성능에 영향을 미칠 수 있습니다. 에 대해 자세히 알아보십시오 link:create-bucket-task.html["Cloud Volumes ONTAP용 버킷 생성"].

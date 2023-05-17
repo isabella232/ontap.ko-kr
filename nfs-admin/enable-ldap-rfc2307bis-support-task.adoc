@@ -28,7 +28,7 @@ LDAP 클라이언트 스키마에서 그룹 개체는 memberUid 특성을 사용
 RFC2307bis 지원은 MS-AD-BIS 스키마를 사용하여 LDAP 클라이언트를 생성할 때 ONTAP에서 자동으로 활성화됩니다.
 
 ====
-자세한 내용은 을 참조하십시오 https://www.netapp.com/pdf.html?item=/media/19423-tr-4835.pdf["NetApp 기술 보고서 4835: ONTAP에서 LDAP를 구성하는 방법"].
+자세한 내용은 을 참조하십시오 https://["NetApp 기술 보고서 4835: ONTAP에서 LDAP를 구성하는 방법"].
 
 .단계
 . 권한 수준을 고급으로 설정합니다.

@@ -38,4 +38,4 @@ FlexGroup 볼륨을 전체 클러스터로 구성할 필요는 없지만 사용�
 
 
 .관련 정보
-http://www.netapp.com/us/media/tr-4571.pdf["NetApp 기술 보고서 4571: NetApp FlexGroup 모범 사례 및 구현 가이드"^]
+http://["NetApp 기술 보고서 4571: NetApp FlexGroup 모범 사례 및 구현 가이드"^]

@@ -21,6 +21,6 @@ ONTAP 9.8부터 SnapMirror Cloud는 ONTAP 인스턴스에서 오브젝트 스토
 
 또한 BlueXP는 SaaS(Software as a Service) 모델을 사용하여 Cloud Volumes ONTAP 인스턴스의 백업도 제공합니다. 사용자는 NetApp Cloud Central에서 제공되는 Cloud Backup을 사용하여 Cloud Volumes ONTAP 인스턴스를 S3 및 S3 호환 퍼블릭 클라우드 오브젝트 스토리지에 백업할 수 있습니다.
 
-https://www.netapp.com/cloud-services/cloud-manager/documentation/["Cloud Volumes ONTAP 및 BlueXP 문서 리소스"]
+https://["Cloud Volumes ONTAP 및 BlueXP 문서 리소스"]
 
-https://cloud.netapp.com["NetApp Cloud Central에서"]
+https://["NetApp Cloud Central에서"]

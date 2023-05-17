@@ -24,8 +24,8 @@ FabricPool를 사용하여 콜드 데이터를 클라우드에 계층화하면 �
 주요 클라우드 공급자 중 하나에서 오브젝트 스토리지에 콜드 데이터를 저장할 수 있습니다. 또는 NetApp StorageGRID를 선택하여 콜드 데이터를 자체 프라이빗 클라우드에 보관하면 최고의 성능과 완벽한 데이터 제어가 가능합니다.
 
 .관련 정보
-https://docs.netapp.com/us-en/ontap/concept_cloud_overview.html["FabricPool 시스템 관리자 문서"]
+https://["FabricPool 시스템 관리자 문서"]
 
-https://cloud.netapp.com/cloud-tiering["클라우드 계층화 서비스"]
+https://["클라우드 계층화 서비스"]
 
-https://www.youtube.com/playlist?list=PLdXI3bZJEw7mcD3RnEcdqZckqKkttoUpS["NetApp TechComm TV의 FabricPool 재생 목록"]
+https://["NetApp TechComm TV의 FabricPool 재생 목록"]

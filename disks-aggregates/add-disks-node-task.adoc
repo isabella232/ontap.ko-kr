@@ -16,7 +16,7 @@ summary: '드라이브를 노드나 쉘프에 추가하여 핫 스페어 수를 
 .이 작업에 대해
 추가하려는 드라이브가 플랫폼에서 지원되어야 합니다.
 
-https://hwu.netapp.com/["NetApp Hardware Universe를 참조하십시오"^]
+https://["NetApp Hardware Universe를 참조하십시오"^]
 
 단일 절차에서 추가해야 하는 최소 드라이브 수는 6개입니다. 단일 드라이브를 추가하면 성능이 저하될 수 있습니다.
 
@@ -36,7 +36,7 @@ https://hwu.netapp.com/["NetApp Hardware Universe를 참조하십시오"^]
 NOTE: 드라이브를 추가할 수 있는 올바른 슬롯은 플랫폼 모델과 ONTAP 버전에 따라 다릅니다. 경우에 따라 특정 슬롯에 순서대로 드라이브를 추가해야 할 수도 있습니다. 예를 들어, AFF A800에서는 특정 간격으로 드라이브를 추가하여 빈 슬롯 클러스터를 남겨 둡니다. 반면, AFF A220에서는 외부에서 쉘프 중앙으로 실행되는 다음 빈 슬롯에 새 드라이브를 추가합니다.
 
 +
-를 참조하십시오 https://hwu.netapp.com/["NetApp Hardware Universe를 참조하십시오"^] 구성에 맞는 슬롯을 식별합니다.
+를 참조하십시오 https://["NetApp Hardware Universe를 참조하십시오"^] 구성에 맞는 슬롯을 식별합니다.
 
 . 새 드라이브를 삽입합니다.
 +

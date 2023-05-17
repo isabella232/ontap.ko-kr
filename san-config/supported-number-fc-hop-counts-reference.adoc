@@ -34,6 +34,6 @@ Cisco의
 
 |===
 .관련 정보
-http://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Brocade/san_download.shtml#scale["NetApp 다운로드: Brocade 확장성 매트릭스 문서"]
+http://["NetApp 다운로드: Brocade 확장성 매트릭스 문서"]
 
-http://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/download.shtml#scale["NetApp 다운로드: Cisco Scalability Matrix Documents"]
+http://["NetApp 다운로드: Cisco Scalability Matrix Documents"]

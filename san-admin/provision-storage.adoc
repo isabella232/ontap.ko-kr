@@ -41,7 +41,7 @@ ONTAP 9.8부터는 스토리지 용량 할당 시 QoS가 기본적으로 사용�
 --
 ONTAP System Manager(9.7 이상)와 함께 FC 또는 iSCSI 프로토콜을 사용하여 SAN 호스트에 스토리지를 제공할 LUN을 생성합니다.
 
-System Manager Classic(9.7 이하에서 사용 가능)을 사용하여 이 작업을 완료하려면 을 참조하십시오 https://docs.netapp.com/us-en/ontap-sm-classic/iscsi-config-rhel/index.html["Red Hat Enterprise Linux용 iSCSI 구성"^]
+System Manager Classic(9.7 이하에서 사용 가능)을 사용하여 이 작업을 완료하려면 을 참조하십시오 https://["Red Hat Enterprise Linux용 iSCSI 구성"^]
 
 .단계
 . 적절한 를 설치합니다 link:https://docs.netapp.com/us-en/ontap-sanhost/["SAN 호스트 유틸리티"] 호스트.
@@ -240,6 +240,6 @@ lun show -vserver <svm_name>
 ====
 .관련 정보
 link:index.html["SAN 관리 개요"]
-https://docs.netapp.com/us-en/ontap-sanhost/index.html["ONTAP SAN 호스트 구성"]
-https://docs.netapp.com/us-en/ontap/san-admin/manage-san-initiators-task.html["System Manager에서 SAN 이니시에이터 그룹을 보고 관리합니다"]
-http://www.netapp.com/us/media/tr-4017.pdf["NetApp 기술 보고서 4017: 파이버 채널 SAN 모범 사례"]
+https://["ONTAP SAN 호스트 구성"]
+https://["System Manager에서 SAN 이니시에이터 그룹을 보고 관리합니다"]
+http://["NetApp 기술 보고서 4017: 파이버 채널 SAN 모범 사례"]

@@ -17,7 +17,7 @@ ONTAP에서 지원하는 클러스터당 노드 수는 ONTAP 버전, 클러스�
 클러스터의 노드가 FC, FC-NVMe, FCoE 또는 iSCSI에 대해 구성된 경우 해당 클러스터는 SAN 노드 제한으로 제한됩니다. 클러스터의 컨트롤러에 기반한 노드 제한은 _Hardware Universe_에 나열되어 있습니다.
 
 .단계
-. 로 이동합니다 https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"^].
+. 로 이동합니다 https://["NetApp Hardware Universe를 참조하십시오"^].
 . 왼쪽 상단의 * 홈 * 버튼 옆에 있는 * 플랫폼 * 을 클릭하고 플랫폼 유형을 선택합니다.
 . 사용 중인 ONTAP 버전 옆의 확인란을 선택합니다.
 +
@@ -30,4 +30,4 @@ ONTAP에서 지원하는 클러스터당 노드 수는 ONTAP 버전, 클러스�
 
 
 .관련 정보
-https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"^]
+https://["NetApp Hardware Universe를 참조하십시오"^]

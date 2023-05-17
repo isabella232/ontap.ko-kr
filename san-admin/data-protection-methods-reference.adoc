@@ -19,7 +19,7 @@ summary: 실수로 인한 삭제, 애플리케이션 충돌, 데이터 손상 �
 
 ONTAP 9.9.1의 일반 가용성부터 SAN 환경에서 비즈니스 크리티컬 애플리케이션의 자동 페일오버를 지원하기 위해 제로 복구 시간 목표(제로 RTO) 또는 투명 애플리케이션 페일오버(TAF)를 제공합니다. SM-BC를 사용하려면 두 개의 AFF 클러스터 또는 두 개의 ASA(All SAN Array) 클러스터 구성에 ONTAP 중재자 1.2를 설치해야 합니다.
 
-https://docs.netapp.com/us-en/ontap/smbc["NetApp 설명서: SnapMirror 비즈니스 연속성"]
+https://["NetApp 설명서: SnapMirror 비즈니스 연속성"]
 
 
 
@@ -66,8 +66,8 @@ LUN에 대한 액세스를 구성하고, LUN을 관리하며, Windows 또는 UNI
 대부분의 기존 테이프 드라이브 지원은 ONTAP에 포함되어 있으며 테이프 공급업체가 새 디바이스에 대한 지원을 동적으로 추가하는 방법도 포함되어 있습니다. 또한 ONTAP는 RMT(Remote Magnetic Tape) 프로토콜을 지원하여 모든 가능 시스템에 백업 및 복구를 수행할 수 있습니다.
 
 .관련 정보
-http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30050["NetApp 설명서: UNIX용 SnapDrive"]
+http://["NetApp 설명서: UNIX용 SnapDrive"]
 
-http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30049["NetApp 설명서:SnapDrive for Windows(최신 릴리스)"]
+http://["NetApp 설명서:SnapDrive for Windows(최신 릴리스)"]
 
 link:../tape-backup/index.html["테이프 백업을 사용한 데이터 보호"]

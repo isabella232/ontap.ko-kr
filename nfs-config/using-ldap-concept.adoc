@@ -92,4 +92,4 @@ LDAP 조회 추적에는 다음 구성이 지원되지 않습니다.
 * 호스트 이름 확인에 LDAP를 사용하는 것은 지원되지 않습니다.
 
 
-자세한 내용은 을 참조하십시오 https://www.netapp.com/pdf.html?item=/media/19423-tr-4835.pdf["NetApp 기술 보고서 4835: ONTAP에서 LDAP를 구성하는 방법"].
+자세한 내용은 을 참조하십시오 https://["NetApp 기술 보고서 4835: ONTAP에서 LDAP를 구성하는 방법"].

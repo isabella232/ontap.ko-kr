@@ -47,4 +47,4 @@ VMware vStorage 지원을 사용하지 않도록 설정합니다
 이 기능을 사용하려면 먼저 VMware VAAI용 NFS 플러그인을 설치해야 합니다. 자세한 내용은 _VMware VAAI_용 NetApp NFS 플러그인 설치 를 참조하십시오.
 
 .관련 정보
-http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=61278["NetApp 설명서: VMware VAAI용 NetApp NFS 플러그인"]
+http://["NetApp 설명서: VMware VAAI용 NetApp NFS 플러그인"]

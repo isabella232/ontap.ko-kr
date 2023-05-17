@@ -30,4 +30,4 @@ FabricPool은 All-Flash(All-SSD) 애그리게이트를 성능 계층으로 사�
 
 video::Vs1-WMvj9fI[youtube,width=848,height=480]
 .관련 정보
-도 참조하십시오 https://docs.netapp.com/us-en/occm/concept_cloud_tiering.html["NetApp 클라우드 계층화"^] 문서화:
+도 참조하십시오 https://["NetApp 클라우드 계층화"^] 문서화:

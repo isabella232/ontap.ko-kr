@@ -25,50 +25,11 @@ ONTAP 중재자의 새로운 개선 사항은 각 릴리스에 제공됩니다. 
 
 
  a| 
-1.0
+1.6
  a| 
-* iSCSI 메일박스 지원
-* ONTAP 9.7+ MCC-IP AUSO와 함께 사용.
-* RHEL/CentOS 7.6 지원
-
-
-
-
- a| 
-1.1
- a| 
-* RHEL/CentOS 7.6, 7.7, 8.0 및 8.1 지원
-* Perl 종속성을 제거합니다.
-* SCST 버전 3.4.0 포함.
-
-
-
-
- a| 
-1.2
- a| 
-* HTTPS 사서함 지원.
-* ONTAP 9.8+ MCC-IP AUSO 및 SM-BC ZRTO와 함께 사용
-* SCST 버전 3.4.0 포함.
-
-
-
-
- a| 
-1.3
- a| 
-* RHEL/CentOS 8.2 및 8.3 지원
-* SCST 버전 3.5.0 포함.
-
-
-
-
- a| 
-1.4
- a| 
-* RHEL 8.4 및 8.5 지원
-* SCST 버전 3.6.0을 포함합니다.
-* UFEI 기반 펌웨어의 보안 부팅(SB) 지원이 추가되었습니다.
+* Python 3.9 업데이트.
+* RHEL 8.4-8.7, 9.0-9.1, Rocky Linux 8 및 9 지원
+* RHEL 7.x/CentOS 모든 릴리스에 대한 지원이 중단되었습니다.
 
 
 
@@ -84,11 +45,50 @@ ONTAP 중재자의 새로운 개선 사항은 각 릴리스에 제공됩니다. 
 
 
  a| 
-1.6
+1.4
  a| 
-* Python 3.9 업데이트.
-* RHEL 8.4-8.7, 9.0-9.1, Rocky Linux 8 및 9 지원
-* RHEL 7.x/CentOS 모든 릴리스에 대한 지원이 중단되었습니다.
+* RHEL 8.4 및 8.5 지원
+* SCST 버전 3.6.0을 포함합니다.
+* UFEI 기반 펌웨어의 보안 부팅(SB) 지원이 추가되었습니다.
+
+
+
+
+ a| 
+1.3
+ a| 
+* RHEL/CentOS 8.2 및 8.3 지원
+* SCST 버전 3.5.0 포함.
+
+
+
+
+ a| 
+1.2
+ a| 
+* HTTPS 사서함 지원.
+* ONTAP 9.8+ MCC-IP AUSO 및 SM-BC ZRTO와 함께 사용
+* SCST 버전 3.4.0 포함.
+
+
+
+
+ a| 
+1.1
+ a| 
+* RHEL/CentOS 7.6, 7.7, 8.0 및 8.1 지원
+* Perl 종속성을 제거합니다.
+* SCST 버전 3.4.0 포함.
+
+
+
+
+ a| 
+1.0
+ a| 
+* iSCSI 메일박스 지원
+* ONTAP 9.7+ MCC-IP AUSO와 함께 사용.
+* RHEL/CentOS 7.6 지원
 
 
 |===

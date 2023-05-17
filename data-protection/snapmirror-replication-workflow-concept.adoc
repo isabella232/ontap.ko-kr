@@ -15,7 +15,7 @@ SnapMirror는 SnapMirror DR, 아카이브(이전의 SnapVault) 및 통합 복제
 
 ONTAP 9.9.1의 일반 가용성에서 출발한 SnapMirror 비즈니스 연속성(SM-BC)은 제로 복구 시간 목표(제로 RTO) 또는 투명한 애플리케이션 페일오버(TAF)를 제공하여 SAN 환경에서 비즈니스 크리티컬 애플리케이션의 자동 페일오버를 지원합니다. SM-BC는 2개의 AFF 클러스터 또는 2개의 ASA(All SAN Array) 클러스터 구성에서 지원됩니다.
 
-https://docs.netapp.com/us-en/ontap/smbc["NetApp 설명서: SnapMirror 비즈니스 연속성"]
+https://["NetApp 설명서: SnapMirror 비즈니스 연속성"]
 
 SnapMirror 데이터 보호 관계의 각 유형에 대해 워크플로는 동일합니다. 대상 볼륨 생성, 작업 일정 생성, 정책 지정, 관계 생성 및 초기화
 

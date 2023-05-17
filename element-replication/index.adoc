@@ -26,7 +26,7 @@ ONTAP 9.4부터는 ONTAP 노드에서 생성된 LUN의 스냅샷 복사본을 El
 
 * 요소 설정
 +
-https://docs.netapp.com/us-en/element-software/index.html["NetApp Element 소프트웨어 설명서"^]
+https://["NetApp Element 소프트웨어 설명서"^]
 
 * SnapMirror 개념 및 구성
 +

@@ -46,4 +46,4 @@ ONTAP 9에서는 기본적으로 '-is-use-junction-as-reparse-points-enabled' �
 
 자세한 내용은 Microsoft NTFS 설명서를 참조하십시오.
 
-https://docs.microsoft.com/en-us/windows/win32/fileio/reparse-points["Microsoft 설명서: 지점 재분석"]
+https://["Microsoft 설명서: 지점 재분석"]

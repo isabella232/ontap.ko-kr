@@ -78,4 +78,4 @@ NFS 프로토콜을 통해 데이터를 제공하는 볼륨을 재호스팅할 �
 .작업을 마친 후
 재호스트된 볼륨에서 정책 및 관련 규칙을 수동으로 재구성해야 합니다.
 
-https://docs.netapp.com/us-en/ontap-sm-classic/nfs-config/index.html["NFS 구성"]
+https://["NFS 구성"]

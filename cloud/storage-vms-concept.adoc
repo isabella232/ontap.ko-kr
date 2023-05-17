@@ -16,4 +16,4 @@ summary: '스토리지 VM(SVM)은 클라이언트 및 호스트에 데이터를 
 온프레미스 ONTAP 환경에서는 SVM을 사용하여 워크로드를 별개. Cloud Volumes ONTAP에서는 여러 SVM을 사용하거나 여러 Cloud Volumes ONTAP 인스턴스를 사용할 수 있습니다.
 
 .관련 정보
-https://docs.netapp.com/us-en/occm/reference_default_configs.html["Cloud Volumes ONTAP 기본 구성입니다"]
+https://["Cloud Volumes ONTAP 기본 구성입니다"]

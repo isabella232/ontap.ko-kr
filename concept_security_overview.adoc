@@ -23,7 +23,7 @@ ONTAP 9.7부터 System Manager를 사용하여 클러스터 보안을 관리할 
 
 System Manager를 사용하면 ONTAP 표준 방법을 통해 클라이언트 및 관리자의 스토리지 액세스 권한을 보호하고 바이러스로부터 보호할 수 있습니다. 사용되지 않는 데이터의 암호화 및 WORM 스토리지의 고급 기술을 사용할 수 있습니다.
 
-클래식 시스템 관리자(ONTAP 9.7 이전에서만 사용 가능)를 사용하는 경우 를 참조하십시오  https://docs.netapp.com/us-en/ontap-sm-classic/index.html["System Manager Classic(ONTAP 9.0 ~ 9.7)"^]
+클래식 시스템 관리자(ONTAP 9.7 이전에서만 사용 가능)를 사용하는 경우 를 참조하십시오  https://["System Manager Classic(ONTAP 9.0 ~ 9.7)"^]
 
 
 

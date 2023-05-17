@@ -375,6 +375,6 @@ xref:set-server-minimum-authentication-security-level-task.adoc[SMB 서버 최�
 
 xref:configure-required-encryption-concept.adoc[SMB를 통한 데이터 전송을 위해 SMB 서버에서 필요한 SMB 암호화 구성]
 
-http://www.netapp.com/us/media/tr-4543.pdf["NetApp 기술 보고서 4543: SMB 프로토콜 모범 사례"]
+http://["NetApp 기술 보고서 4543: SMB 프로토콜 모범 사례"]
 
-https://mysupport.netapp.com/NOW/products/interoperability["NetApp 상호 운용성"]
+https://["NetApp 상호 운용성"]

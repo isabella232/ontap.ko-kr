@@ -23,7 +23,7 @@ ONTAP 명령줄 또는 System Manager를 사용하여 클러스터에 SnapMirror
 .단계
 . NetApp Support 사이트에서 SnapMirror Cloud용 NLF(NetApp 라이센스 파일) 2개를 다운로드하십시오.
 +
-https://mysupport.netapp.com/site/global/dashboard["NetApp 지원"]
+https://["NetApp 지원"]
 
 . System Manager를 사용하여 SnapMirror Cloud NLF 파일을 클러스터에 업로드합니다.
 +
@@ -36,4 +36,4 @@ https://mysupport.netapp.com/site/global/dashboard["NetApp 지원"]
 
 
 .관련 정보
-http://mysupport.netapp.com/licenses["NetApp 소프트웨어 라이센스 검색"]
+http://["NetApp 소프트웨어 라이센스 검색"]

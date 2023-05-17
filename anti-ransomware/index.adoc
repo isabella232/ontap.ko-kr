@@ -59,7 +59,7 @@ ONTAP 시스템 관리자 또는 ONTAP CLI(Command Line Interface)를 사용하�
 
 ONTAP에는 FPolicy, Snapshot 복사본, SnapLock, Active IQ 디지털 자문과 같은 기능이 포함되어 있어 랜섬웨어로부터 보호하지만, 다음 정보는 머신 러닝 기능을 갖춘 ONTAP ARP의 온박스 기능에 초점을 맞춥니다.
 
-ONTAP의 기타 랜섬웨어 방지 기능에 대한 자세한 내용은 다음을 참조하십시오. https://www.netapp.com/media/7334-tr4572.pdf["TR-4572: 랜섬웨어용 NetApp 솔루션"^]
+ONTAP의 기타 랜섬웨어 방지 기능에 대한 자세한 내용은 다음을 참조하십시오. https://["TR-4572: 랜섬웨어용 NetApp 솔루션"^]
 
 
 

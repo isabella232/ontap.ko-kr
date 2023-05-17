@@ -27,7 +27,7 @@ System Manager는 웹 브라우저를 사용하여 스토리지 시스템과 스
 ====
 * ONTAP 9.8부터 System Manager는 더 이상 실행 파일로 사용할 수 없으며, ONTAP 소프트웨어에 웹 서비스로 포함되어 있으며, 기본적으로 활성화되어 있으며 브라우저를 통해 액세스할 수 있습니다.
 * System Manager의 이름이 ONTAP 9.6부터 변경되었습니다. ONTAP 9.5 이전 버전에서는 OnCommand 시스템 관리자라고 했습니다. ONTAP 9.6 이상에서는 시스템 관리자라고 합니다.
-* 클래식 시스템 관리자(ONTAP 9.7 이전에서만 사용 가능)를 사용하는 경우 를 참조하십시오  https://docs.netapp.com/us-en/ontap-sm-classic/index.html["System Manager Classic(ONTAP 9.0 ~ 9.7)"^]
+* 클래식 시스템 관리자(ONTAP 9.7 이전에서만 사용 가능)를 사용하는 경우 를 참조하십시오  https://["System Manager Classic(ONTAP 9.0 ~ 9.7)"^]
 
 
 ====

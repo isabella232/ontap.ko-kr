@@ -22,7 +22,7 @@ CIFS 서버에서 DAC(Dynamic Access Control) 활성화, Active Directory에서 
 .이 작업에 대해
 중앙 액세스 정책은 Active Directory의 GPO(그룹 정책 개체)에 정의되고 적용됩니다. 중앙 액세스 정책 및 GPO 구성에 대한 지침은 Microsoft TechNet 라이브러리를 참조하십시오.
 
-http://technet.microsoft.com/library/["Microsoft TechNet 라이브러리"]
+http://["Microsoft TechNet 라이브러리"]
 
 .단계
 . "vserver cifs options modify" 명령을 사용하여 아직 활성화되지 않은 SVM에서 동적 액세스 제어를 활성화하십시오.

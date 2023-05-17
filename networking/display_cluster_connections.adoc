@@ -38,7 +38,7 @@ summary: 클러스터의 모든 액티브 또는 리스닝 연결 또는 클라�
 .단계
 network connections active show-clients 명령을 사용하여 노드의 클라이언트별 활성 연결 수를 표시합니다.
 
-이 명령에 대한 자세한 내용은 man 페이지를 참조하십시오. http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"^]
+이 명령에 대한 자세한 내용은 man 페이지를 참조하십시오. http://["ONTAP 9 명령"^]
 
 ....
 network connections active show-clients
@@ -108,7 +108,7 @@ node3
 * 사용 중인 다른 서비스가 없는지 확인 network connections active show-services 명령을 사용하여 노드의 service별 활성 접속 수를 출력한다.
 
 
-이 명령에 대한 자세한 내용은 man 페이지를 참조하십시오. http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"^]
+이 명령에 대한 자세한 내용은 man 페이지를 참조하십시오. http://["ONTAP 9 명령"^]
 
 ....
 network connections active show-services
@@ -151,7 +151,7 @@ LIF에 의한 활성 연결 수는 다음 시나리오에서 유용합니다.
 .단계
 'network connections active show-liff' 명령을 사용하여 SVM과 노드에서 각 LIF의 활성 연결 수를 표시합니다.
 
-이 명령에 대한 자세한 내용은 man 페이지를 참조하십시오. http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"^]
+이 명령에 대한 자세한 내용은 man 페이지를 참조하십시오. http://["ONTAP 9 명령"^]
 
 ....
 network connections active show-lifs
@@ -190,7 +190,7 @@ node3
 .단계
 network connections active show 명령을 사용하여 클러스터의 활성 연결을 표시합니다.
 
-이 명령에 대한 자세한 내용은 man 페이지를 참조하십시오. http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"^]
+이 명령에 대한 자세한 내용은 man 페이지를 참조하십시오. http://["ONTAP 9 명령"^]
 
 다음 명령을 실행하면 노드 노드 1의 활성 연결이 표시됩니다.
 

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: smbc/considerations-limits.html 
-keywords: SM-BC, SMBC, restrictions, consistency group, endpoint limits, solaris, aix 
+keywords: SM-BC, SMBC, restrictions, consistency group, endpoint limits, solaris, aix, hp-ux, fanout 
 summary: SnapMirror 비즈니스 연속성 솔루션을 사용할 때는 몇 가지 추가 제한 사항과 제한이 있습니다. 
 ---
 = 고려 사항 및 제한 사항
@@ -36,7 +36,7 @@ SM-BC가 포함된 클러스터의 정합성 보장 그룹 제한은 관계를 �
 | ONTAP 9.10.1 | 20 
 
 
-| ONTAP 9.11.1 | 50 
+| ONTAP 9.11.1 이상 | 50 
 |===
 
 
@@ -56,7 +56,7 @@ SM-BC의 제한은 관계 수가 아닌 끝점 수를 기준으로 계산됩니�
 | S. 아니요 | 플랫폼 3+| SM-BC의 HA당 엔드포인트 3+| HA당 전체 동기식 및 SM-BC 엔드포인트 
 
 
-|  |  | ONTAP 9.8-9.9.1 | ONTAP 9.10.1 | ONTAP 9.11.1 | ONTAP 9.8-9.9.1 | ONTAP 9.10.1 | ONTAP 9.11.1 
+|  |  | ONTAP 9.8-9.9.1 | ONTAP 9.10.1 | ONTAP 9.11.1 이상 | ONTAP 9.8-9.9.1 | ONTAP 9.10.1 | ONTAP 9.11.1 이상 
 
 
 | 1 | AFF | 60 | 200 | 400 | 80 | 200 | 400 
@@ -182,4 +182,4 @@ svl_fops_name = 0xa00298d69e0 "conf f_tpgs"
 
 
 
-NOTE: scsi-vhci-failover-override가 적용되면 conf는 sVL_FOPS_NAME에 추가된다. 기본 설정에 대한 추가 정보 및 권장 변경 사항은 NetApp KB 문서 를 참조하십시오 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapMirror/Solaris_Host_support_recommended_settings_in_SnapMirror_Business_Continuity_(SM-BC)_configuration["Solaris 호스트 지원 SM-BC(SnapMirror Business Continuity) 구성에서 권장되는 설정입니다"].
+NOTE: scsi-vhci-failover-override가 적용되면 conf는 sVL_FOPS_NAME에 추가된다. 기본 설정에 대한 추가 정보 및 권장 변경 사항은 NetApp KB 문서 를 참조하십시오 https://["Solaris 호스트 지원 SM-BC(SnapMirror Business Continuity) 구성에서 권장되는 설정입니다"].

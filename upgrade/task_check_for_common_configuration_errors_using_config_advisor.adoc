@@ -19,7 +19,7 @@ Active IQ Config Advisor는 NetApp 시스템의 구성 검증 및 상태 점검 
 NOTE: Active IQ Config Advisor에 대한 지원은 제한적이며 온라인으로만 제공됩니다.
 
 . NetApp Support 사이트에 로그인한 다음 * tools * > * Tools * 를 클릭합니다.
-. Active IQ Config Advisor * 에서 를 클릭합니다 https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["앱을 다운로드합니다"^].
+. Active IQ Config Advisor * 에서 를 클릭합니다 https://["앱을 다운로드합니다"^].
 . 웹 페이지의 지침에 따라 Active IQ Config Advisor를 다운로드, 설치 및 실행합니다.
 . Active IQ Config Advisor를 실행한 후 도구의 출력을 검토하고 도구에서 발견된 문제를 해결하기 위해 제공된 권장 사항을 따릅니다.
 

@@ -46,7 +46,7 @@ cluster1::> storage aggregate object-store config create
 +
 'Storage aggregate object-store config show'를 선택합니다
 
-. 선택 사항: 볼륨의 비활성 데이터 양을 확인하려면 의 단계를 따릅니다 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mgng-stor-tier-fp/GUID-78C09B0C-9508-4CEC-96FE-7ED73F7F5120.html["비활성 데이터 보고를 사용하여 볼륨의 비활성 데이터 양을 결정합니다"].
+. 선택 사항: 볼륨의 비활성 데이터 양을 확인하려면 의 단계를 따릅니다 http://["비활성 데이터 보고를 사용하여 볼륨의 비활성 데이터 양을 결정합니다"].
 +
 볼륨의 비활성 데이터 양을 보면 FabricPool 로컬 계층화에 사용할 애그리게이트를 결정할 수 있습니다.
 

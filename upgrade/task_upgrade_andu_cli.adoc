@@ -228,6 +228,6 @@ AUSO Failure Domain    auso-on-cluster-disaster
 
 
 .관련 정보
-https://aiq.netapp.com/["Active IQ를 시작합니다"]
+https://["Active IQ를 시작합니다"]
 
-https://docs.netapp.com/us-en/active-iq/["Active IQ 설명서"]
+https://["Active IQ 설명서"]

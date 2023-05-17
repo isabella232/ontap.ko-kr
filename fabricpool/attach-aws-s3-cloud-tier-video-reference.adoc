@@ -13,7 +13,7 @@ summary: 이 비디오에서는 System Manager를 사용하여 ONTAP S3 버킷�
 [role="lead"]
 이 비디오에서는 System Manager를 사용하여 ONTAP S3 버킷을 FabricPool로 Aggregate에 연결하는 방법에 대해 간략하게 설명합니다.
 
-https://www.youtube.com/embed/xlsQdZzsBxw?rel=0["NetApp 비디오: Amazon S3를 FabricPool 외부 용량 계층으로 연결"]
+https://["NetApp 비디오: Amazon S3를 FabricPool 외부 용량 계층으로 연결"]
 
 .관련 정보
-https://www.youtube.com/playlist?list=PLdXI3bZJEw7mcD3RnEcdqZckqKkttoUpS["NetApp TechComm TV: FabricPool 재생 목록"]
+https://["NetApp TechComm TV: FabricPool 재생 목록"]

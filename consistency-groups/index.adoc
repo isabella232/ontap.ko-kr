@@ -41,7 +41,7 @@ ONTAP 9.12.1부터 정합성 보장 그룹이 지원됩니다 xref:clone-task.ht
 * 기존 일관성 그룹에 새 NFS 또는 SMB 볼륨 또는 NVMe 네임스페이스 추가
 
 
-ONTAP REST API에 대한 자세한 내용은 를 참조하십시오 https://docs.netapp.com/us-en/ontap-automation/reference/api_reference.html#access-a-copy-of-the-ontap-rest-api-reference-documentation["ONTAP REST API 참조 설명서"].
+ONTAP REST API에 대한 자세한 내용은 를 참조하십시오 https://["ONTAP REST API 참조 설명서"].
 
 
 

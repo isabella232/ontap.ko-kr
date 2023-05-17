@@ -56,4 +56,4 @@ pNFS를 사용합니다
 |===
 ONTAP가 지원하는 NFS 클라이언트에 대한 최신 정보는 상호 운용성 매트릭스 를 참조하십시오.
 
-https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"^]
+https://["NetApp 상호 운용성 매트릭스 툴"^]

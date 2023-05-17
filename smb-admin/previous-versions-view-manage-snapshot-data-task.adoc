@@ -57,4 +57,4 @@ Windows 클라이언트 시스템의 사용자는 Windows 속성 창의 이전 �
 
 
 .관련 정보
-http://technet.microsoft.com/en-us/library/["Microsoft TechNet 라이브러리: technet.microsoft.com/en-us/library/"]
+http://["Microsoft TechNet 라이브러리: technet.microsoft.com/en-us/library/"]

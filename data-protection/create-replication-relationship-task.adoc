@@ -16,7 +16,7 @@ summary: 운영 스토리지의 소스 볼륨과 2차 스토리지의 타겟 볼
 .필요한 것
 * 소스 및 타겟 클러스터와 SVM을 피어링해야 합니다.
 +
-https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["클러스터 및 SVM 피어링"]
+https://["클러스터 및 SVM 피어링"]
 
 * 대상 볼륨의 언어는 소스 볼륨의 언어와 동일해야 합니다.
 

@@ -33,4 +33,4 @@ Windows 클라이언트는 오프라인 파일을 지원해야 합니다.
 
 오프라인 파일 기능을 지원하는 Windows 클라이언트에 대한 최신 정보는 상호 운용성 매트릭스 를 참조하십시오.
 
-http://mysupport.netapp.com/matrix["mysupport.netapp.com/matrix"]
+http://["mysupport.netapp.com/matrix"]

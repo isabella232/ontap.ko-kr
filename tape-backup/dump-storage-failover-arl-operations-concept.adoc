@@ -35,4 +35,4 @@ summary: '덤프 백업 또는 복원 작업을 수행하기 전에 이러한 �
 .관련 정보
 link:../concepts/index.html["ONTAP 개념"]
 
-https://docs.netapp.com/us-en/ontap/high-availability/index.html["고가용성"]
+https://["고가용성"]

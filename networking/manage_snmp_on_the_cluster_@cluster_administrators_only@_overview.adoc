@@ -20,4 +20,4 @@ summary: 클러스터의 SVM을 모니터링하도록 SNMP를 구성합니다
 
 SNMP 네트워크 관리 워크스테이션 또는 관리자는 SVM SNMP 에이전트에 정보를 쿼리할 수 있습니다. SNMP 에이전트는 정보를 수집하여 SNMP 관리자에게 전달합니다. SNMP 에이전트는 또한 특정 이벤트가 발생할 때마다 트랩 알림을 생성합니다. SVM의 SNMP 에이전트는 읽기 전용 권한을 가지고 있으며 설정된 작업에 사용하거나 트랩에 대한 응답으로 수정 조치를 취하는 데 사용할 수 없습니다. ONTAP는 SNMP 버전 v1, v2c 및 v3과 호환되는 SNMP 에이전트를 제공합니다. SNMPv3는 암호 구문 및 암호화를 사용하여 고급 보안을 제공합니다.
 
-ONTAP 시스템의 SNMP 지원에 대한 자세한 내용은 를 참조하십시오 https://www.netapp.com/pdf.html?item=/media/16417-tr-4220pdf.pdf["TR-4220: Data ONTAP에서 SNMP 지원"^].
+ONTAP 시스템의 SNMP 지원에 대한 자세한 내용은 를 참조하십시오 https://["TR-4220: Data ONTAP에서 SNMP 지원"^].

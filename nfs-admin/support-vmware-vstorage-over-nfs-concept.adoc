@@ -51,4 +51,4 @@ Qtree를 내보낸 적이 없는 SVM으로 현재 또는 이전에 qtree를 내�
 
 
 .관련 정보
-https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/What_VAAI_offloaded_operations_are_supported_by_Data_ONTAP%3F["Data ONTAP에서 지원하는 VAAI 오프로드 작업은 무엇입니까?"]
+https://["Data ONTAP에서 지원하는 VAAI 오프로드 작업은 무엇입니까?"]

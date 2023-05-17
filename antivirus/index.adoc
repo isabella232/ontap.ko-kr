@@ -16,8 +16,8 @@ NetApp 바이러스 검사(_Vscan_)를 사용하여 바이러스 또는 기타 �
 시스템 관리자 또는 자동화된 스크립팅 도구가 아닌 ONTAP CLI(명령줄 인터페이스)를 사용하여 Vscan을 사용할 수 있습니다. Vscan은 System Manager에서 지원되지 않습니다.
 
 .관련 정보
-https://docs.trellix.com/bundle?labelkey=prod-endpoint-security-storage-protection&labelkey=prod-endpoint-security-storage-protection-v2-3-x&labelkey=prod-endpoint-security-storage-protection-v2-2-x&labelkey=prod-endpoint-security-storage-protection-v2-1-x&labelkey=prod-endpoint-security-storage-protection-v2-0-x["Trelix(이전의 McAfee) Endpoint Security Storage Protection"^]
+https://["Trelix(이전의 McAfee) Endpoint Security Storage Protection"^]
 
-http://www.netapp.com/us/media/tr-4304.pdf["NetApp 기술 보고서 4304: clustered Data ONTAP용 바이러스 백신 솔루션 Symantec"^]
+http://["NetApp 기술 보고서 4304: clustered Data ONTAP용 바이러스 백신 솔루션 Symantec"^]
 
-http://www.netapp.com/us/media/tr-4312.pdf["NetApp 기술 보고서 4312: clustered Data ONTAP Trend Micro의 안티바이러스 솔루션"^]
+http://["NetApp 기술 보고서 4312: clustered Data ONTAP Trend Micro의 안티바이러스 솔루션"^]

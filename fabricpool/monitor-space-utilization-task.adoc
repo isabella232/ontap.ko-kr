@@ -136,7 +136,7 @@ FabricPool 라이센스 사용 제한을 늘립니다
  a| 
 NetApp 또는 파트너 세일즈 담당자에게 문의하십시오.
 
-https://mysupport.netapp.com/site/global/dashboard["NetApp 지원"]
+https://["NetApp 지원"]
 
 
 

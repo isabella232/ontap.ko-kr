@@ -24,10 +24,10 @@ image::../media/volume-management-cloud.png[볼륨 관리 클라우드]
 
 
 .관련 정보
-https://docs.netapp.com/us-en/occm/task_provisioning_storage.html["BlueXP: 스토리지 용량 할당"]
+https://["BlueXP: 스토리지 용량 할당"]
 
-https://docs.netapp.com/us-en/occm/task_manage_anf.html["Azure NetApp Files의 볼륨 관리"]
+https://["Azure NetApp Files의 볼륨 관리"]
 
-https://docs.netapp.com/us-en/occm/task_manage_cvs_aws.html["Cloud Volumes Service for AWS 관리"]
+https://["Cloud Volumes Service for AWS 관리"]
 
-https://cloud.netapp.com/cloud-sync-service["Cloud Sync 서비스"]
+https://["Cloud Sync 서비스"]

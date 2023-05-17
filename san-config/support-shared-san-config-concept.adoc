@@ -26,4 +26,4 @@ summary: 공유 SAN 구성은 ONTAP 스토리지 시스템과 다른 공급업�
 
 
 .관련 정보
-https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"^]
+https://["NetApp 상호 운용성 매트릭스 툴"^]

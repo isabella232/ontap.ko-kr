@@ -22,7 +22,7 @@ X1144A-R6 및 X91440A-R6 40GbE 네트워크 인터페이스 카드(NIC)를 4개�
 지원되는 브레이크아웃 케이블을 사용해야 합니다.
 
 .이 작업에 대해
-NIC를 지원하는 전체 플랫폼 목록은 를 참조하십시오 https://hwu.netapp.com/["Hardware Universe"^].
+NIC를 지원하는 전체 플랫폼 목록은 를 참조하십시오 https://["Hardware Universe"^].
 
 
 NOTE: X1144A-R6 NIC에서는 포트 A만 10GbE 연결 4개를 지원하도록 변환할 수 있습니다. 포트 A가 변환되면 포트 e를 사용할 수 없습니다.
