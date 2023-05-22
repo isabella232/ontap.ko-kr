@@ -10,6 +10,7 @@ summary: 'System Manager 또는 CLI를 사용하여 로컬 계층(애그리게�
 :imagesdir: ../media/
 
 
+[role="lead"]
 System Manager 또는 CLI를 사용하여 로컬 계층(애그리게이트)을 추가하고, 사용량을 관리하고, 용량(디스크)을 추가할 수 있습니다.
 
 image::manage-local-tiers-workflow.png[로컬 계층(애그리게이트) 관리 워크플로우]

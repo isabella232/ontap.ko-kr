@@ -31,6 +31,12 @@ ONTAP 9.10.1.1부터는 작업 일정에 SVM을 포함할 수 있습니다.
 'job schedule cron create -name_job_name_-vserver_Vserver_name_-month_month_-DayOfWeek_day_of_week_-day_of_month_-hour_hour_-minute_minute_'
 
 +
+[NOTE]
+====
+볼륨 SnapMirror 관계에서 FlexVol 볼륨의 최소 지원 일정(RPO)은 5분입니다. 볼륨 SnapMirror 관계에서 FlexGroup 볼륨의 최소 지원 일정(RPO)은 30분입니다.
+
+====
++
 다음 예에서는 토요일 오전 3시에 실행되는 my_weekly라는 작업 일정을 생성합니다.
 
 +

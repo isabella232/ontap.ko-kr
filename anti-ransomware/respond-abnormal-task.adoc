@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: anti-ransomware/respond-abnormal-task.html 
-keywords: Respond to abnormal activity, anti-ransomware abnormal activity, data entropy, unusual file extensions, potential ransomware attack, false positive, suspected ransomware attack, abnormal activity notification, security, ransomware alert message, detected abnormal volume, suspected file types, attack report, anti-ransomware attack, autonomous, ransomware, protection, arp 
+keywords: abnormal activity, data entropy, unusual file extensions, potential ransomware attack, false positive, ransomware attack, abnormal activity notification, ransomware alert, detected abnormal volume, suspected file types, attack report, anti-ransomware attack, ransomware ems 
 summary: 'ARP(Autonomous 랜섬웨어 Protection)가 보호 볼륨에서 비정상적인 활동을 감지하면 경고를 표시합니다. 알림을 평가하여 작업이 예상되는지, 허용되는지, 공격이 진행 중인지 여부를 확인해야 합니다.' 
 ---
 = 비정상적인 활동에 응답합니다
@@ -21,10 +21,6 @@ summary: 'ARP(Autonomous 랜섬웨어 Protection)가 보호 볼륨에서 비정�
 [role="lead"]
 ARP(Autonomous 랜섬웨어 Protection)가 보호 볼륨에서 비정상적인 활동을 감지하면 경고를 표시합니다. 알림을 평가하여 작업이 예상되는지, 허용되는지, 공격이 진행 중인지 여부를 확인해야 합니다.
 
-.필요한 것
-* ARP가 활성 모드에서 실행 중입니다.
-
-
 .이 작업에 대해
 ARP는 높은 데이터 엔트로피, 데이터 암호화와 비정상적인 볼륨 활동 및 비정상적인 파일 확장자의 조합을 감지할 때 의심되는 파일 목록을 표시합니다.
 
@@ -40,10 +36,16 @@ ARP는 높은 데이터 엔트로피, 데이터 암호화와 비정상적인 볼
 
 
 
-두 경우 모두, 알림 업데이트 및 삭제 후 정상적인 모니터링이 다시 시작됩니다. ARP는 사용자의 평가를 기록하고, 로그가 새 파일 유형으로 업데이트되며 향후 분석에 사용됩니다. 그러나 공격이 의심되는 경우에는 알림을 지우기 전에 공격이 공격인지 여부를 확인하고, 공격에 대한 대응 및 보호 데이터를 복원해야 합니다. link:index.html#how-to-recover-data-in-ontap-after-a-ransomware-attack["랜섬웨어 공격에서 복구하는 방법에 대해 자세히 알아보십시오"].
+두 경우 모두 알림 업데이트 및 삭제 후 정상적인 모니터링이 재개됩니다. ARP는 위협 평가에 대한 평가를 기록하고, 새 파일 유형으로 로그를 업데이트하고, 향후 분석에 사용합니다.
+
+공격이 의심되는 경우에는 알림을 지우기 전에 공격이 공격인지 여부를 확인하고, 공격에 대한 대응 및 보호된 데이터를 복원해야 합니다. link:index.html#how-to-recover-data-in-ontap-after-a-ransomware-attack["랜섬웨어 공격에서 복구하는 방법에 대해 자세히 알아보십시오"].
 
 
 NOTE: 전체 볼륨을 복원한 경우 지울 수 있는 알림이 없습니다.
+
+.시작하기 전에
+* ARP가 활성 모드에서 실행되고 있어야 합니다.
+
 
 .단계
 [role="tabbed-block"]
@@ -170,3 +172,6 @@ EMS 메시지를 확인할 수도 있습니다.
 
 --
 ====
+.추가 정보
+* link:https://kb.netapp.com/onprem%2Fontap%2Fda%2FNAS%2FUnderstanding_Autonomous_Ransomware_Protection_attacks_and_the_Autonomous_Ransomware_Protection_snapshot#["KB: 자율 랜섬웨어 보호 공격과 자율 랜섬웨어 보호 스냅샷 이해"^].
+

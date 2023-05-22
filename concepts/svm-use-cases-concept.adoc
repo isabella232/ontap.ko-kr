@@ -15,4 +15,4 @@ summary: '서비스 공급자는 SVM을 안전한 멀티 테넌시 방식으로 
 
 관리자는 SVM을 기업에서 유사한 용도로 사용합니다. 서로 다른 부서에서 데이터를 격리하거나 호스트가 한 SVM에서 스토리지 볼륨에 액세스하는 것을 유지하고 사용자가 다른 SVM에서 볼륨을 공유할 수 있습니다. 일부 관리자는 iSCSI/FC LUN 및 NFS 데이터 저장소를 한 SVM과 SMB 공유에 둡니다.
 
-image::../media/multitenancy-use-case.gif[멀티 테넌시 사용 사례]
+image::../media/multitenancy-use-case.gif[멀티 테넌트(multi-tenant) 환경의 SVM 다이어그램]

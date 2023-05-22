@@ -18,6 +18,6 @@ NetApp 바이러스 검사(_Vscan_)를 사용하여 바이러스 또는 기타 �
 .관련 정보
 https://["Trelix(이전의 McAfee) Endpoint Security Storage Protection"^]
 
-http://["NetApp 기술 보고서 4304: clustered Data ONTAP용 바이러스 백신 솔루션 Symantec"^]
+https://["Symantec Protection Engine을 참조하십시오"^]
 
 http://["NetApp 기술 보고서 4312: clustered Data ONTAP Trend Micro의 안티바이러스 솔루션"^]

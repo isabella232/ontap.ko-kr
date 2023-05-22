@@ -28,7 +28,7 @@ NOTE: 업그레이드 프로세스 중에 업그레이드 방법을 기반으로
 
 
 | 9.6 이상  a| 
-네트워크 인터페이스 show-service-policy data-failover를 선택합니다
+`network interface show -service-policy \*data* -failover`
 
 
 

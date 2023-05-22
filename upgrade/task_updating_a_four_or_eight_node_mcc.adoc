@@ -28,7 +28,7 @@ summary: 4노드 또는 8노드 MetroCluster 구성의 업그레이드 또는 �
 
 * 이 작업은 다음과 같은 고급 워크플로를 사용합니다.
 +
-image::../media/workflow_mcc_lockstep_upgrade.gif[워크플로우 MCC lockstep 업그레이드]
+image::../media/workflow_mcc_lockstep_upgrade.gif[MetroCluster 업그레이드 결정 흐름도]
 
 
 
@@ -40,7 +40,7 @@ MetroCluster 소프트웨어 업데이트 프로세스는 MetroCluster 구성에
 
 MetroCluster 구성은 1개 또는 2개의 DR 그룹으로 구성됩니다. 각 DR 그룹은 2개의 HA 쌍으로 구성되며, 각 MetroCluster 클러스터에 하나의 HA 쌍이 있습니다. 8노드 MetroCluster에는 2개의 DR 그룹이 포함되어 있습니다.
 
-image::../media/mcc_dr_groups_8_node.gif[MCC DR 그룹 8개 노드]
+image::../media/mcc_dr_groups_8_node.gif[8노드 MetroCluster 구성의 다이어그램]
 
 MetroCluster 소프트웨어 업데이트 절차에는 한 번에 하나의 DR 그룹을 업그레이드하거나 다운그레이드하는 과정이 포함됩니다.
 
@@ -82,7 +82,7 @@ MetroCluster 소프트웨어 업데이트 절차에는 한 번에 하나의 DR �
 
 이 작업에 제공된 예제에서는 다음 그림에 표시된 이름을 사용하여 클러스터와 노드를 식별합니다.
 
-image::../media/mcc_dr_groups_8_node.gif[MCC DR 그룹 8개 노드]
+image::../media/mcc_dr_groups_8_node.gif[8노드 MetroCluster 구성의 다이어그램]
 
 . 구성에서 'MetroCluster node show-fields dr-partner'( 노드 표시 필드 dr-partner) DR 쌍을 식별합니다
 +

@@ -57,5 +57,5 @@ entries:
     url: "/cloud/data-sense-concept.html"
   - title: 데이터 주권
     url: "/cloud/data-sovereignty-concept.html"
-  - title: SnapLock WORM 스토리지
+  - title: 클라우드 WORM 스토리지
     url: "/cloud/snaplock-worm-storage-concept.html"

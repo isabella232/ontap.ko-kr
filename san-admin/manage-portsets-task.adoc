@@ -1,7 +1,7 @@
 ---
 permalink: san-admin/manage-portsets-task.html 
 sidebar: sidebar 
-keywords: system manager, san, portsets, port, sets, create, creating, bind, binding, igroup 
+keywords: system manager, san, bind, binding, igroup 
 summary: ONTAP 9.10.1부터 System Manager를 사용하여 포트 세트와 관련된 네트워크 인터페이스를 변경하고 포트 세트를 삭제할 수 있습니다. 
 ---
 = 포틀세트를 관리합니다
@@ -19,8 +19,8 @@ ONTAP 9.10.1부터 System Manager를 사용하여 포트 세트와 관련된 네
 
 == 포트셋 관련 네트워크 인터페이스를 변경합니다
 
-. System Manager에서 * Network > Overview > Portsets * 를 클릭합니다.
-. 편집할 포트셋 를 선택하고 를 클릭합니다 image:icon_kabob.gif["Kabob 아이콘"]그런 다음 * 포트 세트 편집 * 을 선택합니다.
+. System Manager에서 * Network > Overview > Portsets * 를 선택합니다.
+. 편집할 포트셋 를 선택합니다 image:icon_kabob.gif["Kabob 아이콘"]그런 다음 * 포트 세트 편집 * 을 선택합니다.
 
 
 
@@ -28,7 +28,7 @@ ONTAP 9.10.1부터 System Manager를 사용하여 포트 세트와 관련된 네
 == 포트셋 삭제
 
 . System Manager에서 * Network > Overview > Portsets * 를 클릭합니다.
-. 단일 포트셋 를 삭제하려면 를 클릭합니다 image:icon_kabob.gif[""] 그런 다음 * Delete Portsets * 를 선택합니다.
+. 단일 포트셋 를 삭제하려면 를 선택하고 를 선택합니다 image:icon_kabob.gif["Kabob 아이콘"] 그런 다음 * Delete Portsets * 를 선택합니다.
 +
 여러 개의 포트 세트를 삭제하려면 포트 세트를 선택하고 * Delete * (삭제 *)를 클릭합니다.
 

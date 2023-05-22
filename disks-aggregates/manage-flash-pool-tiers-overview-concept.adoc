@@ -10,6 +10,7 @@ summary: 플래시 풀 계층을 관리할 수 있습니다
 :imagesdir: ../media/
 
 
+[role="lead"]
 다양한 절차를 수행하여 시스템에서 Flash Pool 계층(애그리게이트)을 관리할 수 있습니다.
 
 * * 캐싱 정책 *

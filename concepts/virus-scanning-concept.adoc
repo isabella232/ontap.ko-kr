@@ -36,4 +36,4 @@ NFS를 통해서만 내보낸 볼륨에서도 SVM 네임스페이스에서 모�
 재해 복구 및 MetroCluster 구성을 위해서는 로컬 및 파트너 클러스터용으로 별도의 Vscan 서버를 설정해야 합니다.
 
 |===
-image:../media/virus-scanning.gif[""]
+image:../media/virus-scanning.gif["SVM 기반 Vscan 서버 다이어그램"]

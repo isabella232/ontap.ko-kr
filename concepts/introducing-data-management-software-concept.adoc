@@ -17,7 +17,7 @@ ONTAP 구축은 NetApp 엔지니어링 FAS 또는 AFF 어플라이언스, 일반
 
 이러한 구현이 결합될 경우 _ NetApp Data Fabric _ 의 기본 프레임워크가 형성되며, 공통 소프트웨어 정의 접근 방식을 통해 데이터 관리와 플랫폼 간 빠르고 효율적인 복제를 실현할 수 있습니다.
 
-image::../media/data-fabric.gif[결과죠]
+image::../media/data-fabric.gif[BlueXP를 사용한 SnapMirror 복제 다이어그램,ONTAP,and ONTAP Select.]
 
 .FlexPod 데이터 센터 및 FlexArray 가상화 정보
 NetApp Data Fabric의 그림에는 나와 있지 않지만, FlexPod 데이터 센터 및 FlexArray 가상화는 ONTAP의 핵심 구현 요소입니다.

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: anti-ransomware/use-cases-restrictions-concept.html 
-keywords: anti-ransomware use cases and restrictions, anti-ransomware performance and frequency considerations, anti-ransomware workloads, anti-ransomware volume requirements, anti-ransomware performance, volumes, anti-ransomware encryption, anti-ransomware system configurations, autonomous ransomware protection, arp 
+keywords: anti-ransomware workloads, anti-ransomware requirements, anti-ransomware performance, volumes, anti-ransomware encryption, anti-ransomware system configurations, arp 
 summary: 현재 릴리스에서 랜섬웨어 보호는 NAS 환경에 가장 적합합니다. 다른 환경에 대한 지원은 향후 릴리즈에서 제공될 예정입니다. 
 ---
 = 자율 랜섬웨어 보호 사용 사례 및 고려사항
@@ -19,6 +19,12 @@ summary: 현재 릴리스에서 랜섬웨어 보호는 NAS 환경에 가장 적�
 
 
 [role="lead"]
+자율 랜섬웨어 보호 기능의 가용성은 사용 중인 ONTAP 버전에 따라 다릅니다.
+
+
+
+== 지원 구성 및 지원되지 않는 구성
+
 ONTAP 플랫폼 지원:
 
 * 자율 랜섬웨어 보호(ARP) 기능은 ONTAP 9.10.1부터 시작하는 모든 사내 ONTAP 시스템에서 사용할 수 있습니다.
@@ -108,14 +114,8 @@ ARP 분석은 우선 순위가 지정된 순서대로 실행되기 때문에 보
 
 
 
-== 랜섬웨어 탐지 시 자동 스냅샷 사본의 작동 방식
-
-가능한 최상의 복구 지점을 얻기 위해 ARP는 비정상적인 파일 활동을 감지하는 즉시 자동 스냅샷 복사본을 생성합니다. 그러나 ARP는 즉시 알림에 플래그를 표시하지 않습니다. 오히려 분석을 통해 의심스러운 활동이 랜섬웨어 프로필과 일치하는지 확인한 후 알림을 생성합니다. 이 프로세스는 최대 60분이 소요될 수 있습니다. 분석에서 의심스러운 활동이 아닌 것으로 확인되면 알림이 생성되지 않고 자동으로 생성된 스냅샷 복사본이 최소 2일 동안 파일 시스템에 남아 있습니다.
-
-ONTAP 9.11.1부터, 의심되는 랜섬웨어 공격에 대응하여 자동으로 생성되는 ARP Snapshot 복사본의 수와 보존 기간을 제어할 수 있습니다. 자세한 내용을 알아보십시오 link:modify-automatic-shapshot-options-task.html["자동 스냅샷 복사본에 대한 옵션을 수정합니다"].
-
-
-
 == ARP(Autonomous 랜섬웨어 Protection)로 보호되는 볼륨으로 다중 관리 검증
 
-ONTAP 9.13.1 부터는 ARP를 통한 추가 보안을 위해 MAV(Multi-admin verification)를 활성화할 수 있습니다. MAV를 사용하면 최소한 두 명 이상의 인증된 관리자가 ARP를 끄거나 ARP를 일시 중지하거나 의심스러운 공격을 보호된 볼륨에서 위양성(false positive)으로 표시해야 합니다. 자세한 내용을 알아보십시오 link:../multi-admin-verify/enable-disable-task.html["ARP 보호 볼륨에 대해 MAV를 활성화합니다"^]. MAV 그룹에 대한 관리자를 정의하고 에 대한 MAV 규칙을 만들어야 합니다 `security anti-ransomware volume disable`, `security anti-ransomware volume pause`, 및 `security anti-ransomware volume attack clear-suspect` 보호할 ARP 명령. MAV 그룹의 각 관리자는 각각의 새 규칙 요청 및 을 승인해야 합니다 link:../multi-admin-verify/enable-disable-task.html["MAV 규칙을 다시 추가합니다"^] MAV 설정 내.
+ONTAP 9.13.1 부터는 ARP를 통한 추가 보안을 위해 MAV(Multi-admin verification)를 활성화할 수 있습니다. MAV를 사용하면 최소한 두 명 이상의 인증된 관리자가 ARP를 끄거나 ARP를 일시 중지하거나 의심스러운 공격을 보호된 볼륨에서 위양성(false positive)으로 표시해야 합니다. 자세한 내용을 알아보십시오 link:../multi-admin-verify/enable-disable-task.html["ARP 보호 볼륨에 대해 MAV를 활성화합니다"^].
+
+MAV 그룹에 대한 관리자를 정의하고 에 대한 MAV 규칙을 만들어야 합니다 `security anti-ransomware volume disable`, `security anti-ransomware volume pause`, 및 `security anti-ransomware volume attack clear-suspect` 보호할 ARP 명령. MAV 그룹의 각 관리자는 각각의 새 규칙 요청 및 을 승인해야 합니다 link:../multi-admin-verify/enable-disable-task.html["MAV 규칙을 다시 추가합니다"^] MAV 설정 내.

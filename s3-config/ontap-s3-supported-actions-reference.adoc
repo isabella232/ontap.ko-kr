@@ -10,6 +10,7 @@ summary: ONTAP S3가 지원되는 작업.
 :imagesdir: ../media/
 
 
+[role="lead"]
 ONTAP S3 작업은 아래 명시된 경우를 제외하고 표준 S3 REST API에서 지원됩니다. 자세한 내용은 를 참조하십시오 link:https://docs.aws.amazon.com/AmazonS3/latest/API/Type_API_Reference.html["Amazon S3 API 참조"^].
 
 
