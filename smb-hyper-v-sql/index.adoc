@@ -25,4 +25,4 @@ ONTAP 기능을 사용하면 Microsoft Hyper-V와 Microsoft SQL Server라는 SMB
 
 
 .관련 정보
-ONTAP 기술 및 외부 서비스와의 상호 작용에 대한 자세한 내용은 TR(기술 보고서):** 을 참조하십시오 http://["NetApp 기술 보고서 4172: ONTAP 모범 사례를 사용한 SMB 3.0 기반 Microsoft Hyper-V"^]** https://["NetApp 기술 보고서 4369: clustered Data ONTAP을 사용한 Microsoft SQL Server의 모범 사례 및 SQL Server의 SnapManager 7.2"^]
+ONTAP 기술 및 외부 서비스와의 상호 작용에 대한 자세한 내용은 TR(기술 보고서):** 을 참조하십시오 http://www.netapp.com/us/media/tr-4172.pdf["NetApp 기술 보고서 4172: ONTAP 모범 사례를 사용한 SMB 3.0 기반 Microsoft Hyper-V"^]** https://www.netapp.com/us/media/tr-4369.pdf["NetApp 기술 보고서 4369: clustered Data ONTAP을 사용한 Microsoft SQL Server의 모범 사례 및 SQL Server의 SnapManager 7.2"^]

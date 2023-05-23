@@ -22,7 +22,7 @@ SnapMirror를 사용하여 Element 볼륨의 스냅샷 복사본을 ONTAP 대상
 +
 [NOTE]
 ====
-Element 소프트웨어 웹 UI에서만 이 작업을 수행할 수 있습니다. 자세한 내용은 를 참조하십시오 https://["요소 문서"].
+Element 소프트웨어 웹 UI에서만 이 작업을 수행할 수 있습니다. 자세한 내용은 를 참조하십시오 https://docs.netapp.com/us-en/element-software/index.html["요소 문서"].
 
 ====
 

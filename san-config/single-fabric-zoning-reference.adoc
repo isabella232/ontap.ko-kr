@@ -44,4 +44,4 @@ image::../media/scm-en-drw-single-fabric-zoning.gif[단일 패브릭 조닝]
 
 ====
 .관련 정보
-https://["NetApp Hardware Universe를 참조하십시오"^]
+https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"^]

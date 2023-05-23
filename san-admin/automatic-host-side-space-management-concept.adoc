@@ -26,4 +26,4 @@ SCSI 씬 프로비저닝을 지원하지 않는 호스트에서 LUN이 포함된
 
 
 .관련 정보
-https://["ONTAP SAN 호스트 구성"]
+https://docs.netapp.com/us-en/ontap-sanhost/index.html["ONTAP SAN 호스트 구성"]

@@ -95,4 +95,4 @@ iSCSI 논리 인터페이스가 활성화되었는지 확인합니다.
 
 |===
 .관련 정보
-https://["NetApp 상호 운용성 매트릭스 툴"^]
+https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"^]

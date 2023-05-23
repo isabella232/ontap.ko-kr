@@ -102,4 +102,4 @@ ONTAP 9.12.1부터 시스템 관리자를 사용하여 SSD 스토리지 풀에 S
 --
 ====
 .관련 정보
-http://["NetApp 기술 보고서 4070: Flash Pool 설계 및 구축 가이드 를 참조하십시오"^]
+http://www.netapp.com/us/media/tr-4070.pdf["NetApp 기술 보고서 4070: Flash Pool 설계 및 구축 가이드 를 참조하십시오"^]

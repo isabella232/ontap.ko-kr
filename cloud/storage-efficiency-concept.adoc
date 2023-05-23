@@ -16,6 +16,6 @@ summary: 사내 ONTAP의 동일한 스토리지 효율성 기능을 클라우드
 데이터를 사내 ONTAP에서 클라우드로 이동할 때 기존 스토리지 효율성이 유지됩니다. 전체 데이터 세트를 이동하거나 콜드 데이터를 클라우드로 계층화하거나 압축되지 않은 데이터나 중복된 데이터를 이동하지 않습니다.
 
 .관련 정보
-https://["Cloud Volumes ONTAP 기능 소개: 스토리지 효율성 사례 연구"]
+https://cloud.netapp.com/blog/storage-efficiency-success-stories-with-cloud-volumes-ontap["Cloud Volumes ONTAP 기능 소개: 스토리지 효율성 사례 연구"]
 
-https://["BlueXP의 볼륨 사용 프로필을 사용하여 클라우드 스토리지 효율성을 관리합니다"]
+https://docs.netapp.com/us-en/occm/task_planning_your_config.html["BlueXP의 볼륨 사용 프로필을 사용하여 클라우드 스토리지 효율성을 관리합니다"]

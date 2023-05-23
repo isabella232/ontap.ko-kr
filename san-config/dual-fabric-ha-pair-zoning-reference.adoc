@@ -40,4 +40,4 @@ image::../media/scm-en-drw-dual-fabric-zoning.gif[듀얼 패브릭 조닝]
 
 ====
 .관련 정보
-https://["NetApp Hardware Universe를 참조하십시오"^]
+https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"^]

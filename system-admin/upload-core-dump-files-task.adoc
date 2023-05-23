@@ -29,7 +29,7 @@ summary: 코어 덤프 파일이 저장되면 이벤트 메시지가 생성됩�
 .이 작업에 대해
 NetApp 지원 요청이 있을 경우 'system node AutoSupport invoke-core-upload' 명령을 사용하여 HTTPS를 통해 코어 덤프 파일을 업로드할 수도 AutoSupport 있습니다.
 
-https://["NetApp에 파일을 업로드하는 방법"]
+https://kb.netapp.com/Advice_and_Troubleshooting/Miscellaneous/How_to_upload_a_file_to_NetApp["NetApp에 파일을 업로드하는 방법"]
 
 .단계
 . system node coredump show 명령을 사용하여 노드의 코어 덤프 파일을 봅니다.

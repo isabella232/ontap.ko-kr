@@ -96,4 +96,4 @@ xref:dynamic-home-directories-concept.html[ONTAP에서 동적 홈 디렉터리�
 
 link:../networking/index.html["네트워크 관리"]
 
-https://["NetApp 상호 운용성 매트릭스 툴"^]
+https://mysupport.netapp.com/NOW/products/interoperability["NetApp 상호 운용성 매트릭스 툴"^]

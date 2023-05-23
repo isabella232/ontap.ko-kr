@@ -19,7 +19,7 @@ IPspace는 SVM(스토리지 가상 머신)이 상주하는 고유 IP 주소 공�
 .이 작업에 대해
 512개의 IPspace를 클러스터 전체에서 사용할 수 있습니다. FAS2220, FAS2240과 같은 플랫폼의 경우 6GB RAM이 포함된 노드가 포함된 클러스터의 경우 클러스터 전체 제한값을 256개의 IPspace로 축소했습니다. 플랫폼에 추가적인 제한이 적용되는지 확인하려면 Hardware Universe를 참조하십시오.
 
-https://["NetApp Hardware Universe를 참조하십시오"^]
+https://hwu.netapp.com/["NetApp Hardware Universe를 참조하십시오"^]
 
 
 NOTE: "ALL"이 시스템 예약 이름이므로 IPspace 이름은 "ALL"일 수 없습니다.

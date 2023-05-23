@@ -23,5 +23,5 @@ summary: 이 섹션의 항목에서는 IPspace, 브로드캐스트 도메인, �
 
 클래식 시스템 관리자(ONTAP 9.7 이전에서만 사용 가능)를 사용하는 경우 다음 항목을 참조하십시오.
 
-* https://["네트워크 관리"^]
+* https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_managing_network.html["네트워크 관리"^]
 

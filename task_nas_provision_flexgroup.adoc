@@ -23,7 +23,7 @@ FlexGroup 볼륨은 자동 로드 분산과 함께 고성능을 제공하는 확
 
 이 섹션의 항목에서는 ONTAP 9.7 이상 릴리즈의 System Manager에서 FlexGroup 볼륨을 관리하는 방법을 보여 줍니다. 클래식 시스템 관리자(ONTAP 9.7 이전에서만 사용 가능)를 사용하는 경우 다음 항목을 참조하십시오.
 
-* https://["FlexGroup 볼륨을 생성합니다"^]
+* https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/task_creating_flexgroup_volumes.html["FlexGroup 볼륨을 생성합니다"^]
 
 
 ONTAP 9.9.1부터 2개 이상의 FlexGroup 볼륨에 대한 SnapMirror 팬아웃 관계가 지원되며 최대 8개의 팬아웃 레그를 지원합니다. System Manager는 계단식 SnapMirror FlexGroup 볼륨 관계를 지원하지 않습니다.

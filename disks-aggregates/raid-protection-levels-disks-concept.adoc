@@ -30,4 +30,4 @@ RAID-TEC 보호를 통해 ONTAP는 최대 3개의 예비 디스크를 사용하�
 
 
 .관련 정보
-http://["NetApp 기술 보고서 3437: 스토리지 서브시스템 복원력 가이드"^]
+http://www.netapp.com/us/media/tr-3437.pdf["NetApp 기술 보고서 3437: 스토리지 서브시스템 복원력 가이드"^]

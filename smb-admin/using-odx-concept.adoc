@@ -74,4 +74,4 @@ Windows 서버 및 클라이언트에서 지원되는 ODX 애플리케이션에 
 
 
 .관련 정보
-http://["Microsoft TechNet 라이브러리: technet.microsoft.com/en-us/library/"]
+http://technet.microsoft.com/en-us/library/["Microsoft TechNet 라이브러리: technet.microsoft.com/en-us/library/"]

@@ -20,8 +20,8 @@ summary: '자체 데이터 센터에서든 클라우드에서든 동일한 인�
 * ONTAP REST API * 를 사용하여 클라우드 볼륨을 생성 및 관리하고 프로비저닝 스크립트와 툴을 개발할 수 있습니다. 웹 사용자 인터페이스를 통해 사용할 수 있는 ONTAP 기능은 REST API를 통해서도 사용할 수 있습니다. 이 프로그래밍 인터페이스는 BlueXP 작업과 관련된 프로세스를 자동화할 수 있으므로 개발자에게 특히 유용합니다.
 
 .관련 정보
-https://["Cloud Volumes ONTAP에 연결 중입니다"]
+https://docs.netapp.com/us-en/occm/task_connecting_to_otc.html#connecting-to-oncommand-system-manager["Cloud Volumes ONTAP에 연결 중입니다"]
 
-https://["Cloud Volumes ONTAP 및 REST를 사용한 클라우드 자동화"]
+https://cloud.netapp.com/blog/cloud-automation-with-cloud-volumes-ontap-rest["Cloud Volumes ONTAP 및 REST를 사용한 클라우드 자동화"]
 
-https://["BlueXP REST API"]
+https://docs.netapp.com/us-en/occm/api.html["BlueXP REST API"]

@@ -43,7 +43,7 @@ cluster1::> storage tape show-supported-status -node Node1
 ----
 . 검증된 테이프 드라이브를 에뮬레이트합니다.
 +
-https://["NetApp 다운로드: 테이프 장치 구성 파일"^]
+https://mysupport.netapp.com/site/tools/tool-eula/tape-config["NetApp 다운로드: 테이프 장치 구성 파일"^]
 
 
 

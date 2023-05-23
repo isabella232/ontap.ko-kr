@@ -48,4 +48,4 @@ xref:folder-redirection-store-data-concept.adoc[폴더 리디렉션을 사용하
 
 xref:branchcache-cache-share-content-branch-office-concept.adoc[BranchCache를 사용하여 지사에 SMB 공유 콘텐츠를 캐싱합니다]
 
-http://["Microsoft TechNet 라이브러리: technet.microsoft.com/en-us/library/"]
+http://technet.microsoft.com/en-us/library/["Microsoft TechNet 라이브러리: technet.microsoft.com/en-us/library/"]

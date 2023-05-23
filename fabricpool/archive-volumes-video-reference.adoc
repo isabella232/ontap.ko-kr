@@ -13,7 +13,7 @@ summary: 이 비디오에서는 FabricPool를 사용하여 볼륨을 클라우�
 [role="lead"]
 이 비디오에서는 FabricPool를 사용하여 볼륨을 클라우드 계층에 아카이브하는 방법에 대해 간략하게 설명합니다.
 
-https://["NetApp 비디오: FabricPool로 볼륨 아카이빙(백업 + 볼륨 이동)"]
+https://www.youtube.com/embed/5tDJAkqN2nA?rel=0["NetApp 비디오: FabricPool로 볼륨 아카이빙(백업 + 볼륨 이동)"]
 
 .관련 정보
-https://["NetApp TechComm TV: FabricPool 재생 목록"]
+https://www.youtube.com/playlist?list=PLdXI3bZJEw7mcD3RnEcdqZckqKkttoUpS["NetApp TechComm TV: FabricPool 재생 목록"]

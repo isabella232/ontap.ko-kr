@@ -66,4 +66,4 @@ cluster1::*> vserver services name-service ldap client modify -vserver vs1 -clie
 클라이언트 액세스 문제를 방지하려면 디렉토리의 netgroup.byhost 및 netgroup 맵을 항상 동기화해야 합니다.
 
 .관련 정보
-https://["IETF RFC 5952: IPv6 주소 텍스트 표현에 대한 권장 사항입니다"]
+https://datatracker.ietf.org/doc/html/rfc5952["IETF RFC 5952: IPv6 주소 텍스트 표현에 대한 권장 사항입니다"]

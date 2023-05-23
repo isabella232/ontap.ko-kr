@@ -48,7 +48,7 @@ HTTPS를 사용하여 ONTAP S3 버킷에 대한 액세스를 제공하는 모범
 
 HTTPS는 ONTAP S3 서버에서 기본적으로 활성화됩니다. 클라이언트 액세스에 대해 HTTPS를 비활성화하고 HTTP를 활성화할 수 있으며, 이 경우 CA 인증서를 사용한 인증이 필요하지 않습니다. 그러나 HTTP가 활성화되고 HTTPS가 비활성화되면 ONTAP S3 서버와의 모든 통신이 일반 텍스트로 네트워크를 통해 전송됩니다.
 
-자세한 내용은 을 참조하십시오 https://["기술 보고서: ONTAP 모범 사례의 S3"]
+자세한 내용은 을 참조하십시오 https://www.netapp.com/pdf.html?item=/media/17219-tr4814pdf.pdf["기술 보고서: ONTAP 모범 사례의 S3"]
 
 .관련 정보
 link:../flexgroup/index.html["FlexGroup 볼륨 관리"]

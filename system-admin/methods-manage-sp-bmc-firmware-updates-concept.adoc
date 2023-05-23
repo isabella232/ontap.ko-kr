@@ -69,4 +69,4 @@ SP 펌웨어는 이전 또는 다운그레이드한 ONTAP 버전에서 지원하
 SP 펌웨어를 업데이트하는 동안 SP에 대한 기존 연결이 모두 종료됩니다. 이는 SP 펌웨어 업데이트가 자동으로 수행되는지 아니면 수동으로 실행되는지 여부입니다.
 
 .관련 정보
-https://["NetApp 다운로드: 시스템 펌웨어 및 진단"]
+https://mysupport.netapp.com/site/downloads/firmware/system-firmware-diagnostics["NetApp 다운로드: 시스템 펌웨어 및 진단"]

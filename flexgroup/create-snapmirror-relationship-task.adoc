@@ -126,7 +126,7 @@ Operation is queued: snapmirror initialize of destination "vsd:dstFG".
 +
 [NOTE]
 ====
-ONTAP 9.3을 실행하는 소스 클러스터와 ONTAP 9.2 이하를 실행하는 타겟 클러스터 간에 FlexGroup 볼륨 간에 SnapMirror 관계가 생성되었으며 소스 FlexGroup 볼륨에서 qtree를 생성하는 경우 SnapMirror 업데이트가 실패합니다. 이 상황을 복구하려면 FlexGroup 볼륨에서 기본이 아닌 모든 qtree를 삭제하고 FlexGroup 볼륨에서 qtree 기능을 비활성화한 다음 qtree 기능이 활성화된 모든 스냅샷 복사본을 삭제해야 합니다. 또한 FlexGroup 볼륨에서 qtree 기능이 활성화된 경우 ONTAP 9.3에서 이전 버전의 ONTAP로 되돌리기 전에 다음 단계를 수행해야 합니다.  https://["되돌리기 전에 FlexGroup 볼륨에서 qtree 기능을 해제합니다"]
+ONTAP 9.3을 실행하는 소스 클러스터와 ONTAP 9.2 이하를 실행하는 타겟 클러스터 간에 FlexGroup 볼륨 간에 SnapMirror 관계가 생성되었으며 소스 FlexGroup 볼륨에서 qtree를 생성하는 경우 SnapMirror 업데이트가 실패합니다. 이 상황을 복구하려면 FlexGroup 볼륨에서 기본이 아닌 모든 qtree를 삭제하고 FlexGroup 볼륨에서 qtree 기능을 비활성화한 다음 qtree 기능이 활성화된 모든 스냅샷 복사본을 삭제해야 합니다. 또한 FlexGroup 볼륨에서 qtree 기능이 활성화된 경우 ONTAP 9.3에서 이전 버전의 ONTAP로 되돌리기 전에 다음 단계를 수행해야 합니다.  https://docs.netapp.com/us-en/ontap/revert/task_disabling_qtrees_in_flexgroup_volumes_before_reverting.html["되돌리기 전에 FlexGroup 볼륨에서 qtree 기능을 해제합니다"]
 
 ====
 

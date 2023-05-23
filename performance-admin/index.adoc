@@ -30,6 +30,6 @@ QoS는 System Manager, NSLM, WFA, VSC(VMware 플러그인) 및 API에서도 사�
 .관련 정보
 이러한 가정이 현재 상황에 맞지 않는 경우 다음 리소스를 참조하십시오.
 
-* http://["Active IQ Unified Manager 9.8 설치"]
+* http://docs.netapp.com/ocum-98/topic/com.netapp.doc.onc-um-isg/home.html["Active IQ Unified Manager 9.8 설치"]
 * link:../system-admin/index.html["시스템 관리"]
 

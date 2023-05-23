@@ -54,4 +54,4 @@ SQL Server 데이터베이스 파일이 있는 볼륨은 데이터베이스 디�
 
 
 .관련 정보
-http://["Microsoft TechNet 라이브러리: technet.microsoft.com/en-us/library/"]
+http://technet.microsoft.com/en-us/library/["Microsoft TechNet 라이브러리: technet.microsoft.com/en-us/library/"]

@@ -23,10 +23,10 @@ VMware vSphere(VSC)용 가상 스토리지 콘솔을 사용하여 ESXi 호스트
 
 을 만든 후 link:task_nas_enable_linux_nfs.html["NFS 지원 스토리지 VM"] System Manager에서 NFS 볼륨을 프로비저닝하고 VSC를 사용하여 데이터 저장소를 관리할 수 있습니다.
 
-VSC 7.0부터는 VSC가 의 일부입니다 https://["VMware vSphere 가상 어플라이언스인 ONTAP 툴"^]VSC, VASA(vStorage APIs for Storage Awareness) 공급자, VMware vSphere 기능을 위한 SRA(Storage Replication Adapter) 등이 포함되어 있습니다.
+VSC 7.0부터는 VSC가 의 일부입니다 https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere/index.html["VMware vSphere 가상 어플라이언스인 ONTAP 툴"^]VSC, VASA(vStorage APIs for Storage Awareness) 공급자, VMware vSphere 기능을 위한 SRA(Storage Replication Adapter) 등이 포함되어 있습니다.
 
-를 확인하십시오 https://["NetApp 상호 운용성 매트릭스"^] 현재 ONTAP 및 VSC 릴리스 간의 호환성을 확인합니다.
+를 확인하십시오 https://imt.netapp.com/matrix/["NetApp 상호 운용성 매트릭스"^] 현재 ONTAP 및 VSC 릴리스 간의 호환성을 확인합니다.
 
-System Manager Classic(ONTAP 9.7 및 이전 릴리즈의 경우)을 사용하여 ESXi 호스트에서 데이터 저장소로 NFS 액세스를 설정하려면 을 참조하십시오 https://["VSC 개요를 사용한 ESXi용 NFS 구성"^]
+System Manager Classic(ONTAP 9.7 및 이전 릴리즈의 경우)을 사용하여 ESXi 호스트에서 데이터 저장소로 NFS 액세스를 설정하려면 을 참조하십시오 https://docs.netapp.com/us-en/ontap-sm-classic/nfs-config-esxi/index.html["VSC 개요를 사용한 ESXi용 NFS 구성"^]
 
-자세한 내용은 을 참조하십시오 https://["TR-4597: ONTAP용 VMware vSphere"^] VSC 릴리즈에 대한 설명서를 제공합니다.
+자세한 내용은 을 참조하십시오 https://docs.netapp.com/us-en/netapp-solutions/virtualization/vsphere_ontap_ontap_for_vsphere.html["TR-4597: ONTAP용 VMware vSphere"^] VSC 릴리즈에 대한 설명서를 제공합니다.

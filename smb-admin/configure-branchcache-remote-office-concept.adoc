@@ -15,4 +15,4 @@ SMB 서버에서 BranchCache를 구성한 후에는 클라이언트 컴퓨터에
 
 지점 클라이언트 구성 지침 및 BranchCache를 사용할 캐싱 서버(선택 사항)는 Microsoft BranchCache 웹 사이트에 있습니다.
 
-http://["Microsoft BranchCache 문서: 새로운 기능"^]
+http://technet.microsoft.com/EN-US/NETWORK/DD425028["Microsoft BranchCache 문서: 새로운 기능"^]

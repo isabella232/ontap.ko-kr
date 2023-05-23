@@ -33,4 +33,4 @@ SVM(스토리지 가상 시스템)의 경우 ONTAP은 모든 버전의 SMB에서
 
 로밍 프로필을 지원하는 Windows 클라이언트에 대한 최신 정보는 상호 운용성 매트릭스 를 참조하십시오.
 
-https://["NetApp 상호 운용성 매트릭스 툴"^]
+https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"^]

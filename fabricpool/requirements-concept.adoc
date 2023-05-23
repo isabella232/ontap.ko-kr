@@ -63,7 +63,7 @@ ONTAP는 시스템 로드를 모니터링하며, 로드가 4분 동안 계속 �
 
 ====
 +
-https://["FabricPool에 대한 NDMP 백업 및 복구 지원"]
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/NDMP_Backup_and_Restore_supported_for_FabricPool%3F["FabricPool에 대한 NDMP 백업 및 복구 지원"]
 
 
 
@@ -91,7 +91,7 @@ HDD FabricPool은 다음 모델을 포함하여 6개 이상의 CPU 코어가 있
 *** FAS2650
 *** FAS2620
 +
-확인합니다 https://["Hardware Universe"^] 를 참조하십시오.
+확인합니다 https://hwu.netapp.com/Home/Index["Hardware Universe"^] 를 참조하십시오.
 
 
 
@@ -138,7 +138,7 @@ SSD와 HDD를 모두 포함하는 Flash Pool 애그리게이트는 사용할 수
 
 * 특정 시나리오에서 FabricPool을 사용하기 위한 모범 사례 지침을 따라야 합니다.
 +
-http://["NetApp 기술 보고서 4598: ONTAP 9의 FabricPool 모범 사례"^]
+http://www.netapp.com/us/media/tr-4598.pdf["NetApp 기술 보고서 4598: ONTAP 9의 FabricPool 모범 사례"^]
 
 
 

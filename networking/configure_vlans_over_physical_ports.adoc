@@ -92,7 +92,7 @@ network port vlan create -node cluster-1-01 -vlan-name e1c-80
 ....
 ONTAP 9.8부터 VLAN은 생성 후 1분 정도 적절한 브로드캐스트 도메인에 자동으로 배치됩니다. ONTAP가 이 작업을 수행하지 않고 수동으로 VLAN을 브로드캐스트 도메인에 배치하려는 경우 "VLAN create" 명령의 일부로 '-skip-broadcast-domain-placement' 매개 변수를 지정합니다.
 
-이 명령에 대한 자세한 내용은 을 참조하십시오 http://["ONTAP 9 명령"^].
+이 명령에 대한 자세한 내용은 을 참조하십시오 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"^].
 
 --
 ====

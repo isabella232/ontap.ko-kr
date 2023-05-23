@@ -13,4 +13,4 @@ summary: NFSv4 클라이언트의 경우 ONTAP는 NFSv4 파일 잠금 메커니�
 [role="lead"]
 NFSv4 클라이언트의 경우 ONTAP는 NFSv4 파일 잠금 메커니즘을 지원하여 임대 기반 모델에서 모든 파일 잠금의 상태를 유지합니다.
 
-http://["NetApp 기술 보고서 3580: NFSv4 향상 및 모범 사례 가이드 Data ONTAP 구축"]
+http://www.netapp.com/us/media/tr-3580.pdf["NetApp 기술 보고서 3580: NFSv4 향상 및 모범 사례 가이드 Data ONTAP 구축"]

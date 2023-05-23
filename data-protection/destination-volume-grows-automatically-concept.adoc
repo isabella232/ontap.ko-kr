@@ -22,4 +22,4 @@ summary: 볼륨에 포함된 가용 공간이 애그리게이트에 있는 경�
 * FAS8200, 기본 DP 볼륨 최대 크기 조정 = 100TB
 
 
-자세한 내용은 을 참조하십시오 https://["NetApp Hardware Universe를 참조하십시오"^].
+자세한 내용은 을 참조하십시오 https://hwu.netapp.com/["NetApp Hardware Universe를 참조하십시오"^].

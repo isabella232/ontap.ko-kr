@@ -21,19 +21,19 @@ NetApp의 광범위한 문서 라이브러리에서 클러스터 및 SVM 피어�
 +
 ONTAP CLI를 사용하여 SnapMirror 복제를 수행하는 방법을 설명합니다.
 
-* https://["볼륨 재해 복구 준비"]
+* https://docs.netapp.com/us-en/ontap-sm-classic/volume-disaster-prep/index.html["볼륨 재해 복구 준비"]
 +
 System Manager를 사용하여 재해 복구를 위한 대상 볼륨을 빠르게 구성하는 방법에 대해 설명합니다.
 
-* https://["볼륨 재해 복구 준비"]
+* https://docs.netapp.com/us-en/ontap-sm-classic/volume-disaster-prep/index.html["볼륨 재해 복구 준비"]
 +
 에서는 재해 발생 후 System Manager를 사용하여 대상 볼륨을 빠르게 복구하는 방법에 대해 설명합니다.
 
-* https://["SnapVault를 사용한 볼륨 백업"]
+* https://docs.netapp.com/us-en/ontap-sm-classic/volume-backup-snapvault/index.html["SnapVault를 사용한 볼륨 백업"]
 +
 에서는 System Manager를 사용하여 볼륨 간 SnapVault 관계를 빠르게 구성하는 방법에 대해 설명합니다.
 
-* https://["SnapVault를 사용한 볼륨 복원 관리"]
+* https://docs.netapp.com/us-en/ontap-sm-classic/volume-restore-snapvault/index.html["SnapVault를 사용한 볼륨 복원 관리"]
 +
 SnapVault 관계에서 시스템 관리자를 사용하여 대상 볼륨의 파일을 빠르게 복원하는 방법에 대해 설명합니다.
 

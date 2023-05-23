@@ -115,6 +115,6 @@ cluster2::> snapshot show -vserver SVM2 -volume dstvolB -fields snapmirror-label
 
 
 .관련 정보
-https://["클러스터 및 SVM 피어링"]
+https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["클러스터 및 SVM 피어링"]
 
-https://["SnapVault를 사용한 볼륨 백업"]
+https://docs.netapp.com/us-en/ontap-sm-classic/volume-backup-snapvault/index.html["SnapVault를 사용한 볼륨 백업"]

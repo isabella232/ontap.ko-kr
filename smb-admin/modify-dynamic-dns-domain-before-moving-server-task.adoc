@@ -21,4 +21,4 @@ DDNS(SVM에서 구성된 경우)는 데이터 LIF의 DNS 레코드를 자동으�
 
 SMB 서버를 이동하기 전에 DDNS 수정을 완료하려면 다음 항목을 참조하십시오.
 
-https://["동적 DNS 서비스를 구성합니다"]
+https://docs.netapp.com/us-en/ontap/networking/configure_dynamic_dns_services.html["동적 DNS 서비스를 구성합니다"]

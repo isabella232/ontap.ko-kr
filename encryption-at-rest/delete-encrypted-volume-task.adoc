@@ -53,4 +53,4 @@ cluster1::> volume delete -vserver vs1 -volume vol1
 
 'volume recovery-queue SVM_name-volume volume volume_name
 
-https://["볼륨 복구 기능 사용 방법"]
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_use_the_Volume_Recovery_Queue["볼륨 복구 기능 사용 방법"]

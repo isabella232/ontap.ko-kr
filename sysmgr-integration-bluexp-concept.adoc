@@ -52,7 +52,7 @@ BlueXP에서 ONTAP 클러스터를 관리할 준비가 되면 시스템 관리�
 이미 BlueXP를 사용하고 전자 메일 및 암호를 사용하여 로그인한 경우 대신 해당 로그인 옵션을 계속 사용해야 합니다.
 
 +
-https://["BlueXP 로그인에 대해 자세히 알아보십시오"^].
+https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-logging-in.html["BlueXP 로그인에 대해 자세히 알아보십시오"^].
 
 . 메시지가 표시되면 새 BlueXP 계정의 이름을 입력합니다.
 +
@@ -80,12 +80,12 @@ Connector는 사용자 환경에 설치된 소프트웨어로, System Manager를
 
 
 
-로 이동합니다 https://["BlueXP 설명서"^] 검색 및 관리 옵션에 대해 자세히 알아보십시오.
+로 이동합니다 https://docs.netapp.com/us-en/cloud-manager-family/index.html["BlueXP 설명서"^] 검색 및 관리 옵션에 대해 자세히 알아보십시오.
 
 
 
 == BlueXP에 대해 자세히 알아보십시오
 
-* https://["BlueXP 개요"^]
-* https://["BlueXP를 통해 NetApp AFF 및 FAS 시스템을 관리하십시오"^]
+* https://docs.netapp.com/us-en/cloud-manager-family/concept-overview.html["BlueXP 개요"^]
+* https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/index.html["BlueXP를 통해 NetApp AFF 및 FAS 시스템을 관리하십시오"^]
 

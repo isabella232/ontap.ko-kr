@@ -15,7 +15,7 @@ summary: ONTAP 소프트웨어를 업데이트하기 전에 리소스를 검토�
 
 . 타겟 릴리즈에 대한 _릴리스 정보_를 검토하십시오.
 +
-https://["ONTAP 9 릴리즈 노트"]
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["ONTAP 9 릴리즈 노트"]
 
 +
 ""중요 주의 사항"" 섹션에서는 새 릴리스로 업그레이드하기 전에 숙지해야 할 잠재적인 문제에 대해 설명합니다. 새 릴리스로 업그레이드한 후 새 기능과 변경된 기능, 알려진 문제와 제한 사항 등의 새 시스템 동작이 설명되어 있습니다.
@@ -25,17 +25,17 @@ https://["ONTAP 9 릴리즈 노트"]
 전환 상태에서 업그레이드할 수 있지만 궁극적으로는 NX-OS(클러스터 네트워크 스위치), IOS(관리 네트워크 스위치) 및 RCF(참조 구성 파일) 소프트웨어 버전이 업그레이드하려는 ONTAP 버전과 호환되어야 합니다.
 
 +
-https://["NetApp Hardware Universe를 참조하십시오"^]
+https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"^]
 
 . MetroCluster IP 스위치가 타겟 릴리즈에서 지원되는지 확인합니다.
 +
-https://["NetApp 상호 운용성 매트릭스 툴"^]
+https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"^]
 
 . 클러스터 및 관리 스위치에 타겟 ONTAP 릴리즈용 최소 소프트웨어 버전이 없는 경우 지원되는 소프트웨어 버전으로 업그레이드하십시오.
 +
-** https://["NetApp 다운로드: Broadcom 클러스터 스위치"^]
-** https://["NetApp 다운로드: Cisco 이더넷 스위치"^]
-** https://["NetApp 다운로드: NetApp 클러스터 스위치"^]
+** https://mysupport.netapp.com/site/info/broadcom-cluster-switch["NetApp 다운로드: Broadcom 클러스터 스위치"^]
+** https://mysupport.netapp.com/site/info/cisco-ethernet-switch["NetApp 다운로드: Cisco 이더넷 스위치"^]
+** https://mysupport.netapp.com/site/info/netapp-cluster-switch["NetApp 다운로드: NetApp 클러스터 스위치"^]
 
 
 . 클러스터가 SAN용으로 구성된 경우 SAN 구성이 완전히 지원되는지 확인합니다.
@@ -43,7 +43,7 @@ https://["NetApp 상호 운용성 매트릭스 툴"^]
 대상 ONTAP 소프트웨어 버전, 호스트 OS 및 패치, 필요한 호스트 유틸리티 소프트웨어, 다중 경로 소프트웨어, 어댑터 드라이버 및 펌웨어를 비롯한 모든 SAN 구성 요소가 지원되어야 합니다.
 
 +
-https://["NetApp 상호 운용성 매트릭스 툴"^]
+https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"^]
 
 . 7-Mode 전환 툴을 사용하여 7-Mode에서 전환하는 경우, 업그레이드 중인 ONTAP 버전으로의 전환이 지원되는지 확인하십시오.
 +

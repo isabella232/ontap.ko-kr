@@ -14,6 +14,6 @@ summary: 'ONTAP를 사용하면 스토리지 용량 불균형이 있다고 판�
 ONTAP를 사용하면 스토리지 용량 불균형이 있다고 판단된 후 FlexVol 볼륨을 동일한 스토리지 VM(SVM) 내의 다른 로컬 계층(애그리게이트), 노드 또는 둘 모두로 이동하여 스토리지 용량의 균형을 유지할 수 있습니다. Cloud Volumes ONTAP를 사용하면 하나 이상의 볼륨을 다른 Cloud Volumes ONTAP 시스템 또는 다른 애그리게이트로 이동하여 용량 문제를 방지할 수 있습니다. 시스템이 디스크 제한에 도달한 경우 이 작업을 수행해야 할 수 있습니다.
 
 .관련 정보
-https://["Cloud Volumes ONTAP: 용량 문제를 방지하기 위해 볼륨을 다른 시스템으로 이동합니다"]
+https://docs.netapp.com/us-en/occm/task_managing_storage.html#moving-volumes-to-another-system-to-avoid-capacity-issues["Cloud Volumes ONTAP: 용량 문제를 방지하기 위해 볼륨을 다른 시스템으로 이동합니다"]
 
-https://["Cloud Volumes ONTAP: 용량 문제를 방지하기 위해 볼륨을 다른 애그리게이트로 이동합니다"]
+https://docs.netapp.com/us-en/occm/task_managing_storage.html#moving-volumes-to-another-aggregate-to-avoid-capacity-issues["Cloud Volumes ONTAP: 용량 문제를 방지하기 위해 볼륨을 다른 애그리게이트로 이동합니다"]

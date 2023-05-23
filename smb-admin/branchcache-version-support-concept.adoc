@@ -28,4 +28,4 @@ SMB 3.0 이상 클라이언트만 BranchCache 2를 지원합니다.
 BranchCache 버전에 대한 자세한 내용은 Microsoft TechNet 라이브러리를 참조하십시오.
 
 .관련 정보
-http://["Microsoft TechNet 라이브러리: technet.microsoft.com/en-us/library/"]
+http://technet.microsoft.com/en-us/library/["Microsoft TechNet 라이브러리: technet.microsoft.com/en-us/library/"]

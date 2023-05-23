@@ -15,6 +15,6 @@ SP 자동 업데이트 기능이 설정된 경우(기본값), ONTAP 8.3.x로 다
 
 SP 자동 업데이트 기능을 사용하지 않도록 설정한 경우(권장하지 않음), ONTAP 복원 또는 다운그레이드 프로세스가 완료된 후 복원하거나 다운그레이드한 ONTAP 버전에 대해 지원되는 버전으로 SP 펌웨어를 수동으로 업데이트해야 합니다.
 
-http://["NetApp BIOS/ONTAP Support Matrix를 참조하십시오"]
+http://mysupport.netapp.com/NOW/download/tools/serviceimage/support/["NetApp BIOS/ONTAP Support Matrix를 참조하십시오"]
 
-https://["NetApp 다운로드: 시스템 펌웨어 및 진단"]
+https://mysupport.netapp.com/site/downloads/firmware/system-firmware-diagnostics["NetApp 다운로드: 시스템 펌웨어 및 진단"]

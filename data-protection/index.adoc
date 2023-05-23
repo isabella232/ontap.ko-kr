@@ -16,7 +16,7 @@ CLI 명령을 사용하여 로컬 ONTAP 시스템에서 스냅샷 복사본을 �
 다음과 같은 상황에서 이 절차를 사용하십시오.
 
 * ONTAP의 다양한 백업 및 복구 기능을 이해하고자 합니다.
-* System Manager, 자동 스크립팅 도구 또는 이 아닌 CLI(Command-Line Interface)를 사용하려는 경우 https://["SnapCenter 소프트웨어"].
+* System Manager, 자동 스크립팅 도구 또는 이 아닌 CLI(Command-Line Interface)를 사용하려는 경우 https://docs.netapp.com/us-en/snapcenter/["SnapCenter 소프트웨어"].
 * 소스 및 타겟 클러스터와 소스 및 타겟 SVM 사이에 피어 관계가 이미 생성되었습니다.
 +
 link:../peering/index.html["클러스터 및 SVM 피어링"]

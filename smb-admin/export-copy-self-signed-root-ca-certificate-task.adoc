@@ -16,12 +16,12 @@ Active Directory 통신을 보호하기 위해 SSL/TLS를 통한 LDAP를 사용�
 .시작하기 전에
 CIFS 서버가 속한 도메인에 대해 Active Directory 인증서 서비스가 이미 설치 및 구성되어 있어야 합니다. Active Director 인증서 서비스 설치 및 구성에 대한 자세한 내용은 Microsoft TechNet 라이브러리를 참조하십시오.
 
-http://["Microsoft TechNet 라이브러리: technet.microsoft.com"]
+http://technet.microsoft.com/en-us/library/["Microsoft TechNet 라이브러리: technet.microsoft.com"]
 
 .단계
 . '.pem' 텍스트 형식인 도메인 컨트롤러의 루트 CA 인증서를 얻습니다.
 +
-http://["Microsoft TechNet 라이브러리: technet.microsoft.com"]
+http://technet.microsoft.com/en-us/library/["Microsoft TechNet 라이브러리: technet.microsoft.com"]
 
 
 
@@ -29,4 +29,4 @@ http://["Microsoft TechNet 라이브러리: technet.microsoft.com"]
 SVM에 인증서를 설치합니다.
 
 .관련 정보
-http://["Microsoft TechNet 라이브러리"]
+http://technet.microsoft.com/library/["Microsoft TechNet 라이브러리"]

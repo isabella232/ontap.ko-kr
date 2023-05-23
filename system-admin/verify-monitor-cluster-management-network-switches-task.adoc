@@ -40,7 +40,7 @@ Model 열에 Other 값이 표시되면 ONTAP에서 스위치를 모니터링할 
 ====
 . 지원되는 최신 스위치 소프트웨어로 업그레이드하고 NetApp Support 사이트에서 RCF(구성 파일)를 참조합니다.
 +
-http://["NetApp 지원 다운로드 페이지"^]
+http://support.netapp.com/NOW/download/software/cm_switches/["NetApp 지원 다운로드 페이지"^]
 
 +
 스위치의 RCF에 있는 커뮤니티 문자열은 상태 모니터가 사용하도록 구성된 커뮤니티 문자열과 일치해야 합니다. 기본적으로 상태 모니터는 커뮤니티 문자열 "cshm1!"를 사용합니다.

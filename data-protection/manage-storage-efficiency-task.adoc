@@ -16,7 +16,7 @@ SnapMirror는 대상에서 사후 처리 데이터 압축이 활성화된 경우
 .필요한 것
 * 소스 및 타겟 클러스터와 SVM을 피어링해야 합니다.
 +
-https://["클러스터 및 SVM 피어링"]
+https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["클러스터 및 SVM 피어링"]
 
 * 대상에서 사후 처리 압축을 비활성화해야 합니다.
 
