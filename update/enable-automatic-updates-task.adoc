@@ -15,6 +15,9 @@ ONTAP 9.10.1부터 ONTAP가 사용자 개입 없이 펌웨어 업데이트를 �
 
 ONTAP 9.13.1 부터는 이러한 자동 업데이트에 자동 시간대 데이터베이스 업데이트도 포함됩니다.
 
+.시작하기 전에
+현재 지원 권한이 있어야 합니다. 이 기능은 에서 확인할 수 있습니다 link:https://mysupport.netapp.com/site/["NetApp Support 사이트"] 를 클릭합니다.
+
 .이 작업에 대해
 자동 업데이트를 활성화하려면 먼저 HTTPS로 AutoSupport를 활성화해야 합니다. 클러스터에서 AutoSupport가 활성화되어 있지 않거나 다른 전송 프로토콜을 사용하여 클러스터에서 AutoSupport가 활성화되어 있는 경우 이 절차 중에 HTTPS에서 이 프로토콜을 활성화할 수 있는 옵션이 제공됩니다.
 
@@ -24,3 +27,6 @@ ONTAP 9.13.1 부터는 이러한 자동 업데이트에 자동 시간대 데이�
 . HTTPS가 활성화된 AutoSupport가 없는 경우 이를 활성화하려면 선택합니다.
 . 이용 약관에 동의하고 * 저장 * 을 선택합니다.
 
+
+.관련 정보
+https://docs.netapp.com/us-en/ontap/system-admin/troubleshoot-autosupport-http-https-task.html[] [HTTP 또는 HTTPS를 통한 AutoSupport 메시지 전송 문제 해결]
