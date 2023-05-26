@@ -2,7 +2,7 @@
 permalink: data-protection/dpo-systems-feature-enhancements-reference.html 
 sidebar: sidebar 
 keywords: dpo, systems, feature, enhancements, snapmirror, dp optimized, optimised, backoff, back off, deduplication, deduplicate, snapshot blocks, donors, compact, flexvol, license 
-summary: 'ONTAP 9.6부터는 DP_Optimized(DPO) 라이센스가 설치될 때 지원되는 최대 FlexVol 볼륨 수가 증가합니다. ONTAP 9.4부터 DPO 라이센스가 있는 시스템은 SnapMirror 백 오프, 볼륨 간 백그라운드 중복제거, 볼륨 간 인라인 중복제거, Snapshot 블록을 기부자로 사용, 컴팩션을 지원합니다.' 
+summary: 'ONTAP 9.6부터는 DP_Optimized(DPO) 라이센스가 설치될 때 지원되는 최대 FlexVol 볼륨 수가 증가합니다. ONTAP 9.4부터 DPO 라이센스가 있는 시스템은 SnapMirror 백 오프, 볼륨 간 백그라운드 중복제거, Snapshot 블록을 기증자로 사용 및 컴팩션을 지원합니다.' 
 ---
 = DPO 시스템의 향상된 기능
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'ONTAP 9.6부터는 DP_Optimized(DPO) 라이센스가 설치될 때 지
 
 
 [role="lead"]
-ONTAP 9.6부터는 DP_Optimized(DPO) 라이센스가 설치될 때 지원되는 최대 FlexVol 볼륨 수가 증가합니다. ONTAP 9.4부터 DPO 라이센스가 있는 시스템은 SnapMirror 백 오프, 볼륨 간 백그라운드 중복제거, 볼륨 간 인라인 중복제거, Snapshot 블록을 기부자로 사용, 컴팩션을 지원합니다.
+ONTAP 9.6부터는 DP_Optimized(DPO) 라이센스가 설치될 때 지원되는 최대 FlexVol 볼륨 수가 증가합니다. ONTAP 9.4부터 DPO 라이센스가 있는 시스템은 SnapMirror 백 오프, 볼륨 간 백그라운드 중복제거, Snapshot 블록을 기증자로 사용 및 컴팩션을 지원합니다.
 
 ONTAP 9.6부터 보조 또는 데이터 보호 시스템에서 지원되는 최대 FlexVol 볼륨 수가 증가하여 노드당 최대 2,500개의 FlexVol 볼륨 또는 페일오버 모드에서 최대 5,000개까지 확장할 수 있습니다. FlexVol 볼륨의 증가는 DP_Optimized(DPO) 라이센스로 활성화됩니다. 소스 노드와 대상 노드 모두에서 SnapMirror 라이센스가 필요합니다.
 

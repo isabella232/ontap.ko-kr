@@ -98,8 +98,6 @@ admin이 여러 개인 검증이 필요한 명령 세트 제어
 '볼륨 삭제'
 
 볼륨 FlexCache 삭제
-
-`volume snaplock modify`
  a| 
 '볼륨 스냅샷 자동 삭제 수정'
 
@@ -122,6 +120,11 @@ admin이 여러 개인 검증이 필요한 명령 세트 제어
 'vserver peer delete
 
 |===
+ONTAP 9.13.1 부터 다음 명령을 보호할 수 있습니다.
+
+* `volume snaplock modify`
+
+
 
 
 == 여러 관리자의 승인 방식

@@ -1,8 +1,8 @@
 ---
 permalink: encryption-at-rest/manage-keys-azure-google-task.html 
 sidebar: sidebar 
-keywords: key management, Azure, AKV, key vault, NVE keys, third-party, GCP, google cloud, Cloud KMS 
-summary: Azure 또는 Google Cloud를 사용하여 ONTAP 암호화 키 보호를 간소화합니다. 
+keywords: Azure, AKV, key vault, NVE keys, third-party, GCP, google cloud, Cloud KMS, AWS, amazon 
+summary: Azure, Google Cloud 또는 AWS 키 관리자를 사용하여 ONTAP 암호화 키 보호를 간소화합니다. 
 ---
 = 클라우드 공급자를 통해 키를 관리합니다
 :hardbreaks:
@@ -12,55 +12,93 @@ summary: Azure 또는 Google Cloud를 사용하여 ONTAP 암호화 키 보호를
 
 
 [role="lead"]
-ONTAP 9.10.1부터 를 사용할 수 있습니다 link:https://docs.microsoft.com/en-us/azure/key-vault/general/basic-concepts["Azure 키 저장소(AKV)"^] 및 link:https://cloud.google.com/kms/docs["Google Cloud Platform의 키 관리 서비스(Cloud KMS)"^] Azure 또는 Google Cloud Platform에서 구축한 응용 프로그램에서 ONTAP 암호화 키를 보호합니다.
+ONTAP 9.10.1부터 를 사용할 수 있습니다 link:https://docs.microsoft.com/en-us/azure/key-vault/general/basic-concepts["Azure 키 저장소(AKV)"^] 및 link:https://cloud.google.com/kms/docs["Google Cloud Platform의 키 관리 서비스(Cloud KMS)"^] 클라우드 호스팅 응용 프로그램에서 ONTAP 암호화 키를 보호합니다. ONTAP 9.12.0부터는 로 NVE 키를 보호할 수 있습니다 link:https://docs.aws.amazon.com/kms/latest/developerguide/overview.html["AWS의 KMS"^].
 
-AKV 및 Cloud KMS를 사용하여 보호할 수 있습니다 link:configure-netapp-volume-encryption-concept.html["NVE(NetApp Volume Encryption) 키"] 데이터 SVM에만 해당.
+AWS KMS, AKV 및 Cloud KMS를 사용하여 보호할 수 있습니다 link:configure-netapp-volume-encryption-concept.html["NVE(NetApp Volume Encryption) 키"] 데이터 SVM에만 해당.
 
-AKV 또는 Cloud KMS를 사용한 키 관리는 CLI 또는 ONTAP REST API를 통해 활성화할 수 있습니다.
+.이 작업에 대해
+클라우드 공급자를 사용한 키 관리는 CLI 또는 ONTAP REST API를 사용하여 설정할 수 있습니다.
 
-AKV 또는 Cloud KMS를 사용할 때는 기본적으로 데이터 SVM LIF가 클라우드 키 관리 엔드포인트와 통신하는 데 사용됩니다. 노드 관리 네트워크는 클라우드 공급자의 인증 서비스(Azure의 경우 login.microsoftonline.com, Cloud KMS의 경우 oauth2.googleapis.com)와 통신하는 데 사용됩니다. 클러스터 네트워크가 올바르게 구성되지 않은 경우 클러스터는 키 관리 서비스를 제대로 사용하지 않습니다.
+클라우드 공급자를 사용하여 키를 보호할 때는 기본적으로 데이터 SVM LIF가 클라우드 키 관리 엔드포인트와 통신하는 데 사용됩니다. 노드 관리 네트워크는 클라우드 공급자의 인증 서비스(Azure의 경우 login.microsoftonline.com, Cloud KMS의 경우 oauth2.googleapis.com)와 통신하는 데 사용됩니다. 클러스터 네트워크가 올바르게 구성되지 않은 경우 클러스터는 키 관리 서비스를 제대로 사용하지 않습니다.
 
-.필수 구성 요소
-* ONTAP 클러스터 노드는 NVE를 지원해야 합니다
-* VE(Volume Encryption) 라이센스가 설치되었습니다
-* MTEKM(멀티 테넌트 암호화 키 관리) 라이센스가 설치되었습니다
-* 클러스터 또는 SVM 관리자여야 합니다
+클라우드 공급자 키 관리 서비스를 사용할 때는 다음과 같은 제한 사항을 숙지해야 합니다.
 
-
-.제한 사항
-* AKV 및 Cloud KMS는 NSE 및 NAE에서 사용할 수 없습니다. link:enable-external-key-management-96-later-nve-task.html["외부 KMIP"] 대신 사용할 수 있습니다
-* AKV 및 Cloud KMS는 MetroCluster 구성에 사용할 수 없습니다.
-* AKV 및 Cloud KMS는 데이터 SVM에서만 구성할 수 있습니다
+* NSE 및 NAE에서 클라우드 공급자 키 관리를 사용할 수 없습니다. link:enable-external-key-management-96-later-nve-task.html["외부 KMIP"] 대신 사용할 수 있습니다.
+* MetroCluster 구성에서는 클라우드 공급자 키 관리를 사용할 수 없습니다.
+* 클라우드 공급자 키 관리는 데이터 SVM에서만 구성할 수 있습니다.
 
 
+.시작하기 전에
+* 해당 클라우드 공급자에 KMS를 구성해야 합니다.
+* ONTAP 클러스터 노드는 NVE를 지원해야 합니다.
+* 볼륨 암호화(VE) 및 멀티 테넌트 암호화 키 관리(MTEKM) 라이센스를 설치해야 합니다.
+* 클러스터 또는 SVM 관리자여야 합니다.
+* 데이터 SVM에는 암호화된 볼륨이 포함되어 있지 않아야 하며 키 관리자를 사용해야 합니다. 데이터 SVM에 암호화된 볼륨이 포함된 경우 KMS를 구성하기 전에 해당 볼륨을 마이그레이션해야 합니다.
 
 
-== CLI를 사용하여 외부 키 관리를 활성화합니다
 
-외부 키 관리를 사용하는 방법은 사용하는 특정 키 관리자에 따라 다릅니다. Cloud Volumes ONTAP에서 AKV를 활성화하는 경우 별도의 절차가 있다는 점에 유의하십시오. 요구 사항에 맞는 키 관리자 및 환경의 탭을 선택합니다.
+
+== 외부 키 관리를 활성화합니다
+
+외부 키 관리를 사용하는 방법은 사용하는 특정 키 관리자에 따라 다릅니다. 해당 키 관리자 및 환경의 탭을 선택합니다.
 
 [role="tabbed-block"]
 ====
+.설치하고
+--
+.시작하기 전에
+* 암호화를 관리하는 IAM 역할이 사용할 AWS KMS 키에 대한 권한을 만들어야 합니다. IAM 역할에는 다음 작업을 허용하는 정책이 포함되어야 합니다.
+* `DescribeKey`
+* `Encrypt`
+* `Decrypt`
+자세한 내용은 의 AWS 설명서를 참조하십시오 link:https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant["보조금"^].
+
+
+.ONTAP SVM에서 AWS KMV를 활성화합니다
+. 시작하기 전에 AWS KMS에서 액세스 키 ID와 비밀 키를 모두 받으십시오.
+. 권한 수준을 고급으로 설정합니다.
+`set -priv advanced`
+. AWS KMS 활성화:
+`security key-manager external aws enable -vserver _svm_name_ -region _AWS_region_ -key-id _key_ID_ -encryption-context _encryption_context_`
+. 메시지가 표시되면 비밀 키를 입력합니다.
+. AWS KMS가 올바르게 구성되었는지 확인합니다.
+`security key-manager external aws show -vserver _svm_name_`
+
+
+--
 .Azure를 지원합니다
 --
-.ONTAP용 Azure 키 저장소를 활성화합니다
+.ONTAP SVM에서 Azure Key Vault를 활성화합니다
 . 시작하기 전에 Azure 계정에서 클라이언트 암호 또는 인증서로 적절한 인증 자격 증명을 얻어야 합니다. 또한 클러스터의 모든 노드가 정상 상태인지 확인해야 합니다. 'cluster show' 명령을 사용하여 확인할 수 있습니다.
 . 권한 수준을 Advanced'et-priv advanced로 설정합니다
 . SVM의 보안 키 관리자 외부 Azure ENABLE - CLIENT-id_client_id_-tenant-id_tenant_id_-name-key-id_id_-authentication-method {certificate|client-secret} 에서 AKV를 활성화합니다. 메시지가 나타나면 Azure 계정에서 클라이언트 인증서 또는 클라이언트 암호를 입력합니다.
-. AKV가 올바르게 활성화되었는지 확인합니다. '보안 키 관리자 외부 Azure show vserver_SVM_name_' 서비스 상태가 정상이 아닌 경우 데이터 SVM LIF를 통해 AKV 키 관리 서비스에 대한 연결을 설정합니다.
+. AKV가 올바르게 활성화되었는지 확인합니다.
+`security key-manager external azure show vserver _svm_name_`
+서비스 상태가 양호하지 않은 경우 데이터 SVM LIF를 통해 AKV 키 관리 서비스에 대한 연결을 설정합니다.
 
 
 --
 .Google 클라우드
 --
-.ONTAP용 CLI를 사용하여 클라우드 KMS를 사용하도록 설정합니다
-. 시작하기 전에 JSON 형식으로 Google Cloud KMS 계정 키 파일의 개인 키를 받아야 합니다. GCP 계정에서 찾을 수 있습니다. 또한 클러스터의 모든 노드가 정상 상태인지 확인해야 합니다. 'cluster show' 명령을 사용하여 확인할 수 있습니다.
-. 권한 수준을 Advanced'et-priv advanced로 설정합니다
-. SVM 보안 키 관리자에서 Cloud KMS 사용 외부 GCP 활성화 - vserver_data_svm_name_-project-id_project_id_-key-ring-name_key_ring_name_-key-ring-location_key_ring_location_-key-name_key_key_key_key_key_key_name_'이 표시되면 서비스 계정 개인 키를 사용하여 JSON 파일의 내용을 입력합니다
-. Cloud KMS가 올바른 매개 변수로 구성되었는지 확인합니다. '보안 키 관리자 외부 GCP show vserver_SVM_name_' 암호화된 볼륨이 생성되지 않으면 kms_Wrapped_key_status의 상태가 "unknown"이 됩니다. 서비스 상태가 양호하지 않은 경우 데이터 SVM LIF를 통해 GCP 키 관리 서비스에 대한 연결을 설정합니다.
+.ONTAP SVM에서 클라우드 KMS 지원
+. 시작하기 전에 JSON 형식으로 Google Cloud KMS 계정 키 파일의 개인 키를 받으십시오. GCP 계정에서 찾을 수 있습니다.
+또한 클러스터의 모든 노드가 정상 상태인지 확인해야 합니다. 명령을 사용하여 확인할 수 있습니다 `cluster show`.
+. 권한 수준을 고급으로 설정:
+`set -priv advanced`
+. SVM에서 Cloud KMS 사용
+`security key-manager external gcp enable -vserver _svm_name_ -project-id _project_id_-key-ring-name _key_ring_name_ -key-ring-location _key_ring_location_ -key-name _key_name_`
+메시지가 표시되면 서비스 계정 개인 키로 JSON 파일의 내용을 입력합니다
+. Cloud KMS가 올바른 매개 변수로 구성되었는지 확인합니다.
+`security key-manager external gcp show vserver _svm_name_`
+의 상태입니다 `kms_wrapped_key_status` 가 됩니다 `“UNKNOWN”` 암호화된 볼륨이 생성되지 않은 경우
+서비스 상태가 양호하지 않은 경우 데이터 SVM LIF를 통해 GCP 키 관리 서비스에 대한 연결을 설정합니다.
 
 
 --
 ====
 하나 이상의 암호화된 볼륨이 데이터 SVM용으로 이미 구성되어 있고 admin SVM 온보드 키 관리자가 해당 NVE 키를 관리하는 경우 이러한 키를 외부 키 관리 서비스로 마이그레이션해야 합니다. CLI에서 이 작업을 수행하려면 다음 명령을 실행합니다.
 `security key-manager key migrate -from-Vserver _admin_SVM_ -to-Vserver _data_SVM_`데이터 SVM의 모든 NVE 키가 성공적으로 마이그레이션될 때까지 테넌트의 데이터 SVM에 대해 암호화된 새 볼륨을 생성할 수 없습니다.
+
+.관련 정보
+* link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-encrypting-volumes.html["Cloud Volumes ONTAP용 NetApp 암호화 솔루션으로 볼륨 암호화"^]
+
