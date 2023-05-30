@@ -39,6 +39,8 @@ arw.surge.snap.interval.days:: ARP 서지 스냅샷 사본 사이의 간격(일)
 
 == CLI 명령
 
+노드 SVM에서는 옵션만 수정할 수 있습니다.
+
 
 NOTE: 를 클릭합니다 `vserver options` 명령은 숨겨진 명령입니다. man 페이지를 보려면 를 입력합니다 `man vserver options` ONTAP CLI에서
 

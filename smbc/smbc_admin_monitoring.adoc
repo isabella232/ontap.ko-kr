@@ -20,7 +20,7 @@ summary: 모니터링할 수 있는 SM-BC 구성 요소 및 작업은 여러 가
 
 == ONTAP 중재자
 
-정상 작동 중에는 중재자 상태를 연결해야 합니다. 다른 상태인 경우 오류 상태를 나타낼 수 있습니다. 를 검토할 수 있습니다 link:https://docs.netapp.com/us-en/ontap-ems-9121/sm-mediator-events.html["EMS(이벤트 관리 시스템) 메시지"^] 오류 및 적절한 수정 조치를 확인합니다.
+정상 작동 중에는 중재자 상태를 연결해야 합니다. 다른 상태인 경우 오류 상태를 나타낼 수 있습니다. 를 검토할 수 있습니다 link:https://docs.netapp.com/us-en/ontap-ems-9131/sm-mediator-events.html["EMS(이벤트 관리 시스템) 메시지"^] 오류 및 적절한 수정 조치를 확인합니다.
 
 
 
@@ -36,7 +36,7 @@ ClusterB::> snapmirror failover start -destination-path vs1:/cg/dcg1
 ....
 ClusterA::> snapmirror show
 ....
-을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-ems-9121/smbc-pfo-events.html["EMS 참조"^] 이벤트 메시지 및 수정 조치에 대해 알아보십시오.
+을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-ems-9131/smbc-pfo-events.html["EMS 참조"^] 이벤트 메시지 및 수정 조치에 대해 알아보십시오.
 
 
 
@@ -57,7 +57,7 @@ Last Progress Update: -
        Failover Type: unplanned
   Error Reason codes: -
 ....
-을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-ems-9121/smbc-aufo-events.html["EMS 참조"^] 이벤트 메시지 및 수정 조치에 대해 알아보십시오.
+을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-ems-9131/smbc-aufo-events.html["EMS 참조"^] 이벤트 메시지 및 수정 조치에 대해 알아보십시오.
 
 
 
