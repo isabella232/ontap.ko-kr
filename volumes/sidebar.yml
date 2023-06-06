@@ -330,7 +330,7 @@ entries:
   entries:
   - title: 개요
     url: "/volumes/rehost-volume-another-svm-task.html"
-  - title: CIFS 볼륨을 다시 호스트합니다
+  - title: SMB 볼륨을 재호스트합니다
     url: "/volumes/rehost-smb-task.html"
   - title: NFS 볼륨을 다시 호스트합니다
     url: "/volumes/rehost-nfs-volumes-task.html"
