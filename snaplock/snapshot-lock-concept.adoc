@@ -180,8 +180,11 @@ ONTAP 9.12.1부터 스냅샷 복사본 보존 기간을 적용하기 위한 스�
 +
 [listing]
 ----
-cluster1> volume snapshot policy create -policy policy_name -enabled true -schedule1 5min -count1 5 -retention-period1 "1 months"
+cluster1> volume snapshot policy create -policy policy_name -enabled true -schedule1 hourly -count1 24 -retention-period1 "1 days"
 ----
++
+스냅샷 복사본은 활성 보존 상태에 있는 경우 교체되지 않습니다. 즉, 아직 만료되지 않은 잠긴 스냅샷 복사본이 있는 경우 보존 횟수가 적용되지 않습니다.
+
 
 
 --

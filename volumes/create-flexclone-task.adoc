@@ -60,7 +60,7 @@ ONTAP 9.13.1 부터는 세 가지 SnapLock 유형 중 하나를 지정할 수 �
 SnapLock 유형이 상위 볼륨과 다른 경우 다음 FlexClone 볼륨 제한에 대해 알고 있어야 합니다.
 
 * RW 유형의 클론만 지원됩니다. SnapLock 유형이 상위 볼륨과 다른 DP 유형의 클론은 지원되지 않습니다.
-* SnapLock 볼륨이 LUN을 지원하지 않으므로 SnapLock 유형 옵션을 사용하여 LUN이 있는 볼륨을 클론 복제할 수 없습니다.
+* SnapLock 볼륨이 LUN을 지원하지 않으므로 SnapLock 유형 옵션을 '비 SnapLock' 이외의 값으로 설정하여 LUN이 있는 볼륨을 복제할 수 없습니다.
 * SnapLock 규정 준수 볼륨이 MetroCluster 미러링된 애그리게이트에서 지원되지 않으므로 MetroCluster 미러링된 Aggregate의 볼륨은 Compliance SnapLock 유형으로 복제할 수 없습니다.
 * 법적 증거 자료 보관 기능이 있는 SnapLock 준수 볼륨은 다른 SnapLock 유형으로 복제할 수 없습니다. Legal-Hold는 SnapLock 준수 볼륨에서만 지원됩니다.
 * SVM DR은 SnapLock 볼륨을 지원하지 않습니다. SVM DR 관계의 일부인 SVM의 볼륨에서 SnapLock 클론을 생성하려고 하면 실패합니다.
