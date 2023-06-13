@@ -26,7 +26,7 @@ SnapLock 볼륨의 클론을 생성할 수는 있지만 SnapLock 볼륨의 파�
 
 [NOTE]
 ====
-LUN은 SnapLock 볼륨에서 지원되지 않습니다. 기존 기술을 사용하여 SnapLock 볼륨으로 LUN을 이동할 수는 있지만 이 작업은 지원되지 않으며 SnapLock 볼륨에 LUN을 포함하는 다른 작업은 지원되지 않습니다.
+LUN은 SnapLock 볼륨에서 지원되지 않습니다. LUN은 비 SnapLock 볼륨에서 생성된 스냅샷 복사본이 SnapLock 볼트 관계의 일부로 보호를 위해 SnapLock 볼륨으로 전송되는 경우에만 SnapLock 볼륨에서 지원됩니다. LUN은 읽기/쓰기 SnapLock 볼륨에서 지원되지 않습니다. 그러나 SnapMirror 소스 볼륨과 LUN이 포함된 타겟 볼륨 모두에서 무단 스냅샷 복사본이 지원됩니다.
 
 ====
 ONTAP 시스템 관리자 또는 ONTAP CLI를 사용하여 이 작업을 수행합니다.

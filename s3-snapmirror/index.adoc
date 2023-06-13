@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: s3-snapmirror/index.html 
-keywords: s3 snapmirror buckets, snapmirror buckets SVM, s3 snapmirror data protection, hybrid cloud bundle, s3 snapmirror relationship, VM peering, cluster and storage VM peering, s3 SnapMirror considerations and restrictions, Fan-in deployments, data protection relationships, s3 snapmirror policy, peering 
+keywords: s3 snapmirror buckets, snapmirror buckets SVM, s3 snapmirror data protection, hybrid cloud bundle, s3 snapmirror relationship, VM peering, cluster and storage VM peering, Fan-in deployments, data protection, s3 snapmirror policy, peering 
 summary: ONTAP 9.10.1부터 친숙한 SnapMirror 미러링 및 백업 기능을 사용하여 ONTAP S3 오브젝트 저장소의 버킷을 보호할 수 있습니다 
 ---
 = S3 SnapMirror 개요
@@ -44,7 +44,16 @@ ONTAP S3
 | 설치하고 |  | image:status-enabled-perf-config.gif["확인 표시"] 
 
 
-| Azure용 Cloud Volumes ONTAP |  | image:status-enabled-perf-config.gif["확인 표시"] 
+| Azure용 Cloud Volumes ONTAP
+(ONTAP 9.9.0부터) | image:status-enabled-perf-config.gif["확인 표시"] | image:status-enabled-perf-config.gif["확인 표시"] 
+
+
+| AWS 환경을 위한 Cloud Volumes ONTAP
+(ONTAP 9.11.0부터 시작) | image:status-enabled-perf-config.gif["확인 표시"] | image:status-enabled-perf-config.gif["확인 표시"] 
+
+
+| Google Cloud용 Cloud Volumes ONTAP
+(ONTAP 9.12.0부터) | image:status-enabled-perf-config.gif["확인 표시"] | image:status-enabled-perf-config.gif["확인 표시"] 
 |===
 ONTAP S3 서버에서 기존 버킷을 보호하거나 데이터 보호를 즉시 활성화할 수 있는 새로운 버킷을 생성할 수 있습니다.
 
@@ -54,7 +63,8 @@ S3 SnapMirror는 팬아웃 및 캐스케이드 관계를 지원합니다. 개요
 
 == S3 SnapMirror 요구사항
 
-* ONTAP 버전 ONTAP 9.10.1 이상에서는 소스 및 대상 클러스터를 실행해야 합니다.
+* ONTAP 버전입니다
+소스 및 대상 클러스터에서 ONTAP 9.10.1 이상이 실행되고 있어야 합니다.
 * ONTAP 소스 및 대상 시스템에서는 다음 라이센스 번들에 대한 라이센스가 필요합니다.
 +
 ** ONTAP S3 프로토콜 및 스토리지를 위한 코어 번들

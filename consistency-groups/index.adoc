@@ -117,7 +117,7 @@ ONTAP 9.11.1부터 MetroCluster 구성 내에서 클러스터의 새 볼륨에 �
 
 ONTAP 9.8 및 9.9.1에서 SM-BC로 생성된 정합성 보장 그룹은 ONTAP 9.10.1 이상으로 업그레이드할 때 System Manager의 * 스토리지 > 정합성 보장 그룹 * 또는 ONTAP REST API에서 자동으로 업그레이드되어 관리가 가능합니다. ONTAP 9.8 또는 9.9.1에서 업그레이드하는 방법에 대한 자세한 내용은 을 참조하십시오 link:../smbc/smbc_admin_upgrade_and_revert_considerations.html["SM-BC 업그레이드 및 되돌리기 고려 사항"].
 
-일관성 그룹 스냅샷 ONTAP REST API는 System Manager의 일관성 그룹 인터페이스와 일관성 그룹 REST API 엔드포인트를 통해 관리할 수 있습니다.
+REST API에서 생성된 정합성 보장 그룹 스냅샷은 System Manager의 정합성 보장 그룹 인터페이스와 정합성 보장 그룹 REST API 엔드포인트를 통해 관리할 수 있습니다.
 
 
 NOTE: ONTAPI 명령으로 생성된 스냅샷입니다 `cg-start` 및 `cg-commit` 에서는 일관성 그룹 스냅샷으로 인식되지 않으므로 ONTAP REST API의 일관성 그룹 인터페이스 또는 일관성 그룹 엔드포인트를 통해 관리할 수 없습니다.

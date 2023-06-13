@@ -210,9 +210,9 @@ FlexGroup 볼륨
  a| 
 LUN을 클릭합니다
  a| 
-아니요
+아니요 에 대해 자세히 알아보십시오 xref:LUN support[LUN 지원] SnapLock와 함께.
  a| 
-아니요
+아니요 에 대해 자세히 알아보십시오 xref:LUN support[LUN 지원] SnapLock와 함께.
 
 
 
@@ -332,6 +332,12 @@ SnapLock는 ONTAP 9.11.1부터 FlexGroup 볼륨을 지원하지만 다음 기능
 * FlexGroup 볼륨의 VCC(Volume Compliance Clock)는 루트 구성 요소 VCC에 의해 결정됩니다. 모든 비루트 구성 요소들은 VCC를 루트 VCC와 긴밀히 동기화하게 됩니다.
 * SnapLock 구성 속성은 FlexGroup 전체에 대해서만 설정됩니다. 개별 구성 요소마다 기본 보존 시간 및 자동 커밋 기간과 같은 서로 다른 구성 속성을 사용할 수 없습니다.
 
+
+
+
+== LUN 지원
+
+LUN은 비 SnapLock 볼륨에서 생성된 스냅샷 복사본이 SnapLock 볼트 관계의 일부로 보호를 위해 SnapLock 볼륨으로 전송되는 경우에만 SnapLock 볼륨에서 지원됩니다. LUN은 읽기/쓰기 SnapLock 볼륨에서 지원되지 않습니다. 그러나 SnapMirror 소스 볼륨과 LUN이 포함된 타겟 볼륨 모두에서 무단 스냅샷 복사본이 지원됩니다.
 
 
 
