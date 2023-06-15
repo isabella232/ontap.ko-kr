@@ -40,13 +40,18 @@ NVMe LIF를 생성할 때 다음 규칙이 적용됩니다.
 .단계
 . LIF를 생성합니다.
 +
-'network interface create-vserver_SVM_name_-lif_LIF_name_-role_LIF_role_-data-protocol fc-NVMe-HOME-node_home_node_-home-port'
-
+[source, cli]
+----
+network interface create -vserver <SVM_name> -lif <LIF_name> -role <LIF_role> -data-protocol {fc-nvme|nvme-tcp} -home-node <home_node> -home-port <home_port>
+----
 +
-'_home_port_'
+
+NOTE: NVMe/TCP는 ONTAP 9.10.1 이상부터 사용할 수 있습니다.
 
 . LIF가 생성되었는지 확인합니다.
 +
-'network interface show -vserver_SVM_name _'
-
+[source, cli]
+----
+network interface show -vserver <SVM_name>
+----
 

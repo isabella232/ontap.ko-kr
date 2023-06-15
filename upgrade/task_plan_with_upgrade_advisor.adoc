@@ -20,7 +20,7 @@ NOTE: Active IQ를 사용하려면 활성 SupportEdge 계약이 필요합니다.
 
 . https://aiq.netapp.com/["Active IQ를 시작합니다"]
 . Active IQ 상태 요약을 검토하여 클러스터 상태를 평가합니다.
-. 권장 업그레이드 경로를 검토하고 업그레이드 계획을 생성합니다.
+. 권장 업그레이드 경로 및 를 검토합니다 link:https://docs.netapp.com/us-en/active-iq/task_view_upgrade.html["업그레이드 계획을 생성합니다"^].
 
 
 .관련 정보
