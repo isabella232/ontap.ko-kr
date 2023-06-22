@@ -11,6 +11,8 @@ entries:
     url: "/system-admin/access-cluster-system-manager-browser-task.html"
   - title: 새로운 기능 활성화
     url: "/task_admin_enable_new_features.html"
+  - title: 클러스터 구성을 다운로드합니다
+    url: "/task_admin_download_cluster_config.html"
   - title: 지원 케이스를 보고 제출합니다
     url: "/task_admin_view_submit_support_cases.html"
   - title: 스토리지 VM의 최대 용량 제한을 관리합니다

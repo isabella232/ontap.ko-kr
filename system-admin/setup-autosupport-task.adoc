@@ -20,10 +20,12 @@ ONTAP 9.5 이상 릴리즈에서는 AutoSupport를 사용하도록 설정하고 
 ====
 ONTAP 9.5부터 system node AutoSupport modify 명령의 범위는 클러스터 전체에 적용됩니다. AutoSupport 구성은 '-node' 옵션이 지정된 경우에도 클러스터의 모든 노드에서 수정됩니다. 이 옵션은 무시되지만 CLI 이전 버전과의 호환성을 위해 유지되었습니다.
 
-ONTAP 9.4 이하 릴리스에서 "system node AutoSupport modify" 명령의 범위는 노드에 따라 다릅니다. AutoSupport 구성은 클러스터의 각 노드에서 수정해야 합니다.
+ONTAP 9.4 및 이전 릴리스에서 의 범위입니다 `system node autosupport modify` 명령은 노드에 따라 다릅니다. AutoSupport 구성은 클러스터의 각 노드에서 수정해야 합니다.
 
 ====
 기본적으로 AutoSupport는 각 노드에서 HTTPS 전송 프로토콜을 사용하여 기술 지원 부서에 메시지를 보내도록 설정됩니다.
+
+최상의 보안을 제공하고 모든 최신 AutoSupport 기능을 지원하려면 TLSv1.2와 함께 HTTPS를 사용하거나 AutoSupport 메시지를 안전하게 전달하는 SMTP를 사용해야 합니다.
 
 .단계
 . AutoSupport가 활성화되어 있는지 확인합니다.
@@ -57,15 +59,6 @@ AutoSupport를 AutoSupport OnDemand와 함께 사용하도록 설정하거나 �
  a| 
 .. '-transport'를 'https'로 설정합니다.
 .. 프록시를 사용하는 경우 프록시 URL로 -proxy-url을 설정합니다. 이 구성은 AutoSupport OnDemand와의 통신 및 대용량 파일 업로드를 지원합니다.
-
-
-
-
- a| 
-SMTP 보다 선호되는 HTTP를 사용합니다
- a| 
-.. '-transport'를 'http'로 설정합니다.
-.. 프록시를 사용하는 경우 프록시 URL로 -proxy-url을 설정합니다. 이 구성은 대용량 파일 업로드를 지원하지만 AutoSupport OnDemand는 지원하지 않습니다.
 
 
 
@@ -124,7 +117,7 @@ SMTP를 사용합니다
 
 
 . DNS를 구성합니다.
-. (선택 사항) 특정 설정을 변경하려면 명령 옵션을 추가합니다.
+. 필요에 따라 특정 설정을 변경하려면 명령 옵션을 추가합니다.
 +
 |===
 
@@ -135,7 +128,7 @@ SMTP를 사용합니다
  a| 
 메시지에서 중요한 데이터를 제거, 마스킹 또는 인코딩하여 개인 데이터를 숨깁니다
  a| 
-remove-private-data를 true로 설정합니다. false에서 true로 변경하면 모든 AutoSupport 기록 및 모든 관련 파일이 삭제됩니다.
+설정 `-remove-private-data` 를 선택합니다 `true`. 에서 변경한 경우 `false` 를 선택합니다 `true`모든 AutoSupport 기록 및 모든 관련 파일이 삭제됩니다.
 
 
 
@@ -165,7 +158,7 @@ cluster1::> system node autosupport invoke -type test -node node1
 +
 최근 나가는 AutoSupport 메시지의 상태는 모든 해당 프로토콜 대상에 대해 '성공적으로 완료'로 변경되어야 합니다.
 
-.. (선택 사항) 시스템 노드 AutoSupport modify 명령의 '-to', '-noteto' 또는 '-partner-address' 매개 변수에 대해 구성한 이메일 주소를 확인하여 AutoSupport 메시지가 내부 지원 조직 또는 지원 파트너에게 전송되는지 확인합니다.
+.. (선택 사항) 에 대해 구성한 주소의 이메일을 확인하여 AutoSupport 메시지가 내부 지원 조직 또는 지원 파트너에게 전송되도록 합니다 `-to`, `-noteto`, 또는 `-partner-address`  의 매개 변수 `system node autosupport modify` 명령.
 
 
 

@@ -1,0 +1,37 @@
+---
+sidebar: sidebar 
+permalink: task_admin_download_cluster_config.html 
+keywords: netapp, ontap, administration, HA pairs, download, cluster, configuration, config, configure 
+summary: 클러스터 구성을 다운로드할 수 있습니다. 
+---
+= 클러스터 구성을 다운로드합니다
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:allow-uri-read: 
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+클러스터 구성을 다운로드할 수 있습니다.
+
+.단계
+. 클러스터 > 개요 * 를 클릭합니다.
+. 을 클릭합니다 image:icon-more-kebab-blue-bg.gif["메뉴 아이콘"] 를 눌러 드롭다운 메뉴를 표시합니다.
+. 구성 다운로드 * 를 선택합니다.
+. HA 쌍을 선택한 다음 * 다운로드 * 를 클릭합니다.
++
+설정이 Excel 스프레드시트로 다운로드됩니다.
+
++
+** 첫 번째 시트에는 클러스터 세부 정보가 포함되어 있습니다.
+** 다른 시트에는 노드 세부 정보가 포함되어 있습니다.
+
+
+
