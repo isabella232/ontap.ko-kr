@@ -131,7 +131,7 @@ cluster image update -version package_version_number -estimate-only
 cluster image update -version package_version_number
 ----
 +
-** 를 수행하는 경우 link:https://docs.netapp.com/us-en/ontap/upgrade/concept_upgrade_paths.html#types-of-upgrade-paths["직접 멀티 홉 업그레이드"] package_version_number의 대상 ONTAP 버전을 사용한다. 예를 들어 ONTAP 9.8에서 9.13.1 로 업그레이드하는 경우 package_version_number 로 9.13.1 을 사용합니다.
+** 를 수행하는 경우 link:https://docs.netapp.com/us-en/ontap/upgrade/concept_upgrade_paths.html#types-of-upgrade-paths["직접 멀티 홉 업그레이드"]에서 package_version_number 의 대상 ONTAP 버전을 사용합니다. 예를 들어 ONTAP 9.8에서 9.13.1 로 업그레이드하는 경우 package_version_number 로 9.13.1 을 사용합니다.
 ** 클러스터가 2~6개 노드로 구성된 경우 롤링 업그레이드가 수행됩니다. 클러스터가 8개 이상의 노드로 구성된 경우 기본적으로 일괄 업그레이드가 수행됩니다. 원하는 경우 '-force-rolling' 매개 변수를 사용하여 롤링 업그레이드를 대신 지정할 수 있습니다.
 ** 각각의 테이크오버 및 반환을 완료한 후, 업데이트는 클라이언트 애플리케이션이 테이크오버 및 반환 중에 발생하는 I/O의 일시 중지에서 복구될 수 있도록 8분 동안 대기합니다. 고객 안정화에 필요한 시간이 환경에 더 많이 또는 더 적게 필요한 경우 '-안정화-분' 매개변수를 사용하여 다른 안정화 시간을 지정할 수 있습니다.
 ** 2노드 MetroCluster 시스템을 제외한 모든 MetroCluster 구성의 경우, 사용자가 명령줄을 시작하고 확인하면 ONTAP 업그레이드 프로세스가 두 사이트(로컬 사이트 및 재해 복구 사이트)의 HA 쌍에서 동시에 시작됩니다. 2노드 MetroCluster 시스템의 경우 먼저 재해 복구 사이트, 즉 업그레이드가 시작되지 않은 사이트에서 업데이트가 시작됩니다. 재해 복구 사이트에서 업데이트가 완전히 완료되면 로컬 사이트에서 업그레이드가 시작됩니다.

@@ -30,9 +30,14 @@ LUN을 늘릴 수 있는 크기는 ONTAP 버전에 따라 다릅니다.
 | ONTAP 버전입니다 | 최대 LUN 크기입니다 
 
 
+| ONTAP 9.12.1P2 이상  a| 
+AFF, FAS 및 ASA 플랫폼의 경우 128TB
+
+
+
 | ONTAP 9.8 이상  a| 
-* 모든 SAN 어레이에 128TB(ASA)
-* 비 ASA의 경우 16TB
+* 모든 SAN 어레이(ASA) 플랫폼에 128TB
+* 비 ASA 플랫폼의 경우 16TB
 
 
 

@@ -1,0 +1,43 @@
+---
+permalink: antivirus/vscan-partner-solutions.html 
+sidebar: sidebar 
+keywords: antivirus, vscan, partner, solutions 
+summary: NetApp는 Trellix, Symantec, Trend Micro 및 Sentinel One과 협력하여 ONTAP Vscan 기술을 기반으로 하는 업계 최고의 맬웨어 방지 및 바이러스 방지 솔루션을 제공합니다. 
+---
+= Vscan 파트너 솔루션
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp는 Trellix, Symantec, Trend Micro 및 Sentinel One과 협력하여 ONTAP Vscan 기술을 기반으로 하는 업계 최고의 맬웨어 방지 및 바이러스 방지 솔루션을 제공합니다. 이러한 솔루션을 통해 맬웨어에 대한 파일을 검사하고 영향을 받는 파일을 수정할 수 있습니다.
+
+아래 표에 나와 있는 것처럼 NetApp 상호 운용성 매트릭스에서 Trelix, Symantec 및 Trend Micro의 상호 운용성 세부 정보를 확인할 수 있습니다. Tellix와 Symantec의 상호 운용성 세부 정보는 파트너 웹 사이트에서도 확인할 수 있습니다. Sentinel One 및 다른 신규 파트너의 상호 운용성 세부 정보는 파트너의 웹 사이트에서 유지됩니다.
+
+[cols="3*"]
+|===
+| 파트너 | 솔루션 설명서 | 상호 운용성 세부 정보 
+
+
+| Trelix(이전 명칭 McAfee) | link:https://docs.trellix.com/bundle?labelkey=prod-endpoint-security-storage-protection&labelkey=prod-endpoint-security-storage-protection-v2-3-x&labelkey=prod-endpoint-security-storage-protection-v2-2-x&labelkey=prod-endpoint-security-storage-protection-v2-1-x&labelkey=prod-endpoint-security-storage-protection-v2-0-x["Trelix 제품 설명서"]  a| 
+* link:https://imt.netapp.com/matrix/["NetApp 상호 운용성 매트릭스 툴"]
+* link:https://kcm.trellix.com/corporate/index?page=content&id=KB94811["엔드포인트 보안 스토리지 보호에 지원되는 플랫폼(trellix.com)"]
+
+
+
+
+| 시만텍 | link:https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/symantec-protection-engine/9-0-0.html["Symantec Protection Engine 9.0.0"]  a| 
+* link:https://imt.netapp.com/matrix/["NetApp 상호 운용성 매트릭스 툴"]
+* link:https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/symantec-protection-engine/8-2-2/Installing-SPE/Support-Matrix-for-Partner-Devices-Certified-with-Symantec-Protection-Engine-(SPE)-for-Network-Attached-Storage-(NAS)-8-x.html["NAS(Network Attached Storage) 8.x(broadcom.com Symantec SPE(Protection Engine)로 인증된 파트너 디바이스에 대한 지원 매트릭스"]
+
+
+
+
+| Trend Micro | link:https://docs.trendmicro.com/all/ent/spfs/v6.0/en-us/spfs_6.0_gsg_new.pdf["Trend Micro ServerProtect for Storage 6.0 시작 가이드"] | link:https://imt.netapp.com/matrix/["NetApp 상호 운용성 매트릭스 툴"] 
+
+
+| 센티넬 원 2+| link:https://support.sentinelone.com/hc/en-us/categories/360002507673-Knowledge-Base-and-Documents["Sentinel One 지원"]
+
+이 링크를 사용하려면 사용자 로그인이 필요합니다. Sentinel One에서 액세스를 요청할 수 있습니다. 
+|===

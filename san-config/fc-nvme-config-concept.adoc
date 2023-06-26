@@ -11,17 +11,14 @@ summary: 'ONTAP 9.4부터 SAN 환경에서 NVMe(Non-Volatile Memory Express) 프
 
 
 [role="lead"]
-ONTAP 9.4부터 SAN 환경에서 NVMe(Non-Volatile Memory Express) 프로토콜을 사용할 수 있습니다. FC-NVMe를 사용하면 AFF 시스템을 통해 기존 FC 네트워크에서 NVMe를 실행할 수 있습니다. FC-NVMe는 기존 FC 네트워크와 동일한 물리적 설정 및 조닝(zoning)을 사용하지만 FC-SCSI보다 더 큰 대역폭과 향상된 IOPS를 제공하며 지연 시간을 줄일 수 있습니다.
+ONTAP 9.4부터 link:https://docs.netapp.com/us-en/ontap/san-admin/manage-nvme-concept.html["비휘발성 메모리 익스프레스(NVMe)"] SAN 환경에서 프로토콜을 사용할 수 있습니다. FC-NVMe는 기존 FC 네트워크와 동일한 물리적 설정 및 조닝(zoning)을 사용하지만 FC-SCSI보다 더 큰 대역폭과 향상된 IOPS를 제공하며 지연 시간을 줄일 수 있습니다.
 
-지원되는 구성:
+NVMe-oF 프로토콜 지원은 플랫폼 및 구성에 따라 다릅니다. 특정 구성에 대한 자세한 내용은 를 참조하십시오 link:https://imt.netapp.com/matrix/["NetApp 상호 운용성 매트릭스 툴"].
 
-* NVMe는 32G FC 포트가 있는 AFF 플랫폼에서 지원됩니다.
+클러스터에서 FC-NVMe를 구성할 때 다음 사항을 염두에 두어야 합니다.
+
 * 단일 패브릭 또는 멀티 패브릭을 사용하여 단일 노드 또는 HA 쌍을 지원하는 FC-NVMe 구성을 설정할 수 있습니다.
-* ONTAP 9.11.1부터 NVMe는 최대 12개 노드가 있는 클러스터에서 지원됩니다. ONTAP 9.4부터는 최대 4개의 노드가 있는 클러스터에서 NVMe가 지원됩니다.
-* NVMe는 스토리지 가상 시스템(SVM)에서 유일한 데이터 프로토콜일 수 있습니다.
-* 클러스터당 최대 8개의 NVMe SVM이 지원됩니다.
 * FC-NVMe는 데이터 LIF에서 유일한 데이터 프로토콜일 수 있습니다.
-* LUN과 네임스페이스는 동일한 볼륨에서 혼합될 수 없습니다.
 * SAN을 지원하는 모든 SVM에 하나의 관리 LIF를 구성해야 합니다.
 * 임베디드 블레이드 스위치의 경우를 제외하고 이기종 FC 스위치 패브릭을 사용할 수 없습니다.
 +
@@ -33,42 +30,9 @@ ONTAP 9.4부터 SAN 환경에서 NVMe(Non-Volatile Memory Express) 프로토콜�
 
 
 
-향상된 기능:
-
-|===
-
-
-| 이 기능이 지원됩니다... | 다음으로 시작... 
-
-
-| 매핑된 네임스페이스를 사용하여 볼륨 이동 | ONTAP 9.6 
-
-
-| 네임스페이스는 512바이트 블록과 4096바이트 블록을 지원합니다. 기본값은 +4096입니다. 512는 호스트 운영 체제가 4096바이트 블록을 지원하지 않는 경우에만 사용해야 합니다. | ONTAP 9.6 
-
-
-| 다중 경로 HA 쌍 페일오버/반환 | ONTAP 9.5 
-|===
-다음은 ONTAP 9.4를 실행하는 노드에만 적용됩니다.
-
-* NVMe LIF 및 네임스페이스는 동일한 노드에서 호스팅되어야 합니다.
-* NVMe LIF가 생성되기 전에 NVMe 서비스를 생성해야 합니다.
-
-
-다음 ONTAP 기능은 NVMe 구성에서 지원되지 않습니다.
-
-* NVMe 네임스페이스 이동
-* NVMe 네임스페이스(온디맨드 복사)
-* 7-Mode로 운영되는 Data ONTAP에서 전환된 볼륨에 네임스페이스 생성
-* 동기화
-* 가상 스토리지 콘솔
-
-
-를 참조하십시오 https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"^] NVMe 제한의 전체 목록을 확인하십시오.
-
 .관련 정보
-https://kb.netapp.com/Advice_and_Troubleshooting/Flash_Storage/AFF_Series/How_to_configure_and_Connect_SUSE_Enterprise_Linux_to_ONTAP_NVMe%2F%2FFC_namespaces["SUSE Enterprise Linux를 ONTAP NVMe/FC 네임스페이스에 구성하고 연결하는 방법"]
+* link:https://docs.netapp.com/us-en/ontap/nvme/support-limitations.html["NVMe 지원 및 제한 사항"]
+* http://www.netapp.com/us/media/tr-4684.pdf["NetApp 기술 보고서 4684: NVMe/FC를 사용하여 최신 SAN 구현 및 구성"]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Flash_Storage/AFF_Series/How_to_configure_and_Connect_SUSE_Enterprise_Linux_to_ONTAP_NVMe%2F%2FFC_namespaces["SUSE Enterprise Linux를 ONTAP NVMe/FC 네임스페이스에 구성하고 연결하는 방법"]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Licensing_information_for_NVMe_protocol_on_ONTAP["ONTAP의 NVMe 프로토콜에 대한 라이센스 정보"]
 
-https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Licensing_information_for_NVMe_protocol_on_ONTAP["ONTAP의 NVMe 프로토콜에 대한 라이센스 정보"]
-
-http://www.netapp.com/us/media/tr-4684.pdf["NetApp 기술 보고서 4684: NVMe/FC를 사용하여 최신 SAN 구현 및 구성"]

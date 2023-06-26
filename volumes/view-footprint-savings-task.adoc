@@ -20,4 +20,46 @@ ONTAP 9.11.1부터 를 사용할 수 있습니다 `volume show-footprint` 명령
 ----
 volume show-footprint
 ----
++
+.TSSE가 활성화된 경우의 출력 예
+[listing]
+----
+      Vserver : vs0
+      Volume  : vol_tsse_75_per_compress
+
+      Feature                                         Used       Used%
+      --------------------------------             ----------    -----
+      Volume Data Footprint                           10.15GB      13%
+      Volume Guarantee                                     0B       0%
+      Flexible Volume Metadata                        64.25MB       0%
+      Delayed Frees                                   235.0MB       0%
+      File Operation Metadata                             4KB       0%
+
+      Total Footprint                                 10.45GB      13%
+
+      Footprint Data Reduction                         6.85GB       9%
+           Auto Adaptive Compression                   6.85GB       9%
+      Effective Total Footprint                        3.59GB       5%
+----
++
+.TSSE가 활성화되지 않은 경우의 출력 예
+[listing]
+----
+      Vserver : vs0
+      Volume  : vol_file_cg_75_per_compress
+
+      Feature                                         Used       Used%
+      --------------------------------             ----------    -----
+      Volume Data Footprint                            5.19GB       7%
+      Volume Guarantee                                     0B       0%
+      Flexible Volume Metadata                        32.12MB       0%
+      Delayed Frees                                   90.17MB       0%
+      File Operation Metadata                             4KB       0%
+
+      Total Footprint                                  5.31GB       7%
+
+      Footprint Data Reduction                         1.05GB       1%
+           Data Compaction                             1.05GB       1%
+      Effective Total Footprint                        4.26GB       5%
+----
 

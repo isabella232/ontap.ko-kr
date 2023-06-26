@@ -12,6 +12,8 @@ entries:
     url: "/antivirus/workflow-concept.html"
   - title: 안티바이러스 아키텍처
     url: "/antivirus/architecture-concept.html"
+  - title: Vscan 파트너 솔루션
+    url: "/antivirus/vscan-partner-solutions.html"
 - title: Vscan 서버 설치 및 구성
   url: "/antivirus/vscan-server-install-config-concept.html"
 - title: 스캐너 풀을 구성합니다

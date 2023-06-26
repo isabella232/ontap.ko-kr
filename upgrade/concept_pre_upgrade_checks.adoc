@@ -44,9 +44,6 @@ summary: 다양한 구성 설정이 클러스터 업그레이드 준비에 영�
 
 
 
-| 클러스터에서 SnapLock가 실행 중입니까? | xref:concept_upgrade_considerations_for_snaplock.html[SnapLock에 대한 업그레이드 고려 사항을 검토합니다] 
-
-
 | ONTAP 8.3에서 업그레이드 중이며 로드 공유 미러가 있습니까? | xref:task_preparing_all_load_sharing_mirrors_for_a_major_upgrade.html[업그레이드를 위해 모든 로드 공유 미러를 준비합니다] 
 
 
