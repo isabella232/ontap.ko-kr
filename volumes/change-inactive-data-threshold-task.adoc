@@ -1,0 +1,33 @@
+---
+permalink: volumes/change-inactive-data-threshold-task.html 
+sidebar: sidebar 
+keywords: storage, efficiency, temperature, change, efficient, default, threshold, inactive, compression, cold data, frequency 
+summary: 온도에 민감한 스토리지 효율성을 사용하여 볼륨에 대한 효율성 임계값을 수정하여 ONTAP이 콜드 데이터 스캔을 수행하는 빈도를 변경할 수 있습니다. 
+---
+= 볼륨 비활성 데이터 압축 임계값을 변경합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+온도에 민감한 스토리지 효율성을 사용하여 볼륨에 대한 효율성 임계값을 수정하여 ONTAP이 콜드 데이터 스캔을 수행하는 빈도를 변경할 수 있습니다.
+
+.시작하기 전에
+클러스터 또는 SVM 관리자여야 하며 ONTAP CLI 고급 권한 수준을 사용해야 합니다.
+
+.이 작업에 대해
+감기 임계값은 1일에서 60일 사이의 값일 수 있습니다. 기본 임계값은 14일입니다.
+
+.단계
+. 권한 수준 설정:
++
+세트 프리빌리지 고급
+
+. 볼륨에 대한 비활성 데이터 압축 수정:
++
+`volume efficiency inactive-data-compression modify -vserver <vserver_name> -volume <volume_name> -threshold-days <integer>`
+
+
+
+에 대한 자세한 내용은 man 페이지를 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli-9131/volume-efficiency-inactive-data-compression-modify.html#description["비활성 데이터 압축 수정"].

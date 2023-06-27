@@ -260,8 +260,12 @@ entries:
     url: "/volumes/enable-disable-background-deduplication-aff-task.html"
   - title: 온도에 민감한 스토리지 효율성 개요
     url: "/volumes/enable-temperature-sensitive-efficiency-concept.html"
+  - title: 볼륨 이동 및 SnapMirror의 스토리지 효율성 동작
+    url: "/volumes/storage-efficiency-behavior-snapmirror-reference.html"
   - title: 스토리지 효율성 모드를 설정합니다
     url: "/volumes/set-efficiency-mode-task.html"
+  - title: 볼륨 비활성 데이터 압축 임계값을 변경합니다
+    url: "/volumes/change-inactive-data-threshold-task.html"
   - title: 볼륨 효율성 모드를 확인합니다
     url: "/volumes/check-efficiency-task.html"
   - title: 볼륨 효율성 모드를 변경합니다

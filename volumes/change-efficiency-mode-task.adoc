@@ -11,11 +11,11 @@ summary: '"volume Efficiency modify" 명령을 사용하면 AFF 볼륨에 설정
 
 
 [role="lead"]
-"volume Efficiency modify" 명령을 사용하면 AFF 볼륨에 설정된 스토리지 효율성 모드를 변경할 수 있습니다. 이 모드를 '기본값'에서 '효율성'으로 변경하거나 볼륨 효율성이 아직 설정되지 않은 경우 효율성 모드를 설정할 수 있습니다.
+ONTAP 9.10.1부터 AFF 시스템에만 _default_와 _Efficient_라는 두 가지 볼륨 레벨 스토리지 효율성 모드가 도입되었습니다. 두 가지 모드에서는 파일 압축(기본값) 중에서 선택할 수 있습니다. 기본 모드는 새 AFF 볼륨을 생성할 때 기본 모드이고, 온도에 민감한 스토리지 효율성(효율성)으로 온도에 민감한 스토리지 효율성을 지원합니다. 를 사용할 수 있습니다 `volume efficiency modify` AFF 볼륨에 설정된 스토리지 효율성 모드를 변경하는 명령입니다. 모드를 에서 변경할 수 있습니다 `default` 를 선택합니다 `efficient` 또는 볼륨 효율성이 아직 설정되지 않은 경우 효율성 모드를 설정할 수 있습니다.
 
 .단계
 . 볼륨 효율성 모드를 변경합니다.
 +
-'* 볼륨 효율성 수정 - vserver <vserver name> - volume <volume name> - storage-Efficiency-mode <default | Efficient> * '
+`volume efficiency modify -vserver <vserver name> -volume <volume name> -storage-efficiency-mode <default|efficient>`
 
 
