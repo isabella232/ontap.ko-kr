@@ -1,0 +1,31 @@
+---
+permalink: s3-config/ontap-s3-validated-third-party-solutions-reference.html 
+sidebar: sidebar 
+keywords: configuration, support, third, party, solutions 
+summary: NetApp은 ONTAP S3에 사용할 수 있도록 다음과 같은 타사 솔루션을 검증했습니다. 
+---
+= ONTAP S3는 검증된 타사 솔루션을 제공합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp은 ONTAP S3에 사용할 수 있도록 다음과 같은 타사 솔루션을 검증했습니다.
+찾고 있는 솔루션이 목록에 없으면 NetApp 계정 담당자에게 문의하십시오.
+
+
+
+== ONTAP S3에서 검증된 타사 솔루션
+
+NetApp은 해당 파트너와 협력하여 이러한 솔루션을 테스트했습니다.
+
+* 아마존 SageMaker
+* Apache Hadoop S3A 클라이언트
+* 아파치 카프카
+* Commvault(V11)
+* Confluent Kafka
+* Rubrik으로 이동합니다
+* 트리노
+* Veeam(V12)
+

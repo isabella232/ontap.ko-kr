@@ -14,6 +14,8 @@ entries:
     url: "/s3-config/ontap-s3-supported-actions-reference.html"
   - title: ONTAP S3 상호 운용성
     url: "/s3-config/ontap-s3-interoperability-concept.html"
+  - title: ONTAP S3는 검증된 타사 솔루션을 제공합니다
+    url: "/s3-config/ontap-s3-validated-third-party-solutions-reference.html"
 - title: S3 구성 프로세스 정보
   entries:
   - title: 워크플로우

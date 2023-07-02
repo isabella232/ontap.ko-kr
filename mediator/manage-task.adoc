@@ -300,7 +300,7 @@ SCST를 수동으로 설치하려면 설치된 ONTAP 중재자 버전에 사용�
 ....
 [root@localhost ~]# modinfo -n scst_vdisk
 [root@localhost ~]# modinfo -n scst
-[root@localhost ~]# modinfo -n iscst_scst_vdisk
+[root@localhost ~]# modinfo -n iscst_scst
 ....
 .. 커널 릴리스를 확인합니다.
 +

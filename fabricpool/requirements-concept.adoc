@@ -156,7 +156,7 @@ SAN 프로토콜에서 액세스하는 데이터를 계층화할 경우 연결 �
 
 * 중요 *
 
-+Windows 호스트가 있는 SAN 환경에서 FabricPool를 사용할 때 데이터를 클라우드로 계층화할 때 오브젝트 스토리지를 장기간 사용할 수 없게 될 경우 Windows 호스트의 NetApp LUN 파일에 액세스할 수 없거나 파일이 사라질 수 있습니다. 기술 자료 문서를 참조하십시오 link:https://kb.netapp.com/onprem/ontap/os/During_FabricPool_S3_object_store_unavailable_Windows_SAN_host_reported_filesystem_corruption["FabricPool S3 오브젝트 저장소를 사용할 수 없는 동안 Windows SAN 호스트가 파일 시스템 손상을 보고했습니다"^].
+Windows 호스트가 있는 SAN 환경에서 FabricPool를 사용할 때 데이터를 클라우드로 계층화할 때 오브젝트 스토리지를 장기간 사용할 수 없게 될 경우 Windows 호스트의 NetApp LUN에 있는 파일에 액세스할 수 없거나 파일이 사라질 수 있습니다. 기술 자료 문서를 참조하십시오 link:https://kb.netapp.com/onprem/ontap/os/During_FabricPool_S3_object_store_unavailable_Windows_SAN_host_reported_filesystem_corruption["FabricPool S3 오브젝트 저장소를 사용할 수 없는 동안 Windows SAN 호스트가 파일 시스템 손상을 보고했습니다"^].
 
 
 
