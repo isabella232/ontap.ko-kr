@@ -26,8 +26,6 @@ entries:
       url: "/flexcache/audit-flexcache-volumes-concept.html"
 - title: FlexCache 관계를 관리합니다
   entries:
-  - title: FlexCache 관계의 연결 상태를 봅니다
-    url: "/flexcache/view-connection-status-origin-task.html"
   - title: 원본 볼륨에서 FlexCache 볼륨의 속성을 동기화합니다
     url: "/flexcache/synchronize-properties-origin-volume-task.html"
   - title: FlexCache 관계의 구성을 업데이트합니다

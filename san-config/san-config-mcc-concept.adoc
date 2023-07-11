@@ -11,7 +11,7 @@ summary: MetroCluster 환경에서 SAN 구성을 사용할 때는 몇 가지 고
 
 
 * MetroCluster 구성은 프런트엔드 FC 패브릭 ""라우팅된" vSAN 구성을 지원하지 않습니다.
-* ONTAP 9.12.1부터 4노드 MetroCluster IP 구성이 NVMe/FC에서 지원됩니다. ONTAP 9.12.1 이전의 NVMe에는 MetroCluster 구성이 지원되지 않습니다.
+* ONTAP 9.12.1부터 4노드 MetroCluster IP 구성이 NVMe/FC에서 지원됩니다. MetroCluster 구성은 NVMe/TCP에서 지원되지 않습니다. ONTAP 9.12.1 이전의 NVMe에는 MetroCluster 구성이 지원되지 않습니다.
 * iSCSI, FC, FCoE 등의 다른 SAN 프로토콜은 MetroCluster 구성에서 지원됩니다.
 * SAN 클라이언트 구성을 사용할 때는 에 제공된 노트에 MetroCluster 구성에 대한 특별한 고려 사항이 포함되어 있는지 확인해야 합니다 link:https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"^] (IMT).
 * 운영 체제 및 애플리케이션은 MetroCluster의 자동 계획되지 않은 전환 및 Tiebreaker 또는 중재자 시작 전환을 지원하기 위해 120초의 I/O 복원력을 제공해야 합니다.

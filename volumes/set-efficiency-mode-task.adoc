@@ -13,13 +13,27 @@ summary: 'ONTAP 9.10.1부터 새 AFF 볼륨을 생성할 때 스토리지 효율
 [role="lead"]
 ONTAP 9.10.1부터 새 AFF 볼륨을 생성할 때 스토리지 효율성 모드를 설정할 수 있습니다. 매개 변수 사용 `-storage-efficiency-mode`에서 볼륨이 효율적 모드 또는 기본 성능 모드를 사용하는지 여부를 지정할 수 있습니다. 두 가지 모드는 파일 압축(기본값) 중에서 선택할 수 있습니다. 이 모드는 새 AFF 볼륨을 생성할 때의 기본 모드이거나 온도에 민감한 스토리지 효율성(효율성)으로, 온도에 민감한 스토리지 효율성을 지원합니다. 를 클릭합니다 `-storage-efficiency-mode` 비 AFF 볼륨 또는 데이터 보호 볼륨에서 매개 변수가 지원되지 않습니다.
 
-
-
-== 효율적 모드를 사용하여 새 볼륨을 생성합니다
-
-스토리지 효율성을 설정할 때 효율성 모드를 설정하려면 '-storage-Efficiency-mode' 매개 변수와 값 '효율적'을 함께 사용하면 됩니다.
-
 .단계
+ONTAP 시스템 관리자 또는 ONTAP CLI를 사용하여 이 작업을 수행할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+ONTAP 9.10.1부터, 온도에 민감한 스토리지 효율성 기능을 사용하여 시스템 관리자를 사용하여 스토리지 효율성을 높일 수 있습니다. 성능 기반 스토리지 효율성은 기본적으로 활성화되어 있습니다.
+
+. 스토리지 > 볼륨 * 을 클릭합니다.
+. 스토리지 효율성을 설정하거나 해제할 볼륨을 찾은 다음 를 클릭합니다 image:icon_kabob.gif["메뉴 선택 아이콘"].
+. 편집 * 을 클릭하고 * 스토리지 효율성 * 으로 스크롤합니다.
+. Enable 상위 스토리지 효율성 * 을 선택합니다.
+
+
+--
+.CLI를 참조하십시오
+--
+.효율적 모드를 사용하여 새 볼륨을 생성합니다
+새 볼륨을 생성할 때 온도에 민감한 스토리지 효율성 모드를 설정하려면 을 사용합니다 `-storage-efficiency-mode` 매개 변수(값 포함 `efficient`.
+
 . 효율성 모드가 활성화된 새 볼륨 생성:
 +
 'volume create-vserver <vserver name> - volume <volume name> - aggregate <aggregate name> - size <volume size> - storage-Efficiency-mode Efficient'
@@ -31,14 +45,10 @@ volume create -vserver vs1 -volume aff_vol1 -aggregate aff_aggr1 -storage-effici
 ----
 
 
+.성능 모드를 사용하여 새 볼륨을 생성합니다
+스토리지 효율성을 통해 새 AFF 볼륨을 생성할 때 성능 모드가 기본적으로 설정됩니다. 필수 사항은 아니지만 필요에 따라 를 사용할 수 있습니다 `default` 을 사용한 값 `-storage-efficiency-mode` 매개 변수: 새 AFF 볼륨을 생성할 때 사용합니다.
 
-
-== 성능 모드를 사용하여 새 볼륨을 생성합니다
-
-온도에 민감한 스토리지 효율성을 통해 새로운 AFF 볼륨을 생성할 때 성능 모드가 기본적으로 설정됩니다. 선택적으로 '-storage-Efficiency-mode' 매개 변수와 함께 'default' 값을 사용할 수 있습니다.
-
-.단계
-. 효율성 모드가 활성화된 새 볼륨 생성:
+. 성능 스토리지 효율성 모드 'default'를 사용하여 새 볼륨을 생성합니다.
 +
 'volume create-vserver <vserver name> - volume <volume name> - aggregate <aggregate name> - size <volume size> - storage-Efficiency-mode default'
 
@@ -47,14 +57,5 @@ volume create -vserver vs1 -volume aff_vol1 -aggregate aff_aggr1 -storage-effici
 
 
 
-
-
-== System Manager 절차
-
-ONTAP 9.10.1부터, 온도에 민감한 스토리지 효율성 기능을 사용하여 시스템 관리자를 사용하여 스토리지 효율성을 높일 수 있습니다. 성능 기반 스토리지 효율성은 기본적으로 활성화되어 있습니다.
-
-. 스토리지 > 볼륨 * 을 클릭합니다.
-. 스토리지 효율성을 설정하거나 해제할 볼륨을 찾은 다음 를 클릭합니다 image:icon_kabob.gif["메뉴 선택 아이콘"].
-. 편집 * 을 클릭하고 * 스토리지 효율성 * 으로 스크롤합니다.
-. Enable 상위 스토리지 효율성 * 을 선택합니다.
-
+--
+====
