@@ -54,7 +54,6 @@ NVMe/FC 및 NVMe/TCP 프로토콜은 다음과 같이 지원됩니다.  NVMe/FC�
 | 9.12.1  a| 
 * AFF
 * ASA
-* C 시리즈
 
 | 12 
 

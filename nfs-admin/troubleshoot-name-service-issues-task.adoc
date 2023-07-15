@@ -150,11 +150,9 @@ Source used for lookup: LDAP
 dnshost0 is a member of lnetgroup136
 ----
 . 수행한 테스트의 결과를 분석하고 필요한 조치를 취합니다.
-
-
++
+[cols="2*"]
 |===
-
-
 | 만약... | 다음을 확인하십시오. 
 
 
@@ -175,9 +173,10 @@ DNS 구성
  a| 
 사용자 또는 그룹 조회에 실패했거나 잘못된 결과가 발생했습니다
  a| 
-이름 서비스 스위치 구성 소스 구성(로컬 파일, NIS 도메인, LDAP 클라이언트)
+** 네임 서비스 스위치 구성
+** 소스 구성(로컬 파일, NIS 도메인, LDAP 클라이언트)
+** 네트워크 구성(예: LIF 및 라우트)
 
-네트워크 구성(예: LIF 및 라우트)
 
 
 
@@ -187,5 +186,7 @@ DNS 구성
 최상위 도메인(TLD) 쿼리에 대한 DNS 구성 vserver services name-service dns modify 명령에 대한 `-is-tLD-query-enabled false ' 옵션을 사용하여 TLD 쿼리를 비활성화할 수 있습니다.
 
 |===
+
+
 .관련 정보
 https://www.netapp.com/pdf.html?item=/media/16328-tr-4668pdf.pdf["NetApp 기술 보고서 4668: 이름 서비스 모범 사례 가이드"^]

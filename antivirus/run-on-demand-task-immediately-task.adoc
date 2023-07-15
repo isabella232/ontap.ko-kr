@@ -22,7 +22,7 @@ SVM에서 스캔을 활성화해야 합니다.
 'vserver vscan on-demand-task run-vserver data_SVM-task-name task_name'
 
 +
-다음 명령어를 수행하면 vs1 VM에서 Task1이라는 온액세스 작업이 실행됩니다.
+다음 명령을 실행하면 이라는 온액세스 작업이 실행됩니다 `Task1` 를 누릅니다 `vs1` SVM:
 
 +
 [listing]

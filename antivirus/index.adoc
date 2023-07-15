@@ -2,7 +2,7 @@
 permalink: antivirus/index.html 
 sidebar: sidebar 
 keywords: overview, antivirus, virus, viruses, configuration, overview, deciding, malicious code, scan, scanning, vscan, protect, data, on-access, on-demand 
-summary: Vscan이라는 NetApp 바이러스 검사를 사용하여 바이러스 또는 기타 악성 코드에 의해 데이터가 손상되는 것을 방지할 수 있습니다. 
+summary: Vscan은 NetApp에서 개발한 바이러스 백신 검사 솔루션으로, 고객이 바이러스나 기타 악성 코드에 의해 데이터가 손상되는 것을 방지할 수 있습니다. 
 ---
 = 바이러스 백신 구성 개요
 :allow-uri-read: 
@@ -11,9 +11,9 @@ summary: Vscan이라는 NetApp 바이러스 검사를 사용하여 바이러스 
 
 
 [role="lead"]
-NetApp 바이러스 검사(_Vscan_)를 사용하여 바이러스 또는 기타 악성 코드에 의해 데이터가 손상되는 것을 방지할 수 있습니다. 또한 클라이언트가 SMB를 통해 파일에 액세스할 때 온액세스 검사를 사용하여 바이러스를 검사하는 방법과 주문형 검사를 사용하여 바이러스를 즉시 또는 일정에 따라 검사하는 방법을 보여 줍니다.
+Vscan은 NetApp에서 개발한 바이러스 백신 검사 솔루션으로, 고객이 바이러스나 기타 악성 코드에 의해 데이터가 손상되는 것을 방지할 수 있습니다.
 
-시스템 관리자 또는 자동화된 스크립팅 도구가 아닌 ONTAP CLI(명령줄 인터페이스)를 사용하여 Vscan을 사용할 수 있습니다. Vscan은 System Manager에서 지원되지 않습니다.
+Vscan은 클라이언트가 SMB를 통해 파일에 액세스할 때 바이러스 검사를 수행합니다. 주문형 또는 일정에 따라 스캔을 수행하도록 Vscan을 구성할 수 있습니다. ONTAP CLI(명령줄 인터페이스) 또는 ONTAP API(응용 프로그래밍 인터페이스)를 사용하여 Vscan과 상호 작용할 수 있습니다.
 
 .관련 정보
 https://docs.trellix.com/bundle?labelkey=prod-endpoint-security-storage-protection&labelkey=prod-endpoint-security-storage-protection-v2-3-x&labelkey=prod-endpoint-security-storage-protection-v2-2-x&labelkey=prod-endpoint-security-storage-protection-v2-1-x&labelkey=prod-endpoint-security-storage-protection-v2-0-x["Trelix(이전의 McAfee) Endpoint Security Storage Protection"^]

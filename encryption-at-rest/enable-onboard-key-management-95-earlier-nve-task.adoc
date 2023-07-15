@@ -14,7 +14,7 @@ summary: Onboard Key Manager를 사용하여 클러스터가 암호화된 데이
 Onboard Key Manager를 사용하여 클러스터가 암호화된 데이터에 액세스하는 데 사용하는 키를 보호할 수 있습니다. 암호화된 볼륨 또는 자체 암호화 디스크에 액세스하는 각 클러스터에서 Onboard Key Manager를 활성화해야 합니다.
 
 .필요한 것
-* NSE를 외부 키 관리(KMIP) 서버와 함께 사용할 경우 외부 키 관리자 데이터베이스를 삭제해야 합니다.
+* NSE 또는 NVE를 외부 키 관리(KMIP) 서버와 함께 사용할 경우 외부 키 관리자 데이터베이스를 삭제해야 합니다.
 +
 link:delete-key-management-database-task.html["외부 키 관리에서 온보드 키 관리로 전환"]
 
@@ -102,11 +102,16 @@ Key ID                                                           Used By
 0000000000000000020000000000010059851742AF2703FC91369B7DB47C4722 NSE-AK
 000000000000000002000000000001008C07CC0AF1EF49E0105300EFC83004BF NSE-AK
 ----
+. 필요한 경우 일반 텍스트 볼륨을 암호화된 볼륨으로 변환합니다.
++
+`volume encryption conversion start`
+
++
+볼륨을 변환하기 전에 Onboard Key Manager를 완전히 구성해야 합니다. MetroCluster 환경에서는 두 사이트 모두에서 Onboard Key Manager를 구성해야 합니다.
+
 
 
 .작업을 마친 후
 나중에 사용할 수 있도록 암호를 스토리지 시스템 외부의 안전한 위치에 복사합니다.
-
-모든 키 관리 정보는 클러스터의 복제된 데이터베이스(RDB)에 자동으로 백업됩니다.
 
 Onboard Key Manager 암호를 구성할 때마다 재해 발생 시 사용할 수 있도록 정보를 스토리지 시스템 외부의 안전한 위치에 수동으로 백업해야 합니다. 을 참조하십시오 link:backup-key-management-information-manual-task.html["온보드 키 관리 정보를 수동으로 백업합니다"].

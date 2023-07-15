@@ -20,9 +20,23 @@ summary: 액세스 시 정책을 수정, 비활성화 또는 삭제할 수 있�
 
 
  a| 
+액세스 시 정책을 생성합니다
+ a| 
+`vserver vscan on-access-policy create`
+
+
+
+ a| 
 액세스 시 정책을 수정합니다
  a| 
 'vserver Vscan on-access-policy modify'를 참조하십시오
+
+
+
+ a| 
+액세스 시 정책을 설정합니다
+ a| 
+`vserver vscan on-access-policy enable`
 
 
 
@@ -50,63 +64,63 @@ summary: 액세스 시 정책을 수정, 비활성화 또는 삭제할 수 있�
  a| 
 제외할 경로 목록에 추가합니다
  a| 
-'Vscan on-access-policy paths-to-exclude add'를 참조하십시오
+`vserver vscan on-access-policy paths-to-exclude add`
 
 
 
  a| 
 제외할 경로 목록에서 삭제합니다
  a| 
-"Vscan on-access-policy paths-to-exclude remove(Vscan on-access-policy paths-to
+`vserver vscan on-access-policy paths-to-exclude remove`
 
 
 
  a| 
 제외할 경로 목록을 봅니다
  a| 
-'Vscan on-access-policy paths-to-exclude show
+`vserver vscan on-access-policy paths-to-exclude show`
 
 
 
  a| 
 제외할 파일 확장명 목록에 추가합니다
  a| 
-'Vscan on-access-policy file-ext-to-exclude add
+`vserver vscan on-access-policy file-ext-to-exclude add`
 
 
 
  a| 
 제외할 파일 확장명 목록에서 삭제합니다
  a| 
-'Vscan on-access-policy file-ext-to-exclude remove
+`vserver vscan on-access-policy file-ext-to-exclude remove`
 
 
 
  a| 
 제외할 파일 확장명 목록을 봅니다
  a| 
-'Vscan on-access-policy file-ext-to-exclude show
+`vserver vscan on-access-policy file-ext-to-exclude show`
 
 
 
  a| 
 포함할 파일 확장명 목록에 추가합니다
  a| 
-'Vscan on-access-policy file-ext-to-include add
+`vserver vscan on-access-policy file-ext-to-include add`
 
 
 
  a| 
 포함할 파일 확장명 목록에서 삭제합니다
  a| 
-'Vscan on-access-policy file-ext-to-include remove
+`vserver vscan on-access-policy file-ext-to-include remove`
 
 
 
  a| 
 포함할 파일 확장명 목록을 봅니다
  a| 
-'Vscan on-access-policy file-ext-to-include show
+`vserver vscan on-access-policy file-ext-to-include show`
 
 |===
 이러한 명령에 대한 자세한 내용은 man 페이지를 참조하십시오.

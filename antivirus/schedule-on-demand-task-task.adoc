@@ -2,7 +2,7 @@
 permalink: antivirus/schedule-on-demand-task-task.html 
 sidebar: sidebar 
 keywords: schedule, on-demand, task 
-summary: 일정을 할당하지 않고 주문형 작업을 생성했거나 작업에 다른 일정을 할당하려면 vserver vscan 주문형 작업 스케줄 명령을 사용하여 작업에 일정을 할당할 수 있습니다. 
+summary: '일정을 할당하지 않고 작업을 만들고 를 사용할 수 있습니다 `vserver vscan on-demand-task schedule` 스케줄을 할당하거나 작업을 생성하는 동안 스케줄을 추가하는 명령입니다.' 
 ---
 = 필요 시 작업을 예약합니다
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 일정을 할당하지 않고 주문형 작업을 생성했거나 작�
 
 
 [role="lead"]
-일정을 지정하지 않고 주문형 작업을 생성했거나 작업에 다른 일정을 할당하려면 "vserver vscan on-demand-task schedule" 명령을 사용하여 작업에 일정을 할당할 수 있습니다.
+일정을 할당하지 않고 작업을 만들고 를 사용할 수 있습니다 `vserver vscan on-demand-task schedule` 스케줄을 할당하거나 작업을 생성하는 동안 스케줄을 추가하는 명령입니다.
 
 .이 작업에 대해
 'vserver vscan on-demand-task schedule' 명령으로 할당된 스케줄은 'vserver vscan on-demand-task create' 명령으로 이미 할당된 스케줄보다 우선합니다.
@@ -22,7 +22,7 @@ summary: 일정을 할당하지 않고 주문형 작업을 생성했거나 작�
 'vserver vscan on-demand-task schedule - vserver data_SVM-task-name task_name - schedule cron_schedule'
 
 +
-다음 명령어를 수행하면 VS2의 VM에서 Task2라는 온액세스 작업을 예약한다.
+다음 명령을 실행하면 이라는 액세스 시 작업이 예약됩니다 `Task2` 를 누릅니다 `vs2` SVM:
 
 +
 [listing]
@@ -36,7 +36,10 @@ cluster1::> vserver vscan on-demand-task schedule -vserver vs2 -task-name Task2 
 job show 명령을 사용하여 작업의 상태를 볼 수 있습니다. 작업 일시정지 및 작업 재개 명령을 사용하여 작업을 일시정지 및 재시작하거나 작업 중지 명령을 사용하여 작업을 종료할 수 있습니다.
 
 ====
-. 주문형 작업의 일정이 'vserver vscan on-demand-task show-instance data_SVM-task-name task_name'인지 확인합니다
+. 필요 시 작업이 예약되었는지 확인합니다.
++
+`vserver vscan on-demand-task show -instance data_SVM -task-name task_name`
+
 +
 전체 옵션 목록은 명령에 대한 man 페이지를 참조하십시오.
 

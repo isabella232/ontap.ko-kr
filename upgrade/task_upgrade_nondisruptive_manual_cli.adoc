@@ -503,9 +503,6 @@ cluster1::> system node run -node node1 -command uptime
 ----
 . 이 노드가 업데이트할 클러스터의 마지막 노드인 경우 AutoSupport 알림을 트리거합니다.
 +
-세트 프리빌리지 고급
-
-+
 `autosupport invoke -node * -type all -message "Finishing_NDU"`
 
 +
@@ -514,7 +511,13 @@ cluster1::> system node run -node node1 -command uptime
 +
 클러스터가 AutoSupport 메시지를 전송하도록 구성되지 않은 경우 알림 복사본이 로컬에 저장됩니다.
 
-. 새 ONTAP 소프트웨어가 HA 쌍의 두 노드에서 실행되고 있는지 확인합니다. 'system node image show'
+. 새 ONTAP 소프트웨어가 HA 쌍의 두 노드에서 실행되고 있는지 확인합니다.
++
+세트 프리빌리지 고급
+
++
+`system node image show`
+
 +
 다음 예제에서 image2는 ONTAP의 업데이트된 버전이며 두 노드의 기본 버전입니다.
 

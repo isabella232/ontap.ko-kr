@@ -15,22 +15,21 @@ summary: 클러스터의 운영 및 2차 SVM에 해당하는 MetroCluster 구성
 
 .필요한 것
 * SVM과 Vscan 서버는 동일한 도메인 또는 신뢰할 수 있는 도메인에 있어야 합니다.
-* 개별 SVM용으로 정의된 스캐너 풀의 경우 ONTAP 바이러스 백신 커넥터를 SVM 관리 LIF 또는 SVM 데이터 LIF로 구성해야 합니다.
+* 개별 SVM용으로 정의된 스캐너 풀의 경우 ONTAP 바이러스 백신 커넥터를 SVM 관리 LIF 또는 SVM 데이터 LIF와 함께 구성해야 합니다.
 * 클러스터의 모든 SVM에 대해 정의된 스캐너 풀의 경우 클러스터 관리 LIF에서 ONTAP 바이러스 백신 커넥터를 구성해야 합니다.
+* 권한이 있는 사용자 목록에는 Vscan 서버가 SVM에 연결하는 데 사용하는 도메인 사용자 계정이 포함되어야 합니다.
+* 스캐너 풀이 구성되면 서버에 대한 연결 상태를 확인합니다.
 
 
 .이 작업에 대해
 MetroCluster 구성은 물리적으로 분리된 2개의 미러링된 클러스터를 구현하여 데이터를 보호합니다. 각 클러스터는 다른 클러스터의 데이터와 SVM 구성을 동기식으로 복제합니다. 로컬 클러스터의 1차 SVM은 클러스터가 온라인 상태일 때 데이터를 제공합니다. 로컬 클러스터의 2차 SVM은 원격 클러스터가 오프라인일 때 데이터를 제공합니다.
 
-즉, 클러스터의 1차 및 2차 SVM에 해당하는 MetroCluster 구성의 각 클러스터에 1차 및 2차 스캐너 풀을 생성해야 합니다. 2차 풀은 클러스터에서 2차 SVM의 데이터 서비스를 시작할 때 활성화됩니다. 다음 그림에서는 일반적인 MetroCluster 구성을 보여 줍니다.
+즉, MetroCluster 구성에서 각 클러스터에 기본 및 보조 스캐너 풀을 생성해야 하며, 클러스터가 2차 SVM에서 데이터 제공을 시작하면 2차 풀이 활성화됩니다. DR(재해 복구)의 경우 구성은 MetroCluster와 비슷합니다.
 
-image::../media/metrocluster-av-config.gif[MetroCluster AV 구성]
+이 그림은 일반적인 MetroCluster/DR 구성을 보여 줍니다.
 
-[NOTE]
-====
-권한이 있는 사용자 목록에는 Vscan 서버가 SVM에 연결하는 데 사용하는 도메인 사용자 계정이 포함되어야 합니다.
+image::../media/metrocluster-av-config.png[MetroCluster AV 구성]
 
-====
 .단계
 . 스캐너 풀 생성:
 +
@@ -73,7 +72,10 @@ cluster1::> vserver vscan scanner-pool create -vserver cifssvm1 -
 scanner-pool pool2_for_site2 -hostnames scan2 -privileged-users cifs
 \u1,cifs\u2
 ----
-. 스캐너 풀이 생성되었는지 확인합니다. 'vserver vscan scanner -pool show -vserver_data_SVM|cluster_admin_SVM_-scanner -pool_scanner_pool_'
+. 스캐너 풀이 생성되었는지 확인합니다.
++
+`vserver vscan scanner-pool show -vserver _data_SVM|cluster_admin_SVM_ -scanner-pool _scanner_pool_`
+
 +
 전체 옵션 목록은 명령에 대한 man 페이지를 참조하십시오.
 

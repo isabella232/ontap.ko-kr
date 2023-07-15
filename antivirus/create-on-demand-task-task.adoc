@@ -13,6 +13,11 @@ summary: 온디맨드 작업은 온디맨드 스캔의 범위를 정의합니다
 [role="lead"]
 온디맨드 작업은 온디맨드 스캔의 범위를 정의합니다. 스캔할 파일의 최대 크기, 스캔에 포함할 파일의 확장명 및 경로, 스캔에서 제외할 파일의 확장명 및 경로를 지정할 수 있습니다. 하위 디렉터리의 파일은 기본적으로 스캔됩니다.
 
+.이 작업에 대해
+* 각 SVM에 대해 최대 10개의 온디맨드 작업이 존재할 수 있지만, 하나의 SVM만 활성화할 수 있습니다.
+* 필요 시 작업에서는 스캔과 관련된 통계와 관련된 정보가 포함된 보고서를 생성합니다. 이 보고서는 명령을 사용하거나 정의된 위치에서 작업에 의해 생성된 보고서 파일을 다운로드하여 액세스할 수 있습니다.
+
+
 .단계
 . 필요 시 작업 만들기:
 +
@@ -20,11 +25,14 @@ server_vscan_schedule -max -file -size_max_size_of_files_to_scan -exclude_extens
 
 +
 ** '-file-ext-to-exclude' 설정은 '-file-ext-to-include' 설정보다 우선합니다.
-** 확장자가 없는 파일을 스캔하려면 '-scan-files-with-no-ext'를 true로 설정합니다. 전체 옵션 목록은 명령에 대한 man 페이지를 참조하십시오.
+** 설정 `-scan-files-with-no-ext` 를 true로 설정하면 확장자가 없는 파일을 스캔할 수 있습니다.
 
 
 +
-다음 명령어를 수행하면 vs1 VM에 Task1이라는 온액세스 작업이 생성됩니다.
+전체 옵션 목록은 명령에 대한 man 페이지를 참조하십시오.
+
++
+다음 명령을 실행하면 이라는 액세스 시 작업이 생성됩니다 `Task1` 를 누릅니다 `vs1` SVM:
 
 +
 [listing]
@@ -38,7 +46,10 @@ cluster1::> vserver vscan on-demand-task create -vserver vs1 -task-name Task1 -s
 job show 명령을 사용하여 작업의 상태를 볼 수 있습니다. 작업 일시정지 및 작업 재개 명령을 사용하여 작업을 일시정지 및 재시작하거나 작업 중지 명령을 사용하여 작업을 종료할 수 있습니다.
 
 ====
-. 주문형 작업이 생성되었는지 확인합니다. 'vserver vscan on-demand-task show-instance data_SVM-task-name task_name'
+. 주문형 작업이 생성되었는지 확인합니다.
++
+`vserver vscan on-demand-task show -instance data_SVM -task-name task_name`
+
 +
 전체 옵션 목록은 명령에 대한 man 페이지를 참조하십시오.
 
