@@ -19,8 +19,6 @@ SVM에서 NFSv3을 활성화해야 합니다.
 .이 작업에 대해
 기본적으로 Windows NFSv3 클라이언트 지원은 비활성화되어 있습니다.
 
-Windows NFSv3 클라이언트는 NSM(Network Status Monitor) 프로토콜을 지원하지 않습니다. 따라서 스토리지 페일오버 및 볼륨 이동 작업 중에 Windows NFSv3 클라이언트 세션이 중단될 수 있습니다.
-
 .단계
 . Windows NFSv3 클라이언트 지원 설정:
 +

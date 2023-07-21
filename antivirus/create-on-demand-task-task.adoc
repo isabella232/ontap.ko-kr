@@ -32,7 +32,7 @@ server_vscan_schedule -max -file -size_max_size_of_files_to_scan -exclude_extens
 전체 옵션 목록은 명령에 대한 man 페이지를 참조하십시오.
 
 +
-다음 명령을 실행하면 이라는 액세스 시 작업이 생성됩니다 `Task1` 를 누릅니다 `vs1` SVM:
+다음 명령을 실행하면 이라는 On-Demand 작업이 생성됩니다 `Task1` 를 누릅니다 ``vs1``SVM:
 
 +
 [listing]
@@ -41,11 +41,9 @@ cluster1::> vserver vscan on-demand-task create -vserver vs1 -task-name Task1 -s
 [Job 126]: Vscan On-Demand job is queued. Use the "job show -id 126" command to view the status.
 ----
 +
-[NOTE]
-====
-job show 명령을 사용하여 작업의 상태를 볼 수 있습니다. 작업 일시정지 및 작업 재개 명령을 사용하여 작업을 일시정지 및 재시작하거나 작업 중지 명령을 사용하여 작업을 종료할 수 있습니다.
 
-====
+NOTE: job show 명령을 사용하여 작업의 상태를 볼 수 있습니다. 작업 일시정지 및 작업 재개 명령을 사용하여 작업을 일시정지 및 재시작하거나 작업 중지 명령을 사용하여 작업을 종료할 수 있습니다.
+
 . 주문형 작업이 생성되었는지 확인합니다.
 +
 `vserver vscan on-demand-task show -instance data_SVM -task-name task_name`

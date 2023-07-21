@@ -58,6 +58,15 @@ ONTAP S3 작업은 아래 명시된 경우를 제외하고 표준 S3 REST API에
 
 
 | GetBuckLifecycleConfiguration 을 참조하십시오 | ONTAP 9.13.1+ * 만료 동작만 지원됩니다 
+
+
+| ListBuckketVersioning을 참조하십시오 | ONTAP 9.11.1 
+
+
+| ListObjectVersions 를 선택합니다 | ONTAP 9.11.1 
+
+
+| GetBucketLocation 을 참조하십시오 | ONTAP 9.10.1 
 |===
 
 

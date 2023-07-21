@@ -11,7 +11,7 @@ summary: FlexGroup 볼륨은 자동 로드 분산 및 확장성과 함께 고성
 
 
 [role="lead"]
-FlexGroup 볼륨은 자동 로드 분산 및 확장성과 함께 고성능을 제공하는 스케일아웃 NAS 컨테이너입니다. FlexGroup 볼륨에는 트래픽을 자동으로 투명하게 공유하는 여러 구성요소가 포함되어 있습니다.
+FlexGroup 볼륨은 자동 로드 분산 및 확장성과 함께 고성능을 제공하는 스케일아웃 NAS 컨테이너입니다. FlexGroup 볼륨에는 트래픽을 자동으로 투명하게 공유하는 여러 구성요소가 포함되어 있습니다. _f구성요소_는 FlexGroup 볼륨을 구성하는 기본 FlexVol 볼륨입니다.
 
 image::../media/fg-overview-flexgroup.gif[FlexVol 볼륨은 구성 요소라고 하는 FlexGroup 볼륨 그룹으로 표시됩니다]
 

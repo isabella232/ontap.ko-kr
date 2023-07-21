@@ -43,7 +43,7 @@ SnapMirror 비즈니스 연속성 솔루션 배포를 계획할 때 고려해야
  a| 
 1.6
  a| 
-* Red Hat Enterprise Linux: 8.4, 8.5, 8.6, 8.7, 9.0, 9.1
+* Red Hat Enterprise Linux: 8.4, 8.5, 8.6, 8.7, 8.8, 9.0, 9.1, 9.2
 * Rocky Linux 8 및 9
 
 
