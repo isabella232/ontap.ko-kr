@@ -1,0 +1,70 @@
+---
+permalink: antivirus/troubleshoot-common-virus-scanning-issues-reference.html 
+sidebar: sidebar 
+keywords: troubleshooting, troubleshoot, virus scanning, vscan, monitoring, connection, connectivity 
+summary: 일반적인 바이러스 검사 문제, 가능한 원인 및 해결 방법이 나열된 표. 
+---
+= 바이러스 검사 문제를 해결합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+일반적인 바이러스 검사 문제의 경우 가능한 원인과 해결 방법이 있습니다. 바이러스 검사는 Vscan이라고도 합니다.
+
+|===
+
+
+| 문제 | 해결 방법 
+
+
+ a| 
+Vscan 서버는 에 연결할 수 없습니다
+clustered ONTAP 스토리지 시스템을 활용할 수 있습니다.
+ a| 
+스캐너 풀 구성에서 를 지정하는지 확인합니다
+Vscan 서버 IP 주소입니다. 가 허용되는지 확인한다
+스캐너 풀 목록에서 권한이 있는 사용자가 활성화되어 있습니다. 스캐너 풀을 확인하려면 를 실행합니다 `vserver vscan scanner-pool show` 스토리지 시스템 명령 프롬프트에서 명령을 입력합니다.
+그래도 Vscan 서버에 연결할 수 없는 경우 네트워크에 문제가 있을 수 있습니다.
+
+
+
+ a| 
+클라이언트가 높은 지연 시간을 관찰합니다
+ a| 
+아마도 에 Vscan 서버를 더 추가할 때가 되었을 것입니다
+스캐너 풀입니다.
+
+
+
+ a| 
+너무 많은 스캔이 트리거됩니다
+ a| 
+의 값을 수정합니다 `vscan-fileop-profile`
+파일 작업 수를 제한하는 매개 변수입니다
+바이러스 검사를 모니터링합니다.
+
+
+
+ a| 
+일부 파일이 스캔되지 않습니다.
+ a| 
+온액세스 정책을 확인합니다. 의 경로가 될 수 있습니다
+이러한 파일은 경로 제외 목록 또는 해당 목록에 추가되었습니다
+해당 크기가 제외 항목에 대해 구성된 값을 초과합니다. 를 선택합니다
+액세스 시 정책을 확인하고 를 실행합니다 `vserver vscan
+on-access-policy show` 명령을 스토리지 위에 표시합니다
+시스템 명령 프롬프트.
+
+
+
+ a| 
+파일 액세스가 거부되었습니다.
+ a| 
+스캔 필수 설정이 지정되어 있는지 확인합니다
+정책을 구성합니다. 이 설정은 데이터 액세스를 거부합니다
+Vscan 서버가 연결되어 있지 않은 경우 설정을 로 수정합니다
+적절합니다.
+
+|===

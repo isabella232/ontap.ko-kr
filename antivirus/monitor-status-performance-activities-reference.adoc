@@ -1,0 +1,278 @@
+---
+permalink: antivirus/monitor-status-performance-activities-reference.html 
+sidebar: sidebar 
+keywords: monitoring, performance, status, connection, statistics 
+summary: 중요한 Vscan 서버 문제를 모니터링할 수 있습니다. 
+---
+= 상태 및 성능 활동을 모니터링합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vscan 서버 연결 상태와 같은 Vscan 모듈의 중요한 측면을 모니터링할 수 있습니다.
+Vscan 서버의 상태 및 스캔된 파일 수 이 정보는 도움이 됩니다
+Vscan 서버와 관련된 문제를 진단합니다.
+
+
+
+== Vscan 서버 연결 정보를 봅니다
+
+Vscan 서버의 연결 상태를 보고 이미 사용 중인 연결을 관리할 수 있습니다
+및 사용 가능한 연결입니다. 다양한 명령이 정보를 표시합니다
+Vscan 서버의 연결 상태 정보
+
+|===
+
+
+| 명령... | 표시된 정보... 
+
+
+ a| 
+'vserver vscan connection-status show'
+ a| 
+연결 상태 요약
+
+
+
+ a| 
+'vserver vscan connection-status show-all'을 선택합니다
+ a| 
+연결 상태에 대한 자세한 정보입니다
+
+
+
+ a| 
+'vserver Vscan connection-status show-not-connected'(가상 Vscan 연결 상태 표시 - 연결되지 않음)
+ a| 
+사용할 수 있지만 연결되지 않은 연결의 상태입니다
+
+
+
+ a| 
+'vserver Vscan connection-status show-connected'(가상 Vscan 연결 상태 표시 - 연결됨
+ a| 
+연결된 Vscan 서버에 대한 정보입니다
+
+|===
+이러한 명령에 대한 자세한 내용은 man 페이지를 참조하십시오.
+
+
+
+== Vscan 서버 통계를 봅니다
+
+Vscan 서버별 통계를 보고 성능을 모니터링하고 관련 문제를 진단할 수 있습니다
+바이러스 검사. 를 사용하려면 먼저 데이터 샘플을 수집해야 합니다 `statistics show` 명령을 사용하여 로 이동합니다
+Vscan 서버 통계를 표시합니다.
+데이터 샘플을 완료하려면 다음 단계를 완료하십시오.
+
+.단계
+. 를 실행합니다 `statistics start` 명령 및 `optional statistics` 중지 명령.
+
+
+
+
+=== Vscan 서버 요청 및 대기 시간에 대한 통계를 봅니다
+
+ONTAP를 사용할 수 있습니다 `offbox_vscan` Vscan의 속도를 모니터링하기 위해 SVM 단위로 카운터를 사용합니다
+모든 Vscan에 대해 1초에 발송 및 수신된 서버 요청 및 서버 지연 시간
+서버. 이러한 통계를 보려면 다음 단계를 완료하십시오.
+
+.단계
+. 통계 표시를 실행합니다 `object offbox_vscan –instance SVM` 명령과 함께
+다음 카운터:
++
+|===
+
+
+| 카운터... | 표시된 정보... 
+
+
+ a| 
+`scan_request_dispatched_rate`
+ a| 
+ONTAP에서 초당 Vscan 서버로 보낸 바이러스 검사 요청 수입니다
+
+
+
+ a| 
+`scan_noti_received_rate`
+ a| 
+ONTAP가 초당 Vscan 서버로부터 받은 바이러스 검사 요청 수입니다
+
+
+
+ a| 
+`dispatch_latency`
+ a| 
+ONTAP 내의 대기 시간으로 사용 가능한 Vscan 서버를 식별하고 해당 Vscan 서버로 요청을 전송합니다
+
+
+
+ a| 
+`scan_latency`
+ a| 
+ONTAP에서 Vscan 서버로의 왕복 지연 시간(스캔 실행 시간 포함)
+
+|===
+
+
+
+
+==== ONTAP 오프박스 Vscan 카운터에서 생성된 통계의 예
+
+[listing]
+----
+Object: offbox_vscan
+Instance: SVM
+Start-time: 10/16/2013 10:13:25
+End-time: 10/16/2013 10:25:11
+Cluster: cluster01
+Number of Constituents: 2 (complete_aggregation)
+Counter Value
+-------------------------------- --------------------------------
+scan_request_dispatched_rate 291
+scan_noti_received_rate 292
+dispatch_latency 43986us
+scan_latency 3433501us
+-----------------------------------------------------------------
+----
+
+
+=== 개별 Vscan 서버 요청 및 대기 시간에 대한 통계를 봅니다
+
+ONTAP를 사용할 수 있습니다 `offbox_vscan_server` Vscan 서버당, SVM당, 오프박스 Vscan 서버의 카운터,
+및 노드별 기준으로 파견된 Vscan 서버 요청 비율 및 에 대한 서버 지연 시간을 모니터링합니다
+각 Vscan 서버를 개별적으로 사용할 수 있습니다. 이 정보를 수집하려면 다음 단계를 완료하십시오.
+
+.단계
+. 를 실행합니다 `statistics show –object offbox_vscan –instance
+SVM:servername:nodename` 다음 카운터를 사용하여 명령을 실행합니다.
++
+|===
+
+
+| 카운터... | 표시된 정보... 
+
+
+ a| 
+`scan_request_dispatched_rate`
+ a| 
+ONTAP에서 보낸 바이러스 검사 요청 수입니다
+
+
+
+ a| 
+`scan_latency`
+ a| 
+ONTAP에서 Vscan 서버로의 왕복 지연 시간(스캔 실행 시간 포함)
+초당 Vscan 서버로
+
+|===
+
+
+
+
+==== ONTAP offbox_Vscan_server 카운터에서 생성된 통계의 예
+
+[listing]
+----
+Object: offbox_vscan_server
+Instance: SVM:vscan_server:node
+Start-time: 10/16/2013 10:13:25
+End-time: 10/16/2013 10:25:11
+Cluster: cluster01
+Number of Constituents: 1 (complete_aggregation)
+Counter Value
+-------------------------------- --------------------------------
+scan_request_dispatched_rate 291
+scan_latency 3433830us
+------------------------------------------------------------------
+----
+
+
+=== Vscan 서버 활용도에 대한 통계를 봅니다
+
+ONTAP를 사용할 수도 있습니다 `offbox_vscan_server` Vscan 서버 – 측면 활용 수집 카운터
+통계. 이러한 통계는 SVM, Box가 없는 Vscan 서버별, 노드 단위로 추적됩니다. 있습니다
+Vscan 서버의 CPU 사용률, Vscan 서버의 스캔 작업에 대한 대기열 깊이를 포함합니다
+(현재 및 최대), 사용된 메모리 및 사용된 네트워크.
+이러한 통계는 ONTAP 내의 통계 카운터로 Antivirus Connector에 의해 전달됩니다. 있습니다
+20초마다 폴링되는 데이터를 기반으로 하며 정확성을 위해 여러 번 수집해야 합니다.
+그렇지 않으면 통계에 표시되는 값은 마지막 폴링만 반영합니다. CPU 사용률 및 큐는 입니다
+특히 모니터링 및 분석에 중요합니다. 평균 대기열의 값이 높으면 가 표시됩니다
+Vscan 서버에 병목 현상이 있습니다.
+Vscan 서버에 대한 사용률을 SVM 단위, 오프박스 Vscan 서버 단위 및 노드별로 수집합니다
+다음 단계를 완료합니다.
+
+.단계
+. Vscan 서버에 대한 활용도 통계를 수집합니다
++
+를 실행합니다 `statistics show –object offbox_vscan_server –instance
+SVM:servername:nodename` 명령을 입력합니다 `offbox_vscan_server` 카운터:
+
+
+
+|===
+
+
+| 카운터... | 표시된 정보... 
+
+
+ a| 
+`scanner_stats_pct_cpu_used`
+ a| 
+Vscan 서버의 CPU 활용도입니다
+
+
+
+ a| 
+`scanner_stats_pct_input_queue_avg`
+ a| 
+Vscan 서버에 대한 스캔 요청의 평균 대기열
+
+
+
+ a| 
+`scanner_stats_pct_input_queue_hiwatermark`
+ a| 
+Vscan 서버에서 스캔 요청 최대 대기열
+
+
+
+ a| 
+`scanner_stats_pct_mem_used`
+ a| 
+Vscan 서버에서 사용되는 메모리입니다
+
+
+
+ a| 
+`scanner_stats_pct_network_used`
+ a| 
+Vscan 서버에서 사용되는 네트워크
+
+|===
+
+
+==== Vscan 서버에 대한 사용률 통계의 예
+
+[listing]
+----
+Object: offbox_vscan_server
+Instance: SVM:vscan_server:node
+Start-time: 10/16/2013 10:13:25
+End-time: 10/16/2013 10:25:11
+Cluster: cluster01
+Number of Constituents: 1 (complete_aggregation)
+Counter Value
+-------------------------------- --------------------------------
+scanner_stats_pct_cpu_used 51
+scanner_stats_pct_dropped_requests 0
+scanner_stats_pct_input_queue_avg 91
+scanner_stats_pct_input_queue_hiwatermark 100
+scanner_stats_pct_mem_used 95
+scanner_stats_pct_network_used 4
+-----------------------------------------------------------------
+----

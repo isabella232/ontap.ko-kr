@@ -52,6 +52,8 @@ entries:
     url: "/antivirus/run-on-demand-task-immediately-task.html"
   - title: 주문형 작업 관리를 위한 명령입니다
     url: "/antivirus/commands-manage-on-demand-tasks-reference.html"
+- title: 바이러스 백신 기능을 구성하는 모범 사례
+  url: "/antivirus/best-practices-configure-off-box-antivirus-functionality-concept.html"
 - title: SVM에서 바이러스 검사를 활성화합니다
   url: "/antivirus/enable-virus-scan-svm-task.html"
 - title: 스캔한 파일의 상태를 재설정합니다
@@ -64,3 +66,7 @@ entries:
     url: "/antivirus/vscan-server-connection-concept.html"
   - title: Vscan 서버 연결 상태를 보기 위한 명령입니다
     url: "/antivirus/commands-view-vscan-server-reference.html"
+  - title: 일반적인 바이러스 검사 문제를 해결합니다
+    url: "/antivirus/troubleshoot-common-virus-scanning-issues-reference.html"
+  - title: 상태 및 성능 활동을 모니터링합니다
+    url: "/antivirus/monitor-status-performance-activities-reference.html"
