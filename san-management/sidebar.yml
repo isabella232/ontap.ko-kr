@@ -3,5 +3,7 @@ section: san-management
 title: SAN 스토리지 관리
 url: "/san-management/index.html"
 entries:
+- section: san-concepts
 - section: san-admin
+- section: san-data-protection
 - section: san-config

@@ -12,8 +12,6 @@ indexpage:
       url: https://docs.netapp.com/us-en/ontap-automation/getting_started_with_the_rest_api.html
     - title: ONTAP 개념
       url: "/concepts/index.html"
-    - title: ONTAP와 클라우드
-      url: "/cloud/index.html"
     - title: ONTAP 설명서 페이지
       url: https://docs.netapp.com/us-en/ontap-cli-9131/index.html
   - title: 설정, 업그레이드 및 되돌리기

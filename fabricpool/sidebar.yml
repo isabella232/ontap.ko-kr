@@ -36,7 +36,7 @@ entries:
         url: "/fabricpool/setup-ontap-s3-cloud-tier-task.html"
       - title: Alibaba Cloud Object Storage를 클라우드 계층으로 설정합니다
         url: "/fabricpool/setup-alibaba-object-storage-cloud-tier-task.html"
-      - title: AWS S3를 클라우드 계층으로 설정
+      - title: Amazon S3를 클라우드 계층으로 설정합니다
         url: "/fabricpool/setup-aws-s3-cloud-tier-task.html"
       - title: Google Cloud Storage를 클라우드 계층으로 설정합니다
         url: "/fabricpool/setup-google-storage-cloud-tier-task.html"

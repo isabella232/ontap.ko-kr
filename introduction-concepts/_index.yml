@@ -5,8 +5,6 @@ indexpage:
     links:
     - title: ONTAP 개념 개요
       url: "/../concepts/index.html"
-    - title: ONTAP 및 클라우드 개요
-      url: "/../cloud/index.html"
   - title: 데모 자습서
     links:
     - title: NetApp TechCommTV(YouTube)의 ONTAP 비디오

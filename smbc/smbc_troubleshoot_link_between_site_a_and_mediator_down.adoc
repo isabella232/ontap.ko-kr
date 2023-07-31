@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: smbc/smbc_troubleshoot_link_between_site_a_and_mediator_down.html 
 keywords: SM-BC, SMBC, troubleshooting, connectivity, consensus 
-summary: 사이트 A와 중재 다운 및 사이트 B 다운 사이의 문제 해결 링크. 
+summary: 사이트 A와 ONTAP 중재자의 연결 중단 및 사이트 B 중단 문제 해결 
 ---
 = 사이트 A와 중재 Down 및 사이트 B Down 사이의 연결
 :hardbreaks:

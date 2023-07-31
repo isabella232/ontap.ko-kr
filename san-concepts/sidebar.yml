@@ -1,0 +1,68 @@
+---
+section: san-concepts
+title: SAN 개념
+entries:
+- title: iSCSI를 사용한 SAN 프로비저닝
+  url: "/san-admin/san-host-provisioning-concept.html"
+- title: iSCSI 서비스 관리
+  entries:
+  - title: 개요
+    url: "/san-admin/iscsi-service-management-system-interfaces-concept.html"
+  - title: iSCSI 인증의 작동 방식
+    url: "/san-admin/iscsi-authentication-concept.html"
+  - title: iSCSI 초기자 보안 관리
+    url: "/san-admin/iscsi-initiator-security-management-concept.html"
+  - title: iSCSI 엔드포인트 격리
+    url: "/san-admin/iscsi-endpoint-isolation-concept.html"
+  - title: CHAP 인증입니다
+    url: "/san-admin/chap-authentication-concept.html"
+  - title: iSCSI 인터페이스 액세스 목록을 사용하여 이니시에이터 인터페이스를 제한하는 방법은 성능과 보안을 향상시킬 수 있습니다
+    url: "/san-admin/iscsi-interface-access-management-concept.html"
+  - title: iSNS 서버 등록 요구 사항입니다
+    url: "/san-admin/isns-concept.html"
+- title: FC를 통한 SAN 프로비저닝
+  url: "/san-admin/san-provisioning-fc-concept.html"
+- title: NVMe를 이용한 SAN 프로비저닝
+  url: "/san-admin/san-provisioning-nvme-concept.html"
+- title: SAN 볼륨 정보
+  entries:
+  - title: 개요
+    url: "/san-admin/san-volumes-concept.html"
+  - title: 볼륨 프로비저닝 옵션을 구성합니다
+    url: "/san-admin/configure-volume-provisioning-options-task.html"
+  - title: SAN 볼륨 구성 옵션
+    url: "/san-admin/volume-config-options-concept.html"
+  - title: SAN 환경에서 볼륨을 이동하기 위한 요구사항
+    url: "/san-admin/requirement-moving-volumes-san-concept.html"
+  - title: 부분 예약 설정을 위한 고려 사항
+    url: "/san-admin/set-fractional-reserve-concept.html"
+- title: 호스트 측 공간 관리에 대해 설명합니다
+  entries:
+  - title: 개요
+    url: "/san-admin/host-side-management-concept.html"
+  - title: SCSI 씬 프로비저닝된 LUN을 사용하여 호스트 측 공간을 자동으로 관리합니다
+    url: "/san-admin/automatic-host-side-space-management-concept.html"
+  - title: SCSI 씬 프로비저닝된 LUN에 대한 공간 할당을 설정합니다
+    url: "/san-admin/enable-space-allocation-scsi-thin-provisioned-luns-task.html"
+  - title: SCSI 씬 프로비저닝을 위한 호스트 지원
+    url: "/san-admin/host-support-scsi-thin-provisioning-reference.html"
+  - title: SnapCenter를 통한 호스트 관리 단순화
+    url: "/san-admin/simplified-host-management-snapcenter-concept.html"
+- title: Igroup 정보
+  url: "/san-admin/igroups-concept.html"
+- title: igroup에서 LUN 액세스를 제공하는 방법의 예
+  url: "/san-admin/example-how-igroups-give-lun-access-reference.html"
+- title: igroup에 대해 이니시에이터 WWPN 및 iSCSI 노드 이름을 지정합니다
+  url: "/san-admin/specify-initiator-wwpns-node-names-igroup-concept.html"
+- title: VMware 및 Microsoft 복사본 오프로드를 통한 스토리지 가상화
+  entries:
+  - title: 개요
+    url: "/san-admin/storage-virtualization-vmware-copy-offload-concept.html"
+  - title: 가상화된 환경에서 LUN 액세스가 작동하는 방식
+    url: "/san-admin/lun-access-virtualized-environment-concept.html"
+  - title: 클러스터 SAN 환경의 LIF 고려 사항
+    url: "/san-admin/lifs-cluster-concept.html"
+  - title: ESX 호스트의 VMware VAAI 성능을 향상시킵니다
+    url: "/san-admin/improve-vmware-vaai-performance-esx-hosts-concept.html"
+  - title: Microsoft ODX(Offloaded Data Transfer)
+    url: "/san-admin/microsoft-offloaded-data-transfer-odx-concept.html"

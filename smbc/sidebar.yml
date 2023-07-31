@@ -6,59 +6,35 @@ entries:
   url: "/smbc/index.html"
 - title: 주요 개념
   url: "/smbc/smbc_intro_terminology.html"
-- title: 계획 수립
+- title: 계획
   entries:
   - title: 필수 구성 요소
     url: "/smbc/smbc_plan_prerequisites.html"
-  - title: 고려 사항 및 제한 사항
+  - title: 지원되는 구성
+    url: "/smbc/supported-configurations-reference.html"
+  - title: 제한
     url: "/smbc/considerations-limits.html"
-  - title: ONTAP 액세스 옵션
-    url: "/smbc/smbc_plan_ontap_access_options.html"
-  - title: ONTAP CLI 사용을 준비합니다
-    url: "/smbc/smbc_plan_preparing_to_use_the_ontap_cli.html"
-  - title: ONTAP 중재자를 사용할 준비를 합니다
-    url: "/smbc/smbc_plan_preparing_to_use_the_ontap_mediator.html"
-  - title: 구축 모범 사례 요약
-    url: "/smbc/smbc_plan_summary_of_deployment_best_practices.html"
-- title: System Manager를 사용하여 비즈니스 연속성을 위한 SnapMirror를 관리합니다
+- title: 설치 및 설정
   entries:
-  - title: 중재자 구성
-    url: "/task_san_configure_mediator.html"
-  - title: 무중단 업무 운영을 위한 보호 구성
-    url: "/task_san_configure_protection_for_business_continuity.html"
-  - title: 계획되지 않은 페일오버 후에 원래 보호 관계를 다시 설정합니다
-    url: "/task_san_reestablish_original_relationship_after_unplanned_failover.html"
-- title: ONTAP CLI를 사용한 설치 및 설정
-  entries:
-  - title: 고급 배포 워크플로
-    url: "/smbc/smbc_install_high_level_deployment_workflow.html"
-  - title: ONTAP 중재자 서비스를 설치하고 ONTAP 클러스터 구성을 확인합니다
+  - title: ONTAP 중재자 및 클러스터를 구성합니다
     url: "/smbc/smbc_install_confirm_ontap_cluster.html"
-  - title: ONTAP 중재자를 초기화합니다
-    url: "/smbc/smbc_install_initialize_the_ontap_mediator.html"
-  - title: 일관성 그룹 관계를 생성합니다
-    url: "/smbc/smbc_install_creating_a_consistency_group_relationship.html"
-  - title: 일관성 그룹 초기화
-    url: "/smbc/smbc_install_initializing_a_consistency_group.html"
-  - title: 애플리케이션 호스트에 LUN 매핑
-    url: "/smbc/smbc_install_mapping_luns_to_the_application_hosts.html"
-- title: 관리
+  - title: 보호 구성
+    url: "/task_san_configure_protection_for_business_continuity.html"
+- title: SM-BC 관리 및 데이터 보호
   entries:
   - title: 공통 스냅샷 복사본을 생성합니다
     url: "/smbc/smbc_admin_creating_a_common_snapshot_copy.html"
   - title: 계획된 페일오버를 수행합니다
     url: "/smbc/smbc_admin_performing_a_planned_failover.html"
-  - title: 계획되지 않은 페일오버 작업을 자동으로 수행합니다
+  - title: 예기치 않은 자동 페일오버 작업에서 복구합니다
     url: "/smbc/smbc_admin_what_happens_during_an_automatic_unplanned_failover.html"
-  - title: 기본 모니터링
+  - title: SM-BC 모니터링
     url: "/smbc/smbc_admin_monitoring.html"
-  - title: 일관성 그룹에 볼륨을 추가 및 제거합니다
+  - title: 정합성 보장 그룹에 볼륨을 추가 및 제거합니다
     url: "/smbc/smbc_admin_add_and_remove_volumes_in_consistency_groups.html"
-  - title: 팬아웃 구성에서 보호를 재개합니다
-    url: "/smbc/resume-protection-fan-out-configuration.html"
   - title: 기존 관계를 SM-BC 관계로 전환
     url: "/smbc/smbc_admin_converting_existing_relationships_to_smbc.html"
-  - title: SM-BC 업그레이드 및 되돌리기 고려 사항
+  - title: 업그레이드 및 되돌리기
     url: "/smbc/smbc_admin_upgrade_and_revert_considerations.html"
   - title: SM-BC 구성을 제거합니다
     url: "/smbc/smbc_admin_removing_an_smbc_configuration.html"

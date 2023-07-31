@@ -16,8 +16,6 @@ FlexGroup 볼륨을 생성할 애그리게이트를 수동으로 선택한 다�
 .이 작업에 대해
 FlexGroup 볼륨을 생성하는 데 필요한 Aggregate의 공간에 대해 알고 있어야 합니다.
 
-link:aggregate-space-requirements-concept.html["FlexGroup 볼륨을 프로비저닝할 때 애그리게이트 공간을 위한 지침입니다"]
-
 FlexGroup 볼륨에서 최상의 성능 결과를 얻으려면 FlexGroup 볼륨을 생성할 때 다음 지침을 고려해야 합니다.
 
 * FlexGroup 볼륨은 동일한 하드웨어 시스템에 있는 애그리게이트에만 분산되어야 합니다.

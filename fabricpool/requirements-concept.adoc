@@ -71,7 +71,7 @@ https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/
 +
 ** 클라우드 마이그레이션 제어를 통해 기본 계층화 정책을 재정의할 수 있습니다
 ** 데이터를 성능 계층으로 상향 이동
-** SnapLock 엔터프라이즈 및 FabricPool
+** SnapLock 엔터프라이즈 및 FabricPool SnapLock Enterprise를 지원하는 FabricPool에는 FPVR(Feature Product Variance Request)이 필요합니다. FPVR을 생성하려면 영업 팀에 문의하십시오.
 ** 최소 냉각 기간은 최대 183일입니다
 ** 사용자가 만든 사용자 지정 태그를 사용하여 개체 태그 지정
 ** FabricPool을 통해 HDD 플랫폼 및 애그리게이트가 지원됩니다

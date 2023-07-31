@@ -14,7 +14,7 @@ summary: 일관성 그룹을 계획할 때는 주의해야 할 오브젝트 제�
 일관성 그룹을 계획 및 관리할 때는 클러스터와 부모 또는 자식 일관성 그룹 모두의 범위에서 개체 제한을 고려합니다.
 
 
-NOTE: SnapMirror 비즈니스 연속성을 사용하는 경우 을 참조하십시오 link:../smbc/smbc_plan_additional_restrictions_and_limitations.html#volumes["SM-BC 제한 및 제한 사항"].
+NOTE: SnapMirror 비즈니스 연속성을 사용하는 경우 을 참조하십시오 link:../smbc/considerations-limits.html["SM-BC 제한 및 제한 사항"].
 
 |===
 

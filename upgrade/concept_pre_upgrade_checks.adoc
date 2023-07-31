@@ -1,7 +1,7 @@
 ---
 permalink: upgrade/concept_pre_upgrade_checks.html 
 sidebar: sidebar 
-keywords: ontap, upgrade, plan, planning, upgrade, manually, manual, checks, cluster, ready, verification, verify, verifying 
+keywords: ontap, upgrade, plan, upgrade, manually, manual, checks, cluster, ready, verification, verify 
 summary: 다양한 구성 설정이 클러스터 업그레이드 준비에 영향을 미칠 수 있습니다. 
 ---
 = 업그레이드 전 점검
@@ -50,7 +50,7 @@ summary: 다양한 구성 설정이 클러스터 업그레이드 준비에 영�
 | 외부 키 관리 서버와 함께 NetApp Storage Encryption을 사용하고 있습니까? | xref:task_preparing_to_upgrade_nodes_using_netapp_storage_encryption_with_external_key_management_servers.html[기존 키 관리 서버 연결을 삭제합니다] 
 
 
-| SVM에 넷그룹이 로드되어 있습니까? | xref:task_verifying_that_the_netgroup_file_is_present_on_all_nodes.html[넷그룹 파일이 각 노드에 있는지 확인합니다] 
+| SVM에 넷그룹이 로드되어 있습니까? | xref:task_verifying_that_the_netgroup_file_is_present_on_all_nodes.html[각 노드에 넷그룹 파일이 있는지 확인합니다] 
 
 
 | SSLv3을 사용하는 LDAP 클라이언트가 있습니까? | xref:task_configuring_ldap_clients_to_use_tls_for_highest_security.html[TLS를 사용하도록 LDAP 클라이언트를 구성합니다] 

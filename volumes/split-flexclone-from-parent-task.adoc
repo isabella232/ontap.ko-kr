@@ -88,7 +88,7 @@ vs1       clone1        0         0       411247   153600         0        37
 ----
 . 분할 볼륨이 더 이상 FlexClone 볼륨이 아닌지 확인합니다.
 +
-'volume show-volume_volume_name_-fields_clone-volume_'
+`volume show -volume _volume_name_ -fields clone-volume`
 
 +
 의 값 `clone-volume` FlexClone 볼륨이 아닌 볼륨의 경우 ""false"" 옵션이 있습니다.

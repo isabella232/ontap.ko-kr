@@ -4,7 +4,7 @@ permalink: smbc/smbc_admin_add_and_remove_volumes_in_consistency_groups.html
 keywords: SM-BC, SMBC, volume, consistency group, remove volume, add volume 
 summary: 볼륨을 추가하거나 제거하여 일관성 그룹의 구성을 변경하려면 먼저 원래 관계를 삭제한 다음 새 구성도를 사용하여 일관성 그룹을 다시 생성해야 합니다. 
 ---
-= 일관성 그룹에 볼륨을 추가 및 제거합니다
+= 정합성 보장 그룹에 볼륨을 추가하거나 제거합니다
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,32 +14,36 @@ summary: 볼륨을 추가하거나 제거하여 일관성 그룹의 구성을 �
 
 
 [role="lead"]
-활성 SM-BC 관계에서 볼륨을 추가 및 제거하는 작업은 사용 중인 ONTAP 버전에 따라 달라집니다.
+애플리케이션 워크로드의 요구사항이 변경됨에 따라 비즈니스 연속성을 보장하기 위해 일관성 그룹에서 볼륨을 추가하거나 제거해야 할 수 있습니다. 활성 SM-BC 관계에서 볼륨을 추가 및 제거하는 프로세스는 사용 중인 ONTAP 버전에 따라 다릅니다.
+
+대부분의 경우 이는 SnapMirror 관계를 해제하고 일관성 그룹을 수정한 다음 보호를 다시 시작해야 하는 중단 프로세스입니다. ONTAP 9.13.1 부터는 활성 SM-BC 관계가 있는 정합성 보장 그룹에 볼륨을 추가하는 작업이 무중단 작업으로 실행됩니다.
 
 .이 작업에 대해
-ONTAP 9.8 ~ 9.9.1에서는 ONTAP CLI를 사용하여 볼륨을 일관성 그룹에 추가하거나 제거할 수 있습니다.
+* ONTAP 9.8 ~ 9.9.1에서는 ONTAP CLI를 사용하여 볼륨을 일관성 그룹에 추가하거나 제거할 수 있습니다.
+* ONTAP 9.10.1.1부터는 를 관리하는 것이 좋습니다 link:../consistency-groups/index.html["정합성 보장 그룹"] System Manager 또는 ONTAP REST API를 통해
++
+볼륨을 추가하거나 제거하여 일관성 그룹의 구성을 변경하려면 먼저 원래 관계를 삭제한 다음 새 구성도를 사용하여 일관성 그룹을 다시 생성해야 합니다.
 
-ONTAP 9.10.1.1부터는 를 관리하는 것이 좋습니다 link:../consistency-groups/index.html["정합성 보장 그룹"] System Manager 또는 ONTAP REST API를 통해 볼륨을 추가하거나 제거하여 일관성 그룹의 구성을 변경하려면 먼저 원래 관계를 삭제한 다음 새 구성도를 사용하여 일관성 그룹을 다시 생성해야 합니다.
+* ONTAP 9.13.1 부터는 소스 또는 대상으로부터 활성 SM-BC 관계가 있는 정합성 보장 그룹에 볼륨을 무중단으로 추가할 수 있습니다.
++
+볼륨 제거는 중단을 야기하는 작업입니다. 볼륨 제거를 진행하기 전에 SnapMirror 관계를 끊어야 합니다.
 
-ONTAP 9.13.1 부터는 소스 또는 대상으로부터 활성 SM-BC 관계가 있는 정합성 보장 그룹에 볼륨을 무중단으로 추가할 수 있습니다.
 
-
-NOTE: SM-BC 관계가 있는 일관성 그룹에서 볼륨을 제거하면 작업이 중단되며, 이 작업을 진행하기 전에 SnapMirror 관계를 해제해야 합니다.
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.8-9.13.0
 --
 .시작하기 전에
-* 정합성 보장 그룹이 "InSync" 상태인 경우 컴포지션 변경이 허용되지 않습니다.
+* 에 있는 동안에는 일관성 그룹을 수정할 수 없습니다 `InSync` 상태.
 * 대상 볼륨은 DP 유형이어야 합니다.
 * 일관성 그룹을 확장하기 위해 추가하는 새로운 볼륨에는 소스 볼륨과 타겟 볼륨 사이에 공통 스냅샷 복사본 쌍이 있어야 합니다.
 
 
 .단계
-이 절차에서는 끝점 VS1_src:/cg/cg_src 및 vs1_dst:/cg/cg_dst 사이의 일관성 그룹 관계에서 vol_src1<->vol_dst1 및 vol_src2<->vol_dst2 볼륨 매핑이 2개 있다고 가정합니다.
+두 볼륨 매핑에 표시된 예는 다음과 같습니다. `vol_src1` <--> `vol_dst1` 및 `vol_src2` <--> `vol_dst2`정합성 보장 그룹 관계에서 최종 지점 간의 관계를 나타냅니다 `vs1_src:/cg/cg_src` 및 `vs1_dst:/cg/cg_dst`.
 
-. 소스 클러스터와 타겟 클러스터 모두에서 소스 볼륨과 타겟 볼륨 사이에 공통 스냅샷 복사본이 있는지 확인합니다.
+. 소스 및 타겟 클러스터에서 명령을 사용하여 소스 클러스터와 타겟 클러스터 사이에 공통 스냅샷이 있는지 확인합니다 `snapshot show -vserver _svm_name_ -volume _volume_name_ -snapshot _snapmirror_`
 +
 'source::> snapshot show -vserver vs1_src -volume vol_src3 -snapshot SnapMirror *'
 
@@ -50,7 +54,7 @@ NOTE: SM-BC 관계가 있는 일관성 그룹에서 볼륨을 제거하면 작�
 +
 대상 경로 VS1_Dst:vol_dst3'이라는 메시지가 나타납니다
 
-. 제로 RTO 정합성 보장 그룹 관계를 삭제합니다.
+. 정합성 보장 그룹 관계를 삭제합니다.
 +
 대상 경로 VS1_DST:vol_dst3'을 선택합니다
 

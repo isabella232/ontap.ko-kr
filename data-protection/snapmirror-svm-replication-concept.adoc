@@ -222,6 +222,13 @@ ONTAP 9.5부터 MetroCluster 구성에서 SnapMirror SVM 복제가 지원됩니�
 
 
  a| 
+ONTAP S3
+ a| 
+SVM DR에서는 지원되지 않습니다.
+
+
+
+ a| 
 SnapMirror Synchronous
  a| 
 SVM DR에서는 지원되지 않습니다.

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: concept_administration_overview.html 
-keywords: netapp, ontap, administration, overview, cluster, node, local tier, aggregate, svm, storage vm, service level, volume, qtree, LUN, automatic aggregate selection, vserver, protocol, quota, disk, HA pair, dashboard, subnet, domain, interface, mirroring, vaulting, storage 
+keywords: netapp, system manager, ontap, administration, overview, cluster, node, local tier, aggregate, svm, storage vm, service level, volume, qtree, LUN, automatic aggregate selection, vserver, protocol, quota, disk, HA pair, dashboard, subnet, domain, interface, mirroring, vaulting, storage, html5 
 summary: System Manager를 사용하면 스토리지 시스템과 스토리지 객체를 관리하고 웹 브라우저에서 스토리지 시스템과 관련된 공통 관리 작업을 수행할 수 있습니다. 
 ---
 = System Manager의 관리 개요
@@ -19,13 +19,13 @@ summary: System Manager를 사용하면 스토리지 시스템과 스토리지 �
 
 
 [role="lead"]
-System Manager는 웹 브라우저를 사용하여 스토리지 시스템과 스토리지 오브젝트(예: 디스크, 볼륨 및 스토리지 계층)를 관리하고 스토리지 시스템과 관련된 일반적인 관리 작업을 수행할 수 있는 그래픽 관리 인터페이스입니다.
+System Manager는 HTML5 기반의 그래픽 관리 인터페이스로, 웹 브라우저를 사용하여 스토리지 시스템과 스토리지 객체(예: 디스크, 볼륨 및 스토리지 계층)를 관리하고 스토리지 시스템과 관련된 일반적인 관리 작업을 수행할 수 있습니다.
 
 이 섹션의 절차를 사용하면 ONTAP 9.7 이상 릴리즈의 System Manager에서 클러스터를 관리할 수 있습니다.
 
 [NOTE]
 ====
-* ONTAP 9.8부터 System Manager는 더 이상 실행 파일로 사용할 수 없으며, ONTAP 소프트웨어에 웹 서비스로 포함되어 있으며, 기본적으로 활성화되어 있으며 브라우저를 통해 액세스할 수 있습니다.
+* System Manager는 ONTAP 소프트웨어에 웹 서비스로 포함되어 있으며, 기본적으로 활성화되어 있으며 브라우저를 통해 액세스할 수 있습니다.
 * System Manager의 이름이 ONTAP 9.6부터 변경되었습니다. ONTAP 9.5 이전 버전에서는 OnCommand 시스템 관리자라고 했습니다. ONTAP 9.6 이상에서는 시스템 관리자라고 합니다.
 * 클래식 시스템 관리자(ONTAP 9.7 이전에서만 사용 가능)를 사용하는 경우 를 참조하십시오  https://docs.netapp.com/us-en/ontap-sm-classic/index.html["System Manager Classic(ONTAP 9.0 ~ 9.7)"^]
 

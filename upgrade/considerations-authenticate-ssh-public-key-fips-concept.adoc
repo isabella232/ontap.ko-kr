@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ontap, upgrade, update, considerations, ssl, fips mode, host key algorithm 
 summary: 관리자 계정이 SSH 공개 키로 인증하는 클러스터에서 SSL FIPS 모드가 활성화된 경우 ONTAP를 업그레이드하기 전에 타겟 릴리즈에서 호스트 키 알고리즘이 지원되는지 확인해야 합니다. 
 ---
-= 세션 지향 프로토콜에 대한 고려 사항
+= 업그레이드하기 전에 SSH 호스트 키 알고리즘 지원을 확인하십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,13 +13,13 @@ summary: 관리자 계정이 SSH 공개 키로 인증하는 클러스터에서 S
 [role="lead"]
 관리자 계정이 SSH 공개 키로 인증하는 클러스터에서 SSL FIPS 모드가 활성화된 경우 ONTAP를 업그레이드하기 전에 타겟 릴리즈에서 호스트 키 알고리즘이 지원되는지 확인해야 합니다.
 
-* 참고: * ONTAP 9.11.1 이상 릴리스에서 호스트 키 알고리즘 지원이 변경되었습니다.
+다음 표에는 ONTAP SSH 연결에 지원되는 호스트 키 유형 알고리즘이 나와 있습니다. 이러한 키 유형은 SSH 공개 인증 구성에 적용되지 않습니다.
 
 [cols="30,30,30"]
 |===
 
 
-| ONTAP 릴리즈 | 지원되는 키 유형 | 지원되지 않는 키 유형입니다 
+| ONTAP 릴리즈 | FIPS 모드에서 지원되는 키 유형입니다 | FIPS 이외의 모드에서 지원되는 키 유형입니다 
 
 
  a| 
@@ -27,7 +27,7 @@ summary: 관리자 계정이 SSH 공개 키로 인증하는 클러스터에서 S
  a| 
 ECDSA-SHA2-nistp256
  a| 
-RSA-SHA2-512 + RSA - SHA2-256 + ssh-ed25519 + ssh-dss+ssh-rssh-rsa
+ECDSA-SHA2-nistp256+RSA-SHA2-512+RSA-SHA2-256+ssh-ed25519+ssh-dss+ssh-ssh-rsa
 
 
 
@@ -36,9 +36,14 @@ RSA-SHA2-512 + RSA - SHA2-256 + ssh-ed25519 + ssh-dss+ssh-rssh-rsa
  a| 
 ECDSA-SHA2-nistp256+ssh-ed25519
  a| 
-SSH-DSS+ssh-rsa를 사용합니다
+ECDSA-SHA2-nistp256+ssh-ed25519+ssh-dss+ssh-rsa
 
 |===
+
+NOTE: SSH-ed25519 호스트 키 알고리즘 지원은 9.11.1에서 제거됩니다
+
+자세한 내용은 을 참조하십시오 link:../networking/configure_network_security_using_federal_information_processing_standards_@fips@.html["FIPS를 사용하여 네트워크 보안을 구성합니다"].
+
 지원되는 키 알고리즘이 없는 기존 SSH 공개 키 계정은 업그레이드를 활성화하기 전에 지원되는 키 유형으로 재구성해야 합니다. 그렇지 않으면 관리자 인증이 실패합니다.
 
 link:../authentication/enable-ssh-public-key-accounts-task.html["SSH 공개 키 계정 설정에 대해 자세히 알아보십시오."]

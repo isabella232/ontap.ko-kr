@@ -4,7 +4,7 @@ permalink: smbc/smbc_troubleshoot_mediator_not_reachable_or_quorum_false.html
 keywords: troubleshooting, SM-BC, SMBC, Mediator, quorum, quorum status, failover, network 
 summary: SnapMirror 페일오버 시작 명령을 실행한 후 SnapMirror 페일오버 표시 명령의 출력에 중재자가 구성되지 않았다는 메시지가 표시됩니다. 
 ---
-= 중재자가 연락할 수 없거나 중재 쿼럼 상태가 거짓입니다
+= ONTAP 중재자가 연락할 수 없거나 중재 쿼럼 상태가 거짓입니다
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -17,7 +17,7 @@ summary: SnapMirror 페일오버 시작 명령을 실행한 후 SnapMirror 페�
 [role="lead"]
 'napmirror failover start' 명령을 실행한 후 'napmirror failover show' 명령의 출력에 중재자가 구성되지 않았다는 메시지가 표시됩니다.
 
-을 참조하십시오 link:smbc_install_initialize_the_ontap_mediator.html#["ONTAP 중재자를 초기화합니다"].
+을 참조하십시오 link:smbc_install_confirm_ontap_cluster.html#initialize-the-ontap-mediator-for-smbc["ONTAP 중재자를 초기화합니다"].
 
 ....
 Cluster1::> snapmirror failover show
@@ -31,7 +31,7 @@ vs0:/cg/cg vs1:/cg/cg planned failed 10/1/2020 10/1/2020 SnapMirror failover can
 중재자가 구성되지 않았거나 네트워크 연결 문제가 있습니다.
 
 .솔루션:
-중재자가 구성되지 않은 경우 SM-BC 관계를 설정하기 전에 중재자를 구성해야 합니다. 네트워크 연결 문제를 해결합니다. SnapMirror 중재자 show 명령을 사용하여 중재자가 연결되어 있고 소스 사이트와 대상 사이트 모두에서 쿼럼 상태가 true 인지 확인합니다.
+ONTAP 중재자가 구성되어 있지 않은 경우 SM-BC 관계를 설정하기 전에 ONTAP 중재자를 구성해야 합니다. 네트워크 연결 문제를 해결합니다. SnapMirror 중재자 show 명령을 사용하여 중재자가 연결되어 있고 소스 사이트와 대상 사이트 모두에서 쿼럼 상태가 true 인지 확인합니다. 자세한 내용은 을 참조하십시오 xref:smbc_install_confirm_ontap_cluster.html[ONTAP 중재자를 구성합니다].
 
 ....
 cluster::> snapmirror mediator show

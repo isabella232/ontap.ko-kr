@@ -14,14 +14,14 @@ summary: SnapMirror 비즈니스 연속성 솔루션 배포를 계획할 때 고
 
 
 [role="lead"]
-SnapMirror 비즈니스 연속성 솔루션 배포를 계획할 때 고려해야 하는 몇 가지 필수 구성 요소가 있습니다.
+SnapMirror 비즈니스 연속성 구축을 계획할 때 다양한 하드웨어, 소프트웨어 및 시스템 구성 요구사항을 충족하는지 확인하십시오.
 
 
 
 == 하드웨어
 
 * 2노드 HA 클러스터만 지원됩니다
-* 두 클러스터는 모두 AFF 또는 ASA여야 함(혼합 없음)
+* 두 클러스터 모두 AFF(AFF C-Series 포함) 또는 ASA 중 하나여야 함(혼합 없음)
 
 
 
@@ -92,7 +92,7 @@ SnapMirror 비즈니스 연속성 솔루션 배포를 계획할 때 고려해야
 * SnapMirror 라이센스는 두 클러스터에 모두 적용해야 합니다
 +
 
-NOTE: 2019년 6월 이전에 ONTAP 스토리지 시스템을 구입한 경우 을 클릭합니다 link:https://mysupport.netapp.com/site/systems/master-license-keys["NetApp ONTAP 마스터 라이센스 키"^] 필요한 SM-S 라이센스를 얻으려면
+NOTE: 2019년 6월 이전에 ONTAP 스토리지 시스템을 구입한 경우 섹션을 참조하십시오 link:https://mysupport.netapp.com/site/systems/master-license-keys["NetApp ONTAP 마스터 라이센스 키"^] 필요한 SM-S 라이센스를 얻으려면
 
 
 
@@ -100,16 +100,16 @@ NOTE: 2019년 6월 이전에 ONTAP 스토리지 시스템을 구입한 경우 �
 
 == 네트워킹 환경
 
-* 클러스터 간 지연 RTT(Round Trip Time)는 10밀리초 미만이어야 합니다
-* SCSI-3 영구 예약은 **지원되지 않습니다** SM-BC에서 지원됩니다
+* 클러스터 간 지연 RTT(Round Trip Time)는 10밀리초 미만이어야 합니다.
+* SCSI-3 영구 예약은 **지원되지 않습니다** SM-BC에서 지원됩니다.
 
 
 
 
 == 지원되는 프로토콜
 
-* SAN 프로토콜만 지원(NFS/SMB 제외)
-* Fibre Channel 및 iSCSI 프로토콜만 지원됩니다
+* SAN 프로토콜만 지원됩니다(NFS/SMB 제외).
+* Fibre Channel 및 iSCSI 프로토콜만 지원됩니다.
 * 클러스터 피어 관계를 위해 SM-BC에서 기본 IPspace가 필요합니다. 사용자 지정 IPspace는 지원되지 않습니다.
 
 
@@ -123,8 +123,11 @@ NTFS 보안 스타일은 SM-BC 볼륨에서 * 지원되지 않습니다 *.
 
 == ONTAP 중재자
 
-* 투명한 애플리케이션 페일오버를 위해 외부에서 프로비저닝하고 ONTAP에 연결해야 합니다.
-* ONTAP 중재자에 대한 자세한 내용은 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_configuring_the_ontap_mediator_service_from_a_metrocluster_ip_configuration.html["ONTAP 중재자 서비스 설치 준비"^].
+* 투명한 애플리케이션 장애 조치를 위해 ONTAP 중재자를 외부에서 프로비저닝하고 ONTAP에 연결할 수 있습니다.
+* 완벽하게 작동하고 예기치 않은 자동 페일오버를 활성화하려면 외부 ONTAP 중재자를 ONTAP 클러스터로 프로비저닝하고 구성해야 합니다.
+* ONTAP 중재자는 두 ONTAP 클러스터와는 별도로 세 번째 장애 도메인에 설치해야 합니다.
+* ONTAP 중재자를 설치할 때 신뢰할 수 있는 주요 CA가 서명한 유효한 인증서로 자체 서명된 인증서를 교체해야 합니다.
+* ONTAP 중재자에 대한 자세한 내용은 을 참조하십시오 link:../mediator/index.html["ONTAP 중재자 서비스 설치 준비"].
 
 
 
@@ -166,4 +169,5 @@ NOTE: ONTAP 9.8과 9.12.1 P2 사이의 ONTAP 릴리스의 경우 기본 클러�
 == 추가 정보
 
 * link:https://hwu.netapp.com/["Hardware Universe"^]
+* link:../mediator/mediator-overview-concept.html["ONTAP 중재자 개요"^]
 

@@ -94,3 +94,5 @@ entries:
     url: "/concepts/snaplock-archiving-compliance-concept.html"
 - title: 애플리케이션 인식 데이터 관리
   url: "/concepts/application-aware-data-management-concept.html"
+- title: FabricPool
+  url: "/concepts/fabricpool-concept.html"
