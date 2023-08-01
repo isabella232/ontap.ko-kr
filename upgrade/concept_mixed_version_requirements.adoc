@@ -41,7 +41,7 @@ summary: 혼합 버전 ONTAP 클러스터는 ONTAP 9.8 및 9.12.1과 같이 두 
 
 | ONTAP 9.7 이하 | 7일 
 |===
-* ONTAP 9.8부터 혼합 버전의 ONTAP 클러스터는 최대 4개의 주요 릴리즈를 포괄할 수 있습니다. 예를 들어 혼합 버전의 ONTAP 클러스터에는 ONTAP 9.8과 9.12.1을 실행하는 노드가 있거나 ONTAP 9.9.1 및 9.13.1 노드를 실행하는 노드가 있을 수 있습니다. ONTAP 9.8 및 9.13.1 노드를 실행하는 혼합 버전 ONTAP 클러스터는 5개의 주요 릴리스에 걸쳐 있으므로 지원되지 않습니다.
+* ONTAP 9.8부터 혼합 버전의 ONTAP 클러스터는 최대 5개의 주요 릴리즈를 포괄할 수 있습니다. 예를 들어 혼합 버전의 ONTAP 클러스터에는 ONTAP 9.8과 9.12.1을 실행하는 노드가 있거나 ONTAP 9.9.1 및 9.13.1 노드를 실행하는 노드가 있을 수 있습니다. 혼합 버전 클러스터가 6개의 주요 릴리즈를 포괄하기 때문에 ONTAP 9.8 및 9.13.1을 실행하는 노드를 포함하는 혼합 버전 ONTAP 클러스터는 지원되지 않습니다.
 
 
 
@@ -60,15 +60,19 @@ summary: 혼합 버전 ONTAP 클러스터는 ONTAP 9.8 및 9.12.1과 같이 두 
 
 클러스터에 추가할 노드에 필요한 최소 버전의 ONTAP로 기존 노드를 모두 업그레이드하는 것이 좋습니다. 그러나 기존 노드 중 일부가 최신 버전의 ONTAP를 지원하지 않기 때문에 이 작업을 수행할 수 없는 경우에는 업그레이드 프로세스의 일부로 제한된 시간 동안 혼합 버전 상태를 입력해야 합니다. 새 컨트롤러에 필요한 최소 ONTAP 버전을 지원하지 않는 노드가 있는 경우 다음을 수행해야 합니다.
 
-. link:https://docs.netapp.com/us-en/ontap/upgrade/concept_upgrade_methods.html["업그레이드"] 새 컨트롤러에 필요한 최소 ONTAP 버전을 지원하는 클러스터의 모든 노드
+. link:https://docs.netapp.com/us-en/ontap/upgrade/concept_upgrade_methods.html["업그레이드"] 새로운 컨트롤러에 필요한 최소 ONTAP 버전을 지원하지 않는 노드는 지원하는 최대 ONTAP 버전까지 지원합니다.
++
+예를 들어, FAS8000을 ONTAP 9.5를 실행하는 FAS8000이 있고 ONTAP 9.12.1을 실행하는 새로운 C-Series 플랫폼을 추가하려면 FAS8000을 ONTAP 9.8(지원되는 최대 ONTAP 버전)으로 업그레이드해야 합니다.
+
 . 클러스터에 새 노드를 추가합니다.
 +
 ONTAP 명령 클러스터를 사용합니다 `add-node -allow-mixed-version-join` 고급 권한 수준에서 새 노드를 조인합니다.
 
 . 업그레이드할 수 없는 노드에서 상위 ONTAP 버전을 실행하는 노드로 데이터를 마이그레이션합니다.
 . link:https://docs.netapp.com/us-en/ontap/system-admin/remov-nodes-cluster-concept.html["클러스터에서 지원되지 않는 노드를 제거합니다"^].
+. link:https://docs.netapp.com/us-en/ontap/upgrade/concept_upgrade_methods.html["업그레이드"] 클러스터의 나머지 노드는 새 노드와 동일한 버전으로 유지됩니다.
 +
-ONTAP 명령 클러스터를 사용합니다 `remove-node -skip-last-low-version-node-check` 이 노드를 제거합니다. (ONTAP 9.3 및 이전 버전에서는 을 사용합니다 `cluster unjoin -skip-last-low-version-node-check` 명령)
+필요한 경우 전체 클러스터(새 노드 포함)를 로 업그레이드합니다 link:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU2["권장되는 최신 패치 릴리스"] 새 노드에서 실행되는 ONTAP 버전의 번호입니다.
 
 
 
