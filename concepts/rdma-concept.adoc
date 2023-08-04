@@ -24,3 +24,8 @@ ONTAP 9.10.1부터 구성할 수 있습니다 link:../nfs-rdma/index.html["RDMA 
 == RDMA 클러스터 상호 연결
 
 ONTAP는 ONTAP 9.10.1부터 Pensando 클러스터 NIC가 장착된 A400 또는 ASA400 스토리지 시스템을 사용하는 ONTAP 사용자를 위해 RDMA 클러스터 상호 연결을 지원합니다. RDMA 클러스터 상호 연결은 지연 시간을 단축하고, 페일오버 시간을 단축하며, 클러스터 내의 노드 간 통신을 가속화합니다. 적절한 스토리지 시스템을 설정해도 추가 구성이 필요하지 않습니다.
+
+.추가 정보
+* xref:../nfs-rdma/index.html[RDMA 상의 NFS]
+* link:https://docs.netapp.com/us-en/e-series/config-linux/nvme-roce-configure-storage-connections-task.html["스토리지 어레이 NVMe over RoCE 연결을 구성합니다"^]
+

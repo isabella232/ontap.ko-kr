@@ -13,17 +13,17 @@ summary: ONTAP 9.7 이상을 실행 중인 경우 FabricPool 구성에서 미러
 [role="lead"]
 ONTAP 9.7 이상을 실행 중인 경우 FabricPool 구성에서 미러링된 MetroCluster를 설정하여 콜드 데이터를 두 개의 서로 다른 장애 영역에 있는 오브젝트 저장소에 계층화할 수 있습니다.
 
-.필요한 것
-* MetroCluster 구성이 설정되어 올바르게 구성되어 있습니다.
-* 적절한 MetroCluster 사이트에 두 개의 오브젝트 저장소가 설정됩니다.
-* 컨테이너는 각 오브젝트 저장소에서 구성됩니다.
-* 두 MetroCluster 구성에서 IP 공백이 생성되거나 식별되고 이름이 일치합니다.
-
-
 .이 작업에 대해
 * MetroCluster의 FabricPool를 사용하려면 미러링된 내부 애그리게이트와 관련 오브젝트 저장소 구성이 동일한 MetroCluster 구성에서 소유되어야 합니다.
 * 원격 MetroCluster 사이트에서 만든 개체 저장소에는 애그리게이트를 연결할 수 없습니다.
 * Aggregate를 소유한 MetroCluster 구성에서 오브젝트 저장소 구성을 생성해야 합니다.
+
+
+.시작하기 전에
+* MetroCluster 구성이 설정되어 올바르게 구성되어 있습니다.
+* 적절한 MetroCluster 사이트에 두 개의 오브젝트 저장소가 설정됩니다.
+* 컨테이너는 각 오브젝트 저장소에서 구성됩니다.
+* 두 MetroCluster 구성에서 IP 공백이 생성되거나 식별되고 이름이 일치합니다.
 
 
 .단계
