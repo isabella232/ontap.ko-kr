@@ -2,9 +2,9 @@
 permalink: upgrade/task_updating_a_two_node_metrocluster_configuration_in_ontap_9_2_and_earlier.html 
 sidebar: sidebar 
 keywords: ontap, upgrade, two-node, metrocluster, mcc, 9.2, earlier 
-summary: '2노드 MetroCluster 구성의 경우 ONTAP를 중단 없이 업그레이드할 수 있습니다. 이 방법에는 몇 가지 단계가 있습니다. 협상된 전환 시작, "장애" 사이트에서 클러스터 업데이트, 스위치백 시작, 다른 사이트의 클러스터에서 프로세스 반복이 있습니다.' 
+summary: 9.2 이전 버전을 실행하는 2노드 MetroCluster 구성이 있는 경우 이 ONTAP 업그레이드 절차를 사용하십시오. 
 ---
-= ONTAP 9.2 이하 버전의 CLI를 사용한 2노드 MetroCluster 구성의 수동 무중단 업그레이드
+= ONTAP 9.2 이하 버전의 2-노드 MetroCluster 구성에 대한 수동 무중단 업그레이드
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,12 +13,13 @@ summary: '2노드 MetroCluster 구성의 경우 ONTAP를 중단 없이 업그레
 [role="lead"]
 2노드 MetroCluster 구성의 경우 ONTAP를 중단 없이 업그레이드할 수 있습니다. 이 방법에는 몇 가지 단계가 있습니다. 즉, 협상된 전환 시작, ""장애" 사이트에서 클러스터 업데이트, 스위치백 시작, 다른 사이트의 클러스터에서 프로세스 반복이 있습니다.
 
+[NOTE]
+====
 이 절차는 ONTAP 9.2 이하를 실행하는 2노드 MetroCluster 구성에만 해당됩니다.
 
-+4노드 MetroCluster 구성이 있는 경우 이 절차를 사용하지 마십시오.
+ONTAP 9.3 이상을 실행하는 2노드 MetroCluster 구성이 있는 경우 을 수행합니다 xref:task_upgrade_andu_sm.html[System Manager를 사용하여 무중단 업그레이드 자동화].
 
-+ONTAP 9.3 이상을 실행하는 2노드 MetroCluster 구성이 있는 경우 를 수행합니다 xref:task_upgrade_andu_sm.html[System Manager를 사용하여 무중단 업그레이드 자동화].
-
+====
 . "Set-Privilege advanced"라는 메시지가 나타나면 * y * 를 입력하여 권한 수준을 advanced로 설정합니다
 +
 고급 프롬프트('*>')가 나타납니다.

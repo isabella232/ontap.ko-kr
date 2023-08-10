@@ -80,8 +80,8 @@ entries:
       url: "/upgrade/considerations-authenticate-ssh-public-key-fips-concept.html"
     - title: DP 유형 관계
       url: "/data-protection/convert-snapmirror-version-flexible-task.html"
-- title: 업그레이드 소프트웨어 이미지를 구해서 설치하려면 어떻게 해야 합니까?
-  url: "/upgrade/task_download_and_install_ontap_software_image.html"
+- title: 업그레이드 소프트웨어 패키지는 어떻게 구합니까?
+  url: "/upgrade/download-software-image.html"
 - title: 어떤 업그레이드 방법을 사용해야 합니까?
   entries:
   - title: 업그레이드 방법 개요
@@ -92,18 +92,18 @@ entries:
     url: "/upgrade/task_upgrade_andu_cli.html"
   - title: CLI를 사용하여 중단을 자동화했습니다
     url: "/upgrade/task_upgrade_disruptive_automated_cli.html"
-  - title: CLI를 사용한 수동 무중단 지원
+  - title: 수동 업그레이드
     entries:
-    - title: MetroCluster 구성이 아닌 경우
+    - title: 소프트웨어 패키지를 설치합니다
+      url: "/upgrade/install-software-manual-upgrade.html"
+    - title: 수동 무중단 비 MetroCluster
       url: "/upgrade/task_upgrade_nondisruptive_manual_cli.html"
-    - title: MetroCluster 구성
-      entries:
-      - title: 4 또는 8 노드
-        url: "/upgrade/task_updating_a_four_or_eight_node_mcc.html"
-      - title: 2노드 9.2 이하
-        url: "/upgrade/task_updating_a_two_node_metrocluster_configuration_in_ontap_9_2_and_earlier.html"
-  - title: CLI를 사용한 수동 중단
-    url: "/upgrade/task_updating_an_ontap_cluster_disruptively.html"
+    - title: 수동 무중단 MetroCluster(노드 4개 또는 8개)
+      url: "/upgrade/task_updating_a_four_or_eight_node_mcc.html"
+    - title: 수동 무중단 MetroCluster(2노드)
+      url: "/upgrade/task_updating_a_two_node_metrocluster_configuration_in_ontap_9_2_and_earlier.html"
+    - title: 수동 중단
+      url: "/upgrade/task_updating_an_ontap_cluster_disruptively.html"
 - title: 업그레이드 후 어떻게 해야 합니까?
   entries:
   - title: 업그레이드 후 검증 개요

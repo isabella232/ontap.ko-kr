@@ -17,7 +17,7 @@ summary: SnapMirror 페일오버 시작 명령을 실행한 후 SnapMirror 페�
 [role="lead"]
 'napmirror failover start' 명령을 실행한 후 'napmirror failover show' 명령의 출력에 중재자가 구성되지 않았다는 메시지가 표시됩니다.
 
-을 참조하십시오 link:smbc_install_confirm_ontap_cluster.html#initialize-the-ontap-mediator-for-smbc["ONTAP 중재자를 초기화합니다"].
+을 참조하십시오 link:smbc_install_confirm_ontap_cluster.html#initialize-the-ontap-mediator["ONTAP 중재자를 초기화합니다"].
 
 ....
 Cluster1::> snapmirror failover show

@@ -74,7 +74,7 @@ NOTE: 자동 업그레이드 중에 문제가 발생하면 System Manager에서 
 
 * 참고: * 이미지를 로컬 클라이언트에 이미 다운로드해야 합니다.
 
-link:task_download_and_install_ontap_software_image.html["ONTAP 소프트웨어 이미지를 다운로드하고 설치합니다"]
+link:download-software-image.html["ONTAP 소프트웨어 이미지를 다운로드합니다"]
  a| 
 .. 사용 가능한 소프트웨어 이미지에서 * 로컬 * 에서 추가 를 클릭합니다.
 .. 소프트웨어 이미지를 저장한 위치로 이동하여 이미지를 선택한 다음 * 열기 * 를 클릭합니다.
