@@ -34,6 +34,7 @@ summary: 액세스 시 정책은 액세스 시 검사의 범위를 정의합니�
 ** 한 번에 하나의 정책만 활성화할 수 있으므로 모든 제외가 동일한 정책에 지정되어 있는지 확인합니다. NetApp는 바이러스 백신 엔진에 지정된 것과 동일한 제외 세트를 사용할 것을 적극 권장합니다.
 
 
+* 의 경우 액세스 시 정책이 필요합니다 xref:create-on-demand-task-task.html[온디맨드 검사]. 에 대한 액세스 시 스캔을 방지하려면 을 설정해야 합니다 `-scan-files-with-no-ext` 버튼을 눌러 false로 이동하고 `-file-ext-to-exclude` 모든 확장자를 제외하려면 * 를 선택합니다.
 
 
 .단계
@@ -53,7 +54,7 @@ summary: 액세스 시 정책은 액세스 시 검사의 범위를 정의합니�
 ----
 cluster1::> vserver vscan on-access-policy create -vserver vs1 -policy-name Policy1 -protocol CIFS -filters scan-ro-volume -max-file-size 3GB -file-ext-to-include “mp*”,"tx*" -file-ext-to-exclude "mp3","txt" -scan-files-with-no-ext false -paths-to-exclude "\vol\a b\","\vol\a,b\"
 ----
-. 액세스 시 정책이 생성되었는지 확인합니다. 'vserver vscan on-access-policy show -instance_data_SVM|cluster_admin_SVM_-policy-name policy_name'
+. 다음과 같이 on-access 정책이 생성되었는지 확인합니다. `vserver vscan on-access-policy show -instance _data_SVM|cluster_admin_SVM_ -policy-name _name_`
 +
 전체 옵션 목록은 명령에 대한 man 페이지를 참조하십시오.
 

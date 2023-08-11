@@ -3,29 +3,17 @@ indexpage:
   tiles:
   - title: 시작하십시오
     links:
-    - title: SAN 스토리지 용량 할당 개요
-      url: "/../concept_san_provision_overview.html"
     - title: SAN 관리 개요
       url: "/../san-admin/index.html"
     - title: SnapMirror 비즈니스 연속성 개요
       url: "/../concept_san_smbc_overview.html"
     - title: SAN 구성 개요
       url: "/../san-config/index.html"
-  - title: SAN 스토리지 용량 할당
+  - title: 스토리지 프로비저닝
     links:
-    - title: VMware 데이터 저장소
-      url: "/../task_san_provision_vmware.html"
-    - title: Linux 서버에서
-      url: "/../task_san_provision_linux.html"
-    - title: Windows 서버에서
-      url: "/../task_san_provision_windows.html"
-    - title: 기타 FC 및 iSCSI 호스트
+    - title: SAN 스토리지 용량 할당
       url: "/../san-admin/provision-storage.html"
-  - title: NVMe 스토리지 프로비저닝
-    links:
-    - title: SUSE Linux에서
-      url: "/../task_nvme_provision_suse_linux.html"
-    - title: 기타 NVMe 호스트
+    - title: NVMe 스토리지 프로비저닝
       url: "/../san-admin/create-nvme-namespace-subsystem-task.html"
   - title: SAN 스토리지를 구성합니다
     links:
