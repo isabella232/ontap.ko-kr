@@ -2,14 +2,12 @@
 section: software_setup
 title: ONTAP를 설정합니다
 entries:
-- title: 개요
-  url: "/software_setup/concept_decide_whether_to_use_ontap_cli.html"
+- title: 시작하십시오
+  url: "/software_setup/index.html"
 - title: System Manager로 클러스터 설정
   url: "/task_configure_ontap.html"
 - title: CLI를 사용하여 클러스터 설정
   entries:
-  - title: 정보를 수집합니다
-    url: "/software_setup/concept_set_up_the_cluster.html"
   - title: 첫 번째 노드에서 클러스터를 생성합니다
     url: "/software_setup/task_create_the_cluster_on_the_first_node.html"
   - title: 나머지 노드를 클러스터에 연결합니다

@@ -12,6 +12,8 @@ entries:
   url: "/anti-ransomware/enable-default-task.html"
 - title: 일시 중지
   url: "/anti-ransomware/pause-task.html"
+- title: 공격 탐지 매개 변수를 관리합니다
+  url: "/anti-ransomware/manage-parameters-task.html"
 - title: 비정상적인 활동에 응답합니다
   url: "/anti-ransomware/respond-abnormal-task.html"
 - title: 공격 후 데이터 복구

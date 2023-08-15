@@ -24,11 +24,17 @@ ONTAP 9.5부터 4바이트 UTF-8 인코딩 이름을 지원하므로 BMP(기본 
 +
 ``vserver[create|modify] -language utf8mb4{…}''volume create{…}'
 
-* ONTAP 9.6 이하 버전을 사용하는 경우 utf8mb4 지원을 위해 기존 볼륨을 수정할 수 없으며 새로운 utf8mb4 지원 볼륨을 생성한 다음 클라이언트 기반 복사 툴을 사용하여 데이터를 마이그레이션해야 합니다. ONTAP 9.7 이상을 사용하는 경우 지원 요청을 통해 utf8mb4의 기존 볼륨을 수정할 수 있습니다. 자세한 내용은 을 참조하십시오 link:https://kb.netapp.com/onprem/ontap/da/NAS/Can_the_volume_language_be_changed_after_creation_in_ONTAP["ONTAP에서 생성한 후 볼륨 언어를 변경할 수 있습니까?"^].
+* ONTAP 9.6 이하 버전을 사용하는 경우 utf8mb4 지원을 위해 기존 볼륨을 수정할 수 없으며 새로운 utf8mb4 지원 볼륨을 생성한 다음 클라이언트 기반 복사 툴을 사용하여 데이터를 마이그레이션해야 합니다.
 +
+ONTAP 9.7P1 이상을 사용 중인 경우 지원 요청을 통해 utf8mb4에 대한 기존 볼륨을 수정할 수 있습니다. 자세한 내용은 을 참조하십시오 link:https://kb.netapp.com/onprem/ontap/da/NAS/Can_the_volume_language_be_changed_after_creation_in_ONTAP["ONTAP에서 생성한 후 볼륨 언어를 변경할 수 있습니까?"^].
+
+
+
+를 누릅니다
 utf8mb4 지원을 위해 SVM을 업데이트할 수 있지만 기존 볼륨에 원래 언어 코드가 유지됩니다.
 
-+
+를 누릅니다
+
 
 NOTE: 4바이트 UTF-8 문자를 사용하는 LUN 이름은 현재 지원되지 않습니다.
 

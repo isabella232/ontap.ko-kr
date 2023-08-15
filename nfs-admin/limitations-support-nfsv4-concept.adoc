@@ -36,12 +36,10 @@ ONTAP는 직접 읽기 및 쓰기 액세스를 위해 NFSv4 클라이언트를 �
 ** quota_used
 ** '시스템'
 ** Time_backup을 선택합니다
-
-
 +
-[NOTE]
-====
-"quota *" 특성은 지원하지 않지만 ONTAP는 RQUOTA Side Band 프로토콜을 통해 사용자 및 그룹 할당량을 지원합니다.
 
-====
+NOTE: "quota *" 특성은 지원하지 않지만 ONTAP는 RQUOTA Side Band 프로토콜을 통해 사용자 및 그룹 할당량을 지원합니다.
+
+
+
 

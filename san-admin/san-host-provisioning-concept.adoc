@@ -49,12 +49,14 @@ iSCSI를 실행하는 각 SVM에는 역방향 도메인 이름과 고유한 인�
 
 노드 이름은 다음 형식으로 표시됩니다.
 
-iqn.1992-08.com.netapp:sn.`_unique-encoding-number_`
+iqn.1992-08.com.netapp:sn._unique-encoding-number_
 
 다음 예에서는 고유한 인코딩 번호가 있는 스토리지 시스템의 기본 노드 이름을 보여 줍니다.
 
+[listing]
+----
 iqn.1992-08.com.netapp:sn.812921059e6c11e097b3123478563412:vs.6
-
+----
 
 
 == iSCSI용 TCP 포트
@@ -64,4 +66,4 @@ iSCSI 프로토콜은 ONTAP에서 TCP 포트 번호 3260을 사용하도록 구�
 ONTAP는 iSCSI의 포트 번호 변경을 지원하지 않습니다. 포트 번호 3260은 iSCSI 사양의 일부로 등록되었으며 다른 애플리케이션이나 서비스에서 사용할 수 없습니다.
 
 .관련 정보
-https://docs.netapp.com/us-en/ontap-sanhost/["NetApp 설명서: ONTAP SAN 호스트 구성"]
+https://docs.netapp.com/us-en/ontap-sanhost/["NetApp 설명서: ONTAP SAN 호스트 구성"^]
