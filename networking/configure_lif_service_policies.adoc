@@ -229,9 +229,10 @@ cluster1::> network interface modify -vserver cluster1 -lif lif1 -service-policy
 
 네트워크 인터페이스 서비스 정책 명령을 사용하여 LIF 서비스 정책을 관리합니다.
 
+.시작하기 전에
+활성 SnapMirror 관계에서 LIF의 서비스 정책을 수정하면 복제 일정이 중단됩니다. LIF를 인터클러스터에서 비인터클러스터(또는 그 반대로)로 변환하면 해당 변경 사항이 피어링된 클러스터에 복제되지 않습니다. LIF 서비스 정책을 수정한 후 피어 클러스터를 업데이트하려면 먼저 를 수행합니다 `snapmirror abort` 작동 후 xref:../data-protection/resynchronize-relationship-task.html[복제 관계를 다시 동기화합니다].
+
 |===
-
-
 | 원하는 작업 | 이 명령 사용... 
 
 

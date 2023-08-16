@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: smbc/smbc_admin_performing_a_planned_failover.html 
-keywords: SM-BC, SMBC, testing failover, planned failover, maintenance, Mediator, quorum 
+keywords: SM-BC, testing failover, planned failover, maintenance, quorum 
 summary: 계획된 페일오버를 수행하여 재해 복구 구성을 테스트하거나 운영 클러스터에 대한 유지 관리를 수행할 수 있습니다. 
 ---
 = 계획된 페일오버를 수행합니다
@@ -32,7 +32,15 @@ ONTAP CLI 또는 System Manager를 사용하여 계획된 페일오버를 수행
 
 [role="tabbed-block"]
 ====
-.ONTAP CLI를 참조하십시오
+.시스템 관리자
+--
+. System Manager에서** 보호 > 개요 > 관계** 를 선택합니다.
+. 페일오버하려는 SM-BC 관계를 식별합니다. 이름 옆에 있는 을 선택합니다 `...` 관계의 이름 옆에 있는 ** 장애 조치** 를 선택합니다.
+. 페일오버 상태를 모니터링하려면 를 사용합니다 `snapmirror failover show` ONTAP CLI에서
+
+
+--
+.CLI를 참조하십시오
 --
 . 대상 클러스터에서 페일오버 작업을 시작합니다.
 +
@@ -46,14 +54,6 @@ ONTAP CLI 또는 System Manager를 사용하여 계획된 페일오버를 수행
 +
 목적지::> SnapMirror 쇼
 
-
-
---
-.시스템 관리자
---
-. System Manager에서** 보호 > 개요 > 관계** 를 선택합니다.
-. 페일오버하려는 SM-BC 관계를 식별합니다. 이름 옆에 있는 을 선택합니다 `...` 관계의 이름 옆에 있는 ** 장애 조치** 를 선택합니다.
-. 페일오버 상태를 모니터링하려면 를 사용합니다 `snapmirror failover show` ONTAP CLI에서
 
 
 --
