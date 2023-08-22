@@ -416,6 +416,7 @@ GiveStatus 필드에 반환할 애그리게이트가 없다고 표시되면 모�
 
 첫 번째 DR 그룹에서 ONTAP 소프트웨어를 업데이트하고 8노드 MetroCluster 구성에서 두 번째 DR 그룹을 업데이트하는 경우 이 작업에서는 node_A_4 및 node_B_4를 업데이트합니다.
 
+. 노드 'network interface migrate-all-node nodenameA'에서 모든 데이터 LIF를 마이그레이션합니다
 . cluster_A에서 타겟 노드의 테이크오버 시작:
 +
 즉시 실행 매개 변수를 지정하지 마십시오. 새 소프트웨어 이미지로 부팅하기 위해 테이크오버가 수행되는 노드에 일반 테이크오버가 필요합니다.
