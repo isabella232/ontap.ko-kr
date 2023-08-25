@@ -175,7 +175,7 @@ ONTAP 9.7부터 지원됩니다
  a| 
 Microsoft ODX(Offloaded Data Transfer)
  a| 
-아니요
+예
  a| 
 아니요
 

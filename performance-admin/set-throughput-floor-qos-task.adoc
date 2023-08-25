@@ -31,7 +31,7 @@ summary: '정책 그룹의 최소 처리량 필드를 사용하여 스토리지 
 
 
 .단계
-. permalink:identify-remaining-performance-capacity-task.html[maining performance capacity] 에 설명된 대로 노드 또는 애그리게이트의 성능 용량이 적절한지 확인합니다.
+. 에 설명된 대로 노드 또는 애그리게이트에서 적절한 성능 용량이 있는지 확인합니다 link:identify-remaining-performance-capacity-task.html["남은 성능 용량 식별"].
 . 정책 그룹 생성:
 +
 'QoS policy-group create-policy group_policy_group_-vserver_SVM_-min-throughput_QoS_target_-is-shared true|false'

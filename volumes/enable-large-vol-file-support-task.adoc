@@ -1,0 +1,59 @@
+---
+permalink: volumes/enable-large-vol-file-support-task.html 
+sidebar: sidebar 
+keywords: create, modify, volume, large file, large volume 
+summary: 새 볼륨을 생성하거나 기존 볼륨을 수정할 때 대용량 볼륨과 파일에 대한 지원을 활성화할 수 있습니다. 
+---
+= 대용량 및 대용량 파일 지원
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.12.1 P2부터 새 볼륨을 생성하거나 기존 볼륨을 수정하여 최대 볼륨 크기 300TB와 최대 파일(LUN) 크기 128TB를 지원할 수 있습니다.
+
+.시작하기 전에
+* ONTAP 9.12.1 P2 이상이 클러스터에 설치되어 있습니다.
+* 귀하는 클러스터 또는 SVM 관리자입니다.
+
+
+
+
+== 새 볼륨을 생성합니다
+
+.단계
+. 대용량 볼륨 및 파일 지원이 활성화된 볼륨 생성:
++
+`volume create -vserver _svm_name_ -volume _volume_name_ -aggregate _aggregate_name_ -is-large-size-enabled true`
+
+
+
+.예
+다음 예에서는 대용량 및 파일 크기 지원이 활성화된 새 볼륨을 생성합니다.
+
+[listing]
+----
+volume create -vserver vs1 -volume big_vol1 -aggregate aggr1 -is-large-size-enabled true
+----
+
+
+== 기존 볼륨을 수정합니다
+
+. 볼륨을 수정하여 대용량 볼륨 및 파일 지원:
++
+`volume modify -vserver _svm_name_ -volume _volume_name_ -aggregate _aggregate_name_ -is-large-size-enabled true`
+
+
+
+.예
+다음 예에서는 큰 볼륨과 파일 크기를 지원하도록 기존 볼륨을 수정합니다.
+
+[listing]
+----
+volume modify -vserver vs2 -volume data_vol -aggregate aggr1 -is-large-size-enabled true
+----
+.관련 정보
+* link:https://docs.netapp.com/us-en/ontap/volumes/create-volume-task.html["볼륨을 생성합니다"]
+* link:https://docs.netapp.com/us-en/ontap-cli-9131/["명령 참조"]
+

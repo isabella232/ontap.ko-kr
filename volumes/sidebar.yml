@@ -8,6 +8,8 @@ entries:
   entries:
   - title: 볼륨을 생성합니다
     url: "/volumes/create-volume-task.html"
+  - title: 대용량 및 대용량 파일 지원
+    url: "/volumes/enable-large-vol-file-support-task.html"
   - title: SAN 볼륨
     entries:
     - title: 정보

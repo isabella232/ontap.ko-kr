@@ -3,28 +3,16 @@ section: security-encryption
 title: 보안 및 데이터 암호화
 url: "/security-encryption/index.html"
 entries:
-- title: System Manager로 보안을 관리합니다
-  entries:
-  - title: 보안 개요
-    url: "/concept_security_overview.html"
-  - title: 다중 요소 인증
-    url: "/task_security_mfa_setup.html"
-  - title: 관리자 액세스 제어
-    url: "/task_security_administrator_access.html"
-  - title: 파일 액세스 문제를 진단하고 해결합니다
-    url: "/task_security_file_access_issues.html"
-  - title: 인증서를 관리합니다
-    url: "/authentication/manage-certificates-sm-task.html"
-  - title: 외부 키 관리자를 관리합니다
-    url: "/encryption-at-rest/manage-external-key-managers-sm-task.html"
+- title: System Manager를 사용한 보안
+  url: "/concept_security_overview.html"
 - section: authentication
 - section: anti-ransomware
 - section: antivirus
 - section: nas-audit
-- title: System Manager로 암호화를 관리합니다
-  entries:
-  - title: 저장된 데이터 암호화(소프트웨어)
-    url: "/task_security_encrypt_stored_data_sw.html"
-  - title: 저장된 데이터 암호화(하드웨어)
-    url: "/task_security_encrypt_stored_data_hw.html"
+- section: fpolicy-concept
+- section: fpolicy-plan
+- section: fpolicy-create
+- section: fpolicy-manage
+- section: security-tracing
 - section: encryption-at-rest
+- section: encryption-manage

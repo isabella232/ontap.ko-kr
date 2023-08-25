@@ -1,8 +1,8 @@
 ---
 permalink: system-admin/configure-saml-authentication-task.html 
 sidebar: sidebar 
-keywords: tdp, ldap, identity, provider, saml, security, assertion, markup, lanaguage, active, directory 
-summary: 'ONTAP 9.3부터 웹 서비스에 대한 SAML(Security Assertion Markup Language) 인증을 구성할 수 있습니다. SAML 인증이 구성 및 설정되면 사용자는 Active Directory 및 LDAP와 같은 디렉터리 서비스 공급자 대신 외부 ID 공급자(IDP)에 의해 인증됩니다.' 
+keywords: tdp, ldap, identity, provider, saml, security, assertion, markup, lanaguage, active, directory, disable, authentication, idp, active directory, troubleshoot, repair 
+summary: 'ONTAP 9.3부터 웹 서비스에 대한 SAML(Security Assertion Markup Language) 인증을 구성할 수 있습니다. SAML 인증이 구성 및 설정되면 사용자는 Active Directory 및 LDAP와 같은 디렉터리 서비스 공급자 대신 외부 ID 공급자(IDP)에 의해 인증됩니다. SAML 인증이 비활성화되면 Active Directory 및 LDAP와 같이 구성된 디렉터리 서비스 공급자가 인증에 사용됩니다.' 
 ---
 = SAML 인증을 구성합니다
 :allow-uri-read: 
@@ -98,10 +98,116 @@ admin          service-processor
                            password      admin            no     none
 admin          ssh         password      admin            no     none
 admin1         http        password      backup           no     none
-**admin1         http        saml          backup           -      none**
+**admin1       http        saml          backup           -      none**
 ----
 
 
+
+
+
+
+== SAML 인증을 비활성화합니다
+
+외부 ID 공급자(IDP)를 사용하여 웹 사용자 인증을 중지하려면 SAML 인증을 사용하지 않도록 설정할 수 있습니다. SAML 인증이 비활성화되면 Active Directory 및 LDAP와 같이 구성된 디렉터리 서비스 공급자가 인증에 사용됩니다.
+
+.필요한 것
+콘솔에서 로그인해야 합니다.
+
+.단계
+. SAML 인증 비활성화:
++
+'* security SAML-SP modify -is-enabled false * '
+
+. SAML 인증을 더 이상 사용하지 않거나 IDP를 수정하려는 경우 SAML 구성을 삭제합니다.
++
+'* 보안 SAML-SP 삭제 * '
+
+
+
+
+
+== SAML 구성 관련 문제를 해결합니다
+
+SAML(Security Assertion Markup Language) 인증을 구성하지 못한 경우 SAML 구성이 실패한 각 노드를 수동으로 복구하고 장애를 복구할 수 있습니다. 복구 프로세스 중에 웹 서버가 다시 시작되고 활성 HTTP 연결 또는 HTTPS 연결이 중단됩니다.
+
+.이 작업에 대해
+SAML 인증을 구성할 경우 ONTAP는 노드별로 SAML 구성을 적용합니다. SAML 인증을 설정하면 구성 문제가 있는 경우 ONTAP에서 자동으로 각 노드를 복구하려고 시도합니다. 노드에서 SAML 구성에 문제가 있는 경우 SAML 인증을 비활성화한 다음 SAML 인증을 다시 활성화할 수 있습니다. SAML 인증을 다시 설정한 후에도 하나 이상의 노드에 SAML 구성이 적용되지 않는 경우가 있을 수 있습니다. SAML 구성이 실패한 노드를 확인한 다음 해당 노드를 수동으로 복구할 수 있습니다.
+
+.단계
+. 고급 권한 레벨에 로그인합니다.
++
+' * set-Privilege advanced * '
+
+. SAML 구성이 실패한 노드 식별:
++
+' * security SAML-SP status show-instance * '
+
++
+[listing]
+----
+cluster_12::*> security saml-sp status show -instance
+
+                         Node: node1
+                Update Status: config-success
+               Database Epoch: 9
+   Database Transaction Count: 997
+                   Error Text:
+SAML Service Provider Enabled: false
+        ID of SAML Config Job: 179
+
+                         Node: node2
+                Update Status: config-failed
+               Database Epoch: 9
+   Database Transaction Count: 997
+                   Error Text: SAML job failed, Reason: Internal error. Failed to receive the SAML IDP Metadata file.
+SAML Service Provider Enabled: false
+        ID of SAML Config Job: 180
+2 entries were displayed.
+----
+. 장애가 발생한 노드에서 SAML 구성을 복구합니다.
++
+'* security SAML-SP repair-node_node_name_ * '
+
++
+[listing]
+----
+cluster_12::*> security saml-sp repair -node node2
+
+Warning: This restarts the web server. Any HTTP/S connections that are active
+         will be disrupted.
+Do you want to continue? {y|n}: y
+[Job 181] Job is running.
+[Job 181] Job success.
+----
++
+웹 서버가 다시 시작되고 활성화된 HTTP 연결 또는 HTTPS 연결이 모두 중단됩니다.
+
+. 모든 노드에서 SAML이 구성되었는지 확인합니다.
++
+' * security SAML-SP status show-instance * '
+
++
+[listing]
+----
+cluster_12::*> security saml-sp status show -instance
+
+                         Node: node1
+                Update Status: config-success
+               Database Epoch: 9
+   Database Transaction Count: 997
+                   Error Text:
+SAML Service Provider Enabled: false
+        ID of SAML Config Job: 179
+
+                         Node: node2
+                Update Status: **config-success**
+               Database Epoch: 9
+   Database Transaction Count: 997
+                   Error Text:
+SAML Service Provider Enabled: false
+        ID of SAML Config Job: 180
+2 entries were displayed.
+----
 
 
 .관련 정보

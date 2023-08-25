@@ -1,0 +1,14 @@
+---
+section: fpolicy-create
+title: FPolicy 구성을 생성합니다
+entries:
+- title: FPolicy 외부 엔진을 생성합니다
+  url: "/nas-audit/create-fpolicy-external-engine-task.html"
+- title: FPolicy 이벤트를 생성합니다
+  url: "/nas-audit/create-fpolicy-event-task.html"
+- title: FPolicy 정책을 생성합니다
+  url: "/nas-audit/create-fpolicy-policy-task.html"
+- title: FPolicy 범위를 생성합니다
+  url: "/nas-audit/create-fpolicy-scope-task.html"
+- title: FPolicy 정책을 사용합니다
+  url: "/nas-audit/enable-fpolicy-policy-task.html"

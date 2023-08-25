@@ -41,6 +41,6 @@ Aggregate가 가득 찼습니다
 
 |===
 .관련 정보
-link:../disks-aggregates/index.html["디스크 및 애그리게이트 관리"]
+link:../disks-aggregates/index.html["디스크 및 로컬 계층(애그리게이트) 관리"]
 
 link:../volumes/index.html["논리적 스토리지 관리"]

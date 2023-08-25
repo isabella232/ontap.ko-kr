@@ -70,6 +70,10 @@ ODX는 다음 볼륨 유형과 함께 작동하지 않습니다.
 * 용량이 2GB 미만인 소스 볼륨
 * 읽기 전용 볼륨입니다
 * link:../flexcache/supported-unsupported-features-concept.html["FlexCache 볼륨"]
++
+
+NOTE:  ODX는 FlexCache 원본 볼륨에서 지원됩니다.
+
 * link:../san-admin/san-volumes-concept.html#semi-thick-provisioning-for-volumes["반씩 프로비저닝된 볼륨"]
 
 

@@ -1,7 +1,7 @@
 ---
 permalink: authentication/enable-nis-ldap-users-access-cluster-task.html 
 sidebar: sidebar 
-keywords: configure, ldap, nis, server access 
+keywords: configure, ldap, nis, server access, create, name, service, switch 
 summary: LDAP 또는 NIS 계정이 SVM에 액세스하려면 먼저 SVM에 대한 LDAP 또는 NIS 서버 액세스를 구성해야 합니다. 스위치 기능을 사용하면 LDAP 또는 NIS를 대체 이름 서비스 소스로 사용할 수 있습니다. 
 ---
 = LDAP 또는 NIS 서버 액세스 개요를 구성합니다
@@ -12,3 +12,164 @@ summary: LDAP 또는 NIS 계정이 SVM에 액세스하려면 먼저 SVM에 대�
 
 [role="lead"]
 LDAP 또는 NIS 계정이 SVM에 액세스하려면 먼저 SVM에 대한 LDAP 또는 NIS 서버 액세스를 구성해야 합니다. 스위치 기능을 사용하면 LDAP 또는 NIS를 대체 이름 서비스 소스로 사용할 수 있습니다.
+
+
+
+== LDAP 서버 액세스를 구성합니다
+
+LDAP 계정이 SVM에 액세스하려면 SVM에 대한 LDAP 서버 액세스를 구성해야 합니다. SVM에서 'vserver services name-service ldap client create' 명령을 사용하여 LDAP 클라이언트 구성을 생성할 수 있습니다. 그런 다음 "vserver services name-service ldap create" 명령을 사용하여 LDAP 클라이언트 구성을 SVM과 연결할 수 있습니다.
+
+.필요한 것
+* 을(를) 설치해야 합니다 link:install-ca-signed-server-digital-certificate-task.html["CA 서명 서버 디지털 인증서"] SVM에서.
+* 이 작업을 수행하려면 클러스터 또는 SVM 관리자여야 합니다.
+
+
+.이 작업에 대해
+대부분의 LDAP 서버는 ONTAP에서 제공하는 기본 스키마를 사용할 수 있습니다.
+
+* MS-AD-BIS(대부분의 Windows 2012 이상 AD 서버에 대한 기본 스키마)
+* AD-IDMU(Windows 2008, Windows 2012 이상 AD 서버)
+* AD-SFU(Windows 2003 및 이전 AD 서버)
+* RFC-2307(UNIX LDAP 서버)
+
+
+그렇지 않으면 기본 스키마를 사용하는 것이 가장 좋습니다. 이 경우 기본 스키마를 복사하고 복사본을 수정하여 고유한 스키마를 만들 수 있습니다. 자세한 내용은 다음 문서를 참조하십시오.
+
+* link:../nfs-config/index.html["NFS 구성"]
+* https://www.netapp.com/pdf.html?item=/media/19423-tr-4835.pdf["NetApp 기술 보고서 4835: ONTAP에서 LDAP를 구성하는 방법"^]
+
+
+.단계
+. SVM에서 LDAP 클라이언트 구성을 생성합니다.
++
+`vserver services name-service ldap client create -vserver SVM_name -client-config client_configuration -servers LDAP_server_IPs -schema schema -use-start-tls true|false`
+
++
+[NOTE]
+====
+시작 TLS는 데이터 SVM에 대한 액세스에만 지원됩니다. 관리 SVM에 대한 액세스는 지원되지 않습니다.
+
+====
++
+전체 명령 구문은 을 참조하십시오 link:config-worksheets-reference.html["워크시트"].
+
++
+다음 명령을 실행하면 SVM ""engData""에 ""corp""라는 LDAP 클라이언트 구성이 생성됩니다. 클라이언트는 IP 주소 172.160.0.100 및 172.16.0.101을 사용하여 LDAP 서버에 익명 바인딩합니다. 클라이언트는 RFC-2307 스키마를 사용하여 LDAP 쿼리를 만듭니다. 클라이언트와 서버 간의 통신은 시작 TLS를 사용하여 암호화됩니다.
+
++
+[listing]
+----
+cluster1::> vserver services name-service ldap client create
+-vserver engData -client-config corp -servers 172.16.0.100,172.16.0.101 -schema RFC-2307 -use-start-tls true
+----
++
+[NOTE]
+====
+ONTAP 9.2부터 -ldap-servers 필드가 -servers 필드를 대체합니다. 이 새 필드는 LDAP 서버의 호스트 이름 또는 IP 주소를 사용할 수 있습니다.
+
+====
+. LDAP 클라이언트 구성을 SVM과 연결합니다. 'vserver services name-service ldap create-vserver SVM_name-client-config client_configuration-client-enabled true|false'
++
+전체 명령 구문은 을 참조하십시오 link:config-worksheets-reference.html["워크시트"].
+
++
+다음 명령은 LDAP 클라이언트 구성 Corp를 SVM "engData"와 연결하고 SVM에서 LDAP 클라이언트를 활성화합니다.
+
++
+[listing]
+----
+cluster1::>vserver services name-service ldap create -vserver engData -client-config corp -client-enabled true
+----
++
+[NOTE]
+====
+ONTAP 9.2부터 'vserver services name-service ldap create' 명령은 자동 구성 검증을 수행하고 ONTAP가 이름 서버에 연결할 수 없는 경우 오류 메시지를 보고합니다.
+
+====
+. vserver services name-service ldap check 명령을 사용하여 이름 서버의 상태를 확인합니다.
++
+다음 명령을 실행하면 SVM vs0에서 LDAP 서버를 검증합니다.
+
++
+[listing]
+----
+cluster1::> vserver services name-service ldap check -vserver vs0
+
+| Vserver: vs0                                                |
+| Client Configuration Name: c1                               |
+| LDAP Status: up                                             |
+| LDAP Status Details: Successfully connected to LDAP server "10.11.12.13".                                              |
+----
++
+이름 서비스 확인 명령은 ONTAP 9.2부터 사용할 수 있습니다.
+
+
+
+
+
+== NIS 서버 액세스를 구성합니다
+
+NIS 계정이 SVM에 액세스하려면 먼저 SVM에 대한 NIS 서버 액세스를 구성해야 합니다. SVM에 NIS 도메인 구성을 생성하려면 'vserver services name-service nis-domain create' 명령을 사용할 수 있습니다.
+
+.필요한 것
+* SVM에서 NIS 도메인을 구성하기 전에 구성된 모든 서버를 사용할 수 있고 액세스할 수 있어야 합니다.
+* 이 작업을 수행하려면 클러스터 또는 SVM 관리자여야 합니다.
+
+
+.이 작업에 대해
+여러 NIS 도메인을 생성할 수 있습니다. NIS 도메인은 한 번에 하나만 '활성'으로 설정할 수 있습니다.
+
+.단계
+. SVM에서 NIS 도메인 구성 생성:
++
+`vserver services name-service nis-domain create -vserver SVM_name -domain client_configuration -active true|false -nis-servers NIS_server_IPs`
+
++
+전체 명령 구문은 을 참조하십시오 link:config-worksheets-reference.html["워크시트"].
+
++
+[NOTE]
+====
+ONTAP 9.2부터, 필드 '-NIS-SERS'는 필드 '-SERVers'를 대체합니다. 이 새 필드는 NIS 서버의 호스트 이름 또는 IP 주소를 사용할 수 있습니다.
+
+====
++
+다음 명령을 실행하면 SVM ""engData""에 NIS 도메인 구성이 생성됩니다. NIS 도메인 ""nisdomain""은 생성 시 활성 상태이며 IP 주소 192.0.2.180을 사용하여 NIS 서버와 통신합니다.
+
++
+[listing]
+----
+cluster1::>vserver services name-service nis-domain create
+-vserver engData -domain nisdomain -active true -nis-servers 192.0.2.180
+----
+
+
+
+
+== 네임 서비스 스위치를 생성합니다
+
+이름 서비스 스위치 기능을 사용하면 LDAP 또는 NIS를 대체 이름 서비스 소스로 사용할 수 있습니다. 'vserver services name-service ns-switch modify' 명령을 사용하여 이름 서비스 소스의 조회 순서를 지정할 수 있습니다.
+
+.필요한 것
+* LDAP 및 NIS 서버 액세스를 구성해야 합니다.
+* 이 작업을 수행하려면 클러스터 관리자 또는 SVM 관리자여야 합니다.
+
+
+.단계
+. 이름 서비스 원본에 대한 조회 순서를 지정합니다.
++
+'vserver services name-service ns-switch modify -vserver SVM_name -database name_service_switch_database -sources name_service_source_order'를 입력합니다
+
++
+전체 명령 구문은 을 참조하십시오 link:config-worksheets-reference.html["워크시트"].
+
++
+다음 명령은 SVM ""engData""의 ""passwd"" 데이터베이스에 대한 LDAP 및 NIS 이름 서비스 소스의 조회 순서를 지정합니다.
+
++
+[listing]
+----
+cluster1::>vserver services name-service ns-switch
+modify -vserver engData -database passwd -source files ldap,nis
+----
+

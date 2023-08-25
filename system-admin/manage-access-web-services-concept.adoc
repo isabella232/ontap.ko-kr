@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: 'manage, access, web, service, http, https, cluster, administrator, web, protocol, engine, ssl, role, api, ontapi, disco, supdiag, sysmgr, fw, bmc, docs, "docs_api", fud, ontapmsg, portal, rest, saml, backup, back up, security, csrf' 
 summary: 웹 서비스는 사용자가 HTTP 또는 HTTPS를 사용하여 액세스할 수 있는 응용 프로그램입니다. 클러스터 관리자는 웹 프로토콜 엔진을 설정하고, SSL을 구성하고, 웹 서비스를 활성화하고, 역할의 사용자가 웹 서비스에 액세스할 수 있도록 할 수 있습니다. 
 ---
-= 웹 서비스 액세스 관리 개요
+= 웹 서비스에 대한 액세스를 관리합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

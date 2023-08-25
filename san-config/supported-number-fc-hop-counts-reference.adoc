@@ -23,17 +23,17 @@ summary: 호스트와 스토리지 시스템 간에 지원되는 최대 FC 홉 �
  a| 
 모든 정보를 제공합니다
  a| 
-7 FCoE용 FC5의 경우
+FC의 경우 7, FCoE의 경우 5
 
 
 
  a| 
 Cisco의
  a| 
-7 FC5의 경우 최대 3개의 스위치가 FCoE 스위치일 수 있습니다.
+7 FC의 경우 최대 3개의 스위치가 FCoE 스위치가 될 수 있습니다.
 
 |===
 .관련 정보
-http://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Brocade/san_download.shtml#scale["NetApp 다운로드: Brocade 확장성 매트릭스 문서"]
+http://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Brocade/san_download.shtml#scale["NetApp 다운로드: Brocade 확장성 매트릭스 문서"^]
 
-http://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/download.shtml#scale["NetApp 다운로드: Cisco Scalability Matrix Documents"]
+http://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/download.shtml#scale["NetApp 다운로드: Cisco Scalability Matrix Documents"^]

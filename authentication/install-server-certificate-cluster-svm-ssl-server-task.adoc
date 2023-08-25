@@ -1,7 +1,7 @@
 ---
 permalink: authentication/install-server-certificate-cluster-svm-ssl-server-task.html 
 sidebar: sidebar 
-keywords: generate, install, ca-signed, server, certificate 
+keywords: generate, install, ca-signed, server, certificate, csr, signing request, signed 
 summary: '운영 시스템에서 클러스터 또는 SVM을 SSL 서버로 인증하는 데 사용할 CA 서명 디지털 인증서를 설치하는 것이 좋습니다. 보안 인증서 생성 -csr 명령을 사용하여 인증서 서명 요청(CSR)을 생성하고 보안 인증서 설치 명령을 사용하여 인증 기관으로부터 받은 인증서를 설치할 수 있습니다.' 
 ---
 = CA 서명 서버 인증서 개요 생성 및 설치
@@ -12,3 +12,150 @@ summary: '운영 시스템에서 클러스터 또는 SVM을 SSL 서버로 인증
 
 [role="lead"]
 운영 시스템에서 클러스터 또는 SVM을 SSL 서버로 인증하는 데 사용할 CA 서명 디지털 인증서를 설치하는 것이 좋습니다. 'Security certificate generate -csr' 명령어를 이용하여 CSR(certificate signing request)과 'security certificate install' 명령어를 이용하여 인증 기관으로부터 받은 인증서를 설치할 수 있다.
+
+
+
+== 인증서 서명 요청을 생성합니다
+
+'Security certificate generate -csr' 명령을 사용하여 CSR(인증서 서명 요청)을 생성할 수 있습니다. 요청을 처리한 후 CA(인증 기관)에서 서명된 디지털 인증서를 보냅니다.
+
+.필요한 것
+이 작업을 수행하려면 클러스터 또는 SVM 관리자여야 합니다.
+
+.단계
+. CSR 생성:
++
+'Security certificate generate - csr -common -name FQDN_or_common_name - size 512 | 1024 | 1536 | 2048 - 국가-주-시/도-구/군-기관-조직-단위 장치-전자 메일_of_contact-hash-function SHA1 | SHA256 | MD5'
+
++
+다음 명령은 미국 캘리포니아주 서니베일에 위치한 'server1.companyname.com`" 사용자 정의 공통 이름을 가진 회사의 IT 부서의 '소프트웨어' 그룹에서 'sha256' 해시 기능에서 생성된 2048비트 개인 키로 CSR을 만듭니다. SVM 담당자 관리자의 이메일 주소는 ""web@example.com""입니다. 출력에 CSR과 개인 키가 표시됩니다.
+
++
+.CSR 생성 예
+[%collapsible]
+====
+[listing]
+----
+cluster1::>security certificate generate-csr -common-name server1.companyname.com -size 2048 -country US -state California -locality Sunnyvale -organization IT -unit Software -email-addr web@example.com -hash-function SHA256
+
+Certificate Signing Request :
+-----BEGIN CERTIFICATE REQUEST-----
+MIIBGjCBxQIBADBgMRQwEgYDVQQDEwtleGFtcGxlLmNvbTELMAkGA1UEBhMCVVMx
+CTAHBgNVBAgTADEJMAcGA1UEBxMAMQkwBwYDVQQKEwAxCTAHBgNVBAsTADEPMA0G
+CSqGSIb3DQEJARYAMFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAPXFanNoJApT1nzS
+xOcxixqImRRGZCR7tVmTYyqPSuTvfhVtwDJbmXuj6U3a1woUsb13wfEvQnHVFNci
+2ninsJ8CAwEAAaAAMA0GCSqGSIb3DQEBCwUAA0EA6EagLfso5+4g+ejiRKKTUPQO
+UqOUEoKuvxhOvPC2w7b//fNSFsFHvXloqEOhYECn/NX9h8mbphCoM5YZ4OfnKw==
+-----END CERTIFICATE REQUEST-----
+
+
+Private Key :
+-----BEGIN RSA PRIVATE KEY-----
+MIIBOwIBAAJBAPXFanNoJApT1nzSxOcxixqImRRGZCR7tVmTYyqPSuTvfhVtwDJb
+mXuj6U3a1woUsb13wfEvQnHVFNci2ninsJ8CAwEAAQJAWt2AO+bW3FKezEuIrQlu
+KoMyRYK455wtMk8BrOyJfhYsB20B28eifjJvRWdTOBEav99M7cEzgPv+p5kaZTTM
+gQIhAPsp+j1hrUXSRj979LIJJY0sNez397i7ViFXWQScx/ehAiEA+oDbOooWlVvu
+xj4aitxVBu6ByVckYU8LbsfeRNsZwD8CIQCbZ1/ENvmlJ/P7N9Exj2NCtEYxd0Q5
+cwBZ5NfZeMBpwQIhAPk0KWQSLadGfsKO077itF+h9FGFNHbtuNTrVq4vPW3nAiAA
+peMBQgEv28y2r8D4dkYzxcXmjzJluUSZSZ9c/wS6fA==
+-----END RSA PRIVATE KEY-----
+
+Note: Please keep a copy of your certificate request and private key for future reference.
+----
+====
+. CSR 출력에서 인증서 요청을 복사한 다음 전자 양식(예: 전자 메일)으로 신뢰할 수 있는 타사 CA로 보내 서명합니다.
++
+요청을 처리한 후 CA는 서명된 디지털 인증서를 보냅니다. 개인 키와 CA 서명 디지털 인증서의 복사본을 유지해야 합니다.
+
+
+
+
+
+== CA 서명 서버 인증서를 설치합니다
+
+'보안 인증서 설치' 명령을 사용하여 SVM에 CA 서명 서버 인증서를 설치할 수 있습니다. ONTAP는 서버 인증서의 인증서 체인을 형성하는 CA(인증 기관) 루트 및 중간 인증서를 입력하라는 메시지를 표시합니다.
+
+.필요한 것
+이 작업을 수행하려면 클러스터 또는 SVM 관리자여야 합니다.
+
+.단계
+. CA 서명 서버 인증서 설치:
++
+`security certificate install -vserver SVM_name -type certificate_type`
+
++
+전체 명령 구문은 을 참조하십시오 link:config-worksheets-reference.html["워크시트"].
+
++
+[NOTE]
+====
+ONTAP 서버 인증서의 인증서 체인을 형성하는 CA 루트 및 중간 인증서를 입력하라는 메시지가 표시됩니다. 체인은 서버 인증서를 발급한 CA의 인증서로 시작되며 CA의 루트 인증서까지 범위가 될 수 있습니다. 누락된 중간 인증서는 서버 인증서 설치에 실패합니다.
+
+====
++
+다음 명령을 실행하면 CA 서명 서버 인증서와 중간 인증서가 SVM ""engData2""에 설치됩니다.
+
++
+.CA 서명 서버 인증서 중간 인증서 설치 예
+[%collapsible]
+====
+[listing]
+----
+cluster1::>security certificate install -vserver engData2 -type server
+Please enter Certificate: Press <Enter> when done
+-----BEGIN CERTIFICATE-----
+MIIB8TCCAZugAwIBAwIBADANBgkqhkiG9w0BAQQFADBfMRMwEQYDVQQDEwpuZXRh
+cHAuY29tMQswCQYDVQQGEwJVUzEJMAcGA1UECBMAMQkwBwYDVQQHEwAxCTAHBgNV
+BAoTADEJMAcGA1UECxMAMQ8wDQYJKoZIhvcNAQkBFgAwHhcNMTAwNDI2MTk0OTI4
+WhcNMTAwNTI2MTk0OTI4WjBfMRMwEQYDVQQDEwpuZXRhcHAuY29tMQswCQYDVQQG
+EwJVUzEJMAcGA1UECBMAMQkwBwYDVQQHEwAxCTAHBgNVBAoTADEJMAcGA1UECxMA
+MQ8wDQYJKoZIhvcNAQkBFgAwXDANBgkqhkiG9w0BAQEFAANLADBIAkEAyXrK2sry
+-----END CERTIFICATE-----
+
+
+Please enter Private Key: Press <Enter> when done
+-----BEGIN RSA PRIVATE KEY-----
+MIIBPAIBAAJBAMl6ytrK8nQj82UsWeHOeT8gk0BPX+Y5MLycsUdXA7hXhumHNpvF
+C61X2G32Sx8VEa1th94tx+vOEzq+UaqHlt0CAwEAAQJBAMZjDWlgmlm3qIr/n8VT
+PFnnZnbVcXVM7OtbUsgPKw+QCCh9dF1jmuQKeDr+wUMWknlDeGrfhILpzfJGHrLJ
+z7UCIQDr8d3gOG71UyX+BbFmo/N0uAKjS2cvUU+Y8a8pDxGLLwIhANqa99SuSl8U
+DiPvdaKTj6+EcGuXfCXz+G0rfgTZK8uzAiEAr1mnrfYC8KwE9k7A0ylRzBLdUwK9
+AvuJDn+/z+H1Bd0CIQDD93P/xpaJETNz53Au49VE5Jba/Jugckrbosd/lSd7nQIg
+aEMAzt6qHHT4mndi8Bo8sDGedG2SKx6Qbn2IpuNZ7rc=
+-----END RSA PRIVATE KEY-----
+
+Do you want to continue entering root and/or intermediate certificates {y|n}: y
+
+Please enter Intermediate Certificate: Press <Enter> when done
+-----BEGIN CERTIFICATE-----
+MIIE+zCCBGSgAwIBAgICAQ0wDQYJKoZIhvcNAQEFBQAwgbsxJDAiBgNVBAcTG1Zh
+bGlDZXJ0IFZhbGlkYXRpb24gTmV0d29yazEXMBUGA1UEChMOVmFsaUNlcnQsIElu
+Yy4xNTAzBgNVBAsTLFZhbGlDZXJ0IENsYXNzIDIgUG9saWN5IFZhbGlkYXRpb24g
+QXV0aG9yaXR5MSEwHwYDVQQDExhodHRwOi8vd3d3LnZhbGljZXJ0LmNvbS8xIDAe
+BgkqhkiG9w0BCQEWEWluZm9AdmFsaWNlcnQuY29tMB4XDTA0MDYyOTE3MDYyMFoX
+DTI0MDYyOTE3MDYyMFowYzELMAkGA1UEBhMCVVMxITAfBgNVBAoTGFRoZSBHbyBE
+YWRkeSBHcm91cCwgSW5jLjExMC8GA1UECxMoR28gRGFkZHkgQ2xhc3MgMiBDZXJ0
+-----END CERTIFICATE-----
+
+
+Do you want to continue entering root and/or intermediate certificates {y|n}: y
+
+Please enter Intermediate Certificate: Press <Enter> when done
+-----BEGIN CERTIFICATE-----
+MIIC5zCCAlACAQEwDQYJKoZIhvcNAQEFBQAwgbsxJDAiBgNVBAcTG1ZhbGlDZXJ0
+IFZhbGlkYXRpb24gTmV0d29yazEXMBUGA1UEChMOVmFsaUNlcnQsIEluYy4xNTAz
+BgNVBAsTLFZhbGlDZXJ0IENsYXNzIDIgUG9saWN5IFZhbGlkYXRpb24gQXV0aG9y
+aXR5MSEwHwYDVQQDExhodHRwOi8vd3d3LnZhbGljZXJ0LmNvbS8xIDAeBgkqhkiG
+9w0BCQEWEWluZm9AdmFsaWNlcnQuY29tMB4XDTk5MDYyNjAwMTk1NFoXDTE5MDYy
+NjAwMTk1NFowgbsxJDAiBgNVBAcTG1ZhbGlDZXJ0IFZhbGlkYXRpb24gTmV0d29y
+azEXMBUGA1UEChMOVmFsaUNlcnQsIEluYy4xNTAzBgNVBAsTLFZhbGlDZXJ0IENs
+YXNzIDIgUG9saWN5IFZhbGlkYXRpb24gQXV0aG9yaXR5MSEwHwYDVQQDExhodHRw
+-----END CERTIFICATE-----
+
+
+Do you want to continue entering root and/or intermediate certificates {y|n}: n
+
+You should keep a copy of the private key and the CA-signed digital certificate for future reference.
+----
+====
+

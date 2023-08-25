@@ -1,0 +1,32 @@
+---
+section: security-tracing
+title: 보안 추적을 사용하여 액세스를 확인합니다
+entries:
+- title: 보안 추적 작동 방식
+  url: "/nas-audit/security-traces-work-concept.html"
+- title: 액세스 검사 유형 보안 추적 모니터
+  url: "/nas-audit/types-access-checks-security-traces-monitor-concept.html"
+- title: 보안 추적을 만들 때 고려해야 할 사항입니다
+  url: "/nas-audit/create-security-traces-concept.html"
+- title: 보안 추적을 수행합니다
+  entries:
+  - title: 개요
+    url: "/nas-audit/perform-security-traces-task.html"
+  - title: 보안 추적 필터를 만듭니다
+    url: "/nas-audit/create-security-trace-filters-task.html"
+  - title: 보안 추적 필터에 대한 정보를 표시합니다
+    url: "/nas-audit/display-security-trace-filters-task.html"
+  - title: 보안 추적 결과를 표시합니다
+    url: "/nas-audit/display-security-trace-results-task.html"
+  - title: 보안 추적 필터를 수정합니다
+    url: "/nas-audit/modify-security-trace-filters-task.html"
+  - title: 보안 추적 필터를 삭제합니다
+    url: "/nas-audit/delete-security-trace-filters-task.html"
+  - title: 보안 추적 레코드를 삭제합니다
+    url: "/nas-audit/delete-security-trace-records-task.html"
+  - title: 모든 보안 추적 레코드를 삭제합니다
+    url: "/nas-audit/delete-all-security-trace-records-task.html"
+- title: 보안 추적 결과를 해석합니다
+  url: "/nas-audit/interpret-security-trace-results-concept.html"
+- title: 추가 정보를 찾을 수 있는 위치
+  url: "/nas-audit/additional-information-reference.html"

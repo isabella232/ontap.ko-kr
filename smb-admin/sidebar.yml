@@ -657,7 +657,7 @@ entries:
       url: "/smb-admin/commands-manage-symbolic-link-mappings-reference.html"
   - title: BranchCache를 사용하여 지사에 SMB 공유 콘텐츠를 캐싱합니다
     entries:
-    - Overview: 
+    - title: 개요
       url: "/smb-admin/branchcache-cache-share-content-branch-office-concept.html"
     - title: 요구사항 및 지침
       entries:

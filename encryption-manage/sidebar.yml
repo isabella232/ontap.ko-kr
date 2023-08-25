@@ -1,0 +1,62 @@
+---
+section: encryption-manage
+title: NetApp 암호화 관리
+entries:
+- title: System Manager를 사용하여 저장된 데이터(소프트웨어) 암호화
+  url: "/task_security_encrypt_stored_data_sw.html"
+- title: System Manager를 사용하여 저장된 데이터(하드웨어) 암호화
+  url: "/task_security_encrypt_stored_data_hw.html"
+- title: 볼륨 데이터 암호화를 해제합니다
+  url: "/encryption-at-rest/unencrypt-volume-data-task.html"
+- title: 암호화된 볼륨을 이동합니다
+  url: "/encryption-at-rest/move-encrypted-volume-task.html"
+- title: 볼륨 이동 명령을 실행하는 권한을 위임합니다
+  url: "/encryption-at-rest/delegate-volume-encryption-svm-administrator-task.html"
+- title: 볼륨 암호화 키를 다시 입력하다 시작 명령을 사용하여 볼륨에 대한 암호화 키를 변경합니다
+  url: "/encryption-at-rest/rekey-encrypted-volume-task.html"
+- title: 볼륨 이동 시작 명령을 사용하여 볼륨의 암호화 키를 변경합니다
+  url: "/encryption-at-rest/change-encryption-key-volume-92-earlier-task.html"
+- title: NetApp Storage Encryption의 인증 키를 회전합니다
+  url: "/encryption-at-rest/rotate-authentication-keys-nse-task.html"
+- title: 암호화된 볼륨을 삭제합니다
+  url: "/encryption-at-rest/delete-encrypted-volume-task.html"
+- title: 암호화된 볼륨에서 데이터를 안전하게 제거합니다
+  entries:
+  - title: 개요
+    url: "/encryption-at-rest/secure-purge-data-encrypted-volume-concept.html"
+  - title: SnapMirror 관계 없이 암호화된 볼륨의 데이터를 안전하게 제거합니다
+    url: "/encryption-at-rest/purge-data-encrypted-volume-without-snapmirror-task.html"
+  - title: 비동기 SnapMirror 관계를 사용하여 암호화된 볼륨의 데이터를 안전하게 제거합니다
+    url: "/encryption-at-rest/purge-data-encrypted-asynchronous-snapmirror-task.html"
+  - title: 동기식 SnapMirror 관계로 암호화된 볼륨의 데이터를 스크러빙합니다
+    url: "/encryption-at-rest/purge-data-encrypted-volume-synchronous-snapmirror-task.html"
+  - title: 온보드 키 관리 암호를 변경합니다
+    url: "/encryption-at-rest/change-key-management-passphrase-task.html"
+  - title: 온보드 키 관리 정보를 수동으로 백업합니다
+    url: "/encryption-at-rest/backup-key-management-information-manual-task.html"
+  - title: 온보드 키 관리 암호화 키를 복원합니다
+    url: "/encryption-at-rest/restore-onboard-key-management-encryption-keys-task.html"
+  - title: 외부 키 관리 암호화 키를 복원합니다
+    url: "/encryption-at-rest/restore-external-encryption-keys-93-later-task.html"
+  - title: SSL 인증서를 교체합니다
+    url: "/encryption-at-rest/replace-ssl-certificates-task.html"
+  - title: FIPS 드라이브 또는 SED를 교체합니다
+    url: "/encryption-at-rest/replace-self-encrypting-disk-task.html"
+  - title: FIPS 드라이브 또는 SED에 액세스할 수 없도록 설정합니다
+    url: "/encryption-at-rest/data-seds-inaccessible-concept.html"
+  - title: 인증 키가 손실되면 FIPS 드라이브 또는 SED를 서비스에 반환합니다
+    url: "/encryption-at-rest/return-self-encrypting-disks-keys-not-available-task.html"
+  - title: FIPS 드라이브 또는 SED를 보호되지 않는 모드로 되돌립니다
+    url: "/encryption-at-rest/return-seds-unprotected-mode-task.html"
+  - title: 외부 키 관리자 연결을 제거합니다
+    url: "/encryption-at-rest/remove-external-key-server-93-later-task.html"
+  - title: 외부 키 관리 서버 속성을 수정합니다
+    url: "/encryption-at-rest/modify-external-key-server-96-later-task.html"
+  - title: 온보드 키 관리에서 외부 키 관리로 전환
+    url: "/encryption-at-rest/transition-external-key-from-onboard-key-task.html"
+  - title: 외부 키 관리에서 온보드 키 관리로 전환합니다
+    url: "/encryption-at-rest/delete-key-management-database-task.html"
+  - title: 부팅 프로세스 중에 키 관리 서버에 연결할 수 없는 경우 발생하는 현상
+    url: "/encryption-at-rest/key-management-servers-not-reachable-boot-concept.html"
+  - title: ONTAP 9.7 이상에서는 기본적으로 암호화를 사용하지 않도록 설정합니다
+    url: "/encryption-at-rest/disable-encryption-by-default-97-higher-task.html"

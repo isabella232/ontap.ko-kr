@@ -1,7 +1,7 @@
 ---
 permalink: system-admin/manage-web-services-concept.html 
 sidebar: sidebar 
-keywords: manage, web, services, svm, storage, virtual, machine, cluster, controler, user 
+keywords: manage, web, services, svm, storage, virtual, machine, cluster, controller, user 
 summary: '클러스터 또는 SVM(Storage Virtual Machine)에 대한 웹 서비스를 설정 또는 해제하고, 웹 서비스 설정을 표시하고, 역할 사용자가 웹 서비스에 액세스할 수 있는지 여부를 제어할 수 있습니다.' 
 ---
 = 웹 서비스 관리 개요
@@ -35,7 +35,7 @@ summary: '클러스터 또는 SVM(Storage Virtual Machine)에 대한 웹 서비�
 +
 [NOTE]
 ====
-'보안 로그인' 명령을 사용하여 사용자의 액세스 방법과 인증 방법을 관리할 수 있습니다.
+를 사용합니다 `security login` 사용자의 액세스 방법 및 인증 방법을 관리하는 명령입니다.
 
 ====
 * 사용자의 액세스 제어 역할을 허용하도록 웹 서비스를 구성해야 합니다.

@@ -1,0 +1,20 @@
+---
+section: fpolicy-concept
+title: SVM에서 파일을 모니터링하고 관리하는 데 FPolicy가 사용되는 방식
+entries:
+- title: FPolicy 솔루션의 두 부분은 무엇입니까
+  url: "/nas-audit/two-parts-fpolicy-solution-concept.html"
+- title: 동기식 및 비동기식 알림입니다
+  url: "/nas-audit/synchronous-asynchronous-notifications-concept.html"
+- title: 클러스터 구성 요소가 FPolicy 구현을 수행하는 역할을 합니다
+  url: "/nas-audit/roles-cluster-components-fpolicy-concept.html"
+- title: FPolicy가 외부 FPolicy 서버에서 작동하는 방식
+  url: "/nas-audit/fpolicy-external-fpolicy-servers-concept.html"
+- title: 노드-외부 FPolicy 서버 통신 프로세스는 무엇입니까
+  url: "/nas-audit/node-fpolicy-server-communication-process-concept.html"
+- title: FPolicy 서비스가 SVM 네임스페이스 전체에서 작동하는 방식
+  url: "/nas-audit/fpolicy-services-svm-namespaces-concept.html"
+- title: FPolicy 구성 유형
+  url: "/nas-audit/fpolicy-config-types-concept.html"
+- title: FPolicy 패스스루 읽기를 통해 어떻게 계층적 스토리지 관리의 사용성을 개선합니다
+  url: "/nas-audit/fpolicy-passthrough-read-enhances-usability-concept.html"

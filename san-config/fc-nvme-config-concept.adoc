@@ -13,7 +13,7 @@ summary: 'ONTAP 9.4부터 SAN 환경에서 NVMe(Non-Volatile Memory Express) 프
 [role="lead"]
 ONTAP 9.4부터 link:https://docs.netapp.com/us-en/ontap/san-admin/manage-nvme-concept.html["비휘발성 메모리 익스프레스(NVMe)"] SAN 환경에서 프로토콜을 사용할 수 있습니다. FC-NVMe는 기존 FC 네트워크와 동일한 물리적 설정 및 조닝(zoning)을 사용하지만 FC-SCSI보다 더 큰 대역폭과 향상된 IOPS를 제공하며 지연 시간을 줄일 수 있습니다.
 
-NVMe-oF 프로토콜 지원은 플랫폼 및 구성에 따라 다릅니다. 특정 구성에 대한 자세한 내용은 를 참조하십시오 link:https://imt.netapp.com/matrix/["NetApp 상호 운용성 매트릭스 툴"].
+NVMe-oF 프로토콜 지원은 플랫폼 및 구성에 따라 다릅니다. 특정 구성에 대한 자세한 내용은 를 참조하십시오 link:https://imt.netapp.com/matrix/["NetApp 상호 운용성 매트릭스 툴"^].
 
 클러스터에서 FC-NVMe를 구성할 때 다음 사항을 염두에 두어야 합니다.
 
@@ -38,7 +38,7 @@ NVMe-oF 프로토콜 지원은 플랫폼 및 구성에 따라 다릅니다. 특�
 
 .관련 정보
 * link:https://docs.netapp.com/us-en/ontap/nvme/support-limitations.html["NVMe 지원 및 제한 사항"]
-* http://www.netapp.com/us/media/tr-4684.pdf["NetApp 기술 보고서 4684: NVMe/FC를 사용하여 최신 SAN 구현 및 구성"]
-* https://kb.netapp.com/Advice_and_Troubleshooting/Flash_Storage/AFF_Series/How_to_configure_and_Connect_SUSE_Enterprise_Linux_to_ONTAP_NVMe%2F%2FFC_namespaces["SUSE Enterprise Linux를 ONTAP NVMe/FC 네임스페이스에 구성하고 연결하는 방법"]
-* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Licensing_information_for_NVMe_protocol_on_ONTAP["ONTAP의 NVMe 프로토콜에 대한 라이센스 정보"]
+* http://www.netapp.com/us/media/tr-4684.pdf["NetApp 기술 보고서 4684: NVMe/FC를 사용하여 최신 SAN 구현 및 구성"^]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Flash_Storage/AFF_Series/How_to_configure_and_Connect_SUSE_Enterprise_Linux_to_ONTAP_NVMe%2F%2FFC_namespaces["SUSE Enterprise Linux를 ONTAP NVMe/FC 네임스페이스에 구성하고 연결하는 방법"^]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Licensing_information_for_NVMe_protocol_on_ONTAP["ONTAP의 NVMe 프로토콜에 대한 라이센스 정보"^]
 

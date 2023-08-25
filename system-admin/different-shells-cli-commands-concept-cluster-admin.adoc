@@ -1,7 +1,7 @@
 ---
 permalink: system-admin/different-shells-cli-commands-concept-cluster-admin.html 
 sidebar: sidebar 
-keywords: diag, secd, different, shells, cli, commands, cluster, administrators, clustershell, nodeshell, systemshell 
+keywords: diag, secd, different, shells, cli, commands, cluster, administrators, clustershell, nodeshell, systemshell, display, list, help 
 summary: 클러스터에는 클러스터 셸, 노드 쉘, 시스템 쉘과 같은 CLI 명령을 위한 서로 다른 세 개의 셸이 있습니다. 쉘은 서로 다른 용도로 사용되며 각각 다른 명령 집합을 가집니다. 
 ---
 = CLI 명령에 대한 다양한 셸 정보 개요(클러스터 관리자만 해당)
@@ -32,3 +32,73 @@ notes지옥의 CLI 도움말 (? 로 트리거됨 또는 '도움말'을 선택하
 시스템 쉘과 관련 "DIAG" 계정은 하위 수준 진단 목적으로 사용됩니다. 이러한 액세스를 위해서는 진단 권한 수준이 필요하며, 문제 해결 작업을 수행하기 위한 기술 지원용으로만 예약되어 있습니다.
 
 
+
+
+
+== 클러스터 쉘에서 노드 명령 및 옵션 액세스
+
+노드 쉘을 통해 명령 및 옵션을 액세스할 수 있습니다.
+
+'system node run – node_nodename_'
+
+일반적으로 사용되는 노드 쉘의 명령 및 옵션은 클러스터 쉘에 터널링되거나 별칭되어 클러스터 쉘에서도 실행될 수 있습니다.
+
+클러스터 쉘에서 지원되는 노드 쉘은 'vserver options clustershell' 명령을 사용하여 액세스할 수 있습니다. 이러한 옵션을 보려면 다음 중 하나를 실행합니다.
+
+* 으로 클러스터 셸 CLI를 쿼리합니다 `vserver options -vserver _nodename_or_clustername_ -option-name ?`
+* '가상 서버 옵션'을 사용하여 클러스터 쉘 CLI에서 '가상 서버 옵션' man 페이지에 액세스합니다
+
+
+클러스터 쉘에 노드 쉘이나 레거시 명령 또는 옵션을 입력하고 명령 또는 옵션에 동일한 클러스터 셸 명령이 있으면 ONTAP에서 사용할 클러스터 셸 명령을 알려줍니다.
+
+클러스터 쉘에서 지원되지 않는 노드 쉘이나 레거시 명령 또는 옵션을 입력하면 ONTAP에서 명령이나 옵션에 대한 ""지원되지 않음" 상태를 알려줍니다.
+
+
+
+== 사용 가능한 노드 대체 명령을 표시합니다
+
+CLI 도움말을 사용하여 노드 쉘에서 사용 가능한 노드 쉘의 명령 목록을 얻을 수 있습니다.
+
+.단계
+. 노드 쉘에 액세스하려면 클러스터 쉘의 시스템 프롬프트에 다음 명령을 입력합니다.
++
+'* 시스템 노드 run-node {_nodename_|local} *'
+
++
+로컬 은 클러스터에 액세스하는 데 사용한 노드입니다.
+
++
+[NOTE]
+====
+'system node run' 명령에는 'run'이라는 별칭 명령이 있습니다.
+
+====
+. 노드 쉘에 다음 명령을 입력하여 사용 가능한 노드 쉘 명령 목록을 표시합니다.
++
+"*[_CommandName_] 도움말 * "
+
++
+'_CommandName_'은 표시할 수 있는 명령의 이름입니다. '_CommandName_'을 포함하지 않으면 CLI는 사용 가능한 모든 notes지옥명령을 표시합니다.
+
++
+'exit'를 입력하거나 Ctrl-d를 입력하여 클러스터 쉘 CLI로 돌아갑니다.
+
+
+
+.사용 가능한 노드 쉘의 명령 표시 예
+다음 예에서는 node2라는 노드의 노드 중 노드 쉘에 액세스하여 노드 쉘의 명령 "환경"에 대한 정보를 표시합니다.
+
+[listing]
+----
+cluster1::> system node run -node node2
+Type 'exit' or 'Ctrl-D' to return to the CLI
+
+node2> environment help
+Usage: environment status |
+     [status] [shelf [<adapter>[.<shelf-number>]]] |
+     [status] [shelf_log] |
+     [status] [shelf_stats] |
+     [status] [shelf_power_status] |
+     [status] [chassis [all | list-sensors | Temperature | PSU 1 |
+     PSU 2 | Voltage | SYS FAN | NVRAM6-temperature-3 | NVRAM6-battery-3]]
+----

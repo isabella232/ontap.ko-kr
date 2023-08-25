@@ -1,6 +1,6 @@
 ---
 section: encryption-at-rest
-title: CLI를 사용하여 암호화를 관리합니다
+title: 암호화를 구성합니다
 entries:
 - title: 개요
   url: "/encryption-at-rest/index.html"
@@ -10,143 +10,49 @@ entries:
     url: "/encryption-at-rest/configure-netapp-volume-encryption-concept.html"
   - title: NetApp 볼륨 암호화 워크플로우
     url: "/encryption-at-rest/nve-workflow-concept.html"
-  - title: NVE를 구성합니다
-    entries:
-    - title: 클러스터 버전이 NVE를 지원하는지 확인합니다
-      url: "/encryption-at-rest/luster-version-support-nve-task.html"
-    - title: 라이센스를 설치합니다
-      url: "/encryption-at-rest/install-license-task.html"
-    - title: 외부 키 관리를 구성합니다
-      entries:
-      - title: 개요
-        url: "/encryption-at-rest/configure-external-key-management-overview-concept.html"
-      - title: 클러스터에 SSL 인증서를 설치합니다
-        url: "/encryption-at-rest/install-ssl-certificates-task.html"
-      - title: ONTAP 9.6 이상(NVE)에서 외부 키 관리 지원
-        url: "/encryption-at-rest/enable-external-key-management-96-later-nve-task.html"
-      - title: ONTAP 9.5 이전 버전에서 외부 키 관리를 활성화합니다
-        url: "/encryption-at-rest/enable-external-key-management-95-earlier-task.html"
-      - title: 클라우드 공급자를 통해 키를 관리합니다
-        url: "/encryption-at-rest/manage-keys-azure-google-task.html"
-    - title: ONTAP 9.6 이상(NVE)에서 온보드 키 관리 지원
-      url: "/encryption-at-rest/enable-onboard-key-management-96-later-nve-task.html"
-    - title: ONTAP 9.5 이하(NVE)에서 온보드 키 관리 활성화
-      url: "/encryption-at-rest/enable-onboard-key-management-95-earlier-nve-task.html"
-    - title: 새로 추가된 노드에서 온보드 키 관리를 활성화합니다
-      url: "/encryption-at-rest/enable-onboard-key-management-new-nodes-concept.html"
-  - title: NVE를 사용하여 볼륨 데이터 암호화
-    entries:
-    - title: 개요
-      url: "/encryption-at-rest/encrypt-volumes-concept.html"
-    - title: VE 라이센스로 애그리게이트 레벨 암호화를 설정합니다
-      url: "/encryption-at-rest/enable-aggregate-level-encryption-nve-license-task.html"
-    - title: 새 볼륨에서 암호화를 활성화합니다
-      url: "/encryption-at-rest/enable-encryption-new-volume-task.html"
-    - title: 볼륨 암호화 변환 시작 명령을 사용하여 기존 볼륨에서 암호화를 활성화합니다
-      url: "/encryption-at-rest/enable-encryption-existing-volume-93-later-task.html"
-    - title: 볼륨 이동 시작 명령을 사용하여 기존 볼륨에서 암호화를 활성화합니다
-      url: "/encryption-at-rest/encrypt-existing-volume-task.html"
-    - title: 노드 루트 볼륨 암호화를 설정합니다
-      url: "/encryption-at-rest/enable-root-volume-encryption-task.html"
+  - title: 클러스터 버전이 NVE를 지원하는지 확인합니다
+    url: "/encryption-at-rest/cluster-version-support-nve-task.html"
+  - title: 라이센스를 설치합니다
+    url: "/encryption-at-rest/install-license-task.html"
+- title: Onboard Key Manager를 활성화합니다
+  entries:
+  - title: ONTAP 9.6 이상(NVE)에서 온보드 키 관리 지원
+    url: "/encryption-at-rest/enable-onboard-key-management-96-later-nve-task.html"
+  - title: ONTAP 9.5 이하(NVE)에서 온보드 키 관리 활성화
+    url: "/encryption-at-rest/enable-onboard-key-management-95-earlier-nve-task.html"
+  - title: 새로 추가된 노드에서 온보드 키 관리를 활성화합니다
+    url: "/encryption-at-rest/enable-onboard-key-management-new-nodes-concept.html"
+- title: 외부 키 관리를 구성합니다
+  entries:
+  - title: 개요
+    url: "/encryption-at-rest/configure-external-key-management-overview-concept.html"
+  - title: System Manager를 사용하여 인증서를 관리합니다
+    url: "/authentication/manage-certificates-sm-task.html"
+  - title: 클러스터에 SSL 인증서를 설치합니다
+    url: "/encryption-at-rest/install-ssl-certificates-task.html"
+  - title: System Manager로 외부 키 관리자를 관리합니다
+    url: "/encryption-at-rest/manage-external-key-managers-sm-task.html"
+  - title: ONTAP 9.6 이상(NVE)에서 외부 키 관리 지원
+    url: "/encryption-at-rest/enable-external-key-management-96-later-nve-task.html"
+  - title: ONTAP 9.5 이전 버전에서 외부 키 관리를 활성화합니다
+    url: "/encryption-at-rest/enable-external-key-management-95-earlier-task.html"
+  - title: 클라우드 공급자를 통해 키를 관리합니다
+    url: "/encryption-at-rest/manage-keys-azure-google-task.html"
+- title: NVE를 사용하여 볼륨 데이터 암호화
+  entries:
+  - title: 개요
+    url: "/encryption-at-rest/encrypt-volumes-concept.html"
+  - title: VE 라이센스로 애그리게이트 레벨 암호화를 설정합니다
+    url: "/encryption-at-rest/enable-aggregate-level-encryption-nve-license-task.html"
+  - title: 새 볼륨에서 암호화를 활성화합니다
+    url: "/encryption-at-rest/enable-encryption-new-volume-task.html"
+  - title: 기존 볼륨에 암호화를 설정합니다
+    url: "/encryption-at-rest/encrypt-existing-volume-task.html"
+  - title: 노드 루트 볼륨 암호화를 설정합니다
+    url: "/encryption-at-rest/enable-root-volume-encryption-task.html"
 - title: NetApp 하드웨어 기반 암호화를 구성합니다
   entries:
   - title: 개요
     url: "/encryption-at-rest/support-storage-encryption-concept.html"
   - title: 하드웨어 기반 암호화 워크플로우
     url: "/encryption-at-rest/hw-encryption-workflow-concept.html"
-  - title: 외부 키 관리를 구성합니다
-    entries:
-    - title: 개요
-      url: "/encryption-at-rest/configure-external-key-management-concept.html"
-    - title: ONTAP 9.2 및 그 이전 버전에서 네트워크 정보를 수집합니다
-      url: "/encryption-at-rest/before-configuring-concept.html"
-    - title: 클러스터에 SSL 인증서를 설치합니다
-      url: "/encryption-at-rest/install-ssl-certificates-hardware-task.html"
-    - title: ONTAP 9.6 이상(HW 기반)에서 외부 키 관리 활성화
-      url: "/encryption-at-rest/enable-external-key-management-96-later-hw-task.html"
-    - title: ONTAP 9.5 이전 버전에서 외부 키 관리를 활성화합니다
-      url: "/encryption-at-rest/enable-exernal-key-management-95-earlier-hw-task.html"
-    - title: 클러스터링된 외부 키 서버를 구성합니다
-      url: "/encryption-at-rest/configure-cluster-key-server-task.html"
-    - title: ONTAP 9.6 이상에서 인증 키를 생성합니다
-      url: "/encryption-at-rest/create-authentication-keys-96-later-task.html"
-    - title: ONTAP 9.5 이전 버전에서 인증 키를 만듭니다
-      url: "/encryption-at-rest/create-authentication-keys-93-later-task.html"
-    - title: 데이터 인증 키를 FIPS 드라이브 또는 SED(외부 키 관리)에 할당
-      url: "/encryption-at-rest/assign-authentication-keys-seds-external-task.html"
-  - title: 온보드 키 관리를 구성합니다
-    entries:
-    - title: ONTAP 9.6 이상에서 온보드 키 관리를 활성화합니다
-      url: "/encryption-at-rest/enable-onboard-key-management-96-later-nse-task.html"
-    - title: ONTAP 9.5 이전 버전에서 온보드 키 관리를 활성화합니다
-      url: "/encryption-at-rest/enable-onboard-key-management-95-earlier-nse-task.html"
-    - title: FIPS 드라이브 또는 SED(온보드 키 관리)에 데이터 인증 키 할당
-      url: "/encryption-at-rest/assign-authentication-keys-seds-onboard-task.html"
-  - title: FIPS 140-2 인증 키를 FIPS 드라이브에 할당합니다
-    url: "/encryption-at-rest/assign-fips-140-2-authentication-key-task.html"
-  - title: KMIP 서버 연결을 위해 클러스터 차원의 FIPS 호환 모드를 지원합니다
-    url: "/encryption-at-rest/enable-cluster-fips-compliant-mode-task.html"
-- title: NetApp 암호화 관리
-  entries:
-  - title: 볼륨 데이터 암호화를 해제합니다
-    url: "/encryption-at-rest/unencrypt-volume-data-task.html"
-  - title: 암호화된 볼륨을 이동합니다
-    url: "/encryption-at-rest/move-encrypted-volume-task.html"
-  - title: 볼륨 이동 명령을 실행하는 권한을 위임합니다
-    url: "/encryption-at-rest/delegate-volume-encryption-svm-administrator-task.html"
-  - title: 볼륨 암호화 키를 다시 입력하다 시작 명령을 사용하여 볼륨에 대한 암호화 키를 변경합니다
-    url: "/encryption-at-rest/rekey-encrypted-volume-task.html"
-  - title: 볼륨 이동 시작 명령을 사용하여 볼륨의 암호화 키를 변경합니다
-    url: "/encryption-at-rest/change-encryption-key-volume-92-earlier-task.html"
-  - title: NetApp Storage Encryption의 인증 키를 회전합니다
-    url: "/encryption-at-rest/rotate-authentication-keys-nse-task.html"
-  - title: 암호화된 볼륨을 삭제합니다
-    url: "/encryption-at-rest/delete-encrypted-volume-task.html"
-  - title: 암호화된 볼륨에서 데이터를 안전하게 제거합니다
-    entries:
-    - title: 개요
-      url: "/encryption-at-rest/secure-purge-data-encrypted-volume-concept.html"
-    - title: SnapMirror 관계 없이 암호화된 볼륨의 데이터를 안전하게 제거합니다
-      url: "/encryption-at-rest/purge-data-encrypted-volume-without-snapmirror-task.html"
-    - title: 비동기 SnapMirror 관계를 사용하여 암호화된 볼륨의 데이터를 안전하게 제거합니다
-      url: "/encryption-at-rest/purge-data-encrypted-asynchronous-snapmirror-task.html"
-    - title: 동기식 SnapMirror 관계로 암호화된 볼륨의 데이터를 스크러빙합니다
-      url: "/encryption-at-rest/purge-data-encrypted-volume-synchronous-snapmirror-task.html"
-  - title: 온보드 키 관리 암호를 변경합니다
-    url: "/encryption-at-rest/change-key-management-passphrase-task.html"
-  - title: 온보드 키 관리 정보를 수동으로 백업합니다
-    url: "/encryption-at-rest/backup-key-management-information-manual-task.html"
-  - title: 온보드 키 관리 암호화 키를 복원합니다
-    url: "/encryption-at-rest/restore-onboard-key-management-encryption-keys-task.html"
-  - title: 외부 키 관리 암호화 키를 복원합니다
-    url: "/encryption-at-rest/restore-external-encryption-keys-93-later-task.html"
-  - title: SSL 인증서를 교체합니다
-    url: "/encryption-at-rest/replace-ssl-certificates-task.html"
-  - title: FIPS 드라이브 또는 SED를 교체합니다
-    url: "/encryption-at-rest/replace-self-encrypting-disk-task.html"
-  - title: FIPS 드라이브 또는 SED에 액세스할 수 없도록 설정합니다
-    entries:
-    - title: 개요
-      url: "/encryption-at-rest/data-seds-inaccessible-concept.html"
-    - title: FIPS 드라이브 또는 SED를 살균합니다
-      url: "/encryption-at-rest/sanitize-fips-drive-sed-task.html"
-    - title: FIPS 드라이브 또는 SED를 제거합니다
-      url: "/encryption-at-rest/destroy-nse-disks-task.html"
-    - title: FIPS 드라이브 또는 SED에서 데이터의 긴급 폐기
-      url: "/encryption-at-rest/emergency-shred-data-disks-storage-encryption-task.html"
-  - title: 인증 키가 손실되면 FIPS 드라이브 또는 SED를 서비스에 반환합니다
-    url: "/encryption-at-rest/return-self-encrypting-disks-keys-not-available-task.html"
-  - title: FIPS 드라이브 또는 SED를 보호되지 않는 모드로 되돌립니다
-    url: "/encryption-at-rest/return-seds-unprotected-mode-task.html"
-  - title: 외부 키 관리자 연결을 제거합니다
-    url: "/encryption-at-rest/remove-external-key-server-93-later-task.html"
-  - title: 외부 키 관리 서버 속성을 수정합니다
-    url: "/encryption-at-rest/modify-external-key-server-96-later-task.html"
-  - title: 온보드 키 관리에서 외부 키 관리로 전환
-    url: "/encryption-at-rest/transition-external-key-from-onboard-key-task.html"
-  - title: 외부 키 관리에서 온보드 키 관리로 전환합니다
-    url: "/encryption-at-rest/delete-key-management-database-task.html"
-  - title: 부팅 프로세스 중에 키 관리 서버에 연결할 수 없는 경우 발생하는 현상
-    url: "/encryption-at-rest/key-management-servers-not-reachable-boot-concept.html"
-  - title: ONTAP 9.7 이상에서는 기본적으로 암호화를 사용하지 않도록 설정합니다
-    url: "/encryption-at-rest/disable-encryption-by-default-97-higher-task.html"

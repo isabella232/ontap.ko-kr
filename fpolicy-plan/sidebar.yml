@@ -1,0 +1,46 @@
+---
+section: fpolicy-plan
+title: FPolicy 구성을 계획합니다
+entries:
+- title: FPolicy를 구성하기 위한 요구사항, 고려 사항 및 모범 사례
+  url: "/nas-audit/requirements-best-practices-fpolicy-concept.html"
+- title: FPolicy 구성을 설정하는 단계는 무엇입니까
+  url: "/nas-audit/steps-setup-fpolicy-config-concept.html"
+- title: FPolicy 외부 엔진 구성을 계획하십시오
+  entries:
+  - title: 개요
+    url: "/nas-audit/plan-fpolicy-external-engine-config-concept.html"
+  - title: SSL 인증된 연결을 사용하도록 FPolicy 외부 엔진을 구성하는 방법에 대한 추가 정보입니다
+    url: "/nas-audit/configure-fpolicy-ssl-connections-concept.html"
+  - title: 인증서는 ID가 아닌 구성을 사용하여 SVM 재해 복구 관계에서 복제되지 않습니다
+    url: "/nas-audit/certificates-disaster-recovery-non-id-preserve-concept.html"
+  - title: MetroCluster 및 SVM 재해 복구 구성의 클러스터 범위 FPolicy 외부 엔진에 대한 제한 사항
+    url: "/nas-audit/restrictions-fpolicy-mcc-svm-disaster-recovery-concept.html"
+  - title: FPolicy 외부 엔진 구성 워크시트를 작성합니다
+    url: "/nas-audit/fpolicy-external-engine-config-worksheet-reference.html"
+- title: FPolicy 이벤트 구성을 계획합니다
+  entries:
+  - title: 개요
+    url: "/nas-audit/plan-fpolicy-event-config-concept.html"
+  - title: FPolicy가 SMB용으로 모니터링할 수 있는 지원되는 파일 작업 및 필터 조합
+    url: "/nas-audit/supported-file-operation-filter-fpolicy-smb-concept.html"
+  - title: FPolicy에서 NFSv3을 모니터링할 수 있는 지원되는 파일 작업 및 필터 조합
+    url: "/nas-audit/supported-file-operation-filter-fpolicy-nfsv3-concept.html"
+  - title: FPolicy에서 NFSv4를 모니터링할 수 있는 파일 작업 및 필터 조합이 지원됩니다
+    url: "/nas-audit/supported-file-operation-filter-fpolicy-nfsv4-concept.html"
+  - title: FPolicy 이벤트 구성 워크시트를 작성합니다
+    url: "/nas-audit/fpolicy-event-config-worksheet-reference.html"
+- title: FPolicy 정책 구성을 계획합니다
+  entries:
+  - title: 개요
+    url: "/nas-audit/plan-fpolicy-policy-config-concept.html"
+  - title: FPolicy 정책에서 기본 엔진을 사용하는 경우 FPolicy 범위 구성에 대한 요구사항
+    url: "/nas-audit/fpolicy-scope-config-native-engine-concept.html"
+  - title: FPolicy 정책 워크시트를 작성합니다
+    url: "/nas-audit/fpolicy-policy-worksheet-reference.html"
+- title: FPolicy 범위 구성을 계획합니다
+  entries:
+  - title: 개요
+    url: "/nas-audit/plan-fpolicy-scope-config-concept.html"
+  - title: FPolicy 범위 워크시트를 작성합니다
+    url: "/nas-audit/fpolicy-scope-worksheet-reference.html"
