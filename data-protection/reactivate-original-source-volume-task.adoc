@@ -19,24 +19,6 @@ summary: 대상에서 데이터를 더 이상 제공할 필요가 없을 때 소
 
 
 .단계
-. 원본 데이터 보호 관계를 삭제합니다.
-+
-'스냅샷 삭제 - 소스 경로 - SVM: volume_|_cluster://SVM/volume_,... -destination-path_SVM:volume_|_cluster://SVM/volume_,
-
-+
-전체 명령 구문은 man 페이지를 참조하십시오.
-
-+
-이 명령은 타겟 SVM 또는 타겟 클러스터에서 실행해야 합니다.
-
-+
-다음 예에서는 svm1의 원본 소스 볼륨 VolA와 SVM_BACKUP의 VolA_DST에서 데이터를 제공하고 있는 볼륨 간의 관계를 삭제합니다.
-
-+
-[listing]
-----
-cluster_dst::> snapmirror delete -source-path svm1:volA -destination-path svm_backup:volA_dst
-----
 . 원래 데이터 보호 관계를 반대로 전환합니다.
 +
 '스냅샷 재동기화 - 소스 경로_SVM:볼륨_|_클러스터://SVM/볼륨 _,... -destination-path_SVM:volume_|_cluster://SVM/volume_,
