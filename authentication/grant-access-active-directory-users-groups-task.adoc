@@ -27,6 +27,9 @@ xref:enable-ad-users-groups-access-cluster-svm-task.adoc[Active Directory 도메
 계정 액세스를 활성화하기 전이나 후에 이 작업을 수행할 수 있습니다.
 
 * ONTAP 9.13.1 부터는 SSH 공개 키를 AD 사용자 암호와 함께 기본 또는 보조 인증 방법으로 사용할 수 있습니다.
++
+SSH 공개 키를 기본 인증으로 사용하도록 선택하면 AD 인증이 수행되지 않습니다.
+
 * ONTAP 9.11.1부터 를 사용할 수 있습니다 link:../nfs-admin/ldap-fast-bind-nsswitch-authentication-task.html["nsswitch 인증을 위한 LDAP 빠른 바인딩"] AD LDAP 서버에서 지원하는 경우
 * 로그인 계정에 할당할 액세스 제어 역할을 잘 모르는 경우 '보안 로그인 수정' 명령을 사용하여 나중에 역할을 추가할 수 있습니다.
 +
