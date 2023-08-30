@@ -1,0 +1,42 @@
+---
+permalink: upgrade/confirm-configuration.html 
+sidebar: sidebar 
+keywords: ontap, upgrade, before, confirm, configuration, hardware, cluster management switches, metrocluster ip switches, san, target, release 
+summary: ONTAP를 업그레이드하기 전에 대상 릴리스에서 구성이 지원되는지 확인해야 합니다. 
+---
+= 하드웨어 구성에 대한 ONTAP 지원을 확인합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP를 업그레이드하기 전에 구성이 대상 릴리즈를 지원할 수 있는지 확인해야 합니다.
+
+
+
+== 모든 설정
+
+사용 https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"^] 사용 중인 하드웨어 플랫폼과 클러스터 및 관리 스위치가 대상 ONTAP 릴리즈에서 지원되는지 확인합니다.  클러스터 및 관리 스위치에는 NX-OS(클러스터 네트워크 스위치), 관리 네트워크 스위치(IOS) 및 RCF(참조 구성 파일)가 포함됩니다.  클러스터 및 관리 스위치가 지원되지만 타겟 ONTAP 릴리즈에 필요한 최소 소프트웨어 버전이 실행되고 있지 않은 경우 스위치를 지원되는 소프트웨어 버전으로 업그레이드하십시오.
+
+* https://mysupport.netapp.com/site/info/broadcom-cluster-switch["NetApp 다운로드: Broadcom 클러스터 스위치"^]
+* https://mysupport.netapp.com/site/info/cisco-ethernet-switch["NetApp 다운로드: Cisco 이더넷 스위치"^]
+* https://mysupport.netapp.com/site/info/netapp-cluster-switch["NetApp 다운로드: NetApp 클러스터 스위치"^]
+
+
+
+NOTE: 스위치를 업그레이드해야 하는 경우 NetApp은 먼저 ONTAP 소프트웨어 업그레이드를 완료한 다음 스위치에 대한 소프트웨어 업그레이드를 수행하는 것이 좋습니다.
+
+
+
+== MetroCluster 구성
+
+ONTAP를 업그레이드하기 전에 MetroCluster 구성이 있는 경우 를 사용합니다 https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"^] MetroCluster IP 스위치가 대상 릴리스에서 지원되는지 확인합니다.
+
+
+
+== SAN 구성
+
+ONTAP를 업그레이드하기 전에 클러스터가 SAN용으로 구성된 경우 를 사용합니다 https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"^] SAN 구성이 완전히 지원되는지 확인합니다.
+
+대상 ONTAP 소프트웨어 버전, 호스트 OS 및 패치, 필요한 호스트 유틸리티 소프트웨어, 다중 경로 소프트웨어, 어댑터 드라이버 및 펌웨어를 비롯한 모든 SAN 구성 요소가 지원되어야 합니다.

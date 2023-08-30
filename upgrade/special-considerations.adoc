@@ -1,0 +1,63 @@
+---
+permalink: upgrade/special-considerations.html 
+sidebar: sidebar 
+keywords: ontap, upgrade, plan, planning, upgrade, manually, manual, checks, cluster, ready, verification, verify, verifying, special considerations 
+summary: 특정 클러스터 구성의 경우, ONTAP 소프트웨어 업그레이드를 시작하기 전에 특정 작업을 수행해야 합니다. 
+---
+= ONTAP 업그레이드 전 특별한 고려 사항
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+특정 클러스터 구성의 경우, ONTAP 소프트웨어 업그레이드를 시작하기 전에 특정 작업을 수행해야 합니다.  예를 들어 SAN 구성을 사용하는 경우 업그레이드를 시작하기 전에 각 호스트가 올바른 수의 직접 및 간접 경로로 구성되었는지 확인해야 합니다.
+
+다음 표를 검토하여 수행해야 할 추가 단계를 결정합니다.
+
+[cols="2*"]
+|===
+| 스스로에게 물어보십시오. | 답변이 * 예 * 인 경우 다음을 수행하십시오. 
+
+
+| 현재 클러스터가 혼합 버전입니까? | xref:concept_mixed_version_requirements.html[혼합 버전 요구 사항을 확인합니다] 
+
+
+| MetroCluster 구성이 있습니까?  a| 
+xref:concept_upgrade_requirements_for_metrocluster_configurations.html[MetroCluster 구성에 대한 구체적인 업그레이드 요구 사항을 검토합니다]
+
+
+
+| SAN 구성이 있습니까? | xref:task_verifying_the_san_configuration.html[SAN 호스트 구성을 확인합니다] 
+
+
+| 클러스터에 SnapMirror 관계가 정의되어 있습니까?  a| 
+* xref:task_preparing_snapmirror_relationships_for_a_nondisruptive_upgrade_or_downgrade.html[업그레이드할 SnapMirror 관계를 준비합니다]
+* link:../data-protection/compatible-ontap-versions-snapmirror-concept.html["SnapMirror 관계에 대해 ONTAP 버전의 호환성을 확인합니다"]
+
+
+
+
+| DP 유형 SnapMirror 관계가 정의되어 있으며 ONTAP 9.12.1 이상으로 업그레이드됩니까? | link:../data-protection/convert-snapmirror-version-flexible-task.html["기존 DP 유형 관계를 XDP로 변환합니다"] 
+
+
+| 볼륨 및 애그리게이트를 중복제거할 수 있습니까? | xref:task_verifying_that_deduplicated_volumes_and_aggregates_contain_sufficient_free_space.html[중복 제거된 볼륨 및 애그리게이트를 위한 충분한 여유 공간이 있는지 확인하십시오] 
+
+
+| 외부 키 관리 서버와 함께 NetApp Storage Encryption을 사용하고 있습니까? | xref:task_preparing_to_upgrade_nodes_using_netapp_storage_encryption_with_external_key_management_servers.html[기존 키 관리 서버 연결을 삭제합니다] 
+
+
+| SVM에 넷그룹이 로드되어 있습니까? | xref:task_verifying_that_the_netgroup_file_is_present_on_all_nodes.html[넷그룹 파일이 각 노드에 있는지 확인합니다] 
+
+
+| SSLv3을 사용하는 LDAP 클라이언트가 있습니까? | xref:task_configuring_ldap_clients_to_use_tls_for_highest_security.html[TLS를 사용하도록 LDAP 클라이언트를 구성합니다] 
+
+
+| 세션 지향 프로토콜을 사용하고 있습니까? | xref:concept_considerations_for_session_oriented_protocols.html[세션 지향 프로토콜에 대한 고려 사항을 검토합니다] 
+
+
+| 관리자 계정이 SSH 공개 키로 인증하는 클러스터에서 SSL FIPS 모드가 활성화됩니까? | xref:considerations-authenticate-ssh-public-key-fips-concept.html[SSH 호스트 키 알고리즘 지원을 확인합니다] 
+
+
+| ONTAP 9.3에서 업그레이드합니까? | xref:task_preparing_all_load_sharing_mirrors_for_a_major_upgrade.html[모든 부하 공유 미러를 준비합니다] 
+|===

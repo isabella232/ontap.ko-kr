@@ -4,30 +4,71 @@ sidebar: sidebar
 keywords: ontap, upgrade, reconfigure, reconfiguring, kmip, server, connections, 9.3, later 
 summary: 'ONTAP 9.3 이상으로 업그레이드한 후 외부 키 관리(KMIP) 서버 연결을 다시 구성해야 합니다.' 
 ---
-= ONTAP 9.3 이상으로 업그레이드한 후 KMIP 서버 연결을 재구성합니다
+= ONTAP 9.2 이전 버전에서 업그레이드한 후 KMIP 서버 연결을 다시 구성합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-ONTAP 9.3 이상으로 업그레이드한 후 외부 키 관리(KMIP) 서버 연결을 다시 구성해야 합니다.
+ONTAP 9.2 이상에서 ONTAP 9.3 이상으로 업그레이드한 후에는 모든 외부 키 관리(KMIP) 서버 연결을 다시 구성해야 합니다.
 
-. 키 관리자 연결 구성: 보안 키 관리자 설정
-. KMIP 서버를 추가합니다. 'Security key-manager add-address key_management_server_ip_address'
-. KMIP 서버가 '보안 키 관리자 표시 상태'로 연결되어 있는지 확인합니다
-. 키 서버에 대한 '보안 키 관리자 쿼리'를 쿼리합니다
-. '보안 키 관리자 만들기 키 프롬프트 키 참'이라는 새 인증 키와 암호를 만듭니다
+.단계
+. Key Manager 연결을 구성합니다.
++
+[source, cli]
+----
+security key-manager setup
+----
+. KMIP 서버 추가:
++
+[source, cli]
+----
+security key-manager add -address key_management_server_ip_address
+----
+. KMIP 서버가 연결되었는지 확인합니다.
++
+[source, cli]
+----
+security key-manager show -status
+----
+. 키 서버를 쿼리합니다.
++
+[source, cli]
+----
+security key-manager query
+----
+. 새 인증 키 및 암호 구문을 생성합니다.
++
+[source, cli]
+----
+security key-manager create-key -prompt-for-key true
+----
 +
 암호는 32자 이상이어야 합니다.
 
-. 새 인증 키 '보안 키-관리자 쿼리'를 쿼리합니다
-. SED(자체 암호화 디스크)에 새 인증 키를 할당합니다. 'Storage encryption disk modify -disk disk_ID -data-key-id key_ID'
+. 새 인증 키를 쿼리합니다.
++
+[source, cli]
+----
+security key-manager query
+----
+. SED(자체 암호화 디스크)에 새 인증 키를 할당합니다.
++
+[source, cli]
+----
+storage encryption disk modify -disk disk_ID -data-key-id key_ID
+----
 +
 
 NOTE: 쿼리에서 새 인증 키를 사용하고 있는지 확인합니다.
 
-. 필요한 경우 SED에 FIPS 키를 할당합니다. 'Storage encryption disk modify -disk disk_id -FIPS -key -id FIPS_authentication_key_id'
+. 필요한 경우 SED에 FIPS 키를 할당합니다.
++
+[source, cli]
+----
+storage encryption disk modify -disk disk_id -fips-key-id fips_authentication_key_id
+----
 +
 보안 설정에서 데이터 인증과 FIPS 140-2 인증을 위해 다른 키를 사용해야 하는 경우 각각에 대해 별도의 키를 만들어야 합니다. 그렇지 않은 경우 데이터 액세스에 사용하는 FIPS 준수에 동일한 인증 키를 사용할 수 있습니다.
 

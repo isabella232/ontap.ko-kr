@@ -4,7 +4,7 @@ permalink: upgrade/task_upgrade_disruptive_automated_cli.html
 keywords: netapp, ontap, upgrade, nondisruptive, nondisruptively, non-disruptive update, nondisruptive upgrade, upgrade a cluster, shift workload between clusters, hardware platform, configuration, software image, update, update ONTAP, update software, ndu 
 summary: 클러스터에서 ONTAP 버전을 중단 없이 업데이트할 수 있습니다. 
 ---
-= CLI를 사용하여 중단 자동화(단일 노드 클러스터만 해당)
+= 자동화된 중단 ONTAP 업그레이드(단일 노드 클러스터만 해당)
 :toc: macro
 :hardbreaks:
 :toclevels: 1
@@ -19,7 +19,7 @@ summary: 클러스터에서 ONTAP 버전을 중단 없이 업데이트할 수 �
 
 
 [role="lead"]
-ONTAP 9.2부터는 단일 노드 클러스터의 자동 업데이트를 수행할 수 있습니다. 단일 노드 클러스터에는 중복성이 없으므로 업데이트가 항상 중단될 수 있습니다.
+ONTAP 9.2부터는 ONTAP CLI를 사용하여 단일 노드 클러스터에 대한 자동 업데이트를 수행할 수 있습니다. 단일 노드 클러스터에는 중복성이 없으므로 업데이트가 항상 중단될 수 있습니다. System Manager를 사용하여 운영 중단 업그레이드를 수행할 수 없습니다.
 
 * 업그레이드 준비 요구 사항을 충족해야 합니다.
 +

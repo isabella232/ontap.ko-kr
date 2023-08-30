@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: upgrade, methods, andu, ndu, automated, automatic, system manager, cli, nondisruptive, disruptive 
 summary: '업그레이드 방법은 구성에 따라 다릅니다. 가능하면 System Manager를 사용하는 자동 무중단 업그레이드(ANDU)가 권장됩니다.' 
 ---
-= 어떤 업그레이드 방법을 사용해야 합니까?
+= ONTAP 업그레이드 방법
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-무중단 또는 운영, 자동화 또는 수동 업그레이드 방법은 구성에 따라 다릅니다. 가능하면 System Manager를 사용하는 자동 무중단 업그레이드(ANDU)가 권장됩니다.
+무중단 또는 운영, 자동화 또는 수동 업그레이드 방법은 구성에 따라 다릅니다.  System Manager를 사용하는 자동 무중단 업그레이드(ANDU)가 기본 방법이며 대부분의 구성을 지원합니다.
 
 * 무중단 업그레이드 * + 무중단 업그레이드는 ONTAP의 고가용성(HA) 장애 조치 기술을 활용하여 업그레이드 중에도 클러스터가 계속해서 데이터를 제공할 수 있도록 합니다. 무중단 업그레이드 프로세스에는 두 가지 유형이 있습니다.
 
@@ -51,14 +51,14 @@ summary: '업그레이드 방법은 구성에 따라 다릅니다. 가능하면 
 
 * xref:task_upgrade_andu_sm.html[System Manager를 사용하여 무중단 자동화]
 * xref:task_upgrade_andu_cli.html[CLI를 사용하여 무중단 자동화]
-* xref:task_upgrade_nondisruptive_manual_cli.html[CLI를 사용한 수동 무중단 지원]
-* xref:task_updating_an_ontap_cluster_disruptively.html[CLI를 사용한 수동 중단]
+* xref:task_upgrade_nondisruptive_manual_cli.html[수동 중단 없음]
+* xref:task_updating_an_ontap_cluster_disruptively.html[수동 중단]
 
 
 자동화된 방법을 권장하지만 단일 노드 클러스터는 중단 방법 중 하나를 사용해야 합니다.
 
-* xref:task_upgrade_disruptive_automated_cli.html[CLI를 사용하여 중단을 자동화했습니다]
-* xref:task_updating_an_ontap_cluster_disruptively.html[CLI를 사용한 수동 중단]
+* xref:task_upgrade_disruptive_automated_cli.html[중단 자동화]
+* xref:task_updating_an_ontap_cluster_disruptively.html[수동 중단]
 
 
 
@@ -75,29 +75,29 @@ summary: '업그레이드 방법은 구성에 따라 다릅니다. 가능하면 
 | 9.3 이상 | 2,4  a| 
 * xref:task_upgrade_andu_sm.html[System Manager를 사용하여 무중단 자동화]
 * xref:task_upgrade_andu_cli.html[CLI를 사용하여 무중단 자동화]
-* xref:task_updating_an_ontap_cluster_disruptively.html[CLI를 사용한 수동 중단]
+* xref:task_updating_an_ontap_cluster_disruptively.html[수동 중단]
 
 
 
 
 | 9.3 이상 | 8  a| 
 * xref:task_upgrade_andu_cli.html[CLI를 사용하여 무중단 자동화]
-* xref:task_updating_a_four_or_eight_node_mcc.html[CLI를 사용한 수동 무중단 지원]
-* xref:task_updating_an_ontap_cluster_disruptively.html[CLI를 사용한 수동 중단]
+* xref:task_updating_a_four_or_eight_node_mcc.html[수동 중단 없음]
+* xref:task_updating_an_ontap_cluster_disruptively.html[수동 중단]
 
 
 
 
 | 9.2 이하 | 2  a| 
-* xref:task_updating_a_two_node_metrocluster_configuration_in_ontap_9_2_and_earlier.html[CLI를 사용하여 수동 무중단(2노드 클러스터의 경우]
+* xref:task_updating_a_two_node_metrocluster_configuration_in_ontap_9_2_and_earlier.html[수동 무중단(2노드 클러스터)]
 * xref:task_updating_an_ontap_cluster_disruptively.html[CLI를 사용한 수동 중단]
 
 
 
 
 | 9.2 이하 | 4, 8  a| 
-* xref:task_updating_a_four_or_eight_node_mcc.html[CLI를 사용한 수동 무중단 지원]
-* xref:task_updating_an_ontap_cluster_disruptively.html[CLI를 사용한 수동 중단]
+* xref:task_updating_a_four_or_eight_node_mcc.html[수동 중단 없음]
+* xref:task_updating_an_ontap_cluster_disruptively.html[수동 중단]
 
 
 

@@ -4,18 +4,18 @@ sidebar: sidebar
 keywords: upgrade, ontap, dqp, disk, qualification, package 
 summary: 'DQP(Disk Qualification Package)는 새로 검증된 드라이브에 대한 완전한 지원을 추가합니다. 드라이브 펌웨어를 업데이트하거나 새 드라이브 유형 또는 크기를 클러스터에 추가하기 전에 DQP를 업데이트해야 합니다. 모범 사례는 DQP를 정기적으로 업데이트하는 것입니다(예: 매 분기 또는 매 반년).' 
 ---
-= 디스크 검증 패키지를 업데이트해야 하는 경우
+= 디스크 검증 패키지를 업데이트합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-DQP(Disk Qualification Package)는 새로 검증된 드라이브에 대한 완전한 지원을 추가합니다.
+ONTAP 디스크 자격 검증 패키지(DQP)를 업데이트할 때마다 새로 검증된 드라이브에 대한 전체 지원이 추가됩니다.
 
-ONTAP는 디스크 드라이브를 일반적으로 예상한 것과 다르게 처리합니다. 예를 들어 ONTAP는 제조업체에서 지정한 것과 다른 섹터 크기를 할당합니다. DQP에는 새로 인증된 모든 드라이브에 대한 ONTAP에 대한 적절한 매개변수가 포함되어 있습니다. 따라서 새로 인증된 드라이브에 대한 정보가 포함되지 않은 DQP를 사용하여 ONTAP 버전을 실행하는 경우, ONTAP는 드라이브를 올바르게 구성하기 위한 정보를 제공하지 않습니다.
+DQP에는 새로 검증된 모든 드라이브와의 ONTAP 상호 작용을 위한 적절한 매개변수가 포함되어 있습니다. 새로 인증된 드라이브에 대한 정보가 포함되지 않은 DQP로 ONTAP 버전을 실행하는 경우 ONTAP는 드라이브를 올바르게 구성하기 위한 정보를 가지고 있지 않습니다.
 
-다음과 같은 상황에서 DQP를 다운로드하여 설치해야 합니다. 모범 사례는 DQP를 정기적으로 업데이트하는 것입니다(예: 매 분기 또는 매 반년).
+가장 좋은 방법은 매 분기마다 그리고 최소 1년에 두 번 DQP를 업데이트하는 것입니다.  다음과 같은 상황에서 DQP를 다운로드하여 설치해야 합니다.
 
 * 새 버전의 ONTAP로 업그레이드할 때마다
 +
@@ -30,6 +30,6 @@ DQP는 ONTAP 업그레이드의 일부로 업데이트되지 않습니다.
 
 
 .관련 정보
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware/download/DISKQUAL/ALL/qual_devices.zip["NetApp 다운로드: 디스크 검증 패키지"^]
+* https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware/download/DISKQUAL/ALL/qual_devices.zip["NetApp 다운로드: 디스크 검증 패키지"^]
+* https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp 다운로드: 디스크 드라이브 펌웨어"]
 
-https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["NetApp 다운로드: 디스크 드라이브 펌웨어"]

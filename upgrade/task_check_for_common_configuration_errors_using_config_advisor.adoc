@@ -1,25 +1,26 @@
 ---
 permalink: upgrade/task_check_for_common_configuration_errors_using_config_advisor.html 
 sidebar: sidebar 
-keywords: upgrade, common, configuration, errors, check, config, advisor 
+keywords: upgrade, common, configuration, errors, check, config, advisor, before upgrade, before upgrading 
 summary: Active IQ Config Advisor 도구를 사용하여 일반적인 구성 오류를 확인할 수 있습니다. 
 ---
-= Active IQ Config Advisor를 사용하여 일반적인 구성 오류가 없는지 확인합니다
+= Active IQ Config Advisor의 구성 오류를 식별합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-업그레이드하기 전에 Active IQ Config Advisor 도구를 사용하여 일반적인 구성 오류를 확인할 수 있습니다.
+ONTAP를 업그레이드하기 전에 Active IQ Config Advisor 도구를 사용하여 일반적인 구성 오류를 확인할 수 있습니다.
 
-Active IQ Config Advisor는 NetApp 시스템의 구성 검증 및 상태 점검 툴입니다. 이 툴은 데이터 수집 및 시스템 분석을 위해 보안 사이트 및 비보안 사이트에 구축할 수 있습니다.
+Active IQ Config Advisor는 NetApp 시스템용 구성 검증 툴입니다. 보안된 사이트는 물론이고 보안되지 않은 사이트에서도 Config Advisor를 구축하여 데이터를 수집하고 시스템 분석을 수행할 수 있습니다.
 
 
 NOTE: Active IQ Config Advisor에 대한 지원은 제한적이며 온라인으로만 제공됩니다.
 
-. NetApp Support 사이트에 로그인한 다음 * tools * > * Tools * 를 클릭합니다.
+.단계
+. 에 로그인합니다 link:https://mysupport.netapp.com/site/global/["NetApp Support 사이트"^]를 클릭하고 * tools * > * Tools * 를 클릭합니다.
 . Active IQ Config Advisor * 에서 를 클릭합니다 https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["앱을 다운로드합니다"^].
-. 웹 페이지의 지침에 따라 Active IQ Config Advisor를 다운로드, 설치 및 실행합니다.
-. Active IQ Config Advisor를 실행한 후 도구의 출력을 검토하고 도구에서 발견된 문제를 해결하기 위해 제공된 권장 사항을 따릅니다.
+. Active IQ Config Advisor를 다운로드, 설치 및 실행합니다.
+. Active IQ Config Advisor를 실행한 후 도구의 출력을 검토하고 도구에서 발견된 문제를 해결하기 위해 제공되는 권장 사항을 따릅니다.
 

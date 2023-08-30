@@ -4,70 +4,46 @@ title: ONTAP를 업그레이드합니다
 entries:
 - title: 개요
   url: "/upgrade/index.html"
-- title: 업그레이드 경로
-  url: "/upgrade/concept_upgrade_paths.html"
-- title: Upgrade Advisor를 사용하여 업그레이드합니다
-  url: "/upgrade/task_plan_with_upgrade_advisor.html"
-- title: Upgrade Advisor 없이 업그레이드
+- title: ONTAP를 업그레이드해야 하는 경우
+  url: "/upgrade/when-to-upgrade.html"
+- title: ONTAP 업그레이드를 준비합니다
   entries:
-  - title: Upgrade Advisor 없이 업그레이드해야 합니까?
-    url: "/upgrade/task_plan_without_upgrade_advisor.html"
-  - title: 업그레이드 전에 무엇을 읽어야 합니까?
-    url: "/upgrade/task_reviewing_pre_update_resources.html"
-  - title: Upgrade Advisor 없이 업그레이드하기 전에 무엇을 확인해야 합니까?
-    entries:
-    - title: 개요
-      url: "/upgrade/task_what_to_verify_before_upgrade.html"
-    - title: 클러스터 업그레이드 제한
-      url: "/upgrade/task_verifying_cluster_upgrade_limits.html"
-    - title: 현재 클러스터 활동입니다
-      url: "/upgrade/task_identifying_current_cluster_activity.html"
-- title: Upgrade Advisor를 사용하거나 사용하지 않고 업그레이드하기 전에 무엇을 확인해야 합니까?
-  entries:
-  - title: 업그레이드 전 검증 개요
-    url: "/upgrade/task_what_to_check_before_upgrade.html"
-  - title: 클러스터 상태
-    url: "/upgrade/task_verifying_cluster_health_verifying_that_the_cluster_is_ready.html"
-  - title: 스토리지 상태
-    url: "/upgrade/task_verifying_storage_health_verifying_that_the_cluster_is_ready.html"
-  - title: SP 또는 BMC를 재부팅합니다
-    url: "/upgrade/concept_how_firmware_is_updated_during_upgrade.html"
-  - title: SVM 라우팅 구성
-    url: "/upgrade/concept_verify_svm_routing.html"
-  - title: LIF 페일오버 구성
-    url: "/upgrade/task_verifying_the_lif_failover_configuration.html"
-  - title: 상태(HA, LDAP, DNS, MetroCluster 네트워킹 및 스토리지)
-    url: "/upgrade/task_verify_status.html"
-  - title: 모든 LIF는 홈 포트에 있습니다
-    url: "/upgrade/task_enabling_and_reverting_lifs_to_home_ports_preparing_the_ontap_software_for_the_update.html"
-  - title: 일반적인 구성 오류
+  - title: 준비 요약
+    url: "/upgrade/prepare.html"
+  - title: 대상 ONTAP 릴리스를 선택합니다
+    url: "/upgrade/choose-target-version.html"
+  - title: 구성 지원을 확인합니다
+    url: "/upgrade/confirm-configuration.html"
+  - title: 일반적인 구성 오류를 식별합니다
     url: "/upgrade/task_check_for_common_configuration_errors_using_config_advisor.html"
+  - title: 업그레이드 경로
+    url: "/upgrade/concept_upgrade_paths.html"
+  - title: 업그레이드 계획을 생성합니다
+    url: "/upgrade/create-upgrade-plan.html"
+  - title: LIF 페일오버 구성을 확인합니다
+    url: "/upgrade/task_verifying_the_lif_failover_configuration.html"
+  - title: SVM 라우팅 구성을 확인합니다
+    url: "/upgrade/concept_verify_svm_routing.html"
   - title: 특별한 고려 사항
     entries:
     - title: 특수 고려 사항 요약
-      url: "/upgrade/concept_pre_upgrade_checks.html"
+      url: "/upgrade/special-considerations.html"
     - title: 혼합 버전 클러스터
       url: "/upgrade/concept_mixed_version_requirements.html"
+    - title: MetroCluster 업그레이드 요구 사항
+      url: "/upgrade/concept_upgrade_requirements_for_metrocluster_configurations.html"
     - title: SAN 구성
       url: "/upgrade/task_verifying_the_san_configuration.html"
-    - title: MetroCluster 구성
-      entries:
-      - title: 업그레이드 요구 사항
-        url: "/upgrade/concept_upgrade_requirements_for_metrocluster_configurations.html"
-      - title: 네트워크 및 스토리지 상태입니다
-        url: "/upgrade/task_verifying_the_networking_and_storage_status_for_metrocluster_cluster_is_ready.html"
-    - title: 고급 데이터 파티셔닝
-      url: "/upgrade/concept_upgrade_considerations_for_root_data_partitioning.html"
-    - title: 중복제거된 볼륨 및 애그리게이트
-      url: "/upgrade/task_verifying_that_deduplicated_volumes_and_aggregates_contain_sufficient_free_space.html"
     - title: SnapMirror를 참조하십시오
       entries:
-      - title: 업그레이드 요구 사항
-        url: "/upgrade/concept_upgrade_requirements_for_snapmirror.html"
       - title: SnapMirror 관계 준비
         url: "/upgrade/task_preparing_snapmirror_relationships_for_a_nondisruptive_upgrade_or_downgrade.html"
-    - title: ONTAP 8.3의 로드 공유 미러
-      url: "/upgrade/task_preparing_all_load_sharing_mirrors_for_a_major_upgrade.html"
+      - title: ONTAP 버전의 호환성을 확인합니다
+        url: "/data-protection/compatible-ontap-versions-snapmirror-concept.html"
+    - title: DP 유형 관계
+      url: "/data-protection/convert-snapmirror-version-flexible-task.html"
+    - title: 중복제거된 볼륨 및 애그리게이트
+      url: "/upgrade/task_verifying_that_deduplicated_volumes_and_aggregates_contain_sufficient_free_space.html"
     - title: NetApp 스토리지 암호화
       url: "/upgrade/task_preparing_to_upgrade_nodes_using_netapp_storage_encryption_with_external_key_management_servers.html"
     - title: 넷그룹
@@ -78,11 +54,13 @@ entries:
       url: "/upgrade/concept_considerations_for_session_oriented_protocols.html"
     - title: SSH 공개 키
       url: "/upgrade/considerations-authenticate-ssh-public-key-fips-concept.html"
-    - title: DP 유형 관계
-      url: "/data-protection/convert-snapmirror-version-flexible-task.html"
-- title: 업그레이드 소프트웨어 패키지는 어떻게 구합니까?
+    - title: 로드 공유 미러(8.3)
+      url: "/upgrade/task_preparing_all_load_sharing_mirrors_for_a_major_upgrade.html"
+  - title: SP 또는 BMC를 재부팅합니다
+    url: "/upgrade/concept_how_firmware_is_updated_during_upgrade.html"
+- title: ONTAP 소프트웨어 이미지 다운로드
   url: "/upgrade/download-software-image.html"
-- title: 어떤 업그레이드 방법을 사용해야 합니까?
+- title: ONTAP 업그레이드 방법
   entries:
   - title: 업그레이드 방법 개요
     url: "/upgrade/concept_upgrade_methods.html"
@@ -90,7 +68,7 @@ entries:
     url: "/upgrade/task_upgrade_andu_sm.html"
   - title: CLI를 사용하여 무중단 자동화
     url: "/upgrade/task_upgrade_andu_cli.html"
-  - title: CLI를 사용하여 중단을 자동화했습니다
+  - title: 중단 자동화
     url: "/upgrade/task_upgrade_disruptive_automated_cli.html"
   - title: 수동 업그레이드
     entries:
@@ -104,37 +82,33 @@ entries:
       url: "/upgrade/task_updating_a_two_node_metrocluster_configuration_in_ontap_9_2_and_earlier.html"
     - title: 수동 중단
       url: "/upgrade/task_updating_an_ontap_cluster_disruptively.html"
-- title: 업그레이드 후 어떻게 해야 합니까?
+- title: ONTAP 업그레이드 후 수행할 작업
   entries:
-  - title: 업그레이드 후 검증 개요
+  - title: 업그레이드 후 검증 요약
     url: "/upgrade/task_what_to_do_after_upgrade.html"
   - title: 클러스터를 확인합니다
     url: "/upgrade/task_verify_cluster_after_upgrade.html"
   - title: 모든 LIF가 홈 포트에 있는지 확인합니다
     url: "/upgrade/task_enabling_and_reverting_lifs_to_home_ports_post_upgrade.html"
-  - title: 특수 구성을 확인합니다
+  - title: 특수 구성
     entries:
-    - title: 특수 구성 검증 요약
+    - title: 업그레이드 후 특수 구성 요약
       url: "/upgrade/concept_special_configurations_post_checks.html"
-    - title: 네트워크 구성을 확인합니다
+    - title: 네트워크 구성
       url: "/upgrade/task_verifying_your_network_configuration_after_upgrade.html"
-    - title: 네트워킹 및 스토리지 상태를 확인합니다
-      url: "/upgrade/task_verifying_the_networking_and_storage_status_for_metrocluster_post_upgrade.html"
-    - title: SAN 구성을 확인합니다
-      url: "/upgrade/task_verifying_the_san_configuration_after_an_upgrade.html"
-    - title: KMIP 서버 연결을 재구성합니다
-      url: "/upgrade/task_reconfiguring_kmip_servers_connections_after_upgrading_to_ontap_9_3_or_later.html"
-    - title: 이동된 로드 공유 미러 소스 볼륨을 재배치합니다
-      url: "/upgrade/task_relocating_moved_load_sharing_mirror_source_volumes.html"
-    - title: SnapMirror 작업을 재개합니다
-      url: "/upgrade/task_resuming_snapmirror_operations.html"
-    - title: NFS 클라이언트에 대해 원하는 NT ACL 권한 표시 수준을 설정합니다
-      url: "/upgrade/task_setting_the_desired_nt_acl_permissions_display_level_for_nfs_clients.html"
-    - title: 관리자 암호에 SHA-2를 적용합니다
-      url: "/upgrade/task_enforcing_sha_2_on_user_account_passwords_dot_9_0_upgrade_guide.html"
-    - title: 서비스 프로세서에 액세스할 수 있는 사용자 계정의 변경
-      url: "/upgrade/sp-user-accounts-change-concept.html"
-    - title: EMS LIF 서비스를 네트워크 서비스 정책에서 제거합니다
+    - title: EMS LIF 서비스입니다
       url: "/upgrade/remove-ems-lif-service-task.html"
+    - title: 네트워킹 및 스토리지 상태입니다
+      url: "/upgrade/task_verifying_the_networking_and_storage_status_for_metrocluster_post_upgrade.html"
+    - title: SAN 구성
+      url: "/upgrade/task_verifying_the_san_configuration_after_an_upgrade.html"
+    - title: KMIP 서버 연결
+      url: "/upgrade/task_reconfiguring_kmip_servers_connections_after_upgrading_to_ontap_9_3_or_later.html"
+    - title: 미러 소스 볼륨의 로드 공유
+      url: "/upgrade/task_relocating_moved_load_sharing_mirror_source_volumes.html"
+    - title: SnapMirror 작업
+      url: "/upgrade/task_resuming_snapmirror_operations.html"
+    - title: 서비스 프로세서에 액세스할 수 있는 사용자 계정입니다
+      url: "/upgrade/sp-user-accounts-change-concept.html"
   - title: DQP를 업데이트합니다
     url: "/upgrade/concept_when_you_need_to_update_the_disk_qualification_package.html"

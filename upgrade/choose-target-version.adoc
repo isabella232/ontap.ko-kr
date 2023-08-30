@@ -1,0 +1,28 @@
+---
+permalink: upgrade/choose-target-version.html 
+sidebar: sidebar 
+keywords: upgrade, ontap, choose target release, target release 
+summary: NetApp 권장 사항, 특정 기능의 필요성 또는 성능을 위한 최소 권장 릴리스를 기준으로 대상 ONTAP 업그레이드 릴리스를 선택합니다. 
+---
+= 업그레이드할 대상 ONTAP 릴리스를 선택합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp 권장 사항, 특정 기능의 필요성 또는 성능 요구 사항을 충족하기 위한 최소 릴리스를 기준으로 대상 ONTAP 업그레이드 릴리스를 선택할 수 있습니다.
+
+* 사용 가능한 최신 릴리스로 업그레이드(권장)
++
+NetApp은 ONTAP 소프트웨어를 최신 버전의 번호가 매겨진 ONTAP 릴리스로 업그레이드할 것을 권장합니다.  클러스터의 스토리지 시스템에서 최신 번호 릴리스를 지원하지 않기 때문에 이 작업을 수행할 수 없는 경우 지원되는 최신 번호 릴리즈로 업그레이드해야 합니다.
+
+* 기능 가용성
++
+특정 기능을 지원하는 데 필요한 최소 ONTAP 릴리즈로 업그레이드하려면 를 참조하십시오 link:https://www.netapp.com/media/15984-ontap-release-recommendation-guide.pdf["ONTAP 릴리스 권장사항"^] 로 업그레이드해야 하는 ONTAP 버전을 확인하려면
+
+* 최소 권장 릴리스
++
+업그레이드를 클러스터에 대해 권장되는 최소 릴리즈로 제한하려면 을 참조하십시오 link:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU2["최소 권장 ONTAP 릴리스"^] 로 업그레이드해야 하는 ONTAP 버전을 확인하려면
+
+

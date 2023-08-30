@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ontap, upgrade, plan, planning, upgrade, manually, manual, checks, cluster, ready, verification, verify 
 summary: 클러스터가 다음 기능 중 하나와 함께 구성된 경우 업그레이드 후 추가 단계를 수행해야 할 수 있습니다. 
 ---
-= 특수 구성에 대한 업그레이드 후 검사
+= ONTAP 업그레이드 후 특별 고려 사항
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -18,31 +18,28 @@ summary: 클러스터가 다음 기능 중 하나와 함께 구성된 경우 업
 | 스스로에게 물어보십시오. | 답변이 * 예 * 인 경우 다음을 수행하십시오. 
 
 
-| ONTAP 9.7 이전 버전에서 ONTAP 9.8 이상으로 업그레이드했습니까 | xref:task_verifying_your_network_configuration_after_upgrade.html[네트워크 구성을 확인합니다]
+| ONTAP 9.7 이하에서 ONTAP 9.8 이상으로 업그레이드했습니까? | xref:task_verifying_your_network_configuration_after_upgrade.html[네트워크 구성을 확인합니다]
 
 xref:remove-ems-lif-service-task.html[EMS 대상에 대한 통신 기능을 제공하지 않는 네트워크 서비스 정책에서 EMS LIF 서비스를 제거합니다] 
 
 
-| MetroCluster 구성이 있습니까? | xref:task_verifying_the_networking_and_storage_status_for_metrocluster_post_upgrade.html[네트워킹 및 스토리지 상태를 확인합니다] 
+| 클러스터가 MetroCluster 구성입니까? | xref:task_verifying_the_networking_and_storage_status_for_metrocluster_post_upgrade.html[네트워킹 및 스토리지 상태를 확인합니다] 
 
 
 | SAN 구성이 있습니까? | xref:task_verifying_the_san_configuration_after_an_upgrade.html[SAN 구성을 확인합니다] 
 
 
-| NetApp 스토리지 암호화를 사용하고 ONTAP 9.3 이상으로 업그레이드합니까? | xref:task_reconfiguring_kmip_servers_connections_after_upgrading_to_ontap_9_3_or_later.html[KMIP 서버 연결을 재구성합니다] 
+| ONTAP 9.3 이하에서 업그레이드했으며 NetApp 저장소 암호화를 사용하고 있습니까? | xref:task_reconfiguring_kmip_servers_connections_after_upgrading_to_ontap_9_3_or_later.html[KMIP 서버 연결을 재구성합니다] 
 
 
 | 로드 공유 미러가 있습니까? | xref:task_relocating_moved_load_sharing_mirror_source_volumes.html[이동된 로드 공유 미러 소스 볼륨을 재배치합니다] 
 
 
-| SnapMirror를 사용하고 있습니까? | xref:task_resuming_snapmirror_operations.html[SnapMirror 작업을 재개합니다] 
+| 클러스터에 정의된 SnapMirror 관계가 있습니까? | xref:task_resuming_snapmirror_operations.html[SnapMirror 작업을 재개합니다] 
+
+
+| ONTAP 9.9.1 이전에 생성된 SP(서비스 프로세서) 액세스에 대한 사용자 계정이 있습니까? | xref:sp-user-accounts-change-concept.html[서비스 프로세서에 액세스할 수 있는 계정의 변경 사항을 확인합니다] 
 
 
 | ONTAP 8.3.0에서 업그레이드했습니까? | xref:task_setting_the_desired_nt_acl_permissions_display_level_for_nfs_clients.html[NFS 클라이언트에 대해 원하는 NT ACL 권한 표시 수준을 설정합니다] 
-
-
-| ONTAP 9.0 이전에 만든 관리자 계정이 있습니까? | xref:task_enforcing_sha_2_on_user_account_passwords_dot_9_0_upgrade_guide.html[관리자 암호에 SHA-2를 적용합니다] 
-
-
-| ONTAP 9.9.1 이전에 생성된 서비스 프로세서(SP) 액세스에 대한 사용자 계정이 있습니까? | xref:sp-user-accounts-change-concept.html[서비스 프로세서에 액세스할 수 있는 계정의 변경 사항을 확인합니다] 
 |===

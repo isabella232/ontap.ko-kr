@@ -4,16 +4,21 @@ sidebar: sidebar
 keywords: ontap, post, after, upgrade, verify, networking, storage, status, metrocluster, mcc 
 summary: MetroCluster 구성에서 업데이트를 수행하기 전과 후에 각 클러스터의 LIF, 애그리게이트 및 볼륨 상태를 확인해야 합니다. 
 ---
-= MetroCluster 구성에 대한 네트워킹 및 스토리지 상태를 확인합니다
+= ONTAP 업그레이드 후 MetroCluster 구성에 대한 네트워킹 및 스토리지 상태를 확인합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-MetroCluster 구성에서 업데이트를 수행한 후에는 각 클러스터의 LIF, 애그리게이트 및 볼륨 상태를 확인해야 합니다.
+MetroCluster 구성에서 ONTAP 클러스터를 업그레이드한 후에는 각 클러스터의 LIF, 애그리게이트, 볼륨의 상태를 확인해야 합니다.
 
-. LIF 상태를 'network interface show'로 확인한다
+. LIF 상태를 확인합니다.
++
+[source, cli]
+----
+network interface show
+----
 +
 정상 운영 시 소스 SVM에 대한 LIF의 관리 상태가 가동이고 홈 노드에 있어야 합니다. 타겟 SVM을 위한 LIF는 홈 노드에 배치하거나 설치할 필요가 없습니다. 스위치오버에서 모든 LIF는 관리 상태가 Up 이지만 홈 노드에 있을 필요가 없습니다.
 
@@ -43,7 +48,12 @@ cluster1-01
 
 27 entries were displayed.
 ----
-. 'Storage aggregate show-state! online'이라는 집계 상태를 확인합니다
+. 애그리게이트의 상태를 확인합니다.
++
+[source, cli]
+----
+storage aggregate show -state !online
+----
 +
 이 명령은 _not_online 상태인 모든 애그리게이트를 표시합니다. 정상 운영 시 로컬 사이트에 있는 모든 애그리게이트는 온라인 상태여야 합니다. 하지만 MetroCluster 구성이 전환 중인 경우 재해 복구 사이트의 루트 애그리게이트를 오프라인 상태로 전환할 수 있습니다.
 
@@ -75,7 +85,12 @@ aggr0_b2
                                                                    degraded
 2 entries were displayed.
 ----
-. 볼륨 상태 확인: 볼륨 표시 상태! 온라인
+. 볼륨의 상태를 확인합니다.
++
+[source, cli]
+----
+volume show -state !online
+----
 +
 이 명령은 _not_online 상태인 모든 볼륨을 표시합니다.
 
@@ -102,7 +117,12 @@ vs2-mc    vol3         aggr1_b1     -          RW            -          -     -
 vs2-mc    vol4         aggr1_b1     -          RW            -          -     -
 5 entries were displayed.
 ----
-. '볼륨 표시 - 불일치 true'라는 일관성 없는 볼륨이 없는지 확인합니다
+. 일치하지 않는 볼륨이 없는지 확인합니다.
++
+[source, cli]
+----
+volume show -is-inconsistent true
+----
 +
 기술 자료 문서를 참조하십시오 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Volume_Showing_WAFL_Inconsistent["WAFL가 일치하지 않는 볼륨으로 표시됩니다"] 정합성이 보장되지 않는 볼륨을 처리하는 방법에 대해 설명합니다.
 

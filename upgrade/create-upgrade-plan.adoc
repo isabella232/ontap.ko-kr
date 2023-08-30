@@ -1,0 +1,42 @@
+---
+permalink: upgrade/create-upgrade-plan.html 
+sidebar: sidebar 
+keywords: ontap, upgrade, plan, planning, upgrade advisor, advisor, active iq, create an upgrade plan, estimate upgrade, 
+summary: Active IQ 디지털 어드바이저의 Upgrade Advisor 서비스는 업그레이드 계획을 수립하고 불확실성과 위험을 최소화할 수 있는 인텔리전스를 제공합니다. 
+---
+= ONTAP 업그레이드 계획을 생성합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+업그레이드 계획을 만드는 것이 가장 좋습니다. 활성 상태인 경우 link:https://www.netapp.com/us/services/support-edge.aspx["SupportEdge 서비스"^] 에 대한 계약 link:https://aiq.netapp.com/["Active IQ 디지털 자문업체"^], Upgrade Advisor를 사용하여 업그레이드 계획을 생성할 수 있습니다. 그렇지 않은 경우 자신의 계획을 작성해야 합니다.
+
+
+
+== Upgrade Advisor를 사용하여 업그레이드 계획
+
+Active IQ 디지털 어드바이저의 Upgrade Advisor 서비스는 업그레이드 계획을 수립하고 불확실성과 위험을 최소화할 수 있는 인텔리전스를 제공합니다.
+
+Active IQ는 사용자 환경에서 최신 버전의 ONTAP로 업그레이드하여 해결할 수 있는 문제를 식별합니다. 업그레이드 관리자 서비스는 성공적인 업그레이드를 계획하는 데 도움이 되며, 업그레이드하는 ONTAP 버전에서 알아야 할 문제에 대한 보고서를 제공합니다.
+
+.단계
+. https://aiq.netapp.com/["Active IQ를 시작합니다"^]
+. Active IQ에서 link:https://docs.netapp.com/us-en/active-iq/task_view_risk_and_take_action.html["클러스터와 관련된 모든 위험을 확인하고 수동으로 수정 조치를 취할 수 있습니다"].
++
+ONTAP 업그레이드를 수행하기 전에 * 소프트웨어 구성 변경 *, * 하드웨어 구성 변경 * 및 * 하드웨어 교체 * 범주에 포함된 위험을 해결해야 합니다.
+
+. 권장 업그레이드 경로 및 를 검토합니다 link:https://docs.netapp.com/us-en/active-iq/task_view_upgrade.html["업그레이드 계획을 생성합니다"^].
+
+
+
+
+== ONTAP 업그레이드에는 시간이 얼마나 걸립니까?
+
+30분 이상 준비 단계를 완료하고, 각 HA 쌍을 60분 이상 업그레이드하고, 30분 이상 업그레이드 후 단계를 완료할 계획을 세워야 합니다.
+
+
+NOTE: 외부 키 관리 서버 및 KMIP(Key Management Interoperability Protocol)와 함께 NetApp Encryption을 사용하는 경우 각 HA 쌍의 업그레이드가 1시간 이상 길 것으로 예상해야 합니다.
+
+이러한 업그레이드 기간 지침은 일반 구성 및 워크로드를 기반으로 합니다. 이러한 지침을 사용하여 무중단 업그레이드를 수행하는 데 걸리는 시간을 추정할 수 있습니다. 실제 업그레이드 프로세스 기간은 개별 환경과 노드 수에 따라 다릅니다.

@@ -4,22 +4,31 @@ sidebar: sidebar
 keywords: ontap, upgrade, resuming, resume, snapmirror 
 summary: 무중단 업그레이드를 완료한 후에는 일시 중단된 SnapMirror 관계를 모두 다시 시작해야 합니다. 
 ---
-= SnapMirror 작업을 다시 시작합니다
+= ONTAP 업그레이드 후 SnapMirror 작업을 재개합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-무중단 업그레이드를 완료한 후에는 일시 중단된 SnapMirror 관계를 모두 다시 시작해야 합니다.
+무중단 ONTAP 업그레이드 후에 일시 중지된 SnapMirror 관계를 다시 시작해야 합니다.
 
-SnapMirror quiesce 명령을 사용하여 기존 SnapMirror 관계를 일시 중지해야 하며 클러스터가 중단 없이 업그레이드되어야 합니다.
-
-. 이전에 중지된 각 SnapMirror 관계에 대해 '스냅샷 재시작 *'을 다시 시작합니다
+.단계
+. 이전에 중지된 각 SnapMirror 관계에 대한 전송 다시 시작:
++
+[source, cli]
+----
+snapmirror resume *
+----
 +
 이 명령은 중지된 모든 SnapMirror 관계에 대한 전송을 재개합니다.
 
-. SnapMirror 작업이 다시 시작되었는지 확인합니다. '스냅샷 표시'입니다
+. SnapMirror 작업이 다시 시작되었는지 확인합니다.
++
+[source, cli]
+----
+snapmirror show
+----
 +
 [listing]
 ----
