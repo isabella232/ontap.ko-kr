@@ -54,11 +54,11 @@ ONTAP REST API 또는 시스템 관리자와 함께 RBAC를 사용하는 경우 
 .단계
 . 활동 추적 활성화:
 +
-'볼륨 활동 - vssverver_svm_name_-volume_volume_name_'
+`volume activity-tracking on -vserver _svm_name_ -volume _volume_name_`
 
 . 다음 명령을 사용하여 볼륨에 대한 Activity Tracking 상태가 On 또는 Off 인지 확인합니다.
 +
-'volume activity-tracking show -vsverver_svm_name_-volume_volume_name_-state
+`volume activity-tracking show -vserver _svm_name_ -volume _volume_name_ -state`
 
 . 활성화되면 ONTAP 시스템 관리자 또는 ONTAP REST API를 사용하여 활동 추적 데이터를 표시합니다.
 

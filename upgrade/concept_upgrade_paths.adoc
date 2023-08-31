@@ -65,7 +65,7 @@ ALL_DIRECT_UPGRADE 경로는 에서 지원됩니다 link:concept_mixed_version_r
 == 지원되는 업그레이드 경로
 
 
-NOTE: 이러한 업그레이드 경로는 사내 ONTAP 및 ONTAP Select에 적용됩니다.  ONTAP Select에 대한 자세한 내용은 의 일반 절차를 참조하십시오 link:https://docs.netapp.com/us-en/ontap-select/concept_adm_upgrading_nodes.html#general-procedure["ONTAP Select 노드 업그레이드"].  클라우드에서 ONTAP 업그레이드에 대한 자세한 내용은 를 참조하십시오 https://docs.netapp.com/us-en/occm/task_updating_ontap_cloud.html["Cloud Volumes ONTAP 소프트웨어 업그레이드 중"^].
+NOTE: 이러한 업그레이드 경로는 사내 ONTAP 및 ONTAP Select에 적용됩니다.  ONTAP Select에 대한 자세한 내용은 의 일반 절차를 참조하십시오 link:https://docs.netapp.com/us-en/ontap-select/concept_adm_upgrading_nodes.html#general-procedure["ONTAP Select 노드 업그레이드"^].  클라우드에서 ONTAP 업그레이드에 대한 자세한 내용은 를 참조하십시오 https://docs.netapp.com/us-en/occm/task_updating_ontap_cloud.html["Cloud Volumes ONTAP 소프트웨어 업그레이드 중"^].
 
 자세한 업그레이드 경로는 다음과 같은 경우에 사용할 수 있습니다.
 

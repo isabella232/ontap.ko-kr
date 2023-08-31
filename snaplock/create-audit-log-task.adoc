@@ -48,7 +48,7 @@ xref:create-snaplock-volume-task.adoc[SnapLock 볼륨을 생성합니다]
 
 . 감사 로깅을 위해 SVM 구성:
 +
-'* SnapLock 로그 생성 - vserver_SVM_name_-volume_snaplock_volume_name_-max-file-size_size_-retention-period_default_retention_period_*'
+`*snaplock log create -vserver _SVM_name_ -volume _snaplock_volume_name_ -max-log-size _size_ -retention-period _default_retention_period_*`
 
 +
 [NOTE]
@@ -62,7 +62,7 @@ xref:create-snaplock-volume-task.adoc[SnapLock 볼륨을 생성합니다]
 +
 [listing]
 ----
-SVM1::> snaplock log create -vserver SVM1 -volume logVol -max-file-size 20GB -retention-period 8months
+SVM1::> snaplock log create -vserver SVM1 -volume logVol -max-log-size 20GB -retention-period 8months
 ----
 . 감사 로깅을 위해 구성한 SVM에서 SnapLock 볼륨을 연결 경로 '/sSnapLock_audit_log'에 마운트합니다.
 +
