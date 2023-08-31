@@ -22,10 +22,14 @@ entries:
     url: "/encryption-at-rest/enable-onboard-key-management-95-earlier-nve-task.html"
   - title: 새로 추가된 노드에서 온보드 키 관리를 활성화합니다
     url: "/encryption-at-rest/enable-onboard-key-management-new-nodes-concept.html"
+  - title: FIPS 드라이브 또는 SED(온보드 키 관리)에 데이터 인증 키 할당
+    url: "/encryption-at-rest/assign-authentication-keys-seds-onboard-task.html"
 - title: 외부 키 관리를 구성합니다
   entries:
   - title: 개요
     url: "/encryption-at-rest/configure-external-key-management-overview-concept.html"
+  - title: ONTAP 9.2 및 그 이전 버전에서 네트워크 정보를 수집합니다
+    url: "/encryption-at-rest/before-configuring-concept.html"
   - title: System Manager를 사용하여 인증서를 관리합니다
     url: "/authentication/manage-certificates-sm-task.html"
   - title: 클러스터에 SSL 인증서를 설치합니다
@@ -36,6 +40,14 @@ entries:
     url: "/encryption-at-rest/enable-external-key-management-96-later-nve-task.html"
   - title: ONTAP 9.5 이전 버전에서 외부 키 관리를 활성화합니다
     url: "/encryption-at-rest/enable-external-key-management-95-earlier-task.html"
+  - title: 클러스터링된 외부 키 서버를 구성합니다
+    url: "/encryption-at-rest/configure-cluster-key-server-task.html"
+  - title: ONTAP 9.6 이상에서 인증 키를 생성합니다
+    url: "/encryption-at-rest/create-authentication-keys-96-later-task.html"
+  - title: ONTAP 9.5 이전 버전에서 인증 키를 만듭니다
+    url: "/encryption-at-rest/create-authentication-keys-93-later-task.html"
+  - title: 데이터 인증 키를 FIPS 드라이브 또는 SED(외부 키 관리)에 할당
+    url: "/encryption-at-rest/assign-authentication-keys-seds-external-task.html"
   - title: 클라우드 공급자를 통해 키를 관리합니다
     url: "/encryption-at-rest/manage-keys-azure-google-task.html"
 - title: NVE를 사용하여 볼륨 데이터 암호화
