@@ -66,7 +66,7 @@ security anti-ransomware volume attack-detection-parameters show -vserver vs1 -v
  Never Seen before File Extensions Count Notify Threshold : 20
        Never Seen before File Extensions Duration in Hour : 24
 ....
-. 와 함께 표시되는 모든 필드는 부울 또는 정수 값으로 수정할 수 있습니다. 필드를 수정하려면 을 사용합니다 `security anti-ransomware volume attack-detection-parameters modify` 명령.
+. 표시된 모든 필드는 부울 또는 정수 값으로 수정할 수 있습니다. 필드를 수정하려면 을 사용합니다 `security anti-ransomware volume attack-detection-parameters modify` 명령.
 +
 매개 변수의 전체 목록은 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli-9131/security-anti-ransomware-volume-attack-detection-parameters-modify.html["ONTAP 명령 참조입니다"^].
 

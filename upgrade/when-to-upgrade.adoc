@@ -29,9 +29,11 @@ summary: 클라우드에서 ONTAP, ONTAP 또는 ONTAP Select를 업그레이드�
 
 
 
-== 패치 ONTAP 업그레이드
+== ONTAP 패치 업그레이드
 
 패치 업그레이드를 통해 다음 주요 ONTAP 기능 릴리스를 기다릴 수 없는 중요한 버그에 대한 수정 사항을 적시에 제공할 수 있습니다. 중요하지 않은 패치 업그레이드는 3-6개월마다 적용해야 합니다. 중요한 패치 업그레이드는 가능한 한 빨리 적용해야 합니다.
+
+에 대해 자세히 알아보십시오 link:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU2["최소 권장 패치 수준"] ONTAP 릴리스의 경우.
 
 
 
@@ -231,6 +233,7 @@ NOTE: 9.8 이전 버전의 ONTAP를 실행 중인 경우 제한된 지원 또는
 |===
 .관련 정보
 * 학습 link:../release-notes.html["현재 지원되는 ONTAP 릴리스의 새로운 기능은 ONTAP 릴리스 정보에서 확인할 수 있습니다"^].
+* 에 대해 자세히 알아보십시오 link:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU2["최소 권장 ONTAP 릴리스"].
 * 에 대해 자세히 알아보십시오 link:https://mysupport.netapp.com/site/info/version-support["ONTAP 소프트웨어 버전 지원"^].
 * 에 대해 자세히 알아보십시오 link:https://mysupport.netapp.com/site/info/ontap-release-model["ONTAP 릴리스 모델"^].
 

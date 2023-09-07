@@ -21,20 +21,16 @@ qtree 레벨 및 볼륨 레벨 공유가 동일한 FlexVol 또는 SCVMM 풀에 �
 .단계
 . 볼륨에 대한 inode 사용량을 표시하려면 다음 명령을 입력합니다.
 +
-df-i volume_name'입니다
-
-+
-볼륨 이름을 생략할 수 있습니다. 이 경우 ONTAP는 클러스터의 모든 볼륨에 대한 inode 사용량을 표시합니다. SVM(스토리지 가상 시스템)을 지정하여 해당 SVM에서 볼륨만 볼 수도 있습니다.
-
+[source, cli]
+----
+volume show -vserver <SVM_name> -volume <volume_name> -fields files
+----
 
 
 .예
 [listing]
 ----
-cm320c-rst::> df -i -vserver vs1
-Filesystem               iused      ifree  %iused  Mounted on
-/vol/cifs_test/            105       2928      3%  /home
-/vol/root/                  98        468     17%  ---
-/vol/vola/                 103      12047      0%  /nfsv4
-3 entries were displayed.
+cluster1::*> volume show -vserver vs1 -volume vol1 -fields files
+Vserver Name: vs1
+Files Used (for user-visible data): 98
 ----
