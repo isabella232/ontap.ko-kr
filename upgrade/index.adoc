@@ -22,4 +22,4 @@ ONTAP 소프트웨어를 업그레이드할 때 새롭고 개선된 ONTAP 기능
 
 NOTE: ONTAP 9.12.1부터 시스템 관리자는 BlueXP와 완벽하게 통합됩니다. 시스템에 BlueXP가 구성된 경우 BlueXP 작업 환경을 통해 업그레이드할 수 있습니다.
 
-ONTAP 소프트웨어 업그레이드에 도움이 필요한 경우 NetApp 프로페셔널 서비스는 을 제공합니다 link:https://www.netapp.com/pdf.html?item=/media/8144-sd-managed-upgrade-service.pdf["관리형 업그레이드 서비스"^]. 이 서비스를 사용하는 데 관심이 있는 경우 NetApp 세일즈 담당자 또는 에게 문의하십시오 link:https://www.netapp.com/forms/sales-contact/["NetApp의 영업 문의 양식 제출"^]. Managed Upgrade Service 및 기타 유형의 업그레이드 지원은 를 사용하는 고객에게 제공됩니다 link:https://www.netapp.com/services/support/supportedge/["SupportEdge 서비스"^] 추가 비용 없음.
+ONTAP 소프트웨어 업그레이드에 도움이 필요한 경우 NetApp 프로페셔널 서비스는 을 제공합니다 link:https://www.netapp.com/pdf.html?item=/media/8144-sd-managed-upgrade-service.pdf["관리형 업그레이드 서비스"^]. 이 서비스를 사용하는 데 관심이 있는 경우 NetApp 세일즈 담당자 또는 에게 문의하십시오 link:https://www.netapp.com/forms/sales-contact/["NetApp의 영업 문의 양식 제출"^]. Managed Upgrade Service 및 기타 유형의 업그레이드 지원은 를 사용하는 고객에게 제공됩니다 link:https://www.netapp.com/pdf.html?item=/media/8845-supportedge-expert-service.pdf["SupportEdge Expert 서비스"^] 추가 비용 없음.
