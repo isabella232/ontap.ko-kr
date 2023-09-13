@@ -11,5 +11,10 @@ entries:
 - section: nas-audit
 - section: fpolicy
 - section: security-tracing
+- title: System Manager로 암호화를 관리합니다
+  entries:
+  - title: 저장된 데이터 암호화(소프트웨어)
+    url: "/task_security_encrypt_stored_data_sw.html"
+  - title: 저장된 데이터 암호화(하드웨어)
+    url: "/task_security_encrypt_stored_data_hw.html"
 - section: encryption-at-rest
-- section: encryption-manage
