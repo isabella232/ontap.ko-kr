@@ -31,7 +31,7 @@ ASA 플랫폼은 다중 경로를 위해 대칭 액티브-액티브 를 사용�
 
 System Manager는 클러스터를 초기화하고, 로컬 계층을 생성하고, 프로토콜을 구성하고, ASA에 대한 스토리지를 프로비저닝하는 데 필요한 절차를 안내합니다.
 
-xref:../software_setup/concept_decision_hibility_to_use_ontap_cli.html[ONTAP 클러스터 설정을 시작합니다.
+xref:../software_setup/concept_decide_whether_to_use_ontap_cli.html[ONTAP 클러스터 설정을 시작합니다].
 
 
 

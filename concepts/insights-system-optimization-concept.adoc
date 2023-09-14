@@ -1,8 +1,8 @@
 ---
 permalink: concepts/insights-system-optimization-concept.html 
 sidebar: sidebar 
-keywords: system manager, optimize, optimise, optimization, optimisation, insight, cluster, system, analysis, analyze, perform, performing, performance, capacity, local tier, storage tier, telnet, remote shell, rsh, autosupport, auto support, auto-support, insecure protocol, login banner, log in banner, ssh, secure shell, cbc cipher, ntp server, admin user, administrative, user, best practice, practise, fabricpool, fabric pool, physical capacity, aggregate, cloud, snapshot, directories, directory, file, remote access, transport protocol, https, http, autogrow, auto grow, auto-grow, shrink, reduce, reduction, dismiss, undismiss, explore, fix, remove, replace, analytic, security, compliance, secure, comply, volume, applications, reclaim, space, full, provisioning, provisioned cluster, serial, port, node 
-summary: System Manager를 사용하면 시스템의 성능 및 보안을 최적화하는 데 도움이 되는 통찰력을 볼 수 있습니다. 
+keywords: system manager, optimize, optimise, optimization, optimisation, insight, cluster, system, analysis, analyze, perform, performing, performance, capacity, local tier, storage tier, telnet, remote shell, rsh, autosupport, auto support, auto-support, insecure protocol, nonsecure, login banner, log in banner, ssh, secure shell, cbc cipher, ntp server, admin user, administrative, user, best practice, practise, fabricpool, fabric pool, physical capacity, aggregate, cloud, snapshot, directories, directory, file, remote access, transport protocol, https, http, autogrow, auto grow, auto-grow, shrink, reduce, reduction, dismiss, undismiss, explore, fix, remove, replace, analytic, security, compliance, secure, comply, volume, applications, reclaim, space, full, provisioning, provisioned cluster, serial, port, node, global fips 140-2 
+summary: ONTAP 9.11.1부터 System Manager에는 시스템의 성능과 보안을 최적화하는 데 도움이 되는 정보가 표시됩니다. 
 ---
 = System Manager 인사이트
 :allow-uri-read: 
@@ -30,15 +30,13 @@ System Manager에서는 시스템의 용량 조건에 대응하여 다음과 같
 
 
  a| 
-로컬 계층의 물리적 용량이 부족합니다
+로컬 계층에 공간이 부족합니다
  a| 
 위험 개선
  a| 
-하나 이상의 로컬 계층이 95% 이상 차 있고 빠르게 성장하고 있습니다.
+하나 이상의 로컬 계층이 95% 이상 차 있고 빠르게 성장하고 있습니다. 기존 워크로드를 확장할 수 없거나, 기존 워크로드의 공간 부족과 장애가 발생할 수 있습니다.
  a| 
-* 권장 해결 방법 *: 다른 옵션 중 하나를 수행합니다.
-
-* 기타 옵션 *:
+* 권장 해결 방법 *: 다음 옵션 중 하나를 수행합니다.
 
 * 볼륨 복구 대기열을 지웁니다.
 * 씩 프로비저닝된 볼륨에서 씬 프로비저닝을 사용하여 트래핑된 스토리지를 제거합니다.
@@ -51,22 +49,11 @@ System Manager에서는 시스템의 용량 조건에 대응하여 다음과 같
 
 
  a| 
-FlexGroup 볼륨의 용량이 불균형 상태입니다
- a| 
-스토리지 최적화
- a| 
-하나 이상의 FlexGroup 볼륨이 불균형 비율이 높습니다.
- a| 
-* 권장 *: FlexGroup 볼륨 재조정.
-
-
-
- a| 
 애플리케이션에 공간이 부족합니다
  a| 
 주의가 필요합니다
  a| 
-95%를 초과하는 볼륨은 자동 확장 기능이 사용되지 않습니다.
+하나 이상의 볼륨이 95%를 초과하지만 자동 확장 기능이 사용되지 않습니다.
  a| 
 * 권장 *: 현재 용량의 150%까지 자동 확장 가능.
 
@@ -76,6 +63,28 @@ FlexGroup 볼륨의 용량이 불균형 상태입니다
 * 볼륨 크기를 조정합니다.
 * 디렉터리 또는 파일을 삭제합니다.
 
+
+
+
+ a| 
+FlexGroup 볼륨 용량이 불균형 상태입니다
+ a| 
+스토리지 최적화
+ a| 
+하나 이상의 FlexGroup 볼륨의 구성 볼륨의 크기가 시간이 지남에 따라 균일하지 않게 증가함에 따라 용량 사용량이 불균형 상태가 됩니다.  구성 볼륨이 꽉 차면 쓰기 장애가 발생할 수 있습니다.
+ a| 
+* 권장 *: FlexGroup 볼륨 재조정.
+
+
+
+ a| 
+스토리지 VM의 용량이 부족합니다
+ a| 
+스토리지 최적화
+ a| 
+하나 이상의 스토리지 VM이 최대 용량에 근접했습니다.  스토리지 VM이 최대 용량에 도달한 경우 새 볼륨 또는 기존 볼륨에 더 많은 공간을 프로비저닝할 수 없습니다.
+ a| 
+* 권장 *: 가능한 경우 스토리지 VM의 최대 용량 제한을 늘리십시오.
 
 |===
 
@@ -89,6 +98,50 @@ System Manager에서는 데이터 또는 시스템의 보안을 위태롭게 할
 
 
 | 통찰력 | 심각도입니다 | 조건 | 수정 
+
+
+ a| 
+볼륨은 여전히 안티 랜섬웨어 학습 모드에 있습니다
+ a| 
+주의가 필요합니다
+ a| 
+하나 이상의 볼륨이 90일 동안 안티 랜섬웨어 학습 모드에 있었습니다.
+ a| 
+* 권장 * : 해당 볼륨에 대한 안티 랜섬웨어 활성 모드를 활성화합니다.
+
+
+
+ a| 
+스냅샷 복사본의 자동 삭제가 볼륨에 활성화되어 있습니다
+ a| 
+주의가 필요합니다
+ a| 
+스냅샷 자동 삭제가 하나 이상의 볼륨에 설정되어 있습니다.
+ a| 
+* 권장 * : 스냅샷 복사본의 자동 삭제를 비활성화합니다. 그렇지 않으면 랜섬웨어 공격의 경우 이러한 볼륨에 대한 데이터 복구가 불가능할 수 있습니다.
+
+
+
+ a| 
+볼륨에 스냅샷 정책이 없습니다
+ a| 
+주의가 필요합니다
+ a| 
+하나 이상의 볼륨에 적절한 스냅샷 정책이 연결되어 있지 않습니다.
+ a| 
+* 권장 *: 스냅샷 정책을 없는 볼륨에 첨부하십시오. 그렇지 않으면 랜섬웨어 공격의 경우 이러한 볼륨에 대한 데이터 복구가 불가능할 수 있습니다.
+
+
+
+ a| 
+기본 FPolicy가 구성되지 않았습니다
+ a| 
+모범 사례
+ a| 
+하나 이상의 NAS 스토리지 VM에 FPolicy가 구성되지 않았습니다.
+ a| 
+* 권장 *: 클러스터의 볼륨에 기록할 수 있거나 기록할 수 없는 파일 확장명을 제어하기 위해 NAS 스토리지 VM에서 FPolicy를 구성합니다. 이렇게 하면 알려진 파일 확장명을 가진 랜섬웨어로부터의 공격을 방지할 수 있습니다.
+
 
 
  a| 
@@ -109,106 +162,7 @@ System Manager에서는 데이터 또는 시스템의 보안을 위태롭게 할
  a| 
 NTP에 대해 구성된 서버 수가 3개 미만입니다.
  a| 
-* 권장 *: NTP 서버를 추가하여 3개 이상이 되도록 합니다.
-
-
-
- a| 
-AutoSupport가 안전하지 않은 프로토콜을 사용하고 있습니다
- a| 
-모범 사례
- a| 
-AutoSupport가 HTTPS를 통해 통신하도록 구성되지 않았습니다.
- a| 
-* 권장 *: 전송 프로토콜을 HTTPS로 변경합니다.
-
-
-
- a| 
-기본 관리자는 잠겨 있지 않습니다
- a| 
-모범 사례
- a| 
-아무도 기본 관리 계정(admin 또는 diag)을 사용하여 로그인하지 않았으며 이러한 계정은 잠겨 있지 않습니다.
- a| 
-* 권장 * : 사용하지 않을 때 기본 관리 계정을 잠급니다.
-
-
-
- a| 
-볼륨에 스냅샷 정책이 없습니다
- a| 
-주의가 필요합니다
- a| 
-하나 이상의 볼륨에 적절한 스냅샷 정책이 연결되어 있지 않습니다.
- a| 
-* 권장 *: 스냅샷 정책을 없는 볼륨에 첨부하십시오. 그렇지 않으면 랜섬웨어 공격의 경우 이러한 볼륨에 대한 데이터 복구가 불가능할 수 있습니다.
-
-
-
- a| 
-스냅샷 자동 삭제가 설정되었습니다
- a| 
-주의가 필요합니다
- a| 
-스냅샷 복사본의 자동 삭제는 하나 이상의 볼륨에 대해 활성화됩니다.
- a| 
-* 권장 * : 스냅샷 복사본의 자동 삭제를 비활성화합니다. 그렇지 않으면 랜섬웨어 공격의 경우 이러한 볼륨에 대한 데이터 복구가 불가능할 수 있습니다.
-
-
-
- a| 
-볼륨은 랜섬웨어 공격을 모니터링하지 않습니다
- a| 
-주의가 필요합니다
- a| 
-랜섬웨어는 여러 볼륨에서 지원되지만 아직 구성되지 않았습니다. 그렇지 않으면 볼륨이 위협받거나 공격을 받고 있는 경우를 알 수 없습니다.
- a| 
-* 권장 * : 볼륨에서 안티 랜섬웨어 활성화.
-
-
-
- a| 
-스토리지 VM이 안티 랜섬웨어용으로 구성되지 않았습니다
- a| 
-모범 사례
- a| 
-랜섬웨어는 여러 스토리지 VM에서 지원되지만 아직 구성되지 않았습니다.
- a| 
-* 권장 * : 스토리지 VM에서 안티 랜섬웨어 활성화. 그렇지 않으면 스토리지 VM이 위협되거나 공격 당하는 시기를 모를 수 있습니다.
-
-
-
- a| 
-기본 FPolicy가 구성되지 않았습니다
- a| 
-모범 사례
- a| 
-NAS 스토리지 VM에 FPolicy가 설정되지 않았습니다.
- a| 
-* 권장 *: 클러스터의 볼륨에 기록할 수 있거나 기록할 수 없는 파일 확장명을 제어하기 위해 NAS 스토리지 VM에서 FPolicy를 구성합니다.
-
-
-
- a| 
-안티 랜섬웨어의 경우 활성 모드가 활성화되지 않습니다
- a| 
-주의가 필요합니다
- a| 
-여러 볼륨이 학습 모드를 완료했지만 활성 모드가 켜져 있지 않습니다.
- a| 
-* 권장 *: 해당 볼륨에 대해 활성 모드를 켭니다.
-
-
-
- a| 
-로그인 배너가 구성되지 않았습니다
- a| 
-모범 사례
- a| 
-로그인 메시지가 클러스터 또는 스토리지 VM에 대해 구성되지 않습니다.
- a| 
-* 권장 *: 클러스터 또는 스토리지 VM에 대한 로그인 배너를 설정하고 이를 사용할 수 있습니다.
+* 권장 *: 3개 이상의 NTP 서버를 클러스터에 연결합니다.  그렇지 않으면 클러스터 시간의 동기화에 문제가 발생할 수 있습니다.
 
 
 
@@ -224,24 +178,79 @@ NAS 스토리지 VM에 FPolicy가 설정되지 않았습니다.
 
 
  a| 
-SSH(Secure Shell)에서 안전하지 않은 암호를 사용하고 있습니다
+로그인 배너가 구성되지 않았습니다
  a| 
 모범 사례
  a| 
-현재 구성은 안전하지 않은 CBC 암호를 사용합니다.
+로그인 메시지는 클러스터, 스토리지 VM 또는 둘 다에 대해 구성되지 않습니다.
  a| 
-* 권장 *: "ais128-CBC", "AES192-CBC", "AES256-CBC" 및 "3DES-CBC"와 같이 "CBC"가 포함된 이름을 가진 암호를 제거합니다.
+* 권장 *: 클러스터 및 스토리지 VM에 대한 로그인 배너를 설정하고 사용을 활성화합니다.
 
 
 
  a| 
-글로벌 FIPS가 비활성화되었습니다
+AutoSupport는 안전하지 않은 프로토콜을 사용하고 있습니다
  a| 
 모범 사례
  a| 
-글로벌 FIPS 140-2 규정 준수가 비활성화되었습니다.
+AutoSupport가 HTTPS를 통해 통신하도록 구성되지 않았습니다.
  a| 
-* 권장 * : 글로벌 FIPS 140-2 규정 준수를 활성화합니다.
+* 권장 *: AutoSupport 메시지를 기술 지원 부서에 전송하기 위한 기본 전송 프로토콜로 HTTPS를 사용하는 것이 좋습니다.
+
+
+
+ a| 
+기본 관리자 사용자가 잠겨 있지 않습니다
+ a| 
+모범 사례
+ a| 
+아무도 기본 관리 계정(admin 또는 diag)을 사용하여 로그인하지 않았으며 이러한 계정은 잠겨 있지 않습니다.
+ a| 
+* 권장 * : 사용하지 않을 때 기본 관리 계정을 잠급니다.
+
+
+
+ a| 
+SSH(Secure Shell)에서 비보안 암호를 사용하고 있습니다
+ a| 
+모범 사례
+ a| 
+현재 구성은 비보안 CBC 암호를 사용합니다.
+ a| 
+* 권장 * : 방문자와의 안전한 통신을 보호하기 위해 웹 서버에 보안 암호화만 허용해야 합니다. "ais128-CBC", "AES192-CBC", "AES256-CBC" 및 "3DES-CBC"와 같이 "CBC"가 포함된 이름이 있는 암호를 제거합니다.
+
+
+
+ a| 
+글로벌 FIPS 140-2 규정 준수가 비활성화되었습니다
+ a| 
+모범 사례
+ a| 
+클러스터에서 글로벌 FIPS 140-2 규정 준수가 비활성화되었습니다.
+ a| 
+* 권장 *: 보안상의 이유로 ONTAP가 외부 클라이언트 또는 서버 클라이언트와 안전하게 통신할 수 있도록 글로벌 FIPS 140-2 호환 암호화를 활성화해야 합니다.
+
+
+
+ a| 
+볼륨은 랜섬웨어 공격을 모니터링하지 않습니다
+ a| 
+주의가 필요합니다
+ a| 
+하나 이상의 볼륨에서 랜섬웨어 방지 기능이 비활성화되었습니다.
+ a| 
+* 권장 * : 볼륨에서 안티 랜섬웨어 활성화. 그렇지 않으면 볼륨이 위협받거나 공격을 받고 있는 경우를 알 수 없습니다.
+
+
+
+ a| 
+스토리지 VM이 안티 랜섬웨어용으로 구성되지 않았습니다
+ a| 
+모범 사례
+ a| 
+하나 이상의 스토리지 VM이 안티 랜섬웨어 보호를 위해 구성되지 않았습니다.
+ a| 
+* 권장 * : 스토리지 VM에서 안티 랜섬웨어 활성화. 그렇지 않으면 스토리지 VM이 위협되거나 공격 당하는 시기를 모를 수 있습니다.
 
 |===
 
@@ -258,34 +267,34 @@ System Manager에서는 시스템 구성과 관련된 우려 사항에 대한 �
 
 
  a| 
-자동 업데이트를 사용할 수 없습니다.
- a| 
-모범 사례
- a| 
-클러스터에 대해 EULA가 수락되지 않았습니다.
- a| 
-* 권장 *: 클러스터에 대한 EULA에 동의합니다.
-
-
-
- a| 
-최신 펌웨어 업데이트를 사용할 수 있습니다
- a| 
-모범 사례
- a| 
-시스템에 향상된 성능, 보안 패치 또는 클러스터를 보호하는 데 도움이 되는 새로운 기능이 있을 수 있는 최신 펌웨어 업데이트가 없습니다.
- a| 
-* 권장 *: ONTAP 펌웨어를 업데이트합니다.
-
-
-
- a| 
-알림이 구성되지 않았습니다
+클러스터가 알림에 대해 구성되지 않았습니다
  a| 
 모범 사례
  a| 
 이메일, Webhook 또는 SNMP Traphost는 클러스터 문제에 대한 알림을 받을 수 있도록 구성되어 있지 않습니다.
  a| 
 * 권장 *: 클러스터에 대한 알림을 구성합니다.
+
+
+
+ a| 
+클러스터가 자동 업데이트를 위해 구성되지 않았습니다.
+ a| 
+모범 사례
+ a| 
+클러스터가 최신 디스크 검증 패키지, 디스크 펌웨어, 쉘프 펌웨어 및 SP/BMC 펌웨어 파일을 사용할 수 있는 경우 자동 업데이트를 수신하도록 구성되지 않았습니다.
+ a| 
+* 권장 * : 이 기능을 활성화합니다.
+
+
+
+ a| 
+클러스터 펌웨어가 최신 상태가 아닙니다
+ a| 
+모범 사례
+ a| 
+시스템에 향상된 성능, 보안 패치 또는 클러스터를 보호하는 데 도움이 되는 새로운 기능이 있을 수 있는 최신 펌웨어 업데이트가 없습니다.
+ a| 
+* 권장 *: ONTAP 펌웨어를 업데이트합니다.
 
 |===

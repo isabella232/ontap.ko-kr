@@ -46,6 +46,8 @@ entries:
         url: "/fabricpool/setup-azure-blob-storage-cloud-tier-task.html"
       - title: MetroCluster 구성에서 FabricPool에 대한 오브젝트 저장소를 설정합니다
         url: "/fabricpool/setup-object-stores-mcc-task.html"
+    - title: 로컬 계층에 연결하기 전에 객체 저장소 처리량 성능을 테스트합니다
+      url: "/fabricpool/test-object-store-performance-task.html"
     - title: 클라우드 계층을 Aggregate에 연결합니다
       url: "/fabricpool/attach-cloud-tier-aggregate-task.html"
     - title: 데이터를 로컬 버킷에 계층화
