@@ -29,7 +29,9 @@ ASA 플랫폼은 다중 경로를 위해 대칭 액티브-액티브 를 사용�
 
 모든 SAN 어레이(ASA)는 비 ASA 시스템과 동일한 설정 절차를 따릅니다.
 
-System Manager는 클러스터를 초기화하고, 로컬 계층을 생성하고, 프로토콜을 구성하고, ASA에 대한 스토리지를 프로비저닝하는 데 필요한 절차를 안내합니다. 의 단계를 참조하십시오 xref:../software_setup/concept_decide_whether_to_use_ontap_cli.html[ONTAP를 구성합니다].
+System Manager는 클러스터를 초기화하고, 로컬 계층을 생성하고, 프로토콜을 구성하고, ASA에 대한 스토리지를 프로비저닝하는 데 필요한 절차를 안내합니다.
+
+xref:../software_setup/concept_decision_hibility_to_use_ontap_cli.html[ONTAP 클러스터 설정을 시작합니다.
 
 
 
@@ -45,9 +47,15 @@ System Manager는 클러스터를 초기화하고, 로컬 계층을 생성하고
 
 ASA 시스템은 System Manager를 사용하거나 CLI(ONTAP Command Line Interface)를 사용하여 식별할 수 있습니다.
 
-System Manager 대시보드에서 * 클러스터 > 개요 * 를 클릭한 다음 시스템 노드를 선택합니다. Personality * 는 * All SAN Array * 로 표시됩니다.
+* * System Manager 대시보드에서 *: * 클러스터 > 개요 * 를 클릭한 다음 시스템 노드를 선택합니다.
++
+Personality * 는 * All SAN Array * 로 표시됩니다.
 
-CLI에서 'config show' 명령어를 사용할 수 있다. "All SAN Array" 값은 ASA 시스템의 경우 TRUE를 반환합니다.
+* * CLI * 에서: 를 입력합니다 `san config show` 명령.
++
+"All SAN Array" 값은 ASA 시스템의 경우 TRUE를 반환합니다.
+
+
 
 .관련 정보
 * link:https://www.netapp.com/pdf.html?item=/media/85671-tr-4968.pdf["기술 보고서 4968: NetApp All-SAN 어레이 데이터 가용성 및 무결성"^]

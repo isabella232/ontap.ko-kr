@@ -13,15 +13,13 @@ summary: 볼륨 이동 시작 명령을 사용하여 볼륨 데이터를 이동�
 [role="lead"]
 볼륨 이동 시작 명령을 사용하여 볼륨 데이터를 이동하거나 암호화 해제할 수 있습니다.
 
-.필요한 것
-이 작업을 수행하려면 클러스터 관리자이거나 클러스터 관리자가 권한을 위임한 SVM 관리자여야 합니다.
-
-link:delegate-volume-encryption-svm-administrator-task.html["볼륨 이동 명령을 실행하는 위임 권한"]
+.시작하기 전에
+이 작업을 수행하려면 클러스터 관리자여야 합니다. 또는 클러스터 관리자가 권한을 위임한 SVM 관리자일 수 있습니다. 자세한 내용은 을 참조하십시오 link:delegate-volume-encryption-svm-administrator-task.html["볼륨 이동 명령을 실행하는 권한을 위임합니다"].
 
 .단계
 . 암호화된 기존 볼륨을 이동하고 볼륨의 데이터를 암호화 해제합니다.
 +
-'volume move start-vserver SVM_name-volume volume_name-destination-aggregate aggregate_name-encrypt-destination false'
+`volume move start -vserver _SVM_name_ -volume volume_name -destination-aggregate _aggregate_name_ -encrypt-destination false`
 
 +
 전체 명령 구문은 명령에 대한 man 페이지를 참조하십시오.

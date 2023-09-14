@@ -13,16 +13,15 @@ summary: VE 라이센스를 사용하면 클러스터의 모든 노드에서 이
 [role="lead"]
 VE 라이센스를 사용하면 클러스터의 모든 노드에서 이 기능을 사용할 수 있습니다. NVE를 사용하여 데이터를 암호화하려면 라이센스를 설치해야 합니다.
 
-.필요한 것
-이 작업을 수행하려면 클러스터 관리자여야 합니다.
+.시작하기 전에
+* 이 작업을 수행하려면 클러스터 관리자여야 합니다.
+* 영업 담당자로부터 VE 라이센스 키를 받았어야 합니다.
 
-.이 작업에 대해
-영업 담당자로부터 VE 라이센스 키를 받아야 합니다.
 
 .단계
 . 노드에 대한 VE 라이센스를 설치합니다.
 +
-'시스템 사용권 추가-사용권 코드 사용권_키'
+`system license add -license-code _license_key_`
 
 +
 다음 명령을 실행하면 키 "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"가 포함된 라이센스가 설치됩니다.
@@ -48,6 +47,6 @@ cluster1::> system license add -license-code AAAAAAAAAAAAAAAAAAAAAAAAAAAA
 cluster1::> system license show
 ----
 +
-VE 라이선스 패키지 이름은 ""입니다.
+VE 라이센스 패키지 이름은 입니다 `VE`.
 
 

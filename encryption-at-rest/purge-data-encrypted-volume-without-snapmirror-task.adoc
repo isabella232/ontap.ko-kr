@@ -13,19 +13,17 @@ summary: 'ONTAP 9.4부터 보안 제거를 사용하여 NVE 지원 볼륨에서 
 [role="lead"]
 ONTAP 9.4부터 안전한 제거를 사용하여 NVE 지원 볼륨에서 중단 없이 "하위" 데이터를 사용할 수 있습니다.
 
-.필요한 것
+.이 작업에 대해
+Secure-Purge는 삭제된 파일의 데이터 양에 따라 완료하는 데 몇 분에서 몇 시간까지 걸릴 수 있습니다. 'volume encryption secure-purge show' 명령을 사용하여 작업 상태를 볼 수 있습니다. 'volume encryption secure-purge abort' 명령을 사용하여 작업을 종료할 수 있습니다.
+
+
+NOTE: SAN 호스트에서 보안 제거를 수행하려면 제거할 파일이 포함된 전체 LUN을 삭제하거나 제거할 파일에 속한 블록에 대해 LUN에서 구멍을 뚫을 수 있어야 합니다. LUN을 삭제할 수 없거나 호스트 운영 체제에서 LUN의 구멍을 뚫을 수 없는 경우 보안 제거를 수행할 수 없습니다.
+
+.시작하기 전에
 * 이 작업을 수행하려면 클러스터 관리자여야 합니다.
 * 이 작업에는 고급 권한이 필요합니다.
 
 
-.이 작업에 대해
-Secure-Purge는 삭제된 파일의 데이터 양에 따라 완료하는 데 몇 분에서 몇 시간까지 걸릴 수 있습니다. 'volume encryption secure-purge show' 명령을 사용하여 작업 상태를 볼 수 있습니다. 'volume encryption secure-purge abort' 명령을 사용하여 작업을 종료할 수 있습니다.
-
-[NOTE]
-====
-SAN 호스트에서 보안 제거를 수행하려면 제거할 파일이 포함된 전체 LUN을 삭제하거나 제거할 파일에 속한 블록에 대해 LUN에서 구멍을 뚫을 수 있어야 합니다. LUN을 삭제할 수 없거나 호스트 운영 체제에서 LUN의 구멍을 뚫을 수 없는 경우 보안 제거를 수행할 수 없습니다.
-
-====
 .단계
 . 안전하게 제거할 파일 또는 LUN을 삭제합니다.
 +
@@ -39,11 +37,11 @@ SAN 호스트에서 보안 제거를 수행하려면 제거할 파일이 포함�
 
 . 안전하게 제거할 파일이 스냅샷에 있는 경우 스냅샷을 삭제합니다.
 +
-'스냅샷 삭제 - vserver SVM_name - volume vol_name - snapshot'
+`snapshot delete -vserver _SVM_name_ -volume _volume_name_ -snapshot`
 
 . 삭제된 파일을 안전하게 삭제:
 +
-'볼륨 암호화 secure-purge start-vserver SVM_name-volume volume volume_name'
+`volume encryption secure-purge start -vserver _SVM_name_ -volume _volume_name_`
 
 +
 다음 명령을 실행하면 삭제된 파일이 SVM의 vol1에서 VS1 형식으로 안전하게 삭제됩니다.

@@ -15,8 +15,6 @@ entries:
     url: "/calculate-reclaimable-space-task.html"
   - title: 스냅샷 복사본 디렉토리에 대한 클라이언트 액세스를 사용하거나 사용하지 않도록 설정합니다
     url: "/enable-snapshot-dir-access-task.html"
-  - title: Snapshot 복사본에서 복구
-    url: "/task_dp_recover_snapshot.html"
   - title: 미러링 및 보관 준비
     url: "/task_dp_prepare_mirror.html"
   - title: 미러와 볼트를 구성합니다

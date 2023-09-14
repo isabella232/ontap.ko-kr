@@ -13,7 +13,7 @@ entries:
   - title: NVE를 구성합니다
     entries:
     - title: 클러스터 버전이 NVE를 지원하는지 확인합니다
-      url: "/encryption-at-rest/luster-version-support-nve-task.html"
+      url: "/encryption-at-rest/cluster-version-support-nve-task.html"
     - title: 라이센스를 설치합니다
       url: "/encryption-at-rest/install-license-task.html"
     - title: 외부 키 관리를 구성합니다
@@ -52,8 +52,6 @@ entries:
   entries:
   - title: 개요
     url: "/encryption-at-rest/support-storage-encryption-concept.html"
-  - title: 하드웨어 기반 암호화 워크플로우
-    url: "/encryption-at-rest/hw-encryption-workflow-concept.html"
   - title: 외부 키 관리를 구성합니다
     entries:
     - title: 개요
@@ -88,7 +86,7 @@ entries:
     url: "/encryption-at-rest/enable-cluster-fips-compliant-mode-task.html"
 - title: NetApp 암호화 관리
   entries:
-  - title: 볼륨 데이터 암호화를 해제합니다
+  - title: 볼륨 데이터의 암호화를 해제합니다
     url: "/encryption-at-rest/unencrypt-volume-data-task.html"
   - title: 암호화된 볼륨을 이동합니다
     url: "/encryption-at-rest/move-encrypted-volume-task.html"
@@ -148,5 +146,5 @@ entries:
     url: "/encryption-at-rest/delete-key-management-database-task.html"
   - title: 부팅 프로세스 중에 키 관리 서버에 연결할 수 없는 경우 발생하는 현상
     url: "/encryption-at-rest/key-management-servers-not-reachable-boot-concept.html"
-  - title: ONTAP 9.7 이상에서는 기본적으로 암호화를 사용하지 않도록 설정합니다
+  - title: 기본적으로 암호화를 사용하지 않도록 설정합니다
     url: "/encryption-at-rest/disable-encryption-by-default-97-higher-task.html"

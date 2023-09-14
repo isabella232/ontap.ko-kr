@@ -15,7 +15,7 @@ entries:
   - title: iSCSI 구성에서 VLAN을 사용할 때의 이점
     url: "/san-config/benefits-vlans-iscsi-concept.html"
 - title: FC-NVMe 구성을 위한 고려사항
-  url: "/san-config/fc-nvme-config-concept.html"
+  url: "/nvme/support-limitations.html"
 - title: FC 구성에 대한 고려 사항
   entries:
   - title: 개요

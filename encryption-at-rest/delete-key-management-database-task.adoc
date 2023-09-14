@@ -29,6 +29,8 @@ link:remove-external-key-server-93-later-task.html["외부 키 관리자 연결�
 
 == 절차를 참조하십시오
 
+키 관리를 전환하는 단계는 사용 중인 ONTAP 버전에 따라 다릅니다.
+
 [role="tabbed-block"]
 ====
 .ONTAP 9.6 이상

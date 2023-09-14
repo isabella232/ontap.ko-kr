@@ -24,11 +24,9 @@ ONTAP 9.3부터 볼륨을 다른 위치로 이동하지 않고도 "볼륨 암호
 
 변환 작업을 시작한 후에는 이 작업을 완료해야 합니다. 작업 중에 성능 문제가 발생하면 를 실행할 수 있습니다 `volume encryption conversion pause` 명령을 사용하여 작업을 일시 중지하고, 를 클릭합니다 `volume encryption conversion resume` 명령을 사용하여 작업을 재개합니다.
 
-[NOTE]
-====
-을 사용할 수 없습니다 `volume encryption conversion start` SnapLock 볼륨을 변환합니다.
 
-====
+NOTE: 를 사용할 수 없습니다 `volume encryption conversion start` SnapLock 볼륨을 변환합니다.
+
 .단계
 . 기존 볼륨에서 암호화 활성화:
 +
@@ -97,16 +95,16 @@ KMIP 서버를 사용하여 노드의 암호화 키를 저장하는 경우, ONTA
 
 'volume move start' 명령을 사용하여 기존 볼륨을 이동하여 암호화를 활성화할 수 있습니다. ONTAP 9.2 이하에서는 볼륨 이동 시작을 사용해야 합니다. 동일한 애그리게이트 또는 다른 애그리게이트를 사용할 수 있습니다.
 
-.필요한 것
-이 작업을 수행하려면 클러스터 관리자이거나 클러스터 관리자가 권한을 위임한 SVM 관리자여야 합니다.
-
-link:delegate-volume-encryption-svm-administrator-task.html["볼륨 이동 명령을 실행하는 위임 권한"]
-
 .이 작업에 대해
 * ONTAP 9.8부터 볼륨 이동 시작을 사용하여 SnapLock 또는 FlexGroup 볼륨에서 암호화를 활성화할 수 있습니다.
 * ONTAP 9.6부터는 Aggregate 수준의 암호화를 사용하여 이동할 볼륨의 포함된 Aggregate에 키를 할당할 수 있습니다. 고유 키로 암호화된 볼륨을 _NVE 볼륨 _ 이라고 합니다. 애그리게이트 레벨 키로 암호화된 볼륨을 _NAE 볼륨 _ (NetApp 애그리게이트 암호화의 경우)이라고 합니다. NAE 애그리게이트에서는 일반 텍스트 볼륨이 지원되지 않습니다.
 * ONTAP 9.4부터 Onboard Key Manager를 설정할 때 ""cc-mode""를 활성화하면 "volume move start" 명령으로 생성한 볼륨이 자동으로 암호화됩니다. `-encrypt-destination true'는 지정하지 않아도 됩니다.
 
+
+.시작하기 전에
+이 작업을 수행하려면 클러스터 관리자이거나 클러스터 관리자가 권한을 위임한 SVM 관리자여야 합니다.
+
+link:delegate-volume-encryption-svm-administrator-task.html["볼륨 이동 명령을 실행하는 위임 권한"]
 
 .단계
 . 기존 볼륨을 이동하고 볼륨에 암호화가 활성화되어 있는지 여부를 지정합니다.
