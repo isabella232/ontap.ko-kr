@@ -82,7 +82,7 @@ entries:
     url: "/nas-audit/commands-modify-auditing-config-reference.html"
   - title: 감사 구성을 삭제합니다
     url: "/nas-audit/delete-audit-config-task.html"
-  - title: 되돌릴 때의 프로세스
+  - title: 클러스터 되돌리기의 의미를 이해합니다
     url: "/nas-audit/process-when-reverting-concept.html"
 - title: 감사 및 스테이징 볼륨 공간 문제를 해결합니다
   url: "/nas-audit/troubleshoot-auditing-staging-volume-concept.html"
