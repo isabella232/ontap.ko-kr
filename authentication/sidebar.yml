@@ -36,12 +36,12 @@ entries:
         url: "/authentication/disable-totp-secret-key-task.html"
     - title: SSL 인증서 계정을 활성화합니다
       url: "/authentication/enable-ssl-certificate-accounts-task.html"
-- title: Active Directory 계정 액세스를 설정합니다
-  url: "/authentication/grant-access-active-directory-users-groups-task.html"
-- title: LDAP 또는 NIS 계정 액세스를 설정합니다
-  url: "/authentication/grant-access-nis-ldap-user-accounts-task.html"
-- title: SAML 인증을 구성합니다
-  url: "/authentication/configure-saml-authentication-task.html"
+  - title: Active Directory 계정 액세스를 설정합니다
+    url: "/authentication/grant-access-active-directory-users-groups-task.html"
+  - title: LDAP 또는 NIS 계정 액세스를 설정합니다
+    url: "/authentication/grant-access-nis-ldap-user-accounts-task.html"
+  - title: SAML 인증을 구성합니다
+    url: "/authentication/configure-saml-authentication-task.html"
 - title: 액세스 제어 역할을 관리합니다
   entries:
   - title: 개요
