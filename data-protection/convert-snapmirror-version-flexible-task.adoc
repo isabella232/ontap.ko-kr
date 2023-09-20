@@ -26,9 +26,12 @@ SnapMirror 관계 유형을 DP에서 XDP로 변환한 후에는 자동 크기 �
 .단계
 . 대상 클러스터에서 SnapMirror 관계가 DP 유형이고, 미러 상태가 SnapMired 상태이고, 관계 상태가 Idle 상태이고, 관계가 정상 상태인지 확인합니다.
 +
+이 명령을 실행하기 전에 꺾쇠 괄호 안의 변수를 필수 값으로 바꾸어야 합니다.
+
++
 [source, cli]
 ----
-snapmirror show -destination-path _SVM:volume_|_cluster://SVM/volume_
+snapmirror show -destination-path <SVM:volume>
 ----
 +
 다음 예제는 'napmirror show' 명령의 출력을 보여줍니다.
@@ -64,12 +67,15 @@ Healthy: true
 ====
 . 소스 볼륨과 타겟 볼륨에서 두 볼륨 모두에 공통 스냅샷 복사본이 있는지 확인합니다.
 +
+이 명령을 실행하기 전에 꺾쇠 괄호 안의 변수를 필수 값으로 바꾸어야 합니다.
+
++
 [source, cli]
 ----
-volume snapshot show -vserver _SVM_ -volume _volume_
+volume snapshot show -vserver <SVM> -volume <volume>
 ----
 +
-다음 예에서는 souce 및 대상 볼륨에 대한 'volume snapshot show' 출력을 보여 줍니다.
+다음 예에서는 를 보여 줍니다 `volume snapshot show` 소스 및 대상 볼륨의 출력:
 
 +
 [listing]
@@ -113,9 +119,12 @@ snapmirror.10af643c-32d1-11e3-954b-123478563412_2147484682.2014-06-27_100026
 ----
 . 변환 중에 예약된 업데이트가 실행되지 않도록 하려면 기존 DP 유형 관계를 중지합니다.
 +
+이 명령을 실행하기 전에 꺾쇠 괄호 안의 변수를 필수 값으로 바꾸어야 합니다.
+
++
 [source, cli]
 ----
-snapmirror quiesce -source-path _SVM:volume_|_cluster://SVM/volume_, ... -destination-path _SVM:volume_|_cluster://SVM/volume_, ...
+snapmirror quiesce -source-path <SVM:volume> -destination-path <SVM:volume>
 ----
 +
 전체 명령 구문은 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli-9131//snapmirror-quiesce.html["Man 페이지"^].
@@ -136,9 +145,12 @@ cluster_dst::> snapmirror quiesce -destination-path svm_backup:volA_dst
 ----
 . 기존 DP 유형 관계 끊기:
 +
+이 명령을 실행하기 전에 꺾쇠 괄호 안의 변수를 필수 값으로 바꾸어야 합니다.
+
++
 [source, cli]
 ----
-snapmirror break -destination-path _SVM:volume_|_cluster://SVM/volume_, ...
+snapmirror break -destination-path <SVM:volume>
 ----
 +
 전체 명령 구문은 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli-9131//snapmirror-break.html["Man 페이지"^].
@@ -171,9 +183,12 @@ cluster_dst::> volume snapshot autodelete modify -vserver svm_backup -volume vol
 ----
 . 기존 DP 유형 관계 삭제:
 +
+이 명령을 실행하기 전에 꺾쇠 괄호 안의 변수를 필수 값으로 바꾸어야 합니다.
+
++
 [source, cli]
 ----
-snapmirror delete -destination-path _SVM:volume_|_cluster://SVM/volume_, ...
+snapmirror delete -destination-path <SVM:volume>
 ----
 +
 전체 명령 구문은 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli-9131//snapmirror-delete.html["Man 페이지"^].
@@ -194,9 +209,12 @@ cluster_dst::> snapmirror delete -destination-path svm_backup:volA_dst
 ----
 . 'napmirror show' 명령에서 보존한 출력을 사용하여 새로운 XDP 유형 관계를 생성할 수 있습니다.
 +
+이 명령을 실행하기 전에 꺾쇠 괄호 안의 변수를 필수 값으로 바꾸어야 합니다.
+
++
 [source, cli]
 ----
-snapmirror create -source-path _SVM:volume_|_cluster://SVM/volume_, ... -destination-path _SVM:volume_|_cluster://SVM/volume_, ... -type XDP -schedule _schedule_ -policy _policy_
+snapmirror create -source-path <SVM:volume> -destination-path <SVM:volume>  -type XDP -schedule <schedule> -policy <policy>
 ----
 +
 새 관계는 동일한 소스 볼륨과 타겟 볼륨을 사용해야 합니다. 전체 명령 구문은 man 페이지를 참조하십시오.
@@ -218,9 +236,12 @@ cluster_dst::> snapmirror create -source-path svm1:volA -destination-path svm_ba
 ----
 . 소스 및 대상 볼륨 재동기화:
 +
+이 명령을 실행하기 전에 꺾쇠 괄호 안의 변수를 필수 값으로 바꾸어야 합니다.
+
++
 [source, cli]
 ----
-snapmirror resync -source-path _SVM:volume_|_cluster://SVM/volume_, ... -destination-path _SVM:volume_|_cluster://SVM/volume_, ...
+snapmirror resync -source-path <SVM:volume> -destination-path <SVM:volume>
 ----
 +
 재동기화 시간을 개선하려면 을 사용합니다 `-quick-resync` 단, 스토리지 효율성 절약 효과는 손실될 수 있다는 점을 알아야 합니다. 전체 명령 구문은 man 페이지를 참조하십시오. link:https://docs.netapp.com/us-en/ontap-cli-9131/snapmirror-resync.html#parameters.html["SnapMirror 재동기화 명령"^].
@@ -241,9 +262,12 @@ cluster_dst::> snapmirror resync -source-path svm1:volA -destination-path svm_ba
 ----
 . 스냅샷 복사본의 자동 삭제를 사용하지 않도록 설정한 경우 다음을 다시 사용하도록 설정합니다.
 +
+이 명령을 실행하기 전에 꺾쇠 괄호 안의 변수를 필수 값으로 바꾸어야 합니다.
+
++
 [source, cli]
 ----
-volume snapshot autodelete modify -vserver _SVM_ -volume _volume_ -enabled true
+volume snapshot autodelete modify -vserver <SVM> -volume <volume> -enabled true
 ----
 
 
