@@ -20,6 +20,8 @@ entries:
       entries:
       - title: 개요
         url: "/encryption-at-rest/configure-external-key-management-overview-concept.html"
+      - title: System Manager를 사용하여 외부 키 관리
+        url: "/encryption-at-rest/manage-external-key-managers-sm-task.html"
       - title: 클러스터에 SSL 인증서를 설치합니다
         url: "/encryption-at-rest/install-ssl-certificates-task.html"
       - title: ONTAP 9.6 이상(NVE)에서 외부 키 관리 지원

@@ -25,7 +25,7 @@ ONTAP 업그레이드를 올바르게 준비하면 업그레이드 프로세스�
 하드웨어 플랫폼, 클러스터 관리 스위치, MetroCluster IP 스위치가 타겟 릴리즈를 지원해야 합니다.  클러스터가 SAN용으로 구성된 경우 SAN 구성이 완전히 지원되어야 합니다.
 
 . link:task_check_for_common_configuration_errors_using_config_advisor.html["Active IQ Config Advisor를 사용하여 일반적인 구성 오류가 없는지 확인합니다."]
-. 지원되는 ONTAP를 검토합니다 link:concept_upgrade_paths.html#supported-upgrade-paths-for-on-premises-ontap-and-ontap-select["업그레이드 경로"] 직접 업그레이드를 수행할 수 있는지 또는 업그레이드를 단계별로 완료해야 하는지 여부를 확인하려면
+. 지원되는 ONTAP를 검토합니다 link:concept_upgrade_paths.html#supported-upgrade-paths["업그레이드 경로"] 직접 업그레이드를 수행할 수 있는지 또는 업그레이드를 단계별로 완료해야 하는지 여부를 확인하려면
 . link:create-upgrade-plan.html["업그레이드 계획을 생성합니다"].
 +
 에 대해 활성 SupportEdge 계약이 있는 경우 link:https://aiq.netapp.com/["Active IQ 디지털 자문업체"^]업그레이드 관리자를 통해 업그레이드를 계획하십시오.  Active IQ Digital Advisor에 액세스할 수 없는 경우 고유한 업그레이드 계획을 작성하십시오.

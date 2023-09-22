@@ -62,7 +62,7 @@ NOTE: Kerberos 인증은 항상 먼저 시도됩니다. 오류가 발생하면 N
 .단계
 . 클러스터에 대한 AD 도메인 컨트롤러 액세스를 위한 인증 터널로 SMB 지원 데이터 SVM 구성:
 +
-'Security login domain-tunnel create-vserver SVM_name
+`security login domain-tunnel create -vserver _svm_name_`
 
 +
 전체 명령 구문은 을 참조하십시오 link:config-worksheets-reference.html["워크시트"].

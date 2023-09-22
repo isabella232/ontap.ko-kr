@@ -6,10 +6,12 @@ summary: volume move start 명령을 사용하거나 volume encryption conversio
 ---
 = 기존 볼륨에 암호화를 설정합니다
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
 
 [role="lead"]
-두 가지 방법 중 하나를 사용하여 기존 볼륨에 대한 암호화를 활성화할 수 있습니다(&mdash) `volume move start command` 또는 를 사용합니다 `volume encryption conversion start` 명령.
+둘 중 하나를 사용할 수 있습니다 `volume move start` 또는 을 누릅니다 `volume encryption conversion start` 기존 볼륨에서 암호화를 활성화하는 명령입니다.
 
 .이 작업에 대해
 * ONTAP 9.3부터 을 사용할 수 있습니다 `volume encryption conversion start` 볼륨을 다른 위치로 이동할 필요 없이 기존 볼륨을 "현재 위치"로 암호화할 수 있는 명령입니다. 또는 를 사용할 수 있습니다 `volume move start` 명령.

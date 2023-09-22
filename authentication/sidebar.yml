@@ -66,6 +66,8 @@ entries:
     url: "/authentication/manage-ssh-public-keys-and-certificates.html"
   - title: CA 서명 서버 인증서를 생성하고 설치합니다
     url: "/authentication/install-server-certificate-cluster-svm-ssl-server-task.html"
+  - title: System Manager를 사용하여 인증서를 관리합니다
+    url: "/authentication/manage-certificates-sm-task.html"
   - title: Active Directory 도메인 컨트롤러 액세스를 구성합니다
     url: "/authentication/enable-ad-users-groups-access-cluster-svm-task.html"
   - title: LDAP 또는 NIS 서버 액세스를 구성합니다

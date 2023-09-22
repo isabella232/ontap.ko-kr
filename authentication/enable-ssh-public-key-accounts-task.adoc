@@ -13,9 +13,6 @@ summary: 보안 로그인 create 명령을 사용하여 관리자 계정이 SSH 
 [role="lead"]
 'Security login create' 명령을 사용하면 관리자 계정이 SSH 공개 키로 admin 또는 data SVM에 액세스할 수 있습니다.
 
-.필요한 것
-이 작업을 수행하려면 클러스터 관리자여야 합니다.
-
 .이 작업에 대해
 * 계정이 SVM에 액세스하려면 먼저 공개 키를 계정에 연결해야 합니다.
 +
@@ -59,6 +56,9 @@ ECDSA-SHA2-nistp256+ssh-ed25519+ssh-dss+ssh-rsa
 NOTE: ONTAP 9.11.1부터 ssh-ed25519 호스트 키 알고리즘에 대한 지원이 제거되었습니다.
 
 자세한 내용은 을 참조하십시오 link:../networking/configure_network_security_using_federal_information_processing_standards_@fips@.html["FIPS를 사용하여 네트워크 보안을 구성합니다"].
+
+.시작하기 전에
+이 작업을 수행하려면 클러스터 관리자여야 합니다.
 
 .단계
 . 로컬 관리자 계정이 SSH 공개 키를 사용하여 SVM에 액세스할 수 있도록 합니다.
