@@ -69,15 +69,19 @@ ONTAP CLI를 사용하여 LUN을 이동합니다.
 
 . LUN 이동:
 +
-LUN 이동 시작.
-
+[source, cli]
+----
+lun move start
+----
 +
 매우 짧은 기간 동안 원본 볼륨과 대상 볼륨 모두에 LUN이 표시됩니다. 이는 예상되며 이동이 완료되면 해결됩니다.
 
 . 이동 상태를 추적하고 성공적으로 완료되었는지 확인합니다.
 +
-LUN move show.
-
+[source, cli]
+----
+lun move show
+----
 
 
 --

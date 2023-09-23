@@ -23,8 +23,13 @@ SVM의 볼륨이 마운트되거나 마운트 해제된 후, 그리고 'junction
 .단계
 . 로드 공유 미러 관계를 수동으로 업데이트:
 +
-'스냅미러 update-ls-set-source-path_SVM:volume_|_cluster://SVM/volume_'
+이 명령을 실행하기 전에 꺾쇠 괄호 안의 변수를 필수 값으로 바꾸어야 합니다.
 
++
+[source, cli]
+----
+snapmirror update-ls-set -source-path <SVM:volume>
+----
 +
 다음 예에서는 루트 볼륨 'svm1_root'에 대한 로드 공유 미러 관계를 업데이트합니다.
 

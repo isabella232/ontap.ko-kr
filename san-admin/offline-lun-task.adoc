@@ -48,7 +48,12 @@ LUN 이름 옆에 있는 을 클릭합니다 image:icon_kabob.gif["Kabob 아이�
 CLI를 사용할 때는 한 번에 하나의 LUN만 오프라인 상태로 전환할 수 있습니다.
 
 .단계
-. LUN을 오프라인 상태로 전환합니다. 'lun offline lun_name - vserver SVM_name
+. LUN을 오프라인 상태로 전환:
++
+[source, cli]
+----
+lun offline <lun_name> -vserver <SVM_name>
+----
 
 
 --

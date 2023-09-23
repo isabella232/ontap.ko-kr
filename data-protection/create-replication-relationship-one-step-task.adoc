@@ -45,8 +45,13 @@ ONTAP 9.5부터 '스냅샷 보호' 명령을 사용하여 SnapMirror 동기식 �
 .단계
 . 한 단계로 복제 관계를 생성하고 초기화합니다.
 +
-'스냅샷 보호-경로-list_SVM:volume_|_cluster://SVM/volume_,... -destination-vserver_destination_SVM_-policy_policy_-schedule_schedule_-auto-initialize true|false-destination-volume-prefix_-destination-volume-suffix_suffix_
+이 명령을 실행하기 전에 꺾쇠 괄호 안의 변수를 필수 값으로 바꾸어야 합니다.
 
++
+[source, cli]
+----
+snapmirror protect -path-list <SVM:volume> -destination-vserver <destination_SVM> -policy <policy> -schedule <schedule> -auto-initialize <true|false> -destination-volume-prefix <prefix> -destination-volume-suffix <suffix>
+----
 +
 [NOTE]
 ====

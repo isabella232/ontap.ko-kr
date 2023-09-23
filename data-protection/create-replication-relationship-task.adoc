@@ -103,8 +103,13 @@ ONTAP 9.5부터는 SnapMirror Synchronous 관계가 지원됩니다.
 .단계
 . 대상 클러스터에서 복제 관계를 생성합니다.
 +
-'스냅샷 생성 - 소스 경로 - SVM: volume_|_cluster://SVM/volume_,... -destination-path_SVM:volume_|_cluster://SVM/volume_,... -type DP|XDP-schedule_schedule_-policy_policy_'
+이 명령을 실행하기 전에 꺾쇠 괄호 안의 변수를 필수 값으로 바꾸어야 합니다.
 
++
+[source, cli]
+----
+snapmirror create -source-path <SVM:volume> -destination-path <SVM:volume> -type <DP|XDP> -schedule <schedule> -policy <policy>
+----
 +
 전체 명령 구문은 man 페이지를 참조하십시오.
 

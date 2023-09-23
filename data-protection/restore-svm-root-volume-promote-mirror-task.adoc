@@ -19,12 +19,19 @@ summary: '루트 볼륨을 영구적으로 사용할 수 없는 경우 LSM(Load-
 .단계
 . 고급 권한 레벨로 변경:
 +
-세트 프리빌리지 고급
-
+[source, cli]
+----
+set -privilege advanced
+----
 . LSM 볼륨 승격:
 +
-'스냅샷 미러 상향 이동 - destination-path_SVM: volume_|_cluster://SVM/volume_'
+이 명령을 실행하기 전에 꺾쇠 괄호 안의 변수를 필수 값으로 바꾸어야 합니다.
 
++
+[source, cli]
+----
+snapmirror promote -destination-path <SVM:volume>
+----
 +
 전체 명령 구문은 man 페이지를 참조하십시오.
 
@@ -54,12 +61,19 @@ y를 입력합니다. ONTAP는 LSM 볼륨을 읽기/쓰기 볼륨으로 만들�
 ====
 . 관리자 권한 레벨로 돌아가기:
 +
-'Set-Privilege admin'입니다
-
+[source, cli]
+----
+set -privilege admin
+----
 . 루트 볼륨에 사용한 명명 규칙에 따라 승격된 볼륨의 이름을 바꿉니다.
 +
-'볼륨 이름 변경 - vserver_SVM_-volume_volume_-newname_new_name_'
+이 명령을 실행하기 전에 꺾쇠 괄호 안의 변수를 필수 값으로 바꾸어야 합니다.
 
++
+[source, cli]
+----
+volume rename -vserver <SVM> -volume <volume> -newname <new_name>
+----
 +
 다음 예에서는 승격된 볼륨의 이름을 vm1_m2로 바꾸고 이름은 svm1_root로 바꿉니다.
 

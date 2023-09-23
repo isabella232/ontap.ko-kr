@@ -70,12 +70,16 @@ ONTAP CLI를 사용하여 LUN의 크기를 늘립니다.
 
 . LUN 크기를 늘립니다.
 +
-'LUN resize-vserver_vserver_name_-volume_volume_name_-lun_lun_name_-size_lun_size_
-
+[source, cli]
+----
+lun resize -vserver <SVM_name> -volume <volume_name> -lun <lun_name> -size <lun_size>
+----
 . 늘어난 LUN 크기 확인:
 +
-'lun show -vserver_vserver_name _'
-
+[source, cli]
+----
+lun show -vserver <SVM_name_>
+----
 +
 [NOTE]
 ====

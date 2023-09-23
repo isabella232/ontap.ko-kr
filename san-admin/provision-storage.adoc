@@ -227,19 +227,17 @@ lun mapping create -vserver <svm__name> -volume <volume_name> -lun <lun_name> -i
 [source, cli]
 ----
 lun show -vserver <svm_name>
-
-. Optionally, link:create-port-sets-binding-igroups-task.html[Create a port set and bind to an igroup].
-
-. Follow steps in your host documentation for enabling block access on your specific hosts.
-
-. Use the Host Utilities to complete the FC or iSCSI mapping and to discover your LUNs on the host.
 ----
+. 필요한 경우 link:create-port-sets-binding-igroups-task.html["포트 세트를 생성하고 igroup에 바인딩합니다"].
+. 호스트 설명서의 단계를 따라 특정 호스트에서 블록 액세스를 설정합니다.
+. Host Utilities를 사용하여 FC 또는 iSCSI 매핑을 완료하고 호스트에서 LUN을 검색할 수 있습니다.
 
 
 --
 ====
 .관련 정보
-link:index.html["SAN 관리 개요"]
-https://docs.netapp.com/us-en/ontap-sanhost/index.html["ONTAP SAN 호스트 구성"]
-https://docs.netapp.com/us-en/ontap/san-admin/manage-san-initiators-task.html["System Manager에서 SAN 이니시에이터 그룹을 보고 관리합니다"]
-http://www.netapp.com/us/media/tr-4017.pdf["NetApp 기술 보고서 4017: 파이버 채널 SAN 모범 사례"]
+* link:index.html["SAN 관리 개요"]
+* https://docs.netapp.com/us-en/ontap-sanhost/index.html["ONTAP SAN 호스트 구성"]
+* https://docs.netapp.com/us-en/ontap/san-admin/manage-san-initiators-task.html["System Manager에서 SAN 이니시에이터 그룹을 보고 관리합니다"]
+* http://www.netapp.com/us/media/tr-4017.pdf["NetApp 기술 보고서 4017: 파이버 채널 SAN 모범 사례"]
+

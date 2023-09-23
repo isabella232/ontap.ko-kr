@@ -20,25 +20,22 @@ LUN을 삭제하기 전에 해당 igroup에서 매핑 해제해야 합니다.
 . 애플리케이션 또는 호스트에서 LUN을 사용하고 있지 않은지 확인합니다.
 . igroup에서 LUN 매핑을 해제합니다.
 +
-LUN 매핑 삭제
-
-+
-'lun mapping delete -vserver vs5-volume v5-lun lun5-igroup igr5'
-
+[source, cli]
+----
+lun mapping delete -vserver <SVM_name> -volume <volume_name> -lun <LUN_name> -igroup <igroup_name>
+----
 . LUN을 삭제합니다.
 +
-LUN 삭제
-
-+
-'lun delete -vserver vs5-volume vol5-lun lun5'
-
+[source, cli]
+----
+lun delete -vserver <SVM_name> -volume <volume_name> -lun <LUN_name>
+----
 . LUN을 삭제했는지 확인합니다.
 +
-LUN show
-
-+
-LUN show-vserver vs5
-
+[source, cli]
+----
+lun show -vserver <SVM_name>
+----
 +
 [listing]
 ----

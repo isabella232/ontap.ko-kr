@@ -49,107 +49,119 @@ ONTAP CLI를 사용하여 NVMe용 스토리지 VM을 구성합니다.
 
 . 기존 SVM을 사용하지 않으려면 다음을 생성합니다.
 +
-'vserver create-vserver_SVM_name_'
-
+[source, cli]
+----
+vserver create -vserver <SVM_name>
+----
 +
 .. SVM이 생성되었는지 확인:
 +
-'vserver show'
-
+[source, cli]
+----
+vserver show
+----
 
 
 . 클러스터에 NVMe 또는 TCP 가능 어댑터가 설치되어 있는지 확인합니다.
 +
-NVMe의 경우: 'network fcp adapter show-data-protocols-supported fc-NVMe'
+NVMe의 경우:
 
 +
-TCP의 경우 'network port show'
+[source, cli]
+----
+network fcp adapter show -data-protocols-supported fc-nvme
+----
++
+TCP의 경우:
 
++
+[source, cli]
+----
+network port show
+----
 . ONTAP 9.7 이하를 실행 중인 경우 SVM에서 프로토콜을 모두 제거하십시오.
 +
-'vserver remove-protocols-vserver_SVM_name_-protocols iSCSI, FCP, NFS, CIFS, NDMP'
-
+[source, cli]
+----
+vserver remove-protocols -vserver <SVM_name> -protocols iscsi,fcp,nfs,cifs,ndmp
+----
 +
 ONTAP 9.8부터는 NVMe를 추가할 때 다른 프로토콜을 제거할 필요가 없습니다.
 
 . SVM에 NVMe 프로토콜을 추가합니다.
 +
-'vserver add-protocols-vserver_SVM_name_-protocols NVMe'
-
+[source, cli]
+----
+vserver add-protocols -vserver <SVM_name> -protocols nvme
+----
 . ONTAP 9.7 이하를 실행 중인 경우, NVMe가 SVM에서 허용되는 유일한 프로토콜인지 확인하십시오.
 +
-'vserver show -vserver_SVM_name_-fields Allowed-protocols'
-
+[source, cli]
+----
+vserver show -vserver <SVM_name> -fields allowed-protocols
+----
 +
 NVMe는 허용된 프로토콜 칼럼 아래에 표시되는 유일한 프로토콜이어야 합니다.
 
 . NVMe 서비스를 생성합니다.
 +
-'vserver NVMe create-vserver_SVM_name_'
-
+[source, cli]
+----
+vserver nvme create -vserver <SVM_name>
+----
 . NVMe 서비스가 생성되었는지 확인하십시오.
 +
-'vserver NVMe show -vserver_SVM_name _'
-
+[source, cli]
+----
+vserver nvme show -vserver <SVM_name>
+----
 +
 SVM의 관리 상태는 Up으로 표시되어야 합니다.
 
 . NVMe/FC LIF 생성:
 +
-[cols="3*"]
-|===
-| ONTAP 버전입니다 | 적용 가능한 프로토콜 | 명령 
+** ONTAP 9.9.1 이하, FC:
++
+[source, cli]
+----
+network interface create -vserver <SVM_name> -lif <lif_name> -role data -data-protocol fc-nvme -home-node <home_node> -home-port <home_port>
+----
+** ONTAP 9.10.1 이상, FC 또는 TCP:
++
+[source, cli]
+----
+network interface create -vserver <SVM_name> -lif <lif_name> -service-policy <default-data-nvme-tcp | default-data-nvme-fc> -home-node <home_node> -home-port <home_port> -status admin up -failover-policy disabled -firewall-policy data -auto-revert false -failover-group <failover_group> -is-dns-update-enabled false
+----
 
 
- a| 
-ONTAP 9.9.1 이하
- a| 
-FC
- a| 
-'network interface create-vserver SVM_name-lif lif_name-role data-protocol fc-NVMe-home-node home_node-home-port home_port'
-
-
-
- a| 
-ONTAP 9.10.1
- a| 
-FC 또는 TCP입니다
- a| 
-'network interface create-vserver SVM_name-lif lif_name-service-policy{default-data-NVMe-tcp|default-data-NVMe-fc}-home-node home_node-home-port home_port-status admin up-failover-policy disabled-firewall-failover false-failover-group-is-dns-update-false
-
-|===
 . HA 파트너 노드에 NVMe/FC LIF 생성:
 +
-[cols="3*"]
-|===
-| ONTAP 버전입니다 | 적용 가능한 프로토콜 | 명령 
+** ONTAP 9.9.1 이하, FC:
++
+[source, cli]
+----
+network interface create -vserver <SVM_name> -lif <lif_name> -role data -data-protocol fc-nvme -home-node <home_node> -home-port <home_port>
+----
+** ONTAP 9.10.1 이상, FC 또는 TCP:
++
+[source, cli]
+----
+network interface create -vserver <SVM_name> -lif <lif_name> -service-policy <default-data-nvme-tcp | default-data-nvme-fc> -home-node <home_node> -home-port <home_port> -status admin up -failover-policy disabled -firewall-policy data -auto-revert false -failover-group <failover_group> -is-dns-update-enabled false
+----
 
 
- a| 
-ONTAP 9.9.1 이하
- a| 
-FC
- a| 
-'network interface create -vserver_SVM_name_-lif_lif_name_-role data-protocol fc-NVMe-HOME-node_home_node_-home-port_port_'
-
-
-
- a| 
-ONTAP 9.10.1 이상
- a| 
-FC 또는 TCP입니다
- a| 
-'network interface create-vserver SVM_name-lif lif_name-service-policy{default-data-NVMe-tcp|default-data-NVMe-fc}-home-node home_node-home-port home_port-status admin up-failover-policy disabled-firewall-failover false-failover-group-is-dns-update-false
-
-|===
 . NVMe/FC LIF가 생성되었는지 확인:
 +
-'network interface show -vserver_SVM_name _'
-
+[source, cli]
+----
+network interface show -vserver <SVM_name>
+----
 . LIF와 동일한 노드에서 볼륨 생성:
 +
-'vol create-vserver_SVM_name_-volume_vol_name_-aggregate_aggregate_name_-size_volume_size_'
-
+[source, cli]
+----
+vol create -vserver <SVM_name> -volume <vol_name> -aggregate <aggregate_name> -size <volume_size>
+----
 +
 자동 효율성 정책에 대한 경고 메시지가 표시되면 무시해도 됩니다.
 
