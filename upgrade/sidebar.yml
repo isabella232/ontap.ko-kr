@@ -64,12 +64,14 @@ entries:
   entries:
   - title: 업그레이드 방법 개요
     url: "/upgrade/concept_upgrade_methods.html"
-  - title: System Manager를 사용하여 무중단 자동화
-    url: "/upgrade/task_upgrade_andu_sm.html"
-  - title: CLI를 사용하여 무중단 자동화
-    url: "/upgrade/task_upgrade_andu_cli.html"
-  - title: 중단 자동화
-    url: "/upgrade/task_upgrade_disruptive_automated_cli.html"
+  - title: 자동화된 업그레이드
+    entries:
+    - title: System Manager를 사용하여 무중단 자동화
+      url: "/upgrade/task_upgrade_andu_sm.html"
+    - title: CLI를 사용하여 무중단 자동화
+      url: "/upgrade/task_upgrade_andu_cli.html"
+    - title: 단일 노드 클러스터의 무중단 자동화
+      url: "/upgrade/task_upgrade_disruptive_automated_cli.html"
   - title: 수동 업그레이드
     entries:
     - title: 소프트웨어 패키지를 설치합니다

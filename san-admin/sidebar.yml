@@ -155,6 +155,7 @@ entries:
   - title: 호스트 iSCSI SendTargets 검색 작업에 FQDN을 반환하도록 iSCSI LIF를 구성합니다
     url: "/san-admin/configure-return-fqdn-host-iscsi-discovery-task.html"
 - title: 권장되는 볼륨 및 파일 또는 LUN 구성 조합
+  pdf-filename: 볼륨 및 파일 또는 LUN 구성 조합
   entries:
   - title: 개요
     url: "/san-admin/recommended-volume-lun-config-combinations-concept.html"

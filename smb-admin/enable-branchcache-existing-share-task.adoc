@@ -88,6 +88,6 @@ File Attribute Cache Lifetime: 10s
 Vscan File-Operations Profile: standard
 ----
 .관련 정보
-xref:add-remove-share-properties-eexisting-share-task.adoc[기존 SMB 공유에서 공유 속성 추가 또는 제거]
+xref:add-remove-share-properties-existing-share-task.adoc[기존 SMB 공유에서 공유 속성 추가 또는 제거]
 
 xref:disable-branchcache-single-share-task.adoc[단일 SMB 공유에서 BranchCache를 사용하지 않도록 설정합니다]

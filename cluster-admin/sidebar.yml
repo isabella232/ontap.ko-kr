@@ -28,6 +28,7 @@ entries:
   - title: 하드웨어 구성을 보고 문제를 확인합니다
     url: "/task_admin_troubleshoot_hardware_problems.html"
   - title: 노드 관리
+    pdf-filename: System Manager를 사용하여 노드를 관리합니다
     entries:
     - title: 노드를 재부팅, 종료, 테이크오버하고 돌려제공합니다
       url: "/task_admin_manage_nodes.html"

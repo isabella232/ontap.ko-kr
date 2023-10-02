@@ -17,6 +17,7 @@ entries:
     - title: 라이센스를 설치합니다
       url: "/encryption-at-rest/install-license-task.html"
     - title: 외부 키 관리를 구성합니다
+      pdf-filename: 클러스터에서 외부 키 관리를 구성합니다
       entries:
       - title: 개요
         url: "/encryption-at-rest/configure-external-key-management-overview-concept.html"

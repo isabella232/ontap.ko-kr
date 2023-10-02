@@ -19,7 +19,7 @@ summary: ONTAP 9.10.1부터 친숙한 SnapMirror 미러링 및 백업 기능을 
 
 
 [role="lead"]
-ONTAP 9.10.1부터 친숙한 SnapMirror 미러링 및 백업 기능을 사용하여 ONTAP S3 오브젝트 저장소의 버킷을 보호할 수 있습니다. 또한, 표준 SnapMirror와 달리 S3 SnapMirror는 NetApp이 아닌 대상을 가질 수 있습니다.
+ONTAP 9.10.1부터 SnapMirror 미러링 및 백업 기능을 사용하여 ONTAP S3 오브젝트 저장소의 버킷을 보호할 수 있습니다. 표준 SnapMirror와 달리 S3 SnapMirror를 통해 AWS S3와 같은 비 NetApp 대상에 대한 미러링 및 백업을 수행할 수 있습니다.
 
 S3 SnapMirror는 ONTAP S3 버킷에서 다음 대상에 이르기까지 활성 미러와 백업 계층을 지원합니다.
 
@@ -44,20 +44,15 @@ ONTAP S3
 | 설치하고 |  | image:status-enabled-perf-config.gif["확인 표시"] 
 
 
-| Azure용 Cloud Volumes ONTAP
-(ONTAP 9.9.0부터) | image:status-enabled-perf-config.gif["확인 표시"] | image:status-enabled-perf-config.gif["확인 표시"] 
+| Azure용 Cloud Volumes ONTAP | image:status-enabled-perf-config.gif["확인 표시"] | image:status-enabled-perf-config.gif["확인 표시"] 
 
 
-| AWS 환경을 위한 Cloud Volumes ONTAP
-(ONTAP 9.11.0부터 시작) | image:status-enabled-perf-config.gif["확인 표시"] | image:status-enabled-perf-config.gif["확인 표시"] 
+| AWS 환경을 위한 Cloud Volumes ONTAP | image:status-enabled-perf-config.gif["확인 표시"] | image:status-enabled-perf-config.gif["확인 표시"] 
 
 
-| Google Cloud용 Cloud Volumes ONTAP
-(ONTAP 9.12.0부터) | image:status-enabled-perf-config.gif["확인 표시"] | image:status-enabled-perf-config.gif["확인 표시"] 
+| Google Cloud용 Cloud Volumes ONTAP | image:status-enabled-perf-config.gif["확인 표시"] | image:status-enabled-perf-config.gif["확인 표시"] 
 |===
 ONTAP S3 서버에서 기존 버킷을 보호하거나 데이터 보호를 즉시 활성화할 수 있는 새로운 버킷을 생성할 수 있습니다.
-
-S3 SnapMirror는 팬아웃 및 캐스케이드 관계를 지원합니다. 개요를 보려면 을 참조하십시오 link:../data-protection/supported-deployment-config-concept.html["팬아웃 및 캐스케이드 데이터 보호 구축"].
 
 
 
@@ -69,7 +64,8 @@ S3 SnapMirror는 팬아웃 및 캐스케이드 관계를 지원합니다. 개요
 +
 ** ONTAP S3 프로토콜 및 스토리지를 위한 코어 번들
 ** S3 SnapMirror용 데이터 보호 번들을 사용하여 다른 NetApp 오브젝트 저장소 대상(ONTAP S3, StorageGRID 및 Cloud Volumes ONTAP)을 지정합니다.
-** S3 SnapMirror용 데이터 보호 번들 및 하이브리드 클라우드 번들을 사용하여 타사 오브젝트 저장소(AWS S3)를 타겟
+** 데이터 보호 번들 및 하이브리드 클라우드 번들
+S3 SnapMirror가 AWS S3를 비롯한 타사 오브젝트 저장소를 타겟으로 함
 
 
 * ONTAP S3
@@ -119,6 +115,14 @@ S3 서버 구성에 대한 자세한 내용은 다음 항목을 참조하십시�
 
 
 
+== S3 버킷에 대한 액세스 제어
+
+S3 SnapMirror는 팬아웃 및 캐스케이드 관계를 지원합니다. 개요는 팬아웃 및 캐스케이드 데이터 보호 구축을 참조하십시오.
+
+S3 SnapMirror는 fFan-in 구축(여러 소스 버킷과 단일 대상 버킷 간의 데이터 보호 관계)을 지원하지 않습니다. S3 SnapMirror는 여러 클러스터에서 단일 보조 클러스터로 여러 버킷 미러를 지원할 수 있지만, 각 소스 버킷은 보조 클러스터에서 고유한 대상 버킷이 있어야 합니다.
+
+
+
 == S3 SnapMirror 고려사항 및 제한사항
 
 새 버킷을 생성할 때 사용자 및 그룹을 생성하여 액세스를 제어할 수 있습니다. 자세한 내용은 다음 항목을 참조하십시오.
@@ -126,12 +130,4 @@ S3 서버 구성에 대한 자세한 내용은 다음 항목을 참조하십시�
 * link:../task_object_provision_add_s3_users_groups.html["S3 사용자 및 그룹 추가(System Manager)"]
 * link:../s3-config/create-s3-user-task.html["S3 사용자 생성(CLI)"]
 * link:../s3-config/create-modify-groups-task.html["S3 그룹 생성 또는 수정(CLI)"]
-
-
-다음 표준 SnapMirror 기능은 현재 S3 SnapMirror 릴리즈에서 지원되지 않습니다.
-
-* 팬인 구축(여러 소스 버킷과 단일 대상 버킷 간의 데이터 보호 관계)
-+
-S3 SnapMirror는 여러 클러스터에서 단일 보조 클러스터로 여러 버킷 미러를 지원할 수 있지만, 각 소스 버킷은 보조 클러스터에서 고유한 대상 버킷이 있어야 합니다.
-
 

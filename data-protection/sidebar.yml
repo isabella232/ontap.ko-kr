@@ -85,6 +85,7 @@ entries:
     - title: 복제 작업 스케줄을 생성합니다
       url: "/data-protection/create-replication-job-schedule-task.html"
     - title: 복제 정책을 사용자 지정합니다
+      pdf-filename: 복제 정책 사용자 지정
       entries:
       - title: 사용자 지정 복제 정책을 생성합니다
         url: "/data-protection/create-custom-replication-policy-concept.html"
@@ -105,6 +106,7 @@ entries:
   - title: SnapMirror Synchronous 관계의 모드를 변환합니다
     url: "/data-protection/convert-mode-snapmirror-synchronous-task.html"
   - title: SnapMirror DR 대상 볼륨의 데이터를 제공합니다
+    pdf-filename: SnapMirror 대상 볼륨에서 데이터를 제공합니다
     entries:
     - title: 대상 볼륨을 쓰기 가능하게 만듭니다
       url: "/data-protection/make-destination-volume-writeable-task.html"

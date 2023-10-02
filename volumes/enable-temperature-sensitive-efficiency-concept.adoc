@@ -27,7 +27,7 @@ FabricPool 지원 애그리게이트 및 모든 계층화 정책 유형에서 �
 * ONTAP 9.13.1 이상
 
 
-자세한 내용은 을 참조하십시오 link:https://docs.netapp.com/us-en/volumes/storage-efficiency-behavior-snapmirror-reference.html["볼륨 이동 및 SnapMirror 작업에 대한 스토리지 효율성 동작"].
+자세한 내용은 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap/volumes/storage-efficiency-behavior-snapmirror-reference.html["볼륨 이동 및 SnapMirror 작업에 대한 스토리지 효율성 동작"].
 
 하지만 기존 볼륨의 경우 온도에 민감한 스토리지 효율성이 자동으로 활성화되지 않습니다 link:https://docs.netapp.com/us-en/ontap/volumes/change-efficiency-mode-task.html["스토리지 효율성 모드를 수정합니다"] 수동으로 를 선택하여 효율적 모드로 변경합니다.
 

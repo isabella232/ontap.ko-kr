@@ -38,4 +38,4 @@ SMB 메타데이터 캐시를 설정하여 SMB 1.0 클라이언트의 SMB 성능
 .관련 정보
 xref:configure-lifetime-metadata-cache-entries-task.adoc[SMB 메타데이터 캐시 항목의 수명 구성]
 
-xref:add-remove-share-properties-eexisting-share-task.adoc[기존 SMB 공유에서 공유 속성 추가 또는 제거]
+xref:add-remove-share-properties-existing-share-task.adoc[기존 SMB 공유에서 공유 속성 추가 또는 제거]

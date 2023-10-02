@@ -7,6 +7,7 @@ entries:
 - title: 워크플로우
   url: "/nfs-config/workflow-concept.html"
 - title: 준비
+  pdf-filename: NFS 구성을 준비합니다
   entries:
   - title: 물리적 스토리지 요구사항을 평가합니다
     url: "/nfs-config/assess-physical-storage-requirements-task.html"
@@ -95,6 +96,7 @@ entries:
   - title: 엑스포트 정책에 규칙 추가
     url: "/nfs-config/add-rule-export-policy-task.html"
   - title: 볼륨 또는 qtree 스토리지 컨테이너를 생성합니다
+    pdf-filename: 스토리지 컨테이너를 생성합니다
     entries:
     - title: 볼륨을 생성합니다
       url: "/nfs-config/create-volume-task.html"

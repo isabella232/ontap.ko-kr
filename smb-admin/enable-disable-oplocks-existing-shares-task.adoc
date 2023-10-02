@@ -85,4 +85,4 @@ xref:enable-disable-oplocks-when-creating-shares-task.adoc[SMB 공유를 생성�
 
 xref:monitor-oplock-status-task.adoc[oplock 상태 모니터링]
 
-xref:add-remove-share-properties-eexisting-share-task.adoc[기존 SMB 공유에서 공유 속성 추가 또는 제거]
+xref:add-remove-share-properties-existing-share-task.adoc[기존 SMB 공유에서 공유 속성 추가 또는 제거]

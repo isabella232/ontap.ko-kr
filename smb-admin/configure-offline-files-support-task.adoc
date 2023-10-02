@@ -128,4 +128,4 @@ Maximum Tree Connections on Share: 4294967295
        UNIX Group for File Create: -
 ----
 .관련 정보
-xref:add-remove-share-properties-eexisting-share-task.adoc[기존 SMB 공유에서 공유 속성 추가 또는 제거]
+xref:add-remove-share-properties-existing-share-task.adoc[기존 SMB 공유에서 공유 속성 추가 또는 제거]

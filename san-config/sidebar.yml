@@ -33,6 +33,7 @@ entries:
   - title: FC 타겟 포트 구성 권장 사항
     url: "/san-config/fc-target-port-config-recommendations-concept.html"
 - title: FC 어댑터를 사용하여 시스템을 관리합니다
+  pdf-filename: FC 어댑터를 구성합니다
   entries:
   - title: 개요
     url: "/san-config/manage-systems-fc-adapters-concept.html"

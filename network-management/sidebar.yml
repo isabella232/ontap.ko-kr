@@ -16,10 +16,12 @@ entries:
 - title: CLI를 사용하여 NAS 경로 페일오버 설정
   entries:
   - title: ONTAP 9.8 이상
+    pdf-filename: ONTAP 9.8 이상에 대해 CLI를 사용하여 NAS 페일오버를 설정합니다
     entries:
     - title: ONTAP 9.8 이상을 위한 NAS 경로 페일오버 정보
       url: "/networking/set_up_nas_path_failover_98_and_later_cli.html"
     - title: 워크플로우 NAS 경로 페일오버
+      pdf-filename: ONTAP 9.8 이상에 대한 Workflow NAS 경로 페일오버
       entries:
       - title: 개요
         url: "/networking/workflow__nas_path_failover_overview_auto.html"
@@ -38,10 +40,12 @@ entries:
       - title: DNS 서비스를 구성합니다
         url: "/networking/configure_dns_services_auto.html"
   - title: ONTAP 9.7 이하
+    pdf-filename: ONTAP 9.7 이하 버전에 대한 CLI를 사용하여 NAS 페일오버를 설정합니다
     entries:
     - title: NAS 경로 페일오버 설정(ONTAP 9.0 - 9.7 CLI)
       url: "/networking/set_up_nas_path_failover_9_to_97_cli.html"
     - title: 워크플로우 NAS 경로 페일오버
+      pdf-filename: ONTAP 9.7 이하 버전에 대한 워크플로우 NAS 경로 페일오버
       entries:
       - title: 개요
         url: "/networking/workflow__nas_path_failover_overview_manual.html"

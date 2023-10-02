@@ -68,23 +68,21 @@ vs1      aes-128,aes-256
 [listing]
 ----
 cluster1::> vserver cifs security modify -vserver vs2 -advertised-enc-types aes-128,aes-256
-
-Info: In order to enable SMB AES encryption, the password for the SMB server
-machine account must be reset. Enter the username and password for the
-SMB domain "EXAMPLE.COM".
-
-Enter your user ID: administrator
-
-Enter your password:
-
-cluster1::> vserver cifs security show -vserver vs2 -fields advertised-enc-types
-
-vserver  advertised-enc-types
--------- --------------------
-vs2      aes-128,aes-256
-
-
 ----
+정보: SMB AES 암호화를 활성화하려면 SMB 서버의 암호입니다
+컴퓨터 계정을 재설정해야 합니다. 의 사용자 이름과 암호를 입력합니다
+SMB 도메인 "example.com".
+
+사용자 ID: administrator 를 입력합니다
+
+암호 입력:
+
+cluster1::> vserver cifs security show -vserver vs2 -boarded-enc-types
+
+가상 서버 공표 - enc-types
+------- -------------------
+VS2 를 참조하십시오 AES-128, AES-256
+
 --
 .ONTAP 9.11.1 이전 버전
 --

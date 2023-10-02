@@ -303,7 +303,7 @@ entries:
       - title: 개요
         url: "/smb-admin/share-properties-concept.html"
       - title: 기존 SMB 공유에서 공유 속성을 추가하거나 제거합니다
-        url: "/smb-admin/add-remove-share-properties-eexisting-share-task.html"
+        url: "/smb-admin/add-remove-share-properties-existing-share-task.html"
     - title: force-group 공유 설정을 사용하여 SMB 사용자 액세스를 최적화합니다
       url: "/smb-admin/optimize-user-access-force-group-share-concept.html"
     - title: 그룹 강제 공유 설정을 사용하여 SMB 공유를 생성합니다

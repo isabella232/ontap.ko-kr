@@ -4,106 +4,66 @@ sidebar: sidebar
 keywords: upgrade, methods, andu, ndu, automated, automatic, system manager, cli, nondisruptive, disruptive 
 summary: '업그레이드 방법은 구성에 따라 다릅니다. 가능하면 System Manager를 사용하는 자동 무중단 업그레이드(ANDU)가 권장됩니다.' 
 ---
-= ONTAP 업그레이드 방법
+= ONTAP 소프트웨어 업그레이드 방법
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-무중단 또는 운영, 자동화 또는 수동 업그레이드 방법은 구성에 따라 다릅니다.  System Manager를 사용하는 자동 무중단 업그레이드(ANDU)가 기본 방법이며 대부분의 구성을 지원합니다.
+시스템 관리를 사용하여 ONTAP 소프트웨어의 자동 업그레이드를 수행할 수 있습니다. 또는 ONTAP CLI(Command Line Interface)를 사용하여 자동 또는 수동 업그레이드를 수행할 수 있습니다. ONTAP를 업그레이드하는 방법은 구성, 현재 ONTAP 버전, 클러스터의 노드 수에 따라 달라집니다. NetApp은 사용자의 구성에 다른 방식이 필요하지 않은 한 System Manager를 사용하여 자동화된 업그레이드를 수행할 것을 권장합니다. 예를 들어, ONTAP 9.3 이상을 실행하는 4개 노드로 MetroCluster를 구성한 경우 System Manager를 사용하여 자동 업그레이드(자동 무중단 업그레이드 또는 ANDU라고도 함)를 수행해야 합니다. ONTAP 9.2 이하를 실행하는 8개 노드로 MetroCluster 구성을 사용하는 경우 CLI를 사용하여 수동 업그레이드를 수행해야 합니다.
 
-* 무중단 업그레이드 * + 무중단 업그레이드는 ONTAP의 고가용성(HA) 장애 조치 기술을 활용하여 업그레이드 중에도 클러스터가 계속해서 데이터를 제공할 수 있도록 합니다. 무중단 업그레이드 프로세스에는 두 가지 유형이 있습니다.
+업그레이드는 롤링 업그레이드 프로세스 또는 일괄 업그레이드 프로세스를 사용하여 실행할 수 있습니다. 둘 다 무중단 운영을 제공합니다.
 
-* _Batch_updates+ 배치 업데이트에서 클러스터는 여러 개의 배치로 분할되며, 각 배치에는 여러 HA 쌍이 포함됩니다. 첫 번째 배치에서는 노드의 절반이 업그레이드된 다음 HA 파트너가 업그레이드됩니다. 그런 다음 나머지 배치에 대해 이 과정을 순차적으로 반복합니다.
-* _Rolling_updates+ 롤링 업데이트에서 노드가 오프라인으로 전환되어 파트너가 스토리지를 인계하는 동안 업그레이드됩니다. 노드 업그레이드가 완료되면 파트너 노드가 원래 소유 노드로 제어권을 다시 제공하며 이 시간이 파트너 노드에서 반복됩니다. 모든 HA 쌍이 타겟 릴리즈를 실행할 때까지 각 HA 쌍이 추가로 업그레이드됩니다. + * 참고: * 소프트웨어 업계에서는 서비스 중단을 일으키지 않는 소프트웨어 업그레이드를 위해 _롤링 업그레이드_라는 용어가 자주 사용되므로 종종 "무중단 업그레이드"와 같은 의미로 사용됩니다. ONTAP 9 업그레이드에서 _롤링 UPDATE_는 무중단 업그레이드에 사용할 수 있는 프로세스 중 하나입니다.
+.ONTAP 롤링 업그레이드
+롤링 업그레이드 프로세스에서 노드가 오프라인 상태로 전환되고 파트너가 스토리지를 인계하는 동안 업그레이드됩니다. 노드 업그레이드가 완료되면 파트너 노드가 원래 소유 노드에 제어권을 다시 제공하며 이 프로세스는 파트너 노드에서 반복됩니다. 모든 HA 쌍이 타겟 릴리즈를 실행할 때까지 각 HA 쌍이 추가로 업그레이드됩니다. 롤링 업그레이드 프로세스는 노드 수가 8개 미만인 클러스터의 기본값입니다.
 
+.ONTAP 일괄 업그레이드
+일괄 업그레이드 프로세스에서 클러스터는 여러 개의 배치로 분할되며, 각 배치에는 여러 개의 HA 쌍이 포함됩니다. 첫 번째 배치에서는 노드의 절반이 업그레이드된 다음 HA 파트너가 업그레이드됩니다. 그런 다음 나머지 배치에 대해 이 과정을 순차적으로 반복합니다. 일괄 업그레이드 프로세스는 8개 노드 이상의 클러스터에서 기본값입니다.
 
-무중단 업그레이드는 _automated_or_manual_method를 사용하여 수행할 수 있습니다.
-
-* * 자동 무중단 업그레이드(ANDU) *
-+
-** 관리자가 ANDU를 시작하면 ONTAP가 각 노드에 타겟 ONTAP 이미지를 자동으로 설치하고 클러스터 구성 요소를 검증하여 중단 없이 클러스터를 업그레이드할 수 있는지 확인한 다음 백그라운드에서 일괄 또는 롤링 업데이트를 실행합니다.
-+
-*** 일괄 업데이트는 8개 노드 이상의 클러스터에서 기본값입니다.
-*** 롤링 업데이트는 8개 미만의 노드가 있는 클러스터의 기본값입니다. 롤링 업데이트는 8개 이상의 노드가 있는 클러스터에 대해 명시적으로 선택할 수도 있습니다.
-
-
-** ANDU는 System Manager 또는 ONTAP CLI(Command Line Interface)를 사용하여 실행할 수 있습니다. 구성에 사용할 수 있는 경우 System Manager를 사용하는 ANDU가 권장되는 업그레이드 방법입니다.
-
-
-* * 수동 무중단 업그레이드 *
-+
-** 관리자는 각 노드에서 클러스터 구성 요소의 업그레이드 준비 상태를 수동으로 확인한 다음 포그라운드에서 롤링 업데이트 프로세스 단계를 수동으로 수행해야 합니다.
-** ONTAP CLI를 사용하면 무중단 수동 업그레이드가 실행됩니다.
-** 구성에 대해 ANDU가 지원되지 않는 경우에만 수동 방법을 사용해야 합니다.
+자동화된 업그레이드를 위해 ONTAP는 각 노드에 타겟 ONTAP 이미지를 자동으로 설치하고, 클러스터 구성 요소를 확인하여 클러스터를 중단 없이 업그레이드할 수 있는지 확인한 다음, 노드 수에 따라 백그라운드에서 일괄 처리 또는 롤링 업그레이드를 실행합니다. 수동 업그레이드의 경우 관리자는 클러스터의 각 노드를 업그레이드할 준비가 되었음을 수동으로 확인한 다음 롤링 업그레이드를 실행하는 단계를 수행합니다.
 
 
 
+== 구성에 따라 권장되는 ONTAP 업그레이드 방법
 
-* 중단이 필요한 업그레이드 * + 중단이 필요한 업그레이드가 되면 각 HA 쌍에 대해 스토리지 페일오버가 비활성화되며 각 노드가 한 번에 하나씩 재부팅됩니다. 무중단 업그레이드보다 업무 중단 없는 업그레이드를 더 빠르게 수행할 수 있으며, 완료하는 데 필요한 단계가 줄어듭니다. 하지만 업그레이드 기간 동안 클러스터를 오프라인으로 전환할 수 없는 경우에는 중단 업그레이드를 수행하지 않아야 합니다. SAN 환경에서 작업 중인 경우 중단 업그레이드를 수행하기 전에 모든 SAN 클라이언트를 종료하거나 일시 중단할 준비를 해야 합니다. ONTAP CLI를 사용하여 시스템 중단을 업그레이드할 수 있습니다.
+구성에서 지원되는 업그레이드 방법은 권장 사용 순서에 따라 나열됩니다.
+
+[cols="4"]
+|===
+| 구성 | ONTAP 버전입니다 | 노드 수 | 권장되는 업그레이드 방법입니다 
 
 
-
-== MetroCluster 이외의 구성 방법
-
-2개 이상의 노드가 있는 클러스터는 권장 사용 순서대로 나열된 다음 업그레이드 방법 중 하나를 사용할 수 있습니다.
-
+| 표준 | 9.0 이상 | 2 이상  a| 
 * xref:task_upgrade_andu_sm.html[System Manager를 사용하여 무중단 자동화]
 * xref:task_upgrade_andu_cli.html[CLI를 사용하여 무중단 자동화]
-* xref:task_upgrade_nondisruptive_manual_cli.html[수동 중단 없음]
-* xref:task_updating_an_ontap_cluster_disruptively.html[수동 중단]
-
-
-자동화된 방법을 권장하지만 단일 노드 클러스터는 중단 방법 중 하나를 사용해야 합니다.
-
-* xref:task_upgrade_disruptive_automated_cli.html[중단 자동화]
-* xref:task_updating_an_ontap_cluster_disruptively.html[수동 중단]
 
 
 
 
-== MetroCluster 구성 방법
-
-각 구성에 사용할 수 있는 업그레이드 방법은 권장 사용 순서대로 나열되어 있습니다.
-
-[cols="3*"]
-|===
-| ONTAP 버전입니다 | 노드 수 | 업그레이드 방법 
+| 표준 | 9.0 이상 | 단일 | xref:task_upgrade_disruptive_automated_cli.html[중단 자동화] 
 
 
-| 9.3 이상 | 2,4  a| 
+| MetroCluster | 9.3 이상 | 8  a| 
+* xref:task_upgrade_andu_cli.html[CLI를 사용하여 무중단 자동화]
+* xref:task_updating_a_four_or_eight_node_mcc.html[CLI를 사용한 4 또는 8노드 MetroCluster의 수동 무중단 운영]
+
+
+
+
+| MetroCluster | 9.3 이상 | 2,4  a| 
 * xref:task_upgrade_andu_sm.html[System Manager를 사용하여 무중단 자동화]
 * xref:task_upgrade_andu_cli.html[CLI를 사용하여 무중단 자동화]
-* xref:task_updating_an_ontap_cluster_disruptively.html[수동 중단]
 
 
 
 
-| 9.3 이상 | 8  a| 
-* xref:task_upgrade_andu_cli.html[CLI를 사용하여 무중단 자동화]
-* xref:task_updating_a_four_or_eight_node_mcc.html[수동 중단 없음]
-* xref:task_updating_an_ontap_cluster_disruptively.html[수동 중단]
+| MetroCluster | 9.2 이하 | 4, 8 | xref:task_updating_a_four_or_eight_node_mcc.html[CLI를 사용한 4 또는 8노드 MetroCluster의 수동 무중단 운영] 
 
 
-
-
-| 9.2 이하 | 2  a| 
-* xref:task_updating_a_two_node_metrocluster_configuration_in_ontap_9_2_and_earlier.html[수동 무중단(2노드 클러스터)]
-* xref:task_updating_an_ontap_cluster_disruptively.html[CLI를 사용한 수동 중단]
-
-
-
-
-| 9.2 이하 | 4, 8  a| 
-* xref:task_updating_a_four_or_eight_node_mcc.html[수동 중단 없음]
-* xref:task_updating_an_ontap_cluster_disruptively.html[수동 중단]
-
-
-
-
-| 9.0 이상 | 4, 8(패치만) | xref:task_upgrade_andu_sm.html[System Manager를 사용하여 무중단 자동화] 
-
-
-| 9.2 이하 | 2, 4, 8(패치만) | xref:task_upgrade_andu_sm.html[System Manager를 사용하여 무중단 자동화] 
+| MetroCluster | 9.2 이하 | 2 | xref:task_updating_a_two_node_metrocluster_configuration_in_ontap_9_2_and_earlier.html[CLI를 사용한 2노드 MetroCluster의 수동 무중단 운영] 
 |===
+System Manager를 사용하는 ANDU는 구성에 관계없이 모든 패치 업그레이드에 권장되는 업그레이드 방법입니다.
+
+
+NOTE: A xref:task_updating_an_ontap_cluster_disruptively.html[중단 없는 수동 업그레이드] 모든 구성에서 수행할 수 있습니다.  하지만 업그레이드 기간 동안 클러스터를 오프라인으로 전환할 수 없는 경우에는 중단 업그레이드를 수행하지 않아야 합니다. SAN 환경에서 작업 중인 경우 중단 업그레이드를 수행하기 전에 모든 SAN 클라이언트를 종료하거나 일시 중단할 준비를 해야 합니다. ONTAP CLI를 사용하여 시스템 중단을 업그레이드할 수 있습니다.
