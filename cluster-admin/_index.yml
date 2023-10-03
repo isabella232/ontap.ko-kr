@@ -33,8 +33,6 @@ indexpage:
       url: "/../system-admin/display-node-attributes-task.html"
     - title: 부팅 메뉴를 사용하여 관리합니다
       url: "/../system-admin/manage-node-boot-menu-task.html"
-    - title: 노드를 종료합니다
-      url: "/../system-admin/shut-down-node-task.html"
   - title: 고가용성
     links:
     - title: 하드웨어 지원 테이크오버의 작동 방식
