@@ -10,6 +10,8 @@ entries:
   entries:
   - title: 준비 요약
     url: "/upgrade/prepare.html"
+  - title: 업그레이드 계획을 생성합니다
+    url: "/upgrade/create-upgrade-plan.html"
   - title: 대상 ONTAP 릴리스를 선택합니다
     url: "/upgrade/choose-target-version.html"
   - title: 구성 지원을 확인합니다
@@ -18,8 +20,6 @@ entries:
     url: "/upgrade/task_check_for_common_configuration_errors_using_config_advisor.html"
   - title: 업그레이드 경로
     url: "/upgrade/concept_upgrade_paths.html"
-  - title: 업그레이드 계획을 생성합니다
-    url: "/upgrade/create-upgrade-plan.html"
   - title: LIF 페일오버 구성을 확인합니다
     url: "/upgrade/task_verifying_the_lif_failover_configuration.html"
   - title: SVM 라우팅 구성을 확인합니다
