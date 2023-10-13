@@ -37,7 +37,12 @@ NetApp는 Trellix, Symantec, Trend Micro 및 Sentinel One과 협력하여 ONTAP 
 | Trend Micro | link:https://docs.trendmicro.com/all/ent/spfs/v6.0/en-us/spfs_6.0_gsg_new.pdf["Trend Micro ServerProtect for Storage 6.0 시작 가이드"] | link:https://imt.netapp.com/matrix/["NetApp 상호 운용성 매트릭스 툴"] 
 
 
-| 센티넬 원 2+| link:https://support.sentinelone.com/hc/en-us/categories/360002507673-Knowledge-Base-and-Documents["Sentinel One 지원"]
+| 센티넬 원  a| 
+* link:https://www.sentinelone.com/platform/singularity-cloud-data-security/["SentinelOne 특이성 클라우드 데이터 보안"]
+* link:https://support.sentinelone.com/hc/en-us/categories/360002507673-Knowledge-Base-and-Documents["SentinelOne 지원"]
++
+이 링크를 사용하려면 사용자 로그인이 필요합니다. Sentinel One에서 액세스를 요청할 수 있습니다.
 
-이 링크를 사용하려면 사용자 로그인이 필요합니다. Sentinel One에서 액세스를 요청할 수 있습니다. 
+
+
 |===

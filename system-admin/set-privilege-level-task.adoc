@@ -23,7 +23,7 @@ CLI에서 '설정' 명령어를 이용하여 권한 수준을 설정할 수 있�
 [listing]
 ----
 cluster1::> set -privilege advanced
-Warning: These advanced commands are potentially dangerous; use them only when directed to do so by technical support.
+Warning: These advanced commands are potentially dangerous; use them only when directed to do so by NetApp personnel.
 Do you wish to continue? (y or n): y
 cluster1::*> set -privilege admin
 ----
