@@ -29,7 +29,7 @@ hourly.2017-05-15_1006/             hourly.2017-05-15_1306/
 .단계
 . 스냅샷 정책 생성:
 +
-'볼륨 스냅샷 정책 생성 - vserver_SVM_-policy_policy_name_-enabled true|false-schedule1_schedule1_name_-count1_copies_to_retain_-prefix1_snapshot_prefix_-SnapMirror-label1_snapshot_label_... -schedule1_schedule5_name_-count5_copies_to_retain_-prefix5_snapshot_prefix_-snapmirror-label5_snapshot_label_'
+`volume snapshot policy create -vserver _SVM_ -policy _policy_name_ -enabled true|false -schedule1 _schedule1_name_ -count1 _copies_to_retain_ -prefix1 _snapshot_prefix_ -snapmirror-label1 _snapshot_label_ ... -schedule5 _schedule5_name_ -count5 _copies_to_retain_-prefix5 _snapshot_prefix_ -snapmirror-label5 _snapshot_label_`
 
 +
 다음 예에서는 일별 스케줄로 실행되는 'snap_policy_daily'라는 스냅샷 정책을 생성합니다. 정책에는 각각 매일 이름이 "daily"인 최대 5개의 스냅샷 복사본이 있습니다. _timestamp_ 및 SnapMirror label daily"라는 이름이 지정됩니다.

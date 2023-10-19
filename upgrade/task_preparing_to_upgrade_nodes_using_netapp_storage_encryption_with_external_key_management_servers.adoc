@@ -18,7 +18,7 @@ ONTAP를 업그레이드하기 전에 NetApp Storage Encryption(NSE)을 통해 O
 +
 [source, cli]
 ----
-storage encryption disk show -disk*
+storage encryption disk show -disk *
 ----
 . 고급 권한 모드로 들어갑니다.
 +
