@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: smbc/smbc_admin_performing_a_planned_failover.html 
-keywords: SM-BC, testing failover, planned failover, maintenance, quorum 
+keywords: SM-BC, testing failover, planned failover, maintenance, quorum, , snapmirror active sync 
 summary: 계획된 페일오버를 수행하여 재해 복구 구성을 테스트하거나 운영 클러스터에 대한 유지 관리를 수행할 수 있습니다. 
 ---
 = 계획된 페일오버를 수행합니다

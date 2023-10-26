@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: smbc/considerations-limits.html 
-keywords: SM-BC, SMBC, restrictions, consistency group, endpoint limits, solaris, aix, hp-ux, fanout 
+keywords: SM-BC, SMBC, restrictions, consistency group, endpoint limits, solaris, aix, hp-ux, fanout, snampmirror active sync 
 summary: SnapMirror 비즈니스 연속성 솔루션을 사용할 때는 몇 가지 추가 제한 사항과 제한이 있습니다. 
 ---
 = SnapMirror 비즈니스 연속성에 대한 오브젝트 제한

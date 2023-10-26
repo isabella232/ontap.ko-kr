@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: smbc/smbc_troubleshoot_snapmirror_release_fails.html 
-keywords: SM-BC, SMBC, volume move, troubleshooting, primary down 
+keywords: SM-BC, SMBC, volume move, troubleshooting, primary down, snapmirror active sync 
 summary: 스냅샷 복사본을 삭제할 수 없으면 SnapMirror 릴리즈 작업이 실패합니다. 
 ---
 = 스냅샷 복사본을 삭제할 수 없을 때 SnapMirror가 릴리즈되지 않습니다

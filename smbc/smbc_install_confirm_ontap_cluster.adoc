@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: smbc/smbc_install_confirm_ontap_cluster.html 
-keywords: SM-BC, SMBC, cluster, peering, ONTAP Mediator, initialize 
+keywords: SM-BC, SMBC, cluster, peering, ONTAP Mediator, initialize, snapmirror active sync 
 summary: SM-BC를 사용하려면 ONTAP 중재자를 설치 및 초기화하고 적절한 클러스터 피어링을 보장해야 합니다. 
 ---
 = SnapMirror 비즈니스 연속성을 위한 ONTAP 중재자 및 클러스터 구성

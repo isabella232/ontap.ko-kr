@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: smbc/smbc_admin_monitoring.html 
-keywords: SM-BC, SMBC, monitoring, Mediator status, EMS, errors, planned failover status, automatic unplanned failover status, SM-BC status 
+keywords: SM-BC, SMBC, monitoring, Mediator status, EMS, errors, planned failover status, automatic unplanned failover status, , snapmirror active sync 
 summary: 모니터링할 수 있는 SM-BC 구성 요소 및 작업은 여러 가지가 있습니다. 
 ---
 = SnapMirror 비즈니스 연속성 운영을 모니터링합니다

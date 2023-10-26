@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: smbc/smbc_admin_creating_a_common_snapshot_copy.html 
-keywords: SM-BC, SMBC, common Snapshot copy, manual Snapshot copy create 
+keywords: SM-BC, SMBC, common Snapshot copy, manual Snapshot copy create, snapmirror active sync 
 summary: 정기적으로 예약된 스냅샷 복사본 작업 외에도, 기본 SnapMirror 일관성 그룹의 볼륨과 보조 SnapMirror 일관성 그룹의 볼륨 사이에 공통 스냅샷 복사본을 수동으로 생성할 수 있습니다. 
 ---
 = 공통 스냅샷 복사본을 생성합니다

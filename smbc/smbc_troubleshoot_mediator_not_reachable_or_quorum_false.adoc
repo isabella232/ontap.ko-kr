@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: smbc/smbc_troubleshoot_mediator_not_reachable_or_quorum_false.html 
-keywords: troubleshooting, SM-BC, SMBC, Mediator, quorum, quorum status, failover, network 
+keywords: troubleshooting, SM-BC, SMBC, Mediator, quorum, quorum status, failover, network, snapmirror active sync 
 summary: SnapMirror 페일오버 시작 명령을 실행한 후 SnapMirror 페일오버 표시 명령의 출력에 중재자가 구성되지 않았다는 메시지가 표시됩니다. 
 ---
 = ONTAP 중재자가 연락할 수 없거나 중재 쿼럼 상태가 거짓입니다

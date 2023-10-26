@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: smbc/smbc_admin_what_happens_during_an_automatic_unplanned_failover.html 
-keywords:  
+keywords: fan-out, snapmirror active sync, unplanned failover 
 summary: '자동 비계획 장애 조치(AUFO) 작업은 운영 클러스터가 다운되거나 격리될 때 발생합니다. 이 경우 보조 클러스터가 운영 클러스터로 변환되어 클라이언트 서비스가 시작됩니다.' 
 ---
 = 예기치 않은 자동 페일오버 작업에서 복구합니다
@@ -62,7 +62,7 @@ Last Progress Update: -
 
 == 페일오버 후 팬아웃 구성에서 보호를 재개합니다
 
-SM-BC 관계에서 보조 클러스터에 페일오버가 발생하면 비동기식 SnapMirror 타겟이 건강상태가 되며, 비동기식 SnapMirror 엔드포인트와의 관계를 삭제 및 재생성하여 보호를 수동으로 복원해야 합니다.
+SM-BC 관계의 보조 클러스터에서 페일오버가 발생하는 경우 비동기식 SnapMirror 타겟이 비정상 상태가 됩니다. 비동기 SnapMirror 엔드포인트와의 관계를 삭제하고 다시 생성하여 보호를 수동으로 복원해야 합니다.
 
 .단계
 . 페일오버 작업이 성공적으로 완료되었는지 확인합니다. '스냅샷 페일오버 표시'입니다

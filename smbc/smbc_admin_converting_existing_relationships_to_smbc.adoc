@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: smbc/smbc_admin_converting_existing_relationships_to_smbc.html 
-keywords: SM-BC, SMBC, convert, Synchronous SnapMirror, zero RPO, zero recovery time objective, zero RTO, existing 
+keywords: SM-BC, SMBC, convert, Synchronous SnapMirror, zero RPO, zero recovery time objective, zero RTO, existing, snapmirror active sync 
 summary: '기존 제로 복구 지점 보호(제로 RPO) 동기식 SnapMirror 관계를 SM-BC 제로 RTO 동기식 SnapMirror 정합성 보장 그룹 관계로 변환할 수 있습니다.' 
 ---
 = 기존 관계를 SM-BC 관계로 전환

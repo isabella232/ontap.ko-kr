@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: smbc/smbc_troubleshoot_failure_creating_snapmirror_relationship.html 
-keywords: SM-BC, SMBC, troubleshooting, SnapMirror Synchronous, consistency group, ititialize 
+keywords: SM-BC, SMBC, troubleshooting, SnapMirror Synchronous, consistency group, initialize, snapmirror active sync 
 summary: SnapMirror 관계 및 일관성 그룹 초기화가 실패합니다. 
 ---
 = SnapMirror 관계 생성 및 일관성 그룹 초기화 실패

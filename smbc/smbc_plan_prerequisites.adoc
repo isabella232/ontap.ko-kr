@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: smbc/smbc_plan_prerequisites.html 
-keywords: SM-BC, SMBC, prerequisites, planning, software, hardware, licensing, protocols, network 
+keywords: SM-BC, SMBC, prerequisites, planning, software, hardware, licensing, protocols, network, snapmirror active sync 
 summary: SnapMirror 비즈니스 연속성 솔루션 배포를 계획할 때 고려해야 하는 몇 가지 필수 구성 요소가 있습니다. 
 ---
 = 필수 구성 요소

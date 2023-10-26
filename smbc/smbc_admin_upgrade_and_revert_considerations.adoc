@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: smbc/smbc_admin_upgrade_and_revert_considerations.html 
-keywords: upgrade, revert, ONTAP 
+keywords: upgrade, revert, snapmirror active sync 
 summary: ONTAP를 업그레이드하거나 되돌리면 특히 ONTAP 9.8 이상 또는 9.7 이전 버전으로 전환할 때 SM-BC 관계에 영향을 미칩니다. 
 ---
 = SM-BC를 사용하여 ONTAP를 업그레이드하고 복구합니다

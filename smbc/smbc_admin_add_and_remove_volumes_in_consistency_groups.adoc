@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: smbc/smbc_admin_add_and_remove_volumes_in_consistency_groups.html 
-keywords: SM-BC, SMBC, volume, consistency group, remove volume, add volume 
+keywords: SM-BC, SMBC, volume, consistency group, remove volume, add volume, snapmirror active sync 
 summary: 볼륨을 추가하거나 제거하여 일관성 그룹의 구성을 변경하려면 먼저 원래 관계를 삭제한 다음 새 구성도를 사용하여 일관성 그룹을 다시 생성해야 합니다. 
 ---
 = 정합성 보장 그룹에 볼륨을 추가하거나 제거합니다

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: smbc/smbc_intro_terminology.html 
-keywords: SM-BC, SMBC, overview, benefits, use cases, architecture 
+keywords: SM-BC, SMBC, overview, benefits, use cases, architecture, snapmirror active sync 
 summary: SM-BC를 사용하기 전에 이해해야 하는 주요 개념이 있습니다. 
 ---
 = 주요 개념

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: smbc/smbc_troubleshoot_volume_move_stuck_when_primary_down.html 
-keywords: SM-BC, SMBC, volume move, troubleshooting, primary down 
+keywords: SM-BC, SMBC, volume move, troubleshooting, primary down, snapmirror active sync 
 summary: 제로 RTO 동기식 SnapMirror 보호를 제거하고 SM-BC 관계 구성을 삭제할 수 있습니다. 
 ---
 = 1차 볼륨이 다운될 때 볼륨 이동 작업이 중단됩니다
