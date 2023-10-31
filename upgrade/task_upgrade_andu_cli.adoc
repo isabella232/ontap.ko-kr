@@ -217,8 +217,12 @@ AUSO Failure Domain    auso-on-cluster-disaster
 +
 [source, cli]
 ----
-metrocluster modify -auto-switchover-failure-domain auso-on-cluster-disaster
+metrocluster modify -auto-switchover-failure-domain auso-on-cluster-disaster -overide-vetoes true
 ----
++
+
+NOTE: 자동 무중단 업그레이드가 완료될 때까지는 스위치백 작업을 수행할 수 없습니다.
+
 .. 예기치 않은 자동 전환이 활성화되어 있는지 확인:
 +
 [source, cli]
