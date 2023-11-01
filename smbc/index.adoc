@@ -16,7 +16,7 @@ summary: 'ONTAP 9.8부터 SM-BC(SnapMirror Business Continuity)를 사용하여 
 [role="lead"]
 SnapMirror 액티브 동기화라고도 하는 SM-BC(SnapMirror Business Continuity)를 통해 전체 사이트 장애가 발생해도 비즈니스 서비스의 지속적인 운영을 보장할 수 있으며, 보조 복사본을 사용하여 애플리케이션을 투명하게 페일오버할 수 있습니다. SM-BC에서 페일오버를 트리거하는 데 수동 개입이나 추가 스크립팅이 필요하지 않습니다.
 
-SM-BC는 ONTAP 9.8부터 사용할 수 있습니다. SM-BC는 AFF 클러스터 또는 모든 ASA(SAN 어레이) 클러스터에서 지원되며, 운영 클러스터와 보조 클러스터는 AFF 또는 ASA가 될 수 있습니다. SM-BC는 iSCSI 또는 FCP LUN을 사용하여 애플리케이션을 보호합니다.
+SM-BC는 ONTAP 9.8부터 사용할 수 있습니다. SM-BC는 AFF 클러스터 또는 ASA(All-Flash SAN 어레이) 클러스터에서 지원되며, 운영 클러스터와 2차 클러스터는 AFF 또는 ASA가 될 수 있습니다. SM-BC는 iSCSI 또는 FCP LUN을 사용하여 애플리케이션을 보호합니다.
 
 
 

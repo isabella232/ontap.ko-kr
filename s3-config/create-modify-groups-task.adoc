@@ -32,18 +32,18 @@ S3 사용자 그룹을 생성한 후 그룹 정의에 오브젝트 서버 정책
 
 [role="tabbed-block"]
 ====
-.CLI를 참조하십시오
---
-. S3 그룹 생성: 'vserver object-store-server group create-vserver_svm_name_-name_group_name_-users_user_name\(s\)_[-policies_policy_names_][-comment_text_\]' 객체 저장소에 하나의 버킷만 있는 구성에서는 '-policies' 옵션을 생략할 수 있으며 그룹 이름은 버킷 정책에 추가할 수 있습니다. '-policies' 옵션은 나중에 객체 스토리지 서버 정책을 생성한 후 'vserver object-store-server group modify' 명령을 사용하여 추가할 수 있습니다.
-
-
---
 .시스템 관리자
 --
 . 스토리지 VM 편집: * 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 클릭한 다음 * 설정 * 을 클릭하고 을 클릭합니다 image:icon_pencil.gif["연필 아이콘"] S3 아래.
 . 그룹 추가: * 그룹 * 을 선택한 다음 * 추가 * 를 선택합니다.
 . 그룹 이름을 입력하고 사용자 목록에서 선택합니다.
 . 기존 그룹 정책을 선택하거나 지금 추가하거나 나중에 정책을 추가할 수 있습니다.
+
+
+--
+.CLI를 참조하십시오
+--
+. S3 그룹 생성: 'vserver object-store-server group create-vserver_svm_name_-name_group_name_-users_user_name\(s\)_[-policies_policy_names_][-comment_text_\]' 객체 저장소에 하나의 버킷만 있는 구성에서는 '-policies' 옵션을 생략할 수 있으며 그룹 이름은 버킷 정책에 추가할 수 있습니다. '-policies' 옵션은 나중에 객체 스토리지 서버 정책을 생성한 후 'vserver object-store-server group modify' 명령을 사용하여 추가할 수 있습니다.
 
 
 --

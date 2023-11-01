@@ -124,7 +124,7 @@ iSCSI LIF 페일오버
  a| 
 새로운 iSCSI LIF 페일오버 기능은 SFO 파트너 페일오버 및 로컬 페일오버에서 iSCSI LIF의 자동 및 수동 마이그레이션을 지원합니다.
 
-모든 SAN 어레이(ASA) 플랫폼에서 사용할 수 있습니다.
+이 제품은 ASA(All-Flash SAN 어레이) 플랫폼에서 사용할 수 있습니다.
 
 link:../san-admin/asa-iscsi-lif-fo-task.html["ASA 플랫폼의 iSCSI LIF 페일오버"]
 

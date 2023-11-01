@@ -27,10 +27,10 @@ summary: 새 S3 버킷을 생성할 때 StorageGRID 시스템 또는 Amazon S3 �
 * • 소스 스토리지 VM의 DNS 구성은 타겟의 FQDN을 확인할 수 있어야 합니다.
 
 
-
-
-== System Manager 절차
-
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
 . 스토리지 VM을 편집하여 사용자를 추가하고 사용자를 그룹에 추가합니다.
 +
 .. 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 클릭한 다음 * 설정 * 을 클릭하고 을 클릭합니다 image:icon_pencil.gif["편집 아이콘"] S3 * 아래.
@@ -91,10 +91,9 @@ summary: 새 S3 버킷을 생성할 때 StorageGRID 시스템 또는 Amazon S3 �
 
 Save * 를 클릭하면 소스 스토리지 VM에 새 버킷이 생성되고 클라우드 오브젝트 저장소에 백업됩니다.
 
-
-
-== CLI 절차
-
+--
+.CLI를 참조하십시오
+--
 . 이 SVM에서 처음으로 S3 SnapMirror 관계를 구축할 경우, 소스 및 타겟 SVM 모두에 루트 사용자 키가 있는지 확인하고 그렇지 않을 경우 다시 생성하십시오. 'vserver object-store-server user show' + 루트 사용자에 대한 액세스 키가 있는지 확인하십시오. 그렇지 않으면 다음을 입력합니다. 'vserver object-store-server user reenate-keys-vserver svm_name-user_root_'+키가 이미 있으면 키를 다시 생성하지 마십시오.
 . 소스 SVM에서 버킷을 생성합니다. 'vserver object-store-server bucket create-vserver_svm_name_-bucket_bucket_name_[-size_integer_[KB|MB|GB|TB|PB][-comment_text_][_additional_options_]'
 . 기본 버킷 정책에 액세스 규칙을 추가합니다. 'vserver object-store-server bucket policy add-statement-vserver_svm_name_-bucket_bucket_name_-effect{allow|deny}-action_object_store_actions_-principal_user_and_group_names_-resource_store_resources_[-sid_text_][-index_integer_integer
@@ -140,3 +139,6 @@ src_cluster::> snapmirror create -source-path vs0:/bucket/test-bucket -destinati
 ----
 . 미러링이 활성 상태인지 확인합니다. '스냅샷 표시 - 정책 유형 연속 필드 상태'
 
+
+--
+====

@@ -31,18 +31,18 @@ S3 사용자를 생성하면 액세스 키와 비밀 키가 생성됩니다. 객
 ====
 [role="tabbed-block"]
 ====
-.CLI를 참조하십시오
---
-. S3 사용자:'vserver object-store-server user create-vserver_svm_name_-user_user_name_[-comment_text_]'를 생성합니다
-. 액세스 키와 암호 키를 저장해야 하며 S3 클라이언트에서 액세스할 수 있습니다.
-
-
---
 .시스템 관리자
 --
 . 스토리지 VM 편집: * 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 클릭한 다음 * 설정 * 을 클릭하고 을 클릭합니다 image:icon_pencil.gif["연필 아이콘"] S3 아래.
 . 사용자 추가: * 사용자 * 를 클릭한 다음 * 추가 * 를 클릭합니다.
 . 이름을 입력하고 * 저장 * 을 클릭합니다.
+. 액세스 키와 암호 키를 저장해야 하며 S3 클라이언트에서 액세스할 수 있습니다.
+
+
+--
+.CLI를 참조하십시오
+--
+. S3 사용자:'vserver object-store-server user create-vserver_svm_name_-user_user_name_[-comment_text_]'를 생성합니다
 . 액세스 키와 암호 키를 저장해야 하며 S3 클라이언트에서 액세스할 수 있습니다.
 
 

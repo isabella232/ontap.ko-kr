@@ -1,8 +1,8 @@
 ---
 permalink: san-admin/asa-iscsi-lif-fo-task.html 
 sidebar: sidebar 
-keywords: failover, iscsi, all san array, cli, system manager, auto-revert, revert network interface 
-summary: '모든 SAN 어레이(ASA) 플랫폼에서 ONTAP 9.11.1부터 iSCSI LIF 페일오버 기능은 SFO 파트너 페일오버(iSCSI LIF가 홈 노드/포트에서 HA 파트너 노드/포트로 또는 다시 이동하는 경우)와 로컬 페일오버에서 iSCSI LIF의 자동 및 수동 마이그레이션을 지원합니다 iSCSI LIF가 상태가 불량한 포트에서 현재 홈 노드의 정상 포트로 이동하거나 다시 가져올 때 이 기능은 iSCSI에서 실행되는 SAN 워크로드에 대해 더 빠른 I/O 재개 기능을 제공합니다.' 
+keywords: failover, iscsi, all flash san array, cli, system manager, auto-revert, revert network interface 
+summary: 'All-Flash SAN 어레이(ASA) 플랫폼에서 ONTAP 9.11.1부터 iSCSI LIF 페일오버 기능은 SFO 파트너 페일오버(iSCSI LIF가 홈 노드/포트에서 HA 파트너 노드/포트로 다시 이동하는 경우)와 로컬 페일오버에서 iSCSI LIF를 자동 및 수동 마이그레이션할 수 있도록 지원합니다 (iSCSI LIF가 비정상 포트에서 현재 홈 노드의 정상 포트로 다시 이동한 경우) 이 기능은 iSCSI에서 실행되는 SAN 워크로드에 대해 더 빠른 I/O 재개 기능을 제공합니다.' 
 ---
 = ASA 플랫폼의 iSCSI LIF 페일오버
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: '모든 SAN 어레이(ASA) 플랫폼에서 ONTAP 9.11.1부터 iSCSI LIF
 
 
 [role="lead"]
-모든 SAN 어레이(ASA) 플랫폼에서 ONTAP 9.11.1부터 iSCSI LIF 페일오버 기능은 SFO 파트너 페일오버(iSCSI LIF가 홈 노드/포트에서 HA 파트너 노드/포트로 또는 다시 이동하는 경우)와 로컬 페일오버에서 iSCSI LIF의 자동 및 수동 마이그레이션을 지원합니다 iSCSI LIF가 상태가 불량한 포트에서 현재 홈 노드의 정상 포트로 이동하거나 다시 가져올 때 이 기능은 iSCSI에서 실행되는 SAN 워크로드에 대해 더 빠른 I/O 재개 기능을 제공합니다.
+All-Flash SAN 어레이(ASA) 플랫폼에서 ONTAP 9.11.1부터 iSCSI LIF 페일오버 기능은 SFO 파트너 페일오버(iSCSI LIF가 홈 노드/포트에서 HA 파트너 노드/포트로 다시 이동하는 경우)와 로컬 페일오버에서 iSCSI LIF를 자동 및 수동 마이그레이션할 수 있도록 지원합니다 (iSCSI LIF가 비정상 포트에서 현재 홈 노드의 정상 포트로 다시 이동한 경우) 이 기능은 iSCSI에서 실행되는 SAN 워크로드에 대해 더 빠른 I/O 재개 기능을 제공합니다.
 
 
 
