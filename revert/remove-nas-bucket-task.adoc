@@ -11,7 +11,7 @@ summary: NAS 데이터에 대한 S3 클라이언트 액세스를 구성하고 ON
 
 
 [role="lead"]
-NAS 데이터에 대해 S3 클라이언트 액세스를 구성하고 ONTAP 9.12.1 이상에서 ONTAP 9.11.1 이하로 되돌릴 경우 NAS 버킷 구성을 제거하고 이름 매핑(Windows 또는 Unix 사용자에게 S3 사용자)을 모두 제거한 후 되돌려야 합니다.
+NAS 데이터에 대한 S3 클라이언트 액세스를 구성한 경우 ONTAP 9.12.1 이상에서 ONTAP 9.11.1 이전 버전으로 되돌리기 전에 ONTAP CLI(명령줄 인터페이스)를 사용하여 NAS 버킷 구성을 제거하고 이름 매핑을 제거해야 합니다 (S3 사용자가 Windows 또는 Unix 사용자로 전환).
 
 .이 작업에 대해
 되돌리기 프로세스 동안 백그라운드에서 다음 작업이 완료됩니다.
@@ -22,29 +22,29 @@ NAS 데이터에 대해 S3 클라이언트 액세스를 구성하고 ONTAP 9.12.
 * 구성된 모든 S3 서버에 대해 default-unix-user 및 default-windows-user 값을 삭제합니다.
 
 
-[role="tabbed-block"]
-====
-.시스템 관리자
---
-. S3 NAS 버킷 구성을 제거합니다. + 클릭 * 스토리지 > 버킷 * 을 클릭하고 을 클릭합니다 image:../media/icon_kabob.gif["케밥 아이콘"] 구성된 각 S3 NAS 버킷에 대해 * 삭제 * 를 클릭합니다.
-. UNIX 또는 Windows 클라이언트에 대한 로컬 이름 매핑을 제거합니다(또는 둘 다).
+.단계
+. S3 NAS 버킷 구성 제거:
 +
-.. 스토리지 > 버킷 * 을 클릭한 다음 S3/NAS 지원 스토리지 VM을 선택합니다.
-.. 설정 * 을 선택한 다음 을 클릭합니다 image:../media/icon_arrow.gif["오른쪽 화살표"] 이름 매핑 * (* 호스트 사용자 및 그룹 * 아래).
-.. S3 ~ Windows * 또는 * S3 ~ UNIX 타일 * (또는 둘 다)에서 을 클릭합니다 image:../media/icon_kabob.gif["케밥 아이콘"] 구성된 각 매핑에 대해 * Delete * 를 클릭합니다.
+[source, cli]
+----
+vserver object-store-server bucket delete -vserver _svm_name_ -bucket _s3_nas_bucket_name_
+----
+. UNIX에 대한 이름 매핑 제거:
++
+[source, cli]
+----
+vserver name-mapping delete -vserver _svm_name_ -direction s3-unix
+----
+. Windows에 대한 이름 매핑 제거:
++
+[source, cli]
+----
+vserver name-mapping delete -vserver _svm_name_ -direction s3-win
+----
+. SVM에서 S3 프로토콜 제거:
++
+[source, cli]
+----
+vserver remove-protocols -vserver <svm_name> -protocols s3
+----
 
-
-
-
---
-.CLI를 참조하십시오
---
-. S3 NAS 버킷 구성을 제거합니다. 를 누릅니다
-`vserver object-store-server bucket delete -vserver _svm_name_ -bucket _s3_nas_bucket_name_`
-. 이름 매핑을 제거합니다. 를 누릅니다
-`vserver name-mapping delete -vserver _svm_name_ -direction s3-unix` 를 누릅니다
-`vserver name-mapping delete -vserver _svm_name_ -direction s3-win`
-
-
---
-====

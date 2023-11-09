@@ -17,6 +17,7 @@ SCSI 씬 프로비저닝의 이점을 활용하려면 호스트에서 이를 지
 
 * Citrix XenServer 6.5 이상
 * ESXi 5.0 이상
+* Oracle Linux 6.2 UEK 커널 이상
 * RHEL 6.2 이상
 * SLES11 이상
 * Solaris 11.1 이상
