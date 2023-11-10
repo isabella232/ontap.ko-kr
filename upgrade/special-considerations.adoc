@@ -41,9 +41,6 @@ xref:concept_upgrade_requirements_for_metrocluster_configurations.html[MetroClus
 | DP 유형 SnapMirror 관계가 정의되어 있으며 ONTAP 9.12.1 이상으로 업그레이드됩니까? | link:../data-protection/convert-snapmirror-version-flexible-task.html["기존 DP 유형 관계를 XDP로 변환합니다"] 
 
 
-| 볼륨 및 애그리게이트를 중복제거할 수 있습니까? | xref:task_verifying_that_deduplicated_volumes_and_aggregates_contain_sufficient_free_space.html[중복 제거된 볼륨 및 애그리게이트를 위한 충분한 여유 공간이 있는지 확인하십시오] 
-
-
 | 외부 키 관리 서버와 함께 NetApp Storage Encryption을 사용하고 있습니까? | xref:task_preparing_to_upgrade_nodes_using_netapp_storage_encryption_with_external_key_management_servers.html[기존 키 관리 서버 연결을 삭제합니다] 
 
 

@@ -24,6 +24,6 @@ LUN 및 볼륨 구성을 최적화하여 스토리지 활용률을 극대화하�
 .단계
 . 다음 진단트리를 사용하여 환경에 가장 적합한 볼륨 및 LUN 구성 조합을 결정합니다.
 +
-image::../media/lun-thin-provisioning-san-admin.gif[LUN 씬 프로비저닝 SAN 관리자]
+image::../media/lun-thin-provisioning-san-admin.gif[LUN 구성 결정 트리]
 
 

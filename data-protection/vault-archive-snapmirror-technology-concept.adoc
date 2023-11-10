@@ -17,7 +17,7 @@ SnapMirror 볼트 정책은 ONTAP 9.3 이상에서 SnapVault 기술을 대체합
 
 아래 그림은 SnapMirror 볼트 데이터 보호 관계를 보여줍니다.
 
-image::../media/snapvault-data-protection.gif[SnapVault 데이터 보호]
+image::../media/snapvault-data-protection.gif[SnapMirror 소산 데이터 보호 관계]
 
 
 

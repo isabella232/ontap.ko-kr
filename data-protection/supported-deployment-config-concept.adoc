@@ -37,7 +37,7 @@ image::../media/sm-mirror-vault-fanout.png[데이터 보호 배포: 미러 볼�
 
 ONTAP 9.5부터는 SnapMirror Synchronous 관계를 포함하는 팬아웃 구축을 수행할 수 있습니다. 그러나 팬아웃 구성의 한 관계만 SnapMirror Synchronous 관계일 수 있으며, 소스 볼륨의 다른 모든 관계는 비동기식 SnapMirror 관계여야 합니다.
 
-image::../media/ssm-fanout.gif[SSM 팬 아웃]
+image::../media/ssm-fanout.gif[데이터 보호 구축: SnapMirror Synchronous 관계를 통해 팬아웃 구축]
 
 
 

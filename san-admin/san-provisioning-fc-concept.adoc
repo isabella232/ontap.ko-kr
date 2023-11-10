@@ -73,7 +73,7 @@ WWPN은 각 FC 논리 인터페이스를 고유하게 식별합니다. 호스트
 
 예를 들어, 다음 다이어그램에서는 16포트 Brocade 스위치의 각 포트에 WWPN을 할당하는 방법을 보여 줍니다. 특정 스위치에 대한 포트 번호 지정 방법에 대한 자세한 내용은 해당 스위치에 대해 공급업체에서 제공한 설명서를 참조하십시오.
 
-image::../media/drw-fcswitch-scrn-en-noscale.gif[drw 스위치 scrn en nocscale]
+image::../media/drw-fcswitch-scrn-en-noscale.gif[Brocade 파이버 채널 스위치 포트]
 
 포트 * 0 *, WWPN 20:** 00**:00:60:69:51:06:B4
 

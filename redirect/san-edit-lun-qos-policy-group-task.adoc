@@ -1,7 +1,8 @@
+---
+permalink: san-edit-lun-qos-policy-group-task.html 
+redirect: ontap/san-admin/edit-lun-qos-policy-task.html 
+---
 = 
 :allow-uri-read: 
 
 
-'''
-퍼머링크: san-edit-lun-qos-policy-group-task.html
-이동: ONTAP/SAN-admin/edit-lun-qos-policy-task.html

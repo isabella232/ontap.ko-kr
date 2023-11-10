@@ -16,7 +16,7 @@ summary: 파일의 보존 시간을 명시적으로 설정하거나 볼륨에 �
 .보존 기간 및 보존 시간에 대해 설명합니다
 WORM 파일의 _retention period_는 파일이 WORM 상태로 커밋된 후 보존되어야 하는 시간을 지정합니다. WORM 파일의 _retention time_은 파일을 더 이상 보존할 필요가 없는 시간입니다. 예를 들어, 2020년 11월 10일 오전 6시 부터 WORM 상태로 커밋된 파일의 보존 기간은 20년이며, 보존 기간은 2010년 11월 10일 오전 6시입니다
 
-image::../media/retention.gif[보존]
+image::../media/retention.gif[보존 기간의 예]
 
 [NOTE]
 ====

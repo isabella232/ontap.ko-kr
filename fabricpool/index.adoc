@@ -19,11 +19,17 @@ FabricPool은 All-Flash(All-SSD) 애그리게이트를 성능 계층으로 사�
 
 * Alibaba 클라우드
 * Amazon S3
+* Amazon 상용 클라우드 서비스
 * Google 클라우드
 * IBM 클라우드
 * Microsoft Azure Blob 저장소
 
 
+[NOTE]
+====
+ONTAP 9.7부터는 S3_호환 오브젝트 저장소 공급자를 선택하여 일반 S3 API를 지원하는 추가 오브젝트 저장소 공급자를 사용할 수 있습니다.
+
+====
 
 
 == 데이터 계층화 및 비용 절감 사용 사례 비디오

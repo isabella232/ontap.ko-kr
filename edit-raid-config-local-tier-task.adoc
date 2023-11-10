@@ -23,7 +23,7 @@ ONTAP 9.11.1부터 로컬 계층의 RAID 구성을 수정할 수 있습니다.
 
 .단계
 . System Manager에서 * Storage > Tiers * 를 클릭합니다.
-. 을 클릭합니다 image:icon_kabob.gif[""] 로컬 계층 이름 옆에 있습니다.
+. 을 클릭합니다 image:icon_kabob.gif["옵션 아이콘"] 로컬 계층 이름 옆에 있습니다.
 . Edit RAID Configuration * 을 선택합니다.
 . RAID 구성 편집 * 페이지가 표시됩니다. 다음 필드를 수정할 수 있습니다.
 +

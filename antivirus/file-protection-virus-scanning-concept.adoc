@@ -35,4 +35,4 @@ NFS를 통해서만 내보낸 볼륨에서도 SVM 네임스페이스에서 모�
 
 NetApp에서 제공하고 외부 서버에 설치된 ONTAP 바이러스 백신 커넥터는 스토리지 시스템과 바이러스 백신 소프트웨어 간의 통신을 처리합니다.
 
-image::../media/how-virus-scanning-works-new.gif[바이러스 검사가 새롭게 작동하는 방식]
+image::../media/how-virus-scanning-works-new.gif[바이러스 검사 예]

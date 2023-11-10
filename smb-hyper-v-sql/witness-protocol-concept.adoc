@@ -23,4 +23,4 @@ Witness 프로토콜은 다음 프로세스를 사용하여 향상된 장애 조
 . 애플리케이션 서버는 SMB 세션을 Node2로 이동하고 클라이언트 액세스를 중단하지 않고 연결을 복구합니다.
 
 
-image::../media/how-witness-works.gif[증인의 작동 방식]
+image::../media/how-witness-works.gif[증인 프로토콜]

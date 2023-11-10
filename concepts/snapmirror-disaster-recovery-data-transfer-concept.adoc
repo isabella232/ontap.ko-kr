@@ -33,7 +33,7 @@ SnapMirror를 처음 호출하면 소스 볼륨에서 대상 볼륨으로 _basel
 
 SnapMirror는 기준선이 생성된 후 Snapshot 복사본만 전송하므로 빠르고 무중단으로 복제가 가능합니다. 페일오버 사용 사례에서 알 수 있듯이, 2차 시스템의 컨트롤러는 미러링된 스토리지의 데이터를 효율적으로 지원하기 위해 운영 시스템의 컨트롤러와 동등하거나 거의 동등해야 합니다.
 
-image::../media/snapmirror.gif[SnapMirror를 참조하십시오]
+image::../media/snapmirror.gif[소스 볼륨과 타겟 볼륨 간의 SnapMirror 관계]
 
 |===
 

@@ -19,7 +19,7 @@ SAN 환경에서 호스트는 lun_targets에 대한 요청의 _initiators_로 �
 
 ONTAP 선택적 LUN 맵(SLM: Selective LUN Map)은 기본적으로 호스트에서 LUN으로의 경로 수를 제한합니다. 새로 생성된 LUN은 LUN 또는 해당 HA 파트너가 속한 노드의 경로를 통해서만 액세스할 수 있습니다. 이니시에이터에 대해 _port set_에서 LIF를 구성하여 LUN에 대한 액세스를 제한할 수도 있습니다.
 
-image::../media/san-host-rerouting.gif[SAN 호스트 경로 재지정]
+image::../media/san-host-rerouting.gif[SAN 경로 페일오버 예]
 
 |===
 

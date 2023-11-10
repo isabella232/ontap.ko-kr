@@ -136,7 +136,7 @@ ARP는 다음 볼륨 구성을 지원하지 않습니다.
 * SAN 전용 볼륨
 * SnapLock 볼륨
 * SnapMirror Synchronous
-* 동기 SnapMirror(ONTAP 9.10.1 ~ 9.12.1의 경우. 비동기 SnapMirror는 ONTAP 9.12.1부터 지원됩니다. 자세한 내용은 을 참조하십시오 <<SnapMirror를 참조하십시오>>참조)
+* 동기 SnapMirror(ONTAP 9.10.1 ~ 9.12.1의 경우. 비동기 SnapMirror는 ONTAP 9.12.1부터 지원됩니다. 자세한 내용은 을 참조하십시오 <<snapmirror>>참조)
 * 제한된 볼륨
 * 스토리지 VM의 루트 볼륨입니다
 * 중지된 스토리지 VM의 볼륨입니다

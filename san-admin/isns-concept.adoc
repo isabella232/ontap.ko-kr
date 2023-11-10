@@ -37,11 +37,11 @@ iSNS 서버는 SVM 관리 LIF를 통해 각 SVM(스토리지 가상 시스템)�
 
 다음 예에서는 SVM ""VS1""이 SVM 관리 LIF ""VS1_mgmt_lif""를 사용하여 iSNS 서버에 등록합니다. iSNS 등록 중에 SVM은 SVM 관리 LIF를 통해 모든 iSCSI LIF를 iSNS 서버에 보냅니다. iSNS 등록이 완료되면 iSNS 서버에 ""VS1""에서 iSCSI를 지원하는 모든 LIF 목록이 있습니다. 클러스터에 SVM이 여러 개 포함된 경우 각 SVM은 iSNS 서버에 개별적으로 등록하여 iSNS 서비스를 사용해야 합니다.
 
-image::../media/bsag_c-mode_iSNS_register.png[BSAG c 모드 iSNS 레지스터]
+image::../media/bsag_c-mode_iSNS_register.png[SVM 및 iSNS 서버 상호 작용 예 1]
 
 다음 예에서는 iSNS 서버가 타겟과의 등록을 완료한 후 호스트 A가 1단계에서 설명한 대로 iSNS 서버를 통해 ""VS1""에 대한 모든 LIF를 검색할 수 있습니다. 호스트 A가 ""VS1""에 대한 LIF 검색을 완료한 후 호스트 A는 2단계에 표시된 ""VS1""에 있는 LIF와 연결을 설정할 수 있습니다. 호스트 A는 관리 LIF가 ""VS2"에 ""VS2""에 ""VS2""에 등록될 때까지 ""VS2""에 있는 LIF를 인식하지 못합니다.
 
-image::../media/bsag_c-mode_iSNS_connect.png[BSAG c 모드 iSNS 접속]
+image::../media/bsag_c-mode_iSNS_connect.png[SVM 및 iSNS 서버 상호 작용 예 2]
 
 그러나 인터페이스 액세스 목록을 정의하는 경우 호스트는 인터페이스 액세스 목록에 정의된 LIF만 사용하여 타겟에 액세스할 수 있습니다.
 

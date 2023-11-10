@@ -13,7 +13,7 @@ summary: FlexCache 볼륨 생성 워크플로우
 [role="lead"]
 먼저 시스템 관리자에서 FlexCache 라이센스를 설치해야 합니다. 그런 다음 CLI를 사용하여 동일한 클러스터 또는 원격 클러스터에 FlexCache 볼륨을 생성할 수 있습니다.
 
-image::../media/flexcache-creation-workflow.gif[FlexCache 생성 워크플로]
+image::../media/flexcache-creation-workflow.gif[시스템 관리자 및 CLI에 대한 FlexCache 생성 워크플로]
 
 ONTAP 9.5 이상을 실행 중이어야 합니다.
 

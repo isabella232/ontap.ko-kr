@@ -24,7 +24,7 @@ nas_namespace_는 단일 파일 시스템 계층을 생성하기 위해 _junctio
 노드 운영 중단 또는 페일오버 발생 시에도 데이터가 계속 사용 가능하도록 하려면 SVM 루트 볼륨에 대해 _load-sharing mirror_copy를 생성해야 합니다.
 
 ====
-image::../media/namespace-nfs-admin.gif[Namespace NFS admin을 선택합니다]
+image::../media/namespace-nfs-admin.gif[네임스페이스 및 교차점]
 
 .예
 다음 예에서는 junction path "/eng/home"이 있는 SVM VS1 상에 ""home4""라는 이름의 볼륨을 생성합니다.

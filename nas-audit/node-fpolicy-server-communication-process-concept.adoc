@@ -21,7 +21,7 @@ FPolicy 구성을 올바르게 계획하려면 노드-외부 FPolicy 서버 통�
 
 예를 들어, 클러스터에 Node1, Node2, Node3와 같은 3개의 노드가 있고, SVM 데이터 LIF가 Node2와 Node3에만 분산되는 경우, 데이터 볼륨의 분산에 관계없이 제어 채널은 Node2와 Node3에서만 시작됩니다. Node2에는 SVM에 속하는 두 개의 데이터 LIF(LIF1 및 LIF2)가 있으며, 초기 접속은 LIF1입니다. LIF1에 장애가 발생하면 FPolicy는 LIF2에서 제어 채널을 설정하려고 시도합니다.
 
-image::../media/what-node-to-fpolicy-server-communication-process-is.png[FPolicy 서버 통신 프로세스에 대한 노드는 무엇입니까]
+image::../media/what-node-to-fpolicy-server-communication-process-is.png[노드 대 Fpolocy 서비스 통신 프로세스]
 
 
 

@@ -34,7 +34,7 @@ image::../media/scrn_en_drw_fc-302020-direct-sing-on.png[노드에 직접 연결
 
 단일 네트워크 단일 노드 구성에서는 하나의 스위치를 하나 이상의 호스트에 연결합니다. 단일 스위치가 있으므로 이 구성은 완전히 중복되지 않습니다.
 
-image::../media/r-oc-set-iscsi-singlenetwork-singlenode.gif[r OC는 iSCSI singlenetwork singlenode를 설정합니다]
+image::../media/r-oc-set-iscsi-singlenetwork-singlenode.gif[직접 연결 단일 네트워크 단일 노드 구성]
 
 
 
@@ -42,4 +42,4 @@ image::../media/r-oc-set-iscsi-singlenetwork-singlenode.gif[r OC는 iSCSI single
 
 다중 네트워크 단일 노드 구성에서는 두 개 이상의 스위치가 단일 노드를 하나 이상의 호스트에 연결합니다. 스위치가 여러 개 있으므로 이 구성은 완전히 중복됩니다.
 
-image::../media/scrn-en-drw-iscsi-multinw-singlen.gif[SCRN en drw iSCSI 다국적 기업]
+image::../media/scrn-en-drw-iscsi-multinw-singlen.gif[다중 네트워크 단일 노드 구성]

@@ -28,7 +28,7 @@ MetroCluster 구성은 물리적으로 분리된 2개의 미러링된 클러스�
 
 이 그림은 일반적인 MetroCluster/DR 구성을 보여 줍니다.
 
-image::../media/metrocluster-av-config.png[MetroCluster AV 구성]
+image::../media/metrocluster-av-config.png[MetroCluster/DR 구성]
 
 .단계
 . 스캐너 풀 생성:

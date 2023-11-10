@@ -17,4 +17,4 @@ _SnapLock_는 규정 및 거버넌스 목적을 위해 중요한 파일을 수�
 
 SnapVault _ 에 _SnapLock를 사용하여 보조 스토리지에서 WORM 상태로 스냅샷 복사본을 보호할 수 있습니다. SnapMirror를 사용하여 재해 복구 및 기타 목적으로 WORM 파일을 다른 지리적 위치에 복제할 수 있습니다.
 
-image::../media/compliance-clock.gif[규정 준수 시계]
+image::../media/compliance-clock.gif[SnapLock 준수 시계]

@@ -15,4 +15,4 @@ S3 구성에는 물리적 스토리지 및 네트워킹 요구사항을 평가�
 
 System Manager를 사용하여 새 스토리지 VM에 대한 S3 액세스를 구성하면 인증서 및 네트워킹 정보를 입력하라는 메시지가 표시되고 스토리지 VM 및 S3 오브젝트 스토리지 서버가 단일 작업으로 생성됩니다.
 
-image::../media/s3-config-pg-workflow.png[S3 구성 페이지 워크플로우]
+image::../media/s3-config-pg-workflow.png[S3 구성 워크플로우]
