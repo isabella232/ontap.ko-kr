@@ -21,7 +21,7 @@ SCSI 씬 프로비저닝의 이점을 활용하려면 호스트에서 이를 지
 * RHEL 6.2 이상
 * SLES11 이상
 * Solaris 11.1 이상
-* Windows 2012 이상
+* Windows
 
 
 ONTAP에서 공간 할당 기능을 활성화하면 다음 SCSI 씬 프로비저닝 기능을 설정합니다.

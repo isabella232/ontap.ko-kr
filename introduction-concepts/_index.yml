@@ -9,8 +9,8 @@ indexpage:
     links:
     - title: NetApp TechCommTV(YouTube)의 ONTAP 비디오
       url: https://www.youtube.com/playlist?list=PLdXI3bZJEw7mUoa7zAGfAywdhpOojhCOs
-    - title: ONTAP 실습 랩 시험 사용(기존 고객용)
-      url: https://handsonlabs.netapp.com/catalog
+    - title: 고객을 위해 ONTAP Lab on Demand를 체험해 보십시오
+      url: https://labondemand.netapp.com/catalog
     - title: 시험 구동이 포함된 NetApp 제품 시험 사용(신규 고객의 경우)
       url: https://www.netapp.com/test-drives
   - title: 커뮤니티 블로그

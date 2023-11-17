@@ -67,8 +67,6 @@ entries:
         url: "/nfs-config/using-ldap-concept.html"
       - title: 새 LDAP 클라이언트 스키마를 생성합니다
         url: "/nfs-config/create-new-ldap-client-schema-task.html"
-      - title: SVM에 자체 서명된 루트 CA 인증서를 설치합니다
-        url: "/nfs-config/install-self-signed-root-ca-certificate-svm-task.html"
       - title: LDAP 클라이언트 구성을 생성합니다
         url: "/nfs-config/create-ldap-client-config-task.html"
       - title: LDAP 클라이언트 구성을 SVM과 연결합니다

@@ -1,0 +1,185 @@
+---
+sidebar: sidebar 
+permalink: upgrade/automated-pre-checks.html 
+keywords: netapp, ontap, automate, automatic, automated, upgrade, nondisruptive, nondisruptively, non-disruptive update, nondisruptive upgrade, upgrade a cluster, shift workload between clusters, hardware platform, configuration, software image, update, update ONTAP, update software, ndu 
+summary: 클러스터에서 ONTAP 버전을 중단 없이 업데이트할 수 있습니다. 
+---
+= 계획된 업그레이드 전에 ONTAP 자동 업그레이드 사전 검사를 실행합니다
+:toc: macro
+:hardbreaks:
+:toclevels: 1
+:allow-uri-read: 
+:toc: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+:toc-position: content
+
+
+[role="lead"]
+ONTAP 자동 업그레이드 사전 검사를 실행하기 위해 ONTAP 소프트웨어를 업그레이드하는 과정에 있을 필요가 없습니다.  ONTAP의 자동화된 업그레이드 프로세스와 별도로 업그레이드 전 검사를 실행하면 클러스터에 대해 수행되는 검사를 확인하고 실제 업그레이드를 시작하기 전에 수정해야 하는 오류 또는 경고 목록을 확인할 수 있습니다.  예를 들어, 2주 후에 발생하도록 예정된 유지보수 기간 중에 ONTAP 소프트웨어를 업그레이드할 것으로 예상된다고 가정합니다.  예약된 날짜를 기다리는 동안 자동화된 업그레이드 사전 점검을 실행하고 유지보수 윈도우에 앞서 필요한 수정 조치를 취할 수 있습니다.  이렇게 하면 업그레이드를 시작한 후 예기치 않은 구성 오류의 위험이 줄어듭니다.
+
+ONTAP 소프트웨어 업그레이드를 시작할 준비가 되었으면 이 절차를 수행할 필요가 없습니다.  를 따라야 합니다 link:automated-upgrade-task.html["업그레이드 프로세스가 자동화되었습니다"]에는 자동화된 업그레이드 사전 점검 실행이 포함됩니다.
+
+
+NOTE: MetroCluster 구성의 경우 먼저 클러스터 A에서 이러한 단계를 실행한 다음 클러스터 B에서 동일한 단계를 실행해야 합니다
+
+.시작하기 전에
+당신은 해야 한다 link:download-software-image.html["대상 ONTAP 소프트웨어 이미지를 다운로드합니다"].
+
+에 대한 자동 업그레이드 사전 검사를 실행합니다 link:https://docs.netapp.com/us-en/ontap/upgrade/concept_upgrade_paths.html#types-of-upgrade-paths["직접 멀티 홉 업그레이드"]대상 ONTAP 버전에 대한 소프트웨어 패키지만 다운로드하면 됩니다.  실제 업그레이드를 시작하기 전에는 중간 ONTAP 버전을 로드할 필요가 없습니다.  예를 들어 9.8에서 9.13.1로 업그레이드하는 자동 업그레이드 사전 검사를 실행하는 경우 ONTAP 9.13.1용 소프트웨어 패키지를 다운로드해야 합니다.  ONTAP 9.12.1용 소프트웨어 패키지는 다운로드할 필요가 없습니다.
+
+.단계
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+. ONTAP 대상 이미지를 검증합니다.
++
+
+NOTE: MetroCluster 구성을 업그레이드하는 경우 클러스터 A를 검증한 다음 클러스터 B에서 검증 프로세스를 반복해야 합니다
+
++
+.. 실행 중인 ONTAP 버전에 따라 다음 단계 중 하나를 수행합니다.
++
+|===
+
+
+| 실행 중인 경우... | 수행할 작업... 
+
+
+| ONTAP 9.8 이상  a| 
+클러스터 > 개요 * 를 클릭합니다.
+
+
+
+| ONTAP 9.5, 9.6 및 9.7  a| 
+구성 * > * 클러스터 * > * 업데이트 * 를 클릭합니다.
+
+
+
+| ONTAP 9.4 이하  a| 
+구성 * > * 클러스터 업데이트 * 를 클릭합니다.
+
+|===
+.. 개요 * 창의 오른쪽 모서리에서 를 클릭합니다 image:icon_kabob.gif["메뉴 아이콘"].
+.. ONTAP 업데이트 * 를 클릭합니다.
+.. 클러스터 업데이트 * 탭에서 새 이미지를 추가하거나 사용 가능한 이미지를 선택합니다.
++
+|===
+
+
+| 원하는 작업 | 그러면... 
+
+
+ a| 
+로컬 폴더에서 새 소프트웨어 이미지를 추가합니다
+
+이미 있어야 합니다 link:download-software-image.html["이미지를 다운로드했습니다"] 로컬 클라이언트로.
+ a| 
+... Available Software Images * 아래에서 * Add from Local * 을 클릭합니다.
+... 소프트웨어 이미지를 저장한 위치로 이동하여 이미지를 선택한 다음 * 열기 * 를 클릭합니다.
+
+
+
+
+ a| 
+HTTP 또는 FTP 서버에서 새 소프트웨어 이미지를 추가합니다
+ a| 
+... 서버에서 추가 * 를 클릭합니다.
+... 새 소프트웨어 이미지 추가 * 대화 상자에서 NetApp Support 사이트에서 ONTAP 소프트웨어 이미지를 다운로드한 HTTP 또는 FTP 서버의 URL을 입력합니다.
++
+익명 FTP의 경우 에서 URL을 지정해야 합니다 ftp://anonymous@ftpserver[] 형식.
+
+... 추가 * 를 클릭합니다.
+
+
+
+
+ a| 
+사용 가능한 이미지를 선택합니다
+ a| 
+나열된 이미지 중 하나를 선택합니다.
+
+|===
+.. 업그레이드 전 확인 검사를 실행하려면 * Validate * 를 클릭합니다.
++
+유효성 검사 중에 오류 또는 경고가 발견되면 시정 조치 목록과 함께 표시됩니다. 업그레이드를 진행하기 전에 모든 오류를 해결해야 합니다.  경고도 해결하는 것이 가장 좋습니다.
+
+
+
+
+
+--
+.CLI를 참조하십시오
+--
+. 타겟 ONTAP 소프트웨어 이미지를 클러스터 패키지 저장소에 로드합니다.
++
+[source, cli]
+----
+cluster image package get -url location
+----
++
+[listing]
+----
+cluster1::> cluster image package get -url http://www.example.com/software/9.13.1/image.tgz
+
+Package download completed.
+Package processing completed.
+----
+. 소프트웨어 패키지를 클러스터 패키지 리포지토리에서 사용할 수 있는지 확인합니다.
++
+[source, cli]
+----
+cluster image package show-repository
+----
++
+[listing]
+----
+cluster1::> cluster image package show-repository
+Package Version  Package Build Time
+---------------- ------------------
+9.13.1              MM/DD/YYYY 10:32:15
+----
+. 자동화된 업그레이드 사전 검사 실행:
++
+[source, cli]
+----
+cluster image validate -version package_version_number -show-validation-details true
+----
++
+
+NOTE: 를 수행하는 경우 link:https://docs.netapp.com/us-en/ontap/upgrade/concept_upgrade_paths.html#types-of-upgrade-paths["직접 멀티 홉 업그레이드"]에서 확인할 대상 ONTAP 패키지를 사용합니다.  중간 업그레이드 이미지를 별도로 검증할 필요는 없습니다.  예를 들어 9.8에서 9.13.1 로 업그레이드하는 경우 9.13.1 패키지를 사용하여 확인해야 합니다. 9.12.1 패키지를 별도로 검증할 필요는 없습니다.
+
++
+[listing]
+----
+cluster1::> cluster image validate -version 9.13.1 -show-validation-details true
+
+It can take several minutes to complete validation...
+Pre-update Check       Status      Error-Action
+---------------------  ---------   -------------------------------------------
+CIFS status            OK
+Cluster health status  OK
+Clsuter quorum status  OK
+Disk status            OK
+High Availability      OK
+status
+LIF status             OK
+LIFs on home node      OK
+MetroCluster           OK
+configuration status
+SnapMirror status      OK
+Overall Status         OK
+10 entries were displayed.
+
+----
++
+업그레이드 프로세스를 시작하기 전에 해결해야 할 오류나 경고와 함께 전체 자동 업그레이드 사전 검사 목록이 표시됩니다.
+
+
+
+--
+====

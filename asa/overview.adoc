@@ -49,11 +49,11 @@ ASA 시스템은 System Manager를 사용하거나 CLI(ONTAP Command Line Interf
 
 * * System Manager 대시보드에서 *: * 클러스터 > 개요 * 를 클릭한 다음 시스템 노드를 선택합니다.
 +
-Personality * 는 * All SAN Array * 로 표시됩니다.
+Personality * 는 * All-Flash SAN Array * 로 표시됩니다.
 
 * * CLI * 에서: 를 입력합니다 `san config show` 명령.
 +
-"All SAN Array" 값은 ASA 시스템의 경우 TRUE를 반환합니다.
+ASA 시스템에 대해 "All-Flash SAN 어레이" 값이 true로 반환됩니다.
 
 
 
