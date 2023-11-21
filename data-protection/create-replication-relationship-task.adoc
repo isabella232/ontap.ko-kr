@@ -210,6 +210,10 @@ cluster_dst::> snapmirror create -source-path svm1:volA -destination-path svm_ba
 .작업을 마친 후
 'snapmirror show' 명령을 사용하여 SnapMirror 관계가 생성되었는지 확인합니다. 전체 명령 구문은 man 페이지를 참조하십시오.
 
+.관련 정보
+* link:https://docs.netapp.com/us-en/ontap/data-protection/create-delete-snapmirror-failover-test-task.html["SnapMirror 페일오버 테스트 볼륨을 생성하고 삭제합니다"].
+
+
 
 
 == ONTAP에서 이 작업을 수행하는 다른 방법

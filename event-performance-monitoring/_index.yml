@@ -45,7 +45,5 @@ indexpage:
       url: "../task_nas_file_system_analytics_view.html"
     - title: System Manager를 사용하여 분석을 기반으로 수정 조치 수행
       url: "/../task_nas_file_system_analytics_take_corrective_action.html"
-  - title: 더 많은 리소스
-    links:
     - title: 'TR-4867: ONTAP 파일 시스템 분석 모범 사례'
       url: https://www.netapp.com/pdf.html?item=/media/20707-tr-4867.pdf

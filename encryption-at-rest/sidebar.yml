@@ -49,6 +49,8 @@ entries:
       url: "/encryption-at-rest/enable-encryption-existing-volume-93-later-task.html"
     - title: 볼륨 이동 시작 명령을 사용하여 기존 볼륨에서 암호화를 활성화합니다
       url: "/encryption-at-rest/encrypt-existing-volume-task.html"
+    - title: SVM 루트 볼륨에 대한 암호화를 설정합니다
+      url: "/encryption-at-rest/configure-nve-svm-root-task.html"
     - title: 노드 루트 볼륨 암호화를 설정합니다
       url: "/encryption-at-rest/enable-root-volume-encryption-task.html"
 - title: NetApp 하드웨어 기반 암호화를 구성합니다

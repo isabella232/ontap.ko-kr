@@ -17,7 +17,7 @@ summary: '로그인 계정을 생성하고 역할 기반 액세스 제어(RBAC)�
 
 == 로그인 계정을 만들거나 수정합니다
 
-로그인 계정이 SVM(Storage Virtual Machine)에 액세스할 수 있도록 하면 이러한 값에 '보안 로그인 생성' 명령을 사용할 수 있습니다. 계정이 SVM에 액세스하는 방법을 수정할 때 '보안 로그인 수정' 명령을 사용하여 동일한 값을 제공합니다.
+이러한 값은 에 제공됩니다 `security login create` 스토리지 VM에 액세스하기 위해 로그인 계정을 설정할 때 명령을 실행합니다. 에 동일한 값을 제공합니다 `security login modify` 계정이 스토리지 VM에 액세스하는 방법을 수정할 때 명령입니다.
 
 [cols="3*"]
 |===
@@ -29,7 +29,7 @@ summary: '로그인 계정을 생성하고 역할 기반 액세스 제어(RBAC)�
  a| 
 '-vserver'
  a| 
-계정이 액세스하는 SVM의 이름입니다. 기본값은 클러스터에 대한 admin SVM의 이름입니다.
+계정이 액세스하는 스토리지 VM의 이름입니다. 기본값은 클러스터에 대한 admin 스토리지 VM의 이름입니다.
  a| 
 
 
@@ -45,7 +45,7 @@ summary: '로그인 계정을 생성하고 역할 기반 액세스 제어(RBAC)�
  a| 
 '-응용 프로그램'
  a| 
-SVM에 액세스하는 데 사용되는 애플리케이션:
+스토리지 VM에 액세스하는 데 사용되는 애플리케이션:
 
 * http입니다
 * ontapi
@@ -87,8 +87,8 @@ SVM에 액세스하는 데 사용되는 애플리케이션:
  a| 
 계정에 할당된 액세스 제어 역할:
 
-* 클러스터(admin SVM)의 경우 기본값은 "admin"입니다.
-* 데이터 SVM의 경우 기본값은 "vsadmin"입니다.
+* 클러스터(관리자 스토리지 VM)의 경우 기본값은 입니다 `admin`.
+* 데이터 스토리지 VM의 경우 기본값은 입니다 `vsadmin`.
 
  a| 
 
@@ -113,18 +113,12 @@ SVM에 액세스하는 데 사용되는 애플리케이션:
  a| 
 두 번째 인증 방법
  a| 
-ONTAP 9.3 * 에서 다단계 인증의 경우 두 번째 인증 방법:
+다단계 인증의 경우 두 번째 인증 방법:
 
 * "없음" 다단계 인증을 사용하지 않으면 기본값이 됩니다
 * AuthMethod가 password 또는 nsswitch 일 때 공개 키 인증을 위한 공개 키
 * 'AuthMethod'가 공개 키일 때 사용자 암호 인증을 위한 'password'입니다
 * AuthMethod가 publickey 일 때 사용자 암호 인증을 위한 nsswitch
-+
-[NOTE]
-====
-ONTAP 9.4부터는 nsswitch를 지원할 수 있습니다.
-
-====
 
 
 인증 순서는 항상 공개 키와 암호 순서로 표시됩니다.
@@ -136,6 +130,106 @@ ONTAP 9.4부터는 nsswitch를 지원할 수 있습니다.
 '-is-ldap-fastbind'
  a| 
 ONTAP 9.11.1부터 true로 설정하면 nsswitch 인증에 대한 LDAP 고속 바인딩이 설정됩니다. 기본값은 false 입니다. LDAP fast bind를 사용하려면 '-authentication-method' 값을 nsswitch로 설정해야 한다. link:../nfs-admin/ldap-fast-bind-nsswitch-authentication-task.html["nsswitch 인증을 위한 LDAP fastbind에 대해 알아봅니다."]
+ a| 
+
+|===
+
+
+== Cisco Duo 보안 정보를 구성합니다
+
+이러한 값은 에 제공됩니다 `security login duo create` 스토리지 VM에 대해 SSH 로그인으로 Cisco Duo 2단계 인증을 사용하도록 설정하는 명령입니다.
+
+[cols="3*"]
+|===
+
+
+| 필드에 입력합니다 | 설명 | 귀사의 가치 
+
+
+ a| 
+'-vserver'
+ a| 
+Duo 인증 설정이 적용되는 스토리지 VM(ONTAP CLI에서 가상 서버라고도 함)
+ a| 
+
+
+
+ a| 
+`-integration-key`
+ a| 
+Duo에 SSH 애플리케이션을 등록할 때 얻은 통합 키입니다.
+ a| 
+
+
+
+ a| 
+`-secret-key`
+ a| 
+Duo에 SSH 애플리케이션을 등록할 때 얻은 비밀 키입니다.
+ a| 
+
+
+
+ a| 
+`-api-host`
+ a| 
+Duo에 SSH 애플리케이션을 등록할 때 얻은 API 호스트 이름입니다. 예를 들면 다음과 같습니다.
+
+[listing]
+----
+api-<HOSTNAME>.duosecurity.com
+---- a| 
+
+
+
+ a| 
+`-fail-mode`
+ a| 
+Duo 인증을 방해하는 서비스 또는 구성 오류 발생 시 실패합니다 `safe` (액세스 허용) 또는 `secure` (액세스 거부). 기본값은 입니다 `safe`즉, Duo API 서버에 액세스할 수 없는 등의 오류로 인해 Duo 인증이 실패할 경우 Duo 인증이 무시됩니다.
+ a| 
+
+
+
+ a| 
+`-http-proxy`
+ a| 
+지정된 HTTP 프록시를 사용합니다. HTTP 프록시에 인증이 필요한 경우 프록시 URL에 자격 증명을 포함합니다. 예를 들면 다음과 같습니다.
+
+[listing]
+----
+http-proxy=http://username:password@proxy.example.org:8080
+---- a| 
+
+
+
+ a| 
+`-autopush`
+ a| 
+둘 다 가능합니다 `true` 또는 `false`. 기본값은 입니다 `false`. If(경우 `true`, Duo는 푸시 로그인 요청을 사용자의 전화기로 자동으로 전송하여 푸시 기능을 사용할 수 없는 경우 전화 통화로 되돌립니다. 이렇게 하면 암호 인증이 효과적으로 비활성화됩니다. If(경우 `false`인증 방법을 선택하라는 메시지가 표시됩니다.
+
+를 사용하여 구성 시 `autopush = true`, 설정하는 것이 좋습니다 `max-prompts = 1`.
+ a| 
+
+
+
+ a| 
+`-max-prompts`
+ a| 
+사용자가 두 번째 요소로 인증하지 못하면 Duo는 사용자에게 다시 인증하라는 메시지를 표시합니다. 이 옵션은 액세스를 거부하기 전에 Duo가 표시하는 최대 프롬프트 수를 설정합니다. 이어야 합니다 `1`, `2`, 또는 `3`. 기본값은 입니다 `1`.
+
+예를 들어, When `max-prompts = 1`, 사용자가 첫 번째 프롬프트에서 성공적으로 인증해야 하는 반면 IF `max-prompts = 2`초기 프롬프트에서 잘못된 정보를 입력하면 다시 인증하라는 메시지가 표시됩니다.
+
+를 사용하여 구성 시 `autopush = true`, 설정하는 것이 좋습니다 `max-prompts = 1`.
+
+최상의 경험을 위해 공개 키 인증만 있는 사용자는 항상 을(를) 가질 수 있습니다 `max-prompts` 를 로 설정합니다 `1`.
+ a| 
+
+
+
+ a| 
+`-enabled`
+ a| 
+Duo 이중 인증을 활성화합니다. 를 로 설정합니다 `true` 기본적으로 사용됩니다. 활성화되면 구성된 매개 변수에 따라 SSH 로그인 중에 Duo 이중 인증이 적용됩니다. Duo가 비활성화된 경우( 로 설정 `false`), Duo 인증은 무시됩니다.
  a| 
 
 |===
@@ -155,7 +249,7 @@ ONTAP 9.11.1부터 true로 설정하면 nsswitch 인증에 대한 LDAP 고속 �
  a| 
 '-vserver'
  a| 
-(선택 사항) 역할과 관련된 SVM의 이름입니다.
+(선택 사항) 역할과 연결된 스토리지 VM(ONTAP CLI에서 가상 서버라고 함)의 이름입니다.
  a| 
 
 
@@ -221,7 +315,7 @@ SSH 공개 키를 사용자 계정에 연결할 때 이 값을 '보안 로그인
  a| 
 '-vserver'
  a| 
-(선택 사항) 고객이 액세스하는 SVM의 이름입니다.
+(선택 사항) 계정이 액세스하는 스토리지 VM의 이름입니다.
  a| 
 
 
@@ -284,7 +378,7 @@ X.509 인증서를 SSH 공개 키와 연결하면 ONTAP는 SSH 로그인 시 이
 
 == CA 서명 서버 디지털 인증서를 설치합니다
 
-SVM을 SSL 서버로 인증하는 데 사용할 CSR(디지털 인증서 서명 요청)을 생성할 때 이러한 값에 '보안 인증서 생성 - CSR' 명령을 제공합니다.
+이러한 값은 에 제공됩니다 `security certificate generate-csr` 스토리지 VM을 SSL 서버로 인증하는 데 사용할 디지털 인증서 서명 요청(CSR)을 생성하는 명령
 
 [cols="3*"]
 |===
@@ -312,7 +406,7 @@ SVM을 SSL 서버로 인증하는 데 사용할 CSR(디지털 인증서 서명 �
  a| 
 ``국가’
  a| 
-SVM의 국가는 2자로 구성됩니다. 기본값은 'US'입니다. 코드 목록은 man 페이지를 참조하십시오.
+스토리지 VM의 국가로, 2자로 된 코드입니다. 기본값은 입니다 `US`. 코드 목록은 man 페이지를 참조하십시오.
  a| 
 
 
@@ -320,7 +414,7 @@ SVM의 국가는 2자로 구성됩니다. 기본값은 'US'입니다. 코드 목
  a| 
 ``상태’’
  a| 
-SVM의 상태 또는 상태입니다.
+스토리지 VM의 시/도입니다.
  a| 
 
 
@@ -328,7 +422,7 @@ SVM의 상태 또는 상태입니다.
  a| 
 ``지역성’’
  a| 
-SVM의 인접성
+스토리지 VM의 인접성
  a| 
 
 
@@ -336,7 +430,7 @@ SVM의 인접성
  a| 
 ``조직’’
  a| 
-SVM의 조직
+스토리지 VM의 조직입니다.
  a| 
 
 
@@ -344,7 +438,7 @@ SVM의 조직
  a| 
 ``단위’’
  a| 
-SVM의 조직 내 단위.
+스토리지 VM 조직의 단위입니다.
  a| 
 
 
@@ -352,7 +446,7 @@ SVM의 조직 내 단위.
  a| 
 '-email-addr'
  a| 
-SVM에 대한 연락처 관리자의 이메일 주소입니다.
+스토리지 VM에 대한 담당자 관리자의 e-메일 주소입니다.
  a| 
 
 
@@ -364,7 +458,7 @@ SVM에 대한 연락처 관리자의 이메일 주소입니다.
  a| 
 
 |===
-이러한 값은 에 제공됩니다 `security certificate install` 명령 클러스터 또는 SVM을 SSL 서버로 인증하는 데 사용할 CA 서명 디지털 인증서를 설치합니다. 다음 표에는 계정 구성과 관련된 옵션만 나와 있습니다.
+이러한 값은 에 제공됩니다 `security certificate install` 클러스터 또는 스토리지 VM을 SSL 서버로 인증하는 데 사용할 CA 서명 디지털 인증서를 설치할 때 사용하는 명령입니다. 다음 표에는 계정 구성과 관련된 옵션만 나와 있습니다.
 
 [cols="3*"]
 |===
@@ -376,7 +470,7 @@ SVM에 대한 연락처 관리자의 이메일 주소입니다.
  a| 
 '-vserver'
  a| 
-인증서를 설치할 SVM의 이름입니다.
+인증서를 설치할 스토리지 VM의 이름입니다.
  a| 
 
 
@@ -398,7 +492,7 @@ SVM에 대한 연락처 관리자의 이메일 주소입니다.
 
 == Active Directory 도메인 컨트롤러 액세스를 구성합니다
 
-데이터 SVM을 위한 SMB 서버를 이미 구성한 상태에서 SVM을 게이트웨이로 구성하거나 Active Directory 도메인 컨트롤러 액세스를 위해 _tunnel_로 구성하려면 'Security login domain-tunnel create' 명령을 사용하여 이러한 값을 제공합니다.
+이러한 값은 에 제공됩니다 `security login domain-tunnel create` 데이터 스토리지 VM에 사용할 SMB 서버를 이미 구성한 상태에서 스토리지 VM을 게이트웨이로 구성하거나 클러스터에 대한 Active Directory 도메인 컨트롤러 액세스를 위해 _tunnel_을 구성하려는 경우에 명령을 실행합니다.
 
 [cols="3*"]
 |===
@@ -410,11 +504,11 @@ SVM에 대한 연락처 관리자의 이메일 주소입니다.
  a| 
 '-vserver'
  a| 
-SMB 서버가 구성된 SVM의 이름입니다.
+SMB 서버가 구성된 스토리지 VM의 이름입니다.
  a| 
 
 |===
-SMB 서버를 구성하지 않은 상태에서 Active Directory 도메인에 SVM 컴퓨터 계정을 생성하려는 경우 이러한 값을 "vserver active-directory create" 명령으로 제공합니다.
+이러한 값은 에 제공됩니다 `vserver active-directory create` SMB 서버를 구성하지 않은 상태에서 Active Directory 도메인에 스토리지 VM 컴퓨터 계정을 생성하려는 경우 명령
 
 [cols="3*"]
 |===
@@ -426,7 +520,7 @@ SMB 서버를 구성하지 않은 상태에서 Active Directory 도메인에 SVM
  a| 
 '-vserver'
  a| 
-Active Directory 컴퓨터 계정을 생성하려는 SVM의 이름입니다.
+Active Directory 컴퓨터 계정을 생성할 스토리지 VM의 이름입니다.
  a| 
 
 
@@ -458,13 +552,8 @@ FQDN(정규화된 도메인 이름)입니다.
 
 == LDAP 또는 NIS 서버 액세스를 구성합니다
 
-SVM에 대한 LDAP 클라이언트 구성을 생성할 때 이러한 값에 'vserver services name-service ldap client create' 명령을 제공합니다.
+이러한 값은 에 제공됩니다 `vserver services name-service ldap client create` 명령을 사용하여 스토리지 VM에 대한 LDAP 클라이언트 구성을 생성할 수 있습니다.
 
-[NOTE]
-====
-ONTAP 9.2부터 '-ldap-servers' 필드는 '-servers' 필드를 대체합니다. 이 새 필드는 호스트 이름 또는 IP 주소를 LDAP 서버의 값으로 사용할 수 있습니다.
-
-====
 다음 표에는 계정 구성과 관련된 옵션만 나와 있습니다.
 
 [cols="3*"]
@@ -477,7 +566,7 @@ ONTAP 9.2부터 '-ldap-servers' 필드는 '-servers' 필드를 대체합니다. 
  a| 
 '-vserver'
  a| 
-클라이언트 구성을 위한 SVM의 이름입니다.
+클라이언트 구성에 대한 스토리지 VM의 이름입니다.
  a| 
 
 
@@ -491,17 +580,9 @@ ONTAP 9.2부터 '-ldap-servers' 필드는 '-servers' 필드를 대체합니다. 
 
 
  a| 
-'-서버'
- a| 
-* ONTAP 9.0, 9.1 *: 클라이언트가 연결되는 LDAP 서버의 IP 주소 목록입니다.
- a| 
-
-
-
- a| 
 '-LDAP-서버'
  a| 
-* ONTAP 9.2 *: 클라이언트가 연결되는 LDAP 서버의 IP 주소 및 호스트 이름을 쉼표로 구분하여 나열합니다.
+클라이언트가 연결되는 LDAP 서버의 IP 주소 및 호스트 이름을 쉼표로 구분하여 나열합니다.
  a| 
 
 
@@ -521,12 +602,12 @@ ONTAP 9.2부터 '-ldap-servers' 필드는 '-servers' 필드를 대체합니다. 
 
 [NOTE]
 ====
-시작 TLS는 데이터 SVM에 대한 액세스에만 지원됩니다. 관리 SVM에 대한 액세스는 지원되지 않습니다.
+TLS 시작은 데이터 스토리지 VM에 대한 액세스에만 지원됩니다. 관리자 스토리지 VM에 대한 액세스는 지원되지 않습니다.
 
 ==== a| 
 
 |===
-LDAP 클라이언트 구성을 SVM과 연결할 때 이러한 값에 'vserver services name-service ldap create' 명령을 제공합니다.
+이러한 값은 에 제공됩니다 `vserver services name-service ldap create` LDAP 클라이언트 구성을 스토리지 VM에 연결하는 명령입니다.
 
 [cols="3*"]
 |===
@@ -538,7 +619,7 @@ LDAP 클라이언트 구성을 SVM과 연결할 때 이러한 값에 'vserver se
  a| 
 '-vserver'
  a| 
-클라이언트 구성을 연결할 SVM의 이름입니다.
+클라이언트 구성을 연결할 스토리지 VM의 이름입니다.
  a| 
 
 
@@ -554,17 +635,12 @@ LDAP 클라이언트 구성을 SVM과 연결할 때 이러한 값에 'vserver se
  a| 
 '-client-enabled'
  a| 
-SVM이 LDAP 클라이언트 구성을 사용할 수 있는지 여부('true' 또는 'false')
+스토리지 VM이 LDAP 클라이언트 구성을 사용할 수 있는지 여부를 나타냅니다 (`true` 또는 `false`)를 클릭합니다.
  a| 
 
 |===
-SVM에서 NIS 도메인 구성을 생성할 때 이러한 값에 'vserver services name-service NIS-domain create' 명령을 제공합니다.
+이러한 값은 에 제공됩니다 `vserver services name-service nis-domain create` 명령을 사용하여 스토리지 VM에 NIS 도메인 구성을 생성할 수 있습니다.
 
-[NOTE]
-====
-ONTAP 9.2부터는 -servers 필드가 -servers 필드를 대체합니다. 이 새 필드는 NIS 서버의 값으로 호스트 이름 또는 IP 주소를 사용할 수 있습니다.
-
-====
 [cols="3*"]
 |===
 
@@ -575,7 +651,7 @@ ONTAP 9.2부터는 -servers 필드가 -servers 필드를 대체합니다. 이 �
  a| 
 '-vserver'
  a| 
-도메인 구성을 생성할 SVM의 이름입니다.
+도메인 구성을 생성할 스토리지 VM의 이름입니다.
  a| 
 
 
@@ -607,7 +683,7 @@ ONTAP 9.2부터는 -servers 필드가 -servers 필드를 대체합니다. 이 �
  a| 
 '-NIS-서버'
  a| 
-* ONTAP 9.2 *: 도메인 구성에서 사용되는 NIS 서버의 IP 주소 및 호스트 이름을 쉼표로 구분하여 나열합니다.
+도메인 구성에 사용되는 NIS 서버의 IP 주소 및 호스트 이름을 쉼표로 구분된 목록입니다.
  a| 
 
 |===
@@ -623,7 +699,7 @@ ONTAP 9.2부터는 -servers 필드가 -servers 필드를 대체합니다. 이 �
  a| 
 '-vserver'
  a| 
-이름 서비스 조회 순서를 구성할 SVM의 이름입니다.
+이름 서비스 조회 순서를 구성할 스토리지 VM의 이름입니다.
  a| 
 
 

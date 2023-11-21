@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: anti-ransomware/use-cases-restrictions-concept.html 
 keywords: anti-ransomware workloads, anti-ransomware requirements, anti-ransomware performance, volumes, anti-ransomware encryption, anti-ransomware system configurations, arp 
-summary: 현재 릴리스에서 랜섬웨어 보호는 NAS 환경에 가장 적합합니다. 다른 환경에 대한 지원은 향후 릴리즈에서 제공될 예정입니다. 
+summary: ARP는 NAS 워크로드에 대해 지원됩니다. NFS 스토리지의 데이터베이스, Windows 또는 Linux 홈 디렉토리, 비디오 및 이미지 워크로드에 가장 적합합니다. 
 ---
 = 자율 랜섬웨어 보호 사용 사례 및 고려사항
 :toc: macro
@@ -14,12 +14,12 @@ summary: 현재 릴리스에서 랜섬웨어 보호는 NAS 환경에 가장 적�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 :toc-position: content
 
 
 [role="lead"]
-ONTAP 9.10.1부터 NAS 워크로드에 자동 랜솜웨어 보호 기능을 사용할 수 있습니다. ARP를 배포하기 전에 권장되는 용도 및 지원되는 구성뿐만 아니라 성능에 미치는 영향을 알고 있어야 합니다.
+ARP(Autonomous Ransomwware Protection)는 ONTAP 9.10.1부터 NAS 워크로드에 사용할 수 있습니다. ARP를 배포하기 전에 권장되는 용도 및 지원되는 구성뿐만 아니라 성능에 미치는 영향을 알고 있어야 합니다.
 
 
 
@@ -64,22 +64,22 @@ ARP는 ONTAP 9.10.1부터 온-프레미스 ONTAP 시스템의 NFS 및 SMB 볼륨
 다른 구성 및 볼륨 유형에 대한 지원은 다음 ONTAP 버전에서 제공됩니다.
 
 |===
-|  | ONTAP 9.13.1 | ONTAP 9.12.1 | ONTAP 9.11.1 | ONTAP 9.10.1 
+|  | ONTAP 9.14.1 | ONTAP 9.13.1 | ONTAP 9.12.1 | ONTAP 9.11.1 | ONTAP 9.10.1 
 
 
-| 비동기식 SnapMirror로 보호되는 볼륨 | X | X |  |  
+| 비동기식 SnapMirror로 보호되는 볼륨 | ✓ | ✓ | ✓ |  |  
 
 
-| 비동기식 SnapMirror로 SVM이 보호됩니다 | X | X |  |  
+| 비동기식 SnapMirror로 SVM이 보호됩니다 | ✓ | ✓ | ✓ |  |  
 
 
-| 데이터 마이그레이션에 지원되는 SVM | X | X |  |  
+| 데이터 마이그레이션에 지원되는 SVM | ✓ | ✓ | ✓ |  |  
 
 
-| FlexGroup 볼륨 | X |  |  |  
+| FlexGroup 볼륨 | ✓ | ✓ |  |  |  
 
 
-| 다중 관리 검증 | X |  |  |  
+| 다중 관리 검증 | ✓ | ✓ |  |  |  
 |===
 .SnapMirror 및 ARP 상호 운용성
 ONTAP 9.12.1부터 비동기식 SnapMirror 대상 볼륨에서 ARP가 지원됩니다. ARP는 ** SnapMirror Synchronous에서 지원되지 않습니다.
@@ -136,7 +136,7 @@ ARP는 다음 볼륨 구성을 지원하지 않습니다.
 * SAN 전용 볼륨
 * SnapLock 볼륨
 * SnapMirror Synchronous
-* 동기 SnapMirror(ONTAP 9.10.1 ~ 9.12.1의 경우. 비동기 SnapMirror는 ONTAP 9.12.1부터 지원됩니다. 자세한 내용은 을 참조하십시오 <<snapmirror>>참조)
+* 비동기 SnapMirror(ONTAP 9.10.1 및 9.11.1에서만 지원되지 않습니다. 비동기 SnapMirror는 ONTAP 9.12.1부터 지원됩니다. 자세한 내용은 을 참조하십시오 <<snapmirror>>참조)
 * 제한된 볼륨
 * 스토리지 VM의 루트 볼륨입니다
 * 중지된 스토리지 VM의 볼륨입니다
@@ -164,8 +164,15 @@ ARP 분석은 우선 순위가 지정된 순서대로 실행되므로 보호된 
 
 
 
-== ARP(Autonomous 랜섬웨어 Protection)로 보호되는 볼륨으로 다중 관리 검증
+== ARP로 보호되는 볼륨을 사용한 다중 관리자 검증
 
 ONTAP 9.13.1 부터는 ARP를 통한 추가 보안을 위해 MAV(Multi-admin verification)를 활성화할 수 있습니다. MAV를 사용하면 최소한 두 명 이상의 인증된 관리자가 ARP를 끄거나 ARP를 일시 중지하거나 의심스러운 공격을 보호된 볼륨에서 위양성(false positive)으로 표시해야 합니다. 자세한 내용을 알아보십시오 link:../multi-admin-verify/enable-disable-task.html["ARP 보호 볼륨에 대해 MAV를 활성화합니다"^].
 
 MAV 그룹에 대한 관리자를 정의하고 에 대한 MAV 규칙을 만들어야 합니다 `security anti-ransomware volume disable`, `security anti-ransomware volume pause`, 및 `security anti-ransomware volume attack clear-suspect` 보호할 ARP 명령. MAV 그룹의 각 관리자는 각각의 새 규칙 요청 및 을 승인해야 합니다 link:../multi-admin-verify/enable-disable-task.html["MAV 규칙을 다시 추가합니다"^] MAV 설정 내.
+
+ONTAP 9.14.1부터 ARP는 ARP 스냅샷 생성 및 새 파일 확장자 관찰에 대한 경고를 제공합니다. 이러한 이벤트에 대한 알림은 기본적으로 해제되어 있습니다. 경고는 볼륨 또는 SVM 레벨에서 설정할 수 있습니다. 을 사용하여 SVM 레벨에서 MAV 규칙을 생성할 수 있습니다 `security anti-ransomware vserver event-log modify` 를 볼륨 레벨에서 사용할 수 있습니다 `security anti-ransomware volume event-log modify`.
+
+.다음 단계
+* link:enable-task.html["자율주행 랜섬웨어 보호 활성화"]
+* link:../multi-admin-verify/enable-disable-task.html["ARP로 보호되는 볼륨에 대해 MAV를 활성화합니다"]
+

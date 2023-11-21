@@ -44,12 +44,16 @@ entries:
   entries:
   - title: 버킷을 만듭니다
     url: "/s3-config/create-bucket-task.html"
+  - title: MetroCluster 구성의 경우 미러링된 또는 미러링되지 않은 애그리게이트에 버킷을 생성합니다
+    url: "/s3-config/create-bucket-mcc-task.html"
   - title: 버킷 수명주기 규칙을 생성합니다
     url: "/s3-config/create-bucket-lifecycle-rule-task.html"
   - title: S3 사용자를 생성합니다
     url: "/s3-config/create-s3-user-task.html"
   - title: S3 그룹을 생성하거나 수정합니다
     url: "/s3-config/create-modify-groups-task.html"
+  - title: 키를 다시 생성하고 보존 기간을 수정합니다
+    url: "/s3-config/regenerate-access-keys.html"
   - title: 액세스 정책 문을 만들거나 수정합니다
     entries:
     - title: 버킷 및 오브젝트 저장소 서버 정책에 대해 설명합니다
@@ -58,6 +62,10 @@ entries:
       url: "/s3-config/create-modify-bucket-policy-task.html"
     - title: 오브젝트 저장소 서버 정책을 만들거나 수정합니다
       url: "/s3-config/create-modifyi-object-store-server-policy-task.html"
+    - title: 외부 디렉토리 서비스에 대한 S3 액세스를 구성합니다
+      url: "/s3-config/configure-access-ldap.html"
+    - title: LDAP 또는 도메인 사용자가 S3 액세스 키를 생성할 수 있도록 설정합니다
+      url: "/s3-config/generate-access-keys-api.html"
   - title: S3 오브젝트 스토리지에 대한 클라이언트 액세스 지원
     entries:
     - title: 원격 FabricPool 계층화에 대해 ONTAP S3 액세스를 설정합니다

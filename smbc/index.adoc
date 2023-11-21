@@ -29,7 +29,8 @@ SM-BC는 다음과 같은 이점을 제공합니다.
 * 종속 쓰기 순서 일관성을 위해 정합성 보장 그룹을 사용하여 애플리케이션 관리를 간소화합니다
 * 각 애플리케이션에 대해 장애 조치를 테스트하는 기능
 * 애플리케이션 가용성에 영향을 주지 않고 미러 클론을 즉시 생성
-* ONTAP 9.11.1부터 SM-BC가 지원됩니다 xref:../data-protection/restore-single-file-snapshot-task.html[단일 파일 SnapRestore].
+* ONTAP 9.11.1부터 SM-BC는 를 지원합니다 xref:../data-protection/restore-single-file-snapshot-task.html[단일 파일 SnapRestore].
+* ONTAP 9.14.1부터 SM-BC는 Windows 페일오버 클러스터링 및 를 지원합니다 link:https://kb.netapp.com/onprem/ontap/da/SAN/What_are_SCSI_Reservations_and_SCSI_Persistent_Reservations["SCSI 3 영구 예약"^]고가용성 향상
 
 
 

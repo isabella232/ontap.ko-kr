@@ -1,0 +1,243 @@
+---
+permalink: authentication/configure-cisco-duo-mfa-task.html 
+sidebar: sidebar 
+keywords: enable, ssh, multifactor authentication, mfa, 2fa, hardware authentication device, Cisco, Duo 
+summary: 'Cisco Duo for SSH를 사용하여 2FA(2단계 인증)를 통해 향상된 계정 보안을 활용하려면 Cisco Duo 사용을 위해 SSH를 구성해야 합니다.' 
+---
+= SSH 로그인에 Cisco Duo 2FA를 구성합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.14.1부터 SSH 로그인 시 2FA(2단계 인증)에 Cisco Duo를 사용하도록 ONTAP를 구성할 수 있습니다. 클러스터 수준에서 Duo를 구성하면 기본적으로 모든 사용자 계정에 적용됩니다. 또는 스토리지 VM(이전에는 가상 머신이라고 함) 레벨에서 Duo를 구성할 수 있습니다. 이 경우 스토리지 VM의 사용자에게만 적용됩니다. Duo를 활성화하고 구성하면 모든 사용자에 대한 기존 방법을 보완하는 추가 인증 방법으로 사용됩니다.
+
+SSH 로그인에 대해 Duo 인증을 사용하는 경우 사용자는 다음에 SSH를 사용하여 로그인할 때 장치를 등록해야 합니다. 등록 정보는 Cisco Duo를 참조하십시오 https://guide.duo.com/add-device["등록 문서"^].
+
+ONTAP 명령줄 인터페이스를 사용하여 Cisco Duo에서 다음 작업을 수행할 수 있습니다.
+
+* <<Cisco Duo를 구성합니다>>
+* <<Cisco Duo 구성을 변경합니다>>
+* <<Cisco Duo 구성을 제거합니다>>
+* <<Cisco Duo 구성을 봅니다>>
+* <<Duo 그룹을 제거합니다>>
+* <<Duo 그룹 보기>>
+* <<사용자를 위한 Duo 인증 우회>>
+
+
+
+
+== Cisco Duo를 구성합니다
+
+를 사용하여 전체 클러스터 또는 특정 스토리지 VM(ONTAP CLI에서 가상 서버라고 함)에 대한 Cisco Duo 구성을 생성할 수 있습니다 `security login duo create` 명령. 이렇게 하면 이 클러스터 또는 스토리지 VM에 대한 SSH 로그인에 Cisco Duo가 활성화됩니다.
+
+.단계
+. Cisco Duo Admin Panel에 로그인합니다.
+. 애플리케이션 > UNIX 애플리케이션 * 으로 이동합니다.
+. 통합 키, 비밀 키 및 API 호스트 이름을 기록합니다.
+. SSH를 사용하여 ONTAP 계정에 로그인합니다.
+. 이 스토리지 VM에 대해 Cisco Duo 인증을 사용하도록 설정하고, 환경 정보를 괄호 안의 값으로 대체합니다.
++
+[source, cli]
+----
+security login duo create \
+-vserver <STORAGE_VM_NAME> \
+-integration-key <INTEGRATION_KEY> \
+-secret-key <SECRET_KEY> \
+-apihost <API_HOSTNAME>
+----
++
+이 명령의 필수 및 선택적 매개 변수에 대한 자세한 내용은 을 참조하십시오 link:config-worksheets-reference.html["관리자 인증 및 RBAC 구성을 위한 워크시트"^].
+
+
+
+
+
+== Cisco Duo 구성을 변경합니다
+
+Cisco Duo가 사용자를 인증하는 방법(예: 받은 인증 프롬프트 수 또는 사용된 HTTP 프록시)을 변경할 수 있습니다. 스토리지 VM(ONTAP CLI에서 가상 서버로 표시됨)에 대한 Cisco Duo 구성을 변경해야 하는 경우 를 사용할 수 있습니다 `security login duo modify` 명령.
+
+.단계
+. Cisco Duo Admin Panel에 로그인합니다.
+. 애플리케이션 > UNIX 애플리케이션 * 으로 이동합니다.
+. 통합 키, 비밀 키 및 API 호스트 이름을 기록합니다.
+. SSH를 사용하여 ONTAP 계정에 로그인합니다.
+. 이 스토리지 VM에 대한 Cisco Duo 구성을 변경하여 환경의 업데이트된 정보를 괄호 안의 값으로 대체합니다.
++
+[source, cli]
+----
+security login duo modify \
+-vserver <STORAGE_VM_NAME> \
+-integration-key <INTEGRATION_KEY> \
+-secret-key <SECRET_KEY> \
+-apihost <API_HOSTNAME> \
+-pushinfo true|false \
+-http-proxy <HTTP_PROXY_URL> \
+-autopush true|false \
+-prompts 1|2|3 \
+-max-unenrolled-logins <NUM_LOGINS> \
+-is-enabled true|false \
+-fail-mode safe|secure
+----
+
+
+
+
+== Cisco Duo 구성을 제거합니다
+
+Cisco Duo 구성을 제거하면 SSH 사용자가 로그인할 때 Duo를 사용하여 인증할 필요가 없습니다. 스토리지 VM에 대한 Cisco Duo 구성(ONTAP CLI에서 가상 서버라고 함)을 제거하려면 을 사용합니다 `security login duo delete` 명령.
+
+.단계
+. SSH를 사용하여 ONTAP 계정에 로그인합니다.
+. 스토리지 VM 이름을 로 대체하여 이 스토리지 VM에 대한 Cisco Duo 구성을 제거합니다 `<STORAGE_VM_NAME>`:
++
+[source, cli]
+----
+security login duo delete  -vserver <STORAGE_VM_NAME>
+----
++
+이렇게 하면 이 스토리지 VM에 대한 Cisco Duo 구성이 영구적으로 삭제됩니다.
+
+
+
+
+
+== Cisco Duo 구성을 봅니다
+
+를 사용하여 스토리지 VM(ONTAP CLI에서 가상 서버로 지칭)에 대한 기존 Cisco Duo 구성을 볼 수 있습니다 `security login duo show` 명령.
+
+.단계
+. SSH를 사용하여 ONTAP 계정에 로그인합니다.
+. 이 스토리지 VM에 대한 Cisco Duo 구성을 표시합니다. 필요한 경우 를 사용할 수 있습니다 `vserver` 스토리지 VM 이름을 로 대체하는 스토리지 VM을 지정하는 매개 변수입니다 `<STORAGE_VM_NAME>`:
++
+[source, cli]
+----
+security login duo show -vserver <STORAGE_VM_NAME>
+----
++
+다음과 유사한 출력이 표시됩니다.
+
++
+[source, cli]
+----
+Vserver: testcluster
+Enabled: true
+
+Status: ok
+INTEGRATION-KEY: DI89811J9JWMJCCO7IOH
+SKEY SHA Fingerprint:
+b79ffa4b1c50b1c747fbacdb34g671d4814
+API Host: api-host.duosecurity.com
+Autopush: true
+Push info: true
+Failmode: safe
+Http-proxy: 192.168.0.1:3128
+Prompts: 1
+Comments: -
+----
+
+
+
+
+== Duo 그룹을 생성합니다
+
+Cisco Duo에 특정 Active Directory, LDAP 또는 로컬 사용자 그룹의 사용자만 Duo 인증 프로세스에 포함하도록 지시할 수 있습니다. Duo 그룹을 생성하는 경우 해당 그룹의 사용자만 Duo 인증을 요구합니다. 를 사용하여 Duo 그룹을 만들 수 있습니다 `security login duo group create` 명령. 그룹을 생성할 때 필요에 따라 해당 그룹의 특정 사용자를 Duo 인증 프로세스에서 제외할 수 있습니다.
+
+.단계
+. SSH를 사용하여 ONTAP 계정에 로그인합니다.
+. 환경의 정보를 대괄호로 묶은 값으로 대체하여 Duo 그룹을 만듭니다. 를 생략할 경우 `-vserver` 매개 변수로, 그룹이 클러스터 레벨에서 생성됩니다.
++
+[source, cli]
+----
+security login duo group create -vserver <STORAGE_VM_NAME> -group-name <GROUP_NAME> -exclude-users <USER1, USER2>
+----
++
+Duo 그룹의 이름은 Active Directory, LDAP 또는 로컬 그룹과 일치해야 합니다. 옵션을 사용하여 지정하는 사용자입니다 `-exclude-users` 매개변수는 Duo 인증 프로세스에 포함되지 않습니다.
+
+
+
+
+
+== Duo 그룹 보기
+
+를 사용하여 기존 Cisco Duo 그룹 항목을 볼 수 있습니다 `security login duo group show` 명령.
+
+.단계
+. SSH를 사용하여 ONTAP 계정에 로그인합니다.
+. 환경의 정보를 대괄호로 묶은 값으로 대체하여 Duo 그룹 항목을 표시합니다. 를 생략할 경우 `-vserver` 매개 변수로, 그룹이 클러스터 레벨에 표시됩니다.
++
+[source, cli]
+----
+security login duo group show -vserver <STORAGE_VM_NAME> -group-name <GROUP_NAME> -exclude-users <USER1, USER2>
+----
++
+Duo 그룹의 이름은 Active Directory, LDAP 또는 로컬 그룹과 일치해야 합니다. 옵션을 사용하여 지정하는 사용자입니다 `-exclude-users` 매개 변수가 표시되지 않습니다.
+
+
+
+
+
+== Duo 그룹을 제거합니다
+
+를 사용하여 Duo 그룹 항목을 제거할 수 있습니다 `security login duo group delete` 명령. 그룹을 제거하면 해당 그룹의 사용자가 Duo 인증 프로세스에 더 이상 포함되지 않습니다.
+
+.단계
+. SSH를 사용하여 ONTAP 계정에 로그인합니다.
+. Duo 그룹 항목을 제거하여 환경의 정보를 대괄호 안의 값으로 대체합니다. 를 생략할 경우 `-vserver` 매개 변수로, 그룹이 클러스터 레벨에서 제거됩니다.
++
+[source, cli]
+----
+security login duo group delete -vserver <STORAGE_VM_NAME> -group-name <GROUP_NAME>
+----
++
+Duo 그룹의 이름은 Active Directory, LDAP 또는 로컬 그룹과 일치해야 합니다.
+
+
+
+
+
+== 사용자를 위한 Duo 인증 우회
+
+Duo SSH 인증 프로세스에서 모든 사용자 또는 특정 사용자를 제외할 수 있습니다.
+
+
+
+=== 모든 Duo 사용자를 제외합니다
+
+모든 사용자에 대해 Cisco Duo SSH 인증을 비활성화할 수 있습니다.
+
+.단계
+. SSH를 사용하여 ONTAP 계정에 로그인합니다.
+. SSH 사용자에 대해 Cisco Duo 인증을 사용하지 않도록 설정하고 SVM 이름을 로 바꿉니다 `<STORAGE_VM_NAME>`:
++
+[source, cli]
+----
+security login duo -vserver <STORAGE_VM_NAME> -is-duo-enabled-false
+----
+
+
+
+
+=== Duo 그룹 사용자를 제외합니다
+
+Duo 그룹에 속한 특정 사용자를 Duo SSH 인증 프로세스에서 제외할 수 있습니다.
+
+.단계
+. SSH를 사용하여 ONTAP 계정에 로그인합니다.
+. 그룹의 특정 사용자에 대해 Cisco Duo 인증을 비활성화합니다. 제외할 그룹 이름 및 사용자 목록을 대괄호 안의 값으로 대체합니다.
++
+[source, cli]
+----
+security login group modify -group-name <GROUP_NAME> -exclude-users <USER1, USER2>
+----
++
+Duo 그룹의 이름은 Active Directory, LDAP 또는 로컬 그룹과 일치해야 합니다. 로 지정한 사용자 `-exclude-users` 매개변수는 Duo 인증 프로세스에 포함되지 않습니다.
+
+
+
+
+
+=== 로컬 Duo 사용자를 제외합니다
+
+Cisco Duo Admin Panel을 사용하여 특정 로컬 사용자를 Duo 인증을 사용하지 않도록 제외할 수 있습니다. 자세한 내용은 를 참조하십시오 https://duo.com/docs/administration-users#changing-user-status["Cisco Duo 설명서"^].

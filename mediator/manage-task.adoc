@@ -1,7 +1,7 @@
 ---
 permalink: mediator/manage-task.html 
 sidebar: sidebar 
-keywords: mediator, username, password, change, uninstall 
+keywords: mediator, service, username, user name, password, change, uninstall, self-signed certificate, self signed certificate, regenerate, stop mediator service, uninstall scst 
 summary: ONTAP 중재자 서비스를 설치한 후 사용자 이름 또는 암호를 변경할 수 있습니다. ONTAP 중재자 서비스를 제거할 수도 있습니다. 
 ---
 = ONTAP 중재자 서비스를 관리합니다
@@ -358,4 +358,46 @@ uninstall_ontap_중재자
  + Remove successful.
  [root@mediator-host ~]#
 ....
+
+
+
+
+== 자체 서명된 임시 인증서를 다시 생성합니다
+
+.이 작업에 대해
+* ONTAP 중재자 서비스가 설치된 Linux 호스트에서 이 작업을 수행합니다.
+* ONTAP 중재자를 설치한 후 호스트의 호스트 이름 또는 IP 주소가 변경되어 생성된 자체 서명된 인증서가 사용되지 않는 경우에만 이 작업을 수행할 수 있습니다.
+* 임시 자체 서명된 인증서가 신뢰할 수 있는 타사 인증서로 대체되면 이 작업을 사용하여 인증서를 다시 생성합니다.  자체 서명된 인증서가 없으면 이 절차가 실패합니다.
+
+
+.단계
+현재 호스트에 대해 자체 서명된 새 임시 인증서를 다시 생성하려면 다음 단계를 수행하십시오.
+
+. ONTAP 중재자 다시 시작:
++
+`./make_self_signed_certs.sh overwrite`
+
++
+[listing]
+----
+[root@xyz000123456 ~]# cd /opt/netapp/lib/ontap_mediator/ontap_mediator/server_config
+[root@xyz000123456 server_config]# ./make_self_signed_certs.sh overwrite
+
+Adding Subject Alternative Names to the self-signed server certificate
+#
+# OpenSSL example configuration file.
+Generating self-signed certificates
+Generating RSA private key, 4096 bit long modulus (2 primes)
+..................................................................................................................................................................++++
+........................................................++++
+e is 65537 (0x010001)
+Generating a RSA private key
+................................................++++
+.............................................................................................................................................++++
+writing new private key to 'ontap_mediator_server.key'
+-----
+Signature ok
+subject=C = US, ST = California, L = San Jose, O = "NetApp, Inc.", OU = ONTAP Core Software, CN = ONTAP Mediator, emailAddress = support@netapp.com
+Getting CA Private Key
+----
 

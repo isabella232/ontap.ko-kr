@@ -1,0 +1,84 @@
+---
+permalink: encryption-at-rest/enable-encryption-existing-volume-93-later-task.html 
+sidebar: sidebar 
+keywords: enabling, encryption, existing, volume encryption conversion start, command 
+summary: 'ONTAP 9.3부터 볼륨 암호화 변환 시작 명령을 사용하여 volSume을 다른 위치로 이동할 필요 없이 기존 볼륨을 "제자리에" 암호화할 수 있습니다.' 
+---
+= 볼륨 암호화 변환 시작 명령을 사용하여 기존 볼륨에서 암호화를 활성화합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.3부터 볼륨을 다른 위치로 이동하지 않고도 "볼륨 암호화 변환 시작" 명령을 사용하여 기존 볼륨을 "제자리에" 암호화할 수 있습니다.
+
+.이 작업에 대해
+변환 작업을 시작한 후에는 작업을 완료해야 합니다. 작업 중에 성능 문제가 발생하면 를 실행할 수 있습니다 `volume encryption conversion pause` 명령을 사용하여 작업을 일시 중지하고, 를 클릭합니다 `volume encryption conversion resume` 명령을 사용하여 작업을 재개합니다.
+
+ONTAP 9.14.1부터 를 사용할 수 있습니다 `volume encryption conversion start` SVM 루트 볼륨에 대해 수행할 수 있습니다. 자세한 내용은 을 참조하십시오 xref:configure-nve-svm-root-task.html[SVM 루트 볼륨에 NetApp 볼륨 암호화를 구성합니다].
+
+
+NOTE: 를 사용할 수 없습니다 `volume encryption conversion start` SnapLock 볼륨을 변환합니다.
+
+.단계
+. 기존 볼륨에서 암호화 활성화:
++
+`volume encryption conversion start -vserver _svm_name_ -volume _volume_name_`
+
++
+전체 명령 구문은 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli-9131//volume-encryption-conversion-start.html["명령 참조입니다"^].
+
++
+다음 명령을 실행하면 기존 볼륨의 암호화가 설정됩니다 `vol1`:
+
++
+[listing]
+----
+cluster1::> volume encryption conversion start -vserver vs1 -volume vol1
+----
++
+시스템에서 볼륨에 대한 암호화 키를 생성합니다. 볼륨의 데이터가 암호화됩니다.
+
+. 변환 작업의 상태를 확인합니다.
++
+볼륨 암호화 변환 표시
+
++
+전체 명령 구문은 명령에 대한 man 페이지를 참조하십시오.
+
++
+다음 명령을 실행하면 변환 작업의 상태가 표시됩니다.
+
++
+[listing]
+----
+cluster1::> volume encryption conversion show
+
+Vserver   Volume   Start Time           Status
+-------   ------   ------------------   ---------------------------
+vs1       vol1     9/18/2017 17:51:41   Phase 2 of 2 is in progress.
+----
+. 변환 작업이 완료되면 볼륨에 암호화가 활성화되어 있는지 확인합니다.
++
+볼륨 쇼는 암호화된 사실이다
+
++
+전체 명령 구문은 명령에 대한 man 페이지를 참조하십시오.
+
++
+다음 명령을 실행하면 암호화된 볼륨이 'cluster1'에 표시됩니다.
+
++
+[listing]
+----
+cluster1::> volume show -is-encrypted true
+
+Vserver  Volume  Aggregate  State  Type  Size  Available  Used
+-------  ------  ---------  -----  ----  -----  --------- ----
+vs1      vol1    aggr2     online    RW  200GB    160.0GB  20%
+----
+
+
+.결과
+KMIP 서버를 사용하여 노드의 암호화 키를 저장하는 경우, 볼륨을 암호화할 때 ONTAP는 서버에 암호화 키를 자동으로 푸시합니다.

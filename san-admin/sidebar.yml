@@ -112,10 +112,16 @@ entries:
     url: "/nvme/resize-namespace-task.html"
   - title: 네임스페이스를 LUN으로 변환합니다
     url: "/nvme/convert-namespace-to-lun-task.html"
-  - title: NVMe/TCP를 통한 보안 인증 설정
-    url: "/nvme/setting-up-secure-authentication-nvme-tcp-task.html"
-  - title: NVMe/TCP를 통한 보안 인증을 비활성화합니다
-    url: "/nvme/disable-secure-authentication-nvme-tcp-task.html"
+  - title: NVMe를 통해 대역 내 인증을 설정합니다
+    url: "/nvme/set-up-secure-authentication-nvme-task.html"
+  - title: NVMe를 통한 대역 내 인증을 비활성화합니다
+    url: "/nvme/disable-secure-authentication-nvme-task.html"
+  - title: NVMe 호스트 우선순위를 변경합니다
+    url: "/nvme/change-host-priority-nvme-task.html"
+  - title: NVMe/TCP에 대한 자동화된 호스트 검색을 관리합니다
+    url: "/nvme/manage-automated-discovery.html"
+  - title: NVMe VMID를 비활성화합니다
+    url: "/nvme/disable-vmid-task.html"
 - title: FC 어댑터를 사용하여 시스템을 관리합니다
   entries:
   - title: 개요

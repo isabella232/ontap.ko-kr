@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: anti-ransomware/enable-default-task.html 
 keywords: system manager, cli, enable, anti-ransomware, anti ransomware, antiransom, antiransomware, autonomous, ransomware, protection, arp, default, volumes, configure, storage volumes, enable anti-ransomware in system manager, modify, storage VM, SVM, create 
-summary: 'ONTAP 9.10.1.1부터는 학습 모드에서 새로운 볼륨이 기본적으로 안티 랜섬웨어에 대해 활성화되도록 스토리지 VM(SVM)을 구성할 수 있습니다.' 
+summary: ONTAP 9.10.1부터 새 볼륨이 기본적으로 랜섬웨어 방지 보호를 위해 활성화되도록 SVM을 구성할 수 있습니다. 
 ---
 = 새로운 볼륨에서 자율 랜섬웨어 보호를 기본적으로 활성화하십시오
 :toc: macro

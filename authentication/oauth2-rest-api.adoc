@@ -1,0 +1,82 @@
+---
+sidebar: sidebar 
+permalink: authentication/oauth2-rest-api.html 
+keywords: acquire token, curl, rest api call, keycloak 
+summary: ONTAP의 OAuth 2.0 구현은 REST API 클라이언트 애플리케이션을 지원합니다. curl을 사용하여 간단한 REST API 호출을 실행하여 OAuth 2.0을 사용할 수 있습니다. 
+---
+= OAuth 2.0을 사용하여 REST API 호출을 실행합니다
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+ONTAP의 OAuth 2.0 구현은 REST API 클라이언트 애플리케이션을 지원합니다. curl을 사용하여 간단한 REST API 호출을 실행하여 OAuth 2.0을 사용할 수 있습니다. 아래 예에서는 ONTAP 클러스터 버전을 검색합니다.
+
+
+
+== 시작하기 전에
+
+ONTAP 클러스터에 대해 OAuth 2.0 기능을 구성하고 사용하도록 설정해야 합니다. 여기에는 인증 서버 정의가 포함됩니다.
+
+
+
+== 1단계: 액세스 토큰을 획득합니다
+
+REST API 호출에 사용할 액세스 토큰을 얻어야 합니다. 토큰 요청은 ONTAP 외부에서 수행되며 정확한 절차는 인증 서버 및 해당 구성에 따라 다릅니다. 웹 브라우저, curl 명령 또는 프로그래밍 언어를 사용하여 토큰을 요청할 수 있습니다.
+
+설명 목적으로 curl을 사용하여 Keycloak에서 액세스 토큰을 요청하는 방법에 대한 예가 아래에 나와 있습니다.
+
+.Keycloak 예
+[source, curl]
+----
+curl --request POST \
+--location 'https://superzap.dev.netapp.com:8443/realms/peterson/protocol/openid-connect/token' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'client_id=dp-client-1' \
+--data-urlencode 'grant_type=client_credentials' \
+--data-urlencode 'client_secret=5iTUf9QKLGxAoYa1iR33vlD5A2xq09V7'
+----
+반환된 토큰을 복사하여 저장해야 합니다.
+
+
+
+== 2단계: REST API 호출을 실행합니다
+
+유효한 액세스 토큰이 있으면 액세스 토큰과 함께 curl 명령을 사용하여 REST API 호출을 실행할 수 있습니다.
+
+.매개 변수 및 변수
+컬링 예제의 두 변수는 아래 표에 설명되어 있습니다.
+
+[cols="25,75"]
+|===
+| 변수 | 설명 
+
+
+| $FQDN_IP입니다 | ONTAP 관리 LIF의 정규화된 도메인 이름 또는 IP 주소 
+
+
+| $access_token입니다 | 인증 서버에서 발급한 OAuth 2.0 액세스 토큰 
+|===
+curl 예제를 실행하기 전에 먼저 Bash 셸 환경에서 이러한 변수를 설정해야 합니다. 예를 들어, Linux CLI에서 다음 명령을 입력하여 FQDN 변수를 설정하고 표시합니다.
+
+[listing]
+----
+FQDN_IP=172.14.31.224
+echo $FQDN_IP
+172.14.31.224
+----
+두 변수가 모두 로컬 Bash 셸에 정의되면 curl 명령을 복사하여 CLI에 붙여 넣을 수 있습니다. Enter * 키를 눌러 변수를 대체하고 명령을 실행합니다.
+
+.컬의 예
+[source, curl]
+----
+curl --request GET \
+--location "https://$FQDN_IP/api/cluster?fields=version" \
+--include \
+--header "Accept: */*" \
+--header "Authorization: Bearer $ACCESS_TOKEN"
+----

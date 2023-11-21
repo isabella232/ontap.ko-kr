@@ -18,12 +18,16 @@ FPolicy 정책을 생성할 때 외부 엔진과 하나 이상의 이벤트를 �
 * FPolicy 서버를 사용하도록 정책을 구성하려는 경우 외부 엔진이 존재해야 합니다.
 * FPolicy 정책과 연관하려는 FPolicy 이벤트가 하나 이상 있어야 합니다.
 * 특별 권한 데이터 액세스를 구성하려면 SVM에 SMB 서버가 있어야 합니다.
+* 정책에 대한 영구 저장소를 구성하려면 엔진 유형이 * 비동기 * 여야 하고 정책이 * 비필수 * 여야 합니다.
++
+자세한 내용은 을 참조하십시오 link:create-persistent-stores.html["영구 저장소를 만듭니다"].
+
 
 
 .단계
 . FPolicy 정책을 생성합니다.
 +
-"vserver FPolicy policy create-vserver-name vserver_name-policy-name policy_name-engine_name-events event_name,... [-is-mandatory{true|false}] [-allow-privileged-access{yes|no}] [-privileged-user-name domain\user_name] [-is-passstrough-read-enabled{true|false}]
+`vserver fpolicy policy create -vserver-name vserver_name -policy-name policy_name -engine engine_name -events event_name, [-persistent-store PS_name] [-is-mandatory {true|false}] [-allow-privileged-access {yes|no}] [-privileged-user-name domain\user_name] [-is-passthrough-read-enabled {true|false}]`
 
 +
 ** FPolicy 정책에 하나 이상의 이벤트를 추가할 수 있습니다.

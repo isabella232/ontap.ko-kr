@@ -52,3 +52,7 @@ pNFS를 비활성화합니다
 
 |===
 
+
+.관련 정보
+* xref:../nfs-trunking/index.html[NFS 트렁킹 개요]
+

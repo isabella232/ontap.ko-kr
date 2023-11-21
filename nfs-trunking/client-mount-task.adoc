@@ -1,0 +1,48 @@
+---
+permalink: nfs-trunking/client-mount-task.html 
+sidebar: sidebar 
+keywords: NFS, servers, network, NFS trunking, data shares, Linux, VMware, mounts 
+summary: 트렁킹을 지원하는 Linux 및 VMware 클라이언트는 트렁킹이 활성화된 ONTAP NFS 서버에서 볼륨 또는 데이터 공유를 마운트할 수 있습니다. 
+---
+= 클라이언트 마운트를 생성합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+트렁킹을 지원하는 Linux 및 VMware 클라이언트는 트렁킹이 활성화된 ONTAP NFSv4.1 서버에서 볼륨 또는 데이터 공유를 마운트할 수 있습니다.
+
+클라이언트에 마운트 명령을 입력할 때 트렁킹 그룹에서 각 LIF의 IP 주소를 입력해야 합니다.
+
+에 대해 자세히 알아보십시오 link:index.html#supported-clients["지원되는 클라이언트"].
+
+[role="tabbed-block"]
+====
+.Linux 클라이언트 요구 사항
+--
+트렁킹 그룹의 각 연결에는 별도의 마운트 지점이 필요합니다.
+
+다음과 유사한 명령을 사용하여 내보낸 볼륨을 마운트합니다.
+
+`mount lif1_ip:/vol-test /mnt/test1 -o vers=4.1,max_connect=16`
+
+`mount lif2_ip:/vol-test /mnt/test2 -o vers=4.1,max_connect=16`
+
+버전 (`vers`) 값은 이어야 합니다 `4.1` 이상.
+
+를 클릭합니다 `max_connect` 값은 트렁킹 그룹의 연결 수에 해당합니다.
+
+--
+.VMware 클라이언트 요구 사항
+--
+트렁킹 그룹의 각 연결에 대한 IP 주소를 포함하는 마운트 문이 필요합니다.
+
+다음과 유사한 명령을 사용하여 내보낸 데이터 저장소를 마운트합니다.
+
+`#esxcli storage nfs41 -H lif1_ip, lif2_ip -s /mnt/sh are1 -v nfs41share`
+
+를 클릭합니다 `-H` 값은 트렁킹 그룹의 연결에 해당합니다.
+
+--
+====

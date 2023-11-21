@@ -11,8 +11,14 @@ summary: NVMe를 사용할 때는 네임스페이스를 하위 시스템에 매�
 
 
 [role="lead"]
-이 절차에서는 ONTAP CLI를 사용하여 기존 NVMe 네임스페이스를 기존 NVMe 하위 시스템에 매핑합니다.
+NVMe 네임스페이스를 하위 시스템에 매핑하면 호스트에서 데이터에 액세스할 수 있습니다.  스토리지를 프로비저닝할 때 NVMe 네임스페이스를 하위 시스템에 매핑하거나 스토리지를 프로비저닝한 후 연결할 수 있습니다.
 
+ONTAP 9.14.1부터 특정 호스트에 대한 리소스 할당의 우선 순위를 지정할 수 있습니다. 기본적으로 호스트가 NVMe 서브시스템에 추가되면 보통 우선 순위가 부여됩니다. ONTAP CLI(명령줄 인터페이스)를 사용하여 기본 우선 순위를 보통에서 높음으로 수동으로 변경할 수 있습니다.  높은 우선 순위가 할당된 호스트에는 더 큰 입출력 대기열 수와 대기열 깊이가 할당됩니다.
+
+
+NOTE: ONTAP 9.13.1 이하 버전에서 하위 시스템에 추가된 호스트에 높은 우선 순위를 부여하려는 경우 다음을 수행할 수 있습니다 xref:../nvme/change-host-priority-nvme-task.html[호스트 우선 순위를 변경합니다].
+
+.시작하기 전에
 네임스페이스와 하위 시스템이 이미 만들어져 있어야 합니다. 네임스페이스와 하위 시스템을 만들어야 하는 경우 를 참조하십시오 link:create-nvme-namespace-subsystem-task.html["NVMe 스토리지 프로비저닝"].
 
 .단계
@@ -23,6 +29,9 @@ summary: NVMe를 사용할 때는 네임스페이스를 하위 시스템에 매�
 ----
 vserver nvme subsystem host add -vserver <SVM_name> -subsystem <subsystem_name> -host-nqn <Host_NQN_:subsystem._subsystem_name>
 ----
++
+호스트의 기본 우선 순위를 보통에서 높음으로 변경하려면 를 사용합니다 `-priority high` 옵션을 선택합니다. 이 옵션은 ONTAP 9.14.1부터 사용할 수 있습니다.
+
 . 네임스페이스를 하위 시스템에 매핑합니다.
 +
 [source, cli]

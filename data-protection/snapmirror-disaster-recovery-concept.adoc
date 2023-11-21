@@ -40,7 +40,7 @@ image::../media/snapmirror-for-dp-pg.gif[SnapMirror 데이터 보호 관계 그�
 +
 link:../snaplock/index.html["SnapLock 기술을 사용한 아카이브 및 규정 준수"]
 
-* ONTAP 9.13.1 부터는 비동기식 SnapMirror를 사용하여 보호할 수 있습니다 xref:../consistency-groups/index.html[정합성 보장 그룹]
+* ONTAP 9.13.1부터 비동기 SnapMirror를 사용하여 보호할 수 있습니다 xref:../consistency-groups/index.html[정합성 보장 그룹]. ONTAP 9.14.1부터는 비동기식 SnapMirror를 사용하여 일관성 그룹 관계를 사용하여 볼륨 세분화 스냅샷을 타겟 클러스터에 복제할 수 있습니다. 자세한 내용은 을 참조하십시오 xref:../consistency-groups/protect-task.html#configure-asynchronous-snapmirror-protection[비동기식 SnapMirror 보호를 구성합니다].
 
 
 

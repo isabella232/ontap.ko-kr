@@ -48,10 +48,14 @@ AWS KMS, AKV 및 Cloud KMS를 사용하여 보호할 수 있습니다 link:confi
 --
 .시작하기 전에
 * 암호화를 관리하는 IAM 역할이 사용할 AWS KMS 키에 대한 권한을 만들어야 합니다. IAM 역할에는 다음 작업을 허용하는 정책이 포함되어야 합니다.
-* `DescribeKey`
-* `Encrypt`
-* `Decrypt`
++
+** `DescribeKey`
+** `Encrypt`
+** `Decrypt`
+를 누릅니다
 자세한 내용은 의 AWS 설명서를 참조하십시오 link:https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant["보조금"^].
+
+
 
 
 .ONTAP SVM에서 AWS KMV를 활성화합니다

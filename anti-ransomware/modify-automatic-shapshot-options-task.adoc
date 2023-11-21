@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: anti-ransomware/modify-automatic-shapshot-options-task.html 
 keywords: anti-ransomware, automatic Snapshot copy, suspected attack, vserver options, autonomous ransomware protection, arp 
-summary: 'ONTAP 9.11.1부터, 의심되는 랜섬웨어 공격에 대해 자동으로 생성되는 ARP(Autonomous 랜섬웨어 Protection) 스냅샷 복사본의 수와 보존 기간을 제어할 수 있습니다.' 
+summary: 의심되는 랜섬웨어 공격에 대응하여 자동으로 생성되는 Autonomous 랜섬웨어 Protection Snapshot 복사본의 설정을 수정합니다. 
 ---
 = 자동 스냅샷 복사본에 대한 옵션을 수정합니다
 :toc: macro

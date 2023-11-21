@@ -8,6 +8,10 @@ entries:
     url: "/nas-audit/two-parts-fpolicy-solution-concept.html"
   - title: 동기식 및 비동기식 알림입니다
     url: "/nas-audit/synchronous-asynchronous-notifications-concept.html"
+  - title: FPolicy 영구 저장소
+    url: "/nas-audit/persistent-stores.html"
+  - title: FPolicy 구성 유형
+    url: "/nas-audit/fpolicy-config-types-concept.html"
   - title: 클러스터 구성 요소가 FPolicy 구현을 수행하는 역할을 합니다
     url: "/nas-audit/roles-cluster-components-fpolicy-concept.html"
   - title: FPolicy가 외부 FPolicy 서버에서 작동하는 방식
@@ -16,8 +20,6 @@ entries:
     url: "/nas-audit/node-fpolicy-server-communication-process-concept.html"
   - title: FPolicy 서비스가 SVM 네임스페이스 전체에서 작동하는 방식
     url: "/nas-audit/fpolicy-services-svm-namespaces-concept.html"
-  - title: FPolicy 구성 유형
-    url: "/nas-audit/fpolicy-config-types-concept.html"
   - title: FPolicy 패스스루 읽기를 통해 어떻게 계층적 스토리지 관리의 사용성을 개선합니다
     url: "/nas-audit/fpolicy-passthrough-read-enhances-usability-concept.html"
 - title: FPolicy 구성을 계획합니다
@@ -70,6 +72,8 @@ entries:
     url: "/nas-audit/create-fpolicy-external-engine-task.html"
   - title: FPolicy 이벤트를 생성합니다
     url: "/nas-audit/create-fpolicy-event-task.html"
+  - title: 영구 저장소를 만듭니다
+    url: "/nas-audit/create-persistent-stores.html"
   - title: FPolicy 정책을 생성합니다
     url: "/nas-audit/create-fpolicy-policy-task.html"
   - title: FPolicy 범위를 생성합니다

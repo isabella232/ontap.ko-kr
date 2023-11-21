@@ -39,6 +39,12 @@ ONTAP S3 작업은 아래 명시된 경우를 제외하고 표준 S3 REST API에
 | GetBuckketAcl | ONTAP 9.8 
 
 
+| GetBuckLifecycleConfiguration 을 참조하십시오 | ONTAP 9.13.1+ * 만료 동작만 지원됩니다 
+
+
+| GetBucketLocation 을 참조하십시오 | ONTAP 9.10.1 
+
+
 | GetBuckketPolicy를 참조하십시오 | ONTAP 9.12.1 
 
 
@@ -48,25 +54,19 @@ ONTAP S3 작업은 아래 명시된 경우를 제외하고 표준 S3 REST API에
 | ListBucket | ONTAP 9.8 
 
 
-| PutBucket * | ONTAP 9.8+ * ONTAP REST API에서만 지원됩니다 
-
-
-| BucketPolicy를 참조하십시오 | ONTAP 9.12.1 
-
-
-| PutBucketLifecycleConfiguration을 참조하십시오 | ONTAP 9.13.1+ * 만료 동작만 지원됩니다 
-
-
-| GetBuckLifecycleConfiguration 을 참조하십시오 | ONTAP 9.13.1+ * 만료 동작만 지원됩니다 
-
-
 | ListBuckketVersioning을 참조하십시오 | ONTAP 9.11.1 
 
 
 | ListObjectVersions 를 선택합니다 | ONTAP 9.11.1 
 
 
-| GetBucketLocation 을 참조하십시오 | ONTAP 9.10.1 
+| PutBucket * | ONTAP 9.8+ * ONTAP REST API에서만 지원됩니다 
+
+
+| PutBucketLifecycleConfiguration을 참조하십시오 | ONTAP 9.13.1+ * 만료 동작만 지원됩니다 
+
+
+| BucketPolicy를 참조하십시오 | ONTAP 9.12.1 
 |===
 
 
@@ -129,6 +129,9 @@ ONTAP 9.11.1부터 ONTAP S3는 다음과 같은 ONTAP API와 함께 개체 버�
 | GetObjectAcl | ONTAP 9.8 
 
 
+| GetObjectRetention을 참조하십시오 | ONTAP 9.14.1 
+
+
 | GetObjectTagging | ONTAP 9.9.1 
 
 
@@ -154,6 +157,12 @@ ONTAP 9.11.1부터 ONTAP S3는 다음과 같은 ONTAP API와 함께 개체 버�
 
 
 | PutObject 를 선택합니다 | ONTAP 9.8 
+
+
+| PutObjectLockConfiguration 을 참조하십시오 | ONTAP 9.14.1 
+
+
+| PutObjectRetention | ONTAP 9.14.1 
 
 
 | PutObjectTagging | ONTAP 9.9.1 

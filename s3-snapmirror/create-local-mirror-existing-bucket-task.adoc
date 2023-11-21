@@ -66,7 +66,12 @@ ONTAP 9.10.1 이전 릴리즈에서 S3 구성을 업그레이드한 경우와 �
 .. 사용 권한 * 탭에서 을 클릭합니다 image:icon_pencil.gif["편집 아이콘"] * 편집 * 을 선택한 다음 * 권한 * 에서 * 추가 * 를 클릭합니다.
 +
 *** * Principal * 및 * Effect * - 사용자 그룹 설정에 해당하는 값을 선택하거나 기본값을 그대로 사용합니다.
-*** * Actions * - GetObject, PutObject, DeleteObject, ListBucket, GetBuckketAcl, GetObjectAcl, ListBuckketMultipartUploads, ListMultiPartUploadParts 등의 값이 표시되는지 확인합니다
+*** * 조치 * - 다음 값이 표시되는지 확인합니다.
++
+[listing]
+----
+GetObject,PutObject,DeleteObject,ListBucket,GetBucketAcl,GetObjectAcl,ListBucketMultipartUploads,ListMultipartUploadParts
+----
 *** * 리소스 * - 기본값(_(버켓 이름, 버켓 이름/ *)_ 또는 필요한 기타 값을 사용합니다.
 +
 을 참조하십시오 link:../task_object_provision_manage_bucket_access.html["버킷에 대한 사용자 액세스를 관리합니다"] 이 필드에 대한 자세한 내용은 를 참조하십시오.
@@ -97,13 +102,17 @@ ONTAP 9.10.1 이전 릴리즈에서 S3 구성을 업그레이드한 경우와 �
 
 
 
+. 외부 CA 공급업체에서 서명한 인증서를 사용하는 경우 * 대상에서 동일한 인증서 사용 * 을 선택합니다.
+. Destination Settings * 를 클릭하면 버킷 이름, 용량 및 성능 서비스 레벨의 기본값 대신 사용자 정의 값을 입력할 수도 있습니다.
+. 저장 * 을 클릭합니다. 기존 버킷은 대상 스토리지 VM의 새 버킷으로 미러링됩니다.
 
 
-외부 CA 공급업체에서 서명한 인증서를 사용하는 경우 * 대상에서 동일한 인증서 사용 * 을 선택합니다.
+.잠긴 버킷을 백업합니다
+ONTAP 9.14.1부터는 잠긴 S3 버킷을 백업하고 필요에 따라 복원할 수 있습니다.
 
-Destination Settings * 를 클릭하면 버킷 이름, 용량 및 성능 서비스 레벨의 기본값 대신 사용자 정의 값을 입력할 수도 있습니다.
+새 버킷이나 기존 버킷에 대한 보호 설정을 정의할 때 소스 및 타겟 클러스터가 ONTAP 9.14.1 이상을 실행하고 소스 버킷에서 오브젝트 잠금이 설정된 경우 대상 버킷에서 오브젝트 잠금을 설정할 수 있다. 소스 버킷의 객체 잠금 모드 및 잠금 보존 기간이 대상 버킷의 복제된 객체에 적용됩니다. 또한 * Destination Settings * 섹션에서 대상 버킷에 대해 다른 잠금 보존 기간을 정의할 수 있습니다. 이 보존 기간은 소스 버킷 및 S3 인터페이스에서 복제되는 잠기지 않은 오브젝트에도 적용됩니다.
 
-Save * 를 클릭하면 기존 버킷이 대상 스토리지 VM의 새 버킷으로 미러링됩니다.
+버킷에서 오브젝트 잠금을 활성화하는 방법에 대한 자세한 내용은 을 참조하십시오 link:../s3-config/create-bucket-task.html["버킷을 만듭니다"].
 
 --
 .CLI를 참조하십시오

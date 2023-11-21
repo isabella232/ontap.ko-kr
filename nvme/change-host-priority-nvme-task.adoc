@@ -1,0 +1,43 @@
+---
+permalink: nvme/change-host-priority-nvme-task.html 
+sidebar: sidebar 
+keywords: manage, nvme, host, priority, regular, high priority, allocate more I/O, allocate, higher, i/o, queue counts, queue-depths, queue, depth 
+summary: ONTAP 9.14.1부터 NVM 하위 시스템에서 특정 호스트에 대한 리소스 할당의 우선 순위를 지정할 수 있습니다. 
+---
+= NVMe 호스트 우선순위를 변경합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.14.1부터 특정 호스트에 대한 리소스 할당의 우선순위를 지정하도록 NVMe 서브시스템을 구성할 수 있습니다. 기본적으로 호스트가 서브시스템에 추가되면 보통 우선 순위가 할당됩니다. 높은 우선 순위가 할당된 호스트에는 더 큰 입출력 대기열 수와 대기열 깊이가 할당됩니다.
+
+ONTAP CLI(명령줄 인터페이스)를 사용하여 기본 우선 순위를 보통에서 높음으로 수동으로 변경할 수 있습니다.  호스트에 할당된 우선 순위를 변경하려면 하위 시스템에서 호스트를 제거한 다음 다시 추가해야 합니다.
+
+.단계
+. 호스트 우선 순위가 Regular로 설정되어 있는지 확인합니다.
++
+[source, cli]
+----
+vserver nvme show-host-priority
+----
+. 서브시스템에서 호스트 제거:
++
+[source, cli]
+----
+vserver nvme subsystem host remove –vserver <svm_name> -subsystem <subsystem> -host-nqn <host_nqn>
+----
+. 호스트가 서브시스템에서 제거되었는지 확인합니다.
++
+[source, cli]
+----
+vserver nvme subsystem host show
+----
+. 우선 순위가 높은 하위 시스템에 호스트를 다시 추가합니다.
++
+[source, cli]
+----
+vserver nvme subsystem host add -vserver <SVM_name> -subsystem <subsystem_name> -host-nqn <Host_NQN_:subsystem._subsystem_name> -priority high
+----
+

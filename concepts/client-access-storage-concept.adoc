@@ -1,7 +1,7 @@
 ---
 permalink: concepts/client-access-storage-concept.html 
 sidebar: sidebar 
-keywords: client authentication, authorization 
+keywords: client authentication, authorization, oauth 2.0, oauth2 
 summary: ONTAP는 신뢰할 수 있는 소스로 ID를 확인하여 클라이언트 시스템과 사용자를 인증합니다. ONTAP는 사용자의 자격 증명을 파일 또는 디렉터리에 구성된 권한과 비교하여 사용자가 파일 또는 디렉터리에 액세스할 수 있도록 승인합니다. 
 ---
 = 클라이언트 인증 및 권한 부여
@@ -61,3 +61,11 @@ ONTAP은 세 가지 보안 수준을 평가하여 엔티티가 SVM에 있는 파
 네이티브 파일 레벨 보안은 스토리지 객체를 나타내는 파일 또는 디렉토리에 존재합니다. 클라이언트에서 파일 수준 보안을 설정할 수 있습니다. 파일 권한은 SMB 또는 NFS를 사용하여 데이터를 액세스하든 관계없이 유효합니다.
 
 
+
+
+
+== ONTAP REST API 클라이언트가 포함된 OAuth 2.0
+
+Open Authorization(OAuth 2.0) 프레임워크에 대한 지원은 ONTAP 9.14부터 제공됩니다. 클라이언트가 REST API를 사용하여 ONTAP에 액세스할 때 OAuth 2.0만 사용하여 권한 부여 및 액세스 결정을 제어할 수 있습니다. 하지만 CLI, System Manager, REST API를 포함한 모든 ONTAP 관리 인터페이스에서 기능을 구성하고 사용하도록 설정할 수 있습니다.
+
+표준 OAuth 2.0 기능은 널리 사용되는 여러 인증 서버와 함께 지원됩니다. 상호 TLS를 기반으로 보낸 사람 제한 액세스 토큰을 사용하면 ONTAP 보안을 더욱 강화할 수 있습니다. 또한 자체 포함된 범위, ONTAP REST 역할 및 로컬 사용자 정의와의 통합 등 다양한 인증 옵션을 사용할 수 있습니다. 을 참조하십시오 link:../authentication/overview-oauth2.html["ONTAP OAuth 2.0 구축 개요"] 를 참조하십시오.

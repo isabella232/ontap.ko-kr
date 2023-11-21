@@ -105,6 +105,8 @@ entries:
     url: "/data-protection/convert-type-snapmirror-task.html"
   - title: SnapMirror Synchronous 관계의 모드를 변환합니다
     url: "/data-protection/convert-mode-snapmirror-synchronous-task.html"
+  - title: SnapMirror 페일오버 테스트 볼륨을 생성하고 삭제합니다
+    url: "/data-protection/create-delete-snapmirror-failover-test-task.html"
   - title: SnapMirror DR 대상 볼륨의 데이터를 제공합니다
     pdf-filename: SnapMirror 대상 볼륨에서 데이터를 제공합니다
     entries:

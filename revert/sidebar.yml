@@ -45,6 +45,8 @@ entries:
     url: "/revert/anti-ransomware-license-task.html"
   - title: S3 NAS 버킷
     url: "/revert/remove-nas-bucket-task.html"
+  - title: NFSv4.1 트렁킹
+    url: "/revert/remove-nfs-trunking-task.html"
   - title: 2 또는 4노드 MetroCluster
     url: "/revert/task_disable_asuo.html"
   - title: IPsec을 비활성화합니다

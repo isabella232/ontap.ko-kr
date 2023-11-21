@@ -1,0 +1,65 @@
+---
+permalink: nfs-trunking/create-exports-task.html 
+sidebar: sidebar 
+keywords: servers, network, NFS trunking, NIC, export policies, rule, Linux, VMware, datastores, client 
+summary: 데이터 공유에 대한 클라이언트 액세스를 제공하려면 하나 이상의 볼륨을 생성해야 하며 볼륨에 하나 이상의 규칙이 포함된 엑스포트 정책이 있어야 합니다. 
+---
+= 클라이언트 액세스를 위해 데이터를 내보냅니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+데이터 공유에 대한 클라이언트 액세스를 제공하려면 하나 이상의 볼륨을 생성해야 하며 볼륨에 하나 이상의 규칙이 포함된 엑스포트 정책이 있어야 합니다.
+
+클라이언트 내보내기 요구 사항:
+
+* Linux 클라이언트는 트렁킹 연결(즉, 각 LIF)에 대해 별도의 마운트 및 마운트 지점을 가져야 합니다.
+* VMware 클라이언트에는 여러 LIF가 지정된, 내보낸 볼륨에 대해 단일 마운트 지점만 필요합니다.
++
+VMware 클라이언트는 엑스포트 정책에서 루트 액세스 권한이 필요합니다.
+
+
+
+.단계
+. 엑스포트 정책 생성:
++
+`vserver export-policy create -vserver _svm_name_ -policyname _policy_name_`
+
++
+정책 이름은 최대 256자까지 지정할 수 있습니다.
+
+. 엑스포트 정책이 생성되었는지 확인:
++
+'vserver export-policy show-policyname_policy_name_'
+
++
+.예
+다음 명령을 실행하면 이름이 VS1 인 SVM에서 exp1 이라는 엑스포트 정책이 생성되는지 검증 및 됩니다.
+
++
+`vs1::> vserver export-policy create -vserver vs1 -policyname exp1`
+
+. 엑스포트 규칙을 생성하여 기존 엑스포트 정책에 추가:
++
+`vserver export-policy rule create -vserver _svm_name_ -policyname _policy_name_ -ruleindex _integer_ -protocol nfs4 -clientmatch { _text | "text,text,…"_ } -rorule _security_type_ -rwrule _security_type_ -superuser _security_type_ -anon _user_ID_`
+
++
+를 클릭합니다 `-clientmatch` 매개 변수는 내보내기를 마운트할 트렁킹 가능 Linux 또는 VMware 클라이언트를 식별해야 합니다.
+
++
+에 대해 자세히 알아보십시오 link:../nfs-config/add-rule-export-policy-task.html["내보내기 규칙을 만드는 중입니다."]
+
+. 교차점으로 볼륨을 생성합니다.
++
+`volume create -vserver _svm_name_ -volume _volume_name_ -aggregate _aggregate_name_-size {integer[KB|MB|GB|TB|PB]} -security-style unix -user _user_name_or_number_ -group _group_name_or_number_ -junction-path _junction_path_ -policy _export_policy_name_`
+
++
+에 대해 자세히 알아보십시오 link:../nfs-config/create-volume-task.html["볼륨 생성"]
+
+. 볼륨이 원하는 접합 지점으로 생성되었는지 확인합니다.
++
+`volume show -vserver _svm_name_ -volume _volume_name_ -junction-path`
+
+

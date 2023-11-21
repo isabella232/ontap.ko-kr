@@ -1,7 +1,7 @@
 ---
 permalink: encryption-at-rest/configure-netapp-volume-encryption-concept.html 
 sidebar: sidebar 
-keywords: configure, netapp, volume encryption, nve, aggregate-level, support details, data encryption, encrypt data at rest, storage encryption, key 
+keywords: volume encryption, nve, aggregate-level, support details, data encryption, encrypt data at rest, storage encryption, key 
 summary: 'NetApp Volume Encryption(NVE)은 유휴 데이터를 한 번에 하나의 볼륨으로 암호화하는 소프트웨어 기반 기술입니다. 스토리지 시스템에서만 액세스할 수 있는 암호화 키를 사용하면 기본 장치를 용도 변경, 반환, 잘못된 위치 변경 또는 도난 당한 경우 볼륨 데이터를 읽을 수 없습니다.' 
 ---
 = NetApp 볼륨 암호화 구성 개요
@@ -25,15 +25,14 @@ NVE를 사용하면 메타데이터와 데이터(스냅샷 복사본 포함)가 
 
 ONTAP 9.7부터 볼륨 암호화(VE) 라이센스가 있고 온보드 키 관리자 또는 외부 키 관리자를 사용하는 경우 애그리게이트 및 볼륨 암호화가 기본적으로 활성화됩니다. 외부 또는 온보드 키 관리자를 구성할 때마다 새로운 애그리게이트 및 완전히 새로운 볼륨에 대해 유휴 데이터 암호화를 구성하는 방식이 변경됩니다. 새로운 애그리게이트에 NetApp NAE(Aggregate Encryption)가 기본적으로 사용되도록 설정됩니다. NAE 애그리게이트에 포함되지 않은 새로운 볼륨의 경우 기본적으로 NVE(NetApp Volume Encryption)가 활성화됩니다. 멀티 테넌트(multi-tenant) 키 관리를 사용하여 데이터 스토리지 가상 시스템(SVM)을 자체 키 관리자로 구성한 경우, SVM용으로 생성된 볼륨은 NVE로 자동으로 구성됩니다.
 
-새 볼륨이나 기존 볼륨에서 암호화를 활성화할 수 있습니다. NVE는 중복제거, 압축을 비롯한 광범위한 스토리지 효율성 기능을 지원합니다.
+새 볼륨이나 기존 볼륨에서 암호화를 활성화할 수 있습니다. NVE는 중복제거, 압축을 비롯한 광범위한 스토리지 효율성 기능을 지원합니다. ONTAP 9.14.1부터 가능합니다 xref:/configure-nve-svm-root-task.html[기존 SVM 루트 볼륨에서 NVE를 활성화합니다].
 
 
 NOTE: SnapLock를 사용하는 경우 비어 있는 새 SnapLock 볼륨에서만 암호화를 활성화할 수 있습니다. 기존 SnapLock 볼륨에서는 암호화를 활성화할 수 없습니다.
 
 NVE는 모든 유형의 애그리게이트(HDD, SSD, 하이브리드, 어레이 LUN), RAID 유형, ONTAP Select를 비롯한 지원되는 모든 ONTAP 구현에서 사용할 수 있습니다. 또한 하드웨어 기반 암호화와 NVE를 사용하여 자체 암호화 드라이브에서 데이터를 "이중 암호화"할 수 있습니다.
 
-
-NOTE: AFF A220, AFF A800, FAS2720, FAS2750 및 이후 시스템은 부팅 장치에 코어 덤프를 저장합니다. 이러한 시스템에서 NVE를 사용하도록 설정하면 코어 덤프가 암호화됩니다.
+NVE가 활성화되면 코어 덤프도 암호화됩니다.
 
 
 
@@ -72,7 +71,7 @@ NAE 볼륨에서는 'Secure purge' 명령어를 사용할 수 없다.
 
 * 클러스터 범위 _ 를 사용하여 클러스터의 모든 SVM에 대한 외부 키 관리를 구성할 수 있습니다. 클러스터 관리자는 서버에 저장된 모든 키에 액세스할 수 있습니다.
 * ONTAP 9.6부터는 _SVM SCOPE_를 사용하여 클러스터의 명명된 SVM에 대한 외부 키 관리를 구성할 수 있습니다. 이는 각 테넌트가 서로 다른 SVM(또는 SVM 세트)을 사용하여 데이터를 제공하는 멀티테넌트 환경에 가장 적합합니다. 지정된 테넌트의 SVM 관리자만 해당 테넌트의 키에 액세스할 수 있습니다.
-* ONTAP 9.10.1부터 를 사용할 수 있습니다 xref:manage-keys-azure-google-task.html[Azure Key Vault 및 Google Cloud KMS] 데이터 가상 서버에 대해서만 NVE 키를 보호합니다.
+* ONTAP 9.10.1부터 를 사용할 수 있습니다 xref:manage-keys-azure-google-task.html[Azure Key Vault 및 Google Cloud KMS] 데이터 SVM에 대해서만 NVE 키를 보호합니다. 이 기능은 9.12.0부터 AWS의 KMS에 사용할 수 있습니다.
 
 
 동일한 클러스터에서 두 범위를 모두 사용할 수 있습니다. SVM용으로 키 관리 서버를 구성한 경우 ONTAP에서는 이러한 서버만 사용하여 키를 보호합니다. 그렇지 않으면 ONTAP는 클러스터에 구성된 키 관리 서버로 키를 보호합니다.
@@ -144,7 +143,7 @@ RAID0, RAID4, RAID-DP, RAID-TEC.
  a| 
 볼륨
  a| 
-데이터 볼륨 및 기존 루트 볼륨. SVM 루트 볼륨 또는 MetroCluster 메타데이터 볼륨의 데이터는 암호화할 수 없습니다.
+데이터 볼륨 및 기존 SVM 루트 볼륨. MetroCluster 메타데이터 볼륨의 데이터는 암호화할 수 없습니다. 9.14.1 이전 버전의 ONTAP에서는 NVE를 통해 SVM 루트 볼륨의 데이터를 암호화할 수 없습니다. ONTAP 9.14.1부터 ONTAP는 를 지원합니다 xref:configure-nve-svm-root-task.html[SVM 루트 볼륨에 NVE].
 
 
 

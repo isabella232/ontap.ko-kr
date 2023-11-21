@@ -13,6 +13,8 @@ entries:
     url: "/networking/auto-detect-wiring-issues-task.html"
   - title: 보고할 네트워크 데이터를 다운로드합니다
     url: "/concept_admin_downloading_data_report.html"
+  - title: 브로드캐스트 도메인에서 포트를 재할당합니다
+    url: "/reassign-ports-bd-task.html"
 - title: CLI를 사용하여 NAS 경로 페일오버 설정
   entries:
   - title: ONTAP 9.8 이상

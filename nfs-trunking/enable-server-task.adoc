@@ -1,0 +1,43 @@
+---
+permalink: nfs-trunking/enable-server-task.html 
+sidebar: sidebar 
+keywords: NFS, servers, enable, NFS, trunking, enabled, NAS, svm, 
+summary: NFSv4.1 이상을 실행하는 NFS 서버에서 트렁킹이 명시적으로 활성화되어야 합니다. NFSv4.1 이상은 NFS 서버가 생성될 때 기본적으로 사용하도록 설정됩니다. 
+---
+= NFS 서버에서 트렁킹을 활성화합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NFS 서버에서 트렁킹을 명시적으로 설정해야 합니다. NFSv4.1은 NFS 서버가 생성될 때 기본적으로 사용하도록 설정됩니다.
+
+트렁킹을 활성화한 후 다음 서비스가 필요에 따라 구성되었는지 확인합니다.
+
+* link:../nfs-config/configure-dns-host-name-resolution-task.html["DNS"]
+* link:../nfs-config/using-ldap-concept.html["LDAP를 지원합니다"]
+* link:../nfs-config/kerberos-nfs-strong-security-concept.html["Kerberos"]
+
+
+.단계
+. 트렁킹을 활성화하고 다음과 같이 NFSv4.1이 설정되어 있는지 확인합니다.
++
+`vserver nfs create -vserver _svm_name_ -v4.1 enabled -v4.1-trunking enabled`
+
+. NFS가 실행 중인지 확인합니다.
+`vserver nfs status -vserver _svm_name_`
+. NFS가 원하는 대로 구성되었는지 확인합니다.
++
+`vserver nfs show -vserver _svm_name_`
+
++
+에 대해 자세히 알아보십시오 link:../nfs-config/create-server-task.html["NFS 서버 구성"]
+... 이 SVM에서 Windows 클라이언트를 지원하는 경우 공유를 이동한 다음 서버를 삭제합니다.
+`vserver cifs show -vserver _svm_name_`
+
++
+를 누릅니다
+`vserver cifs delete -vserver _svm_name_`
+
+

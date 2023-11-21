@@ -12,6 +12,6 @@
 
 .관련 정보
 * link:https://docs.netapp.com/us-en/ontap-metrocluster/manage/concept_understanding_mcc_data_protection_and_disaster_recovery.html["MetroCluster 데이터 보호 및 재해 복구 이해"^]
-* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/What_are_AIX_Host_support_considerations_in_a_MetroCluster_configuration%3F["지식 기반 문서: MetroCluster 구성에서 AIX 호스트 지원 고려 사항은 무엇입니까?"^]
-* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/Solaris_host_support_considerations_in_a_MetroCluster_configuration["지식 기반 문서: MetroCluster 구성에서 Solaris 호스트 지원 고려 사항"^]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/What_are_AIX_Host_support_considerations_in_a_MetroCluster_configuration%3F["기술 문서: MetroCluster 구성에서 AIX 호스트 지원 고려 사항은 무엇입니까?"^]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/MetroCluster/Solaris_host_support_considerations_in_a_MetroCluster_configuration["기술 자료 문서: MetroCluster 구성의 Solaris 호스트 지원 고려 사항"^]
 

@@ -58,12 +58,16 @@ entries:
     url: "/fabricpool/manage-task.html"
   - title: 비활성 데이터 보고를 사용하여 볼륨의 비활성 데이터 양을 결정합니다
     url: "/fabricpool/determine-data-inactive-reporting-task.html"
-  - title: 필요에 따라 FabricPool에 볼륨을 추가하거나 이동합니다
+  - title: FabricPool에 대한 볼륨을 관리합니다
     entries:
     - title: FabricPool용 볼륨을 생성합니다
       url: "/fabricpool/create-volume-task.html"
     - title: 볼륨을 FabricPool로 이동합니다
       url: "/fabricpool/move-volume-task.html"
+    - title: 볼륨을 클라우드에 직접 쓰도록 설정 및 해제합니다
+      url: "/fabricpool/enable-disable-volume-cloud-write-task.html"
+    - title: 적극적인 미리 읽기 모드를 활성화 및 비활성화합니다
+      url: "/fabricpool/enable-disable-aggressive-read-ahead-task.html"
   - title: 사용자가 만든 사용자 지정 태그를 사용하여 개체 태그 지정
     entries:
     - title: 개요

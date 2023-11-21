@@ -1,0 +1,51 @@
+---
+permalink: nfs-trunking/reestablish-client-mount-task.html 
+sidebar: sidebar 
+keywords: NFS, servers, network, NFS trunking, data, shares, Linux, VMware, mounts, client 
+summary: 트렁킹되지 않은 클라이언트 연결을 트렁킹 연결로 변환하려면 Linux 및 VMware 클라이언트의 기존 마운트를 분리하고 LIF에 대한 정보를 사용하여 다시 마운트해야 합니다. 
+---
+= 클라이언트 마운트를 다시 설정합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+트렁킹되지 않은 클라이언트 연결을 트렁킹 연결로 변환하려면 Linux 및 VMware 클라이언트의 기존 마운트를 분리하고 LIF에 대한 정보를 사용하여 다시 마운트해야 합니다.
+
+클라이언트에 마운트 명령을 입력할 때 트렁킹 그룹에서 각 LIF의 IP 주소를 입력해야 합니다.
+
+에 대해 자세히 알아보십시오 link:index.html#supported-clients["지원되는 클라이언트"].
+
+
+NOTE: VMware 클라이언트의 마운트를 해제하면 데이터 저장소의 모든 VM에 대해 중단이 발생합니다. 또는 트렁킹을 사용할 수 있는 새 데이터 저장소를 생성하고 * storage vMotion * 을 사용하여 VM을 이전 데이터 저장소에서 새 데이터 저장소로 이동하는 방법도 있습니다. 자세한 내용은 VMware 설명서를 참조하십시오.
+
+[role="tabbed-block"]
+====
+.Linux 클라이언트 요구 사항
+--
+트렁킹 그룹의 각 연결에는 별도의 마운트 지점이 필요합니다.
+
+다음과 유사한 명령을 사용하여 내보낸 볼륨을 마운트합니다.
+
+`mount lif1_ip:/vol-test /mnt/test1 -o vers=4.1,max_connect=2`
+
+`mount lif2_ip:/vol-test /mnt/test2 -o vers=4.1,max_connect=2`
+
+를 클릭합니다 `vers` 값은 이어야 합니다 `4.1` 이상.
+
+를 클릭합니다 `max_connect` 값은 트렁킹 그룹의 연결 수와 일치해야 합니다.
+
+--
+.VMware 클라이언트 요구 사항
+--
+트렁킹 그룹의 각 연결에 대한 IP 주소를 포함하는 마운트 문이 필요합니다.
+
+다음과 유사한 명령을 사용하여 내보낸 데이터 저장소를 마운트합니다.
+
+`#esxcli storage nfs41 -H lif1_ip, lif2_ip -s /mnt/sh are1 -v nfs41share`
+
+를 클릭합니다 `-H` 값은 트렁킹 그룹의 연결과 일치해야 합니다.
+
+--
+====

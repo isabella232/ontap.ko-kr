@@ -39,6 +39,10 @@ image:workflow_configure_mirrors_and_vaults.gif["미러와 볼트를 구성하�
 . 선택한 볼륨 또는 LUN의 * SnapMirror(로컬 또는 원격) * 탭을 클릭하여 보호가 올바르게 설정되었는지 확인합니다.
 
 
+.관련 정보
+* link:https://docs.netapp.com/us-en/ontap/data-protection/create-delete-snapmirror-failover-test-task.html["SnapMirror 페일오버 테스트 볼륨을 생성하고 삭제합니다"].
+
+
 
 
 == ONTAP에서 이 작업을 수행하는 다른 방법

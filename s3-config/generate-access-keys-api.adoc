@@ -1,0 +1,120 @@
+---
+permalink: s3-config/generate-access-keys-api.html 
+sidebar: sidebar 
+keywords: generate, ldap, s3, access keys, secret keys using API 
+summary: S3 사용자가 API를 사용하여 S3 클라이언트에 액세스하기 위한 키를 다시 생성할 수 있습니다. 
+---
+= LDAP 또는 도메인 사용자가 자신의 S3 액세스 키를 생성할 수 있도록 합니다
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.14.1부터 ONTAP 관리자는 사용자 지정 역할을 만들고 로컬 또는 도메인 그룹이나 LDAP(Lightweight Directory Access Protocol) 그룹에 부여하여 해당 그룹에 속한 사용자가 S3 클라이언트 액세스에 대한 자체 액세스 및 비밀 키를 생성할 수 있습니다.
+
+.시작하기 전에
+다음을 확인합니다.
+
+. S3 서버가 포함된 S3 사용 스토리지 VM이 생성되었습니다. 을 참조하십시오 link:../s3-config/create-svm-s3-task.html["S3를 위해 SVM을 생성합니다"].
+. 해당 스토리지 VM에 버킷이 생성되었습니다. 을 참조하십시오 link:../s3-config/create-bucket-task.html["버킷을 만듭니다"].
+. 스토리지 VM에 DNS가 구성되어 있다. 을 참조하십시오 link:../networking/configure_dns_services_manual.html["DNS 서비스를 구성합니다"].
+. LDAP 서버의 자체 서명된 루트 CA(인증 기관) 인증서가 스토리지 VM에 설치되어 있습니다. 을 참조하십시오 link:../nfs-config/install-self-signed-root-ca-certificate-svm-task.html["SVM에 자체 서명된 루트 CA 인증서를 설치합니다"].
+. LDAP 클라이언트는 스토리지 VM에서 TLS를 사용하도록 구성했습니다. 을 참조하십시오 link:../nfs-config/create-ldap-client-config-task.html["LDAP 클라이언트 구성을 생성합니다"] 및 link:../nfs-config/enable-ldap-svms-task.html["LDAP 클라이언트 구성을 SVM과 연결합니다"].
+
+
+
+
+== 액세스 키 생성을 위한 사용자를 구성합니다
+
+. LDAP를 스토리지 VM의 _NAME 서비스 데이터베이스_로 지정하고 LDAP에 대한 암호를 지정합니다.
++
+[listing]
+----
+ns-switch modify -vserver <vserver-name> -database group -sources files,ldap
+ns-switch modify -vserver <vserver-name> -database passwd -sources files,ldap
+----
++
+이 명령에 대한 자세한 내용은 를 참조하십시오 `vserver services name-service ns-switch modify` 명령.
+
+. S3 사용자 REST API 끝점에 액세스하여 사용자 지정 역할 생성:
+`security login rest-role create -vserver <vserver-name> -role <custom-role-name> -api "/api/protocols/s3/services/*/users" -access <access-type>`
+이 예에서 는 입니다 `s3-role` 스토리지 VM의 사용자에 대해 역할이 생성됩니다 `svm-1`, 모든 액세스 권한, 읽기, 만들기 및 업데이트가 부여되는 대상.
++
+[listing]
+----
+security login rest-role create -vserver svm-1 -role s3role -api "/api/protocols/s3/services/*/users" -access all
+----
++
+이 명령에 대한 자세한 내용은 를 참조하십시오 `security login rest-role create` 명령.
+
+. security login 명령으로 LDAP 사용자 그룹을 생성하고 S3 사용자 REST API 끝점에 액세스하기 위한 새 사용자 지정 역할을 추가합니다. 이 명령에 대한 자세한 내용은 를 참조하십시오 `security login create` 명령.
++
+[listing]
+----
+security login create -user-or-group-name <ldap-group-name> -application http -authentication-method nsswitch -role <custom-role-name> -is-ns-switch-group yes
+----
++
+이 예에서는 LDAP 그룹입니다 `ldap-group-1` 이(가) 에 생성됩니다 `svm-1`및 사용자 지정 역할 `s3role` API 끝점에 액세스할 수 있도록 이 API에 추가되고, 빠른 바인드 모드에서 LDAP 액세스가 활성화됩니다.
+
++
+[listing]
+----
+security login create -user-or-group-name ldap-group-1 -application http -authentication-method nsswitch -role s3role -is-ns-switch-group yes -second-authentication-method none -vserver svm-1 -is-ldap-fastbind yes
+----
++
+자세한 내용은 을 참조하십시오 link:../nfs-admin/ldap-fast-bind-nsswitch-authentication-task.html["nsswitch 인증에 LDAP 고속 바인딩을 사용합니다"].
+
+
+
+도메인 또는 LDAP 그룹에 사용자 지정 역할을 추가하면 해당 그룹의 사용자가 ONTAP에 대한 제한된 액세스를 허용할 수 있습니다 `/api/protocols/s3/services/{svm.uuid}/users` 엔드포인트. 도메인 또는 LDAP 그룹 사용자는 API를 호출하여 자신의 액세스 및 비밀 키를 생성하여 S3 클라이언트에 액세스할 수 있습니다. 사용자는 자신의 키를 생성할 수 있고 다른 사용자는 생성할 수 없습니다.
+
+
+
+== S3 또는 LDAP 사용자로 자체 액세스 키를 생성합니다
+
+ONTAP 9.14.1부터 관리자가 사용자 고유의 키를 생성하는 역할을 부여한 경우, S3 클라이언트에 액세스하기 위한 고유한 액세스 및 비밀 키를 생성할 수 있습니다. 다음 ONTAP REST API 끝점을 사용하여 자신에 대해서만 키를 생성할 수 있습니다.
+
+.HTTP 메서드 및 끝점입니다
+이 REST API 호출은 다음과 같은 메소드와 엔드포인트를 사용합니다. 이 끝점의 다른 메서드에 대한 자세한 내용은 참조를 참조하십시오 https://docs.netapp.com/us-en/ontap-automation/reference/api_reference.html#access-a-copy-of-the-ontap-rest-api-reference-documentation["API 설명서"].
+
+[cols="25,75"]
+|===
+| HTTP 메소드 | 경로 
+
+
+| 게시 | /api/protocols/s3/services/{svm.uuid}/사용자 
+|===
+.컬의 예
+[source, curl]
+----
+curl --request POST \
+--location "https://$FQDN_IP /api/protocols/s3/services/{svm.uuid}/users " \
+--include \
+--header "Accept: */*" \
+--header "Authorization: Basic $BASIC_AUTH"
+----
+.JSON 출력 예
+[listing]
+----
+{
+  "records": [
+    {
+      "access_key": "Pz3SB54G2B_6dsXQPrA5HrTPcf478qoAW6_Xx6qyqZ948AgZ_7YfCf_9nO87YoZmskxx3cq41U2JAH2M3_fs321B4rkzS3a_oC5_8u7D8j_45N8OsBCBPWGD_1d_ccfq",
+      "_links": {
+        "next": {
+          "href": "/api/resourcelink"
+        },
+        "self": {
+          "href": "/api/resourcelink"
+        }
+      },
+      "name": "user-1",
+      "secret_key": "A20_tDhC_cux2C2BmtL45bXB_a_Q65c_96FsAcOdo14Az8V31jBKDTc0uCL62Bh559gPB8s9rrn0868QrF38_1dsV2u1_9H2tSf3qQ5xp9NT259C6z_GiZQ883Qn63X1"
+    }
+  ],
+  "num_records": "1"
+}
+
+----

@@ -23,7 +23,7 @@ HA 쌍당 SnapMirror Synchronous 복제 작업 수의 제한은 컨트롤러 모
 |===
 
 
-| 플랫폼 | ONTAP 9.9.1 이전 릴리즈 | ONTAP 9.9.1 | ONTAP 9.10.1 | ONTAP 9.11.1\ONTAP 9.12.1 
+| 플랫폼 | ONTAP 9.9.1 이전 릴리즈 | ONTAP 9.9.1 | ONTAP 9.10.1 | ONTAP 9.11.1에서 ONTAP 9.14.1까지 
 
 
  a| 

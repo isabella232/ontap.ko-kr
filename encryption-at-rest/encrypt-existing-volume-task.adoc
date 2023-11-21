@@ -99,8 +99,9 @@ KMIP 서버를 사용하여 노드의 암호화 키를 저장하는 경우, ONTA
 
 .이 작업에 대해
 * ONTAP 9.8부터 볼륨 이동 시작을 사용하여 SnapLock 또는 FlexGroup 볼륨에서 암호화를 활성화할 수 있습니다.
-* ONTAP 9.6부터는 Aggregate 수준의 암호화를 사용하여 이동할 볼륨의 포함된 Aggregate에 키를 할당할 수 있습니다. 고유 키로 암호화된 볼륨을 _NVE 볼륨 _ 이라고 합니다. 애그리게이트 레벨 키로 암호화된 볼륨을 _NAE 볼륨 _ (NetApp 애그리게이트 암호화의 경우)이라고 합니다. NAE 애그리게이트에서는 일반 텍스트 볼륨이 지원되지 않습니다.
 * ONTAP 9.4부터 Onboard Key Manager를 설정할 때 ""cc-mode""를 활성화하면 "volume move start" 명령으로 생성한 볼륨이 자동으로 암호화됩니다. `-encrypt-destination true'는 지정하지 않아도 됩니다.
+* ONTAP 9.6부터는 Aggregate 수준의 암호화를 사용하여 이동할 볼륨의 포함된 Aggregate에 키를 할당할 수 있습니다. 고유 키로 암호화된 볼륨을 _ NVE 볼륨 _ 이라고 합니다(NetApp 볼륨 암호화를 사용한다는 의미). 애그리게이트 레벨 키로 암호화된 볼륨을 _NAE 볼륨 _ (NetApp 애그리게이트 암호화의 경우)이라고 합니다. NAE 애그리게이트에서는 일반 텍스트 볼륨이 지원되지 않습니다.
+* ONTAP 9.14.1부터 NVE로 SVM 루트 볼륨을 암호화할 수 있습니다. 자세한 내용은 을 참조하십시오 xref:configure-nve-svm-root-task.html[SVM 루트 볼륨에 NetApp 볼륨 암호화를 구성합니다].
 
 
 .시작하기 전에
@@ -121,35 +122,35 @@ link:delegate-volume-encryption-svm-administrator-task.html["볼륨 이동 명�
  a| 
 NVE 볼륨에 대한 일반 텍스트 볼륨입니다
  a| 
-'volume move start -vserver SVM_name -volume volume_name -destination -aggregate aggregate_name -encrypt -destination TRUE'
+`volume move start -vserver _SVM_name_ -volume _volume_name_ -destination-aggregate _aggregate_name_ -encrypt-destination true`
 
 
 
  a| 
 NAE 볼륨에 대한 NVE 또는 일반 텍스트 볼륨(대상에 애그리게이트 레벨 암호화가 사용되는 것으로 가정)
  a| 
-'volume move start -vserver SVM_name -volume volume_name -destination -aggregate aggregate_name -encrypt -with -aggr-key true'
+`volume move start -vserver _SVM_name_ -volume _volume_name_ -destination-aggregate _aggregate_name_ -encrypt-with-aggr-key true`
 
 
 
  a| 
 NVE 볼륨에 대한 NAE 볼륨
  a| 
-'volume move start -vserver SVM_name -volume volume_name -destination -aggregate aggregate_name -encrypt -with -aggr -key false'
+`volume move start -vserver _SVM_name_ -volume _volume_name_ -destination-aggregate _aggregate_name_ -encrypt-with-aggr-key false`
 
 
 
  a| 
 Nae 볼륨을 일반 텍스트 볼륨으로
  a| 
-'volume move start -vserver SVM_name -volume volume_name -destination -aggregate_name -encrypt -destination false-encrypt -with-aggr-key false'
+`volume move start -vserver _SVM_name_ -volume _volume_name_ -destination-aggregate _aggregate_name_ -encrypt-destination false -encrypt-with-aggr-key false`
 
 
 
  a| 
 NVE 볼륨을 일반 텍스트 볼륨으로
  a| 
-'volume move start-vserver SVM_name-volume volume_name-destination-aggregate aggregate_name-encrypt-destination false'
+`volume move start -vserver _SVM_name_ -volume _volume_name_ -destination-aggregate _aggregate_name_ -encrypt-destination false`
 
 |===
 +
@@ -241,4 +242,4 @@ vs1      vol1    aggr2     online    RW  200GB    160.0GB  20%
 
 
 .결과
-KMIP 서버를 사용하여 노드의 암호화 키를 저장하는 경우, ONTAP는 볼륨을 암호화할 때 암호화 키를 서버에 자동으로 "푸시"(푸시)"합니다.
+KMIP 서버를 사용하여 노드의 암호화 키를 저장하는 경우, 볼륨을 암호화할 때 ONTAP는 서버에 암호화 키를 자동으로 푸시합니다.

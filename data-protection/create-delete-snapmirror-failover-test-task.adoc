@@ -1,0 +1,58 @@
+---
+permalink: data-protection/create-delete-snapmirror-failover-test-task.html 
+sidebar: sidebar 
+keywords: create, delete, failover, dress rehearsal, SnapMirror 
+summary: ONTAP 9.14.1부터 System Manager를 사용하여 활성 SnapMirror 관계를 중단하지 않고 SnapMirror 페일오버 및 재해 복구를 테스트하는 볼륨 클론을 생성할 수 있습니다. 
+---
+= SnapMirror 페일오버 테스트 볼륨을 생성하고 삭제합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.14.1부터 System Manager를 사용하여 활성 SnapMirror 관계를 중단하지 않고 SnapMirror 페일오버 및 재해 복구를 테스트하는 볼륨 클론을 생성할 수 있습니다. 테스트를 마치면 연결된 데이터를 정리하고 테스트 볼륨을 삭제할 수 있습니다.
+
+
+
+== SnapMirror 페일오버 테스트 볼륨을 생성합니다
+
+.이 작업에 대해
+* 동기식 및 비동기식 SnapMirror 관계에 대해 페일오버 테스트를 수행할 수 있습니다.
+* 재해 복구 테스트를 수행하기 위한 볼륨 클론이 생성됩니다.
+* 클론 볼륨은 SnapMirror 대상과 동일한 스토리지 VM에 생성됩니다.
+* FlexVol 및 FlexGroup SnapMirror 관계를 사용할 수 있습니다.
+* 선택한 관계에 대한 테스트 클론이 이미 있으면 해당 관계에 대해 다른 클론을 생성할 수 없습니다.
+* SnapLock 볼트 관계는 지원되지 않습니다.
+
+
+.시작하기 전에
+* 클러스터 관리자여야 합니다.
+* SnapMirror 라이센스를 소스 및 대상 클러스터에 설치해야 합니다.
+
+
+.단계
+. 대상 클러스터에서 * 보호 > 관계 * 를 선택합니다.
+. 를 선택합니다 image:icon_kabob.gif["Alt = 메뉴 옵션"] 관계 소스 옆에 있는 * Test Failover * 를 선택합니다.
+. Test Failover * 창에서 * Test Failover * 를 선택합니다.
+. 스토리지 > 볼륨 * 을 선택하고 테스트 페일오버 볼륨이 표시되는지 확인합니다.
+. 스토리지 > 공유 * 를 선택합니다.
+. 을 클릭합니다 image:icon_add_blue_bg.gif["Alt = 공유 추가 메뉴"] 공유 * 를 선택합니다.
+. 공유 추가 * 창의 * 공유 이름 * 필드에 공유 이름을 입력합니다.
+. 폴더 * 필드에서 * 찾아보기 * 를 선택하고 테스트 클론 볼륨을 선택한 다음 * 저장 * 을 선택합니다.
+. 공유 추가 * 창 아래쪽에서 * 저장 * 을 선택합니다.
+. 클라이언트에서 공유를 열고 테스트 볼륨에 읽기 및 쓰기 기능이 있는지 확인합니다.
+
+
+
+
+== 장애 조치 데이터를 정리하고 테스트 볼륨을 삭제합니다
+
+장애 조치 테스트를 완료한 후 테스트 볼륨과 연결된 모든 데이터를 정리하고 삭제할 수 있습니다.
+
+.단계
+. 대상 클러스터에서 * 보호 > 관계 * 를 선택합니다.
+. 를 선택합니다 image:icon_kabob.gif["Alt = 메뉴 옵션"] 관계 소스 옆에 있는 * Clean Up Test Failover * 를 선택합니다.
+. Clean Up Test Failover * 창에서 * Clean Up * 을 선택합니다.
+. 스토리지 > 볼륨 * 을 선택하고 테스트 볼륨이 삭제되었는지 확인합니다.
+

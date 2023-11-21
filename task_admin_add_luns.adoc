@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: task_admin_add_luns.html 
-keywords: volume, storage, add, increase storage, create, add lun, create lun, lun format, group related luns, add to storage VM, manual placement, Ansible Playbook, initiator, initiator group, protection, QoS policy, performance service level policy, 
-summary: LUN을 생성하여 SAN 프로토콜로 구성된 기존 스토리지 VM에 추가할 수 있습니다. 
+keywords: system manager, volume, storage, add, increase storage, create, add lun, create lun, lun format, group related luns, add to storage VM, manual placement, Ansible Playbook, initiator, initiator group, protection, QoS policy, performance service level policy, rename 
+summary: LUN을 생성하여 SAN 프로토콜로 구성된 기존 스토리지 VM에 추가할 수 있습니다. LUN을 그룹화하거나 이름을 바꿀 수도 있습니다. 
 ---
-= LUN을 추가합니다
+= LUN 관리
 :toc: macro
 :hardbreaks:
 :toclevels: 1
@@ -19,7 +19,11 @@ summary: LUN을 생성하여 SAN 프로토콜로 구성된 기존 스토리지 V
 
 
 [role="lead"]
-LUN을 생성하여 SAN 프로토콜로 구성된 기존 스토리지 VM에 추가할 수 있습니다.
+LUN을 생성하여 SAN 프로토콜로 구성된 기존 스토리지 VM에 추가할 수 있습니다. LUN을 그룹화하거나 이름을 바꿀 수도 있습니다.
+
+
+
+== LUN을 추가합니다
 
 image:workflow_admin_add_LUNs.gif["LUN 추가 작업의 워크플로 다이어그램"]
 
@@ -132,4 +136,16 @@ LUN이 생성되어 클러스터 및 스토리지 VM에 추가됩니다.
 
 NOTE: 이러한 LUN의 사양을 Ansible 플레이북에 저장할 수도 있습니다. 자세한 내용은 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap/task_use_ansible_playbooks_add_edit_volumes_luns.html["Ansible 플레이북을 사용하여 볼륨 또는 LUN을 추가 또는 편집합니다"].
 
+
+
+
+
+== LUN의 이름을 바꿉니다
+
+개요 페이지에서 LUN의 이름을 바꿀 수 있습니다.
+
+.단계
+. System Manager에서 * LUNs * 를 클릭합니다.
+. 을 클릭합니다 image:icon-edit-pencil-blue-outline.png["편집 아이콘"] 이름을 바꾸려는 LUN 이름 옆의 LUN 이름을 수정합니다.
+. 저장 * 을 클릭합니다.
 

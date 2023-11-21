@@ -1,7 +1,7 @@
 ---
 permalink: mediator/host-maintenance-task.html 
 sidebar: sidebar 
-keywords: mediator, maintain, host, maintenance 
+keywords: mediator, maintain, host, maintenance, package update, kernal upgrade, change hostname, change IP, self-signed certificate, self signed certificate 
 summary: 최적의 성능을 위해 ONTAP 중재자를 위한 호스트 OD를 정기적으로 유지해야 합니다. 
 ---
 = ONTAP 중재자를 위한 OS 호스트 유지
@@ -45,4 +45,48 @@ ONTAP 중재 종속성이 업데이트되면 실행 중인 프로세스에 즉�
 . OS를 업그레이드하고 재부팅합니다.
 . SCST 패키지를 다시 설치합니다.
 . ONTAP 중재자 서비스를 다시 활성화합니다.
+
+
+
+
+== 호스트가 호스트 이름 또는 IP로 변경됩니다
+
+.이 작업에 대해
+* ONTAP 중재자 서비스가 설치된 Linux 호스트에서 이 작업을 수행합니다.
+* ONTAP 중재자를 설치한 후 호스트의 호스트 이름 또는 IP 주소가 변경되어 생성된 자체 서명된 인증서가 사용되지 않는 경우에만 이 작업을 수행할 수 있습니다.
+* 임시 자체 서명된 인증서가 신뢰할 수 있는 타사 인증서로 대체되면 이 작업을 사용하여 인증서를 다시 생성합니다.  자체 서명된 인증서가 없으면 이 절차가 실패합니다.
+
+
+.단계
+현재 호스트에 대해 자체 서명된 새 임시 인증서를 다시 생성하려면 다음 단계를 수행하십시오.
+
+. ONTAP 중재자 다시 시작:
++
+`./make_self_signed_certs.sh overwrite`
+
++
+[listing]
+----
+[root@xyz000123456 ~]# cd /opt/netapp/lib/ontap_mediator/ontap_mediator/server_config
+[root@xyz000123456 server_config]# ./make_self_signed_certs.sh overwrite
+
+Adding Subject Alternative Names to the self-signed server certificate
+#
+# OpenSSL example configuration file.
+Generating self-signed certificates
+Generating RSA private key, 4096 bit long modulus (2 primes)
+..................................................................................................................................................................++++
+........................................................++++
+e is 65537 (0x010001)
+Generating a RSA private key
+................................................++++
+.............................................................................................................................................++++
+writing new private key to 'ontap_mediator_server.key'
+-----
+Signature ok
+subject=C = US, ST = California, L = San Jose, O = "NetApp, Inc.", OU = ONTAP Core Software, CN = ONTAP Mediator, emailAddress = support@netapp.com
+Getting CA Private Key
+
+[root@xyz000123456 server_config]# systemctl restart ontap_mediator
+----
 

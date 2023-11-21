@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: anti-ransomware/respond-abnormal-task.html 
 keywords: abnormal activity, data entropy, unusual file extensions, potential ransomware attack, false positive, ransomware attack, abnormal activity notification, ransomware alert, detected abnormal volume, suspected file types, attack report, anti-ransomware attack, ransomware ems 
-summary: 'ARP(Autonomous 랜섬웨어 Protection)가 보호 볼륨에서 비정상적인 활동을 감지하면 경고를 표시합니다. 알림을 평가하여 작업이 예상되는지, 허용되는지, 공격이 진행 중인지 여부를 확인해야 합니다.' 
+summary: ARP 알림에 응답하여 랜섬웨어 공격이 진행 중인지 여부를 파악하는 방법에 대해 알아보십시오. 
 ---
 = 비정상적인 활동에 응답합니다
 :toc: macro

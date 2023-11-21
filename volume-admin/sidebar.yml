@@ -8,15 +8,19 @@ entries:
   - title: 개요
     url: "/volume-admin-overview-concept.html"
   - title: 볼륨 관리
-    url: "/volumes/manage-volumes-task.html"
-  - title: 볼륨을 추가합니다
-    url: "/task_admin_add_a_volume.html"
-  - title: LUN을 추가합니다
+    entries:
+    - title: 개요
+      url: "/volumes/manage-volumes-task.html"
+    - title: 볼륨을 추가합니다
+      url: "/task_admin_add_a_volume.html"
+    - title: 볼륨에 태그를 할당합니다
+      url: "/assign-tags-volumes-task.html"
+    - title: 삭제된 볼륨을 복구합니다
+      url: "/task_admin_recover_deleted_volumes.html"
+  - title: LUN 관리
     url: "/task_admin_add_luns.html"
   - title: 볼륨 및 LUN을 확장합니다
     url: "/task_admin_expand_storage.html"
-  - title: 삭제된 볼륨을 복구합니다
-    url: "/task_admin_recover_deleted_volumes.html"
   - title: 저장 공간 절약
     url: "/task_admin_save_storage_space.html"
   - title: LUN을 이동하여 로드 밸런싱

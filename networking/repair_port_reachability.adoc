@@ -95,7 +95,8 @@ image:ontap_nm_image1.png["수리 가능성 의사결정 트리"]
 
 포트 연결을 복구할 수 있습니다. 다음 명령을 실행하면 시스템이 기본 IPspace에서 자동으로 생성된 새 브로드캐스트 도메인에 포트를 할당합니다.
 
-`network port reachability repair -node -port`
+네트워크 포트 도달 가능성 복구 노드 포트
+
 * 참고: * 모든 인터페이스 그룹(ifgrp) 구성원 포트가 보고되면 `no-reachability`를 실행합니다 `network port reachability repair` 각 멤버 포트의 명령은 각 멤버를 ifgrp에서 제거하고 새 브로드캐스트 도메인에 배치하도록 하여 결국 ifgrp 자체를 제거합니다. 를 실행하기 전에 `network port reachability repair` 명령을 실행하여 포트의 연결 가능한 브로드캐스트 도메인이 물리적 네트워크 토폴로지를 기준으로 예상한 것인지 확인합니다.
 
 

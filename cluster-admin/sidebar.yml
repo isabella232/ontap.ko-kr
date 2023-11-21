@@ -13,6 +13,8 @@ entries:
     url: "/task_admin_enable_new_features.html"
   - title: 클러스터 구성을 다운로드합니다
     url: "/task_admin_download_cluster_config.html"
+  - title: 클러스터에 태그를 할당합니다
+    url: "/assign-tags-cluster-task.html"
   - title: 지원 케이스를 보고 제출합니다
     url: "/task_admin_view_submit_support_cases.html"
   - title: 스토리지 VM의 최대 용량 제한을 관리합니다
@@ -28,12 +30,8 @@ entries:
   - title: 하드웨어 구성을 보고 문제를 확인합니다
     url: "/task_admin_troubleshoot_hardware_problems.html"
   - title: 노드 관리
+    url: "/manage-nodes-sm-task.html"
     pdf-filename: System Manager를 사용하여 노드를 관리합니다
-    entries:
-    - title: 노드를 재부팅, 종료, 테이크오버하고 돌려제공합니다
-      url: "/task_admin_manage_nodes.html"
-    - title: 클러스터에 노드 추가
-      url: "/task_admin_add_nodes_to_cluster.html"
 - section: system-admin
 - section: disks-aggregates
 - section: fabricpool

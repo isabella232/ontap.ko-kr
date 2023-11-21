@@ -1,0 +1,73 @@
+---
+permalink: encryption-at-rest/configure-nve-svm-root-task.html 
+keywords: volume encryption, nve, svm root, encrypt 
+summary: 'NetApp Volume Encryption(NVE)은 유휴 데이터를 한 번에 하나의 볼륨으로 암호화하는 소프트웨어 기반 기술입니다. ONTAP 9.14.1부터 SVM 루트에 NVE를 구성할 수 있습니다.' 
+---
+= SVM 루트 볼륨에 NetApp 볼륨 암호화를 구성합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.14.1부터 스토리지 VM(SVM) 루트 볼륨에서 NetApp 볼륨 암호화(NVE)를 활성화할 수 있습니다. NVE에서는 루트 볼륨을 고유 키로 암호화하여 SVM의 보안을 강화합니다.
+
+.이 작업에 대해
+SVM 루트 볼륨의 NVE는 SVM이 생성된 후에만 활성화할 수 있습니다.
+
+.시작하기 전에
+* SVM 루트 볼륨은 NetApp 애그리게이트 암호화(NAE)로 암호화된 애그리게이트에 있어서는 안 됩니다.
+* Onboard Key Manager 또는 외부 키 관리자를 사용하여 암호화를 활성화해야 합니다.
+* ONTAP 9.14.1 이상을 실행해야 합니다.
+* NVE로 암호화된 루트 볼륨이 포함된 SVM을 마이그레이션하려면 마이그레이션이 완료된 후 SVM 루트 볼륨을 일반 텍스트 볼륨으로 변환한 다음 SVM 루트 볼륨을 다시 암호화해야 합니다.
++
+** SVM 마이그레이션의 타겟 Aggregate에서 NAE를 사용하는 경우 루트 볼륨은 기본적으로 NAE를 상속합니다.
+
+
+* SVM이 SVM 재해 복구 관계에 있는 경우:
++
+** 미러링된 SVM의 암호화 설정은 대상에 복사되지 않습니다. 소스 또는 대상에서 NVE를 활성화한 경우 미러링된 SVM 루트 볼륨에서 NVE를 별도로 활성화해야 합니다.
+** 타겟 클러스터의 모든 애그리게이트가 NAE를 사용하는 경우 SVM 루트 볼륨은 NAE를 사용합니다.
+
+
+
+
+.단계
+ONTAP CLI 또는 System Manager를 사용하여 SVM 루트 볼륨에서 NVE를 활성화할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.CLI를 참조하십시오
+--
+제자리에서 SVM 루트 볼륨에서 NVE를 사용하거나 애그리게이트 간에 볼륨을 이동하여 활성화할 수 있습니다.
+
+.루트 볼륨을 제자리에서 암호화합니다
+. 루트 볼륨을 암호화된 볼륨으로 변환:
++
+`volume encryption conversion start -vserver _svm_name_ -volume _volume_`
+
+. 암호화가 성공했는지 확인합니다. 를 클릭합니다 `volume show -encryption-type volume` NVE를 사용하는 모든 볼륨의 목록을 표시합니다.
+
+
+.SVM 루트 볼륨을 이동하여 암호화
+. 볼륨 이동 시작:
++
+`volume move start -vserver _svm_name_ -volume _volume_ -destination-aggregate _aggregate_ -encrypt-with-aggr-key false -encrypt-destination true`
+
++
+에 대한 자세한 내용은 `volume move`를 참조하십시오 xref:../volumes/move-volume-task.html[볼륨을 이동합니다].
+
+. 를 확인합니다 `volume move` 에서 작업이 성공했습니다 `volume move show` 명령. 를 클릭합니다 `volume show -encryption-type volume` NVE를 사용하는 모든 볼륨의 목록을 표시합니다.
+
+
+--
+.시스템 관리자
+--
+. ** 스토리지**>** 볼륨** 으로 이동합니다.
+. 암호화할 SVM 루트 볼륨의 이름 옆에 있는 를 선택합니다 image:icon_kabob.gif["세로 점 3개"] 그런 다음 ** 편집**.
+. ** 저장소 및 최적화** 제목 아래에서 ** 암호화 활성화** 를 선택합니다.
+. ** 저장**을 선택합니다.
+
+
+--
+====

@@ -15,7 +15,7 @@ summary: 대규모 애플리케이션 워크로드 관리 및 데이터 보호�
 
 계층적 일관성 그룹에는 최대 5개의 개별 일관성 그룹을 포함할 수 있는 부모가 있습니다. 계층적 일관성 그룹은 일관성 그룹 또는 개별 볼륨에서 서로 다른 로컬 스냅샷 정책을 지원할 수 있습니다. 원격 보호 정책을 사용하는 경우 전체 계층 일관성 그룹(상위 및 하위)에 적용됩니다.
 
-ONTAP 9.13.1 부터는 가능합니다 xref:modify-geometry-task.html[일관성 그룹의 구조를 수정합니다] 및 xref:modify-task.html[하위 일관성 그룹 간에 볼륨을 이동합니다].
+ONTAP 9.13.1부터 가능합니다 xref:modify-geometry-task.html[일관성 그룹의 구조를 수정합니다] 및 xref:modify-task.html[하위 일관성 그룹 간에 볼륨을 이동합니다].
 
 일관성 그룹의 개체 제한은 를 참조하십시오 xref:limits.html[일관성 그룹에 대한 개체 제한].
 
@@ -23,17 +23,21 @@ ONTAP 9.13.1 부터는 가능합니다 xref:modify-geometry-task.html[일관성 
 
 == 새 LUN 또는 볼륨이 있는 계층적 일관성 그룹을 생성합니다
 
-계층적 일관성 그룹을 생성할 때 새 LUN으로 이를 채울 수 있습니다. ONTAP 9.13.1 부터는 새로운 NVMe 네임스페이스 및 NAS 볼륨을 사용할 수도 있습니다.
+계층적 일관성 그룹을 생성할 때 새 LUN으로 이를 채울 수 있습니다. ONTAP 9.13.1부터 새로운 NVMe 네임스페이스와 NAS 볼륨을 사용할 수도 있습니다.
 
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
 .단계
 . 스토리지 > 정합성 보장 그룹 * 을 선택합니다.
 . Add * 를 선택한 다음 스토리지 객체에 대한 프로토콜을 선택합니다.
 +
-ONTAP 9.10.1 ~ 9.12.1에서 새 스토리지 객체에 대한 유일한 옵션은 ** 새 LUN 사용** 입니다. ONTAP 9.13.1 부터 System Manager는 새로운 NVMe 네임스페이스와 새로운 NAS 볼륨을 통해 일관성 그룹을 생성할 수 있도록 지원합니다.
+ONTAP 9.10.1 ~ 9.12.1에서 새 스토리지 객체에 대한 유일한 옵션은 ** 새 LUN 사용** 입니다. ONTAP 9.13.1부터 System Manager는 새로운 NVMe 네임스페이스와 새로운 NAS 볼륨이 있는 일관성 그룹을 생성할 수 있도록 지원합니다.
 
 . 일관성 그룹의 이름을 지정합니다. 볼륨 또는 LUN의 수와 볼륨 또는 LUN당 용량을 지정합니다.
 +
-.. ** 응용 프로그램 유형**: ONTAP 9.12.1 이상을 사용하는 경우 응용 프로그램 유형을 선택합니다. 값을 선택하지 않으면 기본적으로 정합성 보장 그룹에 ** 기타** 유형이 할당됩니다. 에서 일관성 태그 지정에 대해 자세히 알아보십시오 xref:index.html#application-and-component-tags[응용 프로그램 및 구성 요소 태그]. 원격 보호 정책을 사용하려는 경우 * 기타 * 를 선택해야 합니다.
+.. ** 응용 프로그램 유형**: ONTAP 9.12.1 이상을 사용하는 경우 응용 프로그램 유형을 선택합니다. 값을 선택하지 않으면 기본적으로 정합성 보장 그룹에 ** 기타** 유형이 할당됩니다. 에서 일관성 태그 지정에 대해 자세히 알아보십시오 xref:modify-tags-task.html[응용 프로그램 및 구성 요소 태그]. 원격 보호 정책을 사용하려는 경우 * 기타 * 를 선택해야 합니다.
 
 
 . 호스트 운영 체제 및 LUN 형식을 선택합니다. 호스트 이니시에이터 정보를 입력합니다.
@@ -51,12 +55,33 @@ ONTAP 9.10.1 ~ 9.12.1에서 새 스토리지 객체에 대한 유일한 옵션�
 . ONTAP 작업이 완료되면 표시되는 기본 일관성 그룹 메뉴로 돌아가 일관성 그룹이 생성되었는지 확인합니다. 보호 정책을 설정하는 경우 해당 정책, 원격 또는 로컬 아래에서 녹색 차폐가 체크 표시와 함께 표시되어야 합니다.
 
 
+--
+.CLI를 참조하십시오
+--
+ONTAP 9.14.1부터는 CLI를 사용하여 새로운 계층적 일관성 그룹을 생성할 수 있습니다.
+
+.단계
+. 를 사용하여 새 일관성 그룹을 생성합니다 `consistency-group create` 명령.
++
+를 클릭합니다 `volume-count` 매개 변수는 각 하위 정합성 보장 그룹의 볼륨 수를 설정합니다. 최대 5개의 하위 일관성 그룹을 포함하는 부모 일관성 그룹을 생성할 수 있습니다.
+
++
+`consistency-group create -vserver _SVM_name_ -consistency-group _consistency_group_name_ -parent-consistency-group _parent_consistency_group_name_ -cg-count _number_of_child_consistency_groups_ -volume _volume_prefix_ -volume-count _number_ -size _size_ -export-policy _policy_name_ -storage-service extreme`
+
+
+
+--
+====
 
 
 == 기존 볼륨을 포함하는 계층적 일관성 그룹을 생성합니다
 
 기존 볼륨을 계층적 일관성 그룹으로 구성할 수 있습니다.
 
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
 .단계
 . 스토리지 > 정합성 보장 그룹 * 을 선택합니다.
 . * + 추가 * 를 선택한 다음 * 기존 볼륨 사용 * 을 선택합니다.
@@ -74,6 +99,21 @@ ONTAP 9.10.1 ~ 9.12.1에서 새 스토리지 객체에 대한 유일한 옵션�
 . ONTAP 작업이 완료되면 표시되는 기본 일관성 그룹 메뉴로 돌아가 일관성 그룹이 생성되었는지 확인합니다. 보호 정책을 선택한 경우 메뉴에서 정합성 보장 그룹을 선택하여 정책이 올바르게 설정되었는지 확인합니다. 해당 정책 유형 아래에 녹색 차폐가 있고 확인 표시가 있습니다.
 
 
+--
+.CLI를 참조하십시오
+--
+ONTAP 9.14.1부터 CLI를 사용하여 계층적 일관성 그룹을 생성할 수 있습니다.
+
+.단계
+. 새 부모 정합성 보장 그룹을 프로비저닝하고 새 하위 정합성 보장 그룹에 볼륨을 할당합니다.
++
+`consistency-group create -vserver _svm_name_ -consistency-group _child_consistency_group_name_ -parent-consistency-group _parent_consistency_group_name_ -volumes _volume_names_`
+
+. 를 입력합니다 `y` 새 부모 및 자식 일관성 그룹을 생성하려면 다음을 수행합니다.
+
+
+--
+====
 .다음 단계
 * xref:xref:modify-geometry-task.html[일관성 그룹의 구조를 수정합니다]
 * xref:modify-task.html[일관성 그룹 수정]

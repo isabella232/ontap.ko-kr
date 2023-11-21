@@ -1,0 +1,59 @@
+---
+permalink: consistency-groups/modify-tags-task.html 
+sidebar: sidebar 
+keywords: consistency groups, application tag, sql, oracle, component tag 
+summary: 애플리케이션 및 구성 요소 태그는 관리 툴로서 일관성 그룹의 다양한 워크로드를 필터링하고 식별할 수 있습니다. 
+---
+= 응용 프로그램 및 구성 요소 태그를 수정합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.12.1부터 정합성 보장 그룹은 구성 요소 및 애플리케이션 태그 지정을 지원합니다. 애플리케이션 및 구성 요소 태그는 관리 툴로서 일관성 그룹의 다양한 워크로드를 필터링하고 식별할 수 있습니다.
+
+.이 작업에 대해
+정합성 보장 그룹은 다음 두 가지 유형의 태그를 제공합니다.
+
+* ** 응용 프로그램 태그**: 이러한 태그는 개별 및 부모 일관성 그룹에 적용됩니다. 애플리케이션 태그는 MongoDB, Oracle, SQL Server와 같은 워크로드에 대한 레이블링을 제공합니다. 일관성 그룹의 기본 애플리케이션 태그는 기타입니다.
+* ** 구성 요소 태그**: 계층적인 정합성 보장 그룹의 하위 요소에는 응용 프로그램 태그 대신 구성 요소 태그가 있습니다. 구성 요소 태그에 대한 옵션은 "데이터", "로그" 또는 "기타"입니다. 기본값은 기타 입니다.
+
+
+일관성 그룹을 생성하거나 일관성 그룹을 생성한 후에 태그를 적용할 수 있습니다.
+
+
+IMPORTANT: 정합성 보장 그룹에 SM-BC 관계가 있는 경우 * Other * 를 애플리케이션 또는 구성 요소 태그로 사용해야 합니다.
+
+.단계
+ONTAP 9.12.1부터 System Manager를 사용하여 응용 프로그램 및 구성 요소 태그를 수정할 수 있습니다. ONTAP 9.14.1부터 ONTAP CLI를 사용하여 응용 프로그램 및 구성 요소 태그를 수정할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+. 스토리지 > 정합성 보장 그룹 * 을 선택합니다.
+. 태그를 수정할 일관성 그룹을 선택합니다. 를 선택합니다 image:icon_kabob.gif["세 개의 겹쳐진 도트"] 일관성 그룹 이름 옆에 있는 * Edit * 를 클릭합니다.
+. 드롭다운 메뉴에서 적절한 응용 프로그램 또는 구성 요소 태그를 선택합니다.
+. 저장 * 을 선택합니다.
+
+
+--
+.CLI를 참조하십시오
+--
+ONTAP 9.14.1부터 ONTAP CLI를 사용하여 기존 일관성 그룹의 애플리케이션 또는 구성 요소 태그를 수정할 수 있습니다.
+
+.응용 프로그램 태그를 수정합니다
+. 애플리케이션 태그에는 제한된 수의 사전 설정 문자열을 사용할 수 있습니다. 허용되는 문자열 목록을 보려면 다음 명령을 실행합니다.
+`consistency-group modify -vserver _svm_name_ -consistency-group _consistency_group_ -application-type ?`
+. 출력에서 적절한 문자열을 선택하고 정합성 보장 그룹을 수정합니다.
+`consistency-group modify -vserver _svm_name_ -consistency-group _consistency_group_ -application-type application_type`
+
+
+.부품 태그를 수정합니다
+. 부품 유형을 수정합니다. 구성 요소 유형은 데이터, 로그 또는 기타일 수 있습니다. SM-BC를 사용하는 경우 "기타"여야 합니다.
+`consistency-group modify -vserver _svm_ -consistency-group _child_consistency_group_ -parent-consistency-group _parent_consistency_group_ -application-component-type [data|logs|other]`
+
+
+--
+====

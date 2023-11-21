@@ -31,7 +31,7 @@ ONTAP S3 리소스에 액세스하기 위한 세 가지 읽기 전용 기본 정
 
 또한 새 사용자 지정 정책을 만든 다음 새 사용자 및 그룹에 대한 새 문을 추가하거나 기존 문의 특성을 수정할 수도 있습니다. 자세한 옵션은 을 참조하십시오 `vserver object-store-server policy` link:https://docs.netapp.com/us-en/ontap-cli-9131/index.html["명령 참조"^].
 
-ONTAP 9.9.1 이상 릴리즈부터 ONTAP S3 서버에서 AWS 클라이언트 개체 태그 기능을 지원하려는 경우 버킷 또는 그룹 정책을 사용하여 GetObjectTagging, PutObjectTagging, DeleteObjectTagging 등의 작업을 허용해야 합니다.
+ONTAP 9.9.1부터 ONTAP S3 서버에서 AWS 클라이언트 개체 태그 지정 기능을 지원하려는 경우 해당 작업이 수행됩니다 `GetObjectTagging`, `PutObjectTagging`, 및 `DeleteObjectTagging` 버킷 또는 그룹 정책을 사용하여 허용되어야 합니다.
 
 다음 절차는 사용하는 인터페이스에 따라 다릅니다. -- System Manager 또는 CLI:
 

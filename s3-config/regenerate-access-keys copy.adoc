@@ -1,0 +1,47 @@
+---
+permalink: s3-config/regenerate-access-keys.html 
+sidebar: sidebar 
+keywords: regenerate, s3, access keys, secret keys 
+summary: S3 클라이언트에 액세스하기 위한 키를 다시 생성하고 유효성을 변경할 수 있습니다. 
+---
+= 키를 다시 생성하고 보존 기간을 수정합니다
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+해당 사용자를 생성할 때 사용자의 S3 클라이언트 액세스에 대한 액세스 키와 비밀 키가 자동으로 생성됩니다. 키가 만료되거나 손상된 경우 사용자의 키를 다시 생성할 수 있습니다.
+
+선택키 생성에 대한 자세한 내용은 을 참조하십시오 link:../s3-config/create-s3-user-task.html["S3 사용자를 생성합니다"].
+
+[role="tabbed-block"]
+====
+.CLI를 참조하십시오
+--
+. 를 실행하여 사용자의 액세스 및 비밀 키를 다시 생성합니다 `vserver object-store-server user regenerate-keys` 명령.
+. 기본적으로 생성된 키는 무기한으로 유효합니다. 9.14.1부터 키가 자동으로 만료되는 보존 기간을 수정할 수 있습니다. 다음 형식으로 보존 기간을 추가할 수 있습니다. `P[<integer>D]T[<integer>H][<integer>M][<integer>S] | P<integer>W`
+예를 들어 1일, 2시간, 3분, 4초의 보존 기간을 입력하려면 값을 로 입력합니다 `P1DT2H3M4S`.
++
+[listing]
+----
+vserver object-store-server user regenerate-keys -vserver svm_name -user user -key-time-to-live 0
+----
+. 액세스 키와 비밀 키를 저장합니다. S3 클라이언트에서 액세스하는 데 필요합니다.
+
+
+--
+.시스템 관리자
+--
+. 스토리지 > 스토리지 VM * 을 클릭한 다음 스토리지 VM을 선택합니다.
+. 설정 * 탭에서 을 클릭합니다 image:icon_pencil.gif["편집 아이콘"] S3 * 타일에서.
+. 사용자 * 탭에서 액세스 키가 없거나 사용자의 키가 만료되었는지 확인합니다.
+. 키를 다시 생성해야 하는 경우 을 클릭합니다 image:icon_kabob.gif["추가 아이콘"] 사용자 옆에 있는 * 키 재생성 * 을 클릭합니다.
+. 기본적으로 생성된 키는 무기한으로 유효합니다. 9.14.1부터 키가 자동으로 만료되는 보존 기간을 수정할 수 있습니다. 보존 기간을 일, 시간, 분 또는 초로 입력합니다.
+. 저장 * 을 클릭합니다. 키가 재생성됩니다. 키 보존 기간의 변경 사항은 즉시 적용됩니다.
+. 액세스 키와 비밀 키를 다운로드하거나 저장합니다. S3 클라이언트에서 액세스하는 데 필요합니다.
+
+
+--
+====

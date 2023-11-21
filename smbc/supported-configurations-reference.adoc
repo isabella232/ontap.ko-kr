@@ -61,13 +61,19 @@ SM-BC 환경에서 계획되지 않은 사이트 장애 조치 전환이 발생�
 
 
 
+== Windows 장애 조치 클러스터링
+
+ONTAP 9.14.1부터 Windows 페일오버 클러스터링은 SM-BC에서 지원됩니다. 자세한 내용은 을 참조하십시오 link:https://www.netapp.com/pdf.html?item=/media/21888-tr-4878.pdf["TR-4878: SnapMirror 비즈니스 연속성"^].
+
+
+
 == ONTAP 통합
 
 SM-BC는 ONTAP의 기타 기능을 지원합니다.
 
 * 팬아웃 구성
-* NDMP 복제(ONTAP 9.13.1 시작)
-* 부분 파일 복원(ONTAP 9.12.1 시작)
+* NDMP 복사(ONTAP 9.13.1부터)
+* 부분 파일 복원(ONTAP 9.12.1부터)
 
 
 
@@ -86,7 +92,7 @@ image:fanout-diagram.png["팬아웃 구성의 다이어그램"]
 
 SM-BC 지원 xref:../data-protection/supported-deployment-config-concept.html[팬아웃 구성] 를 사용하여 `MirrorAllSnapshots` 정책 및 은 ONTAP 9.11.1부터 시작됩니다 `MirrorAndVault` 정책. 의 SM-BC에서는 팬아웃 구성이 지원되지 않습니다 `XDPDefault` 정책.
 
-팬아웃 구성의 SM-BC 대상에서 페일오버가 발생하면 수동으로 페일오버해야 합니다 xref:smbc_admin_what_happens_during_an_automatic_unplanned_failover.html#resume-protection-in-a-fan-out-configuration-after-failover[팬아웃 구성에서 보호를 재개합니다].
+팬아웃 구성에서 SM-BC 대상에서 페일오버가 발생하는 경우 수동으로 수행해야 합니다 xref:smbc_admin_what_happens_during_an_automatic_unplanned_failover.html#resume-protection-in-a-fan-out-configuration-after-failover[팬아웃 구성에서 보호를 재개합니다].
 
 
 

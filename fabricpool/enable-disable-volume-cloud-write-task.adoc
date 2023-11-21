@@ -1,0 +1,104 @@
+---
+permalink: fabricpool/enable-disable-volume-cloud-write-task.html 
+sidebar: sidebar 
+keywords: creating, volume, fabricpool, cloud write, enable, disable 
+summary: ONTAP 9.14.1부터 FabricPool의 신규 볼륨 또는 기존 볼륨에 대해 클라우드 쓰기 모드를 활성화 및 비활성화하여 NFS 클라이언트가 클라우드에 직접 데이터를 쓸 수 있도록 할 수 있습니다. 
+---
+= 볼륨을 클라우드에 직접 쓰도록 설정 및 해제합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.14.1부터 FabricPool의 신규 볼륨 또는 기존 볼륨에 대해 클라우드 쓰기 모드를 사용하거나 사용하지 않도록 설정하여 NFS 클라이언트가 계층화 스캔을 기다리지 않고도 클라우드에 직접 데이터를 쓸 수 있도록 할 수 있습니다. SMB 클라이언트는 여전히 클라우드 쓰기 지원 볼륨의 성능 계층에 데이터를 씁니다. 클라우드 쓰기 모드는 기본적으로 비활성화되어 있습니다.
+
+클라우드 쓰기 모드는 클러스터가 로컬 계층에서 지원할 수 있는 양보다 많은 양의 데이터를 클러스터로 전송하는 마이그레이션과 같은 경우에 유용합니다. 클라우드 쓰기 모드를 사용하지 않으면 마이그레이션 중에 더 적은 양의 데이터가 전송된 후 계층화한 다음, 마이그레이션이 완료될 때까지 다시 전송 및 계층화됩니다. 클라우드 쓰기 모드를 사용하면 데이터가 로컬 계층으로 전송되지 않기 때문에 이러한 유형의 관리가 더 이상 필요하지 않습니다.
+
+.시작하기 전에
+* 클러스터 또는 SVM 관리자여야 합니다.
+* advanced 권한 수준이어야 합니다.
+* 볼륨은 읽기-쓰기 유형 볼륨이어야 합니다.
+* 볼륨에 모든 계층화 정책이 있어야 한다.
+
+
+
+
+== 볼륨 생성 중에 클라우드 쓰기를 지원합니다
+
+.단계
+. 권한 수준을 고급으로 설정합니다.
++
+[source, cli]
+----
+set -privilege advanced
+----
+. 볼륨 생성 및 클라우드 쓰기 모드 활성화:
++
+[source, cli]
+----
+volume create -volume <volume name> -is-cloud-write-enabled <true|false> -aggregate <local tier name>
+----
++
+다음 예에서는 FabricPool 로컬 계층(aggr1)에 클라우드 쓰기가 설정된 vol1이라는 볼륨을 생성합니다.
+
++
+[listing]
+----
+volume create -volume vol1 -is-cloud-write-enabled true -aggregate aggr1
+----
+
+
+
+
+== 기존 볼륨에서 클라우드 쓰기를 지원합니다
+
+.단계
+. 권한 수준을 고급으로 설정합니다.
++
+[source, cli]
+----
+set -privilege advanced
+----
+. 클라우드 쓰기 모드를 사용하도록 볼륨을 수정합니다.
++
+[source, cli]
+----
+volume modify -volume <volume name> -is-cloud-write-enabled <true|false> -aggregate <local tier name>
+----
++
+다음 예에서는 vol1이라는 볼륨을 FabricPool 로컬 계층(aggr1)에 클라우드 쓰기가 활성화된 상태로 수정합니다.
+
++
+[listing]
+----
+volume modify -volume vol1 -is-cloud-write-enabled true -aggregate aggr1
+----
+
+
+
+
+== 볼륨에 대한 클라우드 쓰기를 비활성화합니다
+
+.단계
+. 권한 수준을 고급으로 설정합니다.
++
+[source, cli]
+----
+set -privilege advanced
+----
+. 클라우드 쓰기 모드 비활성화:
++
+[source, cli]
+----
+volume modify -volume <volume name> -is-cloud-write-enabled <true|false> -aggregate <aggregate name>
+----
++
+다음 예에서는 클라우드 쓰기가 활성화된 vol1이라는 볼륨을 생성합니다.
+
++
+[listing]
+----
+volume modify -volume vol1 -is-cloud-write-enabled false -aggregate aggr1
+----
+
