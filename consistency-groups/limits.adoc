@@ -52,4 +52,4 @@ summary: 일관성 그룹을 계획할 때는 주의해야 할 오브젝트 제�
 
 == 시행되지 않은 제한
 
-스냅샷 복사본 일정의 최소 값은 30분을 유지하는 것이 좋습니다.  이 권장 사항은 을 기반으로 합니다 link:https://www.netapp.com/media/12385-tr4571.pdf["FlexGroups 테스트"^]정합성 보장 그룹과 동일한 Snapshot 인프라를 공유합니다.
+일관성 그룹에 대해 지원되는 최소 스냅샷 복사본 일정은 30분입니다. 이는 을 기반으로 합니다 link:https://www.netapp.com/media/12385-tr4571.pdf["FlexGroups 테스트"^]정합성 보장 그룹과 동일한 Snapshot 인프라를 공유합니다.

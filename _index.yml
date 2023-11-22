@@ -13,7 +13,7 @@ indexpage:
     - title: ONTAP 개념
       url: "/concepts/index.html"
     - title: ONTAP 설명서 페이지
-      url: https://docs.netapp.com/us-en/ontap-cli-9131/index.html
+      url: https://docs.netapp.com/us-en/ontap-cli-9141/index.html
   - title: 설정, 업그레이드 및 되돌리기
     links:
     - title: 모든 항목
