@@ -36,7 +36,7 @@ ns-switch modify -vserver <vserver-name> -database group -sources files,ldap
 ns-switch modify -vserver <vserver-name> -database passwd -sources files,ldap
 ----
 +
-이 명령에 대한 자세한 내용은 를 참조하십시오 `vserver services name-service ns-switch modify` 명령.
+이 명령에 대한 자세한 내용은 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli-9141/vserver-services-name-service-ns-switch-modify.html["SVM 서비스 이름 - 서비스 ns - 스위치 수정"] 명령.
 
 . S3 사용자 REST API 끝점에 액세스하여 사용자 지정 역할 생성:
 `security login rest-role create -vserver <vserver-name> -role <custom-role-name> -api "/api/protocols/s3/services/*/users" -access <access-type>`
@@ -47,9 +47,9 @@ ns-switch modify -vserver <vserver-name> -database passwd -sources files,ldap
 security login rest-role create -vserver svm-1 -role s3role -api "/api/protocols/s3/services/*/users" -access all
 ----
 +
-이 명령에 대한 자세한 내용은 를 참조하십시오 `security login rest-role create` 명령.
+이 명령에 대한 자세한 내용은 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli-9141/security-login-rest-role-create.html["보안 로그인 REST-ROLE 생성"] 명령.
 
-. security login 명령으로 LDAP 사용자 그룹을 생성하고 S3 사용자 REST API 끝점에 액세스하기 위한 새 사용자 지정 역할을 추가합니다. 이 명령에 대한 자세한 내용은 를 참조하십시오 `security login create` 명령.
+. security login 명령으로 LDAP 사용자 그룹을 생성하고 S3 사용자 REST API 끝점에 액세스하기 위한 새 사용자 지정 역할을 추가합니다. 이 명령에 대한 자세한 내용은 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli-9141//security-login-create.html["보안 로그인 생성"] 명령.
 +
 [listing]
 ----
