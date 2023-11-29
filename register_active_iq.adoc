@@ -5,17 +5,14 @@ keywords: register with active iq, active iq, register, log on, log in, support 
 summary: System Manager의 특정 측정값에 시스템의 스토리지 용량이 반영됩니다. 
 ---
 = Active IQ에 등록하십시오
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

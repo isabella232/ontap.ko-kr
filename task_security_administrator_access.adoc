@@ -5,17 +5,14 @@ keywords: netapp, ontap, role based access control, rbac, assign, access, assign
 summary: 특정_역할_을 관리자에게 할당하여 관리자가 System Manager에서 수행할 수 있는 기능을 지정할 수 있습니다. 
 ---
 = 관리자 액세스 제어
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

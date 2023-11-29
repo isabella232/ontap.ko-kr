@@ -5,17 +5,14 @@ keywords: system manager, netapp, ontap, overview, download, downloading, networ
 summary: ONTAP 9.8부터 네트워크에 대한 System Manager 데이터를 다운로드하여 보고서를 작성할 수 있습니다. 
 ---
 = 보고를 위해 네트워크 데이터를 다운로드하는 중입니다
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

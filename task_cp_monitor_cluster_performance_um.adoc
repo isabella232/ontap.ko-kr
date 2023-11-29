@@ -5,17 +5,14 @@ keywords: netapp, ontap, cluster, performance, monitor, monitoring, unified mana
 summary: NetApp Active IQ Unified Manager를 사용하면 시스템 관리를 단순화하고 스토리지 상태를 모니터링할 수 있습니다. 
 ---
 = Unified Manager로 클러스터 성능 모니터링
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

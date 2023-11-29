@@ -5,17 +5,14 @@ keywords: s3 snapmirror buckets, snapmirror buckets SVM, s3 snapmirror data prot
 summary: ONTAP 9.10.1부터 친숙한 SnapMirror 미러링 및 백업 기능을 사용하여 ONTAP S3 오브젝트 저장소의 버킷을 보호할 수 있습니다 
 ---
 = S3 SnapMirror 개요
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ../media/
-:toc-position: content
 
 
 [role="lead"]

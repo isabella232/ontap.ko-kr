@@ -5,17 +5,14 @@ keywords: anti-ransomware workloads, anti-ransomware requirements, anti-ransomwa
 summary: ARP는 NAS 워크로드에 대해 지원됩니다. NFS 스토리지의 데이터베이스, Windows 또는 Linux 홈 디렉토리, 비디오 및 이미지 워크로드에 가장 적합합니다. 
 ---
 = 자율 랜섬웨어 보호 사용 사례 및 고려사항
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ../media/
-:toc-position: content
 
 
 [role="lead"]

@@ -5,17 +5,14 @@ keywords: system manager, monitor, risk, risks, suggestion, suggestions, mitigat
 summary: ONTAP 9.10.0 이상의 시스템 관리자를 사용하여 Active IQ 디지털 어드바이저가 보고한 위험을 모니터링할 수 있습니다. 
 ---
 = 위험 모니터링
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

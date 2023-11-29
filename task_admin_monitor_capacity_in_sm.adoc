@@ -5,7 +5,14 @@ keywords: used storage, local tier capacity, aggregate capacity, add capacity, u
 summary: System Manager를 사용하면 사용된 스토리지 용량과 클러스터, 로컬 계층 또는 스토리지 VM에 대해 사용 가능한 스토리지 용량을 모니터링할 수 있습니다. 
 ---
 = System Manager에서 용량을 모니터링합니다
+:hardbreaks:
+:toclevels: 1
 :allow-uri-read: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
 
 
 [role="lead"]

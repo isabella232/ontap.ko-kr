@@ -5,17 +5,14 @@ keywords: netapp, ontap, snapshot copy, snapshots, configure lifs, intercluster 
 summary: 데이터 백업 및 재해 복구를 위해 데이터를 원격 클러스터로 복제하여 보호할 수 있습니다. 
 ---
 = 미러링 및 보관 준비
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

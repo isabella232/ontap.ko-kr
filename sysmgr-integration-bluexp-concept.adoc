@@ -5,17 +5,14 @@ keywords: netapp, ontap, system manager, experience, integrate, integration, blu
 summary: ONTAP 9.12.1부터 시스템 관리자는 BlueXP와 완벽하게 통합됩니다. BlueXP를 사용하면 친숙한 System Manager 대시보드를 유지하면서 단일 제어 플레인에서 하이브리드 멀티 클라우드 인프라를 관리할 수 있습니다. 
 ---
 = System Manager와 BlueXP의 통합
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

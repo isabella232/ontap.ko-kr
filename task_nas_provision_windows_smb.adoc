@@ -5,17 +5,14 @@ keywords: nas, windows, servers, provision, cifs, share access permissions, shar
 summary: ONTAP 9.7 이상 ONTAP 9 릴리즈에서 제공되는 System Manager를 사용하여 SMB 프로토콜을 사용하여 Windows 서버용 스토리지를 제공할 볼륨을 생성합니다. 
 ---
 = SMB를 사용하여 Windows 서버용 NAS 스토리지 용량 할당
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

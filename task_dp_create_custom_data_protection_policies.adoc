@@ -5,17 +5,14 @@ keywords: netapp, ontap, system manager, VM, protection, data protection, policy
 summary: 기존 기본 보호 정책이 요구사항에 적합하지 않은 경우 System Manager를 사용하여 사용자 지정 정책을 생성할 수 있습니다. 
 ---
 = 사용자 지정 데이터 보호 정책을 생성합니다
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

@@ -5,17 +5,14 @@ keywords: anti-ransomware, ransomware, pause, autonomous, protection, arp
 summary: 비정상적인 워크로드 이벤트가 발생할 것으로 예상되는 경우 언제든지 Autonomous 랜섬웨어 Protection 분석을 일시적으로 중지하고 재개할 수 있습니다. 
 ---
 = Autonomous 랜섬웨어 Protection을 일시 중지하여 워크로드 이벤트를 분석에서 제외합니다
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

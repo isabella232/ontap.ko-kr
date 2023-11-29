@@ -5,7 +5,14 @@ keywords: system manager, monitor, capacity, measurement, maximum capacity limit
 summary: ONTAP 9.13.1 부터는 System Manager를 사용하여 스토리지 VM에 대한 최대 용량 제한을 설정하고 사용된 스토리지가 최대 용량의 특정 비율에 도달하면 경고를 트리거하도록 임계값을 설정할 수 있습니다. 
 ---
 = System Manager에서 스토리지 VM의 최대 용량 제한을 관리합니다
+:hardbreaks:
+:toclevels: 1
 :allow-uri-read: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
 
 
 [role="lead"]

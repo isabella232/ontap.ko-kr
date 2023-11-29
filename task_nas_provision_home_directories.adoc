@@ -5,17 +5,14 @@ keywords: netapp, ontap, provisioning, nas, provision, home, directories, SMB, C
 summary: 볼륨을 생성하여 SMB 프로토콜을 사용하여 홈 디렉토리에 대한 스토리지를 제공합니다. 
 ---
 = 홈 디렉토리를 위한 NAS 스토리지 용량 할당
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

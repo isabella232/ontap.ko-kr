@@ -5,17 +5,14 @@ keywords: netapp, ontap, rest, rest api, rest api log, api log, rest overview
 summary: REST API 로그는 System Manager에서 ONTAP로 발급하는 API 호출을 캡처합니다. 로그를 사용하여 다양한 ONTAP 관리 작업을 수행하는 데 필요한 API 호출의 특성과 순서를 이해할 수 있습니다. 
 ---
 = System Manager를 통한 REST API 관리
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

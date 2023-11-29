@@ -5,17 +5,14 @@ keywords: netapp, ontap, provisioning, nas, vmware, datastores, nfs, provision, 
 summary: 'VMware vSphere(VSC)용 가상 스토리지 콘솔을 사용하여 ESXi 호스트용 ONTAP 기반 스토리지 시스템에서 NFS 볼륨을 프로비저닝하기 전에 ONTAP 9.7 이상용 System Manager를 사용하여 NFS를 사용하도록 설정하십시오.' 
 ---
 = VMware 데이터 저장소에 NFS 스토리지를 프로비저닝합니다
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

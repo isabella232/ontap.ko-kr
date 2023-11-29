@@ -5,17 +5,14 @@ keywords: anti-ransomware overview, ransomware, security, introduce, autotonomou
 summary: 자율적 랜섬웨어 방어는 학습 모드에서 활성화되어 워크로드 분석을 통해 정상 동작의 특성을 분석합니다. 활성 모드에서는 비정상적인 활동이 플래그 표시됩니다. 
 ---
 = 자율주행 랜섬웨어 보호 활성화
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

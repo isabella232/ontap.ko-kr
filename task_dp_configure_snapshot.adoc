@@ -5,17 +5,14 @@ keywords: netapp, ontap, snapshot, copies, copy, snap, shot, backup, back up, po
 summary: 스냅샷 복사본 정책은 스냅샷 복사본의 생성, 보존 및 이름을 관리합니다 
 ---
 = 스냅샷 복사본을 구성합니다
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

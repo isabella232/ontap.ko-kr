@@ -5,17 +5,14 @@ keywords: monitor file, evaluate file activity, assess capacity usage, capacity 
 summary: 파일 시스템 분석은 FlexGroup 또는 FlexVol 볼륨의 콘텐츠에 대한 데이터를 수집하고 표시하기 위한 프레임워크입니다. 
 ---
 = 파일 시스템 분석 개요
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

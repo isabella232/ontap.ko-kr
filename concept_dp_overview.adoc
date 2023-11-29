@@ -5,17 +5,14 @@ keywords: netapp, ontap, protection, overview, data, protect, loss, backup, back
 summary: 스냅샷 복사본, 미러링, 볼트, 미러 및 소산 관계를 작성하고 관리하여 데이터를 보호합니다. 
 ---
 = System Manager의 데이터 보호 개요
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

@@ -5,17 +5,14 @@ keywords: netapp, ontap, kerberos, security, client access, group permissions, u
 summary: NAS 클라이언트에 대한 스토리지 액세스를 보호하기 위해 Kerberos를 설정합니다. 
 ---
 = Kerberos를 통한 클라이언트 액세스 보안
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

@@ -5,17 +5,14 @@ keywords: netapp, ontap, san, provisioning, linux, servers, provision, storage, 
 summary: LUN을 생성하여 FC 또는 iSCSI SAN 프로토콜을 사용하여 호스트에 스토리지를 제공합니다. LUN은 호스트에 디스크로 표시됩니다. 
 ---
 = SAN 스토리지 용량 할당
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

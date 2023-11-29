@@ -5,17 +5,14 @@ keywords: netapp, ontap, provision, provisioning, nas, large file systems, using
 summary: FlexGroup 볼륨은 자동 로드 분산과 함께 고성능을 제공하는 확장 가능한 NAS 컨테이너입니다. FlexGroup 볼륨은 관리 오버헤드를 추가하지 않고 FlexVol 볼륨 제한을 크게 초과하는 페타바이트급 용량을 제공합니다. 
 ---
 = FlexGroup 볼륨을 사용하여 대용량 파일 시스템용 NAS 스토리지를 프로비저닝합니다
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

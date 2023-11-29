@@ -5,17 +5,14 @@ keywords: netapp, ontap, file, access, control, using, export, policies, manage 
 summary: 내보내기 정책을 사용하여 NFS 서버에 대한 Linux 클라이언트 액세스를 설정합니다 
 ---
 = 내보내기 정책을 사용하여 액세스를 관리합니다
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

@@ -5,10 +5,10 @@ indexpage:
     links:
     - title: SAN 관리 개요
       url: "/../san-admin/index.html"
-    - title: SnapMirror 비즈니스 연속성 개요
-      url: "/../concept_san_smbc_overview.html"
     - title: SAN 구성 개요
       url: "/../san-config/index.html"
+    - title: SnapMirror 비즈니스 연속성 개요
+      url: "/../concept_san_smbc_overview.html"
   - title: 스토리지 프로비저닝
     links:
     - title: SAN 스토리지 용량 할당

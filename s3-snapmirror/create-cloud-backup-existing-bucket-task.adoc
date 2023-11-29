@@ -5,17 +5,14 @@ keywords: create a backup relationship for an existing bucket, backup relationsh
 summary: ONTAP 9.10.1 이전 릴리즈에서 S3 구성을 업그레이드한 경우와 같이 언제든지 기존 S3 버킷 백업을 시작할 수 있습니다. 
 ---
 = 기존 버킷(클라우드 타겟)에 대한 백업 관계 생성
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ../media/
-:toc-position: content
 
 
 [role="lead"]

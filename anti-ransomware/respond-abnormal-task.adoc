@@ -5,17 +5,14 @@ keywords: abnormal activity, data entropy, unusual file extensions, potential ra
 summary: ARP 알림에 응답하여 랜섬웨어 공격이 진행 중인지 여부를 파악하는 방법에 대해 알아보십시오. 
 ---
 = 비정상적인 활동에 응답합니다
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

@@ -246,6 +246,15 @@ NFSv4.2
 
 
  a| 
+ONTAP S3
+ a| 
+예
+ a| 
+아니요
+
+
+
+ a| 
 QoS를 참조하십시오
  a| 
 예
@@ -275,15 +284,6 @@ Qtree
 
 
 NOTE: ONTAP 9.6부터 FlexCache 볼륨에서 원격 할당량(rquota)이 지원됩니다.
-
-
-
- a| 
-S3 프로토콜
- a| 
-예
- a| 
-아니요
 
 
 

@@ -5,17 +5,14 @@ keywords: netapp, ontap, cluster, node, local tier, cloud tier, aggregate, SVM, 
 summary: ONTAP에 대한 간략한 소개와 현재 고객을 위한 몇 가지 용어 변경 사항 
 ---
 = 주요 개념
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

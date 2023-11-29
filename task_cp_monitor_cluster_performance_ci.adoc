@@ -5,17 +5,14 @@ keywords: netapp, ontap, cluster, performance, monitor, monitoring, headroom, cp
 summary: Cloud Insights을 사용하면 퍼블릭 클라우드 및 프라이빗 데이터 센터를 비롯한 모든 리소스에 대한 모니터링, 문제 해결 및 최적화 등이 가능합니다. 
 ---
 = Cloud Insights로 클러스터 성능 모니터링
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

@@ -5,17 +5,14 @@ keywords: SM-BC, snapmirror business continuity, consistency group, remote prote
 summary: 비즈니스 연속성을 위해 보호를 구성하려면 ONTAP 소스 클러스터에서 LUN을 선택하고 일관성 그룹에 추가해야 합니다. 
 ---
 = SnapMirror Business Continuity를 통해 보호
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

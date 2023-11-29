@@ -27,8 +27,10 @@ indexpage:
       url: "/../authentication/setup-ssh-multifactor-authentication-task.html"
     - title: Active Directory 도메인 컨트롤러 액세스 개요
       url: "/../authentication/enable-ad-users-groups-access-cluster-svm-task.html"
-    - title: 다중 관리 검증(ONTAP 9.11.1의 새로운 기능)
+    - title: 다중 관리 검증
       url: "/../multi-admin-verify/index.html"
+    - title: Oath2 인증(ONTAP 9.14.1의 새로운 기능)
+      url: "/../authentication/overview-oauth2.html"
   - title: 안티바이러스
     links:
     - title: Vscan 서버 설치 및 구성
@@ -69,7 +71,7 @@ indexpage:
     links:
     - title: 사용 사례 및 제한사항
       url: "/../anti-ransomware/use-cases-restrictions-concept.html"
-    - title: 랜섬웨어 방지 지원
+    - title: 자율주행 랜섬웨어 보호 활성화
       url: "/../anti-ransomware/enable-task.html"
     - title: 비정상적인 활동에 응답합니다
       url: "/../anti-ransomware/respond-abnormal-task.html"

@@ -5,17 +5,14 @@ keywords: netapp, ontap, upgrade, nondisruptive, nondisruptively, non-disruptive
 summary: 클러스터에서 ONTAP 버전을 중단 없이 업데이트할 수 있습니다. 
 ---
 = 자동화된 중단 ONTAP 업그레이드(단일 노드 클러스터만 해당)
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

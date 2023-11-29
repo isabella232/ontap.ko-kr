@@ -5,17 +5,14 @@ keywords: netapp, ontap, provisioning, nas, vmware, datastores, nfs, provision, 
 summary: NFS 프로토콜을 사용하여 VMware 데이터 저장소를 제공할 볼륨을 생성합니다. 
 ---
 = VMware 데이터 저장소에 NAS 스토리지 용량 할당
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

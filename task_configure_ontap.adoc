@@ -5,17 +5,14 @@ keywords: install, installing, cluster, set up, setup, configure, disk, data por
 summary: System Manager는 클러스터를 설정하고 스토리지를 구성하기 위한 간단하고 쉬운 워크플로우를 제공합니다. 
 ---
 = System Manager를 사용하여 새 클러스터에서 ONTAP를 구성합니다
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

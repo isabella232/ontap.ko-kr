@@ -5,17 +5,14 @@ keywords: ontap, netapp, modify storage VM, enable NAS, provision NAS storage, N
 summary: 스토리지 VM을 수정하여 SMB 서버에서 Windows 클라이언트에 데이터를 제공할 수 있도록 지원 
 ---
 = SMB를 사용하여 Windows 서버용 NAS 스토리지를 설정합니다
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

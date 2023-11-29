@@ -5,17 +5,14 @@ keywords: netapp, ontap, name mapping, multiprotocol, povision NAS, linux, windo
 summary: NFS 또는 SMB 프로토콜을 사용하여 스토리지를 제공할 볼륨을 생성합니다 
 ---
 = NFS와 SMB를 모두 사용하여 Windows 및 Linux 모두에 대해 NAS 스토리지를 프로비저닝합니다
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

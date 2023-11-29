@@ -5,17 +5,14 @@ keywords: system manager, security, data, file, access, problems, troubleshootin
 summary: ONTAP 9.8부터 파일 액세스 문제를 추적하고 볼 수 있습니다. 
 ---
 = 파일 액세스 문제를 진단하고 해결합니다
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 .단계

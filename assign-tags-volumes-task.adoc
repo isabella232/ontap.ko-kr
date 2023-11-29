@@ -5,17 +5,14 @@ keywords: netapp, ontap, volume, tag
 summary: 'ONTAP 9.14.1부터는 System Manager를 사용하여 볼륨에 태그를 할당하여 범주(예: 프로젝트 또는 비용 센터)에 속하는 오브젝트를 식별할 수 있습니다.' 
 ---
 = 볼륨에 태그를 할당합니다
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

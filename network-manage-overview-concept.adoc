@@ -5,17 +5,14 @@ keywords: netapp, ontap, overview, network, ipspace, broadcast domain, subnet, n
 summary: 이 섹션의 항목에서는 IPspace, 브로드캐스트 도메인, 서브넷, 네트워크 인터페이스, 이더넷 포트, 데이터 포트 등의 스토리지 시스템 네트워크를 및 FC/FCoE 어댑터 - ONTAP 9.7 이상 릴리즈에서는 System Manager를 사용합니다. 
 ---
 = System Manager를 사용한 네트워크 관리 개요
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

@@ -5,17 +5,14 @@ keywords: netapp, ontap, nfs, active clients
 summary: System Manager는 클러스터에서 NFS 라이센스가 부여될 때 활성화된 NFS 클라이언트 연결을 표시합니다 
 ---
 = NFS 활성 클라이언트를 모니터링합니다
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

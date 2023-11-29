@@ -5,17 +5,14 @@ keywords: metrocluster, configuration, config, mcc, HA, cluster
 summary: ONTAP 9.8부터 System Manager를 사용하여 MetroCluster 작업의 IP 구성을 관리할 수 있습니다. 2개의 클러스터를 설정하고 피어링을 설정한 후 각 클러스터를 구성합니다. 
 ---
 = IP MetroCluster 사이트를 구성합니다
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

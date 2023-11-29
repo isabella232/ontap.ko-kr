@@ -5,17 +5,14 @@ keywords: system manager, volume, storage, add, increase storage, create, add lu
 summary: LUN을 생성하여 SAN 프로토콜로 구성된 기존 스토리지 VM에 추가할 수 있습니다. LUN을 그룹화하거나 이름을 바꿀 수도 있습니다. 
 ---
 = LUN 관리
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

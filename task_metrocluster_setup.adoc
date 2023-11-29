@@ -5,17 +5,14 @@ keywords: system manager, metrocluster, set up, setup, start, initialize, cluste
 summary: ONTAP 9.8부터 System Manager를 사용하여 MetroCluster 사이트의 IP 구성을 설정할 수 있습니다. 
 ---
 = IP MetroCluster 사이트를 설정합니다
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

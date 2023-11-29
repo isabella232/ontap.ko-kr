@@ -5,17 +5,14 @@ keywords: system manager, manage, metrocluster, clusters, nodes, mcc, HA, config
 summary: ONTAP 9.8부터 System Manager로 MetroCluster 운영을 관리할 수 있습니다. 
 ---
 = System Manager를 사용한 MetroCluster 사이트 관리 개요
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

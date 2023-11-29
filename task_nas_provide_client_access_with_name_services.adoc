@@ -5,17 +5,14 @@ keywords: netapp, ontap, name services, client access, LDAP, NIS, authenticate N
 summary: LDAP 또는 NIS를 사용하여 NAS 클라이언트를 인증합니다 
 ---
 = 이름 서비스를 사용하여 클라이언트 액세스 제공
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

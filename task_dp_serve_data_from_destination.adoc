@@ -5,17 +5,14 @@ keywords: netapp, ontap, node failure, cluster failure, cluster peering, SVM pee
 summary: 소스를 사용할 수 없게 될 때 미러 대상에서 데이터를 제공하려면 대상에 대한 예약된 전송을 중지한 다음 SnapMirror 관계를 끊어 대상을 쓰기 가능으로 만듭니다. 
 ---
 = SnapMirror 대상에 데이터를 제공합니다
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

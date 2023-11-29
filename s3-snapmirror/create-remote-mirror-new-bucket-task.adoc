@@ -5,30 +5,27 @@ keywords: 'create a mirror relationship for a new bucket (remote cluster), prote
 summary: 새 S3 버킷을 생성할 때 원격 클러스터의 S3 SnapMirror 타겟으로 즉시 보호할 수 있습니다. 
 ---
 = 새 버킷에 대한 미러 관계 생성(원격 클러스터)
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ../media/
-:toc-position: content
 
 
 [role="lead"]
 새 S3 버킷을 생성할 때 원격 클러스터의 S3 SnapMirror 타겟으로 즉시 보호할 수 있습니다.
 
-.필요한 것
+.이 작업에 대해
+소스 시스템과 대상 시스템 모두에서 작업을 수행해야 합니다.
+
+.시작하기 전에
 * ONTAP 버전, 라이센스 및 S3 서버 구성에 대한 요구사항이 완료되었습니다.
 * 소스 클러스터와 대상 클러스터 간에 피어링 관계가 있으며, 소스 및 대상 스토리지 VM 간에 피어링 관계가 있습니다.
 * 소스 및 대상 VM에 CA 인증서가 필요합니다. 자체 서명된 CA 인증서 또는 외부 CA 공급업체에서 서명한 인증서를 사용할 수 있습니다.
 
-
-.이 작업에 대해
-소스 시스템과 대상 시스템 모두에서 작업을 수행해야 합니다.
 
 [role="tabbed-block"]
 ====

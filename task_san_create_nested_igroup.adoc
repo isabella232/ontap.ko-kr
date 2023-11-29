@@ -5,17 +5,14 @@ keywords: netapp, ontap, san, provisioning, create LUN, FC, iSCSI, map, lun, igr
 summary: igroup을 2개 이상의 LUN에 동시에 매핑합니다. 
 ---
 = 중첩된 igroup을 생성합니다
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

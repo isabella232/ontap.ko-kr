@@ -5,17 +5,14 @@ keywords: netapp, ontap, provisioning, nas, linux, servers, provision, LIF, netw
 summary: 'ONTAP System Manager(9.7 이상)에서 NFS 프로토콜을 사용하여 Linux 서버용 스토리지를 제공할 볼륨 생성' 
 ---
 = NFS를 사용하여 Linux 서버용 NAS 스토리지 용량 할당
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

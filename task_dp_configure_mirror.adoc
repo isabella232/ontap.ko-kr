@@ -5,17 +5,14 @@ keywords: netapp, ontap, snapmirror, snapvault, point-in-time copy, mirror, vaul
 summary: 재해 복구를 위해 볼륨의 미러 및 볼트를 생성합니다 
 ---
 = 미러와 볼트를 구성합니다
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

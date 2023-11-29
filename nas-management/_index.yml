@@ -21,6 +21,8 @@ indexpage:
       url: "/../nfs-config/export-policies-concept.html"
     - title: NFS 클라이언트 액세스를 확인합니다
       url: "/../nfs-config/verify-client-access-from-cluster-task.html"
+    - title: NFS 세션 트렁킹 구성(ONTAP 9.14.1의 새로운 기능)
+      url: "/../nfs-trunking/index.html"
   - title: SMB 서버
     links:
     - title: System Manager로 구성합니다

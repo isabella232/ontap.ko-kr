@@ -5,17 +5,14 @@ keywords: requirements for cloud target relationships
 summary: 소스 및 타겟 환경이 S3 SnapMirror 클라우드 백업 보호에 대한 클라우드 타겟 요구사항을 충족하는지 확인합니다. 
 ---
 = 클라우드 타겟 관계에 대한 요구사항
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ../media/
-:toc-position: content
 
 
 [role="lead"]

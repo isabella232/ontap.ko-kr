@@ -47,7 +47,7 @@ indexpage:
       url: "/../snaplock/commit-files-worm-state-manual-task.html"
     - title: 보존 시간을 설정합니다
       url: "/../snaplock/set-retention-period-task.html"
-  - title: 일관성 그룹
+  - title: 정합성 보장 그룹
     links:
     - title: 개요
       url: "/../consistency-groups/index.html"
@@ -73,6 +73,8 @@ indexpage:
       url: "/../concept_metrocluster_manage_nodes.html"
     - title: CLI를 사용하여 MetroCluster를 관리합니다
       url: https://docs.netapp.com/us-en/ontap-metrocluster/
+    - title: ONTAP 중재자 관리
+      url: "/../mediator/mediator-overview-concept.html"
   - title: 테이프 백업
     links:
     - title: NDMP를 구성합니다

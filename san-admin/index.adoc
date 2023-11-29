@@ -5,17 +5,14 @@ keywords: netapp, ontap, SAN, provision, provisioning, overview, iSCSI protocol,
 summary: iSCSI 및 FC 프로토콜을 사용하여 System Manager와 함께 SAN 환경의 스토리지를 제공할 수 있습니다. 
 ---
 = SAN 관리 개요
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ../media/
-:toc-position: content
 
 
 [role="lead"]

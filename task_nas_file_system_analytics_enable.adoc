@@ -5,17 +5,14 @@ keywords: capacity analytics, data visualization, File System Analytics
 summary: 용량 분석과 같은 사용 데이터를 수집하고 표시하려면 파일 시스템 분석을 설정해야 합니다. 
 ---
 = 파일 시스템 분석 설정
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]

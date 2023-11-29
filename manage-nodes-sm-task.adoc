@@ -5,17 +5,14 @@ keywords: system manager, nodes, add, cluster, expansion, node join, expand, ren
 summary: System Manager를 사용하면 클러스터에 노드를 추가하고 이름을 바꿀 수 있습니다.  또한 노드를 재부팅하고, 테이크오버하고, 제공할 수도 있습니다. 
 ---
 = System Manager를 사용하여 노드를 관리합니다
-:toc: macro
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
-:toc: 
 :toclevels: 1
 :nofooter: 
 :icons: font
 :linkattrs: 
 :imagesdir: ./media/
-:toc-position: content
 
 
 [role="lead"]
