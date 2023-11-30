@@ -18,25 +18,7 @@ summary: ONTAP 9.12.1부터 시스템 관리자는 BlueXP와 완벽하게 통합
 [role="lead"]
 ONTAP 9.12.1부터 시스템 관리자는 BlueXP와 완벽하게 통합됩니다. BlueXP를 사용하면 친숙한 System Manager 대시보드를 유지하면서 단일 제어 플레인에서 하이브리드 멀티 클라우드 인프라를 관리할 수 있습니다.
 
-
-
-== 통합 개요
-
-BlueXP 서비스에 연결하여 ONTAP 9.12.1 이상을 실행하는 사내 ONTAP 클러스터에서 시스템 관리자에 액세스하면 BlueXP에서 직접 클러스터를 관리하라는 메시지가 표시됩니다. BlueXP에서는 익숙한 System Manager 인터페이스에 액세스할 수 있을 뿐 아니라 BlueXP 기능에 액세스할 수 있습니다.
-
 BlueXP를 사용하면 클라우드 스토리지(예: Cloud Volumes ONTAP)를 생성 및 관리하고, NetApp의 데이터 서비스(예: 클라우드 백업)를 사용하고, 많은 사내 및 에지 스토리지 장치를 제어할 수 있습니다.
-
-
-
-== BlueXP에서 ONTAP 클러스터를 관리합니다
-
-BlueXP에서 ONTAP 클러스터를 관리할 준비가 되면 시스템 관리자에 액세스할 때 나타나는 링크를 따르거나 BlueXP로 직접 이동할 수 있습니다. BlueXP로 직접 이동하여 데이터를 백업하고, 데이터를 스캔 및 범주화하는 등 BlueXP의 데이터 서비스를 사용하려는 경우 이점을 얻을 수 있습니다.
-
-
-
-=== System Manager의 링크를 사용합니다
-
-웹 브라우저에서 클러스터 관리 네트워크 인터페이스에 연결하면 BlueXP의 System Manager 또는 ONTAP 시스템과 함께 설치된 System Manager 버전을 사용하여 클러스터를 관리하라는 메시지가 표시됩니다.
 
 BlueXP에서 System Manager를 사용하려면 다음 단계를 수행하십시오.
 
@@ -69,7 +51,7 @@ System Manager가 표시되고 이제 BlueXP에서 클러스터를 관리할 수
 
 
 
-=== BlueXP에서 직접 클러스터를 검색할 수 있습니다
+== BlueXP에서 직접 클러스터를 검색할 수 있습니다
 
 BlueXP는 클러스터를 검색하고 관리하는 두 가지 방법을 제공합니다.
 
