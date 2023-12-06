@@ -117,23 +117,24 @@ ONTAP 9.13.1 버전부터 NDMP는 SnapMirror Synchronous에서 지원됩니다. 
 
 동기식 SnapMirror 관계에서는 다음 기능이 지원되지 않습니다.
 
-* 스냅샷 복사본을 무단 복제했습니다
 * 정합성 보장 그룹
-* MetroCluster 구성
-* LUN 이동
-* LUN 클론/파일 클론
-* VVOL
-* 혼합 SAN 및 NVMe 액세스 LUN과 NVMe 네임스페이스는 동일한 볼륨 또는 SVM에서 지원되지 않습니다.
-* SnapLock 볼륨
+* DP_Optimized(DPO) 시스템
 * FlexGroup 볼륨
 * FlexCache 볼륨
+* 글로벌 제한
+* 팬아웃 구성에서는 하나의 관계만 SnapMirror Synchronous 관계일 수 있으며, 소스 볼륨의 다른 모든 관계는 비동기식 SnapMirror 관계여야 합니다.
+* LUN 이동
+* LUN 클론/파일 클론
+* MetroCluster 구성
+* 혼합 SAN 및 NVMe 액세스 LUN과 NVMe 네임스페이스는 동일한 볼륨 또는 SVM에서 지원되지 않습니다.
+* SnapCenter
+* SnapLock 볼륨
 * SnapRestore
-* DP_Optimized(DPO) 시스템
+* 스냅샷 복사본을 무단 복제했습니다
 * 대상 볼륨에서 dump 및 SMTape를 사용하여 테이프 백업 또는 복구를 수행합니다
 * 소스 볼륨에 대한 테이프 기반 복구
 * 소스 볼륨의 처리량(QoS Min
-* 팬아웃 구성에서는 하나의 관계만 SnapMirror Synchronous 관계일 수 있으며, 소스 볼륨의 다른 모든 관계는 비동기식 SnapMirror 관계여야 합니다.
-* 글로벌 제한
+* VVOL
 
 
 

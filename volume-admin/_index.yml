@@ -39,14 +39,6 @@ indexpage:
       url: "/../flexgroup/convert-flexvol-concept.html"
   - title: FlexCache 볼륨
     links:
-    - title: System Manager로 구성합니다
-      url: "/../task_nas_flexcache.html"
-    - title: CLI를 사용하여 구성합니다
-      url: "/../flexcache/workflow-task.html"
-    - title: 일반적인 FlexCache 구축
-      url: "/../flexcache/typical-deployments-concept.html"
-  - title: 스토리지 효율성
-    links:
     - title: System Manager로 관리
       url: "/../task_admin_manage_storage_efficiency_policies.html"
     - title: CLI를 사용하여 볼륨에서 중복 제거를 설정합니다

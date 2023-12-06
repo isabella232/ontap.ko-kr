@@ -1,31 +1,21 @@
 ---
 section: flexcache
-title: CLI를 사용한 FlexCache 볼륨 관리
+title: FlexCache 볼륨 관리
 entries:
 - title: 개요
   url: "/flexcache/index.html"
-- title: FlexCache 볼륨의 이점
-  url: "/flexcache/accelerate-data-access-concept.html"
-- title: 일반적인 FlexCache 구축
-  url: "/flexcache/typical-deployments-concept.html"
-- title: FlexCache 볼륨에 대해 지원 및 지원되지 않는 기능입니다
+- title: FlexCache 볼륨은 프로토콜 및 기능을 지원합니다
   url: "/flexcache/supported-unsupported-features-concept.html"
-- title: FlexCache 볼륨 생성
+- title: FlexCache 볼륨 크기 조정 지침
+  url: "/flexcache/sizing-concept.html"
+- title: FlexCache 라이센스를 추가합니다
+  url: "/flexcache/add-license-task.html"
+- title: FlexCache 볼륨을 생성합니다
+  url: "/flexcache/create-volume-task.html"
+- title: FlexCache 볼륨 관리
   entries:
-  - title: 워크플로우
-    url: "/flexcache/workflow-task.html"
-  - title: FlexCache 라이센스를 추가합니다
-    url: "/flexcache/add-license-task.html"
-  - title: FlexCache 볼륨을 생성하는 프로세스입니다
-    entries:
-    - title: FlexCache 볼륨을 생성합니다
-      url: "/flexcache/create-volume-task.html"
-    - title: FlexCache 볼륨 크기 조정 지침
-      url: "/flexcache/sizing-concept.html"
-    - title: FlexCache 볼륨을 감사할 때의 고려 사항
-      url: "/flexcache/audit-flexcache-volumes-concept.html"
-- title: FlexCache 관계를 관리합니다
-  entries:
+  - title: FlexCache 볼륨을 감사할 때의 고려 사항
+    url: "/flexcache/audit-flexcache-volumes-concept.html"
   - title: 원본 볼륨에서 FlexCache 볼륨의 속성을 동기화합니다
     url: "/flexcache/synchronize-properties-origin-volume-task.html"
   - title: FlexCache 관계의 구성을 업데이트합니다

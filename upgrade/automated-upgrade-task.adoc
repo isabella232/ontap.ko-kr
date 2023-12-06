@@ -206,6 +206,7 @@ WARNING: There are additional manual upgrade validation checks that must be perf
 cluster image show-update-progress
 ----
 .. 검증에서 식별된 모든 필수 조치를 완료하십시오.
+.. MetroCluster 구성을 업그레이드하는 경우 클러스터 B에서 위의 단계를 반복합니다
 
 
 . 소프트웨어 업그레이드 예상 생성:
@@ -294,10 +295,10 @@ autosupport invoke -node * -type all -message "Finishing_NDU"
 +
 클러스터가 AutoSupport 메시지를 전송하도록 구성되지 않은 경우 알림 복사본이 로컬에 저장됩니다.
 
-. MetroCluster FC 구성을 업그레이드하는 경우 클러스터가 계획되지 않은 자동 전환이 사용하도록 설정되어 있는지 확인하십시오.
+. 2노드 MetroCluster FC 구성을 업그레이드하는 경우 클러스터가 계획되지 않은 자동 스위치오버가 활성화되어 있는지 확인하십시오.
 +
 
-NOTE: 표준 구성 또는 MetroCluster IP 구성을 업그레이드하는 경우 이 단계를 수행할 필요가 없습니다.
+NOTE: 표준 구성, MetroCluster IP 구성 또는 2노드보다 큰 MetroCluster FC 구성을 업그레이드하는 경우 이 단계를 수행할 필요가 없습니다.
 
 +
 .. 예기치 않은 자동 전환이 활성화되어 있는지 확인합니다.

@@ -45,6 +45,4 @@ entries:
 - title: FlexGroup 볼륨을 사용하여 대용량 파일 시스템용 NAS 스토리지를 프로비저닝합니다
   url: "/task_nas_provision_flexgroup.html"
 - section: flexgroup
-- title: FlexCache를 사용하여 여러 클라이언트의 성능 향상
-  url: "/task_nas_flexcache.html"
 - section: flexcache

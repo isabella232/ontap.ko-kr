@@ -1,25 +1,41 @@
 ---
 permalink: flexcache/index.html 
 sidebar: sidebar 
-keywords: flexcache, volumes, faster, data, access, configure, manage, volues 
+keywords: flexcache, volumes, faster, data, access, configure, manage, overview, origin volumes 
 summary: 데이터 액세스를 가속하기 위해 FlexCache 볼륨을 구성하고 관리할 수 있습니다. 
 ---
-= CLI를 통한 FlexCache 볼륨 관리 개요
+= FlexCache 개요
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-데이터 액세스를 가속하기 위해 FlexCache 볼륨을 구성하고 관리할 수 있습니다.
+NetApp FlexCache 기술은 데이터 액세스를 가속하고 WAN 대기 시간을 줄이며, 클라이언트가 동일한 데이터에 반복적으로 액세스해야 하는 읽기 집약적인 워크로드의 WAN 대역폭 비용을 줄여줍니다. FlexCache 볼륨을 생성할 때 원래 볼륨의 활성 데이터(핫 데이터)만 포함된 기존(오리진) 볼륨의 원격 캐시를 생성합니다.
 
-다음 절차에 따라 FlexCache 볼륨을 구성합니다.
+FlexCache 볼륨이 포함된 핫 데이터의 읽기 요청을 받으면 데이터가 클라이언트에 도달하기 위해 멀리 이동할 필요가 없기 때문에 원본 볼륨보다 빠르게 응답할 수 있습니다.  FlexCache 볼륨이 자주 읽지 않는 데이터(콜드 데이터)에 대한 읽기 요청을 수신하는 경우, 원래 볼륨에서 필요한 데이터를 검색한 다음 클라이언트 요청을 처리하기 전에 데이터를 저장합니다. 그런 다음 해당 데이터에 대한 후속 읽기 요청이 FlexCache 볼륨에서 직접 처리됩니다. 첫 번째 요청을 받은 이후에는 더 이상 네트워크를 통해 데이터를 이동하거나 과부하 상태인 시스템에서 데이터를 처리할 필요가 없습니다.  예를 들어, 자주 요청하는 데이터에 대한 단일 액세스 포인트에서 클러스터 내에 병목 현상이 발생한다고 가정합니다.  클러스터 내에서 FlexCache 볼륨을 사용하여 핫 데이터에 여러 마운트 지점을 제공할 수 있으므로 병목 현상이 줄어들고 성능이 향상됩니다. 다른 예로, 여러 클러스터에서 액세스하는 볼륨으로 네트워크 트래픽을 줄여야 한다고 가정합니다. FlexCache 볼륨을 사용하여 원본 볼륨의 핫 데이터를 네트워크 내의 클러스터를 통해 배포할 수 있습니다.  따라서 사용자에게 보다 가까운 액세스 지점을 제공하여 WAN 트래픽이 감소합니다.
 
-* ONTAP 9.5 이상을 실행 중입니다.
-* System Manager나 자동화된 스크립팅 도구가 아니라 ONTAP CLI(Command-Line Interface)를 사용하려는 경우
-* 사용 가능한 모든 옵션을 탐색하는 것이 아니라 모범 사례를 사용하려고 합니다.
-+
-명령 구문에 대한 자세한 내용은 CLI 도움말 및 ONTAP man 페이지를 참조하십시오.
+또한 FlexCache 기술을 사용하여 클라우드 및 하이브리드 클라우드 환경의 성능을 향상할 수 있습니다. FlexCache 볼륨은 온프레미스 데이터 센터의 데이터를 클라우드로 캐싱하여 워크로드를 하이브리드 클라우드로 전환하는 데 도움이 될 수 있습니다.  또한 FlexCache 볼륨을 사용하여 한 클라우드 공급자에서 다른 클라우드 공급자로 또는 동일한 클라우드 공급자의 두 지역 간에 데이터를 캐싱하여 클라우드 사일로를 제거할 수 있습니다.
 
-* SVM 관리자 권한이 아닌 클러스터 관리자 권한이 있습니다.
+ONTAP 9.10.1부터 가능합니다 link:global-file-locking-task.html["글로벌 파일 잠금 사용"] 모든 FlexCache 볼륨에 걸쳐 있습니다. 전역 파일 잠금은 사용자가 이미 다른 사용자가 연 파일에 액세스하지 못하도록 합니다.  그런 다음, 원래 볼륨의 업데이트가 모든 FlexCache 볼륨에 동시에 배포됩니다.
 
+ONTAP 9.9.1부터 FlexCache 볼륨은 찾을 수 없는 파일 목록을 유지합니다.  이렇게 하면 클라이언트가 존재하지 않는 파일을 검색할 때 오리진으로 여러 통화를 전송할 필요가 없도록 하여 네트워크 트래픽을 줄일 수 있습니다.
+
+추가 목록 link:supported-unsupported-features-concept.html["FlexCache 볼륨 및 원래 볼륨에 대해 지원되는 기능"]ONTAP 버전에서 지원되는 프로토콜 목록을 포함하여 를 사용할 수도 있습니다.
+
+ONTAP FlexCache 기술의 아키텍처에 대한 자세한 내용은 에서 확인할 수 있습니다 link:https://www.netapp.com/pdf.html?item=/media/7336-tr4743.pdf["TR-4743: ONTAP의 FlexCache"].
+
+
+
+== 비디오
+
+
+
+=== FlexCache를 통해 글로벌 데이터의 WAN 지연 시간 및 읽기 시간을 줄이는 방법
+
+video::rbbH0l74RWc[youtube,width=848,height=480]
+
+
+=== ONTAP FlexCache의 성능 이점에 대해 알아보십시오!
+
+video::bWi1-8Ydkpg[youtube,width=848,height=480]
