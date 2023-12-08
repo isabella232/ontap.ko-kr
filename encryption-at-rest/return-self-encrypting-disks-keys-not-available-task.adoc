@@ -71,7 +71,8 @@ FIPS 준수 모드에서는 FIPS 키를 사용할 수 없으며 SED에는 레이
 .. 디스크 레이블에서 디스크의 PSID를 가져옵니다.
 .. 권한 수준을 Advanced:'Set-Privilege advanced'로 설정합니다
 .. 디스크를 출고 시 구성된 설정으로 재설정합니다. '스토리지 암호화 디스크 복원 - 원본-디스크_디스크_id_-psid_disk_physical_secure_id_' 다음 단계로 진행하기 전에 '저장소 암호화 디스크 표시-상태' 명령으로 작업이 성공했는지 확인합니다.
-.. 삭제된 디스크:'storage disk unfail-spare true-disk_disk_id_'의 장애를 해제합니다
+.. ONTAP 9.8P5 이하를 실행 중인 경우 다음 단계로 건너뜁니다. ONTAP 9.8P6 이상을 실행 중인 경우 살균된 디스크의 오류를 해제하십시오.
+`storage disk unfail -disk _disk_id_`
 .. 디스크에 소유자가 있는지 확인합니다.
 `storage disk show -disk _disk_id_`
  를 누릅니다

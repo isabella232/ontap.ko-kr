@@ -14,10 +14,10 @@ summary: 설치 프로세스의 일부로 호스트 운영 체제를 업그레�
 ONTAP 중재자를 위한 호스트 OS를 최신 버전으로 업그레이드하려면 먼저 ONTAP 중재자를 제거해야 합니다.
 
 .시작하기 전에
-Red Hat Enterprise Linux 또는 CentOS를 설치하는 모범 사례와 시스템에 연결된 리포지토리를 설치하는 방법은 다음과 같습니다. 다른 방식으로 설치 또는 구성된 시스템은 추가 단계가 필요할 수 있습니다.
+시스템에 Red Hat Enterprise Linux 또는 Rocky Linux 및 관련 리포지토리를 설치하는 모범 사례는 다음과 같습니다. 다른 방식으로 설치 또는 구성된 시스템은 추가 단계가 필요할 수 있습니다.
 
-* Red Hat 모범 사례에 따라 Red Hat Enterprise Linux 또는 CentOS를 설치해야 합니다. CentOS 8.x 버전에 대한 지원 종료로 인해 CentOS 8.x 호환 버전은 권장되지 않습니다.
-* Red Hat Enterprise Linux 또는 CentOS에 ONTAP 중재자 서비스를 설치하는 동안 시스템은 설치 프로그램이 필요한 모든 소프트웨어 종속성을 액세스하고 설치할 수 있도록 적절한 리포지토리에 액세스할 수 있어야 합니다.
+* Red Hat 모범 사례에 따라 Red Hat Enterprise Linux 또는 Rocky Linux를 설치해야 합니다. CentOS 8.x 버전에 대한 지원 종료로 인해 CentOS 8.x 호환 버전은 권장되지 않습니다.
+* Red Hat Enterprise Linux 또는 Rocky Linux에 ONTAP 중재자 서비스를 설치하는 동안 설치 프로그램이 필요한 모든 소프트웨어 종속성을 액세스하고 설치할 수 있도록 시스템이 적절한 리포지토리에 액세스할 수 있어야 합니다.
 * yum installer가 Red Hat Enterprise Linux 리포지토리에서 종속 소프트웨어를 찾으려면 Red Hat Enterprise Linux를 설치하는 동안 또는 유효한 Red Hat 서브스크립션을 사용하여 시스템을 등록해야 합니다.
 +
 Red Hat 서브스크립션 관리자에 대한 자세한 내용은 Red Hat 설명서를 참조하십시오.

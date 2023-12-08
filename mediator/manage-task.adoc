@@ -215,6 +215,13 @@ SCST를 제거하려면 설치된 ONTAP 중재자 버전에 사용되는 SCST ta
 
 
  a| 
+ONTAP 중재자 1.7
+ a| 
+scst - 3.7.0.tar.bz2
+
+
+
+ a| 
 ONTAP 중재자 1.6
  a| 
 scst - 3.7.0.tar.bz2
