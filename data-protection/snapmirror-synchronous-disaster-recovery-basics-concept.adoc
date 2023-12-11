@@ -40,6 +40,19 @@ AFF
 
 
  a| 
+ASA
+ a| 
+80
+ a| 
+160
+ a| 
+200
+ a| 
+400
+
+
+
+ a| 
 FAS
  a| 
 40
@@ -68,49 +81,98 @@ ONTAP Select
 
 == 지원되는 기능
 
-ONTAP 9.12.1은 AFF/ASA 플랫폼에서 무중단 SnapMirror Synchronous 운영(NDO)을 지원합니다. 무중단 운영을 지원하므로 업무 중단 시간을 예약하지 않고 일반적인 여러 유지보수 작업을 수행할 수 있습니다. 지원되는 운영에는 2개의 클러스터 각각에서 단일 노드가 정상 작동하는 경우 테이크오버 및 반환, 볼륨 이동이 포함됩니다.
+다음 표에는 SnapMirror Synchronous 및 지원 기능을 사용 가능한 ONTAP 릴리즈에서 지원되는 기능이 나와 있습니다.
 
-소스 및 대상 클러스터의 모든 노드에서 ONTAP 9.10.1을 실행하는 경우 ONTAP 9.10.1에서 SnapMirror Synchronous 기술에 대해 다음 기능이 지원됩니다.
-
-* NFSv4.2
-* NVMe/TCP
+[cols="3,1,4"]
+|===
 
 
-ONTAP 9.5 이상에서 SnapMirror Synchronous 기술은 지연 시간이 10ms를 초과하지 않는 모든 네트워크에서 NFSv3, FC 및 iSCSI 프로토콜을 지원합니다.
-
-SnapMirror Synchronous는 FabricPool 애그리게이트에 있는 소스 및 타겟 볼륨을 지원하지 않음, 스냅샷 또는 자동 계층화 정책을 지원합니다. FabricPool 애그리게이트의 타겟 볼륨을 모든 계층화 정책으로 설정할 수 없습니다.
-
-ONTAP 9.7에서 SnapMirror Synchronous 기술에 지원되는 기능은 다음과 같습니다.
-
-* 애플리케이션 생성 스냅샷 복사본 복제 스냅샷 복사본이 '스냅샷 생성' 작업 시점에 해당 레이블로 태그가 지정된 경우, CLI 또는 ONTAP API를 사용하여 SnapMirror Synchronous는 애플리케이션을 일시 중지한 후 사용자가 생성하거나 외부 스크립트로 생성한 스냅샷 복사본을 복제합니다. 스냅샷 정책을 사용하여 생성한 예약된 스냅샷 복사본은 복제되지 않습니다. 애플리케이션에서 생성한 스냅샷 복사본 복제에 대한 자세한 내용은 다음 기술 문서를 참조하십시오. link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapMirror/How_to_replicate_application_created_snapshots_with_SnapMirror_Synchronous["SnapMirror Synchronous로 애플리케이션 생성 스냅샷을 복제하는 방법"^].
-* FC-NVMe를 참조하십시오
-* LUN 클론 및 NVMe 네임스페이스 클론 - 애플리케이션에서 생성한 스냅샷 복사본으로 지원되는 LUN 클론도 지원됩니다.
+| 피처 | 첫 번째 릴리스가 지원됩니다 | 추가 정보 
 
 
-소스 및 대상 클러스터의 모든 노드가 ONTAP 9.6을 실행하는 경우 ONTAP 9.6에서 SnapMirror Synchronous 기술에 지원되는 기능은 다음과 같습니다.
-
-* SVM DR
-+
-** SnapMirror Synchronous 소스는 예를 들어, SM-S가 1개 구간으로 구성된 팬아웃 구성과 SVM DR이 1개 구간인 SVM DR이 될 수 있습니다.
-** SM-S는 DP 소스 캐스케이딩 기능을 지원하지 않으므로 SnapMirror Synchronous 소스는 SVM DR 타겟이 될 수 없습니다. 타겟 클러스터에서 SVM DR 플립 재동기화를 수행하기 전에 동기식 관계를 해제해야 합니다.
-** SVM DR은 DP 볼륨 복제를 지원하지 않으므로 SnapMirror Synchronous 대상은 SVM DR 소스가 될 수 없습니다. 동기식 소스의 플립 재동기화를 사용하면 타겟 클러스터의 DP 볼륨을 제외하고 SVM DR이 수행됩니다.
+| SnapMirror Synchronous 관계의 기본 볼륨에 대한 바이러스 백신입니다 | ONTAP 9.6 |  
 
 
-* NFSv4.0 및 NFSv4.1을 참조하십시오
-* SMB 2.0 이상
-* 혼합 프로토콜 액세스(NFSv3 및 SMB)
-* SnapMirror Synchronous 관계의 기본 볼륨에 대한 바이러스 백신입니다
-* SnapMirror Synchronous 관계의 기본 볼륨에 대한 하드 또는 소프트 할당량 할당량 할당량 규칙은 대상에 복제되지 않으므로 할당량 데이터베이스가 대상에 복제되지 않습니다.
-* SnapMirror Synchronous 관계의 기본 볼륨의 FPolicy
-* SnapMirror Synchronous 미러 - 미러는 SnapMirror Synchronous 관계의 타겟 볼륨과의 관계를 계단식으로 배열합니다. 이 관계는 비동기식 SnapMirror 관계여야 합니다.
-* NAS의 소스 볼륨과 대상 볼륨 간의 타임스탬프 ONTAP 9.5에서 ONTAP 9.6으로 업그레이드한 경우 소스 볼륨의 새 파일 및 수정된 파일에 대해서만 타임스탬프가 복제됩니다. 소스 볼륨의 기존 파일 타임스탬프가 동기화되지 않습니다.
-* 높은 메타데이터 작업 빈도 제한을 제거합니다
-* TLS 1.2 암호화를 사용하여 전송 중인 중요한 데이터에 대한 보안
-* 클론 자동 삭제
+| 애플리케이션에서 생성한 스냅샷 복사본 복제 | ONTAP 9.7 | 스냅샷 복사본에 에 해당하는 레이블이 붙은 경우 `snapshot create` 작동 시 SnapMirror Synchronous는 CLI 또는 ONTAP API를 사용하여 애플리케이션을 중지한 후 사용자가 생성했거나 외부 스크립트로 생성된 스냅샷 복사본을 복제합니다. 스냅샷 정책을 사용하여 생성한 예약된 스냅샷 복사본은 복제되지 않습니다. 애플리케이션에서 생성한 스냅샷 복사본 복제에 대한 자세한 내용은 다음 기술 문서를 참조하십시오. link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapMirror/How_to_replicate_application_created_snapshots_with_SnapMirror_Synchronous["SnapMirror Synchronous로 애플리케이션 생성 스냅샷을 복제하는 방법"^]. 
 
 
-ONTAP 9.13.1 버전부터 NDMP는 SnapMirror Synchronous에서 지원됩니다. SnapMirror Synchronous에 NDMP를 사용하려면 소스 클러스터와 대상 클러스터 모두 ONTAP 9.13.1 이상을 실행해야 합니다. 자세한 내용은 을 참조하십시오 xref:../tape-backup/transfer-data-ndmpcopy-task.html[NDMP 복제본을 사용하여 데이터를 전송합니다].
+| 클론 자동 삭제 | ONTAP 9.6 |  
 
+
+| 없음, 스냅샷 또는 자동의 계층화 정책이 있는 FabricPool 애그리게이트는 SnapMirror Synchronous 소스 및 타겟에서 지원됩니다. | ONTAP 9.5 | FabricPool 애그리게이트의 타겟 볼륨을 모든 계층화 정책으로 설정할 수 없습니다. 
+
+
+| FC | ONTAP 9.5 | 지연 시간이 10ms를 초과하지 않는 모든 네트워크 
+
+
+| FC-NVMe를 참조하십시오 | ONTAP 9.7 |  
+
+
+| SnapMirror Synchronous 관계의 기본 볼륨의 FPolicy | ONTAP 9.6 |  
+
+
+| SnapMirror Synchronous 관계의 운영 볼륨에 대한 하드 및 소프트 할당량 | ONTAP 9.6 | 할당량 규칙은 대상에 복제되지 않으므로 할당량 데이터베이스가 대상에 복제되지 않습니다. 
+
+
+| iSCSI | ONTAP 9.5 |  
+
+
+| LUN 클론 및 NVMe 네임스페이스 클론 | ONTAP 9.7 |  
+
+
+| 애플리케이션 생성 스냅샷 복사본을 통해 백업되는 LUN 클론 | ONTAP 9.7 |  
+
+
+| 혼합 프로토콜 액세스(NFS v3 및 SMB) | ONTAP 9.6 |  
+
+
+| NDMP/NDMP 복구 | ONTAP 9.13.1 | SnapMirror Synchronous에 NDMP를 사용하려면 소스 클러스터와 대상 클러스터 모두 ONTAP 9.13.1 이상을 실행해야 합니다. 자세한 내용은 을 참조하십시오 xref:../tape-backup/transfer-data-ndmpcopy-task.html[NDMP 복제본을 사용하여 데이터를 전송합니다]. 
+
+
+| AFF/ASA 플랫폼에서만 무중단 SnapMirror Synchronous 작업(NDO)을 지원합니다. | ONTAP 9.12.1 | 무중단 운영을 지원하므로 업무 중단 시간을 예약하지 않고 일반적인 여러 유지보수 작업을 수행할 수 있습니다. 지원되는 운영에는 2개의 클러스터 각각에서 단일 노드가 정상 작동하는 경우 테이크오버 및 반환, 볼륨 이동이 포함됩니다. 
+
+
+| NFS v4.2 | ONTAP 9.10.1 |  
+
+
+| NFS v4.3 | ONTAP 9.5 |  
+
+
+| NFS v4.0 | ONTAP 9.6 |  
+
+
+| NFS v4.1 | ONTAP 9.6 |  
+
+
+| NVMe/TCP | 9.10.1 |  
+
+
+| 높은 메타데이터 작업 빈도 제한을 제거합니다 | ONTAP 9.6 |  
+
+
+| TLS 1.2 암호화를 사용하여 전송 중인 중요한 데이터에 대한 보안 | ONTAP 9.6 |  
+
+
+| 단일 파일 및 부분 파일 복구 | ONTAP 9.13.1 |  
+
+
+| SMB 2.0 이상 | ONTAP 9.6 |  
+
+
+| SnapMirror 동기식 미러 - 계단식 배열 | ONTAP 9.6 | SnapMirror Synchronous 관계의 타겟 볼륨의 관계는 비동기식 SnapMirror 관계여야 합니다. 
+
+
+| SVM 재해 복구 | ONTAP 9.6 | * SnapMirror Synchronous 소스는 SVM 재해 복구 소스가 될 수도 있습니다. 예를 들어, SnapMirror Synchronous를 한 구간으로 사용하는 팬아웃 구성과 SVM 재해 복구 기능이 다른 구간으로 사용될 수 있습니다.
+
+*SnapMirror Synchronous는 데이터 보호 소스를 연속적으로 지원하지 않으므로 SnapMirror Synchronous 소스는 SVM 재해 복구 대상이 될 수 없습니다.
+타겟 클러스터에서 SVM 재해 복구 플립 재동기화를 수행하기 전에 동기식 관계를 해제해야 합니다.
+
+* SVM 재해 복구는 DP 볼륨의 복제를 지원하지 않으므로 SnapMirror Synchronous 대상은 SVM 재해 복구 소스가 될 수 없습니다.
+동기식 소스를 플립 재동기화하면 타겟 클러스터의 DP 볼륨을 제외하고 SVM 재해 복구가 수행됩니다. 
+
+
+| NAS에 대한 소스 볼륨과 대상 볼륨 간의 타임 스탬프 패리티입니다 | ONTAP 9.6 | ONTAP 9.5에서 ONTAP 9.6으로 업그레이드한 경우 소스 볼륨의 새 파일 및 수정된 파일에 대해서만 타임스탬프가 복제됩니다. 소스 볼륨의 기존 파일 타임스탬프가 동기화되지 않습니다. 
+|===
 
 
 == 지원되지 않는 기능입니다
@@ -129,11 +191,11 @@ ONTAP 9.13.1 버전부터 NDMP는 SnapMirror Synchronous에서 지원됩니다. 
 * 혼합 SAN 및 NVMe 액세스 LUN과 NVMe 네임스페이스는 동일한 볼륨 또는 SVM에서 지원되지 않습니다.
 * SnapCenter
 * SnapLock 볼륨
-* SnapRestore
 * 스냅샷 복사본을 무단 복제했습니다
 * 대상 볼륨에서 dump 및 SMTape를 사용하여 테이프 백업 또는 복구를 수행합니다
 * 소스 볼륨에 대한 테이프 기반 복구
 * 소스 볼륨의 처리량(QoS Min
+* Volume SnapRestore를 참조하십시오
 * VVOL
 
 

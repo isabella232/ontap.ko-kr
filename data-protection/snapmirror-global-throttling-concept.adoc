@@ -71,7 +71,7 @@ cluster_dst::> options -option-name replication.throttle.incoming.max_kbs 12500
 옵션-옵션-이름 복제.throttle.outgoing.max_ksb_cps_
 
 +
-kbps는 초당 킬로바이트 단위의 최대 전송 속도입니다. 유효한 전송 속도 값은 1 ~ 125000입니다. 이 옵션의 기본값은 무제한(unlimited)으로, 사용되는 총 대역폭에 대한 제한이 없음을 의미합니다.
+권장되는 최소 스로틀 대역폭은 4kbps이고 최대 스로틀 대역폭은 2Tbps입니다. 이 옵션의 기본값은 입니다 `unlimited`즉, 사용된 총 대역폭에 대한 제한이 없습니다. 파라미터 값은 kbps 단위입니다.
 
 +
 다음 예에서는 송신 전송에 사용되는 최대 총 대역폭을 100Mbps로 설정하는 방법을 보여 줍니다.
