@@ -39,10 +39,7 @@ ONTAP 9.5에서는 서비스 정책이 인터클러스터 및 BGP 피어 서비�
 
 * ONTAP 9.11.1부터 ASA(All-Flash SAN 어레이) 플랫폼에서 자동 iSCSI LIF 페일오버를 사용할 수 있습니다.
 +
-기존 iSCSI LIF의 경우, 즉 9.11.1 이상으로 업그레이드하기 전에 생성된 LIF의 경우 페일오버 정책을 수정하여 iSCSI LIF 페일오버 기능을 사용하도록 설정할 수 있습니다.
-
-+
-link:../san-admin/asa-iscsi-lif-fo-task.html["ASA 플랫폼의 iSCSI LIF 페일오버"]
+기존 iSCSI LIF의 경우, 9.11.1 이상으로 업그레이드하기 전에 생성된 LIF를 의미하며 페일오버 정책을 로 수정할 수 있습니다 link:../san-admin/asa-iscsi-lif-fo-task.html["자동 iSCSI LIF 페일오버를 사용합니다"].
 
 
 

@@ -32,7 +32,7 @@ NOTE: LIF의 서비스 정책이 페일오버를 더욱 제한하는 방식으�
 
 * ONTAP 9.11.1부터 ASA(All-Flash SAN 어레이) 플랫폼에서는 새로 생성된 스토리지 VM에서 새로 생성된 iSCSI LIF에 대해 iSCSI LIF 페일오버가 자동으로 활성화됩니다.
 +
-또한 기존 iSCSI LIF에서 iSCSI LIF 페일오버를 수동으로 설정할 수 있습니다. 즉, ONTAP 9.11.1 이상으로 업그레이드하기 전에 생성된 LIF입니다.link:../san-admin/asa-iscsi-lif-fo-task.html["ASA 플랫폼의 iSCSI LIF 페일오버"]
+또한, 할 수 있습니다 link:../san-admin/asa-iscsi-lif-fo-task.html["기존 iSCSI LIF에서 iSCSI LIF 페일오버를 수동으로 활성화합니다"]는 ONTAP 9.11.1 이상으로 업그레이드하기 전에 생성된 LIF를 의미합니다.
 
 * 다음 목록에서는 -failover-policy 설정이 페일오버 그룹에서 선택한 타겟 포트에 미치는 영향에 대해 설명합니다.
 

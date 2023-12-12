@@ -34,9 +34,6 @@ summary: LIF를 동일한 노드의 다른 포트 또는 클러스터 내의 다
 +
 iSCSI LIF 마이그레이션은 홈 노드 또는 HA 파트너의 포트로 제한됩니다.
 
-+
-System Manager를 사용하여 iSCSI LIF를 마이그레이션할 수도 있습니다.link:../san-admin/asa-iscsi-lif-fo-task.html["ASA 플랫폼의 iSCSI LIF 페일오버"]
-
 * 사용 중인 플랫폼이 ONTAP 버전 9.11.1 이상을 실행하는 ASA(All-Flash SAN 어레이) 플랫폼이 아닌 경우 한 노드에서 다른 노드로 iSCSI LIF를 마이그레이션할 수 없습니다.
 +
 이 제한을 해결하려면 대상 노드에 iSCSI LIF를 생성해야 합니다. 에 대해 자세히 알아보십시오 link:../san-admin/asa-iscsi-lif-fo-task.html#manage-iscsi-lifs-using-the-ontap-cli["iSCSI LIF를 생성하는 중입니다"].
@@ -61,6 +58,14 @@ System Manager를 사용하여 iSCSI LIF를 마이그레이션할 수도 있습�
 .단계
 . Network > Overview > Network Interfaces * 를 선택합니다.
 . 를 선택합니다 image:icon_kabob.gif["kebob 아이콘"] 변경하고자 하는 네트워크 인터페이스 옆에 * > migrate * 가 있습니다.
++
+
+NOTE: iSCSI LIF의 경우 * Migrate Interface * 대화 상자에서 HA 파트너의 대상 노드 및 포트를 선택합니다.
+
++
+iSCSI LIF를 영구적으로 마이그레이션하려면 확인란을 선택합니다. iSCSI LIF는 영구적으로 마이그레이션되기 전에 오프라인 상태여야 합니다. 또한 iSCSI LIF를 영구적으로 마이그레이션한 후에는 취소할 수 없습니다. 되돌리기 옵션은 없습니다.
+
+. 마이그레이션 * 을 클릭합니다.
 . 변경 사항을 저장합니다.
 
 

@@ -56,5 +56,5 @@ ASA 시스템에 대해 "All-Flash SAN 어레이" 값이 true로 반환됩니다
 
 .관련 정보
 * link:https://www.netapp.com/pdf.html?item=/media/85671-tr-4968.pdf["기술 보고서 4968: NetApp All-SAN 어레이 데이터 가용성 및 무결성"^]
-* link:http://www.netapp.com/us/media/tr-4080.pdf["기술 보고서 4080: 확장 가능한 SAN ONTAP에 대한 모범 사례 9"^]
+* link:http://www.netapp.com/us/media/tr-4080.pdf["NetApp 기술 보고서 4080: 최신 SAN에 대한 모범 사례"^]
 

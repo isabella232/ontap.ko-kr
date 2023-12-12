@@ -79,4 +79,4 @@ HA Pair 내에서 동일 특성이 아닌 경우, 다음과 같은 EMS 메시지
 
 "EMS: scsiblade.lif.persistent.ports.fcp.init.error`
 
-영구 포트에 대한 자세한 내용은 를 참조하십시오 link:http://www.netapp.com/us/media/tr-4080.pdf["NetApp 기술 보고서 4080: 확장형 SAN ONTAP 9에 대한 모범 사례"^].
+영구 포트에 대한 자세한 내용은 를 참조하십시오 link:http://www.netapp.com/us/media/tr-4080.pdf["NetApp 기술 보고서 4080: 최신 SAN에 대한 모범 사례"^].

@@ -79,4 +79,4 @@ ONTAP CLI를 사용하여 iSCSI용 스토리지 VM을 구성합니다.
 --
 ====
 .관련 정보
-https://www.netapp.com/media/10680-tr4080.pdf["NetApp 기술 보고서 4080: 최신 SAN 모범 사례"]
+https://www.netapp.com/media/10680-tr4080.pdf["NetApp 기술 보고서 4080: 최신 SAN에 대한 모범 사례"]
