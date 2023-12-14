@@ -94,7 +94,7 @@ ONTAP 9.10.1 버전부터 FlexVol 원본 볼륨에 대해 지원되며 FlexGroup
 
 ONTAP 9.7부터 지원됩니다
  a| 
-해당 없음
+아니요
 
 
 

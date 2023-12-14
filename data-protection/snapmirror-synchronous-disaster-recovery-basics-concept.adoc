@@ -108,6 +108,9 @@ ONTAP Select
 | FC-NVMe를 참조하십시오 | ONTAP 9.7 |  
 
 
+| 파일 클론 | ONTAP 9.7 |  
+
+
 | SnapMirror Synchronous 관계의 기본 볼륨의 FPolicy | ONTAP 9.6 |  
 
 
@@ -171,6 +174,9 @@ ONTAP Select
 동기식 소스를 플립 재동기화하면 타겟 클러스터의 DP 볼륨을 제외하고 SVM 재해 복구가 수행됩니다. 
 
 
+| 소스 볼륨에 테이프 기반 복구 | ONTAP 9.13.1 |  
+
+
 | NAS에 대한 소스 볼륨과 대상 볼륨 간의 타임 스탬프 패리티입니다 | ONTAP 9.6 | ONTAP 9.5에서 ONTAP 9.6으로 업그레이드한 경우 소스 볼륨의 새 파일 및 수정된 파일에 대해서만 타임스탬프가 복제됩니다. 소스 볼륨의 기존 파일 타임스탬프가 동기화되지 않습니다. 
 |===
 
@@ -186,14 +192,12 @@ ONTAP Select
 * 글로벌 제한
 * 팬아웃 구성에서는 하나의 관계만 SnapMirror Synchronous 관계일 수 있으며, 소스 볼륨의 다른 모든 관계는 비동기식 SnapMirror 관계여야 합니다.
 * LUN 이동
-* LUN 클론/파일 클론
 * MetroCluster 구성
 * 혼합 SAN 및 NVMe 액세스 LUN과 NVMe 네임스페이스는 동일한 볼륨 또는 SVM에서 지원되지 않습니다.
 * SnapCenter
 * SnapLock 볼륨
 * 스냅샷 복사본을 무단 복제했습니다
 * 대상 볼륨에서 dump 및 SMTape를 사용하여 테이프 백업 또는 복구를 수행합니다
-* 소스 볼륨에 대한 테이프 기반 복구
 * 소스 볼륨의 처리량(QoS Min
 * Volume SnapRestore를 참조하십시오
 * VVOL
