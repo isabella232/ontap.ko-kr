@@ -2,7 +2,7 @@
 permalink: upgrade/concept_mixed_version_requirements.html 
 sidebar: sidebar 
 keywords: ontap, upgrade, mixed, version, clusters, mixed-version nodes, requirements 
-summary: 혼합 버전 ONTAP 클러스터는 ONTAP 9.8 및 9.12.1과 같이 두 가지 주요 ONTAP 릴리스를 실행하는 노드로 구성됩니다. 혼합 버전 ONTAP 클러스터는 특정 시나리오에서 NetApp에서만 지원됩니다. 
+summary: 혼합 버전 ONTAP 클러스터는 ONTAP 9.8 및 9.12.1과 같이 두 가지 주요 ONTAP 릴리스를 실행하는 노드로 구성됩니다. 혼합 버전 ONTAP 클러스터는 특정 시나리오에서만 지원됩니다. 
 ---
 = 혼합 버전 ONTAP 클러스터
 :allow-uri-read: 

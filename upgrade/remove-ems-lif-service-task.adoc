@@ -2,7 +2,7 @@
 permalink: upgrade/remove-ems-lif-service-task.html 
 sidebar: sidebar 
 keywords: ontap, upgrade, after, post, ems, event, management, system, lifs, messages, not, delivered 
-summary: Active IQ 디지털 어드바이저의 Upgrade Advisor 서비스는 업그레이드 계획을 수립하고 불확실성과 위험을 최소화할 수 있는 인텔리전스를 제공합니다. 
+summary: ONTAP 9.7 이하에서 9.8 이상으로 업그레이드한 후 EMS를 사용하는 경우 특정 네트워크 서비스 정책에서 EMS LIF 서비스를 제거해야 할 수 있습니다. 
 ---
 = EMS LIF 서비스를 네트워크 서비스 정책에서 제거합니다
 :allow-uri-read: 

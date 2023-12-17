@@ -19,4 +19,4 @@ Fabric에 연결된 모든 스위치는 NPIV(N_Port ID Virtualization)를 지원
 
 지원되는 환경에 대한 자세한 내용은 를 참조하십시오 https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"^].
 
-FC 및 iSCSI 모범 사례는 를 참조하십시오 http://www.netapp.com/us/media/tr-4080.pdf["확장 가능한 SAN-ONTAP 9에 대한 모범 사례"].
+FC 및 iSCSI 모범 사례는 를 참조하십시오 http://www.netapp.com/us/media/tr-4080.pdf["NetApp 기술 보고서 4080: 최신 SAN에 대한 모범 사례"].

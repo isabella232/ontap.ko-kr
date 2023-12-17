@@ -2,7 +2,7 @@
 permalink: upgrade/task_updating_an_ontap_cluster_disruptively.html 
 sidebar: sidebar 
 keywords: ontap, upgrade, disruptively 
-summary: 클러스터를 오프라인으로 전환하여 새 ONTAP 릴리즈로 업그레이드할 수 있는 경우 중단이 필요한 업그레이드 방법을 사용할 수 있습니다. 이 방법에는 여러 단계가 있습니다. 즉, 각 HA 쌍에 대해 스토리지 페일오버를 사용하지 않도록 설정하고, 클러스터의 각 노드를 재부팅한 다음 스토리지 페일오버를 다시 사용하도록 설정합니다. 
+summary: 클러스터를 오프라인으로 전환하여 새 ONTAP 릴리즈로 업그레이드할 수 있는 경우 중단이 필요한 업그레이드 방법을 사용할 수 있습니다. 
 ---
 = CLI를 사용한 수동 Disruptive ONTAP 업그레이드
 :allow-uri-read: 
@@ -22,15 +22,31 @@ summary: 클러스터를 오프라인으로 전환하여 새 ONTAP 릴리즈로 
 
 각 HA Pair에 대해 스토리지 페일오버가 사용되지 않고 각 노드가 업데이트되므로 중단 업그레이드에는 다운타임이 필요합니다. 스토리지 페일오버가 비활성화되면 각 노드는 단일 노드 클러스터로 작동합니다. 즉, 시스템이 재부팅되는 동안 노드와 연결된 시스템 서비스가 중단됩니다.
 
-. admin에서 advanced로 권한 수준을 설정하고 계속할지 묻는 메시지가 표시되면 * y * 를 입력합니다
+.단계
+. 권한 수준을 admin에서 advanced로 설정하고 계속할지 묻는 메시지가 표시되면 * y * 를 입력합니다.
++
+[source, cli]
+----
+set -privilege advanced
+----
 +
 고급 프롬프트('*>')가 나타납니다.
 
-. 새 ONTAP 소프트웨어 이미지를 기본 이미지로 설정합니다. '시스템 이미지 수정{-node * -iscurrent false} -isdefault true'입니다
+. 새 ONTAP 소프트웨어 이미지를 기본 이미지로 설정합니다.
++
+[source, cli]
+----
+system image modify {-node * -iscurrent false} -isdefault true
+----
 +
 이 명령은 확장 쿼리를 사용하여 대상 ONTAP 소프트웨어 이미지(대체 이미지로 설치됨)를 각 노드의 기본 이미지로 변경합니다.
 
-. 새 ONTAP 소프트웨어 이미지가 기본 이미지 '시스템 이미지 표시'로 설정되어 있는지 확인합니다
+. 새 ONTAP 소프트웨어 이미지가 기본 이미지로 설정되어 있는지 확인합니다.
++
+[source, cli]
+----
+system image show
+----
 +
 다음 예에서는 이미지 2가 새로운 ONTAP 버전이며 두 노드에서 기본 이미지로 설정됩니다.
 
@@ -81,7 +97,12 @@ node1
 클러스터의 각 HA 쌍에 대한 스토리지 장애 조치를 해제합니다. 'Storage failover modify -node * -enabled false'
 
 |===
-. 'system node reboot -node nodename -ignore -quorum -warnings' 클러스터의 노드를 재부팅합니다
+. 클러스터의 노드 재부팅:
++
+[source, cli]
+----
+system node reboot -node nodename -ignore-quorum-warnings
+----
 +
 
 IMPORTANT: 한 번에 둘 이상의 노드를 재부팅하지 마십시오.
@@ -89,11 +110,21 @@ IMPORTANT: 한 번에 둘 이상의 노드를 재부팅하지 마십시오.
 +
 노드가 새 ONTAP 이미지를 부팅합니다. 재부팅 프로세스가 완료되었음을 나타내는 ONTAP 로그인 프롬프트가 나타납니다.
 
-. 노드 또는 노드 세트가 새 ONTAP 이미지로 재부팅된 후 권한 수준을 고급으로 설정합니다. `set -privilege advanced`
+. 노드 또는 노드 세트가 새 ONTAP 이미지로 재부팅된 후 권한 수준을 고급으로 설정합니다.
++
+[source, cli]
+----
+set -privilege advanced
+----
 +
 계속하라는 메시지가 나타나면 * y * 를 입력합니다
 
-. 새 소프트웨어가 실행 중인지 확인합니다. `system node image show`
+. 새 소프트웨어가 실행 중인지 확인합니다.
++
+[source, cli]
+----
+system node image show
+----
 +
 다음 예제에서 image1은 새 ONTAP 버전이며 Node0에서 현재 버전으로 설정됩니다.
 
@@ -114,18 +145,43 @@ node1
 ----
 . 업그레이드가 성공적으로 완료되었는지 확인합니다.
 +
-.. 권한 수준을 Advanced:'Set-Privilege advanced'로 설정합니다
-.. 'system node upgrade-revert show-node nodename'이라는 노드 각각에 대해 업그레이드 상태가 완료되었는지 확인합니다
+.. 권한 수준을 고급으로 설정합니다.
++
+[source, cli]
+----
+set -privilege advanced
+----
+.. 각 노드에 대한 업그레이드 상태가 완료되었는지 확인합니다.
++
+[source, cli]
+----
+system node upgrade-revert show -node nodename
+----
 +
 상태는 완료 로 표시되어야 합니다.
 
 +
 상태가 완료되지 않은 경우 link:http://mysupport.netapp.com/["NetApp 지원에 문의하십시오"] 즉시.
 
-.. admin 권한 수준으로 복귀:'et-Privilege admin'입니다
+.. 관리자 권한 레벨로 돌아갑니다.
++
+[source, cli]
+----
+set -privilege admin
+----
 
 
-. 각 추가 노드에 대해 2-7단계를 반복합니다.
-. 클러스터가 2개 이상의 노드로 구성된 경우 클러스터의 각 HA 쌍에 대해 스토리지 페일오버를 사용하도록 설정합니다. 즉, 'Storage failover modify -node * -enabled true'입니다
-. 클러스터가 2개의 노드로만 구성된 경우 클러스터 고가용성을 설정하려면 클러스터 ha 수정 구성 true를 사용합니다
+. 각 추가 노드에 대해 2단계부터 8단계까지 반복합니다.
+. 클러스터가 두 개 이상의 노드로 구성된 경우 클러스터의 각 HA 쌍에 대해 스토리지 페일오버를 사용하도록 설정합니다.
++
+[source, cli]
+----
+storage failover modify -node * -enabled true
+----
+. 클러스터가 두 노드로만 구성된 경우 클러스터 고가용성을 설정합니다.
++
+[source, cli]
+----
+cluster ha modify -configured true
+----
 

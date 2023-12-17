@@ -57,7 +57,7 @@ Multichannel 세션당 공고되는 최대 네트워크 인터페이스 수입�
 
 . ONTAP가 SMB 멀티 채널 세션을 보고하는지 확인합니다.
 +
-'* vserver cifs session show options*'
+`*vserver cifs session options show*`
 
 . 관리자 권한 레벨로 돌아갑니다.
 +

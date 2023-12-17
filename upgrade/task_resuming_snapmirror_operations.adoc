@@ -2,7 +2,7 @@
 permalink: upgrade/task_resuming_snapmirror_operations.html 
 sidebar: sidebar 
 keywords: ontap, upgrade, resuming, resume, snapmirror 
-summary: 무중단 업그레이드를 완료한 후에는 일시 중단된 SnapMirror 관계를 모두 다시 시작해야 합니다. 
+summary: ONTAP 업그레이드를 완료한 후에는 일시 중지된 SnapMirror 관계를 다시 시작해야 합니다. 
 ---
 = ONTAP 업그레이드 후 SnapMirror 작업을 재개합니다
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 무중단 업그레이드를 완료한 후에는 일시 중단된 SnapM
 
 
 [role="lead"]
-무중단 ONTAP 업그레이드 후에 일시 중지된 SnapMirror 관계를 다시 시작해야 합니다.
+ONTAP 업그레이드 후에 일시 중지된 SnapMirror 관계를 다시 시작해야 합니다.
 
 .단계
 . 이전에 중지된 각 SnapMirror 관계에 대한 전송 다시 시작:

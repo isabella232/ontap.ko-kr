@@ -2,7 +2,7 @@
 permalink: upgrade/task_verifying_the_san_configuration_after_an_upgrade.html 
 sidebar: sidebar 
 keywords: ontap, upgrade, post, after, san, verify 
-summary: SAN 환경에서 업그레이드하는 경우, 업그레이드를 완료한 후 LIF에 연결된 각 이니시에이터가 LIF에 성공적으로 다시 연결되었는지 확인해야 합니다. 
+summary: ONTAP 업그레이드 후 SAN 환경에서 업그레이드가 성공적으로 LIF에 다시 연결되기 전에 LIF에 연결된 각 이니시에이터가 확인합니다 
 ---
 = 업그레이드 후 SAN 구성을 확인합니다
 :allow-uri-read: 
@@ -26,14 +26,18 @@ ONTAP를 업그레이드한 후 SAN 환경에서 LIF에 접속된 각 이니시�
  a| 
 iSCSI
  a| 
-'iSCSI initiator show-fields igroup, initiator-name, tpgroup'
-
+[source, cli]
+----
+iscsi initiator show -fields igroup,initiator-name,tpgroup
+----
 
 
  a| 
 FC
  a| 
-'fcp initiator show-fields igroup, WWPN, lif'
-
+[source, cli]
+----
+fcp initiator show -fields igroup,wwpn,lif
+----
 |===
 

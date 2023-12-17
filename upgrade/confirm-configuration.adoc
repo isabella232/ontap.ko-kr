@@ -2,7 +2,7 @@
 permalink: upgrade/confirm-configuration.html 
 sidebar: sidebar 
 keywords: ontap, upgrade, before, confirm, configuration, hardware, cluster management switches, metrocluster ip switches, san, target, release 
-summary: ONTAP를 업그레이드하기 전에 대상 릴리스에서 구성이 지원되는지 확인해야 합니다. 
+summary: ONTAP를 업그레이드하기 전에 대상 릴리스에서 하드웨어 구성이 지원되는지 확인해야 합니다. 
 ---
 = 하드웨어 구성에 대한 ONTAP 지원을 확인합니다
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: ONTAP를 업그레이드하기 전에 대상 릴리스에서 구성이 
 
 
 [role="lead"]
-ONTAP를 업그레이드하기 전에 구성이 대상 릴리즈를 지원할 수 있는지 확인해야 합니다.
+ONTAP를 업그레이드하기 전에 하드웨어 구성이 대상 ONTAP 릴리스를 지원할 수 있는지 확인해야 합니다.
 
 
 
@@ -31,7 +31,7 @@ NOTE: 스위치를 업그레이드해야 하는 경우 NetApp은 먼저 ONTAP �
 
 == MetroCluster 구성
 
-ONTAP를 업그레이드하기 전에 MetroCluster 구성이 있는 경우 를 사용합니다 https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"^] MetroCluster IP 스위치가 대상 릴리스에서 지원되는지 확인합니다.
+ONTAP를 업그레이드하기 전에 MetroCluster 구성이 있는 경우 를 사용합니다 https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"^] MetroCluster IP 스위치가 대상 ONTAP 릴리즈에서 지원되는지 확인
 
 
 

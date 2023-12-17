@@ -84,6 +84,8 @@ entries:
     url: "/concepts/flexclone-volumes-files-luns-concept.html"
   - title: System Manager의 용량 측정
     url: "/concepts/capacity-measurements-in-sm-concept.html"
+  - title: 온도에 민감한 보관
+    url: "/volumes/enable-temperature-sensitive-efficiency-concept.html"
 - title: 보안
   entries:
   - title: 클라이언트 인증 및 권한 부여

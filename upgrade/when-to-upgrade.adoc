@@ -2,7 +2,7 @@
 permalink: upgrade/when-to-upgrade.html 
 sidebar: sidebar 
 keywords: upgrade, ontap, when to upgrade, major upgrade, feature upgrade, minor upgrade, patch release, patch upgrade, service upgrade, service update, critical, patch, release dates, support levels, full support, limited, support, self-service support 
-summary: 클라우드에서 ONTAP, ONTAP 또는 ONTAP Select를 업그레이드하거나 업데이트해야 합니까? 
+summary: 정기적으로 ONTAP를 업그레이드합니다. 업그레이드를 통해 새로운 기능과 향상된 기능을 활용하고 알려진 문제에 대한 최신 수정 사항을 구현할 수 있습니다. 
 ---
 = 언제 ONTAP를 업그레이드해야 합니까?
 :allow-uri-read: 

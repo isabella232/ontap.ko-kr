@@ -2,7 +2,7 @@
 permalink: smb-config/verify-enabled-versions-task.html 
 sidebar: sidebar 
 keywords: ontap, release, smb, version, enable, default, connection, client, domain, controller, controller, verify, support, functionality, environment, verify enabled smb versions, can smb1 be enabled in ontap 9 
-summary: ONTAP 9 릴리즈에서는 클라이언트 및 도메인 컨트롤러와의 연결에 대해 기본적으로 설정되는 SMB 버전을 결정합니다. SMB 서버가 사용자 환경에 필요한 클라이언트 및 기능을 지원하는지 확인해야 합니다. 
+summary: ONTAP 9.0 이상에서는 SMB 2.0이 기본적으로 사용됩니다.  SMB 1.0은 사용 중인 ONTAP 버전에 따라 기본적으로 활성화되어 있습니다 
 ---
 = 활성화된 SMB 버전을 확인합니다
 :allow-uri-read: 
@@ -35,32 +35,76 @@ SMB1-enabled-for-dc-connections가 false로 설정되어 있고 -SMB1-enabled가
 link:../smb-admin/index.html["SMB 관리"] 지원되는 SMB 버전 및 기능에 대한 자세한 내용은 에 나와 있습니다.
 
 .단계
-. 권한 수준을 Advanced:'Set-Privilege advanced'로 설정합니다
-. 설정된 SMB 버전을 확인합니다. 'vserver cifs options show'
+. 권한 수준을 고급으로 설정합니다.
++
+[source, cli]
+----
+set -privilege advanced
+----
+. 활성화된 SMB 버전을 확인합니다.
++
+[source, cli]
+----
+vserver cifs options show
+----
 +
 목록을 아래로 스크롤하여 클라이언트 연결에 대해 설정된 SMB 버전을 볼 수 있으며 AD 도메인 연결에 대해 AD 도메인에서 SMB 서버를 구성하는 경우
 
 . 필요에 따라 클라이언트 연결에 대해 SMB 프로토콜을 설정하거나 해제합니다.
 +
-** SMB 버전을 활성화하려면: 'vserver cifs options modify -vserver vserver_name smb_version true'
-** SMB 버전을 사용하지 않으려면 'vserver cifs options modify -vserver vserver_name smb_version false'로 설정합니다. 가능한 값은 'MB_version'입니다.
-** '-SMB1-활성화됨'
-** '-SMB2-ENABLED'입니다
-** '-SMB3-enabled'입니다
-** '-smb31-enabled' 다음 명령은 SVM에서 SMB 3.1을 활성화합니다. vs1.example.com:
+** SMB 버전 활성화하기:
++
+[source, cli]
+----
+vserver cifs options modify -vserver vserver_name smb_version true
+----
+** SMB 버전을 사용하지 않도록 설정하려면:
++
+[source, cli]
+----
+vserver cifs options modify -vserver vserver_name smb_version false
+----
++
+에 사용할 수 있는 값 `smb_version`:
+
++
+*** '-SMB1-활성화됨'
+*** '-SMB2-ENABLED'입니다
+*** '-SMB3-enabled'입니다
+*** `-smb31-enabled`
+
+
 
 
 +
+다음 명령을 실행하면 SVM vs1.example.com 에서 SMB 3.1이 활성화됩니다.
+
+
+
 [listing]
 ----
-
 cluster1::*> vserver cifs options modify -vserver vs1.example.com -smb31-enabled true
 ----
 . SMB 서버가 Active Directory 도메인에 있는 경우 필요에 따라 DC 연결에 대한 SMB 프로토콜을 설정하거나 해제합니다.
 +
-** SMB 버전을 설정하려면 'vserver cifs security modify -vserver vserver_name -SMB2 -enabled-for-dc-connections true'를 선택합니다
-** SMB 버전을 사용하지 않으려면 'vserver cifs security modify -vserver vserver_name -SMB2 -enabled -for -dc -connections false'를 선택합니다
+** SMB 버전 활성화하기:
++
+[source, cli]
+----
+vserver cifs security modify -vserver vserver_name -smb2-enabled-for-dc-connections true
+----
+** SMB 버전을 사용하지 않도록 설정하려면:
++
+[source, cli]
+----
+vserver cifs security modify -vserver vserver_name -smb2-enabled-for-dc-connections false
+----
 
 
-. admin 권한 수준으로 복귀:'et-Privilege admin'입니다
+. 관리자 권한 레벨로 돌아갑니다.
++
+[source, cli]
+----
+set -privilege admin
+----
 

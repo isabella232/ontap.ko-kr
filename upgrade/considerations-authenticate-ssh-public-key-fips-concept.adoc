@@ -1,8 +1,8 @@
 ---
 permalink: upgrade/considerations-authenticate-ssh-public-key-fips-concept.html 
 sidebar: sidebar 
-keywords: ontap, upgrade, update, considerations, ssl, fips mode, host key algorithm 
-summary: 관리자 계정이 SSH 공개 키로 인증하는 클러스터에서 SSL FIPS 모드가 활성화된 경우 ONTAP를 업그레이드하기 전에 타겟 릴리즈에서 호스트 키 알고리즘이 지원되는지 확인해야 합니다. 
+keywords: ontap, upgrade, update, considerations, ssl, fips mode, host key algorithm, authentication 
+summary: 관리자 계정이 SSH 공개 키로 인증하는 클러스터에서 SSL FIPS 모드가 활성화된 경우 대상 릴리스에서 호스트 키 알고리즘이 지원되어야 합니다. 
 ---
 = ONTAP를 업그레이드하기 전에 SSH 호스트 키 알고리즘 지원을 확인합니다
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 관리자 계정이 SSH 공개 키로 인증하는 클러스터에서 S
 
 
 [role="lead"]
-ONTAP를 업그레이드하기 전에 관리자 계정이 SSH 공개 키로 인증하는 클러스터에서 SSL FIPS 모드가 활성화되어 있으면 대상 릴리스에서 호스트 키 알고리즘이 지원되는지 확인해야 합니다.
+ONTAP를 업그레이드하기 전에 관리자 계정이 SSH 공개 키로 인증하는 클러스터에서 SSL FIPS 모드가 활성화되어 있으면 대상 ONTAP 릴리즈에서 호스트 키 알고리즘이 지원되는지 확인해야 합니다.
 
 다음 표에는 ONTAP SSH 연결에 지원되는 호스트 키 유형 알고리즘이 나와 있습니다. 이러한 키 유형은 SSH 공개 인증 구성에 적용되지 않습니다.
 
@@ -44,6 +44,6 @@ NOTE: ONTAP 9.11.1부터 ssh-ed25519 호스트 키 알고리즘에 대한 지원
 
 자세한 내용은 을 참조하십시오 link:../networking/configure_network_security_using_federal_information_processing_standards_@fips@.html["FIPS를 사용하여 네트워크 보안을 구성합니다"].
 
-지원되는 키 알고리즘이 없는 기존 SSH 공개 키 계정은 업그레이드를 활성화하기 전에 지원되는 키 유형으로 재구성해야 합니다. 그렇지 않으면 관리자 인증이 실패합니다.
+지원되는 키 알고리즘이 없는 기존 SSH 공개 키 계정을 지원되는 키 유형으로 다시 구성해야 업그레이드 또는 관리자 인증이 실패합니다.
 
 link:../authentication/enable-ssh-public-key-accounts-task.html["SSH 공개 키 계정 설정에 대해 자세히 알아보십시오."]

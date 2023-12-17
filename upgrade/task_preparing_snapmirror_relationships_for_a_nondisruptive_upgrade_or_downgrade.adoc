@@ -2,7 +2,7 @@
 permalink: upgrade/task_preparing_snapmirror_relationships_for_a_nondisruptive_upgrade_or_downgrade.html 
 sidebar: sidebar 
 keywords: ontap, upgrade, snapmirror, operations, quisce 
-summary: ONTAP의 무중단 업그레이드를 수행하기 전에 SnapMirror 작업을 중단하는 것이 좋습니다. 
+summary: ONTAP를 업그레이드하기 전에 SnapMirror 작업을 중지해야 하며 피어링된 각 SVM에는 클러스터 전체에서 고유한 이름이 있어야 합니다 
 ---
 = ONTAP 업그레이드를 위한 SnapMirror 관계 준비
 :allow-uri-read: 
@@ -19,7 +19,7 @@ SnapMirror를 실행하는 클러스터에서 ONTAP를 업그레이드하기 전
 
 == ONTAP를 업그레이드하기 전에 SnapMirror 작업을 중단합니다
 
-SnapMirror 전송 오류가 발생하지 않도록 하려면 SnapMirror 작업을 중단해야 합니다. 또는 특정 타겟 볼륨에서 SnapMirror 전송을 중지하고 소스 노드를 업그레이드하기 전에 소유 대상 노드를 업그레이드하여 다른 모든 대상 볼륨에 대한 SnapMirror 전송을 계속할 수 있습니다. 다음 표에서는 SnapMirror 작업을 일시 중단하는 두 가지 옵션을 설명합니다.
+SnapMirror 전송 오류가 발생하지 않도록 하려면 ONTAP를 업그레이드하기 전에 SnapMirror 작업을 중지해야 합니다. 또는 특정 타겟 볼륨에서 SnapMirror 전송을 중지하고 소스 노드를 업그레이드하기 전에 소유 대상 노드를 업그레이드하여 다른 모든 대상 볼륨에 대한 SnapMirror 전송을 계속할 수 있습니다. 다음 표에서는 SnapMirror 작업을 일시 중단하는 두 가지 옵션을 설명합니다.
 
 [cols="3*"]
 |===
@@ -69,8 +69,10 @@ cluster1::> snapmirror quiesce -destination-path vs0.example.com:vol1
 ----
 . 모든 SnapMirror 관계가 중지되었는지 확인:
 +
-`snapmirror show -status !Quiesced`
-
+[source, cli]
+----
+snapmirror show -status !Quiesced
+----
 +
 이 명령은 _not_quiesced 인 SnapMirror 관계를 표시합니다.
 

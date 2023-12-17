@@ -2,7 +2,7 @@
 permalink: upgrade/task_check_for_common_configuration_errors_using_config_advisor.html 
 sidebar: sidebar 
 keywords: upgrade, common, configuration, errors, check, config, advisor, before upgrade, before upgrading 
-summary: Active IQ Config Advisor 도구를 사용하여 일반적인 구성 오류를 확인할 수 있습니다. 
+summary: ONTAP를 업그레이드하기 전에 Active IQ Config Advisor 도구를 사용하여 일반적인 구성 오류를 확인합니다. 
 ---
 = Active IQ Config Advisor의 구성 오류를 식별합니다
 :allow-uri-read: 

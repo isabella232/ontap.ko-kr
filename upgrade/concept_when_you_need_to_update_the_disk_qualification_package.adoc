@@ -2,7 +2,7 @@
 permalink: upgrade/concept_when_you_need_to_update_the_disk_qualification_package.html 
 sidebar: sidebar 
 keywords: upgrade, ontap, dqp, disk, qualification, package 
-summary: 'DQP(Disk Qualification Package)는 새로 검증된 드라이브에 대한 완전한 지원을 추가합니다. 드라이브 펌웨어를 업데이트하거나 새 드라이브 유형 또는 크기를 클러스터에 추가하기 전에 DQP를 업데이트해야 합니다. 모범 사례는 DQP를 정기적으로 업데이트하는 것입니다(예: 매 분기 또는 매 반년).' 
+summary: 'ONTAP를 업그레이드하거나 새 드라이브 유형 또는 크기를 추가하거나 디스크 펌웨어를 업데이트한 후에는 ONTAP 디스크 자격 패키지(DQP)도 업데이트해야 합니다.' 
 ---
 = 디스크 검증 패키지를 업데이트합니다
 :allow-uri-read: 
@@ -11,17 +11,13 @@ summary: 'DQP(Disk Qualification Package)는 새로 검증된 드라이브에 �
 
 
 [role="lead"]
-ONTAP 디스크 자격 검증 패키지(DQP)를 업데이트할 때마다 새로 검증된 드라이브에 대한 전체 지원이 추가됩니다.
+ONTAP 소프트웨어를 업그레이드한 후 ONTAP 디스크 자격 패키지(DQP)를 다운로드하여 설치해야 합니다.  DQP는 ONTAP 업그레이드의 일부로 업데이트되지 않습니다.
 
-DQP에는 새로 검증된 모든 드라이브와의 ONTAP 상호 작용을 위한 적절한 매개변수가 포함되어 있습니다. 새로 인증된 드라이브에 대한 정보가 포함되지 않은 DQP로 ONTAP 버전을 실행하는 경우 ONTAP는 드라이브를 올바르게 구성하기 위한 정보를 가지고 있지 않습니다.
+DQP에는 새로 검증된 모든 드라이브와의 ONTAP 상호 작용을 위한 적절한 매개변수가 포함되어 있습니다. DQP 버전에 새로 인증된 드라이브에 대한 정보가 포함되어 있지 않으면 ONTAP에 드라이브를 올바르게 구성하기 위한 정보가 없습니다.
 
-가장 좋은 방법은 매 분기마다 그리고 최소 1년에 두 번 DQP를 업데이트하는 것입니다.  다음과 같은 상황에서 DQP를 다운로드하여 설치해야 합니다.
+분기마다 DQP를 업데이트하는 것이 가장 좋습니다.  또한 다음과 같은 이유로 DQP를 업데이트해야 합니다.
 
-* 새 버전의 ONTAP로 업그레이드할 때마다
-+
-DQP는 ONTAP 업그레이드의 일부로 업데이트되지 않습니다.
-
-* 노드에 새 드라이브 유형 또는 크기를 추가할 때마다
+* 클러스터의 노드에 새 드라이브 유형 또는 크기를 추가할 때마다
 +
 예를 들어 이미 1TB 드라이브를 사용하고 2TB 드라이브를 추가한 경우 최신 DQP 업데이트를 확인해야 합니다.
 

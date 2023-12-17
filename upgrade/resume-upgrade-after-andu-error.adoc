@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade/resume-upgrade-after-andu-error.html 
 keywords: netapp, ontap, automate, automatic, automated, upgrade, nondisruptive, nondisruptively, non-disruptive update, nondisruptive upgrade, upgrade a cluster, shift workload between clusters, hardware platform, configuration, software image, update, update ONTAP, update software, ndu 
-summary: 클러스터에서 ONTAP 버전을 중단 없이 업데이트할 수 있습니다. 
+summary: 오류로 인해 자동화된 ONTAP 소프트웨어 업그레이드가 일시 중지되면 오류를 해결한 다음 업그레이드를 계속해야 합니다. 
 ---
 = 자동화된 업그레이드 프로세스에서 오류가 발생한 후 ONTAP 소프트웨어 업그레이드를 다시 시작합니다
 :hardbreaks:
