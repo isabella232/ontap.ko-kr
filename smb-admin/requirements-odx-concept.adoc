@@ -36,11 +36,9 @@ ONTAP는 복사 오프로드를 위한 ODX를 지원합니다.
 
 == Windows 서버 및 클라이언트 요구 사항
 
-복사 오프로드를 위해 ODX를 사용하려면 Windows 클라이언트에서 이 기능을 지원해야 합니다. ODX 지원은 Windows 2012 Server 및 Windows 8에서 시작됩니다.
+복사 오프로드를 위해 ODX를 사용하려면 Windows 클라이언트에서 이 기능을 지원해야 합니다.
 
-상호 운용성 매트릭스에는 지원되는 Windows 클라이언트에 대한 최신 정보가 포함되어 있습니다.
-
-https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"^]
+를 클릭합니다 link:https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스"^]지원되는 Windows 클라이언트에 대한 최신 정보를 제공합니다.
 
 
 

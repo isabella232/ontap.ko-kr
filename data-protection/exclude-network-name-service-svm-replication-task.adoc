@@ -14,7 +14,7 @@ summary: SnapMirror create 명령의 -identity-preserve false 옵션을 사용�
 스냅샷 생성 명령의 '-identity-preserve false' 옵션을 사용하여 SVM의 볼륨 및 보안 구성만 복제할 수 있습니다. 일부 프로토콜 및 이름 서비스 설정도 보존됩니다.
 
 .이 작업에 대해
-보존된 프로토콜 및 이름 서비스 설정 목록은 를 참조하십시오 link:snapmirror-svm-replication-concept.html#configurations-replicated-in-svm-dr-relationships["SVM DR 관계에 복제된 구성"].
+보존된 프로토콜 및 이름 서비스 설정 목록은 를 참조하십시오 link:snapmirror-svm-replication-concept.html#configurations-replicated-in-svm-disaster-recovery-relationships["SVM DR 관계에 복제된 구성"].
 
 전체 명령 구문은 man 페이지를 참조하십시오.
 

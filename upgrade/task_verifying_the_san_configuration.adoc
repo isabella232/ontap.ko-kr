@@ -31,14 +31,18 @@ SAN 환경에서 ONTAP를 업그레이드하면 경로가 직접 변경됩니다
  a| 
 iSCSI
  a| 
-'iSCSI initiator show-fields igroup, initiator-name, tpgroup'
-
+[source, cli]
+----
+iscsi initiator show -fields igroup,initiator-name,tpgroup
+----
 
 
  a| 
 FC
  a| 
-'fcp initiator show-fields igroup, WWPN, lif'
-
+[source, cli]
+----
+fcp initiator show -fields igroup,wwpn,lif
+----
 |===
 

@@ -118,7 +118,7 @@ SVM 복제 관계의 내용은 다음 필드의 상호 작용에 의해 결정�
 
 * 'napMirror create' 명령의 '-identity-preserve true' 옵션은 전체 SVM 구성을 복제합니다.
 +
-를 클릭합니다 `-identity-preserve false` 옵션은 SVM의 볼륨, 인증 및 권한 부여 구성과 에 나와 있는 프로토콜 및 이름 서비스 설정만 복제합니다 link:snapmirror-svm-replication-concept.html#configurations-replicated-in-svm-dr-relationships["SVM 재해 복구 관계에 복제된 구성"].
+를 클릭합니다 `-identity-preserve false` 옵션은 SVM의 볼륨, 인증 및 권한 부여 구성과 에 나와 있는 프로토콜 및 이름 서비스 설정만 복제합니다 link:snapmirror-svm-replication-concept.html##configurations-replicated-in-svm-disaster-recovery-relationships["SVM 재해 복구 관계에 복제된 구성"].
 
 * 'napMirror policy create' 명령의 '-discard-configs network' 옵션은 소스 및 대상 SVM이 서로 다른 서브넷에 있는 경우에 사용하기 위해 SVM 복제에서 LIF 및 관련 네트워크 설정을 제외합니다.
 * 볼륨 수정 명령의 '-vserver-dr-protection protected' 옵션은 SVM 복제에서 지정된 볼륨을 제외합니다.

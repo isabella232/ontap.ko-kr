@@ -65,31 +65,60 @@ NOTE: 노드에 연결된 모든 디스크의 모든 시스템 및 사용자 데
 .단계
 . 권한 수준을 고급으로 변경합니다.
 +
-' * set-Privilege advanced * '
-
-. 클러스터의 노드에 epsilon가 있는지 확인합니다.
-+
-`*cluster show -epsilon true*`
-
-+
-.. 노드가 epsilon을 포함하는 경우 해당 자격을 false로 변경합니다.
-+
-`*cluster modify -node <node_name> -eligibility false*`
-
-
-
-. 제거하려는 노드가 현재 마스터 노드인 경우 마스터 노드의 클러스터 자격을 "false"로 변경하여 클러스터의 다른 노드를 마스터 노드로 선택합니다.
-+
-' * 클러스터 수정 – 자격 오류 *'
-
-+
-마스터 노드는 "mGMT", "VLDB", "vifmgr", "bcomd", "CRS" 등의 프로세스를 보유하는 노드입니다. cluster ring show 고급 명령은 현재 마스터 노드를 표시합니다.
-
-+
-[listing]
+[source, cli]
 ----
-cluster::*> cluster modify -node node1 -eligibility false
+set -privilege advanced
 ----
+. 클러스터의 노드에 epsilon이 있는지 확인합니다.
++
+[source, cli]
+----
+cluster show -epsilon true
+----
+. 클러스터의 노드에 epsilon이 있고 해당 노드의 연결이 해제될 경우 연결을 해제하지 않을 노드로 epsilon 이동:
++
+.. 결합을 해제할 노드에서 epsilon을 이동합니다
++
+[source, cli]
+----
+cluster modify -node <name_of_node_to_be_unjoined> -epsilon false
+----
+.. 연결을 해제하지 않을 노드로 epsilon 이동:
++
+[source, cli]
+----
+cluster modify -node <node_name> -epsilon true
+----
+
+
+. 현재 마스터 노드를 식별합니다.
++
+[source, cli]
+----
+cluster ring show
+----
++
+마스터 노드는 "mGMT", "VLDB", "vifmgr", "bcomd", "CRS" 등의 프로세스를 보유하는 노드입니다.
+
+. 제거하려는 노드가 현재 마스터 노드인 경우 클러스터의 다른 노드를 마스터 노드로 선택할 수 있도록 설정합니다.
++
+.. 현재 마스터 노드가 클러스터에 참여할 수 없도록 합니다.
++
+[source, cli]
+----
+cluster modify – node <node_name> -eligibility false
+----
++
+마스터 노드가 부적격이 되면 클러스터 쿼럼에 의해 나머지 노드 중 하나가 새 마스터로 선택됩니다.
+
+.. 이전 마스터 노드가 클러스터에 다시 참여할 수 있도록 합니다.
++
+[source, cli]
+----
+cluster modify – node <node_name> -eligibility true
+----
+
+
 . 원격 노드 관리 LIF 또는 제거 중인 노드 이외의 노드에 있는 클러스터 관리 LIF에 로그인합니다.
 . 클러스터에서 노드를 제거합니다.
 +
@@ -100,15 +129,19 @@ cluster::*> cluster modify -node node1 -eligibility false
  a| 
 ONTAP 9.3
  a| 
-'* 클러스터 연결 해제 * '
-
+[source, cli]
+----
+cluster unjoin
+----
 
 
  a| 
 ONTAP 9.4 이상
  a| 
-'* 클러스터 제거 노드 * '
-
+[source, cli]
+----
+cluster remove-node*
+----
 |===
 +
 혼합 버전 클러스터가 있고 마지막 하위 버전 노드를 제거하는 경우 이 명령과 함께 '-skip-last-low-version-node-check' 매개 변수를 사용합니다.
@@ -134,13 +167,15 @@ ONTAP 9.4 이상
 . 노드를 용도 변경할 경우 노드 구성을 지우고 모든 디스크를 초기화합니다.
 +
 .. 부팅 프로세스 중에 부팅 메뉴가 표시되면 Ctrl-C를 눌러 부팅 메뉴를 표시합니다.
-.. 부팅 메뉴 옵션 * (4) 구성 정리 및 모든 디스크 초기화 * 를 선택합니다.
+.. 부팅 메뉴 옵션(4) Clean configuration and initialize all disks(구성 지우기 및 모든 디스크 초기화) 를 선택합니다.
 
 
 . 관리자 권한 레벨로 돌아가기:
 +
-' * set-privilege admin * '
-
+[source, cli]
+----
+set -privilege admin
+----
 . 클러스터에서 페일오버 파트너를 제거하려면 위의 단계를 반복합니다.
 
 

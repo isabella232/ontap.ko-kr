@@ -18,7 +18,7 @@ summary: 로컬 스냅샷, 비동기식 SnapMirror, SM-BC 및 SVM 재해 복구 
 
 * 로컬 스냅샷 복사본
 * SnapMirror 비즈니스 연속성(SM-BC)
-* xref:index.html#consistency-groups-in-MetroCluster-configurations[MetroCluster(9.11.1부터)]
+* xref:index.html#mcc[MetroCluster(9.11.1부터)]
 * 비동기식 SnapMirror(9.13.1 시작)
 * 비동기식 SVM 재해 복구(9.14.1부터)
 

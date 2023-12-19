@@ -19,10 +19,6 @@ CIFS 서버에서 IPv6를 사용하려면 ONTAP가 CIFS 서비스에 대한 SMB 
 
 ONTAP는 IPv6를 지원하는 Windows 서버 및 클라이언트를 지원합니다. 다음은 Microsoft Windows 클라이언트 및 서버 IPv6 지원에 대한 설명입니다.
 
-* Windows XP 및 Windows 2003은 SMB 파일 공유를 위한 IPv6를 지원합니다.
-+
-이러한 버전은 IPv6에 대한 제한된 지원을 제공합니다.
-
 * Windows 7, Windows 8, Windows Server 2008, Windows Server 2012 이상에서는 DNS, LDAP, CLDAP 및 Kerberos 서비스를 포함한 SMB 파일 공유 및 Active Directory 서비스에 대해 IPv6를 지원합니다.
 +
 IPv6 주소가 구성된 경우 Windows 7 및 Windows Server 2008 이상 릴리즈에서는 Active Directory 서비스에 대해 기본적으로 IPv6을 사용합니다. IPv6 연결을 통한 NTLM 및 Kerberos 인증이 모두 지원됩니다.
@@ -32,9 +28,7 @@ ONTAP에서 지원하는 모든 Windows 클라이언트는 IPv6 주소를 사용
 
 
 
-ONTAP가 지원하는 Windows 클라이언트에 대한 최신 정보는 상호 운용성 매트릭스 를 참조하십시오.
-
-상호 운용성 매트릭스
+ONTAP가 지원하는 Windows 클라이언트에 대한 최신 정보는 를 참조하십시오 link:https://mysupport.netapp.com/matrix["상호 운용성 매트릭스"].
 
 [NOTE]
 ====

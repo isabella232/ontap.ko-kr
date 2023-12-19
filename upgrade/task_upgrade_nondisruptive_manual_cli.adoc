@@ -215,13 +215,12 @@ node1          node0          false    In takeover
 
 
 . 애그리게이트를 첫 번째 노드에 반환:
-
-
-[listing]
++
+[source, cli]
 ----
 storage failover giveback –ofnode nodenameA
 ----
-를 누릅니다
++
 반환 프로그램이 루트 애그리게이트를 파트너 노드로 반환한 다음, 해당 노드에서 부팅을 완료한 후 루트가 아닌 애그리게이트와 자동으로 되돌리도록 설정된 LIF를 반환합니다. 새로 부팅된 노드는 Aggregate가 반환되는 즉시 각 Aggregate의 클라이언트에 데이터를 제공하기 시작합니다.
 
 . 모든 애그리게이트가 반환되었는지 확인:

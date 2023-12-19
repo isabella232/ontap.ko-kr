@@ -117,7 +117,7 @@ ONTAP 9.11.1부터 ARP에 대한 검출 파라미터를 사용자 정의할 수 
 
 위협이 낮은 상황에서 ONTAP는 비정상성을 감지하고 볼륨의 스냅샷을 생성하여 최상의 복구 지점을 만듭니다. ARP 스냅샷은 을 사용합니다 `anti-ransomware-backup` 태그 및 는 이름(예:)으로 식별할 수 있습니다 `Anti_ransomware_backup.2022-12-20_1248`.
 
-ONTAP에서 분석 보고서를 실행하고 비정상 상태가 랜섬웨어 프로필과 일치하는지 확인하는 위협이 보통 수준으로 증가합니다. 하위 수준에 남아 있는 위협은 System Manager의 ** 이벤트** 섹션에 기록되고 표시됩니다. 공격 가능성이 보통이면 ONTAP에서 위협을 평가하라는 EMS 알림을 생성합니다. ONTAP는 낮은 위협에 대한 알림을 보내지 않지만 사용자가 할 수 있습니다 xref:manage-parameters-task.html#modify-arp-alerts[알림 설정을 수정합니다] ONTAP 9.14.1부터. 자세한 내용은 을 참조하십시오 xref:respond-abnormal-task.html[비정상적인 활동에 응답합니다].
+ONTAP에서 분석 보고서를 실행하고 비정상 상태가 랜섬웨어 프로필과 일치하는지 확인하는 위협이 보통 수준으로 증가합니다. 하위 수준에 남아 있는 위협은 System Manager의 ** 이벤트** 섹션에 기록되고 표시됩니다. 공격 가능성이 보통이면 ONTAP에서 위협을 평가하라는 EMS 알림을 생성합니다. ONTAP는 낮은 위협에 대한 알림을 보내지 않지만 사용자가 할 수 있습니다 xref:manage-parameters-task.html#modify-alerts[알림 설정을 수정합니다] ONTAP 9.14.1부터. 자세한 내용은 을 참조하십시오 xref:respond-abnormal-task.html[비정상적인 활동에 응답합니다].
 
 System Manager의** 이벤트** 섹션 또는 에서 수준에 관계없이 위협에 대한 정보를 볼 수 있습니다 `security anti-ransomware volume show` 명령.
 

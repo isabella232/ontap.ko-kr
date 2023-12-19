@@ -17,8 +17,7 @@ ODX가 아닌 파일 전송에서는 소스 CIFS 서버에서 데이터를 읽�
 
 오프로드 복사본은 소스 및 타겟 스토리지 간에 직접 수행되므로 성능이 크게 향상됩니다. 소스 및 대상 간의 복제 시간 단축, 클라이언트의 리소스 활용률(CPU, 메모리) 감소, 네트워크 I/O 대역폭 사용률 감소 등의 성능 이점을 얻을 수 있습니다.
 
-이 기능은 Windows Server 2012 서버에서 사용할 수 있습니다. ONTAP ODX 복사 오프로드는 SAN LUN과 SMB 3.0 상시 연결 모두에서 지원됩니다.
-
+ ONTAP ODX copy offload is supported on both SAN LUNs and SMB 3.0 continuously available connections.
 ODX 복사 및 이동 사용을 지원하는 사용 사례는 다음과 같습니다.
 
 * 체내

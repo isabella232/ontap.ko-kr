@@ -103,7 +103,7 @@ ONTAP 9.14.1부터 ARP를 사용하면 두 ARP 이벤트에 대한 경고를 지
 
 이러한 두 이벤트에 대한 경고는 개별 볼륨 또는 전체 SVM에 설정할 수 있습니다. SVM에 대해 경고를 활성화하면 알림을 사용하도록 설정한 후 생성된 볼륨에서만 경고 설정이 상속됩니다. 기본적으로 알림은 모든 볼륨에 대해 활성화되지 않습니다.
 
-이벤트 경고는 다중 관리자 확인을 통해 제어할 수 있습니다. 자세한 내용은 을 참조하십시오 xref:use-cases-restrictions-concept.html#multi-admin-verification-with-volumes-protected-with-ARP[ARP로 보호되는 볼륨을 사용한 다중 관리자 검증].
+이벤트 경고는 다중 관리자 확인을 통해 제어할 수 있습니다. 자세한 내용은 을 참조하십시오 xref:use-cases-restrictions-concept.html#multi-admin-verification-with-volumes-protected-with-arp[ARP로 보호되는 볼륨을 사용한 다중 관리자 검증].
 
 [role="tabbed-block"]
 ====

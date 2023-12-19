@@ -59,8 +59,8 @@ LIF 페일오버가 사용되도록 설정된 LIF의 경우(자동 또는 수동
 
 * 데이터 서비스 정책을 사용하는 LIF의 경우 페일오버 정책 제한 사항을 확인할 수 있습니다.
 +
-** ONTAP 9.6 이상: link:..networking/lifs_and_service_policies96.html["ONTAP 9.6 이상의 LIF 및 서비스 정책"]
-** ONTAP 9.5 이하: link:..networking/lif_roles95.html["ONTAP 9.5 이전 버전에서 LIF 역할"]
+** ONTAP 9.6 이상: link:lifs_and_service_policies96.html["ONTAP 9.6 이상의 LIF 및 서비스 정책"]
+** ONTAP 9.5 이하: link:lif_roles95.html["ONTAP 9.5 이전 버전에서 LIF 역할"]
 
 
 * LIF 자동 되돌리기는 자동 되돌리기가 로 설정된 경우 발생합니다 `true` LIF의 홈 포트가 정상 상태이고 LIF를 호스팅할 수 있는 경우,

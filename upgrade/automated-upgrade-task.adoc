@@ -37,7 +37,7 @@ IMPORTANT: 자동 무중단 업그레이드(ANDU)를 시작하기 전에 '스토
 ONTAP 9.8 이상에서는 일괄 처리 방법을 사용하면 LIF가 다른 일괄 그룹으로 마이그레이션됩니다.
 
 * MetroCluster FC 구성에서 ONTAP를 업그레이드하려면 클러스터가 비계획 자동 전환을 위해 활성화되어야 합니다.
-* 업그레이드 프로세스의 진행 상황을 모니터링할 계획이 없는 경우 를 수행해야 합니다 link:task_requesting_notification_of_issues_encountered_in_nondisruptive_upgrades.html["수동 개입이 필요할 수 있는 오류에 대한 EMS 알림을 요청합니다"].
+* 업그레이드 프로세스의 진행 상황을 모니터링할 계획이 없는 경우 를 수행해야 합니다 link:../error-messages/configure-ems-notifications-sm-task.html["수동 개입이 필요할 수 있는 오류에 대한 EMS 알림을 요청합니다"].
 
 
 .단계

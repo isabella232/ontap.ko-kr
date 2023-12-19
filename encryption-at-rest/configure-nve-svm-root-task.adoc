@@ -1,5 +1,6 @@
 ---
 permalink: encryption-at-rest/configure-nve-svm-root-task.html 
+sidebar: sidebar 
 keywords: volume encryption, nve, svm root, encrypt 
 summary: 'NetApp Volume Encryption(NVE)은 유휴 데이터를 한 번에 하나의 볼륨으로 암호화하는 소프트웨어 기반 기술입니다. ONTAP 9.14.1부터 SVM 루트에 NVE를 구성할 수 있습니다.' 
 ---

@@ -26,7 +26,7 @@ summary: 허용되는 최대 Kerberos 클록 비뚤어짐 시간, Kerberos 티�
 
 
  a| 
-허용되는 최대 Kerberos 클록 비뚤어짐 시간(분)을 지정합니다.
+허용되는 최대 Kerberos 클럭 편중 시간을 분(9.13.1 이상) 또는 초(9.12.1 이하)로 지정합니다.
  a| 
 'vserver cifs security modify -vserver_vserver_name_-Kerberos-clock-suts_integer_in_minutes_'
 

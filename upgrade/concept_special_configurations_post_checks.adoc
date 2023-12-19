@@ -39,7 +39,4 @@ xref:remove-ems-lif-service-task.html[EMS 대상에 대한 통신 기능을 제�
 
 
 | ONTAP 9.9.1 이전에 생성된 SP(서비스 프로세서) 액세스에 대한 사용자 계정이 있습니까? | xref:sp-user-accounts-change-concept.html[서비스 프로세서에 액세스할 수 있는 계정의 변경 사항을 확인합니다] 
-
-
-| ONTAP 8.3.0에서 업그레이드했습니까? | xref:task_setting_the_desired_nt_acl_permissions_display_level_for_nfs_clients.html[NFS 클라이언트에 대해 원하는 NT ACL 권한 표시 수준을 설정합니다] 
 |===
