@@ -2,7 +2,7 @@
 permalink: concepts/snapvault-archiving-concept.html 
 sidebar: sidebar 
 keywords: snapvault archive 
-summary: SnapMirror 라이센스는 백업에 대한 SnapVault 관계와 재해 복구를 위한 SnapMirror 관계를 모두 지원하는 데 사용됩니다. SnapVault 라이센스는 더 이상 사용되지 않으며, 이제 볼트, 미러 및 미러-볼트 관계를 구성하는 데 SnapMirror 라이센스를 사용할 수 있습니다. SnapMirror 복제는 Snapshot 복사본의 ONTAP-to-ONTAP 복제에 사용되어 백업 및 재해 복구 사용 사례를 모두 지원합니다. 
+summary: SnapMirror 라이센스는 백업에 대한 SnapVault 관계와 재해 복구를 위한 SnapMirror 관계를 모두 지원하는 데 사용됩니다. ONTAP 9.3부터 SnapVault 사용권은 더 이상 사용되지 않으며, SnapMirror 사용권은 볼트, 미러, 미러 및 볼트 간 관계를 구성하는 데 사용할 수 있습니다. SnapMirror 복제는 Snapshot 복사본의 ONTAP-to-ONTAP 복제에 사용되어 백업 및 재해 복구 사용 사례를 모두 지원합니다. 
 ---
 = SnapVault 아카이빙
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: SnapMirror 라이센스는 백업에 대한 SnapVault 관계와 재해 
 
 
 [role="lead"]
-SnapMirror 라이센스는 백업에 대한 SnapVault 관계와 재해 복구를 위한 SnapMirror 관계를 모두 지원하는 데 사용됩니다. SnapVault 라이센스는 더 이상 사용되지 않으며, 이제 볼트, 미러 및 미러-볼트 관계를 구성하는 데 SnapMirror 라이센스를 사용할 수 있습니다. SnapMirror 복제는 Snapshot 복사본의 ONTAP-to-ONTAP 복제에 사용되어 백업 및 재해 복구 사용 사례를 모두 지원합니다.
+SnapMirror 라이센스는 백업에 대한 SnapVault 관계와 재해 복구를 위한 SnapMirror 관계를 모두 지원하는 데 사용됩니다. ONTAP 9.3부터 SnapVault 사용권은 더 이상 사용되지 않으며, SnapMirror 사용권은 볼트, 미러, 미러 및 볼트 간 관계를 구성하는 데 사용할 수 있습니다. SnapMirror 복제는 Snapshot 복사본의 ONTAP-to-ONTAP 복제에 사용되어 백업 및 재해 복구 사용 사례를 모두 지원합니다.
 
 _SnapVault_는 표준 준수 및 기타 거버넌스 관련 목적을 위해 D2D Snapshot 복사본 복제를 위해 설계된 아카이브 기술입니다. 일반적으로 타겟에 현재 소스 볼륨에 있는 스냅샷 복사본만 포함된 SnapMirror 관계와는 대조적으로, SnapVault 타겟은 훨씬 더 오랜 기간 동안 생성된 시점 스냅샷 복사본을 유지합니다.
 

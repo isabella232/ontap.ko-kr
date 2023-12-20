@@ -2,7 +2,7 @@
 permalink: concepts/cloud-backup-support-traditional-backups-concept.html 
 sidebar: sidebar 
 keywords: cloud backup, support, traditional backups 
-summary: 이전에는 D2D 전용이었었던 SnapMirror 및 SnapVault 데이터 보호 관계 외에도 이제는 장기 데이터 보존에 저렴한 대안을 제공하는 여러 백업 솔루션이 있습니다. 
+summary: ONTAP 9.7 이하 버전을 위한 디스크-디스크 전용이었던 SnapMirror 및 SnapVault 데이터 보호 관계 외에도, 이제 여러 백업 솔루션을 통해 장기적인 데이터 보존을 위한 저렴한 대안을 제공합니다. 
 ---
 = 클라우드 백업 및 기존 백업 지원
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 이전에는 D2D 전용이었었던 SnapMirror 및 SnapVault 데이터 
 
 
 [role="lead"]
-이전에는 D2D 전용이었었던 SnapMirror 및 SnapVault 데이터 보호 관계 외에도 이제는 장기 데이터 보존에 저렴한 대안을 제공하는 여러 백업 솔루션이 있습니다.
+ONTAP 9.7 이하 버전을 위한 디스크-디스크 전용이었던 SnapMirror 및 SnapVault 데이터 보호 관계 외에도, 이제 여러 백업 솔루션을 통해 장기적인 데이터 보존을 위한 저렴한 대안을 제공합니다.
 
 수많은 타사 데이터 보호 애플리케이션에서 ONTAP로 관리하는 데이터에 대한 기존 백업을 제공합니다. Veeam, Veritas, Commvault 중에서도 ONTAP 시스템을 위한 통합 백업을 제공합니다.
 

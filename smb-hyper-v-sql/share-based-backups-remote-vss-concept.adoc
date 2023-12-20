@@ -13,4 +13,4 @@ summary: 원격 VSS를 사용하여 CIFS 서버에 저장된 Hyper-V 가상 머�
 [role="lead"]
 원격 VSS를 사용하여 CIFS 서버에 저장된 Hyper-V 가상 머신 파일의 공유 기반 백업을 수행할 수 있습니다.
 
-Microsoft 원격 VSS(Volume Shadow Copy Services)는 기존 Microsoft VSS 인프라의 확장입니다. 이전에는 로컬 디스크에 저장된 데이터의 백업 서비스에만 VSS를 사용할 수 있었습니다. 따라서 로컬 디스크 또는 SAN 기반 스토리지에 데이터를 저장하는 애플리케이션에만 VSS를 사용할 수 있습니다. Microsoft는 원격 VSS를 통해 VSS 인프라스트럭처를 확장하여 SMB 공유의 섀도우 복제를 지원하고 있습니다. Hyper-V와 같은 서버 애플리케이션은 이제 SMB 파일 공유에 VHD 파일을 저장하고 있습니다. 이러한 새로운 확장을 통해 공유에 데이터 및 구성 파일을 저장하는 가상 머신에 대해 애플리케이션 정합성이 보장되는 섀도우 복제본을 생성할 수 있습니다.
+Microsoft 원격 VSS(Volume Shadow Copy Services)는 기존 Microsoft VSS 인프라의 확장입니다. Microsoft는 원격 VSS를 통해 VSS 인프라스트럭처를 확장하여 SMB 공유의 섀도우 복제를 지원하고 있습니다. Hyper-V와 같은 서버 애플리케이션은 SMB 파일 공유에 VHD 파일을 저장합니다. 이러한 확장을 사용하면 데이터 및 구성 파일을 공유에 저장하는 가상 시스템에 대해 애플리케이션 정합성이 보장되는 섀도우 복제본을 가져올 수 있습니다.
