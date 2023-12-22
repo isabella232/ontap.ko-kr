@@ -15,7 +15,13 @@ entries:
   - title: Vscan 파트너 솔루션
     url: "/antivirus/vscan-partner-solutions.html"
 - title: Vscan 서버 설치 및 구성
-  url: "/antivirus/vscan-server-install-config-concept.html"
+  entries:
+  - title: 개요
+    url: "/antivirus/vscan-server-install-config-concept.html"
+  - title: ONTAP 안티바이러스 커넥터를 설치합니다
+    url: "/antivirus/install-ontap-antivirus-connector-task.html"
+  - title: ONTAP 안티바이러스 커넥터를 구성합니다
+    url: "/antivirus/configure-ontap-antivirus-connector-task.html"
 - title: 스캐너 풀을 구성합니다
   entries:
   - title: 개요
@@ -60,7 +66,7 @@ entries:
   url: "/antivirus/reset-status-scanned-files-task.html"
 - title: Vscan 이벤트 로그 정보를 봅니다
   url: "/antivirus/view-vscan-event-log-task.html"
-- title: 연결 문제를 해결하고 성능 활동을 모니터링합니다
+- title: 연결 문제를 모니터링하고 해결합니다
   entries:
   - title: 스캔 필수 옵션과 관련된 잠재적인 연결 문제
     url: "/antivirus/vscan-server-connection-concept.html"

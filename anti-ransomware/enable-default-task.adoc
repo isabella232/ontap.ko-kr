@@ -45,7 +45,7 @@ ONTAP 9.13.1 부터는 적응형 학습이 ARP 분석에 추가되었으며 학�
  -anti-ransomware-auto-switch-minimum-file-count
  -anti-ransomware-auto-switch-minimum-file-extension
 ----
-30일 후에도 이 옵션의 기준이 충족되지 않으면 볼륨은 자동으로 ARP 활성 모드로 전환됩니다. 이 기간은 옵션으로 구성할 수 있습니다 `anti-ransomware-auto-switch-duration-without-new-file-extension`그러나 최대값은 30일입니다.
+학습 후 30일 후에는 이러한 조건 중 하나 이상이 충족되지 않더라도 볼륨이 자동으로 활성 모드로 전환됩니다. 즉, 자동 전환이 활성화된 경우 볼륨은 최대 30일 후에 활성 모드로 전환됩니다. 최대 30일 값은 고정되어 있으며 수정할 수 없습니다.
 
 기본값을 포함한 ARP 구성 옵션에 대한 자세한 내용은 ONTAP man 페이지를 참조하십시오.
 
