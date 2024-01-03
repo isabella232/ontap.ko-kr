@@ -11,7 +11,7 @@ summary: Active IQ 디지털 어드바이저의 Upgrade Advisor 서비스는 업
 
 
 [role="lead"]
-업그레이드 계획을 만드는 것이 가장 좋습니다. 활성 상태인 경우 link:https://www.netapp.com/us/services/support-edge.aspx["SupportEdge 서비스"^] 에 대한 계약 link:https://aiq.netapp.com/["Active IQ 디지털 자문업체"^], Upgrade Advisor를 사용하여 업그레이드 계획을 생성할 수 있습니다. 그렇지 않은 경우 자신의 계획을 작성해야 합니다.
+업그레이드 계획을 만드는 것이 가장 좋습니다. 활성 상태인 경우 link:https://www.netapp.com/us/services/support-edge.aspx["SupportEdge 서비스"^] 에 대한 계약 link:https://docs.netapp.com/us-en/active-iq/upgrade_advisor_overview.html["Active IQ 디지털 자문업체"^], Upgrade Advisor를 사용하여 업그레이드 계획을 생성할 수 있습니다. 그렇지 않은 경우 자신의 계획을 작성해야 합니다.
 
 
 

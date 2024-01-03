@@ -83,20 +83,20 @@ node1
 2개 노드
  a| 
 .. 클러스터 고가용성 비활성화:
-를 누릅니다
-[소스, CLI]
---
-Cluster ha modify-configured false 입니다
---
++
+[source, cli]
+----
+cluster ha modify -configured false
+----
 +
 메시지가 나타나면 y를 입력하여 계속합니다.
 
 .. HA 쌍에 대해 스토리지 페일오버 비활성화:
-를 누릅니다
-[소스, CLI]
---
-스토리지 페일오버 modify-node * -enabled false
---
++
+[source, cli]
+----
+storage failover modify -node * -enabled false
+----
 
 
 

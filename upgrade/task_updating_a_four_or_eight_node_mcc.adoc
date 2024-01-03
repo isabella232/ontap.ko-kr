@@ -80,7 +80,7 @@ image:mcc_dr_groups_8_node.gif["8노드 MetroCluster 구성의 다이어그램"]
 
 이 작업에 제공된 예제에서는 다음 그림에 표시된 이름을 사용하여 클러스터와 노드를 식별합니다.
 
-image:media/mcc_dr_groups_8_node.gif["8노드 MetroCluster 구성의 다이어그램"]
+image:mcc_dr_groups_8_node.gif["8노드 MetroCluster 구성의 다이어그램"]
 
 . 구성에서 DR 페어를 식별합니다.
 +

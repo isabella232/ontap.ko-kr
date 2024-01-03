@@ -17,7 +17,7 @@ ONTAP 소프트웨어 업그레이드를 올바르게 준비하면 업그레이�
 
 . link:create-upgrade-plan.html["업그레이드 계획을 생성합니다"].
 +
-에 대해 활성 SupportEdge 계약이 있는 경우 link:https://aiq.netapp.com/["Active IQ 디지털 자문업체"^]업그레이드 관리자를 통해 업그레이드를 계획하십시오.  Active IQ Digital Advisor에 액세스할 수 없는 경우 고유한 업그레이드 계획을 작성하십시오.
+에 대해 활성 SupportEdge 계약이 있는 경우 link:https://docs.netapp.com/us-en/active-iq/upgrade_advisor_overview.html["Active IQ 디지털 자문업체"^]업그레이드 관리자를 통해 업그레이드를 계획하십시오.  Active IQ Digital Advisor에 액세스할 수 없는 경우 고유한 업그레이드 계획을 작성하십시오.
 
 . link:choose-target-version.html["대상 ONTAP 릴리스를 선택합니다"].
 . 를 검토합니다 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["ONTAP 릴리즈 노트"^] 타겟 릴리즈용
