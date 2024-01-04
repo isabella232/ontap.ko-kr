@@ -41,7 +41,6 @@ ONTAP 9의 FlexGroup 볼륨에서 지원되고 지원되지 않는 ONTAP 기능�
 
 * FlexGroup 재조정
 * SnapVault용 SnapLock
-* SVM 마이그레이션
 * FabricPool, FlexGroup 및 SVM DR이 함께 작동합니다. (ONTAP 9.12.1 이전 버전에서는 이러한 기능 중 두 가지가 함께 작동하지만 세 가지 기능이 모두 함께 작동하지는 않습니다.)
 * ONTAP 9.12.1 P2 이상을 사용하는 경우 AFF 및 FAS 플랫폼에서 FlexGroup 볼륨 구성 크기는 최대 300TB까지 확장됩니다.
 

@@ -1,17 +1,17 @@
 ---
 permalink: antivirus/best-practices-configure-off-box-antivirus-functionality-concept.html 
 sidebar: sidebar 
-keywords: off-box, clustered ONTAP, antivirus, 
-summary: Clustered ONTAP에서 바이러스 백신 기능을 오프박스 방식으로 구성하려면 다음 권장 사항을 고려하십시오. 
+keywords: off-box, ONTAP, antivirus, 
+summary: 다음 권장 사항을 고려하여 ONTAP에서 바이러스 백신 기능을 구성하십시오. 
 ---
-= clustered ONTAP에서 바이러스 백신 기능을 구성하는 모범 사례
+= ONTAP에서 즉시 사용 가능한 바이러스 백신 기능을 구성하는 최상의 방법
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Clustered ONTAP에서 즉시 사용 가능한 기능을 구성하기 위한 다음과 같은 권장 사항을 고려하십시오.
+ONTAP에서 오프 박스 기능을 구성할 때는 다음 권장 사항을 고려하십시오.
 
 * 권한이 있는 사용자를 바이러스 검사 작업으로 제한합니다. 일반 사용자는 권한이 있는 사용자 자격 증명을 사용하지 않도록 해야 합니다. 이러한 제한은 Active Directory에서 권한이 있는 사용자에 대한 로그인 권한을 해제하면 얻을 수 있습니다.
 * 권한이 있는 사용자는 administrators 그룹 또는 backup operators 그룹과 같이 도메인에서 많은 권한이 있는 사용자 그룹에 속할 필요가 없습니다. 권한이 있는 사용자는 Vscan 서버 접속을 생성하고 바이러스 검사를 위한 파일에 액세스할 수 있도록 스토리지 시스템에서만 유효성을 검사해야 합니다.
