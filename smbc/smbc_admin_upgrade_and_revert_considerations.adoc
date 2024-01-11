@@ -20,7 +20,7 @@ ONTAP 9.8부터 SM-BC(SnapMirror 비즈니스 연속성)가 지원됩니다. ONT
 == ONTAP를 업그레이드합니다
 
 SM-BC를 구성하고 사용하려면 먼저 소스 및 대상 클러스터의 모든 노드를 ONTAP 9.8 이상으로 업그레이드해야 합니다.
-link:link:../upgrade/index.html["ONTAP 클러스터에서 소프트웨어 업그레이드"]
+xref:../upgrade/index.html[ONTAP 클러스터에서 소프트웨어 업그레이드]
 
 
 NOTE: 를 클릭합니다 `snapmirror quiesce` 및 `snampirror resume` SM-BC에서는 명령어가 지원되지 않습니다.
