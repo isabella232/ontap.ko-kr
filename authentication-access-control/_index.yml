@@ -1,0 +1,72 @@
+---
+indexpage:
+  tiles:
+  - title: 시작하십시오
+    links:
+    - title: 인증 및 액세스 제어 개요
+      url: "/../concept_authentication_access_control_overview.html"
+    - title: 인증 및 RBAC 개요
+      url: "/../authentication/index.html"
+    - title: OAuth 2.0을 사용한 인증 및 권한 부여
+      url: "/../authentication/overview-oauth2.html"
+    - title: 웹 서비스 관리
+      url: "/../system-admin/manage-web-services-concept.html"
+    - title: 인증서를 사용하여 원격 서버의 ID를 확인합니다
+      url: "/../system-admin/verify-identity-remote-servers-certificates-concept.html"
+    - title: 클러스터 및 KMIP 서버를 수동으로 인증합니다
+      url: "/../system-admin/mutually-authenticating-cluster-kmip-server-concept.html"
+  - title: 인증 및 권한 부여
+    links:
+    - title: OAuth 2.0 인증을 구성합니다
+      url: "/../authentication/oauth2-prepare.html"
+    - title: SAML 인증을 구성합니다
+      url: "/../system-admin/configure-saml-authentication-task.html"
+  - title: 관리자 인증 및 RBAC 관리
+    links:
+    - title: 워크플로우
+      url: "/../authentication/workflow-concept.html"
+    - title: 로그인 계정을 만듭니다
+      url: "/../authentication/create-svm-user-accounts-task.html"
+    - title: 액세스 제어 역할을 관리합니다
+      url: "/../authentication/manage-access-control-roles-concept.html"
+    - title: 관리자 계정을 관리합니다
+      url: "/../authentication/manage-user-accounts-concept.html"
+    - title: 다중 관리자 확인을 관리합니다
+      url: "/../multi-admin-verify/index.html"
+  - title: 웹 서비스 관리
+    links:
+    - title: 웹 서비스에 대한 액세스를 관리합니다
+      url: "/../system-admin/manage-access-web-services-concept.html"
+    - title: 웹 프로토콜 엔진을 관리합니다
+      url: "/../system-admin/manage-web-protocol-engine-concept.html"
+    - title: 웹 서비스에 대한 액세스를 구성합니다
+      url: "/../system-admin/configure-access-web-services-task.html"
+    - title: SSL 관리
+      url: "/../system-admin/manage-ssl-concept.html"
+  - title: 인증서를 사용하여 원격 서버의 ID를 확인합니다
+    links:
+    - title: 디지털 인증서가 OCSP를 사용하여 유효한지 확인합니다
+      url: "/../system-admin/verify-digital-certificates-valid-ocsp-task.html"
+    - title: TLS 기반 응용 프로그램에 대한 기본 인증서를 봅니다
+      url: "/../system-admin/view-default-certificates-tls-based-applications-task.html"
+  - title: 클러스터와 KMIP 서버를 상호 인증합니다
+    links:
+    - title: 클러스터에 대한 인증서 서명 요청을 생성합니다
+      url: "/../system-admin/generate-certificate-signing-request-cluster-task.html"
+    - title: 클러스터에 대한 CA 서명 서버 인증서를 설치합니다
+      url: "/../system-admin/install-ca-signed-server-certificate-cluster-task.html"
+    - title: KMIP 서버용 CA 서명 클라이언트 인증서를 설치합니다
+      url: "/../system-admin/install-ca-signed-client-certificate-kmip-server-task.html"
+  - title: 더 많은 리소스
+    links:
+    - title: 'TR-4569: NetApp ONTAP 9에 대한 보안 강화'
+      url: https://www.netapp.com/pdf.html?item=/media/10674-tr4569.pdf
+    - title: 고객을 위한 제로 트러스트 랩 온 디맨드(Securing ONTAP with Zero Trust Lab on Demand)를
+        사용해 보십시오
+      url: https://labondemand.netapp.com/lab/securing-ontap-zero-trust-hol
+    - title: 시험 구동이 포함된 NetApp 제품 시험 사용(신규 고객의 경우)
+      url: https://www.netapp.com/test-drives/
+    - title: 'TR-4647: ONTAP 모범 사례 및 구현 가이드의 다중 요소 인증'
+      url: https://www.netapp.com/pdf.html?item=/media/17055-tr4647.pdf
+    - title: 'TR-4717: 공통 액세스 카드를 사용한 ONTAP SSH 인증'
+      url: https://www.netapp.com/pdf.html?item=/media/17036-tr4717.pdf

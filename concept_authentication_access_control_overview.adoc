@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: concept_authentication_access_control_overview.html 
+keywords: netapp, ontap, overview, secure data, data, cluster, access, storage, virus scanning, encryption, WORM storage, client authentication, client authorization, administrator authentication, RBAC, role-based access control, login, log in, antivirus, anti-virus, Vscan, SnapLock, regulation 
+summary: 클러스터 인증 및 액세스 제어를 관리할 수 있습니다. 
+---
+= 인증 및 액세스 제어 개요
+:hardbreaks:
+:toclevels: 1
+:allow-uri-read: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+ONTAP 클러스터 인증과 ONTAP 웹 서비스에 대한 액세스 제어를 관리할 수 있습니다.
+
+System Manager 또는 CLI를 사용하여 클러스터 및 스토리지에 대한 클라이언트 및 관리자 액세스를 제어하고 보호할 수 있습니다.
+
+클래식 시스템 관리자(ONTAP 9.7 이전에서만 사용 가능)를 사용하는 경우 를 참조하십시오  https://docs.netapp.com/us-en/ontap-sm-classic/index.html["System Manager Classic(ONTAP 9.0 ~ 9.7)"^]
+
+
+
+== 클라이언트 인증 및 권한 부여
+
+ONTAP는 신뢰할 수 있는 소스로 ID를 확인하여 클라이언트 시스템과 사용자를 인증합니다. ONTAP는 사용자의 자격 증명을 파일 또는 디렉터리에 구성된 권한과 비교하여 사용자가 파일 또는 디렉터리에 액세스할 수 있도록 승인합니다.
+
+
+
+== 관리자 인증 및 RBAC
+
+관리자는 로컬 또는 원격 로그인 계정을 사용하여 클러스터 및 스토리지 VM에 대한 자체 인증을 수행합니다. 역할 기반 액세스 제어(RBAC)는 관리자가 액세스할 수 있는 명령을 결정합니다.

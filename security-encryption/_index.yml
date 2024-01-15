@@ -15,22 +15,6 @@ indexpage:
       url: "/../nas-audit/index.html"
     - title: 암호화 개요
       url: "/../encryption-at-rest/index.html"
-  - title: 관리자 인증
-    links:
-    - title: System Manager로 계정을 관리합니다
-      url: "/../task_security_administrator_access.html"
-    - title: CLI를 사용하여 계정을 관리합니다
-      url: "/../authentication/workflow-concept.html"
-    - title: System Manager로 MFA를 사용하도록 설정합니다
-      url: "/../task_security_mfa_setup.html"
-    - title: CLI를 사용하여 MFA를 사용하도록 설정합니다
-      url: "/../authentication/setup-ssh-multifactor-authentication-task.html"
-    - title: Active Directory 도메인 컨트롤러 액세스 개요
-      url: "/../authentication/enable-ad-users-groups-access-cluster-svm-task.html"
-    - title: 다중 관리 검증
-      url: "/../multi-admin-verify/index.html"
-    - title: Oath2 인증(ONTAP 9.14.1의 새로운 기능)
-      url: "/../authentication/overview-oauth2.html"
   - title: 안티바이러스
     links:
     - title: Vscan 서버 설치 및 구성
@@ -98,3 +82,9 @@ indexpage:
       url: https://labondemand.netapp.com/lab/securing-ontap-zero-trust-hol
     - title: 시험 구동이 포함된 NetApp 제품 시험 사용(신규 고객의 경우)
       url: https://www.netapp.com/test-drives/
+    - title: 'TR-4526: NetApp SnapLock를 사용한 규정 준수 WORM 스토리지'
+      url: https://www.netapp.com/pdf.html?item=/media/6158-tr4526.pdf
+    - title: 'TR-4160: ONTAP의 보안 멀티 테넌시'
+      url: https://www.netapp.com/pdf.html?item=/media/16886-tr-4160.pdf
+    - title: 'TR-4401: PCI-DSS 4.0 및 ONTAP'
+      url: https://www.netapp.com/pdf.html?item=/media/17180-tr4401.pdf

@@ -13,9 +13,26 @@ summary: 'ONTAP 9.3부터 웹 서비스에 대한 SAML(Security Assertion Markup
 [role="lead"]
 ONTAP 9.3부터 웹 서비스에 대한 SAML(Security Assertion Markup Language) 인증을 구성할 수 있습니다. SAML 인증이 구성 및 설정되면 사용자는 Active Directory 및 LDAP와 같은 디렉터리 서비스 공급자 대신 외부 ID 공급자(IDP)에 의해 인증됩니다.
 
-.필요한 것
-* SAML 인증을 위해 IDP를 구성해야 합니다.
-* IDP URI가 있어야 합니다.
+
+
+== SAML 인증을 활성화합니다
+
+System Manager 또는 CLI를 사용하여 SAML 인증을 활성화하려면 다음 단계를 수행하십시오. 클러스터에서 ONTAP 9.7 이하를 실행 중인 경우에는 System Manager에서 따라야 하는 단계가 다릅니다. 시스템에서 사용할 수 있는 System Manager 온라인 도움말을 참조하십시오.
+
+
+NOTE: SAML 인증을 활성화한 후에는 원격 사용자만 System Manager GUI에 액세스할 수 있습니다. SAML 인증이 활성화된 후에는 로컬 사용자가 System Manager GUI에 액세스할 수 없습니다.
+
+image:workflow_security_mfa_setup.gif["SAML로 다중 요소 인증을 설정하는 작업의 워크플로 다이어그램"]
+
+.시작하기 전에
+* 원격 인증에 사용하려는 IDP를 구성해야 합니다.
++
+[NOTE]
+====
+구성한 IDP에서 제공하는 설명서를 참조하십시오.
+
+====
+* IDP의 URI가 있어야 합니다.
 
 
 .이 작업에 대해
@@ -42,7 +59,34 @@ http와 ontapi 애플리케이션은 서비스 프로세서 인프라, ONTAP API
 * 시바볼레스
 
 
+환경에 따라 다음 단계를 수행하십시오.
+
 .단계
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+. 클러스터 > 설정 * 을 클릭합니다.
+. SAML 인증 * 옆에 있는 을 클릭합니다 image:icon_gear.gif["기어 아이콘"].
+. SAML 인증 활성화 * 확인란이 선택되어 있는지 확인합니다.
+. IDP URI의 URL(포함)을 입력합니다 .
+. 필요한 경우 호스트 시스템 주소를 수정합니다.
+. 올바른 인증서가 사용되고 있는지 확인합니다.
++
+** 시스템이 "서버" 유형의 인증서를 하나만 사용하여 매핑된 경우 해당 인증서는 기본값으로 간주되어 표시되지 않습니다.
+** 시스템이 여러 인증서를 "서버" 유형으로 매핑한 경우 인증서 중 하나가 표시됩니다. 다른 인증서를 선택하려면 * 변경 * 을 클릭합니다.
+
+
+. 저장 * 을 클릭합니다. 확인 창에 메타데이터 정보가 표시되며, 이 정보는 클립보드에 자동으로 복사됩니다.
+. 지정한 IDP 시스템으로 이동하고 클립보드에서 메타데이터를 복사하여 시스템 메타데이터를 업데이트합니다.
+. System Manager의 확인 창으로 돌아가서 * 호스트 URI 또는 메타데이터 * 를 사용하여 IDP를 구성했는지 * 확인란을 선택합니다.
+. SAML 기반 인증을 활성화하려면 * 로그아웃 * 을 클릭합니다. IDP 시스템에 인증 화면이 표시됩니다.
+. IdP 시스템에서 SAML 기반 자격 증명을 입력합니다. 자격 증명이 확인되면 System Manager 홈 페이지로 이동합니다.
+
+
+--
+.CLI를 참조하십시오
+--
 . SAML 구성을 생성하여 ONTAP가 IDP 메타데이터에 액세스할 수 있도록 합니다.
 +
 '* security SAML-SP create-IDP-Uri_IDP_Uri_-sp-host_ontap_host_name_ * '
@@ -120,16 +164,29 @@ admin1         http        password      backup           no     none
 
 
 
+--
+====
 
 
 == SAML 인증을 비활성화합니다
 
 외부 ID 공급자(IDP)를 사용하여 웹 사용자 인증을 중지하려면 SAML 인증을 사용하지 않도록 설정할 수 있습니다. SAML 인증이 비활성화되면 Active Directory 및 LDAP와 같이 구성된 디렉터리 서비스 공급자가 인증에 사용됩니다.
 
-.필요한 것
-콘솔에서 로그인해야 합니다.
+환경에 따라 다음 단계를 수행하십시오.
 
 .단계
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+. 클러스터 > 설정 * 을 클릭합니다.
+. SAML Authentication * 에서 * Enabled * 토글 버튼을 클릭합니다.
+. _Optional_: 을(를) 클릭할 수도 있습니다 image:icon_gear.gif["기어 아이콘"] SAML Authentication * 옆에 있는 * SAML Authentication * 확인란의 선택을 취소합니다.
+
+
+--
+.CLI를 참조하십시오
+--
 . SAML 인증 비활성화:
 +
 '* security SAML-SP modify -is-enabled false * '
@@ -140,6 +197,8 @@ admin1         http        password      backup           no     none
 
 
 
+--
+====
 
 
 == SAML 구성 관련 문제를 해결합니다

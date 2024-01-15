@@ -5,29 +5,6 @@ url: "/security-encryption/index.html"
 entries:
 - title: System Manager를 사용한 보안
   url: "/concept_security_overview.html"
-- section: authentication
-- title: OAuth 2.0을 사용한 인증 및 권한 부여
-  entries:
-  - title: 개요
-    url: "/authentication/overview-oauth2.html"
-  - title: 개념
-    entries:
-    - title: 인증 서버 및 토큰
-      url: "/authentication/oauth2-as-servers.html"
-    - title: 클라이언트 인증 옵션
-      url: "/authentication/oauth2-authorization.html"
-    - title: 배포 시나리오
-      url: "/authentication/oauth2-deployment-scenarios.html"
-    - title: MTL을 사용한 클라이언트 인증
-      url: "/authentication/oauth2-mutual-tls.html"
-  - title: 구성 및 배포
-    entries:
-    - title: OAuth 2.0 배포를 준비합니다
-      url: "/authentication/oauth2-prepare.html"
-    - title: ONTAP에 OAuth 2.0 배포
-      url: "/authentication/oauth2-deploy-ontap.html"
-    - title: REST API 호출을 실행합니다
-      url: "/authentication/oauth2-rest-api.html"
 - section: anti-ransomware
 - section: antivirus
 - section: nas-audit

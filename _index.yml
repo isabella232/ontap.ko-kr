@@ -96,6 +96,30 @@ indexpage:
       url: "/concept_object_provision_overview.html"
     - title: CLI를 사용한 S3 구성
       url: "/s3-config/index.html"
+  - title: 인증 및 액세스 제어
+    links:
+    - title: 모든 항목
+      url: "/authentication-access-control/index.html"
+    - title: System Manager로 계정을 관리합니다
+      url: "/../task_security_administrator_access.html"
+    - title: CLI를 사용하여 계정을 관리합니다
+      url: "/../authentication/workflow-concept.html"
+    - title: 웹 서비스 관리
+      url: "/../system-admin/manage-web-services-concept.html"
+    - title: SAML 인증을 활성화합니다
+      url: "/../system-admin/configure-saml-authentication-task.html"
+    - title: CLI를 사용하여 MFA를 사용하도록 설정합니다
+      url: "/../authentication/setup-ssh-multifactor-authentication-task.html"
+    - title: Active Directory 도메인 컨트롤러 액세스 개요
+      url: "/../authentication/enable-ad-users-groups-access-cluster-svm-task.html"
+    - title: 다중 관리 검증
+      url: "/../multi-admin-verify/index.html"
+    - title: Oath2 인증(ONTAP 9.14.1의 새로운 기능)
+      url: "/../authentication/overview-oauth2.html"
+    - title: 인증서를 사용하여 원격 서버의 ID를 확인합니다
+      url: "/../system-admin/verify-identity-remote-servers-certificates-concept.html"
+    - title: 클러스터와 KMIP 서버를 상호 인증
+      url: "/../system-admin/mutually-authenticating-cluster-kmip-server-concept.html"
   - title: 보안 및 데이터 암호화
     links:
     - title: 모든 항목
