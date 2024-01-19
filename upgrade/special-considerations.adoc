@@ -54,7 +54,4 @@ xref:concept_upgrade_requirements_for_metrocluster_configurations.html[MetroClus
 
 
 | 관리자 계정이 SSH 공개 키로 인증하는 클러스터에서 SSL FIPS 모드가 활성화됩니까? | xref:considerations-authenticate-ssh-public-key-fips-concept.html[SSH 호스트 키 알고리즘 지원을 확인합니다] 
-
-
-| ONTAP 9.3에서 업그레이드합니까? | xref:task_preparing_all_load_sharing_mirrors_for_a_major_upgrade.html[모든 부하 공유 미러를 준비합니다] 
 |===
