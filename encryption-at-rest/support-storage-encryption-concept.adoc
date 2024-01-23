@@ -45,6 +45,9 @@ NOTE: HA 쌍이 암호화 SAS 또는 NVMe 드라이브(SED, NSE, FIPS)를 사용
 NOTE: 비암호화 드라이브는 SED 또는 FIPS 드라이브가 아닌 드라이브입니다.
 
 
+NOTE: Flash Cache 모듈이 있는 시스템에서 NSE를 사용하는 경우, NVE 또는 NAE도 활성화해야 합니다. NSE는 FlashCache 모듈에 상주하는 데이터를 암호화하지 않습니다.
+
+
 
 == 외부 키 관리 사용 시기
 

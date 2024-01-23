@@ -24,7 +24,7 @@ summary: '드라이브를 노드나 쉘프에 추가하여 핫 스페어 수를 
 . 그래픽 아래에서 **대체 보기를 보려면 여기를 클릭하십시오**를 선택합니다. 구성과 일치하는 보기를 선택합니다.
 
 
-image::../media/hardware-universe-os-filter.png[Hardware Universe OS 필터 메뉴]
+image::../media/hardware-universe-more-info-graphic.png[Hardware Universe 스크린샷 여기를 클릭하십시오 그래픽]
 
 .드라이브 설치 단계
 . 를 확인하십시오 link:https://mysupport.netapp.com/site/["NetApp Support 사이트"^] 최신 드라이브 및 셸프 펌웨어 및 디스크 검증 패키지 파일의 경우

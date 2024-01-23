@@ -42,5 +42,5 @@ system service-processor reboot-sp -node node_name
 
 * link:https://mysupport.netapp.com/site/downloads/firmware/system-firmware-diagnostics["시스템 펌웨어(BIOS, BMC, SP)"^]
 * link:https://mysupport.netapp.com/site/downloads/firmware/disk-shelf-firmware["쉘프 펌웨어"^]
-* link:https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["디스크 및 플래시 캐시 펌웨어입니다"^]
+* link:https://mysupport.netapp.com/site/downloads/firmware/disk-drive-firmware["디스크 및 Flash Cache 펌웨어"^]
 

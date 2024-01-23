@@ -23,7 +23,7 @@ AWS KMS, AKV 및 Cloud KMS를 사용하여 보호할 수 있습니다 link:confi
 
 클라우드 공급자 키 관리 서비스를 사용할 때는 다음과 같은 제한 사항을 숙지해야 합니다.
 
-* NSE 및 NAE에서 클라우드 공급자 키 관리를 사용할 수 없습니다. link:enable-external-key-management-96-later-nve-task.html["외부 KMIP"] 대신 사용할 수 있습니다.
+* NSE(NetApp 스토리지 암호화) 및 NAE(NetApp 애그리게이트 암호화)에 클라우드 공급자 키 관리를 사용할 수 없습니다. link:enable-external-key-management-96-later-nve-task.html["외부 KMIP"] 대신 사용할 수 있습니다.
 * MetroCluster 구성에서는 클라우드 공급자 키 관리를 사용할 수 없습니다.
 * 클라우드 공급자 키 관리는 데이터 SVM에서만 구성할 수 있습니다.
 

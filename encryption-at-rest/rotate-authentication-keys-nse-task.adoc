@@ -16,11 +16,9 @@ NSE(NetApp Storage Encryption)를 사용할 때 인증 키를 회전할 수 있�
 .이 작업에 대해
 NSE 환경에서 인증 키를 회전하면 외부 키 관리자(KMIP)를 사용할 수 있습니다.
 
-[NOTE]
-====
-NSE 환경에서 인증 키를 회전하면 온보드 키 관리자(OKM)가 지원되지 않습니다.
 
-====
+NOTE: NSE 환경에서 인증 키를 회전하면 온보드 키 관리자(OKM)가 지원되지 않습니다.
+
 .단계
 . Security key-manager create-key 명령을 사용하여 새 인증 키를 생성합니다.
 +
