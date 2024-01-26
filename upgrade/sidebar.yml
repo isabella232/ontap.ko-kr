@@ -38,12 +38,10 @@ entries:
       url: "/upgrade/task_verifying_the_san_configuration.html"
     - title: SnapMirror를 참조하십시오
       entries:
-      - title: SnapMirror 관계 준비
-        url: "/upgrade/task_preparing_snapmirror_relationships_for_a_nondisruptive_upgrade_or_downgrade.html"
       - title: ONTAP 버전의 호환성을 확인합니다
         url: "/data-protection/compatible-ontap-versions-snapmirror-concept.html"
-    - title: DP 유형 관계
-      url: "/data-protection/convert-snapmirror-version-flexible-task.html"
+      - title: DP 유형 관계
+        url: "/data-protection/convert-snapmirror-version-flexible-task.html"
     - title: NetApp 스토리지 암호화
       url: "/upgrade/task_preparing_to_upgrade_nodes_using_netapp_storage_encryption_with_external_key_management_servers.html"
     - title: 넷그룹

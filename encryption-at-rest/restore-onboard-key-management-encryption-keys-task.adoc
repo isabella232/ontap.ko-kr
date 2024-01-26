@@ -19,6 +19,9 @@ summary: 경우에 따라 온보드 키 관리 암호화 키를 복원해야 할
 
 
 
+NOTE: Flash Cache 모듈이 있는 시스템에서 NSE를 사용하는 경우, NVE 또는 NAE도 활성화해야 합니다. NSE는 Flash Cache 모듈에 상주하는 데이터를 암호화하지 않습니다.
+
+
 
 == 암호화된 루트 볼륨이 있는 ONTAP 9.8 이상
 

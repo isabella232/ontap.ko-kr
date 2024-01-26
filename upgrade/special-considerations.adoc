@@ -31,27 +31,21 @@ xref:concept_upgrade_requirements_for_metrocluster_configurations.html[MetroClus
 | SAN 구성이 있습니까? | xref:task_verifying_the_san_configuration.html[SAN 호스트 구성을 확인합니다] 
 
 
-| 클러스터에 SnapMirror 관계가 정의되어 있습니까?  a| 
-* xref:task_preparing_snapmirror_relationships_for_a_nondisruptive_upgrade_or_downgrade.html[업그레이드할 SnapMirror 관계를 준비합니다]
-* link:../data-protection/compatible-ontap-versions-snapmirror-concept.html["SnapMirror 관계에 대해 ONTAP 버전의 호환성을 확인합니다"]
+| 클러스터에 SnapMirror 관계가 정의되어 있습니까?
+link:../data-protection/compatible-ontap-versions-snapmirror-concept.html["SnapMirror 관계에 대해 ONTAP 버전의 호환성을 확인합니다"] | DP 유형 SnapMirror 관계가 정의되어 있으며 ONTAP 9.12.1 이상으로 업그레이드됩니까? 
 
 
+| link:../data-protection/convert-snapmirror-version-flexible-task.html["기존 DP 유형 관계를 XDP로 변환합니다"] | 외부 키 관리 서버와 함께 NetApp Storage Encryption을 사용하고 있습니까? 
 
 
-| DP 유형 SnapMirror 관계가 정의되어 있으며 ONTAP 9.12.1 이상으로 업그레이드됩니까? | link:../data-protection/convert-snapmirror-version-flexible-task.html["기존 DP 유형 관계를 XDP로 변환합니다"] 
+| xref:task_preparing_to_upgrade_nodes_using_netapp_storage_encryption_with_external_key_management_servers.html[기존 키 관리 서버 연결을 삭제합니다] | SVM에 넷그룹이 로드되어 있습니까? 
 
 
-| 외부 키 관리 서버와 함께 NetApp Storage Encryption을 사용하고 있습니까? | xref:task_preparing_to_upgrade_nodes_using_netapp_storage_encryption_with_external_key_management_servers.html[기존 키 관리 서버 연결을 삭제합니다] 
+| xref:task_verifying_that_the_netgroup_file_is_present_on_all_nodes.html[넷그룹 파일이 각 노드에 있는지 확인합니다] | SSLv3을 사용하는 LDAP 클라이언트가 있습니까? 
 
 
-| SVM에 넷그룹이 로드되어 있습니까? | xref:task_verifying_that_the_netgroup_file_is_present_on_all_nodes.html[넷그룹 파일이 각 노드에 있는지 확인합니다] 
+| xref:task_configuring_ldap_clients_to_use_tls_for_highest_security.html[TLS를 사용하도록 LDAP 클라이언트를 구성합니다] | 세션 지향 프로토콜을 사용하고 있습니까? 
 
 
-| SSLv3을 사용하는 LDAP 클라이언트가 있습니까? | xref:task_configuring_ldap_clients_to_use_tls_for_highest_security.html[TLS를 사용하도록 LDAP 클라이언트를 구성합니다] 
-
-
-| 세션 지향 프로토콜을 사용하고 있습니까? | xref:concept_considerations_for_session_oriented_protocols.html[세션 지향 프로토콜에 대한 고려 사항을 검토합니다] 
-
-
-| 관리자 계정이 SSH 공개 키로 인증하는 클러스터에서 SSL FIPS 모드가 활성화됩니까? | xref:considerations-authenticate-ssh-public-key-fips-concept.html[SSH 호스트 키 알고리즘 지원을 확인합니다] 
+| xref:concept_considerations_for_session_oriented_protocols.html[세션 지향 프로토콜에 대한 고려 사항을 검토합니다] | 관리자 계정이 SSH 공개 키로 인증하는 클러스터에서 SSL FIPS 모드가 활성화됩니까? 
 |===

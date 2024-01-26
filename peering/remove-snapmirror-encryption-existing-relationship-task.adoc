@@ -16,15 +16,35 @@ summary: 기본적으로 클러스터 피어링 암호화는 ONTAP 9.6 이상에
 .단계
 . 대상 클러스터에서 소스 클러스터와의 통신을 수정하여 클러스터 피어링 암호화의 사용을 중단하십시오.
 +
-** 암호화를 제거하고 인증을 유지하려면 + 'cluster peer modify_source_cluster_-auth-status-admin use-authentication-encryption none'을 입력합니다
-** 암호화 및 인증을 제거하려면 + "cluster peer modify_source_cluster_-auth-status no-authentication"을 입력합니다
+** 암호화를 제거하고 인증을 유지하려면 다음을 입력합니다.
++
+[source, cli]
+----
+cluster peer modify _source_cluster_ -auth-status-admin use-authentication -encryption-protocol-proposed none
+----
+** 암호화 및 인증을 제거하려면 다음을 입력합니다.
++
+[source, cli]
+----
+cluster peer modify _source_cluster_ -auth-status no-authentication
+----
 
 
 . 메시지가 나타나면 암호를 입력합니다.
 . 소스 클러스터에서 대상 클러스터와의 통신에 대한 암호화를 해제합니다.
 +
-** 암호화를 제거하고 인증을 유지하려면 다음을 입력합니다. + "cluster peer modify_destination_cluster_-auth-status-admin use-authentication-encrypt none
-** 암호화 및 인증을 제거하려면 + "cluster peer modify_destination_cluster_-auth-status no-authentication"을 입력합니다
+** 암호화를 제거하고 인증을 유지하려면 다음을 입력합니다.
++
+[source, cli]
+----
+cluster peer modify _destination_cluster_ -auth-status-admin use-authentication -encryption-protocol-proposed none
+----
+** 암호화 및 인증을 제거하려면 다음을 입력합니다.
++
+[source, cli]
+----
+cluster peer modify _destination_cluster_ -auth-status no-authentication
+----
 
 
 . 메시지가 표시되면 대상 클러스터에 입력한 것과 동일한 암호를 입력합니다.
