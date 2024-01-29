@@ -1,0 +1,244 @@
+---
+permalink: release-notes/index.html 
+sidebar: sidebar 
+keywords: release notes, new features 
+summary: ONTAP 9에서 제공되는 새로운 기능에 대해 알아보십시오. 
+---
+= ONTAP 9 릴리즈 주요 내용
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9 데이터 관리 소프트웨어의 각 릴리즈는 ONTAP의 기능, 관리성, 성능 및 보안 기능을 강화하는 새롭고 향상된 기능을 제공합니다.
+
+이 페이지에서 최신 ONTAP 9 릴리스에 대한 강조 표시된 새 기능을 찾거나 사이드바를 사용하여 특정 ONTAP 9 버전으로 이동하여 최신 ONTAP 릴리스의 모든 개선 사항에 대해 알아볼 수 있습니다.
+
+이전 ONTAP 9 릴리즈, 하드웨어 플랫폼 및 스위치 지원, 알려진 문제 및 제한 사항에 대한 자세한 내용은 _ 을(를) 참조하십시오link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["ONTAP 9 릴리즈 노트"^]_. _ONTAP 9 릴리스 정보_에 액세스하려면 NetApp 계정으로 로그인하거나 NetApp 계정을 만들어야 합니다.
+
+ONTAP의 최신 릴리즈로 업그레이드하려면 를 참조하십시오 xref:../upgrade/prepare.html[ONTAP의 최신 버전으로 업그레이드하십시오] 및 xref:../upgrade/when-to-upgrade.html[언제 ONTAP를 업그레이드해야 합니까?]
+
+
+
+== ONTAP 9.14.1 주요 내용
+
+ONTAP 9.14.1은 FabricPool, 랜섬웨어 방지 보호, OAuth 등 영역에서 새롭고 향상된 기능을 제공합니다. 새로운 기능 및 향상된 기능의 전체 목록은 를 참조하십시오 xref:9141-reference.adoc[ONTAP 9.14.1의 새로운 기능].
+
+* xref:../volumes/determine-space-usage-volume-aggregate-concept.html[WAFL 예약 감소]
++
+ONTAP 9.14.1은 30TB 이상의 애그리게이트에서 WAFL 예비 공간을 줄임으로써 FAS 및 Cloud Volumes ONTAP 시스템에서 사용 가능한 공간이 5% 증가됩니다.
+
+* xref:../fabricpool/enable-disable-volume-cloud-write-task.html[FabricPool의 향상된 기능]
++
+FabricPool 은 상승을 제안합니다 xref:../fabricpool/enable-disable-aggressive-read-ahead-task.html[읽기 성능] 또한 클라우드에 직접 쓸 수 있으므로 콜드 데이터를 더 저렴한 스토리지 계층으로 이동하여 공간 부족 위험을 줄이고 스토리지 비용을 절감할 수 있습니다.
+
+* link:../authentication/oauth2-deploy-ontap.html["OAuth 2.0 지원"]
++
+ONTAP는 OAuth 2.0 프레임워크를 지원하며, System Manager를 사용하여 구성할 수 있습니다. OAuth 2.0을 사용하면 일반 텍스트 스크립트와 Runbook에 사용자 ID와 암호를 생성하거나 노출하지 않고도 자동화 프레임워크용 ONTAP에 안전하게 액세스할 수 있습니다.
+
+* link:../anti-ransomware/manage-parameters-task.html["ARP(자율 랜섬웨어 방어) 개선"]
++
+ARP는 이벤트 보안에 대한 더 많은 제어 권한을 부여하여 경고를 생성하는 조건을 조정하고 오탐의 가능성을 줄일 수 있습니다.
+
+* xref:../data-protection/create-delete-snapmirror-failover-test-task.html[System Manager의 SnapMirror 재해 복구 예행 연습]
++
+System Manager는 원격 위치에서 재해 복구를 쉽게 테스트하고 테스트 후 정리하는 단순한 워크플로우를 제공합니다. 이 기능을 사용하면 테스트를 더 쉽고 자주 수행할 수 있으며 복구 시간 목표에 대한 신뢰도가 높아집니다.
+
+* xref::../s3-config/index.html[S3 오브젝트 잠금 지원]
++
+ONTAP S3는 오브젝트 잠금 API 명령을 지원하므로 S3로 ONTAP에 기록된 데이터가 삭제되지 않도록 보호할 수 있습니다
+표준 S3 API 명령을 사용하여 중요한 데이터를 적절한 시간 동안 보호합니다.
+
+* xref:../assign-tags-cluster-task.html[클러스터] 및 xref:../assign-tags-volumes-task.html[볼륨] 태그 지정
++
+온프레미스에서 클라우드로 이동하고 반대되는 데이터를 따르는 볼륨 및 클러스터에 메타데이터 태그를 추가합니다.
+
+
+
+
+
+== ONTAP 9.13.1 주요 내용
+
+ONTAP 9.13.1은 랜섬웨어 방지, 일관성 그룹, 서비스 품질, 테넌트 용량 관리 등 영역에서 새롭고 향상된 기능을 제공합니다. 새로운 기능 및 향상된 기능의 전체 목록은 를 참조하십시오 xref:9131-reference.adoc[ONTAP 9.13.1의 새로운 기능].
+
+* ARP(자율 랜섬웨어 방어) 개선 사항:
++
+** xref:../anti-ransomware/enable-default-task.adoc[자동 활성화]
++
+ONTAP 9.13.1을 사용하면 ARP가 학습 데이터가 충분하면 교육에서 생산 모드로 자동 이동하므로 관리자가 30일 후 이를 활성화할 필요가 없습니다.
+
+** xref:../anti-ransomware/use-cases-restrictions-concept.html#multi-admin-verification-with-volumes-protected-with-arp[다중 관리자 인증 지원]
++
+ARP disable 명령은 다중 관리자 검증에 의해 지원되기 때문에 단 한 명의 관리자가 ARP를 비활성화하여 데이터를 잠재적인 랜섬웨어 공격에 노출시킬 수 없습니다.
+
+** xref:../anti-ransomware/use-cases-restrictions-concept.html[FlexGroup 지원]
++
+ARP는 ONTAP 9.13.1부터 FlexGroups를 지원합니다. ARP는 클러스터의 여러 볼륨 및 노드에 걸쳐 있는 FlexGroups를 모니터링하고 보호할 수 있으므로 가장 큰 데이터 세트도 ARP로 보호할 수 있습니다.
+
+
+
+* xref:../consistency-groups/index.html[System Manager의 일관성 그룹에 대한 성능 및 용량 모니터링]
++
+성능 및 용량 모니터링 기능이 각 일관성 그룹에 자세히 제공되므로 단순히 데이터 개체 수준이 아닌 애플리케이션 수준에서 잠재적 문제를 빠르게 식별하고 보고할 수 있습니다.
+
+* xref:../volumes/manage-svm-capacity.html[테넌트 용량 관리]
++
+멀티 테넌트 고객 및 서비스 공급자는 각 SVM에 대한 용량 제한을 설정할 수 있으므로 클러스터에서 하나의 테넌트가 용량을 과도하게 사용하는 위험 없이 셀프 서비스 프로비저닝을 수행할 수 있습니다.
+
+* xref:../performance-admin/adaptive-policy-template-task.html[서비스 천장과 바닥의 품질]
++
+ONTAP 9.13.1을 사용하면 볼륨, LUN 또는 파일과 같은 오브젝트를 그룹으로 그룹화하고 QoS 상한(최대 IOPS) 또는 바닥(최소 IOPS)을 할당하여 애플리케이션 성능에 대한 기대치를 개선할 수 있습니다.
+
+
+
+
+
+== ONTAP 9.12.1 주요 내용
+
+ONTAP 9.12.1은 보안 강화, 보존, 성능 등의 영역에서 새롭고 향상된 기능을 제공합니다. 새로운 기능 및 향상된 기능의 전체 목록은 를 참조하십시오 xref:9121.adoc[ONTAP 9.12.1의 새로운 기능].
+
+* xref:../snaplock/snapshot-lock-concept.html[변조 방지 스냅샷]
++
+SnapLock 기술을 사용하면 소스 또는 대상에서 스냅샷 복사본을 삭제하지 않도록 보호할 수 있습니다.
+
++
+랜섬웨어 공격자나 악성 관리자가 운영 스토리지와 2차 스토리지의 스냅샷을 삭제하지 못하도록 보호하여 더 많은 복구 지점을 유지합니다.
+
+* xref:../anti-ransomware/index.html[ARP(자율적 랜섬웨어 방어) 개선]
++
+운영 스토리지에 대해 이미 완료된 선별 모델에 따라 보조 스토리지에서 지능형 자율적 랜섬웨어 보호를 즉시 지원합니다.
+
++
+페일오버 후 2차 스토리지에 대한 잠재적 랜섬웨어 공격을 즉시 파악합니다. 영향을 받기 시작한 데이터에 대한 스냅샷이 즉시 생성되며 관리자에게 알림이 전달되므로 공격을 중지하고 복구를 개선하는 데 도움이 됩니다.
+
+* xref:../nas-audit/plan-fpolicy-event-config-concept.html[FPolicy를 참조하십시오]
++
+ONTAP FPolicy를 한 번의 클릭으로 활성화하여 알려진 악성 파일을 자동으로 차단할 수 있습니다. 활성화 단순화 덕분에 알려진 일반적인 파일 확장명을 사용하는 일반적인 랜섬웨어 공격으로부터 보호할 수 있습니다.
+
+* xref:../system-admin/ontap-implements-audit-logging-concept.html[보안 강화: 조작 방지 보존 로깅]
++
+손상된 관리자 계정을 손상시키는 ONTAP의 무단 복제 방지 보존 로깅은 악의적인 작업을 숨길 수 없습니다. 시스템 정보 없이는 관리자 및 사용자 기록을 변경하거나 삭제할 수 없습니다.
+
++
+출처에 상관없이 모든 관리자 작업을 기록하고 감사하여 데이터에 영향을 미치는 모든 작업이 캡처됩니다. 알림은 관리자에게 변경 사항을 통지하는 과정에서 시스템 감사 로그가 무단으로 변경될 때마다 생성됩니다.
+
+* xref:../authentication/setup-ssh-multifactor-authentication-task.html[보안 강화: 확장된 다단계 인증]
++
+SSH(Multifactor Authentication)를 위한 MFA(Multifactor Authentication)는 Yubikey 물리적 하드웨어 토큰 장치를 지원하므로 공격자가 훔친 자격 증명 또는 손상된 클라이언트 시스템을 사용하여 ONTAP 시스템에 액세스할 수 없습니다. Cisco Duo는 System Manager를 통해 MFA를 지원합니다.
+
+* 파일 오브젝트 이중화(멀티 프로토콜 액세스)
++
+파일 오브젝트 이중화: 네이티브 S3 프로토콜 읽기 및 쓰기 액세스가 이미 NAS 프로토콜 액세스를 가지고 있는 동일한 데이터 소스에 대해 가능합니다. 동일한 데이터 소스의 파일로 또는 오브젝트로 스토리지를 동시에 액세스할 수 있으므로 오브젝트 데이터를 사용하는 분석과 같이 서로 다른 프로토콜(S3 또는 NAS)에서 사용할 데이터의 중복 복사본이 필요하지 않습니다.
+
+* xref:../flexgroup/manage-flexgroup-rebalance-task.html[FlexGroup 재조정]
++
+FlexGroup 구성요소의 균형이 무너지면 에서 운영 중단 없이 FlexGroup를 재조정하여 관리할 수 있습니다
+CLI, REST API 및 System Manager와 같은 기능을 사용할 수 있습니다. 최적의 성능을 위해서는 FlexGroup 내의 구성 요소가 사용된 용량을 균등하게 분산해야 합니다.
+
+* 향상된 스토리지 용량
++
+WAFL 공간 예약이 크게 줄어 애그리게이트당 최대 400TiB의 가용 용량을 제공합니다.
+
+
+
+
+
+== ONTAP 9.11.1 하이라이트
+
+ONTAP 9.11.1은 보안, 보존, 성능 등의 영역에서 새롭고 향상된 기능을 제공합니다. 새로운 기능 및 향상된 기능의 전체 목록은 를 참조하십시오 xref:9111-reference.adoc[ONTAP 9.11.1의 새로운 기능].
+
+* xref:../multi-admin-verify/index.html[다중 관리 검증]
++
+MAV(다중 관리자 검증)는 업계 최초의 네이티브 검증 방법으로서, 스냅샷 또는 볼륨 삭제와 같은 중요한 관리 작업에 대해 승인을 여러 차례 요구합니다. MAV 구현에 필요한 승인은 악의적인 공격과 실수로 데이터를 변경하는 것을 방지합니다.
+
+* xref:../anti-ransomware/index.html[자율적 랜섬웨어 방어의 개선 사항]
++
+ARP(자율적 랜섬웨어 방어)는 머신 러닝을 사용하여 세분성이 높은 랜섬웨어 위협을 감지하므로, 보안 위협을 빠르게 식별하고 위반이 발생할 경우 복구를 가속화할 수 있습니다.
+
+* xref:../flexgroup/supported-unsupported-config-concept.html#features-supported-beginning-with-ontap-9-11-1[FlexGroup 볼륨에 대한 SnapLock 규정 준수]
++
+WORM 파일 잠금으로 데이터를 보호하여 전자 설계 자동화, 미디어 및 엔터테인먼트와 같은 워크로드를 위한 수 페타바이트에 달하는 데이터 세트를 변경 또는 삭제할 수 없도록 보호합니다.
+
+* xref:../flexgroup/fast-directory-delete-asynchronous-task.html[비동기식 디렉토리 삭제]
++
+ONTAP 9.11.1을 사용하면 ONTAP 시스템 백그라운드에서 파일 삭제가 수행되므로 대규모 디렉토리를 쉽게 삭제할 수 있을 뿐 아니라 호스트 입출력에 대한 성능 및 지연 시간 영향을 제거할 수 있습니다
+
+* xref:../s3-config/index.html[S3 개선]
++
+버킷 수준의 추가 API 엔드포인트 및 오브젝트 버전 관리를 통해 ONTAP로 S3의 오브젝트 데이터 관리 기능을 간소화 및 확장하여 여러 버전의 오브젝트를 동일한 버킷에 저장할 수 있습니다.
+
+* System Manager의 향상된 기능
++
+System Manager는 스토리지 리소스를 최적화하고 감사 관리를 개선하는 고급 기능을 지원합니다. 이러한 업데이트에는 스토리지 애그리게이트의 관리 및 구성 능력이 향상되고, 시스템 분석에 대한 가시성이 개선되며, FAS 시스템을 위한 하드웨어 시각화가 포함됩니다.
+
+
+
+
+
+== ONTAP 9.10.1 하이라이트
+
+ONTAP 9.10.1은 보안 강화, 성능 분석, NVMe 프로토콜 지원 및 오브젝트 스토리지 백업 옵션 영역에서 새롭고 향상된 기능을 제공합니다. 새로운 기능 및 향상된 기능의 전체 목록은 를 참조하십시오 xref:91-1-reference.adoc[ONTAP 9.10.1의 새로운 기능].
+
+* xref:../anti-ransomware/index.html[자율 랜섬웨어 보호]
++
+자율적 랜섬웨어 방어는 볼륨의 스냅샷 복사본을 자동으로 생성하고 비정상적인 활동이 감지되면 관리자에게 경고하여 랜섬웨어 공격을 신속하게 감지하고 더욱 신속하게 복구할 수 있도록 지원합니다.
+
+* System Manager의 향상된 기능
++
+System Manager는 디스크, 쉘프, 서비스 프로세서에 대한 펌웨어 업데이트를 자동으로 다운로드하고 NetApp Active IQ Digital Advisor, BlueXP 및 인증서 관리와의 새로운 통합을 제공합니다. 이러한 향상된 기능은 관리를 단순화하고 비즈니스 연속성을 유지합니다.
+
+* xref:../concept_nas_file_system_analytics_overview.html[파일 시스템 분석 기능 향상]
++
+File System Analytics는 추가 원격 측정 기능을 제공하여 파일 공유에서 최상위 파일, 디렉토리 및 사용자를 식별함으로써 워크로드 성능 문제를 식별하여 리소스 계획 및 QoS 구현을 개선할 수 있도록 지원합니다.
+
+* xref:../nvme/support-limitations.html[AFF 시스템에 대한 NVMe over TCP(NVMe/TCP) 지원]
++
+기존 이더넷 네트워크에서 NVMe/TCP를 사용할 경우 AFF 시스템에서 엔터프라이즈 SAN과 최신 워크로드의 성능을 높이고 TCO를 절감할 수 있습니다.
+
+* xref:../nvme/support-limitations.html[NetApp FAS 시스템에 대한 NVMe/FC(NVMe over Fibre Channel) 지원]
++
+하이브리드 어레이에서 NVMe/FC 프로토콜을 사용하여 NVMe로 균일하게 마이그레이션할 수 있습니다.
+
+* xref:../s3-snapmirror/index.html[오브젝트 스토리지용 네이티브 하이브리드 클라우드 백업]
++
+원하는 오브젝트 스토리지 대상을 선택하여 ONTAP S3 데이터를 보호합니다. SnapMirror 복제를 사용하여 StorageGRID를 통해 사내 스토리지, Amazon S3를 지원하는 클라우드 또는 NetApp AFF 및 FAS 시스템의 다른 ONTAP S3 버킷에 백업할 수 있습니다.
+
+* xref:../flexcache/global-file-locking-task.html[FlexCache을 사용한 글로벌 파일 잠금]
++
+FlexCache를 사용한 글로벌 파일 잠금을 통해 오리진의 소스 파일을 업데이트하는 동안 캐시 위치에서 파일 일관성을 보장합니다. 향상된 기능을 통해 향상된 잠금이 필요한 워크로드에 대해 오리진-캐시 관계에서 파일 읽기 잠금을 독점적으로 사용할 수 있습니다.
+
+
+
+
+
+== ONTAP 9.9.1 주요 내용
+
+ONTAP 9.91.1 은 스토리지 효율성, 다단계 인증, 재해 복구 등 영역에서 새롭고 향상된 기능을 제공합니다. 새로운 기능 및 향상된 기능의 전체 목록은 를 참조하십시오 xref:991-reference.adoc[ONTAP 9.1.1의 새로운 기능].
+
+* CLI 원격 액세스 관리를 위한 보안 강화
++
+SHA512 및 SSH A512 암호 해싱이 지원되므로 시스템 액세스를 시도하는 악의적인 행위자로부터 관리자 계정 자격 증명을 보호할 수 있습니다.
+
+* link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_install_and_cable_the_mcc_components.html["MetroCluster IP 기능 향상: 8노드 클러스터 지원"^]
++
+새로운 제한은 이전 한도보다 2배 더 크므로 MetroCluster 구성을 지원하고 지속적인 데이터 가용성을 구현할 수 있습니다.
+
+* xref:../smbc/index.html[SnapMirror 비즈니스 연속성의 개선 사항]
++
+NAS 워크로드용 대규모 데이터 컨테이너의 백업 및 재해 복구를 위한 더 많은 복제 옵션을 제공합니다.
+
+* xref:../san-admin/storage-virtualization-vmware-copy-offload-concept.html[SAN 성능 향상]
++
+VMware 데이터 저장소와 같은 단일 LUN 애플리케이션에 대해 최대 4배 높은 SAN 성능을 제공하므로 SAN 환경에서 고성능을 달성할 수 있습니다.
+
+* xref:../task_cloud_backup_data_using_cbs.html[하이브리드 클라우드를 위한 새로운 오브젝트 스토리지 옵션]
++
+StorageGRID를 NetApp Cloud Backup Service의 대상으로 사용하여 온프레미스 ONTAP 데이터의 백업을 단순화하고 자동화할 수 있습니다.
+
+
+
+.다음 단계
+* xref:../upgrade/prepare.html[ONTAP의 최신 버전으로 업그레이드하십시오]
+* xref:../upgrade/when-to-upgrade.html[언제 ONTAP를 업그레이드해야 합니까?]
+

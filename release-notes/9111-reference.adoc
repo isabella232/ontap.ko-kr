@@ -1,0 +1,216 @@
+---
+permalink: release-notes/9111-reference.html 
+sidebar: sidebar 
+keywords: 'what"s new, release notes, 9.11.1' 
+summary: ONTAP 9.11.1에서 사용할 수 있는 새로운 기능에 대해 알아봅니다. 
+---
+= ONTAP 9.11.1의 새로운 기능
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.11.1에서 사용할 수 있는 새로운 기능에 대해 알아봅니다.
+
+이전 ONTAP 9 릴리즈, 하드웨어 플랫폼 및 스위치 지원, 알려진 문제 및 제한 사항에 대한 자세한 내용은 _ 을(를) 참조하십시오link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["ONTAP 9 릴리즈 노트"^]_. _ONTAP 9 릴리스 정보_에 액세스하려면 NetApp 계정으로 로그인하거나 NetApp 계정을 만들어야 합니다.
+
+최신 버전의 ONTAP로 업그레이드하려면 를 참조하십시오 xref:../upgrade/prepare.html[ONTAP 업그레이드를 준비합니다].
+
+
+
+== 데이터 보호
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| xref:../encryption-at-rest/configure-cluster-key-server-task.html[클러스터 외부 키 서버] | 클러스터 KMIP 서버 솔루션을 제공하는 NetApp 파트너를 위해 클러스터형 외부 키 관리 서버 지원이 추가되었습니다. 이를 통해 기본 및 보조 KMIP 서버를 추가하여 암호화 키 데이터의 중복을 방지할 수 있습니다. 지원되는 파트너는 을 참조하십시오 link:https://imt.netapp.com/matrix/#welcome["상호 운용성 매트릭스 툴"^]. 
+
+
+| xref:../snaplock/snaplock-concept.html[FlexGroup 볼륨에 대한 SnapLock 지원] | SnapLock는 FlexGroup 볼륨에 저장된 데이터를 지원합니다. FlexGroup 볼륨 지원은 SnapLock 규정 준수 및 SnapLock 엔터프라이즈 모드에서 사용할 수 있습니다. SnapLock은 FlexGroup 볼륨에 대해 SnapLock for SnapVault, 이벤트 기반 보존 및 법적 보관과 같은 작업을 지원하지 않습니다. 
+
+
+| xref:../task_dp_create_custom_data_protection_policies.html[System Manager의 SnapMirror 비동기식 정책]  a| 
+System Manager를 사용하면 볼륨 및 스토리지 VM을 보호할 때 미리 생성된 사용자 정의 미러 및 소산 정책을 추가하고, 레거시 정책을 표시하고, 보호 정책에 정의된 전송 일정을 재정의할 수 있습니다. System Manager를 사용하여 볼륨 및 스토리지 VM 보호 관계를 편집할 수도 있습니다.
+
+
+TIP: ONTAP 9.8P12 이상 ONTAP 9.8 패치 릴리즈를 실행 중인 경우, System Manager를 사용하여 SnapMirror를 구성한 후 ONTAP 9.9.1 또는 ONTAP 9.10.1 릴리스로 업그레이드하려면 ONTAP 9.9.1P13 이상 및 ONTAP 9.10.1P10 이상 패치 릴리즈를 사용하십시오.
+
+
+
+| xref:../data-protection/restore-contents-volume-snapshot-task.html[SnapMirror Cloud 단일 디렉토리 복원] | admin 권한 수준의 클러스터 관리자가 클라우드 엔드포인트에서 단일 디렉토리 복원 작업을 수행할 수 있습니다. 복원 중인 백업 끝점을 식별하려면 소스 끝점 UUID를 제공해야 합니다. 여러 백업이 동일한 데이터를 사용할 수 있기 때문입니다 `cloud_endpoint_name` restore 명령에 대해 백업과 연결된 UUID를 대상으로 제공해야 합니다. 를 사용할 수 있습니다 `snapmirror show` 명령을 사용하여 를 가져옵니다 `source_endpoint_uuid`. 
+
+
+| xref:../smbc/smbc_plan_additional_restrictions_and_limitations.html#aix[SM-BC(SnapMirror Business Continuity) 지원 향상]  a| 
+* SM-BC는 AIX를 호스트로 지원합니다
+* SM-BC는 단일 파일 SnapRestore를 지원하므로 SM-BC 구성에서 개별 LUN 또는 일반 파일을 복구할 수 있습니다.
+
+
+
+
+| xref:../data-protection/reactivate-original-source-svm-task.html[SVM 데이터 복제 빠른 재동기화] | SVM 데이터 복제 빠른 재동기화는 스토리지 관리자가 전체 데이터 웨어하우스 재구축을 우회하고 재해 복구 예행연습을 통해 보다 빠르게 복구할 수 있는 기능을 제공합니다. 
+
+
+| xref:../data-protection/snapmirror-svm-replication-concept.html#support-details[MetroCluster를 통한 SVM 데이터 복제 지원] | SVM-DR 소스는 MetroCluster 구성의 양쪽 모두에서 지원됩니다. 
+
+
+ a| 
+xref:../consistency-groups/protect-task.html[2단계 일관성 그룹 스냅샷 복사본 생성]
+| REST API에서 일관성 그룹은 2단계 스냅샷 절차를 지원하므로 스냅샷을 커밋하기 전에 사전 점검을 수행할 수 있습니다. 
+|===
+
+
+== 파일 액세스 프로토콜
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| xref:../nfs-admin/ldap-fast-bind-nsswitch-authentication-task.html[LDAP Fast bind 지원] | LDAP 서버에서 지원되는 경우 LDAP 빠른 바인딩을 사용하여 ONTAP 관리자 사용자를 빠르고 간단하게 인증할 수 있습니다. 
+|===
+
+
+== MetroCluster
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| xref:../mediator/index.html[ONTAP 중재자 1.4 지원] | ONTAP mediator 소프트웨어 버전 1.4는 MetroCluster IP 구성에서 지원됩니다. 
+
+
+| xref:../consistency-groups/index.html#metrocluster[일관성 그룹 지원] | 정합성 보장 그룹은 MetroCluster 구성에서 지원됩니다. 
+
+
+| link:https://docs.netapp.com/us-en/ontap-metrocluster/transition/task_move_cluster_connections.html#which-connections-to-move["MetroCluster FC 구성에서 AFF A250 또는 FAS500f MetroCluster IP 구성으로 전환"^] | MetroCluster FC 구성에서 AFF A250 또는 FAS500f MetroCluster IP 구성으로 전환할 수 있습니다. 
+|===
+MetroCluster 구성에 대한 플랫폼 및 스위치 구성 개선 사항에 대한 자세한 내용은 _ 을(를) 참조하십시오link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["ONTAP 9 릴리즈 노트"^]_.
+
+
+
+== 네트워킹 및 보안 프로토콜
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| xref:../networking/configure_network_security_using_federal_information_processing_standards_@fips@.html[TLSv1.3 지원] | ONTAP는 HTTPS 및 REST API 관리 프로토콜에 TLS 1.3을 지원합니다. TLS 1.3은 SP/BMC 또는 클러스터 피어링 암호화와 함께 지원되지 않습니다. 
+
+
+| xref:../networking/display_network_connectivity_with_neighbor_discovery_protocols.html[LLDP(Link Layer Discovery Protocol)] | 클러스터 네트워크는 ONTAP가 CDP(Cisco Discovery Protocol)를 지원하지 않는 클러스터 스위치와 함께 작동하도록 LLDP를 지원합니다. 
+
+
+| xref:../networking/lifs_and_service_policies96.html[LIF 서비스] | 새로운 클라이언트 측 LIF 서비스는 아웃바운드 AD, DNS, LDAP 및 NIS 요청에 사용되는 LIF를 보다 효과적으로 제어합니다. 
+|===
+
+
+== S3 오브젝트 스토리지
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| xref:../s3-config/ontap-s3-supported-actions-reference.html[S3 오브젝트 작업에 대한 추가 지원]  a| 
+ONTAP API에서 지원되는 작업은 다음과 같습니다. `CreateBucket`, `DeleteBucket`, `DeleteObjects`. 또한 ONTAP S3는 와의 오브젝트 버전 관리 및 관련 작업을 지원합니다 `PutBucketVersioning`, `GetBucketVersioning`, `ListBucketVersions`.
+
+|===
+
+
+== 산
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| xref:../san-admin/asa-iscsi-lif-fo-task.html[iSCSI LIF 페일오버] | 새로운 iSCSI LIF 페일오버 기능은 SFO 파트너 페일오버 및 로컬 페일오버에서 iSCSI LIF의 자동 및 수동 마이그레이션을 지원합니다. iSCSI LIF 페일오버는 모든 SAN 어레이(ASA) 플랫폼에서 사용할 수 있습니다. 
+
+
+| LUN에서 NVMe 네임스페이스로, NVMe 네임스페이스에서 LUN으로 중단 없이 마이그레이션 | ONTAP CLI를 사용하여 데이터 이동 없이 를 변환합니다 xref:../san-admin/convert-lun-to-namespace.html[기존 LUN을 NVMe 네임스페이스에 제공] 또는 을 누릅니다 xref:../nvme/convert-namespace-to-lun-task.html[LUN에 대한 기존 NVMe 네임스페이스]. 
+|===
+
+
+== 보안
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| xref:../anti-ransomware/index.html[ARP(자율 랜섬웨어 방어) 개선] | ARP 탐지 알고리즘은 추가 맬웨어 위협을 감지하도록 개선되었습니다. 또한 자율적 랜섬웨어 방어를 활성화하는 데 새로운 라이센스 키가 사용됩니다. ONTAP 9.10.1에서 ONTAP 시스템을 업그레이드할 경우 이전 라이센스 키는 동일한 기능을 제공합니다. 
+
+
+| xref:../multi-admin-verify/index.html[다중 관리 검증] | 다중 관리자 검증이 활성화된 경우 볼륨 또는 스냅샷 복사본 삭제와 같은 특정 작업은 지정된 관리자의 승인을 받은 후에만 실행할 수 있습니다. 따라서 손상되거나 악의적이거나 경험이 부족한 관리자가 원치 않는 변경 또는 데이터 삭제를 방지할 수 있습니다. 
+|===
+
+
+== 스토리지 효율성
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| xref:../volumes/view-footprint-savings-task.html[물리적인 설치 공간 절약 효과를 확인하십시오] | 볼륨에서 온도에 민감한 스토리지 효율성을 활성화한 경우 volume show-footprint 명령을 사용하여 물리적인 설치 공간 절약 효과를 표시할 수 있습니다. 
+
+
+| xref:../file-system-analytics/activity-tracking-task.html[FSA(File System Analytics)를 사용한 핫 객체에 대한 작업 추적] | 활동 추적은 SVM 레벨에서 집계되어 읽기/쓰기 IOPS 및 처리량을 추적하여 데이터에 대한 즉각적이고 실행 가능한 통찰력을 제공합니다. 
+
+
+| xref:../flexcache/enable-file-access-time-updates-task.html[파일 액세스 시간 업데이트를 활성화합니다] | 활성화된 경우 현재 액세스 시간이 사용자가 지정한 기간을 초과하는 경우에만 FlexCache 원본 볼륨에서 액세스 시간이 업데이트됩니다. 
+
+
+| xref:../flexgroup/manage-client-async-dir-delete-task.html[비동기식 디렉토리 삭제] | 비동기 삭제는 스토리지 관리자가 볼륨에 대한 권한을 부여한 경우 NFS 및 SMB 클라이언트에서 사용할 수 있습니다. 비동기 삭제가 활성화된 경우 Linux 클라이언트는 mv 명령을 사용할 수 있고 Windows 클라이언트는 rename 명령을 사용하여 디렉토리를 삭제하고 숨겨진 디렉토리로 이동할 수 있습니다 `.ontaptrashbin` 디렉토리. 
+
+
+| xref:../flexgroup/supported-unsupported-config-concept.html[FlexGroup 볼륨에 대한 SnapLock 지원] | SnapLock는 FlexGroup 볼륨에 저장된 데이터를 지원합니다. FlexGroup 볼륨 지원은 SnapLock 규정 준수 및 SnapLock 엔터프라이즈 모드에서 사용할 수 있습니다. 
+
+
+| xref:../svm-migrate/index.html[SVM 데이터 이동성] | 지원되는 AFF 어레이의 수를 3개로 늘리고 소스 및 타겟에서 ONTAP 9.11.1 이상을 실행 중인 경우 SnapMirror 관계 지원을 추가합니다. 외부 키 관리(KMIP)도 도입되어 클라우드 및 사내 설치 모두에서 사용할 수 있습니다. 
+|===
+
+
+== 시스템 관리자
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| xref:../task_dp_create_custom_data_protection_policies.html[SnapMirror 비동기식 정책을 관리합니다]  a| 
+System Manager를 사용하여 사전 생성된 사용자 정의 미러 및 소산 정책을 추가하고, 레거시 정책을 표시하고, 볼륨 및 스토리지 VM을 보호할 때 보호 정책에 정의된 전송 일정을 재정의할 수 있습니다. System Manager를 사용하여 볼륨 및 스토리지 VM 보호 관계를 편집할 수도 있습니다.
+
+
+NOTE: ONTAP 9.8P12 이상 ONTAP 9.8 패치 릴리즈를 사용 중이고 System Manager를 사용하여 SnapMirror를 구성한 경우, ONTAP 9.9.1 또는 ONTAP 9.10.1 릴리스로 업그레이드하려면 ONTAP 9.9.1P13 이상 및 ONTAP 9.10.1P10 이상 패치 릴리즈를 사용해야 합니다.
+
+
+
+| xref:../task_admin_troubleshoot_hardware_problems.html[하드웨어 시각화] | System Manager의 하드웨어 시각화 기능은 현재 AFF 및 FAS 플랫폼을 모두 지원합니다. 
+
+
+| xref:../insights-system-optimization-task.html[시스템 분석 인사이트] | Insights 페이지에 System Manager는 클러스터 및 스토리지 VM 구성에 대한 추가 용량 및 보안 통찰력과 새로운 통찰력을 표시하여 시스템을 최적화하도록 지원합니다. 
+
+
+| 사용 편의성 향상  a| 
+* xref:../task_admin_add_a_volume.html[새로 생성된 볼륨은 기본적으로 공유할 수 없습니다]. 대신 사용자는 NFS를 통해 내보내거나 SMB/CIFS를 통해 공유하거나 사용 권한 수준을 지정하는 등의 기본 액세스 권한을 지정할 수 있습니다.
+* xref:../san-admin/manage-san-initiators-task.html[SAN 단순화] - 이니시에이터 그룹을 추가하거나 편집할 때 System Manager 사용자는 그룹에 있는 이니시에이터의 연결 상태를 보고 LUN 데이터에 액세스할 수 있도록 연결된 이니시에이터가 그룹에 포함되어 있는지 확인할 수 있습니다.
+
+
+
+
+| xref:../add-create-local-tier-task.html[고급 로컬 계층(애그리게이트) 작업]  a| 
+System Manager 관리자는 System Manager의 권장 사항을 수락하지 않으려는 경우 로컬 계층의 구성을 지정할 수 있습니다. 또한 관리자는 기존 로컬 계층의 RAID 구성을 편집할 수 있습니다.
+
+
+NOTE: ONTAP 9.8P12 이상 ONTAP 9.8 패치 릴리즈를 사용 중이고 System Manager를 사용하여 SnapMirror를 구성한 경우, ONTAP 9.9.1 또는 ONTAP 9.10.1 릴리스로 업그레이드하려면 ONTAP 9.9.1P13 이상 및 ONTAP 9.10.1P10 이상 패치 릴리즈를 사용해야 합니다.
+
+
+
+| xref:../system-admin/ontap-implements-audit-logging-concept.html[감사 로그 관리] | System Manager를 사용하여 ONTAP 감사 로그를 보고 관리할 수 있습니다. 
+|===

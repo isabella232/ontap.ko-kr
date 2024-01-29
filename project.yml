@@ -14,8 +14,7 @@ sidebar:
   entries:
   - title: ONTAP 문서
     url: "/index.html"
-  - title: 릴리즈 노트
-    url: "/release-notes.html"
+  - section: release-notes
   - title: System Manager와 BlueXP의 통합
     url: "/sysmgr-integration-bluexp-concept.html"
   - section: introduction-concepts

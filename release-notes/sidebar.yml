@@ -1,0 +1,20 @@
+---
+section: release-notes
+title: 릴리스 정보
+entries:
+- title: 주요 내용을 릴리스합니다
+  url: "/release-notes/index.html"
+- title: 릴리스 지원
+  url: "/release-notes/release-support-reference.html"
+- title: ONTAP 9.14.1의 새로운 기능
+  url: "/release-notes/9141-reference.html"
+- title: ONTAP 9.13.1의 새로운 기능
+  url: "/release-notes/9131-reference.html"
+- title: ONTAP 9.12.1의 새로운 기능
+  url: "/release-notes/9121-reference.html"
+- title: ONTAP 9.11.1의 새로운 기능
+  url: "/release-notes/9111-reference.html"
+- title: ONTAP 9.10.1의 새로운 기능
+  url: "/release-notes/9101-reference.html"
+- title: ONTAP 9.1.1의 새로운 기능
+  url: "/release-notes/991-reference.html"
