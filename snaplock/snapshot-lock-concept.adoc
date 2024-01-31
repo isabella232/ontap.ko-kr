@@ -51,7 +51,6 @@ ONTAP 9.14.1부터 스냅샷 복사본 잠금은 SnapLock 소산 대상 및 비 
 * 정합성 보장 그룹
 * FabricPool
 * FlexCache 볼륨
-* ONTAP Select
 * SMTape
 * SnapCenter
 * SnapMirror 비즈니스 연속성(SM-BC)

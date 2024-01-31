@@ -219,4 +219,13 @@ ONTAP 9.12.1부터 System Manager는 BlueXP와 통합됩니다. BlueXP를 사용
 
 
 | xref:../networking/network_features_by_release.html[System Manager 네트워킹 개선 사항] | System Manager는 네트워크 인터페이스를 생성하는 동안 서브넷 및 홈 포트 선택에 대한 제어 기능을 제공합니다. System Manager는 RDMA 연결을 통한 NFS 구성도 지원합니다. 
+
+
+| xref:../system-admin/access-cluster-system-manager-browser-task.html[시스템 표시 테마] | System Manager 사용자는 System Manager 인터페이스 표시에 사용할 밝은 또는 어두운 테마를 선택할 수 있습니다. 또한 운영 체제 또는 브라우저에 사용되는 테마를 기본값으로 선택할 수도 있습니다. 이 기능을 통해 사용자는 디스플레이를 보다 편안하게 읽을 수 있는 설정을 지정할 수 있습니다. 
+
+
+| xref:../concepts/capacity-measurements-in-sm-concept.html[로컬 계층 용량 세부 정보 개선] | System Manager 사용자는 특정 로컬 계층의 용량 세부 정보를 보고 공간이 과도하게 할당되었는지 확인할 수 있습니다. 즉, 로컬 계층에 공간이 부족하지 않도록 용량을 추가해야 할 수 있습니다. 
+
+
+| xref:../task_admin_search_filter_sort.html[향상된 검색 기능] | System Manager의 향상된 검색 기능을 사용하면 사용자가 System Manager 인터페이스를 통해 NetApp Support 사이트에서 관련 및 문맥에 민감한 지원 정보 및 System Manager 제품 문서를 직접 검색하고 액세스할 수 있습니다. 이를 통해 사용자는 지원 사이트의 다양한 위치에서 검색할 필요 없이 적절한 조치를 취하는 데 필요한 정보를 얻을 수 있습니다. 
 |===

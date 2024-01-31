@@ -24,7 +24,7 @@ ONTAP를 업그레이드하려면 을 참조하십시오 xref:../upgrade/prepare
 | 업데이트 | 설명 
 
 
-| link:../snaplock/index.html#multi-admin-verification-mav-support.md["다중 관리 검증"]  a| 
+| link:../snaplock/index.html#multi-admin-verification-mav-support["다중 관리 검증"]  a| 
 클러스터 관리자는 일부 SnapLock 작업이 실행되기 전에 쿼럼이 승인되도록 클러스터에서 다중 관리자 확인을 명시적으로 활성화할 수 있습니다. 를 누릅니다
 
 

@@ -52,7 +52,7 @@ summary: 환경에 따라 복원을 시작하기 전에 특정 요소를 고려�
 | S3 멀티프로토콜 액세스가 ONTAP 9.12.1 이상용으로 구성되었습니까? | xref:remove-nas-bucket-task.html[S3 NAS 버킷 구성을 제거합니다] 
 
 
-| NFSv4.1 세션 트렁킹이 ONTAP 9.12.1 이상용으로 구성되었습니까? | xref:remove-nfs-trunking-task.html[NFSv4.1 세션 트렁킹 구성을 제거합니다] 
+| NFSv4.1 세션 트렁킹은 ONTAP 9.14.1 이상에 대해 구성됩니까? | xref:remove-nfs-trunking-task.html[NFSv4.1 세션 트렁킹 구성을 제거합니다] 
 |===
 
 

@@ -29,7 +29,7 @@ ONTAP를 업그레이드하려면 을 참조하십시오 xref:../upgrade/prepare
 | xref:../snaplock/set-retention-period-task.html[SnapLock 보존 기간을 최대 100년으로 설정합니다] | ONTAP 9.10.1 이전 릴리스에서 지원되는 최대 보존 시간은 2071년 1월 19일입니다. ONTAP 9.10.1 SnapLock 엔터프라이즈 및 규정 준수부터 보존 기간은 10월 26일, 3058년까지, 보존 기간은 최대 100년까지입니다. 보존 날짜를 늘리면 이전 정책이 자동으로 변환됩니다. 
 
 
-| xref:../snaplock/set-retention-period-task.html[동일한 애그리게이트에서 SnapLock 및 비 SnapLock 볼륨을 생성] | ONTAP 9.10.1부터 SnapLock 및 비 SnapLock 볼륨이 동일한 aggregate에 존재할 수 있으므로, SnapLock 볼륨에 대한 별도의 SnapLock 애그리게이트를 생성할 필요가 없습니다. 
+| xref:../snaplock/set-retention-period-task.html[SnapLock 및 비 SnapLock 볼륨을 동일한 애그리게이트에서 생성 가능] | ONTAP 9.10.1부터 SnapLock 및 비 SnapLock 볼륨이 동일한 aggregate에 존재할 수 있으므로, SnapLock 볼륨에 대한 별도의 SnapLock 애그리게이트를 생성할 필요가 없습니다. 
 
 
 | xref:../consistency-groups/index.html[정합성 보장 그룹] | 정합성 보장 그룹에 볼륨 및 LUN을 클러스터링하여 스냅샷 복구를 위한 스토리지 볼륨의 정책을 관리하고 쓰기 순서를 지정합니다. 
