@@ -52,8 +52,6 @@ entries:
       url: "/upgrade/concept_considerations_for_session_oriented_protocols.html"
     - title: SSH 공개 키
       url: "/upgrade/considerations-authenticate-ssh-public-key-fips-concept.html"
-    - title: 로드 공유 미러(8.3)
-      url: "/upgrade/task_preparing_all_load_sharing_mirrors_for_a_major_upgrade.html"
   - title: SP 또는 BMC를 재부팅합니다
     url: "/upgrade/concept_how_firmware_is_updated_during_upgrade.html"
 - title: ONTAP 소프트웨어 이미지 다운로드

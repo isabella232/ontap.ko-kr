@@ -71,11 +71,11 @@ SVM이 SVM 재해 복구 소스인 경우 타겟 경로가 루트 볼륨에 있�
 ----
 cluster1::> vserver audit create -vserver vs1 -destination /audit_log -rotate-size 200MB
 ----
-다음 예제에서는 크기 기반 회전을 사용하여 파일 작업 및 SMB 로그온 및 로그오프 이벤트(기본값)를 감사하는 감사 구성을 만듭니다. 로그 형식은 evtx(기본값)입니다. 로그 파일 크기 제한은 100MB(기본값)이며 로그 회전 제한은 5입니다.
+다음 예에서는 크기 기반 회전을 사용하여 파일 작업 및 SMB 로그온 및 로그오프 이벤트(기본값)를 감사하는 감사 구성을 만듭니다. 로그 형식은 입니다 `EVTX` (기본값). 로그는 에 저장됩니다 `/cifs_event_logs` 디렉토리. 로그 파일 크기 제한은 입니다 `100 MB` (기본값), 로그 회전 제한은 입니다 `5`:
 
 [listing]
 ----
-cluster1::> vserver audit create -vserver vs1 -destination /audit_log -rotate-limit 5
+cluster1::> vserver audit create -vserver vs1 -destination /cifs_event_logs -rotate-limit 5
 ----
 다음 예에서는 파일 작업, CIFS 로그온 및 로그오프 이벤트 및 시간 기반 회전을 사용하여 중앙 액세스 정책 스테이징 이벤트를 감사하는 감사 구성을 생성합니다. 로그 형식은 evtx(기본값)입니다. 감사 로그는 매월 오후 12시 30분에 순환됩니다 일주일 내내. 로그 회전 제한은 "5"입니다.
 
