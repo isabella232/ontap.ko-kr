@@ -16,6 +16,10 @@ ONTAP 9.5부터 최소 16GB의 메모리와 모든 ONTAP Select 플랫폼에서 
 
 이 기능은 데이터 손실이 전혀 필요하지 않는 금융, 의료 및 기타 규제 대상 산업에서 동기식 복제에 대한 규제 및 국가 차원의 요구를 해결합니다.
 
+
+
+== SnapMirror Synchronous 작업이 허용됨
+
 HA 쌍당 SnapMirror Synchronous 복제 작업 수의 제한은 컨트롤러 모델에 따라 다릅니다.
 
 다음 표에는 플랫폼 유형과 ONTAP 릴리즈에 따라 HA 쌍당 허용되는 SnapMirror Synchronous 작업 수가 나와 있습니다.
@@ -115,6 +119,12 @@ ONTAP Select
 
 
 | SnapMirror Synchronous 관계의 운영 볼륨에 대한 하드 및 소프트 할당량 | ONTAP 9.6 | 할당량 규칙은 대상에 복제되지 않으므로 할당량 데이터베이스가 대상에 복제되지 않습니다. 
+
+
+| 클러스터 내 동기식 관계 | ONTAP 9.13.1P6 | 소스 볼륨과 타겟 볼륨이 서로 다른 SVM에 있어야 합니다.
+소스 볼륨과 타겟 볼륨이 서로 다른 HA 쌍에 배치된 경우 고가용성이 제공됩니다.
+전체 클러스터가 다운되면 클러스터가 복구될 때까지 볼륨에 액세스할 수 없습니다.
+클러스터 내 SnapMirror 동기식 관계는 동시 의 전체 제한에 기여합니다 xref:SnapMirror Synchronous operations allowed[HA 쌍당 관계]. 
 
 
 | iSCSI | ONTAP 9.5 |  
