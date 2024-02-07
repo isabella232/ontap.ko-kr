@@ -45,16 +45,13 @@ SnapMirror Synchronous 구성에서 지원되는 최대 FlexVol 볼륨 크기가
 | xref:../data-protection/snapmirror-synchronous-disaster-recovery-basics-concept.html#supported-features[SnapMirror Synchronous NDO] | SnapMirror Synchronous는 HA 테이크오버 및 반환, 볼륨 이동 및 기타 유지보수 관련 작업에 대한 무중단 운영(NDO)을 지원합니다. 이 기능은 AFF/ASA 플랫폼에서만 사용할 수 있습니다. 
 
 
-| xref:../snaplock/commit-snapshot-copies-worm-concept.html[FlexGroup 볼륨을 지원하는 SnapVault용 SnapLock] | FlexGroup 볼륨을 지원하는 SnapVault용 SnapLock 
-
-
 | xref:../mediator/index.html[ONTAP mediator 1.5는 SnapMirror 비즈니스 연속성을 지원합니다] | ONTAP mediator 1.5는 SnapMirror SM-BC(Business Continuity) 관계를 모니터링하는 데 사용할 수 있습니다. 
 
 
 | xref:../smbc/index.html[SnapMirror Business(SM-BC) 연속성 향상] | SM-BC는 스냅샷에서 부분 LUN 복구를 지원합니다. 또한 SM-BC는 QoS를 SM-BC 관계가 아닌 볼륨으로 확장합니다. 
 
 
-| xref:../data-protection/convert-snapmirror-version-flexible-task.html[SnapMirror 비동기식에 대한 데이터 웨어하우스 리빌드 표시기] | SnapMirror 비동기는 재해 복구(DR) 예행 연습 후 완료율을 표시하여 데이터 웨어하우스 재구축에 걸리는 시간을 보여 주는 표시기를 제공합니다. 
+| xref:../data-protection/convert-snapmirror-version-flexible-task.html[SnapMirror 비동기식에 대한 데이터 웨어하우스 리빌드 표시기] | SnapMirror Asynchronous는 재해 복구 예행 연습 후 완료율을 표시하여 데이터 웨어하우스 재구축에 걸리는 시간을 보여 줍니다. 
 
 
 | 최소 보존 시간을 "지정되지 않은" 절대 보존 시간을 설정하는 SnapLock 옵션입니다 | SnapLock에는 절대 보존 시간이 "지정되지 않음"으로 설정된 경우 최소 보존 시간을 설정하는 옵션이 포함되어 있습니다. 
@@ -77,7 +74,10 @@ SnapMirror Synchronous 구성에서 지원되는 최대 FlexVol 볼륨 크기가
 | xref:../s3-multiprotocol/index.html[S3 클라이언트에서 NAS 데이터에 액세스] | S3 클라이언트는 다시 포맷하지 않고도 NFS 및 SMB 클라이언트와 동일한 NAS 데이터에 액세스할 수 있으므로 오브젝트 데이터가 필요한 S3 애플리케이션을 더욱 쉽게 제공할 수 있습니다. 
 
 
-| xref:../nfs-admin/manage-nfsv4-storepool-controls-task.html[NFSv4.x 스토리지 풀입니다] | 일부 클라이언트에서는 NFSv4.x 스토리지 풀 리소스를 너무 많이 소비하므로 다른 NFSv4.x 클라이언트가 NFSv4.x 스토리지 풀 리소스를 사용할 수 없어 차단됩니다. 해당 환경에서 많은 NFSv4.x storepool 리소스를 사용하는 클라이언트를 거부 및 차단할 수 있습니다. 
+| xref:../nfs-admin/ontap-support-nfsv42-concept.html[NFS 확장 속성입니다] | NFSv4.2에 설정된 NFS 서버는 xattr 인식 클라이언트에서 NFS 확장 속성(xattrs)을 저장하고 검색할 수 있습니다. 
+
+
+| xref:../nfs-admin/ontap-support-nfsv42-concept.html[NFSv4.2 분할 파일 및 공간 예약 지원] | NFSv4.2 클라이언트는 분할 파일에 대한 공간을 예약할 수 있습니다. 또한 파일에서 공간을 할당 해제하거나 예약 해제할 수 있습니다. 
 |===
 
 
@@ -94,6 +94,9 @@ SnapMirror Synchronous 구성에서 지원되는 최대 FlexVol 볼륨 크기가
 | xref:../configure_ip_security_@ipsec@_over_wire_encryption.html[MetroCluster IP 및 MetroCluster 패브릭 연결 구성에서 프런트 엔드 호스트 프로토콜(예: NFS 및 iSCSI)에 대한 IPsec 지원을 사용할 수 있습니다.] | MetroCluster IP 및 MetroCluster 패브릭 연결 구성에서 프런트 엔드 호스트 프로토콜(예: NFS 및 iSCSI)에 대한 IPsec 지원을 사용할 수 있습니다. 
 
 
+| link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept-risks-limitations-automatic-switchover.html["MetroCluster IP 구성의 MetroCluster 자동 강제 전환 기능"^] | MetroCluster IP 구성에서 MetroCluster 자동 강제 전환 기능을 활성화할 수 있습니다. 이 기능은 중재자 지원 계획되지 않은 전환(MAUSO) 기능의 확장입니다. 
+
+
 | link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept-risks-limitations-automatic-switchover.html["MetroCluster IP 구성의 미러링되지 않은 애그리게이트에서 SVM에 S3가 지원됩니다"^] | MetroCluster IP 구성에서 MetroCluster 자동 강제 전환 기능을 활성화할 수 있습니다. 이 기능은 중재자 지원 계획되지 않은 전환(MAUSO) 기능의 확장입니다. 
 |===
 MetroCluster 구성에 대한 플랫폼 및 스위치 구성 개선 사항에 대한 자세한 내용은 _ 을(를) 참조하십시오link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["ONTAP 9 릴리즈 노트"^]_.
@@ -107,7 +110,7 @@ MetroCluster 구성에 대한 플랫폼 및 스위치 구성 개선 사항에 �
 | 업데이트 | 설명 
 
 
-| xref:../ontap/system-admin/forward-command-history-log-file-destination-task.html[LIF 서비스] | 관리 로그 전달 서비스를 사용하여 감사 로그를 원격 syslog 서비스에 전달하는 데 사용되는 LIF를 제어할 수 있습니다 
+| xref:../ontap/system-admin/forward-command-history-log-file-destination-task.html[LIF 서비스] | 를 사용할 수 있습니다 `management-log-forwarding` 감사 로그를 원격 syslog 서비스에 전달하는 데 사용되는 LIF를 제어하는 서비스입니다 
 |===
 
 
@@ -157,12 +160,14 @@ NVMe 프로토콜은 다음을 지원합니다.
 
 == 보안
 
+2022년 10월, NetApp는 TLSv1.2 또는 보안 SMTP를 사용하여 HTTPS에서 전송되지 않는 AutoSupport 메시지 전송을 거부하기 위한 변경 사항을 구현했습니다. 자세한 내용은 을 참조하십시오 link:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU484["SU484: NetApp는 전송 보안이 불충분하여 전송된 AutoSupport 메시지를 거부합니다"^].
+
 [cols="30%,70%"]
 |===
 | 피처 | 설명 
 
 
-| xref:../anti-ransom/index.html[자율적 랜섬웨어 방어 상호 운용성 개선]  a| 
+| xref:../anti-ransomware/use-cases-restrictions-concept.html#supported-configurations[자율적 랜섬웨어 방어 상호 운용성 개선]  a| 
 자율적 랜섬웨어 방어는 다음 구성에 사용할 수 있습니다.
 
 * SnapMirror로 보호되는 볼륨
@@ -172,7 +177,7 @@ NVMe 프로토콜은 다음을 지원합니다.
 
 
 
-| xref:../authentication/setup-ssh-multifactor-authentication-task.html[FIDO2 및 PIV를 통한 SSH에 대한 MFA 지원(Yubikey에서 모두 사용)] | SSH 다단계 인증(MFA)은 사용자 이름 및 암호를 사용한 하드웨어 지원 공용/개인 키 교환을 사용할 수 있습니다. Yubikey는 MFA 보안을 강화하기 위해 SSH 클라이언트에 연결된 물리적 토큰 디바이스입니다. 
+| xref:../authentication/setup-ssh-multifactor-authentication-task.html[FIDO2 및 PIV(Yubikey에서 모두 사용)를 통한 SSH에 대한 다단계 인증(MFA) 지원] | SSH MFA는 사용자 이름 및 암호로 하드웨어 지원 공용/개인 키 교환을 사용할 수 있습니다. Yubikey는 MFA 보안을 강화하기 위해 SSH 클라이언트에 연결된 물리적 토큰 디바이스입니다. 
 
 
 | xref:../system-admin/ontap-implements-audit-logging-concept.html[변조 방지 로깅] | 모든 ONTAP 내부 로그는 기본적으로 무단 변경이 방지되므로 손상된 관리자 계정이 악의적인 작업을 숨길 수 없습니다. 
@@ -183,8 +188,6 @@ NVMe 프로토콜은 다음을 지원합니다.
 
 
 == 스토리지 효율성
-
-2022년 10월, NetApp는 TLSv1.2 또는 보안 SMTP를 사용하여 HTTPS에서 보내지 않은 AutoSupport 메시지 전송을 거부하기 위한 변경 사항을 구현할 예정입니다. 자세한 내용은 을 참조하십시오 link:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU484["SU484: NetApp는 전송 보안이 불충분하여 전송된 AutoSupport 메시지를 거부합니다"^].
 
 [cols="30%,70%"]
 |===
@@ -203,6 +206,39 @@ NVMe 프로토콜은 다음을 지원합니다.
 |===
 
 
+== 스토리지 리소스 관리 기능 향상
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| xref:../flexgroup/manage-flexgroup-rebalance-task.html#flexgroup-rebalancing-considerations[FlexGroup 재조정]  a| 
+무중단 FlexGroup 볼륨 재조정을 자동으로 수행하여 FlexGroup 구성요소 간에 파일을 재배포할 수 있습니다.
+
+
+NOTE: FlexVol에서 FlexGroup로 변환한 후에는 자동 FlexGroup 재조정을 사용하지 않는 것이 좋습니다. 대신 을 입력하여 ONTAP 9.10.1 이상에서 사용할 수 있는 중단 소급 파일 이동 기능을 사용할 수 있습니다 `volume rebalance file-move` 명령. 자세한 내용 및 명령 구문에 대한 자세한 내용은 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli-9121//volume-rebalance-file-move-start.html["ONTAP 명령 참조"^].
+
+
+
+| xref:../snaplock/commit-snapshot-copies-worm-concept.html[FlexGroup 볼륨을 지원하는 SnapVault용 SnapLock] | FlexGroup 볼륨을 지원하는 SnapVault용 SnapLock 
+|===
+
+
+== SVM 관리 개선 사항
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| xref:../svm-migrate/index.html[SVM 데이터 이동성의 개선 사항]  a| 
+클러스터 관리자는 하이브리드 애그리게이트의 FAS AFF 플랫폼을 사용하여 운영 중단 없이 SVM을 소스 클러스터에서 타겟 클러스터로 재배치할 수 있습니다.
+Disruptive SMB 프로토콜과 Autonomous 랜섬웨어 Protection에 대한 지원이 추가되었습니다.
+
+|===
+
+
 == 시스템 관리자
 
 ONTAP 9.12.1부터 System Manager는 BlueXP와 통합됩니다. BlueXP를 사용하면 관리자는 친숙한 System Manager 대시보드를 유지하면서 단일 제어 플레인에서 하이브리드 멀티 클라우드 인프라를 관리할 수 있습니다. System Manager에 로그인할 때 관리자는 BlueXP에서 System Manager 인터페이스에 액세스하거나 System Manager에 직접 액세스할 수 있습니다. 에 대해 자세히 알아보십시오 xref:../ontap/sysmgr-integration-bluexp-concept.html[System Manager와 BlueXP의 통합].
@@ -213,6 +249,9 @@ ONTAP 9.12.1부터 System Manager는 BlueXP와 통합됩니다. BlueXP를 사용
 
 
 | xref:../snaplock/create-snaplock-volume-task.html[SnapLock에 대한 System Manager 지원] | 규정 준수 클록 초기화, SnapLock 볼륨 생성 및 WORM 파일 미러링을 포함한 SnapLock 작업이 System Manager에서 지원됩니다. 
+
+
+| xref:../task_admin_troubleshoot_hardware_problems.html[케이블 연결의 하드웨어 시각화] | System Manager 사용자는 클러스터에 있는 하드웨어 장치 간의 케이블 연결에 대한 연결 정보를 확인하여 연결 문제를 해결할 수 있습니다. 
 
 
 | xref:../system-admin/configure-saml-authentication-task.html[System Manager에 로그인할 때 Cisco Duo를 통해 다단계 인증을 지원합니다] | Cisco Duo를 SAML ID 공급자(IDP)로 구성하여 사용자가 System Manager에 로그인할 때 Cisco Duo를 사용하여 인증할 수 있습니다. 
@@ -228,4 +267,16 @@ ONTAP 9.12.1부터 System Manager는 BlueXP와 통합됩니다. BlueXP를 사용
 
 
 | xref:../task_admin_search_filter_sort.html[향상된 검색 기능] | System Manager의 향상된 검색 기능을 사용하면 사용자가 System Manager 인터페이스를 통해 NetApp Support 사이트에서 관련 및 문맥에 민감한 지원 정보 및 System Manager 제품 문서를 직접 검색하고 액세스할 수 있습니다. 이를 통해 사용자는 지원 사이트의 다양한 위치에서 검색할 필요 없이 적절한 조치를 취하는 데 필요한 정보를 얻을 수 있습니다. 
+
+
+| xref:../task_admin_add_a_volume.html[볼륨 프로비저닝 개선] | 스토리지 관리자는 기본 정책을 사용하지 않고 System Manager를 사용하여 볼륨을 생성할 때 스냅샷 복사본 정책을 선택할 수 있습니다. 
+
+
+| xref:../task_admin_expand_storage.html#increase-the-size-of-a-volume[볼륨 크기를 늘립니다] | 스토리지 관리자는 System Manager를 사용하여 볼륨 크기를 조정할 때 데이터 공간과 스냅샷 복사본 예약에 미치는 영향을 볼 수 있습니다. 
+
+
+| xref:../disks-aggregates/create-ssd-storage-pool-task.html[스토리지 풀] 및 xref:../disks-aggregates/create-flash-pool-aggregate-ssd-storage-task.html?[Flash Pool을 참조하십시오] 관리 | 스토리지 관리자는 System Manager를 사용하여 SSD 스토리지 풀에 SSD를 추가하고, SSD 스토리지 풀 할당 유닛을 사용하여 Flash Pool 로컬 계층(애그리게이트)을 생성하고, 물리적 SSD를 사용하여 Flash Pool 로컬 계층을 생성할 수 있습니다. 
+
+
+| xref:../nfs-rdma/index.html[System Manager에서 NFS over RDMA 지원] | System Manager는 RDMA 기반 NFS에 대한 네트워크 인터페이스 구성을 지원하고 RoCE 지원 포트를 식별합니다. 
 |===

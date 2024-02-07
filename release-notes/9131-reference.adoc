@@ -25,7 +25,7 @@ ONTAP를 업그레이드하려면 을 참조하십시오 xref:../upgrade/prepare
 
 
 | link:../snaplock/index.html#multi-admin-verification-mav-support["다중 관리 검증"]  a| 
-클러스터 관리자는 일부 SnapLock 작업이 실행되기 전에 쿼럼이 승인되도록 클러스터에서 다중 관리자 확인을 명시적으로 활성화할 수 있습니다. 를 누릅니다
+클러스터 관리자는 일부 SnapLock 작업이 실행되기 전에 쿼럼이 승인되도록 클러스터에서 다중 관리자 확인을 명시적으로 활성화할 수 있습니다.
 
 
 
@@ -37,10 +37,14 @@ ONTAP를 업그레이드하려면 을 참조하십시오 xref:../upgrade/prepare
 | link:../data-protection/snapmirror-synchronous-disaster-recovery-basics-concept.html["SnapMirror Synchronous를 사용한 NDMP 복원"] | NDMP 복원은 SnapMirror Synchronous에서 지원됩니다. 
 
 
-| SnapMirror Business Continuity를 통해 NDMP 및 무중단 일관성 그룹 확장이 가능합니다 | 가능합니다 link:../smbc/smbc_admin_add_and_remove_volumes_in_consistency_groups.html["활성 SM-BC 관계가 있는 정합성 보장 그룹에 운영 중단 없이 볼륨을 추가합니다"] 및 link:../smbc/supported-configurations-reference.html#ndmp-restore["SM-BC를 사용한 NDMP 복구 활용"]. 
+| SnapMirror Business Continuity(SM-BC) 개선 사항  a| 
+* link:../smbc/smbc_admin_add_and_remove_volumes_in_consistency_groups.html["활성 SM-BC 관계가 있는 정합성 보장 그룹에 운영 중단 없이 볼륨을 추가합니다."]
+* link:../smbc/supported-configurations-reference.html#ndmp-restore["SM-BC를 사용한 NDMP 복구 활용"].
 
 
-| link:link:../consistency-groups/protect-task.html#configure-asynchronous-snapmirror-protection["단일 일관성 그룹이 있는 비동기식 SnapMirror"] | 일관성 그룹이 비동기식 SnapMirror 구성을 지원하므로 단일 일관성 그룹에 대해 SnapMirror 백업을 저장할 수 있습니다. 
+
+
+| link:link:../consistency-groups/protect-task.html#configure-asynchronous-snapmirror-protection["단일 일관성 그룹에서 비동기식 SnapMirror 지원"] | 일관성 그룹이 비동기식 SnapMirror 구성을 지원하므로 단일 일관성 그룹에 대해 SnapMirror 백업을 저장할 수 있습니다. 
 |===
 
 
@@ -99,7 +103,7 @@ MetroCluster 구성에 대한 플랫폼 및 스위치 구성 개선 사항에 �
 | SSH 공개 키가 있는 X.509 인증서 | ONTAP를 사용하면 X.509 인증서를 계정의 SSH 공개 키와 연결하여 SSH 로그인 시 인증서 만료 및 해지 확인 보안을 강화할 수 있습니다. 
 
 
-| A800 및 FAS8700 플랫폼에서 클러스터 설정 중에 IPv6 사용 | A800 및 FAS8700 플랫폼에서는 ONTAP CLI를 사용하여 IPv6 전용 네트워킹 환경에서 새 클러스터를 생성하고 구성할 수 있습니다. 
+| A800 및 FAS8700 플랫폼에서 클러스터 설정 중에 IPv6 지원 | A800 및 FAS8700 플랫폼에서는 ONTAP CLI를 사용하여 IPv6 전용 네트워킹 환경에서 새 클러스터를 생성하고 구성할 수 있습니다. 
 
 
 | xref:../authentication/grant-access-active-directory-users-groups-task.html[Active Directory를 사용한 SSH 공개 키 인증] | Active Directory(AD) 사용자의 기본 인증 방법으로 SSH 공개 키를 사용하거나, AD 사용자 이후의 보조 인증 방법으로 SSH 공개 키를 사용할 수 있습니다. 
@@ -130,7 +134,7 @@ MetroCluster 구성에 대한 플랫폼 및 스위치 구성 개선 사항에 �
 | 업데이트 | 설명 
 
 
-| xref:..san-admin/create-nvme-namespace-subsystem-task.html[AIX 호스트의 NVMe/FC] | ONTAP는 AIX 호스트에서 NVMe/FC 프로토콜을 지원합니다. 를 참조하십시오 link:https://mysupport.netapp.com/matrix/["NetApp 상호 운용성 툴"^] 지원되는 구성. 
+| xref:..san-admin/create-nvme-namespace-subsystem-task.html[AIX 호스트에서 NVMe/FC 지원] | ONTAP는 AIX 호스트에서 NVMe/FC 프로토콜을 지원합니다. 를 참조하십시오 link:https://mysupport.netapp.com/matrix/["NetApp 상호 운용성 툴"^] 지원되는 구성. 
 |===
 
 
@@ -142,11 +146,20 @@ MetroCluster 구성에 대한 플랫폼 및 스위치 구성 개선 사항에 �
 
 
 | xref:../anti-ransomware/index.html[자율 랜섬웨어 보호]  a| 
-* 여러 관리자가 자율적 랜섬웨어 방어 기능으로 기능을 확인합니다
-* 학습에서 활성 모드로 자동 전환
-* FlexGroup 지원
+* xref:../use-cases-restrictions-concept.html#multi-admin-verification-with-volumes-protected-with-arp[여러 관리자가 자율적 랜섬웨어 방어 기능으로 기능을 확인합니다]
+* xref:../anti-ransomware/enable-default-task.html[학습에서 활성 모드로 자동 전환]
+* xref:../anti-ransomware/use-cases-restrictions-concept.html#supported-configurations[FlexGroup 지원]FlexGroup 볼륨 확장, FlexVol에서 FlexGroup FlexGroup으로 전환, FlexGroup 재조정에 대한 분석 및 보고 기능이 포함되어 있습니다.
 
 
+
+
+| xref:../authentication/setup-ssh-multifactor-authentication-task.html#enable-mfa-with-totp[TOTP(시간 기반 1회 암호)를 통한 다단계 인증] | TOTP(Time-Based One-Time Password)를 사용하여 다단계 인증으로 로컬 사용자 계정을 설정합니다. TOTP는 항상 두 번째 인증 방법으로 사용됩니다. SSH 공개 키 또는 사용자 암호를 기본 인증 방법으로 사용할 수 있습니다. 
+
+
+| xref:../authentication/grant-access-active-directory-users-groups-task.html[Active Directory를 사용한 SSH 공개 키 인증] | Active Directory(AD) 사용자의 기본 인증 방법으로 SSH 공개 키를 사용하거나, AD 사용자 이후의 보조 인증 방법으로 SSH 공개 키를 사용할 수 있습니다. 
+
+
+| SSH 공개 키가 있는 X.509 인증서 | ONTAP를 사용하면 X.509 인증서를 계정의 SSH 공개 키와 연결하여 SSH 로그인 시 인증서 만료 및 해지 확인 보안을 강화할 수 있습니다. 
 |===
 
 
@@ -170,9 +183,52 @@ System Manager에 표시되는 운영 데이터 축소율에는 스냅샷 복사
 
 
 | xref:../volumes/manage-svm-capacity.html[스토리지 VM 용량은 지원을 제한합니다] | 스토리지 VM(SVM)에 용량 한도를 설정하고 SVM이 백분율 임계값에 가까워지면 경고를 설정할 수 있습니다. 
+|===
+
+
+== 스토리지 리소스 관리 기능 향상
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| 최대 inode 수가 증가합니다 | 볼륨이 680GB보다 커지는 경우에도 ONTAP는 inode(32KB의 볼륨 공간당 1개의 inode 속도로) 계속해서 inode를 자동으로 추가합니다. ONTAP는 최대 2,147,483,632에 도달할 때까지 inode를 계속 추가합니다. 
+
+
+| xref:../volumes/create-flexclone-task.html#create-a-flexclone-volume-of-a-flexvol-or-flexgroup[FlexClone 생성 중 SnapLock 유형을 지정할 수 있습니다] | 읽기/쓰기 볼륨의 FlexClone을 생성할 때 Compliance, Enterprise 또는 비 SnapLock의 세 가지 SnapLock 유형 중 하나를 지정할 수 있습니다. 
+
+
+| xref:..//task_nas_file_system_analytics_enable.html#modify[기본적으로 파일 시스템 분석을 사용하도록 설정합니다] | 새 볼륨에 대해 File System Analytics를 기본적으로 사용하도록 설정합니다. 
+
+
+| xref:../flexgroup/create-svm-disaster-recovery-relationship-task.html[FlexGroup 볼륨과의 SVM 재해 복구 계획 관계]  a| 
+FlexGroup 볼륨에서 SVM DR의 팬 아웃 제한은 제거됩니다.
+FlexGroup를 지원하는 SVM DR에는 8개 사이트에 대한 SnapMirror 팬아웃 관계가 포함되어 있습니다.
+
+
+
+| xref:../flexgroup/manage-flexgroup-rebalance-task.html[단일 FlexGroup 재조정 작업] | 단일 FlexGroup 재조정 작업이 지정한 날짜와 시간에 시작되도록 예약할 수 있습니다. 
+
+
+| xref:../fabricpool/benefits-storage-tiers-concept.html[FabricPool 읽기 성능] | FabricPool는 클라우드에 상주하는 데이터 및 계층화 처리량을 위해 단일 및 멀티 스트림 워크로드에 향상된 순차적 읽기 성능을 제공합니다. 이러한 성능 향상을 통해 GET 및 PUT의 속도가 백엔드 객체 저장소로 보다 빠르게 전송될 수 있습니다. 온프레미스 오브젝트 저장소가 있는 경우 오브젝트 저장소 서비스의 성능 여유 공간을 고려하여 FabricPool 푸드를 제한해야 하는지 여부를 결정해야 합니다. 
 
 
 | xref:../performance-admin/guarantee-throughput-qos-task.html[적응형 QoS 정책 템플릿] | 적응형 QoS 정책 템플릿을 사용하여 SVM 레벨에서 처리량 한도를 설정할 수 있습니다. 
+|===
+
+
+== SVM 관리 개선 사항
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| xref:../svm-migrate/index.html[SVM 데이터 이동성] | 최대 200개의 볼륨이 포함된 SVM 마이그레이션 지원 증가 
+
+
+| SVM 디렉토리 재생성 지원 | 새로운 CLI 명령 `debug vserver refresh-vserver-dir -node _node_name_` 누락된 디렉토리 및 파일을 다시 생성합니다. 자세한 내용 및 명령 구문에 대한 자세한 내용은 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli-9131/["ONTAP 명령 참조"^]. 
 |===
 
 
@@ -194,5 +250,12 @@ System Manager에 표시되는 운영 데이터 축소율에는 스냅샷 복사
 | xref:../snaplock/snapshot-lock-concept.html#enable-snapshot-copy-locking-when-creating-a-volume[스냅샷 복사본의 무단 잠금 방지] | System Manager를 사용하여 SnapLock이 아닌 볼륨의 스냅샷 복사본을 잠가 랜섬웨어 공격으로부터 보호할 수 있습니다. 
 
 
-| xref:../encryption-at-rest/manage-external-key-managers-sm-task.html[외부 키 관리자 관리 지원] | System Manager를 사용하여 외부 키 관리자를 관리할 수 있으며 인증 및 암호화 키를 저장하고 관리할 수 있습니다. 
+| xref:../encryption-at-rest/manage-external-key-managers-sm-task.html[외부 키 관리자 지원] | System Manager를 사용하여 외부 키 관리자를 관리할 수 있으며 인증 및 암호화 키를 저장하고 관리할 수 있습니다. 
+
+
+| xref:../task_admin_troubleshoot_hardware_problems.html[하드웨어 문제 해결]  a| 
+System Manager 사용자는 ASA 플랫폼 및 AFF C-Series 플랫폼을 포함한 "하드웨어" 페이지에서 추가 하드웨어 플랫폼을 시각적으로 볼 수 있습니다.
+AFF C-Series 플랫폼에 대한 지원은 ONTAP 9.12.1, ONTAP 9.11.1 및 ONTAP 9.10.1의 최신 패치 릴리스에도 포함되어 있습니다.
+시각화는 플랫폼의 문제나 문제를 식별하여 사용자가 하드웨어 문제를 신속하게 해결할 수 있는 방법을 제공합니다.
+
 |===

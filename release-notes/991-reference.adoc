@@ -53,13 +53,13 @@ ONTAP 9.9.1에서 사용할 수 있는 새로운 기능에 대해 알아보십�
 | link:../nfs-config/using-ldap-concept.html["LDAP 조회 추적 기능 향상"] | LDAP 조회 추적은 LDAP 서명 및 봉인, 암호화된 TLS 연결 및 LDAPS 포트 636을 통한 통신에서 지원됩니다. 
 
 
-| link:../nfs-admin/ldaps-concept.html["모든 포트에서 LDAP 지원"] | LDAPS는 포트 636이 기본값으로 유지되지만 모든 포트에서 구성할 수 있습니다. 
+| link:../nfs-admin/ldaps-concept.html["모든 포트에서 LDAPS 지원"] | LDAPS는 모든 포트에서 구성할 수 있으며 포트 636은 기본값으로 유지됩니다. 
 
 
 | link:../nfs-admin/supported-versions-clients-reference.html["NFSv4.x 버전은 기본적으로 활성화되어 있습니다"] | NFSv4.0, NFSv4.1 및 NFSv4.2는 기본적으로 설정됩니다. 
 
 
-| link:../nfs-admin/enable-nfsv42-security-labels-task.html["레이블이 지정된 NFSv4.2 지원"] | NFSv4.2가 설정되면 NFS 레이블이 지정된 MAC(필수 액세스 제어)가 지원됩니다. 이 기능을 통해 ONTAP NFS 서버는 MAC 인식, 클라이언트가 보낸 sec_label 속성을 저장 및 검색합니다. 
+| link:../nfs-admin/enable-nfsv42-security-labels-task.html["레이블이 지정된 NFSv4.2 지원"] | NFSv4.2가 설정되면 NFS 레이블이 지정된 MAC(필수 액세스 제어)가 지원됩니다. 이 기능을 통해 ONTAP NFS 서버는 MAC 인식, 저장 및 검색이 가능합니다 `sec_label` 클라이언트에서 보낸 속성 
 |===
 
 
@@ -170,10 +170,18 @@ ONTAP 9.9.1P3부터 Cisco Duo를 SAML ID 공급자(IDP)로 구성하여 사용�
 | 업데이트 | 설명 
 
 
-| xref:../concept_nas_file_system_analytics_overview.html[System Manager의 FSA(File System Analytics) 관리 기능 향상] | FSA는 검색 및 필터링, FSA 권장 사항에 대한 조치 수행을 위한 추가 System Manager 기능을 제공합니다. 
-
-
 | link:https://docs.netapp.com/us-en/ontap-cli-991/volume-modify.html["파일 수를 볼륨에 대해 최대로 설정합니다"^] | volume 매개 변수를 사용하여 파일 최대값을 자동화합니다 `-files-set-maximum`파일 제한을 모니터링할 필요가 없습니다. 
+|===
+
+
+== 스토리지 리소스 관리 기능 향상
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| xref:../concept_nas_file_system_analytics_overview.html[System Manager의 FSA(File System Analytics) 관리 기능 향상] | FSA는 검색 및 필터링, FSA 권장 사항에 대한 조치 수행을 위한 추가 System Manager 기능을 제공합니다. 
 
 
 | xref:../flexcache/accelerate-data-access-concept.html[네거티브 조회 캐시 지원] | 오리진 호출로 인한 네트워크 트래픽을 줄이기 위해 FlexCache 볼륨에 "파일을 찾을 수 없음" 오류를 캐시합니다. 

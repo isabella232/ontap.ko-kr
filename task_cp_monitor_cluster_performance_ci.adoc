@@ -28,7 +28,7 @@ Cloud Insights Standard Edition은 NetApp Data Fabric 지원 인프라 구성요
 
 온프레미스 데이터 센터에서 여러 퍼블릭 클라우드에 이르기까지 다양한 리소스를 활용하는 오늘날의 환경에서는 애플리케이션 자체에서 스토리지 어레이의 백엔드 디스크에 이르기까지 전체적인 상황을 파악하는 것이 중요합니다. 애플리케이션 모니터링을 위한 추가 지원(Kafka, MongoDB 및 Nginx 등)은 최적의 활용률 수준뿐 아니라 완벽한 위험 버퍼에서도 운영하는 데 필요한 정보와 지식을 제공합니다.
 
-두 에디션(기본 및 표준) 모두 NetApp Active IQ Unified Manager와 통합할 수 있습니다. Active IQ Unified Manager를 사용하는 고객은 Cloud Insights 사용자 인터페이스 내에서 연결 정보를 볼 수 있습니다. Active IQ Unified Manager에 게시된 알림은 간과되지 않으며 Cloud Insights의 이벤트와 관련될 수 있습니다. 즉, 두 마리 토끼를 동시에 잡을 수 있습니다.
+두 에디션(기본 및 표준) 모두 NetApp Active IQ Unified Manager와 통합할 수 있습니다. Active IQ Unified Manager를 사용하는 고객은 Cloud Insights 사용자 인터페이스 내에서 조인 정보를 볼 수 있습니다. Active IQ Unified Manager에 게시된 알림은 간과되지 않으며 Cloud Insights의 이벤트와 관련될 수 있습니다. 즉, 두 마리 토끼를 동시에 잡을 수 있습니다.
 
 
 
