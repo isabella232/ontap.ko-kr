@@ -30,7 +30,7 @@ image:Network_Cabling_Guidelines.png["네트워크 케이블 연결 다이어그
 
 * 클라이언트(데이터) 트래픽 흐름을 개선하기 위해 각 노드에 둘 이상의 데이터 네트워크 연결을 가질 수 있습니다.
 * 데이터 네트워크 연결 없이 클러스터를 생성할 수 있지만 클러스터 인터커넥트 연결이 포함되어야 합니다.
-* 각 노드에 대한 클러스터 연결이 항상 2개 이상 있어야 하지만 FAS22xx 시스템의 노드는 단일 10GbE 클러스터 포트로 구성할 수 있습니다.
+* 각 노드에 대해 항상 2개 이상의 클러스터 연결이 있어야 합니다.
 
 
 네트워크 케이블 연결에 대한 자세한 내용은 를 참조하십시오 https://docs.netapp.com/us-en/ontap-systems/index.html["AFF and FAS 시스템 설명서 센터 를 참조하십시오"^] 및 https://hwu.netapp.com/Home/Index["Hardware Universe"^].

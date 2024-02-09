@@ -58,7 +58,7 @@ ONTAP System Manager(9.7 이상)를 사용하여 iSCSI용 스토리지 VM을 구
 +
 ** ONTAP 9.6 이상:
 +
-`network interface create -vserver _vserver_name_ -lif _lif_name_ -data-protocol fcp -service-policy default-data-fcp -home-node _node_name_ -home-port _port_name_ -address _ip_address_ -netmask _netmask_`
+`network interface create -vserver _vserver_name_ -lif _lif_name_ -data-protocol fcp -service-policy default-data-fcp -home-node _node_name_ -home-port _port_name_ -address _ip_address_ -netmask _netmask_ -status-admin up``
 
 ** ONTAP 9.5 이하:
 +

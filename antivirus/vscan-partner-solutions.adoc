@@ -45,4 +45,14 @@ NetApp는 Trellix, Symantec, Trend Micro 및 Sentinel One과 협력하여 ONTAP 
 
 
 
+
+
+| 보관을 위한 딥 본능 예방  a| 
+* link:https://portal.deepinstinct.com/pages/dikb["문서 및 상호 운용성"]
++
+이 링크를 사용하려면 사용자 로그인이 필요합니다. 당신은 깊은 본능에서 액세스를 요청할 수 있습니다.
+
+* link:https://www.deepinstinct.com/pdf/datasheet-deep-instinct-prevention-for-storage-netapp["데이터 시트"]
+
+
 |===

@@ -78,7 +78,7 @@ ns-switch modify -vserver <vserver-name> -database passwd -sources files,ldap
 . LDAP 그룹의 사용자가 다음 작업을 수행할 수 있는지 확인합니다.
 +
 .. S3 클라이언트의 액세스 키를 다음 형식으로 구성합니다.
-`"NTAPFASBIND" + base64-encode(user-name:password)`
+`"NTAPFASTBIND" + base64-encode(user-name:password)`
 예: `"NTAPFASTBIND"` +base64-encode(ldapuser:password)
                       `NTAPFASTBINDbGRhcHVzZXI6cGFzc3dvcmQ=`
 +
