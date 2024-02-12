@@ -46,8 +46,10 @@ NVMe 지원 및 제한 사항은 사용 중인 ONTAP 버전, 플랫폼 및 구�
 
 | 9.12.1  a| 
 NVMe/FC에서 4노드 MetroCluster IP 구성
-* MetroCluster 구성은 9.12.1 이전 버전의 NVMe에 대해 지원되지 않습니다.
+
+* MetroCluster 구성은 9.12.1 이전의 NVMe에 대해서는 지원되지 않습니다.
 * MetroCluster 구성은 NVMe/TCP에서 지원되지 않습니다.
+
 
 
 
@@ -123,6 +125,7 @@ NOTE: NVMe/FC는 32Gb FC HBA가 있는 아래에 나열된 플랫폼에서 지�
 
 
 | 9.12.1  a| 
+* FAS
 * AFF
 * ASA
 
@@ -164,10 +167,9 @@ NVMe 네임스페이스를 사용하여 작업할 때 다음을 숙지해야 합
 .다음 ONTAP 기능은 NVMe 구성에서 지원되지 않습니다.
 * 동기화
 * 가상 스토리지 콘솔
-+
-.. 다음은 ONTAP 9.4를 실행하는 노드에만 적용됩니다.
 
 
+.다음은 ONTAP 9.4를 실행하는 노드에만 적용됩니다.
 * NVMe LIF 및 네임스페이스는 동일한 노드에서 호스팅되어야 합니다.
 * NVMe LIF가 생성되기 전에 NVMe 서비스를 생성해야 합니다.
 

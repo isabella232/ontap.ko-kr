@@ -181,14 +181,6 @@ entries:
     url: "/system-admin/create-motd-task.html"
   - title: MOTD 관리
     url: "/system-admin/manage-motd-reference.html"
-- title: 라이센스 관리(클러스터 관리자만 해당)
-  entries:
-  - title: 개요
-    url: "/system-admin/manage-licenses-concept.html"
-  - title: 라이센스 유형 및 라이센스 방식
-    url: "/system-admin/license-types-licensed-method-concept.html"
-  - title: 라이센스 관리에 사용되는 명령입니다
-    url: "/system-admin/commands-manage-feature-licenses-reference.html"
 - title: 작업 및 일정을 관리합니다
   entries:
   - title: 작업 범주

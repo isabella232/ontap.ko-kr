@@ -1,0 +1,130 @@
+---
+permalink: system-admin/manage-license-task.html 
+sidebar: sidebar 
+keywords: manage, license, delete, view, record, software, entitlement, keys, codes, cluster, administrator, nlf 
+summary: System Manager 또는 ONTAP CLI를 사용하여 라이센스 상태, 라이센스 일련 번호 보기 및 라이센스 제거를 포함하여 시스템에 설치된 라이센스를 관리할 수 있습니다. 
+---
+= ONTAP 라이센스 관리(클러스터 관리자만 해당)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+System Manager 또는 ONTAP CLI를 사용하여 라이센스 일련 번호 보기, 라이센스 상태 확인, 라이센스 제거 등 시스템에 설치된 라이센스를 관리할 수 있습니다.
+
+
+
+== 라이센스에 대한 세부 정보를 봅니다
+
+.단계
+라이센스에 대한 세부 정보를 보는 방법은 사용 중인 ONTAP 버전과 System Manager를 사용하는지 ONTAP CLI를 사용하는지 여부에 따라 다릅니다.
+
+[role="tabbed-block"]
+====
+.System Manager - ONTAP 9.8 이상
+--
+. 특정 기능 라이센스에 대한 세부 정보를 보려면 * 클러스터 > 설정 * 을 선택합니다.
+. 라이센스 * 에서 를 선택합니다 image:icon_arrow.gif["화살표 아이콘"].
+. 기능 * 을 선택합니다.
+. 보려는 라이센스 기능을 찾아 선택합니다 image:icon_dropdown_arrow.gif["확장 아이콘"] 를 눌러 라이센스 세부 정보를 봅니다.
+
+
+--
+.System Manager - ONTAP 9.7 이하
+--
+. 구성 > 클러스터 > 라이센스 * 를 선택합니다.
+. Licenses * 창에서 적절한 작업을 수행합니다.
+. 세부 정보 * 탭을 클릭합니다.
+
+
+--
+.CLI를 참조하십시오
+--
+. 설치된 라이센스에 대한 세부 정보 표시:
++
+[source, cli]
+----
+system license show
+----
+
+
+--
+====
+
+
+== 라이센스를 삭제합니다
+
+[role="tabbed-block"]
+====
+.System Manager - ONTAP 9.8 이상
+--
+. 라이센스를 삭제하려면 * 클러스터 > 설정 * 을 선택합니다.
+. 라이센스 * 에서 를 선택합니다 image:icon_arrow.gif["화살표 아이콘"].
+. 기능 * 을 선택합니다.
+. 삭제하려는 라이센스 기능을 선택하고 * 기존 키 삭제 * 를 선택합니다.
+
+
+--
+.System Manager - ONTAP 9.7 이하
+--
+. 구성 > 클러스터 > 라이센스 * 를 선택합니다.
+. Licenses * 창에서 적절한 작업을 수행합니다.
++
+|===
+| 원하는 작업 | 수행할 작업... 
+
+
+ a| 
+노드나 마스터 라이센스에서 특정 라이센스 패키지를 삭제합니다
+ a| 
+세부 정보 * 탭을 클릭합니다.
+
+
+
+ a| 
+클러스터의 모든 노드에서 특정 라이센스 패키지를 삭제합니다
+ a| 
+패키지 * 탭을 클릭합니다.
+
+|===
+. 삭제할 소프트웨어 라이센스 패키지를 선택한 다음 * 삭제 * 를 클릭합니다.
++
+한 번에 하나의 라이센스 패키지만 삭제할 수 있습니다.
+
+. 확인 확인란을 선택한 다음 * 삭제 * 를 클릭합니다.
+
+
+--
+.CLI를 참조하십시오
+--
+. 라이센스 삭제:
++
+[source, cli]
+----
+system license delete
+----
++
+다음 예제에서는 클러스터에서 CIFS 및 일련 번호 1-81-000000000000000123456이라는 라이센스를 삭제합니다.
+
++
+[listing]
+----
+cluster1::> system license delete -serial-number 1-81-0000000000000000000123456 -package CIFS
+----
++
+다음 예에서는 일련 번호 123456789에 대해 설치된 라이센스 코어 번들에 있는 모든 라이센스를 클러스터에서 삭제합니다.
+
++
+[listing]
+----
+cluster1::> system license delete { -serial-number 123456789 -installed-license "Core Bundle" }
+----
+
+
+--
+====
+.관련 정보
+https://docs.netapp.com/us-en/ontap/system-admin/commands-manage-feature-licenses-reference.html["라이센스 관리를 위한 ONTAP CLI 명령"]
+
+https://docs.netapp.com/us-en/ontap/concepts/manual-pages.html["ONTAP 9 명령"^]

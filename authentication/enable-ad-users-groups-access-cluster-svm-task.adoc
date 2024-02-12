@@ -26,21 +26,29 @@ ONTAP는 보안 Netlogon 연결을 위해 다음 세션 키 알고리즘을 지�
 |===
 
 
-| 세션 키 알고리즘입니다 | 에서 사용 가능... 
+| 세션 키 알고리즘입니다 | 다음으로 시작... 
 
 
-| HMAC-SHA256, AES(Advanced Encryption Standard) 기반 | ONTAP 9.10.1 이상 
+| HMAC-SHA256, AES(Advanced Encryption Standard) 기반
+
+클러스터에서 ONTAP 9.9.1 이하를 실행하고 도메인 컨트롤러가 보안 Netlogon 서비스를 위해 AES를 적용하는 경우 연결이 실패합니다. 이 경우 ONTAP와의 강력한 키 연결을 허용하도록 도메인 컨트롤러를 다시 구성해야 합니다. | ONTAP 9.10.1 
 
 
 | Des 및 HMAC-MD5(강력한 키가 설정된 경우) | 모든 ONTAP 9 릴리스 
 |===
-ONTAP 9.10.1 이상에서 Netlogon 보안 채널 설정 중에 AES 세션 키를 사용하려면 다음 명령을 사용하여 해당 키를 활성화해야 합니다.
+Netlogon 보안 채널을 설정하는 동안 AES 세션 키를 사용하려면 SVM에서 AES가 활성화되어 있는지 확인해야 합니다.
 
-'cifs security modify -vserver vs1-aes-enabled-for-netlogon-channel true'
+* ONTAP 9.14.1부터 AES는 SVM을 생성할 때 기본적으로 사용하도록 설정되며, Netlogon 보안 채널 설정 중에 AES 세션 키를 사용하도록 SVM의 보안 설정을 수정할 필요가 없습니다.
+* ONTAP 9.10.1~9.13.1에서는 SVM을 생성할 때 AES가 기본적으로 사용하지 않도록 설정됩니다. 다음 명령을 사용하여 AES를 사용하도록 설정해야 합니다.
++
+[listing]
+----
+cifs security modify -vserver vs1 -aes-enabled-for-netlogon-channel true
+----
 
-기본값은 ""false""입니다.
 
-9.10.1 이전의 ONTAP 릴리스에서 도메인 컨트롤러가 보안 Netlogon 서비스에 AES를 적용할 경우 연결이 실패합니다. 도메인 컨트롤러는 이러한 릴리스에서 ONTAP과 강력한 키 연결을 허용하도록 구성해야 합니다.
+
+NOTE: ONTAP 9.14.1 이상으로 업그레이드할 때 이전 ONTAP 릴리즈와 함께 생성된 기존 SVM에 대한 AES 설정이 자동으로 변경되지 않습니다. 하지만 이러한 SVM에서 AES를 사용하도록 설정하려면 이 설정의 값을 업데이트해야 합니다.
 
 
 

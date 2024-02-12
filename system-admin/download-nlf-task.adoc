@@ -1,0 +1,56 @@
+---
+permalink: system-admin/download-nlf-task.html 
+sidebar: sidebar 
+keywords: install, license, convert, download, add, record, software, entitlement, keys, codes, cluster, administrator, nlf 
+summary: 시스템에서 ONTAP 9.10.1 이상을 실행 중인 경우 NetApp Support 사이트에서 ONTAP One 또는 ONTAP Core용 NLF를 다운로드하여 기존 시스템에서 라이센스 파일이나 28자 라이센스 키를 업그레이드할 수 있습니다. 
+---
+= NetApp Support 사이트에서 NetApp 라이센스 파일(NLF)을 다운로드합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+시스템에서 ONTAP 9.10.1 이상을 실행 중인 경우 NetApp Support 사이트에서 ONTAP One용 NLF 또는 ONTAP Core용 NLF를 다운로드하여 기존 시스템의 번들 라이센스 파일을 업그레이드할 수 있습니다.
+
+
+NOTE: SnapMirror Cloud 및 S3 SnapMirror 라이센스는 ONTAP One에 포함되지 않습니다. ONTAP One 호환성 번들의 일부이며, ONTAP One과 를 사용하는 경우 무료로 이용할 수 있습니다 https://review.docs.netapp.com/us-en/ontap_lenida-ontap-licensing-jira1366/data-protection/install-snapmirror-cloud-license-task.html["별도로 요청하십시오"].
+
+.단계
+기존 NetApp 라이센스 파일 번들이 있는 시스템 및 ONTAP 9.10.1 이상을 실행하는 시스템에서 NetApp 라이센스 파일로 변환된 28자 라이센스 키가 있는 시스템의 경우 ONTAP One 라이센스 파일을 다운로드할 수 있습니다. 유료로 ONTAP Base에서 ONTAP One으로 시스템을 업그레이드할 수도 있습니다.
+
+[role="tabbed-block"]
+====
+.기존 NLF를 업그레이드합니다
+--
+. NetApp 세일즈 팀에 문의하여 업그레이드하거나 변환할 라이센스 파일 번들을 요청합니다(예: ONTAP Base에서 ONTAP One으로 또는 코어 번들 및 데이터 보호 번들을 ONTAP One으로).
++
+요청이 처리되면 netappsw@netapp.com 으로부터 "SO#[SO 번호]에 대한 NetApp 소프트웨어 라이센스 알림"이라는 제목의 이메일을 받게 되며 이메일에는 라이센스 일련 번호가 포함된 PDF 첨부 파일이 포함됩니다.
+
+. 에 로그인합니다 link:https://mysupport.netapp.com/site/["NetApp Support 사이트"^].
+. 시스템 > 소프트웨어 라이센스 * 를 선택합니다.
+. 메뉴에서 * 일련 번호 * 를 선택하고 받은 일련 번호를 입력한 다음 * 새 검색 * 을 클릭합니다.
+. 변환할 라이센스 번들을 찾습니다.
+. 각 라이센스 번들에 대해 * Get NetApp License File * 을 클릭하고 NLF를 사용할 수 있으면 다운로드합니다.
+. link:https://review.docs.netapp.com/us-en/ontap_lenida-ontap-licensing-jira1366/system-admin/install-license-task.html["설치합니다"] ONTAP One 파일.
+
+
+--
+.라이센스 키에서 변환된 NLF 업그레이드
+--
+. 에 로그인합니다 link:https://mysupport.netapp.com/site/["NetApp Support 사이트"^].
+. 시스템 > 소프트웨어 라이센스 * 를 선택합니다.
+. 메뉴에서 * 일련 번호 * 를 선택하고 시스템 일련 번호를 입력한 다음 * 새 검색 * 을 클릭합니다.
+. 변환할 라이센스를 찾은 다음 * Eligibility * 열에서 * Check * 를 클릭합니다.
+. 적합성 확인 양식 * 에서 * 9.10.x 이상에 대한 라이센스 생성 * 을 클릭합니다.
+. 적합성 확인 양식 * 을 닫습니다.
++
+라이센스가 생성되려면 최소 2시간 동안 기다려야 합니다.
+
+. 1-3단계를 반복합니다.
+. ONTAP One 라이센스를 찾아 * Get NetApp License File * 을 클릭하고 전달 방법을 선택합니다.
+. link:https://review.docs.netapp.com/us-en/ontap_lenida-ontap-licensing-jira1366/system-admin/install-license-task.html["설치합니다"] ONTAP One 파일.
+
+
+--
+====

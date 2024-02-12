@@ -1,0 +1,134 @@
+---
+permalink: concepts/licensing-concept.html 
+sidebar: sidebar 
+keywords: licensing, ONTAP, enable features 
+summary: '라이센스는 하나 이상의 소프트웨어 사용 권한의 기록입니다. 2023년 5월부터 모든 AFF 시스템(A-series 및 C-series 모두) 및 FAS 시스템은 ONTAP One 소프트웨어 제품군 또는 ONTAP 기본 소프트웨어 제품군과 함께 판매됩니다.' 
+---
+= ONTAP 라이센스 개요
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+라이센스는 하나 이상의 소프트웨어 사용 권한의 기록입니다. ONTAP 9.10.1부터 모든 라이센스는 여러 기능을 사용할 수 있는 단일 파일인 NetApp 라이센스 파일(NLF)로 제공됩니다.  2023년 5월부터 모든 AFF 시스템(A-series 및 C-series 모두)과 FAS 시스템은 ONTAP One 소프트웨어 제품군 또는 ONTAP 기본 소프트웨어 제품군과 함께 판매되며, 각 제품군은 ONTAP 9.10.1에서 처음 도입된 별도의 NLF 번들을 대체합니다.
+
+
+
+== ONTAP One에 포함된 라이선스
+
+ONTAP One에는 사용 가능한 모든 라이센스 기능이 포함되어 있습니다. 표에 나와 있는 것처럼 이전 코어 번들, 데이터 보호 번들, 보안 및 규정 준수 번들, 하이브리드 클라우드 번들 및 암호화 번들의 콘텐츠가 함께 포함됩니다. 암호화는 제한된 국가에서만 사용할 수 있습니다.
+
+|===
+
+
+| 이전 번들 이름입니다 | ONTAP One 키 포함 
+
+
+.5+| 코어 번들 | 플랙스클론 
+
+
+| SnapRestore 
+
+
+| NFS, SMB, S3 
+
+
+| FC, iSCSI를 지원합니다 
+
+
+| NVMe-oF 
+
+
+.3+| 보안 및 규정 준수 번들 | 자율 랜섬웨어 보호 
+
+
+| MTKM입니다 
+
+
+| SnapLock 
+
+
+.3+| 데이터 보호 번들 | SnapMirror(비동기식, 동기식, 비즈니스 연속성) 
+
+
+| SnapCenter 
+
+
+| NetApp 타겟을 위한 S3 SnapMirror 
+
+
+.2+| 하이브리드 클라우드 번들 | SnapMirror 클라우드 
+
+
+| 비 NetApp 타겟에 대한 S3 SnapMirror 
+
+
+.3+| 암호화 번들 | NetApp 볼륨 암호화 
+
+
+| 신뢰할 수 있는 플랫폼 모듈 
+
+
+| 저장된 데이터 암호화 
+|===
+
+
+== 라이센스는 ONTAP One에 포함되지 않습니다
+
+ONTAP One에는 다음을 포함하여 NetApp의 클라우드 제공 서비스가 포함되지 않습니다.
+
+* BlueXP 계층화
+* Cloud Insights
+* BlueXP 백업
+* 데이터 거버넌스
+
+
+
+
+== 기존 시스템을 위한 ONTAP One
+
+현재 NetApp 지원을 받고 있지만 ONTAP One으로 업그레이드되지 않은 기존 시스템이 있는 경우 해당 시스템의 기존 라이센스는 계속 유효하며 예상대로 계속 작동합니다. 예를 들어, SnapMirror 라이센스가 기존 시스템에 이미 설치되어 있는 경우, 새로운 SnapMirror 라이센스를 얻기 위해 ONTAP One으로 업그레이드할 필요가 없습니다. 그러나 기존 시스템에 SnapMirror 라이센스가 설치되어 있지 않은 경우 이 라이센스를 얻는 유일한 방법은 추가 비용을 지불하고 ONTAP One으로 업그레이드하는 것입니다.
+
+2023년 6월부터 28자 라이센스 키(LICKEY)를 사용하는 ONTAP 시스템은 ONTAP One 또는 ONTAP Base 호환성 번들에 대한 업그레이드를 요청할 수 있습니다.
+
+
+
+== ONTAP Base에 포함된 라이센스
+
+ONTAP Base는 ONTAP 시스템용 ONTAP One을 대체하는 선택적 소프트웨어 제품군입니다. 전용 테스트 또는 개발 환경을 위한 비운영 시스템과 같이 SnapMirror, SnapCenter 등의 데이터 보호 기술과 자율적 랜섬웨어와 같은 보안 기능이 필요하지 않은 특정 사용 사례를 위한 것입니다. 추가 라이센스는 ONTAP Base에 추가할 수 없습니다. SnapMirror와 같은 추가 라이센스를 사용하려면 ONTAP One으로 업그레이드해야 합니다.
+
+|===
+
+
+| 이전 번들 이름입니다 | ONTAP One 키 포함 
+
+
+.5+| 코어 번들 | 플랙스클론 
+
+
+| SnapRestore 
+
+
+| NFS, SMB, S3 
+
+
+| FC, iSCSI를 지원합니다 
+
+
+| NVMe-oF 
+
+
+.3+| 암호화 번들 | NetApp 볼륨 암호화 
+
+
+| 신뢰할 수 있는 플랫폼 모듈 
+
+
+| 저장된 데이터 암호화 
+|===
+
+
+== 그 밖의 라이센스 제공 방법
+
+ONTAP 8.2 ~ ONTAP 9.9.1에서는 라이센스 키가 28자 문자열로 전달되고 ONTAP 기능당 키가 하나씩 있습니다.

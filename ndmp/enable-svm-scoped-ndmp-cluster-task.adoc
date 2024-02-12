@@ -20,16 +20,18 @@ CAB 확장은 DMA에서 지원해야 합니다.
 노드 범위의 NDMP 모드를 해제하면 클러스터에서 SVM 범위의 NDMP 모드가 설정됩니다.
 
 .단계
-. 'system services ndmp' 명령을 'node-scope-mode' 매개 변수와 함께 사용하여 SVM 범위의 NDMP 모드를 활성화합니다.
+. SVM 범위 NDMP 모드 활성화:
 +
-[listing]
+[source, cli]
 ----
-cluster1::> system services ndmp node-scope-mode off
-NDMP node-scope-mode is disabled.
+cluster1::> system services ndmp node-scope-mode on
 ----
-. 'vserver services ndmp on' 명령을 사용하여 관리 SVM에서 NDMP 서비스를 설정합니다.
 +
-[listing]
+NDMP 노드 범위 모드가 설정되었습니다.
+
+. 관리자 SVM에서 NDMP 서비스 활성화:
++
+[source, cli]
 ----
 cluster1::> vserver services ndmp on -vserver cluster1
 ----
@@ -42,15 +44,23 @@ cluster1::> vserver services ndmp on -vserver cluster1
 보안 통신을 위해 일반 텍스트 인증을 사용하지 않도록 설정해야 합니다.
 
 ====
-. 'vserver services ndmp show' 명령을 사용하여 NDMP 서비스가 설정되었는지 확인합니다.
+. NDMP 서비스가 설정되었는지 확인합니다.
 +
-[listing]
+[source, cli]
 ----
 cluster1::> vserver services ndmp show
+----
++
+SVM입니다 활성화된 인증 유형입니다
+-------------- --------- ------------------
+클러스터1 참 도전
+VS1을 클릭합니다 거짓입니다 도전
 
-Vserver       Enabled   Authentication type
-------------- --------- -------------------
-cluster1      true      challenge
-vs1           false     challenge
+
+
+[listing]
 ----
 
+// 2024 Feb 09, ONTAPDOC 1629
+// 2022-Oct-05, BURT 1430459
+----

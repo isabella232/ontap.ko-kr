@@ -11,7 +11,7 @@ summary: 과거에 사용했을지도 모르는 FabricPool 사용권은 변경�
 
 
 [role="lead"]
-과거에 사용했을지도 모르는 FabricPool 사용권은 변경되며 BlueXP에서 지원되지 않는 구성에만 유지됩니다. 2021년 8월 21일부터 Cloud Tiering 서비스를 사용하여 BlueXP에서 지원되는 계층화 구성에 새로운 Cloud Tiering BYOL 라이센스가 도입되었습니다.
+과거에 사용했을지도 모르는 FabricPool 사용권은 변경되며 BlueXP에서 지원되지 않는 구성에만 유지됩니다. 2021년 8월 21일부터 Cloud Tiering 서비스를 통해 BlueXP 내에서 지원되는 계층화 구성에 Cloud Tiering BYOL 라이센스가 도입되었습니다.
 
 link:https://docs.netapp.com/us-en/occm/task_licensing_cloud_tiering.html#new-cloud-tiering-byol-licensing-starting-august-21-2021["새로운 Cloud Tiering BYOL 라이센스에 대해 자세히 알아보십시오"^].
 
