@@ -55,6 +55,10 @@ ONTAP 9.9.1부터 가능합니다 https://docs.netapp.com/us-en/ontap/task_dp_ba
 
 공인 SnapMirror Cloud 타사 애플리케이션 목록은 NetApp 웹 사이트에 게시됩니다.
 
+
+
+== 데이터 보호 최적화 라이센스
+
 DPO(Data Protection Optimized) 라이센스는 더 이상 판매되지 않으며 DPO는 현재 플랫폼에서 지원되지 않습니다. 그러나 지원되는 플랫폼에 DPO 라이센스가 설치되어 있는 경우 NetApp은 해당 플랫폼의 가용성이 끝날 때까지 계속해서 지원을 제공합니다.
 
 DPO는 ONTAP One 라이센스 번들에 포함되지 않으며, DPO 라이센스가 시스템에 설치되어 있는 경우 ONTAP One 라이센스 번들로 업그레이드할 수 없습니다.

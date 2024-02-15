@@ -158,8 +158,7 @@ cluster_src::> snapmirror delete -source-path svm_backup:volA_dst -destination-p
 +
 다음 예에서는 원래 타겟 볼륨 간의 역방향 관계를 해제하며 `volA_dst` 켜짐 `svm_backup`및 원본 소스 볼륨, `volA` 켜짐 `svm1`:
 
-
-
++
 [listing]
 ----
 cluster_dst::> snapmirror release -source-path svm_backup:volA_dst -destination-path svm1:volA
