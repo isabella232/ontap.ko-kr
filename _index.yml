@@ -82,12 +82,10 @@ indexpage:
     links:
     - title: 모든 항목
       url: "/san-management/index.html"
-    - title: System Manager로 SAN 스토리지를 관리합니다
-      url: "/concept_san_provision_overview.html"
-    - title: CLI를 사용한 SAN 구성
-      url: "/san-config/index.html"
-    - title: CLI를 통한 SAN 관리
+    - title: SAN 스토리지 관리
       url: "/san-admin/index.html"
+    - title: SAN 구성
+      url: "/san-config/index.html"
   - title: S3 오브젝트 스토리지 관리
     links:
     - title: 모든 항목

@@ -23,7 +23,14 @@ ONTAP 9.8부터는 ONTAP CLI를 사용하여 빠른 디렉토리 삭제 기능�
 ====
 .시스템 관리자
 --
-자세한 내용은 을 참조하십시오 https://docs.netapp.com/us-en/ontap/task_nas_file_system_analytics_take_corrective_action.html["분석을 기반으로 수정 조치 수행"].
+. 스토리지 > 볼륨 * 을 클릭한 다음 * 탐색기 * 를 클릭합니다.
++
+파일 또는 폴더 위로 마우스를 가져가면 삭제 옵션이 나타납니다. 한 번에 하나의 개체만 삭제할 수 있습니다.
+
+
+
+
+NOTE: 디렉토리와 파일이 삭제되면 새 스토리지 용량 값이 즉시 표시되지 않습니다.
 
 --
 .CLI를 참조하십시오

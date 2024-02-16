@@ -22,7 +22,7 @@ SVM에서 NFSv3을 활성화해야 합니다.
 .단계
 . Windows NFSv3 클라이언트 지원 설정:
 +
-`vserver nfs modify -vserver _svm_name_ -v3-ms-dos-client enabled`
+`vserver nfs modify -vserver _svm_name_ -v3-ms-dos-client enabled -mount-rootonly disabled`
 
 . Windows NFSv3 클라이언트를 지원하는 모든 SVM에서 를 사용하지 않도록 설정합니다 `-enable-ejukebox` 및 `-v3-connection-drop` 매개 변수:
 +
