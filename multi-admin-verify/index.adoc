@@ -47,9 +47,13 @@ NOTE: MAV 관리자의 승인 없이 다중 관리 검증 기능을 사용하지
 
 역할 기반 액세스 제어(RBAC) 규칙 이후에 MAV 규칙을 평가합니다. 따라서 보호된 작업을 실행하거나 승인하는 관리자는 해당 작업에 대한 최소 RBAC 권한을 이미 가지고 있어야 합니다. link:../authentication/manage-access-control-roles-concept.html["RBAC에 대해 자세히 알아보십시오."]
 
+
+
+=== 시스템 정의 규칙
+
 다중 관리 검증이 활성화된 경우 시스템 정의 규칙(_guard-rail_rules라고도 함)은 MAV 프로세스 자체를 회피하는 위험을 포함할 수 있는 일련의 MAV 작업을 설정합니다. 이러한 작업은 규칙 테이블에서 제거할 수 없습니다. MAV가 활성화되면 별표(*)로 지정된 작업은 실행 전에 하나 이상의 관리자가 승인해야 합니다. 단, * show * 명령은 예외입니다.
 
-* '보안 멀티 관리 - 검증 수정 *'
+* `security multi-admin-verify modify` 작동 *
 +
 다중 관리 검증 기능의 구성을 제어합니다.
 
@@ -66,6 +70,10 @@ admin이 여러 개인 검증이 필요한 명령 세트 제어
 승인 프로세스를 제어합니다.
 
 
+
+
+
+=== 규칙으로 보호된 명령
 
 시스템 정의 명령 외에도 멀티 관리 검증이 활성화된 경우 다음 명령은 기본적으로 보호되지만, 규칙을 수정하여 이러한 명령에 대한 보호를 제거할 수 있습니다.
 
@@ -123,6 +131,22 @@ admin이 여러 개인 검증이 필요한 명령 세트 제어
 ONTAP 9.13.1 부터 다음 명령을 보호할 수 있습니다.
 
 * `volume snaplock modify`
+
+
+ONTAP 9.14.1부터 다음 명령을 보호할 수 있습니다.
+
+* `volume recovery-query modify`
+* `volume recovery-query purge`
+* `volume recovery-query purge-all`
+* `vserver modify`
+
+
+ONTAP 9.13.1 부터 다음 명령을 보호할 수 있습니다.
+
+* `volume snaplock modify`
+* `security anti-ransomware volume attack clear-suspect`
+* `security anti-ransomware volume disable`
+* `security anti-ransomware volume pause`
 
 
 

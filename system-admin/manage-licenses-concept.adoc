@@ -2,7 +2,7 @@
 permalink: system-admin/manage-licenses-concept.html 
 sidebar: sidebar 
 keywords: manage, license, ontap one, enable, add, record, software, entitlement, keys, codes, risk, usage, cluster, administrator, nlf 
-summary: '라이센스는 하나 이상의 소프트웨어 사용 권한의 기록입니다. ONTAP 8.2 ~ ONTAP 9.9.1에서는 라이센스가 28자 문자열로 전달되고 ONTAP 기능당 키가 하나씩 있습니다. ONTAP 9.2에는 클러스터 전체 기능에 대해서만 NLF(NetApp 라이센스 파일)라는 새로운 라이센스 형식이 도입되었습니다.' 
+summary: '라이센스는 하나 이상의 소프트웨어 사용 권한의 기록입니다. ONTAP 9.10.1부터 모든 라이센스는 여러 기능을 사용할 수 있는 단일 파일인 NetApp 라이센스 파일(NLF)로 제공됩니다.  2023년 5월부터 모든 AFF 시스템(A-series 및 C-series 모두)과 FAS 시스템은 ONTAP One 소프트웨어 제품군 또는 ONTAP 기본 소프트웨어 제품군과 함께 판매되며, 2023년 6월부터 모든 ASA 시스템은 SAN용 ONTAP One과 함께 판매됩니다.' 
 ---
 = ONTAP 라이센스 개요
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: '라이센스는 하나 이상의 소프트웨어 사용 권한의 기�
 
 
 [role="lead"]
-라이센스는 하나 이상의 소프트웨어 사용 권한의 기록입니다. ONTAP 9.10.1부터 모든 라이센스는 여러 기능을 사용할 수 있는 단일 파일인 NetApp 라이센스 파일(NLF)로 제공됩니다.  2023년 5월부터 모든 AFF 시스템(A-series 및 C-series 모두)과 FAS 시스템은 ONTAP One 소프트웨어 제품군 또는 ONTAP 기본 소프트웨어 제품군과 함께 판매되며, 각 제품군은 ONTAP 9.10.1에서 처음 도입된 별도의 NLF 번들을 대체합니다.
+라이센스는 하나 이상의 소프트웨어 사용 권한의 기록입니다. ONTAP 9.10.1부터 모든 라이센스는 여러 기능을 사용할 수 있는 단일 파일인 NetApp 라이센스 파일(NLF)로 제공됩니다.  2023년 5월부터 모든 AFF 시스템(A-series 및 C-series 모두)과 FAS 시스템은 ONTAP One 소프트웨어 제품군 또는 ONTAP 기본 소프트웨어 제품군과 함께 판매되며, 2023년 6월부터 모든 ASA 시스템은 SAN용 ONTAP One과 함께 판매됩니다. 각 소프트웨어 제품군은 ONTAP 9.10.1에 처음 도입된 별도의 NLF 번들을 대체하여 단일 NLF로 제공됩니다.
 
 
 
@@ -116,13 +116,54 @@ ONTAP Base는 ONTAP 시스템용 ONTAP One을 대체하는 선택적 소프트�
 | NVMe-oF 
 
 
-.3+| 암호화 번들 | NetApp 볼륨 암호화 
+.2+| 암호화 번들 | NetApp 볼륨 암호화 
 
 
 | 신뢰할 수 있는 플랫폼 모듈 
+|===
 
 
-| 저장된 데이터 암호화 
+== ONTAP One for SAN에 포함된 라이센스입니다
+
+SAN용 ONTAP One은 ASA A-Series 및 C-Series 시스템에 사용할 수 있습니다. 이 제품군은 SAN에 사용할 수 있는 유일한 소프트웨어 제품군입니다. ONTAP One for SAN에는 다음 라이센스가 포함되어 있습니다.
+
+|===
+
+
+| ONTAP 키가 포함됩니다 
+
+
+| 플랙스클론 
+
+
+| SnapRestore 
+
+
+| FC, iSCSI를 지원합니다 
+
+
+| NVMe-oF 
+
+
+| MTKM입니다 
+
+
+| SnapLock 
+
+
+| SnapMirror(비동기식, 동기식, 비즈니스 연속성) 
+
+
+| SnapCenter 
+
+
+| SnapMirror 클라우드 
+
+
+| NetApp 볼륨 암호화 
+
+
+| 신뢰할 수 있는 플랫폼 모듈 
 |===
 
 

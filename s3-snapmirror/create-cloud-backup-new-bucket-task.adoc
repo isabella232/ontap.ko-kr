@@ -18,7 +18,7 @@ summary: 새 S3 버킷을 생성할 때 StorageGRID 시스템 또는 Amazon S3 �
 [role="lead"]
 새 S3 버킷을 생성할 때 StorageGRID 시스템 또는 Amazon S3 구축 등 오브젝트 저장소 공급자의 S3 SnapMirror 타겟 버킷에 즉시 백업할 수 있습니다.
 
-.필요한 것
+.시작하기 전에
 * 객체 저장소 공급자에 대한 유효한 계정 자격 증명 및 구성 정보가 있습니다.
 * 소스 시스템에 인터클러스터 네트워크 인터페이스 및 IPspace가 구성되었습니다.
 * • 소스 스토리지 VM의 DNS 구성은 타겟의 FQDN을 확인할 수 있어야 합니다.
@@ -74,7 +74,12 @@ summary: 새 S3 버킷을 생성할 때 StorageGRID 시스템 또는 Amazon S3 �
 .. 사용 권한 * 에서 * 추가 * 를 클릭합니다. 사용 권한 확인은 선택 사항이지만 사용하는 것이 좋습니다.
 +
 *** * Principal * 및 * Effect * - 사용자 그룹 설정에 해당하는 값을 선택하거나 기본값을 그대로 사용합니다.
-*** * Actions * - GetObject, PutObject, DeleteObject, ListBucket, GetBuckketAcl, GetObjectAcl, ListBuckketMultipartUploads, ListMultiPartUploadParts 등의 값이 표시되는지 확인합니다
+*** * 조치 * - 다음 값이 표시되는지 확인합니다.
++
+[listing]
+----
+`GetObject,PutObject,DeleteObject,ListBucket,GetBucketAcl,GetObjectAcl,ListBucketMultipartUploads,ListMultipartUploadParts`
+----
 *** * 리소스 * - 기본값(_(버켓 이름, 버켓 이름/ *) 또는 필요한 기타 값을 사용합니다.
 +
 을 참조하십시오 link:../task_object_provision_manage_bucket_access.html["버킷에 대한 사용자 액세스를 관리합니다"] 이 필드에 대한 자세한 내용은 를 참조하십시오.
@@ -126,7 +131,10 @@ src_cluster::> snapmirror object-store config create -vserver vs0 -object-store-
 ----
 . S3 SnapMirror 관계 생성: 'sapmirror create-source-path_svm_name_:/bucket/_bucket_name_-destination-path_object_store_name_:/objstore-policy_policy_name_'
 +
-매개 변수: * '-destination-path' - 이전 단계에서 만든 개체 저장소 이름과 고정 값 "objstore"입니다. + 사용자가 만든 정책을 사용하거나 기본값을 사용할 수 있습니다.
+매개 변수:
+* `-destination-path` - 이전 단계에서 만든 개체 저장소 이름과 고정 값입니다 `objstore`.
+  를 누릅니다
+생성한 정책을 사용하거나 기본값을 사용할 수 있습니다.
 
 +
 .예
