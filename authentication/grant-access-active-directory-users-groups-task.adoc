@@ -33,7 +33,7 @@ xref:modify-role-assigned-administrator-task.adoc[관리자에게 할당된 역�
 
 
 
-NOTE: AD 그룹 계정 액세스는 에서만 지원됩니다 `SSH` 및 `ontapi` 응용 프로그램. 다단계 인증에는 일반적으로 사용되는 SSH 공개 키 인증에서는 AD 그룹이 지원되지 않습니다.
+NOTE: AD 그룹 계정 액세스는 에서만 지원됩니다 `SSH`, `ontapi`, 및 `rest` 응용 프로그램. 다단계 인증에는 일반적으로 사용되는 SSH 공개 키 인증에서는 AD 그룹이 지원되지 않습니다.
 
 .시작하기 전에
 * 클러스터 시간은 AD 도메인 컨트롤러에서 5분 이내에 에 동기화되어야 합니다.

@@ -28,7 +28,7 @@ xref:modify-role-assigned-administrator-task.adoc[관리자에게 할당된 역�
 
 
 
-NOTE: 클러스터 관리자 계정의 경우 인증서 인증은 'http' 및 'ontapi' 애플리케이션에서만 지원됩니다. SVM 관리자 계정의 경우 "ontapi" 애플리케이션에서만 인증서 인증이 지원됩니다.
+NOTE: 클러스터 관리자 계정의 경우 에서 인증서 인증이 지원됩니다 `http`, `ontapi`, 및 `rest` 응용 프로그램. SVM 관리자 계정의 경우 인증서 인증은 을 통해서만 지원됩니다 `ontapi` 및 `rest` 응용 프로그램.
 
 .단계
 . 로컬 관리자 계정이 SSL 인증서를 사용하여 SVM에 액세스할 수 있도록 지원:

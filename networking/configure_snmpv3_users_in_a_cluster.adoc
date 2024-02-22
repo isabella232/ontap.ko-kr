@@ -126,20 +126,28 @@ NOTE: 인증 프로토콜이 SHA 인 경우 'snmpwalk' 5.3.1 이상을 사용해
 다음 출력에서는 auth암호화 보안 수준으로 SNMPv3 사용자를 생성하는 방법을 보여 줍니다.
 
 ....
-security login create -username snmpv3user -application snmp -authmethod usm
+security login create -user-or-group-name snmpv3user -application snmp -authentication-method usm
 Enter the authoritative entity's EngineID [local EngineID]:
-Which authentication protocol do you want to choose  (none, md5, sha) [none]:sha
+Which authentication protocol do you want to choose (none, md5, sha, sha2-256) [none]: md5
+
+Enter the authentication protocol password (minimum 8 characters long):
+Enter the authentication protocol password again:
+Which privacy protocol do you want to choose (none, des, aes128) [none]: des
+Enter privacy protocol password (minimum 8 characters long):
+Enter privacy protocol password again:
 ....
 
 
 ==== FIPS 모드
 
 ....
+security login create -username snmpv3user -application snmp -authmethod usm
+Enter the authoritative entity's EngineID [local EngineID]:
 Which authentication protocol do you want to choose (sha, sha2-256) [sha]
 
 Enter authentication protocol password (minimum 8 characters long):
 Enter authentication protocol password again:
-Which privacy protocol do you want to choose  (none, des) [none]: des
+Which privacy protocol do you want to choose (aes128) [aes128]:
 Enter privacy protocol password (minimum 8 characters long):
 Enter privacy protocol password again:
 ....
@@ -174,13 +182,8 @@ Which authentication protocol do you want to choose (none, md5, sha) [none]: md5
 
 ==== FIPS 모드
 
-....
-Which privacy protocol do you want to choose (aes128) [aes128]
+FIPS에서는 개인 정보 프로토콜에 대해 * 없음 * 을 선택할 수 없습니다. 따라서 FIPS 모드에서 authNoSNMPv3 사용자를 구성할 수 없습니다.
 
-Enter authentication protocol password (minimum 8 characters long):
-Enter authentication protocol password again:
-Which privacy protocol do you want to choose (none, des) [none]: none
-....
 
 
 ==== snmpwalk 테스트
@@ -212,7 +215,7 @@ Which authentication protocol do you want to choose (none, md5, sha) [none]: non
 
 ==== FIPS 모드
 
-FIPS에서는 사용자가 없음을 선택할 수 없습니다
+FIPS에서는 개인 정보 프로토콜에 대해 * 없음 * 을 선택할 수 없습니다.
 
 
 
