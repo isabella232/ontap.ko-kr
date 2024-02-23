@@ -8,18 +8,6 @@ entries:
   entries:
   - title: 개요
     url: "/disks-aggregates/manage-local-tiers-overview-concept.html"
-  - title: 로컬 계층 추가 준비(애그리게이트)
-    entries:
-    - title: 개요
-      url: "/disks-aggregates/prepare-add-local-tier-overview-task.html"
-    - title: 로컬 계층(애그리게이트) 및 RAID 그룹
-      url: "/concepts/aggregates-raid-groups-concept.html"
-    - title: 미러링되지 않은 로컬 계층(애그리게이트)
-      url: "/disks-aggregates/mirrored-unmirrored-aggregates-concept.html"
-    - title: 드라이브 고속 제로화
-      url: "/disks-aggregates/fast-zeroing-drives-concept.html"
-    - title: 디스크 소유권을 수동으로 할당합니다
-      url: "/disks-aggregates/manual-assign-disks-ownership-prep-task.html"
   - title: 로컬 계층(애그리게이트) 추가(생성)
     entries:
     - title: 개요
@@ -42,6 +30,10 @@ entries:
       url: "/disks-aggregates/rename-local-tier-task.html"
     - title: 로컬 계층의 미디어 비용 설정(애그리게이트)
       url: "/disks-aggregates/set-media-cost-local-tier-task.html"
+    - title: 수동으로 빠른 제로 드라이브
+      url: "/disks-aggregates/fast-zeroing-drives-concept.html"
+    - title: 디스크 소유권을 수동으로 할당합니다
+      url: "/disks-aggregates/manual-assign-disks-ownership-prep-task.html"
     - title: 로컬 계층에 대한 드라이브 및 RAID 그룹 정보 확인(애그리게이트)
       url: "/disks-aggregates/determine-drive-raid-group-info-aggregate-task.html"
     - title: SVM(스토리지 VM)에 로컬 계층(애그리게이트) 할당

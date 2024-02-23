@@ -30,6 +30,8 @@ entries:
     url: "/concepts/disks-aggregates-concept.html"
   - title: Aggregate 및 RAID 그룹
     url: "/concepts/aggregates-raid-groups-concept.html"
+  - title: 미러링되지 않은 로컬 계층(애그리게이트)
+    url: "/concepts/mirrored-unmirrored-aggregates-concept.html"
   - title: 루트 데이터 파티셔닝
     url: "/concepts/root-data-partitioning-concept.html"
 - title: 볼륨, Qtree, 파일 및 LUN

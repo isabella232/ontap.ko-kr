@@ -24,10 +24,10 @@ CAB 확장은 DMA에서 지원해야 합니다.
 +
 [source, cli]
 ----
-cluster1::> system services ndmp node-scope-mode on
+cluster1::> system services ndmp node-scope-mode off
 ----
 +
-NDMP 노드 범위 모드가 설정되었습니다.
+SVM 범위 NDMP 모드가 설정되었습니다.
 
 . 관리자 SVM에서 NDMP 서비스 활성화:
 +
@@ -61,6 +61,7 @@ VS1을 클릭합니다 거짓입니다 도전
 [listing]
 ----
 
+// 2024 Feb 23, GitIssue 1258
 // 2024 Feb 09, ONTAPDOC 1629
 // 2022-Oct-05, BURT 1430459
 ----

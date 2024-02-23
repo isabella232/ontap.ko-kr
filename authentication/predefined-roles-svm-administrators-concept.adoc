@@ -29,7 +29,7 @@ vsadmin을 선택합니다
 * 할당량, Qtree, 스냅샷 복사본 및 파일 관리
 * LUN 관리
 * 권한 있는 삭제를 제외한 SnapLock 작업 수행
-* 프로토콜 구성: NFS, SMB, iSCSI 및 FC FCoE 포함
+* 프로토콜 구성: NFS, SMB, iSCSI, FC, FCoE, NVMe/FC 및 NVMe/TCP
 * 서비스 구성: DNS, LDAP 및 NIS
 * 작업 모니터링
 * 네트워크 연결 및 네트워크 인터페이스 모니터링
@@ -45,7 +45,7 @@ vsadmin - 볼륨
 * 볼륨 이동을 포함한 볼륨 관리
 * 할당량, Qtree, 스냅샷 복사본 및 파일 관리
 * LUN 관리
-* 프로토콜 구성: NFS, SMB, iSCSI, FC, FCoE 포함
+* 프로토콜 구성: NFS, SMB, iSCSI, FC, FCoE, NVMe/FC 및 NVMe/TCP
 * 서비스 구성: DNS, LDAP 및 NIS
 * 네트워크 인터페이스 모니터링
 * SVM 상태 모니터링
@@ -57,7 +57,7 @@ vsadmin - 볼륨
 vsadmin - 프로토콜
  a| 
 * 사용자 계정 로컬 암호 및 키 정보 관리
-* 프로토콜 구성: NFS, SMB, iSCSI, FC, FCoE 포함
+* 프로토콜 구성: NFS, SMB, iSCSI, FC, FCoE, NVMe/FC 및 NVMe/TCP
 * 서비스 구성: DNS, LDAP 및 NIS
 * LUN 관리
 * 네트워크 인터페이스 모니터링

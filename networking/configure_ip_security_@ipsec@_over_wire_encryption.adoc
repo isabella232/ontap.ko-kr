@@ -219,7 +219,7 @@ NOTE: 서브넷 구성에서 단일 정책 항목을 사용하는 경우 해당 
 .샘플 명령
 IKE SA 샘플 명령:
 
-SECURN IPSEC SHOW-Ikesasa-NODE_H호스팅_NODE_NAME_FOR_svm_ip_'
+`security ipsec show-ikesa -node _hosting_node_name_for_svm_ip_`
 
 IPsec SA 샘플 명령 및 출력:
 
