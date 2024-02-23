@@ -8,8 +8,6 @@ entries:
   url: "/flexcache/supported-unsupported-features-concept.html"
 - title: FlexCache 볼륨 크기 조정 지침
   url: "/flexcache/sizing-concept.html"
-- title: FlexCache 라이센스를 추가합니다
-  url: "/flexcache/add-license-task.html"
 - title: FlexCache 볼륨을 생성합니다
   url: "/flexcache/create-volume-task.html"
 - title: FlexCache 볼륨 관리

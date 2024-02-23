@@ -18,9 +18,9 @@ ONTAP 9.5부터 FlexCache는 FlexVol 볼륨을 원본 볼륨으로, FlexGroup �
 
 .시작하기 전에
 * ONTAP 9.5 이상을 실행 중이어야 합니다
-* ONTAP 9.6 이하를 실행 중인 경우, 을(를) 수행해야 합니다 link:add-license-task.html["FlexCache 라이센스를 추가합니다"].
+* ONTAP 9.6 이하를 실행 중인 경우, 을(를) 수행해야 합니다 link:https://docs.netapp.com/us-en/ontap/system-admin/install-license-task.html["FlexCache 라이센스를 추가합니다"].
 +
-ONTAP 9.7 이상에는 FlexCache 라이센스가 필요하지 않습니다.
+ONTAP 9.7 이상에는 FlexCache 라이센스가 필요하지 않습니다. ONTAP 9.7부터는 FlexCache 기능이 ONTAP에 포함되어 더 이상 라이센스나 활성화가 필요하지 않습니다. 
 
 
 

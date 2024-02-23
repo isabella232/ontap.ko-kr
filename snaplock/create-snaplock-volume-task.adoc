@@ -15,8 +15,8 @@ WORM 상태로 커밋하려는 파일 또는 스냅샷 복사본에 대한 SnapL
 
 .필요한 것
 * SnapLock 애그리게이트는 온라인 상태여야 합니다.
-* SnapLock 라이센스가 노드에 설치되어 있어야 합니다.
-* 노드의 ComplianceClock을 초기화해야 합니다.
+* SnapLock입니다 link:https://docs.netapp.com/us-en/ontap/system-admin/install-license-task.html["라이센스를 설치해야 합니다"] 노드에서.
+* link:https://docs.netapp.com/us-en/ontap/snaplock/initialize-complianceclock-task.html["노드의 규정 준수 클록을 초기화해야 합니다"].
 
 
 .이 작업에 대해
@@ -54,8 +54,10 @@ ONTAP 9.12.1부터 시스템 관리자를 사용하여 SnapLock 볼륨을 생성
 --
 . SnapLock 볼륨 생성:
 +
-'* 볼륨 생성 - vserver_SVM_name_-volume_volume_name_-aggregate_aggregate_name_*-snaplock-type compliance|enterprise'
-
+[source, cli]
+----
+volume create -vserver <SVM_name> -volume <volume_name> -aggregate <aggregate_name> -snaplock-type <compliance|enterprise>
+----
 +
 전체 옵션 목록은 명령에 대한 man 페이지를 참조하십시오. SnapLock 볼륨에는 '-nvfail', '-atime-update', '-is-AutoBalance-eligible', '-space-mgmt-try-first', ' vmalign' 옵션이 없습니다.
 

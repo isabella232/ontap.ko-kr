@@ -52,7 +52,7 @@ image::../media/snapvault-steps-clustered.gif[이 그림에는 SnapLock 볼트 �
 
 .단계
 . 대상 클러스터를 식별합니다.
-. 대상 클러스터에서 SnapLock 라이센스를 설치하고 규정 준수 클록을 초기화하며, 9.10.1 이전 버전의 ONTAP 릴리즈를 사용하는 경우 에 설명된 대로 SnapLock 애그리게이트를 생성합니다 xref:workflow-concept.html[SnapLock 워크플로].
+. 대상 클러스터에서 link:https://docs.netapp.com/us-en/ontap/system-admin/install-license-task.html["SnapLock 라이센스를 설치합니다"], link:https://docs.netapp.com/us-en/ontap/snaplock/initialize-complianceclock-task.html["준수 시계를 초기화합니다"]9.10.1 이전 버전의 ONTAP 릴리스를 사용하는 경우 link:https://docs.netapp.com/us-en/ontap/snaplock/create-snaplock-aggregate-task.html["SnapLock 애그리게이트를 생성합니다"].
 . 대상 클러스터에서 소스 볼륨보다 크거나 같은 dP 유형의 SnapLock 대상 볼륨을 생성합니다.
 +
 '* 볼륨 생성 - vserver_SVM_name_-volume_volume_name_-aggregate_aggregate_name_-snaplock-type compliance|enterprise-type dp-size_size_ *'

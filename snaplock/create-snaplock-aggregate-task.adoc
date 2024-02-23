@@ -15,8 +15,8 @@ summary: '볼륨 "-snaplock-type" 옵션을 사용하여 Compliance 또는 Enter
 
 .시작하기 전에
 * 이 작업을 수행하려면 클러스터 관리자여야 합니다.
-* SnapLock 라이센스가 노드에 설치되어 있어야 합니다.
-* 노드의 ComplianceClock을 초기화해야 합니다.
+* SnapLock입니다 link:https://docs.netapp.com/us-en/ontap/system-admin/install-license-task.html["라이센스를 설치해야 합니다"] 노드에서.
+* link:https://docs.netapp.com/us-en/ontap/snaplock/initialize-complianceclock-task.html["노드의 규정 준수 클록을 초기화해야 합니다"].
 * 디스크를 "루트", "루트", "다토1" 및 "다토2"로 분할한 경우 스페어 디스크를 사용할 수 있는지 확인해야 합니다.
 
 
@@ -41,8 +41,10 @@ MetroCluster 구성에서는 SnapLock Enterprise가 미러링된 Aggregate 및 �
 .단계
 . SnapLock 애그리게이트 생성:
 +
-'* 스토리지 애그리게이트 create-aggregate_aggregate_name_-node_node_name_-diskcount_number_of_disknks_-snaplock-type compliance|enterprise *'
-
+[source, cli]
+----
+storage aggregate create -aggregate <aggregate_name> -node <node_name> -diskcount <number_of_disks> -snaplock-type <compliance|enterprise>
+----
 +
 명령의 man 페이지에는 전체 옵션 목록이 포함되어 있습니다.
 

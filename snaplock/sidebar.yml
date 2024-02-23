@@ -8,8 +8,6 @@ entries:
   entries:
   - title: 개요
     url: "/snaplock/snaplock-config-overview-concept.html"
-  - title: 라이센스를 설치합니다
-    url: "/snaplock/install-license-task.html"
   - title: 준수 시계를 초기화합니다
     url: "/snaplock/initialize-complianceclock-task.html"
   - title: SnapLock Aggregate를 생성합니다

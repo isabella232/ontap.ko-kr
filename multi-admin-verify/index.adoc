@@ -128,9 +128,12 @@ admin이 여러 개인 검증이 필요한 명령 세트 제어
 'vserver peer delete
 
 |===
-ONTAP 9.13.1 부터 다음 명령을 보호할 수 있습니다.
+ONTAP 9.13.1부터 다음 명령을 보호할 수 있습니다.
 
 * `volume snaplock modify`
+* `security anti-ransomware volume attack clear-suspect`
+* `security anti-ransomware volume disable`
+* `security anti-ransomware volume pause`
 
 
 ONTAP 9.14.1부터 다음 명령을 보호할 수 있습니다.
@@ -139,14 +142,6 @@ ONTAP 9.14.1부터 다음 명령을 보호할 수 있습니다.
 * `volume recovery-query purge`
 * `volume recovery-query purge-all`
 * `vserver modify`
-
-
-ONTAP 9.13.1 부터 다음 명령을 보호할 수 있습니다.
-
-* `volume snaplock modify`
-* `security anti-ransomware volume attack clear-suspect`
-* `security anti-ransomware volume disable`
-* `security anti-ransomware volume pause`
 
 
 

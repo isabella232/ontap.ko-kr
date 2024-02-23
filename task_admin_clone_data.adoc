@@ -19,7 +19,7 @@ summary: 볼륨 및 LUN을 클론 복제하여 테스트할 복사본을 생성�
 볼륨 및 LUN을 클론 복제하여 테스트를 위한 쓰기 가능한 임시 복사본을 생성할 수 있습니다. 클론은 데이터의 현재 시점 상태를 반영합니다. 또한 클론을 사용하면 운영 데이터에 대한 액세스 권한을 부여하지 않고 추가 사용자에게 데이터에 대한 액세스 권한을 부여할 수 있습니다.
 
 
-NOTE: FlexClone 라이센스는 스토리지 시스템에 설치해야 합니다.
+NOTE: FlexClone 라이센스는 이어야 합니다 https://docs.netapp.com/us-en/ontap/system-admin/install-license-task.html["설치되어 있습니다"] 스토리지 시스템에서
 
 
 
