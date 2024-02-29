@@ -4,7 +4,7 @@ permalink: networking/balance_network_loads_to_optimize_user_traffic_@cluster_ad
 keywords: balance, balanced, load, utilization, usage, lif, port, cluster, performance 
 summary: 적절하게 로드된 LIF의 클라이언트 요청을 처리하도록 클러스터를 구성합니다. 
 ---
-= 개요
+= 밸런스 네트워크 개요
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

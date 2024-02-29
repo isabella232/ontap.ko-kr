@@ -25,6 +25,10 @@ ONTAP 9.14.1부터는 영화 스트리밍 워크로드와 같은 미디어 및 �
 * advanced 권한 수준이어야 합니다.
 
 
+
+
+== 볼륨을 생성하는 동안 적극적인 미리 읽기 모드를 활성화합니다
+
 .단계
 . 권한 수준을 고급으로 설정합니다.
 +
@@ -48,6 +52,10 @@ volume create -volume vol1 -aggressive-readahead-mode file_prefetch
 ----
 
 
+
+
+== 적극적인 미리 읽기 모드를 비활성화합니다
+
 .단계
 . 권한 수준을 고급으로 설정합니다.
 +
@@ -55,7 +63,7 @@ volume create -volume vol1 -aggressive-readahead-mode file_prefetch
 ----
 set -privilege advanced
 ----
-. 볼륨을 수정하여 적극적인 미리 읽기 모드를 비활성화합니다.
+. 적극적인 미리 읽기 모드 비활성화:
 +
 [source, cli]
 ----
@@ -71,6 +79,10 @@ volume modify -volume vol1 -aggressive-readahead-mode none
 ----
 
 
+
+
+== 볼륨에 대해 적극적인 미리 읽기 모드를 봅니다
+
 .단계
 . 권한 수준을 고급으로 설정합니다.
 +
@@ -78,7 +90,7 @@ volume modify -volume vol1 -aggressive-readahead-mode none
 ----
 set -privilege advanced
 ----
-. 볼륨을 수정하여 적극적인 미리 읽기 모드를 비활성화합니다.
+. 공격적인 미리 읽기 모드 보기:
 +
 [source, cli]
 ----

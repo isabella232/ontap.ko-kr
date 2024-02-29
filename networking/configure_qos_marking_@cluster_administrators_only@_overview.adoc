@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: networking/configure_qos_marking_@cluster_administrators_only@_overview.html 
-keywords: quality, service, qos, marking, network, traffic, conditions, utilize, configure qos marking overview, configure quality of service marking overview, qos marking helps to effectively utilize the network 
+keywords: quality, service, qos, marking, network, traffic, conditions, utilize, configure qos marking overview, configure quality of service marking overview, qos marking helps to effectively utilize the network, enable, enabling, dscp, qos, marking, quality of service, differentiated services code point, egress, ip packet, traffic, performance, uc, compliance, unified capability, dscp marking for uc compliance, enable dscp marking on outgoing ip packet traffic 
 summary: QoS 마킹은 네트워크를 효과적으로 활용하는 데 도움이 됩니다 
 ---
-= 개요
+= QoS 개요
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -15,3 +15,17 @@ summary: QoS 마킹은 네트워크를 효과적으로 활용하는 데 도움�
 
 [role="lead"]
 네트워크 서비스 품질(QoS) 표시를 사용하면 네트워크 조건에 따라 다양한 트래픽 유형의 우선 순위를 지정하여 네트워크 리소스를 효과적으로 활용할 수 있습니다. IPspace별로 지원되는 트래픽 유형에 대해 나가는 IP 패킷의 DSCP(Differentiated Services Code Point) 값을 설정할 수 있다.
+
+
+
+== UC 규정 준수를 위한 DSCP 표시
+
+기본 또는 사용자가 제공한 DSCP 코드를 사용하여 지정된 프로토콜에 대해 발신(송신) IP 패킷 트래픽에 DSCP(Differentiated Services Code Point) 표시를 활성화할 수 있습니다. DSCP 마킹은 네트워크 트래픽을 분류 및 관리하는 메커니즘으로 통합 기능(UC) 규정 준수의 구성 요소입니다.
+
+IPspace, Protocol, DSCP 값을 제공하여 DSCP marking(_Qos marking_or_quality of service marking_ 이라고도 함)을 설정할 수 있다. DSCP 마킹을 적용할 수 있는 프로토콜은 NFS, SMB, iSCSI, SnapMirror, NDMP, FTP, HTTP/HTTPS, SSH, Telnet 및 SNMP를 지원합니다.
+
+해당 프로토콜에 대해 DSCP marking을 설정할 때 DSCP 값을 제공하지 않으면 default를 사용한다.
+
+* 데이터 프로토콜/트래픽의 기본값은 0x0A(10)입니다.
+* 제어 프로토콜/트래픽의 기본값은 0x30(48)입니다.
+

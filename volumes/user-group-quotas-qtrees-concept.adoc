@@ -14,19 +14,34 @@ summary: 트리 할당량은 qtree의 전체 크기를 제한합니다. 개별 �
 트리 할당량은 qtree의 전체 크기를 제한합니다. 개별 사용자 또는 그룹이 전체 qtree를 사용하지 않도록 하려면 해당 qtree에 대한 사용자 또는 그룹 할당량을 지정합니다.
 
 .qtree의 사용자 할당량 예시
-다음과 같은 할당량 파일이 있다고 가정합니다.
+다음과 같은 할당량 규칙이 있다고 가정합니다.
 
 [listing]
 ----
+cluster1::> volume quota policy rule show -vserver vs0 -volume vol1
 
-#Quota target type            disk files thold sdisk sfile
-#-----------  ----            ---- ----- ----- ----- -----
-*             user@/vol/vol1  50M   -     45M
-jsmith        user@/vol/vol1  80M   -     75M
+Vserver: vs0               Policy: default           Volume: vol1
+                                               Soft             Soft
+                         User         Disk     Disk   Files    Files
+Type   Target    Qtree   Mapping     Limit    Limit   Limit    Limit  Threshold
+-----  --------  ------- -------  --------  -------  ------  -------  ---------
+user   ""        ""      off          50MB        -       -        -       45MB
+user   jsmith    ""      off          80MB        -       -        -       75MB
 ----
-특정 사용자인 kjones가 vol2에 상주하는 중요한 qtree q1에서 공간을 너무 많이 차지하고 있다는 점에 유의하십시오. 할당량 파일에 다음 줄을 추가하여 이 사용자의 공간을 제한할 수 있습니다.
+특정 사용자인 kjones가 vol1에 상주하는 중요한 qtree인 proj1에서 공간을 너무 많이 차지하고 있음을 알 수 있습니다. 다음 할당량 규칙을 추가하여 이 사용자의 공간을 제한할 수 있습니다.
 
 [listing]
 ----
-kjones        user@/vol/vol2/qt1  20M  -   15M
+cluster1::> volume quota policy rule create -vserver vs0 -volume vol1 -policy-name default -type user -target "kjones" -qtree "proj1" -disk-limit 20m -threshold 15m
+
+cluster1::> volume quota policy rule show -vserver vs0 -volume vol1
+
+Vserver: vs0               Policy: default           Volume: vol1
+                                               Soft             Soft
+                         User         Disk     Disk   Files    Files
+Type   Target    Qtree   Mapping     Limit    Limit   Limit    Limit  Threshold
+-----  --------  ------- -------  --------  -------  ------  -------  ---------
+user   ""        ""      off          50MB        -       -        -       45MB
+user   jsmith    ""      off          80MB        -       -        -       75MB
+user   kjones    proj1   off          20MB        -       -        -       15MB
 ----

@@ -51,17 +51,11 @@ cluster1::> vserver services ndmp on -vserver cluster1
 cluster1::> vserver services ndmp show
 ----
 +
-SVM입니다 활성화된 인증 유형입니다
--------------- --------- ------------------
-클러스터1 참 도전
-VS1을 클릭합니다 거짓입니다 도전
-
-
-
 [listing]
 ----
-
-// 2024 Feb 23, GitIssue 1258
-// 2024 Feb 09, ONTAPDOC 1629
-// 2022-Oct-05, BURT 1430459
+Vserver       Enabled   Authentication type
+------------- --------- -------------------
+cluster1      true      challenge
+vs1           false     challenge
 ----
+

@@ -4,7 +4,7 @@ permalink: networking/manage_routing_in_an_svm_overview.html
 keywords: introducing, introduction, overview, route, routing, svm, storage, virtual, machine, network, path, overview, introducing routing tables and network paths 
 summary: 라우팅 테이블과 네트워크 경로를 소개합니다 
 ---
-= 개요
+= SVM 라우팅 개요
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

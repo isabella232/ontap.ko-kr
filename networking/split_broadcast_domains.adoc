@@ -4,7 +4,7 @@ permalink: networking/split_broadcast_domains.html
 keywords: split, broadcast, domain, separate, splitting, separating, reachability, port, split a broadcast domain to synchronize the ontap configuration with the physical network topology, unreachable ports, broadcast-domain split, split broadcast domains 
 summary: 브로드캐스트 도메인을 분할하여 ONTAP 9.8 이상의 구성을 물리적 네트워크 토폴로지와 동기화합니다 
 ---
-= 브로드캐스트 도메인을 분할합니다
+= 브로드캐스트 도메인 분할(ONTAP 9.8 이상)
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

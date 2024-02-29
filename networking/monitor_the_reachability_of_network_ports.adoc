@@ -4,7 +4,7 @@ permalink: networking/monitor_the_reachability_of_network_ports.html
 keywords: monitor, monitoring, manage, managing, automatic, reachability, port, network, identify, determine, monitor the reachability of network ports in ontap 9.8 and later, ontap 9.8 and later, determine if the physical network topology does not match the ontap configuration 
 summary: ONTAP 9.8 이상에서는 물리적 네트워크 토폴로지가 ONTAP 구성과 일치하지 않는지 확인합니다 
 ---
-= ONTAP 9.8 이상에서 네트워크 포트의 연결 상태를 모니터링합니다
+= 네트워크 포트의 연결 상태 모니터링(ONTAP 9.8 이상)
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

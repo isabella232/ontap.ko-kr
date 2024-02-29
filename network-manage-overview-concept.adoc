@@ -1,24 +1,8 @@
 ---
-sidebar: sidebar 
 permalink: network-manage-overview-concept.html 
-keywords: netapp, ontap, overview, network, ipspace, broadcast domain, subnet, network interface, ethernet port 
-summary: 이 섹션의 항목에서는 IPspace, 브로드캐스트 도메인, 서브넷, 네트워크 인터페이스, 이더넷 포트, 데이터 포트 등의 스토리지 시스템 네트워크를 및 FC/FCoE 어댑터 - ONTAP 9.7 이상 릴리즈에서는 System Manager를 사용합니다. 
+redirect: ontap/networking/networking_reference.html 
 ---
-= System Manager를 사용한 네트워크 관리 개요
-:hardbreaks:
-:toclevels: 1
+= 
 :allow-uri-read: 
-:toclevels: 1
-:nofooter: 
-:icons: font
-:linkattrs: 
-:imagesdir: ./media/
 
-
-[role="lead"]
-이 섹션의 항목에서는 ONTAP 9.7 이상 릴리즈의 System Manager에서 IPspace, 브로드캐스트 도메인, 서브넷, 네트워크 인터페이스, 이더넷 포트 등의 스토리지 시스템 네트워크를 관리하는 방법을 보여줍니다.
-
-클래식 시스템 관리자(ONTAP 9.7 이전에서만 사용 가능)를 사용하는 경우 다음 항목을 참조하십시오.
-
-* https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_managing_network.html["네트워크 관리"^]
 

@@ -34,12 +34,19 @@ summary: 기본 할당량을 사용하여 지정된 할당량 유형의 모든 �
 
 == 기본 사용자 할당량의 예
 
-다음 할당량 파일은 기본 사용자 할당량을 사용하여 vol1의 각 사용자에 50MB 제한을 적용합니다.
+다음 할당량 규칙은 기본 사용자 할당량을 사용하여 vol1의 각 사용자에 50MB 제한을 적용합니다.
 
 [listing]
 ----
-#Quota target type           disk  files  thold  sdisk  sfile
-#-----------  ----           ----  -----  -----  -----  -----
-*             user@/vol/vol1  50M
+cluster1::> volume quota policy rule create -vserver vs0 -volume vol1 -policy-name default -type user -target "" -qtree "" -disk-limit 50m
+
+cluster1::> volume quota policy rule show -vserver vs0 -volume vol1
+
+Vserver: vs0               Policy: default           Volume: vol1
+                                               Soft             Soft
+                         User         Disk     Disk   Files    Files
+Type   Target    Qtree   Mapping     Limit    Limit   Limit    Limit  Threshold
+-----  --------  ------- -------  --------  -------  ------  -------  ---------
+user   ""        ""      off          50MB        -       -        -          -
 ----
 시스템의 사용자가 사용자의 데이터가 vol1에서 50MB 이상(예: 편집기에서 파일에 쓰기)을 이용하도록 하는 명령을 입력하면 명령이 실패합니다.

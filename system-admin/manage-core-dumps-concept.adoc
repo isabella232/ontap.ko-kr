@@ -26,3 +26,121 @@ ONTAP에서는 테이크오버, 애그리게이트 재배치 또는 반환 중�
 
 * 더 이상 필요하지 않은 코어 덤프 파일을 삭제하는 중입니다
 
+
+
+
+== 코어 덤프를 관리하는 명령입니다
+
+'system node coredump config' 명령어를 사용해 코어 덤프의 구성, 코어 덤프 파일을 관리하는 시스템 노드 coredump 명령, 애플리케이션 코어 리포트를 관리하는 시스템 노드 coredump reports 명령 등을 관리할 수 있다.
+
+|===
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+코어 덤프를 구성합니다
+ a| 
+시스템 노드 코어 덤프 구성 수정
+
+
+
+ a| 
+코어 덤프에 대한 구성 설정을 표시합니다
+ a| 
+'시스템 노드 코어 덤프 구성 표시'
+
+
+
+ a| 
+코어 덤프에 대한 기본 정보를 표시합니다
+ a| 
+'시스템 노드 코어 덤프 표시'
+
+
+
+ a| 
+노드를 재부팅할 때 코어 덤프를 수동으로 트리거합니다
+ a| 
+`system node reboot` 두 가지 모두 `-dump` 및 `-skip-lif-migration-before-reboot` 매개 변수
+
+[NOTE]
+====
+https://docs.netapp.com/us-en/ontap-cli-9141//system-node-reboot.html#parameters 링크를 클릭합니다[`skip-lif-migration-before-reboot`] 매개 변수는 재부팅 전에 LIF 마이그레이션을 건너뛰도록 지정합니다.
+
+====
+
+
+ a| 
+노드를 종료할 때 코어 덤프를 수동으로 트리거합니다
+ a| 
+`system node halt` 두 가지 모두 `-dump` 및 `-skip-lif-migration-before-shutdown` 매개 변수
+
+[NOTE]
+====
+https://docs.netapp.com/us-en/ontap-cli-9141/system-node-halt.html#parameters 링크를 클릭합니다[`skip-lif-migration-before-shutdown`] 매개 변수는 종료 전에 LIF 마이그레이션을 건너뛰도록 지정합니다.
+
+====
+
+
+ a| 
+지정된 코어 덤프를 저장합니다
+ a| 
+시스템 노드 코어 덤프 저장
+
+
+
+ a| 
+지정한 노드에 있는 저장되지 않은 모든 코어 덤프를 저장합니다
+ a| 
+시스템 노드 코어 덤프 save-all
+
+
+
+ a| 
+지정한 코어 덤프 파일이 있는 AutoSupport 메시지를 생성하고 보냅니다
+ a| 
+'시스템 노드 AutoSupport invoke-core-upload
+
+[NOTE]
+====
+'-Uri' 선택적 매개 변수는 AutoSupport 메시지의 대체 대상을 지정합니다.
+
+====
+
+
+ a| 
+코어 덤프에 대한 상태 정보를 표시합니다
+ a| 
+시스템 노드 코어 덤프 상태
+
+
+
+ a| 
+지정된 코어 덤프를 삭제합니다
+ a| 
+시스템 노드 코어 덤프 삭제
+
+
+
+ a| 
+저장되지 않은 모든 코어 덤프 또는 노드에 저장된 모든 코어 파일을 삭제합니다
+ a| 
+'시스템 노드 코어 덤프 삭제 - 모두'
+
+
+
+ a| 
+응용 프로그램 코어 덤프 보고서를 표시합니다
+ a| 
+시스템 노드 코어 덤프 보고서가 표시됩니다
+
+
+
+ a| 
+응용 프로그램 코어 덤프 보고서를 삭제합니다
+ a| 
+시스템 노드 코어 덤프 보고서 삭제
+
+|===
+.관련 정보
+link:https://docs.netapp.com/us-en/ontap/concepts/manual-pages.html["ONTAP 9 명령"^]

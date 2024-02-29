@@ -4,7 +4,7 @@ permalink: networking/removing_a_nic_from_the_node.html
 keywords: delete, deleting, remove, removing, nic, network, interface, card, slot, maintenance, faulty, error, bad, failed, fail, node, remove a faulty NIC from its slot or move the NIC to another slot for maintenance purposes, removing a nic from the node on ontap 9.8 or later, controller-replacement, network displaced-vlans, displaced-vlans show, displaced-vlans restore, 
 summary: ONTAP 9.8 이상에서는 유지 관리를 위해 결함이 있는 NIC를 슬롯에서 제거하거나 NIC를 다른 슬롯으로 이동합니다 
 ---
-= ONTAP 9.8 이상의 노드에서 NIC 분리
+= 노드에서 NIC 제거(ONTAP 9.8 이상)
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

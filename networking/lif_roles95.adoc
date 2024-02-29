@@ -4,7 +4,7 @@ permalink: networking/lif_roles95.html
 keywords: lif, role, ontap 9.5, lif roles in ontap 9.5 and earlier, lifs with different roles have different characteristics, lif compatibility with port types, network interface modify -vserver _vserver name_ -lif _intercluster lif_ -status-admin up|down, lif security, lif failover, lif routing, lif rebalancing 
 summary: 다양한 역할을 수행하는 LIF는 다양한 특성을 갖습니다 
 ---
-= ONTAP 9.5 이전 버전에서 LIF 역할
+= LIF 역할(ONTAP 9.5 이하)
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

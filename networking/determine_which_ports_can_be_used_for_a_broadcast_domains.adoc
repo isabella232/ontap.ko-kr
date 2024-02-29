@@ -4,7 +4,7 @@ permalink: networking/determine_which_ports_can_be_used_for_a_broadcast_domains.
 keywords: move, moving, broadcast, domain, ipspace, determining which ports can be used for a broadcast domain, before you can configure a broadcast domain to add to the new ipspace, you must determine what ports are available for the broadcast domain 
 summary: 새 IPspace에 추가할 브로드캐스트 도메인을 구성하려면 먼저 브로드캐스트 도메인에 사용할 수 있는 포트를 결정해야 합니다 
 ---
-= 브로드캐스트 도메인에 사용할 수 있는 포트 결정
+= 브로드캐스트 도메인에 사용할 수 있는 포트 결정(ONTAP 9.7 이하)
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

@@ -4,7 +4,7 @@ permalink: networking/merge_broadcast_domains97.html
 keywords: merge, combine, broadcast, domain, reachability, merge broadcast domains, merge the ports from one broadcast domain into an existing broadcast domain 
 summary: 하나의 브로드캐스트 도메인의 포트를 기존 브로드캐스트 도메인으로 병합합니다 
 ---
-= 브로드캐스트 도메인을 병합합니다
+= 브로드캐스트 도메인 병합(ONTAP 9.7 이하)
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

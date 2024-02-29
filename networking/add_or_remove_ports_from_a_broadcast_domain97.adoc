@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: networking/add_or_remove_ports_from_a_broadcast_domain97.html 
-keywords: adding, add, create, creating, remove, removing, delete, deleting, port, broadcast, domain, reachability, repair, physical, switch, configuration, manually add or remove ports from a broadcast domain, network port broadcast-domain add-ports, network port broadcast-domain remove-ports, examples of adding and removing ports 
+keywords: adding, add, create, creating, remove, removing, delete, deleting, port, broadcast, domain, reachability, repair, physical, switch, configuration, manually add or remove ports from a broadcast domain, network port broadcast-domain add-ports, network port broadcast-domain remove-ports, examples of adding and removing ports, move, moving, broadcast, domain, ipspace, remove ports from a broadcast domain, broadcast-domain remove-ports 
 summary: 브로드캐스트 도메인에서 포트를 수동으로 추가 및 제거할 필요는 없으며, 이 방법은 권장되지 않습니다 
 ---
-= 브로드캐스트 도메인에서 포트를 추가하거나 제거합니다
+= 브로드캐스트 도메인에서 포트 추가 또는 제거(ONTAP 9.7 이하)
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -16,7 +16,13 @@ summary: 브로드캐스트 도메인에서 포트를 수동으로 추가 및 �
 [role="lead"]
 브로드캐스트 도메인을 처음 만들 때 네트워크 포트를 추가하거나 이미 존재하는 브로드캐스트 도메인에 포트를 추가하거나 제거할 수 있습니다. 따라서 클러스터의 모든 포트를 효율적으로 사용할 수 있습니다.
 
+새 브로드캐스트 도메인에 추가할 포트가 이미 다른 브로드캐스트 도메인에 있는 경우 새 브로드캐스트 도메인에 포트를 할당하기 전에 해당 브로드캐스트 도메인에서 포트를 제거해야 합니다.
+
+
+NOTE: 이 작업은 ONTAP 9.8이 아닌 ONTAP 9.0-9.7에 적합합니다.
+
 .시작하기 전에
+* 이 작업을 수행하려면 클러스터 관리자여야 합니다.
 * 브로드캐스트 도메인에 추가할 포트는 다른 브로드캐스트 도메인에 속하지 않아야 합니다.
 * 인터페이스 그룹에 이미 속해 있는 포트는 브로드캐스트 도메인에 개별적으로 추가할 수 없습니다.
 
@@ -68,6 +74,10 @@ NOTE: network port ifgrp remove-port 명령을 사용하여 interface group의 �
 네트워크 포트 브로드캐스트 도메인 제거 포트
 
 |===
+. 브로드캐스트 도메인에서 포트가 추가되거나 제거되었는지 확인합니다.
++
+네트워크 포트 쇼
+
 
 
 이러한 명령에 대한 자세한 내용은 을 참조하십시오 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"^].

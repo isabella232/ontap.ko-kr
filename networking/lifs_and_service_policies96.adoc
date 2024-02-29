@@ -4,7 +4,7 @@ permalink: networking/lifs_and_service_policies96.html
 keywords: service policies for system svms, lif service policies, lif, logical, interface, service, policy, policies, lifs and service policies in ontap 9.6 and later, assign service policies to lifs to specify the supported traffic, service policies for system svms, service policies for data svms, data-core service 
 summary: LIF에 서비스 정책을 할당하여 지원되는 트래픽을 지정합니다 
 ---
-= ONTAP 9.6 이상의 LIF 및 서비스 정책
+= LIF 및 서비스 정책(ONTAP 9.6 이상)
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

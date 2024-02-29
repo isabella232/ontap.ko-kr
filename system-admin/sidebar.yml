@@ -59,13 +59,7 @@ entries:
   - title: ONTAP man 페이지에 액세스하는 방법
     url: "/system-admin/access-man-pages-concept.html"
 - title: CLI 세션 관리(클러스터 관리자만 해당)
-  entries:
-  - title: CLI 세션을 기록합니다
-    url: "/system-admin/record-cli-session-task.html"
-  - title: CLI 세션의 레코드를 관리하는 명령입니다
-    url: "/system-admin/commands-manage-records-cli-sessions-reference.html"
-  - title: CLI session의 자동 timeout 기간을 관리하는 명령어
-    url: "/system-admin/commands-manage-timeout-period-reference.html"
+  url: "/system-admin/manage-cli-sessions.html"
 - title: 클러스터 관리(클러스터 관리자만 해당)
   entries:
   - title: 클러스터의 노드에 대한 정보를 표시합니다
@@ -80,14 +74,6 @@ entries:
     url: "/system-admin/quorum-epsilon-concept.html"
   - title: 시스템 볼륨이 무엇인지 확인합니다
     url: "/system-admin/system-volumes-concept.html"
-- title: 노드 특성을 관리합니다
-  entries:
-  - title: 노드 속성을 표시합니다
-    url: "/system-admin/display-node-attributes-task.html"
-  - title: 노드 특성을 수정합니다
-    url: "/system-admin/modify-node-attributes-task.html"
-  - title: 노드 이름을 바꿉니다
-    url: "/system-admin/rename-node-task.html"
 - title: 노드 관리
   entries:
   - title: 클러스터에 노드를 추가합니다
@@ -104,6 +90,12 @@ entries:
     url: "/system-admin/start-stop-storage-system-concept.html"
   - title: 부팅 메뉴를 사용하여 노드를 관리합니다
     url: "/system-admin/manage-node-boot-menu-task.html"
+  - title: 노드 속성을 표시합니다
+    url: "/system-admin/display-node-attributes-task.html"
+  - title: 노드 특성을 수정합니다
+    url: "/system-admin/modify-node-attributes-task.html"
+  - title: 노드 이름을 바꿉니다
+    url: "/system-admin/rename-node-task.html"
 - title: SP/BMC 네트워크를 구성합니다
   entries:
   - title: 관리 네트워크 트래픽을 격리합니다
@@ -152,23 +144,8 @@ entries:
     url: "/system-admin/ontap-commands-bmc-management-reference.html"
   - title: BMC CLI 명령
     url: "/system-admin/bmc-cli-commands-reference.html"
-- title: 관리 활동에 대한 감사 로깅을 관리합니다
-  entries:
-  - title: ONTAP에서 감사 로깅을 구현하는 방법
-    url: "/system-admin/ontap-implements-audit-logging-concept.html"
-  - title: ONTAP 9의 감사 로깅을 변경합니다
-    url: "/system-admin/changes-audit-logging-ontap-9-concept.html"
-  - title: 감사 로그 내용을 표시합니다
-    url: "/system-admin/audit-display-log-contents-task.html"
-  - title: 감사 가져오기 요청 설정을 관리합니다
-    url: "/system-admin/audit-manage-get-requests-task.html"
-  - title: 감사 로그 대상을 관리합니다
-    url: "/system-admin/forward-command-history-log-file-destination-task.html"
 - title: 클러스터 시간 관리(클러스터 관리자만 해당)
   url: "/system-admin/manage-cluster-time-concept.html"
-  entries:
-  - title: 클러스터 시간을 관리하는 명령입니다
-    url: "/system-admin/commands-manage-system-time-reference.html"
 - title: 배너 및 MOTD 관리
   entries:
   - title: 개요
@@ -182,13 +159,7 @@ entries:
   - title: MOTD 관리
     url: "/system-admin/manage-motd-reference.html"
 - title: 작업 및 일정을 관리합니다
-  entries:
-  - title: 작업 범주
-    url: "/system-admin/job-categories-concept.html"
-  - title: 작업 관리를 위한 명령입니다
-    url: "/system-admin/commands-manage-jobs-reference.html"
-  - title: 작업 스케줄 관리를 위한 명령입니다
-    url: "/system-admin/commands-manage-job-schedules-reference.html"
+  url: "/system-admin/manage-jobs-schedules.html"
 - title: 클러스터 구성 백업 및 복원(클러스터 관리자만 해당)
   entries:
   - title: 어떤 구성 백업 파일인지 확인하십시오
@@ -211,86 +182,3 @@ entries:
     url: "/system-admin/synchronize-node-cluster-task.html"
 - title: 코어 덤프 관리(클러스터 관리자만 해당)
   url: "/system-admin/manage-core-dumps-concept.html"
-  entries:
-  - title: 코어 덤프를 관리하는 명령입니다
-    url: "/system-admin/commands-manage-core-dumps-reference.html"
-- title: 스토리지 시스템을 모니터링합니다
-  entries:
-  - title: 개요
-    url: "/system-admin/manage-autosupport-concept.html"
-  - title: AutoSupport 및 Active IQ 디지털 자문업체 사용
-    url: "/system-admin/autosupport-active-iq-digital-advisor-concept.html"
-  - title: AutoSupport 메시지가 전송되는 시기 및 위치
-    url: "/system-admin/when-where-autosupport-messages-sent-concept.html"
-  - title: AutoSupport에서 이벤트 트리거 메시지를 만들고 보내는 방법
-    url: "/system-admin/autosupport-creates-sends-event-messages-concept.html"
-  - title: AutoSupport 메시지의 유형과 콘텐츠입니다
-    url: "/system-admin/types-autosupport-messages-reference.html"
-  - title: AutoSupport 하위 시스템이란 무엇입니까
-    url: "/system-admin/autosupport-subsystem-collection-reference.html"
-  - title: AutoSupport 규모와 시간 예산이 있습니다
-    url: "/system-admin/autosupport-size-time-budgets-reference.html"
-  - title: 이벤트 트리거 AutoSupport 메시지로 전송된 파일입니다
-    url: "/system-admin/files-sent-event-triggered-autosupport-messages-concept.html"
-  - title: AutoSupport 메시지로 전송된 로그 파일
-    url: "/system-admin/log-files-sent-autosupport-messages-concept.html"
-  - title: 주간 AutoSupport 메시지로 전송된 파일입니다
-    url: "/system-admin/files-sent-weekly-autosupport-messages-concept.html"
-  - title: AutoSupport OnDemand가 기술 지원으로부터 제공 지침을 얻는 방법
-    url: "/system-admin/autosupport-delivery-technical-support-concept.html"
-  - title: 전자 메일로 보낸 AutoSupport 메시지의 구조
-    url: "/system-admin/structure-autosupport-messages-sent-email-concept.html"
-  - title: AutoSupport 심각도 유형
-    url: "/system-admin/autosupport-severity-types-concept.html"
-  - title: AutoSupport 사용에 대한 요구 사항
-    url: "/system-admin/requirements-autosupport-reference.html"
-  - title: AutoSupport를 설정합니다
-    url: "/system-admin/setup-autosupport-task.html"
-  - title: 코어 덤프 파일을 업로드합니다
-    url: "/system-admin/upload-core-dump-files-task.html"
-  - title: 성능 아카이브 파일을 업로드합니다
-    url: "/system-admin/upload-performance-archive-files-task.html"
-  - title: AutoSupport 메시지 설명을 봅니다
-    url: "/system-admin/get-autosupport-message-descriptions-task.html"
-  - title: AutoSupport 관리를 위한 명령입니다
-    url: "/system-admin/commands-manage-autosupport-reference.html"
-  - title: AutoSupport 매니페스트에 포함된 정보입니다
-    url: "/system-admin/autosupport-manifest-concept.html"
-  - title: 예약된 유지 보수 기간 동안 AutoSupport 케이스 억제
-    url: "/system-admin/autosupport-case-suppression-maintenance-concept.html"
-  - title: 메시지가 수신되지 않을 경우 AutoSupport 문제를 해결합니다
-    url: "/system-admin/troubleshoot-autosupport-messages-not-received-task.html"
-  - title: HTTP 또는 HTTPS를 통한 AutoSupport 메시지 전송 문제를 해결합니다
-    url: "/system-admin/troubleshoot-autosupport-http-https-task.html"
-  - title: SMTP를 통한 AutoSupport 메시지 전달 문제를 해결합니다
-    url: "/system-admin/troubleshoot-autosupport-delivery-smtp-task.html"
-  - title: AutoSupport 하위 시스템 문제를 해결합니다
-    url: "/system-admin/troubleshoot-autosupport-subsystem-task.html"
-- title: 시스템 상태를 모니터링합니다
-  entries:
-  - title: 개요
-    url: "/system-admin/system-health-monitoring-concept.html"
-  - title: 상태 모니터링 작동 방식
-    url: "/system-admin/health-monitoring-concept.html"
-  - title: 시스템 상태 알림에 응답하는 방법
-    url: "/system-admin/respond-system-health-alerts-concept.html"
-  - title: 시스템 상태 경고 사용자 지정
-    url: "/system-admin/control-system-health-alerts-concept.html"
-  - title: 상태 알림이 AutoSupport 메시지 및 이벤트를 트리거하는 방식
-    url: "/system-admin/health-alerts-autosupport-messages-events-concept.html"
-  - title: 사용 가능한 클러스터 상태 모니터
-    url: "/system-admin/health-monitors-concept.html"
-  - title: 시스템 상태 알림을 자동으로 받습니다
-    url: "/system-admin/receive-system-health-alerts-automatic-task.html"
-  - title: 저하된 시스템 상태에 응답합니다
-    url: "/system-admin/respond-degraded-system-health-task.html"
-  - title: 저하된 시스템 상태에 응답하는 예
-    url: "/system-admin/example-responding-degraded-system-health-concept.html"
-  - title: 클러스터 및 관리 네트워크 스위치 검색을 구성합니다
-    url: "/system-admin/configure-discovery-cluster-management-switches-task.html"
-  - title: 클러스터 및 관리 네트워크 스위치의 모니터링을 확인합니다
-    url: "/system-admin/verify-monitor-cluster-management-network-switches-task.html"
-  - title: 시스템 상태를 모니터링하는 명령입니다
-    url: "/system-admin/commands-monitor-health-system-reference.html"
-  - title: 환경 정보를 표시합니다
-    url: "/system-admin/display-environment-task.html"

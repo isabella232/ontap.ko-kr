@@ -2,9 +2,9 @@
 layout: landing-page 
 sidebar: sidebar 
 permalink: event-performance-monitoring/index.html 
-summary: 이벤트 및 성능 모니터링 
+summary: 이벤트, 성능 및 상태 모니터링 
 ---
-= 이벤트 및 성능 모니터링
+= 이벤트, 성능 및 상태 모니터링
 :hardbreaks:
 :allow-uri-read: 
 :linkattrs: 

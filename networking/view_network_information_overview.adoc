@@ -4,7 +4,7 @@ permalink: networking/view_network_information_overview.html
 keywords: overview, introduction, introducing, view, show, display, network, information, ports, LIFs, routes, failover rules, failover groups, firewall rules, DNS, NIS, connections, view network information overview, network information 
 summary: 포트, LIF, 라우트, 페일오버 규칙, 페일오버 그룹 관련 정보 보기 방화벽 규칙, DNS, NIS 및 연결 
 ---
-= 개요
+= 네트워크 정보 개요 보기
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,8 +14,15 @@ summary: 포트, LIF, 라우트, 페일오버 규칙, 페일오버 그룹 관련
 
 
 [role="lead"]
-포트, LIF, 경로, 페일오버 규칙, 페일오버 그룹 등과 관련된 정보를 볼 수 있습니다. 방화벽 규칙, DNS, NIS 및 연결
+CLI를 사용하면 포트, LIF, 경로, 페일오버 규칙, 페일오버 그룹과 관련된 정보를 방화벽 규칙, DNS, NIS 및 연결 ONTAP 9.8부터 System Manager에 표시되는 네트워크 관련 데이터를 다운로드할 수도 있습니다.
 
 이 정보는 네트워킹 설정을 재구성하거나 클러스터 문제를 해결하는 데 유용할 수 있습니다.
 
 클러스터 관리자는 사용 가능한 모든 네트워킹 정보를 볼 수 있습니다. SVM 관리자는 할당된 SVM과 관련된 정보만 볼 수 있습니다.
+
+System Manager에서 _ 목록 보기 _ 에 정보를 표시할 때 * 다운로드 * 를 클릭하면 표시되는 개체 목록이 다운로드됩니다.
+
+* 목록은 CSV(쉼표로 구분된 값) 형식으로 다운로드됩니다.
+* 표시된 열의 데이터만 다운로드됩니다.
+* CSV 파일 이름의 형식은 개체 이름과 타임 스탬프로 지정됩니다.
+

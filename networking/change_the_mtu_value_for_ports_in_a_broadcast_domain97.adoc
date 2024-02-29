@@ -4,7 +4,7 @@ permalink: networking/change_the_mtu_value_for_ports_in_a_broadcast_domain97.htm
 keywords: modify, modifying, mtu, mtu_value, change, changing, broadcast, domain, ports, port, change the mtu value for ports in a broadcast domain 
 summary: 브로드캐스트 도메인의 MTU 값을 수정하여 브로드캐스트 도메인의 모든 포트에 대해 해당 값을 변경합니다 
 ---
-= 브로드캐스트 도메인의 포트에 대한 MTU 값을 변경합니다
+= 브로드캐스트 도메인의 포트에 대한 MTU 값 변경(ONTAP 9.7 이하)
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

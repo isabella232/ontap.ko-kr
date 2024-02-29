@@ -4,7 +4,7 @@ permalink: networking/configure_dns_services_auto.html
 keywords: dns, service, services, configuration, configure, configuring, set, up, setup, nfs, smb, cifs, active, directory, statistics, configure dns services, configure dns services for the svm before creating an nfs or smb server, vserver services name-service, configure dynamic dns on the svm, vserver-fqdn 
 summary: NFS 또는 SMB 서버를 생성하기 전에 SVM을 위한 DNS 서비스를 구성합니다 
 ---
-= DNS 서비스를 구성합니다
+= DNS 서비스 구성(ONTAP 9.8 이상)
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

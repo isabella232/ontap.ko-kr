@@ -16,12 +16,12 @@ ONTAP 중재자 서비스를 설치하려면 설치 패키지를 얻고 호스�
 .단계
 . 설치 프로그램을 실행하고 필요에 따라 프롬프트에 응답합니다.
 +
-`./ontap-mediator-1.6.0/ontap-mediator-1.6.0 -y`
+`./ontap-mediator-1.7.0/ontap-mediator-1.7.0 -y`
 
 +
 [listing]
 ----
-[root@scs000099753 ~]# ./ontap-mediator-1.5.0/ontap-mediator-1.6.0 -y
+[root@scs000099753 ~]# ./ontap-mediator-1.5.0/ontap-mediator-1.7.0 -y
 ----
 +
 설치 프로세스가 진행되어 필요한 계정을 생성하고 필요한 패키지를 설치합니다. 호스트에 이전 버전의 중재자가 설치되어 있는 경우 업그레이드할지 확인하는 메시지가 표시됩니다.
@@ -44,7 +44,7 @@ NOTE: 설치 후 README 파일과 키 위치도 시스템 출력에 제공됩니
 
 
 
-.ONTAP 중재자 1.5 설치의 예(콘솔 출력)
+.ONTAP 중재자 1.6 설치 예(콘솔 출력)
 [%collapsible]
 ====
 [listing]

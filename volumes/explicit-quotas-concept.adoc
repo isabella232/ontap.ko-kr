@@ -20,31 +20,67 @@ summary: 명시적 할당량을 사용하여 특정 할당량 타겟의 할당�
 명시적 할당량은 동일한 레벨(볼륨 또는 qtree)의 기본 할당량에만 영향을 줍니다. 예를 들어, qtree에 대한 명시적 사용자 할당량은 해당 qtree가 포함된 볼륨의 기본 사용자 할당량에 영향을 주지 않습니다. 그러나 qtree에 대한 명시적 사용자 할당량이 해당 qtree에 대한 기본 사용자 할당량보다 우선합니다(에 정의된 제한 대체).
 
 .명시적 할당량의 예
-다음 할당량 파일에는 vol1의 모든 사용자를 50MB로 제한하는 기본 사용자 할당량이 포함되어 있습니다. 그러나 jsmith 사용자 한 명은 명시적 할당량(굵은 글꼴로 표시됨)으로 인해 80MB의 공간이 허용됩니다.
+다음 할당량 규칙은 vol1의 모든 사용자를 50MB의 공간으로 제한하는 기본 사용자 할당량을 정의합니다. 그러나 명시적 할당량(굵은 글씨로 표시) 때문에 jsmith 사용자 한 명은 80MB의 공간이 허용됩니다.
 
 [listing]
 ----
-#Quota target type            disk  files  thold  sdisk  sfile
-#-----------  ----            ----  -----  -----  -----  -----
-*             user@/vol/vol1  50M
-**jsmith      user@/vol/vol1  80M**
+cluster1::> volume quota policy rule create -vserver vs0 -volume vol1 -policy-name default -type user -target "" -qtree "" -disk-limit 50m
+
+cluster1::> volume quota policy rule create -vserver vs0 -volume vol1 -policy-name default -type user -target "jsmith" -qtree "" -disk-limit 80m
+
+cluster1::> volume quota policy rule show -vserver vs0 -volume vol1
+
+Vserver: vs0               Policy: default           Volume: vol1
+                                               Soft             Soft
+                         User         Disk     Disk   Files    Files
+Type   Target    Qtree   Mapping     Limit    Limit   Limit    Limit  Threshold
+-----  --------  ------- -------  --------  -------  ------  -------  ---------
+user   ""        ""      off          50MB        -       -        -          -
+user   jsmith    ""      off          80MB        -       -        -          -
 ----
-다음 할당량 항목은 4개의 ID로 표시되는 지정된 사용자를 vol1 볼륨에서 500MB의 디스크 공간 및 10,240개의 파일로 제한합니다.
+다음 할당량 규칙은 4개의 ID로 표시되는 지정된 사용자를 vol1 볼륨에서 550MB의 디스크 공간과 10,000개의 파일로 제한합니다.
 
 [listing]
 ----
-jsmith,corp\jsmith,engineering\”john smith”,
-S-1-5-32-544   user@/vol/vol1         500M      10K
+cluster1::> volume quota policy rule create -vserver vs0 -volume vol1 -policy-name default -type user -target " jsmith,corp\jsmith,engineering\john smith,S-1-5-32-544" -qtree "" -disk-limit 550m -file-limit 10000
+
+cluster1::> volume quota policy rule show -vserver vs0 -volume vol1
+
+Vserver: vs0               Policy: default           Volume: vol1
+                                               Soft             Soft
+                         User         Disk     Disk   Files    Files
+Type   Target    Qtree   Mapping     Limit    Limit   Limit    Limit  Threshold
+-----  --------  ------- -------  --------  -------  ------  -------  ---------
+user   "jsmith,corp\jsmith,engineering\john smith,S-1-5-32-544"
+                 ""      off         550MB        -   10000        -          -
 ----
-다음 할당량 항목을 사용하면 ENG1 그룹이 150MB의 디스크 공간과 /vol/vol2/proj1 qtree의 파일 수를 무제한으로 제한할 수 있습니다.
+다음 할당량 규칙은 ENG1 그룹을 150MB의 디스크 공간과 proj1 qtree에 있는 파일 개수에 제한이 없습니다.
 
 [listing]
 ----
-eng1        group@/vol/vol2/proj1  150M
+cluster1::> volume quota policy rule create -vserver vs0 -volume vol2 -policy-name default -type group -target "eng1" -qtree "proj1" -disk-limit 150m
+
+cluster1::> volume quota policy rule show -vserver vs0 -volume vol2
+
+Vserver: vs0               Policy: default           Volume: vol2
+                                               Soft             Soft
+                         User         Disk     Disk   Files    Files
+Type   Target    Qtree   Mapping     Limit    Limit   Limit    Limit  Threshold
+-----  --------  ------- -------  --------  -------  ------  -------  ---------
+group  eng1      proj1   off         150MB        -       -        -          -
 ----
-다음 할당량 항목은 vol2 볼륨에서 proj1 qtree를 750MB의 디스크 공간과 76,800개의 파일로 제한합니다.
+다음 할당량 규칙은 vol2 볼륨의 proj1 qtree를 750MB의 디스크 공간과 75,000개의 파일로 제한합니다.
 
 [listing]
 ----
-/vol/vol2/proj1   tree                750M      75K
+cluster1::> volume quota policy rule create -vserver vs0 -volume vol2 -policy-name default -type tree -target "proj1" -disk-limit 750m -file-limit 75000
+
+cluster1::> volume quota policy rule show -vserver vs0 -volume vol2
+
+Vserver: vs0               Policy: default           Volume: vol2
+                                               Soft             Soft
+                         User         Disk     Disk   Files    Files
+Type   Target    Qtree   Mapping     Limit    Limit   Limit    Limit  Threshold
+-----  --------  ------- -------  --------  -------  ------  -------  ---------
+tree   proj1     ""      -           750MB        -   75000        -          -
 ----

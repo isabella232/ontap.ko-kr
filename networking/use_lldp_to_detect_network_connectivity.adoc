@@ -1,0 +1,301 @@
+---
+sidebar: sidebar 
+permalink: networking/use_lldp_to_detect_network_connectivity.html 
+keywords: display, view, show, network, connectivity, neighbor, discovery, protocol, ndp, link, layer, lldp, use lldp to detect network connectivity, enable or disable lldp, view lldp neighbor information, adjust the interval for transmitting lldp advertisements 
+summary: LLDP를 사용하여 네트워크 연결을 탐지하는 작업은 배포 고려 사항을 검토하고, 모든 포트에서 활성화하고, 인접 장치를 보고, 필요에 따라 LLDP 구성 값을 조정하는 것으로 구성됩니다. 
+---
+= LLDP를 사용하여 네트워크 연결을 감지합니다
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+LLDP를 사용하여 네트워크 연결을 탐지하는 작업은 배포 고려 사항을 검토하고, 모든 포트에서 활성화하고, 인접 장치를 보고, 필요에 따라 LLDP 구성 값을 조정하는 것으로 구성됩니다.
+
+인접 장치에 대한 정보를 표시하려면 모든 스위치 및 라우터에서 LLDP를 활성화해야 합니다.
+
+ONTAP는 현재 다음과 같은 TLV(type-length-value structures)를 보고합니다.
+
+* 섀시 ID입니다
+* 포트 ID입니다
+* TTL(Time-to-Live)
+* 시스템 이름입니다
++
+시스템 이름 TLV는 CNA 장치에서 전송되지 않습니다.
+
+
+
+X1143 어댑터 및 UTA2 온보드 포트와 같은 특정 통합 네트워크 어댑터(CNA)에는 LLDP에 대한 오프로드 지원 기능이 포함되어 있습니다.
+
+* LLDP 오프로드는 DCB(데이터 센터 브리징)에 사용됩니다.
+* 표시된 정보는 클러스터와 스위치 간에 다를 수 있습니다.
++
+스위치에 표시되는 섀시 ID 및 포트 ID 데이터는 CNA 및 비 CNA 포트에 대해 다를 수 있습니다.
+
+
+
+예를 들면 다음과 같습니다.
+
+* 비 CNA 포트의 경우:
++
+** 섀시 ID는 노드에 있는 포트 중 하나의 고정 MAC 주소입니다
+** 포트 ID는 노드에 있는 해당 포트의 포트 이름입니다
+
+
+* CNA 포트의 경우:
++
+** 섀시 ID와 포트 ID는 노드에 있는 각 포트의 MAC 주소입니다.
+
+
+
+
+그러나 클러스터에서 표시하는 데이터는 이러한 포트 유형에 대해 일관적입니다.
+
+
+NOTE: LLDP 사양은 SNMP MIB를 통해 수집된 정보에 대한 액세스를 정의합니다. 그러나 ONTAP는 현재 LLDP MIB를 지원하지 않습니다.
+
+
+
+== LLDP를 활성화 또는 비활성화합니다
+
+LLDP 호환 인접 장치를 검색하고 보급을 보내려면 클러스터의 각 노드에서 LLDP를 활성화해야 합니다. ONTAP 9.7부터 LLDP는 기본적으로 노드의 모든 포트에서 활성화됩니다.
+
+.이 작업에 대해
+ONTAP 9.10.1 이하 버전의 경우, 노드 포트에서 LLDP가 활성화 또는 비활성화되는지 여부를 제어하는 LAll DP.enable 옵션:
+
+* On은 모든 포트에서 LLDP를 활성화합니다.
+* OFF는 모든 포트에서 LLDP를 비활성화합니다.
+
+
+ONTAP 9.11.1 이상의 경우, "Ll DP.enable" 옵션은 노드의 비클러스터 및 비스토리지 포트에서 LLDP가 활성화될지 여부를 제어합니다.
+
+* On은 모든 비 클러스터 및 비 스토리지 포트에서 LLDP를 활성화합니다.
+* "off"는 모든 비 클러스터 및 비 스토리지 포트에서 LLDP를 비활성화합니다.
+
+
+.단계
+. 노드 또는 클러스터의 모든 노드에 대한 현재 LLDP 설정을 표시합니다.
++
+** 단일 노드: 'run-node_name options lldp.enable'
+** 모든 노드: 옵션 ll dp.enable
+
+
+. 노드의 모든 포트 또는 클러스터의 모든 노드 포트에서 LLDP를 사용하거나 사용하지 않도록 설정합니다.
++
+[cols="30,70"]
+|===
+
+
+| 에서 LLDP를 활성화 또는 비활성화하려면... | 입력... 
+
+
+ a| 
+노드
+ a| 
+'run-node node_name options lldp.enable{on|off}'
+
+
+
+ a| 
+클러스터의 모든 노드
+ a| 
+'options lldp.enable{on|off}'
+
+|===
++
+** 단일 노드:
++
+....
+run -node node_name options lldp.enable {on|off}
+....
+** 모든 노드:
++
+....
+options lldp.enable {on|off}
+....
+
+
+
+
+
+
+== LLDP 인접 정보를 봅니다
+
+포트가 LLDP 호환 장치에 연결되어 있는 경우, 클러스터 노드의 각 포트에 연결된 인접 장치에 대한 정보를 볼 수 있습니다. network device-discovery show 명령을 사용하여 인접 항목 정보를 볼 수 있습니다.
+
+.단계
+. 클러스터의 노드의 포트에 연결된 모든 LLDP 호환 장치에 대한 정보를 표시합니다.
++
+....
+network device-discovery show -node node -protocol lldp
+....
++
+다음 명령을 실행하면 노드 클러스터-1_01의 포트에 연결된 인접 항목이 표시됩니다. 출력에는 지정된 노드의 각 포트에 연결된 LLDP 지원 디바이스가 나열됩니다. '-protocol' 옵션을 생략하면 출력에 CDP 지원 디바이스도 나열됩니다.
+
++
+....
+network device-discovery show -node cluster-1_01 -protocol lldp
+Node/       Local  Discovered
+Protocol    Port   Device                    Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+cluster-1_01/lldp
+            e2a    0013.c31e.5c60            GigabitEthernet1/36
+            e2b    0013.c31e.5c60            GigabitEthernet1/35
+            e2c    0013.c31e.5c60            GigabitEthernet1/34
+            e2d    0013.c31e.5c60            GigabitEthernet1/33
+....
+
+
+
+
+== LLDP 광고 전송 간격을 조정합니다
+
+LLDP 광고는 주기적으로 LLDP 이웃에게 전송됩니다. 네트워크 트래픽과 네트워크 토폴로지의 변경 내용에 따라 LLDP 광고 전송 간격을 늘리거나 줄일 수 있습니다.
+
+.이 작업에 대해
+IEEE에서 권장하는 기본 간격은 30초이지만 5초에서 300초까지 값을 입력할 수 있습니다.
+
+.단계
+. 노드 또는 클러스터의 모든 노드에 대한 현재 LLDP 광고 시간 간격을 표시합니다.
++
+** 단일 노드:
++
+....
+run -node <node_name> options lldp.xmit.interval
+....
+** 모든 노드:
++
+....
+options lldp.xmit.interval
+....
+
+
+. 노드의 모든 포트 또는 클러스터의 모든 노드에 대해 LLDP 광고를 전송하는 간격을 조정합니다.
++
+** 단일 노드:
++
+....
+run -node <node_name> options lldp.xmit.interval <interval>
+....
+** 모든 노드:
++
+....
+options lldp.xmit.interval <interval>
+....
+
+
+
+
+
+
+== LLDP 광고의 실시간 값을 조정합니다
+
+TTL(Time-to-Live)은 인접 LLDP 호환 장치의 캐시에 LLDP 광고가 저장되는 기간입니다. TTL은 각 LLDP 패킷에서 공고되며 LLDP 패킷이 노드에 수신될 때마다 업데이트됩니다. TTL은 나가는 LLDP 프레임에서 수정할 수 있습니다.
+
+.이 작업에 대해
+* TTL은 전송 간격(모든 dp.xmit.interval`) 및 보류 승수(모든 dP.xmit.hold)에 1을 더한 계산된 값입니다.
+* 기본 보압 승수 값은 4이지만 1에서 100 사이의 값을 입력할 수 있습니다.
+* 따라서 기본 TTL은 IEEE에서 권장하는 121초이지만 전송 간격 및 고정 승수 값을 조정하여 발신 프레임의 값을 6초에서 30001초로 지정할 수 있습니다.
+* TTL이 만료되기 전에 IP 주소를 제거하면 TTL이 만료될 때까지 LLDP 정보가 캐싱됩니다.
+
+
+.단계
+. 노드 또는 클러스터의 모든 노드에 대한 현재 보류 승수 값을 표시합니다.
++
+** 단일 노드:
++
+....
+run -node <node_name> options lldp.xmit.hold
+....
+** 모든 노드:
++
+....
+options lldp.xmit.hold
+....
+
+
+. 노드의 모든 포트 또는 클러스터의 모든 노드 포트에서 고정 승수 값을 조정합니다.
++
+** 단일 노드:
++
+....
+run -node <node_name> options lldp.xmit.hold <hold_value>
+....
+** 모든 노드:
++
+....
+options lldp.xmit.hold <hold_value>
+....
+
+
+
+
+
+
+== LLDP 통계를 보거나 지웁니다
+
+각 노드의 클러스터 및 비 클러스터 포트에 대한 LLDP 통계를 보고 잠재적인 네트워크 연결 문제를 감지할 수 있습니다. LLDP 통계는 마지막 삭제 시점으로부터 누적됩니다.
+
+.이 작업에 대해
+ONTAP 9.10.1 이하의 경우 클러스터 포트에 대해 LLDP가 항상 활성화되므로 해당 포트의 트래픽에 대해 LLDP 통계가 항상 표시됩니다. 해당 포트에 대한 통계가 표시되도록 비 클러스터 포트에서 LLDP가 활성화되어 있어야 합니다.
+
+ONTAP 9.11.1 이상에서는 클러스터 및 스토리지 포트에 대해 LLDP가 항상 활성화되므로 해당 포트의 트래픽에 대해 LLDP 통계가 항상 표시됩니다. 해당 포트에 대한 통계가 표시되도록 클러스터 이외의 포트와 스토리지 이외의 포트에서 LLDP가 활성화되어 있어야 합니다.
+
+.단계
+노드의 모든 포트에 대한 현재 LLDP 통계를 표시하거나 지웁니다.
+
+[cols="40,60"]
+|===
+
+
+| 원하는 작업 | 입력... 
+
+
+ a| 
+LLDP 통계를 봅니다
+ a| 
+'run-node_name lldp stats'
+
+
+
+ a| 
+LLDP 통계를 지웁니다
+ a| 
+'run-node_name lldp stats-z'를 선택합니다
+
+|===
+
+
+=== 통계 예제를 표시하고 지웁니다
+
+다음 명령을 실행하면 LLDP 통계가 지워지기 전에 표시됩니다. 마지막 통계 삭제 이후 송수신된 총 패킷 수가 출력에 표시됩니다.
+
+....
+cluster-1::> run -node vsim1 lldp stats
+
+RECEIVE
+ Total frames:     190k  | Accepted frames:   190k | Total drops:         0
+TRANSMIT
+ Total frames:     5195  | Total failures:      0
+OTHER
+ Stored entries:      64
+....
+다음 명령을 실행하면 LLDP 통계가 지워집니다.
+
+....
+cluster-1::> The following command clears the LLDP statistics:
+run -node vsim1 lldp stats -z
+run -node node1 lldp stats
+
+RECEIVE
+ Total frames:        0  | Accepted frames:     0  | Total drops:         0
+TRANSMIT
+ Total frames:        0  | Total failures:      0
+OTHER
+ Stored entries:      64
+....
+통계를 지운 후 다음 LLDP 보급 알림이 전송되거나 수신된 후에 누적되기 시작합니다.

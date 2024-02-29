@@ -4,7 +4,7 @@ permalink: networking/worksheet_for_nas_path_failover_configuration_auto.html
 keywords: ipspace configuration, broadcast domain configuration, subnet configuration, SVM configuration, LIF configuration, DNS configuration, dynamic DNS configuration, worksheet for nas path failover configuration for ontap 9.8 and later, complete all sections of the worksheet before configuring nas path failover for ontap 9.8 and later, ipspace configuration, broadcast domain configuration, mtu, maximum transmission unit, mtu is 1500 mtu is 9000, subnet configuration, storage virtual machine configuration, svm configuration, lif configuration, dynamic dns configuration, dns configuration 
 summary: ONTAP 9.8 이상에 대해 NAS 경로 페일오버를 구성하기 전에 워크시트의 모든 섹션을 완료하십시오 
 ---
-= ONTAP 9.8 이상의 NAS 경로 페일오버 구성을 위한 워크시트입니다
+= NAS 경로 페일오버 구성용 워크시트(ONTAP 9.8 이상)
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

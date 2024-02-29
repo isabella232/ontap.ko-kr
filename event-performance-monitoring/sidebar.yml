@@ -1,6 +1,6 @@
 ---
 section: event-performance-monitoring
-title: 이벤트 및 성능 모니터링
+title: 이벤트, 성능 및 상태 모니터링
 url: "/event-performance-monitoring/index.html"
 entries:
 - title: System Manager로 클러스터 성능을 모니터링합니다
@@ -13,11 +13,111 @@ entries:
     url: "/task_cp_id_hot_objects.html"
   - title: QoS를 수정합니다
     url: "/task_admin_modify_qos.html"
+  - title: Active IQ 디지털 자문으로 위험 모니터링
+    url: "/task_admin_monitor_risks.html"
+  - title: 시스템 최적화를 위한 통찰력 확보
+    url: "/insights-system-optimization-task.html"
 - section: performance-admin
 - title: Unified Manager로 클러스터 성능 모니터링
   url: "/task_cp_monitor_cluster_performance_um.html"
 - title: Cloud Insights로 클러스터 성능 모니터링
   url: "/task_cp_monitor_cluster_performance_ci.html"
+- title: 로깅 감사
+  entries:
+  - title: ONTAP에서 감사 로깅을 구현하는 방법
+    url: "/system-admin/ontap-implements-audit-logging-concept.html"
+  - title: ONTAP 9의 감사 로깅을 변경합니다
+    url: "/system-admin/changes-audit-logging-ontap-9-concept.html"
+  - title: 감사 로그 내용을 표시합니다
+    url: "/system-admin/audit-display-log-contents-task.html"
+  - title: 감사 가져오기 요청 설정을 관리합니다
+    url: "/system-admin/audit-manage-get-requests-task.html"
+  - title: 감사 로그 대상을 관리합니다
+    url: "/system-admin/forward-command-history-log-file-destination-task.html"
+- title: AutoSupport
+  entries:
+  - title: System Manager로 AutoSupport를 관리합니다
+    url: "/system-admin/autosupport-manage-settings-task.html"
+  - title: CLI를 사용하여 AutoSupport를 관리합니다
+    entries:
+    - title: 개요
+      url: "/system-admin/manage-autosupport-concept.html"
+    - title: AutoSupport 및 Active IQ 디지털 자문업체 사용
+      url: "/system-admin/autosupport-active-iq-digital-advisor-concept.html"
+    - title: AutoSupport 메시지가 전송되는 시기 및 위치
+      url: "/system-admin/when-where-autosupport-messages-sent-concept.html"
+    - title: AutoSupport에서 이벤트 트리거 메시지를 만들고 보내는 방법
+      url: "/system-admin/autosupport-creates-sends-event-messages-concept.html"
+    - title: AutoSupport 메시지의 유형과 콘텐츠입니다
+      url: "/system-admin/types-autosupport-messages-reference.html"
+    - title: AutoSupport 하위 시스템이란 무엇입니까
+      url: "/system-admin/autosupport-subsystem-collection-reference.html"
+    - title: AutoSupport 규모와 시간 예산이 있습니다
+      url: "/system-admin/autosupport-size-time-budgets-reference.html"
+    - title: 이벤트 트리거 AutoSupport 메시지로 전송된 파일입니다
+      url: "/system-admin/files-sent-event-triggered-autosupport-messages-concept.html"
+    - title: AutoSupport 메시지로 전송된 로그 파일
+      url: "/system-admin/log-files-sent-autosupport-messages-concept.html"
+    - title: 주간 AutoSupport 메시지로 전송된 파일입니다
+      url: "/system-admin/files-sent-weekly-autosupport-messages-concept.html"
+    - title: AutoSupport OnDemand가 기술 지원으로부터 제공 지침을 얻는 방법
+      url: "/system-admin/autosupport-delivery-technical-support-concept.html"
+    - title: 전자 메일로 보낸 AutoSupport 메시지의 구조
+      url: "/system-admin/structure-autosupport-messages-sent-email-concept.html"
+    - title: AutoSupport 심각도 유형
+      url: "/system-admin/autosupport-severity-types-concept.html"
+    - title: AutoSupport 사용에 대한 요구 사항
+      url: "/system-admin/requirements-autosupport-reference.html"
+    - title: AutoSupport를 설정합니다
+      url: "/system-admin/setup-autosupport-task.html"
+    - title: 코어 덤프 파일을 업로드합니다
+      url: "/system-admin/upload-core-dump-files-task.html"
+    - title: 성능 아카이브 파일을 업로드합니다
+      url: "/system-admin/upload-performance-archive-files-task.html"
+    - title: AutoSupport 메시지 설명을 봅니다
+      url: "/system-admin/get-autosupport-message-descriptions-task.html"
+    - title: AutoSupport 관리를 위한 명령입니다
+      url: "/system-admin/commands-manage-autosupport-reference.html"
+    - title: AutoSupport 매니페스트에 포함된 정보입니다
+      url: "/system-admin/autosupport-manifest-concept.html"
+    - title: 예약된 유지 보수 기간 동안 AutoSupport 케이스 억제
+      url: "/system-admin/autosupport-case-suppression-maintenance-concept.html"
+    - title: 메시지가 수신되지 않을 경우 AutoSupport 문제를 해결합니다
+      url: "/system-admin/troubleshoot-autosupport-messages-not-received-task.html"
+    - title: HTTP 또는 HTTPS를 통한 AutoSupport 메시지 전송 문제를 해결합니다
+      url: "/system-admin/troubleshoot-autosupport-http-https-task.html"
+    - title: SMTP를 통한 AutoSupport 메시지 전달 문제를 해결합니다
+      url: "/system-admin/troubleshoot-autosupport-delivery-smtp-task.html"
+    - title: AutoSupport 하위 시스템 문제를 해결합니다
+      url: "/system-admin/troubleshoot-autosupport-subsystem-task.html"
+- title: 상태 모니터링
+  entries:
+  - title: 개요
+    url: "/system-admin/system-health-monitoring-concept.html"
+  - title: 상태 모니터링 작동 방식
+    url: "/system-admin/health-monitoring-concept.html"
+  - title: 시스템 상태 알림에 응답하는 방법
+    url: "/system-admin/respond-system-health-alerts-concept.html"
+  - title: 시스템 상태 경고 사용자 지정
+    url: "/system-admin/control-system-health-alerts-concept.html"
+  - title: 상태 알림이 AutoSupport 메시지 및 이벤트를 트리거하는 방식
+    url: "/system-admin/health-alerts-autosupport-messages-events-concept.html"
+  - title: 사용 가능한 클러스터 상태 모니터
+    url: "/system-admin/health-monitors-concept.html"
+  - title: 시스템 상태 알림을 자동으로 받습니다
+    url: "/system-admin/receive-system-health-alerts-automatic-task.html"
+  - title: 저하된 시스템 상태에 응답합니다
+    url: "/system-admin/respond-degraded-system-health-task.html"
+  - title: 저하된 시스템 상태에 응답하는 예
+    url: "/system-admin/example-responding-degraded-system-health-concept.html"
+  - title: 클러스터 및 관리 네트워크 스위치 검색을 구성합니다
+    url: "/system-admin/configure-discovery-cluster-management-switches-task.html"
+  - title: 클러스터 및 관리 네트워크 스위치의 모니터링을 확인합니다
+    url: "/system-admin/verify-monitor-cluster-management-network-switches-task.html"
+  - title: 시스템 상태를 모니터링하는 명령입니다
+    url: "/system-admin/commands-monitor-health-system-reference.html"
+  - title: 환경 정보를 표시합니다
+    url: "/system-admin/display-environment-task.html"
 - title: 파일 시스템 분석
   entries:
   - title: 개요

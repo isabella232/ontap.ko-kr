@@ -4,7 +4,7 @@ permalink: networking/display_broadcast_domains.html
 keywords: display, view, show, broadcast, domain, display broadcast domains, view a list of broadcast domains within each ipspace in a cluster 
 summary: 클러스터 내 각 IPspace 내의 브로드캐스트 도메인 목록을 봅니다 
 ---
-= 브로드캐스트 도메인을 표시합니다
+= 브로드캐스트 도메인 표시(ONTAP 9.8 이상)
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
