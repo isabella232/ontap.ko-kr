@@ -1,7 +1,7 @@
 ---
 permalink: system-admin/manage-jobs-schedules.html 
 sidebar: sidebar 
-keywords: job, categories, server, cluster, affiliated, private, commands, managing, show jobs, job schedule, stop a job, delete a job, pause a job, display private jobs, modify, cron, interval, delete, interval schedule 
+keywords: job, categories, server, cluster, affiliated, private, commands, managing, show jobs, job schedule, stop a job, delete a job, pause a job, display private jobs, modify, cron, interval, delete, interval schedule, manage jobs and schedule, manage jobs, manage schedule 
 summary: 작업이 작업 대기열에 배치되어 자원을 사용할 수 있을 때 백그라운드에서 실행됩니다. 작업이 클러스터 리소스를 너무 많이 사용하는 경우, 클러스터에 대한 수요가 적어질 때까지 작업을 중지하거나 일시 중지할 수 있습니다. 작업을 모니터링하고 다시 시작할 수도 있습니다. 
 ---
 = 작업 및 일정을 관리합니다
@@ -188,7 +188,7 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC
 
 
 
-= 작업 스케줄 관리를 위한 명령입니다
+== 작업 스케줄 관리를 위한 명령입니다
 
 예를 들어 볼륨 스냅샷 복사본 같은 많은 작업은 지정된 스케줄에 따라 실행되도록 구성할 수 있습니다. 특정 시간에 실행되는 스케줄은 _cron_schedules (UNIX의 "cron" 스케줄과 유사)입니다. 일정 간격으로 실행되는 스케줄을 _INTERVAL_schedules 라고 합니다. 작업 일정을 관리하려면 '작업 일정' 명령을 사용합니다.
 
