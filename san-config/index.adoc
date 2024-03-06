@@ -11,9 +11,17 @@ summary: 지원되는 FC-NVMe, FC, iSCSI 및 FCoE 토폴로지로 호스트 컴�
 
 
 [role="lead"]
-다음 섹션에서는 호스트 컴퓨터를 노드에 연결하기 위한 지원되는 FC-NVMe, FC, iSCSI 및 FCoE 토폴로지와 SAN 구성 요소에 지원되는 제한 사항에 대해 설명합니다.
+SAN(Storage Area Network)은 iSCSI 또는 FC와 같은 SAN 전송 프로토콜을 통해 호스트에 연결된 스토리지 솔루션으로 구성됩니다. 스토리지 솔루션이 하나 이상의 스위치를 통해 호스트에 연결되도록 SAN을 구성할 수 있습니다.  iSCSI를 사용하는 경우 스위치를 사용하지 않고 스토리지 솔루션을 호스트에 직접 연결하도록 SAN을 구성할 수도 있습니다.
 
-이 정보는 기본 SAN 구성 설명서와 함께 사용해야 합니다.
+SAN에서는 Windows, Linux 또는 UNIX와 같은 서로 다른 운영 체제를 사용하는 여러 호스트가 동시에 스토리지 솔루션에 액세스할 수 있습니다.  을 사용할 수 있습니다 link:../san-admin/selective-lun-map-concept.html["선택적 LUN 매핑"] 및 link:../san-admin/create-port-sets-binding-igroups-task.html["포트 세트"] 호스트와 스토리지 간의 데이터 액세스를 제한합니다.
 
+iSCSI의 경우 스토리지 솔루션과 호스트 간의 네트워크 토폴로지를 네트워크라고 합니다.  FC, FC/NVMe 및 FCoE의 경우 스토리지 솔루션과 호스트 사이의 네트워크 토폴로지를 패브릭이라고 합니다. 데이터 액세스 손실로부터 시스템을 보호하는 이중화를 생성하려면 다중 네트워크 또는 다중 패브릭 구성에서 HA 쌍으로 SAN을 설정해야 합니다.  단일 노드 또는 단일 네트워크/패브릭을 사용하는 구성은 완전히 중복되지 않으므로 권장되지 않습니다.
+
+SAN을 구성한 후 수행할 수 있습니다 link:../san-admin/provision-storage.html["iSCSI 또는 FC용 스토리지를 프로비저닝합니다"]또는 직접 할 수 있습니다 link:../san-admin/create-nvme-namespace-subsystem-task.html["FC/NVMe용 스토리지를 프로비저닝합니다"].  그런 다음 호스트에 연결하여 데이터 서비스를 시작할 수 있습니다.
+
+SAN 프로토콜 지원은 ONTAP 버전, 플랫폼 및 구성에 따라 다릅니다. 특정 구성에 대한 자세한 내용은 를 참조하십시오 link:https://imt.netapp.com/matrix/["NetApp 상호 운용성 매트릭스 툴"].
+
+.관련 정보
 * link:../san-admin/index.html["SAN 관리 개요"]
+* link:../nvme/support-limitations.html["NVMe 구성, 지원 및 제한 사항"]
 

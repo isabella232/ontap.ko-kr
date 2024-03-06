@@ -15,7 +15,7 @@ SLM(Selective LUN Map)은 호스트에서 LUN으로의 경로 수를 줄입니�
 
 SLM은 호스트당 단일 igroup을 관리할 수 있도록 하며, 포트셋 조작 또는 LUN 재매핑이 필요하지 않은 무중단 LUN 이동 작업도 지원합니다.
 
-Portset을 SLM과 함께 사용하여 특정 타겟에 대한 액세스를 특정 이니시에이터에 추가로 제한할 수 있습니다. 포트 세트와 함께 SLM을 사용하는 경우 LUN을 소유한 노드의 HA 파트너와 해당 노드의 포트셋 LIF 세트에서 LUN에 액세스할 수 있습니다.
+link:create-port-sets-binding-igroups-task.html["포트 세트"] SLM과 함께 사용하여 특정 타겟에 대한 액세스를 특정 이니시에이터에 더 제한할 수 있습니다. 포트 세트와 함께 SLM을 사용하는 경우 LUN을 소유한 노드의 HA 파트너와 해당 노드의 포트셋 LIF 세트에서 LUN에 액세스할 수 있습니다.
 
 SLM은 모든 새로운 LUN 맵에서 기본적으로 활성화됩니다.
 
@@ -36,8 +36,10 @@ LUN이 포함된 LUN 또는 볼륨을 동일한 클러스터 내의 다른 고�
 .단계
 . 대상 노드와 해당 파트너 노드를 애그리게이트 또는 볼륨의 보고 노드 목록에 추가합니다.
 +
-'lun mapping add-reporting-nodes-vserver_vserver_name_-path_lun_path_-igroup_name_[-destination-aggregate_aggregate_name_|-destination-volume_volume_name_]'
-
+[source, cli]
+----
+lun mapping add-reporting-nodes -vserver _vserver_name_ -path _lun_path_ -igroup _igroup_name_ [-destination-aggregate _aggregate_name_|-destination-volume _volume_name_]
+----
 +
 일관된 명명 규칙이 있는 경우 를 사용하여 여러 LUN 매핑을 동시에 수정할 수 있습니다 `_igroup_prefix*_` 대신 `_igroup_name_`.
 
@@ -46,16 +48,22 @@ LUN이 포함된 LUN 또는 볼륨을 동일한 클러스터 내의 다른 고�
 . 필요한 이동 작업에 대해 명령을 실행하고 작업이 완료될 때까지 기다립니다.
 . Active/Optimized 경로를 통해 입출력이 서비스되고 있는지 확인합니다.
 +
-LUN 매핑 표시-필드 보고-노드
-
+[source, cli]
+----
+lun mapping show -fields reporting-nodes
+----
 . 보고 노드 목록에서 이전 LUN 소유자 및 해당 파트너 노드를 제거합니다.
 +
-'LUN 매핑 제거-보고-노드-vserver_vserver_name_-path_lun_path_-igroup_igroup_name_-remote-nodes'
-
+[source, cli]
+----
+lun mapping remove-reporting-nodes -vserver _vserver_name_ -path _lun_path_ -igroup _igroup_name_ -remote-nodes
+----
 . LUN이 기존 LUN 맵에서 제거되었는지 확인합니다.
 +
-LUN 매핑 표시-필드 보고-노드
-
+[source, cli]
+----
+lun mapping show -fields reporting-nodes
+----
 . 호스트 OS의 오래된 디바이스 항목을 제거합니다.
 . 필요한 경우 경로 다중화 구성 파일을 변경합니다.
 . 호스트를 재검색하여 이전 경로가 제거되었는지 확인합니다. + 호스트를 재검색하는 특정 단계는 호스트 설명서를 참조하십시오.
