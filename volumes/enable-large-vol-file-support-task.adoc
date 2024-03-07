@@ -25,8 +25,10 @@ ONTAP 9.12.1 P2부터 새 볼륨을 생성하거나 기존 볼륨을 수정하�
 .단계
 . 대용량 볼륨 및 파일 지원이 활성화된 볼륨 생성:
 +
-`volume create -vserver _svm_name_ -volume _volume_name_ -aggregate _aggregate_name_ -is-large-size-enabled true`
-
+[source, cli]
+----
+volume create -vserver _svm_name_ -volume _volume_name_ -aggregate _aggregate_name_ -is-large-size-enabled true
+----
 
 
 .예
@@ -40,10 +42,13 @@ volume create -vserver vs1 -volume big_vol1 -aggregate aggr1 -is-large-size-enab
 
 == 기존 볼륨을 수정합니다
 
+.단계
 . 볼륨을 수정하여 대용량 볼륨 및 파일 지원:
 +
-`volume modify -vserver _svm_name_ -volume _volume_name_ -aggregate _aggregate_name_ -is-large-size-enabled true`
-
+[source, cli]
+----
+volume modify -vserver _svm_name_ -volume _volume_name_ -is-large-size-enabled true
+----
 
 
 .예
@@ -51,7 +56,7 @@ volume create -vserver vs1 -volume big_vol1 -aggregate aggr1 -is-large-size-enab
 
 [listing]
 ----
-volume modify -vserver vs2 -volume data_vol -aggregate aggr1 -is-large-size-enabled true
+volume modify -vserver vs2 -volume data_vol -is-large-size-enabled true
 ----
 .관련 정보
 * link:https://docs.netapp.com/us-en/ontap/volumes/create-volume-task.html["볼륨을 생성합니다"]

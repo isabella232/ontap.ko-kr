@@ -133,7 +133,7 @@ ONTAP는 과 같은 변수를 지원합니다 `$aws:username` 버킷 정책 및 
 | xref:../anti-ransomware/manage-parameters-task.html[자율적 랜섬웨어 방어에 대한 조정 가능한 경고] | 새 파일 확장명이 감지될 때마다 또는 ARP 스냅샷이 생성될 때 발생 가능한 랜섬웨어 이벤트에 대한 조기 경고를 수신하도록 Autonomous Ransomware Protection을 구성합니다. 
 
 
-| xref:https://docs.netapp.com/us-en/ontap/nas-audit/nas-audit/persistent-stores.html[FPolicy는 영구 저장소를 지원하여 지연 시간을 줄여줍니다] | FPolicy를 사용하면 SVM에서 의무 사항이 아닌 비동기 정책의 파일 액세스 이벤트를 캡처하는 영구 저장소를 설정할 수 있습니다. 영구 저장소는 클라이언트 I/O 처리를 FPolicy 알림 처리와 분리하여 클라이언트 지연 시간을 줄여 줍니다. 동기 및 비동기 필수 구성은 지원되지 않습니다. 
+| xref:https://docs.netapp.com/us-en/ontap/nas-audit/persistent-stores.html[FPolicy는 영구 저장소를 지원하여 지연 시간을 줄여줍니다] | FPolicy를 사용하면 SVM에서 의무 사항이 아닌 비동기 정책의 파일 액세스 이벤트를 캡처하는 영구 저장소를 설정할 수 있습니다. 영구 저장소는 클라이언트 I/O 처리를 FPolicy 알림 처리와 분리하여 클라이언트 지연 시간을 줄여 줍니다. 동기 및 비동기 필수 구성은 지원되지 않습니다. 
 
 
 | xref:../flexcache/supported-unsupported-features-concept.html[FPolicy는 SMB에서 FlexCache 볼륨을 지원합니다] | FPolicy는 NFS 또는 SMB에서 FlexCache 볼륨에 지원됩니다. 이전에는 SMB가 있는 FlexCache 볼륨에 대해 FPolicy가 지원되지 않았습니다. 

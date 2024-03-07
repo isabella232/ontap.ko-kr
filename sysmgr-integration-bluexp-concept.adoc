@@ -71,6 +71,6 @@ Connector는 사용자 환경에 설치된 소프트웨어로, System Manager를
 
 == BlueXP에 대해 자세히 알아보십시오
 
-* https://docs.netapp.com/us-en/cloud-manager-family/concept-overview.html["BlueXP 개요"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/concept-overview.html["BlueXP 개요"^]
 * https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/index.html["BlueXP를 통해 NetApp AFF 및 FAS 시스템을 관리하십시오"^]
 

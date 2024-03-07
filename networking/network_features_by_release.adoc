@@ -562,7 +562,7 @@ LLDP
  a| 
 LLDP(Link Layer Discovery Protocol)는 ONTAP 시스템과 스위치 또는 라우터 간의 케이블 연결 확인 및 문제 해결을 위한 공급업체 중립적인 인터페이스를 제공합니다. Cisco Systems에서 개발한 독점 링크 계층 프로토콜인 CDP(Cisco Discovery Protocol)를 대체하는 것입니다.
 
-link:display_network_connectivity_with_neighbor_discovery_protocols.html#use-cdp-to-detect-network-connectivity["LLDP를 활성화 또는 비활성화합니다"]
+link:use_lldp_to_detect_network_connectivity.html#enable-or-disable-lldp["LLDP를 활성화 또는 비활성화합니다"]
 
 
 

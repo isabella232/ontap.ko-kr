@@ -17,7 +17,7 @@ summary: '다음 개념은 클러스터 스토리지, 고가용성, 가상화, �
 
 * link:../system-admin/index.html["클러스터 및 SVM 관리"]
 * link:../high-availability/index.html["HA(고가용성) 쌍"]
-* link:../networking/index.html["네트워크 및 LIF 관리"]
+* link:../networking/networking_reference.html["네트워크 및 LIF 관리"]
 * link:../disks-aggregates/index.html["디스크 및 애그리게이트 관리"]
 * link:../volumes/index.html["FlexVol 볼륨, FlexClone 기술 및 스토리지 효율성 기능"]
 * link:../san-admin/provision-storage.html["SAN 호스트 프로비저닝"]
