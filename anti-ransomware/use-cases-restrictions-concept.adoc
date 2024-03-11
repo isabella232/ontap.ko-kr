@@ -67,10 +67,10 @@ ARP는 ONTAP 9.10.1부터 온-프레미스 ONTAP 시스템의 NFS 및 SMB 볼륨
 | 비동기식 SnapMirror로 보호되는 볼륨 | ✓ | ✓ | ✓ |  |  
 
 
-| 비동기식 SnapMirror로 SVM이 보호됩니다 | ✓ | ✓ | ✓ |  |  
+| 비동기식 SnapMirror(SVM 재해 복구)로 SVM 보호 | ✓ | ✓ | ✓ |  |  
 
 
-| 데이터 마이그레이션에 지원되는 SVM | ✓ | ✓ | ✓ |  |  
+| SVM 데이터 이동성 (`vserver migrate`) | ✓ | ✓ | ✓ |  |  
 
 
 | FlexGroup 볼륨 | ✓ | ✓ |  |  |  
