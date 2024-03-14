@@ -279,7 +279,9 @@ FlexGroup 볼륨은 여러 ONTAP 기능을 지원하며 ONTAP 9.1에 도입되�
 * FabricPool이 포함된 FlexGroup 볼륨과 SVM DR
 
  a| 
-원격 볼륨 섀도 복사본 서비스(VSS)
+* 원격 볼륨 섀도 복사본 서비스(VSS)
+* SVM 데이터 이동성
+
 
 |===
 .관련 정보

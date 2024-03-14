@@ -157,7 +157,10 @@ FabricPool 계층화에 S3 오브젝트 저장소를 사용하려는 경우 성�
 
 나중에 복구할 수 있도록 개체의 버전 관리를 활성화하려면 * 버전 관리 활성화 * 를 선택합니다. 버킷에서 오브젝트 잠금을 사용하도록 설정하는 경우 버전 관리가 기본적으로 활성화됩니다. 개체 버전 관리에 대한 자세한 내용은 를 참조하십시오 https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html["Amazon용 S3 버킷에서 버전 관리 사용"].
 
-9.14.1부터 S3 버킷에서 오브젝트 잠금이 지원됩니다. 버킷의 객체가 삭제되거나 덮어쓰지 않도록 보호하려면 * 오브젝트 잠금 활성화 * 를 선택합니다. 잠금은 모든 오브젝트 또는 특정 버전에서 활성화될 수 있으며 클러스터 노드에 대해 SnapLock 컴플라이언스 클록이 초기화된 경우에만 활성화됩니다. 다음 단계를 수행하십시오.
+9.14.1부터 S3 버킷에서 오브젝트 잠금이 지원됩니다. S3 오브젝트 잠금에는 표준 SnapLock 라이센스가 필요합니다. 이 라이센스는 에 포함되어 있습니다 https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["ONTAP 1 을 참조하십시오"].
+ONTAP One 이전에는 SnapLock 라이센스가 보안 및 규정 준수 번들에 포함되어 있었습니다. 보안 및 규정 준수 번들은 더 이상 제공되지 않지만 여전히 유효합니다. 현재는 필요하지 않지만 기존 고객은 선택할 수 있습니다 https://docs.netapp.com/us-en/ontap/system-admin/download-nlf-task.html["ONTAP One으로 업그레이드하십시오"].
+버킷에서 물체 잠금을 사용하도록 설정하는 경우 다음을 수행해야 합니다 https://docs.netapp.com/us-en/ontap/system-admin/manage-license-task.html["SnapLock 라이센스가 설치되어 있는지 확인합니다"]. SnapLock 라이센스가 설치되어 있지 않으면 를 수행해야 합니다 https://docs.netapp.com/us-en/ontap/system-admin/install-license-task.html["설치합니다"] 개체 잠금을 활성화하기 전에 이 옵션을 선택합니다.
+SnapLock 라이센스가 설치되어 있음을 확인한 후 버킷의 객체가 삭제되거나 덮어쓰지 않도록 보호하려면 * 개체 잠금 활성화 * 를 선택합니다. 잠금은 모든 오브젝트 또는 특정 버전에서 활성화될 수 있으며 클러스터 노드에 대해 SnapLock 컴플라이언스 클록이 초기화된 경우에만 활성화됩니다. 다음 단계를 수행하십시오.
 
 . 클러스터의 어떤 노드에서도 SnapLock 컴플라이언스 클록이 초기화되지 않으면 * SnapLock 규정 준수 클록 초기화 * 버튼이 나타납니다. Initialize SnapLock Compliance Clock * 을 클릭하여 클러스터 노드에서 SnapLock 컴플라이언스 클록을 초기화합니다.
 . 오브젝트에 대해 _WORM(Write Once, Read Many)_ 권한을 허용하는 시간 기반 잠금을 활성화하려면 * Governance * mode를 선택하십시오. _Governance_mode에서도 특정 권한을 가진 관리자 사용자가 객체를 삭제할 수 있습니다.
