@@ -35,8 +35,5 @@ xref:remove-ems-lif-service-task.html[EMS 대상에 대한 통신 기능을 제�
 | 로드 공유 미러가 있습니까? | xref:task_relocating_moved_load_sharing_mirror_source_volumes.html[이동된 로드 공유 미러 소스 볼륨을 재배치합니다] 
 
 
-| 클러스터에 정의된 SnapMirror 관계가 있습니까? | xref:task_resuming_snapmirror_operations.html[SnapMirror 작업을 재개합니다] 
-
-
 | ONTAP 9.9.1 이전에 생성된 SP(서비스 프로세서) 액세스에 대한 사용자 계정이 있습니까? | xref:sp-user-accounts-change-concept.html[서비스 프로세서에 액세스할 수 있는 계정의 변경 사항을 확인합니다] 
 |===

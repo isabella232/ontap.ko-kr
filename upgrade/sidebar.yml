@@ -104,8 +104,6 @@ entries:
       url: "/upgrade/task_reconfiguring_kmip_servers_connections_after_upgrading_to_ontap_9_3_or_later.html"
     - title: 미러 소스 볼륨의 로드 공유
       url: "/upgrade/task_relocating_moved_load_sharing_mirror_source_volumes.html"
-    - title: SnapMirror 작업
-      url: "/upgrade/task_resuming_snapmirror_operations.html"
     - title: 서비스 프로세서에 액세스할 수 있는 사용자 계정입니다
       url: "/upgrade/sp-user-accounts-change-concept.html"
   - title: DQP를 업데이트합니다
