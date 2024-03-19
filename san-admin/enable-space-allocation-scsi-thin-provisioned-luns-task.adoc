@@ -19,19 +19,27 @@ summary: 공간 할당 옵션을 Enabled로 설정하면 ONTAP는 볼륨에 공�
 .단계
 . LUN을 오프라인 상태로 전환합니다.
 +
-`lun modify -vserver vserver_name -volume volume_name -lun lun_name -state offline`
-
-. '-space-allocation' 파라미터를 'ENABLED'로 설정한다.
+[source, cli]
+----
+lun modify -vserver vserver_name -volume volume_name -lun lun_name -state offline
+----
+. 공간 할당 활성화:
 +
-'lun modify -vserver_vserver_name_-volume_volume_name_-lun_lun_name_-space-allocation enabled
-
+[source, cli]
+----
+lun modify -vserver _vserver_name_ -volume _volume_name_ -lun _lun_name_ -space-allocation enabled
+----
 . 공간 할당이 설정되었는지 확인합니다.
 +
-'lun show -vserver_vserver_name_-volume_volume_name_-lun_lun_name_-fields space-allocation
-
+[source, cli]
+----
+lun show -vserver _vserver_name_ -volume _volume_name_ -lun _lun_name_ -fields space-allocation
+----
 . LUN을 온라인 상태로 전환:
 +
-'lun modify -vserver_vserver_name_-volume_volume_name_-lun_lun_name_-state online
-
+[source, cli]
+----
+lun modify -vserver _vserver_name_ -volume _volume_name_ -lun _lun_name_ -state online
+----
 . 호스트에서 모든 디스크를 재검색하여 '-space-allocation' 옵션의 변경 사항이 올바르게 검색되었는지 확인합니다.
 
