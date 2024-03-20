@@ -47,3 +47,8 @@ Cloud Insights는 시스템 토폴로지를 시각화하여 Kubernetes 아키텍
 Cloud Insights는 고급 머신 러닝 및 이상 징후 탐지를 통해 악의적인 사용자 또는 침해를 입은 사용자가 조직 데이터를 악용하지 못하도록 보호하여 내부자 위협에 대해 실행 가능한 인텔리전스를 제공합니다.
 
 Cloud Insights를 사용하면 Kubernetes 메트릭을 시각화하여 Pod, 노드, 클러스터 간의 관계를 완벽하게 파악할 수 있습니다. 현재 처리 중인 로드뿐만 아니라 클러스터 또는 작업 포드의 상태를 평가할 수 있으므로 K8S 클러스터의 명령을 수행하고 배포 상태와 비용을 모두 제어할 수 있습니다.
+
+.관련 링크
+* link:https://docs.netapp.com/us-en/ontap/task_cp_monitor_cluster_performance_ci.html["Cloud Insights에 대해 자세히 알아보십시오"^]
+* link:https://docs.netapp.com/us-en/cloudinsights/task_cloud_insights_onboarding_1.html["Cloud Insights과 함께 시작하십시오"^]
+

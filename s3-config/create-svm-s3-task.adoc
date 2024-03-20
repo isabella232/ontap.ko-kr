@@ -59,15 +59,19 @@ S3 서버 이름을 클라이언트가 S3 액세스에 사용할 FQDN(정규화�
 --
 . S3 라이센스가 클러스터에서 라이센스되었는지 확인합니다.
 +
-'System license show-package s3'을 선택합니다
-
+[source, cli]
+----
+system license show -package s3
+----
 +
 그렇지 않은 경우 영업 담당자에게 문의하십시오.
 
 . SVM 생성:
 +
-'vserver create-vserver_svm_name_-rootvolume_root_volume_name_-aggregate_aggregate_name_-rootvolume-security-style UNIX-language C. UTF-8-IPSpace_IPSpace_name_'
-
+[source, cli]
+----
+vserver create -vserver _svm_name_ -subtype default -rootvolume _root_volume_name_ -aggregate _aggregate_name_ -rootvolume-security-style unix -language C.UTF-8 -data-services _data-s3-server_ -ipspace _ipspace_name_
+----
 +
 ** '-rootvolume-security-style' 옵션에 UNIX 설정을 사용합니다.
 ** 기본 C. UTF-8 '-language' 옵션을 사용합니다.
@@ -76,8 +80,10 @@ S3 서버 이름을 클라이언트가 S3 액세스에 사용할 FQDN(정규화�
 
 . 새로 생성한 SVM의 구성 및 상태 확인:
 +
-'vserver show -vserver_svm_name_'
-
+[source, cli]
+----
+vserver show -vserver _svm_name_
+----
 +
 'Vserver 작동 상태' 필드에는 '실행 중' 상태가 표시되어야 합니다. 초기화 중 상태가 표시되는 경우 루트 볼륨 생성 등 일부 중간 작업이 실패한 것으로, SVM을 삭제하고 다시 생성해야 합니다.
 
@@ -88,7 +94,7 @@ S3 서버 이름을 클라이언트가 S3 액세스에 사용할 FQDN(정규화�
 
 [listing]
 ----
-cluster-1::> vserver create -vserver svm1.example.com -rootvolume root_svm1 -aggregate aggr1 -rootvolume-security-style unix -language C.UTF-8 -ipspace ipspaceA
+cluster-1::> vserver create -vserver svm1.example.com -rootvolume root_svm1 -aggregate aggr1 -rootvolume-security-style unix -language C.UTF-8 -data-services _data-s3-server_ -ipspace ipspaceA
 
 [Job 2059] Job succeeded:
 Vserver creation completed

@@ -23,3 +23,11 @@ Active IQ Unified Manager은 시스템 상태를 지속적으로 모니터링하
 알림을 검색, 모니터링 및 수신하여 스토리지를 능동적으로 관리하고 신속하게 문제를 해결할 수 있으므로 데이터 관리가 간소화됩니다. 단일 대시보드에서 페타바이트급 데이터를 모니터링하고 규모에 맞게 데이터를 관리할 수 있으므로 관리 효율성이 향상됩니다.
 
 Active IQ Unified Manager를 사용하면 변화하는 비즈니스 요구사항에 대응할 수 있으므로 성능 데이터 및 고급 분석을 사용하여 성능을 최적화할 수 있습니다. 보고 기능을 사용하면 표준 보고서에 액세스하거나 맞춤형 운영 보고서를 작성하여 비즈니스의 특정 요구를 충족할 수 있습니다.
+
+관련 링크:
+
+* link:https://docs.netapp.com/us-en/active-iq-unified-manager/storage-mgmt/concept_introduction_to_unified_manager.html["Active IQ Unified Manager에 대해 자세히 알아보십시오"^]
+* link:https://docs.netapp.com/us-en/active-iq-unified-manager/install-vapp/qsg-vapp.html["VMware용 Active IQ Unified Manager를 시작하십시오"^]
+* link:https://docs.netapp.com/us-en/active-iq-unified-manager/install-linux/qsg-linux.html["Linus용 Active IQ Unified Manager를 시작하십시오"^]
+* link:https://docs.netapp.com/us-en/active-iq-unified-manager/install-windows/qsg-windows.html["Active IQ Unified Manager for Windows를 시작합니다"^]
+
