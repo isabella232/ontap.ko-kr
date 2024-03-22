@@ -24,7 +24,7 @@ entries:
   url: "/san-admin/san-provisioning-fc-concept.html"
 - title: NVMe를 이용한 SAN 프로비저닝
   url: "/san-admin/san-provisioning-nvme-concept.html"
-- title: SAN 볼륨 정보
+- title: SAN 볼륨
   entries:
   - title: 개요
     url: "/san-admin/san-volumes-concept.html"
@@ -36,22 +36,10 @@ entries:
     url: "/san-admin/requirement-moving-volumes-san-concept.html"
   - title: 부분 예약 설정을 위한 고려 사항
     url: "/san-admin/set-fractional-reserve-concept.html"
-- title: 호스트 측 공간 관리에 대해 설명합니다
-  entries:
-  - title: 개요
-    url: "/san-admin/host-side-management-concept.html"
-  - title: SCSI 씬 프로비저닝된 LUN을 사용하여 호스트 측 공간을 자동으로 관리합니다
-    url: "/san-admin/automatic-host-side-space-management-concept.html"
-  - title: SCSI 씬 프로비저닝된 LUN에 대한 공간 할당을 설정합니다
-    url: "/san-admin/enable-space-allocation-scsi-thin-provisioned-luns-task.html"
-  - title: SCSI 씬 프로비저닝을 위한 호스트 지원
-    url: "/san-admin/host-support-scsi-thin-provisioning-reference.html"
-  - title: SnapCenter를 통한 호스트 관리 단순화
-    url: "/san-admin/simplified-host-management-snapcenter-concept.html"
-- title: Igroup 정보
+- title: SAN 호스트측 공간 관리
+  url: "/san-admin/host-side-management-concept.html"
+- title: Igroup
   url: "/san-admin/igroups-concept.html"
-- title: igroup에서 LUN 액세스를 제공하는 방법의 예
-  url: "/san-admin/example-how-igroups-give-lun-access-reference.html"
 - title: igroup에 대해 이니시에이터 WWPN 및 iSCSI 노드 이름을 지정합니다
   url: "/san-admin/specify-initiator-wwpns-node-names-igroup-concept.html"
 - title: VMware 및 Microsoft 복사본 오프로드를 통한 스토리지 가상화

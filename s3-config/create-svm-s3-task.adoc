@@ -70,7 +70,7 @@ system license show -package s3
 +
 [source, cli]
 ----
-vserver create -vserver _svm_name_ -subtype default -rootvolume _root_volume_name_ -aggregate _aggregate_name_ -rootvolume-security-style unix -language C.UTF-8 -data-services _data-s3-server_ -ipspace _ipspace_name_
+vserver create -vserver <svm_name> -subtype default -rootvolume <root_volume_name> -aggregate <aggregate_name> -rootvolume-security-style unix -language C.UTF-8 -data-services <data-s3-server> -ipspace <ipspace_name>
 ----
 +
 ** '-rootvolume-security-style' 옵션에 UNIX 설정을 사용합니다.
@@ -82,7 +82,7 @@ vserver create -vserver _svm_name_ -subtype default -rootvolume _root_volume_nam
 +
 [source, cli]
 ----
-vserver show -vserver _svm_name_
+vserver show -vserver <svm_name>
 ----
 +
 'Vserver 작동 상태' 필드에는 '실행 중' 상태가 표시되어야 합니다. 초기화 중 상태가 표시되는 경우 루트 볼륨 생성 등 일부 중간 작업이 실패한 것으로, SVM을 삭제하고 다시 생성해야 합니다.

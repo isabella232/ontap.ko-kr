@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: understand, host-side, space, management 
 summary: 씬 프로비저닝된 환경에서 호스트 측 공간 관리는 호스트 파일 시스템에서 확보된 스토리지 시스템의 공간 관리 프로세스를 완료합니다. 
 ---
-= 호스트측 공간 관리 개요
+= SAN 호스트측 공간 관리
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -20,3 +20,16 @@ summary: 씬 프로비저닝된 환경에서 호스트 측 공간 관리는 호�
 그런 다음 호스트에서 50GB의 데이터를 삭제합니다. 이때 호스트는 50GB의 사용된 공간과 150GB의 사용되지 않은 공간을 보고합니다. 그러나 스토리지 시스템은 100GB 사용 공간과 100GB의 미사용 공간을 보고합니다.
 
 호스트 측 공간 관리는 다양한 방법을 사용하여 호스트와 스토리지 시스템 간의 공간 차이를 조정합니다.
+
+
+
+== SnapCenter를 통한 호스트 관리 단순화
+
+SnapCenter 소프트웨어를 사용하면 iSCSI 및 FC 스토리지와 관련된 일부 관리 및 데이터 보호 작업을 단순화할 수 있습니다. SnapCenter는 Windows 및 UNIX 호스트용 선택적 관리 패키지입니다.
+
+SnapCenter 소프트웨어를 사용하면 여러 스토리지 시스템 간에 분산될 수 있는 스토리지 풀에서 가상 디스크를 쉽게 생성하고 스토리지 프로비저닝 작업을 자동화하며 호스트 데이터에 일치하는 스냅샷 복사본에서 스냅샷 복사본 및 클론을 생성하는 프로세스를 단순화할 수 있습니다.
+
+에 대한 자세한 내용은 NetApp 제품 설명서를 참조하십시오 https://docs.netapp.com/us-en/snapcenter/index.html["SnapCenter"].
+
+.관련 링크
+link:enable-space-allocation-scsi-thin-provisioned-luns-task.html["SCSI 씬 프로비저닝된 LUN에 대한 공간 할당을 설정합니다"]

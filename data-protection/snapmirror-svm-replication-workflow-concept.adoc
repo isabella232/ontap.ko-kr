@@ -13,9 +13,9 @@ summary: SnapMirror SVM 복제에는 대상 SVM 생성, 복제 작업 일정 생
 [role="lead"]
 SnapMirror SVM 복제에는 대상 SVM 생성, 복제 작업 일정 생성, SnapMirror 관계 생성 및 초기화가 포함됩니다.
 
-[NOTE]
-====
-이 워크플로우에서는 이미 기본 정책 또는 사용자 지정 복제 정책을 사용하고 있다고 가정합니다.
+요구 사항에 가장 적합한 복제 워크플로우를 결정해야 합니다.
 
-====
-image::../media/svm-data-protection-workflow.gif[SnapMirror SVM 복제 워크플로우]
+* link:https://docs.netapp.com/us-en/ontap/data-protection/replicate-entire-svm-config-task.html["전체 SVM 구성을 복제합니다"]
+* link:https://docs.netapp.com/us-en/ontap/data-protection/exclude-lifs-svm-replication-task.html["SVM 복제에서 LIF 및 관련 네트워크 설정을 제외합니다"]
+* link:https://docs.netapp.com/us-en/ontap/data-protection/exclude-network-name-service-svm-replication-task.html["SVM 구성의 Exlude 네트워크, 네임 서비스 및 기타 설정"]
+
