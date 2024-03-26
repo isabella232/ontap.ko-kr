@@ -14,10 +14,13 @@ summary: 핫 객체에 액세스할 때 성능을 개선하기 위해 동일한 
 핫 객체에 액세스할 때 성능을 개선하기 위해 동일한 클러스터에 FlexCache 볼륨을 생성할 수 있습니다. 여러 위치에 데이터 센터가 있는 경우 원격 클러스터에 FlexCache 볼륨을 생성하여 데이터 액세스를 가속할 수 있습니다.
 
 .이 작업에 대해
-ONTAP 9.5부터 FlexCache는 FlexVol 볼륨을 원본 볼륨으로, FlexGroup 볼륨을 FlexCache 볼륨으로 지원합니다.  ONTAP 9.7부터 FlexVol 볼륨과 FlexGroup 볼륨이 모두 원본 볼륨으로 지원됩니다.
+* ONTAP 9.5부터 FlexCache는 FlexVol 볼륨을 원본 볼륨으로, FlexGroup 볼륨을 FlexCache 볼륨으로 지원합니다.
+* ONTAP 9.7부터 FlexVol 볼륨과 FlexGroup 볼륨이 모두 원본 볼륨으로 지원됩니다.
+* ONTAP 9.14.0부터 암호화된 소스에서 암호화되지 않은 FlexCache 볼륨을 만들 수 있습니다.
+
 
 .시작하기 전에
-* ONTAP 9.5 이상을 실행 중이어야 합니다
+* ONTAP 9.5 이상을 실행 중이어야 합니다.
 * ONTAP 9.6 이하를 실행 중인 경우, 을(를) 수행해야 합니다 link:https://docs.netapp.com/us-en/ontap/system-admin/install-license-task.html["FlexCache 라이센스를 추가합니다"].
 +
 ONTAP 9.7 이상에는 FlexCache 라이센스가 필요하지 않습니다. ONTAP 9.7부터는 FlexCache 기능이 ONTAP에 포함되어 더 이상 라이센스나 활성화가 필요하지 않습니다. 
