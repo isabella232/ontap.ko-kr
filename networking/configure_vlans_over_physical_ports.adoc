@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: networking/configure_vlans_over_physical_ports.html 
-keywords: configure, configuration, configuring, setup, setting, set, up, vlan, virtual, local, area, network, physical, port, logical, segmentation, configure vlans over physical ports, vlans provide logical segmentation of networks, create a vlan, network port vlan create, delete a vlan, network port vlan delete 
-summary: VLAN은 네트워크의 논리적 세분화를 제공합니다 
+keywords: configure, configuration, configuring, setup, setting, set, up, vlans, virtual local area network, physical, port, logical, segmentation, configure vlans over physical ports, vlans provide logical segmentation of networks, create a vlan, network port vlan create, delete a vlan, network port vlan delete 
+summary: ONTAP의 VLAN을 사용하여 물리적 경계에 정의된 기존 브로드캐스트 도메인과 달리 스위치 포트 단위로 정의된 별도의 브로드캐스트 도메인을 생성하여 네트워크의 논리적 분할을 제공할 수 있습니다. 
 ---
 = 물리적 포트를 통해 VLAN을 구성합니다
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: VLAN은 네트워크의 논리적 세분화를 제공합니다
 
 
 [role="lead"]
-VLAN은 물리적 경계에 정의된 기존 브로드캐스트 도메인이 아닌 스위치 포트 기반으로 정의된 별도의 브로드캐스트 도메인을 생성하여 네트워크를 논리적으로 세분화하는 기능을 제공합니다.
+ONTAP의 VLAN을 사용하여 물리적 경계에 정의된 기존 브로드캐스트 도메인과 달리 스위치 포트 단위로 정의된 별도의 브로드캐스트 도메인을 생성하여 네트워크의 논리적 분할을 제공할 수 있습니다.
 
 VLAN은 여러 물리적 네트워크 세그먼트에 걸쳐 있을 수 있습니다. VLAN에 속한 엔드스테이션은 기능 또는 애플리케이션에 의해 관련된다.
 

@@ -60,7 +60,9 @@ ONTAP에는 지원되는 권한이 미리 정의되어 있습니다. 미리 정�
  a| 
 'BUILTIN\Administrators'
  a| 
-감사 관리\n\n보안 로그 보기, 덤프 및 지우기가 포함됩니다.
+감사 관리
+
+여기에는 보안 로그 보기, 덤프 및 지우기가 포함됩니다.
 
 
 
@@ -69,7 +71,9 @@ ONTAP에는 지원되는 권한이 미리 정의되어 있습니다. 미리 정�
  a| 
 'BUILTIN\Administrators', 'BUILTIN\Backup Operators', 'BUILTIN\Power Users', 'BUILTIN\Users', 'Everyone'
  a| 
-통과 무시 검사\n이 권한이 있는 사용자는 폴더, symlink 또는 교차로를 통과할 수 있는 통과(x) 권한이 필요하지 않습니다.
+횡단 검사를 무시합니다
+
+이 권한이 있는 사용자는 폴더, 교집합 또는 교차로를 횡단(x) 권한이 필요하지 않습니다.
 
 |===
 .관련 정보
