@@ -46,3 +46,5 @@ https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"^]
 FlexClone 라이센스는 원격 VSS를 사용하지 않는 백업 방법을 사용하는 경우 선택 사항입니다.
 
 
+
+당신은 해야 한다 link:https://docs.netapp.com/us-en/ontap/system-admin/manage-license-task.html["필요한 라이센스가 설치되어 있는지 확인합니다"]그리고 필요한 경우 link:https://docs.netapp.com/us-en/ontap/system-admin/install-license-task.html["설치합니다"].

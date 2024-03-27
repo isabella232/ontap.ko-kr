@@ -19,7 +19,7 @@ summary: 비즈니스 연속성을 위해 보호를 구성하려면 ONTAP 소스
 SnapMirror 비즈니스 연속성을 사용하여 보호를 구성하려면 ONTAP 소스 클러스터에서 LUN을 선택하고 일관성 그룹에 추가해야 합니다.
 
 .시작하기 전에
-* SnapMirror Synchronous 라이센스가 있어야 합니다.
+* 가 있어야 합니다 link:https://docs.netapp.com/us-en/ontap/system-admin/manage-license-task.html#view-details-about-a-license["SnapMirror Synchronous 라이센스"].
 * 클러스터 또는 스토리지 VM 관리자여야 합니다.
 * 일관성 그룹의 모든 구성 볼륨은 단일 스토리지 VM(SVM)에 있어야 합니다.
 +
