@@ -110,7 +110,7 @@ indexpage:
       url: "/authentication/setup-ssh-multifactor-authentication-task.html"
     - title: 다중 관리 검증
       url: "/multi-admin-verify/index.html"
-    - title: Oath2 인증(ONTAP 9.14.1의 새로운 기능)
+    - title: OAuth2 인증(ONTAP 9.14.1의 새로운 기능)
       url: "/authentication/overview-oauth2.html"
   - title: 보안 및 데이터 암호화
     links:

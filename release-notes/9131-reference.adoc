@@ -87,7 +87,7 @@ MetroCluster 구성에 대한 플랫폼 및 스위치 구성 개선 사항에 �
 
 
 
-== 네트워킹 및 보안 프로토콜
+== 네트워킹
 
 [cols="30%,70%"]
 |===
@@ -100,19 +100,7 @@ MetroCluster 구성에 대한 플랫폼 및 스위치 구성 개선 사항에 �
 | 데이터 LIF 제한이 증가합니다 | ONTAP는 HA Pair 및 클러스터 모두에 대해 데이터 LIF 확장 제한을 늘려 유연성을 강화합니다. 
 
 
-| SSH 공개 키가 있는 X.509 인증서 | ONTAP를 사용하면 X.509 인증서를 계정의 SSH 공개 키와 연결하여 SSH 로그인 시 인증서 만료 및 해지 확인 보안을 강화할 수 있습니다. 
-
-
 | A800 및 FAS8700 플랫폼에서 클러스터 설정 중에 IPv6 지원 | A800 및 FAS8700 플랫폼에서는 ONTAP CLI를 사용하여 IPv6 전용 네트워킹 환경에서 새 클러스터를 생성하고 구성할 수 있습니다. 
-
-
-| xref:../authentication/grant-access-active-directory-users-groups-task.html[Active Directory를 사용한 SSH 공개 키 인증] | Active Directory(AD) 사용자의 기본 인증 방법으로 SSH 공개 키를 사용하거나, AD 사용자 이후의 보조 인증 방법으로 SSH 공개 키를 사용할 수 있습니다. 
-
-
-| xref:../authentication/setup-ssh-multifactor-authentication-task.html#enable-mfa-with-totp[TOTP(시간 기반 1회 암호)를 통한 다단계 인증] | TOTP(Time-Based One-Time Password)를 사용하여 다단계 인증으로 로컬 사용자 계정을 설정합니다. TOTP는 항상 두 번째 인증 방법으로 사용됩니다. SSH 공개 키 또는 사용자 암호를 기본 인증 방법으로 사용할 수 있습니다. 
-
-
-| xref:../nas-audit/create-fpolicy-event-task.html[FPolicy 파일 액세스 실패 알림] | FPolicy는 액세스가 거부된 이벤트에 대한 알림을 지원합니다. 파일 작업에 대한 알림은 권한 부족으로 인해 실패했으며 여기에는 NTFS 권한으로 인한 실패, Unix 모드 비트로 인한 실패, NFSv4 ACL로 인한 실패 등이 포함됩니다. 
 |===
 
 
@@ -153,13 +141,16 @@ MetroCluster 구성에 대한 플랫폼 및 스위치 구성 개선 사항에 �
 
 
 
-| xref:../authentication/setup-ssh-multifactor-authentication-task.html#enable-mfa-with-totp[TOTP(시간 기반 1회 암호)를 통한 다단계 인증] | TOTP(Time-Based One-Time Password)를 사용하여 다단계 인증으로 로컬 사용자 계정을 설정합니다. TOTP는 항상 두 번째 인증 방법으로 사용됩니다. SSH 공개 키 또는 사용자 암호를 기본 인증 방법으로 사용할 수 있습니다. 
-
-
 | xref:../authentication/grant-access-active-directory-users-groups-task.html[Active Directory를 사용한 SSH 공개 키 인증] | Active Directory(AD) 사용자의 기본 인증 방법으로 SSH 공개 키를 사용하거나, AD 사용자 이후의 보조 인증 방법으로 SSH 공개 키를 사용할 수 있습니다. 
 
 
 | SSH 공개 키가 있는 X.509 인증서 | ONTAP를 사용하면 X.509 인증서를 계정의 SSH 공개 키와 연결하여 SSH 로그인 시 인증서 만료 및 해지 확인 보안을 강화할 수 있습니다. 
+
+
+| xref:../nas-audit/create-fpolicy-event-task.html[FPolicy 파일 액세스 실패 알림] | FPolicy는 액세스가 거부된 이벤트에 대한 알림을 지원합니다. 파일 작업에 대한 알림은 권한 부족으로 인해 실패했으며 여기에는 NTFS 권한으로 인한 실패, Unix 모드 비트로 인한 실패, NFSv4 ACL로 인한 실패 등이 포함됩니다. 
+
+
+| xref:../authentication/setup-ssh-multifactor-authentication-task.html#enable-mfa-with-totp[TOTP(시간 기반 1회 암호)를 통한 다단계 인증] | TOTP(Time-Based One-Time Password)를 사용하여 다단계 인증으로 로컬 사용자 계정을 설정합니다. TOTP는 항상 두 번째 인증 방법으로 사용됩니다. SSH 공개 키 또는 사용자 암호를 기본 인증 방법으로 사용할 수 있습니다. 
 |===
 
 

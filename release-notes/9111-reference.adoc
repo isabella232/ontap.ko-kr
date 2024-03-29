@@ -66,6 +66,9 @@ xref:../consistency-groups/protect-task.html[2단계 일관성 그룹 스냅샷 
 | 업데이트 | 설명 
 
 
+| xref:../networking/configure_network_security_using_federal_information_processing_standards_@fips@.html[TLSv1.3 지원] | ONTAP는 HTTPS 및 REST API 관리 프로토콜에 TLS 1.3을 지원합니다. TLS 1.3은 SP/BMC 또는 클러스터 피어링 암호화와 함께 지원되지 않습니다. 
+
+
 | xref:../nfs-admin/ldap-fast-bind-nsswitch-authentication-task.html[LDAP Fast bind 지원] | LDAP 서버에서 지원되는 경우 LDAP 빠른 바인딩을 사용하여 ONTAP 관리자 사용자를 빠르고 간단하게 인증할 수 있습니다. 
 |===
 
@@ -89,14 +92,11 @@ MetroCluster 구성에 대한 플랫폼 및 스위치 구성 개선 사항에 �
 
 
 
-== 네트워킹 및 보안 프로토콜
+== 네트워킹
 
 [cols="30%,70%"]
 |===
 | 업데이트 | 설명 
-
-
-| xref:../networking/configure_network_security_using_federal_information_processing_standards_@fips@.html[TLSv1.3 지원] | ONTAP는 HTTPS 및 REST API 관리 프로토콜에 TLS 1.3을 지원합니다. TLS 1.3은 SP/BMC 또는 클러스터 피어링 암호화와 함께 지원되지 않습니다. 
 
 
 | xref:../networking/display_network_connectivity_with_neighbor_discovery_protocols.html[LLDP(Link Layer Discovery Protocol)] | 클러스터 네트워크는 ONTAP가 CDP(Cisco Discovery Protocol)를 지원하지 않는 클러스터 스위치와 함께 작동하도록 LLDP를 지원합니다. 
