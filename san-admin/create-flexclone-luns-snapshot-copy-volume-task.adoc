@@ -14,7 +14,7 @@ summary: 볼륨의 스냅샷 복사본을 사용하여 LUN의 FlexClone 복사�
 볼륨의 스냅샷 복사본을 사용하여 LUN의 FlexClone 복사본을 만들 수 있습니다. LUN의 FlexClone 복사본은 읽기 및 쓰기가 모두 가능합니다.
 
 .필요한 것
-FlexClone 라이센스를 설치해야 합니다.
+FlexClone 라이센스를 설치해야 합니다. 이 라이센스는 에 포함되어 있습니다 link:https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html#licenses-included-with-ontap-one["ONTAP 1 을 참조하십시오"].
 
 .이 작업에 대해
 FlexClone LUN은 상위 LUN의 공간 예약 속성을 상속합니다. 공간 예약 FlexClone LUN에는 공간 예약 상위 LUN과 동일한 공간이 필요합니다. FlexClone LUN이 공간 예약되지 않은 경우 볼륨에 클론의 변경 사항을 수용할 수 있는 충분한 공간이 있어야 합니다.

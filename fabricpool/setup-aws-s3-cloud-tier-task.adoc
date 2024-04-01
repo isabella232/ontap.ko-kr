@@ -18,7 +18,7 @@ ONTAP 9.2 이상을 실행 중인 경우 Amazon S3를 FabricPool의 클라우드
 +
 ** 새로 주문한 AFF 시스템에는 FabricPool를 사용할 수 있는 10TB의 여유 용량이 제공됩니다.
 +
-AFF 시스템에서 추가 용량이 필요하거나, 비 AFF 시스템에서 Amazon S3를 사용하거나, 기존 클러스터에서 업그레이드하는 경우 FabricPool 라이센스가 필요합니다.
+AFF 시스템에서 추가 용량이 필요하거나, 비 AFF 시스템에서 Amazon S3를 사용하거나, 기존 클러스터에서 업그레이드하는 경우 가 필요합니다 link:https://docs.netapp.com/us-en/ontap/fabricpool/install-license-aws-azure-ibm-task.html["FabricPool 라이센스"].
 
 +
 기존 클러스터에 대해 FabricPool를 처음으로 주문하는 경우 가용 용량이 10TB인 FabricPool 라이센스를 사용할 수 있습니다.

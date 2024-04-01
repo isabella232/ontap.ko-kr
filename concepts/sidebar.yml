@@ -44,8 +44,6 @@ entries:
     url: "/concepts/svm-use-cases-concept.html"
   - title: 클러스터 및 SVM 관리
     url: "/concepts/cluster-svm-administrators-concept.html"
-  - title: System Manager 인사이트
-    url: "/concepts/insights-system-optimization-concept.html"
   - title: 네임스페이스 및 교차점
     url: "/concepts/namespaces-junction-points-concept.html"
 - title: 경로 페일오버

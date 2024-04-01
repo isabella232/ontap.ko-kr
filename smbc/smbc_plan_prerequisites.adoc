@@ -105,6 +105,8 @@ NOTE: 2019년 6월 이전에 ONTAP 스토리지 시스템을 구입한 경우 �
 
 
 
+SnapMirror 동기 및 SnapMirror 라이센스는 에 포함되어 있습니다 https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html#licenses-included-with-ontap-one["ONTAP 1 을 참조하십시오"].
+
 
 
 == 네트워킹 환경

@@ -1,0 +1,43 @@
+---
+permalink: insights-configure-native-fpolicy-task.html 
+sidebar: sidebar 
+keywords: system manager, fpolicy, file extensions, native, best practice, best practise, configure, disallow 
+summary: ONTAP 9.11.1부터 기본 FPolicy 구현을 제안하는 System Manager Insight를 수신하면 스토리지 VM 및 볼륨에서 구성할 수 있습니다.  
+---
+= 기본 FPolicy를 구성합니다
+:hardbreaks:
+:toclevels: 1
+:allow-uri-read: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+ONTAP 9.11.1부터 기본 FPolicy 구현을 제안하는 System Manager Insight를 수신하면 스토리지 VM 및 볼륨에서 구성할 수 있습니다.
+
+.시작하기 전에
+System Manager Insights의 * 모범 사례 적용 * 에 액세스하면 기본 FPolicy가 구성되지 않았다는 메시지가 표시될 수 있습니다.
+
+FPolicy 구성 유형에 대한 자세한 내용은 을 참조하십시오 https://docs.netapp.com/us-en/ontap/nas-audit/fpolicy-config-types-concept.html["FPolicy 구성 유형"].
+
+.단계
+. System Manager의 왼쪽 탐색 열에서 * Insights * 를 클릭합니다.
+. Apply 모범 사례 * 에서 * 기본 FPolicy가 구성되지 않음 * 을 찾습니다.
+. 조치를 취하기 전에 다음 메시지를 읽으십시오.
++
+[IMPORTANT]
+====
+* 확장 차단으로 인해 예기치 않은 결과가 발생할 수 있습니다. * ONTAP 9.11.1부터 시스템 관리자를 사용하여 스토리지 VM에 대한 기본 FPolicy를 활성화할 수 있습니다.
+FPolicy 기본 모드를 사용하면 특정 파일 확장자를 허용하거나 허용하지 않을 수 있습니다. System Manager는 과거 랜섬웨어 공격에 사용되었던 허용되지 않는 파일 확장자를 3000개 이상 권장합니다.  이러한 확장자 중 일부는 사용자 환경의 합법적인 파일에 의해 사용될 수 있으며 이러한 파일을 차단하면 예기치 않은 문제가 발생할 수 있습니다.
+
+따라서 사용자 환경의 요구에 맞게 확장 목록을 수정하는 것이 좋습니다. 을 참조하십시오 https://kb.netapp.com/onprem/ontap/da/NAS/How_to_remove_a_file_extension_from_a_native_FPolicy_configuration_created_by_System_Manager_using_System_Manager_to_recreate_the_policy["System Manager를 사용하여 System Manager에서 생성된 기본 FPolicy 구성에서 파일 확장명을 제거하여 정책을 재생성하는 방법"^].
+
+====
+. 수정 * 을 클릭합니다.
+. 기본 FPolicy를 적용할 스토리지 VM을 선택합니다.
+. 각 스토리지 VM에 대해 기본 FPolicy를 받을 볼륨을 선택합니다.
+. 구성 * 을 클릭합니다.
+

@@ -13,7 +13,7 @@ summary: 'SMB 서버에서 GPO(그룹 정책 개체)를 사용하려면 시스�
 [role="lead"]
 SMB 서버에서 GPO(그룹 정책 개체)를 사용하려면 시스템이 여러 요구 사항을 충족해야 합니다.
 
-* SMB는 클러스터에서 라이센스가 있어야 합니다.
+* SMB는 클러스터에서 라이센스가 있어야 합니다. SMB 라이센스는 에 포함되어 있습니다 link:https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html#licenses-included-with-ontap-one["ONTAP 1 을 참조하십시오"]. ONTAP One이 없고 라이선스가 설치되지 않은 경우 영업 담당자에게 문의하십시오.
 * SMB 서버는 Windows Active Directory 도메인에 구성 및 가입해야 합니다.
 * SMB 서버 관리자 상태는 켜져야 합니다.
 * GPO를 구성하고 SMB 서버 컴퓨터 개체가 포함된 Windows Active Directory OU(조직 단위)에 적용해야 합니다.

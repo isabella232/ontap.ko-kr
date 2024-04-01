@@ -21,9 +21,9 @@ ONTAP One 이전에는 VE 라이센스가 암호화 번들에 포함되어 있�
 
 
 .단계
-* link:https://docs.netapp.com/us-en/ontap/system-admin/manage-license-task.html["VE 라이센스가 설치되어 있는지 확인합니다"].
+. link:https://docs.netapp.com/us-en/ontap/system-admin/manage-license-task.html["VE 라이센스가 설치되어 있는지 확인합니다"].
 +
 VE 라이센스 패키지 이름은 입니다 `VE`.
 
-* 라이센스가 설치되지 않은 경우 link:https://docs.netapp.com/us-en/ontap/system-admin/install-license-task.html["System Manager 또는 ONTAP CLI를 사용하여 설치합니다"].
+. 라이센스가 설치되지 않은 경우 link:https://docs.netapp.com/us-en/ontap/system-admin/install-license-task.html["System Manager 또는 ONTAP CLI를 사용하여 설치합니다"].
 

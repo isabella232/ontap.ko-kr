@@ -17,7 +17,7 @@ SMB 서버에서 IPv6를 사용하려면 먼저 IPv6를 지원하는 ONTAP 및 S
 
 == ONTAP 라이센스 요구 사항
 
-SMB 라이센스가 있는 경우 IPv6에 대한 특수 라이센스가 필요하지 않습니다.
+SMB 라이센스가 있는 경우 IPv6에 대한 특수 라이센스가 필요하지 않습니다. SMB 라이센스는 에 포함되어 있습니다 link:https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html#licenses-included-with-ontap-one["ONTAP 1 을 참조하십시오"]. ONTAP One이 없고 라이선스가 설치되지 않은 경우 영업 담당자에게 문의하십시오.
 
 
 
