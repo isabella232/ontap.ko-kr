@@ -63,7 +63,7 @@ image::../media/batch_upgrade_set_4_ieops-1620.png[일괄 업그레이드 4단�
 
 
 
-| 표준 | 9.0 이상 | 단일 | xref:task_upgrade_disruptive_automated_cli.html[중단 자동화] 
+| 표준 | 9.0 이상 | 단일 | link:../system-admin/single-node-clusters.html["중단 자동화"] 
 
 
 | MetroCluster | 9.3 이상 | 8  a| 

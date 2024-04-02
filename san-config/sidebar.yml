@@ -4,23 +4,15 @@ title: SAN 구성 참조
 entries:
 - title: 개요
   url: "/san-config/index.html"
-- title: iSCSI 구성에 대한 고려 사항
+- title: iSCSI 구성
   entries:
-  - title: 개요
-    url: "/san-config/iscsi-config-concept.html"
-  - title: 단일 노드로 iSCSI SAN 호스트를 구성하는 방법
-    url: "/san-config/configure-iscsi-san-hosts-single-nodes-reference.html"
-  - title: HA 쌍으로 iSCSI SAN 호스트를 구성하는 방법
+  - title: iSCSI SAN 호스트를 구성하는 방법입니다
     url: "/san-config/configure-iscsi-san-hosts-ha-pairs-reference.html"
   - title: iSCSI 구성에서 VLAN을 사용할 때의 이점
     url: "/san-config/benefits-vlans-iscsi-concept.html"
-- title: FC 구성에 대한 고려 사항
+- title: FC 구성
   entries:
-  - title: 개요
-    url: "/san-config/fc-config-concept.html"
-  - title: 단일 노드로 FC 및 FC-NVMe SAN 호스트를 구성하는 방법
-    url: "/san-config/configure-fc-nvme-san-hosts-single-nodes-reference.html"
-  - title: FC FC-NVMe SAN 호스트를 HA 쌍으로 구성하는 방법
+  - title: FC 및 FC-NVMe SAN 호스트를 구성하는 방법
     url: "/san-config/configure-fc-nvme-hosts-ha-pairs-reference.html"
   - title: FC 스위치 구성 모범 사례
     url: "/san-config/fc-switch-config-best-practices-concept.html"

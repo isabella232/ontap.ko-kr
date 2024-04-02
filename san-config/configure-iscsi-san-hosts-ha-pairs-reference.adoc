@@ -1,33 +1,44 @@
 ---
 permalink: san-config/configure-iscsi-san-hosts-ha-pairs-reference.html 
 sidebar: sidebar 
-keywords: ways, configure, iscsi, san hosts, ha pairs 
-summary: 하나 이상의 IP 스위치를 사용하여 iSCSI SAN 호스트를 이중 노드 또는 다중 노드 구성에 연결하도록 구성할 수 있습니다. 완전히 중복되지 않는 단일 스위치 구성인지 완전히 이중화된 다중 스위치 구성인지 결정해야 합니다. 
+keywords: ways, configure, iscsi, san hosts, ha pairs, direct-attachment, single-network configuration, multi-network configuration 
+summary: 'iSCSI SAN 호스트에 직접 연결하거나 하나 이상의 IP 스위치를 통해 호스트에 연결하는 고가용성(HA) 쌍을 사용하여 iSCSI 구성을 설정해야 합니다.  ' 
 ---
-= HA 쌍으로 iSCSI SAN 호스트를 구성하는 방법
+= iSCSI SAN 호스트를 구성하는 방법입니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-하나 이상의 IP 스위치를 사용하여 iSCSI SAN 호스트를 이중 노드 또는 다중 노드 구성에 연결하도록 구성할 수 있습니다. 완전히 중복되지 않는 단일 스위치 구성인지 완전히 이중화된 다중 스위치 구성인지 결정해야 합니다.
+iSCSI SAN 호스트에 직접 연결하거나 하나 이상의 IP 스위치를 통해 호스트에 연결하는 고가용성(HA) 쌍을 사용하여 iSCSI 구성을 설정해야 합니다.
 
-직접 연결, 단일 네트워크 또는 다중 네트워크 환경에서 단일 컨트롤러와 HA 쌍으로 iSCSI SAN 호스트를 구성할 수 있습니다. HA 쌍은 각 스위치에 대해 여러 iSCSI 연결을 가질 수 있지만, ALUA를 지원하는 다중 경로 소프트웨어는 각 호스트에 필요합니다. 호스트가 여러 개인 경우 NetAppInteroperability Matrix Tool을 확인하여 다른 운영 체제로 각 호스트를 구성할 수 있습니다.
+link:../concepts/high-availability-pairs-concept.html["HA 쌍"] 는 호스트가 LUN을 액세스하는 데 사용할 Active/Optimized 및 Active/Unoptimized 경로에 대한 보고 노드로 정의됩니다. Windows, Linux 또는 UNIX와 같은 서로 다른 운영 체제를 사용하는 여러 호스트가 스토리지를 동시에 액세스할 수 있습니다.  호스트는 ALUA를 지원하는 지원되는 다중 경로 솔루션을 설치 및 구성해야 합니다. 지원되는 운영 체제 및 다중 경로 솔루션은 에서 확인할 수 있습니다 link:https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"^].
 
-https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"^]
+다중 네트워크 구성에서는 호스트를 스토리지 시스템에 연결하는 스위치가 두 개 이상 있습니다.  다중 네트워크 구성은 완전히 중복되므로 권장됩니다.  단일 네트워크 구성에는 호스트를 스토리지 시스템에 연결하는 스위치 하나가 있습니다.  단일 네트워크 구성은 완전히 중복되지 않습니다.
+
+[NOTE]
+====
+link:../system-admin/single-node-clusters.html["단일 노드 구성"] 내결함성 및 무중단 운영을 지원하는 데 필요한 이중화를 제공하지 않기 때문에 권장되지 않습니다.
+
+====
+.관련 정보
+* 자세히 알아보기 link:san-admin/selective-lun-map-concept.html#determine-whether-slm-is-enabled-on-a-lun-map["선택적 LUN 매핑(SLM)"] HA Pair가 소유한 LUN에 액세스하는 데 사용되는 경로를 제한합니다.
+* 에 대해 자세히 알아보십시오 link:../san-admin/manage-lifs-all-san-protocols-concept.html["SAN LIF"].
+* 에 대해 자세히 알아보십시오 link:/benefits-vlans-iscsi-concept.html["iSCSI에서 VLAN의 이점"].
 
 
 
-== 직접 연결
 
-직접 연결 구성에서는 하나 이상의 호스트가 컨트롤러에 직접 연결됩니다.
+== 다중 네트워크 iSCSI 구성
 
-image::../media/dual-host-dual-controller.gif[직접 첨부 파일 구성]
+다중 네트워크 HA 쌍 구성에서는 2개 이상의 스위치가 하나 이상의 호스트에 HA 쌍을 연결합니다. 스위치가 여러 개 있으므로 이 구성은 완전히 중복됩니다.
+
+image::../media/scrn-en-drw-iscsi-dual.gif[다중 네트워크 HA Pair 구성]
 
 
 
-== 단일 네트워크 HA 쌍
+== 단일 네트워크 iSCSI 구성
 
 단일 네트워크 HA Pair 구성에서 1개의 스위치는 HA 쌍을 하나 이상의 호스트에 연결합니다. 단일 스위치가 있으므로 이 구성은 완전히 중복되지 않습니다.
 
@@ -35,8 +46,8 @@ image::../media/scrn-en-drw-iscsi-single.gif[단일 네트워크 HA 쌍 구성]
 
 
 
-== 다중 네트워크 HA 쌍
+== 직접 연결 iSCSI 구성
 
-다중 네트워크 HA 쌍 구성에서는 2개 이상의 스위치가 하나 이상의 호스트에 HA 쌍을 연결합니다. 스위치가 여러 개 있으므로 이 구성은 완전히 중복됩니다.
+직접 연결 구성에서는 하나 이상의 호스트가 컨트롤러에 직접 연결됩니다.
 
-image::../media/scrn-en-drw-iscsi-dual.gif[다중 네트워크 HA Pair 구성]
+image::../media/dual-host-dual-controller.gif[직접 첨부 파일 구성]

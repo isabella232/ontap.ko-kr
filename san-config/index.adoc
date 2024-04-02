@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: san, configure, configuration, fc, iscsi, nvme, host, fcoe, topology, topologies, connect, connecting, limits 
 summary: 지원되는 FC-NVMe, FC, iSCSI 및 FCoE 토폴로지로 호스트 컴퓨터를 노드에 연결하고 SAN 구성 요소에 대해 지원되는 제한을 받습니다. 
 ---
-= SAN 구성 참조
+= SAN 구성 개요
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

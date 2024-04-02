@@ -15,10 +15,15 @@ summary: 'LIF는 SAN 호스트에 연결됩니다. 포트 세트에서 제거하
 
 HA 쌍에서 처리하는 LUN에 대한 액세스를 허용하려면 논리 인터페이스(LIF)를 사용하여 HA 쌍의 각 노드에서 하나 이상의 iSCSI 경로를 생성해야 합니다.  SAN을 지원하는 모든 SVM(스토리지 가상 머신)마다 하나의 관리 LIF를 구성해야 합니다.
 
+직접 연결 또는 이더넷 스위치 사용이 연결에 지원됩니다. 두 가지 연결 유형에 대해 LIF를 생성해야 합니다.
+
+* SAN을 지원하는 모든 SVM(스토리지 가상 머신)마다 하나의 관리 LIF를 구성해야 합니다.
 노드당 두 개의 LIF를 구성할 수 있으며, FC와 함께 사용되는 각 패브릭과 iSCSI용 이더넷 네트워크를 각각 하나씩 구성할 수 있습니다.
+
 
 LIF를 생성한 후 포트 세트에서 제거하고 SVM(스토리지 가상 머신) 내의 다른 노드로 이동한 후 삭제할 수 있습니다.
 
 .관련 정보
-link:../networking/configure_lifs_@cluster_administrators_only@_overview.html#lif-failover-and-giveback["LIF over veiw를 구성합니다"]
-link:../networking/create_a_lif.html["LIF를 생성합니다"]
+* link:../networking/configure_lifs_@cluster_administrators_only@_overview.html#lif-failover-and-giveback["LIF over veiw를 구성합니다"]
+* link:../networking/create_a_lif.html["LIF를 생성합니다"]
+

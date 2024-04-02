@@ -96,6 +96,8 @@ entries:
     url: "/system-admin/modify-node-attributes-task.html"
   - title: 노드 이름을 바꿉니다
     url: "/system-admin/rename-node-task.html"
+  - title: 단일 노드 클러스터를 관리합니다
+    url: "/system-admin/single-node-clusters.html"
 - title: SP/BMC 네트워크를 구성합니다
   entries:
   - title: 관리 네트워크 트래픽을 격리합니다
