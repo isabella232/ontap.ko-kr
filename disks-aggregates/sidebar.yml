@@ -88,7 +88,7 @@ entries:
       url: "/disks-aggregates/display-partition-ownership-task.html"
     - title: 디스크 소유권에 대한 자동 할당 설정을 변경합니다
       url: "/disks-aggregates/configure-auto-assignment-disk-ownership-task.html"
-    - title: 디스크 소유권을 수동으로 할당합니다
+    - title: 분할되지 않은 디스크의 소유권을 수동으로 할당합니다
       url: "/disks-aggregates/manual-assign-disks-ownership-manage-task.html"
     - title: 분할된 디스크의 소유권을 수동으로 할당합니다
       url: "/disks-aggregates/manual-assign-ownership-partitioned-disks-task.html"

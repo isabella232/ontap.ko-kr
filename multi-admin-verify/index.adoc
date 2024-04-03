@@ -138,9 +138,9 @@ ONTAP 9.13.1부터 다음 명령을 보호할 수 있습니다.
 
 ONTAP 9.14.1부터 다음 명령을 보호할 수 있습니다.
 
-* `volume recovery-query modify`
-* `volume recovery-query purge`
-* `volume recovery-query purge-all`
+* `volume recovery-queue modify`
+* `volume recovery-queue purge`
+* `volume recovery-queue purge-all`
 * `vserver modify`
 
 

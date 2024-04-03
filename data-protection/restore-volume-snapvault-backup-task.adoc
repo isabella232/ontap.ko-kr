@@ -35,7 +35,7 @@ SnapMirror 타겟 볼륨의 스냅샷 복사본에서 전체 볼륨의 콘텐츠
 .단계
 . 타겟 볼륨의 스냅샷 복사본을 나열합니다.
 +
-'volume snapshot show -vserver_SVM_-volume_volume_'
+`volume snapshot show -vserver <SVM> -volume <volume>`
 
 +
 전체 명령 구문은 man 페이지를 참조하십시오.
@@ -63,7 +63,7 @@ vserverB    secondary1  hourly.2013-01-25_0005  valid   224KB     0%    0%
 ----
 . SnapMirror 타겟 볼륨의 스냅샷 복사본에서 볼륨 콘텐츠를 복원합니다.
 +
-'스냅샷 복구 - 소스 경로 - SVM: volume_|_cluster://SVM/volume_,... -destination-path_SVM:volume_|_cluster://SVM/volume_,... source-snapshot_snapshot_'을 선택합니다
+`snapmirror restore -source-path <SVM:volume>|<cluster://SVM/volume> -destination-path <SVM:volume>|<cluster://SVM/volume> -source-snapshot <snapshot>`
 
 +
 전체 명령 구문은 man 페이지를 참조하십시오.
@@ -71,7 +71,7 @@ vserverB    secondary1  hourly.2013-01-25_0005  valid   224KB     0%    0%
 +
 [NOTE]
 ====
-이 명령은 타겟 SVM 또는 타겟 클러스터에서 실행해야 합니다.
+이 명령은 원래 소스 SVM 또는 원래 소스 클러스터에서 실행해야 합니다.
 
 ====
 +
@@ -80,7 +80,7 @@ vserverB    secondary1  hourly.2013-01-25_0005  valid   224KB     0%    0%
 +
 [listing]
 ----
-cluster_dst::> snapmirror restore -source-path vserverB:secondary1 -destination-path vserverA:primary1 -source-snapshot daily.2013-01-25_0010
+cluster_src::> snapmirror restore -source-path vserverB:secondary1 -destination-path vserverA:primary1 -source-snapshot daily.2013-01-25_0010
 
 Warning: All data newer than Snapshot copy daily.2013-01-25_0010 on volume vserverA:primary1 will be deleted.
 
