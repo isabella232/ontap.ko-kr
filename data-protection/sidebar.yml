@@ -2,8 +2,6 @@
 section: data-protection
 title: CLI를 통한 데이터 보호
 entries:
-- title: 개요
-  url: "/data-protection/index.html"
 - title: 로컬 Snapshot 복사본 관리
   entries:
   - title: 개요
