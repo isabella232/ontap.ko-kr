@@ -51,31 +51,8 @@ vserver services name-service dns create -vserver <vs1.example.com> -domains <ex
 
 NOTE: vserver services name-service dns create 명령은 자동 구성 검증을 수행하고 ONTAP가 이름 서버에 연결할 수 없는 경우 오류 메시지를 보고합니다.
 
-. SVM이 소유하는 LIF에서 DNS 설정:
-+
-|===
 
 
-| 있는 경우 | 다음 명령을 사용합니다. 
-
-
- a| 
-기존 LIF 존-이름을 수정합니다
- a| 
-네트워크 인터페이스 수정-lif lifname-dns-zone
-
-
-
- a| 
-새 LIF 존 이름을 생성합니다
- a| 
-네트워크 인터페이스 create-lif lifname-dns-zone
-
-|===
-+
-....
-vserver services name-service dns create -vserver <vs1> -domains <example.com> -name-servers <192.0.2.201, 192.0.2.202> -state <enabled> network interface modify -lif <datalif1> -dns-zone <zonename.whatever.com>
-....
 . 'vserver services name-service dns check' 명령어를 이용하여 이름 서버의 상태를 확인한다.
 +
 ....
@@ -86,6 +63,8 @@ vs1.example.com   10.0.0.50  up        Response time (msec): 2
 vs1.example.com   10.0.0.51  up        Response time (msec): 2
 ....
 
+
+DNS와 관련된 서비스 정책에 대한 자세한 내용은 를 참조하십시오 link:lifs_and_service_policies96.html["ONTAP 9.6 이상의 LIF 및 서비스 정책"].
 
 
 
