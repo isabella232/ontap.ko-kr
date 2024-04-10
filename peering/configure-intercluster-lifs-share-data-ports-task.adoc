@@ -43,7 +43,7 @@ cluster01-02
        e0c       Default      Default          up     1500   auto/1000
        e0d       Default      Default          up     1500   auto/1000
 ----
-. 시스템 SVM에 대한 인터클러스터 LIF 생성:
+. 관리자 SVM(기본 IPspace) 또는 시스템 SVM(사용자 지정 IPspace)에 대한 인터클러스터 LIF를 생성합니다.
 +
 |===
 | 옵션을 선택합니다 | 설명 

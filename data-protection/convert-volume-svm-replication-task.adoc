@@ -19,7 +19,7 @@ summary: '소스의 각 볼륨(루트 볼륨 제외)이 복제되고 있는 경�
 .단계
 . 타겟 SVM 또는 타겟 클러스터에서 소스 볼륨과 타겟 볼륨을 다시 동기화하려면 다음 명령을 실행합니다.
 +
-'sapmirror resync-source-path_SVM:volume_-destination-path_SVM:volume_-type DP|XDP-schedule_schedule_-policy_policy_'
+`snapmirror resync -source-path _SVM:volume_ -destination-path _SVM:volume_ -type DP|XDP -policy _policy_`
 
 +
 전체 명령 구문은 man 페이지를 참조하십시오.

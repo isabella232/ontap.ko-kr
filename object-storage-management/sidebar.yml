@@ -3,7 +3,7 @@ section: object-storage-management
 title: S3 오브젝트 스토리지 관리
 url: "/object-storage-management/index.html"
 entries:
-- title: ONTAP 9의 ONTAP S3 지원에 대해 알아보십시오
+- title: ONTAP 9의 S3 지원에 대해 알아보십시오
   entries:
   - title: 개요
     url: "/s3-config/index.html"
