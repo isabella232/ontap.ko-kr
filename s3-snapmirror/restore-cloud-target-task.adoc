@@ -54,19 +54,17 @@ summary: 소스 버킷의 데이터가 손실되거나 손상된 경우 대상 �
 
 
 --
-== CLI 절차
+.CLI 절차
+--
 . 복원할 새 대상 버킷을 생성합니다. 자세한 내용은 을 참조하십시오 link:create-cloud-backup-new-bucket-task.html["버킷에 대한 백업 관계 생성(클라우드 타겟)"].
-.	대상 버킷에 대한 복구 작업을 시작합니다.
+. 대상 버킷에 대한 복구 작업을 시작합니다.
 `snapmirror restore -source-path _object_store_name_:/objstore -destination-path _svm_name_:/bucket/_bucket_name_`
-
-를 누릅니다
-예
-
-를 누릅니다
++
+.예
 다음 예에서는 대상 버킷을 기존 버킷으로 복원합니다.
 `clusterA::> snapmirror restore -source-path sgws.store:/objstore -destination-path vs0:/bucket/test-bucket`
 
---
+
 
 --
 ====

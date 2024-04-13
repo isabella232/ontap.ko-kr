@@ -46,8 +46,3 @@ ONTAP 9.10.1부터 X1151A 클러스터 NIC와 함께 사용할 경우 특정 하
 | ONTAP 9.13.1 이상 
 |===
 적절한 스토리지 시스템 설정을 고려했을 때 RDMA 인터커넥트를 사용하기 위해 추가 구성이 필요하지 않습니다.
-
-.추가 정보
-* xref:../nfs-rdma/index.html[RDMA 상의 NFS]
-* link:https://docs.netapp.com/us-en/e-series/config-linux/nvme-roce-configure-storage-connections-task.html["스토리지 어레이 NVMe over RoCE 연결을 구성합니다"^]
-

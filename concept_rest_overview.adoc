@@ -56,7 +56,7 @@ API 호출은 ONTAP 리소스를 System Manager UI에서 추가, 수정 또는 �
 
 
 
-== 자세한 정보
+== 추가 정보
 
 * link:https://docs.netapp.com/us-en/ontap-automation/["ONTAP 9 자동화 문서"^]
 

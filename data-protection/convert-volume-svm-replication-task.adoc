@@ -59,7 +59,7 @@ cluster_dst::> vserver stop svm_backup
 ----
 . 타겟 SVM 또는 타겟 클러스터에서 다음 명령을 실행하여 소스 및 타겟 SVM을 다시 동기화하십시오.
 +
-'s냅미러 재동기화-source-path_SVM_:-destination-path_SVM_:-type DP|XDP-schedule_schedule_-policy_policy_'
+`snapmirror resync -source-path _SVM_: -destination-path _SVM_: -type DP|XDP -policy _policy_`
 
 +
 전체 명령 구문은 man 페이지를 참조하십시오.

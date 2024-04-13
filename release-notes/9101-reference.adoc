@@ -82,18 +82,18 @@ MetroCluster 구성에 대한 플랫폼 및 스위치 구성 개선 사항에 �
 | xref:../concepts/rdma-concept.html[RDMA 클러스터 상호 연결] | A400 또는 ASA A400 스토리지 시스템과 X1151A 클러스터 NIC를 사용하면 클러스터 내부 트래픽에 RDMA를 활용하여 다중 노드 클러스터에서 고성능 워크로드를 가속화할 수 있습니다 
 
 
-| xref:../networking/network_features_by_release.html[시스템 SVM에서 LIF의 상태 admin을 DOWN으로 설정하기 전에 확인이 필요합니다]  a| 
-따라서 올바른 클러스터 작업에 중요한 LIF가 실수로 삭제되는 일이 방지됩니다. CLI에서 이 동작을 호출하는 스크립트가 있는 경우, 확인 단계를 고려하도록 업데이트해야 합니다.
+| 시스템 SVM에서 LIF의 상태 admin을 DOWN으로 설정하기 전에 확인이 필요합니다  a| 
+이렇게 하면 적절한 클러스터 작업에 중요한 LIF를 실수로 사용할 수 없게 됩니다. CLI에서 이 동작을 호출하는 스크립트가 있는 경우 확인 단계를 고려하여 업데이트해야 합니다.
 
 
 
-| xref:../networking/network_features_by_release.html[네트워크 배선 문제에 대한 자동 감지 및 수리 권장 사항] | 포트 연결성 문제가 감지되면 ONTAP System Manager는 문제를 해결하기 위해 복구 작업을 권장합니다. 
+| xref:../networking/auto-detect-wiring-issues-task.html[네트워크 배선 문제에 대한 자동 감지 및 수리 권장 사항] | 포트 연결성 문제가 감지되면 ONTAP System Manager는 문제를 해결하기 위해 복구 작업을 권장합니다. 
 
 
-| xref:../networking/network_features_by_release.html[IPsec(인터넷 프로토콜 보안) 인증서] | IPsec 정책은 인증을 위한 인증서와 함께 미리 공유된 키(PSK)를 지원합니다. 
+| xref:../networking/configure_ip_security_@ipsec@_over_wire_encryption.html[IPsec(인터넷 프로토콜 보안) 인증서] | IPsec 정책은 인증을 위한 인증서와 함께 미리 공유된 키(PSK)를 지원합니다. 
 
 
-| xref:../networking/network_features_by_release.html[LIF 서비스 정책] | 방화벽 정책은 더 이상 사용되지 않으며 LIF 서비스 정책으로 대체됩니다. 아웃바운드 NTP 요청에 사용되는 LIF를 보다 효과적으로 제어할 수 있도록 새로운 NTP LIF 서비스 정책이 추가되었습니다. 
+| xref:../networking/lifs_and_service_policies96.html[LIF 서비스 정책] | 방화벽 정책은 더 이상 사용되지 않으며 LIF 서비스 정책으로 대체됩니다. 아웃바운드 NTP 요청에 사용되는 LIF를 보다 효과적으로 제어할 수 있도록 새로운 NTP LIF 서비스 정책이 추가되었습니다. 
 |===
 
 

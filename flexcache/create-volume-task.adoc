@@ -55,8 +55,8 @@ Storage VM Peers 아래에서 를 클릭합니다 image:icon_kabob.gif["메뉴 �
 . 추가 * 를 선택합니다.
 . More Options * 를 선택한 다음 * Add as cache for a remote volume * 를 선택합니다.
 +
-.. ONTAP 9.8 이상을 실행하고 있고 QoS를 비활성화하거나 사용자 지정 QoS 정책을 선택하려면 * 추가 옵션 * 을 클릭한 다음 * 스토리지 및 최적화 * 에서 * 성능 서비스 수준 * 을 선택합니다.
 
+NOTE: ONTAP 9.8 이상을 실행 중인 경우 QoS를 비활성화하거나 사용자 지정 QoS 정책을 선택하려면 * 추가 옵션 * 을 클릭한 다음 * 스토리지 및 최적화 * 에서 * 성능 서비스 수준 * 을 선택합니다.
 
 
 

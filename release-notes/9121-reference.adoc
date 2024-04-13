@@ -257,7 +257,7 @@ ONTAP 9.12.1부터 System Manager는 BlueXP와 통합됩니다. BlueXP를 사용
 | xref:../system-admin/configure-saml-authentication-task.html[System Manager에 로그인할 때 Cisco Duo를 통해 다단계 인증을 지원합니다] | Cisco Duo를 SAML ID 공급자(IDP)로 구성하여 사용자가 System Manager에 로그인할 때 Cisco Duo를 사용하여 인증할 수 있습니다. 
 
 
-| xref:../networking/network_features_by_release.html[System Manager 네트워킹 개선 사항] | System Manager는 네트워크 인터페이스를 생성하는 동안 서브넷 및 홈 포트 선택에 대한 제어 기능을 제공합니다. System Manager는 RDMA 연결을 통한 NFS 구성도 지원합니다. 
+| xref:../nfs-rdma/index.html[System Manager 네트워킹 개선 사항] | System Manager는 네트워크 인터페이스를 생성하는 동안 서브넷 및 홈 포트 선택에 대한 제어 기능을 제공합니다. System Manager는 RDMA 연결을 통한 NFS 구성도 지원합니다. 
 
 
 | xref:../system-admin/access-cluster-system-manager-browser-task.html[시스템 표시 테마] | System Manager 사용자는 System Manager 인터페이스 표시에 사용할 밝은 또는 어두운 테마를 선택할 수 있습니다. 또한 운영 체제 또는 브라우저에 사용되는 테마를 기본값으로 선택할 수도 있습니다. 이 기능을 통해 사용자는 디스플레이를 보다 편안하게 읽을 수 있는 설정을 지정할 수 있습니다. 

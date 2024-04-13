@@ -7,10 +7,6 @@ entries:
   entries:
   - title: 개요
     url: "/networking/networking_reference.html"
-- title: 업그레이드 고려 사항
-  entries:
-  - title: 릴리스별 네트워크 기능
-    url: "/networking/network_features_by_release.html"
   - title: ONTAP 9.7x 이하에서 ONTAP를 업그레이드한 후 네트워킹 구성을 확인합니다
     url: "/networking/verify_your_network_configuration.html"
 - title: 네트워킹 구성 요소
