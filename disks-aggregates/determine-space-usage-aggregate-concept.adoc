@@ -67,6 +67,6 @@ cluster1::> storage aggregate show-space
       Total Physical Used                    34.82KB         0%
 ....
 .관련 정보
-* link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Space_Usage["Knowledge Base 문서: 공간 사용"]
-* link:https://www.netapp.com/blog/free-up-storage-capacity-upgrade-ontap/["ONTAP 9.12.1로 업그레이드하여 스토리지 용량의 5%를 확보하십시오"]
+* link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Space_Usage["Knowledge Base 문서: 공간 사용"^]
+* link:https://www.netapp.com/blog/free-up-storage-capacity-upgrade-ontap/["ONTAP 9.12.1로 업그레이드하여 스토리지 용량의 5%를 확보하십시오"^]
 

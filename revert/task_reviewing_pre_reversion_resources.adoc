@@ -26,7 +26,7 @@ https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"^]
 NX-OS(클러스터 네트워크 스위치), IOS(관리 네트워크 스위치) 및 참조 구성 파일(RCF) 소프트웨어 버전이 되돌리려고 하는 ONTAP 버전과 호환되는지 확인해야 합니다.
 
 +
-http://mysupport.netapp.com/NOW/download/software/cm_switches/["NetApp 다운로드: Cisco 이더넷 스위치"]
+https://mysupport.netapp.com/site/downloads["NetApp 다운로드: Cisco 이더넷 스위치"]
 
 . 클러스터가 SAN용으로 구성된 경우 SAN 구성이 완전히 지원되는지 확인합니다.
 +

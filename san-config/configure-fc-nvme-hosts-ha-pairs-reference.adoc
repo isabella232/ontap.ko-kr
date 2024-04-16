@@ -45,6 +45,6 @@ link:../system-admin/single-node-clusters.html["단일 노드 구성"] 내결함
 
 ====
 .관련 정보
-* 자세히 알아보기 link:san-admin/selective-lun-map-concept.html#determine-whether-slm-is-enabled-on-a-lun-map["선택적 LUN 매핑(SLM)"] HA Pair가 소유한 LUN에 액세스하는 데 사용되는 경로를 제한합니다.
+* 자세히 알아보기 link:../san-admin/selective-lun-map-concept.html#determine-whether-slm-is-enabled-on-a-lun-map["선택적 LUN 매핑(SLM)"] HA Pair가 소유한 LUN에 액세스하는 데 사용되는 경로를 제한합니다.
 * 에 대해 자세히 알아보십시오 link:../san-admin/manage-lifs-all-san-protocols-concept.html["SAN LIF"].
 

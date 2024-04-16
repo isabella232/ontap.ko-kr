@@ -38,27 +38,28 @@ SVM에서 DNS를 사용하도록 설정하려면 'vserver services name-service 
 . SVM에서 DNS 활성화:
 +
 ....
-vserver services name-service dns create -vserver vserver_name -domains domain_name - name-servers ip_addresses -state enabled
+vserver services name-service dns create -vserver <vserver_name> -domains <domain_name> -name-servers <ip_addresses> -state enabled
 ....
 +
 다음 명령을 실행하면 SVM VS1 에서 외부 DNS 서버 서버가 활성화됩니다.
 
 +
 ....
-vserver services name-service dns create -vserver <vs1.example.com> -domains <example.com> -name-servers <192.0.2.201,192.0.2.202> -state <enabled>
+vserver services name-service dns create -vserver vs1.example.com -domains example.com -name-servers 192.0.2.201,192.0.2.202 -state enabled
 ....
 +
 
-NOTE: vserver services name-service dns create 명령은 자동 구성 검증을 수행하고 ONTAP가 이름 서버에 연결할 수 없는 경우 오류 메시지를 보고합니다.
+NOTE: 를 클릭합니다 `vserver services name-service dns create` Command는 자동 구성 유효성 검사를 수행하고 ONTAP에서 이름 서버에 연결할 수 없는 경우 오류 메시지를 보고합니다.
 
 . 'vserver services name-service dns check' 명령어를 이용하여 이름 서버의 상태를 확인한다.
 +
 ....
 vserver services name-service dns check -vserver vs1.example.com
-VserverName       Server     Status    Status Details
-----------------  ---------- -------   --------------------------
-vs1.example.com   10.0.0.50  up        Response time (msec): 2
-vs1.example.com   10.0.0.51  up        Response time (msec): 2
+                                    Name Server
+Vserver             Name Server     Status       Status Details
+-------------       --------------- ------------ --------------------------
+vs1.example.com     10.0.0.50       up           Response time (msec): 2
+vs1.example.com     10.0.0.51       up           Response time (msec): 2
 ....
 
 
@@ -77,18 +78,18 @@ ONTAP가 로컬 또는 외부 이름 서비스에 문의하여 호스트 정보�
 . 이름 서비스 스위치 테이블에 필요한 항목을 추가합니다.
 +
 ....
-vserver services name-service <ns-switch> create -vserver <vserver_name> -database <database_name> -source <source_names>
+vserver services name-service ns-switch modify -vserver <vserver_name> -database <database_name> -source <source_names>
 ....
 . 이름 서비스 스위치 테이블에 원하는 순서대로 필요한 항목이 포함되어 있는지 확인합니다.
 +
 ....
-vserver services name-service <ns-switch> show -vserver <vserver_name>
+vserver services name-service ns-switch show -vserver <vserver_name>
 ....
 
 
 .예
-다음 예에서는 SVM VS1 에서 먼저 로컬 호스트 파일을 사용하도록 이름 서비스 스위치 테이블에 항목을 생성한 다음 외부 DNS 서버를 사용하여 호스트 이름을 확인합니다.
+다음 예에서는 SVM VS1에 대한 이름 서비스 스위치 테이블의 항목을 수정하여 먼저 로컬 호스트 파일을 사용한 다음 외부 DNS 서버를 사용하여 호스트 이름을 확인합니다.
 
 ....
-vserver services name-service ns-switch create -vserver vs1 -database hosts -sources files dns
+vserver services name-service ns-switch modify -vserver vs1 -database hosts -sources files,dns
 ....

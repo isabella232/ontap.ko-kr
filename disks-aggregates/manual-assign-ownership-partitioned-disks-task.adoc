@@ -172,7 +172,7 @@ HA Pair 초기화(부팅) 후 디스크 소유권 자동 할당이 자동으로 
 다음 그림에서는 DS460C 드로어의 드라이브 베이 번호 및 위치를 보여 줍니다.
 
 +
-image::../media/dwg_trafford_drawer_with_hdds_callouts.gif[HDD 속성 표시기가 있는 DWG Trafford 서랍]
+image::../media/dwg_trafford_drawer_with_hdds_callouts.gif[이 그림에서는 DS460C 드로어의 드라이브 베이 번호 및 위치를 보여 줍니다]
 
 
 
