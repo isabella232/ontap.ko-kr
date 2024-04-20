@@ -13,7 +13,7 @@ summary: 노드에서 NVMe 프로토콜을 사용하려면 NVMe용으로 특수 
 [role="lead"]
 노드에서 NVMe 프로토콜을 사용하려면 NVMe용으로 특수 SVM을 구성해야 합니다.
 
-.필요한 것
+.시작하기 전에
 FC 또는 이더넷 어댑터는 NVMe를 지원해야 합니다. 지원되는 어댑터가 에 나열되어 있습니다 https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"^].
 
 .단계
@@ -146,7 +146,7 @@ network interface create -vserver <SVM_name> -lif <lif_name> -role data -data-pr
 +
 [source, cli]
 ----
-network interface create -vserver <SVM_name> -lif <lif_name> -service-policy <default-data-nvme-tcp | default-data-nvme-fc> -home-node <home_node> -home-port <home_port> -status-admin up -failover-policy disabled -firewall-policy data -auto-revert false -failover-group <failover_group> -is-dns-update-enabled false
+network interface create -vserver <SVM_name> -lif <lif_name> -service-policy <default-data-nvme-tcp | default-data-nvme-fc> -data-protocol <fcp | fc-nvme | nvme-tcp> -home-node <home_node> -home-port <home_port> -status-admin up -failover-policy disabled -firewall-policy data -auto-revert false -failover-group <failover_group> -is-dns-update-enabled false
 ----
 
 
