@@ -16,6 +16,6 @@ SMTape 백업 또는 복원 작업을 수행하기 전에 이러한 작업이 �
 SMTape 백업 또는 복원 작업이 실행 중이고 '-override-vetoes' 옵션이 'false'로 설정되어 있으면 사용자 시작 스토리지 페일오버 또는 ARL 작업이 중지되고 백업 또는 복원 작업이 완료됩니다. 백업 애플리케이션이 CAB 확장을 지원하는 경우 백업 정책을 재구성하지 않고 증분 SMTape 백업 및 복원 작업을 계속 수행할 수 있습니다. 그러나 '–override-vetoes' 옵션이 "true"로 설정되어 있으면 스토리지 페일오버 또는 ARL 작업이 계속되고 SMTape 백업 또는 복원 작업이 중단됩니다.
 
 .관련 정보
-link:../networking/index.html["네트워크 관리"]
+link:../networking/networking_reference.html["네트워크 관리"]
 
 https://docs.netapp.com/us-en/ontap/high-availability/index.html["고가용성"]

@@ -16,6 +16,10 @@ entries:
       url: "/data-protection/create-snapshot-job-schedule-task.html"
     - title: 스냅샷 정책을 생성합니다
       url: "/data-protection/create-snapshot-policy-task.html"
+  - title: 수동으로 스냅샷 복사본을 관리합니다
+    entries:
+    - title: 수동으로 스냅샷 복사본 생성 및 삭제
+      url: "/data-protection/create-delete-snapshot-manually-task.html"
   - title: 스냅샷 복사본 예약 공간을 관리합니다
     entries:
     - title: 개요

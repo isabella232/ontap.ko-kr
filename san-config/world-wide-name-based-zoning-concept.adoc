@@ -17,4 +17,4 @@ WWPN 조닝을 사용하면 디바이스가 Fabric에 물리적으로 연결된 
 
 ONTAP를 실행하는 스토리지 컨트롤러에 대한 파이버 채널 경로의 경우 FC 스위치가 노드의 물리적 포트 WWPN이 아니라 타겟 논리 인터페이스(LIF)의 WWPN을 사용하여 조닝(zoning)되는지 확인합니다. LIF에 대한 자세한 내용은 _ONTAP 네트워크 관리 가이드_를 참조하십시오.
 
-link:../networking/index.html["네트워크 관리"]
+link:../networking/networking_reference.html["네트워크 관리"]

@@ -94,6 +94,6 @@ Mac OS X 클라이언트는 Microsoft의 DFS(Distributed File System)를 지원�
 .관련 정보
 xref:dynamic-home-directories-concept.html[ONTAP에서 동적 홈 디렉터리를 활성화하는 방법]
 
-link:../networking/index.html["네트워크 관리"]
+link:../networking/networking_reference.html["네트워크 관리"]
 
 https://mysupport.netapp.com/NOW/products/interoperability["NetApp 상호 운용성 매트릭스 툴"^]
