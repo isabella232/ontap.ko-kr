@@ -30,7 +30,7 @@ summary: 단일 패브릭 구성에서는 각 호스트 이니시에이터를 �
 
 구성에 더 많은 노드가 포함된 경우 추가 노드의 LIF가 이 영역에 포함됩니다.
 
-image::../media/scm-en-drw-single-fabric-zoning.gif[단일 패브릭 조닝]
+image::../media/scm-en-drw-single-fabric-zoning.png[단일 패브릭 조닝]
 
 이 예제에서는 각 영역에 4개의 LIF를 모두 가질 수도 있습니다. 이 경우 영역은 다음과 같습니다.
 

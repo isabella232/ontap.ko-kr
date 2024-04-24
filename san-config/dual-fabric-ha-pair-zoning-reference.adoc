@@ -32,7 +32,7 @@ summary: 이중 패브릭 구성에서는 각 호스트 이니시에이터를 �
 
 구성에 더 많은 노드가 포함된 경우 추가 노드의 LIF가 이 영역에 포함됩니다.
 
-image::../media/scm-en-drw-dual-fabric-zoning.gif[듀얼 패브릭 조닝]
+image::../media/scm-en-drw-dual-fabric-zoning.png[듀얼 패브릭 조닝]
 
 [NOTE]
 ====

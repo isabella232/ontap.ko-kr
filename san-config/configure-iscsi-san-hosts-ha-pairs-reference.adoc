@@ -34,7 +34,7 @@ link:../system-admin/single-node-clusters.html["단일 노드 구성"] 내결함
 
 다중 네트워크 HA 쌍 구성에서는 2개 이상의 스위치가 하나 이상의 호스트에 HA 쌍을 연결합니다. 스위치가 여러 개 있으므로 이 구성은 완전히 중복됩니다.
 
-image::../media/scrn-en-drw-iscsi-dual.gif[다중 네트워크 HA Pair 구성]
+image::../media/scrn-en-drw-iscsi-dual.png[다중 네트워크 HA Pair 구성]
 
 
 
@@ -42,7 +42,7 @@ image::../media/scrn-en-drw-iscsi-dual.gif[다중 네트워크 HA Pair 구성]
 
 단일 네트워크 HA Pair 구성에서 1개의 스위치는 HA 쌍을 하나 이상의 호스트에 연결합니다. 단일 스위치가 있으므로 이 구성은 완전히 중복되지 않습니다.
 
-image::../media/scrn-en-drw-iscsi-single.gif[단일 네트워크 HA 쌍 구성]
+image::../media/scrn-en-drw-iscsi-single.png[단일 네트워크 HA 쌍 구성]
 
 
 
@@ -50,4 +50,4 @@ image::../media/scrn-en-drw-iscsi-single.gif[단일 네트워크 HA 쌍 구성]
 
 직접 연결 구성에서는 하나 이상의 호스트가 컨트롤러에 직접 연결됩니다.
 
-image::../media/dual-host-dual-controller.gif[직접 첨부 파일 구성]
+image::../media/dual-host-dual-controller.png[직접 첨부 파일 구성]
