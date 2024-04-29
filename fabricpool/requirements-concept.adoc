@@ -2,7 +2,7 @@
 permalink: fabricpool/requirements-concept.html 
 sidebar: sidebar 
 keywords: considerations, requirements, using, fabricpool 
-summary: FabricPool 사용에 관한 몇 가지 고려 사항 및 요구 사항을 숙지해야 합니다. 
+summary: FabricPool 구성을 최적화하려면 FabricPool 사용에 대한 몇 가지 고려 사항과 요구 사항을 숙지해야 합니다. 
 ---
 = FabricPool 사용에 대한 고려 사항 및 요구 사항
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: FabricPool 사용에 관한 몇 가지 고려 사항 및 요구 사항�
 
 
 [role="lead"]
-FabricPool 사용에 관한 몇 가지 고려 사항 및 요구 사항을 숙지해야 합니다.
+FabricPool 구성을 최적화하려면 FabricPool 사용에 대한 몇 가지 고려 사항과 요구 사항을 숙지해야 합니다.
 
 
 
@@ -137,6 +137,17 @@ SSD와 HDD를 모두 포함하는 Flash Pool 애그리게이트는 사용할 수
 http://www.netapp.com/us/media/tr-4598.pdf["NetApp 기술 보고서 4598: ONTAP 9의 FabricPool 모범 사례"^]
 
 
+
+
+
+== StorageGRID 정합성 보장 제어 사용 시 추가 고려 사항
+
+StorageGRID의 일관성 제어는 StorageGRID이 오브젝트를 추적하는 데 사용하는 메타데이터의 방식에 영향을 줍니다
+노드 간에 분산되고 클라이언트 요청에 대해 개체의 가용성이 보장됩니다. NetApp에서는 을 사용할 것을 권장합니다
+FabricPool 타겟으로 사용되는 버킷에 대한 새로운 쓰기 후 읽기, 정합성 보장 기본 제어
+
+
+NOTE: FabricPool 대상으로 사용되는 버킷에 대해 사용 가능한 정합성 보장 제어를 사용하지 마십시오.
 
 
 
