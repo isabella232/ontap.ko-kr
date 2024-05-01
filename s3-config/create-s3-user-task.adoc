@@ -1,8 +1,8 @@
 ---
 permalink: s3-config/create-s3-user-task.html 
 sidebar: sidebar 
-keywords: create, s3, user 
-summary: 권한이 있는 클라이언트로의 연결을 제한하려면 모든 ONTAP 개체 저장소에 사용자 권한이 필요합니다. 
+keywords: ontap, s3, user, authorization, auth 
+summary: 특정 권한 및 액세스 기간을 사용하여 S3 사용자를 생성합니다. 
 ---
 = S3 사용자를 생성합니다
 :hardbreaks:
@@ -12,13 +12,13 @@ summary: 권한이 있는 클라이언트로의 연결을 제한하려면 모든
 
 
 [role="lead"]
-모든 ONTAP 개체 저장소에서 인증된 클라이언트로의 연결을 제한하려면 사용자 인증이 필요합니다.
+특정 권한을 가진 S3 사용자를 생성합니다. 모든 ONTAP 개체 저장소에서 인증된 클라이언트로의 연결을 제한하려면 사용자 인증이 필요합니다.
 
 .시작하기 전에.
 S3 지원 스토리지 VM이 이미 존재해야 합니다.
 
 .이 작업에 대해
-S3 사용자에게 스토리지 VM의 모든 버킷에 대한 액세스 권한을 부여할 수 있습니다. S3 사용자를 생성할 때 사용자에 대한 액세스 키와 비밀 키도 생성됩니다. 객체 저장소 및 버킷 이름의 FQDN과 함께 사용자와 공유해야 합니다. S3 사용자의 키는 에서 볼 수 있습니다 `vserver object-store-server user show` 명령.
+S3 사용자에게 스토리지 VM의 모든 버킷에 대한 액세스 권한을 부여할 수 있습니다. S3 사용자를 생성할 때 사용자에 대한 액세스 키와 비밀 키도 생성됩니다. 객체 저장소 및 버킷 이름의 FQDN과 함께 사용자와 공유해야 합니다. 를 사용하여 S3 사용자의 액세스 키를 봅니다 `vserver object-store-server user show` 명령.
 
 버킷 정책 또는 오브젝트 서버 정책에서 S3 사용자에게 특정 액세스 권한을 부여할 수 있습니다.
 
