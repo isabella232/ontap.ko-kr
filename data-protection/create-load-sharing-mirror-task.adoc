@@ -27,9 +27,6 @@ HA Pair의 두 노드에 장애가 발생합니다. 로드 공유 미러는 단�
 .단계
 . LSM의 대상 볼륨을 생성한다.
 +
-이 명령을 실행하기 전에 꺾쇠 괄호 안의 변수를 필수 값으로 바꾸어야 합니다.
-
-+
 [source, cli]
 ----
 volume create -vserver <SVM> -volume <volume> -aggregate <aggregate> -type DP -size <size>
@@ -54,9 +51,6 @@ cluster_src:> volume create -vserver svm1 -volume svm1_m1 -aggregate aggr_1 -siz
 . link:create-replication-job-schedule-task.html["복제 작업 일정을 생성합니다"].
 . SVM 루트 볼륨과 LSM의 대상 볼륨 간에 로드 공유 미러 관계를 생성합니다.
 +
-이 명령을 실행하기 전에 꺾쇠 괄호 안의 변수를 필수 값으로 바꾸어야 합니다.
-
-+
 [source, cli]
 ----
 snapmirror create -source-path <SVM:volume> -destination-path <SVM:volume> -type LS -schedule <schedule>
@@ -77,16 +71,10 @@ cluster_src::> snapmirror create -source-path svm1:svm1_root -destination-path s
 
 . 로드 공유 미러 초기화:
 +
-이 명령을 실행하기 전에 꺾쇠 괄호 안의 변수를 필수 값으로 바꾸어야 합니다.
-
-+
 [source, cli]
 ----
 snapmirror initialize-ls-set -source-path <SVM:volume>
 ----
-+
-초기화에는 시간이 오래 걸릴 수 있습니다. 사용량이 적은 시간에 기준 전송을 실행할 수 있습니다.
-
 +
 전체 명령 구문은 man 페이지를 참조하십시오.
 
