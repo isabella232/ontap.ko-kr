@@ -59,8 +59,8 @@ indexpage:
       url: "/../consistency-groups/protect-task.html"
     - title: 일관성 그룹 수정
       url: "/../consistency-groups/modify-task.html"
-    - title: SnapMirror 비즈니스 연속성 개요
-      url: "/../concept_san_smbc_overview.html"
+    - title: SnapMirror 활성 동기화
+      url: "/../snapmirror-active-sync/index.html"
   - title: SnapMirror 클라우드
     links:
     - title: SnapMirror 클라우드 라이센스

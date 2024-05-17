@@ -1,0 +1,85 @@
+---
+sidebar: sidebar 
+permalink: concepts/ontap-and-vmware.html 
+keywords: vmware, vsphere, vcenter, ontap tools for vmware vsphere, otv, vvol, persistent reservation, scsi 
+summary: ONTAP 및 관련 NetApp 제품을 VMware vSphere와 통합할 수 있습니다. 기술 환경 및 비즈니스 요구 사항에 따라 몇 가지 옵션을 사용할 수 있습니다. 
+---
+= ONTAP 및 VMware vSphere
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 및 관련 NetApp 제품을 VMware vSphere와 통합할 수 있습니다. 기술 환경 및 비즈니스 요구 사항에 따라 몇 가지 옵션을 사용할 수 있습니다.
+
+
+
+== 선택한 개념 및 용어
+
+VMware 환경에서 ONTAP 및 관련 NetApp 제품을 사용하기 시작하면서 몇 가지 핵심 용어와 개념을 숙지하는 것이 좋습니다.
+
+논리 유닛 번호입니다:: LUN은 SAN(Storage Area Network)에서 _logical unit_을 식별하는 데 사용되는 번호입니다. 이러한 주소 지정 가능한 디바이스는 일반적으로 SCSI(Small Computer System Interface) 프로토콜 또는 캡슐화된 파생 모델 중 하나를 통해 액세스되는 논리 디스크입니다.
+VMware vSphere 가상 볼륨:: VVOL(가상 볼륨)은 가상 머신에서 사용되는 스토리지에 대한 볼륨 수준 추상화를 제공합니다. 여기에는 여러 가지 이점이 있으며 기존 LUN을 사용하는 대신 사용할 수 있습니다.
+영구 예약:: 영구 예약은 SCSI-3에서 지원되며 이전 SCSI-2 예약보다 향상되었습니다. 이를 통해 여러 클라이언트 이니시에이터가 다른 노드를 잠그는 동안 단일 대상과 통신할 수 있습니다. 오류 복구를 위해 버스를 재설정한 경우에도 예약이 지속될 수 있습니다.
+
+
+
+NOTE: ONTAP 9.15.1부터 SCSI-3을 사용하여 가상 볼륨에 대한 영구 예약을 생성할 수 있습니다. 이 기능은 WSFC(Windows Server Failover Cluster)가 있는 VMware vSphere 9용 ONTAP 툴을 사용하는 경우에만 지원됩니다.
+
+Windows Server 장애 조치 클러스터링:: Microsoft WSFC는 Windows Server 운영 체제의 기능으로 내결함성과 고가용성을 제공합니다. 일련의 서버 노드(물리적 또는 가상)가 클러스터로 결합되어 장애 발생 시 복원력을 제공합니다. WSFC는 일반적으로 데이터베이스, 파일 및 네임스페이스 서버를 비롯한 인프라 서비스를 배포하는 데 사용됩니다.
+VMware vSphere Storage API - 스토리지 인식:: VASA는 관리 및 관리를 위해 스토리지 어레이를 vCenter와 통합하는 API 세트입니다. 이 아키텍처는 VMware vSphere와 스토리지 시스템 간의 통신을 처리하는 _VASA Provider_를 비롯한 여러 구성 요소를 기반으로 합니다. ONTAP를 통해 이 공급자는 VMware vSphere용 ONTAP 툴의 일부로 구현됩니다.
+VMware vSphere Storage API - 어레이 통합:: VAAI는 VMware vSphere ESXi 호스트와 스토리지 디바이스 간의 통신을 지원하는 API 집합입니다. API에는 호스트에서 스토리지 작업을 스토리지로 오프로드하는 데 사용하는 기본 작업 세트가 포함되어 있습니다. VAAI는 스토리지 집약적인 작업에 대해 상당한 성능 향상을 제공할 수 있습니다.
+NetApp SnapCenter를 참조하십시오:: SnapCenter는 ONTAP 스토리지 시스템을 사용하는 애플리케이션, 데이터베이스, 호스트 파일 시스템 및 가상 머신에 대한 데이터 보호를 제공하는 확장 가능한 중앙 집중식 플랫폼입니다. Snapshot, SnapRestore, FlexClone, SnapMirror, SnapVault 등의 기본 ONTAP 기술을 활용합니다.
+
+
+
+
+== NetApp 플러그인 및 관련 기술
+
+NetApp는 ONTAP 및 관련 제품을 VMware vSphere 기술과 통합하기 위한 강력한 지원을 제공합니다.
+
+
+
+=== VMware vSphere용 ONTAP 툴
+
+VMware vSphere용 ONTAP 툴은 ONTAP와 vSphere를 통합하기 위한 툴 세트입니다. VASA API 프레임워크의 공급자 기능을 구현합니다. ONTAP 툴에는 vCenter 플러그인, VMware 사이트 복구 관리자를 위한 SRA(스토리지 복제 어댑터), 자동화 애플리케이션을 구축하는 데 사용할 수 있는 REST API 서버도 포함되어 있습니다.
+
+
+
+=== VMware VAAI용 NFS 플러그인
+
+VMware VAAI용 NetApp NFS 플러그인을 사용하면 VAAI 기능에 액세스할 수 있습니다. 플러그인을 ESXi 호스트에 설치할 수 있으며 호스트에서 ONTAP의 NFS 데이터 저장소와 함께 VAAI를 활용할 수 있습니다. 클론 생성, 공간 예약 및 스냅샷 오프로딩을 비롯한 여러 작업을 제공합니다.
+
+
+
+=== VMware 사이트 복구 관리자
+
+VMware SRM(Site Recovery Manager)은 재해 복구 기능을 제공합니다. SRM은 VMware vSphere용 ONTAP 툴과 통합되어 ONTAP 데이터 관리 기능을 액세스하고 활용합니다.
+
+
+
+=== vSphere Metro 스토리지 클러스터
+
+vMSC(vSphere Metro Storage Cluster)는 _stretched cluster_deployment에서 vSphere를 활성화하고 지원하는 기술입니다. vMSC 솔루션은 NetApp MetroCluster 및 SnapMirror Active Sync(이전의 SMBC)에서 지원됩니다. 이러한 솔루션은 도메인 장애 시 향상된 비즈니스 연속성을 제공합니다. 복원력 모델은 특정한 구성 선택에 따라 달라집니다.
+
+
+
+=== VMware vSphere용 SnapCenter 플러그인
+
+SCV(SnapCenter Plug-in for VMware vSphere)는 SnapCenter 서버와 함께 구축하거나 독립 실행형 애플리케이션으로 구축할 수 있는 Linux 기반 가상 어플라이언스입니다. 두 경우 모두 SCV는 VM, 데이터 저장소 및 VMDK에 대한 백업 및 복원 작업을 제공합니다. 이 작업은 빠르고 공간 효율적이며 충돌 시에도 정합성이 보장되며 VM 정합성을 보장합니다.
+
+
+
+== 자세한 정보를 확인하십시오
+
+VMware vSphere 환경에서 ONTAP를 구축할 준비를 위해 사용할 수 있는 몇 가지 추가 리소스가 있습니다.
+
+* https://docs.netapp.com/us-en/ontap-tools-vmware-vsphere/["VMware vSphere용 ONTAP 툴 설명서"^]
+* https://docs.netapp.com/us-en/ontap-apps-dbs/vmware/vmware-vsphere-overview.html["엔터프라이즈 애플리케이션: ONTAP이 탑재된 VMware vSphere"^]
+* https://kb.netapp.com/onprem/ontap/da/SAN/What_are_SCSI_Reservations_and_SCSI_Persistent_Reservations["NetApp KB: SCSI 예약 및 SCSI 영구 예약이란 무엇입니까?"^]
+* https://docs.netapp.com/us-en/sc-plugin-vmware-vsphere/index.html["VMware vSphere용 SnapCenter 플러그인 설명서"^]
+

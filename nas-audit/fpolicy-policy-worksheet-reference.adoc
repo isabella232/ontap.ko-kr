@@ -2,7 +2,7 @@
 permalink: nas-audit/fpolicy-policy-worksheet-reference.html 
 sidebar: sidebar 
 keywords: complete, fpolicy, policy, worksheet 
-summary: 이 워크시트를 사용하여 FPolicy 정책 구성 프로세스 중에 필요한 값을 기록할 수 있습니다. 각 매개 변수 설정을 FPolicy 정책 구성에 포함할지 여부를 기록한 다음 포함하려는 매개 변수의 값을 기록해야 합니다. 
+summary: 이 워크시트를 사용하여 FPolicy 정책 구성 프로세스 중에 필요한 값을 기록할 수 있습니다. 
 ---
 = FPolicy 정책 워크시트를 작성합니다
 :allow-uri-read: 
@@ -40,6 +40,13 @@ summary: 이 워크시트를 사용하여 FPolicy 정책 구성 프로세스 중
 이벤트 이름
  a| 
 예
+ a| 
+
+
+
+ a| 
+영구 저장소
+ a| 
  a| 
 
 

@@ -130,8 +130,8 @@ indexpage:
       url: "/data-protection-disaster-recovery/index.html"
     - title: SnapLock 기술을 사용한 아카이브 및 규정 준수
       url: "/snaplock/index.html"
-    - title: SnapMirror 비즈니스 연속성
-      url: "/concept_san_smbc_overview.html"
+    - title: SnapMirror 활성 동기화
+      url: "/snapmirror-active-sync/index.html"
     - title: System Manager로 MetroCluster 사이트를 관리합니다
       url: "/concept_metrocluster_manage_nodes.html"
     - title: 테이프 백업을 사용한 데이터 보호

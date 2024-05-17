@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task_nas_enable_linux_nfs.html 
-keywords: ontap, netapp, provision nas storage, linux, enable, nfs, modify storage VM, configure DNS, configure name server, configure Kerberos 
+keywords: ontap, netapp, provision nas storage, linux, enable, nfs, modify storage VM, configure DNS, configure name server, configure Kerberos, configure TLS, TLS, NMFS over TLS 
 summary: 스토리지 VM을 수정하여 Linux 클라이언트에 데이터를 제공할 NFS 서버를 설정합니다. 
 ---
 = NFS를 사용하여 Linux 서버용 NAS 스토리지를 설정합니다
@@ -18,21 +18,24 @@ summary: 스토리지 VM을 수정하여 Linux 클라이언트에 데이터를 �
 [role="lead"]
 스토리지 VM을 생성하거나 수정하여 NFS 서버에서 Linux 클라이언트에 데이터를 제공할 수 있도록 합니다.
 
-이 절차를 수행하면 NFS 프로토콜을 위한 신규 또는 기존 스토리지 VM을 사용할 수 있습니다. 사용자 환경에 필요한 네트워킹, 인증 또는 보안 서비스에 대해 구성 세부 정보를 사용할 수 있다고 가정합니다.
+다음 절차를 사용하여 NFS 프로토콜에 새 스토리지 VM 또는 기존 스토리지 VM을 사용하도록 설정합니다.
 
-image:workflow_nas_enable_linux_nfs.gif["NFS를 사용하여 Linux 서버에 NAS를 설정하기 위한 워크플로우 다이어그램"]
+image:workflow_nas_enable_linux_nfs.png["NFS를 사용하여 Linux 서버에 NAS를 설정하기 위한 워크플로우 다이어그램"]
+
+.시작하기 전에
+사용자 환경에 필요한 네트워킹, 인증 또는 보안 서비스에 대한 구성 세부 정보를 기록해 두십시오.
 
 .단계
 . 스토리지 VM에서 NFS를 사용하도록 설정합니다.
 +
-.. 새 스토리지 VM의 경우: * 스토리지 > 스토리지 VM * 을 클릭하고 * 추가 * 를 클릭한 다음 스토리지 VM 이름을 입력하고 * SMB/CIFS, NFS, S3 * 탭에서 * NFS * 활성화 * 를 선택합니다.
+** 새 스토리지 VM의 경우: * 스토리지 > 스토리지 VM * 을 클릭하고 * 추가 * 를 클릭하고 스토리지 VM 이름을 입력한 다음 * SMB/CIFS, NFS, S3 * 탭에서 * NFS * 활성화 * 를 선택합니다.
 +
-*** 기본 언어를 확인합니다.
-*** 네트워크 인터페이스를 추가합니다.
-*** 스토리지 VM 관리자 계정 정보 업데이트(선택 사항)
+... 기본 언어를 확인합니다.
+... 네트워크 인터페이스를 추가합니다.
+... 스토리지 VM 관리자 계정 정보 업데이트(선택 사항)
 
 
-.. 기존 스토리지 VM의 경우: * 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 선택한 다음 * 설정 * 을 클릭하고 을 클릭합니다 image:icon_gear.gif["설정 아이콘"] 아래 * NFS *.
+** 기존 스토리지 VM의 경우: * 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 선택한 다음 * 설정 * 을 클릭하고 을 클릭합니다 image:icon_gear.gif["설정 아이콘"] 아래 * NFS *.
 
 
 . 스토리지 VM 루트 볼륨의 엑스포트 정책을 엽니다.
@@ -51,13 +54,43 @@ image:workflow_nas_enable_linux_nfs.gif["NFS를 사용하여 Linux 서버에 NAS
 . 필요에 따라 이름 서비스를 구성합니다.
 +
 .. 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 선택한 다음 * 설정 * 을 클릭하고 for 를 클릭합니다 image:icon_gear.gif["설정 아이콘"] LDAP 또는 NIS를 선택합니다.
-.. 이름 서비스 스위치 파일에 변경 내용을 포함합니다. 을 클릭합니다 image:icon_pencil.gif["편집 아이콘"] 이름 서비스 스위치 타일에서
+.. 을 클릭합니다 image:icon_pencil.gif["편집 아이콘"] 이름 서비스 스위치 타일에 변경 내용을 포함합니다.
 
 
-. 필요한 경우 Kerberos 구성:
+. 필요한 경우 암호화 구성:
+
+
+[role="tabbed-block"]
+====
+.NFS 클라이언트에 대해 TLS를 구성합니다
+--
+
+NOTE: NFS over TLS는 ONTAP 9.15.1에서 공개 미리 보기로 제공됩니다. 미리 보기 오퍼링에서는 ONTAP 9.15.1의 운영 워크로드에 TLS를 통한 NFS가 지원되지 않습니다.
+
+.단계
+. 을 참조하십시오 link:nfs-admin/tls-nfs-strong-security-concept.html["요구 사항"^] NFS over TLS를 사용하는 것이 좋습니다.
+. 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 선택한 다음 * 설정 * 을 클릭합니다.
+. NFS * 타일에서 * NFS over TLS 설정 * 을 클릭합니다.
+. TLS를 통한 NFS 설정 * 영역에서 TLS를 활성화할 NFS 네트워크 인터페이스를 선택합니다.
+. 를 클릭합니다 image:icon_kabob.gif["옵션 아이콘"] 해당 인터페이스에 대해.
+. 사용 * 을 클릭합니다.
+. 네트워크 인터페이스 TLS 구성 * 대화 상자에서 다음 옵션 중 하나를 선택하여 TLS와 함께 사용할 인증서를 포함합니다.
 +
-.. 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 선택한 다음 * 설정 * 을 클릭합니다.
-.. 을 클릭합니다 image:icon_arrow.gif["화살표 아이콘"] Kerberos 타일에서 * 추가 * 를 클릭합니다.
+** * 설치된 인증서 *: 드롭다운 목록에서 이전에 설치된 인증서를 선택합니다.
+** * 새 인증서 * : 인증서의 공통 이름을 선택하십시오.
+** *외부 CA 서명 인증서*: 지침에 따라 인증서와 개인 키의 내용을 상자에 붙여 넣습니다.
 
 
+. 저장 * 을 클릭합니다.
 
+
+--
+.Kerberos를 구성합니다
+--
+.단계
+. 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 선택한 다음 * 설정 * 을 클릭합니다.
+. 을 클릭합니다 image:icon_arrow.gif["화살표 아이콘"] Kerberos 타일에서 * 추가 * 를 클릭합니다.
+
+
+--
+====

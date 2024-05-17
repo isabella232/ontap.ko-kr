@@ -240,8 +240,8 @@ entries:
     url: "/data-protection/limitations-mirror-relationships-concept.html"
 - section: snaplock
 - section: consistency-groups
-- section: smbc
-- title: MetroCluster 및 SnapMirror 비즈니스 연속성을 위한 중재자 서비스
+- section: snapmirror-active-sync
+- title: MetroCluster 및 SnapMirror 액티브 동기화를 위한 중재자 서비스
   entries:
   - title: 개요
     url: "/mediator/mediator-overview-concept.html"

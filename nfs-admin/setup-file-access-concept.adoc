@@ -29,6 +29,6 @@ NFS 서버는 SVM에서 NFS를 통해 파일을 처리할 수 있는 논리적 �
 
 . 네트워크 및 스토리지 환경에 따라 적절한 보안 및 기타 설정으로 NFS 서버를 구성합니다.
 +
-이 단계에는 Kerberos, LDAP, NIS, 이름 매핑 및 로컬 사용자 구성이 포함될 수 있습니다.
+이 단계에는 Kerberos 구성, link:tls-nfs-strong-security-concept.html["TLS를 통한 NFS"]LDAP, NIS, 이름 매핑 및 로컬 사용자
 
 

@@ -33,6 +33,8 @@ indexpage:
       url: "/../authentication/manage-user-accounts-concept.html"
     - title: 다중 관리자 확인을 관리합니다
       url: "/../multi-admin-verify/index.html"
+    - title: 동적 권한 부여를 구성합니다
+      url: "/../authentication/configure-dynamic-authorization.html"
   - title: 웹 서비스 관리
     links:
     - title: 웹 서비스에 대한 액세스를 관리합니다

@@ -1,0 +1,100 @@
+---
+permalink: authentication/enable-disable-dynamic-authorization.html 
+sidebar: sidebar 
+keywords: dynamic, authorization, framework, security, login, ssh 
+summary: 동적 권한 부여 프레임워크를 구성하여 SSH 로그인의 보안을 강화하고 의심스러운 상황에서 특정 명령의 실행을 제한합니다. 
+---
+= 동적 권한 부여를 사용하거나 사용하지 않습니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.15.1부터 관리자는 에서 동적 권한 부여를 구성하고 활성화할 수 있습니다 `visibility` 모드 를 눌러 구성을 테스트하거나 에서 를 누릅니다 `enforced` SSH를 통해 접속하는 CLI 사용자에 대한 구성을 활성화하는 모드입니다. 동적 인증이 더 이상 필요하지 않으면 비활성화할 수 있습니다. 동적 권한 부여를 비활성화해도 구성 설정을 계속 사용할 수 있으며 나중에 다시 사용하도록 설정하려는 경우 해당 설정을 사용할 수 있습니다.
+
+의 매개 변수에 대한 자세한 내용은 를 참조하십시오 `security dynamic-authorization modify` ONTAP 설명서 페이지를 참조하십시오.
+
+
+
+== 테스트에 대한 동적 인증을 활성화합니다
+
+표시 모드에서 동적 권한 부여를 활성화하면 기능을 테스트하고 사용자가 실수로 잠기지 않도록 할 수 있습니다. 이 모드에서는 모든 제한된 작업에서 신뢰 점수가 확인되지만 적용되지는 않습니다. 그러나 거부되거나 추가 인증 문제가 발생했을 수 있는 모든 작업이 기록됩니다. 가장 좋은 방법은 의도한 설정을 적용하기 전에 이 모드에서 테스트해야 합니다.
+
+
+NOTE: 다른 동적 권한 부여 설정을 아직 구성하지 않은 경우에도 이 단계에 따라 처음으로 동적 권한 부여를 활성화할 수 있습니다. 을 참조하십시오 link:configure-dynamic-authorization.html["동적 권한 부여를 사용자 지정합니다"^] 기타 동적 권한 부여 설정을 사용자 환경에 맞게 구성하는 단계를 참조하십시오.
+
+.단계
+. 전역 설정을 구성하고 기능 상태를 로 변경하여 가시성 모드에서 동적 권한 부여를 활성화합니다 `visibility`. 를 사용하지 않는 경우 `-vserver` 매개 변수로, 명령은 클러스터 레벨에서 실행됩니다. 괄호(>)의 값을 환경에 맞게 업데이트합니다. 굵은 글씨로 표시된 매개 변수가 필요합니다.
++
+[source, subs="specialcharacters,quotes"]
+----
+security dynamic-authorization modify \
+*-state visibility* \
+-lower-challenge-boundary <percent> \
+-upper-challenge-boundary <percent> \
+-suppression-interval <interval> \
+-vserver <storage_VM_name>
+----
+. 를 사용하여 결과를 확인합니다 `show` 전역 설정을 표시하는 명령:
++
+[source, console]
+----
+security dynamic-authorization show
+----
+
+
+
+
+== 강제 모드에서 동적 권한 부여를 활성화합니다
+
+강제 적용 모드에서 동적 권한 부여를 활성화할 수 있습니다. 일반적으로 이 모드는 가시성 모드로 테스트를 완료한 후에 사용합니다. 이 모드에서는 모든 제한된 작업에서 신뢰 점수를 확인하고 제한 조건이 충족되면 활동 제한이 적용됩니다. 또한 억제 간격이 적용되어 지정된 간격 내에 추가적인 인증 문제가 발생하지 않습니다.
+
+
+NOTE: 이 단계에서는 에서 동적 권한 부여를 이전에 구성하고 사용하도록 설정했다고 가정합니다 `visibility` 모드를 사용하는 것이 좋습니다.
+
+.단계
+. 에서 동적 권한 부여를 활성화합니다 `enforced` 모드로 변경합니다 `enforced`. 를 사용하지 않는 경우 `-vserver` 매개 변수로, 명령은 클러스터 레벨에서 실행됩니다. 괄호(>)의 값을 환경에 맞게 업데이트합니다. 굵은 글씨로 표시된 매개 변수가 필요합니다.
++
+[source, subs="specialcharacters,quotes"]
+----
+security dynamic-authorization modify \
+*-state enforced* \
+-vserver <storage_VM_name>
+----
+. 를 사용하여 결과를 확인합니다 `show` 전역 설정을 표시하는 명령:
++
+[source, console]
+----
+security dynamic-authorization show
+----
+
+
+
+
+== 동적 권한 부여를 비활성화합니다
+
+추가 인증 보안이 더 이상 필요하지 않은 경우 동적 권한 부여를 비활성화할 수 있습니다.
+
+.단계
+. 상태를 로 변경하여 동적 권한 부여를 비활성화합니다 `disabled`. 를 사용하지 않는 경우 `-vserver` 매개 변수로, 명령은 클러스터 레벨에서 실행됩니다. 괄호(>)의 값을 환경에 맞게 업데이트합니다. 굵은 글씨로 표시된 매개 변수가 필요합니다.
++
+[source, subs="specialcharacters,quotes"]
+----
+security dynamic-authorization modify \
+*-state disabled* \
+-vserver <storage_VM_name>
+----
+. 를 사용하여 결과를 확인합니다 `show` 전역 설정을 표시하는 명령:
++
+[source, console]
+----
+security dynamic-authorization show
+----
+
+
+
+
+== 다음 단계
+
+(선택 사항) 환경에 따라 을 참조하십시오 link:configure-dynamic-authorization.html["동적 권한 부여를 사용자 지정합니다"^] 기타 동적 권한 부여 설정을 구성합니다.

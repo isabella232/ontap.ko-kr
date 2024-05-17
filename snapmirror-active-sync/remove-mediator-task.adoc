@@ -1,0 +1,24 @@
+---
+sidebar: sidebar 
+permalink: snapmirror-active-sync/remove-mediator-task.html 
+keywords: SM-BC, SMBC, removing, Mediator, snapmirror active sync 
+summary: ONTAP 클러스터에서 기존 ONTAP 중재자 구성을 제거하려면 SnapMirror 중재자 제거 명령을 사용할 수 있습니다. 
+---
+= ONTAP 중재자를 제거합니다
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 클러스터에서 기존 ONTAP 중재자 구성을 제거하려면 '스냅샷 중재자 제거' 명령을 사용합니다.
+
+.단계
+. ONTAP 중재자 제거:
++
+'스냅미러 중재자 제거 - 주소 12.345.678.90 - peer-cluster cluster_xyz'
+
+

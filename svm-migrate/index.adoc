@@ -115,8 +115,8 @@ NOTE:  AFF 클러스터에서 하이브리드 애그리게이트가 포함된 FA
 SVM 마이그레이션을 시작하기 전에 다음 사전 요구사항을 충족해야 합니다.
 
 * 클러스터 관리자여야 합니다.
-* link:https://docs.netapp.com/us-en/ontap/peering/create-cluster-relationship-93-later-task.html["소스 클러스터와 타겟 클러스터가 서로 피어링되어야 합니다"^].
-* 소스 및 대상 클러스터에 SnapMirror 동기식 구성이 있어야 합니다 link:https://docs.netapp.com/us-en/ontap/system-admin/install-license-task.html["라이센스가 설치되었습니다"]. 이 라이센스는 에 포함되어 있습니다 link:https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html#licenses-included-with-ontap-one["ONTAP 1 을 참조하십시오"].
+* link:../peering/create-cluster-relationship-93-later-task.html["소스 클러스터와 타겟 클러스터가 서로 피어링되어야 합니다"].
+* 소스 및 대상 클러스터에 SnapMirror 동기식 구성이 있어야 합니다 link:../system-admin/install-license-task.html["라이센스가 설치되었습니다"]. 이 라이센스는 에 포함되어 있습니다 link:../system-admin/manage-licenses-concept.html#licenses-included-with-ontap-one["ONTAP 1 을 참조하십시오"].
 * 소스 클러스터의 모든 노드에서 ONTAP 9.10.1 이상이 실행되고 있어야 합니다. 특정 ONTAP 어레이 컨트롤러 지원에 대한 자세한 내용은 을 참조하십시오 link:https://hwu.netapp.com/["Hardware Universe"^].
 * 소스 클러스터의 모든 노드에서 동일한 ONTAP 버전을 실행해야 합니다.
 * 대상 클러스터의 모든 노드에서 동일한 ONTAP 버전을 실행해야 합니다.
@@ -150,6 +150,8 @@ SVM 마이그레이션과 충돌할 수 있는 작업을 확인해야 합니다.
 == 지원 및 지원되지 않는 기능입니다
 
 이 표에는 SVM 데이터 이동성이 지원하는 ONTAP 기능과 지원을 이용할 수 있는 ONTAP 릴리즈가 나와 있습니다.
+
+SVM 마이그레이션에서 소스와 대상 간의 ONTAP 버전 상호 운용성에 대한 자세한 내용은 를 참조하십시오 link:../data-protection/compatible-ontap-versions-snapmirror-concept.html#snapmirror-svm-disaster-recovery-relationships["SnapMirror 관계에 대한 호환 ONTAP 버전"].
 
 [cols="3,1,4"]
 |===
@@ -222,8 +224,8 @@ SVM 마이그레이션과 충돌할 수 있는 작업을 확인해야 합니다.
 ====
 SVM 마이그레이션 전:
 
-* link:https://docs.netapp.com/us-en/ontap/nas-audit/enable-disable-auditing-svms-task.html["감사 로그 리디렉션은 대상 클러스터에서 활성화해야 합니다"].
-* link:https://docs.netapp.com/us-en/ontap/nas-audit/commands-modify-auditing-config-reference.html?q=audit+log+destination+path["소스 SVM의 감사 로그 대상 경로를 대상 클러스터에 생성해야 합니다"].
+* link:../nas-audit/enable-disable-auditing-svms-task.html["감사 로그 리디렉션은 대상 클러스터에서 활성화해야 합니다"].
+* link:../nas-audit/commands-modify-auditing-config-reference.html?q=audit+log+destination+path["소스 SVM의 감사 로그 대상 경로를 대상 클러스터에 생성해야 합니다"].
 
 
 
@@ -257,7 +259,7 @@ SMB 마이그레이션은 무중단으로 수행 가능하며 마이그레이션
 
 
 
-| SnapMirror Cloud 관계 | ONTAP 9.12.1 | ONTAP 9.12.1부터 SnapMirror 클라우드 관계와 SVM을 마이그레이션할 때 타겟 클러스터에 가 있어야 합니다 link:https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-licensing-concept.html#snapmirror-cloud-license["SnapMirror Cloud 라이센스"] 설치되어 있어야 하며, 클라우드로 미러링되는 볼륨의 용량 이동을 지원할 수 있는 충분한 용량이 있어야 합니다. 
+| SnapMirror Cloud 관계 | ONTAP 9.12.1 | ONTAP 9.12.1부터 SnapMirror 클라우드 관계와 SVM을 마이그레이션할 때 타겟 클러스터에 가 있어야 합니다 link:../data-protection/snapmirror-licensing-concept.html#snapmirror-cloud-license["SnapMirror Cloud 라이센스"] 설치되어 있어야 하며, 클라우드로 미러링되는 볼륨의 용량 이동을 지원할 수 있는 충분한 용량이 있어야 합니다. 
 
 
 | SnapMirror 비동기식 타겟 | ONTAP 9.12.1 |  
@@ -283,7 +285,7 @@ SnapMirror 소스가 마이그레이션되면 ONTAP에서 SnapMirror 업데이�
 | SnapLock | 지원되지 않습니다 |  
 
 
-| SnapMirror 비즈니스 연속성 | 지원되지 않습니다 |  
+| SnapMirror 활성 동기화 | 지원되지 않습니다 |  
 
 
 | SnapMirror SVM 피어 관계 | ONTAP 9.12.1 |  

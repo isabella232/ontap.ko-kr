@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: multi-admin-verify/manage-requests-task.html 
-keywords: ontap, mav, multi, admin, verification, administrator, protected, operation, rules, request, cluster, approve, rbac, manage, cli, system, manager 
+keywords: ontap, mav, multi, admin, multi admin verify, verification, administrator, protected, operation, rules, request, cluster, approve, rbac, manage, cli, system, manager 
 summary: 'MAV 승인 그룹(MAV 관리자)의 관리자가 보류 중인 작업 실행 요청을 통지받으면 정해진 기간(승인 만료) 내에 승인 또는 거부 메시지로 응답해야 합니다.' 
 ---
 = 보호된 작업 요청을 관리합니다

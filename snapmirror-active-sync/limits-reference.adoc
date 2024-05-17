@@ -1,0 +1,113 @@
+---
+sidebar: sidebar 
+permalink: snapmirror-active-sync/limits-reference.html 
+keywords: SM-BC, SMBC, restrictions, consistency group, endpoint limits, solaris, aix, hp-ux, fanout, snapmirror active sync 
+summary: SnapMirror 액티브 동기화를 사용할 때 몇 가지 추가적인 제한 사항과 제한 사항이 있습니다. 
+---
+= SnapMirror 활성 동기화에 대한 개체 제한
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapMirror 액티브 동기화를 사용하기 위한 준비를 할 때는 다음 개체 제한에 유의하십시오.
+
+
+
+== 클러스터의 일관성 그룹
+
+SnapMirror 액티브 동기화가 있는 클러스터의 일관성 그룹 제한은 관계에 따라 계산되며 사용되는 ONTAP 버전에 따라 달라집니다. 제한은 플랫폼에 독립적입니다.
+
+|===
+| ONTAP 버전입니다 | 최대 관계 수 
+
+
+| ONTAP 9.11.1 이상 | 50 
+
+
+| ONTAP 9.10.1 | 20 
+
+
+| ONTAP 9.9.1 | 5 
+|===
+
+
+== 정합성 보장 그룹당 볼륨
+
+SnapMirror 활성 동기화가 있는 일관성 그룹당 최대 볼륨 수는 플랫폼과는 별개입니다.
+
+|===
+| ONTAP 버전입니다 | 일관성 그룹 관계에서 지원되는 최대 볼륨 수입니다 
+
+
+| ONTAP 9.15.1 이상 | 80 
+
+
+| ONTAP 9.10.1 - 9.14.1 | 16 
+
+
+| ONTAP 9.9.1 | 12 
+|===
+
+
+== 볼륨
+
+SnapMirror 활성 동기화의 볼륨 제한은 관계 수가 아닌 끝점 수를 기준으로 계산됩니다. 12개의 볼륨이 있는 일관성 그룹은 운영 클러스터와 보조 클러스터 모두에서 12개의 엔드포인트를 지원합니다. SnapMirror 활성 동기화와 SnapMirror Synchronous 관계는 모두 총 엔드포인트 수에 기여합니다.
+
+플랫폼당 최대 엔드포인트는 다음 표에 나와 있습니다.
+
+|===
+| S. 아니요 | 플랫폼 3+| SnapMirror 활성 동기화에 대한 HA당 엔드포인트 3+| HA당 전체 동기화 및 SnapMirror 활성 동기화 엔드포인트 
+
+
+|  |  | ONTAP 9.11.1 이상 | ONTAP 9.10.1 | ONTAP 9.9.1 | ONTAP 9.11.1 이상 | ONTAP 9.10.1 | ONTAP 9.9.1 
+
+
+| 1 | AFF | 400 | 200 | 60 | 400 | 200 | 80 
+
+
+| 2 | ASA | 400 | 200 | 60 | 80 | 200 | 400 
+|===
+
+
+== SAN 오브젝트 제한
+
+SAN 오브젝트 제한사항은 다음 표에 나와 있습니다. 이 제한은 플랫폼에 관계없이 적용됩니다.
+
+|===
+| SnapMirror 활성 동기화 관계의 개체입니다 | 카운트 
+
+
+| 볼륨당 LUN | 256 
+
+
+| LUN은 노드당 매핑된다  a| 
+* 4096(ONTAP 9.10 이상)
+* 2048(ONTAP 9.9.1 이하)
+
+
+
+
+| LUN은 클러스터당 매핑되며  a| 
+* 8192(ONTAP 9.10 이상)
+* 4096(ONTAP 9.9.1 이하)
+
+
+
+
+| SVM당 LIF(SnapMirror 활성 동기화 관계의 하나 이상의 볼륨 포함) | 256 
+
+
+| 노드당 클러스터 간 LIF | 4 
+
+
+| 클러스터당 클러스터 간 LIF | 8 
+|===
+.관련 정보
+* link:https://hwu.netapp.com/["Hardware Universe"^]
+* link:../consistency-groups/limits.html["정합성 보장 그룹 제한"^]
+

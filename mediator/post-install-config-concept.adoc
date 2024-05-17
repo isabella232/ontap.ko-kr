@@ -1,7 +1,7 @@
 ---
 permalink: mediator/post-install-config-concept.html 
 sidebar: sidebar 
-keywords: mediator, new, release, update, install, configuration, post-installation, after installation, metrocluster ip, snapmirror business continuity 
+keywords: mediator, new, release, update, install, configuration, post-installation, after installation, metrocluster ip, snapmirror business continuity, snapmirror active sync 
 summary: ONTAP 중재자 서비스를 설치하고 실행한 후 ONTAP 스토리지 시스템에서 중재자 기능을 사용하려면 추가 구성 작업을 수행해야 합니다. 
 ---
 = 설치 후 구성
@@ -14,7 +14,7 @@ summary: ONTAP 중재자 서비스를 설치하고 실행한 후 ONTAP 스토리
 ONTAP 중재자 서비스를 설치하고 실행한 후 ONTAP 스토리지 시스템에서 중재자 기능을 사용하려면 추가 구성 작업을 수행해야 합니다.
 
 * MetroCluster IP 구성에서 ONTAP 중재자 서비스를 사용하려면 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_configuring_the_ontap_mediator_service_from_a_metrocluster_ip_configuration.html["MetroCluster IP 구성에서 ONTAP 중재자 서비스 구성"^].
-* SnapMirror 비즈니스 연속성을 사용하려면 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap/smbc/smbc_install_confirm_ontap_cluster.html["ONTAP 중재자 서비스를 설치하고 ONTAP 클러스터 구성을 확인합니다"^].
+* SnapMirror 활성 동기화를 사용하려면 을 참조하십시오 link:../snapmirror-active-sync/mediator-install-task.html["ONTAP 중재자 서비스를 설치하고 ONTAP 클러스터 구성을 확인합니다"].
 
 
 

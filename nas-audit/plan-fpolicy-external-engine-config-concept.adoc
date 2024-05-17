@@ -2,7 +2,7 @@
 permalink: nas-audit/plan-fpolicy-external-engine-config-concept.html 
 sidebar: sidebar 
 keywords: plan, fpolicy, external engine, configuration 
-summary: 'FPolicy 외부 엔진(외부 엔진)을 구성하기 전에 외부 엔진을 생성하는 것이 무엇을 의미하는지 및 사용 가능한 구성 매개 변수를 이해해야 합니다. 이 정보는 각 매개변수에 대해 설정할 값을 결정하는 데 도움이 됩니다.' 
+summary: FPolicy 외부 엔진을 구성하기 전에 외부 엔진을 생성하는 것이 무엇을 의미하고 사용 가능한 매개 변수를 이해해야 합니다. 
 ---
 = FPolicy 외부 엔진 구성을 계획하십시오
 :allow-uri-read: 
@@ -11,18 +11,30 @@ summary: 'FPolicy 외부 엔진(외부 엔진)을 구성하기 전에 외부 엔
 
 
 [role="lead"]
-FPolicy 외부 엔진(외부 엔진)을 구성하기 전에 외부 엔진을 생성하는 것이 무엇을 의미하는지 및 사용 가능한 구성 매개 변수를 이해해야 합니다. 이 정보는 각 매개변수에 대해 설정할 값을 결정하는 데 도움이 됩니다.
+FPolicy 외부 엔진을 구성하기 전에 외부 엔진을 생성하는 것이 무엇을 의미하고 사용 가능한 구성 매개 변수를 이해해야 합니다. 이 정보는 각 매개변수에 대해 설정할 값을 결정하는 데 도움이 됩니다.
 
 
 
 == FPolicy 외부 엔진을 생성할 때 정의되는 정보입니다
 
-외부 엔진 구성에서는 FPolicy가 다음 정보를 포함하여 외부 FPolicy 서버(FPolicy 서버)에 연결하고 관리하는 데 필요한 정보를 정의합니다.
+외부 엔진 구성에서는 FPolicy가 외부 FPolicy 서버에 대한 연결을 만들고 관리하는 데 필요한 정보를 정의합니다. 여기에는 다음과 같은 정보가 포함됩니다.
 
 * SVM 이름
 * 엔진 이름입니다
 * 기본 및 보조 FPolicy 서버의 IP 주소와 FPolicy 서버에 연결할 때 사용할 TCP 포트 번호입니다
 * 엔진 유형이 비동기식인지 동기식인지 여부
+* 엔진 포맷인지 여부 `xml` 또는 `protobuf`
++
+ONTAP 9.15.1부터 를 사용할 수 있습니다 `protobuf` 엔진 형식 를 로 설정한 경우 `protobuf`, 알림 메시지는 Google Protupf를 사용하여 바이너리 형태로 인코딩됩니다. 엔진 포맷을 로 설정하기 전에 `protobuf`, FPolicy 서버도 지원해야 합니다 `protobuf` 역직렬화.
+
++
+ONTAP 9.15.1부터 프로토타입이 지원되므로 이전 릴리즈의 ONTAP로 되돌리기 전에 외부 엔진 형식을 고려해야 합니다. ONTAP 9.15.1 이전 릴리즈로 되돌리는 경우 FPolicy 파트너와 함께 다음 중 하나를 수행합니다.
+
++
+** 에서 각 엔진 형식을 변경합니다 `protobuf` 를 선택합니다 `xml`
+** 엔진 형식이 인 엔진을 삭제하십시오 `protobuf`
+
+
 * 노드와 FPolicy 서버 간의 연결을 인증하는 방법
 +
 상호 SSL 인증을 구성하도록 선택한 경우 SSL 인증서 정보를 제공하는 매개 변수도 구성해야 합니다.
@@ -130,6 +142,17 @@ _외부 엔진 유형 _
 * '동기식'
 * 비동기식
 
+
+
+
+ a| 
+_외부 엔진 형식 _
+
+외부 엔진 형식이 XML인지 protubuf인지 지정합니다.
+
+ONTAP 9.15.1부터 protubuf 엔진 포맷을 사용할 수 있습니다. protobuf로 설정하면 Google Protobuf를 사용하여 알림 메시지가 바이너리 형태로 인코딩됩니다. 엔진 형식을 protobuf로 설정하기 전에 FPolicy 서버가 prototebuf deserialization도 지원하는지 확인하십시오.
+ a| 
+`- extern-engine-format` {`protobuf` 또는 `xml`}
 
 
 

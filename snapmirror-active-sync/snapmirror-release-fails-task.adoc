@@ -1,0 +1,23 @@
+---
+sidebar: sidebar 
+permalink: snapmirror-active-sync/snapmirror-release-fails-task.html 
+keywords: SM-BC, SMBC, volume move, troubleshooting, primary down, snapmirror active sync 
+summary: 스냅샷 복사본을 삭제할 수 없으면 SnapMirror 릴리즈 작업이 실패합니다. 
+---
+= 스냅샷 복사본을 삭제할 수 없을 때 SnapMirror가 릴리즈되지 않습니다
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+.문제:
+[role="lead"]
+스냅샷 복사본을 삭제할 수 없으면 SnapMirror 릴리즈 작업이 실패합니다.
+
+.솔루션:
+스냅샷 복사본에 임시 태그가 포함되어 있습니다. '-ignore-소유자와 함께 '스냅샷 삭제' 명령을 사용하여 임시 스냅샷 복사본을 제거합니다. '스냅샷 삭제 - 볼륨 <volume_name> - 스냅샷 <snapshot_name> - 무시 - 소유자 TRUE - force true'
+
+'napmirror release' 명령을 재시도합니다.

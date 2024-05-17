@@ -13,9 +13,9 @@ summary: ONTAP 9.11.1부터 ONTAP CLI를 사용하여 데이터 손실 없이 �
 [role="lead"]
 ONTAP 9.11.1부터 ONTAP CLI를 사용하여 현재 위치에서 기존 LUN을 NVMe 네임스페이스로 변환할 수 있습니다.
 
-.필요한 것
+.시작하기 전에
 * 지정한 LUN에 igroup에 대한 기존 맵이 없어야 합니다.
-* LUN은 MetroCluster에서 구성한 SVM이나 SM-BC 관계에 있어서는 안 됩니다.
+* LUN은 MetroCluster에 구성된 SVM이나 SnapMirror 활성 동기화 관계에 있지 않아야 합니다.
 * LUN은 프로토콜 엔드포인트이거나 프로토콜 엔드포인트에 바인딩되지 않아야 합니다.
 * LUN에 0이 아닌 접두사 및/또는 접미사 스트림이 있어서는 안 됩니다.
 * LUN은 스냅샷의 일부이거나 SnapMirror 관계의 대상 측에서 읽기 전용 LUN일 수 없습니다.

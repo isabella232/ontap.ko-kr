@@ -2,7 +2,7 @@
 permalink: nas-audit/steps-setup-fpolicy-config-concept.html 
 sidebar: sidebar 
 keywords: steps, setting, fpolicy configuration 
-summary: 'FPolicy가 파일 액세스를 모니터링하기 전에 FPolicy 서비스가 필요한 스토리지 가상 시스템(SVM)에서 FPolicy 구성을 생성하고 사용하도록 설정해야 합니다.' 
+summary: FPolicy가 파일 액세스를 모니터링하기 전에 SVM에 FPolicy 구성을 생성하여 필요한 FPolicy 서비스가 사용되도록 설정해야 합니다. 
 ---
 = FPolicy 구성을 설정하는 단계는 무엇입니까
 :allow-uri-read: 
@@ -19,9 +19,22 @@ SVM에서 FPolicy 구성을 설정하고 활성화하는 단계는 다음과 같
 +
 FPolicy 외부 엔진은 특정 FPolicy 구성과 관련된 외부 FPolicy 서버(FPolicy 서버)를 식별합니다. 내부 ""기본"" FPolicy 엔진을 사용하여 기본 파일 차단 구성을 생성하는 경우 FPolicy 외부 엔진을 생성할 필요가 없습니다.
 
++
+ONTAP 9.15.1부터 를 사용할 수 있습니다 `protobuf` 엔진 형식 를 로 설정한 경우 `protobuf`, 알림 메시지는 Google Protupf를 사용하여 바이너리 형태로 인코딩됩니다. 엔진 포맷을 로 설정하기 전에 `protobuf`, FPolicy 서버도 지원해야 합니다 `protobuf` 역직렬화. 자세한 내용은 을 참조하십시오 link:plan-fpolicy-external-engine-config-concept.html["FPolicy 외부 엔진 구성을 계획하십시오"]
+
 . FPolicy 이벤트를 생성합니다.
 +
 FPolicy 이벤트는 FPolicy 정책이 모니터링해야 하는 사항을 설명합니다. 이벤트는 모니터링할 프로토콜과 파일 작업으로 구성되며 필터 목록을 포함할 수 있습니다. 이벤트는 FPolicy 외부 엔진이 알림을 보내야 하는 모니터링되는 이벤트 목록의 범위를 좁히기 위해 필터를 사용합니다. 이벤트는 정책이 볼륨 작업을 모니터링하는지 여부도 지정합니다.
+
+. FPolicy 영구 저장소를 생성합니다(선택 사항).
++
+ONTAP 9.14.1부터 FPolicy를 설정할 수 있습니다 link:persistent-stores.html["영구 저장소"] SVM에서 비동기적 정책에 대한 파일 액세스 이벤트를 캡처합니다. 동기(필수 또는 비필수) 및 비동기 필수 구성은 지원되지 않습니다.
+
++
+영구 저장소는 클라이언트 I/O 처리를 FPolicy 알림 처리와 분리하여 클라이언트 지연 시간을 줄여 줍니다.
+
++
+ONTAP 9.15.1부터 FPolicy 영구 저장소 구성이 단순화됩니다. 를 클릭합니다 `persistent-store-create` 명령은 SVM에 대한 볼륨 생성을 자동화하고 영구 저장소에 대한 볼륨을 구성합니다.
 
 . FPolicy 정책을 생성합니다.
 +

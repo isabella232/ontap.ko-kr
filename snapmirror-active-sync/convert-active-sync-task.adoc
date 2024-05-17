@@ -1,0 +1,155 @@
+---
+sidebar: sidebar 
+permalink: snapmirror-active-sync/convert-active-sync-task.html 
+keywords: SM-BC, SMBC, convert, SnapMirror synchronous, existing, snapmirror active sync 
+summary: SnapMirror 관계를 SnapMirror 활성 동기화로 변환합니다. 
+---
+= 기존 SnapMirror 관계를 SnapMirror 활성 동기화 관계로 변환합니다
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+SnapMirror 보호를 구성한 경우 관계를 SnapMirror 액티브 동기화로 변환할 수 있습니다. ONTAP 9.15.1부터 대칭 액티브/액티브 보호를 사용하도록 관계를 변환할 수 있습니다.
+
+
+
+== 기존 SnapMirror 관계를 비대칭 SnapMirror 활성 동기화 관계로 변환합니다
+
+소스와 대상 클러스터 사이에 기존 SnapMirror 동기식 관계가 있는 경우 이 관계를 비대칭 SnapMirror 활성 동기화 관계로 변환할 수 있습니다. 따라서 미러링된 볼륨을 일관성 그룹에 연결하여 다중 볼륨 워크로드에서 RPO를 0으로 유지할 수 있습니다. 또한 SnapMirror 활성 동기화 관계를 설정하기 전 시점으로 되돌려야 하는 경우 기존 SnapMirror 스냅샷을 유지할 수 있습니다.
+
+.이 작업에 대해
+* Primary 및 Secondary 클러스터에서 클러스터 및 SVM 관리자여야 합니다.
+* SnapMirror 정책을 변경하여 제로 RPO를 제로 RTO 동기화로 변환할 수 없습니다.
+* 를 실행하기 전에 LUN이 매핑 해제되었는지 확인해야 합니다 `snapmirror create` 명령.
++
+2차 볼륨의 기존 LUN이 매핑되어 있는 경우 `AutomatedFailover` 정책이 구성되어 있습니다 `snapmirror create` 명령이 오류를 트리거합니다.
+
+
+
+.시작하기 전에
+* 운영 클러스터와 2차 클러스터 사이에 제로 RPO SnapMirror 동기화 관계가 있어야 합니다.
+* 제로 RTO SnapMirror 관계를 생성하기 전에 대상 볼륨의 모든 LUN을 매핑 해제해야 합니다.
+* SnapMirror 액티브 동기화는 SAN 프로토콜만 지원합니다(NFS/CIFS 제외). NAS 액세스를 위해 정합성 보장 그룹의 구성 요소 가 마운트되지 않았는지 확인합니다.
+
+
+.단계
+. 보조 클러스터에서 기존 관계에 대한 SnapMirror 업데이트를 수행합니다.
++
+`SiteB::>snapmirror update -destination-path vs1_dst:vol1`
+
+. SnapMirror 업데이트가 성공적으로 완료되었는지 확인합니다.
++
+`SiteB::>snapmirror show`
+
+. 각 제로 RPO 동기식 관계를 일시 중지합니다.
++
+`SiteB::>snapmirror quiesce -destination-path vs1_dst:vol1`
+
++
+`SiteB::>snapmirror quiesce -destination-path vs1_dst:vol2`
+
+. 각 제로 RPO 동기식 관계 삭제:
++
+`SiteB::>snapmirror delete -destination-path vs1_dst:vol1`
+
++
+`SiteB::>snapmirror delete -destination-path vs1_dst:vol2`
+
+. 소스 SnapMirror 관계를 릴리즈하고 공통 스냅샷 복사본을 유지합니다.
++
+`SiteA::>snapmirror release -relationship-info-only true -destination-path vs1_dst:vol1`
+
++
+`SiteA::>snapmirror release -relationship-info-only true -destination-path vs1_dst:vol2`
+
+. 제로 RTO SnapMirror 동기식 관계 생성:
++
+`SiteB::> snapmirror create -source-path vs1_src:/cg/cg_src -destination-path vs1_dst:/cg/cg_dst -cg-item-mappings vol1:@vol1,vol2:@vol2 -policy AutomatedFailover`
+
+. 정합성 보장 그룹을 다시 동기화합니다.
++
+`SiteB::> snapmirror resync -destination-path vs1_dst:/cg/cg_dst`
+
+. 호스트 LUN 입출력 경로를 재검색하여 LUN에 대한 모든 경로를 복구합니다.
+
+
+
+
+== 기존 SnapMirror 관계를 대칭 액티브/액티브로 변환합니다
+
+ONTAP 9.15.1부터 기존 SnapMirror 관계를 SnapMirror 액티브 동기식 대칭 액티브/액티브 관계로 변환할 수 있습니다.
+
+.시작하기 전에
+* ONTAP 9.15.1 이상을 실행 중이어야 합니다.
+* 운영 클러스터와 2차 클러스터 사이에 제로 RPO SnapMirror 동기화 관계가 있어야 합니다.
+* 제로 RTO SnapMirror 관계를 생성하기 전에 대상 볼륨의 모든 LUN을 매핑 해제해야 합니다.
+* SnapMirror 액티브 동기화는 SAN 프로토콜만 지원합니다(NFS/CIFS 제외). NAS 액세스를 위해 정합성 보장 그룹의 구성 요소 가 마운트되지 않았는지 확인합니다.
+
+
+.단계
+. 보조 클러스터에서 기존 관계에 대한 SnapMirror 업데이트를 수행합니다.
++
+`SiteB::>snapmirror update -destination-path vs1_dst:vol1`
+
+. SnapMirror 업데이트가 성공적으로 완료되었는지 확인합니다.
++
+`SiteB::>snapmirror show`
+
+. 각 제로 RPO 동기식 관계를 일시 중지합니다.
++
+`SiteB::>snapmirror quiesce -destination-path vs1_dst:vol1`
+
++
+`SiteB::>snapmirror quiesce -destination-path vs1_dst:vol2`
+
+. 각 제로 RPO 동기식 관계 삭제:
++
+`SiteB::>snapmirror delete -destination-path vs1_dst:vol1`
+
++
+`SiteB::>snapmirror delete -destination-path vs1_dst:vol2`
+
+. 소스 SnapMirror 관계를 릴리즈하고 공통 스냅샷 복사본을 유지합니다.
++
+`SiteA::>snapmirror release -relationship-info-only true -destination-path vs1_dst:vol1`
+
++
+`SiteA::>snapmirror release -relationship-info-only true -destination-path vs1_dst:vol2`
+
+. AutomatedFailoverDuplex 정책을 사용하여 제로 RTO SnapMirror 동기식 관계를 생성합니다.
++
+`SiteB::> snapmirror create -source-path vs1_src:/cg/cg_src -destination-path vs1_dst:/cg/cg_dst -cg-item-mappings vol1:@vol1,vol2:@vol2 -policy AutomatedFailoverDuplex`
+
+. 기존 호스트가 로컬 운영 클러스터인 경우 보조 클러스터에 호스트를 추가하고 각 클러스터에 대한 각 액세스 권한을 사용하여 연결을 설정합니다.
+. 2차 사이트에서 원격 호스트와 연결된 igroup에서 LUN 매핑을 삭제합니다.
++
+
+NOTE: igroup에 복제되지 않은 LUN에 대한 맵이 포함되어 있지 않은지 확인합니다.
+
++
+`SiteB::> lun mapping delete -vserver _svm_name_ -igroup _igroup_ -path <>`
+
+. 운영 사이트에서 기존 호스트의 이니시에이터 구성을 수정하여 로컬 클러스터의 이니시에이터에 대한 근위 경로를 설정합니다.
++
+`SiteA::> igroup initiator add-proximal-vserver -vserver _svm_name_ -initiator _host_ -proximal-vserver _server_`
+
+. 새로운 호스트에 대한 새로운 igroup 및 이니시에이터를 추가하고 호스트 선호도를 해당 로컬 사이트에 근접하게 설정합니다. Ennable igroup replication으로 구성을 복제하고 원격 클러스터에서 호스트 인접성을 반전합니다.
++
+``
+SiteA::> igroup modify -vserver vsA -igroup ig1 -replication-peer vsB
+SiteA::> igroup initiator add-proximal-vserver -vserver vsA -initiator host2 -proximal-vserver vsB
+``
+
+. 호스트에서 경로를 검색하고 호스트에 기본 클러스터에서 스토리지 LUN에 대한 활성/최적화 경로가 있는지 확인합니다
+. 애플리케이션을 배포하고 VM 워크로드를 클러스터 전체에 분산합니다.
+. 정합성 보장 그룹을 다시 동기화합니다.
++
+`SiteB::> snapmirror resync -destination-path vs1_dst:/cg/cg_dst`
+
+. 호스트 LUN 입출력 경로를 재검색하여 LUN에 대한 모든 경로를 복구합니다.
+

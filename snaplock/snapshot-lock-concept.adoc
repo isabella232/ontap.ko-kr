@@ -52,9 +52,9 @@ ONTAP 9.14.1부터 스냅샷 복사본 잠금은 SnapLock 소산 대상 및 비 
 * FabricPool
 * FlexCache 볼륨
 * SMTape
-* SnapMirror 비즈니스 연속성(SM-BC)
+* SnapMirror 활성 동기화
 * 를 사용하는 SnapMirror 정책 규칙입니다 `-schedule` 매개 변수
-* SnapMirror Synchronous
+* SnapMirror 동기식
 * SVM 데이터 이동성(소스 클러스터에서 타겟 클러스터로 SVM을 마이그레이션 또는 재배치하는 데 사용)
 
 

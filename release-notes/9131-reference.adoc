@@ -11,7 +11,7 @@ summary: ONTAP 9.13.1에서 사용 가능한 새로운 기능에 대해 알아�
 [role="lead"]
 ONTAP 9.13.1에서 사용 가능한 새로운 기능에 대해 알아보십시오.
 
-이전 ONTAP 9 릴리즈, 하드웨어 플랫폼 및 스위치 지원, 알려진 문제 및 제한 사항에 대한 자세한 내용은 _ 을(를) 참조하십시오link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["ONTAP 9 릴리즈 노트"^]_. _ONTAP 9 릴리스 정보_에 액세스하려면 NetApp 계정으로 로그인하거나 NetApp 계정을 만들어야 합니다.
+최신 ONTAP 9 릴리스에서 알려진 문제, 제한 사항 및 업그레이드 주의 사항에 대한 자세한 내용은 를 참조하십시오 https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["ONTAP 9 릴리즈 노트"^]. 릴리스 정보에 액세스하려면 NetApp 계정으로 로그인하거나 계정을 만들어야 합니다.
 
 ONTAP를 업그레이드하려면 을 참조하십시오 xref:../upgrade/prepare.html[ONTAP 업그레이드를 준비합니다].
 
@@ -37,9 +37,9 @@ ONTAP를 업그레이드하려면 을 참조하십시오 xref:../upgrade/prepare
 | link:../data-protection/snapmirror-synchronous-disaster-recovery-basics-concept.html["SnapMirror Synchronous를 사용한 NDMP 복원"] | NDMP 복원은 SnapMirror Synchronous에서 지원됩니다. 
 
 
-| SnapMirror Business Continuity(SM-BC) 개선 사항  a| 
-* link:../smbc/smbc_admin_add_and_remove_volumes_in_consistency_groups.html["활성 SM-BC 관계가 있는 정합성 보장 그룹에 운영 중단 없이 볼륨을 추가합니다."]
-* link:../smbc/supported-configurations-reference.html#ndmp-restore["SM-BC를 사용한 NDMP 복구 활용"].
+| SnapMirror 액티브 동기화 개선 사항  a| 
+* link:../snapmirror-active-sync/add-remove-consistency-group-task.html["활성 SnapMirror 활성 동기화 관계가 있는 일관성 그룹에 볼륨을 중단 없이 추가합니다."]
+* link:../snapmirror-active-sync/interoperability-task.html["SnapMirror 액티브 동기화로 NDMP 복원을 활용합니다"].
 
 
 

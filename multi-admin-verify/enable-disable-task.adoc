@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: multi-admin-verify/enable-disable-task.html 
-keywords: ontap, mav, multi, admin, verification, administrator, enable, disable, approval, groups, cli, system manager 
+keywords: ontap, mav, multi, admin, multi admin verify, verification, administrator, enable, disable, approval, groups, cli, system manager 
 summary: 'MAV(Multi-admin verification)를 명시적으로 활성화해야 합니다. 다중 관리 확인을 사용하도록 설정한 후에는 MAV 승인 그룹(MAV 관리자)의 관리자가 이를 삭제해야 합니다.' 
 ---
 = 다중 관리 확인을 활성화 및 비활성화합니다

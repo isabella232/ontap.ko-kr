@@ -1,0 +1,136 @@
+---
+sidebar: sidebar 
+permalink: snapmirror-active-sync/remove-configuration-task.html 
+keywords: SM-BC, SMBC, removing, protection relationship, snapmirror active sync 
+summary: 제로 RTO SnapMirror 동기식 보호를 제거하고 SnapMirror 액티브 동기화 관계 구성을 삭제할 수 있습니다. 
+---
+= SnapMirror 활성 동기화 구성을 제거합니다
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+더 이상 제로 RTO SnapMirror 동기식 보호가 필요하지 않은 경우 SnapMirror 액티브 동기화 관계를 삭제할 수 있습니다.
+
+
+
+== 비대칭 구성을 제거합니다
+
+* SnapMirror 액티브 동기화 관계를 삭제하기 전에 대상 클러스터의 모든 LUN을 매핑 해제해야 합니다.
+* LUN이 매핑 해제되었고 호스트가 다시 스캔되면 SCSI 타겟은 LUN 인벤토리가 변경되었음을 호스트에 알립니다. 제로 RTO 2차 볼륨의 기존 LUN은 제로 RTO 관계가 삭제된 후 새 ID를 반영하도록 변경됩니다. 호스트는 소스 볼륨 LUN과 관계가 없는 새 LUN으로 보조 볼륨 LUN을 검색합니다.
+* 관계가 삭제된 후 보조 볼륨은 DP 볼륨으로 유지됩니다. 을(를) 실행할 수 있습니다 `snapmirror break` 읽기/쓰기로 변환하는 명령입니다.
+* 관계가 반대로 설정되지 않은 경우 페일오버된 상태에서는 관계를 삭제할 수 없습니다.
+
+
+.단계
+. 보조 클러스터에서 소스 끝점과 대상 끝점 간의 SnapMirror 활성 동기화 일관성 그룹 관계를 제거합니다.
++
+대상 경로 VS1_DST:/CG/CG_DST'의 경우, "대상 경로:::> SnapMirror delete-destination-path VS1_DST:/CG/CG_DST"
+
+. 운영 클러스터에서 일관성 그룹 관계 및 해당 관계를 위해 생성된 스냅샷 복사본을 릴리즈합니다.
++
+`source::>snapmirror release -destination-path vs1_dst:/cg/cg_dst`
+
+. 호스트 재검색을 수행하여 LUN 인벤토리를 업데이트합니다.
+. ONTAP 9.10.1부터 SnapMirror 관계를 삭제해도 일관성 그룹은 삭제되지 않습니다. 일관성 그룹을 삭제하려면 시스템 관리자 또는 ONTAP REST API를 사용해야 합니다. 을 참조하십시오 xref:../consistency-groups/delete-task.adoc[일관성 그룹을 삭제합니다] 를 참조하십시오.
+
+
+
+
+== 대칭적인 액티브/액티브 구성을 제거합니다
+
+System Manager 또는 ONTAP CLI를 사용하여 대칭 구성을 제거할 수 있습니다. 두 인터페이스 모두에서 에 대한 단계가 다릅니다 xref:index.html#key-concepts[균일 및 비균일 설정].
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+.균일 설정에 대한 단계
+. 운영 사이트에서 igroup에서 원격 호스트를 제거하고 복제를 종료합니다.
++
+.. ** Hosts**> * SAN Initiator Groups * 로 이동합니다.
+.. 수정할 igroup을 선택한 다음 ** 편집** 을 선택합니다.
+.. 원격 이니시에이터를 제거하고 igroup 복제를 종료합니다. ** 저장**을 선택합니다.
+
+
+. 보조 사이트에서 LUN 매핑을 해제하여 복제된 관계를 삭제합니다.
++
+.. ** Hosts**>** SAN Initiator Groups** 로 이동합니다.
+.. SnapMirror 관계가 있는 igroup을 선택한 다음 ** 삭제** 를 선택합니다.
+.. 대화 상자에서 ** 연결된 LUN 매핑 해제** 상자를 선택한 다음 ** 삭제** 를 선택합니다.
+.. ** 보호**>** 관계** 로 이동합니다.
+.. SnapMirror 활성 동기화 관계를 선택한 다음 ** 릴리즈** 를 선택하여 관계를 삭제합니다.
+
+
+
+
+.비균일 설정에 대한 단계
+. 운영 사이트에서 igroup에서 원격 호스트를 제거하고 복제를 종료합니다.
++
+.. ** Hosts**> * SAN Initiator Groups * 로 이동합니다.
+.. 수정할 igroup을 선택한 다음 ** 편집** 을 선택합니다.
+.. 원격 이니시에이터를 제거하고 igroup 복제를 종료합니다. ** 저장**을 선택합니다.
+
+
+. 2차 사이트에서 SnapMirror 활성 동기화 관계를 제거합니다.
++
+.. ** 보호**>** 관계** 로 이동합니다.
+.. SnapMirror 활성 동기화 관계를 선택한 다음 ** 릴리즈** 를 선택하여 관계를 삭제합니다.
+
+
+
+
+--
+.CLI를 참조하십시오
+--
+.균일 설정에 대한 단계
+. 모든 VM 워크로드를 SnapMirror 활성 동기화의 소스 클러스터로 호스트 로컬 이동합니다.
+. 소스 클러스터에서 igroup에서 이니시에이터를 제거하고 igroup 구성을 수정하여 igroup 복제를 종료합니다.
++
+`SiteA::> igroup remove -vserver _svm_name_ -igroup _igroup_name_ -initiator _host2_
+SiteA::> igroup modify -vserver _svm_name_ -igroup _igroup_name_ -replication-peer "-"`
+
+. 2차 사이트에서 LUN 매핑을 삭제하고 igroup 구성을 제거합니다.
++
+`SiteB::> lun mapping delete -vserver _svm_name_ -igroup _igroup_name_ -path <>
+SiteB::> igroup delete -vserver _svm_name_ -igroup _igroup_name_`
+
+. 2차 사이트에서 SnapMirror 활성 동기화 관계를 삭제합니다.
++
+`SiteB::> snapmirror delete -destination-path _destination_path_`
+
+. 기본 사이트에서 기본 사이트의 SnapMirror 활성 동기화 관계를 해제합니다.
++
+`SiteA::> snapmirror release -destination-path _destination_path_`
+
+. 경로를 다시 검색하여 호스트에서 로컬 경로만 사용할 수 있는지 확인합니다.
+
+
+.비균일 설정에 대한 단계
+. 모든 VM 워크로드를 SnapMirror 활성 동기화의 소스 클러스터로 호스트 로컬 이동합니다.
+. 소스 클러스터의 이니시에이터를 igroup에서 제거합니다.
++
+`SiteA::> igroup remove -vserver _svm_name_ -igroup _igroup_name_ -initiator _host2_`
+
+. 2차 사이트에서 LUN 매핑을 삭제하고 igroup 구성을 제거합니다.
++
+`SiteB::> lun mapping delete -vserver _svm_name_ -igroup _igroup_name_ -path <>
+SiteB::> igroup delete -vserver _svm_name_ -igroup _igroup_name_`
+
+. 2차 사이트에서 SnapMirror 활성 동기화 관계를 삭제합니다.
++
+`SiteB::> snapmirror delete -destination-path _destination_path_`
+
+. 기본 사이트에서 기본 사이트의 SnapMirror 활성 동기화 관계를 해제합니다.
++
+`SiteA::> snapmirror release -destination-path _destination_path_`
+
+. 경로를 다시 검색하여 호스트에서 로컬 경로만 사용할 수 있는지 확인합니다.
+
+
+--
+====

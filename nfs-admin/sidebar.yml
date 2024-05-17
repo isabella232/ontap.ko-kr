@@ -104,6 +104,12 @@ entries:
       url: "/nfs-admin/requirements-configuring-kerberos-concept.html"
     - title: NFSv4의 사용자 ID 도메인 지정
       url: "/nfs-admin/specify-user-id-domain-nfsv4-task.html"
+  - title: 강력한 보안을 위해 NFS와 함께 TLS 사용
+    entries:
+    - title: 개요
+      url: "/nfs-admin/tls-nfs-strong-security-concept.html"
+    - title: NFS 클라이언트에 대해 TLS를 사용하거나 사용하지 않도록 설정합니다
+      url: "/nfs-admin/enable-or-disable-nfs-over-tls-cli.html"
   - title: 이름 서비스 구성
     pdf-filename: 환경에 대한 이름 서비스를 구성합니다
     entries:

@@ -45,22 +45,24 @@ indexpage:
       url: "/../smb-admin/nfs-smb-file-directory-naming-concept.html"
   - title: 네임 서비스
     links:
-    - title: System Manager로 구성합니다
+    - title: System Manager로 이름 서비스를 구성합니다
       url: "/../task_nas_provide_client_access_with_name_services.html"
-    - title: CLI를 사용하여 구성합니다
+    - title: CLI를 사용하여 이름 서비스를 구성합니다
       url: "/../nfs-config/configure-name-services-concept.html"
     - title: 네임 서비스 스위치 개요
       url: "/../nfs-admin/ontap-name-service-switch-config-concept.html"
     - title: 이름 서비스 문제를 해결합니다
       url: "/../nfs-admin/troubleshoot-name-service-issues-task.html"
-  - title: Kerberos
+  - title: Kerberos 및 TLS
     links:
-    - title: System Manager로 구성합니다
-      url: "/../task_nas_secure_client_access_with_kerberos.html"
-    - title: CLI를 사용하여 구성합니다
-      url: "/../nfs-config/kerberos-nfs-strong-security-concept.html"
     - title: Kerberos에 대한 ONTAP 지원
       url: "/../nfs-admin/ontap-support-kerberos-concept.html"
+    - title: System Manager를 사용하여 Kerberos 구성
+      url: "/../task_nas_secure_client_access_with_kerberos.html"
+    - title: CLI를 사용하여 Kerberos를 구성합니다
+      url: "/../nfs-config/kerberos-nfs-strong-security-concept.html"
+    - title: TLS를 통한 보안 NFS 클라이언트 액세스를 사용하거나 사용하지 않도록 설정합니다
+      url: "/../task_nas_enable_disable_secure_nfs_client_access_with_tls.html"
   - title: RDMA 상의 NFS
     links:
     - title: 개요

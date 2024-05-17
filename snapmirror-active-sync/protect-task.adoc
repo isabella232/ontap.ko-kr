@@ -1,0 +1,196 @@
+---
+sidebar: sidebar 
+permalink: snapmirror-active-sync/protect-task.html 
+keywords: SM-BC, snapmirror business continuity, consistency group, remote protection, destination 
+summary: 비즈니스 연속성을 위해 보호를 구성하려면 ONTAP 소스 클러스터에서 LUN을 선택하고 일관성 그룹에 추가해야 합니다. 
+---
+= SnapMirror 액티브 동기화로 보호
+:hardbreaks:
+:toclevels: 1
+:allow-uri-read: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+SnapMirror 액티브 동기화는 ONTAP 9.15.1부터 대칭 액티브/액티브 보호까지 비대칭 보호를 제공합니다.
+
+
+
+== 비대칭 보호를 구성합니다
+
+SnapMirror 활성 동기화를 사용하여 비대칭 보호를 구성하려면 ONTAP 소스 클러스터에서 LUN을 선택하고 일관성 그룹에 추가해야 합니다.
+
+.시작하기 전에
+* SnapMirror 동기식 라이센스가 있어야 합니다.
+* 클러스터 또는 스토리지 VM 관리자여야 합니다.
+* 일관성 그룹의 모든 구성 볼륨은 단일 스토리지 VM(SVM)에 있어야 합니다.
++
+** LUN은 서로 다른 볼륨에 상주할 수 있습니다.
+
+
+* 소스 클러스터와 대상 클러스터는 같을 수 없습니다.
+* ASA 클러스터 및 비 ASA 클러스터에 걸쳐 SnapMirror 활성 동기화 일관성 그룹 관계를 설정할 수 없습니다.
+* 클러스터 피어 관계를 위한 SnapMirror 액티브 동기화에 기본 IPspace가 필요합니다. 사용자 지정 IPspace는 지원되지 않습니다.
+* 일관성 그룹의 이름은 고유해야 합니다.
+* 보조(대상) 클러스터의 볼륨은 DP 유형이어야 합니다.
+* 운영 SVM과 2차 SVM은 피어링된 관계에 있어야 합니다.
+
+
+.단계
+ONTAP CLI 또는 System Manager를 사용하여 일관성 그룹을 구성할 수 있습니다.
+
+ONTAP 9.10.1부터 ONTAP은 추가 관리 유틸리티를 제공하는 일관성 그룹 엔드포인트 및 메뉴를 시스템 관리자에 제공합니다. ONTAP 9.10.1 이상을 사용하는 경우 를 참조하십시오 link:../consistency-groups/configure-task.html["일관성 그룹을 구성합니다"] 그런 다음 link:../consistency-groups/protect-task.html["보호 구성"] SnapMirror 활성 동기화 관계를 생성합니다.
+
+
+IMPORTANT: ONTAP 9.8에서 9.14.1까지 SnapMirror 액티브 동기화를 SM-BC(SnapMirror Business Continuity)라고 합니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+. 운영 클러스터에서 * 보호 > 개요 > 무중단 업무 운영 보호 > LUN 보호 * 로 이동합니다.
+. 보호할 LUN을 선택하고 보호 그룹에 추가합니다.
+. 대상 클러스터와 SVM을 선택합니다.
+. 기본적으로 * 관계 초기화 * 가 선택됩니다. 보호를 시작하려면 * 저장 * 을 클릭합니다.
+. 대시보드 > 성능 * 으로 이동하여 LUN의 IOPS 활동을 확인합니다.
+. 대상 클러스터에서 System Manager를 사용하여 비즈니스 연속성 관계에 대한 보호가 동기화 상태인지 확인합니다. * 보호 > 관계 *.
+
+
+--
+.CLI를 참조하십시오
+--
+. 타겟 클러스터에서 일관성 그룹 관계를 생성합니다.
+`destination::> snapmirror create -source-path _source-path_ -destination-path _destination-path_ -cg-item-mappings _volume-paths_ -policy _policy-name_`
++
+를 사용하여 구성 볼륨을 최대 12개까지 매핑할 수 있습니다 `cg-item-mappings` 의 매개 변수입니다 `snapmirror create` 명령.
+
++
+다음 예에서는 두 개의 일관성 그룹을 생성합니다. `cg_src_ on the source with `vol1` 및 `vol2` 미러링된 타겟 정합성 보장 그룹, `cg_dst`.
+
++
+대상 경로 VS1_DST:/CG/CG_DST-item-mapping-vol_src1:@vol_dst1, vol_src2:@vol_srst2:@vol_dst2 - policy AutomatedFailOver
+
+. 대상 클러스터에서 일관성 그룹을 초기화합니다.
++
+`destination::>snapmirror initialize -destination-path _destination-consistency-group_`
+
+. 초기화 작업이 성공적으로 완료되었는지 확인하십시오. 상태는 InSync가 되어야 합니다.
++
+스냅미러 쇼
+
+. 각 클러스터에서 igroup을 생성하여 애플리케이션 호스트의 이니시에이터에 LUN을 매핑할 수 있습니다.
+`lun igroup create -igroup _name_ -protocol _fcp|iscsi_ -ostype _os_ -initiator _initiator_name_`
+. 각 클러스터에서 LUN을 igroup에 매핑합니다.
++
+`lun map -path _path_name_ -igroup _igroup_name_`
+
+. 에서 LUN 매핑이 성공적으로 완료되었는지 확인합니다 `lun map` 명령. 그런 다음 애플리케이션 호스트에서 새 LUN을 검색할 수 있습니다.
+
+
+--
+====
+
+
+== 대칭 액티브/액티브 보호 구성
+
+System Manager 또는 ONTAP CLI를 사용하여 대칭 보호를 설정할 수 있습니다. 두 인터페이스 모두에서 에 대한 단계가 다릅니다 xref:index.html#key-concepts[균일 및 비균일 설정].
+
+.시작하기 전에
+* 두 클러스터에서 모두 ONTAP 9.15.1 이상을 실행해야 한다.
+* 대칭 액티브/액티브 구성에는 이 필요합니다 `AutomatedFailoverDuplex` 보호 정책. 또는, 가능합니다 xref:../data-protection/create-custom-replication-policy-concept.html[사용자 지정 SnapMirror 정책을 생성합니다] 제공함 `-type` 있습니다 `automated-failover-duplex`.
+
+
+.단계
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+.균일 설정에 대한 단계
+. 운영 사이트에서 link:../consistency-groups/configure-task.html#create-a-consistency-group-with-new-luns-or-volumes["새 LUN을 사용하여 일관성 그룹을 생성합니다."^]
++
+.. 일관성 그룹을 생성할 때 호스트 이니시에이터를 지정하여 igroup을 생성합니다.
+.. 확인란을 선택하여 ** SnapMirror 활성화** 를 선택한 다음 을 선택합니다 `AutomatedFailoverDuplex` 정책.
+.. 표시되는 대화 상자에서 ** Replicate initiator groups** 확인란을 선택하여 igroup을 복제합니다. 근위 설정 편집**에서 호스트의 근위 SVM을 설정합니다.
+.. ** 저장**을 선택합니다.
+
+
+
+
+.비균일 설정에 대한 단계
+. 운영 사이트에서 link:../consistency-groups/configure-task.html#create-a-consistency-group-with-new-luns-or-volumes["새 LUN을 사용하여 일관성 그룹을 생성합니다."^]
++
+.. 일관성 그룹을 생성할 때 호스트 이니시에이터를 지정하여 igroup을 생성합니다.
+.. 확인란을 선택하여 ** SnapMirror 활성화** 를 선택한 다음 을 선택합니다 `AutomatedFailoverDuplex` 정책.
+.. LUN, 일관성 그룹, igroup, SnapMirror 관계 및 igroup 매핑을 생성하려면 **저장**을 선택합니다.
+
+
+. 2차 사이트에서 igroup을 생성하고 LUN을 매핑합니다.
++
+.. ** Hosts**>** SAN Initiator Groups** 로 이동합니다.
+.. 새 igroup을 생성하려면 ** + 추가** 를 선택하십시오.
+.. ** 이름 제공**, ** 호스트 운영 체제** 를 선택한 다음 ** 이니시에이터 그룹 구성원** 을 선택합니다.
+.. ** 저장**을 선택합니다.
+
+
+. 새로운 igroup을 대상 LUN에 매핑합니다.
++
+.. 스토리지** >** LUN** 으로 이동합니다.
+.. igroup에 매핑할 모든 LUN을 선택합니다.
+.. 추가 ** 를 선택한 다음 ** 이니시에이터 그룹에 매핑** 을 선택합니다.
+
+
+
+
+--
+.CLI를 참조하십시오
+--
+.균일 설정에 대한 단계
+. 애플리케이션의 모든 볼륨을 그룹화하는 새로운 SnapMirror 관계를 생성합니다. 를 지정했는지 확인합니다 `AutomatedFailOverDuplex` 양방향 동기화 복제를 설정하는 정책입니다.
++
+`snapmirror create -source-path _source_path_ -destination-path _destination_path_ -cg-item-mappings _source_volume:@destination_volume_ -policy AutomatedFailOverDuplex`
+
+. 을(를) 기다리면 작업이 성공적으로 수행되었는지 확인합니다 `Mirrored State` 를 눌러 로 표시합니다 `SnapMirrored` 및 `Relationship Status` 현재 `Insync`.
++
+`snapmirror show -destination-path _destination_path_`
+
+. 호스트에서 필요에 따라 각 클러스터에 대한 액세스를 통해 호스트 연결을 구성합니다.
+. igroup 구성을 설정합니다. 로컬 클러스터에서 이니시에이터에 대한 기본 경로를 설정합니다. 피어 클러스터 반선호도에 구성을 복제하는 옵션을 지정합니다.
++
+`SiteA::> igroup create -vserver _svm_name_ -igroup _igroup_name_ -replication-peer _peer_svm_name_ -initiators _host_ -proximal-vserver local`
+
++
+`SiteA::> igroup add -vserver _svm_name_ -igroup _igroup_name_ -initiators _host_ -proximal-vserver _peer_svm_`
+
+. 호스트에서 경로를 검색하고 호스트에 기본 클러스터에서 스토리지 LUN으로 연결되는 활성/최적화된 경로가 있는지 확인합니다.
+. 애플리케이션을 배포하고 VM 워크로드를 클러스터 전체에 분산하여 필요한 로드 밸런싱을 수행합니다.
+
+
+.비균일 설정에 대한 단계
+. 애플리케이션의 모든 볼륨을 그룹화하는 새로운 SnapMirror 관계를 생성합니다. 양방향 동기화 복제를 설정하려면 "AutomatedFailOverDuplex" 정책을 지정해야 합니다.
++
+`snapmirror create -source-path _source_path_ -destination-path _destination_path_ -cg-item-mappings _source_volume:@destination_volume_ -policy AutomatedFailOverDuplex`
+
+. 을(를) 기다리면 작업이 성공적으로 수행되었는지 확인합니다 `Mirrored State` 를 눌러 로 표시합니다 `SnapMirrored` 및 `Relationship Status` 현재 `Insync`.
++
+`snapmirror show -destination-path _destination_path_`
+
+. 호스트에서 필요에 따라 각 클러스터에 대한 액세스를 통해 호스트 연결을 구성합니다.
+. 소스 및 대상 클러스터 모두에서 igroup 구성을 설정합니다.
++
+`# primary site
+SiteA::> igroup create -vserver _svm_name_ -igroup _igroup_name_ -initiators _host_1_name_`
+
++
+`# secondary site
+SiteB::> igroup create -vserver _svm_name_ -igroup _igroup_name_ -initiators _host_2_name_`
+
+. 호스트에서 경로를 검색하고 호스트에 기본 클러스터에서 스토리지 LUN으로 연결되는 활성/최적화된 경로가 있는지 확인합니다.
+. 애플리케이션을 배포하고 VM 워크로드를 클러스터 전체에 분산하여 필요한 로드 밸런싱을 수행합니다.
+
+
+--
+====

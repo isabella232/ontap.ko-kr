@@ -15,14 +15,28 @@ RDMA 상의 NFS는 RDMA 어댑터를 사용하므로 스토리지 시스템 메�
 
 RDMA 상 NFS 구성은 머신 러닝 및 분석과 같은 지연 시간에 민감하거나 대역폭이 높은 워크로드를 사용하는 고객을 위해 설계되었습니다. NVIDIA는 GDS(GPU Direct Storage)를 활성화하기 위해 RDMA를 통해 NFS를 확장했습니다. GDS는 RDMA를 사용하여 스토리지 시스템과 GPU 메모리 간에 데이터를 직접 전송함으로써 CPU와 메인 메모리를 모두 우회함으로써 GPU 지원 워크로드를 더욱 가속화합니다.
 
-ONTAP 9.14.1 RDMA 기반 NFS 구성부터 NFSv4.1 프로토콜이 지원됩니다.
+ONTAP 9.10.1부터 Mellanox CX-5 또는 CX-6 어댑터와 함께 사용할 경우 NFSv4.0 프로토콜에 대해 NFS over RDMA 구성이 지원되며, RoCE 프로토콜 버전 2를 사용하여 RDMA를 지원합니다. GDS는 Mellanox NIC 카드 및 MOFED 소프트웨어를 사용하는 NVIDIA Tesla- 및 Ampere-제품군 GPU만 사용하여 지원됩니다. 이후 ONTAP 릴리즈에서 NFS 버전 지원을 제대로 이해하려면 요구사항 차트를 참조하십시오.
 
-ONTAP 9.10.1 NFS over RDMA 구성부터 Mellanox CX-5 또는 CX-6 어댑터와 함께 사용할 경우 NFSv4.0 프로토콜에 대해 지원되며, RoCE 프로토콜 버전 2를 사용하여 RDMA를 지원합니다. GDS는 Mellanox NIC 카드 및 MOFED 소프트웨어를 사용하는 NVIDIA Tesla- 및 Ampere-제품군 GPU만 사용하여 지원됩니다.
 
-RDMA 상 NFS 지원은 노드 로컬 트래픽으로만 제한됩니다. 표준 FlexVol 또는 FlexGroups: 동일한 노드에 있는 모든 구성요소가 지원되며 동일한 노드의 LIF에서 액세스해야 합니다. 64k보다 큰 NFS 마운트 크기는 RDMA 상의 NFS 구성에서 불안정한 성능을 제공합니다.
+NOTE: NFS 마운트 크기가 64K보다 크면 NFS over RDMA 구성에서 성능이 불안정해집니다.
 
 .요구 사항
-* Storages 시스템에서 ONTAP 9.10.1 이상을 실행해야 합니다
+* 스토리지 시스템에서 ONTAP 9.10.1 이상을 실행해야 합니다.
+* 사용할 NFS 버전에 대해 올바른 ONTAP 버전을 실행하고 있는지 확인합니다.
++
+[cols="2"]
+|===
+| NFS 버전 | ONTAP 지원 
+
+
+| NFSv4.0 | ONTAP 9.10.1 이상 
+
+
+| NFSv4.1 | ONTAP 9.14.1 이상 
+
+
+| NFSv3 | ONTAP 9.15.1 이상 
+|===
 +
 ** ONTAP 9.12.1로 시작하는 System Manager를 사용하여 RDMA를 통해 NFS를 구성할 수 있습니다. ONTAP 9.10.1 및 9.11.1에서는 CLI를 사용하여 RDMA를 통해 NFS를 구성해야 합니다.
 
@@ -36,16 +50,16 @@ RDMA 상 NFS 지원은 노드 로컬 트래픽으로만 제한됩니다. 표준 
 
 
 | 9.10.1 이상  a| 
-** A400
-** A700
-** A800
+** AFF A400
+** AFF A700
+** AFF A800
 
 
 
 
 | ONTAP 9.14.1 이상  a| 
 ** AFF C-Series로 문의하십시오
-** A900
+** AFF A900 탑재
 
 
 |===
@@ -66,8 +80,8 @@ NOTE: RDMA 상의 NFS에서는 인터페이스 그룹이 지원되지 않습니�
 .관련 정보
 * link:../concepts/rdma-concept.html["RDMA 를 참조하십시오"]
 * xref:../nfs-trunking/index.html[NFS 트렁킹 개요]
-* link:https://datatracker.ietf.org/doc/html/rfc7530["RFC 7530: NFS 버전 4 프로토콜"]
-* link:https://datatracker.ietf.org/doc/html/rfc8166["RFC 8166: 원격 프로시저 호출 버전 1을 위한 원격 직접 메모리 액세스 전송"]
-* link:https://datatracker.ietf.org/doc/html/rfc8167["RFC 8167: RPC-over-RDMA 전송에 대한 양방향 원격 프로시저 호출"]
-* link:https://datatracker.ietf.org/doc/html/rfc8267["RFC 8267: RPC-over-RDMA 버전 1에 NFS 상위 계층의 바인딩"]
+* https://datatracker.ietf.org/doc/html/rfc7530["RFC 7530: NFS 버전 4 프로토콜"^]
+* https://datatracker.ietf.org/doc/html/rfc8166["RFC 8166: 원격 프로시저 호출 버전 1을 위한 원격 직접 메모리 액세스 전송"^]
+* https://datatracker.ietf.org/doc/html/rfc8167["RFC 8167: RPC-over-RDMA 전송에 대한 양방향 원격 프로시저 호출"^]
+* https://datatracker.ietf.org/doc/html/rfc8267["RFC 8267: RPC-over-RDMA 버전 1에 NFS 상위 계층의 바인딩"^]
 

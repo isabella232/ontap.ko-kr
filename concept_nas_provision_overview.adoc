@@ -33,10 +33,10 @@ System Manager는 다음과 같은 워크플로우를 지원합니다.
 
 System Manager를 사용하면 구성 요소 레벨에서 NAS 서비스를 관리할 수 있습니다.
 
-* 프로토콜 – NFS, SMB 또는 둘 다(NAS 멀티프로토콜)
-* 이름 서비스 – DNS, LDAP 및 NIS
+* 프로토콜 - NFS, SMB 또는 둘 다(NAS 멀티 프로토콜)
+* 이름 서비스 - DNS, LDAP 및 NIS
 * 네임 서비스 스위치
-* Kerberos 보안
+* Kerberos 및 TLS 보안
 * 수출 및 공유
 * Qtree
 * 사용자 및 그룹의 이름 매핑

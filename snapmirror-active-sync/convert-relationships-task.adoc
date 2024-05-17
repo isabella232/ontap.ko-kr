@@ -1,0 +1,198 @@
+---
+sidebar: sidebar 
+permalink: snapmirror-active-sync/convert-relationships-task.html 
+keywords: SM-BC, SMBC, convert, SnapMirror synchronous, zero RPO, zero recovery time objective, zero RTO, existing, snapmirror active sync 
+summary: SnapMirror 액티브 동기화 구성에서 대칭 보호와 비대칭 보호 간에 변환을 수행합니다. 
+---
+= SnapMirror 활성 동기화 관계 유형을 변환합니다
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.15.1부터 비대칭에서 대칭 액티브/액티브로, 또는 그 반대로 SnapMirror 액티브 동기화 보호 유형 간에 전환할 수 있습니다.
+
+
+
+== 대칭 액티브/액티브 관계로 변환합니다
+
+동기식 보호와 함께 SnapMirror 액티브 동기화 관계를 변환하여 대칭 액티브/액티브를 사용할 수 있습니다.
+
+.시작하기 전에
+* 두 클러스터에서 모두 ONTAP 9.15.1 이상을 실행해야 한다.
+* 대칭 액티브/액티브 구성에는 이 필요합니다 `AutomatedFailoverDuplex` 보호 정책. 또는, 가능합니다 xref:../data-protection/create-custom-replication-policy-concept.html[사용자 지정 SnapMirror 정책을 생성합니다] 제공함 `-type` 있습니다 `automated-failover-duplex`.
+
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+.균일 설정에 대한 단계
+. 대상 igroup 제거:
++
+.. 대상 클러스터에서 ** Hosts** >** SAN Initiator Groups** 로 이동합니다.
+.. SnapMirror 관계가 있는 igroup을 선택한 다음 ** 삭제** 를 선택합니다.
+.. 대화 상자에서 ** 연결된 LUN 매핑 해제** 상자를 선택한 다음 ** 삭제** 를 선택합니다.
+
+
+. SnapMirror 활성 동기화 관계를 편집합니다.
++
+.. ** 보호**>** 관계** 로 이동합니다.
+.. 수정할 관계 옆에 있는 kabob 메뉴를 선택한 다음 ** 편집** 을 선택합니다.
+.. ** 보호 정책**을 AutomatedFailoverDuplex로 수정합니다.
+.. 선택 `AutoMatedFailoverDuplex` 호스트 근접 설정을 수정할 수 있는 대화 상자를 표시합니다. 초기자에 대해 ** 초기자 근위에서부터 ** 그리고 ** 저장**에 대한 적절한 옵션을 선택합니다.
+.. ** 저장**을 선택합니다.
+
+
+. ** 보호** 메뉴에서 관계가 로 표시될 때 작업이 성공했는지 확인합니다 `InSync`.
+
+
+.비균일 설정에 대한 단계
+. 대상 igroup 제거:
++
+.. 보조 사이트에서 ** Hosts** >** SAN Initiator Groups** 로 이동합니다.
+.. SnapMirror 관계가 있는 igroup을 선택한 다음 ** 삭제** 를 선택합니다.
+.. 대화 상자에서 ** 연결된 LUN 매핑 해제** 상자를 선택한 다음 ** 삭제** 를 선택합니다.
+
+
+. 새로운 igroup 작성:
++
+.. 대상 사이트의 ** SAN Initiator Groups** 메뉴에서 ** Add** 를 선택합니다.
+.. ** 이름 제공**, ** 호스트 운영 체제** 를 선택한 다음 ** 이니시에이터 그룹 구성원** 을 선택합니다.
+.. ** 저장**을 선택합니다.
+
+
+. 새로운 igroup을 대상 LUN에 매핑합니다.
++
+.. 스토리지** >** LUN** 으로 이동합니다.
+.. igroup에 매핑할 모든 LUN을 선택합니다.
+.. 추가 ** 를 선택한 다음 ** 이니시에이터 그룹에 매핑** 을 선택합니다.
+
+
+. SnapMirror 활성 동기화 관계를 편집합니다.
++
+.. ** 보호**>** 관계** 로 이동합니다.
+.. 수정할 관계 옆에 있는 kabob 메뉴를 선택한 다음 ** 편집** 을 선택합니다.
+.. ** 보호 정책**을 AutomatedFailoverDuplex로 수정합니다.
+.. AutoMatedFailoverDuplex 를 선택하면 호스트 근접 설정을 수정하는 옵션이 시작됩니다. 초기자에 대해 ** 초기자 근위에서부터 ** 그리고 ** 저장**에 대한 적절한 옵션을 선택합니다.
+.. ** 저장**을 선택합니다.
+
+
+. ** 보호** 메뉴에서 관계가 로 표시될 때 작업이 성공했는지 확인합니다 `InSync`.
+
+
+--
+.CLI를 참조하십시오
+--
+.균일 설정에 대한 단계
+. 에서 SnapMirror 정책을 수정합니다 `AutomatedFailover` 를 선택합니다 `AutomatedFailoverDuplex`:
++
+`snapmirror modify -destination-path _destination_path_ -policy AutomatedFailoverDuplex`
+
+. 정책을 수정하면 재동기화가 트리거됩니다. 다시 동기화가 완료될 때까지 기다린 다음 관계가 인지 확인합니다 `Insync`:
++
+`snapmirror show -destination-path _destination_path_`
+
+. 기존 호스트가 로컬 운영 클러스터인 경우 호스트를 두 번째 클러스터에 추가하고 각 클러스터에 대한 각 액세스 권한을 사용하여 연결을 설정합니다.
+. 2차 사이트에서 원격 호스트와 연결된 igroup에서 LUN 매핑을 삭제합니다.
++
+
+NOTE: igroup에 복제되지 않은 LUN에 대한 맵이 포함되어 있지 않은지 확인합니다.
+
++
+`SiteB::> lun mapping delete -vserver _svm_name_ -igroup _igroup_ -path <>`
+
+. 운영 사이트에서 기존 호스트의 이니시에이터 구성을 수정하여 로컬 클러스터의 이니시에이터에 대한 근위 경로를 설정합니다.
++
+`SiteA::> igroup initiator add-proximal-vserver -vserver _svm_name_ -initiator _host_ -proximal-vserver _server_`
+
+. 새로운 호스트에 대한 새로운 igroup 및 이니시에이터를 추가하고 호스트 선호도를 해당 로컬 사이트에 근접하게 설정합니다. Ennable igroup replication으로 구성을 복제하고 원격 클러스터에서 호스트 인접성을 반전합니다.
++
+``
+SiteA::> igroup modify -vserver vsA -igroup ig1 -replication-peer vsB
+SiteA::> igroup initiator add-proximal-vserver -vserver vsA -initiator host2 -proximal-vserver vsB
+``
+
+. 호스트에서 경로를 검색하고 호스트에 기본 클러스터에서 스토리지 LUN에 대한 활성/최적화 경로가 있는지 확인합니다
+. 애플리케이션을 배포하고 VM 워크로드를 클러스터 전체에 분산합니다.
+
+
+.비균일 설정에 대한 단계
+. 에서 SnapMirror 정책을 수정합니다 `AutomatedFailover` 를 선택합니다 `AutomatedFailoverDuplex`:
++
+`snapmirror modify -destination-path _destination_path_ -policy AutomatedFailoverDuplex`
+
+. 정책을 수정하면 재동기화가 트리거됩니다. 다시 동기화가 완료될 때까지 기다린 다음 관계가 인지 확인합니다 `Insync`:
++
+`snapmirror show -destination-path _destination_path_`
+
+. 기존 호스트가 운영 클러스터에 로컬인 경우 호스트를 두 번째 클러스터에 추가하고 각 클러스터에 대한 각 액세스 권한을 사용하여 연결을 설정합니다.
+. 2차 사이트에서 원격 호스트와 연결된 igroup에서 LUN 매핑을 삭제합니다.
++
+
+NOTE: igroup에 복제되지 않은 LUN에 대한 맵이 포함되어 있지 않은지 확인합니다.
+
++
+`SiteB::> lun mapping delete -vserver _svm_name_ -igroup _igroup_ -path <>`
+
+. 운영 사이트에서 기존 호스트의 이니시에이터 구성을 수정하여 로컬 클러스터의 이니시에이터에 대한 근위 경로를 설정합니다.
++
+`SiteA::> igroup initiator add-proximal-vserver -vserver _Svm_name_ -initiator _host_ -proximal-vserver _server_`
+
+. 2차 사이트에서 새로운 호스트에 대한 새로운 igroup 및 이니시에이터를 추가하고 호스트 유사성을 로컬 사이트에 설정합니다. LUN을 igroup에 매핑합니다.
++
+``
+SiteB::> igroup create -vserver _svm_name_ -igroup _igroup_name_
+SiteB::> igroup add -vserver _svm_name_ -igroup  _igroup_name_ -initiator _host_name_
+SiteB::> lun mapping create -igroup  _igroup_name_ -path _path_name_
+``
+
+. 호스트에서 경로를 검색하고 호스트에 기본 클러스터에서 스토리지 LUN에 대한 활성/최적화 경로가 있는지 확인합니다
+. 애플리케이션을 배포하고 VM 워크로드를 클러스터 전체에 분산합니다.
+
+
+--
+====
+
+
+== 대칭 액티브/액티브에서 비대칭 관계로 변환합니다
+
+대칭 액티브/액티브 보호를 구성한 경우 ONTAP CLI를 사용하여 관계를 비대칭 보호로 변환할 수 있습니다.
+
+.단계
+. 모든 VM 워크로드를 소스 클러스터의 로컬 호스트로 이동합니다.
+. VM 인스턴스를 관리하지 않는 호스트에 대한 igroup 구성을 제거하고 igroup 구성을 수정하여 igroup 복제를 종료합니다.
++
+`code`
+
+. 보조 사이트에서 LUN 매핑을 해제합니다.
++
+`SiteB::> lun mapping delete -vserver _svm_name_ -igroup _igroup_name_ -path <>`
+
+. 보조 사이트에서 대칭 액티브/액티브 관계를 삭제합니다.
++
+`SiteB::> snapmirror delete -destination-path _destination_path_`
+
+. 운영 사이트에서 대칭 액티브/액티브 관계를 해제합니다.
+`SiteA::> snapmirror release -destination-path _destination_path_ -relationship-info-only true`
+. 보조 사이트에서 를 사용하여 동일한 볼륨 세트에 대한 관계를 생성합니다 `AutomatedFailover` 정책 관계를 다시 동기화합니다.
++
+``
+SiteB::> snapmirror create -source-path _source_path_ -destination-path _destination_path_ -cg-item-mappings _source:@destination_ -policy AutomatedFailover
+SiteB::> snapmirror resync -destination-path vs1:/cg/cg1_dst
+``
+
++
+
+NOTE: 보조 사이트의 정합성 보장 그룹이 필요합니다 link:../consistency-groups/delete-task.html["삭제할 수 있습니다"] 관계를 다시 만들기 전에 대상 볼륨 link:https://kb.netapp.com/onprem/ontap/dp/SnapMirror/How_to_change_a_volume_type_from_RW_to_DP["DP 유형으로 변환해야 합니다"^].
+
+. 미러 상태 관계가 인지 확인합니다 `Snapmirrored` 관계 상태는 입니다 `Insync`.
++
+`snapmirror show -destination-path _destination_path_`
+
+. 호스트에서 경로를 다시 검색합니다.
+

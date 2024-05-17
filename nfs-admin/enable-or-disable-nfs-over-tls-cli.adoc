@@ -1,0 +1,152 @@
+---
+permalink: nfs-admin/enable-or-disable-nfs-over-tls-cli.html 
+sidebar: sidebar 
+keywords: enable, tls, data, lif 
+summary: ONTAP CLI를 사용하여 NFS 클라이언트용 데이터 LIF에서 TLS를 활성화할 수 있습니다. 따라서 SVM은 NFS에 TLS 보안 서비스를 사용할 수 있습니다. 
+---
+= NFS 클라이언트에 대해 TLS를 사용하거나 사용하지 않도록 설정합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NFS 클라이언트와 ONTAP 간에 네트워크를 통해 전송되는 모든 데이터를 암호화하도록 TLS를 통한 NFS를 구성하여 NFS 연결의 보안을 향상시킬 수 있습니다. 이렇게 하면 NFS 연결의 보안이 향상됩니다. 에 대해 설정된 기존 스토리지 VM에서 이를 구성할 수 있습니다 link:../task_nas_enable_linux_nfs.html["NFS 를 참조하십시오"].
+
+
+NOTE: NFS over TLS는 ONTAP 9.15.1에서 공개 미리 보기로 제공됩니다. 미리 보기 오퍼링에서는 ONTAP 9.15.1의 운영 워크로드에 TLS를 통한 NFS가 지원되지 않습니다.
+
+
+
+== TLS를 활성화합니다
+
+NFS 클라이언트에 대해 TLS 암호화를 활성화하여 전송 중인 데이터의 보안을 강화할 수 있습니다.
+
+.시작하기 전에
+* 을 참조하십시오 link:tls-nfs-strong-security-concept.html["요구 사항"] NFS over TLS를 사용하는 것이 좋습니다.
+* 이 절차의 명령에 대한 자세한 내용은 ONTAP 설명서 페이지 를 참조하십시오.
+
+
+.단계
+. TLS를 활성화할 스토리지 VM 및 논리 인터페이스(LIF)를 선택합니다.
+. 해당 스토리지 VM 및 인터페이스에서 NFS 연결에 TLS를 사용하도록 설정합니다.
++
+[source, console]
+----
+vserver nfs tls interface enable -vserver <STORAGE_VM> -lif <LIF_NAME> -certificate-name <CERTIFICATE_NAME>
+----
+. 를 사용합니다 `vserver nfs tls interface show` 명령을 사용하여 결과를 봅니다.
++
+[source, console]
+----
+vserver nfs tls interface show
+----
+
+
+.예
+다음 명령을 실행하면 에서 NFS over TLS가 사용되도록 설정됩니다 `data1` 의 LIF `vs1` 스토리지 VM:
+
+[source, console]
+----
+vserver nfs tls interface enable -vserver vs1 -lif data1 -certificate-name cert_vs1
+----
+[source, console]
+----
+vserver nfs tls interface show
+----
+....
+               Logical
+Vserver        Interface     Address         TLS Status TLS Certificate Name
+-------------- ------------- --------------- ---------- -----------------------
+vs1            data1         10.0.1.1        enabled    cert_vs1
+vs2            data2         10.0.1.2        disabled   -
+2 entries were displayed.
+....
+
+
+== TLS를 비활성화합니다
+
+전송 중인 데이터에 대해 강화된 보안이 더 이상 필요하지 않으면 NFS 클라이언트에 대해 TLS를 사용하지 않도록 설정할 수 있습니다.
+
+.시작하기 전에
+이 절차의 명령에 대한 자세한 내용은 ONTAP 설명서 페이지 를 참조하십시오.
+
+.단계
+. TLS를 사용하지 않도록 설정할 스토리지 VM 및 논리 인터페이스(LIF)를 선택합니다.
+. 스토리지 VM 및 인터페이스에서 NFS 연결에 대해 TLS를 사용하지 않도록 설정합니다.
++
+[source, console]
+----
+vserver nfs tls interface disable -vserver <STORAGE_VM> -lif <LIF_NAME>
+----
+. 를 사용합니다 `vserver nfs tls interface show` 명령을 사용하여 결과를 봅니다.
++
+[source, console]
+----
+vserver nfs tls interface show
+----
+
+
+.예
+다음 명령은 에서 NFS over TLS를 사용하지 않도록 설정합니다 `data1` 의 LIF `vs1` 스토리지 VM:
+
+[source, console]
+----
+vserver nfs tls interface disable -vserver vs1 -lif data1
+----
+[source, console]
+----
+vserver nfs tls interface show
+----
+....
+               Logical
+Vserver        Interface     Address         TLS Status TLS Certificate Name
+-------------- ------------- --------------- ---------- -----------------------
+vs1            data1         10.0.1.1        disabled   -
+vs2            data2         10.0.1.2        disabled   -
+2 entries were displayed.
+....
+
+
+== TLS 구성을 편집합니다
+
+TLS를 통한 기존 NFS 구성의 설정을 변경할 수 있습니다. 예를 들어, 이 절차를 사용하여 TLS 인증서를 업데이트할 수 있습니다.
+
+.시작하기 전에
+이 절차의 명령에 대한 자세한 내용은 ONTAP 설명서 페이지 를 참조하십시오.
+
+.단계
+. NFS 클라이언트에 대한 TLS 구성을 수정할 스토리지 VM 및 논리 인터페이스(LIF)를 선택합니다.
+. 구성을 수정합니다. 를 지정할 경우 `status` 의 `enable`또한 를 지정해야 합니다 `certificate-name` 매개 변수. 괄호 안의 값을 사용자 환경의 정보로 대체:
++
+[source, console]
+----
+vserver nfs tls interface modify -vserver <STORAGE_VM> -lif <LIF_NAME> -status <STATUS> -certificate-name <CERTIFICATE_NAME>
+----
+. 를 사용합니다 `vserver nfs tls interface show` 명령을 사용하여 결과를 봅니다.
++
+[source, console]
+----
+vserver nfs tls interface show
+----
+
+
+.예
+다음 명령을 실행하면 의 NFS over TLS 구성을 수정합니다 `data2` 의 LIF `vs2` 스토리지 VM:
+
+[source, console]
+----
+vserver nfs tls interface modify -vserver vs2 -lif data2 -status enable -certificate-name new_cert
+----
+[source, console]
+----
+vserver nfs tls interface show
+----
+....
+               Logical
+Vserver        Interface     Address         TLS Status TLS Certificate Name
+-------------- ------------- --------------- ---------- -----------------------
+vs1            data1         10.0.1.1        disabled   -
+vs2            data2         10.0.1.2        enabled    new_cert
+2 entries were displayed.
+....

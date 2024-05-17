@@ -96,3 +96,11 @@ entries:
     url: "/multi-admin-verify/request-operation-task.html"
   - title: 보호된 작업 요청을 관리합니다
     url: "/multi-admin-verify/manage-requests-task.html"
+- title: 동적 권한 부여 관리
+  entries:
+  - title: 개요
+    url: "/authentication/dynamic-authorization-overview.html"
+  - title: 동적 권한 부여를 사용하거나 사용하지 않습니다
+    url: "/authentication/enable-disable-dynamic-authorization.html"
+  - title: 동적 권한 부여를 사용자 지정합니다
+    url: "/authentication/configure-dynamic-authorization.html"

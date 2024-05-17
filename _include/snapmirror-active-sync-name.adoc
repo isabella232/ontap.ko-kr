@@ -1,0 +1,6 @@
+= 
+:allow-uri-read: 
+
+
+
+IMPORTANT: ONTAP 9.8에서 9.14.1까지 SnapMirror 액티브 동기화를 SM-BC(SnapMirror Business Continuity)라고 합니다.

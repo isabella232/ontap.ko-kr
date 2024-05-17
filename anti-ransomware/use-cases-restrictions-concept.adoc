@@ -62,22 +62,22 @@ ARP는 ONTAP 9.10.1부터 온-프레미스 ONTAP 시스템의 NFS 및 SMB 볼륨
 다른 구성 및 볼륨 유형에 대한 지원은 다음 ONTAP 버전에서 제공됩니다.
 
 |===
-|  | ONTAP 9.14.1 | ONTAP 9.13.1 | ONTAP 9.12.1 | ONTAP 9.11.1 | ONTAP 9.10.1 
+|  | ONTAP 9.15.1 | ONTAP 9.14.1 | ONTAP 9.13.1 | ONTAP 9.12.1 | ONTAP 9.11.1 | ONTAP 9.10.1 
 
 
-| 비동기식 SnapMirror로 보호되는 볼륨 | ✓ | ✓ | ✓ |  |  
+| 비동기식 SnapMirror로 보호되는 볼륨 | ✓ | ✓ | ✓ | ✓ |  |  
 
 
-| 비동기식 SnapMirror(SVM 재해 복구)로 SVM 보호 | ✓ | ✓ | ✓ |  |  
+| 비동기식 SnapMirror(SVM 재해 복구)로 SVM 보호 | ✓ | ✓ | ✓ | ✓ |  |  
 
 
-| SVM 데이터 이동성 (`vserver migrate`) | ✓ | ✓ | ✓ |  |  
+| SVM 데이터 이동성 (`vserver migrate`) | ✓ | ✓ | ✓ | ✓ |  |  
 
 
-| FlexGroup 볼륨 | ✓ | ✓ |  |  |  
+| FlexGroup 볼륨 | ✓ | ✓ | ✓ |  |  |  
 
 
-| 다중 관리 검증 | ✓ | ✓ |  |  |  
+| 다중 관리 검증 | ✓ | ✓ | ✓ |  |  |  
 |===
 
 

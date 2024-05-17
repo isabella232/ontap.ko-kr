@@ -253,7 +253,7 @@ MAV(Multi-admin verification)
 
 
  a| 
-SnapMirror 비즈니스 연속성
+SnapMirror 활성 동기화
  a| 
 아니요
  a| 

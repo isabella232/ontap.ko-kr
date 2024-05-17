@@ -1,0 +1,326 @@
+---
+permalink: authentication/configure-dynamic-authorization.html 
+sidebar: sidebar 
+keywords: dynamic, authorization, framework, security, login, ssh 
+summary: 동적 권한 부여 프레임워크를 구성하여 SSH 로그인의 보안을 강화하고 의심스러운 상황에서 특정 명령의 실행을 제한합니다. 
+---
+= 동적 권한 부여를 사용자 지정합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+관리자는 동적 인증 구성의 다양한 측면을 사용자 지정하여 ONTAP 클러스터에 대한 원격 관리자 SSH 연결의 보안을 강화할 수 있습니다.
+
+보안 요구에 따라 다음과 같은 동적 권한 부여 설정을 사용자 지정할 수 있습니다.
+
+* <<동적 권한 부여 전역 설정을 구성합니다>>
+* <<동적 권한 부여 신뢰 점수 구성 요소를 구성합니다>>
+* <<사용자 지정 신뢰 점수 공급자를 구성합니다>>
+* <<제한된 명령을 구성합니다>>
+* <<동적 권한 부여 그룹을 구성합니다>>
+
+
+
+
+== 동적 권한 부여 전역 설정을 구성합니다
+
+보호할 스토리지 VM, 인증 문제에 대한 억제 간격 및 신뢰 점수 설정을 비롯한 동적 권한 부여에 대한 글로벌 설정을 구성할 수 있습니다.
+
+의 매개 변수 및 기본값에 대한 자세한 내용은 을 참조하십시오 `security dynamic-authorization modify` ONTAP 설명서 페이지를 참조하십시오.
+
+.단계
+. 동적 권한 부여에 대한 글로벌 설정을 구성합니다. 를 사용하지 않는 경우 `-vserver` 매개 변수로, 명령은 클러스터 레벨에서 실행됩니다. 괄호(>)의 값을 환경에 맞게 업데이트합니다.
++
+[source, subs="specialcharacters,quotes"]
+----
+security dynamic-authorization modify \
+-lower-challenge-boundary <percent> \
+-upper-challenge-boundary <percent> \
+-suppression-interval <interval> \
+-vserver <storage_VM_name>
+----
+. 결과 구성을 봅니다.
++
+[source, console]
+----
+security dynamic-authorization show
+----
+
+
+
+
+== 제한된 명령을 구성합니다
+
+동적 권한 부여를 사용하면 제한된 기본 명령 집합이 기능에 포함됩니다. 이 목록은 필요에 맞게 수정할 수 있습니다. 을 참조하십시오 link:../multi-admin-verify/index.html["MAV(Multi-admin Verification) 문서"] 제한된 명령의 기본 목록에 대한 자세한 내용은
+
+
+
+=== 제한된 명령을 추가합니다
+
+동적 권한 부여로 제한된 명령 목록에 명령을 추가할 수 있습니다.
+
+의 매개 변수 및 기본값에 대한 자세한 내용은 을 참조하십시오 `security dynamic-authorization rule create` ONTAP 설명서 페이지를 참조하십시오.
+
+.단계
+. 명령을 추가합니다. 괄호(>)의 값을 환경에 맞게 업데이트합니다. 를 사용하지 않는 경우 `-vserver` 매개 변수로, 명령은 클러스터 레벨에서 실행됩니다. 굵은 글씨로 표시된 매개 변수가 필요합니다.
++
+[source, subs="specialcharacters,quotes"]
+----
+security dynamic-authorization rule create \
+-query <query> \
+*-operation <text>* \
+-index <integer> \
+-vserver <storage_VM_name>
+----
+. 제한된 명령의 결과 목록을 봅니다.
++
+[source, console]
+----
+security dynamic-authorization rule show
+----
+
+
+
+
+=== 제한된 명령을 제거합니다
+
+동적 권한 부여로 제한된 명령 목록에서 명령을 제거할 수 있습니다.
+
+의 매개 변수 및 기본값에 대한 자세한 내용은 을 참조하십시오 `security dynamic-authorization rule delete` ONTAP 설명서 페이지를 참조하십시오.
+
+.단계
+. 명령을 제거합니다. 괄호(>)의 값을 환경에 맞게 업데이트합니다. 를 사용하지 않는 경우 `-vserver` 매개 변수로, 명령은 클러스터 레벨에서 실행됩니다. 굵은 글씨로 표시된 매개 변수가 필요합니다.
++
+[source, subs="specialcharacters,quotes"]
+----
+security dynamic-authorization rule delete \
+*-operation <text>* \
+-vserver <storage_VM_name>
+----
+. 제한된 명령의 결과 목록을 봅니다.
++
+[source, console]
+----
+security dynamic-authorization rule show
+----
+
+
+
+
+== 동적 권한 부여 그룹을 구성합니다
+
+기본적으로 동적 권한 부여는 모든 사용자 및 그룹을 활성화하는 즉시 적용됩니다. 그러나 을 사용하여 그룹을 생성할 수 있습니다 `security dynamic-authorization group create` 명령을 사용하여 동적 권한이 특정 사용자에게만 적용되도록 합니다.
+
+
+
+=== 동적 권한 부여 그룹을 추가합니다
+
+동적 권한 부여 그룹을 추가할 수 있습니다.
+
+의 매개 변수 및 기본값에 대한 자세한 내용은 을 참조하십시오 `security dynamic-authorization group create` ONTAP 설명서 페이지를 참조하십시오.
+
+.단계
+. 그룹을 만듭니다. 괄호(>)의 값을 환경에 맞게 업데이트합니다. 를 사용하지 않는 경우 `-vserver` 매개 변수로, 명령은 클러스터 레벨에서 실행됩니다. 굵은 글씨로 표시된 매개 변수가 필요합니다.
++
+[source, subs="specialcharacters,quotes"]
+----
+security dynamic-authorization group create \
+*-group-name <group-name>* \
+-vserver <storage_VM_name> \
+-exclude-users <user1,user2,user3...>
+
+----
+. 결과 동적 권한 부여 그룹을 봅니다.
++
+[source, console]
+----
+security dynamic-authorization group show
+----
+
+
+
+
+=== 동적 권한 부여 그룹을 제거합니다
+
+동적 권한 부여 그룹을 제거할 수 있습니다.
+
+.단계
+. 그룹을 삭제합니다. 괄호(>)의 값을 환경에 맞게 업데이트합니다. 를 사용하지 않는 경우 `-vserver` 매개 변수로, 명령은 클러스터 레벨에서 실행됩니다. 굵은 글씨로 표시된 매개 변수가 필요합니다.
++
+[source, subs="specialcharacters,quotes"]
+----
+security dynamic-authorization group delete \
+*-group-name <group-name>* \
+-vserver <storage_VM_name>
+----
+. 결과 동적 권한 부여 그룹을 봅니다.
++
+[source, console]
+----
+security dynamic-authorization group show
+----
+
+
+
+
+== 동적 권한 부여 신뢰 점수 구성 요소를 구성합니다
+
+점수 매기기 기준의 우선 순위를 변경하거나 위험 점수에서 특정 기준을 제거하도록 최대 점수 가중치를 구성할 수 있습니다.
+
+
+NOTE: 가장 좋은 방법은 기본 점수 가중치를 그대로 두고 필요한 경우에만 조정해야 합니다.
+
+의 매개 변수 및 기본값에 대한 자세한 내용은 을 참조하십시오 `security dynamic-authorization trust-score-component modify` ONTAP 설명서 페이지를 참조하십시오.
+
+다음은 기본 점수 및 백분율 가중치와 함께 수정할 수 있는 구성 요소입니다.
+
+[cols="4*"]
+|===
+| 기준 | 부품 이름 | 기본 원시 점수 가중치 | 기본 백분율 가중치 
+
+
+| 신뢰할 수 있는 장치 | `trusted-device` | 20 | 50 
+
+
+| 사용자 로그인 인증 기록 | `authentication-history` | 20 | 50 
+|===
+.단계
+. 신뢰 점수 구성 요소를 수정합니다. 괄호(>)의 값을 환경에 맞게 업데이트합니다. 를 사용하지 않는 경우 `-vserver` 매개 변수로, 명령은 클러스터 레벨에서 실행됩니다. 굵은 글씨로 표시된 매개 변수가 필요합니다.
++
+[source, subs="specialcharacters,quotes"]
+----
+security dynamic-authorization trust-score-component modify \
+*-component <component-name>* \
+*-weight <integer>* \
+-vserver <storage_VM_name>
+----
+. 결과 신뢰 점수 구성 요소 설정을 봅니다.
++
+[source, console]
+----
+security dynamic-authorization trust-score-component show
+----
+
+
+
+
+=== 사용자의 신뢰 점수를 재설정합니다
+
+시스템 정책으로 인해 사용자의 액세스가 거부되고 ID를 입증할 수 있는 경우 관리자는 사용자의 신뢰 점수를 재설정할 수 있습니다.
+
+의 매개 변수 및 기본값에 대한 자세한 내용은 을 참조하십시오 `security dynamic-authorization user-trust-score reset` ONTAP 설명서 페이지를 참조하십시오.
+
+.단계
+. 명령을 추가합니다. 을 참조하십시오 <<동적 권한 부여 신뢰 점수 구성 요소를 구성합니다>> 재설정할 수 있는 신뢰 점수 구성 요소 목록 괄호(>)의 값을 환경에 맞게 업데이트합니다. 를 사용하지 않는 경우 `-vserver` 매개 변수로, 명령은 클러스터 레벨에서 실행됩니다. 굵은 글씨로 표시된 매개 변수가 필요합니다.
++
+[source, subs="specialcharacters,quotes"]
+----
+security dynamic-authorization user-trust-score reset \
+*-username <username>* \
+*-component <component-name>* \
+-vserver <storage_VM_name>
+----
+
+
+
+
+=== 신뢰 점수를 표시합니다
+
+사용자는 로그인 세션에 대해 자신의 신뢰 점수를 표시할 수 있습니다.
+
+.단계
+. 신뢰 점수 표시:
++
+[source, console]
+----
+security login whoami
+----
++
+다음과 유사한 출력이 표시됩니다.
+
++
+[listing]
+----
+User: admin
+Role: admin
+Trust Score: 50
+----
+
+
+
+
+== 사용자 지정 신뢰 점수 공급자를 구성합니다
+
+외부 신뢰 점수 공급자로부터 채점 방법을 이미 받은 경우 사용자 지정 공급자를 동적 권한 부여 구성에 추가할 수 있습니다.
+
+.시작하기 전에
+* 사용자 지정 신뢰 점수 공급자는 JSON 응답을 반환해야 합니다. 다음 구문 요구 사항을 충족해야 합니다.
++
+** 신뢰 점수를 반환하는 필드는 스칼라 필드여야 하며 배열 요소가 아닙니다.
+** 신뢰 점수를 반환하는 필드는 과 같이 중첩된 필드가 될 수 있습니다 `trust_score.value`.
+** JSON 응답 내에 숫자 신뢰 점수를 반환하는 필드가 있어야 합니다. 이 값을 기본적으로 사용할 수 없는 경우 래퍼 스크립트를 작성하여 이 값을 반환할 수 있습니다.
+
+
+* 제공된 값은 신뢰 점수 또는 위험 점수일 수 있습니다. 신뢰 점수는 오름차순이고 신뢰 수준이 높을수록 높은 반면 위험 점수는 내림차순이라는 차이가 있습니다. 예를 들어 0에서 100 사이의 점수 범위에 대해 신뢰 점수가 90이면 점수가 매우 신뢰할 수 있고 추가 도전 없이 "허용"이 될 가능성이 높다는 것을 나타냅니다. 점수 범위가 0 ~ 100인 경우 위험 점수가 90이면 고위험이며 추가 도전 없이 "거부"가 발생할 가능성이 높습니다.
+* ONTAP REST API를 통해 사용자 지정 신뢰 점수 공급자에 액세스할 수 있어야 합니다.
+* 사용자 지정 신뢰 점수 공급자는 지원되는 매개 변수 중 하나를 사용하여 구성할 수 있어야 합니다. 지원되는 매개 변수 목록에 없는 구성이 필요한 사용자 지정 신뢰 점수 공급자는 지원되지 않습니다.
+
+
+의 매개 변수 및 기본값에 대한 자세한 내용은 을 참조하십시오 `security dynamic-authorization trust-score-component create` ONTAP 설명서 페이지를 참조하십시오.
+
+.단계
+. 사용자 지정 신뢰 점수 공급자를 추가합니다. 괄호(>)의 값을 환경에 맞게 업데이트합니다. 를 사용하지 않는 경우 `-vserver` 매개 변수로, 명령은 클러스터 레벨에서 실행됩니다. 굵은 글씨로 표시된 매개 변수가 필요합니다.
++
+[source, subs="specialcharacters,quotes"]
+----
+security dynamic-authorization trust-score-component create \
+-component <text> \
+*-provider-uri <text>* \
+-score-field <text> \
+-min-score <integer> \
+*-max-score <integer>* \
+*-weight <integer>* \
+-secret-access-key "<key_text>" \
+-provider-http-headers <list<header,header,header>> \
+-vserver <storage_VM_name>
+----
+. 결과 신뢰 점수 공급자 설정을 봅니다.
++
+[source, console]
+----
+security dynamic-authorization trust-score-component show
+----
+
+
+
+
+=== 사용자 지정 신뢰 점수 공급자 태그를 구성합니다
+
+태그를 사용하여 외부 신뢰 점수 공급자와 통신할 수 있습니다. 이렇게 하면 중요한 정보를 노출하지 않고 URL의 정보를 신뢰 점수 공급자로 보낼 수 있습니다.
+
+의 매개 변수 및 기본값에 대한 자세한 내용은 을 참조하십시오 `security dynamic-authorization trust-score-component create` ONTAP 설명서 페이지를 참조하십시오.
+
+.단계
+. 신뢰 점수 공급자 태그를 활성화합니다. 괄호(>)의 값을 환경에 맞게 업데이트합니다. 를 사용하지 않는 경우 `-vserver` 매개 변수로, 명령은 클러스터 레벨에서 실행됩니다. 굵은 글씨로 표시된 매개 변수가 필요합니다.
++
+[source, subs="specialcharacters,quotes"]
+----
+security dynamic-authorization trust-score-component create \
+*-component <component_name>* \
+-weight <initial_score_weight> \
+-max-score <max_score_for_provider> \
+*-provider-uri <provider_URI>* \
+-score-field <REST_API_score_field> \
+*-secret-access-key "<key_text>"*
+----
++
+예를 들면 다음과 같습니다.
+
++
+[source, console]
+----
+security dynamic-authorization trust-score-component create -component comp1 -weight 20 -max-score 100 -provider-uri https://<url>/trust-scores/users/<user>/<ip>/component1.html?api-key=<access-key> -score-field score -access-key "MIIBBjCBrAIBArqyTHFvYdWiOpLkLKHGjUYUNSwfzX"
+----
+

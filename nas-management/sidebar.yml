@@ -21,6 +21,8 @@ entries:
     url: "/task_nas_provision_nfs_and_smb.html"
   - title: Kerberos를 통한 클라이언트 액세스 보안
     url: "/task_nas_secure_client_access_with_kerberos.html"
+  - title: TLS를 통한 보안 NFS 클라이언트 액세스를 사용하거나 사용하지 않도록 설정합니다
+    url: "/task_nas_enable_disable_secure_nfs_client_access_with_tls.html"
   - title: 이름 서비스를 사용하여 클라이언트 액세스 제공
     url: "/task_nas_provide_client_access_with_name_services.html"
   - title: 디렉토리 및 파일을 관리합니다

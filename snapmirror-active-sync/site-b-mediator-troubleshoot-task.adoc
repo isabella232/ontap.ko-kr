@@ -1,0 +1,61 @@
+---
+sidebar: sidebar 
+permalink: snapmirror-active-sync/site-b-mediator-troubleshoot-task.html 
+keywords: SM-BC, SMBC, troubleshooting, link down, Mediator, snapmirror active sync 
+summary: 사이트 B의 중재자 연결이 연결할 수 없는 것으로 표시됩니다. 
+---
+= 사이트 B와 중재 Down 및 사이트 A Down 사이의 연결
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 중재자의 연결을 확인하려면 를 사용합니다 `snapmirror mediator show` 명령. 연결 상태가 연결 불가 이고 사이트 B가 사이트 A에 연결할 수 없는 경우 아래와 유사한 출력이 표시됩니다. 솔루션의 단계를 따라 연결을 복원합니다
+
+....
+cluster::*> snapmirror mediator show
+Mediator Address Peer Cluster     Connection Status Quorum Status
+---------------- ---------------- ----------------- -------------
+10.237.86.17     C1_cluster       unreachable       true
+SnapMirror consistency group relationship status is out of sync.
+
+C2_cluster::*> snapmirror show -expand
+Source            Destination Mirror  Relationship   Total             Last
+Path        Type  Path        State   Status         Progress  Healthy Updated
+----------- ---- ------------ ------- -------------- --------- ------- --------
+vs0:/cg/src_cg_1 XDP vs1:/cg/dst_cg_1 Snapmirrored OutOfSync - false   -
+vs0:zrto_cg_655724_188a_RW1 XDP vs1:zrto_cg_655755_188c_DP1 Snapmirrored OutOfSync - false -
+vs0:zrto_cg_655733_188a_RW2 XDP vs1:zrto_cg_655762_188c_DP2 Snapmirrored OutOfSync - false -
+vs0:zrto_cg_655739_188b_RW1 XDP vs1:zrto_cg_655768_188d_DP1 Snapmirrored OutOfSync - false -
+vs0:zrto_cg_655748_188b_RW2 XDP vs1:zrto_cg_655776_188d_DP2 Snapmirrored OutOfSync - false -
+5 entries were displayed.
+
+Site B cluster is unable to reach Site A.
+C2_cluster::*> cluster peer show
+Peer Cluster Name         Cluster Serial Number Availability   Authentication
+------------------------- --------------------- -------------- --------------
+C1_cluster 			  1-80-000011           Unavailable    ok
+....
+.해결 방법
+사이트 B에서 입출력을 사용하도록 페일오버를 강제 실행한 다음 사이트 B에서 사이트 A로 RTO 관계를 0으로 설정합니다 사이트 B에서 강제 대체 작동을 수행하려면 다음 단계를 완료합니다
+
+. 사이트 B에서 정합성 보장 그룹에 속한 모든 LUN 매핑을 해제합니다
+. 강제 옵션을 사용하여 SnapMirror 일관성 그룹 관계를 삭제합니다.
+. SnapMirror break 명령을 입력합니다 (`snapmirror break -destination_path _svm_:_volume_`) 정합성 보장 그룹 구성 볼륨에서 볼륨을 DP에서 RW로 변환하여 사이트 B의 입출력을 활성화합니다
++
+일관성 그룹의 각 관계에 대해 SnapMirror break 명령을 실행해야 합니다. 예를 들어, 일관성 그룹에 볼륨이 3개인 경우 각 볼륨에 대해 명령을 실행합니다.
+
+. 사이트 A 노드를 부팅하여 사이트 B에서 사이트 A로 RTO 관계가 0이 되도록 합니다
+. 사이트 A에서 relationship-info만 사용하여 일관성 그룹을 해제하여 공통 스냅샷 복사본을 유지하고 일관성 그룹에 속한 LUN의 매핑을 해제합니다.
+. 동기화 정책 또는 비동기 정책을 사용하여 볼륨 수준 관계를 설정하여 사이트 A의 볼륨을 RW에서 DP로 변환합니다.
+. 를 발행합니다 `snapmirror resync` 관계를 동기화하는 명령입니다.
+. 사이트 A에서 동기화 정책이 적용된 SnapMirror 관계를 삭제합니다
+. 사이트 B에서 relationship-info만 true를 사용하여 동기 정책과 SnapMirror 관계를 해제합니다
+. 사이트 B와 사이트 A 간의 정합성 보장 그룹 관계를 생성합니다
+. 소스 클러스터에서 정합성 보장 그룹을 다시 동기화합니다. 정합성 보장 그룹 상태가 동기화되어 있는지 확인합니다.
+. 호스트 LUN 입출력 경로를 다시 검색하여 LUN에 대한 모든 경로를 복구합니다.
+

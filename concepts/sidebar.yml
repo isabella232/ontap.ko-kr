@@ -98,6 +98,8 @@ entries:
     url: "/concepts/encryption-concept.html"
   - title: WORM 스토리지
     url: "/concepts/snaplock-archiving-compliance-concept.html"
+- title: ONTAP 및 VMware vSphere
+  url: "/concepts/ontap-and-vmware.html"
 - title: 애플리케이션 인식 데이터 관리
   url: "/concepts/application-aware-data-management-concept.html"
 - title: FabricPool

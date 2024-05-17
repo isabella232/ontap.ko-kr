@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: multi-admin-verify/request-operation-task.html 
-keywords: ontap, mav, multi, admin, verification, administrator, protected, operation, rules, request, cluster, approve, rbac 
+keywords: ontap, mav, multi, admin, multi admin verify, verification, administrator, protected, operation, rules, request, cluster, approve, rbac 
 summary: 'MAV(Multi-admin verification)를 사용하도록 설정된 클러스터에서 보호 작업을 시작하면 ONTAP가 자동으로 작업을 인터셉트하여 MAV 승인 그룹(MAV 관리자)에서 하나 이상의 관리자가 승인해야 하는 요청을 생성하도록 요청합니다.' 
 ---
 = 보호된 작업의 실행을 요청합니다

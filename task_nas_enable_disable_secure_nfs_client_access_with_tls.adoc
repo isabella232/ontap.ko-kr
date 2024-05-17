@@ -1,0 +1,61 @@
+---
+sidebar: sidebar 
+permalink: task_nas_enable_disable_secure_nfs_client_access_with_tls.html 
+keywords: netapp, ontap, kerberos, security, client access, group permissions, user permissions, UNIX permissions, name mapping, NAS client, storage access 
+summary: NAS 클라이언트에 대한 스토리지 액세스를 보호하기 위해 Kerberos를 설정합니다. 
+---
+= TLS를 통한 보안 NFS 클라이언트 액세스를 사용하거나 사용하지 않도록 설정합니다
+:hardbreaks:
+:toclevels: 1
+:allow-uri-read: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NFS 클라이언트와 ONTAP 간에 네트워크를 통해 전송되는 모든 데이터를 암호화하도록 TLS를 통한 NFS를 구성하여 NFS 연결의 보안을 향상시킬 수 있습니다. 이렇게 하면 NFS 연결의 보안이 향상됩니다. 에 대해 설정된 기존 스토리지 VM에서 이를 구성할 수 있습니다 link:task_nas_enable_linux_nfs.html["NFS 를 참조하십시오"].
+
+
+NOTE: NFS over TLS는 ONTAP 9.15.1에서 공개 미리 보기로 제공됩니다. 미리 보기 오퍼링에서는 ONTAP 9.15.1의 운영 워크로드에 TLS를 통한 NFS가 지원되지 않습니다.
+
+
+
+== TLS를 활성화합니다
+
+NFS 클라이언트에 대해 TLS 암호화를 활성화하여 전송 중인 데이터의 보안을 강화할 수 있습니다.
+
+.시작하기 전에
+을 참조하십시오 link:nfs-admin/tls-nfs-strong-security-concept.html["요구 사항"^] TLS를 통한 NFS용.
+
+. 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 선택한 다음 * 설정 * 을 클릭합니다.
+. NFS * 타일에서 * NFS over TLS 설정 * 을 클릭합니다.
+. TLS를 통한 NFS 설정 * 영역에서 TLS를 활성화할 NFS 네트워크 인터페이스를 선택합니다.
+. 를 클릭합니다 image:icon_kabob.gif["옵션 아이콘"] 해당 인터페이스에 대해.
+. 사용 * 을 클릭합니다.
+. 네트워크 인터페이스 TLS 구성 * 대화 상자에서 다음 옵션 중 하나를 선택하여 TLS와 함께 사용할 인증서를 포함합니다.
++
+** * 설치된 인증서 *: 드롭다운 목록에서 이전에 설치된 인증서를 선택합니다.
+** * 새 인증서 * : 인증서의 공통 이름을 선택하십시오.
+** *외부 CA 서명 인증서*: 지침에 따라 인증서와 개인 키의 내용을 상자에 붙여 넣습니다.
+
+
+. 저장 * 을 클릭합니다.
+
+
+
+
+== TLS를 비활성화합니다
+
+전송 중인 데이터에 대해 강화된 보안이 더 이상 필요하지 않으면 NFS 클라이언트에 대해 TLS를 사용하지 않도록 설정할 수 있습니다.
+
+.단계
+. 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 선택한 다음 * 설정 * 을 클릭합니다.
+. NFS * 타일에서 * NFS over TLS 설정 * 을 클릭합니다.
+. TLS를 통한 NFS 설정 * 영역에서 TLS를 사용하지 않도록 설정할 NFS 네트워크 인터페이스를 선택합니다.
+. 를 클릭합니다 image:icon_kabob.gif["옵션 아이콘"] 해당 인터페이스에 대해.
+. 비활성화 * 를 클릭합니다.
+. 확인 대화 상자가 나타나면 * Disable * 을 선택합니다.
+

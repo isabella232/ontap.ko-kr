@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: multi-admin-verify/manage-groups-task.html 
-keywords: ontap, mav, multi, admin, verification, administrator, approval groups, manage, system, manager, cli, approvers, access, protected, operation 
+keywords: ontap, mav, multi, admin, multi admin verify, verification, administrator, approval groups, manage, system, manager, cli, approvers, access, protected, operation 
 summary: 'MAV(Multi-admin verification)를 활성화하기 전에 승인 또는 거부권을 부여할 관리자가 하나 이상 포함된 관리자 승인 그룹을 만들어야 합니다.' 
 ---
 = 관리자 승인 그룹을 관리합니다

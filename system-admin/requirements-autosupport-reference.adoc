@@ -1,83 +1,154 @@
 ---
-permalink: system-admin/requirements-autosupport-reference.html 
 sidebar: sidebar 
-keywords: requirements, autosupport, messages, http, smtp, https, configuration, support, protocols 
-summary: 최상의 보안을 제공하고 모든 최신 AutoSupport 기능을 지원하려면 TLSv1.2와 함께 HTTPS를 사용하거나 AutoSupport 메시지를 안전하게 전달하는 SMTP를 사용해야 합니다. 
+permalink: system-admin/requirements-autosupport-reference.html 
+keywords: requirements, autosupport, messages, http, https, smtp, smtps 
+summary: 최상의 보안을 제공하고 최신 AutoSupport 기능을 지원하려면 AutoSupport 메시지 전달을 위해 TLSv1.2와 함께 HTTPS 또는 보안 SMTP를 사용해야 합니다. 
 ---
-= AutoSupport 사용에 대한 요구 사항
+= AutoSupport 사용을 준비합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-최상의 보안을 제공하고 모든 최신 AutoSupport 기능을 지원하려면 TLSv1.2와 함께 HTTPS를 사용하거나 AutoSupport 메시지를 안전하게 전달하는 SMTP를 사용해야 합니다. 다른 프로토콜과 함께 전달된 AutoSupport 메시지는 거부됩니다.
+ONTAP 클러스터를 구성하여 AutoSupport 메시지를 NetApp에 전달할 수 있습니다. 또한 일반적으로 조직 내의 로컬 전자 메일 주소로 메시지 복사본을 보낼 수도 있습니다. 사용 가능한 옵션을 검토하여 AutoSupport를 구성할 준비를 해야 합니다.
 
 
 
-== 지원되는 프로토콜
+== AutoSupport 메시지를 NetApp에 전달합니다
 
-이러한 모든 프로토콜은 이름이 확인되는 주소 패밀리를 기반으로 IPv4 또는 IPv6에서 실행됩니다.
-
-|===
-| 프로토콜 및 포트 | 설명 
+AutoSupport 메시지는 HTTP 또는 SMTP 프로토콜을 사용하여 NetApp에 전달할 수 있습니다. 보안을 강화하기 위해 HTTP와 함께 TLS를 사용할 수 있습니다. ONTAP 9.15.1부터 SMTP와 함께 TLS를 사용할 수도 있습니다.
 
 
- a| 
-포트 443의 HTTPS
- a| 
-기본 프로토콜입니다. 가능한 경우 이 기능을 사용해야 합니다.
+TIP: 가능하면 항상 TLS와 함께 HTTP(HTTPS)를 사용합니다.
 
-이 프로토콜은 AutoSupport OnDemand 및 대용량 파일 업로드를 지원합니다.
+또한 다음 사항에 유의하십시오.
 
-유효성 검사를 사용하지 않는 한 원격 서버의 인증서는 루트 인증서에 대해 유효성이 검사됩니다.
-
-전송 시 HTTPS PUT 요청이 사용됩니다. PUT를 사용하면 전송 중에 요청이 실패하면 요청이 중지된 위치에서 다시 시작됩니다. 요청을 수신하는 서버가 PUT를 지원하지 않는 경우, 전송 시 HTTPS POST 요청을 사용합니다.
+* NetApp AutoSupport 메시지에 대해 하나의 전달 채널만 구성할 수 있습니다. 두 프로토콜을 사용하여 AutoSupport 메시지를 NetApp에 전달할 수는 없습니다.
+* AutoSupport는 각 프로토콜의 최대 파일 크기를 제한합니다. AutoSupport 메시지의 크기가 구성된 제한을 초과하는 경우 AutoSupport는 메시지를 최대한 많이 전달하지만 잘립니다.
+* 필요한 경우 최대 파일 크기를 변경할 수 있습니다. 명령을 참조하십시오 `system node autosupport modify` 를 참조하십시오.
+* 두 프로토콜 모두 이름이 확인되는 주소 패밀리에 따라 IPv4 또는 IPv6를 통해 전송할 수 있습니다.
+* ONTAP에서 AutoSupport 메시지를 보내기 위해 설정한 TCP 연결은 일시적이며 단기간 동안 사용됩니다.
 
 
 
- a| 
-포트 80의 HTTP
- a| 
-이 프로토콜은 SMTP를 사용하는 것이 좋습니다.
 
-이 프로토콜은 대용량 파일 업로드를 지원하지만 AutoSupport OnDemand는 지원하지 않습니다.
+=== HTTP
 
-전송 시 HTTPS PUT 요청이 사용됩니다. PUT를 사용하면 전송 중에 요청이 실패하면 요청이 중지된 위치에서 다시 시작됩니다. 요청을 수신하는 서버가 PUT를 지원하지 않는 경우, 전송 시 HTTPS POST 요청을 사용합니다.
+가장 강력한 기능을 제공합니다. 다음 사항에 유의하십시오.
+
+* AutoSupport OnDemand 및 대용량 파일 전송이 지원됩니다.
+* HTTP PUT 요청이 먼저 시도됩니다. 전송 중에 요청이 실패하면 요청이 중지된 곳에서 다시 시작됩니다.
+* 서버가 PUT를 지원하지 않으면 HTTP POST 메서드가 대신 사용됩니다.
+* HTTP 전송의 기본 제한은 25MB입니다.
+* 보안되지 않은 HTTP 프로토콜은 포트 80을 사용합니다.
 
 
 
- a| 
-포트 25 또는 다른 포트의 SMTP
- a| 
-네트워크 연결이 HTTPS를 허용하지 않는 경우에만 이 프로토콜을 사용해야 합니다.
 
-기본 포트 값은 25이지만 다른 포트를 사용하도록 AutoSupport를 구성할 수 있습니다.
+=== SMTP
 
-SMTP 사용 시 다음 제한 사항을 염두에 두십시오.
+일반적으로 어떤 이유로 HTTPS/HTTP가 허용되지 않거나 지원되지 않는 경우에만 SMTP를 사용해야 합니다. 다음 사항에 유의하십시오.
 
-* AutoSupport OnDemand 및 대용량 파일 업로드는 지원되지 않습니다.
-* 데이터가 암호화되지 않았습니다.
+* AutoSupport OnDemand 및 대용량 파일 전송은 지원되지 않습니다.
+* SMTP 로그인 자격 증명이 구성된 경우 암호화되지 않은 상태로 전송됩니다.
+* HTTP 전송의 기본 제한은 5MB입니다.
+* 비보안 SMTP 프로토콜은 포트 25를 사용합니다.
+
+
+
+
+=== TLS를 사용하여 보안을 향상합니다
+
+HTTP 또는 SMTP를 사용할 경우 모든 트래픽이 암호화되지 않으므로 쉽게 가로채서 읽을 수 있습니다. HTTP를 사용할 때는 항상 TLS(HTTPS)도 사용하도록 프로토콜을 구성해야 합니다.
+
+
+NOTE: ONTAP 9.15.1부터 SMTP(SMTPS)와 함께 TLS를 사용할 수도 있습니다. 이 경우 TCP 연결이 설정된 후 보안 채널을 활성화하는 _explicit TLS_가 사용됩니다.
+
+.보안 프로토콜용 포트
+다음 포트는 일반적으로 이러한 프로토콜의 보안 버전에 사용됩니다.
+
+* HTTPS 포트 443입니다
+* SMTPS - 포트 587
+
+
+.인증서 검증
+TLS를 사용하면 서버에서 다운로드한 인증서의 유효성을 루트 CA 인증서에 따라 ONTAP에서 확인합니다. HTTPS 또는 SMTPS를 사용하기 전에 루트 인증서가 ONTAP에 설치되어 있는지 확인해야 합니다. 을 참조하십시오 <<서버 인증서를 설치합니다>> 를 참조하십시오.
+
+
+
+== 추가 구성 고려 사항
+
+AutoSupport를 구성할 때 고려해야 할 몇 가지 추가 사항이 있습니다.
+
+
+
+=== 이메일을 사용하여 로컬 사본 보내기
+
+AutoSupport 메시지를 NetApp에 전달하는 데 사용되는 프로토콜에 관계없이 각 메시지의 복사본을 하나 이상의 로컬 전자 메일 주소로 보낼 수도 있습니다. 예를 들어, 내부 지원 조직이나 파트너 조직에 메시지를 보낼 수 있습니다.
+
+
+NOTE: SMTP(또는 SMTPS)를 사용하여 NetApp에 메시지를 전달하고 해당 메시지의 로컬 이메일 사본을 보내는 경우 동일한 이메일 서버 구성이 사용됩니다.
+
+
+
+=== HTTP 프록시
+
+네트워크 구성에 따라 HTTPS 프로토콜을 사용하려면 프록시 URL을 추가로 구성해야 할 수 있습니다. HTTPS를 사용하여 AutoSupport 메시지를 기술 지원 부서에 보내고 프록시가 있는 경우 프록시의 URL을 식별해야 합니다. 프록시가 기본 포트(포트 3128)가 아닌 다른 포트를 사용하는 경우 해당 프록시의 포트를 지정할 수 있습니다. 프록시 인증에 사용할 사용자 이름과 암호를 선택적으로 지정할 수도 있습니다.
+
+
+
+== 서버 인증서를 설치합니다
+
+TLS(HTTPS 또는 SMTPS)를 사용하는 경우 ONTAP에서 서버 인증서의 유효성을 검사할 수 있는지 확인해야 합니다. 이 유효성 검사는 서버 인증서에 서명한 CA를 기반으로 수행됩니다.
+
+ONTAP에는 미리 설치된 루트 CA 인증서가 다수 포함되어 있습니다. 따라서 대부분의 경우 추가 구성 없이 ONTAP에서 서버의 인증서를 즉시 인식합니다. 그러나 서버 인증서 서명 방법에 따라 루트 CA 인증서와 중간 인증서를 설치해야 할 수도 있습니다.
+
+필요한 경우 아래 제공된 지침에 따라 인증서를 설치합니다. 필요한 모든 인증서를 클러스터 수준에서 설치해야 합니다.
+
+.단계
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+. System Manager에서 * 클러스터 * > * 설정 * 을 선택합니다.
+. 아래로 스크롤하여 * 보안 * 섹션으로 이동합니다.
+. 를 선택합니다 image:icon_arrow.gif["오른쪽 화살표"] 인증서 * 옆에 있습니다.
+. 신뢰할 수 있는 인증 기관 * 탭에서 * 추가 * 를 클릭합니다.
+. 가져오기 * 를 클릭하고 인증서 파일을 선택합니다.
+. 사용자 환경에 대한 구성 매개 변수를 입력합니다.
+. 추가 * 를 클릭합니다.
+
+
+--
+.CLI를 참조하십시오
+--
+. 설치를 시작합니다.
 +
-SMTP는 데이터를 일반 텍스트로 전송하므로 AutoSupport 메시지의 텍스트를 쉽게 가로채고 읽을 수 있습니다.
+보안 인증서설치형 server-ca
 
-* 메시지 길이 및 줄 길이에 대한 제한을 도입할 수 있습니다.
+. 다음 콘솔 메시지를 찾습니다.
++
+`Please enter Certificate: Press <Enter> when done`
+
+. 텍스트 편집기로 인증서 파일을 엽니다.
+. 다음 행을 포함하여 전체 인증서를 복사합니다.
++
+`-----BEGIN CERTIFICATE-----`
+
++
+`-----END CERTIFICATE-----`
+
+. 명령 프롬프트 후 터미널에 인증서를 붙여 넣습니다.
+. Enter * 키를 눌러 설치를 완료합니다.
+. 다음 중 하나를 사용하여 인증서가 설치되었는지 확인합니다.
++
+`security certificate show-user-installed`
+
++
+`security certificate show`
 
 
-|===
-내부 지원 조직 또는 지원 파트너 조직에 대해 특정 전자 메일 주소로 AutoSupport를 구성하는 경우 이러한 메시지는 항상 SMTP를 통해 전송됩니다.
 
-예를 들어 권장 프로토콜을 사용하여 기술 지원 부서에 메시지를 보내고 내부 지원 조직에 메시지를 보내려는 경우 메시지는 각각 HTTPS 및 SMTP를 사용하여 전송됩니다.
-
-AutoSupport는 각 프로토콜의 최대 파일 크기를 제한합니다. HTTP 및 HTTPS 전송의 기본 설정은 25MB입니다. SMTP 전송의 기본 설정은 5MB입니다. AutoSupport 메시지의 크기가 구성된 제한을 초과하면 AutoSupport는 최대한 많은 메시지를 전달합니다. AutoSupport 설정을 수정하여 최대 크기를 편집할 수 있습니다. 자세한 내용은 '시스템 노드 AutoSupport 수정' man 페이지를 참조하십시오.
-
-
-NOTE: AutoSupport는 코어 덤프 또는 성능 아카이브 파일을 NetApp 지원 사이트 또는 지정된 URI로 업로드하는 AutoSupport 메시지를 생성하고 전송할 때 HTTPS 및 HTTP 프로토콜의 최대 파일 크기 제한을 자동으로 재정의합니다. 자동 재정의는 'system node AutoSupport invoke-core-upload' 또는 'system node AutoSupport invoke-performance-archive' 명령을 사용하여 파일을 업로드할 때만 적용됩니다.
-
-
-
-== 구성 요구 사항
-
-네트워크 구성에 따라 HTTPS 프로토콜을 사용하려면 프록시 URL을 추가로 구성해야 할 수 있습니다. HTTPS가 기술 지원 부서에 AutoSupport 메시지를 보내고 프록시가 있는 경우 해당 프록시의 URL을 식별해야 합니다. 프록시에서 기본 포트(3128)가 아닌 다른 포트를 사용하는 경우 해당 프록시의 포트를 지정할 수 있습니다. 프록시 인증을 위해 사용자 이름과 암호를 지정할 수도 있습니다.
-
-SMTP를 사용하여 AutoSupport 메시지를 내부 지원 조직 또는 기술 지원 부서에 보내는 경우 외부 메일 서버를 구성해야 합니다. 스토리지 시스템이 메일 서버로 작동하지 않으므로 메일을 보내려면 사이트에 외부 메일 서버가 필요합니다. 메일 서버는 SMTP 포트(25) 또는 다른 포트에서 수신 대기하는 호스트여야 하며 8비트 MIME(Multipurpose Internet Mail Extensions) 인코딩을 보내고 받도록 구성해야 합니다. 메일 호스트의 예로는 sendmail 프로그램과 같은 SMTP 서버를 실행하는 UNIX 호스트와 Microsoft Exchange 서버를 실행하는 Windows 서버가 있습니다. 하나 이상의 메일 호스트를 가질 수 있습니다.
+--
+====

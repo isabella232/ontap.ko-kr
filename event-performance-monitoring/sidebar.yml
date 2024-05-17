@@ -70,7 +70,7 @@ entries:
       url: "/system-admin/structure-autosupport-messages-sent-email-concept.html"
     - title: AutoSupport 심각도 유형
       url: "/system-admin/autosupport-severity-types-concept.html"
-    - title: AutoSupport 사용에 대한 요구 사항
+    - title: AutoSupport 사용을 준비합니다
       url: "/system-admin/requirements-autosupport-reference.html"
     - title: AutoSupport를 설정합니다
       url: "/system-admin/setup-autosupport-task.html"

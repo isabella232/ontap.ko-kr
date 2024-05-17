@@ -46,7 +46,7 @@ ONTAP 중재자의 새로운 개선 사항은 각 릴리스에 제공됩니다. 
  a| 
 1.5
  a| 
-* 더 큰 규모의 SMBC 시스템을 위해 속도를 최적화합니다.
+* 대규모 SnapMirror 액티브 동기화 시스템에 맞게 속도 최적화
 * 설치 프로그램에 암호화 코드 서명이 추가되었습니다.
 * RHEL 7.x/CentOS 7.x에 대한 중단 경고를 포함합니다
 
@@ -76,7 +76,7 @@ ONTAP 중재자의 새로운 개선 사항은 각 릴리스에 제공됩니다. 
 1.2
  a| 
 * HTTPS 사서함 지원.
-* ONTAP 9.8+ MCC-IP AUSO 및 SM-BC ZRTO와 함께 사용
+* ONTAP 9.8 + MCC-IP AUSO 및 SnapMirror 액티브 동기화 ZRTO와 함께 사용
 * SCST 버전 3.4.0 포함.
 
 

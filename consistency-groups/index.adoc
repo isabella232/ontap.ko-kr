@@ -23,15 +23,15 @@ summary: 일관성 그룹은 단일 유닛으로 구성된 볼륨 모음으로, 
 
 일관성 그룹은 프로토콜(NAS, SAN 또는 NVMe)에 관계없이 모든 FlexVol 볼륨을 지원하며, ONTAP REST API를 통해 또는 System Manager의 * 스토리지 > 일관성 그룹 * 메뉴 항목에서 관리할 수 있습니다. ONTAP 9.14.1부터는 ONTAP CLI를 사용하여 일관성 그룹을 관리할 수 있습니다.
 
-정합성 보장 그룹은 개별 엔터티(볼륨 컬렉션) 또는 다른 정합성 보장 그룹으로 구성된 계층적 관계로 존재할 수 있습니다. 개별 볼륨은 볼륨의 세부 스냅샷 정책을 가질 수 있습니다. 또한 일관성 그룹 전체 스냅샷 정책이 있습니다. 일관성 그룹에는 전체 일관성 그룹을 복구하는 데 사용할 수 있는 하나의 SM-BC(SnapMirror Business Continuity) 관계 및 공유 SM-BC 정책만 있을 수 있습니다.
+정합성 보장 그룹은 개별 엔터티(볼륨 컬렉션) 또는 다른 정합성 보장 그룹으로 구성된 계층적 관계로 존재할 수 있습니다. 개별 볼륨은 볼륨의 세부 스냅샷 정책을 가질 수 있습니다. 또한 일관성 그룹 전체 스냅샷 정책이 있습니다. 일관성 그룹에는 전체 일관성 그룹을 복구하는 데 사용할 수 있는 SnapMirror 활성 동기화 관계 및 공유 SnapMirror 정책이 하나만 있을 수 있습니다.
 
 다음 다이어그램에서는 개별 일관성 그룹을 사용하는 방법을 보여 줍니다. 에서 호스팅되는 애플리케이션의 데이터입니다 `SVM1` 두 볼륨 확장: `vol1` 및 `vol2`. 일관성 그룹의 스냅샷 정책은 15분마다 데이터의 스냅샷 복사본을 캡처합니다.
 
 image:../media/consistency-group-single-diagram.gif["구성 볼륨 및 로컬 스냅샷 정책이 있는 단일 일관성 그룹의 다이어그램"]
 
-애플리케이션 워크로드가 클수록 여러 개의 일관성 그룹이 필요할 수 있습니다. 이 경우 단일 일관성 그룹이 부모 일관성 그룹의 하위 구성요소가 되는 계층적 일관성 그룹을 생성할 수 있습니다. 상위 일관성 그룹에는 최대 5개의 하위 일관성 그룹이 포함될 수 있습니다. 개별 정합성 보장 그룹과 마찬가지로 원격 SM-BC 보호 정책을 정합성 보장 그룹(상위 및 하위)의 전체 구성에 적용하여 애플리케이션 워크로드를 복구할 수 있습니다.
+애플리케이션 워크로드가 클수록 여러 개의 일관성 그룹이 필요할 수 있습니다. 이 경우 단일 일관성 그룹이 부모 일관성 그룹의 하위 구성요소가 되는 계층적 일관성 그룹을 생성할 수 있습니다. 상위 일관성 그룹에는 최대 5개의 하위 일관성 그룹이 포함될 수 있습니다. 개별 정합성 보장 그룹과 마찬가지로 원격 SnapMirror 활성 동기화 보호 정책을 정합성 보장 그룹(상위 및 하위)의 전체 구성에 적용하여 애플리케이션 워크로드를 복구할 수 있습니다.
 
-다음 예제에서는 응용 프로그램이 에 호스팅됩니다 `SVM1`. 관리자가 상위 일관성 그룹을 생성했습니다. `SVM1_app`다음과 같은 두 개의 하위 정합성 보장 그룹이 포함됩니다. `SVM1appDataCG` 을 참조하십시오 `SVM1app_logCG` 를 클릭합니다. 각 하위 정합성 보장 그룹에는 고유한 스냅샷 정책이 있습니다. 에 있는 볼륨의 스냅샷 복사본 `SVM1appDataCG` 15분마다 수행됩니다. 의 스냅샷 `SVM1app_logCG` 매시간 촬영됩니다. 부모 일관성 그룹 `SVM1_app` 재난 발생 시 지속적인 서비스를 보장하기 위해 데이터를 복제하는 SM-BC 정책을 사용합니다.
+다음 예제에서는 응용 프로그램이 에 호스팅됩니다 `SVM1`. 관리자가 상위 일관성 그룹을 생성했습니다. `SVM1_app`다음과 같은 두 개의 하위 정합성 보장 그룹이 포함됩니다. `SVM1appDataCG` 을 참조하십시오 `SVM1app_logCG` 를 클릭합니다. 각 하위 정합성 보장 그룹에는 고유한 스냅샷 정책이 있습니다. 에 있는 볼륨의 스냅샷 복사본 `SVM1appDataCG` 15분마다 수행됩니다. 의 스냅샷 `SVM1app_logCG` 매시간 촬영됩니다. 부모 일관성 그룹 `SVM1_app` 에는 재해 발생 시 지속적인 서비스를 보장하기 위해 데이터를 복제하는 SnapMirror 활성 동기화 정책이 있습니다.
 
 image:../media/consistency-group-nested-diagram.gif["연결된 볼륨이 있는 중첩된 일관성 그룹의 다이어그램"]
 
@@ -67,9 +67,9 @@ NOTE: ONTAP 9.13.1에서는 REST API를 사용하여 기간별 메트릭만 검�
 정합성 보장 그룹은 다음을 통해 보호 기능을 제공합니다.
 
 * 스냅샷 정책
-* xref:../smbc/index.html[SnapMirror 비즈니스 연속성(SM-BC)]
+* xref:../snapmirror-active-sync/index.html[SnapMirror 활성 동기화]
 * <<mcc>> (ONTAP 9.11.1부터)
-* xref:../data-protection/snapmirror-disaster-recovery-concept.html[비동기식 SnapMirror입니다] (ONTAP 9.13.1부터)
+* xref:../data-protection/snapmirror-disaster-recovery-concept.html[SnapMirror 비동기] (ONTAP 9.13.1부터)
 * link:../data-protection/snapmirror-svm-replication-concept.html["SVM 재해 복구"] (ONTAP 9.14.1부터)
 
 
@@ -77,10 +77,10 @@ NOTE: ONTAP 9.13.1에서는 REST API를 사용하여 기간별 메트릭만 검�
 
 일관성 그룹에 대한 보호를 구성하려면 를 참조하십시오 link:protect-task.html["일관성 그룹 보호"].
 
-원격 보호를 활용하려면 에 대한 요구 사항을 충족해야 합니다 xref:../smbc/smbc_plan_prerequisites.html#licensing[SnapMirror 비즈니스 연속성 구현].
+원격 보호를 활용하려면 에 대한 요구 사항을 충족해야 합니다 xref:../snapmirror-active-sync/prerequisites-reference.html[SnapMirror 활성 동기화].
 
 
-NOTE: NAS 액세스를 위해 마운트된 볼륨에 SM-BC 관계를 설정할 수 없습니다.
+NOTE: NAS 액세스를 위해 마운트된 볼륨에 SnapMirror 활성 동기화 관계를 설정할 수 없습니다.
 
 
 
@@ -107,68 +107,68 @@ NOTE: 최적의 스토리지 성능과 가용성을 위해 미러링된 애그�
 
 == 업그레이드 고려 사항
 
-ONTAP 9.8 및 9.9.1에서 SM-BC로 생성된 정합성 보장 그룹은 ONTAP 9.10.1 이상으로 업그레이드할 때 System Manager의 * 스토리지 > 정합성 보장 그룹 * 또는 ONTAP REST API에서 자동으로 업그레이드되어 관리가 가능합니다. ONTAP 9.8 또는 9.9.1에서 업그레이드하는 방법에 대한 자세한 내용은 을 참조하십시오 link:../smbc/smbc_admin_upgrade_and_revert_considerations.html["SM-BC 업그레이드 및 되돌리기 고려 사항"].
+ONTAP 9.10.1 이상으로 업그레이드할 때 SnapMirror 활성 동기화를 사용하여 생성한 일관성 그룹(이전의 SnapMirror Business Continuity)이 있습니다. ONTAP 9.8 및 9.9.1에서는 시스템 관리자의 * 스토리지 > 일관성 그룹 * 또는 ONTAP REST API에서 자동으로 업그레이드되어 관리할 수 있습니다. ONTAP 9.8 또는 9.9.1에서 업그레이드하는 방법에 대한 자세한 내용은 을 참조하십시오 link:../snapmirror-active-sync/upgrade-revert-task.html["SnapMirror 활성 동기화 업그레이드 및 되돌리기 고려 사항"].
 
 REST API에서 생성된 일관성 그룹 스냅샷 복사본은 System Manager의 일관성 그룹 인터페이스 및 일관성 그룹 REST API 엔드포인트를 통해 관리할 수 있습니다. ONTAP 9.14.1부터는 ONTAP CLI를 사용하여 일관성 그룹 스냅샷을 관리할 수도 있습니다.
 
 
-NOTE: ONTAPI 명령을 사용하여 생성된 스냅샷 복사본 `cg-start` 및 `cg-commit` 는 일관성 그룹 스냅샷으로 인식되므로 System Manager의 일관성 그룹 인터페이스 또는 ONTAP REST API의 일관성 그룹 엔드포인트를 통해 관리할 수 없습니다. ONTAP 9.14.1부터 비동기식 SnapMirror 정책을 사용하는 경우 이러한 스냅샷 복사본을 타겟 볼륨으로 미러링할 수 있습니다. 자세한 내용은 을 참조하십시오 xref:protect-task.html#configure-asynchronous-snapmirror-protection[비동기식 SnapMirror 보호를 구성합니다].
+NOTE: ONTAPI 명령을 사용하여 생성된 스냅샷 복사본 `cg-start` 및 `cg-commit` 는 일관성 그룹 스냅샷으로 인식되므로 System Manager의 일관성 그룹 인터페이스 또는 ONTAP REST API의 일관성 그룹 엔드포인트를 통해 관리할 수 없습니다. ONTAP 9.14.1부터 SnapMirror 비동기식 정책을 사용하는 경우 이러한 스냅샷 복사본을 타겟 볼륨으로 미러링할 수 있습니다. 자세한 내용은 을 참조하십시오 xref:protect-task.html#configure-asynchronous-snapmirror-protection[SnapMirror 비동기식 보호를 구성합니다].
 
 
 
 == 릴리즈별 지원 기능
 
-[cols="3,1,1,1,1,1"]
+[cols="3,1,1,1,1,1,1"]
 |===
-|  | ONTAP 9.14.1 | ONTAP 9.13.1 | ONTAP 9.12.1 | ONTAP 9.11.1 | ONTAP 9.10.1 
+|  | ONTAP 9.15.1 | ONTAP 9.14.1 | ONTAP 9.13.1 | ONTAP 9.12.1 | ONTAP 9.11.1 | ONTAP 9.10.1 
 
 
-| 계층적 일관성 그룹 | ✓ | ✓ | ✓ | ✓ | ✓ 
+| 계층적 일관성 그룹 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ 
 
 
-| 스냅샷 복사본으로 로컬 보호 | ✓ | ✓ | ✓ | ✓ | ✓ 
+| 스냅샷 복사본으로 로컬 보호 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ 
 
 
-| SnapMirror 비즈니스 연속성 | ✓ | ✓ | ✓ | ✓ | ✓ 
+| SnapMirror 활성 동기화 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ 
 
 
-| MetroCluster 지원 | ✓ | ✓ | ✓ | ✓ |  
+| MetroCluster 지원 | ✓ | ✓ | ✓ | ✓ | ✓ |  
 
 
-| 2단계 커밋(REST API만 해당) | ✓ | ✓ | ✓ | ✓ |  
+| 2단계 커밋(REST API만 해당) | ✓ | ✓ | ✓ | ✓ | ✓ |  
 
 
-| 응용 프로그램 및 구성 요소 태그 | ✓ | ✓ | ✓ |  |  
+| 응용 프로그램 및 구성 요소 태그 | ✓ | ✓ | ✓ | ✓ |  |  
 
 
-| 클론 정합성 보장 그룹 | ✓ | ✓ | ✓ |  |  
+| 클론 정합성 보장 그룹 | ✓ | ✓ | ✓ | ✓ |  |  
 
 
-| 볼륨 추가 및 제거 | ✓ | ✓ | ✓ |  |  
+| 볼륨 추가 및 제거 | ✓ | ✓ | ✓ | ✓ |  |  
 
 
-| 새 NAS 볼륨으로 CG를 생성합니다 | ✓ | ✓ | REST API만 해당 |  |  
+| 새 NAS 볼륨으로 CG를 생성합니다 | ✓ | ✓ | ✓ | REST API만 해당 |  |  
 
 
-| 새로운 NVMe 네임스페이스를 사용하여 CG를 생성합니다 | ✓ | ✓ | REST API만 해당 |  |  
+| 새로운 NVMe 네임스페이스를 사용하여 CG를 생성합니다 | ✓ | ✓ | ✓ | REST API만 해당 |  |  
 
 
-| 하위 일관성 그룹 간에 볼륨을 이동합니다 | ✓ | ✓ |  |  |  
+| 하위 일관성 그룹 간에 볼륨을 이동합니다 | ✓ | ✓ | ✓ |  |  |  
 
 
-| 정합성 보장 그룹 지오메트리를 수정합니다 | ✓ | ✓ |  |  |  
+| 정합성 보장 그룹 지오메트리를 수정합니다 | ✓ | ✓ | ✓ |  |  |  
 
 
-| 모니터링 | ✓ | ✓ |  |  |  
+| 모니터링 | ✓ | ✓ | ✓ |  |  |  
 
 
-| 비동기식 SnapMirror(단일 일관성 그룹만 해당) | ✓ | ✓ |  |  |  
+| SnapMirror 비동기식(단일 일관성 그룹만 해당) | ✓ | ✓ | ✓ |  |  |  
 
 
-| SVM 재해 복구(단일 일관성 그룹만 해당) | ✓ |  |  |  |  
+| SVM 재해 복구(단일 일관성 그룹만 해당) | ✓ | ✓ |  |  |  |  
 
 
-| CLI 지원 | ✓ |  |  |  |  
+| CLI 지원 | ✓ | ✓ |  |  |  |  
 |===
 
 
@@ -177,7 +177,7 @@ NOTE: ONTAPI 명령을 사용하여 생성된 스냅샷 복사본 `cg-start` 및
 video::j0jfXDcdyzE[youtube,width=848,height=480]
 .추가 정보
 * link:https://docs.netapp.com/us-en/ontap-automation/["ONTAP 자동화 문서"^]
-* xref:../smbc/index.html[SnapMirror 비즈니스 연속성]
-* xref:../data-protection/snapmirror-disaster-recovery-concept.html[비동기식 SnapMirror 재해 복구 기본 사항]
+* xref:../snapmirror-active-sync/index.html[SnapMirror 활성 동기화]
+* xref:../data-protection/snapmirror-disaster-recovery-concept.html[SnapMirror 비동기식 재해 복구 기본 사항]
 * link:https://docs.netapp.com/us-en/ontap-metrocluster/["MetroCluster 설명서"]
 
