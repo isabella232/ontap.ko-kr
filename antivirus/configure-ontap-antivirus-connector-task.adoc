@@ -21,9 +21,9 @@ ONTAP 관리 LIF 및 폴링 정보를 수정하여 안티바이러스 커넥터�
 
 .시작하기 전에
 HTTP 응용 프로그램에 대한 사용자 계정을 만들고 에 대한 액세스(읽기 전용) 권한이 있는 역할을 할당했는지 확인합니다 `/api/network/ip/interfaces` REST API:
-사용자 만들기에 대한 자세한 내용은 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli-9131//security-login-role-create.html#description["보안 로그인 역할이 생성됩니다"^] 및 link:https://docs.netapp.com/us-en/ontap-cli-9131//security-login-create.html["보안 로그인 생성"^] 명령.
+사용자 만들기에 대한 자세한 내용은 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli/security-login-role-create.html#description["보안 로그인 역할이 생성됩니다"^] 및 link:https://docs.netapp.com/us-en/ontap-cli/security-login-create.html["보안 로그인 생성"^] 명령.
 관리 SVM에 대한 인증 터널 SVM을 추가하여 도메인 사용자를 계정으로 사용할 수도 있습니다.
-자세한 내용은 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli-9131//security-login-domain-tunnel-create.html["보안 로그인 도메인 - 터널 생성"] ONTAP man 페이지입니다.
+자세한 내용은 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli/security-login-domain-tunnel-create.html["보안 로그인 도메인 - 터널 생성"] ONTAP man 페이지입니다.
 
 .단계
 . 안티바이러스 커넥터 설치를 완료하면 바탕 화면에 저장된 * ONTAP LIF 구성 * 아이콘을 마우스 오른쪽 단추로 클릭한 다음 * 관리자 권한으로 실행 * 을 선택합니다. ONTAP LIF 구성 대화 상자가 열립니다.

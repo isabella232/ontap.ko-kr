@@ -40,7 +40,7 @@ DNS 로드 밸런싱 영역을 생성하여 LIF에 마운트된 클라이언트 
 .단계
 DNS load balancing zone을 생성하려면 dns-zone 옵션과 함께 network interface create 명령을 사용한다.
 
-로드 밸런싱 영역이 이미 존재하는 경우 LIF가 이 영역에 추가됩니다. 명령에 대한 자세한 내용은 를 참조하십시오 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"^].
+로드 밸런싱 영역이 이미 존재하는 경우 LIF가 이 영역에 추가됩니다. 명령에 대한 자세한 내용은 를 참조하십시오 link:http://docs.netapp.com/us-en/ontap-cli["ONTAP 9 명령 참조"^].
 
 다음 예제에서는 LIF 'lif1'을 생성하는 동안 storage.company.com 이라는 DNS 로드 밸런싱 존을 생성하는 방법을 보여 줍니다.
 

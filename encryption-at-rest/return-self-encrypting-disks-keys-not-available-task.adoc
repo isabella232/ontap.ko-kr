@@ -96,4 +96,4 @@ FIPS 준수 모드에서는 FIPS 키를 사용할 수 없으며 SED에는 레이
 |===
 
 
-전체 명령 구문은 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli-9141/storage-disk-assign.html["명령 참조"^].
+전체 명령 구문은 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli/storage-disk-assign.html["명령 참조"^].

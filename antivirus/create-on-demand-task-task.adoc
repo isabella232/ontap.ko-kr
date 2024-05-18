@@ -33,7 +33,7 @@ summary: 온디맨드 작업은 온디맨드 스캔의 범위를 정의합니다
 
 
 +
-전체 옵션 목록은 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli-9141/vserver-vscan-on-demand-task-create.html["명령 참조"^].
+전체 옵션 목록은 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli/vserver-vscan-on-demand-task-create.html["명령 참조"^].
 
 +
 다음 명령을 실행하면 이라는 On-Demand 작업이 생성됩니다 `Task1` VS1의 VM에서:

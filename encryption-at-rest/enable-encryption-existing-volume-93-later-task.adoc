@@ -27,7 +27,7 @@ NOTE: 를 사용할 수 없습니다 `volume encryption conversion start` SnapLo
 `volume encryption conversion start -vserver _svm_name_ -volume _volume_name_`
 
 +
-전체 명령 구문은 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli-9141//volume-encryption-conversion-start.html["명령 참조입니다"^].
+전체 명령 구문은 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli/volume-encryption-conversion-start.html["ONTAP 명령 참조입니다"^].
 
 +
 다음 명령을 실행하면 기존 볼륨의 암호화가 설정됩니다 `vol1`:

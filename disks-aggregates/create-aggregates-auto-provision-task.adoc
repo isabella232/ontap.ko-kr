@@ -103,7 +103,7 @@ ONTAP 9.2 이상이 클러스터에서 실행 중이어야 합니다.
 
 자동 프로비저닝 방법에 익숙하고 환경이 제대로 준비되었으면 '-skip-confirmation' 옵션을 사용하여 표시 및 확인 없이 권장 집계를 생성할 수 있습니다. 스토리지 집계 자동 프로비저닝 명령은 CLI 세션 확인 설정의 영향을 받지 않습니다.
 
-를 클릭합니다[`storage aggregate auto-provision` man 페이지^]애그리게이트 레이아웃 권장 사항에 대한 자세한 정보를 제공합니다.
+https://docs.netapp.com/us-en/ontap-cli/storage-aggregate-auto-provision.html 링크를 클릭합니다[`storage aggregate auto-provision` man 페이지^]애그리게이트 레이아웃 권장 사항에 대한 자세한 정보를 제공합니다.
 
 .단계
 . 원하는 표시 옵션으로 'Storage aggregate auto-provision' 명령을 실행합니다.
@@ -158,4 +158,5 @@ myA400-44556677::>
 --
 ====
 .관련 정보
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr/GUID-5CB10C70-AC11-41C0-8C16-B4D0DF916E9B.html["ONTAP 9 명령"^]
+* link:http://docs.netapp.com/us-en/ontap-cli["ONTAP 9 명령 참조"^]
+

@@ -65,4 +65,5 @@ cluster1::> system license add -license-code AAAAAAAAAAAAAAAAAAAAAAAAAAAA, BBBBB
 --
 ====
 .관련 정보
-https://docs.netapp.com/us-en/ontap-cli-9141/system-license-add.html["시스템 라이센스 추가 명령에 대한 man 페이지입니다"].
+* .
+

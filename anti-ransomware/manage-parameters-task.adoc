@@ -67,7 +67,7 @@ security anti-ransomware volume attack-detection-parameters show -vserver vs1 -v
 ....
 . 표시된 모든 필드는 부울 또는 정수 값으로 수정할 수 있습니다. 필드를 수정하려면 을 사용합니다 `security anti-ransomware volume attack-detection-parameters modify` 명령.
 +
-매개 변수의 전체 목록은 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli-9141/security-anti-ransomware-volume-attack-detection-parameters-modify.html["ONTAP 명령 참조입니다"^].
+매개 변수의 전체 목록은 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli/security-anti-ransomware-volume-attack-detection-parameters-modify.html["ONTAP 명령 참조입니다"^].
 
 
 
