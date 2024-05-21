@@ -13,6 +13,12 @@ ONTAP 9.9.1에서 사용할 수 있는 새로운 기능에 대해 알아보십�
 
 최신 ONTAP 9 릴리스에서 알려진 문제, 제한 사항 및 업그레이드 주의 사항에 대한 자세한 내용은 를 참조하십시오 https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["ONTAP 9 릴리즈 노트"^]. 릴리스 정보에 액세스하려면 NetApp 계정으로 로그인하거나 계정을 만들어야 합니다.
 
+새로운 기능 및 향상된 기능에 대해 알아봅니다 https://docs.netapp.com/us-en/ontap-metrocluster/releasenotes/mcc-new-features.html["ONTAP MetroCluster 기능"^].
+
+의 새로운 지원과 향상된 지원에 대해 알아봅니다 https://docs.netapp.com/us-en/ontap-systems/whats-new.html["FAS, ASA, AFF 플랫폼, 지원되는 스위치"^].
+
+의 업데이트에 대해 알아봅니다 https://docs.netapp.com/us-en/ontap-automation/whats_new.html["ONTAP REST API를 참조하십시오"^].
+
 최신 버전의 ONTAP로 업그레이드하려면 를 참조하십시오 xref:../upgrade/prepare.html[ONTAP 업그레이드를 준비합니다].
 
 

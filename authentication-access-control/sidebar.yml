@@ -48,8 +48,6 @@ entries:
     url: "/system-admin/commands-manage-mount-points-nodes-reference.html"
   - title: SSL 관리
     url: "/system-admin/manage-ssl-concept.html"
-  - title: SSL 관리를 위한 명령입니다
-    url: "/system-admin/commands-manage-ssl-reference.html"
   - title: 웹 서비스 액세스 문제를 해결합니다
     url: "/system-admin/troubleshoot-web-access-problems-concept.html"
 - title: 인증서를 사용하여 원격 서버의 ID를 확인합니다

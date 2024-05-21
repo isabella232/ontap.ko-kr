@@ -44,19 +44,17 @@ entries:
     url: "/snapmirror-active-sync/add-remove-consistency-group-task.html"
   - title: 업그레이드 및 되돌리기
     url: "/snapmirror-active-sync/upgrade-revert-task.html"
-  - title: 문제 해결
-    url: "/snapmirror-active-sync/troubleshoot-reference.html"
   - title: SnapMirror 활성 동기화 구성을 제거합니다
     url: "/snapmirror-active-sync/remove-configuration-task.html"
   - title: ONTAP 중재자를 제거합니다
     url: "/snapmirror-active-sync/remove-mediator-task.html"
 - title: 문제 해결
   entries:
-  - title: takover 상태에서 SnapMirror 삭제 작업이 실패합니다
+  - title: 테이크오버 상태에서 SnapMirror 삭제 작업이 실패합니다
     url: "/snapmirror-active-sync/delete-fails-takeover-task.html"
   - title: SnapMirror 관계 생성 및 일관성 그룹 초기화 실패
     url: "/snapmirror-active-sync/create-relationship-fails-task.html"
-  - title: 계획된 페일오버가 성공하지 못했습니다
+  - title: 계획된 페일오버 실패
     url: "/snapmirror-active-sync/planned-failover-unsuccessful-task.html"
   - title: 중재자가 연락할 수 없거나 중재 쿼럼 상태가 거짓입니다
     url: "/snapmirror-active-sync/mediator-troubleshoot-task.html"

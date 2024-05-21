@@ -13,7 +13,7 @@ summary: FabricPool를 사용하면 데이터 액세스 빈도에 따라 데이�
 [role="lead"]
 FabricPool를 사용하면 데이터 액세스 빈도에 따라 데이터를 자동으로 계층화할 수 있습니다.
 
-FabricPool은 All-Flash(All-SSD) 애그리게이트를 성능 계층으로 사용하고 오브젝트 저장소를 클라우드 계층으로 사용하는 하이브리드 스토리지 솔루션입니다. FabricPool를 사용하면 성능, 효율성 또는 보호 기능의 저하 없이 스토리지 비용을 절감할 수 있습니다.
+FabricPool는 AFF 시스템의 하이브리드 스토리지 솔루션으로, All-Flash(All-SSD) 애그리게이트를 사용하고, FAS 시스템에서는 All-Flash(All-SSD) 또는 HDD 애그리게이트를 성능 계층으로 사용하고, 오브젝트 저장소를 클라우드 계층으로 사용합니다. FabricPool를 사용하면 성능, 효율성 또는 보호 기능의 저하 없이 스토리지 비용을 절감할 수 있습니다.
 
 클라우드 계층은 NetApp StorageGRID 또는 ONTAP S3(ONTAP 9.8부터)에 위치할 수 있으며, 다음 서비스 공급자 중 하나 이상에 포함될 수 있습니다.
 
@@ -30,10 +30,5 @@ FabricPool은 All-Flash(All-SSD) 애그리게이트를 성능 계층으로 사�
 ONTAP 9.7부터는 S3_호환 오브젝트 저장소 공급자를 선택하여 일반 S3 API를 지원하는 추가 오브젝트 저장소 공급자를 사용할 수 있습니다.
 
 ====
-
-
-== 데이터 계층화 및 비용 절감 사용 사례 비디오
-
-video::Vs1-WMvj9fI[youtube,width=848,height=480]
 .관련 정보
 도 참조하십시오 https://docs.netapp.com/us-en/occm/concept_cloud_tiering.html["NetApp 클라우드 계층화"^] 문서화:

@@ -4,10 +4,6 @@ title: 릴리스 정보
 entries:
 - title: 주요 내용을 릴리스합니다
   url: "/release-notes/index.html"
-- title: 릴리스 지원
-  url: "/release-notes/release-support-reference.html"
-- title: ONTAP 기본값 및 제한 사항
-  url: "/release-notes/defaults-limits.html"
 - title: ONTAP 9.15.1의 새로운 기능
   url: "/release-notes/9151-reference.html"
 - title: ONTAP 9.14.1의 새로운 기능
@@ -22,3 +18,7 @@ entries:
   url: "/release-notes/9101-reference.html"
 - title: ONTAP 9.1.1의 새로운 기능
   url: "/release-notes/991-reference.html"
+- title: ONTAP 기본값 및 한계값으로 변경합니다
+  url: "/release-notes/defaults-limits.html"
+- title: 릴리스 지원
+  url: "/release-notes/release-support-reference.html"

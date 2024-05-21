@@ -15,8 +15,6 @@ sidebar:
   - title: ONTAP 문서
     url: "/index.html"
   - section: release-notes
-  - title: System Manager와 BlueXP의 통합
-    url: "/sysmgr-integration-bluexp-concept.html"
   - section: introduction-concepts
   - section: setup-upgrade
   - section: cluster-admin

@@ -1,8 +1,8 @@
 ---
 permalink: system-admin/manage-ssl-concept.html 
 sidebar: sidebar 
-keywords: manage, ssl, security, web, access, digital, certificate, encrypted, connection, server, browser 
-summary: SSL 프로토콜은 웹 서버와 브라우저 간에 암호화된 연결을 설정하기 위해 디지털 인증서를 사용하여 웹 액세스의 보안을 개선합니다. 
+keywords: manage, command, ssl, cluster, storage, svm, security, web, access, digital, certificate, encrypted, connection, server, browser 
+summary: SSL 명령을 사용하여 SSL 프로토콜을 관리하여 암호화된 연결을 설정하기 위해 디지털 인증서를 사용하여 웹 액세스 보안을 강화합니다. 
 ---
 = SSL 관리
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: SSL 프로토콜은 웹 서버와 브라우저 간에 암호화된 연�
 
 
 [role="lead"]
-SSL 프로토콜은 웹 서버와 브라우저 간에 암호화된 연결을 설정하기 위해 디지털 인증서를 사용하여 웹 액세스의 보안을 개선합니다.
+를 사용합니다 `security ssl` 클러스터 또는 SVM(스토리지 가상 머신)에 대한 SSL 프로토콜을 관리하는 명령입니다. SSL 프로토콜은 디지털 인증서를 사용하여 웹 서버와 브라우저 간에 암호화된 연결을 설정함으로써 웹 액세스의 보안을 향상시킵니다.
 
 다음과 같은 방법으로 클러스터 또는 SVM(스토리지 가상 머신)의 SSL을 관리할 수 있습니다.
 
@@ -22,3 +22,27 @@ SSL 프로토콜은 웹 서버와 브라우저 간에 암호화된 연결을 설
 * 사용할 수 있는 SSL 버전을 정의합니다
 * 웹 서비스에 대한 HTTPS 요청에만 액세스를 제한합니다
 
+
+
+
+== SSL 관리를 위한 명령입니다
+
+를 사용합니다 `security ssl` 클러스터 또는 SVM(스토리지 가상 머신)에 대한 SSL 프로토콜을 관리하는 명령입니다.
+
+|===
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+클러스터 또는 SVM에 SSL을 활성화하고 디지털 인증서를 연결합니다
+ a| 
+보안 SSL 수정
+
+
+
+ a| 
+클러스터 또는 SVM의 SSL 구성과 인증서 이름을 표시합니다
+ a| 
+보안 SSL 쇼
+
+|===

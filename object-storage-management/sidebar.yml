@@ -51,6 +51,8 @@ entries:
     entries:
     - title: 버킷을 만듭니다
       url: "/s3-config/create-bucket-task.html"
+    - title: 버킷 크기를 관리합니다
+      url: "/s3-config/manage-bucket-size-task.html"
     - title: MetroCluster 구성의 경우 미러링된 또는 미러링되지 않은 애그리게이트에 버킷을 생성합니다
       url: "/s3-config/create-bucket-mcc-task.html"
     - title: 버킷 수명주기 규칙을 생성합니다
