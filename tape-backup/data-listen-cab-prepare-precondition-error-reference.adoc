@@ -10,6 +10,7 @@ summary: 백업 애플리케이션이 NDMP 서버와 CAB 확장을 협상하고 
 :imagesdir: ../media/
 
 
+[role="lead"]
 * * 메시지 *
 +
 dATA Listen: cab data connection prepare pre전제 조건 오류

@@ -10,6 +10,7 @@ summary: 시스템의 메모리가 부족합니다.
 :imagesdir: ../media/
 
 
+[role="lead"]
 * * 메시지 *
 +
 메모리를 할당하지 못했습니다

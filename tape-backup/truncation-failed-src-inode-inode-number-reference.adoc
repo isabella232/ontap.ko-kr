@@ -10,6 +10,7 @@ summary: 파일 inode는 파일이 복원될 때 삭제됩니다.
 :imagesdir: ../media/
 
 
+[role="lead"]
 * * 메시지 *
 +
 "src inode <inode number>에 대한 잘림 실패. 오류 <오류 번호>. inode를 건너뜁니다

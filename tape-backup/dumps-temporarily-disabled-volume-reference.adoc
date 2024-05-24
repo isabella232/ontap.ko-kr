@@ -10,6 +10,7 @@ summary: SnapMirror 중단 또는 SnapMirror 재동기화 작업의 일부인 Sn
 :imagesdir: ../media/
 
 
+[role="lead"]
 * * 메시지 *
 +
 볼거리가 일시적으로 부피를 사용할 수 없게 되었습니다. 다시 시도하십시오

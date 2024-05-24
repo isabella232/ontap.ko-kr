@@ -10,6 +10,7 @@ summary: SMTape 작업이 진행 중인 동안 집계 재배치를 시작하면 
 :imagesdir: ../media/
 
 
+[role="lead"]
 * * 메시지 *
 +
 "전송 실패(ARL 시작 중단)"

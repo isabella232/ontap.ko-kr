@@ -10,6 +10,7 @@ summary: NFS 보안 레이블은 NFSv4.2가 활성화된 경우 ONTAP 9.9.1부�
 :imagesdir: ../media/
 
 
+[role="lead"]
 * * 메시지 *
 +
 "오류: 중단 중: 덤프가 파일 시스템에서 NFS 보안 레이블을 발견했습니다.

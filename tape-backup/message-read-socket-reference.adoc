@@ -10,6 +10,7 @@ summary: NDMP 3-way 연결에서 원격 테이프에서 통신 복구 시 오류
 :imagesdir: ../media/
 
 
+[role="lead"]
 * * 메시지 *
 +
 '읽기 소켓의 메시지: error_string'

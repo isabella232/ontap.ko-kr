@@ -10,6 +10,7 @@ summary: 지정된 NDMP 버전은 스토리지 시스템에서 지원되지 않�
 :imagesdir: ../media/
 
 
+[role="lead"]
 * * 메시지 *
 +
 'ndmpd 잘못된 버전 번호: version_number'

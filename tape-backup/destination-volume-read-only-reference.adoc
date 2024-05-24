@@ -10,6 +10,7 @@ summary: 복구 작업이 시도되는 경로는 읽기 전용입니다.
 :imagesdir: ../media/
 
 
+[role="lead"]
 * * 메시지 *
 +
 대상 볼륨이 읽기 전용입니다

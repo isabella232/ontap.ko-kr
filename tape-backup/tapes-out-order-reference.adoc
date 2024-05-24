@@ -10,6 +10,7 @@ summary: 복원 작업에 대한 테이프 시퀀스의 첫 번째 테이프에�
 :imagesdir: ../media/
 
 
+[role="lead"]
 * * 메시지 *
 +
 테이프가 순서를 벗어났어

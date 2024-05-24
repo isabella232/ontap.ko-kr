@@ -10,6 +10,7 @@ summary: 백업 이미지의 서명이 테이프 헤더에서 유효하지 않�
 :imagesdir: ../media/
 
 
+[role="lead"]
 * * 메시지 *
 +
 잘못된 입력 테이프

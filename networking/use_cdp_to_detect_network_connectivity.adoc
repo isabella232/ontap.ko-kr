@@ -377,3 +377,15 @@ OTHER
  Init failures:      0
 ....
 통계를 지운 후에는 다음 CDP 보급 알림이 전송되거나 수신된 후에 누적되기 시작합니다.
+
+
+
+== CDP를 지원하지 않는 이더넷 스위치에 연결 중입니다
+
+여러 공급업체 스위치는 CDP를 지원하지 않습니다.  기술 자료 문서를 참조하십시오 https://kb.netapp.com/onprem/ontap/da/NAS/ONTAP_device_discovery_shows_nodes_instead_of_the_switch["ONTAP 장치 검색에는 스위치 대신 노드가 표시됩니다"^] 를 참조하십시오.
+
+이 문제를 해결하는 방법에는 두 가지가 있습니다.
+
+* 지원되는 경우 CDP를 사용하지 않도록 설정하고 LLDP를 사용하도록 설정합니다. 을 참조하십시오 link:use_lldp_to_detect_network_connectivity.html["LLDP를 사용하여 네트워크 연결을 감지합니다"] 를 참조하십시오.
+* CDP 광고를 삭제하도록 스위치에서 MAC 주소 패킷 필터를 구성합니다.
+

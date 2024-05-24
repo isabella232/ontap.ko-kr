@@ -321,7 +321,6 @@ SnapMirror 소스가 마이그레이션되면 ONTAP에서 SnapMirror 업데이�
 SVM 마이그레이션은 FabricPool의 볼륨에서 다음 플랫폼용 지원됩니다.
 
 * Azure NetApp Files 플랫폼: 모든 계층화 정책이 지원됩니다(스냅샷 전용, 자동, 모두 및 없음).
-* 온프레미스 플랫폼: "없음" 볼륨 계층화 정책만 지원됩니다.
 
 
 

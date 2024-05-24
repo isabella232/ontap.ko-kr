@@ -10,6 +10,7 @@ summary: 볼륨 마이그레이션 및 SMTape 백업을 동시에 실행할 수 
 :imagesdir: ../media/
 
 
+[role="lead"]
 * * 메시지 *
 +
 볼륨이 현재 마이그레이션 중입니다

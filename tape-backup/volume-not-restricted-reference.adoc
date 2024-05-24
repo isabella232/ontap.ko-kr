@@ -10,6 +10,7 @@ summary: 데이터가 복원되는 대상 볼륨은 제한되지 않습니다.
 :imagesdir: ../media/
 
 
+[role="lead"]
 * * 메시지 *
 +
 볼륨이 제한되지 않음

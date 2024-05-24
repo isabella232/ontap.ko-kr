@@ -10,6 +10,7 @@ summary: 'SMTape 작업은 CFO 애그리게이트의 스토리지 페일오버(�
 :imagesdir: ../media/
 
 
+[role="lead"]
 * * 메시지 *
 +
 "전송 실패(CFO가 중단을 시작함)"

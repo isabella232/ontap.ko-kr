@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: security, style, effect, unix, ntfs, mixed, unified 
 summary: UNIX, NTFS, 혼합 및 통합 등 네 가지 보안 유형이 있습니다. 각 보안 스타일은 데이터에 대한 사용 권한이 처리되는 방식에 다른 영향을 줍니다. 용도에 맞는 적절한 보안 스타일을 선택할 수 있도록 다양한 효과를 이해해야 합니다. 
 ---
-= 보안 스타일과 그 효과는 무엇입니까
+= 보안 스타일 및 효과
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

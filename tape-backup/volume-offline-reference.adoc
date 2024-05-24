@@ -10,6 +10,7 @@ summary: 백업 중인 볼륨이 오프라인 상태입니다.
 :imagesdir: ../media/
 
 
+[role="lead"]
 * * 메시지 *
 +
 볼륨 오프라인

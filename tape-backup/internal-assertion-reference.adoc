@@ -10,6 +10,7 @@ summary: 내부 SMTape 오류가 있습니다.
 :imagesdir: ../media/
 
 
+[role="lead"]
 * * 메시지 *
 +
 내부 어설션

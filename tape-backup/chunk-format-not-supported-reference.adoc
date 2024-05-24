@@ -10,6 +10,7 @@ summary: 백업 이미지가 SMTape가 아닙니다.
 :imagesdir: ../media/
 
 
+[role="lead"]
 * * 메시지 *
 +
 청크 형식이 지원되지 않습니다

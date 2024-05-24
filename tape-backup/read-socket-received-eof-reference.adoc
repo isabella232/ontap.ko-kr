@@ -10,6 +10,7 @@ summary: NDMP 3방향 연결에서 원격 테이프와 파일 끝 표시에 도�
 :imagesdir: ../media/
 
 
+[role="lead"]
 * * 메시지 *
 +
 Read Socket Received EOF(읽기 소켓 수신 EOF)

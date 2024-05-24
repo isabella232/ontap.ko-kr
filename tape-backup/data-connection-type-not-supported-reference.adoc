@@ -10,6 +10,7 @@ summary: '노드 범위 NDMP 모드에서는 설정된 NDMP 데이터 연결이 
 :imagesdir: ../media/
 
 
+[role="lead"]
 * * 메시지 *
 +
 ["IPv6"|"IPv4"] 제어 연결에 대해 Data 연결 유형 ["NDMP4_ADDR_TCP_IPv6"] 지원되지 않습니다
