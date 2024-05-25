@@ -2,7 +2,7 @@
 permalink: data-protection/create-snapshot-job-schedule-task.html 
 sidebar: sidebar 
 keywords: create, snapshot, job, schedule 
-summary: 스냅샷 정책에는 스냅샷 복사본 작업 일정이 하나 이상 필요합니다. 작업 스케줄 cron create 명령을 사용하여 작업 스케줄을 생성할 수 있습니다. 
+summary: 스냅샷 정책에는 스냅샷 복사본 작업 일정이 하나 이상 필요합니다. System Manager 또는 job schedule cron create 명령을 사용하여 작업 일정을 생성합니다. 
 ---
 = 스냅샷 작업 일정을 생성합니다
 :allow-uri-read: 
@@ -11,18 +11,40 @@ summary: 스냅샷 정책에는 스냅샷 복사본 작업 일정이 하나 이�
 
 
 [role="lead"]
-스냅샷 정책에는 스냅샷 복사본 작업 일정이 하나 이상 필요합니다. job schedule cron create 명령을 사용하여 작업 스케줄을 생성할 수 있습니다.
+스냅샷 정책에는 스냅샷 복사본 작업 일정이 하나 이상 필요합니다. System Manager 또는 를 사용할 수 있습니다 `job schedule cron create` 작업 스케줄을 생성하는 명령입니다.
 
 .이 작업에 대해
 기본적으로 ONTAP는 작업 일정 이름에 타임스탬프를 추가하여 스냅샷 복사본의 이름을 구성합니다.
 
 해당 월의 요일 및 요일에 대한 값을 모두 지정하면 값은 독립적으로 간주됩니다. 예를 들어, 일 사양 금요일과 월 사양 13일이 포함된 cron 일정은 금요일이 아니라 매달 13일에 각각 금요일과 13일에 실행됩니다.
 
+
+
+== 스냅샷 복사본 작업 일정을 생성합니다
+
 .단계
+System Manager 또는 ONTAP CLI를 사용하여 스냅샷 복사본 작업 일정을 생성할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+. Protection > Overview * 로 이동한 후 * Local policy settings * 를 확장합니다.
+. Schedules * 창에서 를 클릭합니다 image:icon_arrow.gif["화살표"].
+. Schedules * 창에서 를 클릭합니다 image:icon_add.gif["및"].
+. 일정 추가 * 창에서 일정 이름을 입력하고 컨텍스트 및 일정 유형을 선택합니다.
+. 저장 * 을 클릭합니다.
+
+
+--
+.CLI를 참조하십시오
+--
 . 작업 일정 생성:
 +
-"작업 일정 cron create-name_job_name_-month month - DayOfWeek_day_of_week_-day_day_of_month_-hour_hour_-minute_minute_"
-
+[source, cli]
+----
+job schedule cron create -name <job_name> -month <month> -dayofweek <day_of_week> -day <day_of_month> -hour <hour> -minute <minute>
+----
 +
 월-일-일-주-시-시간의 경우 월, 일, 시 순으로 모두 작업을 실행하도록 지정할 수 있습니다.
 
@@ -30,8 +52,10 @@ summary: 스냅샷 정책에는 스냅샷 복사본 작업 일정이 하나 이�
 ONTAP 9.10.1.1부터는 작업 일정에 SVM을 포함할 수 있습니다.
 
 +
-'job schedule cron create -name_job_name_-vserver_Vserver_name_-month_month_-DayOfWeek_day_of_week_-day_of_month_-hour_hour_-minute_minute_'
-
+[listing, subs="+quotes"]
+----
+job schedule cron create -name <job_name> *-vserver <Vserver_name>* -month <month> -dayofweek <day_of_week> -day <day_of_month> -hour <hour> -minute <minute>
+----
 +
 다음 예에서는 토요일 오전 3시에 실행되는 'myweekly'라는 작업 일정을 생성합니다.
 
@@ -49,3 +73,6 @@ cluster1::> job schedule cron create -name myweekly -dayofweek "Saturday" -hour 
 job schedule cron create -name myweeklymulti -dayofweek "Monday,Wednesday,Sunday" -hour 3,9,12 -minute 0,20,50
 ----
 
+
+--
+====

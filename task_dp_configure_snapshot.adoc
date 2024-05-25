@@ -23,5 +23,5 @@ summary: 스냅샷 복사본 정책은 스냅샷 복사본의 생성, 보존 및
 .단계
 . 보호 > 개요 > 로컬 정책 설정 * 을 클릭합니다.
 . Snapshot Policies * 에서 를 클릭합니다 image:icon_arrow.gif["화살표"]을 클릭한 다음 을 클릭합니다 image:icon_add.gif["및"].
-. 정책 이름을 입력하고 정책 범위를 선택한 다음 * Schedules * 에서 를 클릭합니다 image:icon_add.gif["및"] 일정 세부 정보를 입력합니다.
+. 정책 이름을 입력하고 정책 범위를 선택한 다음 * Schedules * 에서 를 클릭합니다 image:icon_add.gif["및"] 기존 일정을 하나 이상 추가합니다.
 

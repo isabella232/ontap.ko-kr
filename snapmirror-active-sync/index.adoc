@@ -14,14 +14,14 @@ summary: SnapMirror 액티브 동기화를 사용하여 LUN이 있는 애플리�
 
 
 [role="lead"]
-SnapMirror 액티브 동기화(SnapMirror Business Continuity[SM-BC]라고도 함)를 사용하면 전체 사이트 장애 시에도 비즈니스 서비스를 계속 운영할 수 있으며, 보조 복사본을 사용하여 애플리케이션을 투명하게 페일오버할 수 있습니다. SnapMirror 활성 동기화로 페일오버를 트리거하려면 수동 개입 또는 사용자 지정 스크립팅이 필요합니다.
+SnapMirror 액티브 동기화(SnapMirror Business Continuity_[SM-BC]_ 라고도 함)를 사용하면 전체 사이트 장애 시에도 비즈니스 서비스의 지속적인 운영을 유지할 수 있으며, 보조 복사본을 사용하여 애플리케이션을 투명하게 페일오버할 수 있습니다. SnapMirror 활성 동기화로 페일오버를 트리거하려면 수동 개입 또는 사용자 지정 스크립팅이 필요합니다.
 
 ONTAP 9.9.1부터 사용 가능, SnapMirror 액티브 동기화는 AFF 클러스터, ASA(All Flash SAN Array) 클러스터 및 C-Series(AFF 또는 ASA)에서 지원됩니다. 운영 클러스터와 2차 클러스터의 유형은 ASA 또는 AFF 중 하나여야 합니다. SnapMirror 액티브 동기화는 iSCSI 또는 FCP LUN으로 애플리케이션을 보호합니다.
 
 ONTAP 9.15.1부터 SnapMirror 액티브 동기화는 을 지원합니다 xref:architecture-concept.html[대칭적인 액티브/액티브 기능]는 양방향 동기식 복제를 사용하는 보호된 LUN의 두 복사본에서 읽기 및 쓰기 I/O 작업을 지원하므로 두 LUN 복사본 모두 로컬에서 I/O 작업을 수행할 수 있습니다. ONTAP 9.15.1 이전의 SnapMirror 활성 동기화는 보조 사이트의 데이터를 LUN에 프록시하는 비대칭 활성/활성 구성만 지원합니다.
 
 
-NOTE: 2024년 7월부터 이전에 PDF로 게시된 기술 보고서의 콘텐츠가 ONTAP 제품 문서와 통합되었습니다. 이제 ONTAP SnapMirror 액티브 동기화 문서에 TR-4878: SnapMirror 액티브 동기화의 콘텐츠가 포함되어 있습니다.
+NOTE: 2024년 7월부터 이전에 PDF로 게시된 기술 보고서의 콘텐츠가 ONTAP 제품 문서와 통합되었습니다. 이제 ONTAP SnapMirror 액티브 동기화 문서에 _TR-4878: SnapMirror active sync_의 콘텐츠가 포함되어 있습니다.
 
 
 

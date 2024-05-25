@@ -2,7 +2,7 @@
 permalink: data-protection/create-replication-job-schedule-task.html 
 sidebar: sidebar 
 keywords: create, replication, job, schedule 
-summary: 작업 스케줄 cron create 명령을 사용하여 복제 작업 스케줄을 생성할 수 있습니다. 작업 일정은 SnapMirror에서 일정이 할당된 데이터 보호 관계를 자동으로 업데이트할지 여부를 결정합니다. 
+summary: System Manager 또는 job schedule cron create 명령을 사용하여 복제 작업 일정을 생성할 수 있습니다. 
 ---
 = 복제 작업 스케줄을 생성합니다
 :allow-uri-read: 
@@ -11,16 +11,34 @@ summary: 작업 스케줄 cron create 명령을 사용하여 복제 작업 스�
 
 
 [role="lead"]
-job schedule cron create 명령을 사용하여 복제 작업 스케줄을 생성할 수 있습니다. 작업 일정은 SnapMirror에서 일정이 할당된 데이터 보호 관계를 자동으로 업데이트할지 여부를 결정합니다.
+작업 일정은 SnapMirror에서 일정이 할당된 데이터 보호 관계를 자동으로 업데이트할지 여부를 결정합니다. System Manager 또는 를 사용할 수 있습니다 `job schedule cron create` 복제 작업 스케줄을 생성하는 명령입니다.
 
 .이 작업에 대해
 데이터 보호 관계를 생성할 때 작업 일정을 할당합니다. 작업 일정을 할당하지 않으면 관계를 수동으로 업데이트해야 합니다.
 
 .단계
+System Manager 또는 ONTAP CLI를 사용하여 복제 작업 일정을 생성할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+. Protection > Overview * 로 이동한 후 * Local policy settings * 를 확장합니다.
+. Schedules * 창에서 를 클릭합니다 image:icon_arrow.gif["화살표"].
+. Schedules * 창에서 를 클릭합니다 image:icon_add.gif["및"].
+. 일정 추가 * 창에서 일정 이름을 입력하고 컨텍스트 및 일정 유형을 선택합니다.
+. 저장 * 을 클릭합니다.
+
+
+--
+.CLI를 참조하십시오
+--
 . 작업 일정 생성:
 +
-"작업 일정 cron create-name_job_name_-month_month_-DayOfWeek_day_of_week_-day_day_of_month_-hour_hour_-minute_minute_"
-
+[source, cli]
+----
+job schedule cron create -name <job_name> -month <month> -dayofweek <day_of_week> -day <day_of_month> -hour <hour> -minute <minute>
+----
 +
 월-일-일-주-시-시간의 경우 월, 일, 시 순으로 모두 작업을 실행하도록 지정할 수 있습니다.
 
@@ -28,14 +46,14 @@ job schedule cron create 명령을 사용하여 복제 작업 스케줄을 생�
 ONTAP 9.10.1.1부터는 작업 일정에 SVM을 포함할 수 있습니다.
 
 +
-'job schedule cron create -name_job_name_-vserver_Vserver_name_-month_month_-DayOfWeek_day_of_week_-day_of_month_-hour_hour_-minute_minute_'
-
+[listing, subs="+quotes"]
+----
+job schedule cron create -name <job_name> *-vserver <Vserver_name>* -month <month> -dayofweek <day_of_week> -day <day_of_month> -hour <hour> -minute <minute>
+----
 +
-[NOTE]
-====
-볼륨 SnapMirror 관계에서 FlexVol 볼륨의 최소 지원 일정(RPO)은 5분입니다. 볼륨 SnapMirror 관계에서 FlexGroup 볼륨의 최소 지원 일정(RPO)은 30분입니다.
 
-====
+NOTE: 볼륨 SnapMirror 관계에서 FlexVol 볼륨의 최소 지원 일정(RPO)은 5분입니다. 볼륨 SnapMirror 관계에서 FlexGroup 볼륨의 최소 지원 일정(RPO)은 30분입니다.
+
 +
 다음 예에서는 토요일 오전 3시에 실행되는 my_weekly라는 작업 일정을 생성합니다.
 
@@ -45,3 +63,6 @@ ONTAP 9.10.1.1부터는 작업 일정에 SVM을 포함할 수 있습니다.
 cluster_dst::> job schedule cron create -name my_weekly -dayofweek "Saturday" -hour 3 -minute 0
 ----
 
+
+--
+====
