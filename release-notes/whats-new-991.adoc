@@ -1,0 +1,273 @@
+---
+permalink: release-notes/whats-new-991.html 
+sidebar: sidebar 
+keywords: 'what"s new, release notes, 9.9.1' 
+summary: ONTAP 9.9.1에서 사용할 수 있는 새로운 기능에 대해 알아보십시오. 
+---
+= ONTAP 9.9.1의 새로운 기능
+:allow-uri-read: 
+
+
+[role="lead"]
+ONTAP 9.9.1에서 사용할 수 있는 새로운 기능에 대해 알아보십시오.
+
+최신 ONTAP 9 릴리스에서 알려진 문제, 제한 사항 및 업그레이드 주의 사항에 대한 자세한 내용은 를 참조하십시오 https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["ONTAP 9 릴리즈 노트"^]. 릴리스 정보에 액세스하려면 NetApp 계정으로 로그인하거나 계정을 만들어야 합니다.
+
+새로운 기능 및 향상된 기능에 대해 알아봅니다 https://docs.netapp.com/us-en/ontap-metrocluster/releasenotes/mcc-new-features.html["ONTAP MetroCluster 기능"^].
+
+의 새로운 지원과 향상된 지원에 대해 알아봅니다 https://docs.netapp.com/us-en/ontap-systems/whats-new.html["FAS, ASA, AFF 플랫폼, 지원되는 스위치"^].
+
+의 업데이트에 대해 알아봅니다 https://docs.netapp.com/us-en/ontap-automation/whats_new.html["ONTAP REST API를 참조하십시오"^].
+
+최신 버전의 ONTAP로 업그레이드하려면 를 참조하십시오 xref:../upgrade/prepare.html[ONTAP 업그레이드를 준비합니다].
+
+
+
+== 데이터 보호
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| link:../snaplock/index.html["SnapLock 볼륨 및 애그리게이트에서 스토리지 효율성 지원"] | 데이터 컴팩션, 볼륨 간 중복제거, 적응형 압축 및 TSSE(온도에 민감한 스토리지 효율성)를 포함하도록 SnapLock 볼륨 및 애그리게이트의 스토리지 효율성 기능이 확장되어 WORM 데이터의 공간을 더 절약할 수 있습니다. 
+
+
+| link:../data-protection/snapmirror-svm-replication-concept.html["SVM DR 소스 및 대상에 대해 서로 다른 스냅샷 정책을 구성할 수 있도록 지원합니다"] | SVM DR 구성은 미러 소산 정책을 사용하여 소스와 대상에 대한 서로 다른 스냅샷 정책을 구성할 수 있으며, 소스의 정책으로 대상에 대한 정책을 덮어쓰지 않습니다. 
+
+
+| link:../data-protection/snapmirror-licensing-concept.html["SnapMirror Cloud에 대한 System Manager 지원"] | SnapMirror Cloud가 이제 System Manager에서 지원됩니다. 
+
+
+| xref:../nas-audit/enable-disable-auditing-svms-task.html[감사 지원 SVM] | 클러스터에서 지원되는 감사 가능 SVM의 최대 수가 50개에서 400개로 증가했습니다. 
+
+
+| xref:../data-protection/snapmirror-synchronous-disaster-recovery-basics-concept.html[SnapMirror Synchronous] | HA 쌍당 지원되는 SnapMirror Synchronous 엔드포인트의 최대 수가 80개에서 160개로 증가했습니다. 
+
+
+| xref:../flexgroup/create-snapmirror-relationship-task.html[FlexGroup SnapMirror 토폴로지] | FlexGroup 볼륨은 2개 이상의 팬아웃 관계를 지원합니다(예: A → B, A → C) FlexVol 볼륨과 마찬가지로 FlexGroup 팬아웃은 최대 8개의 팬아웃 레그를 지원하며 최대 2개 레벨(예: A → B → C)까지 계단식 구성을 지원합니다 
+|===
+
+
+== 파일 액세스 프로토콜
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| link:../nfs-config/using-ldap-concept.html["LDAP 조회 추적 기능 향상"] | LDAP 조회 추적은 LDAP 서명 및 봉인, 암호화된 TLS 연결 및 LDAPS 포트 636을 통한 통신에서 지원됩니다. 
+
+
+| link:../nfs-admin/ldaps-concept.html["모든 포트에서 LDAPS 지원"] | LDAPS는 모든 포트에서 구성할 수 있으며 포트 636은 기본값으로 유지됩니다. 
+
+
+| link:../nfs-admin/supported-versions-clients-reference.html["NFSv4.x 버전은 기본적으로 활성화되어 있습니다"] | NFSv4.0, NFSv4.1 및 NFSv4.2는 기본적으로 설정됩니다. 
+
+
+| link:../nfs-admin/enable-nfsv42-security-labels-task.html["레이블이 지정된 NFSv4.2 지원"] | NFSv4.2가 설정되면 NFS 레이블이 지정된 MAC(필수 액세스 제어)가 지원됩니다. 이 기능을 통해 ONTAP NFS 서버는 MAC 인식, 저장 및 검색이 가능합니다 `sec_label` 클라이언트에서 보낸 속성 
+|===
+
+
+== MetroCluster
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_considerations_layer_3.html["계층 3에서 공유 링크에 대한 IP 지원"^] | MetroCluster IP 구성은 IP 라우팅(계층 3) 백엔드 연결을 통해 구현할 수 있습니다. 
+
+
+| link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_install_and_cable_the_mcc_components.html["8노드 클러스터 지원"^] | 영구 8노드 클러스터는 IP 및 패브릭 연결 구성으로 지원됩니다. 또한 AFF ASA 플랫폼은 8노드 MCC IP 구성을 지원합니다. 
+|===
+MetroCluster 구성에 대한 플랫폼 및 스위치 구성 개선 사항에 대한 자세한 내용은 _ 을(를) 참조하십시오link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["ONTAP 9 릴리즈 노트"^]_.
+
+
+
+== 네트워킹
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+ a| 
+link:../high-availability/index.html["클러스터 복원력"]
+ a| 
+* 스위치가 없는 2노드 클러스터의 포트 모니터링 및 방지(이전에는 스위치 구성에서만 사용 가능)
+* 노드가 클러스터 네트워크를 통해 데이터를 제공할 수 없는 경우 자동 노드 페일오버를 수행합니다
+* 패킷 손실이 발생한 클러스터 경로를 표시하는 새로운 도구
+
+
+
+
+ a| 
+link:../networking/configure_virtual_ip_@vip@_lifs.html["VIP(가상 IP) LIF 확장"]
+ a| 
+* BGP(Border Gateway Protocol)의 ASN(Autonomous System Number)은 4바이트 비음의 정수를 지원합니다.
+* MED(Multi-exit 판별자)는 경로 우선 순위 지정을 지원하여 고급 경로 선택을 가능하게 합니다. Med는 BGP 업데이트 메시지에서 선택적 속성입니다.
+* VIP BGP는 BGP 피어 그룹화를 사용하여 기본 경로 자동화를 제공하여 구성을 간소화합니다.
+
+
+|===
+
+
+== S3 오브젝트 스토리지
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| link:../s3-config/enable-client-access-from-s3-app-task.html["S3 메타데이터 및 태그 지원"] | ONTAP S3 서버는 사용자 정의 오브젝트 메타데이터 및 오브젝트 태깅을 지원하여 S3 클라이언트 및 애플리케이션에 향상된 자동화 기능을 제공합니다. 
+|===
+
+
+== 산
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| xref:../san-migration/task_checking_supported_configurations_for_fli_using_san_lun_migrate_app.html[FLI(Foreign LUN Import)] | NetApp Support 사이트의 SAN LUN 마이그레이션 앱을 사용하여 FLI 상호 운용성 매트릭스에 나열되지 않은 외부 어레이를 검증할 수 있습니다. 
+
+
+| xref:../san-config/host-support-multipathing-concept.html[NVMe - 원격 경로 액세스입니다] | 페일오버 시 직접 경로 액세스가 손실되면 원격 I/O를 통해 시스템이 원격 경로로 페일오버하고 데이터 액세스를 계속할 수 있습니다. 
+
+
+| xref:../task_asa_software_configuration.html#asa-limitations-and-restrictions[ASA에서 12노드 클러스터 지원] | 12노드 클러스터는 AFF ASA 구성에 지원됩니다. ASA 클러스터에는 다양한 ASA 시스템 유형이 혼합되어 있을 수 있습니다. 
+
+
+| xref:../task_asa_software_configuration.html#asa-limitations-and-restrictions[ASA에 대한 NVMe-oF 프로토콜] | AFF ASA 시스템을 통해 NVMe-oF 프로토콜 지원을 사용할 수도 있습니다. 
+
+
+ a| 
+ a| 
+* xref:../task_san_create_nested_igroup.html[기존 igroup으로 구성된 igroup을 생성할 수 있습니다].
+* igroup 또는 호스트 이니시에이터의 별칭 역할을 하는 igroup 또는 호스트 이니시에이터에 설명을 추가할 수 있습니다.
+* xref:../task_san_map_igroups_to_multiple_luns.html[igroup을 2개 이상의 LUN에 동시에 매핑할 수 있습니다.]
+
+
+
+
+| xref:../san-admin/storage-virtualization-vmware-copy-offload-concept.html[단일 LUN 성능 향상] | AFF의 단일 LUN 성능이 크게 향상되어 가상화 환경에서 구축을 간소화하는 데 이상적입니다. 예를 들어, A800은 최대 400% 더 많은 랜덤 읽기 IOP를 제공할 수 있습니다. 
+|===
+
+
+== 보안
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| xref:../system-admin/configure-saml-authentication-task.html[System Manager에 로그인할 때 Cisco Duo를 통해 다단계 인증을 지원합니다]  a| 
+ONTAP 9.9.1P3부터 Cisco Duo를 SAML ID 공급자(IDP)로 구성하여 사용자가 System Manager에 로그인할 때 Cisco Duo를 사용하여 인증할 수 있습니다.
+
+|===
+
+
+== 스토리지 효율성
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| link:https://docs.netapp.com/us-en/ontap-cli-991/volume-modify.html["파일 수를 볼륨에 대해 최대로 설정합니다"^] | volume 매개 변수를 사용하여 파일 최대값을 자동화합니다 `-files-set-maximum`파일 제한을 모니터링할 필요가 없습니다. 
+|===
+
+
+== 스토리지 리소스 관리 기능 향상
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| xref:../concept_nas_file_system_analytics_overview.html[System Manager의 FSA(File System Analytics) 관리 기능 향상] | FSA는 검색 및 필터링, FSA 권장 사항에 대한 조치 수행을 위한 추가 System Manager 기능을 제공합니다. 
+
+
+| xref:../flexcache/accelerate-data-access-concept.html[네거티브 조회 캐시 지원] | 오리진 호출로 인한 네트워크 트래픽을 줄이기 위해 FlexCache 볼륨에 "파일을 찾을 수 없음" 오류를 캐시합니다. 
+
+
+| xref:../flexcache/supported-unsupported-features-concept.html[FlexCache 재해 복구] | 한 캐시에서 다른 캐시로 클라이언트를 중단 없이 마이그레이션할 수 있습니다. 
+
+
+| xref:../flexgroup/supported-unsupported-config-concept.html[FlexGroup 볼륨에 대한 SnapMirror 계단식 및 팬아웃 지원] | FlexGroup 볼륨에 대한 SnapMirror 계단식 및 SnapMirror 팬아웃 관계를 지원합니다. 
+
+
+| xref:../flexgroup/supported-unsupported-config-concept.html[FlexGroup 볼륨에 대한 SVM 재해 복구 지원] | FlexGroup 볼륨에 대한 SVM 재해 복구 지원은 SnapMirror를 사용하여 SVM의 구성과 데이터를 복제하고 동기화함으로써 이중화를 제공합니다. 
+
+
+| xref:../flexgroup/supported-unsupported-config-concept.html[FlexGroup 볼륨에 대한 논리적 공간 보고 및 적용 지원] | FlexGroup 볼륨 사용자가 사용하는 논리적 공간을 표시하고 제한할 수 있습니다. 
+
+
+| xref:../smb-config/configure-client-access-shared-storage-concept.html[qtree에서 SMB 액세스 지원] | SMB 액세스는 FlexVol의 qtree 및 SMB가 활성화된 FlexGroup 볼륨에서 지원됩니다. 
+|===
+
+
+== 시스템 관리자
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| xref:../task_admin_monitor_risks.html[System Manager에 Active IQ에서 보고한 위험이 표시됩니다] | System Manager를 사용하여 NetApp Active IQ에 연결하면 위험을 줄이고 스토리지 환경의 성능 및 효율성을 높일 수 있는 기회를 신고할 수 있습니다. 
+
+
+| xref:../task_san_provision_linux.html[로컬 계층을 수동으로 할당합니다] | System Manager 사용자는 볼륨 및 LUN을 생성하고 추가할 때 로컬 계층을 수동으로 할당할 수 있습니다. 
+
+
+| xref:../task_nas_manage_directories_files.html[고속 디렉토리 삭제] | 대기 시간이 짧은 빠른 디렉터리 삭제 기능을 사용하여 System Manager에서 디렉터리를 삭제할 수 있습니다. 
+
+
+| xref:../task_admin_use_ansible_playbooks_add_edit_volumes_luns.html[Ansible Playbook 생성] | System Manager 사용자는 UI에서 몇 가지 엄선된 워크플로에 대한 Ansible Playbook을 생성하고 자동화 툴에서 이 Playbook을 사용하여 볼륨 또는 LUN을 반복적으로 추가 또는 편집할 수 있습니다. 
+
+
+| xref:../task_admin_troubleshoot_hardware_problems.html[하드웨어 시각화] | ONTAP 9.8에 처음 도입된 하드웨어 시각화 기능이 이제 모든 AFF 플랫폼을 지원합니다. 
+
+
+| xref:../task_admin_troubleshoot_hardware_problems.html[Active IQ 통합] | System Manager 사용자는 클러스터와 관련된 지원 사례를 보고 다운로드할 수 있습니다. 또한 NetApp Support 사이트에서 새로운 지원 케이스를 제출하는 데 필요한 클러스터 세부 정보를 복사할 수 있습니다. System Manager 사용자는 새로운 펌웨어 업데이트가 사용 가능한 경우 Active IQ로부터 알림을 받아 볼 수 있습니다. 그런 다음 펌웨어 이미지를 다운로드한 후 System Manager를 사용하여 업로드할 수 있습니다. 
+
+
+| xref:../task_cloud_backup_data_using_cbs.html[Cloud Manager 통합] | System Manager 사용자는 Cloud Backup Service를 사용하여 퍼블릭 클라우드 엔드포인트에 데이터를 백업하도록 보호를 설정할 수 있습니다. 
+
+
+| xref:../task_dp_configure_mirror.html[데이터 보호 프로비저닝 워크플로우의 개선 사항] | System Manager 사용자는 데이터 보호를 설정할 때 SnapMirror 대상 및 igroup 이름을 수동으로 지정할 수 있습니다. 
+
+
+| xref:../concept_admin_viewing_managing_network.html[향상된 네트워크 포트 관리] | 네트워크 인터페이스 페이지에는 홈 포트의 인터페이스를 표시하고 관리할 수 있는 향상된 기능이 있습니다. 
+
+
+| 시스템 관리 기능 향상  a| 
+* xref:../task_san_create_nested_igroup.html[중첩된 igroup 지원]
+* xref:../task_san_map_igroups_to_multiple_luns.html[단일 작업에서 여러 LUN을 igroup에 매핑하고 프로세스 중 필터링에 WWPN 별칭을 사용할 수 있습니다.]
+* xref:../task_admin_troubleshoot_hardware_problems.html[NVMe-oF LIF를 생성하는 동안 더 이상 두 컨트롤러에서 동일한 포트를 선택할 필요가 없습니다.]
+* xref:../task_admin_troubleshoot_hardware_problems.html[각 포트에 대해 전환 버튼으로 FC 포트를 사용하지 않도록 설정합니다.]
+
+
+
+
+ a| 
+xref:../task_dp_configure_snapshot.html[System Manager의 스냅샷 복사본에 대한 정보 디스플레이가 개선되었습니다]
+ a| 
+* System Manager 사용자는 스냅샷 복사본의 크기와 SnapMirror 레이블을 볼 수 있습니다.
+* 스냅샷 복사본이 비활성화된 경우 스냅샷 복사본 예약 공간은 0으로 설정됩니다.
+
+
+
+
+| 스토리지 계층의 용량 및 위치 정보에 대한 System Manager의 표시 기능 향상  a| 
+* xref:../concept_admin_viewing_managing_network.html[새** 계층** 열은 각 볼륨이 상주하는 로컬 계층(애그리게이트)을 식별합니다.]
+* xref:../concept_capacity_measurements_in_sm.htmll[System Manager에는 물리적 사용된 용량과 클러스터 레벨의 논리적 사용된 용량 및 로컬 계층(애그리게이트) 레벨이 표시됩니다.]
+* xref:../concept_admin_viewing_managing_network.html[새 용량 표시 필드를 사용하면 용량을 모니터링하고 용량이 거의 도달했거나 활용도가 낮은 볼륨을 추적할 수 있습니다.]
+
+
+
+
+| xref:../task_cp_dashboard_tour.html[EMS 비상 경보 및 기타 오류 및 경고의 System Manager에 표시됩니다] | 24시간 동안 받은 EMS 알림의 수와 기타 오류 및 경고가 System Manager의 상태 카드에 표시됩니다. 
+|===

@@ -1,7 +1,7 @@
 ---
 permalink: release-notes/index.html 
 sidebar: sidebar 
-keywords: release notes, new features 
+keywords: release notes, new features, ontap 9 
 summary: ONTAP 9에서 제공되는 새로운 기능에 대해 알아보십시오. 
 ---
 = ONTAP 9 릴리즈 주요 내용
@@ -28,7 +28,7 @@ ONTAP의 최신 릴리즈로 업그레이드하려면 를 참조하십시오 xre
 
 == ONTAP 9.15.1 하이라이트
 
-ONTAP 9.15.1은 보안 관리, 데이터 보호 및 NAS 워크로드 지원 영역에서 새롭고 향상된 기능을 제공합니다. 새로운 기능 및 향상된 기능의 전체 목록은 를 참조하십시오 xref:9151-reference.adoc[ONTAP 9.15.1의 새로운 기능].
+ONTAP 9.15.1은 보안 관리, 데이터 보호 및 NAS 워크로드 지원 영역에서 새롭고 향상된 기능을 제공합니다. 새로운 기능 및 향상된 기능의 전체 목록은 를 참조하십시오 xref:whats-new-9151.adoc[ONTAP 9.15.1의 새로운 기능].
 
 * https://www.netapp.com/data-storage/aff-a-series/["새로운 AFF A-Series 시스템 및 AI용으로 구축된 스토리지 지원"^]
 +
@@ -72,7 +72,7 @@ NFSv3을 통한 RDMA 지원은 TCP를 통해 짧은 지연 시간과 높은 대�
 
 == ONTAP 9.14.1 주요 내용
 
-ONTAP 9.14.1은 FabricPool, 랜섬웨어 방지 보호, OAuth 등 영역에서 새롭고 향상된 기능을 제공합니다. 새로운 기능 및 향상된 기능의 전체 목록은 를 참조하십시오 xref:9141-reference.adoc[ONTAP 9.14.1의 새로운 기능].
+ONTAP 9.14.1은 FabricPool, 랜섬웨어 방지 보호, OAuth 등 영역에서 새롭고 향상된 기능을 제공합니다. 새로운 기능 및 향상된 기능의 전체 목록은 를 참조하십시오 xref:whats-new-9141.adoc[ONTAP 9.14.1의 새로운 기능].
 
 * xref:../volumes/determine-space-usage-volume-aggregate-concept.html[WAFL 예약 감소]
 +
@@ -109,7 +109,7 @@ ONTAP S3는 오브젝트 잠금 API 명령을 지원하므로 S3로 ONTAP에 기
 
 == ONTAP 9.13.1 주요 내용
 
-ONTAP 9.13.1은 랜섬웨어 방지, 일관성 그룹, 서비스 품질, 테넌트 용량 관리 등 영역에서 새롭고 향상된 기능을 제공합니다. 새로운 기능 및 향상된 기능의 전체 목록은 를 참조하십시오 xref:9131-reference.adoc[ONTAP 9.13.1의 새로운 기능].
+ONTAP 9.13.1은 랜섬웨어 방지, 일관성 그룹, 서비스 품질, 테넌트 용량 관리 등 영역에서 새롭고 향상된 기능을 제공합니다. 새로운 기능 및 향상된 기능의 전체 목록은 를 참조하십시오 xref:whats-new-9131.adoc[ONTAP 9.13.1의 새로운 기능].
 
 * ARP(자율 랜섬웨어 방어) 개선 사항:
 +
@@ -145,7 +145,7 @@ ONTAP 9.13.1을 사용하면 볼륨, LUN 또는 파일과 같은 오브젝트를
 
 == ONTAP 9.12.1 주요 내용
 
-ONTAP 9.12.1은 보안 강화, 보존, 성능 등의 영역에서 새롭고 향상된 기능을 제공합니다. 새로운 기능 및 향상된 기능의 전체 목록은 를 참조하십시오 xref:9121-reference.adoc[ONTAP 9.12.1의 새로운 기능].
+ONTAP 9.12.1은 보안 강화, 보존, 성능 등의 영역에서 새롭고 향상된 기능을 제공합니다. 새로운 기능 및 향상된 기능의 전체 목록은 를 참조하십시오 xref:whats-new-9121.adoc[ONTAP 9.12.1의 새로운 기능].
 
 * xref:../snaplock/snapshot-lock-concept.html[변조 방지 스냅샷]
 +
@@ -195,7 +195,7 @@ WAFL 공간 예약이 크게 줄어 애그리게이트당 최대 400TiB의 가�
 
 == ONTAP 9.11.1 하이라이트
 
-ONTAP 9.11.1은 보안, 보존, 성능 등의 영역에서 새롭고 향상된 기능을 제공합니다. 새로운 기능 및 향상된 기능의 전체 목록은 를 참조하십시오 xref:9111-reference.adoc[ONTAP 9.11.1의 새로운 기능].
+ONTAP 9.11.1은 보안, 보존, 성능 등의 영역에서 새롭고 향상된 기능을 제공합니다. 새로운 기능 및 향상된 기능의 전체 목록은 를 참조하십시오 xref:whats-new-9111.adoc[ONTAP 9.11.1의 새로운 기능].
 
 * xref:../multi-admin-verify/index.html[다중 관리 검증]
 +
@@ -227,7 +227,7 @@ System Manager는 스토리지 리소스를 최적화하고 감사 관리를 개
 
 == ONTAP 9.10.1 하이라이트
 
-ONTAP 9.10.1은 보안 강화, 성능 분석, NVMe 프로토콜 지원 및 오브젝트 스토리지 백업 옵션 영역에서 새롭고 향상된 기능을 제공합니다. 새로운 기능 및 향상된 기능의 전체 목록은 를 참조하십시오 xref:9101-reference.adoc[ONTAP 9.10.1의 새로운 기능].
+ONTAP 9.10.1은 보안 강화, 성능 분석, NVMe 프로토콜 지원 및 오브젝트 스토리지 백업 옵션 영역에서 새롭고 향상된 기능을 제공합니다. 새로운 기능 및 향상된 기능의 전체 목록은 를 참조하십시오 xref:whats-new-9101.adoc[ONTAP 9.10.1의 새로운 기능].
 
 * xref:../anti-ransomware/index.html[자율 랜섬웨어 보호]
 +
@@ -263,7 +263,7 @@ FlexCache를 사용한 글로벌 파일 잠금을 통해 오리진의 소스 파
 
 == ONTAP 9.9.1 주요 내용
 
-ONTAP 9.91.1 은 스토리지 효율성, 다단계 인증, 재해 복구 등 영역에서 새롭고 향상된 기능을 제공합니다. 새로운 기능 및 향상된 기능의 전체 목록은 를 참조하십시오 xref:991-reference.adoc[ONTAP 9.1.1의 새로운 기능].
+ONTAP 9.91.1 은 스토리지 효율성, 다단계 인증, 재해 복구 등 영역에서 새롭고 향상된 기능을 제공합니다. 새로운 기능 및 향상된 기능의 전체 목록은 를 참조하십시오 xref:whats-new-991.adoc[ONTAP 9.1.1의 새로운 기능].
 
 * CLI 원격 액세스 관리를 위한 보안 강화
 +

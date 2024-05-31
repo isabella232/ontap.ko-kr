@@ -55,6 +55,7 @@ link:https://www.netapp.com/company/legal/privacy-policy/["https://www.netapp.co
 === ONTAP
 
 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP3318279["ONTAP 9.15.1에 대한 고지 사항"^]
+link:https://library.netapp.com/ecm/ecm_download_file/ECMLP3320066["ONTAP 9.15.0에 대한 고지 사항"^]
 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2886725["ONTAP 9.14.1에 대한 고지 사항"^]
 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2886298["ONTAP 9.14.0에 대한 고지 사항"^]
 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2885801["ONTAP 9.13.1 참고 사항"^]

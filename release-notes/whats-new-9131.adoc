@@ -1,0 +1,258 @@
+---
+permalink: release-notes/whats-new-9131.html 
+sidebar: sidebar 
+keywords: 'what"s new, release notes, 9.13.1' 
+summary: ONTAP 9.13.1에서 사용 가능한 새로운 기능에 대해 알아보십시오 
+---
+= ONTAP 9.13.1의 새로운 기능
+:allow-uri-read: 
+
+
+[role="lead"]
+ONTAP 9.13.1에서 사용 가능한 새로운 기능에 대해 알아보십시오.
+
+최신 ONTAP 9 릴리스에서 알려진 문제, 제한 사항 및 업그레이드 주의 사항에 대한 자세한 내용은 를 참조하십시오 https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["ONTAP 9 릴리즈 노트"^]. 릴리스 정보에 액세스하려면 NetApp 계정으로 로그인하거나 계정을 만들어야 합니다.
+
+새로운 기능 및 향상된 기능에 대해 알아봅니다 https://docs.netapp.com/us-en/ontap-metrocluster/releasenotes/mcc-new-features.html["ONTAP MetroCluster 기능"^].
+
+의 새로운 지원과 향상된 지원에 대해 알아봅니다 https://docs.netapp.com/us-en/ontap-systems/whats-new.html["FAS, ASA, AFF 플랫폼, 지원되는 스위치"^].
+
+의 업데이트에 대해 알아봅니다 https://docs.netapp.com/us-en/ontap-automation/whats_new.html["ONTAP REST API를 참조하십시오"^].
+
+ONTAP를 업그레이드하려면 을 참조하십시오 xref:../upgrade/prepare.html[ONTAP 업그레이드를 준비합니다].
+
+
+
+== 데이터 보호
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| link:../snaplock/index.html#multi-admin-verification-mav-support["다중 관리 검증"]  a| 
+클러스터 관리자는 일부 SnapLock 작업이 실행되기 전에 쿼럼이 승인되도록 클러스터에서 다중 관리자 확인을 명시적으로 활성화할 수 있습니다.
+
+
+
+| link:../consistency-groups/index.html["볼륨 이동 및 구조를 비롯한 일관성 그룹 관리 지원 개선"]  a| 
+일관성 그룹 간에 볼륨을 이동하고, 계층적 일관성 그룹의 구조를 수정하고, 일관성 그룹에 대한 용량 통찰력을 얻을 수 있습니다. System Manager는 새로운 NAS 볼륨 또는 NVMe 네임스페이스로 일관성 그룹을 생성할 수 있도록 지원합니다.
+
+
+
+| link:../data-protection/snapmirror-synchronous-disaster-recovery-basics-concept.html["SnapMirror Synchronous를 사용한 NDMP 복원"] | NDMP 복원은 SnapMirror Synchronous에서 지원됩니다. 
+
+
+| SnapMirror 액티브 동기화 개선 사항  a| 
+* link:../snapmirror-active-sync/add-remove-consistency-group-task.html["활성 SnapMirror 활성 동기화 관계가 있는 일관성 그룹에 볼륨을 중단 없이 추가합니다."]
+* link:../snapmirror-active-sync/interoperability-task.html["SnapMirror 액티브 동기화로 NDMP 복원을 활용합니다"].
+
+
+
+
+| link:link:../consistency-groups/protect-task.html#configure-asynchronous-snapmirror-protection["단일 일관성 그룹에서 비동기식 SnapMirror 지원"] | 일관성 그룹이 비동기식 SnapMirror 구성을 지원하므로 단일 일관성 그룹에 대해 SnapMirror 백업을 저장할 수 있습니다. 
+|===
+
+
+== 파일 액세스 프로토콜
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| link:../nfs-admin/manage-nfsv4-storepool-controls-task.html["NFSv4.x 스토리지 풀 지원"] | 일부 클라이언트에서는 NFSv4.x 스토리지 풀 리소스를 너무 많이 소비하므로 다른 NFSv4.x 클라이언트가 NFSv4.x 스토리지 풀 리소스를 사용할 수 없어 차단됩니다. 해당 환경에서 많은 NFSv4.x storepool 리소스를 사용하는 클라이언트를 거부 및 차단할 수 있습니다. 
+|===
+
+
+== MetroCluster
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| link:https://docs.netapp.com/us-en/ontap-metrocluster/transition/concept_nondisruptively_transitioning_from_a_four_node_mcc_fc_to_a_mcc_ip_configuration.html["MetroCluster IP 및 이더넷 연결 스토리지의 공유 스위치를 사용하여 MetroCluster FC에서 MetroCluster IP로 전환합니다"^] | 공유 스위치를 사용하면 MetroCluster FC에서 MetroCluster IP 구성(ONTAP 9.8 이상)으로 중단 없이 전환할 수 있습니다. 
+
+
+| link:https://docs.netapp.com/us-en/ontap-metrocluster/transition/concept_nondisruptively_transitioning_from_a_four_node_mcc_fc_to_a_mcc_ip_configuration.html["8노드 MetroCluster FC 구성에서 MetroCluster IP 구성으로 무중단 전환"^] | 기존 8노드 MetroCluster FC 구성에서 새 MetroCluster IP 구성으로 중단 없이 워크로드와 데이터를 전환할 수 있습니다. 
+
+
+| link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/task_upgrade_controllers_system_control_commands_in_a_four_node_mcc_ip.html["스위치오버 및 스위치백을 사용한 4노드 MetroCluster IP 구성 업그레이드"^] | 스위치오버 및 스위치백을 사용하여 4노드 MetroCluster IP 구성에서 컨트롤러를 업그레이드합니다 `system controller replace` 명령. 
+
+
+| link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_considerations_mediator.html#interoperability-of-ontap-mediator-with-other-applications-and-appliances["환경 종료를 위해 중재자 지원 자동 계획되지 않은 전환(MAUSO)이 트리거됩니다"^] | 환경 가동 중단으로 인해 한 사이트가 정상적으로 종료되면 MAUSO가 트리거됩니다. 
+
+
+| link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/task_refresh_4n_mcc_ip.html["8노드 MetroCluster IP 구성 지원"^] | 8노드 MetroCluster IP 구성에서 컨트롤러 및 스토리지를 업그레이드할 수 있도록 구성을 임시 12노드 구성으로 확장한 다음 이전 DR 그룹을 제거하면 됩니다. 
+
+
+| link:https://docs.netapp.com/us-en/ontap-metrocluster/maintain/task_replace_an_ip_switch.html["공유 스토리지 MetroCluster 스위치 구성으로 MetroCluster IP 구성 변환"^] | MetroCluster IP 구성을 공유 스토리지 MetroCluster 스위치 구성으로 변환할 수 있습니다. 
+|===
+MetroCluster 구성에 대한 플랫폼 및 스위치 구성 개선 사항에 대한 자세한 내용은 _ 을(를) 참조하십시오link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["ONTAP 9 릴리즈 노트"^]_.
+
+
+
+== 네트워킹
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| xref:../concepts/rdma-concept.html[RDMA 클러스터 인터커넥트에 대한 하드웨어 지원 확대] | ONTAP은 X91153A 클러스터 NIC를 사용하는 클러스터 인터커넥트 RDMA용 AFF A900, ASA A900 및 FAS9500 시스템을 지원하여 지연 시간을 단축하고, 페일오버 시간을 줄이며, 노드 간 통신 속도를 높이는 데 도움이 됩니다. 
+
+
+| 데이터 LIF 제한이 증가합니다 | ONTAP는 HA Pair 및 클러스터 모두에 대해 데이터 LIF 확장 제한을 늘려 유연성을 강화합니다. 
+
+
+| A800 및 FAS8700 플랫폼에서 클러스터 설정 중에 IPv6 지원 | A800 및 FAS8700 플랫폼에서는 ONTAP CLI를 사용하여 IPv6 전용 네트워킹 환경에서 새 클러스터를 생성하고 구성할 수 있습니다. 
+|===
+
+
+== S3 오브젝트 스토리지
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| xref:../s3-config/create-bucket-lifecycle-rule-task.html[S3 버킷 라이프사이클 관리] | S3 오브젝트 만료 동작은 버킷의 오브젝트가 만료되는 시점을 정의합니다. 따라서 오브젝트 버전을 관리할 수 있으므로 보존 요구사항을 충족하고 전체 S3 오브젝트 스토리지를 효과적으로 관리할 수 있습니다. 
+|===
+
+
+== 산
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| xref:../san-admin/create-nvme-namespace-subsystem-task.html[AIX 호스트에서 NVMe/FC 지원] | ONTAP는 AIX 호스트에서 NVMe/FC 프로토콜을 지원합니다. 를 참조하십시오 link:https://mysupport.netapp.com/matrix/["NetApp 상호 운용성 툴"^] 지원되는 구성. 
+|===
+
+
+== 보안
+
+[cols="30%,70%"]
+|===
+| 피처 | 설명 
+
+
+| xref:../anti-ransomware/index.html[자율 랜섬웨어 보호]  a| 
+* xref:../anti-ransomware/use-cases-restrictions-concept.html#multi-admin-verification-with-volumes-protected-with-arp[여러 관리자가 자율적 랜섬웨어 방어 기능으로 기능을 확인합니다]
+* xref:../anti-ransomware/enable-default-task.html[학습에서 활성 모드로 자동 전환]
+* xref:../anti-ransomware/use-cases-restrictions-concept.html#supported-configurations[FlexGroup 지원]FlexGroup 볼륨 확장, FlexVol에서 FlexGroup FlexGroup으로 전환, FlexGroup 재조정에 대한 분석 및 보고 기능이 포함되어 있습니다.
+
+
+
+
+| xref:../authentication/grant-access-active-directory-users-groups-task.html[Active Directory를 사용한 SSH 공개 키 인증] | Active Directory(AD) 사용자의 기본 인증 방법으로 SSH 공개 키를 사용하거나, AD 사용자 이후의 보조 인증 방법으로 SSH 공개 키를 사용할 수 있습니다. 
+
+
+| SSH 공개 키가 있는 X.509 인증서 | ONTAP를 사용하면 X.509 인증서를 계정의 SSH 공개 키와 연결하여 SSH 로그인 시 인증서 만료 및 해지 확인 보안을 강화할 수 있습니다. 
+
+
+| xref:../nas-audit/create-fpolicy-event-task.html[FPolicy 파일 액세스 실패 알림] | FPolicy는 액세스가 거부된 이벤트에 대한 알림을 지원합니다. 파일 작업에 대한 알림은 권한 부족으로 인해 실패했으며 여기에는 NTFS 권한으로 인한 실패, Unix 모드 비트로 인한 실패, NFSv4 ACL로 인한 실패 등이 포함됩니다. 
+
+
+| xref:../authentication/setup-ssh-multifactor-authentication-task.html#enable-mfa-with-totp[TOTP(시간 기반 1회 암호)를 통한 다단계 인증] | TOTP(Time-Based One-Time Password)를 사용하여 다단계 인증으로 로컬 사용자 계정을 설정합니다. TOTP는 항상 두 번째 인증 방법으로 사용됩니다. SSH 공개 키 또는 사용자 암호를 기본 인증 방법으로 사용할 수 있습니다. 
+|===
+
+
+== 스토리지 효율성
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| System Manager의 기본 데이터 축소율에 대한 보고 변경  a| 
+System Manager에 표시되는 운영 데이터 축소율에는 스냅샷 복사본 공간 절약이 더 이상 계산에 포함되지 않습니다. 사용된 논리적 공간과 사용된 물리적 공간 간의 비율만 나타냅니다. ONTAP 이전 릴리즈의 기본 데이터 축소율에는 스냅샷 복사본의 상당한 공간 축소 이점이 포함되었습니다.
+따라서 ONTAP 9.13.1로 업그레이드할 때 보고된 기본 비율이 현저히 낮습니다. ** 용량** 세부 정보 보기에서 스냅샷 복사본의 데이터 축소율을 계속 볼 수 있습니다.
+
+
+
+| xref:../volumes/enable-temperature-sensitive-efficiency-concept.html[온도에 민감한 스토리지 효율성] | 온도에 민감한 스토리지 효율성: 인접한 물리적 블록을 순차적으로 패킹하여 스토리지 효율성을 높입니다. 온도에 민감한 스토리지 효율성이 활성화된 볼륨은 시스템을 ONTAP 9.13.1로 업그레이드할 때 자동으로 순차적 패킹이 활성화됩니다. 
+
+
+| 논리적 공간 적용 | 논리적 공간 적용은 SnapMirror 대상에 지원됩니다. 
+
+
+| xref:../volumes/manage-svm-capacity.html[스토리지 VM 용량은 지원을 제한합니다] | 스토리지 VM(SVM)에 용량 한도를 설정하고 SVM이 백분율 임계값에 가까워지면 경고를 설정할 수 있습니다. 
+|===
+
+
+== 스토리지 리소스 관리 기능 향상
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| 최대 inode 수가 증가합니다 | 볼륨이 680GB보다 커지는 경우에도 ONTAP는 inode(32KB의 볼륨 공간당 1개의 inode 속도로) 계속해서 inode를 자동으로 추가합니다. ONTAP는 최대 2,147,483,632에 도달할 때까지 inode를 계속 추가합니다. 
+
+
+| xref:../volumes/create-flexclone-task.html#create-a-flexclone-volume-of-a-flexvol-or-flexgroup[FlexClone 생성 중 SnapLock 유형을 지정할 수 있습니다] | 읽기/쓰기 볼륨의 FlexClone을 생성할 때 Compliance, Enterprise 또는 비 SnapLock의 세 가지 SnapLock 유형 중 하나를 지정할 수 있습니다. 
+
+
+| xref:..//task_nas_file_system_analytics_enable.html#modify[기본적으로 파일 시스템 분석을 사용하도록 설정합니다] | 새 볼륨에 대해 File System Analytics를 기본적으로 사용하도록 설정합니다. 
+
+
+| xref:../flexgroup/create-svm-disaster-recovery-relationship-task.html[FlexGroup 볼륨과의 SVM 재해 복구 계획 관계]  a| 
+FlexGroup 볼륨에서 SVM DR의 팬 아웃 제한은 제거됩니다.
+FlexGroup를 지원하는 SVM DR에는 8개 사이트에 대한 SnapMirror 팬아웃 관계가 포함되어 있습니다.
+
+
+
+| xref:../flexgroup/manage-flexgroup-rebalance-task.html[단일 FlexGroup 재조정 작업] | 단일 FlexGroup 재조정 작업이 지정한 날짜와 시간에 시작되도록 예약할 수 있습니다. 
+
+
+| xref:../fabricpool/benefits-storage-tiers-concept.html[FabricPool 읽기 성능] | FabricPool는 클라우드에 상주하는 데이터 및 계층화 처리량을 위해 단일 및 멀티 스트림 워크로드에 향상된 순차적 읽기 성능을 제공합니다. 이러한 성능 향상을 통해 GET 및 PUT의 속도가 백엔드 객체 저장소로 보다 빠르게 전송될 수 있습니다. 온프레미스 오브젝트 저장소가 있는 경우 오브젝트 저장소 서비스의 성능 여유 공간을 고려하여 FabricPool 푸드를 제한해야 하는지 여부를 결정해야 합니다. 
+
+
+| xref:../performance-admin/guarantee-throughput-qos-task.html[적응형 QoS 정책 템플릿] | 적응형 QoS 정책 템플릿을 사용하여 SVM 레벨에서 처리량 한도를 설정할 수 있습니다. 
+|===
+
+
+== SVM 관리 개선 사항
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| xref:../svm-migrate/index.html[SVM 데이터 이동성] | 최대 200개의 볼륨이 포함된 SVM 마이그레이션 지원 증가 
+
+
+| SVM 디렉토리 재생성 지원 | 새로운 CLI 명령 `debug vserver refresh-vserver-dir -node _node_name_` 누락된 디렉토리 및 파일을 다시 생성합니다. 자세한 내용 및 명령 구문에 대한 자세한 내용은 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli-9131/["ONTAP 명령 참조"^]. 
+|===
+
+
+== 시스템 관리자
+
+ONTAP 9.12.1부터 System Manager는 BlueXP와 통합됩니다. 에 대해 자세히 알아보십시오 xref:../sysmgr-integration-bluexp-concept.html[System Manager와 BlueXP의 통합].
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+| 기본 데이터 축소율 보고 변경  a| 
+System Manager에 표시되는 운영 데이터 축소율에는 스냅샷 복사본 공간 절약이 더 이상 계산에 포함되지 않습니다. 사용된 논리적 공간과 사용된 물리적 공간 간의 비율만 나타냅니다. ONTAP 이전 릴리즈의 기본 데이터 축소율에는 스냅샷 복사본의 상당한 공간 축소 이점이 포함되었습니다.
+따라서 ONTAP 9.13.1로 업그레이드할 때 보고된 기본 비율이 현저히 낮습니다. 용량 세부 정보 보기에서는 스냅샷 복사본의 데이터 축소율을 확인할 수 있습니다.
+
+
+
+| xref:../snaplock/snapshot-lock-concept.html#enable-snapshot-copy-locking-when-creating-a-volume[스냅샷 복사본의 무단 잠금 방지] | System Manager를 사용하여 SnapLock이 아닌 볼륨의 스냅샷 복사본을 잠가 랜섬웨어 공격으로부터 보호할 수 있습니다. 
+
+
+| xref:../encryption-at-rest/manage-external-key-managers-sm-task.html[외부 키 관리자 지원] | System Manager를 사용하여 외부 키 관리자를 관리할 수 있으며 인증 및 암호화 키를 저장하고 관리할 수 있습니다. 
+
+
+| xref:../task_admin_troubleshoot_hardware_problems.html[하드웨어 문제 해결]  a| 
+System Manager 사용자는 ASA 플랫폼 및 AFF C-Series 플랫폼을 포함한 "하드웨어" 페이지에서 추가 하드웨어 플랫폼을 시각적으로 볼 수 있습니다.
+AFF C-Series 플랫폼에 대한 지원은 ONTAP 9.12.1, ONTAP 9.11.1 및 ONTAP 9.10.1의 최신 패치 릴리스에도 포함되어 있습니다.
+시각화는 플랫폼의 문제나 문제를 식별하여 사용자가 하드웨어 문제를 신속하게 해결할 수 있는 방법을 제공합니다.
+
+|===

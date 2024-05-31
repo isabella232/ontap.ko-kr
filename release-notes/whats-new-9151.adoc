@@ -1,0 +1,217 @@
+---
+permalink: release-notes/whats-new-9151.html 
+sidebar: sidebar 
+keywords: 'what"s new, release notes, 9.15.1' 
+summary: ONTAP 9.15.1에서 사용할 수 있는 새로운 기능에 대해 알아봅니다. 
+---
+= ONTAP 9.15.1의 새로운 기능
+:allow-uri-read: 
+
+
+[role="lead"]
+ONTAP 9.15.1에서 사용할 수 있는 새로운 기능에 대해 알아봅니다.
+
+최신 ONTAP 9 릴리스에서 알려진 문제, 제한 사항 및 업그레이드 주의 사항에 대한 자세한 내용은 를 참조하십시오 https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["ONTAP 9 릴리즈 노트"^]. 릴리스 정보에 액세스하려면 NetApp 계정으로 로그인하거나 계정을 만들어야 합니다.
+
+새로운 기능 및 향상된 기능에 대해 알아봅니다 https://docs.netapp.com/us-en/ontap-metrocluster/releasenotes/mcc-new-features.html["ONTAP MetroCluster 기능"^].
+
+의 새로운 지원과 향상된 지원에 대해 알아봅니다 https://docs.netapp.com/us-en/ontap-systems/whats-new.html["FAS, ASA, AFF 플랫폼, 지원되는 스위치"^].
+
+의 업데이트에 대해 알아봅니다 https://docs.netapp.com/us-en/ontap-automation/whats_new.html["ONTAP REST API를 참조하십시오"^].
+
+최신 버전의 ONTAP로 업그레이드하려면 를 참조하십시오 link:../upgrade/prepare.html["ONTAP 업그레이드를 준비합니다"].
+
+
+
+== 데이터 보호
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+ a| 
+xref:../snapmirror-active-sync/index.html[SnapMirror 액티브 동기화는 대칭 액티브/액티브 구축을 지원합니다]
+ a| 
+이제 SnapMirror Active Sync(이전의 SnapMirror Business Continuity)가 대칭 액티브/액티브 구축을 지원하므로 양방향 동기식 복제를 통해 보호된 LUN의 두 복사본에서 읽기 및 쓰기 I/O 작업을 수행할 수 있습니다.
+
+
+
+ a| 
+SnapMirror 비동기식을 사용하는 일관성 그룹의 볼륨 제한이 증가했습니다
+ a| 
+SnapMirror의 비동기식 보호를 사용하는 일관성 그룹이 이제 일관성 그룹에서 최대 80개의 볼륨을 지원합니다.
+
+
+
+ a| 
+xref:../consistency-groups/configure-task.html[일관성 그룹을 통한 REST API 및 CLI 작업에 대한 관리자 권한 수준 지원]
+ a| 
+일관성 그룹을 위한 CLI 및 REST API 작업이 관리 권한 수준에서 지원됩니다.
+
+
+
+ a| 
+xref:../concepts/ontap-and-vmware.html[Windows Server 페일오버 클러스터링을 사용하는 VMware 가상 볼륨에 대한 영구 예약]
+ a| 
+ONTAP은 현재 VMware 가상 볼륨(VVol)과 기존 LUN과의 영구 예약을 지원합니다. ONTAP 9.15.1부터 VVOL을 통해 영구 예약을 생성할 수도 있습니다. 이 기능에 대한 지원은 VMware vSphere 9용 ONTAP 툴에 구현되어 있습니다. 클러스터된 Windows 가상 머신 그룹인 WSFC(Windows Server Failover Cluster)에서만 지원됩니다.
+
+|===
+
+
+== 보안
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+ a| 
+xref:../nas-audit/create-persistent-stores.html[단순화된 FPolicy 영구 저장소 생성 및 구성]
+ a| 
+를 사용하여 FPolicy 영구 저장소를 생성하고 볼륨 생성 및 구성을 동시에 자동화할 수 있습니다 `persistent-store create` 명령.
+
+향상됨 `persistent-store create` 또한 명령을 실행하면 자동 크기 조정 모드 매개 변수를 사용할 수 있으므로 사용된 공간의 양에 따라 볼륨이 증가 또는 축소됩니다.
+
+
+
+ a| 
+xref:../nfs-rdma/index.html[RDMA에서 NFSv3 지원]
+ a| 
+이제 NFS over RDMA 구성이 NFSv3을 지원합니다.
+
+
+
+ a| 
+xref:../nas-audit/supported-file-operation-filter-fpolicy-nfsv4-concept.html[FPolicy는 NFS 4.1 프로토콜을 지원합니다]
+ a| 
+FPolicy는 NFS 4.1 프로토콜을 지원합니다.
+
+
+
+ a| 
+xref:../nas-audit/plan-fpolicy-external-engine-config-concept.html[FPolicy에 대한 Protobuf 엔진 형식 지원]
+ a| 
+Protobuf는 구조화된 데이터를 serialize하는 Google의 언어 중립적 메커니즘입니다. XML에 비해 더 작고 빠르며 간단하여 FPolicy 성능을 개선하는 데 도움이 됩니다.
+
+protubuf 외부 엔진 형식을 사용할 수 있습니다. protobuf로 설정하면 Google Protobuf를 사용하여 알림 메시지가 바이너리 형태로 인코딩됩니다. 외부 엔진 형식을 protobuf로 설정하기 전에 FPolicy 서버가 prototbuf deserialization도 지원하는지 확인하십시오.
+
+
+
+ a| 
+xref:../authentication/dynamic-authorization-overview.html[SSH 연결에 대한 동적 인증]
+ a| 
+ONTAP 9.15.1은 관리자 사용자에게 보안 신뢰 점수를 할당하고 의심스러운 활동이 있을 때 추가 인증 검사를 통해 ONTAP 시스템 관리를 위한 보안 강화 기능을 제공하는 동적 권한 부여에 대한 초기 프레임워크를 제공합니다.  동적 권한 부여를 데이터 중심의 제로 트러스트 보안 아키텍처의 일부로 활용할 수 있습니다.
+
+
+
+ a| 
+S3 스토리지, FlexCache 및 클러스터 피어링 암호화를 위해 TLS 1.3 지원
+ a| 
+TLS 1.3은 ONTAP 9.11.1 이후로 관리 액세스를 위해 지원되었지만, 현재 S3 스토리지, FlexCache 및 클러스터 피어링 암호화에 대해 ONTAP 9.15.1에서 지원됩니다. FabricPool, Microsoft Azure 페이지 Blob 스토리지 및 SnapMirror Cloud와 같은 일부 애플리케이션은 9.15.1 릴리즈에 TLS 1.2를 사용하는 것으로 계속 제한됩니다.
+
+
+
+ a| 
+xref:../nfs-admin/tls-nfs-strong-security-concept.html[NFS 연결을 위한 TLS 지원]
+ a| 
+NFS over TLS는 ONTAP 9.15.1에서 공개 미리 보기로 제공됩니다. 미리 보기 오퍼링에서는 ONTAP 9.15.1의 운영 워크로드에 TLS를 통한 NFS가 지원되지 않습니다.
+
+NFS over TLS를 사용하면 스토리지 장치에서 클라이언트로 전송되는 데이터의 암호화를 제공합니다. TLS는 Kerberos보다 더 최신이며 편리하므로 구성과 관리가 더욱 간편해집니다.
+
+
+
+ a| 
+xref:../multi-admin-verify/index.html#rule-protected-commands[다중 관리자 확인을 위해 확장된 규칙 보호 명령 집합입니다]
+ a| 
+관리자는 다중 관리자 검증 규칙을 생성하여 클러스터 구성, LUN 삭제, 시스템 구성, IPsec 및 SAML을 위한 보안 구성, 볼륨 스냅샷 작업, SVM 구성 및 기타 명령을 보호할 수 있습니다.
+
+
+
+ a| 
+xref:../system-admin/requirements-autosupport-reference.html[TLS와 함께 SMTP를 사용하여 AutoSupport 메시지 배달]
+ a| 
+AutoSupport 메시지를 NetApp로 전송하는 것이 HTTPS이지만 암호화되지 않은 SMTP도 사용할 수 있습니다. ONTAP 9.15.1을 사용하는 고객은 이제 SMTP와 함께 TLS를 사용할 수 있습니다. SMTPS 프로토콜은 이메일 트래픽과 선택적 이메일 서버 자격 증명을 암호화하여 보안 전송 채널을 설정합니다. 명시적 TLS가 사용되므로 TCP 연결이 생성된 후 TLS가 활성화됩니다. 메시지의 복사본을 로컬 이메일 주소로 보내는 경우 동일한 구성이 사용됩니다.
+
+|===
+
+
+== 스토리지 효율성
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+ a| 
+xref:../volumes/determine-space-usage-volume-aggregate-concept.html[볼륨 공간 메트릭 보고에 대한 변경 사항]
+ a| 
+사용 중인 메타데이터만 표시하는 새로운 카운터가 두 개 도입되었습니다. 또한 메타데이터를 제거하고 사용자 데이터만 표시하도록 기존 카운터 중 일부를 조정했습니다. 이러한 변경 사항을 함께 사용하면 두 가지 유형의 데이터로 구분된 메트릭을 보다 명확하게 확인할 수 있습니다. 고객은 이러한 카운터를 사용하여 전체 메타데이터의 할인을 줄이고 실제 사용자 데이터만 고려하여 보다 정확한 차지백 모델을 구현할 수 있습니다.
+
+|===
+
+
+== 스토리지 리소스 관리 기능 향상
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+ a| 
+xref:../flexcache/flexcache-writeback-enable-task.html[FlexCache 쓰기 저장 지원]
+ a| 
+캐시 볼륨에 쓰기 작업이 설정되어 있으면 쓰기 요청이 원본 볼륨이 아닌 로컬 캐시로 전송되어 에지 컴퓨팅 환경과 쓰기 작업이 많은 캐시를 위한 성능이 향상됩니다.
+
+
+
+ a| 
+xref:../task_nas_file_system_analytics_enable.html[파일 시스템 분석 성능 향상]
+ a| 
+ONTAP는 파일 시스템 분석을 활성화할 때 볼륨 용량의 5~8%를 가용 용량으로 유지해야 하므로 볼륨 및 파일 시스템 분석 시 잠재적인 성능 문제가 완화됩니다.
+
+
+
+ a| 
+FlexClone 볼륨 암호화 키
+ a| 
+FlexClone 볼륨에는 FlexVol 볼륨(호스트) 암호화 키와 무관한 전용 암호화 키가 할당됩니다.
+
+|===
+
+
+== 시스템 관리자
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+ a| 
+xref:../snaplock/commit-snapshot-copies-worm-concept.html[SnapLock 볼트 관계 구성을 위한 System Manager 지원]
+ a| 
+원본과 대상 모두 ONTAP 9.15.1 이상을 실행 중인 경우 시스템 관리자를 사용하여 SnapLock 볼트 관계를 구성할 수 있습니다.
+
+
+
+ a| 
+xref:../task_cp_dashboard_tour.html[System Manager 대시보드 성능이 향상되었습니다]
+ a| 
+System Manager 대시보드의 상태, 용량, 네트워크, 성능 뷰에 대한 정보에는 지연 시간 또는 성능 문제를 식별하고 해결하는 데 도움이 되는 성능 메트릭에 대한 향상된 기능을 비롯하여 더 자세한 설명이 포함되어 있습니다.
+
+|===
+
+
+== 업그레이드
+
+[cols="30%,70%"]
+|===
+| 업데이트 | 설명 
+
+
+ a| 
+xref:../upgrade/automated-upgrade-task.html[자동화된 무중단 업그레이드 중에 LIF를 HA 파트너 노드로 마이그레이션할 수 있습니다]
+ a| 
+무중단 자동 업그레이드 중에 LIF가 다른 배치 그룹으로 마이그레이션되면 LIF는 같은 배치 그룹의 HA 파트너 노드로 마이그레이션됩니다.
+
+|===
