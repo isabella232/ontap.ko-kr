@@ -386,7 +386,7 @@ FlexCache 데이터 서비스
  a| 
 데이터 - iSCSI
  a| 
-홈 포트 전용
+홈 포트 - AFF/FAS 전용, SFO 파트너 - ASA 전용
  a| 
 iSCSI 데이터 서비스
 

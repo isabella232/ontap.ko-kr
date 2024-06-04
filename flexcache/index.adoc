@@ -23,7 +23,7 @@ ONTAP 9.9.1부터 FlexCache 볼륨은 찾을 수 없는 파일 목록을 유지�
 
 추가 목록 link:supported-unsupported-features-concept.html["FlexCache 볼륨 및 원래 볼륨에 대해 지원되는 기능"]ONTAP 버전에서 지원되는 프로토콜 목록을 포함하여 를 사용할 수도 있습니다.
 
-ONTAP FlexCache 기술의 아키텍처에 대한 자세한 내용은 에서 확인할 수 있습니다 link:https://www.netapp.com/pdf.html?item=/media/7336-tr4743.pdf["TR-4743: ONTAP의 FlexCache"].
+ONTAP FlexCache 기술의 아키텍처에 대한 자세한 내용은 에서 확인할 수 있습니다 link:https://www.netapp.com/pdf.html?item=/media/7336-tr4743.pdf["TR-4743: ONTAP의 FlexCache"^].
 
 
 

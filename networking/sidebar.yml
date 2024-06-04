@@ -258,6 +258,8 @@ entries:
       url: "/networking/configure_snmpv3_users_in_a_cluster.html"
     - title: SNMP 알림을 수신하도록 traphosts를 구성합니다
       url: "/networking/configure_traphosts_to_receive_snmp_notifications.html"
+    - title: SNMP 폴링을 테스트합니다
+      url: "/networking/task_testing_snmp_polling.html"
     - title: SNMP 관리를 위한 명령입니다
       url: "/networking/commands_for_managing_snmp.html"
   - title: SVM에서 라우팅 관리

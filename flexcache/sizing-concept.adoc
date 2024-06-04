@@ -39,4 +39,4 @@ FlexVol 볼륨의 크기 제한은 원본 볼륨에 적용됩니다. FlexCache �
 | 노드당 FlexCache 볼륨당 최대 구성요소 수 | 32 | 32 | 32 
 |===
 .관련 정보
-https://mysupport.netapp.com/NOW/products/interoperability["NetApp 상호 운용성"]
+https://mysupport.netapp.com/NOW/products/interoperability["NetApp 상호 운용성"^]

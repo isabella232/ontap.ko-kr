@@ -28,7 +28,7 @@ ONTAP에서 지원하는 모든 Windows 클라이언트는 IPv6 주소를 사용
 
 
 
-ONTAP가 지원하는 Windows 클라이언트에 대한 최신 정보는 를 참조하십시오 link:https://mysupport.netapp.com/matrix["상호 운용성 매트릭스"].
+ONTAP가 지원하는 Windows 클라이언트에 대한 최신 정보는 를 참조하십시오 link:https://mysupport.netapp.com/matrix["상호 운용성 매트릭스"^].
 
 [NOTE]
 ====

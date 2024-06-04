@@ -23,7 +23,7 @@ ONTAP 9.6 이상을 실행하는 경우 Alibaba 클라우드 오브젝트 스토
 ** Alibaba 개체 스토리지 서비스 표준
 ** Alibaba Object Storage Service 낮은 액세스 빈도
 +
-https://www.alibabacloud.com/help/doc-detail/51374.htm["Alibaba Cloud: 스토리지 클래스 소개"]
+https://www.alibabacloud.com/help/doc-detail/51374.htm["Alibaba Cloud: 스토리지 클래스 소개"^]
 
 
 

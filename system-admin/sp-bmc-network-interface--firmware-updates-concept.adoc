@@ -34,4 +34,4 @@ SP 버전 1.5, 2.5, 3.1 이상을 실행하는 경우 다음과 같은 펌웨어
 실행 중인 SP 버전에 관계없이 SP CLI에서 트리거된 SP 펌웨어 업데이트는 항상 SP 네트워크 인터페이스를 사용하여 업데이트합니다.
 
 .관련 정보
-https://mysupport.netapp.com/site/downloads/firmware/system-firmware-diagnostics["NetApp 다운로드: 시스템 펌웨어 및 진단"]
+https://mysupport.netapp.com/site/downloads/firmware/system-firmware-diagnostics["NetApp 다운로드: 시스템 펌웨어 및 진단"^]

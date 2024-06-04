@@ -19,7 +19,7 @@ Config Advisor은 일련의 명령을 실행하여 설치를 검증하고 클러
 
 . Active IQ Config Advisor를 다운로드하고 설치합니다.
 +
-link:https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"]
+link:https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^]
 
 . Active IQ를 시작하고 메시지가 표시되면 암호를 설정합니다.
 . 설정을 검토하고 * 저장 * 을 클릭합니다.

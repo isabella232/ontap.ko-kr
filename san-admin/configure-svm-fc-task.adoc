@@ -75,7 +75,7 @@ ONTAP System Manager(9.7 이상)를 사용하여 iSCSI용 스토리지 VM을 구
 --
 ====
 .관련 정보
-https://mysupport.netapp.com/site/global/dashboard["NetApp 지원"]
+https://mysupport.netapp.com/site/global/dashboard["NetApp 지원"^]
 
 https://mysupport.netapp.com/matrix["NetApp 상호 운용성 매트릭스 툴"^]
 

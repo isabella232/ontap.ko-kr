@@ -621,7 +621,7 @@ entries:
       url: "/smb-admin/dynamic-home-directories-concept.html"
     - title: 홈 디렉토리 공유
       entries:
-      - title: 홈 디렉터 공유를 추가합니다
+      - title: 홈 디렉토리 공유를 추가합니다
         url: "/smb-admin/add-home-directory-share-task.html"
       - title: 홈 디렉토리 공유에는 고유한 사용자 이름이 필요합니다
         url: "/smb-admin/home-directory-shares-unique-user-names-concept.html"
