@@ -608,7 +608,7 @@ system node upgrade-revert show -node nodenameB
 상태는 완료 로 표시되어야 합니다.
 
 +
-상태가 완전하지 않은 경우 노드에서 system node upgrade-revert upgrade 명령을 실행합니다. 명령을 실행해도 업데이트가 완료되지 않으면 기술 지원 팀에 문의하십시오.
+상태가 Complete가 아닌 경우 노드에서 `system node upgrade-revert upgrade` 명령을 실행합니다. 명령을 실행해도 업데이트가 완료되지 않으면 기술 지원 팀에 문의하십시오.
 
 .. 관리자 권한 레벨로 돌아갑니다.
 +
