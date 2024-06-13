@@ -8,7 +8,7 @@ indexpage:
     - title: SAN 구성 개요
       url: "/../san-config/index.html"
     - title: SnapMirror 활성 동기화
-      url: "/snapmirror-active-sync/index.html"
+      url: "/../snapmirror-active-sync/index.html"
   - title: 스토리지 프로비저닝
     links:
     - title: SAN 스토리지 용량 할당

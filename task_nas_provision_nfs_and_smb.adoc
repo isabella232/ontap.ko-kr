@@ -111,8 +111,16 @@ ONTAP 9.8부터 사용자 지정 QoS 정책을 지정하거나 QoS를 사용하�
 | 에서 이러한 작업을 수행하려면... | 이 콘텐츠 보기... 
 
 
-| System Manager Classic(ONTAP 9.7 이하) | link:https://docs.netapp.com/us-en/ontap-sm-classic/nas-multiprotocol-config/index.html["SMB 및 NFS 멀티 프로토콜 구성 개요"^] 
+| System Manager Classic(ONTAP 9.7 이하) | https://docs.netapp.com/us-en/ontap-sm-classic/nas-multiprotocol-config/index.html["SMB 및 NFS 멀티 프로토콜 구성 개요"^] 
 
 
-| ONTAP 명령줄 인터페이스입니다 | link:https://docs.netapp.com/us-en/ontap/smb-config/index.html["CLI를 사용한 SMB 구성 개요"^] 를 누릅니다link:https://docs.netapp.com/us-en/ontap/nfs-config/index.html["CLI를 사용한 NFS 구성 개요"^] 를 누릅니다link:https://docs.netapp.com/us-en/ontap/nfs-admin/security-styles-their-effects-concept.html["보안 스타일과 그 효과는 무엇입니까"^] 를 누릅니다link:https://docs.netapp.com/us-en/ontap/nfs-admin/case-sensitivity-file-directory-multiprotocol-concept.html["다중 프로토콜 환경에서 파일 및 디렉토리 이름의 대/소문자를 구분하십시오"^] 
+ a| 
+ONTAP 명령줄 인터페이스입니다
+ a| 
+* link:smb-config/index.html["CLI를 사용한 SMB 구성 개요"]
+* link:nfs-config/index.html["CLI를 사용한 NFS 구성 개요"]
+* link:nfs-admin/security-styles-their-effects-concept.html["보안 스타일과 그 효과는 무엇입니까"]
+* link:nfs-admin/case-sensitivity-file-directory-multiprotocol-concept.html["다중 프로토콜 환경에서 파일 및 디렉토리 이름의 대/소문자를 구분하십시오"]
+
+
 |===

@@ -2,7 +2,7 @@
 permalink: san-admin/enable-space-allocation.html 
 sidebar: sidebar 
 keywords: enable, space allocation, space reclamation, unmap 
-summary: 공간 할당 옵션을 Enabled로 설정하면 ONTAP는 볼륨에 공간이 부족하고 볼륨의 LUN이 쓰기를 허용할 수 없을 때 호스트에 알립니다. 또한 이 옵션을 사용하면 호스트가 데이터를 삭제할 때 ONTAP에서 자동으로 공간을 재확보할 수 있습니다. 
+summary: 공간 할당을 설정하여 호스트 및 스토리지 시스템이 공간 관리에 협력할 수 있도록 합니다. 
 ---
 = SAN에 공간 할당을 설정합니다
 :allow-uri-read: 
@@ -11,12 +11,18 @@ summary: 공간 할당 옵션을 Enabled로 설정하면 ONTAP는 볼륨에 공�
 
 
 [role="lead"]
-FC 또는 iSCSI 호스트가 SCSI 씬 프로비저닝을 지원하는 경우 공간 할당을 활성화할 수 있습니다.  공간 할당이 설정되고 볼륨에 공간이 부족해지면 볼륨의 LUN이 온라인 상태로 유지되고 읽기 전용 모드로 설정됩니다.  그러면 LUN에서 더 이상 쓰기를 수락할 수 없다는 알림이 호스트에 표시됩니다.  호스트에서 공간 할당이 지원되지 않거나 이 설정되어 있지 않은 경우, 볼륨에 공간이 부족하여 자동으로 늘릴 수 없는 경우 ONTAP은 LUN을 오프라인 상태로 전환합니다.
+공간 할당을 설정하여 호스트와 스토리지 시스템이 LUN 공간 관리에 협력할 수 있도록 합니다. 를 활성화합니다 `space-allocation` 설정을 사용하면 다음과 같은 이점이 있습니다.
 
-또한 공간 할당이 설정된 경우 호스트 측 공간 관리는 호스트 파일 시스템에서 삭제된 데이터 블록을 식별하여 하나 이상의 데이터를 자동으로 발급합니다 `SCSI UNMAP` 명령을 통해 스토리지 시스템에서 해당 블록을 해제하고 ONTAP에서 공간을 재확보할 수 있습니다.
+* *ONTAP는 쓰기 작업을 처리할 수 있는 여유 공간이 없는 호스트와 통신할 수 있습니다.*: 이 통신은 호스트가 공간 부족 상황을 처리할 수 있는 보다 원활한 방법입니다. LUN은 온라인 상태로 유지되지만 공간을 사용할 수 있게 될 때까지 쓰기 IO를 처리할 수 없습니다. 읽기 IO는 여전히 수행할 수 있습니다. 호스트 운영 체제에 미치는 정확한 영향은 호스트 구성에 따라 다릅니다. 경우에 따라 OS는 성공할 때까지 쓰기 입출력을 다시 시도합니다. 다른 경우에는 파일 시스템을 오프라인으로 설정할 수 있습니다.
++
+
+NOTE: 를 누릅니다 `space-allocation` 설정을 사용하지 않으면 LUN이 상태로 전환됩니다 `space-error` 임계값이 낮은 공간 임계값에 도달하고 모든 입출력이 실패합니다. LUN을 로 다시 변경해야 합니다 `online` 공간 문제가 해결된 후의 상태입니다. 호스트에서 LUN 디바이스를 다시 검색해야 경로 및 디바이스를 운영 상태로 복구할 수 있습니다.
+
+* * 호스트가 수행할 수 있습니다 `SCSI UNMAP` (때때로 불립니다 `TRIM`) 작업 *: 이러한 작업을 통해 호스트가 더 이상 유효한 데이터를 포함하지 않으므로 더 이상 필요하지 않은 LUN의 데이터 블록을 식별할 수 있습니다. 일반적으로 파일 삭제 후 식별이 이루어집니다. 그런 다음 스토리지 시스템에서 해당 데이터 블록을 할당 해제하여 다른 곳에서 공간을 사용할 수 있도록 합니다. 이러한 할당 해제는 특히 데이터 회전율이 높은 파일 시스템에서 전반적인 스토리지 효율성을 크게 향상시킵니다.
+
 
 .시작하기 전에
-공간 할당을 설정하려면 호스트에서 SCSI 씬 프로비저닝을 지원해야 합니다. SCSI 씬 프로비저닝은 SCSI SBC-3 표준에 정의된 논리적 블록 프로비저닝을 사용합니다. 이 표준을 지원하는 호스트만 ONTAP에서 SCSI 씬 프로비저닝을 사용할 수 있습니다.
+공간 할당을 설정하려면 쓰기를 완료할 수 없는 경우 공간 할당 오류를 올바르게 처리할 수 있는 호스트 구성이 필요합니다. 활용 `SCSI UNMAP` SCSI SBC-3 표준에 정의된 대로 논리적 블록 프로비저닝을 사용할 수 있는 구성이 필요합니다.
 
 다음 호스트는 공간 할당을 설정할 때 현재 SCSI 씬 프로비저닝을 지원합니다.
 
@@ -37,32 +43,18 @@ ONTAP 9.15.1부터 새로 생성된 VMware 및 Hyper-V LUN에 대해 기본적�
 
 NOTE: 클러스터를 ONTAP 9.15.1로 업그레이드하면 소프트웨어 업그레이드 전에 생성된 모든 LUN에 대한 공간 할당 설정은 호스트 유형에 관계없이 업그레이드 후에도 동일하게 유지됩니다.  예를 들어 공간 할당이 해제된 VMware 호스트에 대해 ONTAP 9.13.1에서 LUN을 생성한 경우 ONTAP 9.15.1로 업그레이드한 후 해당 LUN에 대한 공간 할당이 해제된 상태로 유지됩니다.
 
-LUN을 오프라인으로 전환하여 공간을 할당해야 합니다. 그런 다음 호스트에서 공간 할당이 설정되어 있음을 인식하기 전에 호스트에서 검색을 수행해야 합니다.
-
 .단계
-. LUN을 오프라인 상태로 전환:
-+
-[source, cli]
-----
-lun modify -vserver vserver_name -volume volume_name -lun lun_name -state offline
-----
 . 공간 할당 활성화:
 +
-[source, cli]
-----
-lun modify -vserver _vserver_name_ -volume _volume_name_ -lun _lun_name_ -space-allocation enabled
-----
+`lun modify -vserver _vserver_name_ -volume _volume_name_ -lun _lun_name_ -space-allocation enabled`
+
 . 공간 할당이 설정되었는지 확인합니다.
 +
-[source, cli]
-----
-lun show -vserver _vserver_name_ -volume _volume_name_ -lun _lun_name_ -fields space-allocation
-----
-. LUN을 온라인 상태로 전환:
+`lun show -vserver _vserver_name_ -volume _volume_name_ -lun _lun_name_ -fields space-allocation`
+
+. 호스트 운영 체제에서 공간 할당이 활성화되어 있는지 확인합니다.
 +
-[source, cli]
-----
-lun modify -vserver _vserver_name_ -volume _volume_name_ -lun _lun_name_ -state online
-----
-. 호스트에서 모든 디스크를 재검색하여 '-space-allocation' 옵션의 변경 사항이 올바르게 검색되었는지 확인합니다.
+
+NOTE: 특히 ESX와 같은 일부 호스트 구성은 설정 변경을 자동으로 인식할 수 있으므로 사용자 개입이 필요하지 않습니다. 다른 구성에서는 장치를 다시 검색해야 할 수 있습니다. 일부 파일 시스템 및 볼륨 관리자는 를 사용하여 공간을 재확보하기 위해 추가적인 특정 설정이 필요할 수 있습니다 `SCSI UNMAP`. 파일 시스템을 다시 마운트하거나 전체 운영 체제를 재부팅해야 할 수 있습니다. 지침은 해당 OS의 설명서를 참조하십시오.
+
 

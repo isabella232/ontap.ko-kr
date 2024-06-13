@@ -77,6 +77,9 @@ Rocky Linux 8
 . 다음 절차 중 하나를 사용하여 위에 나열된 리포지토리에 액세스할 수 있으므로 ONTAP 중재자가 설치 프로세스 중에 필요한 패키지에 액세스할 수 있습니다.
 
 
+
+NOTE: ONTAP mediator가 "추가" 및 "옵션" 리포지토리에 있는 Python 모듈에 종속성이 있는 경우 에 액세스해야 할 수 있습니다 `rhel-X-for-x86_64-extras-rpms` 및 `rhel-X-for-x86_64-optional-rpms` 파일.
+
 .RHEL 7.x 운영 체제에 대한 절차
 [#rhel7x%collapsible]
 ====
