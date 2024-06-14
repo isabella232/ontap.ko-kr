@@ -35,7 +35,7 @@ _SVM 이름 _
 
 S3에 대해 SVM이 이미 존재하고 사용하도록 설정해야 합니다.
  a| 
-'-verserver_svm_name_'
+`-vserver _svm_name_`
  a| 
 예
 

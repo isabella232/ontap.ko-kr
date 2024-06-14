@@ -87,6 +87,12 @@ cluster_dst::> snapmirror policy create -vserver svm1 -policy DR_exclude_LIFs -t
 ----
 cluster_dst::> snapmirror policy create -vserver svm1 -policy unified_exclude_LIFs -type mirror-vault -discard-configs network
 ----
++
+[NOTE]
+====
+향후 페일오버 및 페일백 시나리오를 지원하기 위해 소스 클러스터에 동일한 맞춤형 SnapMirror 정책을 생성하는 것을 고려해 보십시오.
+
+====
 . 대상 SVM 또는 대상 클러스터에서 다음 명령을 실행하여 복제 관계를 생성합니다.
 +
 'sapmirror create-source-path_SVM_:-destination-path_SVM_:-type DP|XDP-schedule_schedule_-policy_policy_-identity-preserve true|false'입니다

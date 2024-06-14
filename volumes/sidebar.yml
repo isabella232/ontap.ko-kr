@@ -250,7 +250,7 @@ entries:
     url: "/volumes/enable-deduplication-volume-task.html"
   - title: 볼륨에서 중복 제거를 해제합니다
     url: "/volumes/disable-deduplication-volume-task.html"
-  - title: AFF 시스템에서 자동 볼륨 레벨 백그라운드 중복제거 관리
+  - title: AFF 시스템의 볼륨 레벨 자동 백그라운드 중복 제거
     url: "/volumes/automatic-deduplication-schedule-aff-concept.html"
   - title: AFF 시스템에서 애그리게이트 레벨의 인라인 중복제거를 관리합니다
     url: "/volumes/manage-aggregate-level-deduplication-aff-task.html"
@@ -286,7 +286,7 @@ entries:
     url: "/volumes/enable-storage-efficiency-visualization-concept.html"
   - title: 효율성 작업을 실행할 볼륨 효율성 정책을 생성합니다
     entries:
-    - title: 개요
+    - title: 효율성 작업을 실행할 볼륨 효율성 정책을 생성합니다
       url: "/volumes/create-efficiency-policy-task.html"
     - title: 볼륨에 볼륨 효율성 정책을 할당합니다
       url: "/volumes/assign-volume-efficiency-policy-task.html"
