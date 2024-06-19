@@ -15,7 +15,7 @@ ONTAP 소프트웨어를 업그레이드할 때 새롭고 개선된 ONTAP 기능
 
 주요 ONTAP 업그레이드는 ONTAP 번호가 낮은 릴리즈에서 상위 릴리즈로 이전하는 작업으로 구성됩니다. 예를 들어 ONTAP 9.8에서 ONTAP 9.12.1로 클러스터를 업그레이드할 수 있습니다.  부(또는 패치) 업그레이드는 동일한 번호가 지정된 릴리스 내에서 낮은 ONTAP 버전에서 상위 ONTAP 버전으로 이동하는 것으로 구성됩니다. 예를 들어, ONTAP 9.12.1P1에서 9.12.1P4로 클러스터를 업그레이드할 수 있습니다.
 
-시작하려면 다음을 수행해야 합니다 link:prepare.html["업그레이드를 준비합니다"]. Active IQ Digital Advisor에 대해 유효한 SupportEdge 계약이 있는 경우, 해야 합니다 link:create-upgrade-plan.html#plan-your-upgrade-with-upgrade-advisor["Upgrade Advisor로 업그레이드를 계획하십시오"]. Upgrade Advisor는 클러스터를 평가하고 구성에 맞는 업그레이드 계획을 생성하여 불확실성과 위험을 최소화하는 데 도움이 되는 인텔리전스를 제공합니다.
+시작하려면 다음을 수행해야 합니다 link:prepare.html["업그레이드를 준비합니다"]. Active IQ Digital Advisor에 대해 유효한 SupportEdge 계약이 있는 경우, 해야 합니다 link:create-upgrade-plan.html["Upgrade Advisor로 업그레이드를 계획하십시오"]. Upgrade Advisor는 클러스터를 평가하고 구성에 맞는 업그레이드 계획을 생성하여 불확실성과 위험을 최소화하는 데 도움이 되는 인텔리전스를 제공합니다.
 
 업그레이드를 준비하고 나면 을 사용하여 업그레이드를 수행하는 것이 좋습니다 link:task_upgrade_andu_sm.html["System Manager에서 자동 무중단 업그레이드(ANDU"].  ANDU는 ONTAP의 고가용성(HA) 페일오버 기술을 활용하여 업그레이드 중에 클러스터가 중단 없이 데이터를 지속적으로 제공할 수 있도록 보장합니다.
 

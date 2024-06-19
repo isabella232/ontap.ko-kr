@@ -137,6 +137,36 @@ AutoSupport
 
 
  a| 
+SnapLock
+ a| 
+모두
+ a| 
+* '세트'
+* '볼륨 생성'
+* 볼륨 수정
+* `volume move`
+* '볼륨 쇼'
+
+
+
+
+ a| 
+없음
+ a| 
+* `volume move governor`
+* `volume move recommend`
+
+
+
+
+ a| 
+없음
+ a| 
+기타 모든 명령 디렉토리(기본값)
+
+
+
+ a| 
 없음
  a| 
 없음

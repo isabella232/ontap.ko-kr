@@ -4,22 +4,20 @@ sidebar: sidebar
 keywords: ontap, upgrade, plan, planning, upgrade advisor, advisor, active iq, create an upgrade plan, estimate upgrade, 
 summary: Active IQ 디지털 어드바이저의 Upgrade Advisor 서비스는 업그레이드 계획을 수립하고 불확실성과 위험을 최소화할 수 있는 인텔리전스를 제공합니다. 
 ---
-= ONTAP 업그레이드 계획을 생성합니다
+= Upgrade Advisor를 사용하여 업그레이드 계획
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-업그레이드 계획을 만드는 것이 가장 좋습니다. 활성 상태인 경우 link:https://www.netapp.com/us/services/support-edge.aspx["SupportEdge 서비스"^] 에 대한 계약 link:https://docs.netapp.com/us-en/active-iq/upgrade_advisor_overview.html["Active IQ 디지털 자문업체"^], Upgrade Advisor를 사용하여 업그레이드 계획을 생성할 수 있습니다. 그렇지 않은 경우 자신의 계획을 작성해야 합니다.
-
-
-
-== Upgrade Advisor를 사용하여 업그레이드 계획
+활성 상태인 경우 link:https://www.netapp.com/us/services/support-edge.aspx["SupportEdge 서비스"^] 에 대한 계약 link:https://docs.netapp.com/us-en/active-iq/upgrade_advisor_overview.html["Active IQ 디지털 자문업체"^], 업그레이드 관리자를 사용하여 업그레이드 계획을 생성하는 것이 좋습니다.
 
 Active IQ 디지털 어드바이저의 Upgrade Advisor 서비스는 업그레이드 계획을 수립하고 불확실성과 위험을 최소화할 수 있는 인텔리전스를 제공합니다.
 
 Active IQ는 사용자 환경에서 최신 버전의 ONTAP로 업그레이드하여 해결할 수 있는 문제를 식별합니다. 업그레이드 관리자 서비스는 성공적인 업그레이드를 계획하는 데 도움이 되며, 업그레이드하는 ONTAP 버전에서 알아야 할 문제에 대한 보고서를 제공합니다.
+
+Active IQ Digital Advisor에 대해 유효한 지원 에지 서비스 계약이 없는 경우, 해야 합니다 link:prepare.html["Upgrade Advisor 없이 업그레이드를 준비합니다"].
 
 .단계
 . https://aiq.netapp.com/["Active IQ를 시작합니다"^]
@@ -30,13 +28,7 @@ ONTAP 업그레이드를 수행하기 전에 * 소프트웨어 구성 변경 *, 
 . 권장 업그레이드 경로 및 를 검토합니다 link:https://docs.netapp.com/us-en/active-iq/upgrade_advisor_overview.html["업그레이드 계획을 생성합니다"^].
 
 
+.다음 단계
+* 를 검토해야 합니다 link:../release-notes/index.html["ONTAP 릴리즈 노트"] Upgrade Advisor가 클러스터에 권장하는 타겟 ONTAP 릴리즈의 경우 Upgrade Advisor에서 생성한 계획에 따라 클러스터를 업그레이드해야 합니다.
+* 당신은 해야 한다 link:reboot-sp-bmc.html["SP 또는 BMC를 재부팅합니다"] 업그레이드 시작 전.
 
-
-== ONTAP 업그레이드에는 시간이 얼마나 걸립니까?
-
-ONTAP 업그레이드 준비 단계를 완료하는 데 30분 이상, 각 HA 쌍 업그레이드에 60분, 업그레이드 후 단계를 완료하는 데 30분 이상 계획을 세워야 합니다.
-
-
-NOTE: 외부 키 관리 서버 및 KMIP(Key Management Interoperability Protocol)와 함께 NetApp Encryption을 사용하는 경우 각 HA 쌍의 업그레이드가 1시간 이상 길 것으로 예상해야 합니다.
-
-이러한 업그레이드 기간 지침은 일반 구성 및 워크로드를 기반으로 합니다. 이러한 지침을 사용하여 무중단 업그레이드를 수행하는 데 걸리는 시간을 추정할 수 있습니다. 실제 업그레이드 프로세스 기간은 개별 환경과 노드 수에 따라 다릅니다.

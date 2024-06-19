@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: upgrade, ontap, prepare, preparation, before you upgrade, plan, upgrade overview, upgrade summary 
 summary: ONTAP 업그레이드를 준비하면 업그레이드 위험 또는 차단기를 식별하고 완화하며 구성에 적용되는 특별한 고려 사항을 파악할 수 있습니다. 
 ---
-= ONTAP 소프트웨어 업그레이드를 준비합니다
+= Upgrade Advisor 없이 ONTAP 소프트웨어 업그레이드 준비
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,14 +13,10 @@ summary: ONTAP 업그레이드를 준비하면 업그레이드 위험 또는 차
 [role="lead"]
 ONTAP 소프트웨어 업그레이드를 올바르게 준비하면 업그레이드 프로세스를 시작하기 전에 잠재적 업그레이드 위험 또는 방해 요인을 식별하고 완화할 수 있습니다. 업그레이드 준비 중에 업그레이드하기 전에 고려해야 할 특별한 사항을 확인할 수도 있습니다. 예를 들어 클러스터에서 SSL FIPS 모드가 활성화되어 있고 관리자 계정이 인증을 위해 SSH 공개 키를 사용하는 경우 대상 ONTAP 릴리즈에서 호스트 키 알고리즘이 지원되는지 확인해야 합니다.
 
-업그레이드를 준비하려면 다음을 수행해야 합니다.
-
-. link:create-upgrade-plan.html["업그레이드 계획을 생성합니다"].
-+
-에 대해 활성 SupportEdge 계약이 있는 경우 link:https://docs.netapp.com/us-en/active-iq/upgrade_advisor_overview.html["Active IQ 디지털 자문업체"^]업그레이드 관리자를 통해 업그레이드를 계획하십시오.  Active IQ Digital Advisor에 액세스할 수 없는 경우 고유한 업그레이드 계획을 작성하십시오.
+에 대해 활성 SupportEdge 계약이 있는 경우 link:https://docs.netapp.com/us-en/active-iq/upgrade_advisor_overview.html["Active IQ 디지털 자문업체"^], link:create-upgrade-plan.html["Upgrade Advisor로 업그레이드를 계획하십시오"]. Active IQ Digital Advisor에 액세스할 수 없는 경우 다음을 수행하여 ONTAP 업그레이드를 준비해야 합니다.
 
 . link:choose-target-version.html["대상 ONTAP 릴리스를 선택합니다"].
-. 를 검토합니다 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["ONTAP 릴리즈 노트"^] 타겟 릴리즈용
+. 를 검토합니다 link:../release-notes/index.html["ONTAP 릴리즈 노트"] 타겟 릴리즈용
 +
 "업그레이드 주의 사항" 섹션에서는 새 릴리즈로 업그레이드하기 전에 알아야 할 잠재적인 문제에 대해 설명합니다. “새로운 기능” 및 “알려진 문제 및 제한 사항” 섹션에서는 새 릴리스로 업그레이드한 후 새로운 시스템 동작에 대해 설명합니다.
 
@@ -39,5 +35,5 @@ ONTAP 소프트웨어 업그레이드를 올바르게 준비하면 업그레이�
 +
 클러스터에 특정 구성이 있는 경우 ONTAP 소프트웨어 업그레이드를 시작하기 전에 수행해야 할 특정 작업이 있습니다.
 
-. link:concept_how_firmware_is_updated_during_upgrade.html["SP 또는 BMC를 재부팅합니다"].
+. link:reboot-sp-bmc.html["SP 또는 BMC를 재부팅합니다"].
 
