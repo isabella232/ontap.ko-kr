@@ -21,7 +21,7 @@ NetApp는 Trellix, Symantec, Trend Micro 및 Sentinel One과 협력하여 ONTAP 
 
 
 | Trelix(이전 명칭 McAfee) | link:https://docs.trellix.com/bundle?labelkey=prod-endpoint-security-storage-protection&labelkey=prod-endpoint-security-storage-protection-v2-3-x&labelkey=prod-endpoint-security-storage-protection-v2-2-x&labelkey=prod-endpoint-security-storage-protection-v2-1-x&labelkey=prod-endpoint-security-storage-protection-v2-0-x["Trelix 제품 설명서"^]  a| 
-* link:https://imt.netapp.com/matrix/["NetApp 상호 운용성 매트릭스 툴"]
+* link:https://imt.netapp.com/matrix/["NetApp 상호 운용성 매트릭스 툴"^]
 * link:https://kcm.trellix.com/corporate/index?page=content&id=KB94811["엔드포인트 보안 스토리지 보호에 지원되는 플랫폼(trellix.com)"^]
 
 

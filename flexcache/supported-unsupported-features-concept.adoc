@@ -81,7 +81,7 @@ ONTAP 9.8부터 지원됩니다.
  a| 
 예
 
-ONTAP 9.10.1 버전부터 FlexVol 원본 볼륨에 대해 지원되며 FlexGroup 원본 볼륨에는 지원되지 않습니다.
+ONTAP 9.10.1부터 FlexVol 원본 볼륨에 대해 지원되며 ONTAP 9.13.1부터 FlexGroup 원본 볼륨에 대해 지원됩니다. 을 참조하십시오 link:../anti-ransomware/use-cases-restrictions-concept.html#unsupported-configurations["자율 랜섬웨어 보호 사용 사례 및 고려사항"].
  a| 
 아니요
 

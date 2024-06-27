@@ -28,7 +28,7 @@ indexpage:
   - title: 감사 이벤트
     links:
     - title: 감사를 구성합니다
-      url: "/../nas-audit/auditing-events-concept.html"
+      url: "/../nas-audit/index.html"
     - title: 감사 정책을 구성합니다
       url: "/../nas-audit/configure-file-folder-audit-policies-concept.html"
     - title: 감사 이벤트 로그를 봅니다

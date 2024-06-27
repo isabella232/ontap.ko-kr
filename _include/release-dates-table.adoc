@@ -60,6 +60,6 @@ ONTAP 9.8 릴리스부터 NetApp는 매년 두 번 ONTAP 릴리스를 제공합�
 
  a| 
 
-NOTE: 9.9.1 이전 버전의 ONTAP를 실행하는 경우 제한된 지원 또는 셀프 서비스 지원일 가능성이 높습니다. 전체 지원이 제공되는 버전으로 업그레이드하는 것을 고려해 보십시오.
+NOTE: 9.9.1 이전 버전의 ONTAP를 실행하는 경우 제한된 지원 또는 셀프 서비스 지원일 가능성이 높습니다. 전체 지원이 제공되는 버전으로 업그레이드하는 것을 고려해 보십시오. 에서 사용 중인 ONTAP 버전에 대한 지원 수준을 확인할 수 있습니다 https://mysupport.netapp.com/site/info/version-support#ontap_svst["NetApp Support 사이트"^].
 
 |===

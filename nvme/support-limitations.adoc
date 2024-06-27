@@ -13,7 +13,7 @@ summary: NVMe 지원은 ONTAP 버전, 플랫폼 및 구성에 따라 다릅니�
 [role="lead"]
 ONTAP 9.4부터 link:../san-admin/manage-nvme-concept.html["비휘발성 메모리 익스프레스(NVMe)"] SAN 환경에서 프로토콜을 사용할 수 있습니다. FC-NVMe는 기존 FC 네트워크와 동일한 물리적 설정 및 조닝(zoning)을 사용하지만 FC-SCSI보다 더 큰 대역폭과 향상된 IOPS를 제공하며 지연 시간을 줄일 수 있습니다.
 
-NVMe 지원 및 제한 사항은 사용 중인 ONTAP 버전, 플랫폼 및 구성에 따라 다릅니다. 특정 구성에 대한 자세한 내용은 를 참조하십시오 link:https://imt.netapp.com/matrix/["NetApp 상호 운용성 매트릭스 툴"]. 지원되는 제한 사항은 을 참조하십시오 link:https://hwu.netapp.com/["Hardware Universe"^].
+NVMe 지원 및 제한 사항은 사용 중인 ONTAP 버전, 플랫폼 및 구성에 따라 다릅니다. 특정 구성에 대한 자세한 내용은 를 참조하십시오 link:https://imt.netapp.com/matrix/["NetApp 상호 운용성 매트릭스 툴"^]. 지원되는 제한 사항은 을 참조하십시오 link:https://hwu.netapp.com/["Hardware Universe"^].
 
 
 NOTE: 클러스터당 최대 노드는 * 지원되는 플랫폼 혼합 * 에서 Hardware Universe에서 사용할 수 있습니다.

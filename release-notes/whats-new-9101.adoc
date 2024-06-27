@@ -96,7 +96,7 @@ MetroCluster 구성에 대한 플랫폼 및 스위치 구성 개선 사항에 �
 
 
 
-| xref:../networking/auto-detect-wiring-issues-task.html[네트워크 배선 문제에 대한 자동 감지 및 수리 권장 사항] | 포트 연결성 문제가 감지되면 ONTAP System Manager는 문제를 해결하기 위해 복구 작업을 권장합니다. 
+| xref:../networking/repair_port_reachability.html[네트워크 배선 문제에 대한 자동 감지 및 수리 권장 사항] | 포트 연결성 문제가 감지되면 ONTAP System Manager는 문제를 해결하기 위해 복구 작업을 권장합니다. 
 
 
 | xref:../networking/configure_ip_security_@ipsec@_over_wire_encryption.html[IPsec(인터넷 프로토콜 보안) 인증서] | IPsec 정책은 인증을 위한 인증서와 함께 미리 공유된 키(PSK)를 지원합니다. 

@@ -60,7 +60,7 @@ S3 NAS 버킷은 기존의 S3 버킷이 아니므로 액세스 감사를 위해 
 * S3 GET 요청의 타겟 파일이 사용자에게 통과 권한이 없는 폴더에 있는 경우 액세스 시도가 실패하고 이벤트가 기록되지 않습니다.
 
 
-에 대해 자세히 알아보십시오 link:../nas-audit/auditing-events-concept.html["SVM에서 NAS 이벤트 감사"].
+에 대해 자세히 알아보십시오 link:../nas-audit/index.html["SVM에서 NAS 이벤트 감사"].
 
 
 

@@ -56,13 +56,17 @@ ONTAP S3 서버에서 기존 버킷을 보호하거나 데이터 보호를 즉�
 == S3 SnapMirror 요구사항
 
 * ONTAP 버전입니다
-소스 및 대상 클러스터에서 ONTAP 9.10.1 이상이 실행되고 있어야 합니다.
-* ONTAP 소스 및 대상 시스템에서는 다음 라이센스 번들에 대한 라이센스가 필요합니다.
 +
-** ONTAP S3 프로토콜 및 스토리지를 위한 코어 번들
-** S3 SnapMirror용 데이터 보호 번들을 사용하여 다른 NetApp 오브젝트 저장소 대상(ONTAP S3, StorageGRID 및 Cloud Volumes ONTAP)을 지정합니다.
-** 데이터 보호 번들 및 하이브리드 클라우드 번들
-S3 SnapMirror가 AWS S3를 비롯한 타사 오브젝트 저장소를 타겟으로 함
+소스 및 대상 클러스터에서 ONTAP 9.10.1 이상이 실행되고 있어야 합니다.
+
+* 라이센싱
++
+에서 사용할 수 있는 라이센스는 다음과 같습니다 link:../system-admin/manage-licenses-concept.html["ONTAP 1 을 참조하십시오"] ONTAP 소스 및 대상 시스템에서 다음 항목에 대한 액세스를 제공하려면 소프트웨어 제품군이 필요합니다.
+
++
+** ONTAP S3 프로토콜 및 스토리지
+** S3 SnapMirror로 다른 NetApp 오브젝트 저장소 타겟(ONTAP S3, StorageGRID, Cloud Volumes ONTAP) 공략
+** S3 SnapMirror를 통해 AWS S3(에서 사용 가능)를 포함한 타사 오브젝트 저장소를 타겟 link:../data-protection/install-snapmirror-cloud-license-task.html["ONTAP One 호환성 번들"])
 
 
 * ONTAP S3

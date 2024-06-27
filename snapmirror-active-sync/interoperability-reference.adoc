@@ -35,11 +35,13 @@ SnapMirror Active Sync는 다음과 같은 다양한 운영 체제에서 지원�
 
 === AIX
 
-ONTAP 9.11.1부터 AIX는 SnapMirror 액티브 동기화에서 지원됩니다. AIX 구성에서 운영 클러스터는 "활성" 클러스터입니다.
+ONTAP 9.11.1부터 AIX는 PVR을 통한 SnapMirror 액티브 동기화를 지원합니다.
 
-AIX 구성에서 페일오버는 중단을 야기합니다. 각 페일오버 시 호스트에서 재검색을 수행하여 I/O 작업을 재개해야 합니다.
+SnapMirror 액티브 동기화는 제로 RPO 데이터 보호를 제공할 수 있지만 AIX의 페일오버 프로세스에서는 경로 변경을 인식하기 위한 추가 단계가 필요합니다. 루트 볼륨 그룹에 속하지 않는 LUN은 가 될 때까지 I/O 일시 중지를 경험합니다 `cfgmgr` 명령이 실행됩니다. 이를 자동화할 수 있으며, 대부분의 애플리케이션은 추가 운영 중단 없이 운영을 재개합니다.
 
-SnapMirror 활성 SYN이 있는 AIX 호스트에 대해 구성하려면 기술 자료 문서 를 참조하십시오 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapMirror/How_to_configure_an_AIX_host_for_SnapMirror_Business_Continuity_(SM-BC)["SnapMirror 액티브 동기화에 대해 AIX 호스트를 구성하는 방법"^].
+루트 볼륨 그룹에 포함된 LUN은 일반적으로 SnapMirror 활성 동기화를 통해 보호되지 않습니다. 을(를) 실행할 수 없습니다 `cfgmgr` 페일오버 후 명령입니다. 즉, SAN 경로의 변경 사항을 인식하려면 재부팅이 필요합니다. 루트 볼륨 그룹에 대해 제로 RPO 데이터 보호를 달성할 수 있지만, 페일오버는 중단을 야기합니다.
+
+AIX와 SnapMirror active sync에 대한 자세한 내용은 NetApp 세일즈 팀에 문의하십시오.
 
 
 
@@ -139,3 +141,6 @@ NOTE: ONTAP 9.9.9.1과 9.12.1 P2 사이의 ONTAP 릴리즈의 경우 기본 클�
 
 --
 ====
+.추가 정보
+* link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapMirror/How_to_configure_an_AIX_host_for_SnapMirror_Business_Continuity_(SM-BC)["SnapMirror 액티브 동기화에 대해 AIX 호스트를 구성하는 방법"^]
+

@@ -19,7 +19,7 @@ iSCSI의 경우 스토리지 솔루션과 호스트 간의 네트워크 토폴�
 
 SAN을 구성한 후 수행할 수 있습니다 link:../san-admin/provision-storage.html["iSCSI 또는 FC용 스토리지를 프로비저닝합니다"]또는 직접 할 수 있습니다 link:../san-admin/create-nvme-namespace-subsystem-task.html["FC/NVMe용 스토리지를 프로비저닝합니다"].  그런 다음 호스트에 연결하여 데이터 서비스를 시작할 수 있습니다.
 
-SAN 프로토콜 지원은 ONTAP 버전, 플랫폼 및 구성에 따라 다릅니다. 특정 구성에 대한 자세한 내용은 를 참조하십시오 link:https://imt.netapp.com/matrix/["NetApp 상호 운용성 매트릭스 툴"].
+SAN 프로토콜 지원은 ONTAP 버전, 플랫폼 및 구성에 따라 다릅니다. 특정 구성에 대한 자세한 내용은 를 참조하십시오 link:https://imt.netapp.com/matrix/["NetApp 상호 운용성 매트릭스 툴"^].
 
 .관련 정보
 * link:../san-admin/index.html["SAN 관리 개요"]

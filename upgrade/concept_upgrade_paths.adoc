@@ -14,7 +14,7 @@ summary: 업그레이드할 수 있는 ONTAP 버전은 하드웨어 플랫폼과
 [role="lead"]
 업그레이드할 수 있는 ONTAP 버전은 하드웨어 플랫폼과 현재 클러스터의 노드에서 실행 중인 ONTAP 버전에 따라 다릅니다.
 
-하드웨어 플랫폼이 대상 업그레이드 릴리스에 대해 지원되는지 확인하려면 을 참조하십시오 https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"^].  를 사용합니다 link:https://imt.netapp.com/matrix/#welcome["NetApp 상호 운용성 매트릭스 툴"] 를 선택합니다 link:confirm-configuration.html["구성에 대한 지원을 확인합니다"].
+하드웨어 플랫폼이 대상 업그레이드 릴리스에 대해 지원되는지 확인하려면 을 참조하십시오 https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"^].  를 사용합니다 link:https://imt.netapp.com/matrix/#welcome["NetApp 상호 운용성 매트릭스 툴"^] 를 선택합니다 link:confirm-configuration.html["구성에 대한 지원을 확인합니다"].
 
 .현재 ONTAP 버전을 확인하려면:
 * System Manager에서 * Cluster > Overview * 를 클릭합니다.

@@ -229,7 +229,7 @@ NOTE: ONTAP 9.8P12 이상 ONTAP 9.8 패치 릴리즈를 사용 중이고 System 
 
 
 
-| xref:../add-create-local-tier-task.html[고급 로컬 계층(애그리게이트) 작업]  a| 
+| xref:../disks-aggregates/aggregate-creation-workflow-concept.html[고급 로컬 계층(애그리게이트) 작업]  a| 
 System Manager 관리자는 System Manager의 권장 사항을 수락하지 않으려는 경우 로컬 계층의 구성을 지정할 수 있습니다. 또한 관리자는 기존 로컬 계층의 RAID 구성을 편집할 수 있습니다.
 
 

@@ -111,7 +111,7 @@ ONTAP 9.12.1부터 ONTAP CLI를 사용하여 기존 볼륨에서 스냅샷 복�
 .시스템 관리자
 --
 . Storage > Volumes * 로 이동합니다.
-. 를 선택합니다 image:icon_kabob.gif["Alt = 메뉴 옵션"] 편집 > 볼륨 * 을 선택합니다.
+. 를 선택합니다 image:icon_kabob.gif["메뉴 옵션"] 편집 > 볼륨 * 을 선택합니다.
 . 볼륨 편집 * 창에서 스냅샷 복사본(로컬) 설정 섹션을 찾아 * 스냅샷 잠금 활성화 * 를 선택합니다.
 +
 SnapLock 라이센스가 설치되지 않은 경우에는 이 선택 항목이 표시되지 않습니다.
@@ -149,9 +149,9 @@ ONTAP 9.12.1부터 스냅샷 복사본 보존 기간을 적용하기 위한 스�
 --
 . 스토리지 > 스토리지 VM * 으로 이동하여 스토리지 VM을 선택합니다.
 . 설정 * 을 선택합니다.
-. Snapshot Policies * 를 찾아 선택합니다 image:icon_arrow.gif["Alt = 화살표"].
+. Snapshot Policies * 를 찾아 선택합니다 image:icon_arrow.gif["화살표"].
 . 스냅샷 정책 추가 * 창에서 정책 이름을 입력합니다.
-. 를 선택합니다 image:icon_add.gif["Alt = 추가"].
+. 를 선택합니다 image:icon_add.gif["추가"].
 . 일정 이름, 유지할 최대 스냅샷 복사본, SnapLock 보존 기간을 비롯한 스냅샷 복사본 일정 세부 정보를 제공합니다.
 . SnapLock 보존 기간 * 열에 스냅샷 복사본을 보존할 시간, 일, 월 또는 년의 수를 입력합니다. 예를 들어, 보존 기간이 5일인 스냅샷 복사본 정책은 스냅샷 복사본이 생성된 후 5일 동안 잠기고, 이 기간 동안에는 삭제할 수 없습니다. 다음과 같은 보존 기간 범위가 지원됩니다.
 +
@@ -195,7 +195,7 @@ cluster1> volume snapshot policy create -policy policy_name -enabled true -sched
 .시스템 관리자
 --
 . Storage > Volumes * 로 이동합니다.
-. 를 선택합니다 image:icon_kabob.gif["Alt = 메뉴 옵션"] 편집 > 볼륨 * 을 선택합니다.
+. 를 선택합니다 image:icon_kabob.gif["메뉴 옵션"] 편집 > 볼륨 * 을 선택합니다.
 . Edit Volume * (볼륨 편집 *) 창에서 * Schedule Snapshot copies * (스냅샷 복사본 예약 *)를 선택합니다.
 . 목록에서 잠금 스냅샷 복사본 정책을 선택합니다.
 . 스냅샷 복사본 잠금이 아직 활성화되지 않은 경우 * 스냅샷 잠금 활성화 * 를 선택합니다.
@@ -225,7 +225,7 @@ cluster1> volume snapshot policy create -policy policy_name -enabled true -sched
 --
 . Storage > Volumes * 로 이동하여 볼륨을 선택합니다.
 . 볼륨 세부 정보 페이지에서 * 스냅샷 복사본 * 탭을 선택합니다.
-. 를 선택합니다 image:icon_add.gif["Alt = 추가 아이콘"].
+. 를 선택합니다 image:icon_add.gif["추가 아이콘"].
 . 스냅샷 복사본 이름 및 SnapLock 만료 시간을 입력합니다. 보존 만료 날짜 및 시간을 선택할 달력을 선택할 수 있습니다.
 . 변경 사항을 저장합니다.
 . 볼륨 > 스냅샷 복사본 * 페이지에서 * 표시/숨기기 * 를 선택하고 * SnapLock 만료 시간 * 을 선택하여 * SnapLock 만료 시간 * 열을 표시하고 보존 시간이 설정되어 있는지 확인합니다.
@@ -260,7 +260,7 @@ cluster1> volume snapshot create -vserver vs1 -volume vol1 -snapshot snap1 -snap
 --
 . Storage > Volumes * 로 이동하여 볼륨을 선택합니다.
 . 볼륨 세부 정보 페이지에서 * 스냅샷 복사본 * 탭을 선택합니다.
-. 스냅샷 복사본을 선택하고 를 선택합니다 image:icon_kabob.gif["Alt = 메뉴 옵션"]을 클릭하고 * Modify SnapLock Expiration Time * 을 선택합니다. 보존 만료 날짜 및 시간을 선택할 달력을 선택할 수 있습니다.
+. 스냅샷 복사본을 선택하고 를 선택합니다 image:icon_kabob.gif["메뉴 옵션"]을 클릭하고 * Modify SnapLock Expiration Time * 을 선택합니다. 보존 만료 날짜 및 시간을 선택할 달력을 선택할 수 있습니다.
 . 변경 사항을 저장합니다.
 . 볼륨 > 스냅샷 복사본 * 페이지에서 * 표시/숨기기 * 를 선택하고 * SnapLock 만료 시간 * 을 선택하여 * SnapLock 만료 시간 * 열을 표시하고 보존 시간이 설정되어 있는지 확인합니다.
 

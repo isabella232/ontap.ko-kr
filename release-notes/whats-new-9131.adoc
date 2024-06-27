@@ -50,7 +50,7 @@ ONTAP를 업그레이드하려면 을 참조하십시오 xref:../upgrade/prepare
 
 
 
-| link:link:../consistency-groups/protect-task.html#configure-asynchronous-snapmirror-protection["단일 일관성 그룹에서 비동기식 SnapMirror 지원"] | 일관성 그룹이 비동기식 SnapMirror 구성을 지원하므로 단일 일관성 그룹에 대해 SnapMirror 백업을 저장할 수 있습니다. 
+| link:../consistency-groups/protect-task.html#configure-asynchronous-snapmirror-protection["단일 일관성 그룹에서 비동기식 SnapMirror 지원"] | 일관성 그룹이 비동기식 SnapMirror 구성을 지원하므로 단일 일관성 그룹에 대해 SnapMirror 백업을 저장할 수 있습니다. 
 |===
 
 

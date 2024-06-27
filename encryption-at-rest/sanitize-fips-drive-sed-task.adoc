@@ -90,4 +90,20 @@ Info: Starting sanitize on 1 disk.
       View the status of the operation using the
       storage encryption disk show-status command.
 ----
+. 삭제된 디스크:'storage disk unfail-spare true-disk_disk_id_'의 장애를 해제합니다
+. 디스크에 소유자가 있는지 확인합니다.
+`storage disk show -disk _disk_id_`
+ 를 누릅니다
+ 디스크에 소유자가 없는 경우 하나를 할당합니다.
+`storage disk assign -owner node -disk _disk_id_`
+. 삭제할 디스크를 소유하는 노드에 대한 노드 선택을 입력합니다.
++
+'system node run-node_node_name_'
+
++
+를 실행합니다 `disk sanitize release` 명령.
+
+. 노드 쉘을 종료합니다. 디스크 장애 복구 다시 취소:
+`storage disk unfail -spare true -disk _disk_id_`
+. 디스크가 이제 스페어이고 'storage disk show -disk_disk_id_'라는 Aggregate에서 재사용할 준비가 되었는지 확인합니다
 
