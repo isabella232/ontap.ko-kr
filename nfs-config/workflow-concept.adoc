@@ -13,4 +13,4 @@ summary: NFS를 구성하려면 물리적 스토리지 및 네트워킹 요구�
 [role="lead"]
 NFS를 구성하려면 물리적 스토리지 및 네트워킹 요구사항을 평가한 다음, 목표에 맞는 워크플로우를 선택해야 합니다. 새로운 SVM 또는 기존 SVM에 대한 NFS 액세스를 구성하거나, NFS 액세스를 위해 이미 완벽하게 구성된 기존 SVM에 볼륨 또는 qtree를 추가하십시오.
 
-image::../media/nfs-config-pg-workflow_ieops-1616.png[에서는 NFS 설정 프로세스에 대해 간략하게 설명합니다,including the steps that occur before NFS setup begins,and the steps that can be optionally performed afterwards.]
+image:nfs-config-pg-workflow_ieops-1616.png["에서는 NFS 설정이 시작되기 전에 발생하는 단계 및 이후에 선택적으로 수행할 수 있는 단계를 포함하여 NFS 설정 프로세스에 대한 개요를 제공합니다."]

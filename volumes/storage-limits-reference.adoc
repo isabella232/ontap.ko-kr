@@ -273,15 +273,15 @@ link:../san-config/index.html["SAN 구성"]
 .단계
 . 제품** 드롭다운 메뉴에서 하드웨어 구성을 선택합니다.
 +
-image::../media/hardware-universe-products.png[Hardware Universe 제품 메뉴]
+image:hardware-universe-products.png["Hardware Universe 제품 메뉴"]
 
 . 플랫폼을 선택합니다.
 +
-image::../media/hardware-universe-platforms.png[Hardware Universe 플랫폼 메뉴]
+image:hardware-universe-platforms.png["Hardware Universe 플랫폼 메뉴"]
 
 . 적절한 ONTAP 버전을 선택한 다음 ** 결과 표시** 를 선택합니다.
 +
-image::../media/hardware-universe-os-filter.png[Hardware Universe OS 필터 메뉴]
+image:hardware-universe-os-filter.png["Hardware Universe OS 필터 메뉴"]
 
 
 

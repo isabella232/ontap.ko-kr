@@ -43,7 +43,7 @@ SnapMirror를 사용하여 재해 복구 및 기타 목적으로 WORM 파일을 
 
 다음 그림에서는 SnapMirror 관계를 초기화하는 절차를 보여 줍니다.
 
-image::../media/snapmirror_steps_clustered.png[이 그림에서는 SnapMirror 관계를 초기화하는 절차, 즉 대상 클러스터를 식별하는 절차를 보여 줍니다,creating a destination volume,creating a SnapMirror relationship between the volumes]
+image:snapmirror_steps_clustered.png["이 그림에서는 SnapMirror 관계 초기화 절차, 즉 대상 클러스터 식별, 타겟 볼륨 생성, 볼륨 간 SnapMirror 관계 생성, 기본 전송 시작을 위한 관계 초기화 절차를 보여 줍니다."]
 
 [role="tabbed-block"]
 ====

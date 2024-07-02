@@ -15,4 +15,4 @@ summary: '용량을 로컬 계층에 추가(Aggregate 확장)하려면 먼저 �
 
 System Manager 또는 CLI를 사용하여 용량을 추가할 수 있습니다.
 
-image::../media/aggregate-expansion-workflow.png[애그리게이트 확장 워크플로우]
+image:aggregate-expansion-workflow.png["애그리게이트 확장 워크플로우"]

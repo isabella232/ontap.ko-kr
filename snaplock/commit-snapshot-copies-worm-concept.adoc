@@ -56,7 +56,7 @@ MetroCluster 구성의 경우 다음 사항에 유의해야 합니다.
 
 다음 그림에서는 SnapLock 볼트 관계를 초기화하는 절차를 보여 줍니다.
 
-image::../media/snapvault-steps-clustered.gif[이 그림에는 SnapLock 볼트 관계를 초기화하는 절차, 즉 대상 클러스터를 식별하는 절차가 나와 있습니다,creating a destination volume,creating a policy]
+image:snapvault-steps-clustered.gif["다음 그림에서는 SnapLock 볼트 관계를 초기화하는 절차를 보여 줍니다. 대상 클러스터 식별, 대상 볼륨 생성, 정책 생성, 정책에 규칙 추가, 볼륨 간 볼트 관계 생성 및 관계에 정책 할당, 기준 전송을 시작하기 위한 관계 초기화"]
 
 .단계
 ONTAP CLI를 사용하여 SnapLock 볼트 관계를 만들거나, ONTAP 9.15.1부터 시스템 관리자를 사용하여 SnapLock 볼트 관계를 만들 수 있습니다.

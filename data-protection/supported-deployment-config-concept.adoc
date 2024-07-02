@@ -29,15 +29,15 @@ SnapMirror는 _multiple-mirror_and_mirror-vault_fan-out 배포를 지원합니�
 
 다중 미러 팬아웃 구축은 여러 보조 볼륨에 대한 미러 관계가 있는 소스 볼륨으로 구성됩니다.
 
-image::../media/sm-mirror-mirror-fanout.png[데이터 보호 구축: 다중 미러 미러 팬아웃]
+image:sm-mirror-mirror-fanout.png["데이터 보호 구축: 다중 미러 미러 팬아웃"]
 
 미러 볼트(mirror-vault) 팬아웃 구축은 2차 볼륨에 대한 미러 관계와 다른 2차 볼륨에 대한 SnapVault 관계를 가진 소스 볼륨으로 구성됩니다.
 
-image::../media/sm-mirror-vault-fanout.png[데이터 보호 배포: 미러 볼트 팬아웃]
+image:sm-mirror-vault-fanout.png["데이터 보호 배포: 미러 볼트 팬아웃"]
 
 ONTAP 9.5부터는 SnapMirror Synchronous 관계를 포함하는 팬아웃 구축을 수행할 수 있습니다. 그러나 팬아웃 구성의 한 관계만 SnapMirror Synchronous 관계일 수 있으며, 소스 볼륨의 다른 모든 관계는 비동기식 SnapMirror 관계여야 합니다.
 
-image::../media/ssm-fanout.gif[데이터 보호 구축: SnapMirror Synchronous 관계를 통해 팬아웃 구축]
+image:ssm-fanout.gif["데이터 보호 구축: SnapMirror Synchronous 관계를 통해 팬아웃 구축"]
 
 
 
@@ -49,11 +49,11 @@ SnapMirror는 _mirror-mirror_mirror-vault_,_vault-mirror_and_vault-vault_cascade
 
 ONTAP 9.6부터 미러 계단식 배열 배포에서 SnapMirror Synchronous 관계가 지원됩니다. 운영 볼륨과 2차 볼륨만 SnapMirror Synchronous 관계에 있을 수 있습니다. 2차 볼륨과 3차 볼륨 간의 관계는 비동기식이어야 합니다.
 
-image::../media/sm-mirror-mirror-cascade.png[SnapMirror 구축: 미러-미러 계단식 배열 복제 소스]
+image:sm-mirror-mirror-cascade.png["SnapMirror 구축: 미러-미러 계단식 배열 복제 소스"]
 
 미러 소산 다중 구간 구축은 소스 볼륨이 보조 볼륨으로 미러링되고 2차 볼륨이 3차 볼륨으로 저장되는 관계 체인으로 구성됩니다.
 
-image::../media/sm-mirror-vault-cascade.png[SnapMirror 구축: 소스와 미러 볼트(mirror-vault) 계단식 배열]
+image:sm-mirror-vault-cascade.png["SnapMirror 구축: 소스와 미러 볼트(mirror-vault) 계단식 배열"]
 
 볼트 미러 및 ONTAP 9.2부터 볼트-볼트 캐스케이드 배포도 지원됩니다.
 

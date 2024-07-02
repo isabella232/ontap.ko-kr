@@ -16,7 +16,7 @@ summary: 스캔을 활성화하기 전에 스캐너 풀을 생성하고 스캐�
 
 NOTE: CIFS 구성을 완료해야 합니다.
 
-image::../media/avcfg-workflow.gif[바이러스 검사 워크플로]
+image:avcfg-workflow.gif["바이러스 검사 워크플로"]
 
 .다음 단계
 * xref:create-scanner-pool-single-cluster-task.html[단일 클러스터에 스캐너 풀을 생성합니다]

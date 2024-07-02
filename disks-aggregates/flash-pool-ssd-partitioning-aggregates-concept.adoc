@@ -21,7 +21,7 @@ SSD 스토리지 풀은 4개의 동일한 할당 유닛으로 나뉩니다. 스�
 
 다음 그림은 Flash Pool SSD 파티셔닝의 예입니다. SSD 스토리지 풀은 2개의 Flash Pool 로컬 계층에 캐시를 제공합니다.
 
-image::../media/shared-ssds-overview.gif[Flash Pool SSD 파티셔닝의 다이어그램]
+image:shared-ssds-overview.gif["Flash Pool SSD 파티셔닝의 다이어그램"]
 
 스토리지 풀 SP1은 5개의 SSD와 핫 스페어 SSD로 구성됩니다. 스토리지 풀의 할당 유닛 중 2개가 Flash Pool FP1에 할당되고 2개는 Flash Pool FP2에 할당됩니다. FP1에는 RAID4의 캐시 RAID 유형이 있습니다. 따라서 FP1에 제공된 할당 유닛에는 패리티로 지정된 파티션이 하나만 있습니다. FP2에는 RAID-DP의 캐시 RAID 유형이 있습니다. 따라서 FP2에 제공된 할당 유닛에는 패리티 파티션과 이중 패리티 파티션이 포함됩니다.
 

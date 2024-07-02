@@ -13,7 +13,7 @@ summary: 운영 스토리지의 소스 볼륨과 2차 스토리지의 타겟 볼
 [role="lead"]
 운영 스토리지의 소스 볼륨과 2차 스토리지의 타겟 볼륨 간의 관계를 _ 데이터 보호 관계라고 합니다. _ '스냅샷 생성' 명령을 사용하여 SnapMirror DR, SnapVault 또는 통합 복제 데이터 보호 관계를 생성할 수 있습니다.
 
-.필요한 것
+.시작하기 전에
 * 소스 및 타겟 클러스터와 SVM을 피어링해야 합니다.
 +
 https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["클러스터 및 SVM 피어링"]
@@ -99,6 +99,8 @@ DP를 명시적으로 호출하지 않으면 이 옵션은 무시됩니다.
 ONTAP 9.3 이전 버전에서는 타겟 볼륨에 최대 251개의 스냅샷 복사본이 포함될 수 있습니다. ONTAP 9.4 이상에서 타겟 볼륨에는 최대 1019개의 스냅샷 복사본이 포함될 수 있습니다.
 
 ONTAP 9.5부터는 SnapMirror Synchronous 관계가 지원됩니다.
+
+ONTAP 9.14.1부터, `-backoff-level` 및 명령에 옵션이 추가되어 `snapmirror create` `snapmirror modify` `snapmirror restore` 관계별 백오프 레벨을 지정할 수 있습니다. 이 옵션은 FlexVol SnapMirror 관계에서만 지원됩니다. 선택적 명령은 클라이언트 작업에 따른 SnapMirror 백 오프 레벨을 지정합니다. Backoff 값은 high, medium 또는 none일 수 있습니다. 기본값은 high 입니다.
 
 .단계
 . 대상 클러스터에서 복제 관계를 생성합니다.

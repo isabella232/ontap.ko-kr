@@ -37,10 +37,13 @@ xref:concept_upgrade_requirements_for_metrocluster_configurations.html[MetroClus
 | DP 유형 SnapMirror 관계가 정의되어 있으며 ONTAP 9.12.1 이상으로 업그레이드됩니까? | link:../data-protection/convert-snapmirror-version-flexible-task.html["기존 DP 유형 관계를 XDP로 변환합니다"] 
 
 
+| S3 SnapMirror를 사용하고 있으며 ONTAP 9.12.1 이상으로 업그레이드하고 있습니까? | link:considerations-for-s3-snapmirror-concept.html["S3 SnapMirror 구성 고려사항"] 
+
+
 | 외부 키 관리 서버와 함께 NetApp Storage Encryption을 사용하고 있습니까? | xref:task_preparing_to_upgrade_nodes_using_netapp_storage_encryption_with_external_key_management_servers.html[기존 키 관리 서버 연결을 삭제합니다] 
 
 
-| SVM에 넷그룹이 로드되어 있습니까? | xref:task_verifying_that_the_netgroup_file_is_present_on_all_nodes.html[넷그룹 파일이 각 노드에 있는지 확인합니다] 
+| SVM에 넷그룹이 로드되어 있습니까? | xref:task_verifying_that_the_netgroup_file_is_present_on_all_nodes.html[각 노드에 넷그룹 파일이 있는지 확인합니다] 
 
 
 | SSLv3을 사용하는 LDAP 클라이언트가 있습니까? | xref:task_configuring_ldap_clients_to_use_tls_for_highest_security.html[TLS를 사용하도록 LDAP 클라이언트를 구성합니다] 

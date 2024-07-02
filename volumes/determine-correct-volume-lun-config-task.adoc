@@ -22,6 +22,6 @@ NOTE: 각 LUN에 대해 별도의 볼륨이 필요하지 않습니다.
 .단계
 . 다음 진단트리를 사용하여 환경에 가장 적합한 볼륨 및 LUN 구성 조합을 결정합니다.
 +
-image::../media/lun-thin-provisioning-volumes.gif[LUN 씬 프로비저닝의 흐름도]
+image:lun-thin-provisioning-volumes.gif["LUN 씬 프로비저닝의 흐름도"]
 
 

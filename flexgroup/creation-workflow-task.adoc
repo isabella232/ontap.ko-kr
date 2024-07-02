@@ -13,7 +13,7 @@ summary: 최적의 성능을 위한 모범 사례에 따라 ONTAP가 애그리�
 [role="lead"]
 최적의 성능을 위한 모범 사례에 따라 ONTAP가 애그리게이트를 자동으로 선택하는 FlexGroup 볼륨을 프로비저닝하거나, 데이터 액세스를 위해 애그리게이트를 수동으로 선택하고 구성하여 FlexGroup 볼륨을 생성할 수 있습니다.
 
-image::../media/flexgroups-setup-workflow.gif[FlexGroup 볼륨 설정 워크플로우]
+image:flexgroups-setup-workflow.gif["FlexGroup 볼륨 설정 워크플로우"]
 
 .필요한 것
 SVM에 대해 허용되는 프로토콜 목록에 NFS 및 SMB를 추가하여 SVM을 생성해야 합니다.

@@ -17,11 +17,11 @@ Portset을 SLM과 함께 사용하여 특정 타겟에 대한 액세스를 특�
 
 다음 예에서는 initiator1에 포트셋 이 없습니다. initiator1은 가 없으면 LIF1 및 LIF2 모두를 통해 lun1에 액세스할 수 있습니다.
 
-image::../media/bsag-c-mode-no-portset.gif[포트셋 없이 LUN 액세스를 보여 주는 이미지입니다]
+image:bsag-c-mode-no-portset.gif["포트셋 없이 LUN 액세스를 보여 주는 이미지입니다"]
 
 포트셋 를 사용하여 lun1에 대한 액세스를 제한할 수 있습니다. 다음 예제에서 initiator1은 LIF1을 통해서만 lun1을 액세스할 수 있습니다. 그러나 LIF2가 portset1에 없으므로 initiator1이 LIF2를 통해 lun1에 액세스할 수 없습니다.
 
-image::../media/bsag-c-mode-portset.gif[포트 et을 사용한 LUN 액세스를 보여 주는 이미지입니다]
+image:bsag-c-mode-portset.gif["포트 et을 사용한 LUN 액세스를 보여 주는 이미지입니다"]
 
 .관련 정보
 * xref:selective-lun-map-concept.adoc[선택적 LUN 맵입니다]

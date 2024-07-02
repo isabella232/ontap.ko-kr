@@ -24,4 +24,4 @@ SnapMirror와 마찬가지로 SnapVault은 사용자가 처음으로 호출할 �
 
 NOTE: SnapMirror와 SnapVault는 동일한 명령 인프라를 공유합니다. 정책을 생성할 때 사용할 방법을 지정합니다. 두 방법 모두 피어링된 클러스터와 피어링된 SVM이 필요합니다.
 
-image::../media/snapvault-concepts.gif[SnapVault 스냅샷 복사본은 일반적으로 소스보다 더 오랜 기간 대상에 보존됩니다.]
+image:snapvault-concepts.gif["SnapVault 스냅샷 복사본은 일반적으로 소스보다 더 오랜 기간 대상에 보존됩니다."]

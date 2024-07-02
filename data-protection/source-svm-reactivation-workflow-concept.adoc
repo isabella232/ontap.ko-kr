@@ -13,4 +13,4 @@ summary: 재해 발생 후 소스 SVM이 있으면 SVM 재해 복구 관계를 �
 [role="lead"]
 재해 발생 후 소스 SVM이 있으면 SVM 재해 복구 관계를 재생성하여 재활성화하고 보호할 수 있습니다.
 
-image::../media/source-svm-reactivation-workflow.gif[소스 SVM 재활성화 워크플로우]
+image:source-svm-reactivation-workflow.gif["소스 SVM 재활성화 워크플로우"]

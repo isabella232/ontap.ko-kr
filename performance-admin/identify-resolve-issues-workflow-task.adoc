@@ -13,4 +13,4 @@ summary: 성능 문제를 식별한 후 인프라에 대한 몇 가지 기본적
 [role="lead"]
 성능 문제를 식별한 후 인프라에 대한 몇 가지 기본적인 진단 검사를 수행하여 명백한 구성 오류를 배제할 수 있습니다. 정확히 찾아내지 못하는 문제라면 워크로드 관리 문제를 살펴보는 것이 좋습니다.
 
-image::../media/performance-management-workflow.gif[성능 인프라 점검 흐름도]
+image:performance-management-workflow.gif["성능 인프라 점검 흐름도"]

@@ -15,4 +15,4 @@ summary: 데이터를 Element에서 ONTAP로 복제하든 ONTAP에서 Element로
 
 워크플로는 에 나열된 필수 작업을 완료한 것으로 가정합니다 xref:index.adoc#prerequisites[필수 구성 요소]. 사용할 정책에 대한 지침을 포함하여 SnapMirror 정책에 대한 전체 배경 정보는 을 참조하십시오 link:../data-protection/index.html["데이터 보호"].
 
-image::../media/solidfire-to-ontap-backup-workflow.gif[SolidFire에서 ONTAP로의 워크플로]
+image:solidfire-to-ontap-backup-workflow.gif["SolidFire에서 ONTAP로의 워크플로"]

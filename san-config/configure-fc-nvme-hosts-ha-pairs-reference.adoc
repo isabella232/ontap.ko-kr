@@ -25,7 +25,7 @@ Windows, Linux 또는 UNIX와 같은 서로 다른 운영 체제를 사용하는
 
 그림에 표시된 FC 대상 포트 번호(0c, 0d, 1a, 1b)가 예시입니다. 실제 포트 번호는 스토리지 노드의 모델 및 확장 어댑터를 사용하고 있는지에 따라 다릅니다.
 
-image::../media/scrn_en_drw_fc-32xx-multi-HA.png[MultiFabric HA 쌍 다이어그램]
+image:scrn_en_drw_fc-32xx-multi-HA.png["MultiFabric HA 쌍 다이어그램"]
 
 
 
@@ -37,7 +37,7 @@ image::../media/scrn_en_drw_fc-32xx-multi-HA.png[MultiFabric HA 쌍 다이어그
 
 FC 구성을 지원하는 모든 플랫폼은 단일 패브릭 HA 쌍 구성을 지원합니다.
 
-image::../media/scrn_en_drw_fc-62xx-single-HA.png[단일 스위치 패브릭 HA 쌍 다이어그램]
+image:scrn_en_drw_fc-62xx-single-HA.png["단일 스위치 패브릭 HA 쌍 다이어그램"]
 
 [NOTE]
 ====

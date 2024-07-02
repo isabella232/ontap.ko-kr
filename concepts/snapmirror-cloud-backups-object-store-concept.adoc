@@ -26,4 +26,4 @@ SnapMirror 클라우드 복제는 라이센스가 부여된 ONTAP 기능이며 �
 * 데이터 보호 워크플로우를 위한 맞춤형 소프트웨어를 개발하거나 자동화 툴을 활용하기 위한 API
 
 
-image::../media/snapmirror-cloud.gif[사내 데이터와 클라우드 호스팅 데이터 간의 연결을 보여주는 다이어그램입니다.]
+image:snapmirror-cloud.gif["사내 데이터와 클라우드 호스팅 데이터 간의 연결을 보여주는 다이어그램입니다."]

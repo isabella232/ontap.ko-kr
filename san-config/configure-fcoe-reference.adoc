@@ -27,7 +27,7 @@ CNA(FCoE 이니시에이터)를 사용하면 FCoE 스위치를 FC 타겟 포트�
 
 다음 그림에서는 FCoE 스위치에 연결된 호스트 CNA와 HA 쌍에 연결하기 전에 FC 스위치에 연결하는 방법을 보여 줍니다.
 
-image::../media/scrn-en-drw-fcoe-dual-2p-targ.png[FCoE 이니시에이터에서 FC 타겟으로]
+image:scrn-en-drw-fcoe-dual-2p-targ.png["FCoE 이니시에이터에서 FC 타겟으로"]
 
 
 
@@ -35,7 +35,7 @@ image::../media/scrn-en-drw-fcoe-dual-2p-targ.png[FCoE 이니시에이터에서 
 
 CNA(호스트 FCoE 이니시에이터)를 사용하면 HA 쌍의 두 컨트롤러에 호스트를 FCoE 스위치를 통해 FCoE 타겟 포트(UTA 또는 UTA2)에 연결할 수 있습니다.
 
-image::../media/scrn_en_drw_fcoe-end-to-end.png[FCoE 이니시에이터에서 FCoE 타겟으로]
+image:scrn_en_drw_fcoe-end-to-end.png["FCoE 이니시에이터에서 FCoE 타겟으로"]
 
 
 
@@ -43,7 +43,7 @@ image::../media/scrn_en_drw_fcoe-end-to-end.png[FCoE 이니시에이터에서 FC
 
 CNA(호스트 FCoE 이니시에이터)를 사용하면 HA 쌍의 두 컨트롤러에 호스트를 FCoE 스위치를 통해 FCoE 및 FC 타겟 포트(UTA 또는 UTA2)에 연결할 수 있습니다.
 
-image::../media/scrn_en_drw_fcoe-mixed.png[FCoE 이니시에이터에서 FCoE 및 FC 타겟으로]
+image:scrn_en_drw_fcoe-mixed.png["FCoE 이니시에이터에서 FCoE 및 FC 타겟으로"]
 
 
 
@@ -51,4 +51,4 @@ image::../media/scrn_en_drw_fcoe-mixed.png[FCoE 이니시에이터에서 FCoE �
 
 CNA(호스트 FCoE 이니시에이터)를 사용하면 HA 쌍의 두 컨트롤러에 호스트를 FCoE 스위치를 통해 FCoE 타겟 포트(UTA 또는 UTA2)에 연결할 수 있습니다. FCoE 포트는 단일 스위치에 대한 기존 링크 집계를 사용할 수 없습니다. Cisco 스위치는 FCoE를 지원하는 특수한 유형의 Link Aggregation(가상 포트 채널)을 지원합니다. 가상 포트 채널은 두 스위치에 대한 개별 링크를 집계합니다. 다른 이더넷 트래픽에 가상 포트 채널을 사용할 수도 있습니다. NFS, SMB, iSCSI 및 기타 이더넷 트래픽을 포함하여 FCoE 이외의 트래픽에 사용되는 포트는 FCoE 스위치에서 일반 이더넷 포트를 사용할 수 있습니다.
 
-image::../media/scrn_en_drw_ip_storage_protocol.png[IP 스토리지 프로토콜과 혼합된 FCoE]
+image:scrn_en_drw_ip_storage_protocol.png["IP 스토리지 프로토콜과 혼합된 FCoE"]

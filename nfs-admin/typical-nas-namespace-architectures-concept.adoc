@@ -26,7 +26,7 @@ SVM 이름 공간을 생성할 때 사용할 수 있는 몇 가지 일반적인 
 
 단일 분기 트리가 있는 아키텍처는 SVM 네임스페이스의 루트에 대한 단일 삽입 지점을 갖습니다. 단일 삽입 지점은 접합된 볼륨이거나 루트 아래의 디렉토리일 수 있습니다. 다른 모든 볼륨은 단일 삽입 지점(볼륨 또는 디렉토리 가능) 아래의 접합 지점에 마운트됩니다.
 
-image::../media/namespace-architecture-with-single-branched-tree.gif[단일 분기 트리가 있는 네임스페이스입니다]
+image:namespace-architecture-with-single-branched-tree.gif["단일 분기 트리가 있는 네임스페이스입니다"]
 
 예를 들어, 위의 네임스페이스 아키텍처를 사용하는 일반적인 볼륨 연결 구성은 "데이터"라는 디렉토리인 단일 삽입 지점 아래에 모든 볼륨이 접합되는 다음과 같은 구성으로 보일 수 있습니다.
 
@@ -53,7 +53,7 @@ vs1     vs1_root     -        /                     -
 
 여러 개의 분기 트리가 있는 아키텍처에는 SVM 네임스페이스의 루트에 대한 여러 삽입 지점이 있습니다. 삽입 지점은 루트 아래의 분기된 볼륨 또는 디렉토리일 수 있습니다. 다른 모든 볼륨은 삽입 지점(볼륨 또는 디렉토리일 수 있음) 아래의 접합 지점에 마운트됩니다.
 
-image::../media/namespace-architecture-with-multiple-branched-trees.png[여러 개의 분기 트리가 있는 네임스페이스입니다]
+image:namespace-architecture-with-multiple-branched-trees.png["여러 개의 분기 트리가 있는 네임스페이스입니다"]
 
 예를 들어, 위의 네임스페이스 아키텍처를 사용하는 일반적인 볼륨 접합 구성은 SVM의 루트 볼륨에 세 개의 삽입 지점이 있는 다음과 같은 구성을 예로 들 수 있습니다. 두 개의 삽입 지점은 "다타"와 "프로젝트"라는 디렉토리입니다. 한 삽입 지점은 "audit"이라는 이름의 접합부입니다.
 
@@ -80,7 +80,7 @@ vs1     vs1_root     -        /                     -
 
 독립 실행형 볼륨이 있는 아키텍처에서 모든 볼륨은 SVM 네임스페이스의 루트에 대한 삽입 지점을 갖습니다. 하지만 볼륨이 다른 볼륨 아래에 접합되지 않습니다. 각 볼륨은 고유한 경로를 가지고 있으며, 루트 바로 아래에 접합되거나 루트 아래의 디렉토리 아래에 접합됩니다.
 
-image::../media/namespace-architecture-with-multiple-standalone-volumes.gif[여러 개의 독립 실행형 볼륨이 있는 네임스페이스]
+image:namespace-architecture-with-multiple-standalone-volumes.gif["여러 개의 독립 실행형 볼륨이 있는 네임스페이스"]
 
 예를 들어, 위의 네임스페이스 아키텍처를 사용하는 일반적인 볼륨 접합 구성은 다음 구성과 비슷합니다. 여기서 SVM의 루트 볼륨에 5개의 삽입 지점을 두고 각 삽입 지점을 단일 볼륨의 경로를 나타냅니다.
 

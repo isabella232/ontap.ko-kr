@@ -25,7 +25,7 @@ https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["클러스터 
 
 아래 그림에서는 SnapMirror 데이터 보호 관계를 보여 줍니다.
 
-image::../media/snapmirror-for-dp-pg.gif[SnapMirror 데이터 보호 관계 그림]
+image:snapmirror-for-dp-pg.gif["SnapMirror 데이터 보호 관계 그림"]
 
 
 

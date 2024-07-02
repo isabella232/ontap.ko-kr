@@ -88,6 +88,8 @@ entries:
     url: "/concepts/capacity-measurements-in-sm-concept.html"
   - title: 온도에 민감한 보관
     url: "/volumes/enable-temperature-sensitive-efficiency-concept.html"
+  - title: CPU 또는 오프로드 프로세서 스토리지 효율성
+    url: "/concepts/builtin-storage-efficiency-concept.html"
 - title: 보안
   entries:
   - title: 클라이언트 인증 및 권한 부여

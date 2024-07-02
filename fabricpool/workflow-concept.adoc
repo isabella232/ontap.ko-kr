@@ -13,4 +13,4 @@ summary: FabricPool 워크플로 다이어그램을 사용하여 구성 및 관�
 [role="lead"]
 FabricPool 워크플로 다이어그램을 사용하여 구성 및 관리 작업을 계획할 수 있습니다.
 
-image::../media/fabricpool-management-workflow.gif[FabricPool 관리 워크플로우]
+image:fabricpool-management-workflow.gif["FabricPool 관리 워크플로우"]

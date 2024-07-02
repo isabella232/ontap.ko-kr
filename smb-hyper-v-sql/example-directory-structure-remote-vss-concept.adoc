@@ -26,4 +26,4 @@ summary: 원격 VSS는 섀도우 복제본을 생성할 때 Hyper-V 가상 머�
 
 다음 그림에서는 vm_vol1이라는 이름의 볼륨이 SVM(Storage Virtual Machine) VS1 의 '/hyperv/vm1'에 있는 접합 지점으로 생성됩니다. 가상 머신 파일을 포함하는 하위 디렉토리는 교차점 아래에 생성됩니다. Hyper-V 서버의 가상 머신 파일은 "/hyperv/vm1/dir1/vmdir" 경로가 있는 share1을 통해 액세스합니다. 섀도 복사본 서비스는 share1 아래의 디렉토리 구조 내에 포함된 모든 가상 머신 파일의 섀도 복사본을 만듭니다(섀도우 복제본 디렉토리의 구성된 깊이까지).
 
-image::../media/directory-structure-used-by-remote-vss.gif[원격 VSS에서 사용하는 디렉토리 구조입니다]
+image:directory-structure-used-by-remote-vss.gif["원격 VSS에서 사용하는 디렉토리 구조입니다"]

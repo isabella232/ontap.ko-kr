@@ -25,25 +25,25 @@ summary: '업그레이드 방법은 구성에 따라 다릅니다. 가능하면 
 
 다음 예에서는 각 배치에 2개의 HA 쌍이 있습니다.  일괄 업그레이드가 시작되면 노드 A와 노드 C가 동시에 업그레이드됩니다.
 
-image::../media/batch_upgrade_set_1_ieops-1607.png[일괄 업그레이드 1단계]
+image:batch_upgrade_set_1_ieops-1607.png["일괄 업그레이드 1단계"]
 
 각 HA Pair의 첫 번째 노드 업그레이드가 완료된 후 배치 1의 파트너 노드가 동시에 업그레이드됩니다.
 
 다음 예에서는 노드 A와 노드 C가 업그레이드된 후 노드 B와 노드 D가 동시에 업그레이드됩니다.
 
-image::../media/batch_upgrade_set_2_ieops-1619.png[일괄 업그레이드 2단계]
+image:batch_upgrade_set_2_ieops-1619.png["일괄 업그레이드 2단계"]
 
 그런 다음 배치 2의 노드에 대해 프로세스가 반복됩니다. 각 HA 쌍의 첫 번째 노드는 일괄 처리 내의 다른 모든 HA 쌍의 첫 번째 노드와 동시에 업그레이드됩니다.
 
 다음 예에서는 노드 E와 노드 G가 동시에 업그레이드됩니다.
 
-image::../media/batch_upgrade_set_3_ieops-1612.png[일괄 업그레이드 3단계]
+image:batch_upgrade_set_3_ieops-1612.png["일괄 업그레이드 3단계"]
 
 각 HA Pair의 첫 번째 노드 업그레이드가 완료된 후 배치 2의 파트너 노드가 동시에 업그레이드됩니다.
 
 다음 예에서는 노드 F와 노드 H를 동시에 업그레이드하여 일괄 업그레이드 프로세스를 완료합니다.
 
-image::../media/batch_upgrade_set_4_ieops-1620.png[일괄 업그레이드 4단계]
+image:batch_upgrade_set_4_ieops-1620.png["일괄 업그레이드 4단계"]
 
 
 
