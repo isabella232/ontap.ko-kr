@@ -19,4 +19,4 @@ AFF A70, AFF A90 및 AFF A1K 플랫폼의 스토리지 효율성은 인접한 �
 
 볼륨 이동 또는 SnapMirror 기술을 사용하여 AFF A70, AFF A90 또는 AFF A1K 플랫폼으로 마이그레이션된 데이터는 자동으로 32k 인라인 압축으로 변환됩니다. AFF A70, A90 또는 A1K 플랫폼에서 이전 플랫폼으로 마이그레이션된 데이터에 대한 스토리지 효율성은 타겟 플랫폼의 효율성 기능에 따라 자동으로 변환됩니다.
 
-컨트롤러를 AFF A70, AFF A90 또는 AFF A1K로 업그레이드하는 방법에 대한 자세한 내용은 를 참조하십시오 link:https://review.docs.netapp.com/us-en/ontap-systems-upgrade_restructure-sidebar/choose_controller_upgrade_procedure.html["ONTAP 하드웨어 업그레이드 설명서"^].
+컨트롤러를 AFF A70, AFF A90 또는 AFF A1K로 업그레이드하는 방법에 대한 자세한 내용은 를 참조하십시오 https://docs.netapp.com/us-en/ontap-systems-upgrade/choose_controller_upgrade_procedure.html["ONTAP 하드웨어 업그레이드 설명서"^].

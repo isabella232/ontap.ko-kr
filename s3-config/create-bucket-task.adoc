@@ -177,7 +177,7 @@ NOTE: 잠금은 버전 및 비버전 S3 버킷에 적용할 수 있습니다. NA
 
 NOTE: 사용 권한을 구성하기 전에 사용자 및 그룹을 이미 만들어야 합니다.
 
-자세한 내용은 을 참조하십시오 link:../s3-snapmirror/create-remote-mirror-new-bucket-task.html#system-manager-procedure["새 버킷을 위한 거울을 작성합니다"].
+자세한 내용은 을 link:../s3-snapmirror/create-remote-mirror-new-bucket-task.html["새 버킷을 위한 거울을 작성합니다"]참조하십시오.
 
 
 

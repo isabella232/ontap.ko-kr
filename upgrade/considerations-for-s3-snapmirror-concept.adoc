@@ -2,9 +2,9 @@
 permalink: upgrade/considerations-for-s3-snapmirror-concept.html 
 sidebar: sidebar 
 keywords: ontap, upgrade, update, considerations, s3, snapmirror, license 
-summary: 관리자 계정이 SSH 공개 키로 인증하는 클러스터에서 SSL FIPS 모드가 활성화된 경우 대상 릴리스에서 호스트 키 알고리즘이 지원되어야 합니다. 
+summary: S3 SnapMirror를 사용하는 경우 ONTAP를 업그레이드하기 전에 라이센스를 확인해야 합니다 
 ---
-= S3 SnapMirror 구성 고려사항
+= S3 SnapMirror 구성에 대한 라이센스 확인
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

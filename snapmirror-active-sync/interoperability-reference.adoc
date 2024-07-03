@@ -26,7 +26,7 @@ Hyper-V, RHEL(Red Hat Enterprise Linux), VMware, vMSC(VMware vSphere Metro Stora
 
 SnapMirror Active Sync는 다음과 같은 다양한 운영 체제에서 지원됩니다.
 
-* AIX(ONTAP 9.11.1 시작)
+* PVR을 통한 AIX(ONTAP 9.11.1부터)
 * HP-UX(ONTAP 9.10.1 시작)
 * Solaris 11.4(ONTAP 9.10.1 시작)
 

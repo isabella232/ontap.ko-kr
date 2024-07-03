@@ -45,7 +45,7 @@ S3 NAS “버킷”은 S3 클라이언트용 NAS 데이터의 단순한 매핑�
 
 ONTAP 9.14.1부터, MetroCluster IP 및 FC 구성을 위한 미러링된 애그리게이트 및 미러링되지 않은 애그리게이트에서 S3 NAS 버킷이 지원됩니다.
 
-에 대해 자세히 알아보십시오 link:../data-protection/data-protection/snapmirror-disaster-recovery-concept.html#data-protection-relationships["비동기식 SnapMirror입니다"].
+에 대해 자세히 link:../data-protection/snapmirror-disaster-recovery-concept.html#data-protection-relationships["비동기식 SnapMirror입니다"]알아보십시오.
 
 
 

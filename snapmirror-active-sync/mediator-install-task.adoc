@@ -319,7 +319,7 @@ Info: [Job 136] 'mediator remove' job queued
 C1_test_cluster::*> snapmirror mediator show
 This table is currently empty.
 ----
-. 에 설명된 단계를 참조하십시오 link:../mediator/manage-task.html#Replace-self-signed-certificates-with-trusted-third-party-certificates["자체 서명된 인증서를 신뢰할 수 있는 타사 인증서로 바꿉니다"] 하위 CA에서 인증서를 가져오는 방법에 대해 설명합니다 `ca.crt`.
+. 하위 CA에서 인증서를 가져오는 방법은 에 설명된 단계를 link:../mediator/manage-task.html["자체 서명된 인증서를 신뢰할 수 있는 타사 인증서로 바꿉니다"] `ca.crt`참조하십시오. 자체 서명된 인증서를 신뢰할 수 있는 타사 인증서로 바꿉니다
 +
 
 NOTE: 를 클릭합니다 `ca.crt` 파일에 정의되어 있는 PKI 권한으로 보내야 하는 요청에서 파생되는 특정 속성이 있습니다 `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/openssl_ca.cnf`.

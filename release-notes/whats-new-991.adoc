@@ -131,19 +131,20 @@ link:../networking/configure_virtual_ip_@vip@_lifs.html["VIP(가상 IP) LIF 확�
 | 업데이트 | 설명 
 
 
-| xref:../san-migration/task_checking_supported_configurations_for_fli_using_san_lun_migrate_app.html[FLI(Foreign LUN Import)] | NetApp Support 사이트의 SAN LUN 마이그레이션 앱을 사용하여 FLI 상호 운용성 매트릭스에 나열되지 않은 외부 어레이를 검증할 수 있습니다. 
+| FLI(Foreign LUN Import) | NetApp Support 사이트의 SAN LUN 마이그레이션 앱을 사용하여 FLI 상호 운용성 매트릭스에 나열되지 않은 외부 어레이를 검증할 수 있습니다. 
 
 
 | xref:../san-config/host-support-multipathing-concept.html[NVMe - 원격 경로 액세스입니다] | 페일오버 시 직접 경로 액세스가 손실되면 원격 I/O를 통해 시스템이 원격 경로로 페일오버하고 데이터 액세스를 계속할 수 있습니다. 
 
 
-| xref:../task_asa_software_configuration.html#asa-limitations-and-restrictions[ASA에서 12노드 클러스터 지원] | 12노드 클러스터는 AFF ASA 구성에 지원됩니다. ASA 클러스터에는 다양한 ASA 시스템 유형이 혼합되어 있을 수 있습니다. 
+| xref:../asa/overview.html[ASA에서 12노드 클러스터 지원] | 12노드 클러스터는 AFF ASA 구성에 지원됩니다. ASA 클러스터에는 다양한 ASA 시스템 유형이 혼합되어 있을 수 있습니다. 
 
 
-| xref:../task_asa_software_configuration.html#asa-limitations-and-restrictions[ASA에 대한 NVMe-oF 프로토콜] | AFF ASA 시스템을 통해 NVMe-oF 프로토콜 지원을 사용할 수도 있습니다. 
+| xref:../asa/overview.html[ASA에 대한 NVMe-oF 프로토콜] | AFF ASA 시스템을 통해 NVMe-oF 프로토콜 지원을 사용할 수도 있습니다. 
 
 
  a| 
+Igroup 개선 사항
  a| 
 * xref:../task_san_create_nested_igroup.html[기존 igroup으로 구성된 igroup을 생성할 수 있습니다].
 * igroup 또는 호스트 이니시에이터의 별칭 역할을 하는 igroup 또는 호스트 이니시에이터에 설명을 추가할 수 있습니다.
@@ -263,7 +264,7 @@ xref:../task_dp_configure_snapshot.html[System Manager의 스냅샷 복사본에
 
 | 스토리지 계층의 용량 및 위치 정보에 대한 System Manager의 표시 기능 향상  a| 
 * xref:../concept_admin_viewing_managing_network.html[새** 계층** 열은 각 볼륨이 상주하는 로컬 계층(애그리게이트)을 식별합니다.]
-* xref:../concept_capacity_measurements_in_sm.htmll[System Manager에는 물리적 사용된 용량과 클러스터 레벨의 논리적 사용된 용량 및 로컬 계층(애그리게이트) 레벨이 표시됩니다.]
+* xref:../concept_capacity_measurements_in_sm.html[System Manager에는 물리적 사용된 용량과 클러스터 레벨의 논리적 사용된 용량 및 로컬 계층(애그리게이트) 레벨이 표시됩니다.]
 * xref:../concept_admin_viewing_managing_network.html[새 용량 표시 필드를 사용하면 용량을 모니터링하고 용량이 거의 도달했거나 활용도가 낮은 볼륨을 추적할 수 있습니다.]
 
 

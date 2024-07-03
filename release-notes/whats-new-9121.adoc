@@ -97,7 +97,7 @@ SnapMirror Synchronous 구성에서 지원되는 최대 FlexVol 볼륨 크기가
 | xref:../mediator/index.html[ONTAP mediator 1.5는 MetroCluster IP 구성에서 지원됩니다] | ONTAP mediator 1.5는 MetroCluster IP 구성을 모니터링하는 데 사용할 수 있습니다. 
 
 
-| xref:../configure_ip_security_@ipsec@_over_wire_encryption.html[MetroCluster IP 및 MetroCluster 패브릭 연결 구성에서 프런트 엔드 호스트 프로토콜(예: NFS 및 iSCSI)에 대한 IPsec 지원을 사용할 수 있습니다.] | MetroCluster IP 및 MetroCluster 패브릭 연결 구성에서 프런트 엔드 호스트 프로토콜(예: NFS 및 iSCSI)에 대한 IPsec 지원을 사용할 수 있습니다. 
+| xref:../networking/configure_ip_security_@ipsec@_over_wire_encryption.html[MetroCluster IP 및 MetroCluster 패브릭 연결 구성에서 프런트 엔드 호스트 프로토콜(예: NFS 및 iSCSI)에 대한 IPsec 지원을 사용할 수 있습니다.] | MetroCluster IP 및 MetroCluster 패브릭 연결 구성에서 프런트 엔드 호스트 프로토콜(예: NFS 및 iSCSI)에 대한 IPsec 지원을 사용할 수 있습니다. 
 
 
 | link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept-risks-limitations-automatic-switchover.html["MetroCluster IP 구성의 MetroCluster 자동 강제 전환 기능"^] | MetroCluster IP 구성에서 MetroCluster 자동 강제 전환 기능을 활성화할 수 있습니다. 이 기능은 중재자 지원 계획되지 않은 전환(MAUSO) 기능의 확장입니다. 

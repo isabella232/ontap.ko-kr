@@ -214,7 +214,7 @@ FabricPool의 경우, 의 값입니다 `-physical-used` 는 용량 계층과 성
 | xref:../data-protection/create-delete-snapmirror-failover-test-task.html[SnapMirror 테스트 페일오버 지원] | System Manager를 사용하여 기존 SnapMirror 관계를 중단하지 않고 SnapMirror 테스트 페일오버 예행 연습을 수행할 수 있습니다. 
 
 
-| xref:../networking/manage-ports-bd-task.html[브로드캐스트 도메인의 포트 관리] | System Manager를 사용하여 브로드캐스트 도메인에 할당된 포트를 편집하거나 삭제할 수 있습니다. 
+| xref:../network-management/index.html[브로드캐스트 도메인의 포트 관리] | System Manager를 사용하여 브로드캐스트 도메인에 할당된 포트를 편집하거나 삭제할 수 있습니다. 
 
 
 | xref:../mediator/manage-mediator-sm-task.html[중재자 지원 MAUSO(Automatic Unplanned Switchover) 지원] | System Manager를 사용하여 IP MetroCluster 스위치오버 및 스위치백을 수행할 때 중재자 지원 MAUSO(Automatic Unplanned Switchover)를 사용하거나 사용하지 않도록 설정할 수 있습니다. 

@@ -89,7 +89,7 @@ xref:../consistency-groups/protect-task.html[2단계 일관성 그룹 스냅샷 
 | xref:../mediator/index.html[ONTAP 중재자 1.4 지원] | ONTAP mediator 소프트웨어 버전 1.4는 MetroCluster IP 구성에서 지원됩니다. 
 
 
-| xref:../consistency-groups/index.html#metrocluster[일관성 그룹 지원] | 정합성 보장 그룹은 MetroCluster 구성에서 지원됩니다. 
+| xref:../consistency-groups/index.html#mcc[일관성 그룹 지원] | 정합성 보장 그룹은 MetroCluster 구성에서 지원됩니다. 
 
 
 | link:https://docs.netapp.com/us-en/ontap-metrocluster/transition/task_move_cluster_connections.html#which-connections-to-move["MetroCluster FC 구성에서 AFF A250 또는 FAS500f MetroCluster IP 구성으로 전환"^] | MetroCluster FC 구성에서 AFF A250 또는 FAS500f MetroCluster IP 구성으로 전환할 수 있습니다. 
