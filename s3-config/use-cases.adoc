@@ -11,29 +11,14 @@ summary: 클라이언트가 ONTAP S3 서비스에 액세스할 때 기본적으�
 
 
 [role="lead"]
-ONTAP S3 서비스에 대한 클라이언트 액세스에는 다음과 같은 세 가지 주요 사용 사례가 있습니다.
+ONTAP S3의 주요 사용 사례는 다음과 같습니다.
 
-* ONTAP S3를 원격 FabricPool 용량(클라우드) 계층으로 사용하는 ONTAP 시스템의 경우
-+
-용량 계층(_cold_data)을 포함하는 S3 서버 및 버킷이 성능 계층(_hot_data)과 다른 클러스터에 있습니다.
-
-* ONTAP S3를 로컬 FabricPool 계층으로 사용하는 ONTAP 시스템의 경우
-+
-용량 계층을 포함하는 S3 서버와 버킷이 성능 계층과 동일한 클러스터에 있지만 다른 HA 쌍에 있습니다.
-
-* 외부 S3 클라이언트 애플리케이션
-+
-ONTAP S3는 비NetApp 시스템에서 실행되는 S3 클라이언트 애플리케이션을 지원합니다.
+* FabricPool을 사용하여 비활성 데이터를 ONTAP의 버킷에 계층화하여 ONTAP to ONTAP 계층화를 지원합니다. 내의 버킷으로 계층화하거나 link:enable-ontap-s3-access-local-fabricpool-task.html["로컬 클러스터"]의 버킷으로의 계층화가 link:enable-ontap-s3-access-remote-fabricpool-task.html["원격 클러스터"]모두 지원됩니다. ONTAP S3에 계층화하면 추가 FabricPool 라이센스나 새로운 기술을 관리할 필요 없이 비활성 데이터에 저렴한 ONTAP 시스템을 사용하고 새로운 플래시 용량에 대한 비용을 절감할 수 있습니다.
+* ONTAP 9.12.1부터는 NAS 프로토콜을 사용하도록 미리 구성된 에서도 S3 프로토콜을 활성화할 수 link:../s3-multiprotocol/index.html["멀티프로토콜 NAS 볼륨"] 있습니다. 멀티프로토콜 NAS 볼륨에서 S3 프로토콜이 사용되면 클라이언트 애플리케이션은 S3, NFS, SMB를 사용하여 데이터를 읽고 쓸 수 있으므로 다양한 추가 사용 사례가 열립니다. 가장 일반적인 사용 사례 중 하나는 볼륨에 데이터를 쓰는 NAS 클라이언트와 S3 클라이언트가 동일한 데이터를 읽고 분석, 비즈니스 인텔리전스, 머신 러닝, 광학 문자 인식 등과 같은 특수 작업을 수행하는 것입니다.
 
 
 
-HTTPS를 사용하여 ONTAP S3 버킷에 대한 액세스를 제공하는 모범 사례입니다. HTTPS가 활성화된 경우 SSL/TLS와의 올바른 통합을 위해 보안 인증서가 필요합니다. 그런 다음 ONTAP S3을 사용하여 사용자를 인증하고 ONTAP S3 내의 작업에 대한 사용자의 액세스 권한을 사용자에게 부여하는 클라이언트 사용자 '' 액세스 및 비밀 키가 필요합니다. 또한 클라이언트 응용 프로그램은 서버를 인증하고 클라이언트와 서버 간의 보안 연결을 생성할 수 있도록 루트 CA 인증서(ONTAP S3 서버의 서명된 인증서)에 대한 액세스 권한이 있어야 합니다.
-
-사용자는 S3 기반 SVM 내에서 생성되고, 액세스 권한을 버킷 또는 SVM 레벨에서 제어할 수 있습니다. 즉, SVM 내에서 하나 이상의 버킷에 대한 액세스를 허용할 수 있습니다.
-
-HTTPS는 ONTAP S3 서버에서 기본적으로 활성화됩니다. 클라이언트 액세스에 대해 HTTPS를 비활성화하고 HTTP를 활성화할 수 있으며, 이 경우 CA 인증서를 사용한 인증이 필요하지 않습니다. 그러나 HTTP가 활성화되고 HTTPS가 비활성화되면 ONTAP S3 서버와의 모든 통신이 일반 텍스트로 네트워크를 통해 전송됩니다.
-
-자세한 내용은 을 참조하십시오 https://www.netapp.com/pdf.html?item=/media/17219-tr4814pdf.pdf["기술 보고서: ONTAP 모범 사례의 S3"]
+NOTE: ONTAP S3는 추가 하드웨어 및 관리 없이 기존 ONTAP 클러스터에서 S3 기능을 사용하려는 경우에 적합합니다. NetApp StorageGRID은 오브젝트 스토리지에 대한 NetApp의 대표적인 솔루션입니다. StorageGRID는 광범위한 S3 작업, 고급 ILM 기능 또는 ONTAP 기반 시스템에서 얻을 수 없는 용량을 활용해야 하는 네이티브 S3 애플리케이션에 권장됩니다. 자세한 내용은 를 link:https://docs.netapp.com/us-en/storagegrid-118/index.html["StorageGRID 설명서"^]참조하십시오.
 
 .관련 정보
 link:../flexgroup/index.html["FlexGroup 볼륨 관리"]

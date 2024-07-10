@@ -16,6 +16,9 @@ summary: '로컬 계층(애그리게이트)의 크기를 줄이고 더 이상 3�
 .필요한 것
 RAID-TEC의 최대 RAID 그룹 크기가 RAID-DP의 최대 RAID 그룹 크기보다 큽니다. 최대 RAID-TEC 그룹 크기가 RAID-DP 제한 범위 내에 있지 않으면 RAID-DP로 변환할 수 없습니다.
 
+.이 작업에 대해
+RAID 유형 간 변환의 의미를 이해하려면 명령의 를 참조하십시오 https://docs.netapp.com/us-en/ontap-cli/storage-aggregate-modify.html#parameters["매개 변수"^] `storage aggregate modify` .
+
 .단계
 . Aggregate가 온라인 상태이고 최소 6개의 디스크가 있는지 확인합니다.
 +

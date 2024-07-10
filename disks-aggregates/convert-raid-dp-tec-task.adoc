@@ -17,7 +17,9 @@ summary: 3중 패리티 보호를 추가하려면 RAID-DP에서 RAID-TEC로 전�
 변환할 로컬 계층(애그리게이트)에는 최소 7개의 디스크가 있어야 합니다.
 
 .이 작업에 대해
-하드 디스크 드라이브(HDD) 로컬 계층을 RAID-DP에서 RAID-TEC로 변환할 수 있습니다. 여기에는 Flash Pool 로컬 계층의 HDD 계층이 포함됩니다.
+* 하드 디스크 드라이브(HDD) 로컬 계층을 RAID-DP에서 RAID-TEC로 변환할 수 있습니다. 여기에는 Flash Pool 로컬 계층의 HDD 계층이 포함됩니다.
+* RAID 유형 간 변환의 의미를 이해하려면 명령의 를 참조하십시오 https://docs.netapp.com/us-en/ontap-cli/storage-aggregate-modify.html#parameters["매개 변수"^] `storage aggregate modify` .
+
 
 .단계
 . Aggregate가 온라인 상태이고 최소 6개의 디스크가 있는지 확인합니다.
