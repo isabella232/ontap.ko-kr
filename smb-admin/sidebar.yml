@@ -655,6 +655,8 @@ entries:
       url: "/smb-admin/create-symbolic-link-mappings-task.html"
     - title: 심볼 링크 매핑을 관리하는 명령입니다
       url: "/smb-admin/commands-manage-symbolic-link-mappings-reference.html"
+    - title: Windows 백업 애플리케이션 및 Unix 스타일 symlink
+      url: "/smb-admin/windows-backup-symlinks.html"
   - title: BranchCache를 사용하여 지사에 SMB 공유 콘텐츠를 캐싱합니다
     entries:
     - title: 개요
