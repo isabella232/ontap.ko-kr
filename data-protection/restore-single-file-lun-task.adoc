@@ -26,7 +26,7 @@ SnapMirror Synchronous 대상(ONTAP 9.5부터 지원됨)에서 파일 또는 LUN
 .단계
 . 타겟 볼륨의 스냅샷 복사본을 나열합니다.
 +
-'volume snapshot show -vserver_SVM_-volume volume'
+`volume snapshot show -vserver <SVM> -volume volume`
 
 +
 전체 명령 구문은 man 페이지를 참조하십시오.
@@ -54,7 +54,7 @@ vserverB    secondary1  hourly.2013-01-25_0005  valid   224KB     0%    0%
 ----
 . SnapMirror 대상 볼륨의 스냅샷 복사본에서 단일 파일 또는 LUN이나 파일/LUN 세트를 복원합니다.
 +
-'스냅샷 복구 - 소스 경로 - SVM: volume_|_cluster://SVM/volume_,... -destination-path_SVM:volume_|_cluster://SVM/volume_,... -source-snapshot-file-list_source_file_path, @destination_file_path _
+`snapmirror restore -source-path <SVM:volume>|<cluster://SVM/volume>, ... -destination-path <SVM:volume>|<cluster://SVM/volume>, ... -source-snapshot snapshot -file-list <source_file_path,@destination_file_path>`
 
 +
 전체 명령 구문은 man 페이지를 참조하십시오.

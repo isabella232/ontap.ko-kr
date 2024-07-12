@@ -18,4 +18,4 @@ summary: NFS 프로토콜을 사용하여 VMware 데이터 저장소를 제공�
 [role="lead"]
 NFS 프로토콜을 사용하여 VMware 데이터 저장소를 제공할 볼륨을 생성합니다.
 
-을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-sm-classic/nfs-config-esxi/index.html["VSC를 사용한 ESXi용 NFS 구성"] VMware 데이터 저장소 프로비저닝 Best Practice에 대해 설명합니다.
+VMware 데이터 저장소 프로비저닝 Best Practice는 를 link:https://docs.netapp.com/us-en/ontap-system-manager-classic/nfs-config-esxi/index.html["VSC를 사용한 ESXi용 NFS 구성"^] 참조하십시오.

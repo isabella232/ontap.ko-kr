@@ -43,7 +43,7 @@ cluster-1      inter_cluster
 +
 [source, cli]
 ----
-network ping -lif lif_name -vserver svm_name -destination destination_address
+network ping -lif <lif_name> -vserver <svm_name> -destination <destination_address>
 ----
 +
 각 노드에서 이 작업을 수행합니다.
@@ -68,7 +68,7 @@ set advanced
 +
 [source, cli]
 ----
-network interface service-policy remove-service -vserver svm_name -policy service_policy_name -service management-ems
+network interface service-policy remove-service -vserver <svm_name> -policy <service_policy_name> -service management-ems
 ----
 . 관리 - EMS LIF가 이제 EMS 타겟에 대한 연결 기능을 제공하는 LIF에만 연결되어 있는지 확인합니다.
 +

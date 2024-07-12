@@ -103,5 +103,5 @@ Do you want to continue? {y|n}: y
 | 재설계된 System Manager(ONTAP 9.7 이상에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap/task_dp_restore_from_vault.html["이전 스냅샷 복사본에서 볼륨을 복원합니다"^] 
 
 
-| System Manager Classic(ONTAP 9.7 이하에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap-sm-classic/volume-restore-snapvault/index.html["SnapVault를 사용한 볼륨 복원 개요"^] 
+| System Manager Classic(ONTAP 9.7 이하에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap-system-manager-classic/volume-restore-snapvault/index.html["SnapVault를 사용한 볼륨 복원 개요"^] 
 |===

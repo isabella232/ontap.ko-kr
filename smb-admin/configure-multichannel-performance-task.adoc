@@ -1,8 +1,8 @@
 ---
 permalink: smb-admin/configure-multichannel-performance-task.html 
 sidebar: sidebar 
-keywords: ontap, configure, smb, multichannel, multiple, connection, client, session, throughput, fault, tolerance, configure smb multichannel for performance and redundancy, performance, redundancy 
-summary: ONTAP 9.4부터 SMB 다중 채널을 구성하여 단일 SMB 세션에서 ONTAP와 클라이언트 간에 여러 연결을 제공할 수 있습니다. 이렇게 하면 처리량과 내결함성이 개선됩니다. 
+keywords: ontap, smb, multichannel, configure, multiple, connection, client, session, throughput, fault, tolerance, configure smb multichannel for performance and redundancy, performance, redundancy 
+summary: 처리량 및 내결함성을 향상시키기 위해 단일 SMB 세션에서 ONTAP와 클라이언트 간에 여러 연결을 제공하도록 SMB 다중 채널을 구성합니다. 
 ---
 = 성능 및 이중화를 위해 SMB 멀티 채널을 구성합니다
 :allow-uri-read: 
@@ -33,24 +33,44 @@ SMB 세션의 동시 연결 수는 구축한 NIC에 따라 달라집니다.
 
 다음 매개 변수(고급 권한)도 수정할 수 있습니다.
 
-* * '-max-connections-per-session' *
+* `-max-connections-per-session`
 +
 다중 채널 세션당 허용되는 최대 연결 수입니다. 기본값은 32개 연결입니다.
 
 +
 기본값보다 더 많은 연결을 설정하려면 기본값인 32개의 연결을 사용하는 클라이언트 구성을 동일하게 조정해야 합니다.
 
-* * '-max-liff-per-session' *
+* `-max-lifs-per-session`
 +
 Multichannel 세션당 공고되는 최대 네트워크 인터페이스 수입니다. 기본값은 256개의 네트워크 인터페이스입니다.
 
 
 
 .단계
-. 권한 수준을 Advanced:'Set-Privilege advanced'로 설정합니다
-. SMB 서버에서 SMB 멀티 채널 활성화: 'vserver cifs options modify -vserver_vserver_name_-is-multichannel -enabled true
-. ONTAP가 SMB 멀티 채널 세션을 보고하는지 확인합니다. 'vserver cifs session show_options_'
-. admin 권한 수준으로 복귀:'et-Privilege admin'입니다
+. 권한 수준을 고급으로 설정합니다.
++
+[source, cli]
+----
+set -privilege advanced
+----
+. SMB 서버에서 SMB 멀티 채널 활성화:
++
+[source, cli]
+----
+vserver cifs options modify -vserver <vserver_name> -is-multichannel-enabled true
+----
+. ONTAP가 SMB 멀티 채널 세션을 보고하는지 확인합니다.
++
+[source, cli]
+----
+vserver cifs session show
+----
+. 관리자 권한 레벨로 돌아갑니다.
++
+[source, cli]
+----
+set -privilege admin
+----
 
 
 .예

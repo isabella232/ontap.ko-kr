@@ -23,7 +23,7 @@ SnapMirror는 항상 소스 볼륨의 스냅샷 복사본을 만든 후에 업�
 .단계
 . 소스 볼륨에서 보존하려는 레이블이 지정된 스냅샷 복사본에 소유자를 할당합니다.
 +
-'스냅샷-소유자 생성 - vserver_SVM_-volume_volume_-snapshot_snapshot_-owner_owner_'
+`snapmirror snapshot-owner create -vserver <SVM> -volume <volume> -snapshot <snapshot> -owner <owner>`
 
 +
 다음 예제에서는 'ApplicationA'를 'nap1' 스냅샷 복사본의 소유자로 할당합니다.
@@ -40,7 +40,7 @@ clust1::> snapmirror snapshot-owner create -vserver vs1 -volume vol1
 
 . 레이블이 지정된 스냅샷 복사본을 볼트 대상으로 전송합니다.
 +
-'스냅샷 업데이트 - 소스 경로_SVM: volume_|_cluster://SVM/volume_,... -destination-path_SVM:volume_|_cluster://SVM/volume_,... -source-snapshot 스냅샷'입니다
+`snapmirror update -source-path <SVM:volume>|<cluster://SVM/volume>, ... -destination-path <SVM:volume>|<cluster://SVM/volume>, ... -source-snapshot snapshot`
 
 +
 전체 명령 구문은 man 페이지를 참조하십시오.

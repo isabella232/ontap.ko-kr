@@ -16,7 +16,7 @@ summary: 운영 스토리지의 소스 볼륨과 2차 스토리지의 타겟 볼
 .시작하기 전에
 * 소스 및 타겟 클러스터와 SVM을 피어링해야 합니다.
 +
-https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["클러스터 및 SVM 피어링"]
+https://docs.netapp.com/us-en/ontap-system-manager-classic/peering/index.html["클러스터 및 SVM 피어링"^]
 
 * 대상 볼륨의 언어는 소스 볼륨의 언어와 동일해야 합니다.
 
@@ -228,5 +228,5 @@ cluster_dst::> snapmirror create -source-path svm1:volA -destination-path svm_ba
 | 재설계된 System Manager(ONTAP 9.7 이상에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap/task_dp_configure_mirror.html["미러와 볼트를 구성합니다"^] 
 
 
-| System Manager Classic(ONTAP 9.7 이하에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap-sm-classic/volume-backup-snapvault/index.html["SnapVault를 사용한 볼륨 백업 개요"^] 
+| System Manager Classic(ONTAP 9.7 이하에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap-system-manager-classic/volume-backup-snapvault/index.html["SnapVault를 사용한 볼륨 백업 개요"^] 
 |===

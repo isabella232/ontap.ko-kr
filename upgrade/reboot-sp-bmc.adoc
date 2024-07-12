@@ -29,7 +29,7 @@ ONTAP 업그레이드 전에 펌웨어를 수동으로 업데이트할 필요는
 +
 [source, cli]
 ----
-system service-processor reboot-sp -node node_name
+system service-processor reboot-sp -node <node_name>
 ----
 +
 한 번에 하나의 SP 또는 BMC만 재부팅합니다.  재부팅된 SP 또는 BMC가 완전히 재활용될 때까지 기다린 후 다음 SP를 재부팅합니다.

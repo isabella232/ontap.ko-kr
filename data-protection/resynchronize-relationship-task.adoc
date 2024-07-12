@@ -21,7 +21,7 @@ summary: 대상 볼륨을 쓰기 가능한 상태로 만든 후, 소스 볼륨�
 .단계
 . 소스 및 대상 볼륨 재동기화:
 +
-`snapmirror resync -source-path _SVM:volume_|_cluster://SVM/volume_, ... -destination-path _SVM:volume_|_cluster://SVM/volume_, ... -type DP|XDP -policy _policy_`
+`snapmirror resync -source-path <SVM:volume>|<cluster://SVM/volume>, ... -destination-path <SVM:volume>|<cluster://SVM/volume>, ... -type DP|XDP -policy _policy_`
 
 +
 전체 명령 구문은 man 페이지를 참조하십시오.

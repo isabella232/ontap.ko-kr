@@ -21,7 +21,7 @@ SnapMirror 정책을 변경하여 비동기식 SnapMirror 관계를 SnapMirror S
 +
 .. 대상 클러스터에서 비동기식 SnapMirror 관계를 삭제합니다.
 +
-'스냅샷 삭제 대상 - path_SVM:volume_'
+`snapmirror delete -destination-path <SVM:volume>`
 
 +
 [listing]
@@ -30,7 +30,7 @@ cluster2::>snapmirror delete -destination-path vs1_dr:vol1
 ----
 .. 소스 클러스터에서 공통 스냅샷 복사본을 삭제하지 않고 SnapMirror 관계를 놓습니다.
 +
-'스냅샷 해제-관계-정보 전용 실제-대상-경로_dest_SVM:dest_volume_'
+`snapmirror release -relationship-info-only true -destination-path <destination_SVM>:<destination_volume>`
 
 +
 [listing]
@@ -39,7 +39,7 @@ cluster1::>snapmirror release -relationship-info-only true -destination-path vs1
 ----
 .. 대상 클러스터에서 SnapMirror Synchronous 관계를 생성합니다.
 +
-'스냅샷 생성 - 소스 경로 - src_src_SVM: src_volume_-destination-path_dest_SVM: dest_volume_-policy sync-mirror'
+`snapmirror create -source-path _src_SVM:src_volume_ -destination-path <destination_SVM>:<destination_volume> -policy sync-mirror`
 
 +
 [listing]
@@ -48,7 +48,7 @@ cluster2::>snapmirror create -source-path vs1:vol1 -destination-path vs1_dr:vol1
 ----
 .. SnapMirror Synchronous 관계를 재동기화합니다.
 +
-'스냅샷 미러 재동기화 - 대상 - path_dest_SVM: dest_volume_'
+`snapmirror resync -destination-path <destination_SVM:destination_volume>`
 
 +
 [listing]
@@ -61,7 +61,7 @@ cluster2::>snapmirror resync -destination-path vs1_dr:vol1
 +
 .. 대상 클러스터에서 기존 SnapMirror Synchronous 관계를 중지합니다.
 +
-'스냅샷 중지 - 대상 경로 dest_SVM: dest_volume'
+`snapmirror quiesce -destination-path <destination_SVM>:<destination_volume>`
 
 +
 [listing]
@@ -70,7 +70,7 @@ cluster2::> snapmirror quiesce -destination-path vs1_dr:vol1
 ----
 .. 대상 클러스터에서 비동기식 SnapMirror 관계를 삭제합니다.
 +
-'스냅샷 삭제 대상 - path_SVM:volume_'
+`snapmirror delete -destination-path <SVM:volume>`
 
 +
 [listing]
@@ -79,7 +79,7 @@ cluster2::>snapmirror delete -destination-path vs1_dr:vol1
 ----
 .. 소스 클러스터에서 공통 스냅샷 복사본을 삭제하지 않고 SnapMirror 관계를 놓습니다.
 +
-'스냅샷 해제-관계-정보 전용 실제-대상-경로_dest_SVM:dest_volume_'
+`snapmirror release -relationship-info-only true -destination-path <destination_SVM:destination_volume>`
 
 +
 [listing]
@@ -88,7 +88,7 @@ cluster1::>snapmirror release -relationship-info-only true -destination-path vs1
 ----
 .. 대상 클러스터에서 비동기식 SnapMirror 관계를 생성합니다.
 +
-'스냅샷 생성 - 소스 경로 - src_src_SVM: src_volume_-destination-path_dest_SVM: dest_volume_-policy MirrorAllSnapshots'
+`snapmirror create -source-path _src_SVM:src_volume_ -destination-path <destination_SVM:destination_volume> -policy MirrorAllSnapshots`
 
 +
 [listing]
@@ -97,7 +97,7 @@ cluster2::>snapmirror create -source-path vs1:vol1 -destination-path vs1_dr:vol1
 ----
 .. SnapMirror Synchronous 관계를 재동기화합니다.
 +
-'스냅샷 미러 재동기화 - 대상 - path_dest_SVM: dest_volume_'
+`snapmirror resync -destination-path <destination_SVM:destination_volume>`
 
 +
 [listing]

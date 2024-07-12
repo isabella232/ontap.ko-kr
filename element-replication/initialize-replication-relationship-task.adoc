@@ -20,7 +20,7 @@ summary: 모든 관계 유형에 대해 초기화는 기본 전송을 수행합�
 
 
 .이 작업에 대해
-요소 소스 경로는 "_hostip:_/lun/_name_" 형식으로 지정해야 합니다. 여기서 ""lun"은 실제 문자열 ""lun""이고 "_name_"은 요소 볼륨의 이름입니다.
+형태로 Element 소스 경로를 지정해야 `<hostip:>/lun/<name>`합니다. 여기서 ""lun""은 실제 문자열 ""lun""이고 Element 볼륨의 이름입니다. `_name_`
 
 초기화에는 시간이 오래 걸릴 수 있습니다. 사용량이 적은 시간에 기준 전송을 실행할 수 있습니다.
 
@@ -38,7 +38,7 @@ summary: 모든 관계 유형에 대해 초기화는 기본 전송을 수행합�
 .단계
 . 복제 관계 초기화:
 +
-'스냅샷 초기화-소스-경로_호스트 팁:_/LUN/_이름_-대상-경로_SVM:볼륨|클러스터://SVM/볼륨 _'
+`snapmirror initialize -source-path <hostip:>/lun/<name> -destination-path <SVM:volume|cluster://SVM/volume>`
 
 +
 전체 명령 구문은 man 페이지를 참조하십시오.

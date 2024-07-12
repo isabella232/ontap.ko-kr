@@ -52,5 +52,5 @@ ONTAP SMB 프로토콜 기능 범위에 대한 자세한 내용은 을 참조하
 | 재설계된 System Manager(ONTAP 9.7 이상에서 사용 가능) | link:../task_nas_provision_windows_smb.html["SMB를 사용하여 Windows 서버용 NAS 스토리지 용량 할당"] 
 
 
-| System Manager Classic(ONTAP 9.7 이하에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap-sm-classic/smb-config/index.html["SMB 구성 개요"^] 
+| System Manager Classic(ONTAP 9.7 이하에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap-system-manager-classic/smb-config/index.html["SMB 구성 개요"^] 
 |===

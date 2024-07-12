@@ -16,7 +16,7 @@ SnapMirror는 대상에서 사후 처리 데이터 압축이 활성화된 경우
 .필요한 것
 * 소스 및 타겟 클러스터와 SVM을 피어링해야 합니다.
 +
-https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["클러스터 및 SVM 피어링"]
+https://docs.netapp.com/us-en/ontap-system-manager-classic/peering/index.html["클러스터 및 SVM 피어링"^]
 
 * 대상에서 사후 처리 압축을 비활성화해야 합니다.
 
@@ -54,7 +54,7 @@ ONTAP 9.3부터 AFF 시스템은 타겟 볼륨을 쓰기 가능한 상태로 만
 .단계
 . 복제 관계를 업데이트하고 스토리지 효율성을 다시 설정합니다.
 +
-'스냅샷 업데이트 - 소스 경로_SVM: volume_|_cluster://SVM/volume_,... -destination-path_SVM:volume_|_cluster://SVM/volume_,... -enable-storage-Efficiency true
+`snapmirror update -source-path <SVM:volume>|<cluster://SVM/volume>, ... -destination-path <SVM:volume>|<cluster://SVM/volume>, ... -enable-storage-efficiency true`
 
 +
 전체 명령 구문은 man 페이지를 참조하십시오.

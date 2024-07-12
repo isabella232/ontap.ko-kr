@@ -399,13 +399,13 @@ MetroCluster IP 구성을 ONTAP 9.5 이상으로 업그레이드한 후, 애그�
 +
 [source, cli]
 ----
-storage failover giveback –ofnode node_A_1
+storage failover giveback -ofnode node_A_1
 ----
 .. cluster_B의 DR 파트너에게 애그리게이트를 반환합니다.
 +
 [source, cli]
 ----
-storage failover giveback –ofnode node_B_1
+storage failover giveback -ofnode node_B_1
 ----
 +
 반환 작업은 먼저 루트 애그리게이트를 노드로 반환한 다음, 노드가 부팅을 완료한 후 루트가 아닌 애그리게이트를 반환합니다.
@@ -643,13 +643,13 @@ MetroCluster IP 구성을 ONTAP 9.5로 업그레이드한 후 재동기화하여
 +
 [source, cli]
 ----
-storage failover giveback –ofnode node_A_2
+storage failover giveback -ofnode node_A_2
 ----
 .. cluster_B의 DR 파트너에게 애그리게이트를 반환합니다.
 +
 [source, cli]
 ----
-storage failover giveback –ofnode node_B_2
+storage failover giveback -ofnode node_B_2
 ----
 +
 반환 작업은 먼저 루트 애그리게이트를 노드로 반환한 다음, 노드가 부팅을 완료한 후 루트가 아닌 애그리게이트를 반환합니다.

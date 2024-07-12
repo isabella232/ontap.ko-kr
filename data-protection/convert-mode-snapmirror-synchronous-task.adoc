@@ -19,7 +19,7 @@ ONTAP 9.5부터는 SnapMirror Synchronous 관계가 지원됩니다. SnapMirror 
 .단계
 . 대상 클러스터에서 기존 SnapMirror Synchronous 관계를 중지합니다.
 +
-'스냅샷 중지 - 대상 경로 dest_SVM: dest_volume'
+`snapmirror quiesce -destination-path <destination_SVM>:<destination_volume>`
 
 +
 [listing]
@@ -28,7 +28,7 @@ cluster2::> snapmirror quiesce -destination-path vs1_dr:vol1
 ----
 . 대상 클러스터에서 기존 SnapMirror Synchronous 관계를 삭제합니다.
 +
-'스냅샷 삭제 - 대상 경로 dest_SVM: dest_volume
+`snapmirror delete -destination-path <destination_SVM>:<destination_volume>`
 
 +
 [listing]
@@ -37,7 +37,7 @@ cluster2::> snapmirror delete -destination-path vs1_dr:vol1
 ----
 . 소스 클러스터에서 공통 스냅샷 복사본을 삭제하지 않고 SnapMirror 관계를 놓습니다.
 +
-'스냅샷 해제-관계-정보 전용 실제 목적지-경로 dest_SVM: dest_volume'
+`snapmirror release -relationship-info-only true -destination-path <destination_SVM>:<destination_volume>`
 
 +
 [listing]
@@ -46,7 +46,7 @@ cluster1::> snapmirror release -relationship-info-only true -destination-path vs
 ----
 . 대상 클러스터에서 SnapMirror Synchronous 관계를 변환할 모드를 지정하여 SnapMirror Synchronous 관계를 생성합니다.
 +
-'sapmirror create-source-path vs1:vol1-destination-path dest_SVM:dest_volume-policy Sync|StrictSync'
+`snapmirror create -source-path vs1:vol1 -destination-path <destination_SVM>:<destination_volume> -policy Sync|StrictSync`
 
 +
 [listing]
@@ -55,7 +55,7 @@ cluster2::> snapmirror create -source-path vs1:vol1 -destination-path vs1_dr:vol
 ----
 . 대상 클러스터에서 SnapMirror 관계를 다시 동기화합니다.
 +
-'스냅샷 미러 재동기화 - 대상 경로 dest_SVM: dest_volume
+`snapmirror resync -destination-path <destination_SVM>:<destination_volume>`
 
 +
 [listing]

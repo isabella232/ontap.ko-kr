@@ -40,7 +40,7 @@ image:workflow_dp_serve_data_from_destination.gif["대상에서 데이터를 제
 | 에서 이러한 작업을 수행하려면... | 이 콘텐츠 보기... 
 
 
-| System Manager Classic(ONTAP 9.7 이하에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap-sm-classic/volume-disaster-recovery/index.html["볼륨 재해 복구 개요"^] 
+| System Manager Classic(ONTAP 9.7 이하에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap-system-manager-classic/volume-disaster-recovery/index.html["볼륨 재해 복구 개요"^] 
 
 
 | ONTAP 명령줄 인터페이스입니다 | link:./data-protection/make-destination-volume-writeable-task.html["대상 볼륨을 활성화합니다"^] 

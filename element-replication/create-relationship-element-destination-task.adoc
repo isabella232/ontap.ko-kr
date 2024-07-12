@@ -19,7 +19,7 @@ ONTAP 9.4부터는 SnapMirror를 사용하여 ONTAP 소스에서 생성한 LUN�
 
 
 .이 작업에 대해
-요소 대상 경로를 "_hostip:_/lun/_name_" 형식으로 지정해야 합니다. 여기서 ""lun"은 실제 문자열 ""lun""이고 "name"은 요소 볼륨의 이름입니다.
+양식에 Element 대상 경로를 지정해야 `<hostip:>/lun/<name>`합니다. 여기서 ""LUN""은 실제 문자열 ""LUN""이고 Element 볼륨의 이름입니다. `name`
 
 복제 규칙은 다음과 같습니다.
 
@@ -35,7 +35,7 @@ ONTAP 9.4부터는 SnapMirror를 사용하여 ONTAP 소스에서 생성한 LUN�
 .단계
 . ONTAP 소스에서 요소 대상으로 복제 관계 생성:
 +
-'sapmirror create-source-path_SVM:volume_|_cluster://SVM/volume_-destination-path_hostip:_/lun/_name_-type XDP-schedule schedule -policy_policy_'
+`snapmirror create -source-path <SVM:volume>|<cluster://SVM/volume> -destination-path <hostip:>/lun/<name> -type XDP -schedule schedule -policy <policy>`
 
 +
 전체 명령 구문은 man 페이지를 참조하십시오.

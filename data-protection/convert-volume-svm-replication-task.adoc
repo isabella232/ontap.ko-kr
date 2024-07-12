@@ -19,7 +19,7 @@ summary: '소스의 각 볼륨(루트 볼륨 제외)이 복제되고 있는 경�
 .단계
 . 타겟 SVM 또는 타겟 클러스터에서 소스 볼륨과 타겟 볼륨을 다시 동기화하려면 다음 명령을 실행합니다.
 +
-`snapmirror resync -source-path _SVM:volume_ -destination-path _SVM:volume_ -type DP|XDP -policy _policy_`
+`snapmirror resync -source-path <SVM:volume> -destination-path <SVM:volume> -type DP|XDP -policy <policy>`
 
 +
 전체 명령 구문은 man 페이지를 참조하십시오.
@@ -59,7 +59,7 @@ cluster_dst::> vserver stop svm_backup
 ----
 . 타겟 SVM 또는 타겟 클러스터에서 다음 명령을 실행하여 소스 및 타겟 SVM을 다시 동기화하십시오.
 +
-`snapmirror resync -source-path _SVM_: -destination-path _SVM_: -type DP|XDP -policy _policy_`
+`snapmirror resync -source-path <SVM>: -destination-path <SVM>: -type DP|XDP -policy <policy>`
 
 +
 전체 명령 구문은 man 페이지를 참조하십시오.

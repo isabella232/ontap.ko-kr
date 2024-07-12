@@ -16,7 +16,7 @@ summary: 대상에서 데이터를 더 이상 제공할 필요가 없을 때 소
 .이 작업에 대해
 아래 절차에서는 원본 소스 볼륨의 기준선이 온전한 것으로 가정합니다. 기준선이 변경되지 않은 경우 절차를 수행하기 전에 데이터를 제공하는 볼륨과 원본 소스 볼륨 간의 관계를 생성하고 초기화해야 합니다.
 
-요소 소스 경로는 "_hostip:_/lun/_name_" 형식으로 지정해야 합니다. 여기서 ""lun"은 실제 문자열 ""lun""이고 "name"은 요소 볼륨의 이름입니다.
+형태로 Element 소스 경로를 지정해야 `<hostip:>/lun/<name>`합니다. 여기서 ""lun""은 실제 문자열 ""lun""이고 Element 볼륨의 이름입니다. `name`
 
 ONTAP 9.4부터 ONTAP 대상에서 데이터를 제공하는 동안 생성된 LUN의 스냅샷 복사본은 Element 소스가 재활성화되면 자동으로 복제됩니다.
 
@@ -30,7 +30,7 @@ ONTAP 9.4부터 ONTAP 대상에서 데이터를 제공하는 동안 생성된 LU
 .단계
 . 원본 데이터 보호 관계를 삭제합니다.
 +
-'스냅샷 삭제 - 소스 - 경로 - SVM: volume_|_cluster://SVM/volume_-destination-path_hostip:_/LUN/_name_-policy_policy_'
+`snapmirror delete -source-path <SVM:volume>|<cluster://SVM/volume> -destination-path <hostip:>/lun/<name> -policy <policy>`
 
 +
 전체 명령 구문은 man 페이지를 참조하십시오.
@@ -45,7 +45,7 @@ cluster_dst::> snapmirror delete -source-path 10.0.0.11:/lun/0005 -policy Mirror
 ----
 . 원래 데이터 보호 관계를 반대로 전환합니다.
 +
-'스냅샷 미러 재동기화 - 소스 경로_SVM:VOLUME_|_cluster://SVM/VOLUME_-대상 경로_호스트 팁:_/LUN/_이름_-policy_policy_'
+`snapmirror resync -source-path <SVM:volume>|<cluster://SVM/volume> -destination-path <hostip:>/lun/<name> -policy <policy>`
 
 +
 전체 명령 구문은 man 페이지를 참조하십시오.
@@ -63,7 +63,7 @@ cluster_dst::> snapmirror resync -source-path svm_backup:volA_dst -destination-p
 ----
 . 반대 관계 업데이트:
 +
-'스냅샷 업데이트 - 소스 - 경로_SVM: volume_|_cluster://SVM/volume_-destination-path_hostip:_/lun/_name_'
+`snapmirror update -source-path <SVM:volume>|<cluster://SVM/volume> -destination-path <hostip:>/lun/<name>`
 
 +
 전체 명령 구문은 man 페이지를 참조하십시오.
@@ -84,7 +84,7 @@ cluster_dst::> snapmirror update -source-path svm_backup:volA_dst -destination-p
 ----
 . 역방향 관계에 대한 예약된 전송 중지:
 +
-'sapmirror quiesce-source-path_SVM: volume_|_cluster://SVM/volume_-destination-path_hostip:_/lun/_name_'
+`snapmirror quiesce -source-path <SVM:volume>|<cluster://SVM/volume> -destination-path <hostip:>/lun/<name>`
 
 +
 전체 명령 구문은 man 페이지를 참조하십시오.
@@ -99,7 +99,7 @@ cluster_dst::> snapmirror quiesce -source-path svm_backup:volA_dst -destination-
 ----
 . 취소된 관계에 대한 진행 중인 전송 중지:
 +
-'스냅샷 미러 abort-source-path_SVM: volume_|_cluster://SVM/volume_-destination-path_hostip:_/lun/_name_'
+`snapmirror abort -source-path <SVM:volume>|<cluster://SVM/volume> -destination-path <hostip:>/lun/<name>`
 
 +
 전체 명령 구문은 man 페이지를 참조하십시오.
@@ -114,7 +114,7 @@ cluster_dst::> snapmirror abort -source-path svm_backup:volA_dst -destination-pa
 ----
 . 역관계를 끊는 경우:
 +
-'스냅미러 break-source-path_SVM:volume_|_cluster://SVM/volume_-destination-path_hostip:_/lun/_name_'
+`snapmirror break -source-path <SVM:volume>|<cluster://SVM/volume> -destination-path <hostip:>/lun/<name>`
 
 +
 전체 명령 구문은 man 페이지를 참조하십시오.
@@ -129,7 +129,7 @@ cluster_dst::> snapmirror break -source-path svm_backup:volA_dst -destination-pa
 ----
 . 역방향 데이터 보호 관계를 삭제합니다.
 +
-'스냅샷 삭제 - 소스 - 경로 - SVM: volume_|_cluster://SVM/volume_-destination-path_hostip_:/lun/_name_-policy_policy_'
+`snapmirror delete -source-path <SVM:volume>|<cluster://SVM/volume> -destination-path <hostip:>/lun/<name> -policy <policy>`
 
 +
 전체 명령 구문은 man 페이지를 참조하십시오.
@@ -144,7 +144,7 @@ cluster_src::> snapmirror delete -source-path svm_backup:volA_dst -destination-p
 ----
 . 원래 데이터 보호 관계를 다시 설정합니다.
 +
-'스냅샷 미러 재동기화 - source-path_hostip_:/lun/_name_ - destination-path_SVM: volume|cluster://SVM/volume_'
+`snapmirror resync -source-path <hostip:>/lun/<name> -destination-path <SVM:volume>|<cluster://SVM/volume>`
 
 +
 전체 명령 구문은 man 페이지를 참조하십시오.

@@ -2,7 +2,7 @@
 permalink: smb-hyper-v-sql/configure-smb-multichannel-performance-task.html 
 sidebar: sidebar 
 keywords: configure, smb, multichannel, performance, redundancy, session, fault, tolerance, hyper, v, sql 
-summary: ONTAP 9.4부터 SMB 다중 채널을 구성하여 단일 SMB 세션에서 ONTAP와 클라이언트 간에 여러 연결을 제공할 수 있습니다. 이렇게 하면 SMB 구성에서 Hyper-V 및 SQL Server의 처리량과 내결함성을 향상시킬 수 있습니다. 
+summary: SMB 구성을 통해 Hyper-V 및 SQL Server에 대한 처리량과 내결함성을 향상시킬 수 있도록 단일 SMB 세션에서 ONTAP와 클라이언트 간에 여러 연결을 제공하도록 SMB 다중 채널을 구성합니다. 
 ---
 = 성능 및 이중화를 위해 SMB 멀티 채널을 구성합니다
 :allow-uri-read: 
@@ -13,7 +13,7 @@ summary: ONTAP 9.4부터 SMB 다중 채널을 구성하여 단일 SMB 세션에�
 [role="lead"]
 ONTAP 9.4부터 SMB 다중 채널을 구성하여 단일 SMB 세션에서 ONTAP와 클라이언트 간에 여러 연결을 제공할 수 있습니다. 이렇게 하면 SMB 구성에서 Hyper-V 및 SQL Server의 처리량과 내결함성을 향상시킬 수 있습니다.
 
-.필요한 것
+.시작하기 전에
 SMB 3.0 이상 버전에서 클라이언트가 협상하는 경우에만 SMB 멀티 채널 기능을 사용할 수 있습니다. SMB 3.0 이상은 기본적으로 ONTAP SMB 서버에서 사용하도록 설정됩니다.
 
 .이 작업에 대해
@@ -33,14 +33,14 @@ SMB 세션의 동시 연결 수는 구축한 NIC에 따라 달라집니다.
 
 다음 매개 변수(고급 권한)도 수정할 수 있습니다.
 
-* * '-max-connections-per-session' *
+* `-max-connections-per-session`
 +
 다중 채널 세션당 허용되는 최대 연결 수입니다. 기본값은 32개 연결입니다.
 
 +
 기본값보다 더 많은 연결을 설정하려면 기본값인 32개의 연결을 사용하는 클라이언트 구성을 동일하게 조정해야 합니다.
 
-* * '-max-liff-per-session' *
+* `-max-lifs-per-session`
 +
 Multichannel 세션당 공고되는 최대 네트워크 인터페이스 수입니다. 기본값은 256개의 네트워크 인터페이스입니다.
 
@@ -49,20 +49,28 @@ Multichannel 세션당 공고되는 최대 네트워크 인터페이스 수입�
 .단계
 . 권한 수준을 고급으로 설정합니다.
 +
-' * set-Privilege advanced * '
-
+[listing]
+----
+set -privilege advanced
+----
 . SMB 서버에서 SMB 멀티 채널 활성화:
 +
-``vserver cifs options modify -vserver_vserver_name_-is-d멀티 채널 사용 true*'
-
+[listing]
+----
+vserver cifs options modify -vserver <vserver_name> -is-multichannel-enabled true
+----
 . ONTAP가 SMB 멀티 채널 세션을 보고하는지 확인합니다.
 +
-`*vserver cifs session options show*`
-
+[listing]
+----
+vserver cifs session show
+----
 . 관리자 권한 레벨로 돌아갑니다.
 +
-' * set-privilege admin * '
-
+[listing]
+----
+set -privilege admin
+----
 
 
 .예

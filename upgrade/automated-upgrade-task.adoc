@@ -179,7 +179,7 @@ NOTE: MetroCluster 구성을 업그레이드하는 경우 먼저 클러스터 A�
 +
 [source, cli]
 ----
-cluster image package delete -version previous_ONTAP_Version
+cluster image package delete -version <previous_ONTAP_Version>
 ----
 .. 타겟 ONTAP 소프트웨어 이미지를 클러스터 패키지 저장소에 로드합니다.
 +
@@ -216,7 +216,7 @@ Package Version  Package Build Time
 +
 [source, cli]
 ----
-cluster image validate -version package_version_number
+cluster image validate -version <package_version_number>
 ----
 +
 를 수행하는 경우 link:https://docs.netapp.com/us-en/ontap/upgrade/concept_upgrade_paths.html#types-of-upgrade-paths["직접 멀티 홉 업그레이드"], 검증에는 대상 ONTAP 패키지만 사용하면 됩니다.  중간 업그레이드 이미지를 별도로 검증할 필요는 없습니다.  예를 들어 9.8에서 9.13.1로 업그레이드하는 경우 9.13.1 패키지를 검증에 사용하십시오. 9.12.1 패키지를 별도로 검증할 필요는 없습니다.
@@ -242,7 +242,7 @@ cluster image show-update-progress
 +
 [source, cli]
 ----
-cluster image update -version package_version_number -estimate-only
+cluster image update -version <package_version_number> -estimate-only
 ----
 +
 
@@ -255,7 +255,7 @@ NOTE: MetroCluster 구성을 업그레이드하는 경우 클러스터 A 또는 
 +
 [source, cli]
 ----
-cluster image update -version package_version_number
+cluster image update -version <package_version_number>
 ----
 +
 ** 를 수행하는 경우 link:https://docs.netapp.com/us-en/ontap/upgrade/concept_upgrade_paths.html#types-of-upgrade-paths["직접 멀티 홉 업그레이드"]에서 package_version_number 의 대상 ONTAP 버전을 사용합니다. 예를 들어 ONTAP 9.8에서 9.13.1 로 업그레이드하는 경우 package_version_number 로 9.13.1 을 사용합니다.

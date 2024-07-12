@@ -38,10 +38,10 @@ LUN이 포함된 LUN 또는 볼륨을 동일한 클러스터 내의 다른 고�
 +
 [source, cli]
 ----
-lun mapping add-reporting-nodes -vserver _vserver_name_ -path _lun_path_ -igroup _igroup_name_ [-destination-aggregate _aggregate_name_|-destination-volume _volume_name_]
+lun mapping add-reporting-nodes -vserver <vserver_name> -path <lun_path> -igroup <igroup_name> [-destination-aggregate <aggregate_name>|-destination-volume <volume_name>]
 ----
 +
-일관된 명명 규칙이 있는 경우 를 사용하여 여러 LUN 매핑을 동시에 수정할 수 있습니다 `_igroup_prefix*_` 대신 `_igroup_name_`.
+일관된 명명 규칙이 있는 경우 대신 를 사용하여 여러 LUN 매핑을 동시에 수정할 수 있습니다 `igroup_prefix*` `igroup_name`.
 
 . 호스트를 재검색하여 새로 추가된 경로를 검색합니다.
 . OS에 필요한 경우 다중 경로 네트워크 I/O(MPIO) 구성에 새 경로를 추가합니다.
@@ -56,7 +56,7 @@ lun mapping show -fields reporting-nodes
 +
 [source, cli]
 ----
-lun mapping remove-reporting-nodes -vserver _vserver_name_ -path _lun_path_ -igroup _igroup_name_ -remote-nodes
+lun mapping remove-reporting-nodes -vserver <vserver_name> -path <lun_path> -igroup <igroup_name> -remote-nodes
 ----
 . LUN이 기존 LUN 맵에서 제거되었는지 확인합니다.
 +

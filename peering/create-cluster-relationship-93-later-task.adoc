@@ -199,5 +199,5 @@ cluster01-02
 | 재설계된 System Manager(ONTAP 9.7 이상에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap/task_dp_prepare_mirror.html["미러링 및 보관 준비"^] 
 
 
-| System Manager Classic(ONTAP 9.7 이하에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap-sm-classic/volume-disaster-prep/index.html["볼륨 재해 복구 준비 개요"^] 
+| System Manager Classic(ONTAP 9.7 이하에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap-system-manager-classic/volume-disaster-prep/index.html["볼륨 재해 복구 준비 개요"^] 
 |===

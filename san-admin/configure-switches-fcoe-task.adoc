@@ -38,7 +38,7 @@ DCB 설정이 스위치에 구성되어 있습니다. 설정이 잘못된 경우
 
 . FC 타겟 포트의 온라인 상태가 일 때 FCoE 로그인이 작동하는지 확인합니다 `true`.
 +
-[sourc]
+[source, cli]
 ----
 fcp adapter show -fields node,adapter,status,state,speed,fabric-established,physical-protocol
 ----

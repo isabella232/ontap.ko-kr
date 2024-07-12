@@ -34,7 +34,7 @@ ONTAP 9.11.1 이상에서는 기본적으로 새로 생성된 iSCSI LIF가 다�
 +
 [source, cli]
 ----
-network interface modify -vserver SVM_name -lif iscsi_lif –failover-policy sfo-partner-only -auto-revert true
+network interface modify -vserver <SVM_name> -lif <iscsi_lif> -failover-policy sfo-partner-only -auto-revert true
 ----
 +
 SVM에서 모든 iSCSI LIF를 업데이트하려면 를 사용하십시오 `-lif*` 대신 `lif`.
@@ -52,7 +52,7 @@ SVM에서 모든 iSCSI LIF를 업데이트하려면 를 사용하십시오 `-lif
 +
 [source, cli]
 ----
-network interface modify -vserver SVM_name -lif iscsi_lif –failover-policy disabled -auto-revert false
+network interface modify -vserver <SVM_name> -lif <iscsi_lif> -failover-policy disabled -auto-revert false
 ----
 +
 SVM에서 모든 iSCSI LIF를 업데이트하려면 를 사용하십시오 `-lif*` 대신 `lif`.

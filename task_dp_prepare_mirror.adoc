@@ -48,7 +48,7 @@ image:workflow_dp_prepare_mirror.gif["미러링 및 보관을 위한 작업 흐�
 | 에서 이러한 작업을 수행하려면... | 이 콘텐츠 보기... 
 
 
-| System Manager Classic(ONTAP 9.7 이하에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap-sm-classic/volume-disaster-prep/index.html["볼륨 재해 복구 준비 개요"^] 
+| System Manager Classic(ONTAP 9.7 이하에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap-system-manager-classic/volume-disaster-prep/index.html["볼륨 재해 복구 준비 개요"^] 
 
 
 | ONTAP 명령줄 인터페이스입니다 | link:https://docs.netapp.com/us-en/ontap/peering/create-cluster-relationship-93-later-task.html["클러스터 피어 관계를 생성합니다"^] 

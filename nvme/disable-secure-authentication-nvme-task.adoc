@@ -20,7 +20,7 @@ ONTAP 9.12.1 이상에서 ONTAP 9.12.0 이하로 되돌리는 경우 되돌리�
 +
 [source, cli]
 ----
-vserver nvme subsystem host remove –vserver <svm_name> -subsystem <subsystem> -host-nqn <host_nqn>
+vserver nvme subsystem host remove -vserver <svm_name> -subsystem <subsystem> -host-nqn <host_nqn>
 ----
 . DH-HMAC-CHAP 인증 프로토콜이 호스트에서 제거되었는지 확인합니다.
 +

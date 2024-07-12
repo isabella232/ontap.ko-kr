@@ -24,6 +24,6 @@ VSC 7.0부터는 VSC가 의 일부입니다 https://docs.netapp.com/us-en/ontap-
 
 를 확인하십시오 https://imt.netapp.com/matrix/["NetApp 상호 운용성 매트릭스"^] 현재 ONTAP 및 VSC 릴리스 간의 호환성을 확인합니다.
 
-System Manager Classic(ONTAP 9.7 및 이전 릴리즈의 경우)을 사용하여 ESXi 호스트에서 데이터 저장소로 NFS 액세스를 설정하려면 을 참조하십시오 https://docs.netapp.com/us-en/ontap-sm-classic/nfs-config-esxi/index.html["VSC 개요를 사용한 ESXi용 NFS 구성"^]
+System Manager Classic(ONTAP 9.7 이하 릴리즈용)을 사용하여 ESXi 호스트에 대한 NFS 액세스를 데이터 저장소에 설정하려면 를 참조하십시오 https://docs.netapp.com/us-en/ontap-system-manager-classic/nfs-config-esxi/index.html["VSC 개요를 사용한 ESXi용 NFS 구성"^]
 
 자세한 내용은 을 참조하십시오 https://docs.netapp.com/us-en/netapp-solutions/virtualization/vsphere_ontap_ontap_for_vsphere.html["TR-4597: ONTAP용 VMware vSphere"^] VSC 릴리즈에 대한 설명서를 제공합니다.

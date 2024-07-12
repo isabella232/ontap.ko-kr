@@ -71,6 +71,16 @@ indexpage:
       url: "/../task_security_encrypt_stored_data_hw.html"
     - title: CLI를 사용하여 하드웨어 기반 암호화를 구성합니다
       url: "/../encryption-at-rest/support-storage-encryption-concept.html"
+  - title: 제로 트러스트 및 ONTAP
+    links:
+    - title: 제로 트러스트 개요
+      url: "/../zero-trust/zero-trust-overview.html"
+    - title: 제로 트러스트 접근 방식 설계
+      url: "/../zero-trust/zero-trust-architect.html"
+    - title: 제로 트러스트를 규모에 맞게 자동화
+      url: "/../zero-trust/zero-trust-automation-orchestration.html"
+    - title: 제로 트러스트 클라우드 구축
+      url: "/../zero-trust/zero-trust-cloud-deployments.html"
   - title: 더 많은 리소스
     links:
     - title: 'TR-4569: NetApp ONTAP 9에 대한 보안 강화'

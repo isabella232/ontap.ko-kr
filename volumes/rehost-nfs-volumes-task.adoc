@@ -84,4 +84,4 @@ ONTAP 9.8 이상을 사용하는 경우 재호스트 작업을 수행하기 전�
 .작업을 마친 후
 재호스트된 볼륨에서 정책 및 관련 규칙을 수동으로 재구성해야 합니다.
 
-https://docs.netapp.com/us-en/ontap-sm-classic/nfs-config/index.html["NFS 구성"]
+https://docs.netapp.com/us-en/ontap-system-manager-classic/nfs-config/index.html["NFS 구성"]

@@ -83,6 +83,6 @@ NOTE: 로컬 사용자 및 그룹이 구성되어 있고 해당 사용자 또는
 .작업을 마친 후
 재호스트된 볼륨에서 정책 및 관련 규칙을 수동으로 재구성해야 합니다.
 
-https://docs.netapp.com/us-en/ontap-sm-classic/smb-config/index.html["SMB 구성"]
+https://docs.netapp.com/us-en/ontap-system-manager-classic/smb-config/index.html["SMB 구성"]
 
-https://docs.netapp.com/us-en/ontap-sm-classic/nas-multiprotocol-config/index.html["SMB 및 NFS 멀티 프로토콜 구성"]
+https://docs.netapp.com/us-en/ontap-system-manager-classic/nas-multiprotocol-config/index.html["SMB 및 NFS 멀티 프로토콜 구성"]

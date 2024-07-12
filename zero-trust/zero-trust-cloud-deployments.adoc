@@ -1,0 +1,18 @@
+---
+permalink: zero-trust/zero-trust-cloud-deployments.html 
+sidebar: sidebar 
+keywords: netapp, cloud, deployments, hybrid, amazon web services, aws, microsoft azure, google cloud platform, gcp 
+summary: NetApp 옵션은 제로 트러스트 보안 제어를 지원하는 업계 최고의 클라우드 공급자를 통해 사내 데이터 관리 시스템을 하이브리드 클라우드로 확장합니다 
+---
+= 제로 트러스트 및 하이브리드 클라우드 구축
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp은 하이브리드 클라우드 환경에서 데이터 관련 최고의 권위자입니다. NetApp은 AWS(Amazon Web Services), Microsoft Azure, GCP(Google Cloud Platform) 및 기타 주요 클라우드 제공업체를 통해 온프레미스 데이터 관리 시스템을 하이브리드 클라우드로 확장할 수 있는 다양한 옵션을 제공합니다. NetApp 하이브리드 클라우드 솔루션은 사내 ONTAP 시스템 및 ONTAP Select 소프트웨어 정의 스토리지에서 사용할 수 있는 동일한 제로 트러스트 보안 제어를 지원합니다.
+
+AWS 및 GCP용 최초의 엔터프라이즈급 클라우드 네이티브 파일 서비스인 NetApp Cloud Volumes Service 및 Microsoft Azure용 Azure NetApp Files를 사용하여 일반적인 설비 투자의 제한 없이 퍼블릭 클라우드의 용량을 쉽게 확장할 수 있습니다. 이러한 클라우드 데이터 서비스는 분석 및 DevOps와 같은 데이터 집약적인 워크로드에 이상적이며, NetApp의 탄력적인 온 디맨드 서비스형 스토리지와 ONTAP 데이터 관리를 결합하여 완벽하게 관리됩니다.
+
+AWS EBS, S3 또는 Azure 스토리지와 같은 클라우드 블록 또는 오브젝트 스토리지 서비스를 위한 고급 데이터 서비스를 원하는 고객을 위해 Cloud Volumes ONTAP은 사내 환경과 퍼블릭 클라우드 간의 데이터 관리를 단일 공통 뷰로 제공합니다. 온디맨드 인스턴스로 AWS 또는 Azure에서 실행되는 Cloud Volumes ONTAP은 ONTAP 소프트웨어의 스토리지 효율성, 가용성 및 확장성을 제공합니다. ONTAP은 NetApp SnapMirror 데이터 복제 소프트웨어를 통해 사내 ONTAP 시스템과 AWS 또는 Azure 스토리지 환경 간에 데이터를 이동할 수 있도록 지원합니다.

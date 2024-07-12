@@ -19,7 +19,7 @@ summary: 볼륨에서 클라이언트로 데이터를 제공하려면 먼저 대
 .단계
 . 목적지로의 예약된 전송 중지:
 +
-'스냅샷 중지-소스-경로_SVM:볼륨|클러스터://SVM/볼륨 _,... -destination-path_SVM: volume|cluster://SVM/volume_,
+`snapmirror quiesce -source-path <SVM:volume>|<cluster://SVM/volume>, ... -destination-path <SVM:volume>|<cluster://SVM/volume>, ...`
 
 +
 전체 명령 구문은 man 페이지를 참조하십시오.
@@ -34,7 +34,7 @@ cluster_dst::> snapmirror quiesce -source-path svm1:volA -destination-path svm_b
 ----
 . 목적지로의 진행 중인 전송을 중지합니다.
 +
-'스냅샷 미러 중단 - 소스 경로_SVM: volume_|_cluster://SVM/volume_,... -destination-path_SVM:volume_|_cluster://SVM/volume_,
+`snapmirror abort -source-path <SVM:volume>|<cluster://SVM/volume>, ... -destination-path <SVM:volume>|<cluster://SVM/volume>, ...`
 
 +
 전체 명령 구문은 man 페이지를 참조하십시오.
@@ -55,7 +55,7 @@ cluster_dst::> snapmirror abort -source-path svm1:volA -destination-path svm_bac
 ----
 . SnapMirror DR 관계 끊기:
 +
-스냅샷/SVM/VOLUME_PATH:VOLUME_|_cluster://SVM/VOLUME_,... -destination-path_SVM:volume_|_cluster://SVM/volume_,
+`snapmirror break -source-path <SVM:volume>|<cluster://SVM/volume>, ... -destination-path <SVM:volume>|<cluster://SVM/volume>, ...`
 
 +
 전체 명령 구문은 man 페이지를 참조하십시오.
@@ -82,5 +82,5 @@ cluster_dst::> snapmirror break -source-path svm1:volA -destination-path svm_bac
 | 재설계된 System Manager(ONTAP 9.7 이상에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap/task_dp_serve_data_from_destination.html["SnapMirror 대상에 데이터를 제공합니다"^] 
 
 
-| System Manager Classic(ONTAP 9.7 이하에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap-sm-classic/volume-disaster-recovery/index.html["볼륨 재해 복구 개요"^] 
+| System Manager Classic(ONTAP 9.7 이하에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap-system-manager-classic/volume-disaster-recovery/index.html["볼륨 재해 복구 개요"^] 
 |===

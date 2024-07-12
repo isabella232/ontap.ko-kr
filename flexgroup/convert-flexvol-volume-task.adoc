@@ -30,7 +30,7 @@ FlexVol 볼륨에 비호환성이 있으며 볼륨 변환이 중단된 경우 �
 
 
 .단계
-. FlexVol 볼륨이 온라인인지 확인합니다. volume show vol_name-volume-style-extended, state
+. FlexVol 볼륨이 온라인 상태인지 확인합니다. `volume show vol_name volume-style-extended,state`
 +
 [listing]
 ----
@@ -67,7 +67,7 @@ Warning: Converting flexible volume "my_volume" in Vserver "vs0" to a FlexGroup
 Do you want to continue? {y|n}: y
 [Job 57] Job succeeded: success
 ----
-. 볼륨 표시 vol_name-fields-volume-style-extended, state가 성공적으로 변환되었는지 확인합니다
+. 변환이 성공적인지 확인합니다. `volume show vol_name -fields volume-style-extended,state`
 +
 [listing]
 ----

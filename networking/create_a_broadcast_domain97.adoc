@@ -76,6 +76,6 @@ LIF가 페일오버되는 포트는 LIF의 페일오버 그룹의 구성원이�
 'network port broadcast-domain create-broadcast-domain_bcast1_-mtu_1500_-ports_cluster1-01:e0e,cluster1-01:e0f,cluster1-02:e0e,cluster1-02:e0f_'
 
 .작업을 마친 후
-서브넷을 생성하여 브로드캐스트 도메인에서 사용할 IP 주소 풀을 정의하거나, 현재 IPspace에 SVM 및 인터페이스를 할당할 수 있습니다. 자세한 내용은 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["클러스터 및 SVM 피어링"].
+서브넷을 생성하여 브로드캐스트 도메인에서 사용할 IP 주소 풀을 정의하거나, 현재 IPspace에 SVM 및 인터페이스를 할당할 수 있습니다. 자세한 내용은 을 link:https://docs.netapp.com/us-en/ontap-system-manager-classic/peering/index.html["클러스터 및 SVM 피어링"^]참조하십시오.
 
 기존 브로드캐스트 도메인의 이름을 변경해야 할 경우 'network port broadcast-domain rename' 명령어를 사용한다.

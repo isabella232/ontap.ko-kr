@@ -32,7 +32,7 @@ ONTAP One이 없는 경우 ONTAP CLI를 사용하여 FC 또는 iSCSI 라이센�
 
 . FC 또는 iSCSI에 대한 활성 라이센스가 있는지 확인합니다.
 +
-[sourc]
+[source, cli]
 ----
 system license show
 ----
@@ -50,7 +50,7 @@ Package           Type    Description           Expiration
 ----
 . FC 또는 iSCSI에 대한 활성 라이센스가 없는 경우 라이센스 코드를 추가합니다.
 +
-[sourc]
+[source, cli]
 ----
 license add -license-code <your_license_code>
 ----

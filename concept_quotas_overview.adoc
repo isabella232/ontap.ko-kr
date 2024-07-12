@@ -22,7 +22,7 @@ ONTAP CLI를 사용하여 사용 할당량을 구성 및 관리하는 경우 를
 
 OnCommand 9.7 및 이전 릴리즈용 기존 ONTAP System Manager를 사용하여 사용 할당량을 구성 및 관리하는 경우 릴리즈에 대한 내용은 다음을 참조하십시오.
 
-* link:http://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/index.html["ONTAP 9.6 및 9.7 문서"^]
+* link:http://docs.netapp.com/us-en/ontap-system-manager-classic/online-help-96-97/index.html["ONTAP 9.6 및 9.7 문서"^]
 * link:https://mysupport.netapp.com/documentation/docweb/index.html?productID=62686&language=en-US["ONTAP 9.5 문서"^]
 * link:https://mysupport.netapp.com/documentation/docweb/index.html?productID=62594&language=en-US["ONTAP 9.4 문서"^]
 * link:https://mysupport.netapp.com/documentation/docweb/index.html?productID=62579&language=en-US["ONTAP 9.3 문서"^]

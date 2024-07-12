@@ -167,7 +167,7 @@ ONTAP는 자체 포함된 범위를 보다 쉽게 관리할 수 있도록 CLI �
 .예
 다음 예제에서는 아래 명령 예제 다음에 포함된 출력으로 범위 문자열을 생성합니다. 이 정의는 모든 클러스터에 적용됩니다.
 
-[source, cli]
+[listing]
 ----
 security oauth2 scope cli-to-scope -role joes-role -access readonly -api /api/cluster
 ----

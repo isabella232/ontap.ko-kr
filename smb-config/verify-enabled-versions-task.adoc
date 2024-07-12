@@ -56,13 +56,7 @@ vserver cifs options show
 +
 [source, cli]
 ----
-vserver cifs options modify -vserver vserver_name smb_version true
-----
-** SMB 버전을 사용하지 않도록 설정하려면:
-+
-[source, cli]
-----
-vserver cifs options modify -vserver vserver_name smb_version false
+vserver cifs options modify -vserver <vserver_name> -<smb_version> true
 ----
 +
 에 사용할 수 있는 값 `smb_version`:
@@ -72,32 +66,33 @@ vserver cifs options modify -vserver vserver_name smb_version false
 *** '-SMB2-ENABLED'입니다
 *** '-SMB3-enabled'입니다
 *** `-smb31-enabled`
-
-
-
-
 +
 다음 명령을 실행하면 SVM vs1.example.com 에서 SMB 3.1이 활성화됩니다.
+`cluster1::*> vserver cifs options modify -vserver vs1.example.com -smb31-enabled true`
 
 
 
-[listing]
+** SMB 버전을 사용하지 않도록 설정하려면:
++
+[source, cli]
 ----
-cluster1::*> vserver cifs options modify -vserver vs1.example.com -smb31-enabled true
+vserver cifs options modify -vserver <vserver_name> -<smb_version> false
 ----
+
+
 . SMB 서버가 Active Directory 도메인에 있는 경우 필요에 따라 DC 연결에 대한 SMB 프로토콜을 설정하거나 해제합니다.
 +
 ** SMB 버전 활성화하기:
 +
 [source, cli]
 ----
-vserver cifs security modify -vserver vserver_name -smb2-enabled-for-dc-connections true
+vserver cifs security modify -vserver <vserver_name> -smb2-enabled-for-dc-connections true
 ----
 ** SMB 버전을 사용하지 않도록 설정하려면:
 +
 [source, cli]
 ----
-vserver cifs security modify -vserver vserver_name -smb2-enabled-for-dc-connections false
+vserver cifs security modify -vserver <vserver_name> -smb2-enabled-for-dc-connections false
 ----
 
 

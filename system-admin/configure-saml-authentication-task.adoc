@@ -48,7 +48,7 @@ http와 ontapi 애플리케이션은 서비스 프로세서 인프라, ONTAP API
 * Active Directory 페더레이션 서비스
 * Cisco Duo(다음 ONTAP 버전에서 검증:)
 +
-** 9.7P21 이상 9.7 릴리즈(참조 https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/task_setting_up_saml_authentication.html["System Manager Classic 설명서"^])
+** 9.7P21 이상 9.7 릴리스(참조 https://docs.netapp.com/us-en/ontap-system-manager-classic/online-help-96-97/task_setting_up_saml_authentication.html["System Manager Classic 설명서"^])
 ** 9.8P17 이상 9.8 릴리스
 ** 9.9.1P13 이상 9.9 릴리스
 ** 9.10.1P9 이상 9.10 릴리스

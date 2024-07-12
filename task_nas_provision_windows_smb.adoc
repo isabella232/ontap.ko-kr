@@ -171,7 +171,7 @@ NOTE: 볼륨을 저장한 후 로 돌아갑니다 <<step2-compl-prov-win>> SMB�
 | 이 작업을 수행하는 방법 | 자세한 내용은... 
 
 
-| System Manager Classic(ONTAP 9.7 이하) | link:https://docs.netapp.com/us-en/ontap-sm-classic/smb-config/index.html["SMB 구성 개요"^] 
+| System Manager Classic(ONTAP 9.7 이하) | link:https://docs.netapp.com/us-en/ontap-system-manager-classic/smb-config/index.html["SMB 구성 개요"^] 
 
 
 | ONTAP 명령줄 인터페이스입니다 | link:smb-config/index.html["CLI를 사용한 SMB 구성 개요"] 

@@ -106,7 +106,7 @@ cluster ring show
 +
 [source, cli]
 ----
-cluster modify – node <node_name> -eligibility false
+cluster modify -node <node_name> -eligibility false
 ----
 +
 마스터 노드가 부적격이 되면 클러스터 쿼럼에 의해 나머지 노드 중 하나가 새 마스터로 선택됩니다.
@@ -115,7 +115,7 @@ cluster modify – node <node_name> -eligibility false
 +
 [source, cli]
 ----
-cluster modify – node <node_name> -eligibility true
+cluster modify -node <node_name> -eligibility true
 ----
 
 

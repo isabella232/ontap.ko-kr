@@ -26,7 +26,7 @@ ONTAP 9.5부터는 SnapMirror Synchronous 관계가 지원됩니다.
 .단계
 . 복제 관계 초기화:
 +
-'스냅샷 초기화 - 소스 경로 - SVM:볼륨 _ | _ 클러스터://SVM/볼륨 _,... -destination-path_SVM:volume_|_cluster://SVM/volume_,
+`snapmirror initialize -source-path <SVM:volume>|<cluster://SVM/volume>, ... -destination-path <SVM:volume>|<cluster://SVM/volume>, ...`
 
 +
 전체 명령 구문은 man 페이지를 참조하십시오.

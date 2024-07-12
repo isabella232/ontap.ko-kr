@@ -21,7 +21,7 @@ ONTAP 9.5부터는 SnapMirror Synchronous 관계가 지원됩니다. 소스 볼�
 .단계
 . 복제 관계를 수동으로 업데이트합니다.
 +
-'스냅샷 업데이트 - 소스 경로_SVM: volume_|_cluster://SVM/volume_,... -destination-path_SVM: volume|cluster://SVM/volume_,
+`snapmirror update -source-path <SVM:volume>|<cluster://SVM/volume>, ... -destination-path <SVM:volume>|<cluster://SVM/volume>, ...`
 
 +
 전체 명령 구문은 man 페이지를 참조하십시오.

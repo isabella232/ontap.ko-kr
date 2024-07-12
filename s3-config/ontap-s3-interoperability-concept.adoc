@@ -46,6 +46,7 @@ Cloud Volumes ONTAP
 * 정보 수명 주기 관리
 * NDMP
 * SMTape
+* SnapMirror를 참조하십시오
 * SnapMirror 클라우드
 * SVM 재해 복구
 * SyncMirror

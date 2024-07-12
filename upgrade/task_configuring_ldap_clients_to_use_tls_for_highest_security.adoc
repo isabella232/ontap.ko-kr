@@ -33,7 +33,7 @@ vserver services name-service ldap client show
 +
 [source, cli]
 ----
-vserver services name-service ldap client modify -vserver vserver_name -client-config ldap_client_config_name -allow-ssl false
+vserver services name-service ldap client modify -vserver <vserver_name> -client-config <ldap_client_config_name> -allow-ssl false
 ----
 . 모든 LDAP 클라이언트에 대해 SSL 사용이 더 이상 허용되지 않는지 확인합니다.
 +

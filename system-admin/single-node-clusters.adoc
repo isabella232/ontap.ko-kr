@@ -82,7 +82,7 @@ ONTAP 9.2부터는 ONTAP CLI를 사용하여 단일 노드 클러스터에 대�
 +
 [source, cli]
 ----
-cluster image package delete -version previous_package_version
+cluster image package delete -version <previous_package_version>
 ----
 . 대상 ONTAP 소프트웨어 패키지를 다운로드합니다.
 +
@@ -116,7 +116,7 @@ Package Version  Package Build Time
 +
 [source, cli]
 ----
-cluster image validate -version package_version_number
+cluster image validate -version <package_version_number>
 ----
 +
 [listing]
@@ -136,7 +136,7 @@ cluster image show-update-progress
 +
 [source, cli]
 ----
-cluster image update -version package_version_number -estimate-only
+cluster image update -version <package_version_number> -estimate-only
 ----
 +
 소프트웨어 업그레이드 추정치는 업데이트할 각 구성 요소에 대한 세부 정보와 예상 업그레이드 기간을 표시합니다.
@@ -145,7 +145,7 @@ cluster image update -version package_version_number -estimate-only
 +
 [source, cli]
 ----
-cluster image update -version package_version_number
+cluster image update -version <package_version_number>
 ----
 +
 

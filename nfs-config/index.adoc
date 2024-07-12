@@ -43,5 +43,5 @@ ONTAP NFS 프로토콜 기능의 범위에 대한 자세한 내용은 를 참조
 | 재설계된 System Manager(ONTAP 9.7 이상에서 사용 가능) | link:../task_nas_provision_linux_nfs.html["NFS를 사용하여 Linux 서버용 NAS 스토리지 용량 할당"] 
 
 
-| System Manager Classic(ONTAP 9.7 이하에서 사용 가능 | link:https://docs.netapp.com/us-en/ontap-sm-classic/nfs-config/index.html["NFS 구성 개요"^] 
+| System Manager Classic(ONTAP 9.7 이하에서 사용 가능 | link:https://docs.netapp.com/us-en/ontap-system-manager-classic/nfs-config/index.html["NFS 구성 개요"^] 
 |===

@@ -1,0 +1,14 @@
+---
+section: zero-trust
+title: 제로 트러스트 모델을 사용합니다
+entries:
+- title: 제로 트러스트 개요
+  url: "/zero-trust/zero-trust-overview.html"
+- title: 제로 트러스트 접근 방식 설계
+  url: "/zero-trust/zero-trust-architect.html"
+- title: 제로 트러스트를 규모에 맞게 자동화
+  url: "/zero-trust/zero-trust-automation-orchestration.html"
+- title: 제로 트러스트 하이브리드 클라우드 배포
+  url: "/zero-trust/zero-trust-cloud-deployments.html"
+- title: ONTAP 및 제로 트러스트 콘텐츠에 대해 자세히 알아보십시오
+  url: "/zero-trust/zero-trust-learn-more.html"
