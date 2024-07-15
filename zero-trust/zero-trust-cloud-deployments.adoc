@@ -1,7 +1,7 @@
 ---
 permalink: zero-trust/zero-trust-cloud-deployments.html 
 sidebar: sidebar 
-keywords: netapp, cloud, deployments, hybrid, amazon web services, aws, microsoft azure, google cloud platform, gcp 
+keywords: tr-4829, zero trust, netapp, cloud, deployments, hybrid, amazon web services, aws, microsoft azure, google cloud platform, gcp 
 summary: NetApp 옵션은 제로 트러스트 보안 제어를 지원하는 업계 최고의 클라우드 공급자를 통해 사내 데이터 관리 시스템을 하이브리드 클라우드로 확장합니다 
 ---
 = 제로 트러스트 및 하이브리드 클라우드 구축

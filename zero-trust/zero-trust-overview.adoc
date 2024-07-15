@@ -1,8 +1,8 @@
 ---
 permalink: zero-trust/zero-trust-overview.html 
 sidebar: sidebar 
-keywords: zero trust, netapp, ontap, architect, data centric, fpolicy 
-summary: '제로 트러스트는 일반적으로 마이크로 코어 및 주변 장치(MCAP)를 설계하여 데이터, 서비스, 애플리케이션 또는 자산을 세그먼트 게이트웨이라고 하는 제어 기능으로 보호하는 네트워크 중심 접근 방식이었습니다.' 
+keywords: tr-4829, zero trust, netapp, ontap, architect, data centric, fpolicy 
+summary: '제로 트러스트는 네트워크 중심의 접근 방식으로 MCAP(마이크로 코어 및 경계)를 설계하여 데이터, 서비스, 애플리케이션 또는 자산을 세분화 게이트웨이라고 하는 제어 기능을 사용해 왔습니다' 
 ---
 = NetApp와 제로 트러스트
 :allow-uri-read: 

@@ -1,8 +1,8 @@
 ---
 permalink: zero-trust/zero-trust-architect.html 
 sidebar: sidebar 
-keywords: ontap, architects, zero trust engine, netapp, data management 
-summary: 제로 트러스트 네트워크는 데이터 중심 접근 방식으로 정의되며, 보안 제어는 데이터와 최대한 가까운 위치에 있어야 합니다. 
+keywords: tr-4829, ontap, architects, zero trust engine, netapp, data management 
+summary: 제로 트러스트 네트워크는 데이터 중심 접근 방식으로 정의되며, 보안 제어는 데이터와 최대한 가까운 위치에 있어야 합니다 
 ---
 = ONTAP로 제로 트러스트에 대한 데이터 중심 접근 방식 설계
 :allow-uri-read: 

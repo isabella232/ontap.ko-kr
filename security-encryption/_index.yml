@@ -85,6 +85,8 @@ indexpage:
     links:
     - title: 'TR-4569: NetApp ONTAP 9에 대한 보안 강화'
       url: https://www.netapp.com/pdf.html?item=/media/10674-tr4569.pdf
+    - title: VMware vSphere용 ONTAP 툴에 대한 보안 강화 가이드
+      url: https://docs.netapp.com/us-en/ontap-apps-dbs/vmware/vmware-otv-hardening-overview.html
     - title: 'TR-4572: 랜섬웨어용 NetApp 솔루션'
       url: https://www.netapp.com/media/7334-tr4572.pdf
     - title: 고객을 위한 제로 트러스트 랩 온 디맨드(Securing ONTAP with Zero Trust Lab on Demand)를

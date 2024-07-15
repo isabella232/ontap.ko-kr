@@ -1,8 +1,8 @@
 ---
 permalink: zero-trust/zero-trust-learn-more.html 
 sidebar: sidebar 
-keywords: zero trust, ontap, learn, resource, reference 
-summary: ONTAP 제로 트러스트 콘텐츠에 설명된 정보에 대해 자세히 알아보십시오. 
+keywords: tr-4829, zero trust, ontap, learn, resource, reference 
+summary: ONTAP 제로 트러스트 콘텐츠에 설명된 정보에 대해 자세히 알아보십시오 
 ---
 = ONTAP 제로 트러스트 콘텐츠에 대해 자세히 알아보십시오
 :allow-uri-read: 
