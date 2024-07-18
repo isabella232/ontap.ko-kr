@@ -1,0 +1,58 @@
+---
+sidebar: sidebar 
+permalink: ontap-security-hardening/lif-security.html 
+keywords: tr-4569, ontap hardening guide, Data LIF, Cluster LIF, Node management LIF, Cluster management LIF, Intercluster LIF, requires private IP subnet, requires secure network, default firewall policy, is the firewall customizable, under no circumstance should any LIF roles be exposed to the internet 
+summary: 각 LIF 역할의 보안 특성을 이해합니다. 
+---
+= LIF 보안
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media
+
+
+[role="lead"]
+LIF는 역할, 홈 포트, 홈 노드, 페일오버할 포트 목록 및 방화벽 정책과 같은 관련 특성이 있는 IP 주소 또는 WWPN(Worldwide Port Name)입니다. 클러스터가 네트워크를 통해 통신을 주고받는 포트에 LIF를 구성할 수 있습니다. 각 LIF 역할의 보안 특성을 이해하는 것이 중요합니다.
+
+
+
+== LIF 역할
+
+LIF 역할은 다음과 같습니다.
+
+* * 데이터 LIF *: SVM에 연결된 LIF로 클라이언트와의 통신에 사용됩니다.
+* * 클러스터 LIF *: 클러스터 내 노드 간에 클러스터 간 트래픽을 전달하는 데 사용되는 LIF.
+* * 노드 관리 LIF *: 클러스터의 특정 노드를 관리하기 위한 전용 IP 주소를 제공하는 LIF입니다.
+* * 클러스터 관리 LIF *: 전체 클러스터에 대한 단일 관리 인터페이스를 제공하는 LIF입니다.
+* * Intercluster LIF *: 클러스터 간 통신, 백업 및 복제에 사용되는 LIF.
+
+
+
+
+== 각 LIF 역할의 보안 특성입니다
+
+[cols="21%,13%,14%,18%,18%,16%"]
+|===
+|  | 데이터 LIF | 클러스터 LIF | 노드 관리 LIF | 클러스터 관리 LIF입니다 | 인터클러스터 LIF 
+
+
+| 프라이빗 IP 서브넷이 필요합니까? | 아니요 | 예 | 아니요 | 아니요 | 아니요 
+
+
+| 보안 네트워크가 필요하십니까? | 아니요 | 예 | 아니요 | 아니요 | 예 
+
+
+| 기본 방화벽 정책 | 매우 제한적입니다 | 완전히 열립니다 | 중간 | 중간 | 매우 제한적입니다 
+
+
+| 방화벽을 사용자 정의할 수 있습니까? | 예 | 아니요 | 예 | 예 | 예 
+|===
+[IMPORTANT]
+====
+* 클러스터 LIF는 구성 가능한 방화벽 정책을 가지고 있지 않으며 완전히 열리기 때문에 격리된 보안 네트워크의 프라이빗 IP 서브넷에 있어야 합니다.
+* 어떤 상황에서도 LIF 역할이 인터넷에 공개되어서는 안 됩니다.
+
+
+====
+LIF 보안에 대한 자세한 내용은 를 link:../networking/configure_firewall_policies_for_lifs.html["LIF의 방화벽 정책을 구성합니다"]참조하십시오.

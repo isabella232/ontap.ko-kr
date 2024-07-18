@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: ontap-security-hardening/security-resources.html 
+keywords: tr-4569, ontap hardening guide, security, resources, links 
+summary: ONTAP 및 보안 개념에 대한 추가 정보 
+---
+= 보안 리소스
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media
+
+
+[role="lead"]
+이 ONTAP 보안 설명서에 설명된 정보에 대한 자세한 내용은 다음 추가 정보 및 보안 개념을 참조하십시오.
+
+취약성 및 사고 보고, NetApp 보안 응답 및 고객 기밀성에 대한 자세한 내용은 를 참조하십시오 link:http://www.netapp.com/us/legal/security/contact/index.aspx["NetApp 보안 포털"^].
+
+* link:../release-notes/index.html["ONTAP 9 릴리즈 노트"^]
+* link:../concepts/manual-pages.html["ONTAP 9 명령 참조"]
+* link:../system-admin/index.html["시스템 관리"]
+* link:../authentication/workflow-concept.html["관리자 인증 및 RBAC"]
+* link:../security-encryption/index.html["NetApp 암호화"]
+* link:http://www.netapp.com/us/media/tr-4647.pdf["TR-4647: ONTAP 9.3의 다단계 인증"^]
+* https://www.openssl.org/docs/man1.0.2/man1/ciphers.html["OpenSSL 암호화"^]
+* https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4144["CryptoMod FIPS-140-2 레벨 1"^]
+* https://netapp.io/2016/11/08/certificate-based-authentication-netapp-manageability-sdk-ontap/["ONTAP용 NetApp 관리 SDK를 사용한 인증서 기반 인증"^]
+* link:../network-management/index.html["네트워크 관리"]
+

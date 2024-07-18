@@ -1,0 +1,311 @@
+---
+sidebar: sidebar 
+permalink: ontap-security-hardening/ports-protocols-security.html 
+keywords: tr-4569, ontap hardening guide, security, service, port, protocol, description 
+summary: ONTAP는 일반적으로 이러한 포트와 프로토콜을 사용하며 환경과 해당 리소스에 대한 액세스를 필터링하고 제한할 수 있습니다. 
+---
+= 프로토콜 및 포트 보안
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media
+
+
+[role="lead"]
+솔루션 강화에는 온박스 보안 작업 및 기능 외에도 오프 박스 보안 메커니즘도 포함되어야 합니다. 방화벽, IPs(침입 방지 시스템) 및 기타 보안 장치와 같은 추가 인프라 장치를 활용하여 ONTAP에 대한 액세스를 필터링하고 제한하는 것은 엄격한 보안 태세를 구축하고 유지하는 효과적인 방법입니다. 이 정보는 환경과 해당 리소스에 대한 액세스를 필터링하고 제한하기 위한 핵심 구성 요소입니다.
+
+
+
+== 일반적으로 사용되는 프로토콜 및 포트
+
+[cols="27%,26%,47%"]
+|===
+| 서비스 | 포트/프로토콜 | 설명 
+
+
+| `SSH` | 22/TCP | SSH 로그인 
+
+
+| `telnet` | 23/TCP | 원격 로그인 
+
+
+| `Domain` | 53/TCP | 도메인 이름 서버 
+
+
+| `HTTP`  a| 
+80/TCP
+
+80/UDP입니다
+| HTTP 
+
+
+| `rpcbind`  a| 
+111/TCP 111/UDP
+| 원격 프로시저 호출 
+
+
+| `NTP` | 123/UDP입니다 | Network Time Protocol의 약어입니다 
+
+
+| `msrpc` | 135/UDP | Microsoft 원격 프로시저 호출 
+
+
+| `Netbios-name`  a| 
+137/TCP 137/UDP
+| NetBIOS 이름 서비스입니다 
+
+
+| `netbios-ssn` | 139/TCP 를 참조하십시오 | NetBIOS 서비스 세션입니다 
+
+
+| `SNMP` | 161/UDP | SNMP를 선택합니다 
+
+
+| `HTTPS` | 443/TCP | 보안 링크: http 
+
+
+| `microsoft-ds` | 445/TCP | Microsoft 디렉토리 서비스 
+
+
+| `IPsec` | 500/UDP입니다 | 인터넷 프로토콜 보안 
+
+
+| `mount` | 635/UDP | NFS 마운트 
+
+
+| `named` | 953/UDP | 이름 데몬입니다 
+
+
+| `NFS`  a| 
+2049/UDP 2049/TCP
+| NFS 서버 데몬 
+
+
+| `nrv` | 2050/TCP | NetApp 원격 볼륨 프로토콜 
+
+
+| `iscsi` | 3260/TCP | iSCSI 타겟 포트입니다 
+
+
+| `Lockd`  a| 
+4045/TCP 4045/UDP
+| NFS 잠금 데몬 
+
+
+| `NFS` | 4046/TCP | NFS 마운트 프로토콜 
+
+
+| `acp-proto` | 4046/UDP | 계정 프로토콜 
+
+
+| `rquotad` | 4049/UDP | NFS rquotad 프로토콜 
+
+
+| `krb524` | 4444/UDP | Kerberos 524 
+
+
+| `IPsec` | 4500/UDP입니다 | 인터넷 프로토콜 보안 
+
+
+| `acp`  a| 
+5125/UDP 5133/UDP 5144/TCP
+| 디스크용 대체 제어 포트 
+
+
+| `Mdns` | 5353/UDP | 멀티캐스트 DNS 
+
+
+| `HTTPS` | 5986/UDP | HTTPS 포트: 수신 이진 프로토콜 
+
+
+| `TELNET` | 8023/TCP입니다 | 노드 범위 텔넷 
+
+
+| `HTTPS` | 8443/TCP | 링크를 통한 7MTT GUI 툴: HTTPS 
+
+
+| `RSH` | 8514/TCP입니다 | 노드 범위 RSH 
+
+
+| `KMIP` | 9877/TCP입니다 | KMIP 클라이언트 포트(내부 로컬 호스트만 해당) 
+
+
+| `ndmp` | 10000/TCP | NDMP 
+
+
+| `cifs` 증인 포트 | 40001/TCP | CIFS 감시 포트입니다 
+
+
+| `TLS` | 50000/TCP | 전송 계층 보안 
+
+
+| `Iscsi` | 65200/TCP | iSCSI 포트입니다 
+
+
+| `SSH` | 65502/TCP입니다 | 보안 셸 
+
+
+| `vsun` | 65503/TCP입니다 | vsun 
+|===
+
+
+== NetApp 내부 포트
+
+[cols="47%,53%"]
+|===
+| 포트/프로토콜 | 설명 
+
+
+| 900 | NetApp 클러스터 RPC 
+
+
+| 902 | NetApp 클러스터 RPC 
+
+
+| 904 | NetApp 클러스터 RPC 
+
+
+| 905 | NetApp 클러스터 RPC 
+
+
+| 910 | NetApp 클러스터 RPC 
+
+
+| 911 | NetApp 클러스터 RPC 
+
+
+| 913 | NetApp 클러스터 RPC 
+
+
+| 914 | NetApp 클러스터 RPC 
+
+
+| 915 | NetApp 클러스터 RPC 
+
+
+| 918 | NetApp 클러스터 RPC 
+
+
+| 920 | NetApp 클러스터 RPC 
+
+
+| 921)를 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 924 | NetApp 클러스터 RPC 
+
+
+| 925 | NetApp 클러스터 RPC 
+
+
+| 927)를 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 928 | NetApp 클러스터 RPC 
+
+
+| 929)를 누릅니다 | NetApp 클러스터 RPC 
+
+
+| 931 | NetApp 클러스터 RPC 
+
+
+| 932 | NetApp 클러스터 RPC 
+
+
+| 933 | NetApp 클러스터 RPC 
+
+
+| 934 | NetApp 클러스터 RPC 
+
+
+| 935 | NetApp 클러스터 RPC 
+
+
+| 936 | NetApp 클러스터 RPC 
+
+
+| 937 | NetApp 클러스터 RPC 
+
+
+| 939 | NetApp 클러스터 RPC 
+
+
+| 940 | NetApp 클러스터 RPC 
+
+
+| 951을 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 954를 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 955 | NetApp 클러스터 RPC 
+
+
+| 956을 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 958 | NetApp 클러스터 RPC 
+
+
+| 961 | NetApp 클러스터 RPC 
+
+
+| 963 | NetApp 클러스터 RPC 
+
+
+| 964 | NetApp 클러스터 RPC 
+
+
+| 966 | NetApp 클러스터 RPC 
+
+
+| 967 | NetApp 클러스터 RPC 
+
+
+| 7810)를 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 7811 | NetApp 클러스터 RPC 
+
+
+| 7812)를 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 7813)를 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 7814)를 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 7815)를 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 7816 | NetApp 클러스터 RPC 
+
+
+| 7817 | NetApp 클러스터 RPC 
+
+
+| 7818)를 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 7819)를 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 7820)를 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 7821)를 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 7822)를 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 7823)를 참조하십시오 | NetApp 클러스터 RPC 
+
+
+| 7824)를 참조하십시오 | NetApp 클러스터 RPC 
+|===

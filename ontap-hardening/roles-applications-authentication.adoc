@@ -1,0 +1,323 @@
+---
+sidebar: sidebar 
+permalink: ontap-security-hardening/roles-applications-authentication.html 
+keywords: tr-4569, ontap hardening guide, security, RBAC, roles, role, based access control, RBAC, login, application, authentication 
+summary: 역할, 응용 프로그램 및 인증 
+---
+= 역할, 응용 프로그램 및 인증
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media
+
+
+[role="lead"]
+ONTAP는 보안을 중시하는 기업에 다양한 로그인 응용 프로그램 및 방법을 통해 다양한 관리자에게 세분화된 액세스를 제공할 수 있는 기능을 제공합니다. 이를 통해 고객은 데이터 중심의 제로 트러스트 모델을 만들 수 있습니다.
+
+다음은 관리자 및 스토리지 가상 머신 관리자가 사용할 수 있는 역할입니다. 로그인 응용 프로그램 방법과 로그인 인증 방법이 지정됩니다.
+
+
+
+== 역할
+
+사용자는 역할 기반 액세스 제어(RBAC)를 사용하여 직무 역할 및 기능에 필요한 시스템 및 옵션에만 액세스할 수 있습니다. ONTAP의 RBAC 솔루션은 사용자의 관리 액세스를 정의된 역할에 허용된 수준으로 제한하므로 관리자가 할당된 역할별로 사용자를 관리할 수 있습니다. ONTAP는 몇 가지 미리 정의된 역할을 제공합니다. 운영자와 관리자는 사용자 지정 액세스 제어 역할을 생성, 수정 또는 삭제할 수 있으며 특정 역할에 대한 계정 제한을 지정할 수 있습니다.
+
+
+
+=== 클러스터 관리자를 위한 사전 정의된 역할
+
+|===
+
+
+| 이 역할은... | 이 수준의 액세스 권한... | 명령 또는 명령 디렉토리로 이동합니다 
+
+
+ a| 
+`admin`
+ a| 
+모두
+ a| 
+모든 명령 디렉토리(기본값)
+
+
+
+ a| 
+`admin-no-fsa` (ONTAP 9.12.1부터 사용 가능)
+ a| 
+읽기/쓰기
+ a| 
+* 모든 명령 디렉토리(기본값)
+* `security login rest-role`
+* `security login role`
+
+
+
+
+ a| 
+읽기 전용
+ a| 
+* `security login rest-role create`
+* `security login rest-role delete`
+* `security login rest-role modify`
+* `security login rest-role show`
+* `security login role create`
+* `security login role create`
+* `security login role delete`
+* `security login role modify`
+* `security login role show`
+* `volume activity-tracking`
+* `volume analytics`
+
+
+
+
+ a| 
+없음
+ a| 
+`volume file show-disk-usage`
+
+
+
+ a| 
+`autosupport`
+ a| 
+모두
+ a| 
+* '세트'
+* '시스템 노드 AutoSupport
+
+
+
+
+ a| 
+없음
+ a| 
+기타 모든 명령 디렉토리(기본값)
+
+
+
+ a| 
+`backup`
+ a| 
+모두
+ a| 
+'vserver services ndmp'
+
+
+
+ a| 
+읽기 전용
+ a| 
+'볼륨'
+
+
+
+ a| 
+없음
+ a| 
+기타 모든 명령 디렉토리(기본값)
+
+
+
+ a| 
+`readonly`
+ a| 
+모두
+ a| 
+* '보안 로그인 비밀번호
++
+사용자 계정 로컬 암호 및 키 정보 관리에만 사용됩니다
+
+* '세트'
+
+
+
+
+ a| 
+없음
+ a| 
+'보안'
+
+
+
+ a| 
+읽기 전용
+ a| 
+기타 모든 명령 디렉토리(기본값)
+
+
+
+ a| 
+"없음"
+ a| 
+없음
+ a| 
+모든 명령 디렉토리(기본값)
+
+|===
+
+NOTE: AutoSupport 역할은 AutoSupport OnDemand가 사용하는 미리 정의된 AutoSupport 계정에 할당됩니다. ONTAP에서는 AutoSupport 계정을 수정하거나 삭제할 수 없습니다. 또한 ONTAP에서는 다른 사용자 계정에 'AutoSupport' 역할을 할당할 수 없습니다.
+
+
+
+=== 스토리지 가상 머신(SVM) 관리자를 위한 사전 정의된 역할
+
+|===
+
+
+| 역할 이름 | 제공합니다 
+
+
+ a| 
+`vsadmin`
+ a| 
+* 사용자 계정 로컬 암호 및 키 정보를 관리합니다
+* 볼륨 이동을 제외하고 볼륨을 관리합니다
+* 할당량, Qtree, 스냅샷 복사본 및 파일을 관리합니다
+* LUN 관리
+* 권한 있는 삭제를 제외하고 SnapLock 작업을 수행합니다
+* 프로토콜 구성: NFS, SMB, iSCSI, FC, FCoE, NVMe/FC 및 NVMe/TCP
+* DNS, LDAP 및 NIS 서비스 구성
+* 작업을 모니터링합니다
+* 네트워크 연결 및 네트워크 인터페이스를 모니터링합니다
+* SVM의 상태를 모니터링합니다
+
+
+
+
+ a| 
+`vsadmin-volume`
+ a| 
+* 사용자 계정 로컬 암호 및 키 정보를 관리합니다
+* 볼륨 이동을 포함한 볼륨 관리
+* 할당량, Qtree, 스냅샷 복사본 및 파일을 관리합니다
+* LUN 관리
+* 프로토콜 구성: NFS, SMB, iSCSI, FC, FCoE, NVMe/FC 및 NVMe/TCP
+* DNS, LDAP 및 NIS 서비스 구성
+* 네트워크 인터페이스를 모니터링합니다
+* SVM의 상태를 모니터링합니다
+
+
+
+
+ a| 
+`vsadmin-protocol`
+ a| 
+* 사용자 계정 로컬 암호 및 키 정보를 관리합니다
+* 프로토콜 구성: NFS, SMB, iSCSI, FC, FCoE, NVMe/FC 및 NVMe/TCP
+* DNS, LDAP 및 NIS 서비스 구성
+* LUN 관리
+* 네트워크 인터페이스를 모니터링합니다
+* SVM의 상태를 모니터링합니다
+
+
+
+
+ a| 
+`vsadmin-backup`
+ a| 
+* 사용자 계정 로컬 암호 및 키 정보를 관리합니다
+* NDMP 작업을 관리합니다
+* 복원된 볼륨을 읽기/쓰기로 만듭니다
+* SnapMirror 관계 및 스냅샷 복사본 관리
+* 볼륨 및 네트워크 정보를 봅니다
+
+
+
+
+ a| 
+`vsadmin-snaplock`
+ a| 
+* 사용자 계정 로컬 암호 및 키 정보를 관리합니다
+* 볼륨 이동을 제외하고 볼륨을 관리합니다
+* 할당량, Qtree, 스냅샷 복사본 및 파일을 관리합니다
+* 권한 있는 삭제를 포함한 SnapLock 작업을 수행합니다
+* 프로토콜 구성: NFS 및 SMB
+* DNS, LDAP 및 NIS 서비스 구성
+* 작업을 모니터링합니다
+* 네트워크 연결 및 네트워크 인터페이스를 모니터링합니다
+
+
+
+
+ a| 
+`vsadmin-readonly`
+ a| 
+* 사용자 계정 로컬 암호 및 키 정보를 관리합니다
+* SVM의 상태를 모니터링합니다
+* 네트워크 인터페이스를 모니터링합니다
+* 볼륨 및 LUN 보기
+* 서비스 및 프로토콜 보기
+
+
+|===
+
+
+== 응용 프로그램 방법
+
+응용 프로그램 메서드는 로그인 메서드의 액세스 유형을 지정합니다. 가능한 값에는 `console, http, ontapi, rsh, snmp, service-processor, ssh,` 및 `telnet`가 포함됩니다.
+
+이 매개 변수를 설정하면 `service-processor` 사용자에게 서비스 프로세서에 대한 액세스 권한이 부여됩니다. 이 매개 변수를 로 설정할 `service-processor` `-authentication-method` 경우 서비스 프로세서가 암호 인증만 지원하므로 매개 변수를 로 설정해야 `password` 합니다. SVM 사용자 계정은 서비스 프로세서에 액세스할 수 없습니다. 따라서 이 매개 변수가 로 설정된 경우 연산자 및 관리자는 매개 변수를 사용할 수 `-vserver` `service-processor`없습니다.
+
+에 대한 액세스를 더 제한하려면 `service-processor` 명령을 `system service-processor ssh add-allowed-addresses`사용하십시오. 명령을 `system service-processor api-service` 사용하여 구성 및 인증서를 업데이트할 수 있습니다.
+
+NetApp에서는 보안 원격 액세스를 위해 SSH(보안 셸)를 권장하므로 보안상의 이유로 Telnet 및 RSH(원격 셸)는 기본적으로 비활성화되어 있습니다. 텔넷 또는 RSH에 대한 요구 사항이나 고유한 요구 사항이 있는 경우 이를 활성화해야 합니다.
+
+이 `security protocol modify` 명령은 RSH 및 Telnet의 기존 클러스터 전체 구성을 수정합니다. 활성화된 필드를 로 설정하여 클러스터에서 RSH 및 텔넷을 활성화합니다 `true`.
+
+
+
+== 인증 방법
+
+authentication method 매개 변수는 로그인에 사용되는 인증 방법을 지정합니다.
+
+[cols="33%,67%"]
+|===
+| 인증 방법 | 설명 
+
+
+| `cert` | SSL 인증서 인증 
+
+
+| `community` | SNMP 커뮤니티 문자열 
+
+
+| `domain` | Active Directory 인증 
+
+
+| `nsswitch` | LDAP 또는 NIS 인증 
+
+
+| `password` | 암호 
+
+
+| `publickey` | 공개 키 인증 
+
+
+| `usm` | SNMP 사용자 보안 모델입니다 
+|===
+
+NOTE: 프로토콜 보안의 약점으로 인해 NIS를 사용하지 않는 것이 좋습니다.
+
+ONTAP 9.3부터는 두 가지 인증 방법으로 로컬 SSH 계정에 대해 연결된 2단계 인증을 사용할 수 `admin` `publickey` 있습니다. 명령의 필드 외에 `-authentication-method` `security login` 이라는 새 필드가 `-second-authentication-method` 추가되었습니다. 공개 키 또는 암호를 또는 로 지정할 수 `-authentication-method` `-second-authentication-method`있습니다. 그러나 SSH 인증 중에 순서는 부분 인증을 사용하는 공개 키와 전체 인증을 위한 암호 프롬프트가 차례로 표시됩니다.
+
+[listing]
+----
+[user@host01 ~]$ ssh ontap.netapp.local
+Authenticated with partial success.
+Password:
+cluster1::>
+----
+ONTAP 9.4부터 를 `nsswitch` 와 함께 두 번째 인증 방법으로 사용할 수 `publickey`있습니다.
+
+ONTAP 9.12.1부터 FIDO2는 YubiKey 하드웨어 인증 장치 또는 기타 FIDO2 호환 장치를 사용하는 SSH 인증에도 사용할 수 있습니다.
+
+ONTAP 9.13.1부터:
+
+* `domain` 계정은 에서 두 번째 인증 방법으로 사용할 `publickey`수 있습니다.
+* 시간 기반 일회용 암호 (`totp`)는 현재 시간을 두 번째 인증 방법의 인증 요소 중 하나로 사용하는 알고리즘에 의해 생성된 임시 암호입니다.
+* 공개 키 취소는 SSH 공개 키와 SSH 중에 만료/해지 여부를 확인하는 인증서를 통해 지원됩니다.
+
+
+ONTAP System Manager, Active IQ Unified Manager, SSH를 위한 다단계 인증(MFA)에 대한 자세한 내용은 를 참조하십시오. link:http://www.netapp.com/us/media/tr-4647.pdf["TR-4647: ONTAP 9의 다단계 인증"^]

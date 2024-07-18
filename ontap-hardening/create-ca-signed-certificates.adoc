@@ -1,0 +1,28 @@
+---
+sidebar: sidebar 
+permalink: ontap-security-hardening/create-ca-signed-certificates.html 
+keywords: tr-4569, ontap hardening guide, security, self-signed, digital certificates, CA-signed digital certificates, generate-csr, security certificate install 
+summary: 클러스터 또는 SVM을 SSL 서버로 인증하는 데 사용할 CA 서명 디지털 인증서를 생성합니다. 
+---
+= CA 서명 디지털 인증서를 만듭니다
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media
+
+
+[role="lead"]
+대부분의 조직에서 ONTAP 웹 액세스용 자체 서명된 디지털 인증서는 InfoSec 정책을 준수하지 않습니다. 운영 시스템에서는 클러스터 또는 SVM을 SSL 서버로 인증하는 데 사용할 CA 서명 디지털 인증서를 설치하는 것이 NetApp 모범 사례입니다.
+
+명령을 사용하여 CSR(인증서 서명 요청)을 생성하고 명령을 사용하여 CA에서 받은 인증서를 설치할 수 `security certificate generate-csr` `security certificate install` 있습니다.
+
+.단계
+. 조직의 CA에서 서명한 디지털 인증서를 만들려면 다음을 실행합니다.
++
+.. CSR을 생성합니다.
+.. 조직의 절차에 따라 조직의 CA에서 CSR을 사용하여 디지털 인증서를 요청합니다. 예를 들어 Microsoft Active Directory 인증서 서비스 웹 인터페이스를 사용하여 로 `<CA_server_name>/certsrv` 이동하여 인증서를 요청합니다.
+.. ONTAP에 디지털 인증서를 설치합니다.
+
+
+

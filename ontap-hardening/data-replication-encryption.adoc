@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: ontap-security-hardening/data-replication-encryption.html 
+keywords: tr-4569, ontap hardening guide, encrypted SnapMirror, SnapVault, FlexCache, pre-shared key, TLS 1.2 
+summary: 데이터 복제 암호화를 사용하여 TLS 1.2에 대해 ONTAP 클러스터 간에 미리 공유된 키를 사용하여 SnapMirror, SnapVault, FlexCache의 복제 트래픽을 암호화합니다. 
+---
+= 데이터 복제 암호화
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media
+
+
+[role="lead"]
+유휴 데이터의 암호화를 보완하기 위해 SnapMirror, SnapVault 또는 FlexCache에서 사전 공유 키와 TLS 1.2를 사용하여 클러스터 간 ONTAP 데이터 복제 트래픽을 암호화할 수 있습니다.
+
+재해 복구, 캐싱 또는 백업을 위해 데이터를 복제할 때 ONTAP 클러스터 간에 유선으로 데이터를 전송하는 동안 해당 데이터를 보호해야 합니다. 이렇게 하면 전송 중일 때 기밀 데이터에 대한 악의적인 메시지 가로채기 공격을 방지할 수 있습니다.
+
+ONTAP 9.6부터 클러스터 피어링 암호화는 SnapMirror, SnapVault, FlexCache 등과 같은 ONTAP 데이터 복제 기능을 위해 TLS 1.2 AES-256 GCM 암호화 지원을 제공합니다. 암호화는 두 클러스터 피어 간에 미리 공유된 키(PSK)를 통해 설정됩니다.
+
+NSE, NVE, NAE와 같은 기술을 사용하여 유휴 데이터를 보호하는 고객은 ONTAP 9.6 이상으로 업그레이드하여 클러스터 피어링 암호화를 사용하여 엔드 투 엔드 데이터 암호화를 사용할 수도 있습니다.
+
+클러스터 피어링은 클러스터 피어 간의 모든 데이터를 암호화합니다. 예를 들어, SnapMirror를 사용할 때 모든 피어링 정보와, 소스와 대상 클러스터 피어 간의 모든 SnapMirror 관계가 암호화됩니다. 클러스터 피어링 암호화가 활성화된 클러스터 피어 간에는 일반 텍스트 데이터를 보낼 수 없습니다.
+
+ONTAP 9.6부터 새로운 클러스터 피어 관계는 기본적으로 암호화가 활성화되어 있습니다. ONTAP 9.6 이전에 생성된 클러스터 피어 관계의 암호화를 활성화하려면 소스 및 대상 클러스터를 9.6으로 업그레이드해야 합니다. 또한 클러스터 피어링 암호화를 사용하려면 명령을 사용하여 `cluster peer modify` 소스 및 대상 클러스터 피어를 모두 변경해야 합니다.
+
+다음 예에 표시된 것처럼 ONTAP 9.6에서 클러스터 피어링 암호화를 사용하도록 기존 피어 관계를 변환할 수 있습니다.
+
+[listing]
+----
+On the Destination Cluster Peer
+
+cluster2::> cluster peer modify cluster1 -auth-status-admin use-authentication -encryption-protocol-proposed tls-psk
+
+When prompted enter a passphrase.
+
+On the Source Cluster Peer
+
+cluster1::> cluster peer modify cluster2 -auth-status-admin use-authentication -encryption-protocol-proposed tls-psk
+
+When prompted enter the same passphrase you created in the previous step.
+----

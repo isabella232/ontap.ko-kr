@@ -30,6 +30,12 @@ FlexVol 볼륨에 비호환성이 있으며 볼륨 변환이 취소되면 오류
 ----
 snapmirror update -destination-path <destination_svm_name>: -source-path <source_svm_name>:
 ----
++
+[NOTE]
+====
+옵션에서 SVM 이름 뒤에 콜론(:)을 입력해야 `-destination-path` 합니다.
+
+====
 . SVM-DR 관계가 SnapMirro 상태에 있고 끊지 않았는지 확인합니다.
 +
 [source, cli]
@@ -51,6 +57,12 @@ volume conversion start -vserver <svm_name> -volume <vol_name> -check-only true
 ----
 snapmirror quiesce -destination-path <dest_svm>:
 ----
++
+[NOTE]
+====
+옵션에서 SVM 이름 뒤에 콜론(:)을 입력해야 `-destination-path` 합니다.
+
+====
 . 소스 클러스터에서 변환을 시작합니다.
 +
 [source, cli]
@@ -68,9 +80,9 @@ volume show <vol_name> -fields volume-style-extended,state
 ----
 cluster-1::*> volume show my_volume -fields volume-style-extended,state
 
-vserver   volume     state    volume-style-extended
--------       ---------     ------    ---------------------
-vs0     my_volume  online  flexgroup
+vserver       volume     state    volume-style-extended
+-------       ---------  ------    ---------------------
+vs0           my_volume  online  flexgroup
 ----
 . 대상 클러스터에서 관계에 대한 전송을 재개합니다.
 +
@@ -78,12 +90,24 @@ vs0     my_volume  online  flexgroup
 ----
 snapmirror resume -destination-path <dest_svm>:
 ----
++
+[NOTE]
+====
+옵션에서 SVM 이름 뒤에 콜론(:)을 입력해야 `-destination-path` 합니다.
+
+====
 . 대상 클러스터에서 업데이트를 수행하여 변환을 대상으로 전파합니다.
 +
 [source, cli]
 ----
 snapmirror update -destination-path <dest_svm>:
 ----
++
+[NOTE]
+====
+옵션에서 SVM 이름 뒤에 콜론(:)을 입력해야 `-destination-path` 합니다.
+
+====
 . SVM-DR 관계가 SnapMirro 상태에 있고 끊지 않았는지 확인합니다.
 +
 [source, cli]
@@ -102,7 +126,7 @@ volume show <vol_name> -fields volume-style-extended,state
 cluster-2::*> volume show my_volume -fields volume-style-extended,state
 
 vserver    volume       state     volume-style-extended
--------       -------           ------     ---------------------
-vs0_dst   my_volume  online  flexgroup
+-------    -------      ------    ---------------------
+vs0_dst    my_volume    online    flexgroup
 ----
 
