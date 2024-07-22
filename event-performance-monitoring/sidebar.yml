@@ -40,13 +40,11 @@ entries:
     url: "/system-admin/forward-command-history-log-file-destination-task.html"
 - title: AutoSupport
   entries:
-  - title: System Manager로 AutoSupport를 관리합니다
-    url: "/system-admin/autosupport-manage-settings-task.html"
-  - title: CLI를 사용하여 AutoSupport를 관리합니다
+  - title: AutoSupport에 대해 자세히 알아보십시오
     entries:
-    - title: 개요
+    - title: AutoSupport 정보
       url: "/system-admin/manage-autosupport-concept.html"
-    - title: AutoSupport 및 Active IQ 디지털 자문업체 사용
+    - title: Active IQ Digital Advisor 및 AutoSupport 정보
       url: "/system-admin/autosupport-active-iq-digital-advisor-concept.html"
     - title: AutoSupport 메시지가 전송되는 시기 및 위치
       url: "/system-admin/when-where-autosupport-messages-sent-concept.html"
@@ -54,8 +52,8 @@ entries:
       url: "/system-admin/autosupport-creates-sends-event-messages-concept.html"
     - title: AutoSupport 메시지의 유형과 콘텐츠입니다
       url: "/system-admin/types-autosupport-messages-reference.html"
-    - title: AutoSupport 하위 시스템이란 무엇입니까
-      url: "/system-admin/autosupport-subsystem-collection-reference.html"
+    - title: AutoSupport 하위 시스템을 봅니다
+      url: "/system-admin/autosupport-subsystem-collection.html"
     - title: AutoSupport 규모와 시간 예산이 있습니다
       url: "/system-admin/autosupport-size-time-budgets-reference.html"
     - title: 이벤트 트리거 AutoSupport 메시지로 전송된 파일입니다
@@ -70,22 +68,32 @@ entries:
       url: "/system-admin/structure-autosupport-messages-sent-email-concept.html"
     - title: AutoSupport 심각도 유형
       url: "/system-admin/autosupport-severity-types-concept.html"
-    - title: AutoSupport 사용을 준비합니다
-      url: "/system-admin/requirements-autosupport-reference.html"
-    - title: AutoSupport를 설정합니다
-      url: "/system-admin/setup-autosupport-task.html"
-    - title: 코어 덤프 파일을 업로드합니다
-      url: "/system-admin/upload-core-dump-files-task.html"
-    - title: 성능 아카이브 파일을 업로드합니다
-      url: "/system-admin/upload-performance-archive-files-task.html"
     - title: AutoSupport 메시지 설명을 봅니다
       url: "/system-admin/get-autosupport-message-descriptions-task.html"
     - title: AutoSupport 관리를 위한 명령입니다
       url: "/system-admin/commands-manage-autosupport-reference.html"
     - title: AutoSupport 매니페스트에 포함된 정보입니다
       url: "/system-admin/autosupport-manifest-concept.html"
-    - title: 예약된 유지 보수 기간 동안 AutoSupport 케이스 억제
-      url: "/system-admin/autosupport-case-suppression-maintenance-concept.html"
+  - title: 계획
+    entries:
+    - title: AutoSupport 사용을 준비합니다
+      url: "/system-admin/requirements-autosupport-reference.html"
+    - title: AutoSupport를 설정합니다
+      url: "/system-admin/setup-autosupport-task.html"
+  - title: 구성
+    entries:
+    - title: AutoSupport 설정을 관리합니다
+      url: "/system-admin/autosupport-manage-settings-task.html"
+    - title: 예약된 유지 관리 기간 동안 AutoSupport 케이스 생성을 억제합니다
+      url: "/system-admin/autosupport-case-suppression-maintenance.html"
+  - title: AutoSupport를 사용하여 파일을 업로드합니다
+    entries:
+    - title: 코어 덤프 파일을 업로드합니다
+      url: "/system-admin/upload-core-dump-files-task.html"
+    - title: 성능 아카이브 파일을 업로드합니다
+      url: "/system-admin/upload-performance-archive-files-task.html"
+  - title: 문제 해결
+    entries:
     - title: 메시지가 수신되지 않을 경우 AutoSupport 문제를 해결합니다
       url: "/system-admin/troubleshoot-autosupport-messages-not-received-task.html"
     - title: HTTP 또는 HTTPS를 통한 AutoSupport 메시지 전송 문제를 해결합니다

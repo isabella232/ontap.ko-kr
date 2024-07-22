@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: system manager, autosupport, setting, generate autosupport data, send autosupport data, enable, disable, suppress support case, resume support cases, email, email recipient, connection, transport protocol, proxy server, mail host, transfer history, sequence, cluster setting, asup 
 summary: System Manager를 사용하여 AutoSupport 계정의 설정을 관리할 수 있습니다. 
 ---
-= System Manager로 AutoSupport 설정을 관리합니다
+= AutoSupport 설정을 관리합니다
 :allow-uri-read: 
 
 

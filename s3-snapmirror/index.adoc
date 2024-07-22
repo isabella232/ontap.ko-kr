@@ -32,22 +32,22 @@ ONTAP S3
 * 동일한 클러스터에서 서로 다른 SVM의 버킷
 * SVM의 다양한 클러스터에서 버킷
 
-| image:status-enabled-perf-config.gif["확인 표시"] | image:status-enabled-perf-config.gif["확인 표시"] 
+| 예 | 예 
 
 
-| StorageGRID |  | image:status-enabled-perf-config.gif["확인 표시"] 
+| StorageGRID | 아니요 | 예 
 
 
-| 설치하고 |  | image:status-enabled-perf-config.gif["확인 표시"] 
+| 설치하고 | 아니요 | 예 
 
 
-| Azure용 Cloud Volumes ONTAP | image:status-enabled-perf-config.gif["확인 표시"] | image:status-enabled-perf-config.gif["확인 표시"] 
+| Azure용 Cloud Volumes ONTAP | 예 | 예 
 
 
-| AWS 환경을 위한 Cloud Volumes ONTAP | image:status-enabled-perf-config.gif["확인 표시"] | image:status-enabled-perf-config.gif["확인 표시"] 
+| AWS 환경을 위한 Cloud Volumes ONTAP | 예 | 예 
 
 
-| Google Cloud용 Cloud Volumes ONTAP | image:status-enabled-perf-config.gif["확인 표시"] | image:status-enabled-perf-config.gif["확인 표시"] 
+| Google Cloud용 Cloud Volumes ONTAP | 예 | 예 
 |===
 ONTAP S3 서버에서 기존 버킷을 보호하거나 데이터 보호를 즉시 활성화할 수 있는 새로운 버킷을 생성할 수 있습니다.
 

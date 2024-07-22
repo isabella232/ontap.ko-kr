@@ -46,6 +46,8 @@ entries:
           url: "/data-protection/compatible-ontap-versions-snapmirror-concept.html"
         - title: DP 유형 관계
           url: "/data-protection/convert-snapmirror-version-flexible-task.html"
+        - title: 장기 보존 스냅샷을 비활성화합니다
+          url: "/upgrade/snapmirror-cascade-relationship-blocked.html"
       - title: S3 SnapMirror 구성에 대한 라이센스 확인
         url: "/upgrade/considerations-for-s3-snapmirror-concept.html"
       - title: NetApp 스토리지 암호화

@@ -702,4 +702,4 @@ Enter pass phrase for intermediate.key:
 [root@scs000216982 server_config]# openssl verify -CAfile ca.crt ontap_mediator_server.crt
 ontap_mediator_server.crt: OK
 ----
-OCSP(Online Certificate Status Protocol) 유효성 검사가 사용 중인 경우 명령을 사용합니다 link:https://www.openssl.org/docs/manmaster/man1/openssl-verify.html^["OpenSSL - 확인"].
+OCSP(Online Certificate Status Protocol) 유효성 검사가 사용 중인 경우 명령을 link:https://www.openssl.org/docs/manmaster/man1/openssl-verify.html["OpenSSL - 확인"^]사용합니다.

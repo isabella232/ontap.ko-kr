@@ -89,3 +89,22 @@ NOTE: S3 클라이언트에서 비밀 키를 입력하라는 메시지가 표시
 
 
 
+
+
+
+=== UID 및 GID가 없는 사용자에 대한 Active Directory 리소스 인증
+
+bucket-policy 문에 지정된 nasgroup 또는 nasgroup에 속한 사용자에게 UID 및 GID가 설정되지 않은 경우 이러한 속성을 찾을 수 없으면 조회가 실패합니다.
+
+조회 실패를 방지하기 위해 NetApp에서는 리소스 권한 부여에 신뢰할 수 있는 도메인을 UPN 형식 nasgroup/group@trusted_domain.com 사용하는 것이 좋습니다
+
+
+
+=== LDAP 빠른 바인딩을 사용하지 않을 때 신뢰할 수 있는 도메인 사용자에 대한 사용자 액세스 키를 생성합니다
+
+UPN 형식으로 지정된 사용자가 있는 '3/services/<svm_uuid>/users' 끝점을 사용합니다. 예:
+
+[listing]
+----
+$curl -siku FQDN\\user:<user_name> -X POST https://<LIF_IP_Address>/api/protocols/s3/services/<SVM_UUID>/users -d {"comment":"<S3_user_name>", "name":<user[@fqdn](https://github.com/fqdn)>,"<key_time_to_live>":"PT6H3M"}'
+----

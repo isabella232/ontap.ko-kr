@@ -1,7 +1,7 @@
 ---
 permalink: san-admin/enable-space-allocation.html 
 sidebar: sidebar 
-keywords: enable, space allocation, space reclamation, unmap 
+keywords: enable, space allocation, space reclamation, unmap, lun 
 summary: 공간 할당을 설정하여 호스트 및 스토리지 시스템이 공간 관리에 협력할 수 있도록 합니다. 
 ---
 = SAN에 공간 할당을 설정합니다
@@ -11,7 +11,11 @@ summary: 공간 할당을 설정하여 호스트 및 스토리지 시스템이 �
 
 
 [role="lead"]
-공간 할당을 설정하여 호스트와 스토리지 시스템이 LUN 공간 관리에 협력할 수 있도록 합니다. 를 활성화합니다 `space-allocation` 설정을 사용하면 다음과 같은 이점이 있습니다.
+공간 할당을 설정하여 호스트와 스토리지 시스템이 LUN 공간 관리에 협력할 수 있도록 합니다.
+
+ONTAP 9.15.1부터 새로 생성된 LUN에 대해 공간 할당이 기본적으로 설정됩니다. 이전 버전의 ONTAP(9.14.1 이하)에서는 공간 할당이 기본적으로 해제되었습니다.
+
+ `space-allocation`설정을 사용하면 다음과 같은 이점이 있습니다.
 
 * *ONTAP는 쓰기 작업을 처리할 수 있는 여유 공간이 없는 호스트와 통신할 수 있습니다.*: 이 통신은 호스트가 공간 부족 상황을 처리할 수 있는 보다 원활한 방법입니다. LUN은 온라인 상태로 유지되지만 공간을 사용할 수 있게 될 때까지 쓰기 IO를 처리할 수 없습니다. 읽기 IO는 여전히 수행할 수 있습니다. 호스트 운영 체제에 미치는 정확한 영향은 호스트 구성에 따라 다릅니다. 경우에 따라 OS는 성공할 때까지 쓰기 입출력을 다시 시도합니다. 다른 경우에는 파일 시스템을 오프라인으로 설정할 수 있습니다.
 +
@@ -38,20 +42,21 @@ NOTE: 를 누릅니다 `space-allocation` 설정을 사용하지 않으면 LUN�
 NVMe 호스트에서는 공간 할당이 지원되지 않습니다.
 
 .이 작업에 대해
-ONTAP 9.15.1부터 새로 생성된 VMware 및 Hyper-V LUN에 대해 기본적으로 공간 할당이 설정되며 VMware 및 Hyper-V에서 사용되지 않는 새로 생성된 모든 LUN에 대해 공간 할당이 해제됩니다
-
-
-NOTE: 클러스터를 ONTAP 9.15.1로 업그레이드하면 소프트웨어 업그레이드 전에 생성된 모든 LUN에 대한 공간 할당 설정은 호스트 유형에 관계없이 업그레이드 후에도 동일하게 유지됩니다.  예를 들어 공간 할당이 해제된 VMware 호스트에 대해 ONTAP 9.13.1에서 LUN을 생성한 경우 ONTAP 9.15.1로 업그레이드한 후 해당 LUN에 대한 공간 할당이 해제된 상태로 유지됩니다.
+클러스터를 ONTAP 9.15.1로 업그레이드하면 소프트웨어 업그레이드 전에 생성된 모든 LUN에 대한 공간 할당 설정은 호스트 유형에 관계없이 업그레이드 후에도 동일하게 유지됩니다. 예를 들어 공간 할당이 해제된 VMware 호스트에 대해 ONTAP 9.13.1에서 LUN을 생성한 경우 ONTAP 9.15.1로 업그레이드한 후 해당 LUN에 대한 공간 할당이 해제된 상태로 유지됩니다.
 
 .단계
 . 공간 할당 활성화:
 +
-`lun modify -vserver _vserver_name_ -volume _volume_name_ -lun _lun_name_ -space-allocation enabled`
-
+[source, cli]
+----
+`lun modify -vserver <vserver_name> -volume <volume_name> -lun <lun_name> -space-allocation enabled
+----
 . 공간 할당이 설정되었는지 확인합니다.
 +
-`lun show -vserver _vserver_name_ -volume _volume_name_ -lun _lun_name_ -fields space-allocation`
-
+[source, cli]
+----
+lun show -vserver <vserver_name> -volume <volume_name> -lun <lun_name> -fields space-allocation
+----
 . 호스트 운영 체제에서 공간 할당이 활성화되어 있는지 확인합니다.
 +
 

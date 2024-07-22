@@ -1,0 +1,57 @@
+---
+permalink: upgrade/snapmirror-cascade-relationship-blocked.html 
+sidebar: sidebar 
+keywords: ontap, upgrade, 9.9.1. 9.10.1, update, cascade, LTR, long term retention, snapshots, considerations, secondary storage 
+summary: '클러스터에 SnapMirror 계단식 배열 관계가 구성된 경우 업그레이드하기 전에 LTR(장기 보존) 스냅샷을 비활성화해야 할 수 있습니다' 
+---
+= ONTAP 업그레이드 전에 장기 보존 스냅샷을 비활성화합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.9.1 이하에서 ONTAP 9.10.1 이상으로 업그레이드하는 경우 클러스터에 SnapMirror 계단식 배열 관계가 구성된 경우, 업그레이드 전에 계단식 복수의 중간 볼륨에서 LTR(장기 보존) 스냅샷을 비활성화해야 합니다. ONTAP 9.10.1 이상에서는 LTR 스냅샷이 활성화된 볼륨의 연속 작업이 지원되지 않습니다. 업그레이드 후 이 구성을 사용하면 백업 및 스냅샷이 누락될 수 있습니다.
+
+다음 시나리오에서 조치를 취해야 합니다.
+
+* LTR(장기 보존) 스냅샷은 "A > B > C" SnapMirror 계단식 또는 더 큰 계단식 복수의 다른 중간 SnapMirror 대상 볼륨에 있는 "B" 볼륨에 구성됩니다.
+* LTR 스냅샷은 SnapMirror 정책 규칙에 적용되는 스케줄에 의해 정의됩니다. 이 규칙은 소스 볼륨에서 스냅샷을 복제하지 않고 대상 볼륨에 직접 스냅샷을 생성합니다.
++
+
+NOTE: 일정 및 SnapMirror 정책에 대한 자세한 내용은 기술 자료 문서 를 참조하십시오.
+
+
+
+.단계
+. 중간 볼륨의 SnapMirror 정책에서 LTR 규칙을 제거합니다.
++
+[listing]
+----
+Secondary::> snapmirror policy remove-rule -vserver <> -policy <> -snapmirror-label <>
+----
+. LTR 일정을 사용하지 않고 SnapMirror 레이블에 대한 규칙을 다시 추가합니다.
++
+[listing]
+----
+Secondary::> snapmirror policy add-rule -vserver <> -policy <> -snapmirror-label <> -keep <>
+----
++
+
+NOTE: SnapMirror 정책 규칙에서 LTR 스냅샷을 제거하면 SnapMirror가 소스 볼륨에서 지정된 레이블을 가진 스냅샷을 가져옵니다. 소스 볼륨의 스냅샷 정책에 대한 스케줄을 추가하거나 수정하여 적절하게 레이블이 지정된 스냅샷을 생성해야 할 수도 있습니다.
+
+. 필요한 경우 소스 볼륨 스냅샷 정책에 대한 일정을 수정하거나 생성하여 SnapMirror 레이블을 사용하여 스냅샷을 생성할 수 있습니다.
++
+[listing]
+----
+Primary::> volume snapshot policy modify-schedule -vserver <> -policy <> -schedule <> -snapmirror-label <>
+----
++
+[listing]
+----
+Primary::> volume snapshot policy add-schedule -vserver <> -policy <> -schedule <> -snapmirror-label <> -count <>
+----
+
+
+
+NOTE: LTR 스냅샷은 SnapMirror 계단식 구성을 사용하는 최종 SnapMirror 대상 볼륨에 대해 계속 활성화할 수 있습니다.
