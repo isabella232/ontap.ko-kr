@@ -1,0 +1,226 @@
+---
+sidebar: sidebar 
+permalink: ontap-security-hardening/sysadmin-methods.html 
+keywords: tr-4569, ontap hardening guide, security, access, encryption, MFA, multi-factor authentication, ssh, MOTD, CLI timeout, SAML access for System Manager, Insights 
+summary: 강력한 ONTAP 시스템 관리를 위해 이러한 방법을 배포합니다. 
+---
+= 시스템 관리 방법
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media
+
+
+[role="lead"]
+이는 ONTAP 시스템 관리를 강화하는 중요한 매개 변수입니다.
+
+
+
+== 명령줄 액세스
+
+보안 솔루션을 유지 관리하려면 시스템에 대한 보안 액세스를 설정하는 것이 중요합니다. 가장 일반적인 명령줄 액세스 옵션은 SSH, Telnet 및 RSH입니다. 이 중에서 SSH는 원격 명령줄 액세스를 위한 가장 안전한 업계 표준 모범 사례입니다. NetApp에서는 ONTAP 솔루션에 대한 명령줄 액세스를 위해 SSH를 사용할 것을 적극 권장합니다.
+
+
+
+=== SSH 구성
+
+ `security ssh show`명령은 클러스터 및 SVM에 대한 SSH 키 교환 알고리즘, 암호, MAC 알고리즘의 구성을 보여줍니다. 키 교환 방법은 이러한 알고리즘과 암호를 사용하여 암호화 및 인증을 위해 1회성 세션 키가 생성되는 방법과 서버 인증이 수행되는 방법을 지정합니다.
+
+[listing]
+----
+cluster1::> security ssh show
+
+Vserver       Ciphers       Key Exchange Algorithms     MAC Algorithms
+--------  ----------------  --------------------------  --------------
+nsadhanacluster-2
+                aes256-ctr,   diffie-helman-group-      hmac-sha2-256
+                aes192-ctr,	   exchange-sha256,         hmac-sha2-512
+                aes128-ctr    ecdh-sha2-nistp384
+vs0             aes128-gcm    curve25519-sha256         hmac-sha1
+vs1             aes256-ctr,   diffie-hellman-group-     hmac-sha1-96
+                aes192-ctr,   exchange-sha256           hmac-sha2-256
+                aes128-ctr,   ecdh-sha2-nistp384        hmac-sha2-256-
+				3des-cbc,     ecdh-sha2-nistp512        etm
+				aes128-gcm                              hmac-sha2-512
+3 entries were displayed.
+
+----
+
+
+=== 로그인 배너
+
+조직은 로그인 배너를 사용하여 모든 운영자, 관리자, 범법자를 막론하고 모두에게 사용 약관을 제공하고 시스템에 액세스 할 수 있는 사람을 표시 할 수 있습니다. 이 접근 방식은 시스템 액세스 및 사용에 대한 기대치를 설정하는 데 유용합니다.  `security login banner modify`이 명령은 로그인 배너를 수정합니다. 로그인 배너는 SSH 및 콘솔 장치 로그인 프로세스 중 인증 단계 바로 앞에 표시됩니다. 다음 예에 표시된 대로 배너 텍스트는 큰 따옴표(" ")로 묶어야 합니다.
+
+[listing]
+----
+cluster1::> security login banner modify -vserver cluster1 -message “Authorized users ONLY!”
+----
+
+
+=== 로그인 배너 매개 변수
+
+[cols="19%,81%"]
+|===
+| 매개 변수 | 설명 
+
+
+| `vserver` | 이 매개 변수를 사용하여 수정된 배너가 있는 SVM을 지정합니다. 클러스터 관리자 SVM의 이름을 사용하여 클러스터 레벨 메시지를 수정하십시오. 클러스터 레벨 메시지는 메시지가 정의되지 않은 데이터 SVM에 대한 기본값으로 사용됩니다. 
+
+
+| `message`  a| 
+이 선택적 매개 변수는 로그인 배너 메시지를 지정하는 데 사용할 수 있습니다. 클러스터에 로그인 배너 메시지가 설정된 경우 클러스터 로그인 배너는 모든 데이터 SVM에서 사용됩니다. 데이터 SVM의 로그인 배너를 설정하면 클러스터 로그인 배너의 디스플레이가 재정의됩니다. 데이터 SVM 로그인 배너를 사용하여 클러스터 로그인 배너를 재설정하려면 이 매개 변수를 "-" 값과 함께 사용하십시오.
+
+이 매개 변수를 사용하는 경우 로그인 배너에 줄 바꿈(줄 끝 [EOL] 또는 줄 바꿈)을 포함할 수 없습니다. 새 줄이 있는 로그인 배너 메시지를 입력하려면 매개 변수를 지정하지 마십시오. 메시지를 대화형으로 입력하라는 메시지가 표시됩니다. 대화형으로 입력된 메시지에는 줄 바꿈을 포함할 수 있습니다.
+
+ASCII가 아닌 문자는 유니코드 UTF-8을 사용해야 합니다.
+
+
+
+| `uri`  a| 
+`(ftp|http)://(hostname|IPv4`
+
+이 매개 변수를 사용하여 로그인 배너를 다운로드할 URI를 지정합니다.
+
+메시지의 길이는 2048바이트를 초과할 수 없습니다. 비 ASCII 문자는 유니코드 UTF-8로 제공되어야 합니다.
+
+|===
+
+
+=== 오늘의 메시지
+
+이 `security login motd modify` 명령은 MOTD(오늘의 메시지)를 업데이트합니다.
+
+MOTD에는 클러스터 레벨 MOTD와 데이터 SVM 레벨 MOTD라는 두 가지 범주가 있습니다. 데이터 SVM의 클러스터 쉘에 로그인하는 사용자는 클러스터 레벨 MOTD 다음에 해당 SVM에 대한 SVM 레벨 MOTD라는 두 가지 메시지를 볼 수 있습니다.
+
+클러스터 관리자는 필요한 경우 각 SVM에서 개별적으로 클러스터 수준 MOTD를 사용하거나 사용하지 않도록 설정할 수 있습니다. 클러스터 관리자가 SVM에 대해 클러스터 레벨 MOTD를 사용하지 않도록 설정하면 SVM에 로그인한 사용자에게 클러스터 레벨 메시지가 표시되지 않습니다. 클러스터 관리자만 클러스터 레벨 메시지를 설정 또는 해제할 수 있습니다.
+
+[cols="22%,78%"]
+|===
+| MOTD 매개 변수입니다 | 설명 
+
+
+| SVM | 이 매개변수를 사용하여 MOTD가 수정되는 SVM을 지정합니다. 클러스터 관리자 SVM의 이름을 사용하여 클러스터 레벨 메시지를 수정하십시오. 
+
+
+| 메시지  a| 
+이 선택적 매개 변수는 메시지를 지정하는 데 사용할 수 있습니다. 이 매개변수를 사용하면 MOTD에 줄 바꿈을 포함할 수 없습니다. 매개 변수 이외의 매개 변수를 지정하지 `-vserver` 않으면 메시지를 대화형으로 입력하라는 메시지가 표시됩니다. 대화형으로 입력된 메시지에는 줄 바꿈을 포함할 수 있습니다. 비 ASCII 문자는 유니코드 UTF-8로 제공되어야 합니다. 메시지에는 다음과 같은 이스케이프 시퀀스를 사용하여 동적으로 생성된 콘텐츠가 포함될 수 있습니다.
+
+* `\\` - 단일 백래시 문자
+* `\b` - 출력 없음(Linux와의 호환성을 위해서만 지원됨)
+* `\C` - 클러스터 이름입니다
+* `\d` - 로그인 노드에 설정된 현재 날짜입니다
+* `\t` - 로그인 노드에 설정된 현재 시간입니다
+* `\I` - 수신 LIF IP 주소(로그인용 콘솔 인쇄 `console` )
+* `\l` - 로그인 장치 이름(로그인을 위해 콘솔을 인쇄함 `console` )
+* `\L` - 클러스터의 모든 노드에서 사용자에 대한 마지막 로그인입니다
+* `\m` - 기계 아키텍처
+* `\n` - 노드 또는 데이터 SVM 이름
+* `\N` - 로그인한 사용자의 이름입니다
+* `\o` - \O와 동일합니다 Linux 호환성을 위해 제공됩니다.
+* `\O` - 노드의 DNS 도메인 이름입니다. 출력은 네트워크 구성에 따라 달라지며 비어 있을 수 있습니다.
+* `\r` - 소프트웨어 릴리스 번호
+* `\s` - 운영 체제 이름입니다
+* `\u` - 로컬 노드의 활성 클러스터 셸 세션 수입니다. 클러스터 관리자의 경우: 모든 클러스터 셸 사용자. 데이터 SVM 관리자의 경우: 해당 데이터 SVM에 대한 액티브 세션만 지원됩니다.
+* `\U` - 와 같지만 `\u`또는 가 `user` `users` 추가됩니다
+* `\v` - 효과적인 클러스터 버전 문자열
+* `\W` - 사용자가 로그인할 수 있도록 클러스터 전체에서 활성 세션 (`who`사용)
+
+
+|===
+ONTAP에서 오늘의 메시지를 구성하는 방법에 대한 자세한 내용은 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap/system-admin/manage-banner-motd-concept.html["오늘의 메시지에 대한 ONTAP 문서"].
+
+
+
+=== CLI 세션 시간 초과
+
+기본 CLI 세션 시간 초과는 30분입니다. 시간 초과는 부실 세션 및 세션 피기백킹을 방지하는 데 중요합니다.
+
+명령을 사용하여 `system timeout show` 현재 CLI 세션 시간 초과를 봅니다. 시간 초과 값을 설정하려면 `system timeout modify -timeout <minutes>` 명령을 사용합니다.
+
+
+
+== NetApp ONTAP System Manager를 통한 웹 액세스
+
+ONTAP 관리자가 클러스터를 액세스하고 관리하는 데 CLI 대신 그래픽 인터페이스를 사용하려는 경우 NetApp ONTAP System Manager를 사용하십시오. 기본적으로 활성화되며 브라우저를 통해 액세스할 수 있는 웹 서비스로 ONTAP에 포함되어 있습니다. DNS를 사용하는 경우 브라우저에서 호스트 이름을 가리키거나 를 통해 IPv4 또는 IPv6 주소를 `https://cluster-management-LIF`지정합니다.
+
+클러스터에서 자체 서명된 디지털 인증서를 사용하는 경우 브라우저에서 인증서를 신뢰할 수 없음을 나타내는 경고를 표시할 수 있습니다. 액세스를 계속할 위험을 인식하거나 서버 인증을 위해 클러스터에 CA(인증 기관) 서명 디지털 인증서를 설치할 수 있습니다.
+
+ONTAP 9.3부터 SAML(Security Assertion Markup Language) 인증은 ONTAP System Manager의 옵션입니다.
+
+
+
+=== ONTAP System Manager에 대한 SAML 인증
+
+SAML 2.0은 타사 SAML 호환 ID 공급자(IDP)가 기업에서 선택한 IDP에 고유한 메커니즘을 사용하고 SSO(Single Sign-On)의 소스로 MFA를 수행할 수 있도록 하는 널리 채택된 업계 표준입니다.
+
+SAML 사양에는 Principal, IDP 및 Service Provider의 세 가지 역할이 정의되어 있습니다. ONTAP 구현에서 주체는 클러스터 관리자가 ONTAP System Manager 또는 NetApp Active IQ Unified Manager를 통해 ONTAP에 액세스할 수 있도록 하는 것입니다. IDP는 타사 IDP 소프트웨어입니다. ONTAP 9.3부터 Microsoft ADFS(Active Directory Federated Services)와 오픈 소스 Shibboleth IDP가 지원됩니다. ONTAP 9.12.1부터 Cisco Duo는 IDP를 지원합니다. 서비스 공급자는 ONTAP에 내장된 SAML 기능으로, ONTAP System Manager 또는 Active IQ Unified Manager 웹 애플리케이션에서 사용됩니다.
+
+SSH 2단계 구성 프로세스와 달리, SAML 인증이 활성화된 후 ONTAP System Manager 또는 ONTAP 서비스 프로세서 액세스에 모든 기존 관리자는 SAML IDP를 통해 인증해야 합니다. 클러스터 사용자 계정을 변경할 필요가 없습니다. SAML 인증이 활성화되면 및 응용 프로그램에 대한 관리자 역할이 있는 기존 사용자에게 의 새로운 인증 방법이 `saml` `http` `ontapi` 추가됩니다.
+
+SAML 인증을 사용하도록 설정한 후 SAML IDP 액세스가 필요한 추가 새 계정을 ONTAP에서 관리자 역할 및 및 및 응용 프로그램에 대한 SAML 인증 방법으로 `http` `ontapi` 정의해야 합니다. 특정 시점에 SAML 인증이 비활성화된 경우 이러한 새 계정은 및 응용 프로그램에 대한 관리자 역할을 정의하고 로컬 ONTAP 인증을 위한 콘솔 응용 프로그램을 ONTAP 시스템 관리자에 추가해야 `password` `http` `ontapi` 합니다.
+
+SAML IDP를 사용하도록 설정하면 IDP는 LDAP(Lightweight Directory Access Protocol), AD(Active Directory), Kerberos, 암호 등과 같이 IDP에 사용 가능한 방법을 사용하여 ONTAP 시스템 관리자 액세스에 대한 인증을 수행합니다. 사용 가능한 방법은 IDP에 고유합니다. ONTAP에 구성된 계정에는 IDP 인증 방법에 매핑되는 사용자 ID가 있어야 합니다.
+
+NetApp에서 검증한 IDP는 Microsoft ADFS, Cisco Duo 및 오픈 소스 Shibboleth IDP입니다.
+
+ONTAP 9.14.1부터 Cisco Duo를 SSH의 두 번째 인증 요소로 사용할 수 있습니다.
+
+ONTAP System Manager, Active IQ Unified Manager 및 SSH를 위한 MFA에 대한 자세한 내용은 를 참조하십시오. link:http://www.netapp.com/us/media/tr-4647.pdf["TR-4647: ONTAP 9의 다단계 인증"^]
+
+
+
+=== ONTAP System Manager의 통찰력
+
+ONTAP 9.11.1부터 ONTAP System Manager는 클러스터 관리자가 일상 작업을 간소화하는 데 도움이 되는 통찰력을 제공합니다. 보안 정보는 이 기술 보고서의 권장 사항을 기반으로 합니다.
+
+[cols="43%,57%"]
+|===
+| 보안 통찰력 | 결정 
+
+
+| 텔넷이 활성화되었습니다 | 보안 원격 액세스를 위해 SSH(Secure Shell)를 사용하는 것이 좋습니다. 
+
+
+| 원격 셸(RSH)이 활성화되었습니다 | NetApp에서는 보안 원격 액세스에 SSH를 권장합니다. 
+
+
+| AutoSupport가 안전하지 않은 프로토콜을 사용하고 있습니다 | AutoSupport가 HTTPS 링크를 통해 전송되도록 구성되지 않았습니다. 
+
+
+| 로그인 배너가 클러스터 레벨의 클러스터에 구성되어 있지 않습니다 | 로그인 배너가 클러스터에 대해 구성되지 않은 경우 경고. 
+
+
+| SSH가 안전하지 않은 암호를 사용하고 있습니다 | SSH에서 안전하지 않은 암호를 사용하는 경우 경고 
+
+
+| 구성된 NTP 서버가 너무 적습니다 | 구성된 NTP 서버 수가 3개 미만인 경우 경고 
+
+
+| 기본 관리자 사용자가 잠기지 않았습니다 | 기본 관리 계정(admin 또는 diag)을 사용하여 System Manager에 로그인하지 않고 이러한 계정이 잠겨 있지 않은 경우 계정을 잠그는 것이 좋습니다. 
+
+
+| 랜섬웨어 방어 - 볼륨에 스냅샷 정책이 없습니다 | 하나 이상의 볼륨에 적절한 스냅샷 정책이 연결되어 있지 않습니다. 
+
+
+| 랜섬웨어 방어 - 스냅샷 자동 삭제를 사용하지 않습니다 | 스냅샷 자동 삭제는 하나 이상의 볼륨에 대해 설정되어 있습니다. 
+
+
+| 랜섬웨어 공격을 위해 볼륨을 모니터링하지 않고 있습니다 | 여러 볼륨에서 자율적 랜섬웨어 보호가 지원되지만 아직 구성되지 않았습니다. 
+
+
+| SVM은 자율적 랜섬웨어 보호용으로 구성되지 않습니다 | 여러 SVM에서 자율적 랜섬웨어 보호가 지원되지만 아직 구성되지 않았습니다. 
+
+
+| 기본 FPolicy가 구성되지 않았습니다 | NAS SVM에 FPolicy가 설정되지 않았습니다. 
+
+
+| 자율적 랜섬웨어 방어 활성화 모드를 활성화합니다 | 여러 볼륨이 학습 모드를 완료했으며 활성 모드를 켤 수 있습니다 
+
+
+| 글로벌 FIPS 140-2 규정 준수가 비활성화되었습니다 | 글로벌 FIPS 140-2 규정 준수는 사용되지 않습니다. 
+
+
+| 클러스터가 알림에 대해 구성되지 않았습니다 | 이메일, Webhook 또는 SNMP traphosts가 알림을 수신하도록 구성되지 않았습니다. 
+|===
+ONTAP System Manager 인사이트에 대한 자세한 내용은 를 link:https://docs.netapp.com/us-en/ontap/insights-system-optimization-task.html#view-optimization-insights["ONTAP System Manager 인사이트 설명서"]참조하십시오.

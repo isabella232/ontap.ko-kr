@@ -54,6 +54,4 @@ LIF 마이그레이션 후에 백업 및 복원 작업을 시작해야 합니다
 .관련 정보
 xref:cluster-aware-backup-extension-concept.adoc[Cluster Aware Backup 확장의 기능]
 
-link:../concepts/index.html["ONTAP 개념"]
-
 link:../system-admin/index.html["시스템 관리"]

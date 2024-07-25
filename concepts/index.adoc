@@ -1,31 +1,8 @@
 ---
 permalink: concepts/index.html 
-sidebar: sidebar 
-keywords: decide, concepts, ontap, overview, data, management, cluster storage, high-availability, virtualization, protection, storage, efficiency, security 
-summary: '다음 개념은 클러스터 스토리지, 고가용성, 가상화, 데이터 보호를 비롯한 ONTAP 데이터 관리 소프트웨어에 스토리지 효율성 및 보안:' 
+redirect: ontap/introduction-concepts/index.html 
 ---
-= 개념 개요
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
-
-[role="lead"]
-다음 개념은 클러스터 스토리지, 고가용성, 가상화, 데이터 보호를 비롯한 ONTAP 데이터 관리 소프트웨어에 스토리지 효율성, 보안 및 FabricPool가 있습니다. 스토리지 솔루션을 구성하기 전에 ONTAP의 모든 기능과 이점을 충분히 이해해야 합니다.
-
-자세한 내용은 다음을 참조하십시오.
-
-* link:../system-admin/index.html["클러스터 및 SVM 관리"]
-* link:../high-availability/index.html["HA(고가용성) 쌍"]
-* link:../networking/networking_reference.html["네트워크 및 LIF 관리"]
-* link:../disks-aggregates/index.html["디스크 및 애그리게이트 관리"]
-* link:../volumes/index.html["FlexVol 볼륨, FlexClone 기술 및 스토리지 효율성 기능"]
-* link:../san-admin/provision-storage.html["SAN 호스트 프로비저닝"]
-* NAS 파일 액세스
-+
-** link:../nfs-admin/index.html["NFS 관리"]
-** link:../smb-admin/index.html["SMB 관리"]
-
-
-* link:../data-protection/index.html["재해 복구 및 아카이빙"]
 

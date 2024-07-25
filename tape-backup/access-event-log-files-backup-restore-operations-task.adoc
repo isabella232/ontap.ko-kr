@@ -32,5 +32,3 @@ node_name은 노드의 이름입니다.
 
 .관련 정보
 link:../system-admin/index.html["시스템 관리"]
-
-link:../concepts/index.html["ONTAP 개념"]

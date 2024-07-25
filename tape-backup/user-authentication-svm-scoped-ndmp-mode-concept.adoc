@@ -23,5 +23,3 @@ SVM(스토리지 가상 시스템) 범위의 NDMP 모드에서는 NDMP 사용자
 xref:commands-manage-svm-scoped-ndmp-reference.adoc[SVM 범위의 NDMP 모드를 관리하는 명령입니다]
 
 link:../system-admin/index.html["시스템 관리"]
-
-link:../concepts/index.html["ONTAP 개념"]

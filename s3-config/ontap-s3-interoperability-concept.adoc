@@ -35,22 +35,22 @@ Cloud Volumes ONTAP
 데이터 보호
  a| 
 * Cloud Sync
-* link:ontap-s3-supported-actions-reference.html#bucket-operations["오브젝트 버전 관리"] (ONTAP 9.11.1부터)
+* 오브젝트 잠금, 거버넌스 및 규정 준수(ONTAP 9.14.1부터)
+* link:ontap-s3-supported-actions-reference.html#bucket-operations["개체 버전 관리"] (ONTAP 9.11.1부터)
+* 미러링되지 않은 MetroCluster 애그리게이트(ONTAP 9.12.1부터)
+* 미러링된 MetroCluster 애그리게이트(ONTAP 9.14.1부터)
 * link:../s3-snapmirror/index.html["S3 SnapMirror"] (ONTAP 9.10.1부터)
-* MetroCluster IP 구성(ONTAP 9.12.1로 시작)
-* SnapLock(ONTAP 9.14.1부터)
-* WORM(ONTAP 9.14.1부터 시작)
+* SnapMirror(NAS 볼륨만 해당, ONTAP 9.12.1부터)
+* SnapLock(NAS 볼륨 전용, ONTAP 9.14.1부터)
 
  a| 
 * 삭제 코딩
-* 정보 수명 주기 관리
 * NDMP
 * SMTape
 * SnapMirror를 참조하십시오
 * SnapMirror 클라우드
 * SVM 재해 복구
 * SyncMirror
-* 사용자가 생성한 스냅샷 복사본
 
 
 
@@ -107,6 +107,7 @@ NetApp FlexArray 가상화
 추가 기능
  a| 
 * link:../s3-audit/index.html["S3 이벤트를 감사합니다"] (ONTAP 9.10.1부터)
+* link:../s3-config/create-bucket-lifecycle-rule-task.html["버킷 수명 주기 관리"] (ONTAP 9.13.1부터)
 
  a| 
 * FlexCache 볼륨

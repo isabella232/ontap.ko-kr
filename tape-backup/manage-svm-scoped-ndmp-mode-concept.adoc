@@ -24,8 +24,6 @@ xref:commands-manage-svm-scoped-ndmp-reference.adoc[SVM 범위의 NDMP 모드를
 
 xref:cluster-aware-backup-extension-concept.adoc[Cluster Aware Backup 확장의 기능]
 
-link:../concepts/index.html["ONTAP 개념"]
-
 xref:svm-scoped-ndmp-mode-concept.adoc[SVM 범위의 NDMP 모드는 무엇입니까]
 
 link:../system-admin/index.html["시스템 관리"]

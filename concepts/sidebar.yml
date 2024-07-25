@@ -2,10 +2,8 @@
 section: concepts
 title: ONTAP 개념
 entries:
-- title: 개요
-  url: "/concepts/index.html"
 - title: ONTAP 플랫폼
-  url: "/concepts/introducing-data-management-software-concept.html"
+  url: "/concepts/ontap-platforms-concept.html"
 - title: ONTAP 사용자 인터페이스
   url: "/concepts/introducing-ontap-interfaces-concept.html"
 - title: 클러스터 스토리지
@@ -29,7 +27,7 @@ entries:
 - title: 디스크와 애그리게이트
   entries:
   - title: 개요
-    url: "/concepts/disks-aggregates-concept.html"
+    url: "/disks-aggregates/index.html"
   - title: Aggregate 및 RAID 그룹
     url: "/concepts/aggregates-raid-groups-concept.html"
   - title: 미러링되지 않은 로컬 계층(애그리게이트)

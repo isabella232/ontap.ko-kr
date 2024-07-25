@@ -1,0 +1,26 @@
+---
+permalink: concepts/ontap-platforms-concept.html 
+sidebar: sidebar 
+keywords: ontap, platforms, FAS, AFF, ONTAP Select, asa, san array, flexpod 
+summary: ONTAP 데이터 관리 소프트웨어는 블록 또는 파일 데이터를 읽고 쓰는 애플리케이션을 위한 유니파이드 스토리지를 제공합니다. 
+---
+= ONTAP 플랫폼
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 데이터 관리 소프트웨어는 블록 또는 파일 데이터를 읽고 쓰는 애플리케이션을 위한 유니파이드 스토리지를 제공합니다. 스토리지 구성의 옵션은 고속 플래시부터 저렴한 회전식 미디어까지, 클라우드 기반 오브젝트 스토리지에 이르기까지 다양합니다.
+
+ONTAP 구현은 다음과 같이 실행됩니다.
+
+* * NetApp 엔지니어링 시스템 *: https://docs.netapp.com/us-en/ontap-systems-family/#["FAS 하이브리드 플래시 시스템, AFF(All Flash FAS) A-Series 및 C-Series, ASA(All-Flash SAN 어레이) 플랫폼 등 여러 플랫폼을 지원합니다"^]
+* * 상용 하드웨어 *: https://docs.netapp.com/us-en/ontap-select/["ONTAP Select"^]
+* * 프라이빗, 퍼블릭 또는 하이브리드 클라우드 *: https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/index.html["Cloud Volumes ONTAP"^]
+* * 동급 최고의 컨버지드 인프라를 제공하는 를 포함한 특수 구현 * https://docs.netapp.com/us-en/flexpod/index.html["FlexPod 데이터 센터"^]
+
+
+이러한 구현이 결합될 경우 _ NetApp Data Fabric _ 의 기본 프레임워크가 형성되며, 공통 소프트웨어 정의 접근 방식을 통해 데이터 관리와 플랫폼 간 빠르고 효율적인 복제를 실현할 수 있습니다.
+
+image:data-fabric2.png["BlueXP, ONTAP, ONTAP Select를 통한 SnapMirror 복제 다이어그램"]

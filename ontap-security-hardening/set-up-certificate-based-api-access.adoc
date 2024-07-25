@@ -1,0 +1,131 @@
+---
+sidebar: sidebar 
+permalink: ontap-security-hardening/set-up-certificate-based-api-access.html 
+keywords: tr-4569, ontap hardening guide, security, access, certificate, certificate-authenticated API access 
+summary: 사용자 ID 및 암호 인증 대신 ONTAP에 대한 REST API 또는 NetApp Manageability SDK API 액세스를 위한 필수 인증서 기반 인증을 설정합니다. 
+---
+= 인증서 기반 API 액세스를 설정합니다
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media
+
+
+[role="lead"]
+REST API 또는 ONTAP에 대한 NetApp Manageability SDK API 액세스에 대한 사용자 ID 및 암호 인증 대신 인증서 기반 인증을 사용해야 합니다.
+
+
+NOTE: REST API에 대한 인증서 기반 인증 대신 사용 link:../ontap-security-hardening/oauth20-token-based-auth-for-rest-api.html["OAuth 2.0 토큰 기반 인증"])
+
+이 단계에 설명된 대로 ONTAP에서 자체 서명된 인증서를 생성하고 설치할 수 있습니다.
+
+.단계
+. OpenSSL을 사용하여 다음 명령을 실행하여 인증서를 생성합니다.
++
+[listing]
+----
+openssl req -x509 -nodes -days 1095 -newkey rsa:2048 -keyout test.key -out test.pem \> -subj "/C=US/ST=NC/L=RTP/O=NetApp/CN=cert_user"
+Generating a 2048 bit RSA private key
+..............+++
+..........................+++
+writing new private key to 'test.key'
+----
++
+이 명령은 라는 공용 인증서와 `test.pem` 라는 개인 키를 `key.out`생성합니다. 일반 이름인 CN은 ONTAP 사용자 ID에 해당합니다.
+
+. 다음 명령을 실행하고 메시지가 표시되면 인증서의 내용을 붙여 넣어 ONTAP의 PEM(Privacy Enhanced mail) 형식으로 공용 인증서 내용을 설치합니다.
++
+[listing]
+----
+security certificate install -type client-ca -vserver cluster1
+
+Please enter Certificate: Press <Enter> when done
+----
+. ONTAP를 활성화하여 SSL을 통한 클라이언트 액세스를 허용하고 API 액세스에 대한 사용자 ID를 정의합니다.
++
+[listing]
+----
+security ssl modify -vserver cluster1 -client-enabled true
+security login create -user-or-group-name cert_user -application ontapi -authmethod cert -role admin -vserver cluster1
+----
++
+다음 예에서는 사용자 ID가 `cert_user` 인증서 인증 API 액세스를 사용할 수 있게 되었습니다. ONTAP 버전을 표시하기 위해 사용하는 간단한 관리 SDK Python 스크립트는 `cert_user` 다음과 같습니다.
+
++
+[listing]
+----
+#!/usr/bin/python
+
+import sys
+sys.path.append("/home/admin/netapp-manageability-sdk-9.5/netapp-manageability-sdk-9.5/lib/python/NetApp")
+from NaServer import *
+
+cluster = "cluster1"
+transport = "HTTPS"
+port = 443
+style = "CERTIFICATE"
+cert = "test.pem"
+key = "test.key"
+
+s = NaServer(cluster, 1, 30)
+s.set_transport_type(transport)
+s.set_port(port)
+s.set_style(style)
+s.set_server_cert_verification(0)
+s.set_client_cert_and_key(cert, key)
+
+api = NaElement("system-get-version")
+output = s.invoke_elem(api)
+if (output.results_status() == "failed"):
+    r = output.results_reason()
+    print("Failed: " + str(r))
+    sys.exit(2)
+
+ontap_version = output.child_get_string("version")
+print ("V: " + ontap_version)
+----
++
+스크립트의 출력에 ONTAP 버전이 표시됩니다.
+
++
+[listing]
+----
+./version.py
+
+V: NetApp Release 9.5RC1: Sat Nov 10 05:13:42 UTC 2018
+----
+. ONTAP REST API를 사용하여 인증서 기반 인증을 수행하려면 다음 단계를 완료하십시오.
++
+.. ONTAP에서 http 액세스에 대한 사용자 ID를 정의합니다.
++
+[listing]
+----
+security login create -user-or-group-name cert_user -application http -authmethod cert -role admin -vserver cluster1
+----
+.. Linux 클라이언트에서 다음 명령을 실행하여 ONTAP 버전을 출력으로 생성합니다.
++
+[listing]
+----
+curl -k --cert-type PEM --cert ./test.pem --key-type PEM --key ./test.key -X GET "https://cluster1/api/cluster?fields=version"
+{
+    "version": {
+        "full": "NetApp Release 9.7P1: Thu Feb 27 01:25:24 UTC 2020",
+        "generation": 9,
+        "major": 7,
+        "minor": 0
+    },
+    "_links": {
+        "self": {
+            "href": "/api/cluster"
+        }
+    }
+}
+----
+
+
+
+
+.추가 정보
+* link:https://netapp.io/2016/11/08/certificate-based-authentication-netapp-manageability-sdk-ontap/["ONTAP용 NetApp 관리 SDK를 사용한 인증서 기반 인증"^]..
+

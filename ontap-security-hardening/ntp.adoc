@@ -1,0 +1,24 @@
+---
+sidebar: sidebar 
+permalink: ontap-security-hardening/ntp.html 
+keywords: tr-4569, ontap hardening guide, time synchronize, NTP servers, symmetric authentication, cluster time-service ntp server create 
+summary: '3개 이상의 외부 NTP 서버와 클러스터 시간을 동기화하도록 NTP(네트워크 시간 프로토콜) 서버를 구성해야 합니다.' 
+---
+= Network Time Protocol의 약어입니다
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media
+
+
+[role="lead"]
+ONTAP를 사용하면 클러스터에서 시간대, 날짜 및 시간을 수동으로 설정할 수 있지만 적어도 3개의 외부 NTP 서버와 클러스터 시간을 동기화하도록 NTP(네트워크 시간 프로토콜) 서버를 구성해야 합니다.
+
+클러스터 시간이 정확하지 않을 수 있습니다. ONTAP를 사용하면 클러스터에서 시간대, 날짜 및 시간을 수동으로 설정할 수 있지만 클러스터 시간을 외부 NTP 서버와 동기화하도록 NTP(네트워크 시간 프로토콜) 서버를 구성해야 합니다.
+
+ONTAP 9.5부터 대칭 인증을 사용하여 NTP 서버를 구성할 수 있습니다.
+
+명령을 사용하여 최대 10개의 외부 NTP 서버를 연결할 수 `cluster time-service ntp server create` 있습니다. 시간 서비스의 이중화 및 품질을 위해 최소 3개의 외부 NTP 서버를 클러스터에 연결해야 합니다.
+
+ONTAP에서 NTP 구성에 대한 자세한 내용은 을 참조하십시오 link:../system-admin/manage-cluster-time-concept.html["클러스터 시간 관리(클러스터 관리자만 해당)"].

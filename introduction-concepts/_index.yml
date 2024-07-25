@@ -3,8 +3,12 @@ indexpage:
   tiles:
   - title: 시작하십시오
     links:
-    - title: ONTAP 개념 개요
-      url: "/../concepts/index.html"
+    - title: ONTAP 플랫폼
+      url: "/../concepts/ontap-platforms-concept.html"
+    - title: 네트워크 아키텍처
+      url: "/../concepts/network-connectivity-concept.html"
+    - title: 스토리지 가상화
+      url: "/../concepts/storage-virtualization-concept.html"
   - title: 데모 자습서
     links:
     - title: NetApp TechCommTV(YouTube)의 ONTAP 비디오

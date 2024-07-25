@@ -49,7 +49,7 @@ NVMe 호스트에서는 공간 할당이 지원되지 않습니다.
 +
 [source, cli]
 ----
-`lun modify -vserver <vserver_name> -volume <volume_name> -lun <lun_name> -space-allocation enabled
+lun modify -vserver <vserver_name> -volume <volume_name> -lun <lun_name> -space-allocation enabled
 ----
 . 공간 할당이 설정되었는지 확인합니다.
 +

@@ -15,6 +15,9 @@ summary: SnapMirror 활성 동기화는 ONTAP의 다양한 운영 체제 및 기
 SnapMirror Active Sync는 다양한 운영 체제, 애플리케이션 호스트 및 ONTAP의 기타 기능과 호환됩니다.
 
 
+NOTE: 여기에서 다루지 않은 자세한 지원 가능성 및 상호 운용성 정보는 상호 운용성 매트릭스 툴을 (http://mysupport.netapp.com/matrix["IMT"^]참조하십시오.
+
+
 
 == 애플리케이션 호스트
 

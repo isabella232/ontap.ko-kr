@@ -19,7 +19,7 @@ ONTAP 9.9.1 이하에서 ONTAP 9.10.1 이상으로 업그레이드하는 경우 
 * LTR 스냅샷은 SnapMirror 정책 규칙에 적용되는 스케줄에 의해 정의됩니다. 이 규칙은 소스 볼륨에서 스냅샷을 복제하지 않고 대상 볼륨에 직접 스냅샷을 생성합니다.
 +
 
-NOTE: 일정 및 SnapMirror 정책에 대한 자세한 내용은 기술 자료 문서 를 참조하십시오.
+NOTE: 일정 및 SnapMirror 정책에 대한 자세한 내용은 기술 자료 문서 를 참조하십시오 https://kb.netapp.com/on-prem/ontap/DP/SnapMirror/SnapMirror-KBs/How_does_the_schedule_parameter_in_an_ONTAP_9_SnapMirror_policy_rule_work["ONTAP 9 SnapMirror 정책 규칙에서 "schedule" 매개 변수는 어떻게 작동합니까?"^].
 
 
 

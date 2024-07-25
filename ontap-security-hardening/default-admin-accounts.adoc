@@ -1,0 +1,164 @@
+---
+sidebar: sidebar 
+permalink: ontap-security-hardening/default-admin-accounts.html 
+keywords: tr-4569, ontap hardening guide, security, RBAC, roles, Restricting access, admin, diag 
+summary: admin 및 diag 계정에 대한 액세스 제한 
+---
+= 기본 관리 계정
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media
+
+
+[role="lead"]
+관리자 역할은 모든 응용 프로그램을 사용하여 액세스할 수 있으므로 관리자 계정을 제한해야 합니다. diag 계정은 시스템 쉘에 액세스할 수 있으며 기술 지원 부서의 문제 해결 작업을 수행하기 위한 목적으로만 예약되어야 합니다.
+
+기본 관리 계정에는 및 의 두 `admin` `diag`가지가 있습니다.
+
+고립된 계정은 권한 에스컬레이션을 비롯한 취약점을 유발하는 주요 보안 수단입니다. 이러한 계정은 사용자 계정 저장소에 남아 있는 불필요하고 사용되지 않는 계정입니다. 이러한 계정은 기본적으로 사용되지 않았거나 암호가 업데이트 또는 변경되지 않은 기본 계정입니다. 이 문제를 해결하기 위해 ONTAP에서는 계정 제거 및 이름 변경을 지원합니다.
+
+
+NOTE: ONTAP에서 기본 제공 계정을 제거하거나 이름을 바꿀 수 없습니다. 그러나 NetApp에서는 lock 명령을 사용하여 필요하지 않은 기본 제공 계정을 잠그는 것이 좋습니다.
+
+분리된 계정은 중요한 보안 문제이지만 NetApp에서는 로컬 계정 리포지토리에서 계정을 제거할 경우의 영향을 테스트하는 것이 좋습니다.
+
+
+
+== 로컬 계정을 나열합니다
+
+로컬 계정을 나열하려면 `security login show` 명령을 실행합니다.
+
+[listing]
+----
+cluster1::*> security login show -vserver cluster1
+
+Vserver: cluster1
+                             Authentication             Acct   Is-Nsswitch
+User/Group Name  Application Method    Role Name        Locked Group
+---------------- ----------- --------- ---------------- ------ -----------
+admin            console     password  admin            no     no
+admin            http        password  admin            no     no
+admin            ontapi      password  admin            no     no
+admin            service-processor password admin       no     no
+admin            ssh         password  admin            no     no
+autosupport      console     password  autosupport      no     no
+6 entries were displayed.
+
+----
+
+
+== 기본 관리자 계정을 제거합니다
+
+ `admin`계정은 관리자 역할을 가지며 모든 응용 프로그램을 사용하여 액세스할 수 있습니다.
+
+.단계
+. 다른 관리자 수준 계정을 만듭니다.
++
+기본 계정을 완전히 제거하려면 `admin` 먼저 로그인 응용 프로그램을 사용하는 다른 관리자 수준 계정을 만들어야 `console` 합니다.
+
++
+
+NOTE: 이러한 변경을 수행하면 원하지 않는 결과가 발생할 수 있습니다. 항상 비운영 클러스터에서 솔루션의 보안 상태에 영향을 줄 수 있는 새 설정을 먼저 테스트하십시오.
+
++
+예:
+
++
+[listing]
+----
+cluster1::*> security login create -user-or-group-name NewAdmin -application console -authentication-method password -vserver cluster1
+----
++
+[listing]
+----
+cluster1::*> security login show -vserver cluster1
+
+Vserver: cluster1
+                             Authentication             Acct   Is-Nsswitch
+User/Group Name  Application Method    Role Name        Locked Group
+---------------- ----------- --------- ---------------- ------ -----------
+NewAdmin         console     password  admin            no     no
+admin            console     password  admin            no     no
+admin            http        password  admin            no     no
+admin            ontapi      password  admin            no     no
+admin            service-processor password admin       no     no
+admin            ssh         password  admin            no     no
+autosupport      console     password  autosupport      no     no
+7 entries were displayed.
+----
+. 새 관리자 계정을 만든 후 계정 로그인으로 해당 계정에 대한 액세스를 `NewAdmin` 테스트합니다. 로그인을 사용하여 `NewAdmin` 기본 또는 이전 admin 계정(예: , , 또는)과 동일한 로그인 응용 프로그램을 사용하도록 계정을 `http` `ontapi` `service-processor` `ssh`구성합니다. 이 단계를 통해 액세스 제어가 유지됩니다.
++
+예:
+
++
+[listing]
+----
+cluster1::*> security login create -vserver cluster1 -user-or-group-name NewAdmin -application ssh -authentication-method password
+cluster1::*> security login create -vserver cluster1 -user-or-group-name NewAdmin -application http -authentication-method password
+cluster1::*> security login create -vserver cluster1 -user-or-group-name NewAdmin -application ontapi -authentication-method password
+cluster1::*> security login create -vserver cluster1 -user-or-group-name NewAdmin -application service-processor -authentication-method password
+----
+. 모든 기능을 테스트한 후 ONTAP에서 제거하기 전에 모든 응용 프로그램에 대해 admin 계정을 비활성화할 수 있습니다. 이 단계는 이전 관리 계정을 사용하는 반복 기능이 없는지 확인하기 위한 최종 테스트로 사용됩니다.
++
+[listing]
+----
+cluster1::*> security login lock -vserver cluster1 -user-or-group-name admin -application *
+----
+. 기본 admin 계정과 이 계정에 대한 모든 항목을 제거하려면 다음 명령을 실행합니다.
++
+[listing]
+----
+cluster1::*> security login delete -vserver cluster1 -user-or-group-name admin -application *
+cluster1::*> security login show -vserver cluster1
+
+Vserver: cluster1
+                             Authentication             Acct   Is-Nsswitch
+User/Group Name  Application Method    Role Name        Locked Group
+---------------- ----------- --------- ---------------- ------ -----------
+NewAdmin         console     password  admin            no     no
+NewAdmin         http        password  admin            no     no
+NewAdmin         ontapi      password  admin            no     no
+NewAdmin         service-processor password admin       no     no
+NewAdmin         ssh         password  admin            no     no
+autosupport      console     password  autosupport      no     no
+7 entries were displayed.
+
+----
+
+
+
+
+== 진단(diag) 계정 암호를 설정합니다
+
+라는 진단 계정이 `diag` 스토리지 시스템과 함께 제공됩니다. 계정을 사용하여 에서 문제 해결 작업을 수행할 수 `diag` `systemshell`있습니다. 이 `diag` 계정은 권한이 있는 명령을 통해 시스템 쉘에 액세스하는 데 사용할 수 있는 유일한 계정입니다. `diag` `systemshell`
+
+
+CAUTION: 시스템 셸 및 관련 `diag` 계정은 저수준 진단 목적으로 사용됩니다. 이러한 액세스 권한은 진단 권한 수준이 필요하며, 기술 지원 부서의 지침에 따라 문제 해결 작업을 수행할 수 있는 경우에만 사용됩니다. 계정과 은 일반 관리 목적으로 사용할 수 `diag` `systemshell` 없습니다.
+
+.시작하기 전에
+에 액세스하기 전에 `systemshell`명령을 사용하여 계정 암호를 설정해야 `diag` `security login password` 합니다. 강력한 암호 원칙을 사용하고 정기적으로 암호를 변경해야 `diag` 합니다.
+
+.단계
+. 계정 사용자 암호 설정 `diag` :
++
+[listing]
+----
+cluster1::> set -privilege diag
+
+Warning: These diagnostic commands are for use by NetApp personnel only.
+Do you want to continue? \{y|n}: y
+
+cluster1::*> systemshell -node node-01
+    (system node systemshell)
+diag@node-01's password:
+
+Warning: The system shell provides access to low-level
+diagnostic tools that can cause irreparable damage to
+the system if not used properly. Use this environment
+only when directed to do so by support personnel.
+
+node-01%
+----
+
