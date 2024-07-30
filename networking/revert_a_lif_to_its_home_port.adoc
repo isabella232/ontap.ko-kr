@@ -32,7 +32,7 @@ LIF가 페일오버된 후 홈 포트로 되돌아가거나 수동으로 또는 
 
 .단계
 . Network > Overview > Network Interfaces * 를 선택합니다.
-. 를 선택합니다 image:icon_kabob.gif["kebob 아이콘"] 변경하려는 네트워크 인터페이스 옆의 * > 되돌리기 * 를 선택합니다.
+. 변경할 네트워크 인터페이스 옆의 *>되돌리기 * 를 선택합니다 image:icon_kabob.gif["메뉴 옵션 아이콘"] .
 . 네트워크 인터페이스를 홈 포트로 되돌리려면 * Revert * 를 선택합니다.
 
 

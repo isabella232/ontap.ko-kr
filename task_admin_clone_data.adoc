@@ -29,7 +29,7 @@ NOTE: FlexClone 라이센스는 이어야 합니다 https://docs.netapp.com/us-e
 
 .단계
 . 스토리지 > 볼륨 * 을 클릭합니다.
-. 을 클릭합니다 image:icon_kabob.gif["선택하십시오"] 복제할 볼륨의 이름 옆에 있습니다.
+. 복제할 볼륨의 이름 옆에 있는 을 클릭합니다 image:icon_kabob.gif["메뉴 옵션 아이콘"] .
 . 목록에서 * Clone * 을 선택합니다.
 . 클론의 이름을 지정하고 다른 선택을 완료합니다.
 . 클론 * 을 클릭하고 볼륨 목록에 볼륨 클론이 나타나는지 확인합니다.
@@ -45,7 +45,7 @@ NOTE: FlexClone 라이센스는 이어야 합니다 https://docs.netapp.com/us-e
 
 .단계
 . 스토리지 > LUN * 을 클릭합니다.
-. 을 클릭합니다 image:icon_kabob.gif["선택하십시오"] 복제할 LUN 이름 옆의 LUN을 선택합니다.
+. 클론 복제할 LUN 이름 옆의 을 클릭합니다 image:icon_kabob.gif["메뉴 옵션 아이콘"] .
 . 목록에서 * Clone * 을 선택합니다.
 . 클론의 이름을 지정하고 다른 선택을 완료합니다.
 . 클론 * 을 클릭하고 LUN 클론이 LUN 목록에 표시되는지 확인합니다.

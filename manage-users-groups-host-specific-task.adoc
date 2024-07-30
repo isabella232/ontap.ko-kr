@@ -44,8 +44,8 @@ System Manager에서 Windows 사용자 및 그룹 목록을 볼 수 있습니다
 +
 Windows * 섹션은 선택한 스토리지 VM과 연결된 각 그룹의 사용자 수에 대한 요약을 표시합니다.
 
-. 을 클릭합니다 image:icon_arrow.gif["오른쪽 화살표"] Windows * 섹션에서
-. 그룹 * 탭을 클릭한 다음 을 클릭합니다 image:icon_dropdown_arrow.gif["아래쪽 화살표"] 그룹 이름 옆에 있는 을 클릭하여 해당 그룹에 대한 세부 정보를 봅니다.
+. image:icon_arrow.gif["화살표 아이콘"]Windows * 섹션을 클릭합니다.
+. 그룹 * 탭을 클릭한 다음 그룹 이름 옆에 있는 을 image:icon_dropdown_arrow.gif["드롭다운 아이콘"] 클릭하여 해당 그룹에 대한 세부 정보를 봅니다.
 . 그룹의 사용자를 보려면 그룹을 선택한 다음 * 사용자 * 탭을 클릭합니다.
 
 
@@ -80,7 +80,7 @@ System Manager에서 Windows 그룹을 추가, 편집 또는 삭제하여 관리
  a| 
 그룹을 편집합니다
  a| 
-. 그룹 이름 옆에 있는 을 클릭합니다 image:icon_kabob.gif["케밥 아이콘"]그런 다음 * 편집 * 을 클릭합니다.
+. 그룹 이름 옆에 있는 을 image:icon_kabob.gif["메뉴 옵션 아이콘"]클릭한 다음 * 편집 * 을 클릭합니다.
 . 그룹 정보를 수정합니다.
 
 
@@ -90,9 +90,9 @@ System Manager에서 Windows 그룹을 추가, 편집 또는 삭제하여 관리
 그룹을 삭제합니다
  a| 
 . 삭제할 그룹 옆에 있는 확인란을 선택합니다.
-. 을 클릭합니다 image:icon_delete_with_can_white_bg.gif["삭제 아이콘"].
+. 을 image:icon_delete_with_can_white_bg.gif["삭제 아이콘"]클릭합니다.
 +
-* 참고: * 을 클릭하여 단일 그룹을 삭제할 수도 있습니다 image:icon_kabob.gif["케밥 아이콘"] 그룹 이름 옆에 있는 * 삭제 * 를 클릭합니다.
+* 참고: * 그룹 이름 옆에 있는 을 클릭한 다음 * 삭제 * 를 클릭하여 단일 그룹을 삭제할 수도 image:icon_kabob.gif["메뉴 옵션 아이콘"] 있습니다.
 
 
 
@@ -126,7 +126,7 @@ System Manager에서 Windows 사용자를 추가, 편집, 삭제, 활성화 또�
  a| 
 사용자를 편집합니다
  a| 
-. 사용자 이름 옆에 있는 을 클릭합니다 image:icon_kabob.gif["케밥 아이콘"]그런 다음 * 편집 * 을 클릭합니다.
+. 사용자 이름 옆에 있는 을 image:icon_kabob.gif["메뉴 옵션 아이콘"]클릭한 다음 * 편집 * 을 클릭합니다.
 . 사용자 정보를 수정합니다.
 
 
@@ -136,9 +136,9 @@ System Manager에서 Windows 사용자를 추가, 편집, 삭제, 활성화 또�
 사용자를 삭제합니다
  a| 
 . 삭제할 사용자 옆에 있는 확인란을 선택합니다.
-. 을 클릭합니다 image:icon_delete_with_can_white_bg.gif["삭제 아이콘"].
+. 을 image:icon_delete_with_can_white_bg.gif["삭제 아이콘"]클릭합니다.
 +
-* 참고: * 을 클릭하여 단일 사용자를 삭제할 수도 있습니다 image:icon_kabob.gif["케밥 아이콘"] 사용자 이름 옆에 있는 * 삭제 * 를 클릭합니다.
+* 참고: * 사용자 이름 옆에 있는 을 클릭한 다음 * 삭제 * 를 클릭하여 단일 사용자를 삭제할 수도 image:icon_kabob.gif["메뉴 옵션 아이콘"] 있습니다.
 
 
 
@@ -147,7 +147,7 @@ System Manager에서 Windows 사용자를 추가, 편집, 삭제, 활성화 또�
  a| 
 사용자 암호를 변경합니다
  a| 
-. 사용자 이름 옆에 있는 을 클릭합니다 image:icon_kabob.gif["케밥 아이콘"]그런 다음 * 암호 변경 * 을 클릭합니다.
+. 사용자 이름 옆에 있는 을 image:icon_kabob.gif["메뉴 옵션 아이콘"]클릭한 다음 * 암호 변경 * 을 클릭합니다.
 . 새 암호를 입력하고 확인합니다.
 
 
@@ -157,7 +157,7 @@ System Manager에서 Windows 사용자를 추가, 편집, 삭제, 활성화 또�
 사용자를 활성화합니다
  a| 
 . 활성화할 비활성화된 각 사용자 옆에 있는 확인란을 선택합니다.
-. 을 클릭합니다 image:icon-enable-with-symbol.gif["활성화 아이콘"].
+. 을 image:icon-enable-with-symbol.gif["활성화 아이콘"]클릭합니다.
 
 
 
@@ -166,7 +166,7 @@ System Manager에서 Windows 사용자를 추가, 편집, 삭제, 활성화 또�
 사용자를 비활성화합니다
  a| 
 . 비활성화할 각 활성화된 사용자 옆에 있는 확인란을 선택합니다.
-. 을 클릭합니다 image:icon-disable-with-symbol.gif["비활성화 아이콘"].
+. 을 image:icon-disable-with-symbol.gif["비활성화 아이콘"]클릭합니다.
 
 
 |===
@@ -183,7 +183,7 @@ System Manager에서 UNIX 사용자 및 그룹 목록을 볼 수 있습니다.
 +
 UNIX * 섹션에는 선택한 스토리지 VM과 연결된 각 그룹의 사용자 수가 요약되어 표시됩니다.
 
-. 을 클릭합니다 image:icon_arrow.gif["오른쪽 화살표"] 를 클릭합니다.
+. UNIX * 섹션을 클릭합니다 image:icon_arrow.gif["화살표 아이콘"] .
 . 그룹 * 탭을 클릭하여 해당 그룹에 대한 세부 정보를 봅니다.
 . 그룹의 사용자를 보려면 그룹을 선택한 다음 * 사용자 * 탭을 클릭합니다.
 
@@ -230,7 +230,7 @@ System Manager에서는 UNIX 그룹을 추가, 편집 또는 삭제하여 관리
 그룹을 삭제합니다
  a| 
 . 삭제할 그룹을 선택합니다.
-. 을 클릭합니다 image:icon_delete_with_can_white_bg.gif["삭제 아이콘"].
+. 을 image:icon_delete_with_can_white_bg.gif["삭제 아이콘"]클릭합니다.
 
 
 |===
@@ -274,7 +274,7 @@ System Manager에서 Windows 사용자를 추가, 편집 또는 삭제하여 관
 사용자를 삭제합니다
  a| 
 . 삭제할 사용자를 선택합니다.
-. 을 클릭합니다 image:icon_delete_with_can_white_bg.gif["삭제 아이콘"].
+. 을 image:icon_delete_with_can_white_bg.gif["삭제 아이콘"]클릭합니다.
 
 
 |===

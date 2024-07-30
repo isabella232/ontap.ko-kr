@@ -48,12 +48,12 @@ System Manager를 사용하여 이니시에이터 그룹(igroup) 목록을 볼 �
 
 . 목록에서 작업을 수행할 수 있습니다.
 +
-** 을 클릭합니다 image:icon_add_blue_bg.png["파란색 더하기 기호 아이콘"] igroup을 추가합니다.
+** image:icon_add_blue_bg.png["추가 아이콘"]igroup을 추가하려면 클릭합니다.
 ** igroup 이름을 클릭하여 igroup에 대한 세부 정보를 보여주는 * Overview * 페이지를 표시합니다.
 +
 개요 * 페이지에서 igroup과 연결된 LUN을 볼 수 있으며 작업을 시작하여 LUN을 생성하고 LUN을 매핑할 수 있습니다. 기본 목록으로 돌아가려면 * 모든 SAN 이니시에이터 * 를 클릭합니다.
 
-** igroup 위로 마우스를 가져간 다음 을 클릭합니다 image:icon_kabob.gif["Kabob 아이콘"] igroup 이름 옆의 을 클릭하여 igroup을 편집 또는 삭제합니다.
+** igroup에 마우스를 올려놓고 igroup 이름 옆에 있는 을 클릭하여 image:icon_kabob.gif["메뉴 옵션 아이콘"] igroup을 편집하거나 삭제합니다.
 ** igroup 이름 왼쪽에 있는 영역 위로 마우스를 가져간 다음 확인란을 선택합니다. 이니시에이터 그룹에 * + 추가를 클릭하면 해당 igroup을 다른 igroup에 추가할 수 있습니다.
 ** 스토리지 VM * 열에서 스토리지 VM의 이름을 클릭하여 해당 VM에 대한 세부 정보를 봅니다.
 

@@ -18,7 +18,7 @@ summary: ONTAP 및 보안 개념에 대한 추가 정보
 취약성 및 사고 보고, NetApp 보안 응답 및 고객 기밀성에 대한 자세한 내용은 를 참조하십시오 link:http://www.netapp.com/us/legal/security/contact/index.aspx["NetApp 보안 포털"^].
 
 * link:../release-notes/index.html["ONTAP 9 릴리즈 노트"^]
-* link:../concepts/manual-pages.html["ONTAP 9 명령 참조"]
+* link:../concepts/manual-pages.html["ONTAP 명령 참조"]
 * link:../system-admin/index.html["시스템 관리"]
 * link:../authentication/workflow-concept.html["관리자 인증 및 RBAC"]
 * link:../security-encryption/index.html["NetApp 암호화"]

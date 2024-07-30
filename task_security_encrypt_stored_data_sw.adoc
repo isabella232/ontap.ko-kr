@@ -24,8 +24,8 @@ summary: 볼륨 암호화를 사용하여 기본 장치를 용도 변경, 반환
 
 .단계
 . 클러스터 > 설정 * 을 클릭합니다.
-. 암호화 * 에서 를 클릭합니다 image:icon_gear.gif["기어 아이콘"] Onboard Key Manager를 처음으로 구성합니다.
+. Encryption * 아래에서 Onboard Key Manager를 처음으로 구성하려면 클릭합니다 image:icon_gear.gif["작업 아이콘"] .
 . 기존 볼륨을 암호화하려면 * 스토리지 > 볼륨 * 을 클릭합니다.
-. 원하는 볼륨에서 를 클릭합니다 image:icon_kabob.gif["메뉴 아이콘"] 그런 다음 * 편집 * 을 클릭합니다.
+. 원하는 볼륨에서 를 클릭한 image:icon_kabob.gif["메뉴 옵션 아이콘"] 다음 * 편집 * 을 클릭합니다.
 . 암호화 사용 * 을 선택합니다.
 

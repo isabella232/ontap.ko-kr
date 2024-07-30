@@ -263,4 +263,4 @@ ONTAP 9.5부터 ONTAP에서 BGP 세션을 관리하기 위해 'network BGP' 명�
 | BGP 피어 그룹의 이름을 바꿉니다 | Network BGP peer-group rename.(네트워크 BGP 피어 그룹 이름 
 |===
 .관련 정보
-link:http://docs.netapp.com/us-en/ontap-cli["ONTAP 9 명령 참조"^]
+https://docs.netapp.com/us-en/ontap-cli["ONTAP 명령 참조입니다"^]

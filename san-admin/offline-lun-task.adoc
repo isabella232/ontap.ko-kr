@@ -30,7 +30,7 @@ ONTAP 9.10.1부터 System Manager를 사용하여 LUN을 오프라인 상태로 
  a| 
 단일 LUN을 오프라인 상태로 전환합니다
  a| 
-LUN 이름 옆에 있는 을 클릭합니다 image:icon_kabob.gif["Kabob 아이콘"] 을 클릭하고 * 오프라인 상태로 전환 * 을 선택합니다.
+LUN 이름 옆에 있는 을 image:icon_kabob.gif["메뉴 옵션 아이콘"] 클릭하고 * 오프라인 상태로 전환 * 을 선택합니다.
 
 
 

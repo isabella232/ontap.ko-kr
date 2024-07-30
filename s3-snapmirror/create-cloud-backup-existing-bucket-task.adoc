@@ -28,14 +28,14 @@ ONTAP 9.10.1 이전 릴리즈에서 S3 구성을 업그레이드한 경우와 �
 ====
 .시스템 관리자
 --
-. 사용자 및 그룹이 올바르게 정의되었는지 확인합니다. * 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 클릭한 다음 * 설정 * 을 클릭합니다 image:icon_pencil.gif["편집 아이콘"] S3 아래.
+. 사용자 및 그룹이 올바르게 정의되었는지 확인합니다. * 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 클릭한 다음 * 설정 * 을 클릭하고 S3를 클릭합니다 image:icon_pencil.gif["편집 아이콘"] .
 +
 을 참조하십시오 link:../task_object_provision_add_s3_users_groups.html["S3 사용자 및 그룹 추가"] 를 참조하십시오.
 
 . S3 SnapMirror 정책이 없는 경우 기본 정책을 사용하지 않으려면 다음과 같이 하십시오.
 +
 .. 보호 > 개요 * 를 클릭한 다음 * 로컬 정책 설정 * 을 클릭합니다.
-.. 을 클릭합니다 image:../media/icon_arrow.gif["오른쪽 화살표"] 보호 정책 * 옆에 있는 * 추가 * 를 클릭합니다.
+.. image:../media/icon_arrow.gif["화살표 아이콘"]보호 정책 * 옆에 있는 * 추가 * 를 클릭합니다.
 .. 정책 이름과 설명을 입력합니다.
 .. 정책 범위, 클러스터 또는 SVM을 선택합니다
 .. S3 SnapMirror 관계에 대해 * Continuous * 를 선택합니다.
@@ -63,7 +63,7 @@ ONTAP 9.10.1 이전 릴리즈에서 S3 구성을 업그레이드한 경우와 �
 . 기존 버킷의 버킷 접근 정책이 여전히 요구 사항을 충족하는지 확인합니다.
 +
 .. 스토리지 * > * 버킷 * 을 클릭한 다음 보호할 버킷을 선택합니다.
-.. 사용 권한 * 탭에서 을 클릭합니다 image:icon_pencil.gif["편집 아이콘"] * 편집 * 을 선택한 다음 * 권한 * 에서 * 추가 * 를 클릭합니다.
+.. 사용 권한 * 탭에서 image:icon_pencil.gif["편집 아이콘"] * 편집 * 을 클릭한 다음 * 사용 권한 * 아래에서 * 추가 * 를 클릭합니다.
 +
 *** * Principal * 및 * Effect * - 사용자 그룹 설정에 해당하는 값을 선택하거나 기본값을 그대로 사용합니다.
 *** * Actions * - GetObject, PutObject, DeleteObject, ListBucket, GetBuckketAcl, GetObjectAcl, ListBuckketMultipartUploads, ListMultiPartUploadParts 등의 값이 표시되는지 확인합니다

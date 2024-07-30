@@ -45,7 +45,7 @@ NetApp Support 사이트가 표시됩니다.
 . NetApp Support 사이트에 로그인하여 업데이트에 필요한 펌웨어 이미지 패키지를 다운로드합니다.
 . 네트워크 또는 로컬 폴더에 있는 HTTP 또는 FTP 서버로 파일을 복사합니다.
 . System Manager에서 * Cluster > Overview * 를 클릭합니다.
-. 개요 * 창의 오른쪽 모서리에서 * 자세히 * 를 클릭합니다 image:icon_kabob.gif["더 많은 선택"] ONTAP 업데이트 * 를 선택합니다.
+. 개요 * 창의 오른쪽 모서리에서 * 자세히 * 를 image:icon_kabob.gif["메뉴 옵션 아이콘"] 클릭하고 * ONTAP 업데이트 * 를 선택합니다.
 . 펌웨어 업데이트 * 를 클릭합니다.
 . 사용 중인 ONTAP 버전에 따라 다음을 수행합니다.
 +
@@ -77,7 +77,7 @@ NetApp Support 사이트가 표시됩니다.
 . 클러스터 펌웨어를 업데이트하는 데 사용할 펌웨어 패키지를 선택합니다.
 . 네트워크 또는 로컬 폴더에 있는 HTTP 또는 FTP 서버로 파일을 복사합니다.
 . System Manager에서 * Cluster > Overview * 를 클릭합니다.
-. 개요 * 창의 오른쪽 모서리에서 * 자세히 * 를 클릭합니다 image:icon_kabob.gif["메뉴 아이콘"] ONTAP 업데이트 * 를 선택합니다.
+. 개요 * 창의 오른쪽 모서리에서 * 자세히 * 를 image:icon_kabob.gif["메뉴 옵션 아이콘"] 클릭하고 * ONTAP 업데이트 * 를 선택합니다.
 . 펌웨어 업데이트 * 를 클릭합니다.
 . 사용 중인 ONTAP 버전에 따라 다음을 수행합니다.
 

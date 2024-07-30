@@ -40,7 +40,7 @@ IMPORTANT: ONTAP 9.8에서 9.14.1까지 SnapMirror 액티브 동기화를 SM-BC(
 . link:protect-task.html["일관성 그룹 관계를 생성한 다음 일관성 그룹 관계를 초기화합니다"]
 
  a| 
-. 보호 > 관계 * 에서 일관성 그룹에서 SnapMirror 활성 동기화 관계를 찾습니다. 를 선택합니다 image:../media/icon_kabob.gif["세로 점 3개 아이콘"]를 선택한 다음 * Delete * 를 눌러 SnapMirror 활성 동기화 관계를 제거합니다.
+. 보호 > 관계 * 에서 일관성 그룹에서 SnapMirror 활성 동기화 관계를 찾습니다. image:../media/icon_kabob.gif["메뉴 옵션 아이콘"]를 선택한 다음 * Delete * 를 선택하여 SnapMirror 활성 동기화 관계를 제거합니다.
 . link:../consistency-groups/delete-task.html["일관성 그룹을 삭제합니다"]
 . link:../consistency-groups/configure-task.html["일관성 그룹을 구성합니다"]
 

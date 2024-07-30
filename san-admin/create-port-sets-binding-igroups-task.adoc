@@ -37,7 +37,7 @@ ONTAP 9.10.1부터 System Manager를 사용하여 포트 세트를 생성하고 
 . 호스트 > SAN 이니시에이터 그룹 * 을 클릭합니다.
 . 포트셋 를 새 igroup에 바인딩하려면 * 추가 * 를 클릭합니다.
 +
-포트셋 를 기존 igroup에 바인딩하려면 igroup을 선택하고 을 클릭합니다 image:icon_kabob.gif["Kabob 아이콘"]을 클릭한 다음 * 이니시에이터 그룹 편집 * 을 클릭합니다.
+포트셋 을 기존 igroup에 바인딩하려면 igroup을 선택하고 를 image:icon_kabob.gif["메뉴 옵션 아이콘"]클릭한 다음 * 이니시에이터 그룹 편집 * 을 클릭합니다.
 
 
 

@@ -78,7 +78,7 @@ ONTAP 9.14.1부터 System Manager를 사용하여 볼륨에 태그를 할당하�
  a| 
 태그를 삭제합니다
  a| 
-.. 을 클릭합니다 image:../media/icon_trash_can_white_bg.gif["휴지통 아이콘"] 삭제할 태그 옆에 있습니다.
+.. 삭제할 태그 옆에 있는 을 image:../media/icon_trash_can_white_bg.gif["삭제 아이콘"] 클릭합니다.
 
 
 |===

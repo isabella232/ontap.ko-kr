@@ -22,5 +22,5 @@ summary: 스냅샷 복사본에서 복원하여 볼륨을 이전 시점으로 �
 
 .단계
 . Storage * 를 클릭하고 볼륨을 선택합니다.
-. Snapshot 복사본 * 에서 을 클릭합니다 image:icon_kabob.gif["메뉴 옵션"] 복원하려는 스냅샷 복사본 옆에 있는 * 복원 * 을 선택합니다.
+. Snapshot Copies * 에서 복원할 스냅샷 복사본 옆의 를 클릭하고 image:icon_kabob.gif["메뉴 옵션 아이콘"] * Restore * 를 선택합니다.
 

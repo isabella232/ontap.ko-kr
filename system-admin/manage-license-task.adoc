@@ -27,7 +27,7 @@ System Manager 또는 ONTAP CLI를 사용하여 라이센스 일련 번호 보�
 . 특정 기능 라이센스에 대한 세부 정보를 보려면 * 클러스터 > 설정 * 을 선택합니다.
 . 라이센스 * 에서 를 선택합니다 image:icon_arrow.gif["화살표 아이콘"].
 . 기능 * 을 선택합니다.
-. 보려는 라이센스 기능을 찾아 선택합니다 image:icon_dropdown_arrow.gif["확장 아이콘"] 를 눌러 라이센스 세부 정보를 봅니다.
+. 보려는 라이센스 기능을 찾아 선택하여 image:icon_dropdown_arrow.gif["드롭다운 아이콘"] 라이센스 세부 정보를 봅니다.
 
 
 --
@@ -127,4 +127,4 @@ cluster1::> system license delete { -serial-number 123456789 -installed-license 
 .관련 정보
 https://docs.netapp.com/us-en/ontap/system-admin/commands-manage-feature-licenses-reference.html["라이센스 관리를 위한 ONTAP CLI 명령"]
 
-https://docs.netapp.com/us-en/ontap/concepts/manual-pages.html["ONTAP 9 명령"^]
+link:../concepts/manual-pages.html["ONTAP 명령 참조입니다"]

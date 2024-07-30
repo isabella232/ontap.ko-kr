@@ -39,7 +39,7 @@ MAUSO(mediator-assisted Automatic Switchover) 활성화 또는 비활성화
  a| 
 . System Manager에서 * 대시보드 * 를 클릭합니다.
 . MetroCluster 섹션으로 스크롤합니다.
-. 을 클릭합니다 image:icon_kabob.gif["메뉴 아이콘"] MetroCluster 사이트 이름 옆에 표시됩니다.
+. MetroCluster 사이트 이름 옆에 있는 을 클릭합니다 image:icon_kabob.gif["메뉴 옵션 아이콘"] .
 . 활성화 * 또는 * 비활성화 * 를 선택합니다.
 . 관리자 사용자 이름과 암호를 입력한 다음 * 활성화 * 또는 * 비활성화 * 를 클릭합니다.
 +
@@ -55,7 +55,7 @@ MetroCluster 구성에서 중재자를 제거합니다
  a| 
 . System Manager에서 * 대시보드 * 를 클릭합니다.
 . MetroCluster 섹션으로 스크롤합니다.
-. 을 클릭합니다 image:icon_kabob.gif["메뉴 아이콘"] MetroCluster 사이트 이름 옆에 표시됩니다.
+. MetroCluster 사이트 이름 옆에 있는 을 클릭합니다 image:icon_kabob.gif["메뉴 옵션 아이콘"] .
 . 중재자 제거 * 를 선택합니다.
 . 관리자 사용자 이름과 암호를 입력한 다음 * 제거 * 를 클릭합니다.
 

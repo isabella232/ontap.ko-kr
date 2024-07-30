@@ -80,5 +80,5 @@ summary: storage shelf show 명령을 사용하면 디스크 쉘프의 구성 �
 
 |===
 .관련 정보
-* link:http://docs.netapp.com/us-en/ontap-cli["ONTAP 9 명령 참조"^]
+* https://docs.netapp.com/us-en/ontap-cli["ONTAP 명령 참조입니다"^]
 

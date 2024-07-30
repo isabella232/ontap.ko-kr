@@ -101,5 +101,5 @@ Aggregate의 RAID 유형을 변경합니다
 
 |===
 .관련 정보
-* link:http://docs.netapp.com/us-en/ontap-cli["ONTAP 9 명령 참조"^]
+* https://docs.netapp.com/us-en/ontap-cli["ONTAP 명령 참조입니다"^]
 

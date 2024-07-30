@@ -29,7 +29,7 @@ image:workflow_configure_mirrors_and_vaults.gif["미러와 볼트를 구성하�
 
 .단계
 . 보호할 볼륨 또는 LUN을 선택합니다. * 스토리지 > 볼륨 * 또는 * 스토리지 > LUN * 을 클릭한 다음 원하는 볼륨 또는 LUN 이름을 클릭합니다.
-. 을 클릭합니다 image:icon_protect.gif["보호 버튼"].
+. 을 image:icon_protect.gif["보호 아이콘"]클릭합니다.
 . 대상 클러스터와 스토리지 VM을 선택합니다.
 . 비동기식 정책이 기본적으로 선택됩니다. 동기식 정책을 선택하려면 * 추가 옵션 * 을 클릭합니다.
 . 보호 * 를 클릭합니다.

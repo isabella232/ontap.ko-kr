@@ -60,7 +60,7 @@ https://docs.netapp.com/us-en/ontap-cli/system-license-entitlement-risk-show.htm
 
 |===
 .관련 정보
-* link:https://docs.netapp.com/us-en/ontap-cli/["ONTAP 9 명령"^]
+* link:../concepts/manual-pages.html["ONTAP 명령 참조입니다"]
 * link:https://kb.netapp.com/onprem/ontap/os/ONTAP_9.10.1_and_later_licensing_overview["기술 자료 문서: ONTAP 9.10.1 이상 라이선스 개요"^]
 * link:install-license-task.html["시스템 관리자를 사용하여 NetApp 라이센스 파일을 설치합니다"]
 

@@ -31,7 +31,7 @@ System Manager에 볼륨 목록을 표시한 후 다양한 작업을 수행하�
  a| 
 볼륨을 추가합니다
  a| 
-을 클릭합니다 image:icon_add_blue_bg.gif["추가 아이콘"].  을 참조하십시오 link:../task_admin_add_a_volume.html["볼륨을 추가합니다"].
+을 image:icon_add_blue_bg.gif["추가 아이콘"]클릭합니다. 을 link:../task_admin_add_a_volume.html["볼륨을 추가합니다"]참조하십시오.
 
 
 
@@ -40,8 +40,8 @@ System Manager에 볼륨 목록을 표시한 후 다양한 작업을 수행하�
  a| 
 볼륨 옆의 확인란을 선택합니다.
 
-* 을 클릭합니다 image:icon_delete_with_can_white_bg.gif["삭제 아이콘"] 선택한 볼륨을 삭제합니다.
-* 을 클릭합니다 image:icon_protect.gif["보호 아이콘"] 선택한 볼륨에 보호 정책을 할당하려면
+* image:icon_delete_with_can_white_bg.gif["삭제 아이콘"]선택한 볼륨을 삭제하려면 클릭합니다.
+* image:icon_protect.gif["보호 아이콘"]선택한 볼륨에 보호 정책을 할당하려면 클릭합니다.
 * 을 클릭합니다 image:icon-more-kebab-white-bg.gif["추가 아이콘"] 선택한 모든 볼륨에 대해 수행할 다음 작업 중 하나를 선택합니다.
 +
 ** 할당량을 설정합니다
@@ -57,7 +57,7 @@ System Manager에 볼륨 목록을 표시한 후 다양한 작업을 수행하�
  a| 
 단일 볼륨 관리
  a| 
-볼륨 옆에 있는 을 클릭합니다 image:icon_kabob.gif["케밥 아이콘"]그런 다음 수행할 다음 다음 작업 중 하나를 선택합니다.
+볼륨 옆에 있는 을 image:icon_kabob.gif["메뉴 옵션 아이콘"]클릭한 후 수행할 다음 작업 중 하나를 선택합니다.
 
 * 편집
 * 크기 조정(ONTAP 9.10.1부터 온라인 볼륨 및 DP FlexVol 볼륨에만 해당)
@@ -79,6 +79,6 @@ System Manager에 볼륨 목록을 표시한 후 다양한 작업을 수행하�
  a| 
 개요 페이지에서 볼륨의 이름을 변경할 수 있습니다.
 
-을 클릭합니다 image:icon-edit-pencil-blue-outline.png["편집 아이콘"] 볼륨 이름 옆에 있는 다음 볼륨 이름을 수정합니다.
+볼륨 이름 옆에 있는 을 image:icon-edit-pencil-blue-outline.png["편집 아이콘"] 클릭한 다음 볼륨 이름을 수정합니다.
 
 |===

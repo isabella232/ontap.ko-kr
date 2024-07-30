@@ -61,7 +61,7 @@ SVM의 용량은 FlexVol, FlexGroup 볼륨, FlexClone, FlexCache 볼륨의 합�
 --
 .단계
 . 스토리지 * > * 스토리지 VM * 을 선택합니다.
-. 를 선택합니다 image:icon_add_blue_bg.gif["추가 아이콘"] SVM을 생성합니다.
+. image:icon_add_blue_bg.gif["추가 아이콘"]를 선택하여 SVM을 생성합니다.
 . SVM의 이름을 지정하고 * 액세스 프로토콜 * 을 선택합니다.
 . 스토리지 VM 설정 * 에서 * 최대 용량 제한 사용 * 을 선택합니다.
 +
@@ -107,7 +107,7 @@ SVM의 최대 용량 크기를 제공합니다.
 --
 .단계
 . 스토리지 * > * 스토리지 VM * 을 선택합니다.
-. 수정할 SVM을 선택합니다. SVM 이름 옆에서 를 선택합니다 image:icon_kabob.gif["케밥 아이콘"] 그런 다음 * 편집 * 을 클릭합니다.
+. 수정할 SVM을 선택합니다. SVM 이름 옆에 있는 * Edit * (편집 *)를 선택합니다 image:icon_kabob.gif["메뉴 옵션 아이콘"] .
 . 용량 제한을 활성화하려면 * Enable capacity limit(용량 제한 활성화) * 옆의 상자를 선택합니다. 최대 용량 * 의 값과 * 경고 임계값 * 의 백분율 값을 입력합니다.
 +
 용량 제한을 비활성화하려면 * Enable capacity limit * (용량 제한 활성화 *) 옆의 확인란을 선택 취소합니다.

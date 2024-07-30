@@ -31,7 +31,7 @@ AutoSupport* 섹션에 다음 정보가 표시됩니다.
 ** 보낸 사람 이메일 주소
 
 
-. AutoSupport * 섹션에서 을 선택합니다 image:../media/icon_kabob.gif["케밥 아이콘"]를 선택한 다음 * 추가 옵션 * 을 선택합니다.
+. AutoSupport * 섹션에서 을 선택한 다음 * 추가 옵션 * 을 image:../media/icon_kabob.gif["메뉴 옵션 아이콘"]선택합니다.
 +
 AutoSupport 연결 및 전자 메일 설정에 대한 추가 정보가 표시됩니다. 또한 메시지의 전송 기록이 나열됩니다.
 
@@ -45,7 +45,7 @@ System Manager에서 AutoSupport 메시지 생성을 시작하고 데이터가 �
 
 .단계
 . System Manager에서 * 클러스터 > 설정 * 을 선택합니다.
-. AutoSupport * 섹션에서 을 선택합니다 image:../media/icon_kabob.gif["케밥 아이콘"]그런 다음 * 생성 및 전송 * 을 선택합니다.
+. AutoSupport * 섹션에서 을 image:../media/icon_kabob.gif["메뉴 옵션 아이콘"]선택한 다음 * 생성 및 전송 * 을 선택합니다.
 . 제목을 입력합니다.
 . 데이터를 수집할 노드를 지정하려면 * 데이터 수집 위치 * 아래의 확인란을 선택합니다.
 
@@ -58,7 +58,7 @@ System Manager에서 테스트 메시지를 보내 AutoSupport에 대한 연결�
 
 .단계
 . System Manager에서 * 클러스터 > 설정 * 을 클릭합니다.
-. AutoSupport * 섹션에서 을 선택합니다 image:../media/icon_kabob.gif["케밥 아이콘"]그런 다음 * Test Connectivity * 를 선택합니다.
+. AutoSupport * 섹션에서 을 image:../media/icon_kabob.gif["메뉴 옵션 아이콘"]선택한 다음 * Test Connectivity * 를 선택합니다.
 . 메시지의 제목을 입력합니다.
 
 
@@ -80,8 +80,8 @@ AutoSupport를 사용하지 않도록 설정하기 전에 NetApp Call-Home 시�
 
 .단계
 . 클러스터 > 설정 * 을 선택합니다.
-. AutoSupport * 섹션에서 을 선택합니다 image:../media/icon_kabob.gif["케밥 아이콘"]그런 다음 * 비활성화 * 를 선택합니다.
-. AutoSupport를 다시 활성화하려면 * AutoSupport * 섹션에서 을 선택합니다 image:../media/icon_kabob.gif["케밥 아이콘"]그런 다음 * 활성화 * 를 선택합니다.
+. AutoSupport * 섹션에서 을 선택한 다음 * 사용 안 함 * 을 image:../media/icon_kabob.gif["메뉴 옵션 아이콘"]선택합니다.
+. AutoSupport를 다시 활성화하려면 * AutoSupport * 섹션에서 를 선택한 다음 * 활성화 * 를 image:../media/icon_kabob.gif["메뉴 옵션 아이콘"]선택합니다.
 
 
 
@@ -97,7 +97,7 @@ ONTAP 9.10.1부터 System Manager를 사용하여 AutoSupport에 요청을 보�
 
 .단계
 . 클러스터 > 설정 * 을 선택합니다.
-. AutoSupport * 섹션에서 을 선택합니다 image:../media/icon_kabob.gif["케밥 아이콘"]그런 다음 * 지원 케이스 생성 억제 * 를 선택합니다.
+. AutoSupport * 섹션에서 를 image:../media/icon_kabob.gif["메뉴 옵션 아이콘"]선택한 다음 * 지원 케이스 생성 안 함 * 을 선택합니다.
 . 억제가 발생할 시간을 입력합니다.
 . 기능 억제를 수행할 노드를 선택합니다.
 
@@ -110,7 +110,7 @@ ONTAP 9.10.1부터 System Manager를 사용하면 AutoSupport에서 지원 케�
 
 .단계
 . 클러스터 > 설정 * 을 선택합니다.
-. AutoSupport * 섹션에서 을 선택합니다 image:../media/icon_kabob.gif["케밥 아이콘"]그런 다음 * 지원 케이스 생성 재개 * 를 선택합니다.
+. AutoSupport * 섹션에서 를 image:../media/icon_kabob.gif["메뉴 옵션 아이콘"]선택한 다음 * 지원 케이스 생성 재개 * 를 선택합니다.
 . 생성을 재개할 노드를 선택합니다.
 
 
@@ -122,6 +122,6 @@ ONTAP 9.10.1부터 System Manager를 사용하면 AutoSupport에서 지원 케�
 
 .단계
 . 클러스터 > 설정 * 을 선택합니다.
-. AutoSupport * 섹션에서 을 선택합니다 image:../media/icon_kabob.gif["케밥 아이콘"]를 선택한 다음 * 추가 옵션 * 을 선택합니다.
-. 연결 * 섹션 또는 * 이메일 * 섹션에서 을 선택합니다 image:../media/icon_edit.gif["편집 아이콘"] 두 섹션의 설정을 수정합니다.
+. AutoSupport * 섹션에서 을 선택한 다음 * 추가 옵션 * 을 image:../media/icon_kabob.gif["메뉴 옵션 아이콘"]선택합니다.
+. 연결 * 섹션 또는 * 이메일 * 섹션에서 을 image:../media/icon_edit.gif["편집 아이콘"] 선택하여 어느 섹션의 설정을 수정합니다.
 

@@ -49,7 +49,7 @@ ONTAP 9.11.1부터 정합성 보장 그룹이 제공합니다 <<two-phase,2단�
 . 스냅샷 복사본 예약(로컬) * 옆의 확인란을 선택합니다.
 . 스냅샷 정책을 선택합니다. 새 사용자 지정 정책을 구성하려면 을 참조하십시오 link:../task_dp_create_custom_data_protection_policies.html["사용자 지정 데이터 보호 정책을 생성합니다"].
 . 저장 * 을 선택합니다.
-. 일관성 그룹 개요 메뉴로 돌아갑니다. Snapshot 복사본(로컬) * 의 왼쪽 열에서 옆에 보호됨 상태가 표시됩니다 image:../media/icon_shield.png["녹색 차폐 아이콘"].
+. 일관성 그룹 개요 메뉴로 돌아갑니다. 왼쪽 열의 * Snapshot Copies (Local) * 아래에서 상태는 옆에 보호됨으로 image:../media/icon_shield.png["쉴드 아이콘"]표시됩니다.
 
 
 --
@@ -226,7 +226,7 @@ TIP: CLI를 사용하여 SnapMirror 활성 동기화를 구성하려면 를 참�
 . 개요 페이지 오른쪽 상단에서 * 자세히 * 를 선택한 다음 * 보호 * 를 선택합니다.
 . System Manager는 소스 측 정보를 자동으로 채웁니다. 대상에 적합한 클러스터 및 스토리지 VM을 선택합니다. 보호 정책을 선택합니다. Initialize relationship * 이 선택되어 있는지 확인합니다.
 . 저장 * 을 선택합니다.
-. 정합성 보장 그룹을 초기화하고 동기화해야 합니다. 정합성 보장 그룹 * 메뉴로 돌아가 동기화가 성공적으로 완료되었는지 확인합니다. SnapMirror(원격) * 상태가 표시됩니다 `Protected` 옆에 있습니다 image:../media/icon_shield.png["녹색 차폐 아이콘"].
+. 정합성 보장 그룹을 초기화하고 동기화해야 합니다. 정합성 보장 그룹 * 메뉴로 돌아가 동기화가 성공적으로 완료되었는지 확인합니다. SnapMirror (원격) * 상태가 `Protected` 옆에 image:../media/icon_shield.png["쉴드 아이콘"]표시됩니다.
 
 
 
@@ -266,7 +266,7 @@ SnapMirror 관계를 볼륨과 세분화된 Snapshot 복사본과 다시 동기�
 NOTE: SnapMirror 비동기식을 사용하는 일관성 그룹에서 지원되는 최소 일정(복구 시점 목표 또는 RPO)은 30분입니다.
 
 . 저장 * 을 선택합니다.
-. 정합성 보장 그룹을 초기화하고 동기화해야 합니다. 정합성 보장 그룹 * 메뉴로 돌아가 동기화가 성공적으로 완료되었는지 확인합니다. SnapMirror(원격) * 상태가 표시됩니다 `Protected` 옆에 있습니다 image:../media/icon_shield.png["녹색 차폐 아이콘"].
+. 정합성 보장 그룹을 초기화하고 동기화해야 합니다. 정합성 보장 그룹 * 메뉴로 돌아가 동기화가 성공적으로 완료되었는지 확인합니다. SnapMirror (원격) * 상태가 `Protected` 옆에 image:../media/icon_shield.png["쉴드 아이콘"]표시됩니다.
 
 
 

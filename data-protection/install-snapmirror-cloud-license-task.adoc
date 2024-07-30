@@ -34,7 +34,7 @@ link:https://mysupport.netapp.com/site/tools/snapmirror-cloud-api-key["SnapMirro
 +
 .. 클러스터 > 설정 * 을 클릭합니다.
 .. 설정 * 창에서 * 라이센스 * 를 클릭합니다.
-.. 라이센스 * 창에서 를 클릭합니다 image:icon_add.gif["추가 아이콘"].
+.. 라이센스 * 창에서 를 image:icon_add.gif["추가 아이콘"]클릭합니다.
 .. 라이센스 추가 * 대화 상자에서 * 찾아보기 * 를 클릭하여 다운로드한 NLF를 선택한 다음 * 추가 * 를 클릭하여 파일을 클러스터에 업로드합니다.
 
 

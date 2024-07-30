@@ -25,7 +25,7 @@ summary: 복제 관계를 생성하려면 먼저 Element 소스 볼륨에서 Sna
 
 .단계
 . Management * > * Volumes * 를 선택합니다.
-. 를 선택합니다 image:../media/action-icon.gif["기어 아이콘"] 버튼을 클릭합니다.
+. 볼륨 버튼을 선택합니다 image:../media/action-icon.gif["작업 아이콘"] .
 . 드롭다운 메뉴에서 * 편집 * 을 선택합니다.
 . 볼륨 편집 * 대화 상자에서 * SnapMirror 사용 * 을 선택합니다.
 . 변경 내용 저장 * 을 선택합니다.

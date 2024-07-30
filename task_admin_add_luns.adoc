@@ -143,6 +143,6 @@ NOTE: 이러한 LUN의 사양을 Ansible 플레이북에 저장할 수도 있습
 
 .단계
 . System Manager에서 * LUNs * 를 클릭합니다.
-. 을 클릭합니다 image:icon-edit-pencil-blue-outline.png["편집 아이콘"] 이름을 바꾸려는 LUN 이름 옆의 LUN 이름을 수정합니다.
+. 이름을 바꾸려는 LUN 이름 옆의 을 image:icon-edit-pencil-blue-outline.png["편집 아이콘"] 클릭하고 LUN 이름을 수정합니다.
 . 저장 * 을 클릭합니다.
 

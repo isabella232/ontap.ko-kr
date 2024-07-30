@@ -342,8 +342,6 @@ entries:
     url: "/volumes/rehost-snapmirror-relationship-task.html"
   - title: 볼륨 재호스트를 지원하지 않는 기능입니다
     url: "/volumes/features-supported-volume-rehost-concept.html"
-- title: 보관 제한
-  url: "/volumes/storage-limits-reference.html"
 - title: 권장되는 볼륨 및 파일 또는 LUN 구성 조합
   entries:
   - title: 개요

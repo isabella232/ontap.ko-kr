@@ -25,7 +25,7 @@ ONTAP 시스템 관리자(9.7 이상)가 설치된 LIF를 삭제합니다.
 .단계
 . System Manager에서 * Network > Overview * 를 클릭한 다음 * Network Interfaces * 를 선택합니다.
 . LIF를 삭제할 스토리지 VM을 선택합니다.
-. 을 클릭합니다 image:icon_kabob.gif["Kabob 아이콘"] 를 선택하고 * 삭제 * 를 선택합니다.
+. 을 image:icon_kabob.gif["메뉴 옵션 아이콘"] 클릭하고 * 삭제 * 를 선택합니다.
 
 
 --

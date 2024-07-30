@@ -31,10 +31,10 @@ ONTAP 시스템 관리자 또는 ONTAP CLI를 사용하여 이 작업을 수행�
 원격 클러스터에서 이 단계를 반복합니다.
 
 . 원격 클러스터에서 * 클러스터 > 설정 * 을 클릭합니다.
-. 을 클릭합니다 image:icon_kabob.gif["메뉴 옵션 아이콘"] Cluster Peers * 섹션에서 * Generate Passphrase * 를 선택합니다.
+. image:icon_kabob.gif["메뉴 옵션 아이콘"]Cluster Peers * 섹션을 클릭하고 * Generate Passphrase * 를 선택합니다.
 . 원격 ONTAP 클러스터 버전을 선택합니다.
 . 생성된 암호를 복사합니다.
-. 로컬 클러스터의 * 클러스터 피어 * 아래에서 를 클릭합니다 image:icon_kabob.gif["메뉴 옵션 아이콘"] 피어 클러스터 * 를 선택합니다.
+. 로컬 클러스터의 * 클러스터 피어 * 에서 * 피어 클러스터 * 를 클릭하고 image:icon_kabob.gif["메뉴 옵션 아이콘"] * 피어 클러스터 * 를 선택합니다.
 . 피어 클러스터 * 창에서 암호를 붙여 넣고 * 클러스터 피어링 초기화 * 를 클릭합니다.
 
 

@@ -45,7 +45,7 @@ ONTAP System Manager 또는 ONTAP CLI에서 비활성 데이터 양을 확인할
 --
 . 다음 옵션 중 하나를 선택합니다.
 +
-** 기존 HDD 애그리게이트가 있는 경우 * Storage > Tiers * 로 이동하고 를 클릭합니다 image:icon_kabob.gif["메뉴 옵션"] 비활성 데이터 보고를 사용하려는 애그리게이트의 경우
+** 기존 HDD Aggregate가 있는 경우 * 스토리지 > 계층 * 으로 이동하여 비활성 데이터 보고를 활성화할 애그리게이트를 클릭합니다. image:icon_kabob.gif["메뉴 옵션 아이콘"]
 ** 구성된 클라우드 계층이 없으면 * Dashboard * 로 이동하여 * Capacity * 에서 * Enable inactive data reporting * 링크를 클릭합니다.
 
 

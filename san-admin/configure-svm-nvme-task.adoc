@@ -37,7 +37,7 @@ ONTAP System Manager(9.7 이상)를 사용하여 NVMe용 스토리지 VM을 구�
  a| 
 . System Manager에서 * 스토리지 > 스토리지 VM * 을 클릭합니다.
 . 구성할 스토리지 VM을 클릭합니다.
-. 설정 * 탭을 클릭한 다음 을 클릭합니다 image:icon_gear.gif["설정 아이콘"] NVMe 프로토콜 옆에 있습니다.
+. 설정 * 탭을 클릭한 다음 NVMe 프로토콜 옆에 있는 을 image:icon_gear.gif["작업 아이콘"] 클릭합니다.
 . NVMe/FC * 활성화 또는 * NVMe/TCP * 활성화 및 * 저장 * 을 선택합니다.
 
 
@@ -124,13 +124,13 @@ SVM의 관리 상태는 Up으로 표시되어야 합니다.
 +
 [source, cli]
 ----
-network interface create -vserver <SVM_name> -lif <lif_name> -role data -data-protocol fc-nvme -home-node <home_node> -home-port <home_port>
+network interface create -vserver <SVM_name> -lif <lif_name> -address <ip address> -netmask <ip address> -role data -data-protocol fc-nvme -home-node <home_node> -home-port <home_port>
 ----
 ** ONTAP 9.10.1 이상, FC 또는 TCP:
 +
 [source, cli]
 ----
-network interface create -vserver <SVM_name> -lif <lif_name> -service-policy <default-data-nvme-tcp | default-data-nvme-fc> -data-protocol <fcp | fc-nvme | nvme-tcp> -home-node <home_node> -home-port <home_port> -status-admin up -failover-policy disabled -firewall-policy data -auto-revert false -failover-group <failover_group> -is-dns-update-enabled false
+network interface create -vserver <SVM_name> -lif <lif_name> -address <ip address> -netmask <ip address> -service-policy <default-data-nvme-tcp | default-data-nvme-fc> -data-protocol <fcp | fc-nvme | nvme-tcp> -home-node <home_node> -home-port <home_port> -status-admin up -failover-policy disabled -firewall-policy data -auto-revert false -failover-group <failover_group> -is-dns-update-enabled false
 ----
 
 

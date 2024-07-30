@@ -143,4 +143,4 @@ https://docs.netapp.com/us-en/ontap-cli/system-node-halt.html#parameters 링크�
 
 |===
 .관련 정보
-link:https://docs.netapp.com/us-en/ontap-cli["ONTAP 9 명령"^]
+link:../concepts/manual-pages.html["ONTAP 명령 참조입니다"]

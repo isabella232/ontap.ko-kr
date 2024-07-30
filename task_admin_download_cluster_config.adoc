@@ -20,7 +20,7 @@ ONTAP 9.11.1부터 System Manager를 사용하여 클러스터 구성을 다운�
 
 .단계
 . 클러스터 > 개요 * 를 클릭합니다.
-. 을 클릭합니다 image:icon-more-kebab-blue-bg.gif["메뉴 아이콘"] 를 눌러 드롭다운 메뉴를 표시합니다.
+. 드롭다운 메뉴를 표시하려면 클릭합니다 image:icon-more-kebab-blue-bg.gif["추가 옵션 아이콘"] .
 . 구성 다운로드 * 를 선택합니다.
 . HA 쌍을 선택한 다음 * 다운로드 * 를 클릭합니다.
 +

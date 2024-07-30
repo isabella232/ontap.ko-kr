@@ -13,7 +13,7 @@ summary: 시간을 동기화하면 클러스터의 모든 노드가 동일한 �
 [role="lead"]
 시간을 동기화하면 클러스터의 모든 노드가 동일한 시간을 가지고 CIFS 및 Kerberos 장애를 방지할 수 있습니다.
 
-사이트에서 NTP(Network Time Protocol) 서버를 설정해야 합니다. ONTAP 9.5부터 대칭 인증을 사용하여 NTP 서버를 설정할 수 있습니다. 자세한 내용은 을 참조하십시오 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sag/GUID-1E923D05-447D-4323-8D87-12B82F49B6F1.html?cp=4_7_6["클러스터 시간 관리(클러스터 관리자만 해당)"].
+사이트에서 NTP(Network Time Protocol) 서버를 설정해야 합니다. ONTAP 9.5부터 대칭 인증을 사용하여 NTP 서버를 설정할 수 있습니다. 자세한 내용은 의 설명서를 link:../system-admin/manage-cluster-time-concept.html["클러스터 시간 관리(클러스터 관리자만 해당)"]참조하십시오.
 
 클러스터를 하나 이상의 NTP 서버와 연결하여 클러스터 전체에서 시간을 동기화할 수 있습니다.
 

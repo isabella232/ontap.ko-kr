@@ -55,5 +55,5 @@ Storage aggregate show'Storage aggregate show'Storage aggregate show-space-field
 
 |===
 .관련 정보
-* link:http://docs.netapp.com/us-en/ontap-cli["ONTAP 9 명령"^]
+* link:../concepts/manual-pages.html["ONTAP 명령 참조입니다"]
 

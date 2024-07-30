@@ -56,7 +56,7 @@ System Manager 또는 ONTAP CLI를 사용하여 스냅샷 복사본을 수동으
 --
 .단계
 . 스토리지 > 볼륨 * 으로 이동하고 * Snapshot 복사본 * 탭을 선택합니다.
-. 삭제할 스냅샷 복사본을 찾고 을 클릭합니다 image:icon_kabob.gif["Kabob 아이콘"]를 선택하고 * 삭제 * 를 선택합니다.
+. 삭제할 스냅샷 복사본을 찾아 를 클릭하고 * 삭제 * 를 image:icon_kabob.gif["메뉴 옵션 아이콘"]선택합니다.
 . Delete Snapshot copy * 창에서 * Delete Snapshot copy * 를 선택합니다.
 . 삭제 * 를 클릭합니다.
 

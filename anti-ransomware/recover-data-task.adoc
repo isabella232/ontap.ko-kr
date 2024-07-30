@@ -45,7 +45,7 @@ System Manager 또는 ONTAP CLI를 사용하여 데이터를 복원할 수 있�
 +
 스토리지 > 볼륨 * 을 선택한 다음 볼륨 및 * Snapshot 복사본 * 을 선택합니다.
 
-. 를 선택합니다 image:icon_kabob.gif["메뉴 옵션"] 복원할 스냅샷 복사본 옆에 있는 다음 * 복원 *.
+. 복원할 스냅샷 복사본 옆의 를 선택하고 * 복원 * 을 선택합니다 image:icon_kabob.gif["메뉴 옵션 아이콘"] .
 
 
 .시스템 공격이 확인되지 않은 경우 복원합니다
@@ -53,7 +53,7 @@ System Manager 또는 ONTAP CLI를 사용하여 데이터를 복원할 수 있�
 +
 스토리지 > 볼륨 * 을 선택한 다음 볼륨 및 * Snapshot 복사본 * 을 선택합니다.
 
-. 를 선택합니다 image:icon_kabob.gif["메뉴 옵션"] 그들은 를 선택합니다 `Anti_ransomware_backup` 스냅샷 수.
+. 스냅샷을 선택합니다 image:icon_kabob.gif["메뉴 옵션 아이콘"] `Anti_ransomware_backup` .
 . Restore * 를 선택합니다.
 . Snapshot Copies * 메뉴로 돌아가서 사용할 Snapshot 복사본을 선택합니다. Restore * 를 선택합니다.
 

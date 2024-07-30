@@ -55,7 +55,7 @@ ONTAP 9.12.1부터 System Manager를 사용하여 WORM 파일의 SnapMirror 복�
 . Storage > Volumes * 로 이동합니다.
 . 표시/숨기기 * 를 클릭하고 * SnapLock 유형 * 을 선택하여 * 볼륨 * 창에 열을 표시합니다.
 . SnapLock 볼륨을 찾습니다.
-. 을 클릭합니다 image:icon_kabob.gif["메뉴 옵션"] 를 클릭하고 * 보호 * 를 선택합니다.
+. 을 image:icon_kabob.gif["메뉴 옵션 아이콘"] 클릭하고 * 보호 * 를 선택합니다.
 . 대상 클러스터와 대상 스토리지 VM을 선택합니다.
 . 추가 옵션 * 을 클릭합니다.
 . 기존 정책 표시 * 를 선택하고 * DPDefault(레거시) * 를 선택합니다.

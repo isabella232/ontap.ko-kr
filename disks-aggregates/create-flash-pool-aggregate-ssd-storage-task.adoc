@@ -50,12 +50,12 @@ ONTAP 9.12.1부터 시스템 관리자를 사용하여 SSD 스토리지 풀에 S
 
 .단계
 . Storage > Tiers * 를 클릭하고 기존 로컬 HDD 스토리지 계층을 선택합니다.
-. 을 클릭합니다 image:icon_kabob.gif["Kabob 아이콘"] 를 선택하고 * Flash Pool 캐시 추가 * 를 선택합니다.
+. 를 image:icon_kabob.gif["메뉴 옵션 아이콘"] 클릭하고 * Add Flash Pool Cache * 를 선택합니다.
 . 스토리지 풀 사용 * 을 선택합니다.
 . 스토리지 풀을 선택합니다.
 . 캐시 크기 및 RAID 구성을 선택합니다.
 . 저장 * 을 클릭합니다.
-. 스토리지 계층을 다시 찾아 클릭합니다 image:icon_kabob.gif["Kabob 아이콘"].
+. 스토리지 계층을 다시 찾고 을 클릭합니다 image:icon_kabob.gif["메뉴 옵션 아이콘"].
 . More Details * 를 선택하고 Flash Pool이 * Enabled * 로 표시되는지 확인합니다.
 
 

@@ -52,7 +52,7 @@ ONTAP 9.10.1부터 단일 LUN을 이동할 때 시스템 관리자를 사용하�
 단계
 
 . System Manager에서 * 스토리지 > LUN * 을 클릭합니다.
-. 이동할 LUN을 마우스 오른쪽 버튼으로 클릭한 다음 을 클릭합니다 image:icon_kabob.gif["Kabob 아이콘"] 을 클릭하고 * LUN 이동 * 을 선택합니다.
+. 이동할 LUN을 마우스 오른쪽 버튼으로 image:icon_kabob.gif["메뉴 옵션 아이콘"] 클릭한 다음 * Move LUN * 을 선택합니다.
 +
 ONTAP 9.10.1에서 LUN을 * 기존 볼륨 * 또는 * 새 볼륨 * 으로 이동하려면 선택합니다.
 

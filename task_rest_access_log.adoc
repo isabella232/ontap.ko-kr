@@ -19,7 +19,7 @@ summary: System Manager에서 수행한 ONTAP REST API 호출을 기록하는 �
 System Manager에서 수행한 ONTAP REST API 호출 기록이 포함된 로그에 액세스할 수 있습니다. 로그를 표시할 때 API 호출을 재발급하고 출력을 검토할 수도 있습니다.
 
 .단계
-. 페이지 맨 위에서 를 클릭합니다 image:icon_double_arrow.gif["API 로그를 표시합니다"] REST API 로그를 표시합니다.
+. 페이지 맨 위에서 를 image:icon_double_arrow.gif["디스플레이 아이콘"] 클릭하여 REST API 로그를 표시합니다.
 +
 가장 최근 항목이 페이지 하단에 표시됩니다.
 

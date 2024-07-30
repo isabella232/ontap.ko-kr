@@ -48,10 +48,10 @@ Insights * 페이지에는 인사이트 그룹이 표시됩니다. 각 인사이
 
 . (선택 사항) 페이지의 오른쪽 위 모서리에 있는 다음 단추를 클릭하여 표시되는 통찰력을 필터링합니다.
 +
-** image:icon-security-filter.gif["보안 필터 아이콘"] 보안 관련 통찰력을 표시합니다.
-** image:icon-capacity-filter.gif["용량 필터 아이콘"] 용량 관련 인사이트를 표시합니다.
-** image:icon-config-filter.gif["구성 필터 아이콘"] 구성 관련 통찰력을 표시합니다.
-** image:icon-all-filter.png["모든 인사이트 필터 아이콘"] 모든 통찰력을 표시합니다.
+** image:icon-security-filter.gif["보안 아이콘"] 보안 관련 인사이트를 표시합니다.
+** image:icon-capacity-filter.gif["용량 통찰력 아이콘"] 용량 관련 인사이트를 표시합니다.
+** image:icon-config-filter.gif["구성 정보 아이콘"] 구성 관련 인사이트를 표시합니다.
+** image:icon-all-filter.png["모든 정보 아이콘"] 모든 정보를 표시합니다.
 
 
 
@@ -84,7 +84,7 @@ System Manager에서 알림을 받을 인사이트를 사용자 지정할 수 �
 
 .단계
 . System Manager의 왼쪽 탐색 열에서 * Insights * 를 클릭합니다.
-. 페이지의 오른쪽 위 모서리에서 을 클릭합니다 image:icon_kabob.gif["케밥 아이콘"]그런 다음 * 설정 * 을 선택합니다.
+. 페이지의 오른쪽 위 모서리에서 을 클릭한 image:icon_kabob.gif["메뉴 옵션 아이콘"]다음 * 설정 * 을 선택합니다.
 . 설정 * 페이지에서 알림을 받을 인사이트 옆에 있는 확인란이 있는지 확인합니다. 이전에 통찰력을 거부했다면, 체크 박스에 체크 표시를 하여 "해제"할 수 있습니다.
 . 저장 * 을 클릭합니다.
 
@@ -97,5 +97,5 @@ System Manager에서 알림을 받을 인사이트를 사용자 지정할 수 �
 
 .단계
 . System Manager의 왼쪽 탐색 열에서 * Insights * 를 클릭합니다.
-. 페이지의 오른쪽 위 모서리에서 을 클릭합니다 image:icon_kabob.gif["케밥 아이콘"]그런 다음 * 내보내기 * 를 선택합니다.
+. 페이지의 오른쪽 위 모서리에서 을 클릭한 image:icon_kabob.gif["메뉴 옵션 아이콘"]다음 * 내보내기 * 를 선택합니다.
 

@@ -71,7 +71,7 @@ System Manager를 사용하는 경우, 기본적으로 볼륨 생성 시 용량 
 
 .클러스터에서 파일 시스템 분석 설정을 수정합니다
 . System Manager에서 ** 클러스터 설정**으로 이동합니다.
-. Cluster settings** 에서 File System Settings 탭을 검토합니다. 설정을 수정하려면 을 선택합니다 image:icon_gear.gif["설정 기어"] 아이콘을 클릭합니다.
+. Cluster settings** 에서 File System Settings 탭을 검토합니다. 설정을 수정하려면 image:icon_gear.gif["작업 아이콘"] 아이콘을 선택합니다.
 . [활동 추적**] 필드에 기본적으로 활동 추적을 활성화할 SVM의 이름을 입력합니다. 필드를 비워 두면 모든 SVM에서 활동 추적이 비활성화됩니다.
 +
 새 스토리지 VM에서 기본적으로 활성 추적을 해제하려면 ** 새 스토리지 VM에서 활성화 ** 상자의 선택을 취소합니다.

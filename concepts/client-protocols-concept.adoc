@@ -2,7 +2,7 @@
 permalink: concepts/client-protocols-concept.html 
 sidebar: sidebar 
 keywords: client protocols 
-summary: ONTAP는 NFS, SMB, FC, FCoE, iSCSI, iSCSI 등의 모든 주요 업계 표준 클라이언트 프로토콜을 NVMe/FC 및 S3 
+summary: 'ONTAP는 NFS, SMB, FC, FCoE, iSCSI, NVMe 및 S3:' 
 ---
 = 클라이언트 프로토콜
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: ONTAP는 NFS, SMB, FC, FCoE, iSCSI, iSCSI 등의 모든 주요 업계 �
 
 
 [role="lead"]
-ONTAP는 NFS, SMB, FC, FCoE, iSCSI, iSCSI 등의 모든 주요 업계 표준 클라이언트 프로토콜을 NVMe/FC 및 S3
+ONTAP는 NFS, SMB, FC, FCoE, iSCSI, NVMe 및 S3:
 
 
 
@@ -60,9 +60,9 @@ iSCSI는 표준 이더넷 네트워크에서 실행할 수 있는 블록 프로�
 
 
 
-== NVMe/FC
+== NVMe/FC 및 NVMe/TCP
 
-최신 블록 프로토콜인 NVMe/FC는 플래시 기반 스토리지에서 작동하도록 특별히 설계되었습니다. 확장 가능한 세션, 지연 시간 대폭 감소, 병렬 처리 수 증가 등을 제공하므로 메모리 내 데이터베이스 및 분석과 같은 대기 시간이 짧고 처리량이 높은 애플리케이션에 적합합니다.
+최신 블록 프로토콜인 NVMe는 플래시 기반 스토리지에서 작동하도록 특별히 설계되었습니다. 확장 가능한 세션, 지연 시간 대폭 감소, 병렬 처리 수 증가 등을 제공하므로 메모리 내 데이터베이스 및 분석과 같은 대기 시간이 짧고 처리량이 높은 애플리케이션에 적합합니다.
 
 FC 및 iSCSI와 달리 NVMe는 LUN을 사용하지 않습니다. 대신 ONTAP 볼륨에 저장된 네임스페이스를 사용합니다. NVMe 네임스페이스는 NVMe 프로토콜을 통해서만 액세스할 수 있습니다.
 

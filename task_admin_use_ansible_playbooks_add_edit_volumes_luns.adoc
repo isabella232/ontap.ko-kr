@@ -89,7 +89,7 @@ LUN > 추가 * (또는 * LUN > 편집 *)
 .단계
 . 검색 필드에 "볼륨" 또는 "LUN" 또는 "플레이북"을 입력합니다.
 . “Volume Management(Ansible Playbook)” 또는 “LUN Management(Ansible Playbook)”라는 검색 결과를 찾습니다.
-. 을 클릭합니다 image:icon_download.gif["다운로드 아이콘"] Ansible Playbook 파일을 다운로드합니다.
+. Ansible Playbook 파일을 다운로드하려면 를 image:icon_download.gif["다운로드 아이콘"] 클릭하십시오.
 
 
 

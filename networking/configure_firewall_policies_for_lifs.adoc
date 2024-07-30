@@ -145,7 +145,7 @@ SVM 또는 클러스터 방화벽 정책에서 portmap 서비스를 제거하려
 
 '시스템 서비스 방화벽 정책 삭제 - vserver SVM-policy mgmt | 인터클러스터 | data | custom-service portmap
 
-네트워크 인터페이스 수정 명령을 사용하여 기존 LIF에 방화벽 정책을 적용할 수 있습니다. 전체 명령 구문은 을 참조하십시오 link:http://docs.netapp.com/us-en/ontap-cli["ONTAP 9 명령 참조"^].
+네트워크 인터페이스 수정 명령을 사용하여 기존 LIF에 방화벽 정책을 적용할 수 있습니다. 전체 명령 구문에 대한 자세한 내용은 를 https://docs.netapp.com/us-en/ontap-cli["ONTAP 명령 참조입니다"^]참조하십시오.
 
 
 

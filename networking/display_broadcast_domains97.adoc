@@ -58,4 +58,4 @@ Name    Domain Name  MTU   Port List             Status Details
 Default bcast1       1500
                            cluster-1-02:e0g       error
 ....
-자세한 내용은 를 참조하십시오 link:http://docs.netapp.com/us-en/ontap-cli["ONTAP 9 명령 참조"^].
+자세한 내용은 를 https://docs.netapp.com/us-en/ontap-cli["ONTAP 명령 참조입니다"^]참조하십시오.

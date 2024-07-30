@@ -49,7 +49,7 @@ Cloud Backup에 대한 연결을 수정할 수 있습니다.
 
 .단계
 . 보호 > 개요 * 로 이동합니다.
-. Cloud Backup Service * 섹션에서 을 클릭합니다 image:icon_kabob.gif["케밥 아이콘"].
+. Cloud Backup Service * 섹션에서 을 image:icon_kabob.gif["메뉴 옵션 아이콘"]클릭합니다.
 . 다음 수정 절차 중 하나를 선택할 수 있습니다.
 +
 ** * 편집 *: 보호 정책과 IPspace를 변경할 수 있습니다.

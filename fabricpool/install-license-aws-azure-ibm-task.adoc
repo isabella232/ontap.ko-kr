@@ -37,8 +37,8 @@ BlueXP에서 지원되지 않는 기존 클러스터 구성에 대해 최초 Fab
 . FabricPool 라이센스용 NetApp 라이센스 파일(NLF)을 에서 다운로드하십시오 link:https://mysupport.netapp.com/site/global/dashboard["NetApp Support 사이트"^].
 . System Manager를 사용하여 FabricPool 라이센스를 클러스터에 업로드하려면 다음 작업을 수행합니다.
 +
-.. Cluster > Settings * 창의 * Licenses * 카드에서 를 클릭합니다 image:icon_arrow.gif["화살표 아이콘"].
-.. 라이센스 * 페이지에서 을 클릭합니다 image:icon_add.gif["추가 아이콘"].
+.. 클러스터 > 설정 * 창의 * Licenses * 카드에서 을 클릭합니다 image:icon_arrow.gif["화살표 아이콘"].
+.. 라이센스 * 페이지에서 를 image:icon_add.gif["추가 아이콘"]클릭합니다.
 .. 라이센스 추가 * 대화 상자에서 * 찾아보기 * 를 클릭하여 다운로드한 NLF를 선택한 다음 * 추가 * 를 클릭하여 파일을 클러스터에 업로드합니다.
 
 

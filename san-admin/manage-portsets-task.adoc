@@ -20,7 +20,7 @@ ONTAP 9.10.1부터 System Manager를 사용하여 포트 세트와 관련된 네
 == 포트셋 관련 네트워크 인터페이스를 변경합니다
 
 . System Manager에서 * Network > Overview > Portsets * 를 선택합니다.
-. 편집할 포트셋 를 선택합니다 image:icon_kabob.gif["Kabob 아이콘"]그런 다음 * 포트 세트 편집 * 을 선택합니다.
+. 편집할 포트셋 을 선택한 image:icon_kabob.gif["메뉴 옵션 아이콘"]다음 * 포트세트 편집 * 을 선택합니다.
 
 
 
@@ -28,7 +28,7 @@ ONTAP 9.10.1부터 System Manager를 사용하여 포트 세트와 관련된 네
 == 포트셋 삭제
 
 . System Manager에서 * Network > Overview > Portsets * 를 클릭합니다.
-. 단일 포트셋 를 삭제하려면 를 선택하고 를 선택합니다 image:icon_kabob.gif["Kabob 아이콘"] 그런 다음 * Delete Portsets * 를 선택합니다.
+. 포트셋 하나를 삭제하려면 포트셋, 선택 후 * 포트세트 삭제 * 를 image:icon_kabob.gif["메뉴 옵션 아이콘"] 선택합니다.
 +
 여러 개의 포트 세트를 삭제하려면 포트 세트를 선택하고 * Delete * (삭제 *)를 클릭합니다.
 

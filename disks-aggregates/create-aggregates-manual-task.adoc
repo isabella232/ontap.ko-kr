@@ -24,7 +24,7 @@ ONTAP 9.11.1부터, System Manager에서 권장하는 구성을 사용하여 로
 
 .단계
 . System Manager에서 * Storage > Tiers * 를 클릭합니다.
-. Tiers * 페이지에서 을 클릭합니다 image:icon-add-local-tier.png["로컬 계층 아이콘을 추가합니다"] 새 로컬 계층을 생성하려면 다음을 수행합니다.
+. Tiers * 페이지에서 을 클릭합니다 image:icon-add-local-tier.png["로컬 계층 추가 아이콘"] 새 로컬 계층을 생성하려면 다음을 수행합니다.
 +
 Add Local Tier * 페이지에는 노드에서 생성할 수 있는 권장 로컬 계층 수와 사용 가능한 스토리지가 표시됩니다.
 
@@ -104,5 +104,5 @@ NOTE: FlexGroups에서 사용할 Aggregate를 여러 개 생성할 경우 Aggreg
 --
 ====
 .관련 정보
-* link:http://docs.netapp.com/us-en/ontap-cli["ONTAP 9 명령 참조"^]
+* https://docs.netapp.com/us-en/ontap-cli["ONTAP 명령 참조입니다"^]
 

@@ -21,7 +21,7 @@ FC 또는 iSCSI를 사용하여 SVM(스토리지 가상 시스템)에 대한 블
 ONTAP One이 없는 경우 ONTAP System Manager(9.7 이상)를 사용하여 FC 또는 iSCSI 라이센스를 확인하고 추가합니다.
 
 . System Manager에서 * Cluster > Settings > Licenses * 를 선택합니다
-. 라이센스가 목록에 없으면 를 선택합니다 image:icon_add_blue_bg.png["파란색 더하기 기호 아이콘"] 라이센스 키를 입력합니다.
+. 라이센스가 목록에 없으면 를 선택하고 라이센스 키를 입력합니다 image:icon_add_blue_bg.png["추가 아이콘"] .
 . 추가 * 를 선택합니다.
 
 

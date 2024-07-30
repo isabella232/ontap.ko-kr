@@ -24,8 +24,8 @@ ONTAP 9.12.1 이전 버전의 ONTAP를 사용하는 경우 파일 시스템 분�
 ONTAP 9.12.1부터는 System Manager를 사용하여 파일 시스템 분석에 대한 RBAC 권한을 구성할 수 있습니다.
 
 .단계
-. 클러스터 > 설정 * 을 선택합니다. Security * 에서 * Users and Roles * 로 이동한 후 를 선택합니다 image:icon_arrow.gif["화살표 아이콘"].
-. 역할 * 에서 을 선택합니다 image:icon_add.gif["추가 아이콘"].
+. 클러스터 > 설정 * 을 선택합니다. 보안 * 에서 * 사용자 및 역할 * 로 이동하고 를 선택합니다 image:icon_arrow.gif["화살표 아이콘"].
+. 역할 * 에서 을 image:icon_add.gif["추가 아이콘"]선택합니다.
 . 역할의 이름을 지정하십시오. 역할 속성 에서 적절한 를 제공하여 사용자 역할에 대한 액세스 또는 제한을 구성합니다 link:https://docs.netapp.com/us-en/ontap-automation/reference/api_reference.html#access-the-ontap-api-documentation-page["API 엔드포인트"^]. File System Analytics 액세스 또는 제한을 구성하기 위한 기본 경로 및 보조 경로는 아래 표를 참조하십시오.
 +
 |===

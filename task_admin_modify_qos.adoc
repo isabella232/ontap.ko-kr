@@ -20,5 +20,5 @@ ONTAP 9.8부터 스토리지를 프로비저닝할 때 xref:./performance-admin/
 
 .단계
 . System Manager에서 * Storage * 와 * Volumes * 를 차례로 선택합니다.
-. QoS를 수정할 볼륨 옆에 있는 를 선택합니다 image:icon_kabob.gif["메뉴 아이콘"] 그런 다음 * 편집 * 을 클릭합니다.
+. QoS를 수정할 볼륨 옆에 있는 * 편집 * 을 선택합니다 image:icon_kabob.gif["메뉴 옵션 아이콘"] .
 

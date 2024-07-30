@@ -41,7 +41,7 @@ image:workflow_nas_enable_windows_smb.gif["SMB를 사용하여 Windows 서버에
 *** 스토리지 VM 관리자 계정 정보 업데이트(선택 사항)
 
 
-.. 기존 스토리지 VM의 경우: * 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 선택한 다음 * 설정 * 을 클릭하고 을 클릭합니다 image:icon_gear.gif["설정 아이콘"] SMB * 에서.
+.. 기존 스토리지 VM의 경우:: * 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 선택하고 * 설정 * 을 클릭한 다음 image:icon_gear.gif["작업 아이콘"] * SMB * 아래를 클릭합니다.
 
 
 . 스토리지 VM 루트 볼륨의 엑스포트 정책을 엽니다.
@@ -58,7 +58,7 @@ image:workflow_nas_enable_windows_smb.gif["SMB를 사용하여 Windows 서버에
 
 . 호스트 이름 확인을 위해 DNS 구성:
 +
-.. 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 선택한 다음 * 설정 * 을 클릭하고 을 클릭합니다 image:icon_gear.gif["설정 아이콘"] DNS * 아래.
+.. 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 선택한 다음 * Settings * 를 클릭하고 * DNS * 아래에서 * 를 클릭합니다 image:icon_gear.gif["작업 아이콘"] .
 .. DNS 서버로 전환하고 SMB 서버를 매핑합니다.
 +
 *** 정방향(A-Address 레코드) 및 역방향(PTR-포인터 레코드) 조회 항목을 만들어 SMB 서버 이름을 데이터 네트워크 인터페이스의 IP 주소에 매핑합니다.
@@ -69,14 +69,14 @@ image:workflow_nas_enable_windows_smb.gif["SMB를 사용하여 Windows 서버에
 
 . 필요에 따라 이름 서비스를 구성합니다
 +
-.. 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 선택한 다음 * 설정 * 을 클릭하고 을 클릭합니다 image:icon_gear.gif["설정 아이콘"] LDAP * 또는 * NIS * 에서 지원됩니다.
-.. 이름 서비스 스위치 파일에 변경 내용을 포함합니다. 을 클릭합니다 image:icon_pencil.gif["편집 아이콘"] 이름 서비스 스위치 * 아래.
+.. 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 선택한 후 * Settings * 를 클릭한 다음 * LDAP * 또는 * NIS * 아래를 클릭합니다 image:icon_gear.gif["작업 아이콘"] .
+.. 이름 서비스 스위치 파일에 변경 내용 포함: * 이름 서비스 스위치 * 를 클릭합니다 image:icon_pencil.gif["편집 아이콘"] .
 
 
 . 필요한 경우 Kerberos 구성:
 +
 .. 스토리지 > 스토리지 VM * 을 클릭하고 스토리지 VM을 선택한 다음 * 설정 * 을 클릭합니다.
-.. 을 클릭합니다 image:icon_arrow.gif["화살표 아이콘"] Kerberos * 에서 * 추가 * 를 클릭합니다.
+.. image:icon_arrow.gif["화살표 아이콘"]Kerberos * 아래에서 * Add * 를 클릭합니다.
 
 
 

@@ -105,7 +105,7 @@ ONTAP System Manager 또는 ONTAP CLI를 사용하여 FlexGroup 재조정을 관
 .시스템 관리자
 --
 . 저장소 > 볼륨 * 으로 이동하고 재조정할 FlexGroup 볼륨을 찾습니다.
-. 를 선택합니다 image:icon_dropdown_arrow.gif["세부 정보 표시 아이콘"] 볼륨 세부 정보를 봅니다.
+. 볼륨 세부 정보를 보려면 image:icon_dropdown_arrow.gif["드롭다운 아이콘"] 선택합니다.
 . Rebalance * 를 선택합니다.
 . Rebalance Volume * (볼륨 재조정 *) 창에서 필요에 따라 기본 설정을 변경합니다.
 . 재조정 작업을 예약하려면 * Rebalance later * 를 선택하고 날짜와 시간을 입력합니다.
@@ -162,7 +162,7 @@ FlexGroup 재조정 구성을 변경하여 불균형 임계값, 동시 파일 �
 .시스템 관리자
 --
 . 저장소 > 볼륨 * 으로 이동하고 재조정할 FlexGroup 볼륨을 찾습니다.
-. 를 선택합니다 image:icon_dropdown_arrow.gif["세부 정보 표시 아이콘"] 볼륨 세부 정보를 봅니다.
+. 볼륨 세부 정보를 보려면 image:icon_dropdown_arrow.gif["드롭다운 아이콘"] 선택합니다.
 . Rebalance * 를 선택합니다.
 . Rebalance Volume * (볼륨 재조정 *) 창에서 필요에 따라 기본 설정을 변경합니다.
 
@@ -210,7 +210,7 @@ FlexGroup 재조정이 활성화 또는 예약되면 언제든지 중지할 수 
 .시스템 관리자
 --
 . 저장소 > 볼륨 * 으로 이동하여 FlexGroup 볼륨을 찾습니다.
-. 를 선택합니다 image:icon_dropdown_arrow.gif["세부 정보 표시 아이콘"] 볼륨 세부 정보를 봅니다.
+. 볼륨 세부 정보를 보려면 image:icon_dropdown_arrow.gif["드롭다운 아이콘"] 선택합니다.
 . Stop Rebalance * 를 선택합니다.
 
 
@@ -233,7 +233,7 @@ FlexGroup 재조정 작업, FlexGroup 재조정 구성, 재조정 작업 시간 
 .시스템 관리자
 --
 . 저장소 > 볼륨 * 으로 이동하여 FlexGroup 볼륨을 찾습니다.
-. 를 선택합니다 image:icon_dropdown_arrow.gif["세부 정보 표시 아이콘"] FlexGroup 세부 정보를 봅니다.
+. FlexGroup 세부 정보를 보려면 선택합니다 image:icon_dropdown_arrow.gif["드롭다운 아이콘"] .
 . * FlexGroup 잔액 상태 * 는 세부 정보 창의 하단 근처에 표시됩니다.
 . 마지막 재조정 작업에 대한 정보를 보려면 * Last Volume Rebalance Status * 를 선택합니다.
 

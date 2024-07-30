@@ -42,14 +42,14 @@ NOTE: HA 쌍이 를 사용 중인 경우 link:https://docs.netapp.com/us-en/onta
 +
 원격 클러스터에서 이 단계를 반복합니다.
 
-.. 원격 클러스터에서 * 보호 > 개요 * 를 클릭합니다. 을 클릭합니다 image:icon_kabob.gif["메뉴 옵션 아이콘"] Cluster 피어 섹션에서 * Generate Passphrase * 를 클릭합니다.
+.. 원격 클러스터에서 * 보호 > 개요 * 를 클릭합니다. image:icon_kabob.gif["메뉴 옵션 아이콘"]Cluster Peers 섹션을 클릭하고 * Generate Passphrase * 를 클릭합니다.
 .. 생성된 암호를 복사하여 로컬 클러스터에 붙여넣습니다.
 .. 로컬 클러스터의 클러스터 피어에서 * 피어 클러스터 * 를 클릭하고 로컬 및 원격 클러스터를 피어로 지정합니다.
 
 
 . SVM 피어 관계 생성:
 +
-Storage VM Peers 아래에서 를 클릭합니다 image:icon_kabob.gif["메뉴 옵션 아이콘"] 그리고 스토리지 VM을 피어로 하기 위해 * 피어 스토리지 VM * 을 선택합니다.
+스토리지 VM 피어 아래에서 image:icon_kabob.gif["메뉴 옵션 아이콘"] 및 * 피어 스토리지 VM * 을 클릭하여 스토리지 VM을 피어링합니다.
 
 . 스토리지 > 볼륨 * 을 선택합니다.
 . 추가 * 를 선택합니다.
