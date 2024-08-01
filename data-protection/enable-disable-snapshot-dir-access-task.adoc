@@ -2,7 +2,7 @@
 permalink: data-protection/enable-disable-snapshot-dir-access-task.html 
 sidebar: sidebar 
 keywords: enable, disable, access, snapshot copy 
-summary: '스냅샷 복사본의 파일 또는 LUN을 스냅샷 복사본에서 복원할 수 있도록 스냅샷 복사본 디렉토리가 NFS 및 SMB 클라이언트에 표시되는지 여부를 확인하려면 "볼륨 수정" 명령의 "-snapdir-access" 옵션을 사용하여 스냅샷 복사본 디렉토리에 대한 액세스를 설정하거나 해제할 수 있습니다.' 
+summary: 스냅샷 복사본 디렉토리에 대한 액세스를 설정 및 해제하여 클라이언트 시스템에 표시하고 볼륨의 스냅샷 복사본 디렉토리에 대한 액세스를 제공할 수 있습니다. 
 ---
 = 스냅샷 복사본 디렉토리에 대한 NFS 및 SMB 클라이언트 액세스를 설정 및 해제합니다
 :allow-uri-read: 
@@ -11,13 +11,37 @@ summary: '스냅샷 복사본의 파일 또는 LUN을 스냅샷 복사본에서 
 
 
 [role="lead"]
-스냅샷 복사본의 파일 또는 LUN을 스냅샷 복사본에서 복원할 수 있도록 스냅샷 복사본 디렉토리가 NFS 및 SMB 클라이언트에 표시되는지 여부를 확인하려면 '볼륨 수정' 명령의 '-snapdir-access' 옵션을 사용하여 스냅샷 복사본 디렉토리에 대한 액세스를 설정하거나 해제할 수 있습니다.
+명령의 ONTAP CLI 옵션을 사용하여 스냅샷 복사본 디렉토리에 대한 액세스를 사용하거나 사용하지 않도록 설정할 수 `-snapdir-access` `volume modify` 있으며, ONTAP 9.10.1부터 System Manager를 사용하여 클라이언트 시스템이 볼륨의 스냅샷 복사본 디렉토리에 액세스하도록 설정하거나 해제할 수 있습니다. 액세스를 활성화하면 스냅샷 복사본 디렉토리가 클라이언트에 표시됩니다. 그러면 Windows 클라이언트가 드라이브를 스냅샷 복사본 디렉토리에 매핑하여 해당 콘텐츠를 보거나 액세스할 수 있습니다. 그러면 NFS 및 SMB 클라이언트가 스냅샷에서 파일 또는 LUN을 복구할 수 있습니다.
+
+볼륨 설정을 편집하거나 볼륨의 공유 설정을 편집하여 볼륨의 스냅샷 복사본 디렉토리에 대한 액세스를 사용하거나 사용하지 않도록 설정할 수 있습니다.
+
+
+
+== 볼륨을 편집하여 스냅샷 복사본 디렉토리에 대한 클라이언트 액세스를 사용하거나 사용하지 않도록 설정합니다
 
 .단계
+ONTAP System Manager 또는 ONTAP CLI를 사용하여 클라이언트 스냅샷 복사본 디렉토리 액세스를 사용하거나 사용하지 않도록 설정할 수 있습니다. 볼륨의 스냅샷 복사본 디렉토리는 기본적으로 클라이언트에서 액세스할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+. 스토리지 > 볼륨 * 을 클릭합니다.
+. 표시하거나 숨길 스냅샷 복사본 디렉토리가 포함된 볼륨을 선택합니다.
+. 을 image:icon_kabob.gif["메뉴 옵션 아이콘"] 클릭하고 * 편집 * 을 선택합니다.
+. Snapshot 복사본(로컬) 설정 * 섹션에서 클라이언트에 스냅샷 복사본 디렉토리 표시 * 를 선택하거나 선택 취소합니다.
+. 저장 * 을 클릭합니다.
+
+
+--
+.CLI를 참조하십시오
+--
 . 스냅샷 디렉토리 액세스 상태를 확인합니다.
 +
-`volume show -vserver _SVM_name_ -volume _vol_name_ -fields snapdir-access`
-
+[source, cli]
+----
+volume show -vserver <SVM_name> -volume <vol_name> -fields snapdir-access
+----
 +
 예:
 
@@ -32,8 +56,10 @@ vs0     vol1   false
 ----
 . 스냅샷 복사본 디렉토리 액세스 설정 또는 해제:
 +
-`volume modify -vserver _SVM_name_ -volume _vol_name_ -snapdir-access true|false`
-
+[source, cli]
+----
+volume modify -vserver <SVM_name> -volume <vol_name> -snapdir-access <true|false>
+----
 +
 다음 예에서는 vol1에서 스냅샷 복사본 디렉토리 액세스를 설정합니다.
 
@@ -44,4 +70,20 @@ vs0     vol1   false
 clus1::> volume modify -vserver vs0 -volume vol1 -snapdir-access true
 Volume modify successful on volume vol1 of Vserver vs0.
 ----
+
+
+--
+====
+
+
+== 공유를 편집하여 스냅샷 복사본 디렉토리에 대한 클라이언트 액세스를 설정하거나 해제합니다
+
+볼륨의 스냅샷 복사본 디렉토리는 기본적으로 클라이언트에서 액세스할 수 있습니다.
+
+.단계
+. 스토리지 > 공유 * 를 클릭합니다.
+. 표시하거나 숨길 스냅샷 복사본 디렉토리가 포함된 볼륨을 선택합니다.
+. 을 image:icon_kabob.gif["메뉴 옵션 아이콘"] 클릭하고 * 편집 * 을 선택합니다.
+. 공유 속성 * 섹션에서 * 클라이언트가 스냅샷 복사본 디렉토리에 액세스할 수 있도록 허용 * 을 선택하거나 선택 취소합니다.
+. 저장 * 을 클릭합니다.
 

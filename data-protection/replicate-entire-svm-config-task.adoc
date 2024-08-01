@@ -1,8 +1,8 @@
 ---
 permalink: data-protection/replicate-entire-svm-config-task.html 
 sidebar: sidebar 
-keywords: replicate, entire, svm, configuration, snapmirror, snap mirror, replication, mirror vault policy, snapshot 
-summary: SnapMirror create 명령의 -identity-preserve true 옵션을 사용하여 전체 SVM 구성을 복제할 수 있습니다. 
+keywords: replicate, entire, svm, storage vm, disaster, protection, configuration, snapmirror, snap mirror, replication, mirror vault policy, snapshot 
+summary: 'SVM DR(재해 복구) 관계를 생성하여 하나의 SVM 구성을 다른 SVM 구성으로 복제할 수 있습니다. 운영 사이트에 재해가 발생하면 대상 SVM을 빠르게 활성화할 수 있습니다.' 
 ---
 = 전체 SVM 구성을 복제합니다
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: SnapMirror create 명령의 -identity-preserve true 옵션을 사용하
 
 
 [role="lead"]
-'napmirror create' 명령의 '-identity-preserve true' 옵션을 사용하여 전체 SVM 구성을 복제할 수 있습니다.
+SVM DR(재해 복구) 관계를 생성하여 하나의 SVM 구성을 다른 SVM 구성으로 복제할 수 있습니다. 운영 사이트에 재해가 발생하면 대상 SVM을 빠르게 활성화할 수 있습니다.
 
 .시작하기 전에
 소스 및 타겟 클러스터와 SVM을 피어링해야 합니다. 자세한 내용은 을 참조하십시오 link:../peering/create-cluster-relationship-93-later-task.html["클러스터 피어 관계를 생성합니다"] 및 link:../peering/create-intercluster-svm-peer-relationship-93-later-task.html["SVM 인터클러스터 피어 관계를 생성합니다"].
@@ -23,11 +23,31 @@ summary: SnapMirror create 명령의 -identity-preserve true 옵션을 사용하
 
 ONTAP 9.9.1부터 미러 소산 정책을 사용할 경우 소스 및 타겟 SVM에 서로 다른 스냅샷 정책을 생성할 수 있으며, 소스의 스냅샷 복사본에 의해 대상의 스냅샷 복사본을 덮어쓰지 않습니다. 자세한 내용은 을 참조하십시오 link:snapmirror-svm-replication-concept.html["SnapMirror SVM 복제 이해"].
 
+대상에서 이 절차를 완료합니다. 예를 들어, 소스 스토리지 VM에 SMB가 구성되어 있는 경우 새 보호 정책을 생성해야 하는 경우 System Manager를 사용하여 정책을 생성하고 * 보호 정책 추가 * 창에서 * ID 보존 * 옵션을 선택해야 합니다. 자세한 내용은 을 link:create-custom-replication-policy-concept.html["사용자 지정 데이터 보호 정책을 생성합니다"]참조하십시오.
+
 .단계
+이 작업은 System Manager 또는 ONTAP CLI에서 수행할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+. 대상 클러스터에서 * 보호 > 관계 * 를 클릭합니다.
+. 관계 * 에서 * 보호 * 를 클릭하고 * 스토리지 VM(DR) * 를 선택합니다.
+. 보호 정책을 선택합니다. 맞춤형 보호 정책을 생성한 경우 해당 정책을 선택한 다음 복제할 소스 클러스터와 스토리지 VM을 선택합니다. 새 스토리지 VM 이름을 입력하여 새 대상 스토리지 VM을 생성할 수도 있습니다.
+. 필요한 경우 대상 설정을 변경하여 ID 보존을 재정의하고 네트워크 인터페이스 및 프로토콜을 포함하거나 제외하도록 선택합니다.
+. 저장 * 을 클릭합니다.
+
+
+--
+.CLI를 참조하십시오
+--
 . 대상 SVM 생성:
 +
-'vserver create-vserver_SVM_name_-subtype DP-destination'
-
+[source, cli]
+----
+vserver create -vserver <SVM_name> -subtype dp-destination
+----
 +
 SVM 이름은 소스 및 타겟 클러스터 전체에서 고유해야 합니다.
 
@@ -45,17 +65,17 @@ cluster_dst:> vserver create -vserver svm_backup -subtype dp-destination
 
 . 복제 작업 스케줄 생성:
 +
-"작업 일정 cron create-name_job_name_-month_month_-DayOfWeek_day_of_week_-day_day_of_month_-hour_hour_-minute_minute_"
-
+[source, cli]
+----
+job schedule cron create -name <job_name> -month <month> -dayofweek <day_of_week> -day <day_of_month> -hour <hour> -minute <minute>
+----
 +
 월-일-일-주-시-시간의 경우 월, 일, 시 순으로 모두 작업을 실행하도록 지정할 수 있습니다.
 
 +
-[NOTE]
-====
-SVM SnapMirror 관계에서 FlexVol 볼륨의 최소 지원 일정(RPO)은 15분입니다. SVM SnapMirror 관계에서 FlexGroup 볼륨의 최소 지원 일정(RPO)은 30분입니다.
 
-====
+NOTE: SVM SnapMirror 관계에서 FlexVol 볼륨의 최소 지원 일정(RPO)은 15분입니다. SVM SnapMirror 관계에서 FlexGroup 볼륨의 최소 지원 일정(RPO)은 30분입니다.
+
 +
 다음 예에서는 토요일 오전 3시에 실행되는 my_weekly라는 작업 일정을 생성합니다.
 
@@ -66,14 +86,14 @@ cluster_dst::> job schedule cron create -name my_weekly -dayofweek saturday -hou
 ----
 . 타겟 SVM 또는 타겟 클러스터에서 복제 관계를 생성합니다.
 +
-'sapmirror create-source-path_SVM_name_:-destination-path_SVM_name_:-type DP|XDP-schedule_schedule_-policy_policy_-identity-preserve true'
-
+[source, cli]
+----
+snapmirror create -source-path <SVM_name>: -destination-path <SVM_name>: -type <DP|XDP> -schedule <schedule> -policy <policy> -identity-preserve true
+----
 +
-[NOTE]
-====
-'-source-path' 및 '-destination-path' 옵션에서 SVM 이름 뒤에 콜론(:)을 입력해야 합니다.
 
-====
+NOTE: '-source-path' 및 '-destination-path' 옵션에서 SVM 이름 뒤에 콜론(:)을 입력해야 합니다.
+
 +
 다음 예에서는 기본 'MirorAllSnapshots' 정책을 사용하여 SnapMirror DR 관계를 생성합니다.
 
@@ -108,22 +128,27 @@ cluster_dst::> snapmirror create -source-path svm1: -destination-path svm_backup
 ----
 . 대상 SVM 중지:
 +
-'vserver stop'
-
+[source, cli]
+----
+vserver stop -vserver <SVM_name>
+----
 +
-'_SVM 이름 _'
-
-+
-다음 예는 dv1이라는 대상 SVM을 중지합니다.
+다음 예에서는 svm_backup이라는 대상 SVM을 중지합니다.
 
 +
 [listing]
 ----
-cluster_dst::> vserver stop -vserver dvs1
+cluster_dst::> vserver stop -vserver svm_backup
 ----
-. 대상 SVM 또는 대상 클러스터에서 SVM 복제 관계를 초기화합니다
+. 대상 SVM 또는 대상 클러스터에서 SVM 복제 관계를 초기화합니다.
 +
-'스냅샷 초기화-소스-경로_SVM_이름_:-대상-경로_SVM_이름_:'
+[source, cli]
+----
+snapmirror initialize -source-path <SVM_name>: -destination-path <SVM_name>:
+----
++
+
+NOTE: '-source-path' 및 '-destination-path' 옵션에서 SVM 이름 뒤에 콜론(:)을 입력해야 합니다.
 
 +
 다음 예에서는 소스 SVM, svm1, 대상 SVM, svm_backup 간의 관계를 초기화합니다.
@@ -134,3 +159,6 @@ cluster_dst::> vserver stop -vserver dvs1
 cluster_dst::> snapmirror initialize -source-path svm1: -destination-path svm_backup:
 ----
 
+
+--
+====

@@ -11,7 +11,7 @@ summary: ONTAP에서 버킷의 기본 아키텍처는 볼륨입니다. FlexGroup
 
 
 [role="lead"]
-ONTAP에서 버킷의 기본 아키텍처는 link:https://docs.netapp.com/us-en/ontap/flexgroup/definition-concept.html["FlexGroup 볼륨"]여러 개의 구성 멤버 볼륨으로 구성되지만 단일 볼륨으로 관리되는 단일 네임스페이스입니다.
+ONTAP에서 버킷의 기본 아키텍처는 여러 개의 구성 멤버 볼륨으로 구성되지만 단일 볼륨으로 관리되는 단일 네임스페이스인 A link:../flexgroup/definition-concept.html["FlexGroup 볼륨"]입니다.
 
 image::../media/fg-overview-s3-config.gif[FlexVol 볼륨은 구성 요소라고 하는 FlexGroup 볼륨 그룹으로 표시됩니다]
 

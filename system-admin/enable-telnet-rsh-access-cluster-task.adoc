@@ -1,8 +1,8 @@
 ---
 permalink: system-admin/enable-telnet-rsh-access-cluster-task.html 
 sidebar: sidebar 
-keywords: enable, telnet, rsh, access, cluster, mgmt, management, firewall, policy 
-summary: '최선의 보안 방법으로, 텔넷 및 RSH는 미리 정의된 관리 방화벽 정책(관리)에서 비활성화됩니다. 클러스터가 텔넷 또는 RSH 요청을 수락하도록 설정하려면 텔넷 또는 RSH가 설정된 새 관리 방화벽 정책을 생성한 다음 새 정책을 클러스터 관리 LIF와 연결해야 합니다.' 
+keywords: enable, telnet, rsh, access, cluster, mgmt, management, service, policy 
+summary: 보안 모범 사례로 Telnet 및 RSH는 기본적으로 비활성화되어 있습니다. 클러스터가 텔넷 또는 RSH 요청을 수락하도록 하려면 기본 관리 서비스 정책에서 서비스를 사용하도록 설정해야 합니다. 
 ---
 = 클러스터에 대한 Telnet 또는 RSH 액세스를 활성화합니다
 :hardbreaks:
@@ -12,17 +12,55 @@ summary: '최선의 보안 방법으로, 텔넷 및 RSH는 미리 정의된 관�
 
 
 [role="lead"]
-최선의 보안 방법으로, Telnet과 RSH는 미리 정의된 관리 방화벽 정책(mGMT)에서 비활성화됩니다. 클러스터가 텔넷 또는 RSH 요청을 수락하도록 설정하려면 텔넷 또는 RSH가 설정된 새 관리 방화벽 정책을 생성한 다음 새 정책을 클러스터 관리 LIF와 연결해야 합니다.
+보안 모범 사례로 Telnet 및 RSH는 기본적으로 비활성화되어 있습니다. 클러스터가 텔넷 또는 RSH 요청을 수락하도록 하려면 기본 관리 서비스 정책에서 서비스를 사용하도록 설정해야 합니다.
 
 .이 작업에 대해
-ONTAP는 미리 정의된 방화벽 정책을 변경하지 못하도록 하지만 미리 정의된 "GMT" 관리 방화벽 정책을 복제한 다음 새 정책에서 텔넷 또는 RSH를 활성화하여 새 정책을 만들 수 있습니다. 그러나 Telnet과 RSH는 보안 프로토콜이 아니므로 SSH를 사용하여 클러스터에 액세스하는 것을 고려해야 합니다. SSH는 보안 원격 셸 및 대화형 네트워크 세션을 제공합니다.
+* RSH는 보안 프로토콜이 아닙니다.
++
+SSH를 사용하여 클러스터에 액세스하는 것을 고려해야 합니다. SSH는 보안 원격 셸 및 대화형 네트워크 세션을 제공합니다.
 
-클러스터에 대한 텔넷 또는 RSH 액세스를 활성화하려면 다음 단계를 수행하십시오.
+* ONTAP는 노드당 최대 50개의 동시 RSH 세션을 지원한다.
++
+클러스터 관리 LIF가 노드에 상주하는 경우 이 제한을 노드 관리 LIF와 공유합니다.
+
++
+들어오는 연결의 비율이 초당 10보다 높을 경우 서비스가 60초 동안 일시적으로 비활성화됩니다.
+
+* RSH 명령에는 고급 권한이 필요합니다.
+
 
 .단계
-. 고급 권한 모드(* SET ADVANCED *)로 진입합니다
-. 보안 프로토콜(RSH 또는 TELNET) 사용: (* security protocol modify -application_security_protocol_-enabled true*)
-. mGMT 관리 방화벽 정책, 즉 `* 시스템 서비스 방화벽 정책 클론-정책 관리-대상-정책_정책-이름_*'을 기반으로 새 관리 방화벽 정책을 만듭니다
-. 새 관리 방화벽 정책에서 텔넷 또는 RSH를 활성화합니다. (* 시스템 서비스 방화벽 정책 create-policy_name_-service_security_protocol_-action allow-ip-list_ip_address/netmask_*) 모든 IP 주소를 허용하려면 '-ip-list 0.0.0.0/0'을 지정해야 합니다
-. 새 정책을 클러스터 관리 LIF: `* 네트워크 인터페이스 수정 -vserver_cluster_management_LIF_-lif cluster_mgmt -firewall_policy_name_ * '과(와) 연계합니다
+. RSH 또는 텔넷 보안 프로토콜이 활성화되어 있는지 확인합니다.
++
+`security protocol show`
+
++
+.. RSH 또는 텔넷 보안 프로토콜이 활성화된 경우 다음 단계를 계속 진행하십시오.
+.. RSH 또는 텔넷 보안 프로토콜이 활성화되지 않은 경우 다음 명령을 사용하여 활성화하십시오.
++
+`security protocol modify -application <rsh/telnet> -enabled true`
+
+
+
+. 관리 LIF에 또는 서비스가 있는지 확인 `management-rsh-server` `management-telnet-server` :
++
+`network interface show -services management-rsh-server`
+
++
+또는
+
++
+`network interface show -services management-telnet-server`
+
++
+.. 또는 서비스가 있는 경우 `management-rsh-server` `management-telnet-server` 다음 단계를 계속합니다.
+.. 또는 서비스가 없는 경우 `management-rsh-server` `management-telnet-server` 다음 명령을 사용하여 서비스를 추가합니다.
++
+`network interface service-policy add-service -vserver cluster1 -policy default-management -service management-rsh-server`
+
++
+`network interface service-policy add-service -vserver cluster1 -policy default-management -service management-telnet-server`
+
+
+
 

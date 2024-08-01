@@ -82,7 +82,7 @@ entries:
     - title: 포트 추가 또는 제거(ONTAP 9.8 이상)
       url: "/networking/add_or_remove_ports_from_a_broadcast_domain.html"
     - title: 수리 포트 접근성(ONTAP 9.8 이상)
-      url: "/networking/move_broadcast_domains.html"
+      url: "/networking/repair_port_reachability.html"
     - title: 브로드캐스트 도메인을 IPspaces로 이동(ONTAP 9.8 이상)
       url: "/networking/move_broadcast_domains.html"
     - title: 브로드캐스트 도메인 분할(ONTAP 9.8 이상)

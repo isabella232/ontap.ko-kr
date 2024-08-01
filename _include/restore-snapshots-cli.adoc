@@ -4,8 +4,10 @@
 
 . 볼륨의 스냅샷 복사본을 나열합니다.
 +
-'volume snapshot show -vserver_SVM_-volume_volume_'
-
+[source, cli]
+----
+volume snapshot show -vserver <SVM> -volume <volume>
+----
 +
 다음 예에서는 "vol1"의 스냅샷 복사본을 보여 줍니다.
 
@@ -17,7 +19,7 @@ clus1::> volume snapshot show -vserver vs1 -volume vol1
 
 Vserver Volume Snapshot                State    Size  Total% Used%
 ------- ------ ---------- ----------- ------   -----  ------ -----
-vs1	 vol1   hourly.2013-01-25_0005  valid   224KB     0%    0%
+vs1	    vol1   hourly.2013-01-25_0005  valid   224KB     0%    0%
                daily.2013-01-25_0010   valid   92KB      0%    0%
                hourly.2013-01-25_0105  valid   228KB     0%    0%
                hourly.2013-01-25_0205  valid   236KB     0%    0%
@@ -29,8 +31,10 @@ vs1	 vol1   hourly.2013-01-25_0005  valid   224KB     0%    0%
 ----
 . 스냅샷 복사본에서 볼륨 콘텐츠를 복원합니다.
 +
-'볼륨 스냅샷 복원 - vserver_SVM_-volume_volume_-snapshot_snapshot_'
-
+[source, cli]
+----
+volume snapshot restore -vserver <SVM> -volume <volume> -snapshot <snapshot>
+----
 +
 다음 예에서는 vol1의 내용을 복원합니다.
 

@@ -32,11 +32,33 @@ SnapMirror 타겟 볼륨의 스냅샷 복사본에서 전체 볼륨의 콘텐츠
 
 대상 볼륨에 대해 정의된 할당량 규칙은 복구를 수행하기 전에 비활성화됩니다. 복원 작업이 완료된 후 "volume quota modify" 명령을 사용하여 할당량 규칙을 다시 활성화할 수 있습니다.
 
+볼륨의 데이터가 손실되거나 손상된 경우 이전 스냅샷 복사본에서 복원하여 데이터를 롤백할 수 있습니다.
+
+이 절차는 소스 볼륨의 현재 데이터를 이전 스냅샷 복사본 버전의 데이터로 대체합니다. 대상 클러스터에서 이 작업을 수행해야 합니다.
+
 .단계
+System Manager 또는 ONTAP CLI를 사용하여 볼륨의 콘텐츠를 복원할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+. 보호 > 관계 * 를 클릭한 다음 소스 볼륨 이름을 클릭합니다.
+. 을 image:icon_kabob.gif["메뉴 옵션 아이콘"] 클릭한 다음 * 복원 * 을 선택합니다.
+. 소스 * 에서 소스 볼륨은 기본적으로 선택됩니다. 소스 이외의 볼륨을 선택하려면 * 기타 볼륨 * 을 클릭합니다.
+. 대상 * 에서 복원하려는 스냅샷 복사본을 선택합니다.
+. 소스와 대상이 서로 다른 클러스터에 있는 경우 원격 클러스터에서 * 보호 > 관계 * 를 클릭하여 복구 진행률을 모니터링합니다.
+
+
+--
+.CLI를 참조하십시오
+--
 . 타겟 볼륨의 스냅샷 복사본을 나열합니다.
 +
-`volume snapshot show -vserver <SVM> -volume <volume>`
-
+[source, cli]
+----
+volume snapshot show -vserver <SVM> -volume <volume>
+----
 +
 전체 명령 구문은 man 페이지를 참조하십시오.
 
@@ -69,11 +91,9 @@ vserverB    secondary1  hourly.2013-01-25_0005  valid   224KB     0%    0%
 전체 명령 구문은 man 페이지를 참조하십시오.
 
 +
-[NOTE]
-====
-이 명령은 원래 소스 SVM 또는 원래 소스 클러스터에서 실행해야 합니다.
 
-====
+NOTE: 이 명령은 원래 소스 SVM 또는 원래 소스 클러스터에서 실행해야 합니다.
+
 +
 다음 명령을 실행하면 원래 타겟 볼륨 'econtary1'의 원래 소스 볼륨 'marpriy1'을 스냅샷 사본에서 복구합니다. 2013-01-25_0010
 
@@ -91,6 +111,8 @@ Do you want to continue? {y|n}: y
 . 복원된 볼륨을 다시 마운트하고 볼륨을 사용하는 모든 애플리케이션을 다시 시작합니다.
 
 
+--
+====
 
 
 == ONTAP에서 이 작업을 수행하는 다른 방법
@@ -98,9 +120,6 @@ Do you want to continue? {y|n}: y
 [cols="2"]
 |===
 | 에서 이러한 작업을 수행하려면... | 이 콘텐츠 보기... 
-
-
-| 재설계된 System Manager(ONTAP 9.7 이상에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap/task_dp_restore_from_vault.html["이전 스냅샷 복사본에서 볼륨을 복원합니다"^] 
 
 
 | System Manager Classic(ONTAP 9.7 이하에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap-system-manager-classic/volume-restore-snapvault/index.html["SnapVault를 사용한 볼륨 복원 개요"^] 

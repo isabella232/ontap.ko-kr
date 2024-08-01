@@ -13,10 +13,17 @@ summary: 운영 스토리지의 소스 볼륨과 2차 스토리지의 타겟 볼
 [role="lead"]
 운영 스토리지의 소스 볼륨과 2차 스토리지의 타겟 볼륨 간의 관계를 _ 데이터 보호 관계라고 합니다. _ '스냅샷 생성' 명령을 사용하여 SnapMirror DR, SnapVault 또는 통합 복제 데이터 보호 관계를 생성할 수 있습니다.
 
+ONTAP 9.11.1부터 시스템 관리자를 사용하여 미리 작성된 사용자 정의 미러 및 볼트 정책을 선택하고, 레거시 정책을 표시 및 선택하고, 볼륨 및 스토리지 VM을 보호할 때 보호 정책에 정의된 전송 일정을 재정의할 수 있습니다. 이 기능은 ONTAP 9.8P12 이상의 ONTAP 9.8 패치에서도 사용할 수 있습니다.
+
+[NOTE]
+====
+ONTAP 9.8P12 이상 ONTAP 9.8 패치 릴리즈를 사용하고 시스템 관리자를 사용하여 SnapMirror를 구성한 경우, ONTAP 9.9.1 또는 ONTAP 9.10.1 릴리즈로 업그레이드할 계획이면 ONTAP 9.9.1.1P13 이상 및 ONTAP 9.10.1P10 이상 패치 릴리즈를 사용해야 합니다.
+
+====
 .시작하기 전에
 * 소스 및 타겟 클러스터와 SVM을 피어링해야 합니다.
 +
-https://docs.netapp.com/us-en/ontap-system-manager-classic/peering/index.html["클러스터 및 SVM 피어링"^]
+link:../peering/index.html["클러스터 및 SVM 피어링"]
 
 * 대상 볼륨의 언어는 소스 볼륨의 언어와 동일해야 합니다.
 
@@ -103,6 +110,23 @@ ONTAP 9.5부터는 SnapMirror Synchronous 관계가 지원됩니다.
 ONTAP 9.14.1부터, `-backoff-level` 및 명령에 옵션이 추가되어 `snapmirror create` `snapmirror modify` `snapmirror restore` 관계별 백오프 레벨을 지정할 수 있습니다. 이 옵션은 FlexVol SnapMirror 관계에서만 지원됩니다. 선택적 명령은 클라이언트 작업에 따른 SnapMirror 백 오프 레벨을 지정합니다. Backoff 값은 high, medium 또는 none일 수 있습니다. 기본값은 high 입니다.
 
 .단계
+System Manager 또는 ONTAP CLI를 사용하여 복제 관계를 생성할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+. 보호할 볼륨 또는 LUN을 선택합니다. * 스토리지 > 볼륨 * 또는 * 스토리지 > LUN * 을 클릭한 다음 원하는 볼륨 또는 LUN 이름을 클릭합니다.
+. 을 image:icon_protect.gif["보호 아이콘"]클릭합니다.
+. 대상 클러스터와 스토리지 VM을 선택합니다.
+. 비동기식 정책이 기본적으로 선택됩니다. 동기식 정책을 선택하려면 * 추가 옵션 * 을 클릭합니다.
+. 보호 * 를 클릭합니다.
+. 선택한 볼륨 또는 LUN의 * SnapMirror(로컬 또는 원격) * 탭을 클릭하여 보호가 올바르게 설정되었는지 확인합니다.
+
+
+--
+.CLI를 참조하십시오
+--
 . 대상 클러스터에서 복제 관계를 생성합니다.
 +
 이 명령을 실행하기 전에 꺾쇠 괄호 안의 변수를 필수 값으로 바꾸어야 합니다.
@@ -116,11 +140,9 @@ snapmirror create -source-path <SVM:volume> -destination-path <SVM:volume> -type
 전체 명령 구문은 man 페이지를 참조하십시오.
 
 +
-[NOTE]
-====
-SnapMirror Synchronous 관계를 생성할 때는 '예약' 매개 변수를 사용할 수 없습니다.
 
-====
+NOTE: SnapMirror Synchronous 관계를 생성할 때는 '예약' 매개 변수를 사용할 수 없습니다.
+
 +
 다음 예에서는 기본 'MirorLatest' 정책을 사용하여 SnapMirror DR 관계를 생성합니다.
 
@@ -202,18 +224,18 @@ cluster_dst::> snapmirror create -source-path svm1:volA -destination-path svm_ba
 cluster_dst::> snapmirror create -source-path svm1:volA -destination-path svm_backup:volA_dst -type XDP -policy SnapCenterSync
 ----
 +
-[NOTE]
-====
-미리 정의된 정책 '냅센터싱크'는 '동기화'입니다. 이 정책은 "app_consistent"의 'napmirror-label"으로 생성된 스냅샷 복사본을 복제합니다.
 
-====
+NOTE: 미리 정의된 정책 '냅센터싱크'는 '동기화'입니다. 이 정책은 "app_consistent"의 'napmirror-label"으로 생성된 스냅샷 복사본을 복제합니다.
+
 
 
 .작업을 마친 후
 'snapmirror show' 명령을 사용하여 SnapMirror 관계가 생성되었는지 확인합니다. 전체 명령 구문은 man 페이지를 참조하십시오.
 
+--
+====
 .관련 정보
-* link:https://docs.netapp.com/us-en/ontap/data-protection/create-delete-snapmirror-failover-test-task.html["SnapMirror 페일오버 테스트 볼륨을 생성하고 삭제합니다"].
+* link:create-delete-snapmirror-failover-test-task.html["SnapMirror 페일오버 테스트 볼륨을 생성하고 삭제합니다"]..
 
 
 
@@ -223,9 +245,6 @@ cluster_dst::> snapmirror create -source-path svm1:volA -destination-path svm_ba
 [cols="2"]
 |===
 | 에서 이러한 작업을 수행하려면... | 이 콘텐츠 보기... 
-
-
-| 재설계된 System Manager(ONTAP 9.7 이상에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap/task_dp_configure_mirror.html["미러와 볼트를 구성합니다"^] 
 
 
 | System Manager Classic(ONTAP 9.7 이하에서 사용 가능) | link:https://docs.netapp.com/us-en/ontap-system-manager-classic/volume-backup-snapvault/index.html["SnapVault를 사용한 볼륨 백업 개요"^] 
