@@ -29,6 +29,9 @@ ONTAP 9.3 이상 릴리즈에서는 "cifs domain discovered-servers" 명령의 d
 
 
 
+.시작하기 전에
+advanced 권한 수준이어야 합니다.
+
 .단계
 . 원하는 검색 옵션을 지정합니다. 'vserver cifs domain discovered-servers discovery-mode modify -vserver_vserver_name_-mode{all|site|none}'
 +
