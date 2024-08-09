@@ -17,4 +17,4 @@ OCSP(온라인 인증서 상태 프로토콜)를 사용하면 LDAP 또는 TLS와
 
 OCSP를 사용하면 인증서 해지 목록(CRL) 없이도 디지털 인증서 상태를 확인할 수 있습니다.
 
-기본적으로 OCSP 인증서 상태 확인은 사용되지 않습니다. 앱 이름은 , , , , , , 로 설정할 수 있는 명령을 사용하여 켤 수 `security config ocsp enable -app name`있습니다. `autosupport` `audit_log` `fabricpool` `ems` `kmip` `ldap_ad` `ldap_nis_namemap`, 또는 모두. 이 명령에는 advanced 권한 수준이 필요합니다.
+기본적으로 OCSP 인증서 상태 확인은 사용되지 않습니다. 앱 이름은 , , , , , , 로 설정할 수 있는 명령을 사용하여 켤 수 `security config ocsp enable -app name`있습니다. `autosupport` `audit_log` `fabricpool` `ems` `kmip` `ldap_ad` `ldap_nis_namemap`, 또는 `all` 이 명령에는 advanced 권한 수준이 필요합니다.

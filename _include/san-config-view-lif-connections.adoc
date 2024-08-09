@@ -1,0 +1,36 @@
+= 
+:allow-uri-read: 
+
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+. System Manager에서 * 호스트 > SAN 이니시에이터 그룹 * 을 클릭합니다.
++
+페이지에 이니시에이터 그룹(igroup) 목록이 표시됩니다. 목록이 큰 경우 페이지의 오른쪽 아래 모서리에 있는 페이지 번호를 클릭하여 목록의 추가 페이지를 볼 수 있습니다.
+
++
+열에는 igroup에 대한 다양한 정보가 표시됩니다. 9.11.1부터 igroup의 연결 상태도 표시됩니다. 상태 알림 위로 마우스를 가져가면 세부 정보가 표시됩니다.
+
+
+
+--
+.CLI를 참조하십시오
+--
+* iSCSI 이니시에이터 나열:
++
+[source, cli]
+----
+iscsi initiator show -fields igroup,initiator-name,tpgroup
+----
+* FC 이니시에이터 나열:
++
+[source, cli]
+----
+fcp initiator show -fields igroup,wwpn,lif
+----
+
+
+--
+====

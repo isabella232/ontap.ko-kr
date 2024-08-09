@@ -160,10 +160,10 @@ System Manager 또는 ONTAP CLI를 사용하여 대칭 보호를 설정할 수 �
 . 호스트에서 필요에 따라 각 클러스터에 대한 액세스를 통해 호스트 연결을 구성합니다.
 . igroup 구성을 설정합니다. 로컬 클러스터에서 이니시에이터에 대한 기본 경로를 설정합니다. 피어 클러스터 반선호도에 구성을 복제하는 옵션을 지정합니다.
 +
-`SiteA::> igroup create -vserver _svm_name_ -igroup _igroup_name_ -replication-peer _peer_svm_name_ -initiators _host_ -proximal-vserver local`
+`SiteA::> igroup create -vserver _svm_name_  -os-type _os_type_ -igroup _igroup_name_ -replication-peer _peer_svm_name_ -initiator _host_`
 
 +
-`SiteA::> igroup add -vserver _svm_name_ -igroup _igroup_name_ -initiators _host_ -proximal-vserver _peer_svm_`
+`SiteA::> igroup add -vserver _svm_name_ -igroup _igroup_name_ -os-type _os_type_ -initiator _host_`
 
 . 호스트에서 경로를 검색하고 호스트에 기본 클러스터에서 스토리지 LUN으로 연결되는 활성/최적화된 경로가 있는지 확인합니다.
 . 애플리케이션을 배포하고 VM 워크로드를 클러스터 전체에 분산하여 필요한 로드 밸런싱을 수행합니다.
@@ -182,11 +182,11 @@ System Manager 또는 ONTAP CLI를 사용하여 대칭 보호를 설정할 수 �
 . 소스 및 대상 클러스터 모두에서 igroup 구성을 설정합니다.
 +
 `# primary site
-SiteA::> igroup create -vserver _svm_name_ -igroup _igroup_name_ -initiators _host_1_name_`
+SiteA::> igroup create -vserver _svm_name_ -igroup _igroup_name_ -initiator _host_1_name_`
 
 +
 `# secondary site
-SiteB::> igroup create -vserver _svm_name_ -igroup _igroup_name_ -initiators _host_2_name_`
+SiteB::> igroup create -vserver _svm_name_ -igroup _igroup_name_ -initiator _host_2_name_`
 
 . 호스트에서 경로를 검색하고 호스트에 기본 클러스터에서 스토리지 LUN으로 연결되는 활성/최적화된 경로가 있는지 확인합니다.
 . 애플리케이션을 배포하고 VM 워크로드를 클러스터 전체에 분산하여 필요한 로드 밸런싱을 수행합니다.

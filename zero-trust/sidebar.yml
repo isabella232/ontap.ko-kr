@@ -10,5 +10,3 @@ entries:
   url: "/zero-trust/zero-trust-automation-orchestration.html"
 - title: 제로 트러스트 하이브리드 클라우드 배포
   url: "/zero-trust/zero-trust-cloud-deployments.html"
-- title: ONTAP 및 제로 트러스트 콘텐츠에 대해 자세히 알아보십시오
-  url: "/zero-trust/zero-trust-learn-more.html"

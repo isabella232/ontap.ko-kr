@@ -60,7 +60,7 @@ network interface modify -vserver <vserver_name> -lif <lif_name> -failover-polic
 다음 명령은 페일오버 정책을 브로드캐스트 도메인 전체에 설정하고 페일오버 그룹 fg3의 포트를 SVM vs3의 LIF data1의 페일오버 타겟으로 사용합니다.
 
 ....
-network interface modify -vserver vs3 -lif data1 failover-policy broadcast-domain-wide - failover-group fg3
+network interface modify -vserver vs3 -lif data1 -failover-policy broadcast-domain-wide -failover-group fg3
 
 network interface show -vserver vs3 -lif * -fields failover-group,failover-policy
 
@@ -71,5 +71,5 @@ vs3     data1          broadcast-domain-wide  fg3
 다음 명령을 실행하면 SVM vs3에서 LIF 데이터 1의 페일오버가 사용되지 않습니다.
 
 ....
-network interface modify -vserver vs3 -lif data1 failover-policy disabled
+network interface modify -vserver vs3 -lif data1 -failover-policy disabled
 ....

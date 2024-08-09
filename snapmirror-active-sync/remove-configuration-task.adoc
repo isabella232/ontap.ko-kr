@@ -91,13 +91,13 @@ System Manager 또는 ONTAP CLI를 사용하여 대칭 구성을 제거할 수 �
 . 모든 VM 워크로드를 SnapMirror 활성 동기화의 소스 클러스터로 호스트 로컬 이동합니다.
 . 소스 클러스터에서 igroup에서 이니시에이터를 제거하고 igroup 구성을 수정하여 igroup 복제를 종료합니다.
 +
-`SiteA::> igroup remove -vserver _svm_name_ -igroup _igroup_name_ -initiator _host2_
-SiteA::> igroup modify -vserver _svm_name_ -igroup _igroup_name_ -replication-peer "-"`
+`SiteA::> igroup remove -vserver <svm_name> -igroup <igroup_name> -os-type <os_type> -initiator <host2>
+SiteA::> igroup modify -vserver <svm_name> -igroup <igroup_name> -os-type <os_type> -replication-peer "-"`
 
 . 2차 사이트에서 LUN 매핑을 삭제하고 igroup 구성을 제거합니다.
 +
-`SiteB::> lun mapping delete -vserver _svm_name_ -igroup _igroup_name_ -path <>
-SiteB::> igroup delete -vserver _svm_name_ -igroup _igroup_name_`
+`SiteB::> lun mapping delete -vserver <svm_name> -igroup <igroup_name> -path <>
+SiteB::> igroup delete -vserver <svm_name> -igroup <igroup_name>`
 
 . 2차 사이트에서 SnapMirror 활성 동기화 관계를 삭제합니다.
 +
@@ -105,7 +105,7 @@ SiteB::> igroup delete -vserver _svm_name_ -igroup _igroup_name_`
 
 . 기본 사이트에서 기본 사이트의 SnapMirror 활성 동기화 관계를 해제합니다.
 +
-`SiteA::> snapmirror release -destination-path _destination_path_`
+`SiteA::> snapmirror release -destination-path <destination_path>`
 
 . 경로를 다시 검색하여 호스트에서 로컬 경로만 사용할 수 있는지 확인합니다.
 
@@ -114,20 +114,20 @@ SiteB::> igroup delete -vserver _svm_name_ -igroup _igroup_name_`
 . 모든 VM 워크로드를 SnapMirror 활성 동기화의 소스 클러스터로 호스트 로컬 이동합니다.
 . 소스 클러스터의 이니시에이터를 igroup에서 제거합니다.
 +
-`SiteA::> igroup remove -vserver _svm_name_ -igroup _igroup_name_ -initiator _host2_`
+`SiteA::> igroup remove -vserver <svm_name> -igroup <igroup_name> -initiator <host2>`
 
 . 2차 사이트에서 LUN 매핑을 삭제하고 igroup 구성을 제거합니다.
 +
-`SiteB::> lun mapping delete -vserver _svm_name_ -igroup _igroup_name_ -path <>
-SiteB::> igroup delete -vserver _svm_name_ -igroup _igroup_name_`
+`SiteB::> lun mapping delete -vserver <svm_name> -igroup <igroup_name> -path <>
+SiteB::> igroup delete -vserver <svm_name> -igroup <igroup_name>`
 
 . 2차 사이트에서 SnapMirror 활성 동기화 관계를 삭제합니다.
 +
-`SiteB::> snapmirror delete -destination-path _destination_path_`
+`SiteB::> snapmirror delete -destination-path <destination_path>`
 
 . 기본 사이트에서 기본 사이트의 SnapMirror 활성 동기화 관계를 해제합니다.
 +
-`SiteA::> snapmirror release -destination-path _destination_path_`
+`SiteA::> snapmirror release -destination-path <destination_path>`
 
 . 경로를 다시 검색하여 호스트에서 로컬 경로만 사용할 수 있는지 확인합니다.
 

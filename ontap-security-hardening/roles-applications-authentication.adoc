@@ -258,7 +258,7 @@ NOTE: AutoSupport 역할은 AutoSupport OnDemand가 사용하는 미리 정의�
 
 응용 프로그램 메서드는 로그인 메서드의 액세스 유형을 지정합니다. 가능한 값에는 `console, http, ontapi, rsh, snmp, service-processor, ssh,` 및 `telnet`가 포함됩니다.
 
-이 매개 변수를 설정하면 `service-processor` 사용자에게 서비스 프로세서에 대한 액세스 권한이 부여됩니다. 이 매개 변수를 로 설정할 `service-processor` `-authentication-method` 경우 서비스 프로세서가 암호 인증만 지원하므로 매개 변수를 로 설정해야 `password` 합니다. SVM 사용자 계정은 서비스 프로세서에 액세스할 수 없습니다. 따라서 이 매개 변수가 로 설정된 경우 연산자 및 관리자는 매개 변수를 사용할 수 `-vserver` `service-processor`없습니다.
+이 매개 변수를 설정하면 `service-processor` 사용자에게 서비스 프로세서에 대한 액세스 권한이 부여됩니다. 이 매개 변수를 로 설정할 `service-processor` `-authentication-method` 경우 서비스 프로세서가 인증만 지원하므로 매개 변수를 로 설정해야 `password` 합니다. `password` SVM 사용자 계정은 서비스 프로세서에 액세스할 수 없습니다. 따라서 이 매개 변수가 로 설정된 경우 연산자 및 관리자는 매개 변수를 사용할 수 `-vserver` `service-processor`없습니다.
 
 에 대한 액세스를 더 제한하려면 `service-processor` 명령을 `system service-processor ssh add-allowed-addresses`사용하십시오. 명령을 `system service-processor api-service` 사용하여 구성 및 인증서를 업데이트할 수 있습니다.
 
@@ -300,7 +300,7 @@ authentication method 매개 변수는 로그인에 사용되는 인증 방법�
 
 NOTE: 프로토콜 보안의 약점으로 인해 NIS를 사용하지 않는 것이 좋습니다.
 
-ONTAP 9.3부터는 두 가지 인증 방법으로 로컬 SSH 계정에 대해 연결된 2단계 인증을 사용할 수 `admin` `publickey` 있습니다. 명령의 필드 외에 `-authentication-method` `security login` 이라는 새 필드가 `-second-authentication-method` 추가되었습니다. 공개 키 또는 암호를 또는 로 지정할 수 `-authentication-method` `-second-authentication-method`있습니다. 그러나 SSH 인증 중에 순서는 부분 인증을 사용하는 공개 키와 전체 인증을 위한 암호 프롬프트가 차례로 표시됩니다.
+ONTAP 9.3부터 및 을 두 가지 인증 방법으로 사용하는 로컬 SSH 계정에 대해 연결된 2단계 인증을 사용할 수 `admin` `publickey` `password` 있습니다. 명령의 필드 외에 `-authentication-method` `security login` 이라는 새 필드가 `-second-authentication-method` 추가되었습니다.  `publickey`또는 `password` 로 지정할 수 있습니다 `-authentication-method` `-second-authentication-method`. 그러나 SSH 인증 중에 순서는 항상 부분 인증과 함께 진행되며, 그 다음에 `publickey` 전체 인증을 위한 암호 프롬프트가 나타납니다.
 
 [listing]
 ----

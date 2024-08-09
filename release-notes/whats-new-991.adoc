@@ -6,6 +6,8 @@ summary: ONTAP 9.9.1에서 사용할 수 있는 새로운 기능에 대해 알�
 ---
 = ONTAP 9.9.1의 새로운 기능
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
 
 
 [role="lead"]

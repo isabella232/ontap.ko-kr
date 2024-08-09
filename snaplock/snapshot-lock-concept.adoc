@@ -30,6 +30,7 @@ ONTAP 9.14.1부터 스냅샷 복사본 잠금은 SnapLock 소산 대상 및 비 
 
 
 .무단 스냅샷 복사본으로 지원되는 기능
+* link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-worm-snaplock.html["Cloud Volumes ONTAP"^]
 * FlexGroup 볼륨
 +
 스냅샷 복사본 잠금은 FlexGroup 볼륨에서 지원됩니다. 스냅샷 잠금은 루트 구성 요소 스냅샷 복사본에만 적용됩니다. FlexGroup 볼륨은 루트 구성 요소 만료 시간이 경과한 경우에만 삭제할 수 있습니다.
@@ -47,7 +48,6 @@ ONTAP 9.14.1부터 스냅샷 복사본 잠금은 SnapLock 소산 대상 및 비 
 .지원되지 않는 기능입니다
 다음 기능은 현재 무단 스냅샷 복사본에서는 지원되지 않습니다.
 
-* Cloud Volumes ONTAP
 * 정합성 보장 그룹
 * FabricPool
 * FlexCache 볼륨

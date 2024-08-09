@@ -11,7 +11,9 @@ summary: FlexCache 원본 볼륨과 FlexCache 볼륨에 지원되는 기능 및 
 
 
 [role="lead"]
-ONTAP 9.5부터 FlexCache 볼륨을 구성할 수 있습니다.  FlexVol 볼륨은 원본 볼륨으로 지원되며 FlexGroup 볼륨은 FlexCache 볼륨으로 지원됩니다.  ONTAP 9.7부터 FlexVol 볼륨과 FlexGroup 볼륨이 모두 원본 볼륨으로 지원됩니다.  원래 볼륨과 FlexCache 볼륨에 대해 지원되는 기능 및 프로토콜은 다양합니다.
+ONTAP 9.5부터 FlexCache 볼륨을 구성할 수 있습니다. FlexVol 볼륨은 원본 볼륨으로 지원되며 FlexGroup 볼륨은 FlexCache 볼륨으로 지원됩니다. ONTAP 9.7부터 FlexVol 볼륨과 FlexGroup 볼륨이 모두 원본 볼륨으로 지원됩니다. 원래 볼륨과 FlexCache 볼륨에 대해 지원되는 기능 및 프로토콜은 다양합니다.
+
+캐시 볼륨과 원본 볼륨이 모두 지원되는 ONTAP 버전에서 실행되는 한 상호 운용할 수 있습니다. 기능은 지원 기능이 도입된 ONTAP 버전 또는 이후 ONTAP 버전을 실행하는 캐시와 오리진 둘 다 실행 중인 경우에만 지원됩니다.
 
 
 

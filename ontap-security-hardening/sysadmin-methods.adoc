@@ -50,11 +50,11 @@ vs1             aes256-ctr,   diffie-hellman-group-     hmac-sha1-96
 
 === 로그인 배너
 
-조직은 로그인 배너를 사용하여 모든 운영자, 관리자, 범법자를 막론하고 모두에게 사용 약관을 제공하고 시스템에 액세스 할 수 있는 사람을 표시 할 수 있습니다. 이 접근 방식은 시스템 액세스 및 사용에 대한 기대치를 설정하는 데 유용합니다.  `security login banner modify`이 명령은 로그인 배너를 수정합니다. 로그인 배너는 SSH 및 콘솔 장치 로그인 프로세스 중 인증 단계 바로 앞에 표시됩니다. 다음 예에 표시된 대로 배너 텍스트는 큰 따옴표(" ")로 묶어야 합니다.
+조직은 로그인 배너를 사용하여 모든 운영자, 관리자, 범법자를 막론하고 모두에게 사용 약관을 제공하고 시스템에 액세스 할 수 있는 사람을 표시 할 수 있습니다. 이 접근 방식은 시스템 액세스 및 사용에 대한 기대치를 설정하는 데 유용합니다.  `security login banner modify`이 명령은 로그인 배너를 수정합니다. 로그인 배너는 SSH 및 콘솔 장치 로그인 프로세스 중 인증 단계 바로 앞에 표시됩니다. 배너 텍스트는 다음 예에 표시된 것처럼 큰따옴표("")로 묶어야 합니다.
 
 [listing]
 ----
-cluster1::> security login banner modify -vserver cluster1 -message “Authorized users ONLY!”
+cluster1::> security login banner modify -vserver cluster1 -message "Authorized users ONLY!"
 ----
 
 
@@ -142,7 +142,7 @@ ONTAP에서 오늘의 메시지를 구성하는 방법에 대한 자세한 내�
 
 == NetApp ONTAP System Manager를 통한 웹 액세스
 
-ONTAP 관리자가 클러스터를 액세스하고 관리하는 데 CLI 대신 그래픽 인터페이스를 사용하려는 경우 NetApp ONTAP System Manager를 사용하십시오. 기본적으로 활성화되며 브라우저를 통해 액세스할 수 있는 웹 서비스로 ONTAP에 포함되어 있습니다. DNS를 사용하는 경우 브라우저에서 호스트 이름을 가리키거나 를 통해 IPv4 또는 IPv6 주소를 `https://cluster-management-LIF`지정합니다.
+ONTAP 관리자가 클러스터를 액세스하고 관리하는 데 CLI 대신 그래픽 인터페이스를 사용하려는 경우 NetApp ONTAP System Manager를 사용하십시오. 기본적으로 활성화되며 브라우저를 통해 액세스할 수 있는 웹 서비스로 ONTAP에 포함되어 있습니다. DNS를 사용하는 경우 브라우저에서 호스트 이름을 가리키거나 를 통해 IPv4 또는 IPv6 주소를 `+https://cluster-management-LIF+`지정합니다.
 
 클러스터에서 자체 서명된 디지털 인증서를 사용하는 경우 브라우저에서 인증서를 신뢰할 수 없음을 나타내는 경고를 표시할 수 있습니다. 액세스를 계속할 위험을 인식하거나 서버 인증을 위해 클러스터에 CA(인증 기관) 서명 디지털 인증서를 설치할 수 있습니다.
 
@@ -158,7 +158,7 @@ SAML 사양에는 Principal, IDP 및 Service Provider의 세 가지 역할이 �
 
 SSH 2단계 구성 프로세스와 달리, SAML 인증이 활성화된 후 ONTAP System Manager 또는 ONTAP 서비스 프로세서 액세스에 모든 기존 관리자는 SAML IDP를 통해 인증해야 합니다. 클러스터 사용자 계정을 변경할 필요가 없습니다. SAML 인증이 활성화되면 및 응용 프로그램에 대한 관리자 역할이 있는 기존 사용자에게 의 새로운 인증 방법이 `saml` `http` `ontapi` 추가됩니다.
 
-SAML 인증을 사용하도록 설정한 후 SAML IDP 액세스가 필요한 추가 새 계정을 ONTAP에서 관리자 역할 및 및 및 응용 프로그램에 대한 SAML 인증 방법으로 `http` `ontapi` 정의해야 합니다. 특정 시점에 SAML 인증이 비활성화된 경우 이러한 새 계정은 및 응용 프로그램에 대한 관리자 역할을 정의하고 로컬 ONTAP 인증을 위한 콘솔 응용 프로그램을 ONTAP 시스템 관리자에 추가해야 `password` `http` `ontapi` 합니다.
+SAML 인증을 사용하도록 설정한 후 SAML IDP 액세스가 필요한 추가 새 계정을 ONTAP에서 관리자 역할 및 및 및 응용 프로그램에 대한 SAML 인증 방법으로 `http` `ontapi` 정의해야 합니다. 특정 시점에 SAML 인증이 비활성화된 경우 이러한 새 계정은 `password` 및 응용 프로그램에 대한 관리자 역할을 `http` `ontapi` 정의하고 로컬 ONTAP 인증을 위한 응용 프로그램을 ONTAP 시스템 관리자에 추가해야 `console` 합니다.
 
 SAML IDP를 사용하도록 설정하면 IDP는 LDAP(Lightweight Directory Access Protocol), AD(Active Directory), Kerberos, 암호 등과 같이 IDP에 사용 가능한 방법을 사용하여 ONTAP 시스템 관리자 액세스에 대한 인증을 수행합니다. 사용 가능한 방법은 IDP에 고유합니다. ONTAP에 구성된 계정에는 IDP 인증 방법에 매핑되는 사용자 ID가 있어야 합니다.
 

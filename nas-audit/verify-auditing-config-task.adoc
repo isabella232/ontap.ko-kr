@@ -43,3 +43,8 @@ summary: 감사 구성을 완료한 후에는 감사가 올바르게 구성되�
             Log Files Rotation Limit: 0
 ----
 
+
+.관련 정보
+* link:create-auditing-config-task.html["감사 구성을 만듭니다"]
+* link:enable-audit-svm-task.html["SVM에 대한 감사를 설정합니다"]
+

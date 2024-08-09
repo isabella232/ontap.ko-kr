@@ -55,11 +55,11 @@ type "exit":
 Re-enter the cluster-wide passphrase:
 After configuring onboard key management, save the encrypted configuration data
 in a safe location so that you can use it if you need to perform a manual recovery
-operation. To view the data, use the “security key-manager backup show” command.
+operation. To view the data, use the "security key-manager backup show" command.
 ----
 ONTAP 9.4부터는 의 true 옵션을 사용하여 재부팅 후 사용자가 암호를 입력하도록 요구할 수 `-enable-cc-mode` `security key-manager setup` 있습니다. ONTAP 9.6 이상에서 명령 구문은 입니다 `security key-manager onboard enable -cc-mode-enabled yes`.
 
-ONTAP 9.4부터 고급 권한의 기능을 사용하여 NVE 지원 볼륨에서 데이터를 중단 없이 "스크럽" 데이터를 사용할 수 `secure-purge` 있습니다. 암호화된 볼륨의 데이터를 스크러빙하면 물리적 미디어에서 데이터를 복구할 수 없습니다. 다음 명령을 실행하면 SVM VS1의 vol1에서 삭제된 파일이 안전하게 제거됩니다.
+ONTAP 9.4부터 고급 권한의 기능을 사용하여 NVE 지원 볼륨에서 데이터를 중단 없이 "스크럽" 할 수 `secure-purge` 있습니다. 암호화된 볼륨의 데이터를 스크러빙하면 물리적 미디어에서 데이터를 복구할 수 없습니다. 다음 명령을 실행하면 SVM VS1의 vol1에서 삭제된 파일이 안전하게 제거됩니다.
 
 [listing]
 ----

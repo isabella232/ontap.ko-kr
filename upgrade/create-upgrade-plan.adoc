@@ -17,6 +17,9 @@ Active IQ 디지털 어드바이저의 Upgrade Advisor 서비스는 업그레이
 
 Active IQ는 사용자 환경에서 최신 버전의 ONTAP로 업그레이드하여 해결할 수 있는 문제를 식별합니다. 업그레이드 관리자 서비스는 성공적인 업그레이드를 계획하는 데 도움이 되며, 업그레이드하는 ONTAP 버전에서 알아야 할 문제에 대한 보고서를 제공합니다.
 
+
+NOTE: Upgrade Advisor를 사용하려면 보고서를 생성하려면 전체 AutoSupport 번들이 필요합니다.
+
 Active IQ Digital Advisor에 대해 유효한 지원 에지 서비스 계약이 없는 경우, 해야 합니다 link:prepare.html["Upgrade Advisor 없이 업그레이드를 준비합니다"].
 
 .단계
@@ -31,4 +34,9 @@ ONTAP 업그레이드를 수행하기 전에 * 소프트웨어 구성 변경 *, 
 .다음 단계
 * 를 검토해야 합니다 link:../release-notes/index.html["ONTAP 릴리즈 노트"] Upgrade Advisor가 클러스터에 권장하는 타겟 ONTAP 릴리즈의 경우 Upgrade Advisor에서 생성한 계획에 따라 클러스터를 업그레이드해야 합니다.
 * 당신은 해야 한다 link:reboot-sp-bmc.html["SP 또는 BMC를 재부팅합니다"] 업그레이드 시작 전.
++
+.. 관련 정보
+
+
+* https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_manually_upload_AutoSupport_messages_to_NetApp_in_ONTAP_9["AutoSupport 메시지를 NetApp에 수동으로 업로드하는 방법"^]
 

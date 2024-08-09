@@ -2,7 +2,7 @@
 permalink: nas-audit/enable-audit-svm-task.html 
 sidebar: sidebar 
 keywords: enable, audit, svm 
-summary: '감사 구성 설정을 완료한 후에는 스토리지 가상 시스템 \(SVM\)에 대한 감사를 활성화해야 합니다.' 
+summary: 감사 구성 설정을 마친 후에는 스토리지 가상 머신에 대해 감사를 설정해야 합니다. 
 ---
 = SVM에 대한 감사를 설정합니다
 :allow-uri-read: 
@@ -13,7 +13,7 @@ summary: '감사 구성 설정을 완료한 후에는 스토리지 가상 시스
 [role="lead"]
 감사 구성 설정을 마쳤으면 SVM(스토리지 가상 머신)에 대한 감사를 활성화해야 합니다.
 
-.필요한 것
+.시작하기 전에
 SVM 감사 구성이 이미 존재해야 합니다.
 
 .이 작업에 대해
@@ -27,4 +27,9 @@ SVM 재해 복구 ID 폐기 구성이 SnapMirror 초기화가 완료된 후 먼�
 +
 'vserver audit enable - vserver vs1'
 
+
+
+.관련 정보
+* link:create-auditing-config-task.html["감사 구성을 만듭니다"]
+* link:verify-auditing-config-task.html["감사 구성을 확인합니다"]
 
