@@ -1,0 +1,16 @@
+---
+section: flexcache-writeback
+title: FlexCache 쓰기 저장
+entries:
+- title: 개요
+  url: "/flexcache-writeback/flexcache-write-back-overview.html"
+- title: 있습니다
+  url: "/flexcache-writeback/flexcache-write-back-architecture.html"
+- title: 사용 사례
+  url: "/flexcache-writeback/flexcache-write-back-use-cases.html"
+- title: 필수 구성 요소
+  url: "/flexcache-writeback/flexcache-write-back-prerequisites.html"
+- title: 상호 운용성
+  url: "/flexcache-writeback/flexcache-write-back-interoperability.html"
+- title: Write-back 설정 및 관리
+  url: "/flexcache-writeback/flexcache-writeback-enable-task.html"

@@ -1,0 +1,229 @@
+---
+permalink: flexcache-writeback/flexcache-writeback-enable-task.html 
+sidebar: sidebar 
+keywords: creating, manage, disable, view, flexcache, flex cache, writeback, write-back, write back 
+summary: FlexCache 볼륨에서 FlexCache write-back 모드를 활성화하면 에지 컴퓨팅 환경에 더 나은 성능을 제공하고 쓰기 작업이 많은 워크로드를 통해 캐시에 저장할 수 있습니다. 
+---
+= FlexCache write-back 설정 및 관리
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.15.1부터 FlexCache 볼륨에서 FlexCache Write-back 모드를 활성화하여 에지 컴퓨팅 환경 및 쓰기 작업이 많은 워크로드가 있는 캐시에 더 나은 성능을 제공할 수 있습니다. 또한 필요한 경우 FlexCache 볼륨에 write-back이 설정되어 있는지 아니면 볼륨에 대한 write-back을 사용하지 않도록 설정할 수도 있습니다.
+
+캐시 볼륨에 다시 쓰기가 설정되어 있으면 쓰기 요청이 원본 볼륨이 아닌 로컬 캐시로 전송됩니다.
+
+.시작하기 전에
+고급 권한 모드여야 합니다.
+
+
+
+== Write-back이 설정된 새 FlexCache 볼륨을 생성합니다
+
+.단계
+ONTAP System Manager 또는 ONTAP CLI를 사용하여 write-back을 사용하도록 설정한 새 FlexCache 볼륨을 생성할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+. FlexCache 볼륨이 원본 볼륨과 다른 클러스터에 있는 경우 클러스터 피어 관계를 생성합니다.
++
+.. 로컬 클러스터에서 * 보호 > 개요 * 를 클릭합니다.
+.. Intercluster Settings * 를 확장하고 * Add Network Interfaces * 를 클릭한 후 클러스터에 클러스터 간 인터페이스를 추가합니다.
++
+원격 클러스터에서 이 작업을 반복합니다.
+
+.. 원격 클러스터에서 * 보호 > 개요 * 를 클릭합니다. image:icon_kabob.gif["메뉴 옵션 아이콘"]Cluster Peers 섹션을 클릭하고 * Generate Passphrase * 를 클릭합니다.
+.. 생성된 암호를 복사하여 로컬 클러스터에 붙여넣습니다.
+.. 로컬 클러스터의 클러스터 피어 아래에서 * 피어 클러스터 * 를 클릭하고 로컬 및 원격 클러스터를 피어링합니다.
+
+
+. FlexCache 볼륨이 원본 볼륨과 다른 클러스터에 있는 경우 SVM 피어 관계를 생성합니다.
++
+스토리지 VM 피어 * 아래에서 * 피어 image:icon_kabob.gif["메뉴 옵션 아이콘"] 스토리지 VM * 을 클릭한 다음 * 피어 스토리지 VM * 을 클릭하여 스토리지 VM을 피어링합니다.
+
++
+FlexCache 볼륨이 동일한 클러스터에 있는 경우 System Manager를 사용하여 SVM 피어 관계를 생성할 수 없습니다.
+
+. 스토리지 > 볼륨 * 을 선택합니다.
+. 추가 * 를 선택합니다.
+. More Options * 를 선택한 다음 * Add as cache for a remote volume * 를 선택합니다.
+. Enable FlexCache write-back * 을 선택합니다.
+
+
+--
+.CLI를 참조하십시오
+--
+. 생성할 FlexCache 볼륨이 다른 클러스터에 있는 경우 클러스터 피어 관계를 생성합니다.
++
+.. 대상 클러스터에서 데이터 보호 소스 클러스터와 피어 관계를 생성합니다.
++
+[source, cli]
+----
+cluster peer create -generate-passphrase -offer-expiration MM/DD/YYYY HH:MM:SS|1...7days|1...168hours -peer-addrs <peer_LIF_IPs> -initial-allowed-vserver-peers <svm_name>,..|* -ipspace <ipspace_name>
+----
++
+ONTAP 9.6부터는 클러스터 피어 관계를 만들 때 TLS 암호화가 기본적으로 활성화됩니다. TLS 암호화는 오리진과 FlexCache 볼륨 간의 인터클러스터 통신에 지원됩니다. 필요한 경우 클러스터 피어 관계에 대해 TLS 암호화를 비활성화할 수도 있습니다.
+
++
+[listing]
+----
+cluster02::> cluster peer create -generate-passphrase -offer-expiration 2days -initial-allowed-vserver-peers *
+
+                     Passphrase: UCa+6lRVICXeL/gq1WrK7ShR
+                Expiration Time: 6/7/2017 08:16:10 EST
+  Initial Allowed Vserver Peers: *
+            Intercluster LIF IP: 192.140.112.101
+              Peer Cluster Name: Clus_7ShR (temporary generated)
+
+Warning: make a note of the passphrase - it cannot be displayed again.
+----
+.. 소스 클러스터에서 소스 클러스터를 대상 클러스터에 인증합니다.
++
+[source, cli]
+----
+cluster peer create -peer-addrs <peer_LIF_IPs> -ipspace <ipspace>
+----
++
+[listing]
+----
+cluster01::> cluster peer create -peer-addrs 192.140.112.101,192.140.112.102
+
+Notice: Use a generated passphrase or choose a passphrase of 8 or more characters.
+        To ensure the authenticity of the peering relationship, use a phrase or sequence of characters that would be hard to guess.
+
+Enter the passphrase:
+Confirm the passphrase:
+
+Clusters cluster02 and cluster01 are peered.
+----
+
+
+. FlexCache 볼륨이 원본 볼륨과 다른 SVM에 있는 경우 애플리케이션으로서 "FlexCache"와 SVM 피어 관계를 생성합니다.
++
+.. SVM이 다른 클러스터에 있는 경우 피어링 SVM에 대한 SVM 권한을 생성합니다.
++
+[source, cli]
+----
+vserver peer permission create -peer-cluster <cluster_name> -vserver <svm-name> -applications flexcache
+----
++
+다음 예에서는 모든 로컬 SVM에 적용되는 SVM 피어 권한을 생성하는 방법을 보여줍니다.
+
++
+[listing]
+----
+cluster1::> vserver peer permission create -peer-cluster cluster2 -vserver "*" -applications flexcache
+
+Warning: This Vserver peer permission applies to all local Vservers. After that no explict
+"vserver peer accept" command required for Vserver peer relationship creation request
+from peer cluster "cluster2" with any of the local Vservers. Do you want to continue? {y|n}: y
+----
+.. SVM 피어 관계 생성:
++
+[source, cli]
+----
+vserver peer create -vserver <local_SVM> -peer-vserver <remote_SVM> -peer-cluster <cluster_name> -applications flexcache
+----
+
+
+. Write-Back(후기입)이 설정된 FlexCache 볼륨 생성:
++
+[source, cli]
+----
+volume flexcache create -vserver <cache_vserver_name> -volume <cache_flexgroup_name> -aggr-list <list_of_aggregates> -origin-volume <origin flexgroup> -origin-vserver <origin_vserver name> -junction-path <junction_path> -is-writeback-enabled true
+----
+
+
+--
+====
+
+
+== 기존 FlexCache 볼륨에서 FlexCache write-back을 활성화합니다
+
+ONTAP System Manager 또는 ONTAP CLI를 사용하여 기존 FlexCache 볼륨에서 FlexCache write-back을 활성화할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+. 스토리지 > 볼륨 * 을 선택하고 기존 FlexCache 볼륨을 선택합니다.
+. 볼륨의 개요 페이지에서 오른쪽 상단에 있는 * 편집 * 을 클릭합니다.
+. 볼륨 편집 * 창에서 * FlexCache 다시 쓰기 활성화 * 를 선택합니다.
+
+
+--
+.CLI를 참조하십시오
+--
+. 기존 FlexCache 볼륨에서 write-back 활성화:
++
+[source, cli]
+----
+volume flexcache config modify -volume <cache_flexgroup_name> -is-writeback-enabled true
+----
+
+
+--
+====
+
+
+== FlexCache writback이 활성화되어 있는지 확인합니다
+
+.단계
+System Manager 또는 ONTAP CLI를 사용하여 FlexCache write-back이 활성화되어 있는지 확인할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+. 스토리지 > 볼륨 * 을 선택하고 볼륨을 선택합니다.
+. 볼륨 * 개요 * 에서 * FlexCache details * 를 찾아 FlexCache 볼륨에서 FlexCache write-back이 * Enabled * 로 설정되어 있는지 확인합니다.
+
+
+--
+.CLI를 참조하십시오
+--
+. FlexCache write-back이 활성화되어 있는지 확인합니다.
++
+[source, cli]
+----
+volume flexcache config show -volume cache -fields is-writeback-enabled
+----
+
+
+--
+====
+
+
+== FlexCache 볼륨에서 write-back을 비활성화합니다
+
+FlexCache 볼륨을 삭제하려면 먼저 FlexCache Write-Back을 비활성화해야 합니다.
+
+.단계
+System Manager 또는 ONTAP CLI를 사용하여 FlexCache write-back을 사용하지 않도록 설정할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+. 스토리지 > 볼륨 * 을 선택하고 FlexCache write-back이 활성화된 기존 FlexCache 볼륨을 선택합니다.
+. 볼륨의 개요 페이지에서 오른쪽 상단에 있는 * 편집 * 을 클릭합니다.
+. 볼륨 편집 * 창에서 * FlexCache 다시 쓰기 활성화 * 를 선택 해제합니다.
+
+
+--
+.CLI를 참조하십시오
+--
+. 후기입 해제:
++
+[source, cli]
+----
+volume flexcache config modify -volume <cache_vol_name> -is-writeback-enabled false
+----
+
+
+--
+====

@@ -10,10 +10,9 @@ entries:
   url: "/flexcache/sizing-concept.html"
 - title: FlexCache 볼륨을 생성합니다
   url: "/flexcache/create-volume-task.html"
+- section: flexcache-writeback
 - title: FlexCache 볼륨 관리
   entries:
-  - title: FlexCache 쓰기 저장을 사용하고 관리합니다
-    url: "/flexcache/flexcache-writeback-enable-task.html"
   - title: FlexCache 볼륨을 감사할 때의 고려 사항
     url: "/flexcache/audit-flexcache-volumes-concept.html"
   - title: 원본 볼륨에서 FlexCache 볼륨의 속성을 동기화합니다

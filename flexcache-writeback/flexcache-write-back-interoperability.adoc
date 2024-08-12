@@ -1,0 +1,75 @@
+---
+permalink: flexcache-writeback/flexcache-write-back-interoperability.html 
+sidebar: sidebar 
+keywords: tr-4743, flexcache writeback, flexcache write-back, interoperability, client, technical report, netapp tr, ontap tr 
+summary: write-back 모드로 FlexCache를 구축할 때 고려해야 할 상호 운용성 사항을 이해합니다 
+---
+= FlexCache 쓰기 저장 상호 운용성
+:allow-uri-read: 
+
+
+[role="lead"]
+write-back 모드로 FlexCache를 구축할 때 고려해야 할 상호 운용성 사항을 이해합니다.
+
+
+
+== ONTAP 버전입니다
+
+쓰기 저장 모드를 사용하려면 캐시와 오리진 * 둘 다에서 ONTAP 9.15.1 이상을 실행하고 있어야 합니다.
+
+
+NOTE: Write-back 사용 캐시가 필요하지 않은 클러스터는 이전 버전의 ONTAP를 실행할 수 있지만 해당 클러스터는 write-around 모드에서만 작동할 수 있습니다.
+
+사용자 환경에서 ONTAP 버전을 혼합하여 사용할 수 있습니다.
+
+[cols="1*,1*,1*"]
+|===
+| 클러스터 | ONTAP 버전입니다 | 후기입 지원 여부 
+
+
+| * 원점 * | ONTAP 9.15.1 | 해당 없음 
+
+
+| * 클러스터 1 * | ONTAP 9.15.1 | 예 
+
+
+| * 클러스터 2 * | ONTAP 9.14.1 | 아니요 
+|===
+[cols="1*,1*,1*"]
+|===
+| 클러스터 | ONTAP 버전입니다 | 후기입 지원 여부 
+
+
+| * 원점 * | ONTAP 9.14.1 | 해당 없음 
+
+
+| * 클러스터 1 * | ONTAP 9.15.1 | 아니요 
+
+
+| * 클러스터 2 * | ONTAP 9.15.1 | 아니요 
+|===
+
+NOTE: 에서는 <<example2-table>>오리진이 엄격한 요구 사항인 ONTAP 9.15.1 이상을 실행하고 있지 않기 때문에 두 클러스터 모두 다시 쓰기 모드를 활성화할 수 없습니다.
+
+
+
+== 클라이언트 상호 운용성
+
+ONTAP에서 일반적으로 지원하는 모든 클라이언트는 FlexCache 볼륨이 write-around 모드로 작동하든 write-back 모드로 작동하든 상관없이 볼륨에 액세스할 수 있습니다. 지원되는 클라이언트의 최신 목록은 NetApp을 참조하십시오. https://imt.netapp.com/matrix/#welcome["상호 운용성 매트릭스"^]
+
+클라이언트 버전은 특별히 중요하지 않지만 NFSv3, NFSv4.0, NFSv4.1, SMB2.x 또는 SMB3.x를 지원할 수 있을 만큼 새로운 클라이언트여야 합니다 SMB1 및 NFSv2는 더 이상 사용되지 않는 프로토콜이며 지원되지 않습니다.
+
+
+
+== 다시 쓰기 및 덮어쓰기를 수행합니다
+
+에서 볼 수 있듯이 <<example1-table>>write-back 모드에서 작동하는 FlexCache는 write-around 모드로 작동하는 캐시와 함께 존재할 수 있습니다. 특정 작업 부하와 Write-Back을 비교하여 사용하는 것이 좋습니다.
+
+
+TIP: write-back과 write-around 간에 워크로드 성능이 동일할 경우 write-around를 사용합니다.
+
+
+
+== ONTAP 기능 상호 운용성
+
+FlexCache 기능 상호 운용성에 대한 최신 목록은 을 참조하십시오 link:../flexcache/supported-unsupported-features-concept.html["FlexCache 볼륨에 대해 지원되는 기능과 지원되지 않는 기능"].

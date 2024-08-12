@@ -1,0 +1,38 @@
+---
+permalink: flexcache-writeback/flexcache-write-back-prerequisites.html 
+sidebar: sidebar 
+keywords: tr-4743, flexcache writeback, flexcache write-back, prerequisites, technical report, netapp tr, ontap tr 
+summary: 쓰기 저장 모드로 FlexCache를 배포하기 전에 이러한 소프트웨어, 라이센스 및 시스템 구성 요구 사항을 충족하는지 확인하십시오. 
+---
+= FlexCache write-back 사전 요구 사항
+:allow-uri-read: 
+
+
+[role="lead"]
+쓰기 저장 모드로 FlexCache를 배포하기 전에 이러한 소프트웨어, 라이센스 및 시스템 구성 요구 사항을 충족하는지 확인하십시오.
+
+
+
+== ONTAP 버전입니다
+
+* 오리진 *_MUST_ * 에서 ONTAP 9.15.1 이상을 실행하고 있습니다.
+* write-back 모드에서 작동해야 하는 캐싱 클러스터는 *_must_ * ONTAP 9.15.1 이상을 실행하고 있습니다.
+* write-back 모드로 작동할 필요가 없는 캐싱 클러스터는 지원되는 ONTAP 버전을 실행할 수 있습니다.
+
+
+
+
+== 라이센싱
+
+ONTAP 구매에 쓰기 작업 모드를 포함한 FlexCache가 포함됩니다. 추가 라이센스가 필요하지 않습니다.
+
+
+
+== 피어링
+
+* 오리진 및 캐시 클러스터는 이어야 합니다 link:../flexcache-writeback/flexcache-writeback-enable-task.html["클러스터 피어링된"]
+* 원본 및 캐시 클러스터의 SVM(서버 가상 머신)은 FlexCache 옵션을 사용해야 합니다 link:../flexcache-writeback/flexcache-writeback-enable-task.html["SVM 피어링이 발생했습니다"] .
+
+
+
+NOTE: 캐시 클러스터를 다른 캐시 클러스터로 피어링할 필요가 없습니다. 또한 캐시 SVM을 다른 캐시 SVM에 피어링할 필요가 없습니다.

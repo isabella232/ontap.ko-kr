@@ -62,7 +62,7 @@ TLS 지원 기능을 사용하여 이메일을 통해 AutoSupport 데이터를 �
 +
 이 새로운 기능은 무중단 업무 운영 및 재해 복구를 위한 동기식 양방향 복제 기능을 제공합니다. 여러 장애가 발생한 도메인 전반에서 데이터에 대한 동시 읽기 및 쓰기 액세스를 통해 중요한 SAN 워크로드에 대한 데이터 액세스를 보호하여 무중단 운영을 지원하고 재해 또는 시스템 장애 발생 시 다운타임을 최소화합니다.
 
-* xref:../flexcache/flexcache-writeback-enable-task.html[FlexCache 쓰기 저장]
+* xref:../flexcache-writeback/flexcache-writeback-enable-task.html[FlexCache 쓰기 저장]
 +
 FlexCache 쓰기 저장을 사용하면 클라이언트가 FlexCache 볼륨에 로컬로 쓸 수 있으므로, 원래 볼륨에 직접 쓸 때보다 지연 시간이 단축되고 성능이 향상됩니다. 새로 작성된 데이터는 원래 볼륨으로 비동기식으로 다시 복제됩니다.
 

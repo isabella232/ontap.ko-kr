@@ -34,9 +34,8 @@ ONTAP 업그레이드를 수행하기 전에 * 소프트웨어 구성 변경 *, 
 .다음 단계
 * 를 검토해야 합니다 link:../release-notes/index.html["ONTAP 릴리즈 노트"] Upgrade Advisor가 클러스터에 권장하는 타겟 ONTAP 릴리즈의 경우 Upgrade Advisor에서 생성한 계획에 따라 클러스터를 업그레이드해야 합니다.
 * 당신은 해야 한다 link:reboot-sp-bmc.html["SP 또는 BMC를 재부팅합니다"] 업그레이드 시작 전.
-+
-.. 관련 정보
 
 
+.관련 정보
 * https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_manually_upload_AutoSupport_messages_to_NetApp_in_ONTAP_9["AutoSupport 메시지를 NetApp에 수동으로 업로드하는 방법"^]
 

@@ -175,7 +175,7 @@ ONTAP은 AFF A70, AFF A90 및 AFF A1K 플랫폼을 기반으로 스토리지 효
 
 
  a| 
-xref:../flexcache/flexcache-writeback-enable-task.html[FlexCache 쓰기 저장 지원]
+xref:../flexcache-writeback/flexcache-writeback-enable-task.html[FlexCache 쓰기 저장 지원]
  a| 
 캐시 볼륨에 쓰기 작업이 설정되어 있으면 쓰기 요청이 원본 볼륨이 아닌 로컬 캐시로 전송되어 에지 컴퓨팅 환경과 쓰기 작업이 많은 캐시를 위한 성능이 향상됩니다.
 

@@ -21,6 +21,9 @@ summary: 클러스터에서 ONTAP 버전을 중단 없이 업데이트할 수 �
 사용 중인 구성에서 지원되는 경우에는 System Manager를 사용하여 자동화된 업그레이드를 수행해야 합니다.  사용 중인 구성에서 System Manager를 사용한 자동 업그레이드를 지원하지 않는 경우에는 ONTAP CLI(Command Line Interface)를 사용하여 자동화된 업그레이드를 수행할 수 있습니다.
 
 
+NOTE: BlueXP 를 통해 ONTAP 9.15.1 이상으로 업그레이드하려면 를 link:https://docs.netapp.com/us-en/bluexp-software-updates/get-started/software-updates.html["BlueXP  설명서의 업그레이드 절차"^]따르십시오.
+
+
 IMPORTANT: 자동 무중단 업그레이드(ANDU)를 시작하기 전에 '스토리지 페일오버 수정-자동 반환' 명령 옵션의 설정을 수정해도 업그레이드 프로세스에 영향을 미치지 않습니다. ANDU 프로세스는 업데이트에 필요한 Takeover/Giveback 중 이 옵션의 사전 설정 값을 무시합니다. 예를 들어, ANDU를 시작하기 전에 '-automiveback'을 false로 설정하면 반환 전에 자동 업그레이드가 중단되지 않습니다.
 
 .시작하기 전에
