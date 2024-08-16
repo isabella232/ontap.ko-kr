@@ -14,7 +14,7 @@ summary: 기본적으로 클러스터 피어링 암호화는 ONTAP 9.6 이상에
 기본적으로 클러스터 피어링 암호화는 ONTAP 9.6 이상에서 생성된 모든 피어 관계에서 활성화됩니다. 클러스터 간 피어링 통신에 암호화를 사용하지 않으려면 비활성화할 수 있습니다.
 
 .단계
-. 대상 클러스터에서 소스 클러스터와의 통신을 수정하여 클러스터 피어링 암호화의 사용을 중단하십시오.
+. 타겟 클러스터에서 소스 클러스터와의 통신을 수정하여 클러스터 피어링 암호화 사용을 중지합니다.
 +
 ** 암호화를 제거하고 인증을 유지하려면 다음을 입력합니다.
 +
@@ -22,7 +22,15 @@ summary: 기본적으로 클러스터 피어링 암호화는 ONTAP 9.6 이상에
 ----
 cluster peer modify <source_cluster> -auth-status-admin use-authentication -encryption-protocol-proposed none
 ----
-** 암호화 및 인증을 제거하려면 다음을 입력합니다.
+** 암호화 및 인증 제거하기:
++
+... 인증되지 않은 액세스를 허용하도록 클러스터 피어링 정책을 수정합니다.
++
+[source, cli]
+----
+cluster peer policy modify -is-unauthenticated-access-permitted true
+----
+... 암호화 및 인증 액세스 수정:
 +
 [source, cli]
 ----
@@ -30,7 +38,10 @@ cluster peer modify <source_cluster> -auth-status no-authentication
 ----
 
 
-. 메시지가 나타나면 암호를 입력합니다.
+
+
+. 메시지가 표시되면 암호를 입력합니다.
+. 암호를 다시 입력하여 확인합니다.
 . 소스 클러스터에서 대상 클러스터와의 통신에 대한 암호화를 해제합니다.
 +
 ** 암호화를 제거하고 인증을 유지하려면 다음을 입력합니다.
@@ -39,7 +50,15 @@ cluster peer modify <source_cluster> -auth-status no-authentication
 ----
 cluster peer modify <destination_cluster> -auth-status-admin use-authentication -encryption-protocol-proposed none
 ----
-** 암호화 및 인증을 제거하려면 다음을 입력합니다.
+** 암호화 및 인증 제거하기:
++
+... 인증되지 않은 액세스를 허용하도록 클러스터 피어링 정책을 수정합니다.
++
+[source, cli]
+----
+cluster peer policy modify -is-unauthenticated-access-permitted true
+----
+... 암호화 및 인증 액세스 수정:
 +
 [source, cli]
 ----
@@ -47,5 +66,7 @@ cluster peer modify <destination_cluster> -auth-status no-authentication
 ----
 
 
-. 메시지가 표시되면 대상 클러스터에 입력한 것과 동일한 암호를 입력합니다.
+
+
+. 메시지가 표시되면 대상 클러스터에서 사용한 것과 동일한 암호 구문을 입력하고 다시 입력합니다.
 
