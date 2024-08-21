@@ -1,7 +1,7 @@
 ---
 permalink: peering/create-cluster-relationship-93-later-task.html 
 sidebar: sidebar 
-keywords: create, cluster, peer, relationship 
+keywords: create, cluster, peer, relationship, System Manager, cli 
 summary: 데이터 백업 및 재해 복구를 위해 데이터를 원격 클러스터로 복제하여 데이터를 보호하기 전에 로컬 및 원격 클러스터 간에 클러스터 피어 관계를 생성합니다. 
 ---
 = 클러스터 피어 관계를 생성합니다

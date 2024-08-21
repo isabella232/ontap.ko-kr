@@ -71,7 +71,7 @@ ONTAP 9.14.1 이하를 사용 중이고 SnapMirror 활성 동기화 관계에서
 
 .단계
 . 페일오버 작업이 성공적으로 완료되었는지 확인합니다. '스냅샷 페일오버 표시'입니다
-. SnapMirror 비동기식 엔드포인트에서 팬 아웃 엔드포인트를 삭제합니다.
+. SnapMirror 비동기 끝점에서 팬 아웃 끝점을 삭제합니다.
 `snapmirror delete -destination-path _destination_path_`
 . 세 번째 사이트에서 새로운 SnapMirror 액티브 동기식 운영 볼륨과 비동기 팬아웃 타겟 볼륨 간에 SnapMirror 비동기식 관계를 생성합니다.
 `snapmirror create -source-path _source_path_ -destination-path _destination_path_ -policy MirrorAllSnapshots -schedule _schedule_`

@@ -2,7 +2,7 @@
 permalink: upgrade/snapmirror-cascade-relationship-blocked.html 
 sidebar: sidebar 
 keywords: ontap, upgrade, 9.9.1. 9.10.1, update, cascade, LTR, long term retention, snapshots, considerations, secondary storage 
-summary: '클러스터에 SnapMirror 계단식 배열 관계가 구성된 경우 업그레이드하기 전에 LTR(장기 보존) 스냅샷을 비활성화해야 할 수 있습니다' 
+summary: '클러스터에 SnapMirror 계단식 배열 관계가 구성되어 있는 경우 업그레이드하기 전에 LTR(장기 보존) 스냅샷을 해제해야 할 수 있습니다' 
 ---
 = ONTAP 업그레이드 전에 장기 보존 스냅샷을 비활성화합니다
 :allow-uri-read: 

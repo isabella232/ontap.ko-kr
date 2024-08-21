@@ -34,7 +34,7 @@ entries:
   url: "/ontap-security-hardening/data-replication-encryption.html"
 - title: 전송 중인 IPsec 데이터 암호화
   url: "/ontap-security-hardening/ipsec-in-flight-encryption.html"
-- title: TLS 및 SSL 관리
+- title: FIPS 모드 및 TLS 및 SSL 관리
   url: "/ontap-security-hardening/tls-ssl.html"
 - title: CA 서명 디지털 인증서를 만듭니다
   url: "/ontap-security-hardening/create-ca-signed-certificates.html"

@@ -43,7 +43,7 @@ ONTAP 9.10.1부터 SnapLock 및 비 SnapLock 볼륨은 동일한 애그리게이
 
 볼트 대상인 SnapLock 볼륨에 기본 보존 기간이 할당되어 있습니다. 이 기간의 값은 처음에 SnapLock 엔터프라이즈 볼륨의 경우 0년, SnapLock 규정 준수 볼륨의 경우 최대 30년으로 설정됩니다. 각 NetApp 스냅샷 복사본은 처음에 이 기본 보존 기간을 사용하여 커밋됩니다. 필요한 경우 보존 기간을 나중에 연장할 수 있습니다. 자세한 내용은 을 참조하십시오 link:set-retention-period-task.html["보존 시간 개요를 설정합니다"].
 
-ONTAP 9.14.1부터 SnapMirror 관계의 SnapMirror 정책에 특정 SnapMirror 레이블에 대한 보존 기간을 지정하여 소스에서 타겟 볼륨까지 복제된 스냅샷 복사본이 규칙에 지정된 보존 기간 동안 유지되도록 할 수 있습니다. 보존 기간을 지정하지 않으면 대상 볼륨의 기본 보존 기간이 사용됩니다.
+ONTAP 9.14.1부터는 SnapMirror 관계의 SnapMirror 정책에서 특정 SnapMirror 레이블에 대한 보존 기간을 지정할 수 있으므로 소스에서 타겟 볼륨으로의 복제된 스냅샷 복사본이 규칙에 지정된 보존 기간 동안 유지되도록 할 수 있습니다. 보존 기간을 지정하지 않으면 대상 볼륨의 기본 보존 기간이 사용됩니다.
 
 ONTAP 9.13.1부터 에 FlexClone을 생성하여 SnapLock 소산 관계의 대상 SnapLock 볼륨에서 잠긴 스냅샷 복사본을 즉시 복원할 수 있습니다 `snaplock-type` 볼륨 클론 생성 작업을 실행할 때 옵션을 "비 SnapLock"으로 설정하고 Snapshot 복사본을 "상위 스냅샷"으로 지정합니다. 에 대해 자세히 알아보십시오 link:../volumes/create-flexclone-task.html?q=volume+clone["SnapLock 형식으로 FlexClone 볼륨 생성"].
 

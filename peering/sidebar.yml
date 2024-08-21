@@ -1,6 +1,6 @@
 ---
 section: peering
-title: CLI를 통한 클러스터 및 SVM 피어링
+title: 클러스터 및 SVM 피어링
 entries:
 - title: 개요
   url: "/peering/index.html"

@@ -1,7 +1,7 @@
 ---
 permalink: data-protection/resynchronize-relationship-task.html 
 sidebar: sidebar 
-keywords: resynchronize, replication, relationship 
+keywords: resynchronize, replication, relationship, snapmirror, mirror, snapshot copy, restore, disaster recovery, DR, resync, protection relationship, data protection 
 summary: 대상 볼륨을 쓰기 가능한 상태로 만든 후, 소스 볼륨과 대상 볼륨에 공통 Snapshot 복사본이 없기 때문에 업데이트가 실패한 후 또는 관계에 대한 복제 정책을 변경하려는 경우 복제 관계를 다시 동기화해야 합니다. 
 ---
 = 복제 관계를 다시 동기화합니다
@@ -20,27 +20,28 @@ ONTAP 9.8부터 System Manager를 사용하여 역방향 재동기화 작업을 
 * 팬아웃 또는 캐스케이드 구성의 일부인 볼륨은 재동기화에 시간이 오래 걸릴 수 있습니다. SnapMirror 관계가 오랫동안 "준비 중" 상태를 보고하는 것을 보면 흔히 볼 수 있습니다.
 
 
-이 절차는 원래 소스 볼륨의 데이터를 다시 제공하고 원래 보호 관계를 다시 시작할 수 있도록 비동기 관계에서 원래 소스 볼륨의 데이터를 대체합니다.
-
 [NOTE]
 ====
 System Manager는 클러스터 내 관계와의 역방향 재동기화를 지원하지 않습니다. ONTAP CLI를 사용하여 클러스터 내 관계와 역방향 재동기화 작업을 수행할 수 있습니다.
 
 ====
-역방향 재동기화 작업을 수행하면 소스 볼륨의 모든 데이터가 공통 스냅샷 복사본의 데이터보다 최신인 모든 데이터가 삭제됩니다.
-
 .단계
-System Manager 또는 ONTAP CLI를 사용하여 복제 관계를 다시 동기화할 수 있습니다. 대상 볼륨을 쓰기 가능하게 설정한 후에는 System Manager를 사용하여 복제 관계를 역동기화할 수 있습니다. ONTAP CLI를 사용하는 경우 대상 볼륨을 쓰기 가능하게 만들지, 복제 관계를 업데이트하는지에 관계없이 절차는 동일합니다.
+System Manager 또는 ONTAP CLI를 사용하여 이 작업을 수행할 수 있습니다. ONTAP CLI를 사용하는 경우 대상 볼륨을 쓰기 가능하게 만들지, 복제 관계를 업데이트하는지에 관계없이 절차는 동일합니다.
 
 [role="tabbed-block"]
 ====
 .System Manager 역방향 재동기화
 --
+link:make-destination-volume-writeable-task.html["관계를 끊습니다"]대상을 쓰기 가능하게 만들려면 관계를 역순으로 다시 동기화합니다.
+
 . 대상 클러스터에서 * 보호 > 관계 * 를 클릭합니다.
-. 되돌릴 분리된 관계 위로 마우스를 가져가 를 클릭하고 image:icon_kabob.gif["Kabob 아이콘"]* Reverse Resync * 를 선택합니다.
+. 되돌릴 분리된 관계 위로 마우스를 가져가 를 클릭하고 image:icon_kabob.gif["메뉴 옵션 아이콘"]* Reverse Resync * 를 선택합니다.
 . Reverse resync relationship * 창에서 * Reverse resync * 를 클릭합니다.
 . 관계 * 에서 관계에 대한 * 전송 상태 * 를 확인하여 역방향 재동기화 진행률을 모니터링합니다.
 
+
+.다음 단계
+원래 원본을 다시 사용할 수 있게 되면 역방향 관계를 해제하고 다른 역방향 재동기화 작업을 수행하여 원래 관계를 다시 설정할 수 있습니다. 역방향 재동기화 프로세스는 데이터를 제공하는 사이트의 모든 변경 사항을 원래 소스로 복사하고 원래 소스를 다시 읽기-쓰기 가능하게 만듭니다.
 
 --
 .System Manager가 다시 동기화됩니다

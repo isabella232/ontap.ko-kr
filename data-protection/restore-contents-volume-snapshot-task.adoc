@@ -1,7 +1,7 @@
 ---
 permalink: data-protection/restore-contents-volume-snapshot-task.html 
 sidebar: sidebar 
-keywords: restore, contents, volume, snapshot copy 
+keywords: restore, contents, volume, snapshot copy, System Manager, cli 
 summary: 볼륨 스냅샷 복원 명령을 사용하여 스냅샷 복사본에서 볼륨의 콘텐츠를 복원할 수 있습니다. 
 ---
 = 스냅샷 복사본에서 볼륨 콘텐츠를 복원합니다
@@ -11,13 +11,13 @@ summary: 볼륨 스냅샷 복원 명령을 사용하여 스냅샷 복사본에�
 
 
 [role="lead"]
-스냅샷 복사본에서 복원하여 볼륨을 이전 시점으로 복구할 수 있습니다. 명령을 사용하여 스냅샷 복사본에서 볼륨의 콘텐츠를 복원할 수 있습니다 `volume snapshot restore` .
+스냅샷 복사본에서 복원하여 볼륨을 이전 시점으로 복구할 수 있습니다. System Manager 또는 `volume snapshot restore` 명령을 사용하여 스냅샷 복사본에서 볼륨 콘텐츠를 복원할 수 있습니다.
 
 .이 작업에 대해
 볼륨에 SnapMirror 관계가 있는 경우 스냅샷 복사본에서 복원한 직후 볼륨의 모든 미러 복사본을 수동으로 복제합니다. 그렇지 않으면 미러 복사본을 사용할 수 없게 되므로 복사본을 삭제하고 다시 생성해야 합니다.
 
 .단계
-System Manager 또는 ONTAP CLI를 사용할 수 있습니다.
+System Manager 또는 ONTAP CLI를 사용하여 이전 스냅샷 복사본에서 복원할 수 있습니다.
 
 [role="tabbed-block"]
 ====

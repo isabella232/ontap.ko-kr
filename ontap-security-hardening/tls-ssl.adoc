@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: ontap-security-hardening/tls-ssl.html 
-keywords: tr-4569, ontap hardening guide, security, TLS, FIPS, SSL, cipher, 140-2, SSH, OpenSSL, AES, 3DES, FIPS 140-2 compliance, FIPS 140-3 compliance, security config modify, protocol, ciphers, Perfect Forward Secrecy, SSH, advanced privilege level 
+keywords: tr-4569, ontap hardening guide, security, TLS, FIPS, SSL, cipher, 140-2, SSH, OpenSSL, AES, 3DES, 140-2 compliance, 140-3 compliance, security config modify, protocol, perfect forward secrecy, advanced privilege level 
 summary: 'ONTAP "security config modify" 명령을 사용하면 클러스터 전체 컨트롤 플레인 인터페이스에 대한 프로토콜 및 암호를 제한할 수 있습니다.' 
 ---
-= TLS 및 SSL 관리
+= FIPS 모드 및 TLS 및 SSL 관리
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -13,37 +13,79 @@ summary: 'ONTAP "security config modify" 명령을 사용하면 클러스터 전
 
 
 [role="lead"]
-ONTAP 명령을 사용하여 매개 변수를 true로 설정하여 컨트롤 플레인 인터페이스에 대해 FIPS 140-2/3 준수 모드를 활성화할 수 `is-fips-enabled` `security config modify` 있습니다.
-
-ONTAP 9부터는 클러스터 차원의 제어 평면 인터페이스를 위해 FIPS 140-2 규정 준수 모드를 활성화할 수 있습니다. 기본적으로 FIPS 140-2 전용 모드는 비활성화되어 있습니다. 명령에 대한 매개 변수를 로 설정하여 FIPS 140-2 규정 준수 모드를 사용하도록 설정할 수 `is-fips-enabled` `true` `security config modify` 있습니다. 그런 다음 를 사용하여 온라인 상태를 확인할 수 `security config show command` 있습니다.
-
-FIPS 140-2 규정 준수를 활성화하면 TLSv1 및 SSLv3이 비활성화되고 TLSv1.1 및 TLSv1.2만 활성화됩니다. ONTAP는 FIPS 140-2 규정 준수를 사용하는 경우 TLSv1 및 SSLv3을 활성화하지 못하도록 합니다. FIPS 140-2를 활성화한 후 다시 비활성화하면 TLSv1 및 SSLv3은 사용 안 함으로 유지되지만 이전 구성에 따라 TLSv1.2 또는 TLSv1.1 및 TLSv1.2는 모두 사용 가능한 상태로 유지됩니다.
-
-이 `security config modify` 명령은 기존 클러스터 차원의 보안 구성을 수정합니다. FIPS 호환 모드를 사용하도록 설정하면 클러스터에서 TLS 프로토콜만 자동으로 선택됩니다.  `-supported-protocols`FIPS 모드와 별개로 TLS 프로토콜을 포함하거나 제외하려면 매개 변수를 사용하십시오. 기본적으로 FIPS 모드는 비활성화되며 ONTAP는 TLSv1.2, TLSv1.1 및 TLSv1 프로토콜을 지원합니다.
-
-이전 버전과의 호환성을 위해 ONTAP는 FIPS 모드가 비활성화된 경우 목록에 SSLv3 추가를 `supported-protocols` 지원합니다. 매개 변수를 사용하여 `-supported-cipher-suites` AES(Advanced Encryption Standard) 또는 AES 및 3DES 만 구성합니다. 또한!RC4를 지정하여 RC4와 같은 약한 암호를 비활성화할 수도 있습니다. 기본적으로 지원되는 암호화 설정은 입니다 `ALL:!LOW:!aNULL:!EXP:!eNULL`. 이 설정은 인증, 암호화 없음, 내보내기 없음 및 저암호화 암호화 암호 그룹을 제외한 프로토콜에 대해 지원되는 모든 암호화 그룹이 활성화됨을 의미합니다. 64비트 또는 56비트 암호화 알고리즘을 사용하는 제품군입니다.
-
-선택한 해당 프로토콜에서 사용할 수 있는 암호 그룹을 선택합니다. 잘못된 구성으로 인해 일부 기능이 제대로 작동하지 않을 수 있습니다.
-
-올바른 암호화 문자열 구문은 OpenSSL(OpenSSL 소프트웨어 재단에서 게시)의 페이지를 참조하십시오 link:https://www.openssl.org/docs/man1.1.1/man1/ciphers.html["암호입니다"^] . ONTAP 9.9.1 이상 릴리스부터 보안 구성을 수정한 후 더 이상 모든 노드를 수동으로 재부팅할 필요가 없습니다.
+FIPS 140-2 표준은 컴퓨터 및 통신 시스템의 민감한 정보를 보호하는 보안 시스템 내의 암호화 모듈에 대한 보안 요구 사항을 지정합니다. FIPS 140-2 표준은 제품, 아키텍처, 데이터 또는 에코시스템이 아닌 암호화 모듈에 _ 구체적으로 _ 적용됩니다. 암호화 모듈은 NIST에서 승인한 보안 기능을 구현하는 특정 구성 요소(하드웨어, 소프트웨어, 펌웨어 또는 세 가지 구성 요소의 조합)입니다.
 
 FIPS 140-2 규정 준수를 활성화하면 ONTAP 9 내부 및 외부 시스템과 통신할 수 있습니다. NetApp에서는 콘솔 액세스 권한이 있는 비프로덕션 시스템에서 이러한 설정을 테스트하는 것이 좋습니다.
-
-
-NOTE: SSH를 사용하여 ONTAP 9를 관리하는 경우 OpenSSH 5.7 이상 클라이언트를 사용해야 합니다. SSH 클라이언트가 연결에 성공하려면 ECDSA(Elliptic Curve Digital Signature Algorithm) 공개 키 알고리즘과 협상해야 합니다.
-
-TLS 1.2만 활성화하고 PFS(Perfect Forward Secrecy) 지원 암호화 제품군을 사용하면 TLS 보안을 더욱 강화할 수 있습니다. PFS는 TLS 1.2와 같은 암호화 프로토콜과 함께 사용할 경우 공격자가 클라이언트와 서버 간의 모든 네트워크 세션을 해독하지 못하도록 하는 키 교환 방법입니다. TLS 1.2 및 PFS 지원 암호 제품군만 활성화하려면 다음 예와 같이 고급 권한 수준에서 명령을 사용합니다 `security config modify` .
-
-
-NOTE: SSL 인터페이스 구성을 변경하기 전에 클라이언트가 ONTAP에 연결할 때 언급된 암호(DHE, ECDHE)를 지원해야 한다는 점을 기억해야 합니다. 그렇지 않으면 연결이 허용되지 않습니다.
-
-[listing]
-----
-cluster1::*> security config modify -interface SSL -supported-protocols TLSv1.2 -supported-cipher-suites PSK:DHE:ECDHE:!LOW:!aNULL:!EXP:!eNULL:!3DES:!kDH:!kECDH
-----
- `y`각 프롬프트에 대해 확인합니다. PFS에 대한 자세한 내용은 를 link:https://blog.netapp.com/protecting-your-data-perfect-forward-secrecy-pfs-with-netapp-ontap/["NetApp 블로그"^]참조하십시오.
 
 ONTAP 9.11.1 및 TLS 1.3 지원부터 FIPS 140-3을 검증할 수 있습니다.
 
 
 NOTE: FIPS 구성은 ONTAP 및 플랫폼 BMC에 적용됩니다.
+
+
+
+== NetApp ONTAP의 FIPS 모드 구성
+
+NetApp ONTAP에는 컨트롤 플레인에 추가 보안 수준을 인스턴스화하는 FIPS 모드 구성이 있습니다.
+
+* ONTAP 9.11.1부터 FIPS 140-2 준수 모드가 활성화되면 TLSv1, TLSv1.1 및 SSLv3이 비활성화되고 TSLv1.2 및 TSLv1.3만 활성화됩니다. ONTAP 9 내부와 외부의 다른 시스템 및 통신에 영향을 줍니다. FIPS 140-2 규정 준수 모드를 활성화한 후 이후에 사용하지 않도록 설정하는 경우 TLSv1, TLSv1.1 및 SSLv3은 비활성화 상태로 유지됩니다. TLSv.1 또는 TLSv1.3은 이전 구성에 따라 활성화된 상태로 유지됩니다.
+* FIPS 140-2 준수 모드가 활성화된 경우 9.11.1 이전 버전의 ONTAP에서는 TLSv1 및 SSLv3이 모두 비활성화되고 TLSv1.1 및 TLSv1.2만 활성화됩니다. ONTAP를 사용하면 FIPS 140-2 규정 준수 모드가 활성화된 경우 TLSv1 및 SSLv3을 모두 사용할 수 없습니다. FIPS 140-2 규정 준수 모드를 활성화한 후 나중에 비활성화하면 TLSv1 및 SSLv3은 비활성화 상태로 유지되지만 TLSv1.2 또는 TLSv1.1 및 TLSv1.2는 이전 구성에 따라 모두 활성화됩니다.
+* https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4297["NetApp 암호화 보안 모듈(NCSM)"^]FIPS 140-2 레벨 1에서 검증된 소프트웨어 기반 규정 준수를 제공합니다.
+
+
+
+NOTE: NIST는 FIPS-140-3 표준을 제출했으며, NCSM은 FIPS-140-2 및 FIPS-140-3 검증을 거치게 됩니다. 모든 FIPS 140-2 검증은 2026년 9월 21일에 기록적인 상태로 전환되며, 이는 새 인증서 제출의 마지막 날보다 5년 후입니다.
+
+
+
+== FIPS-140-2 및 FIPS-140-3 규정 준수 모드를 사용합니다
+
+ONTAP 9부터 클러스터 전체 컨트롤 플레인 인터페이스에 대해 FIPS-140-2 및 FIPS-140-3 규정 준수 모드를 활성화할 수 있습니다.
+
+* link:../networking/configure_network_security_using_federal_information_processing_standards_@fips@.html#enable-fips["FIPS를 사용하도록 설정합니다"]
+* link:../networking/configure_network_security_using_federal_information_processing_standards_@fips@.html#view-fips-compliance-status["FIPS 상태를 봅니다"]
+
+
+
+
+== FIPS 지원 및 프로토콜
+
+ `security config modify`명령을 사용하여 기존 클러스터 차원의 보안 구성을 수정할 수 있습니다. FIPS 호환 모드를 활성화하면 클러스터에서 TLS 프로토콜만 자동으로 선택됩니다.
+
+*  `-supported-protocols`FIPS 모드와 별개로 TLS 프로토콜을 포함하거나 제외하려면 매개 변수를 사용하십시오. 기본적으로 FIPS 모드는 비활성화되며 ONTAP는 TLSv1.2, TLSv1.1 및 TLSv1 프로토콜을 지원합니다.
+* 이전 버전과의 호환성을 위해 ONTAP는 FIPS 모드가 비활성화된 경우 지원되는 프로토콜 목록에 SSLv3을 추가할 수 있도록 지원합니다.
+
+
+
+
+== FIPS 지원 및 암호화
+
+* 매개 변수를 사용하여 `-supported-cipher-suites` AES(Advanced Encryption Standard) 또는 AES 및 3DES 만 구성합니다.
+* 를 지정하여 RC4와 같은 약한 암호를 비활성화할 수 `!RC4` 있습니다. 기본적으로 지원되는 암호화 설정은 입니다 `ALL:!LOW:!aNULL:!EXP:!eNULL`. 이 설정은 인증, 암호화, 내보내기 없음 및 저암호화 암호화 암호화 암호화 그룹이 없는 64비트 또는 56비트 암호화 알고리즘을 사용하는 경우를 제외하고 프로토콜에 대해 지원되는 모든 암호화 제품군을 사용하도록 설정합니다.
+* 선택한 해당 프로토콜에서 사용할 수 있는 암호 그룹을 선택합니다. 잘못된 구성으로 인해 일부 기능이 제대로 작동하지 않을 수 있습니다.
+* 올바른 암호 문자열 구문은 https://www.openssl.org/docs/man1.1.1/man1/ciphers.html["암호 페이지"^] OpenSSL 소프트웨어 재단에서 게시한 on OpenSSL을 참조하십시오. ONTAP 9.9.1 이상 릴리스부터 보안 구성을 수정한 후 더 이상 모든 노드를 수동으로 재부팅할 필요가 없습니다.
+
+
+
+
+== SSH 및 TLS 보안 강화
+
+ONTAP 9의 SSH 관리를 위해서는 OpenSSH 클라이언트 5.7 이상이 필요합니다. SSH 클라이언트가 연결에 성공하려면 ECDSA(Elliptic Curve Digital Signature Algorithm) 공개 키 알고리즘과 협상해야 합니다.
+
+TLS 보안을 강화하려면 TLS 1.2만 활성화하고 PFS(Perfect Forward Secrecy)가 가능한 암호 그룹을 사용합니다. PFS는 TLS 1.2와 같은 암호화 프로토콜과 함께 사용할 경우 공격자가 클라이언트와 서버 간의 모든 네트워크 세션을 해독하지 못하도록 하는 키 교환 방법입니다.
+
+
+
+== TLSv1.2 및 PFS 지원 암호화 제품군을 활성화합니다
+
+TLS 1.2 및 PFS 지원 암호 그룹만 활성화하려면 `security config modify` 고급 권한 수준의 명령을 사용합니다.
+
+
+NOTE: SSL 인터페이스 구성을 변경하기 전에 ONTAP에 연결할 때 클라이언트가 ONTAP와의 연결을 유지하기 위해 DHE 및 ECDHE 암호화를 지원하는지 확인하십시오.
+
+.예
+[listing]
+----
+cluster1::*> security config modify -interface SSL -supported-protocols TLSv1.2 -supported-cipher-suites PSK:DHE:ECDHE:!LOW:!aNULL:!EXP:!eNULL:!3DES:!kDH:!kECDH
+----
+ `y`각 프롬프트에 대해 확인합니다. PFS에 대한 자세한 내용은 다음을 https://blog.netapp.com/protecting-your-data-perfect-forward-secrecy-pfs-with-netapp-ontap/["NetApp 블로그"^]참조하십시오.

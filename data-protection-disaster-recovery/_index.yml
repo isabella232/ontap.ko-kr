@@ -3,8 +3,6 @@ indexpage:
   tiles:
   - title: 시작하십시오
     links:
-    - title: 데이터 보호 개요
-      url: "/../data-protection/index.html"
     - title: 클러스터 및 SVM 피어링을 위한 기초
       url: "/../peering/index.html"
     - title: MetroCluster 개요
@@ -15,27 +13,19 @@ indexpage:
       url: "/../tape-backup/index.html"
   - title: 클러스터 및 SVM 피어링
     links:
-    - title: System Manager로 클러스터 및 SVM 피어링 준비
-      url: "/../task_dp_prepare_mirror.html"
-    - title: CLI를 사용하여 클러스터 피어 관계를 생성합니다
+    - title: 클러스터 피어 관계를 생성합니다
       url: "/../peering/peering-basics-concept.html"
-    - title: CLI를 사용하여 인터클러스터 SVM 피어 관계를 생성합니다
+    - title: 인터클러스터 SVM 피어 관계를 생성합니다
       url: "/../peering/create-intercluster-svm-peer-relationship-93-later-task.html"
-    - title: CLI를 사용하여 인터클러스터 LIF를 구성합니다
+    - title: 인터클러스터 LIF를 구성합니다
       url: "/../peering/configure-intercluster-lifs-share-data-ports-task.html"
   - title: 재해 복구 및 준비
     links:
-    - title: System Manager로 볼륨 보호
-      url: "/../task_dp_configure_mirror.html"
-    - title: CLI를 사용하여 볼륨 보호
+    - title: 볼륨 보호
       url: "/../data-protection/snapmirror-replication-workflow-concept.html"
-    - title: System Manager로 스토리지 VM 보호
-      url: "/../task_dp_configure_storage_vm_dr.html"
-    - title: CLI를 통해 SVM 보호
+    - title: SVM 보호
       url: "/../data-protection/snapmirror-svm-replication-workflow-concept.html"
-    - title: System Manager로 데이터를 복원합니다
-      url: "/../task_dp_serve_data_from_destination.html"
-    - title: CLI를 사용하여 데이터를 복원합니다
+    - title: 데이터를 복원합니다
       url: "/../data-protection/restore-volume-snapvault-backup-task.html"
     - title: SnapMirror와 호환되는 ONTAP 버전
       url: "/../data-protection/compatible-ontap-versions-snapmirror-concept.html"

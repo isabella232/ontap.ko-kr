@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: high-availability/ha_how_hardware-assisted_takeover_works.html 
-keywords: ontap, high, availability, hardware-assisted, hardware, assisted, takeovers 
+keywords: ontap, high, availability, hwassist, hardware-assisted, hardware, assisted, takeovers 
 summary: '기본적으로 사용되는 하드웨어 지원 테이크오버 기능은 노드의 원격 관리 장치(서비스 프로세서)를 사용하여 인수 프로세스의 속도를 높일 수 있습니다.' 
 ---
 = 하드웨어 지원 테이크오버의 작동 방식
@@ -64,3 +64,5 @@ summary: '기본적으로 사용되는 하드웨어 지원 테이크오버 기�
 
 | 테스트 | 아니요 | 하드웨어 지원 테이크오버 작동을 확인하기 위한 테스트 메시지가 전송됩니다. 
 |===
+.관련 정보
+https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/Hardware-assisted_(HWassist)_takeover_-_Resolution_guide["하드웨어 지원(HWassistant) 인수 - 해결 가이드 를 참조하십시오"^]

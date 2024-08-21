@@ -14,7 +14,7 @@ summary: ONTAP 9.5부터는 SnapMirror Synchronous 관계가 지원됩니다. Sn
 ONTAP 9.5부터는 SnapMirror Synchronous 관계가 지원됩니다. SnapMirror Synchronous 관계의 모드를 StrictSync에서 Sync로 또는 그 반대로 변환할 수 있습니다.
 
 .이 작업에 대해
-모드를 변환하기 위해 SnapMirror Synchronous 관계의 정책을 수정할 수는 없습니다.
+SnapMirror Synchronous 관계의 정책을 수정하여 모드를 변환할 수는 없습니다.
 
 .단계
 . 대상 클러스터에서 기존 SnapMirror Synchronous 관계를 중지합니다.

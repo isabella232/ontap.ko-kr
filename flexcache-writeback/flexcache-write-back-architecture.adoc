@@ -9,7 +9,7 @@ summary: FlexCache write-back 작동 방식에 대한 세부 정보를 이해합
 
 
 [role="lead"]
-FlexCache 쓰기 방지는 일관성을 염두에 두고 설계되었습니다. 기존의 Write-Around 작동 모드와 ONTAP 9.15.1에 도입된 새로운 Write-back 작동 모드 모두 액세스된 데이터가 항상 100% 일관적이고, 최신 상태이며, 정합성이 보장됩니다.
+FlexCache는 쓰기 작업 모드인 Write-back 및 Write-around를 포함하여 강력한 일관성을 염두에 두고 설계되었습니다. 기존의 Write-Around 작동 모드와 ONTAP 9.15.1에 도입된 새로운 Write-back 작동 모드 모두 액세스된 데이터가 항상 100% 일관적이고, 최신 상태이며, 정합성이 보장됩니다.
 
 다음 개념은 FlexCache Write-Back 작동 방식을 자세히 설명합니다.
 
@@ -65,7 +65,7 @@ DDR 및 스크러버 외에도 일부 프런트엔드 NAS 작업은 파일에 �
 
 * `SETATTR`
 +
-** `SETATTRs`: , 또는 수정만 `mtime` `atime` `ctime` 캐시에서 처리됩니다.
+** mtime, atime 및/또는 ctime만 수정하는 SETATTR은 캐시에서 처리할 수 있으므로 WAN의 페널티를 피할 수 있습니다.
 
 
 * `CLOSE`

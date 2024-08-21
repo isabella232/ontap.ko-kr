@@ -23,6 +23,6 @@ system node autosupport invoke -node <node> -message MAINT=xh
 
 
 .관련 정보
-* https://review.docs.netapp.com/us-en/ontap-cli_main/system-node-autosupport-invoke.html["ONTAP 명령 참조입니다"^]
+* https://docs.netapp.com/us-en/ontap-cli/system-node-autosupport-invoke.html["ONTAP 명령 참조입니다"^]
 * https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows["예약된 유지 보수 기간 동안 자동 케이스 생성을 억제하는 방법"^]
 
