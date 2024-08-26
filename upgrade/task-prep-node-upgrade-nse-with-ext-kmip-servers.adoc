@@ -1,0 +1,72 @@
+---
+permalink: upgrade/task-prep-node-upgrade-nse-with-ext-kmip-servers.html 
+sidebar: sidebar 
+keywords: ontap, upgrade, prepare, preparing, nodes, netapp, storage, encryption, nse, external, key management, servers 
+summary: ONTAP 9.2 이상에서 NetApp 저장소 암호화를 사용하고 있고 9.3 이상으로 업그레이드하는 경우 업그레이드하기 전에 외부 키 관리 서버 연결을 삭제하십시오. 
+---
+= ONTAP를 업그레이드하기 전에 기존 외부 키 관리 서버 연결을 삭제하십시오
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP를 업그레이드하기 전에 NetApp Storage Encryption(NSE)을 통해 ONTAP 9.2 이상을 실행하고 ONTAP 9.3 이상으로 업그레이드하는 경우 CLI(Command Line Interface)를 사용하여 기존의 외부 키 관리(KMIP) 서버 연결을 삭제해야 합니다.
+
+.단계
+. NSE 드라이브가 잠금 해제되고 열리며 기본 제조 보안 ID 0x0으로 설정되어 있는지 확인합니다.
++
+[source, cli]
+----
+storage encryption disk show -disk *
+----
+. 고급 권한 모드로 들어갑니다.
++
+[source, cli]
+----
+set -privilege advanced
+----
+. 기본 제조업체 보안 ID 0x0을 사용하여 SED(자체 암호화 디스크)에 FIPS 키를 할당합니다.
++
+[source, cli]
+----
+storage encryption disk modify -fips-key-id 0x0 -disk *
+----
+. 모든 디스크에 FIPS 키 할당이 완료되었는지 확인합니다.
++
+[source, cli]
+----
+storage encryption disk show-status
+----
+. 모든 디스크의 * 모드 * 가 데이터로 설정되어 있는지 확인합니다
++
+[source, cli]
+----
+storage encryption disk show
+----
+. 구성된 KMIP 서버 보기:
++
+[source, cli]
+----
+security key-manager show
+----
+. 구성된 KMIP 서버를 삭제합니다.
++
+[source, cli]
+----
+security key-manager delete -address <kmip_ip_address>
+----
+. 외부 키 관리자 구성을 삭제합니다.
++
+[source, cli]
+----
+security key-manager delete-kmip-config
+----
++
+
+NOTE: 이 단계에서는 NSE 인증서가 제거되지 않습니다.
+
+
+
+.다음 단계
+업그레이드가 완료되면 를 수행해야 합니다 xref:task_reconfiguring_kmip_servers_connections_after_upgrading_to_ontap_9_3_or_later.adoc[KMIP 서버 연결을 재구성합니다].

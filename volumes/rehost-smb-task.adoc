@@ -2,16 +2,16 @@
 permalink: volumes/rehost-smb-task.html 
 sidebar: sidebar 
 keywords: rehost, cifs volumes, smb 
-summary: SMB 프로토콜을 통해 데이터를 제공하는 볼륨을 재호스팅할 수 있습니다. CIFS 볼륨을 재호스팅한 후 SMB 프로토콜을 통해 계속해서 데이터에 액세스하려면 정책과 관련 규칙을 수동으로 구성해야 합니다. 
+summary: SMB 프로토콜을 사용하여 데이터를 제공하는 볼륨을 재호스팅합니다. 
 ---
-= SMB 볼륨을 재호스트합니다
+= SMB 볼륨을 재호스팅합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-SMB 프로토콜을 통해 데이터를 제공하는 볼륨을 재호스팅할 수 있습니다. CIFS 볼륨을 재호스팅한 후 SMB 프로토콜을 통해 계속해서 데이터에 액세스하려면 정책과 관련 규칙을 수동으로 구성해야 합니다.
+SMB 프로토콜을 사용하여 데이터를 제공하는 볼륨을 재호스팅할 수 있습니다. 재호스팅 작업 후 클라이언트가 계속 데이터에 액세스할 수 있도록 하려면 정책 및 관련 규칙을 수동으로 구성해야 합니다.
 
 .이 작업에 대해
 * 재호스팅은 중단을 야기하는 작업입니다.

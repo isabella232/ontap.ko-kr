@@ -2,18 +2,18 @@
 permalink: volumes/features-supported-volume-rehost-concept.html 
 sidebar: sidebar 
 keywords: features, do not support, volume rehost 
-summary: 볼륨 재호스트를 지원하지 않는 특정 기능이 있습니다. 
+summary: 볼륨 재호스트를 지원하지 않는 ONTAP 기능에는 몇 가지가 있습니다. 재호스트 작업을 시도하기 전에 이러한 기능을 숙지해야 합니다. 
 ---
-= 볼륨 재호스트를 지원하지 않는 기능입니다
+= 볼륨 재호스트에서는 지원되지 않는 기능입니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-볼륨 재호스트를 지원하지 않는 특정 기능이 있습니다.
+볼륨 재호스트를 지원하지 않는 ONTAP 기능에는 몇 가지가 있습니다. 재호스트 작업을 시도하기 전에 이러한 기능을 숙지해야 합니다.
 
-다음 기능은 볼륨 재호스트를 지원하지 않습니다.
+다음 기능은 볼륨 재호스트에서는 지원되지 않습니다.
 
 * SVM DR
 * MetroCluster 구성

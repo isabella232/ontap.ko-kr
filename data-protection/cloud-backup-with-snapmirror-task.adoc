@@ -12,7 +12,7 @@ summary: ONTAP 9.9.1부터 System Manager를 사용하여 데이터를 클라우
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task_admin_download_cluster_config.html 
 keywords: netapp, ontap, administration, HA pairs, download, cluster, configuration, config, configure 
-summary: ONTAP 9.11.1부터 System Manager를 사용하여 클러스터 구성을 다운로드할 수 있습니다. 
+summary: 'ONTAP 9.11.1부터 System Manager를 사용하여 클러스터 구성을 다운로드할 수 있습니다. 이 정보는 재고 관리, 하드웨어 교체 및 수명 주기 활동에 사용될 수 있습니다. 이 정보는 ASUP(AutoSupport) 데이터를 보내지 않는 사이트에 특히 유용합니다.' 
 ---
 = 클러스터 구성을 다운로드합니다
 :hardbreaks:
@@ -16,7 +16,11 @@ summary: ONTAP 9.11.1부터 System Manager를 사용하여 클러스터 구성�
 
 
 [role="lead"]
-ONTAP 9.11.1부터 System Manager를 사용하여 클러스터 구성을 다운로드할 수 있습니다.
+ONTAP 9.11.1부터 System Manager를 사용하여 클러스터 및 노드에 대한 몇 가지 구성 세부 정보를 다운로드할 수 있습니다. 이 정보는 재고 관리, 하드웨어 교체 및 수명 주기 활동에 사용될 수 있습니다. 이 정보는 ASUP(AutoSupport) 데이터를 보내지 않는 사이트에 특히 유용합니다.
+
+클러스터 구성 세부 정보에는 클러스터 이름, 클러스터 ONTAP 버전, 클러스터 관리 LIF, 볼륨 및 LIF 수가 포함됩니다.
+
+노드 구성 세부 정보에는 노드 이름, 시스템 일련 번호, 시스템 ID, 시스템 모델, ONTAP 버전, MetroCluster 정보, SP/BMC 네트워크 정보, 암호화 구성 정보가 포함됩니다.
 
 .단계
 . 클러스터 > 개요 * 를 클릭합니다.

@@ -65,4 +65,4 @@ summary: '기본적으로 사용되는 하드웨어 지원 테이크오버 기�
 | 테스트 | 아니요 | 하드웨어 지원 테이크오버 작동을 확인하기 위한 테스트 메시지가 전송됩니다. 
 |===
 .관련 정보
-https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/Hardware-assisted_(HWassist)_takeover_-_Resolution_guide["하드웨어 지원(HWassistant) 인수 - 해결 가이드 를 참조하십시오"^]
+https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/Hardware-assisted_%28HWassist%29_takeover_-_Resolution_guide["하드웨어 지원(HWassistant) 인수 - 해결 가이드 를 참조하십시오"^]

@@ -2,7 +2,7 @@
 permalink: volumes/quota-report-affect-writes-specific-file-task.html 
 sidebar: sidebar 
 keywords: use, quota report, determine, quotas limit, writes, specific file 
-summary: 특정 파일 경로와 함께 volume quota report 명령을 사용하여 파일에 대한 쓰기 작업에 영향을 주는 할당량 한도를 결정할 수 있습니다. 이렇게 하면 어떤 할당량이 쓰기 작업을 방해하는지 이해하는 데 도움이 됩니다. 
+summary: 특정 파일 경로에 대해 volume quota report 명령을 사용하여 파일에 대한 쓰기 작업에 영향을 주는 할당량 제한을 확인할 수 있습니다. 
 ---
 = 할당량 보고서를 사용하여 특정 파일에 대한 쓰기를 제한하는 할당량을 결정합니다
 :allow-uri-read: 

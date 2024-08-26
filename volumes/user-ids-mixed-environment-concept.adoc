@@ -1,8 +1,8 @@
 ---
 permalink: volumes/user-ids-mixed-environment-concept.html 
 sidebar: sidebar 
-keywords: how, ontap, determines, user ids, in mixed environment 
-summary: Windows 및 UNIX 클라이언트 모두에서 ONTAP 스토리지에 액세스하는 사용자가 있는 경우 Windows 및 UNIX 보안 모두를 사용하여 파일 소유권을 확인합니다. 사용자 할당량을 적용할 때 ONTAP에서 UNIX 또는 Windows ID를 사용할지 여부를 결정하는 요인은 여러 가지입니다. 
+keywords: ontap determines, determine user ids, mixed environment 
+summary: 사용자 할당량을 적용할 때 ONTAP에서 UNIX 또는 Windows ID를 사용할지 여부를 결정하는 요인은 여러 가지입니다. 
 ---
 = ONTAP에서 혼합 환경의 사용자 ID를 확인하는 방법
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Windows 및 UNIX 클라이언트 모두에서 ONTAP 스토리지에 액
 
 
 [role="lead"]
-Windows 및 UNIX 클라이언트 모두에서 ONTAP 스토리지에 액세스하는 사용자가 있는 경우 Windows 및 UNIX 보안 모두를 사용하여 파일 소유권을 확인합니다. 사용자 할당량을 적용할 때 ONTAP에서 UNIX 또는 Windows ID를 사용할지 여부를 결정하는 요인은 여러 가지입니다.
+사용자가 Windows 및 UNIX 클라이언트 모두에서 ONTAP 스토리지에 액세스하는 경우 Windows 및 UNIX 보안을 모두 사용하여 파일 소유권을 확인합니다. 사용자 할당량을 적용할 때 ONTAP에서 UNIX 또는 Windows ID를 사용할지 여부를 결정하는 요인은 여러 가지입니다.
 
 파일이 들어 있는 qtree 또는 FlexVol 볼륨의 보안 스타일이 NTFS이거나 UNIX에만 해당하는 경우에는 사용자 할당량을 적용할 때 사용되는 ID의 유형이 보안 스타일에 따라 결정됩니다. 혼합 보안 스타일을 사용하는 qtree의 경우 사용된 ID의 유형은 파일에 ACL이 있는지 여부에 따라 결정됩니다.
 

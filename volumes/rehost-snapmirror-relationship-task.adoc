@@ -2,7 +2,7 @@
 permalink: volumes/rehost-snapmirror-relationship-task.html 
 sidebar: sidebar 
 keywords: rehost, volumes, snapmirror, relationship 
-summary: SnapMirror 관계에서 볼륨을 다시 호스팅할 수 있습니다. 
+summary: SnapMirror 관계의 일부로 정의된 볼륨을 재호스팅할 수 있습니다. 관계를 다시 호스팅하기 전에 고려해야 할 몇 가지 문제가 있습니다. 
 ---
 = SnapMirror 관계에서 볼륨 재호스팅
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: SnapMirror 관계에서 볼륨을 다시 호스팅할 수 있습니다.
 
 
 [role="lead"]
-SnapMirror 관계에서 볼륨을 다시 호스팅할 수 있습니다.
+SnapMirror 관계의 일부로 정의된 볼륨을 재호스팅할 수 있습니다. 관계를 다시 호스팅하기 전에 고려해야 할 몇 가지 문제가 있습니다.
 
 .이 작업에 대해
 * 재호스팅은 중단을 야기하는 작업입니다.

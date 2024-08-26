@@ -1,8 +1,8 @@
 ---
 permalink: volumes/commands-move-volumes-reference.html 
 sidebar: sidebar 
-keywords: commands, moving, volumes, to move 
-summary: 볼륨 이동을 관리하기 위한 특정 ONTAP 명령이 있습니다. 
+keywords: commands, moving, volumes, to move, move 
+summary: ONTAP CLI는 볼륨 이동을 관리하기 위한 특정 명령을 제공합니다. 
 ---
 = 볼륨 이동을 위한 명령입니다
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 볼륨 이동을 관리하기 위한 특정 ONTAP 명령이 있습니�
 
 
 [role="lead"]
-볼륨 이동을 관리하기 위한 특정 ONTAP 명령이 있습니다.
+ONTAP CLI는 볼륨 이동을 관리하기 위한 특정 명령을 제공합니다. 수행해야 하는 작업에 따라 다음 명령을 사용하여 할당량 규칙 및 할당량 정책을 관리할 수 있습니다.
 
 [cols="2*"]
 |===

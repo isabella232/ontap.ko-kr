@@ -1,7 +1,7 @@
 ---
 permalink: s3-multiprotocol/enable-access-nas-data-task.html 
 sidebar: sidebar 
-keywords: s3, svm, nfs, smb, dns, authentication, protocol, configuration, nas, certificate, authority, installation, lifs 
+keywords: tr-4814, s3, svm, nfs, smb, dns, authentication, protocol, configuration, nas, certificate, authority, installation, lifs 
 summary: S3 프로토콜 액세스를 활성화하려면 NAS 지원 SVM이 오브젝트 저장소 서버 추가, 네트워킹 및 인증 요구사항 확인을 포함하여 S3 지원 서버와 동일한 요구사항을 충족하는지 확인해야 합니다. 
 ---
 = NAS 데이터에 대한 S3 프로토콜 액세스를 설정합니다

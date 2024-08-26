@@ -1,10 +1,10 @@
 ---
 permalink: volumes/qtree-changes-affect-quotas-concept.html 
 sidebar: sidebar 
-keywords: how, qtree, changes, affect, quotas 
+keywords: how, qtree, quota, delete qtree, rename qtree, tree quotas, security, style of a qtree, security style, style 
 summary: qtree의 보안 스타일을 삭제, 이름 바꾸기 또는 변경할 때 현재 적용된 할당량에 따라 ONTAP에서 적용하는 할당량이 변경될 수 있습니다. 
 ---
-= Qtree 변경이 할당량에 미치는 영향 개요
+= Qtree 변경이 할당량에 미치는 영향
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -12,3 +12,44 @@ summary: qtree의 보안 스타일을 삭제, 이름 바꾸기 또는 변경할 
 
 [role="lead"]
 qtree의 보안 스타일을 삭제, 이름 바꾸기 또는 변경할 때 현재 적용된 할당량에 따라 ONTAP에서 적용하는 할당량이 변경될 수 있습니다.
+
+
+
+== Qtree 삭제 및 트리 할당량
+
+qtree를 삭제할 경우 명시적 또는 파생된 qtree에 적용되는 모든 할당량이 ONTAP에서 더 이상 적용되지 않습니다.
+
+할당량 규칙이 계속 유지되는지 여부는 qtree를 삭제하는 위치에 따라 달라집니다.
+
+* ONTAP를 사용하여 qtree를 삭제하는 경우 트리 할당량 규칙과 해당 qtree에 대해 구성된 사용자 및 그룹 할당량 규칙을 포함하여 해당 qtree에 대한 할당량 규칙이 자동으로 삭제됩니다.
+* CIFS 또는 NFS 클라이언트를 사용하여 qtree를 삭제하는 경우 할당량을 다시 초기화할 때 오류가 발생하지 않도록 해당 qtree에 대한 할당량 규칙을 삭제해야 합니다. 삭제한 qtree와 동일한 이름을 가진 새 qtree를 생성하는 경우, 할당량을 다시 초기화하기 전에는 기존 할당량 규칙이 새 qtree에 적용되지 않습니다.
+
+
+
+
+== Qtree 이름을 변경하면 할당량에 미치는 영향이 변경됩니다
+
+ONTAP를 사용하여 qtree의 이름을 변경하면 해당 qtree의 할당량 규칙이 자동으로 업데이트됩니다. CIFS 또는 NFS 클라이언트를 사용하여 qtree의 이름을 바꾸는 경우 해당 qtree에 대한 할당량 규칙을 업데이트해야 합니다.
+
+
+NOTE: CIFS 또는 NFS 클라이언트를 사용하여 qtree의 이름을 변경하고 할당량을 다시 초기화하기 전에 해당 qtree의 할당량 규칙을 새 이름으로 업데이트하지 않으면 qtree에 할당량이 적용되지 않습니다. 트리 할당량, qtree의 사용자 또는 그룹 할당량을 비롯한 qtree의 명시적 할당량이 파생 할당량으로 변환될 수 있습니다.
+
+
+
+== Qtree 보안 스타일 및 사용자 할당량
+
+NTFS 또는 혼합 보안 스타일을 사용하여 qtree에 ACL(액세스 제어 목록)을 적용할 수 있지만 UNIX 보안 스타일을 사용하지는 않습니다. qtree의 보안 스타일을 변경하면 할당량 계산 방식에 영향을 미칠 수 있습니다. Qtree의 보안 스타일을 변경한 후에는 항상 할당량을 다시 초기화해야 합니다.
+
+qtree의 보안 스타일을 NTFS 또는 MIXED에서 UNIX로 변경하면 해당 qtree의 파일에 대한 모든 ACL이 무시되고 UNIX 사용자 ID에 대해 파일 사용량이 청구됩니다.
+
+Qtree의 보안 스타일을 UNIX에서 혼합 또는 NTFS로 변경하면 이전에 숨겨진 ACL이 표시됩니다. 또한 무시된 모든 ACL이 다시 유효해지고 NFS 사용자 정보가 무시됩니다. 이전에 ACL이 없는 경우 할당량 계산에 NFS 정보가 계속 사용됩니다.
+
+
+NOTE: qtree의 보안 스타일을 변경한 후 UNIX 사용자와 Windows 사용자 모두의 할당량 사용이 올바르게 계산되도록 하려면 해당 qtree가 포함된 볼륨의 할당량을 다시 초기화해야 합니다.
+
+.예
+다음 예에서는 qtree의 보안 유형이 변경되어 다른 사용자가 특정 qtree의 파일 사용에 대해 청구되는 방법을 보여줍니다.
+
+NTFS 보안이 qtree A에 적용되고 ACL이 Windows 사용자에게 `corp\joe` 5MB 파일의 소유권을 제공한다고 가정합니다. 사용자에게 `corp\joe` qtree A에 대해 5MB의 디스크 공간 사용이 청구됩니다
+
+이제 qtree A의 보안 스타일을 NTFS에서 UNIX로 변경합니다. 할당량이 재초기화되면 Windows 사용자에게 `corp\joe` 이 파일에 대한 비용이 청구되지 않고, 대신 파일의 UID에 해당하는 UNIX 사용자에게 해당 파일에 대한 비용이 청구됩니다. UID는 `corp\joe` 또는 루트 사용자에 매핑된 UNIX 사용자일 수 있습니다.

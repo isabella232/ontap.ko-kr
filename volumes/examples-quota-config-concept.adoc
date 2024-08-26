@@ -1,7 +1,7 @@
 ---
 permalink: volumes/examples-quota-config-concept.html 
 sidebar: sidebar 
-keywords: examples, quota, configuration 
+keywords: examples, quota, configuration, volume quota policy 
 summary: 이 예에서는 할당량을 구성하고 할당량 보고서를 읽는 방법을 이해하는 데 도움이 됩니다. 
 ---
 = 할당량 구성의 예
@@ -13,37 +13,44 @@ summary: 이 예에서는 할당량을 구성하고 할당량 보고서를 읽�
 [role="lead"]
 이 예에서는 할당량을 구성하고 할당량 보고서를 읽는 방법을 이해하는 데 도움이 됩니다.
 
-다음 예에서는 하나의 볼륨, vol1을 포함하는 SVM, VS1 스토리지 시스템을 가지고 있다고 가정합니다. 할당량 설정을 시작하려면 다음 명령을 사용하여 SVM에 대한 새 할당량 정책을 생성합니다.
+.예를 참조하십시오
+다음 예에서는 `vs1` 볼륨 하나가 포함된 SVM이 포함된 스토리지 시스템을 사용한다고 가정합니다 `vol1`.
 
+. 할당량 설정을 시작하려면 SVM에 대한 새 할당량 정책을 생성합니다.
++
 [listing]
 ----
 cluster1::>volume quota policy create -vserver vs1 -policy-name quota_policy_vs1_1
 ----
-할당량 정책이 새로 추가되었으므로 SVM에 할당합니다.
-
+. 할당량 정책이 새로운 내용이므로 SVM에 할당하면 됩니다.
++
 [listing]
 ----
 cluster1::>vserver modify -vserver vs1 -quota-policy quota_policy_vs1_1
 ----
-.예 1: 기본 사용자 할당량
-vol1에서 각 사용자에 대해 50MB의 하드 제한값을 적용하기로 결정합니다.
 
+
+.예 1: 기본 사용자 할당량
+. 에서 각 사용자에 대해 50MB의 하드 제한값을 적용하기로 `vol1` 결정합니다.
++
 [listing]
 ----
 cluster1::>volume quota policy rule create -vserver vs1 -policy-name quota_policy_vs1_1 -volume vol1 -type user -target "" -disk-limit 50MB -qtree ""
 ----
-새 규칙을 활성화하려면 볼륨에 대해 할당량을 초기화해야 합니다.
-
+. 새 규칙을 활성화하려면 볼륨에 대해 할당량을 초기화해야 합니다.
++
 [listing]
 ----
 cluster1::>volume quota on -vserver vs1 -volume vol1 -foreground
 ----
-할당량 보고서를 보려면 다음 명령을 입력합니다.
-
+. 할당량 보고서를 볼 수 있습니다.
++
 [listing]
 ----
 cluster1::>volume quota report
 ----
+
+
 결과 할당량 보고서는 다음 보고서와 유사합니다.
 
 [listing]
@@ -56,28 +63,33 @@ vol1               user    *           0B   50MB       0       -   *
 vol1               user    jsmith    49MB   50MB      37       -   *
 vol1               user    root        0B      -       1       -
 ----
-첫 번째 줄에는 디스크 제한을 포함하여 사용자가 생성한 기본 사용자 할당량이 표시됩니다. 모든 기본 할당량과 마찬가지로 이 기본 사용자 할당량에는 디스크 또는 파일 사용에 대한 정보가 표시되지 않습니다. 생성된 할당량 외에, 현재 vol1에서 파일을 소유하고 있는 각 사용자에 대해 하나의 할당량인 두 개의 다른 할당량이 표시됩니다. 이러한 추가 할당량은 기본 사용자 할당량에서 자동으로 파생된 사용자 할당량입니다. 사용자 jsmith의 파생 사용자 할당량은 기본 사용자 할당량과 50MB 디스크 제한이 동일합니다. 루트 사용자의 파생 사용자 할당량은 추적 할당량(제한 없음)입니다.
+첫 번째 줄에는 디스크 제한을 포함하여 사용자가 생성한 기본 사용자 할당량이 표시됩니다. 모든 기본 할당량과 마찬가지로 이 기본 사용자 할당량에는 디스크 또는 파일 사용에 대한 정보가 표시되지 않습니다. 생성된 할당량 외에 두 개의 다른 할당량이 표시됩니다. 현재 에서 파일을 소유하고 있는 사용자마다 할당량이 하나씩 `vol1` 있습니다. 이러한 추가 할당량은 기본 사용자 할당량에서 자동으로 파생된 사용자 할당량입니다. 사용자에 대해 파생된 사용자 할당량은 `jsmith` 기본 사용자 할당량과 50MB 디스크 제한이 동일합니다. 루트 사용자의 파생 사용자 할당량은 추적 할당량(제한 없음)입니다.
 
-시스템의 사용자(루트 사용자 제외)가 vol1에서 50MB 이상(예: 편집기에서 파일에 쓰기)을 사용하는 작업을 수행하려고 하면 작업이 실패합니다.
+시스템의 사용자(루트 사용자 제외)가 에서 50MB 이상 사용하는 작업 `vol1`(예: 편집기에서 파일에 쓰기)을 수행하려고 하면 작업이 실패합니다.
 
 .예제 2: 기본 사용자 할당량을 재정의하는 명시적 사용자 할당량
-사용자 jsmith에 볼륨 vol1의 공간을 더 많이 제공해야 하는 경우 다음 명령을 입력합니다.
-
+.  `vol1`사용자에게 볼륨에 더 많은 공간을 제공해야 하는 경우 `jsmith` 다음 명령을 입력합니다.
++
 [listing]
 ----
 cluster1::>volume quota policy rule create -vserver vs1 -policy-name quota_policy_vs1_1 -volume vol1 -type user -target jsmith -disk-limit 80MB -qtree ""
 ----
++
 사용자가 할당량 규칙의 타겟으로 명시적으로 나열되기 때문에 명시적 사용자 할당량입니다.
 
-볼륨의 사용자 jsmith에 대해 파생된 사용자 할당량의 디스크 제한을 변경하므로 기존 할당량 제한에 대한 변경 내용입니다. 따라서 변경을 활성화하기 위해 볼륨에서 할당량을 다시 초기화할 필요가 없습니다.
++
+이는 `jsmith` 볼륨에서 사용자에 대해 파생된 사용자 할당량의 디스크 제한을 변경하기 때문에 기존 할당량 제한에 대한 변경 사항입니다. 따라서 변경을 활성화하기 위해 볼륨에서 할당량을 다시 초기화할 필요가 없습니다.
 
-할당량 크기 조정하기:
-
+. 할당량 크기 조정하기:
++
 [listing]
 ----
 cluster1::>volume quota resize -vserver vs1 -volume vol1 -foreground
 ----
++
 크기를 조정하는 동안 할당량이 계속 적용되고 크기 조정 프로세스는 짧습니다.
+
+
 
 결과 할당량 보고서는 다음 보고서와 유사합니다.
 
@@ -93,22 +105,25 @@ vol1               user    jsmith    50MB   80MB      37       -   jsmith
 vol1               user    root        0B      -       1       -
 3 entries were displayed.
 ----
-두 번째 줄에는 80MB의 디스크 제한과 jsmith의 할당량 지정자가 표시됩니다.
+두 번째 줄에는 의 디스크 제한과 `80MB` 할당량 지정자가 `jsmith` 표시됩니다.
 
-따라서 jsmith는 vol1에서 최대 80MB의 공간을 사용할 수 있지만 다른 모든 사용자는 여전히 50MB로 제한됩니다.
+따라서 `jsmith` `vol1` 다른 모든 사용자는 50MB로 제한되지만 에서 최대 80MB의 공간을 사용할 수 있습니다.
 
 .예 3: 임계값
-사용자가 디스크 제한으로부터 5MB 이내에 도달할 때 알림을 받고자 한다고 가정합니다. 모든 사용자에 대해 45MB의 임계값을 생성하고 jsmith에 대해 75MB의 임계값을 생성하려면 기존 할당량 규칙을 변경합니다.
+사용자가 디스크 제한으로부터 5MB 이내에 도달할 때 알림을 받고자 한다고 가정합니다.
 
+. 모든 사용자에 대해 임계값이 45MB이고 에 대해 임계값이 75MB인 경우 `jsmith` 기존 할당량 규칙을 변경합니다.
++
 [listing]
 ----
 cluster1::>volume quota policy rule modify -vserver vs1 -policy quota_policy_vs1_1 -volume vol1 -type user -target "" -qtree "" -threshold 45MB
 cluster1::>volume quota policy rule modify -vserver vs1 -policy quota_policy_vs1_1 -volume vol1 -type user -target jsmith -qtree "" -threshold 75MB
 ----
-기존 규칙의 크기가 변경되므로 변경을 활성화하기 위해 볼륨에서 할당량의 크기를 조정할 수 있습니다. 크기 조정 프로세스가 완료될 때까지 기다립니다.
++
+기존 규칙의 크기가 변경되므로 변경 사항을 활성화하기 위해 볼륨의 할당량 크기를 조정합니다. 크기 조정 프로세스가 완료될 때까지 기다립니다.
 
-임계값이 포함된 할당량 보고서를 보려면 '-thresholds' 매개 변수를 'volume quota report' 명령에 추가합니다.
-
+. 임계값이 포함된 할당량 보고서를 보려면 '-thresholds' 매개 변수를 'volume quota report' 명령에 추가합니다.
++
 [listing]
 ----
 cluster1::>volume quota report -thresholds
@@ -125,26 +140,35 @@ vol1               user    root        0B      -       1       -
                                            ( -)
 3 entries were displayed.
 ----
++
 임계값은 디스크 제한 열에 괄호 안에 표시됩니다.
 
+
+
 .예 4: qtree의 할당량
-두 프로젝트의 공간을 분할해야 한다고 가정해 보겠습니다. proj1과 proj2라는 두 개의 qtree를 생성하여 vol1 내의 해당 프로젝트를 수용할 수 있습니다.
+두 프로젝트의 공간을 분할해야 한다고 가정해 보겠습니다.  `proj1`와 라는 두 개의 qtree를 `proj2` 생성하여 에서 이러한 프로젝트를 수용할 수 있습니다 `vol1`.
 
-현재 사용자는 전체 볼륨에 할당된 qtree의 공간을 사용할 수 있습니다(루트 또는 다른 qtree의 공간을 사용하여 볼륨 제한을 초과하지 않은 경우). 또한 각 qtree는 전체 볼륨을 사용하기 위해 증가할 수 있습니다. 두 qtree가 20GB를 초과하여 확장되지 않도록 하려면 볼륨에 기본 트리 할당량을 생성할 수 있습니다.
+현재 사용자는 전체 볼륨에 할당된 qtree의 공간을 사용할 수 있습니다(루트 또는 다른 qtree의 공간을 사용하여 볼륨 제한을 초과하지 않은 경우). 또한 각 qtree는 전체 볼륨을 사용하기 위해 증가할 수 있습니다.
 
+. 두 qtree가 20GB를 초과하여 확장되지 않도록 하려면 볼륨에 기본 트리 할당량을 생성할 수 있습니다.
++
 [listing]
 ----
 cluster1:>>volume quota policy rule create -vserver vs1 -policy-name quota_policy_vs1_1 -volume vol1 -type tree -target "" -disk-limit 20GB
 ----
-올바른 유형은 qtree가 아니라 _tree_입니다.
++
 
-새 할당량이므로 크기를 조정하여 활성화할 수 없습니다. 볼륨에 대해 할당량을 다시 초기화합니다.
+NOTE: 올바른 유형은 qtree가 아니라 _tree_입니다.
 
+. 새 할당량이므로 크기를 조정하여 활성화할 수 없습니다. 볼륨에 대해 할당량을 다시 초기화합니다.
++
 [listing]
 ----
 cluster1:>>volume quota off -vserver vs1 -volume vol1
 cluster1:>>volume quota on -vserver vs1 -volume vol1 -foreground
 ----
+
+
 [NOTE]
 ====
 "volume quota off" 명령을 실행한 후 거의 즉시 할당량을 활성화하려고 하면 오류가 발생할 수 있으므로 영향을 받는 각 볼륨에서 할당량을 다시 활성화하기 전에 약 5분 정도 기다려야 합니다. 또는 명령을 실행하여 특정 볼륨이 포함된 노드에서 볼륨에 대한 할당량을 다시 초기화할 수 있습니다.
@@ -152,7 +176,7 @@ cluster1:>>volume quota on -vserver vs1 -volume vol1 -foreground
 ====
 재초기화 프로세스 중에는 할당량이 적용되지 않으므로 크기 조정 프로세스보다 시간이 더 오래 걸립니다.
 
-할당량 보고서를 표시하면 몇 개의 새로운 줄이 나타납니다. 일부 줄은 트리 할당량이고 일부 줄은 파생된 사용자 할당량입니다.
+할당량 보고서를 표시하면 몇 개의 새 줄이 표시됩니다. 일부 줄은 트리 할당량용이고 일부 줄은 파생된 사용자 할당량용입니다.
 
 트리 할당량에 대한 새로운 줄은 다음과 같습니다.
 
@@ -168,7 +192,7 @@ vol1     proj1     tree    1           0B   20GB       1       -   proj1
 vol1     proj2     tree    2           0B   20GB       1       -   proj2
 ...
 ----
-새로 만든 기본 트리 할당량이 ID 열에 별표(*)가 있는 첫 번째 새 줄에 나타납니다. 볼륨의 기본 트리 할당량에 대응하여 ONTAP은 볼륨의 각 qtree에 대해 자동으로 파생 트리 할당량을 생성합니다. 이러한 항목은 트리 열에 proj1 및 proj2가 나타나는 줄에 표시됩니다.
+새로 만든 기본 트리 할당량이 ID 열에 별표(*)가 있는 첫 번째 새 줄에 나타납니다. 볼륨의 기본 트리 할당량에 대응하여 ONTAP은 볼륨의 각 qtree에 대해 자동으로 파생 트리 할당량을 생성합니다. 이러한 항목은 `proj1` `proj2` `Tree` 열에 및 가 표시되는 줄에 표시됩니다.
 
 파생된 사용자 할당량에 대한 새로운 줄은 다음과 같습니다.
 
@@ -190,16 +214,19 @@ qtree에 대해 할당량이 설정된 경우, 볼륨에 포함된 모든 qtree�
 루트 사용자는 파일의 소유자이므로 각 qtree에 대해 기본 사용자 할당량이 생성되었을 때 각 qtree에 대해 루트 사용자에 대해 특수 추적 할당량도 생성되었습니다. ID가 root 인 줄에 표시됩니다.
 
 .예 5: qtree의 사용자 할당량
-사용자가 볼륨 전체에서 사용하는 것보다 proj1 qtree의 공간을 적게 사용하도록 제한하기로 결정합니다. proj1 qtree에서 10MB 이상을 사용하지 않도록 하려는 경우 따라서 qtree에 대한 기본 사용자 할당량을 생성합니다.
-
+. 사용자는 `proj1` qtree에서 볼륨 전체에서 확보하는 것보다 더 적은 공간을 사용하도록 제한해야 합니다. 이 `proj1` 경우 qtree에서 10MB 이상의 데이터를 사용하지 않도록 합니다. 따라서 qtree에 대한 기본 사용자 할당량을 생성합니다.
++
 [listing]
 ----
 cluster1::>volume quota policy rule create -vserver vs1 -policy-name quota_policy_vs1_1 -volume vol1 -type user -target "" -disk-limit 10MB -qtree proj1
 ----
++
 볼륨의 기본 사용자 할당량에서 파생된 proj1 qtree의 기본 사용자 할당량을 변경하기 때문에 기존 할당량이 변경됩니다. 따라서 할당량의 크기를 조정하여 변경을 활성화합니다. 크기 조정 프로세스가 완료되면 할당량 보고서를 볼 수 있습니다.
 
++
 할당량 보고서에 qtree에 대한 새로운 명시적 사용자 할당량을 보여주는 다음과 같은 새로운 줄이 나타납니다.
 
++
 [listing]
 ----
 
@@ -208,13 +235,19 @@ Volume   Tree      Type    ID        Used  Limit    Used   Limit   Specifier
 -------  --------  ------  -------  -----  -----  ------  ------   ---------
 vol1     proj1     user    *           0B   10MB       0       -   *
 ----
-그러나 사용자 jsmith는 기본 사용자 할당량을 재정의하기 위해 생성한 할당량이 볼륨에 있기 때문에 proj1 qtree에 더 많은 데이터를 쓸 수 없습니다. proj1 qtree에 기본 사용자 할당량을 추가하였듯이, 해당 할당량이 적용되고 jsmith를 비롯하여 해당 qtree의 모든 사용자 공간이 제한됩니다. jsmith 사용자에게 더 많은 공간을 제공하려면 qtree에 대해 80MB 디스크 제한이 있는 명시적 사용자 할당량 규칙을 추가하여 qtree에 대한 기본 사용자 할당량 규칙을 재정의합니다.
++
+그러나 `jsmith` 기본 사용자 할당량을 재정의하기 위해 생성한 할당량이 볼륨에 있기 때문에 사용자가 proj1 qtree에 더 많은 데이터를 쓸 수 없습니다.  `proj1`qtree에 기본 사용자 할당량을 추가하면 해당 할당량이 적용되고 해당 qtree에서 을 포함하여 모든 사용자 공간이 제한됩니다. `jsmith`
 
+. 사용자에게 더 많은 공간을 제공하기 위해 `jsmith` 80MB 디스크 제한을 사용하여 qtree에 대한 명시적 사용자 할당량 규칙을 추가하여 qtree의 기본 사용자 할당량 규칙을 재정의합니다.
++
 [listing]
 ----
 cluster1::>volume quota policy rule create -vserver vs1 -policy-name quota_policy_vs1_1 -volume vol1 -type user -target jsmith -disk-limit 80MB -qtree proj1
 ----
-이 할당량은 기본 할당량이 이미 존재하므로 할당량의 크기를 조정하여 변경 사항을 활성화합니다. 크기 조정 프로세스가 완료되면 할당량 보고서가 표시됩니다.
++
+이 할당량은 기본 할당량이 이미 존재하는 명시적 할당량이므로 할당량 크기를 조정하여 변경 사항을 활성화합니다. 크기 조정 프로세스가 완료되면 할당량 보고서가 표시됩니다.
+
+
 
 할당량 보고서에 다음과 같은 새 줄이 나타납니다.
 
@@ -248,9 +281,9 @@ vol1               user    root        0B      -       3       -
 vol1     proj1     user    jsmith    61MB   80MB      57       -   jsmith
 11 entries were displayed.
 ----
-proj1의 파일에 쓰기 위해서는 사용자 jsmith가 다음과 같은 할당량 제한을 충족해야 합니다.
+사용자는 `jsmith` 에서 파일에 쓰려면 다음과 같은 할당량 제한을 충족해야 `proj1` 합니다.
 
-. proj1 qtree의 트리 할당량입니다.
-. proj1 qtree의 사용자 할당량
+.  `proj1`qtree의 트리 할당량입니다.
+.  `proj1`qtree의 사용자 할당량입니다.
 . 볼륨의 사용자 할당량입니다.
 

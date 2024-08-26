@@ -1,8 +1,8 @@
 ---
 permalink: volumes/manage-svm-capacity.html 
 sidebar: sidebar 
-keywords: svm capacity, size, auto size, auto size alert 
-summary: ONTAP 9.13.1 부터는 SVM에 대한 최대 용량 한도를 설정할 수 있습니다. 
+keywords: svm capacity, size, auto size, auto size alert, space, limit 
+summary: ONTAP 9.13.1부터 SVM에 대한 용량 한도를 설정할 수 있습니다. 
 ---
 = SVM 용량 한도 관리
 :allow-uri-read: 

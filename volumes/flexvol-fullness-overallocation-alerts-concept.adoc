@@ -1,8 +1,8 @@
 ---
 permalink: volumes/flexvol-fullness-overallocation-alerts-concept.html 
 sidebar: sidebar 
-keywords: how to, address, flexvol, volume, fullness, overallocation, alerts 
-summary: ONTAP는 FlexVol 볼륨 공간이 부족할 때 EMS 메시지를 발행하므로 전체 볼륨에 더 많은 공간을 제공하여 수정 조치를 취할 수 있습니다. 알림의 유형과 해결 방법을 알면 데이터 가용성을 보장하는 데 도움이 됩니다. 
+keywords: how, address, flexvol, volume, fullness, overallocation, alerts 
+summary: ONTAP는 FlexVol 볼륨 공간이 부족할 때 EMS 메시지를 발행하므로 전체 볼륨에 더 많은 공간을 제공하여 수정 조치를 취할 수 있습니다. 
 ---
 = FlexVol 볼륨 충만 및 초과 할당 경고를 해결합니다
 :allow-uri-read: 

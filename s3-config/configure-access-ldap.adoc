@@ -1,7 +1,7 @@
 ---
 permalink: s3-config/configure-access-ldap.html 
 sidebar: sidebar 
-keywords: generate, ldap, s3, access keys, secret keys using API 
+keywords: tr-4814, generate, ldap, s3, access keys, secret keys using API 
 summary: S3 사용자가 API를 사용하여 S3 클라이언트에 액세스하기 위한 키를 다시 생성할 수 있습니다. 
 ---
 = 외부 디렉토리 서비스에 대한 S3 액세스를 구성합니다

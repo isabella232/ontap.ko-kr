@@ -1,7 +1,7 @@
 ---
 permalink: volumes/change-inactive-data-threshold-task.html 
 sidebar: sidebar 
-keywords: storage, efficiency, temperature, change, efficient, default, threshold, inactive, compression, cold data, frequency 
+keywords: storage, efficiency, temperature, change, efficient, default, threshold, inactive, compression, cold data, frequency, threshold, scan, coldness, temperature-sensitive 
 summary: 온도에 민감한 스토리지 효율성을 사용하여 볼륨에 대한 효율성 임계값을 수정하여 ONTAP이 콜드 데이터 스캔을 수행하는 빈도를 변경할 수 있습니다. 
 ---
 = 볼륨 비활성 데이터 압축 임계값을 변경합니다

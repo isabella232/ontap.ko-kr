@@ -1,10 +1,10 @@
 ---
 permalink: volumes/cautions-increasing-maximum-directory-size-concept.html 
 sidebar: sidebar 
-keywords: flexvol, maximum, limits, maxdir-size, maxdirsize 
+keywords: flexvol, maximum, limits, maxdir-size, maxdirsize, caution, caveats, directory, size, directory size, max, allowed, default, volume 
 summary: FlexVol 볼륨의 기본 최대 디렉토리 크기는 모델에 따라 다르며 시스템 메모리 크기에 맞게 최적화됩니다. 최대 디렉토리 크기를 증가시키기 전에 기술 지원 부서에 문의하십시오. 
 ---
-= FlexVol 볼륨의 최대 디렉토리 크기를 늘리는 데 대한 주의 사항
+= FlexVol 볼륨의 최대 디렉토리 크기입니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

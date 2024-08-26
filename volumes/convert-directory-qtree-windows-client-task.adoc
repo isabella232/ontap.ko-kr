@@ -1,8 +1,8 @@
 ---
 permalink: volumes/convert-directory-qtree-windows-client-task.html 
 sidebar: sidebar 
-keywords: convert, directory to a qtree, using, windows client 
-summary: Windows 클라이언트를 사용하여 디렉토리를 qtree로 변환하려면 디렉토리 이름을 바꾸고 스토리지 시스템에 qtree를 생성한 다음 디렉토리 내용을 qtree로 이동합니다. 
+keywords: convert, directory to a qtree, using, windows client, directory, qtree, windows 
+summary: Windows 클라이언트를 사용하여 디렉토리를 qtree로 변환하려면 디렉토리 이름을 바꾸고 스토리지 시스템에 qtree를 생성한 다음 디렉토리 콘텐츠를 qtree로 이동합니다. 
 ---
 = Windows 클라이언트를 사용하여 디렉토리를 qtree로 변환합니다
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Windows 클라이언트를 사용하여 디렉토리를 qtree로 변환
 
 
 [role="lead"]
-Windows 클라이언트를 사용하여 디렉토리를 qtree로 변환하려면 디렉토리 이름을 바꾸고 스토리지 시스템에서 qtree를 생성한 다음 디렉토리 콘텐츠를 qtree로 이동합니다.
+Windows 클라이언트를 사용하여 디렉토리를 qtree로 변환하려면 디렉토리의 이름을 바꾸고 스토리지 시스템에 qtree를 생성한 다음 디렉토리의 콘텐츠를 qtree로 이동합니다.
 
 .이 작업에 대해
 이 절차를 수행하려면 Windows 탐색기를 사용해야 합니다. Windows 명령줄 인터페이스 또는 DOS 프롬프트 환경에서는 사용할 수 없습니다.

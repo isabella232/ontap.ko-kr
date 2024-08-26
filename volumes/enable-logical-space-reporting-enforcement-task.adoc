@@ -2,7 +2,7 @@
 permalink: volumes/enable-logical-space-reporting-enforcement-task.html 
 sidebar: sidebar 
 keywords: enable, logical, space, reporting, enforcement 
-summary: ONTAP 9.4부터 논리 공간 보고를 활성화할 수 있습니다. 9.5부터 논리 공간 적용 또는 보고와 적용을 함께 사용할 수 있습니다. 
+summary: ONTAP 9.4부터 논리 공간 보고를 활성화합니다. 9.5부터 논리적 공간 적용 또는 보고 및 적용을 활성화합니다. 
 ---
 = 논리적 공간 보고 및 적용을 설정합니다
 :allow-uri-read: 
@@ -25,7 +25,9 @@ NOTE: ONTAP 9.13.1 이전의 ONTAP 릴리즈를 실행 중인 경우 적용 설�
 
 에 대해 자세히 알아보십시오 link:https://docs.netapp.com/us-en/ontap/volumes/logical-space-reporting-enforcement-concept.html["논리적 공간 보고를 위한 ONTAP 릴리즈 지원"].
 
-.선택
+.단계
+다음 중 하나 이상을 활성화합니다.
+
 * 볼륨에 대한 논리 공간 보고 활성화:
 +
 `volume modify -vserver _svm_name_ -volume _volume_name_ -size _volume_size_ -is-space-reporting-logical true`

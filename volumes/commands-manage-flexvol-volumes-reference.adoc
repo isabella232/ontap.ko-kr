@@ -1,7 +1,7 @@
 ---
 permalink: volumes/commands-manage-flexvol-volumes-reference.html 
 sidebar: sidebar 
-keywords: commands for, managing, flexvol, volumes, manage 
+keywords: commands for, managing, flexvol, volumes, manage, command 
 summary: ONTAP CLI를 사용하여 FlexVol 볼륨을 관리하는 특정 명령이 있습니다. 
 ---
 = FlexVol 볼륨을 관리하는 명령입니다
@@ -11,7 +11,7 @@ summary: ONTAP CLI를 사용하여 FlexVol 볼륨을 관리하는 특정 명령�
 
 
 [role="lead"]
-ONTAP CLI를 사용하여 FlexVol 볼륨을 관리하는 특정 명령이 있습니다.
+ONTAP CLI는 FlexVol 볼륨을 관리하기 위한 특정 명령을 제공합니다. 수행해야 하는 작업에 따라 다음 명령을 사용하여 FlexVol 볼륨을 관리할 수 있습니다.
 
 [cols="2*"]
 |===

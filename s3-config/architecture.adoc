@@ -1,7 +1,7 @@
 ---
 permalink: s3-config/architecture.html 
 sidebar: sidebar 
-keywords: s3 architecture, ontap 9 
+keywords: tr-4814, s3 architecture, ontap 9 
 summary: ONTAP에서 버킷의 기본 아키텍처는 볼륨입니다. FlexGroup 볼륨은 여러 개의 구성 멤버 볼륨으로 구성되지만 단일 볼륨으로 관리되는 단일 네임스페이스입니다. 
 ---
 = 있습니다

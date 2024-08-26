@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: use, qtrees, partition, flexvol volumes 
 summary: Qtree를 사용하면 FlexVol 볼륨을 작은 세그먼트로 파티셔닝하여 개별적으로 관리할 수 있습니다. Qtree를 사용하여 할당량, 보안 스타일 및 CIFS oplocks를 관리할 수 있습니다. 
 ---
-= Qtree를 사용하여 FlexVol 볼륨 파티셔닝 개요
+= Qtree 및 FlexVol volume 파티셔닝
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

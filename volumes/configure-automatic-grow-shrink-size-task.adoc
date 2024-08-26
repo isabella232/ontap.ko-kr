@@ -1,8 +1,8 @@
 ---
 permalink: volumes/configure-automatic-grow-shrink-size-task.html 
 sidebar: sidebar 
-keywords: configure, volumes, automatically, grow, shrink, size 
-summary: FlexVol 볼륨이 현재 필요한 공간에 따라 자동으로 확장 및 축소되도록 구성할 수 있습니다. 자동 증가를 통해 aggregate에서 공간을 더 많이 제공할 경우 볼륨 공간이 부족해지는 것을 방지할 수 있습니다. 자동 축소는 볼륨이 필요한 크기보다 커지는 것을 방지하여 Aggregate의 공간을 다른 볼륨에서 사용할 수 있도록 합니다. 
+keywords: configure, volumes, automatically, grow, shrink, size, automatic, space 
+summary: FlexVol 볼륨이 현재 필요한 공간에 따라 자동으로 확장 및 축소되도록 구성할 수 있습니다. 
 ---
 = 크기를 자동으로 확대 및 축소하도록 볼륨을 구성합니다
 :allow-uri-read: 

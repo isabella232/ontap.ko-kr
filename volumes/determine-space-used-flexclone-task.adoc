@@ -1,8 +1,8 @@
 ---
 permalink: volumes/determine-space-used-flexclone-task.html 
 sidebar: sidebar 
-keywords: determine, space, used by a flexclone volume 
-summary: FlexClone 볼륨의 공칭 크기와 상위 FlexVol 볼륨과 공유하는 공간의 크기를 기준으로 FlexClone 볼륨에서 사용되는 공간을 결정할 수 있습니다. FlexClone 볼륨이 생성되면 상위 볼륨과 모든 데이터를 공유합니다. 따라서 FlexVol 볼륨의 공칭 크기가 상위 볼륨의 크기와 같더라도 애그리게이트의 사용 가능한 공간이 매우 적습니다. 
+keywords: space, flexclone, volume, space, utilization, flexvol 
+summary: FlexClone 볼륨의 공칭 크기와 상위 FlexVol 볼륨과 공유하는 공간의 크기를 기준으로 FlexClone 볼륨에서 사용되는 공간을 결정할 수 있습니다. 
 ---
 = FlexClone 볼륨에서 사용하는 공간을 결정합니다
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: FlexClone 볼륨의 공칭 크기와 상위 FlexVol 볼륨과 공유하
 
 
 [role="lead"]
-FlexClone 볼륨의 공칭 크기와 상위 FlexVol 볼륨과 공유하는 공간의 크기를 기준으로 FlexClone 볼륨에서 사용되는 공간을 결정할 수 있습니다. FlexClone 볼륨이 생성되면 상위 볼륨과 모든 데이터를 공유합니다. 따라서 FlexVol 볼륨의 공칭 크기가 상위 볼륨의 크기와 같더라도 애그리게이트의 여유 공간이 매우 적습니다.
+FlexClone 볼륨의 공칭 크기와 상위 FlexVol 볼륨과 공유하는 공간의 크기를 기준으로 FlexClone 볼륨에서 사용되는 공간을 결정할 수 있습니다. FlexClone 볼륨이 생성되면 상위 볼륨과 모든 데이터를 공유합니다. FlexVol volume의 공칭 크기가 부모 크기와 같지만 Aggregate에서 사용하는 여유 공간은 거의 없습니다.
 
 .이 작업에 대해
 새로 생성된 FlexClone 볼륨에서 사용하는 여유 공간은 공칭 크기의 약 0.5%입니다. 이 공간은 FlexClone 볼륨의 메타데이터를 저장하는 데 사용됩니다.

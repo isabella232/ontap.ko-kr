@@ -83,5 +83,5 @@ ONTAP 9.13.1 부터는 기존 스토리지 VM의 최대 용량 한도(있는 경
 .관련 정보
 * link:./task_admin_monitor_capacity_in_sm.html#view-max-cap-limit-svm["스토리지 VM의 최대 용량 한도를 봅니다"]
 * link:./concepts/capacity-measurements-in-sm-concept.html["System Manager의 용량 측정"]
-* link:./volumes/manage-svm-capacity.html["ONTAP CLI를 사용하여 SVM 용량 한도를 관리합니다"]
+* link:./volumes/manage-svm-capacity.html["SVM 용량 한도 관리"]
 

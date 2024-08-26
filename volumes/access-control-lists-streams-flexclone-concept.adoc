@@ -1,10 +1,10 @@
 ---
 permalink: volumes/access-control-lists-streams-flexclone-concept.html 
 sidebar: sidebar 
-keywords: how, access control lists work, flexclone files, flexclone luns 
+keywords: access control lists, flexclone files, flexclone luns, inheritance, ACL, ACLs, acl, acls, flexclone 
 summary: FlexClone 파일 및 FlexClone LUN은 부모 파일 및 LUN의 액세스 제어 목록을 상속합니다. 
 ---
-= 액세스 제어 목록이 FlexClone 파일 및 FlexClone LUN과 작동하는 방식
+= FlexClone 파일 및 FlexClone LUN에 의한 액세스 제어 목록 상속
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

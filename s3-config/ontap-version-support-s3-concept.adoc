@@ -1,7 +1,7 @@
 ---
 permalink: s3-config/ontap-version-support-s3-concept.html 
 sidebar: sidebar 
-keywords: ontap, version, support, s3, object, storage, AWS S3, Azure S3, cloud volumes ontap, aws, azure 
+keywords: tr-4814, ontap, version, support, s3, object, storage, AWS S3, Azure S3, cloud volumes ontap, aws, azure 
 summary: ONTAP는 ONTAP 9.8부터 사내 환경을 위한 S3 오브젝트 스토리지를 지원합니다. Cloud Volumes ONTAP는 ONTAP 9.9.1부터 클라우드 환경을 위한 S3 오브젝트 스토리지를 지원합니다. 
 ---
 = S3 오브젝트 스토리지를 위한 ONTAP 버전 지원

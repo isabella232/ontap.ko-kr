@@ -2,7 +2,7 @@
 permalink: volumes/quotas-applied-users-multiple-ids-concept.html 
 sidebar: sidebar 
 keywords: how, quotas are applied, users, multiple ids 
-summary: 사용자는 여러 ID로 나타낼 수 있습니다. ID 목록을 할당량 타겟으로 지정하여 이러한 사용자에 대한 단일 사용자 할당량을 설정할 수 있습니다. 이러한 ID가 소유한 파일은 사용자 할당량의 제한을 받습니다. 
+summary: 사용자는 여러 ID로 나타낼 수 있습니다. ID 목록을 할당량 대상으로 지정하여 이러한 사용자에 대한 단일 사용자 할당량을 정의할 수 있습니다. 이러한 ID가 소유한 파일은 사용자 할당량의 제한을 받습니다. 
 ---
 = ID가 여러 개인 사용자에게 할당량을 적용하는 방법
 :allow-uri-read: 
@@ -11,14 +11,13 @@ summary: 사용자는 여러 ID로 나타낼 수 있습니다. ID 목록을 할�
 
 
 [role="lead"]
-사용자는 여러 ID로 나타낼 수 있습니다. ID 목록을 할당량 타겟으로 지정하여 이러한 사용자에 대한 단일 사용자 할당량을 설정할 수 있습니다. 이러한 ID가 소유한 파일은 사용자 할당량의 제한을 받습니다.
+사용자는 여러 ID로 나타낼 수 있습니다. ID 목록을 할당량 대상으로 지정하여 이러한 사용자에 대한 단일 사용자 할당량을 정의할 수 있습니다. 이러한 ID가 소유한 파일은 사용자 할당량의 제한을 받습니다.
 
-사용자에게 UNIX UID 20과 Windows ID Corp\John_Smith 및 engineering\jsmith가 있다고 가정합니다. 이 사용자의 경우 할당량 대상이 UID 및 Windows ID의 목록인 할당량을 지정할 수 있습니다. 이 사용자가 스토리지 시스템에 쓸 때 지정된 할당량은 쓰기 작업이 UID 20, Corp\John_Smith 또는 engineering\jsmith에서 시작되었는지 여부에 관계없이 적용됩니다.
+사용자에게 UNIX UID `20`와 Windows ID 및 가 있다고 `corp\john_smith` `engineering\jsmith` 가정합니다. 이 사용자의 경우 할당량 대상이 UID 및 Windows ID의 목록인 할당량을 지정할 수 있습니다. 이 사용자가 스토리지 시스템에 쓸 때 쓰기가 UID에서 시작되었는지 `20`, `corp\john_smith` 또는 에서 시작되었는지에 관계없이 지정된 할당량이 `engineering\jsmith` 적용됩니다.
 
-[NOTE]
-====
-ID가 동일한 사용자에 속하더라도 별도의 할당량 규칙은 별도의 타겟으로 간주됩니다. 예를 들어 동일한 사용자에 대해 UID 20을 1GB 디스크 공간으로 제한하는 할당량 하나와 Corp\John_Smith를 2GB의 디스크 공간으로 제한하는 할당량 하나를 지정할 수 있습니다. 두 ID 모두 동일한 사용자를 나타내더라도 마찬가지입니다. ONTAP는 UID 20과 Corp\John_Smith에 각각 할당량을 적용합니다.
+ID가 동일한 사용자에 속하더라도 별도의 할당량 규칙은 별도의 타겟으로 간주됩니다. 예를 들어, 동일한 사용자의 경우 UID를 `20` 1GB의 디스크 공간으로 제한하는 할당량 하나와 corp\John_Smith의 디스크 공간을 2GB로 제한하는 할당량 하나를 지정할 수 있습니다. 두 ID가 모두 동일한 사용자를 나타내더라도 마찬가지입니다. ONTAP에서는 UID에 할당량이 `20` `corp\john_smith` 별도로 적용됩니다. 이 경우 `engineering\jsmith` 동일한 사용자가 사용하는 다른 ID에 제한이 적용되더라도 에는 제한이 적용되지 않습니다.
 
-이 경우 동일한 사용자가 사용하는 다른 ID에 제한이 적용되더라도 엔지니어링\jsmith에는 제한이 적용되지 않습니다.
+.관련 정보
+* link:../volumes/quotas-applied-concept.html["할당량을 적용하는 방법"]
+* link:../volumes/quotas-applied-root-user-concept.html["루트 사용자에게 할당량을 적용하는 방법"]
 
-====

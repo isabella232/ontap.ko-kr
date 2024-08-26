@@ -2,7 +2,7 @@
 permalink: volumes/move-volume-task.html 
 sidebar: sidebar 
 keywords: move, volume 
-summary: '스토리지 용량 불균형이 있다고 판단된 후 FlexVol 볼륨을 동일한 스토리지 가상 시스템(SVM) 내에서 다른 애그리게이트, 노드 또는 둘 모두로 이동하여 스토리지 용량의 균형을 조정할 수 있습니다.' 
+summary: 'FlexVol volume을 동일한 스토리지 가상 머신(SVM) 내에서 다른 애그리게이트, 노드 또는 둘 다로 이동하여 스토리지 용량의 균형을 조정합니다.' 
 ---
 = 볼륨을 이동합니다
 :allow-uri-read: 

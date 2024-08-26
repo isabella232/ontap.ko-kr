@@ -2,20 +2,20 @@
 permalink: volumes/san-volumes-concept.html 
 sidebar: sidebar 
 keywords: understand, san volumes 
-summary: ONTAP는 일반 프로비저닝, 씬 프로비저닝 및 반일반 프로비저닝의 세 가지 기본 볼륨 프로비저닝 옵션을 제공합니다. 각 옵션은 볼륨 공간과 ONTAP 블록 공유 기술의 공간 요구 사항을 관리하는 다양한 방법을 사용합니다. 옵션의 작동 방식을 이해하면 환경에 가장 적합한 옵션을 선택할 수 있습니다. 
+summary: SAN 볼륨 프로비저닝에 대한 기본 옵션과 각 옵션이 ONTAP 블록 공유 기술의 볼륨 공간 및 공간 요구사항을 관리하는 방법을 이해합니다. 
 ---
-= SAN 볼륨 정보
+= SAN 볼륨 프로비저닝 개요
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-ONTAP는 일반 프로비저닝, 씬 프로비저닝 및 반일반 프로비저닝의 세 가지 기본 볼륨 프로비저닝 옵션을 제공합니다. 각 옵션은 볼륨 공간과 ONTAP 블록 공유 기술의 공간 요구 사항을 관리하는 다양한 방법을 사용합니다. 옵션의 작동 방식을 이해하면 환경에 가장 적합한 옵션을 선택할 수 있습니다.
+ONTAP는 SAN 볼륨 프로비저닝을 위한 몇 가지 기본 옵션을 제공합니다. 각 옵션에서는 ONTAP 블록 공유 기술에 대한 볼륨 공간 및 공간 요구사항을 관리하는 다른 방법을 사용합니다. 각 프로비저닝 옵션이 어떻게 작동하는지 이해하면 환경에 가장 적합한 옵션을 선택할 수 있습니다.
 
-[NOTE]
+[TIP]
 ====
-SAN LUN과 NAS 공유를 동일한 FlexVol 볼륨에 배치하는 것은 권장되지 않습니다. SAN LUN을 위해 특별히 별도의 FlexVol 볼륨을 프로비저닝해야 하며 NAS 공유에 별도의 FlexVol 볼륨을 프로비저닝해야 합니다. 이렇게 하면 관리 및 복제 구축이 간소화되고 FlexVol 볼륨이 Active IQ Unified Manager(이전의 OnCommand Unified Manager)에서 지원되는 방식과 유사점이 있습니다.
+SAN LUN과 NAS 공유를 동일한 FlexVol volume에 배치하는 것은 권장되지 않습니다. 대신 SAN LUN과 NAS 공유에 대해 별도의 FlexVol 볼륨을 프로비저닝해야 합니다. 따라서 관리 및 복제 구축이 간소화됩니다. 또한 Active IQ Unified Manager(이전의 OnCommand Unified Manager)에서 FlexVol 볼륨이 지원되는 방식과 유사합니다.
 
 ====
 

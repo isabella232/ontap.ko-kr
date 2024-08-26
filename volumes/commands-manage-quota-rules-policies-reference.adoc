@@ -1,8 +1,8 @@
 ---
 permalink: volumes/commands-manage-quota-rules-policies-reference.html 
 sidebar: sidebar 
-keywords: commands to, manage, quota rules, quota policies 
-summary: 볼륨 할당량 정책 규칙 명령을 사용하여 할당량 규칙을 구성하고 볼륨 할당량 정책 명령 및 일부 vserver 명령을 사용하여 할당량 정책을 구성할 수 있습니다. 
+keywords: commands to, manage, quota rules, quota policies, command, commands, quota, quotas, policy, policies 
+summary: ' `volume quota policy rule`명령을 사용하여 할당량 규칙을 구성할 수 있으며 `volume quota policy` 명령과 일부 `vserver` 명령을 사용하여 할당량 정책을 구성할 수 있습니다.' 
 ---
 = 할당량 규칙 및 할당량 정책을 관리하는 명령입니다
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 볼륨 할당량 정책 규칙 명령을 사용하여 할당량 규칙�
 
 
 [role="lead"]
-볼륨 할당량 정책 규칙 명령을 사용하여 할당량 규칙을 구성하고 '볼륨 할당량 정책' 명령과 일부 'vserver' 명령을 사용하여 할당량 정책을 구성할 수 있습니다.
+ `volume quota policy rule`명령을 사용하여 할당량 규칙을 구성할 수 있으며 `volume quota policy` 명령과 일부 `vserver` 명령을 사용하여 할당량 정책을 구성할 수 있습니다. 수행해야 하는 작업에 따라 다음 명령을 사용하여 할당량 규칙 및 할당량 정책을 관리할 수 있습니다.
 
 
 NOTE: 다음 명령은 FlexVol 볼륨에서만 실행할 수 있습니다.

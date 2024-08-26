@@ -2,29 +2,26 @@
 permalink: volumes/convert-directory-qtree-task.html 
 sidebar: sidebar 
 keywords: convert, directory, qtree 
-summary: FlexVol 볼륨의 루트에 qtree로 변환할 디렉토리가 있는 경우 클라이언트 애플리케이션을 사용하여 디렉토리에 포함된 데이터를 이름이 같은 새 qtree로 마이그레이션해야 합니다. 
+summary: FlexVol volume의 루트에 qtree로 전환하려는 디렉토리가 있는 경우 디렉토리에 있는 데이터를 같은 이름의 새 qtree로 마이그레이션해야 합니다. 
 ---
-= 디렉토리를 qtree 개요로 변환합니다
+= 디렉토리를 qtree로 변환합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-FlexVol 볼륨의 루트에 qtree로 변환할 디렉토리가 있는 경우 클라이언트 애플리케이션을 사용하여 디렉토리에 포함된 데이터를 이름이 같은 새 qtree로 마이그레이션해야 합니다.
+FlexVol volume의 루트에 qtree로 전환하려는 디렉토리가 있는 경우 클라이언트 애플리케이션을 사용하여 디렉토리에 있는 데이터를 같은 이름의 새 qtree로 마이그레이션해야 합니다.
 
 .이 작업에 대해
 디렉토리를 qtree로 변환하기 위한 단계는 사용하는 클라이언트에 따라 다릅니다. 다음 프로세스에서는 완료해야 하는 일반적인 작업을 간략하게 설명합니다.
+
+.시작하기 전에
+기존 CIFS 공유와 연결된 디렉토리는 삭제할 수 없습니다.
 
 .단계
 . qtree로 만들 디렉토리의 이름을 바꿉니다.
 . 원래 디렉토리 이름을 사용하여 새 qtree를 생성합니다.
 . 클라이언트 애플리케이션을 사용하여 디렉토리의 컨텐츠를 새 qtree로 이동합니다.
 . 지금 빈 디렉토리를 삭제합니다.
-+
-[NOTE]
-====
-기존 CIFS 공유와 연결된 디렉토리는 삭제할 수 없습니다.
-
-====
 

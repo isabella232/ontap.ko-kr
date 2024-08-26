@@ -2,7 +2,7 @@
 permalink: volumes/space-reserved-luns-semi-thick-provisioning-concept.html 
 sidebar: sidebar 
 keywords: configuration, settings, space-reserved files, luns, semi-thick volume provisioning 
-summary: 이 FlexVol 볼륨 및 파일 또는 LUN 구성 조합을 사용하면 완전히 프로비저닝된 조합보다 더 적은 양의 스토리지를 미리 할당할 수 있지만 볼륨에 사용할 수 있는 효율성 기술에 제한이 있습니다. 이러한 구성 조합의 경우 덮어쓰기의 작업이 가장 효율적으로 처리됩니다. 
+summary: 반씩 씩 볼륨 프로비저닝을 기반으로 하는 FlexVol volume 및 파일 또는 LUN 구성은 사전에 할당되는 스토리지가 더 적지만 제한이 있습니다. 
 ---
 = 반씩 볼륨 프로비저닝을 사용하는 공간 예약 파일 또는 LUN에 대한 구성 설정입니다
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 이 FlexVol 볼륨 및 파일 또는 LUN 구성 조합을 사용하면 
 
 
 [role="lead"]
-이 FlexVol 볼륨 및 파일 또는 LUN 구성 조합을 사용하면 완전히 프로비저닝된 조합보다 더 적은 양의 스토리지를 미리 할당할 수 있지만 볼륨에 사용할 수 있는 효율성 기술에 제한이 있습니다. 이러한 구성 조합의 경우 덮어쓰기의 작업이 가장 효율적으로 처리됩니다.
+FlexVol volume 구성과 파일 또는 LUN 구성의 조합에는 여러 가지가 있습니다. 반씩 씩 볼륨 프로비저닝을 기반으로 하는 이 조합은 완전히 프로비저닝되는 조합보다 더 적은 수의 스토리지를 먼저 할당할 필요가 있습니다. 그러나 볼륨에 사용할 수 있는 효율성 기술에는 제한이 있습니다. 이러한 구성 조합의 경우 덮어쓰기의 작업이 가장 효율적으로 처리됩니다.
 
 반씩 프로비저닝을 사용하여 볼륨에서 공간 예약 LUN을 구성하려면 다음 설정이 필요합니다.
 
@@ -90,3 +90,7 @@ summary: 이 FlexVol 볼륨 및 파일 또는 LUN 구성 조합을 사용하면 
 
 
 압축은 AFF 플랫폼에 대해 기본적으로 사용하도록 설정되어 있습니다. AFF 플랫폼에서 반씩 프로비저닝을 사용하려는 모든 볼륨에 대해 압축을 명시적으로 해제해야 합니다.
+
+.관련 정보
+* link:recommended-volume-lun-config-combinations-concept.html["권장되는 볼륨 및 파일 또는 LUN 구성 조합 개요"]
+

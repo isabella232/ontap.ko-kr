@@ -2,7 +2,7 @@
 permalink: volumes/stop-volume-efficiency-operations-task.html 
 sidebar: sidebar 
 keywords: stopping deduplication, stopping data compression, volume efficiency operations 
-summary: 볼륨 효율성 STOP 명령을 사용하여 중복제거 또는 사후 처리 압축 작업을 중지할 수 있습니다. 이 명령은 체크포인트를 자동으로 생성합니다. 
+summary: 중복제거 또는 사후 처리 압축 작업을 중지할 수 있습니다. 
 ---
 = 볼륨 효율성 작업을 중지합니다
 :allow-uri-read: 
@@ -11,7 +11,10 @@ summary: 볼륨 효율성 STOP 명령을 사용하여 중복제거 또는 사후
 
 
 [role="lead"]
-'볼륨 효율성 중지' 명령을 사용하여 중복제거 또는 사후 압축 작업을 중지할 수 있습니다. 이 명령은 체크포인트를 자동으로 생성합니다.
+중복제거 또는 사후 처리 압축 작업을 중지할 수 있습니다.
+
+.이 작업에 대해
+이 작업은 명령을 `volume efficiency stop`사용합니다. 이 명령은 체크포인트를 자동으로 생성합니다.
 
 .단계
 . 활성 중복제거 또는 사후 압축 작업을 중지하려면 '볼륨 효율성 중지' 명령을 사용합니다.

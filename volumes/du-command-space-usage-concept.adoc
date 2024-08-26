@@ -1,10 +1,10 @@
 ---
 permalink: volumes/du-command-space-usage-concept.html 
 sidebar: sidebar 
-keywords: how, du command, accounts for, space usage 
-summary: du 명령을 실행하여 UNIX 클라이언트에 마운트된 qtree 또는 FlexVol 볼륨의 디스크 공간 사용을 확인할 때 사용 값이 qtree 또는 볼륨에 대한 할당량 보고서에 표시되는 값보다 높을 수 있습니다. 
+keywords: how, du command, qtree, flexvol, usage, quota report, space 
+summary: du 명령에서 반환되는 사용량 값은 데이터 블록으로 인해 qtree 또는 볼륨의 할당량 보고서에 표시되는 값보다 클 수 있습니다. 
 ---
-= du 명령이 공간 사용을 어떻게 계산하는지 보여 줍니다
+= du 명령과 공간 사용에 대한 할당량 보고서 간 불일치입니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -24,7 +24,7 @@ du 명령의 출력에는 명령이 실행되는 디렉토리 레벨에서 시�
                                       ----Disk----  ----Files-----   Quota
   Volume   Tree      Type    ID        Used  Limit    Used   Limit   Specifier
   -------  --------  ------  -------  -----  -----  ------  ------   ---------
-  vol1     q1          tree    user1   10MB   10MB       1       -   q1
+  vol1     q1        tree    user1    10MB   10MB   1       -        q1
 
 ...
 ----

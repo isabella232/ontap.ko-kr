@@ -1,19 +1,17 @@
 ---
 permalink: volumes/quotas-activated-concept.html 
 sidebar: sidebar 
-keywords: how quotas are activated, activation, manage, disruptively 
-summary: 새 할당량과 할당량 변경 사항은 활성화될 때까지 적용되지 않습니다. 할당량 활성화 방법을 알면 할당량을 중단 없이 관리하는 데 도움이 됩니다. 
+keywords: quotas, how quotas are activated, quota activation 
+summary: 새 할당량 및 기존 할당량에 대한 변경 사항을 활성화해야 효과를 적용할 수 있습니다. 활성화는 볼륨 레벨에서 수행됩니다. 할당량 활성화의 작동 방식을 알면 업무 중단을 최소화하면서 할당량을 관리하는 데 도움이 됩니다. 
 ---
-= 할당량 활성화 방법 개요
+= 할당량 활성화 방법에 대한 개요입니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-새 할당량과 할당량 변경 사항은 활성화될 때까지 적용되지 않습니다. 할당량 활성화 방법을 알면 할당량을 중단 없이 관리하는 데 도움이 됩니다.
-
-볼륨 레벨에서 할당량을 활성화할 수 있습니다.
+새 할당량 및 기존 할당량에 대한 변경 사항을 활성화해야 효과를 적용할 수 있습니다. 활성화는 볼륨 레벨에서 수행됩니다. 할당량 활성화의 작동 방식을 알면 업무 중단을 최소화하면서 할당량을 관리하는 데 도움이 됩니다.
 
 할당량은 _initializing_(설정 중) 또는 _refizing_에 의해 활성화됩니다. 할당량을 해제했다가 다시 설정하는 것을 다시 초기화 중이라고 합니다.
 

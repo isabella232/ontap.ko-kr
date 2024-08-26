@@ -1,7 +1,7 @@
 ---
 permalink: s3-config/create-data-lifs-task.html 
 sidebar: sidebar 
-keywords: create, data, lifs 
+keywords: tr-4814, create, data, lifs 
 summary: 새 SVM을 생성한 경우 S3 액세스를 위해 생성하는 전용 LIF는 데이터 LIF가 되어야 합니다. 
 ---
 = 데이터 LIF 생성

@@ -1,8 +1,8 @@
 ---
 permalink: volumes/quotas-flexclone-files-luns-concept.html 
 sidebar: sidebar 
-keywords: how, quotas work, with, flexclone files, flexclone luns 
-summary: 할당량 제한은 FlexClone 파일 또는 FlexClone LUN의 총 논리적 크기에 적용됩니다. 클론 생성 작업으로 인해 할당량이 초과되는 경우에도 블록 공유가 실패하지 않습니다. 
+keywords: how quotas work, flexclone files, flexclone luns 
+summary: FlexClone 파일 및 FlexClone LUN을 사용하기 전에 할당량이 어떻게 작동하는지 잘 알고 있어야 합니다. 
 ---
 = FlexClone 파일 및 FlexClone LUN에서 할당량이 작동하는 방식
 :allow-uri-read: 
@@ -11,7 +11,9 @@ summary: 할당량 제한은 FlexClone 파일 또는 FlexClone LUN의 총 논리
 
 
 [role="lead"]
-할당량 제한은 FlexClone 파일 또는 FlexClone LUN의 총 논리적 크기에 적용됩니다. 클론 생성 작업으로 인해 할당량이 초과되는 경우에도 블록 공유가 실패하지 않습니다.
+FlexClone 파일 및 FlexClone LUN을 사용하기 전에 할당량이 어떻게 작동하는지 잘 알고 있어야 합니다.
+
+할당량 제한은 FlexClone 파일 또는 FlexClone LUN의 총 논리적 크기에 적용됩니다. 클론 생성 작업으로 인해 할당량이 초과되더라도 블록 공유가 실패하지 않습니다.
 
 FlexClone 파일 또는 FlexClone LUN을 생성할 때 할당량은 절약 공간을 인식하지 못합니다. 예를 들어, 상위 파일 10GB 의 FlexClone 파일을 만드는 경우, 물리적 공간 크기는 10GB만 사용하고 할당량 활용률은 20GB(상위 파일의 경우 10GB, FlexClone 파일의 경우 10GB)로 기록됩니다.
 

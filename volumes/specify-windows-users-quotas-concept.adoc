@@ -1,22 +1,22 @@
 ---
 permalink: volumes/specify-windows-users-quotas-concept.html 
 sidebar: sidebar 
-keywords: how to, specify, windows users, for quotas 
-summary: Windows 2000 이전 형식의 Windows 이름, SID 또는 사용자 SID가 소유한 파일 또는 디렉토리의 세 가지 형식 중 하나를 사용하여 할당량에 대한 Windows 사용자를 지정할 수 있습니다. 
+keywords: specify, windows users, for quotas 
+summary: 할당량에 대한 Windows 사용자를 여러 가지 형식 중 하나로 지정할 수 있습니다. 
 ---
-= 할당량을 위해 Windows 사용자를 지정하는 방법
+= 할당량에 대한 Windows 사용자를 지정합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Windows 2000 이전 형식의 Windows 이름, SID 또는 사용자 SID가 소유한 파일 또는 디렉토리의 세 가지 형식 중 하나를 사용하여 할당량에 대한 Windows 사용자를 지정할 수 있습니다.
+할당량에 대한 Windows 사용자를 여러 가지 형식 중 하나로 지정할 수 있습니다.
 
-할당량에 대한 Windows 사용자를 지정하려면 다음 형식 중 하나를 사용합니다.
+할당량에 대해 Windows 사용자를 지정할 때 사용할 수 있는 세 가지 형식은 다음과 같습니다.
 
 * Windows 2000 이전 형식의 Windows 이름입니다.
-* Windows에서 S-1-5-32-544와 같은 텍스트 형식으로 표시되는 SID(보안 ID)입니다.
+* Windows에서 텍스트 형식으로 표시되는 SID(보안 ID) `S-1-5-32-544`입니다(예:).
 * 해당 사용자의 SID가 소유한 ACL이 있는 파일 또는 디렉토리의 이름입니다.
 +
 [NOTE]

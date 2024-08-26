@@ -1,8 +1,8 @@
 ---
 permalink: volumes/recommendations-moving-concept.html 
 sidebar: sidebar 
-keywords: considerations, recommendations, when, moving, volumes, flexclone volume, metroCluster configuration 
-summary: 볼륨 이동에는 이동할 볼륨 또는 MetroCluster 구성과 같은 시스템 구성에 따라 영향을 받는 다양한 고려 사항과 권장 사항이 있습니다. 볼륨 이동과 관련된 고려 사항과 권장 사항을 이해해야 합니다. 
+keywords: considerations, recommendations, moving volumes, flexclone volume, metroCluster configuration 
+summary: 볼륨을 이동할 때 고려해야 할 몇 가지 고려 사항과 권장 사항이 있습니다. 이러한 볼륨은 MetroCluster와 같은 시스템 구성과 함께 이동 중인 볼륨을 기반으로 합니다. 볼륨을 이동하기 전에 모든 관련 문제를 이해해야 합니다. 
 ---
 = 볼륨 이동 시 고려 사항 및 권장 사항
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 볼륨 이동에는 이동할 볼륨 또는 MetroCluster 구성과 같�
 
 
 [role="lead"]
-볼륨 이동에는 이동할 볼륨 또는 MetroCluster 구성과 같은 시스템 구성에 따라 영향을 받는 다양한 고려 사항과 권장 사항이 있습니다. 볼륨 이동과 관련된 고려 사항과 권장 사항을 이해해야 합니다.
+볼륨을 이동할 때 고려해야 할 몇 가지 고려 사항과 권장 사항이 있습니다. 이러한 볼륨은 MetroCluster와 같은 시스템 구성과 함께 이동 중인 볼륨을 기반으로 합니다. 볼륨을 이동하기 전에 모든 관련 문제를 이해해야 합니다.
 
 
 
@@ -64,7 +64,7 @@ FlexClone 상위 볼륨을 이동할 때 임시 볼륨은 모든 FlexClone 볼�
 
 
 
-== MetroCluster 구성 고려 사항
+== MetroCluster 고려 사항 및 권장 사항
 
 * MetroCluster 구성에서 볼륨을 이동하는 동안 소스 클러스터의 대상 애그리게이트에 임시 볼륨이 생성되면 미러링된 볼륨의 볼륨에 해당하는 임시 볼륨에 대한 기록이나 흡수되지 않은 aggregate가 나머지 클러스터에도 생성됩니다.
 * 컷오버가 발생하기 전에 MetroCluster 전환이 발생하면 대상 볼륨에 레코드가 있고 임시 볼륨(TMP 유형의 볼륨)이 됩니다.

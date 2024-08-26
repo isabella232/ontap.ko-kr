@@ -1,17 +1,17 @@
 ---
 permalink: volumes/change-security-style-qtree-affects-quotas-concept.html 
 sidebar: sidebar 
-keywords: how, changing, security, style of a qtree, affects, user quotas 
-summary: 'NTFS 또는 혼합 보안 스타일을 사용하여 qtree에 ACL(액세스 제어 목록)을 적용할 수 있지만 UNIX 보안 스타일을 사용하지는 않습니다. 따라서 qtree의 보안 스타일을 변경하면 할당량이 계산되는 방식에 영향을 줄 수 있습니다. Qtree의 보안 스타일을 변경한 후에는 항상 할당량을 다시 초기화해야 합니다.' 
+keywords: changing, security, style of a qtree, affects, user quotas, qtree, security style, style, quota 
+summary: qtree의 보안 스타일을 변경하면 할당량 계산 방식에 영향을 미칠 수 있습니다. Qtree의 보안 스타일을 변경한 후에는 항상 할당량을 다시 초기화해야 합니다. 
 ---
-= Qtree의 보안 스타일을 변경하면 사용자 할당량에 미치는 영향
+= Qtree 보안 스타일 및 사용자 할당량
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-NTFS 또는 혼합 보안 스타일을 사용하여 qtree에 ACL(액세스 제어 목록)을 적용할 수 있지만 UNIX 보안 스타일을 사용하지는 않습니다. 따라서 qtree의 보안 스타일을 변경하면 할당량이 계산되는 방식에 영향을 줄 수 있습니다. Qtree의 보안 스타일을 변경한 후에는 항상 할당량을 다시 초기화해야 합니다.
+NTFS 또는 혼합 보안 스타일을 사용하여 qtree에 ACL(액세스 제어 목록)을 적용할 수 있지만 UNIX 보안 스타일을 사용하지는 않습니다. qtree의 보안 스타일을 변경하면 할당량 계산 방식에 영향을 미칠 수 있습니다. Qtree의 보안 스타일을 변경한 후에는 항상 할당량을 다시 초기화해야 합니다.
 
 qtree의 보안 스타일을 NTFS 또는 MIXED에서 UNIX로 변경하면 해당 qtree의 파일에 대한 모든 ACL이 무시되고 UNIX 사용자 ID에 대해 파일 사용량이 청구됩니다.
 

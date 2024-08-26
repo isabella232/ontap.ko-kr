@@ -124,13 +124,13 @@ SVM의 관리 상태는 Up으로 표시되어야 합니다.
 +
 [source, cli]
 ----
-network interface create -vserver <SVM_name> -lif <lif_name> -address <ip address> -netmask <ip address> -role data -data-protocol fc-nvme -home-node <home_node> -home-port <home_port>
+network interface create -vserver <SVM_name> -lif <lif_name> -address <ip address> -netmask <netmask_value> -role data -data-protocol fc-nvme -home-node <home_node> -home-port <home_port>
 ----
 ** ONTAP 9.10.1 이상, FC 또는 TCP:
 +
 [source, cli]
 ----
-network interface create -vserver <SVM_name> -lif <lif_name> -address <ip address> -netmask <ip address> -service-policy <default-data-nvme-tcp | default-data-nvme-fc> -data-protocol <fcp | fc-nvme | nvme-tcp> -home-node <home_node> -home-port <home_port> -status-admin up -failover-policy disabled -firewall-policy data -auto-revert false -failover-group <failover_group> -is-dns-update-enabled false
+network interface create -vserver <SVM_name> -lif <lif_name> -address <ip address> -netmask <netmask_value> -service-policy <default-data-nvme-tcp | default-data-nvme-fc> -data-protocol <fcp | fc-nvme | nvme-tcp> -home-node <home_node> -home-port <home_port> -status-admin up -failover-policy disabled -firewall-policy data -auto-revert false -failover-group <failover_group> -is-dns-update-enabled false
 ----
 
 

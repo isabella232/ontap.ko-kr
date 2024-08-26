@@ -2,16 +2,18 @@
 permalink: volumes/requirement-moving-volumes-san-concept.html 
 sidebar: sidebar 
 keywords: requirement, moving, volumes, san environments 
-summary: LUN 또는 네임스페이스가 포함된 볼륨을 이동하기 전에 특정 요구 사항을 충족해야 합니다. 
+summary: SAN 환경에서 볼륨을 이동하기 전에 준비해야 합니다. 
 ---
-= SAN 환경에서 볼륨을 이동하기 위한 요구사항
+= SAN 환경에서 볼륨을 이동하기 위한 요구 사항
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-LUN 또는 네임스페이스가 포함된 볼륨을 이동하기 전에 특정 요구 사항을 충족해야 합니다.
+SAN 환경에서 볼륨을 이동하기 전에 준비해야 합니다.
+
+LUN 또는 네임스페이스를 포함하는 볼륨을 이동하기 전에 다음 요구사항을 충족해야 합니다.
 
 * 하나 이상의 LUN이 포함된 볼륨의 경우 클러스터의 각 노드에 연결되는 LUN(LIF)당 경로가 2개 이상 있어야 합니다.
 +

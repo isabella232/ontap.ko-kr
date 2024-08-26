@@ -2,7 +2,7 @@
 permalink: volumes/storage-efficiency-behavior-snapmirror-reference.html 
 sidebar: sidebar 
 keywords: storage, efficiency, temperature, change, efficient, snapmirror, volume, move 
-summary: 볼륨 이동 또는 SnapMirror 작업을 수행할 때 볼륨에 스토리지 효율성이 적용되는 방식과 온도에 민감한 스토리지 효율성을 수동으로 활성화한 후에는 소스 볼륨의 효율성 유형에 따라 어떻게 됩니까? 
+summary: 스토리지 효율성 동작은 활성 상태이거나 동시에 시작되는 다른 스토리지 작업의 영향을 받을 수 있습니다. 
 ---
 = 볼륨 이동 및 SnapMirror 작업에 대한 스토리지 효율성 동작
 :allow-uri-read: 
@@ -11,9 +11,11 @@ summary: 볼륨 이동 또는 SnapMirror 작업을 수행할 때 볼륨에 스�
 
 
 [role="lead"]
-볼륨 이동 또는 SnapMirror 작업을 수행할 때 볼륨에서 스토리지 효율성이 동작하는 방식 그리고 SnapMirror 휴식을 수행하고 온도에 민감한 스토리지 효율성을 수동으로 활성화할 때 발생하는 상황은 소스 볼륨의 효율성 유형에 따라 달라집니다.
+스토리지 효율성의 동작은 활성 상태이거나 동시에 시작되는 다른 스토리지 작업의 영향을 받을 수 있습니다. 이러한 작업이 스토리지 효율성에 미치는 영향을 숙지해야 합니다.
 
-다음 표에서는 다양한 스토리지 효율성 유형에서 볼륨 이동 또는 SnapMirror 작업을 수행할 때 소스 볼륨 및 대상 볼륨의 동작과 TSSE(Temperature-Sensitive Storage Efficiency)를 수동으로 활성화할 때의 동작에 대해 설명합니다.
+볼륨의 스토리지 효율성이 다른 작업의 영향을 받을 수 있는 몇 가지 상황이 있습니다. 여기에는 볼륨 이동 또는 SnapMirror 작업을 수행할 때와 SnapMirror 중단과 TSSE(온도에 민감한 스토리지 효율성)를 수동으로 활성화할 때 수행되는 작업이 포함됩니다. 이는 소스 볼륨의 효율성 유형에 따라 달라집니다.
+
+다음 표에서는 이러한 작업 중 하나를 수행할 때 소스 볼륨과 대상 볼륨의 동작을 설명합니다.
 
 [cols="1,1,1,2,1,1,2"]
 |===

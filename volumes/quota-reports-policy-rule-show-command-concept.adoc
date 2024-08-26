@@ -2,7 +2,7 @@
 permalink: volumes/quota-reports-policy-rule-show-command-concept.html 
 sidebar: sidebar 
 keywords: when to use, volume quota policy rule show, volume quota report, commands 
-summary: 두 명령 모두 할당량에 대한 정보를 표시하지만 볼륨 할당량 정책 규칙은 구성된 할당량 규칙을 빠르게 표시하는 반면, 볼륨 할당량 보고서 명령은 시간과 리소스를 더 많이 소모하며 강제 적용된 할당량과 리소스 사용량을 표시합니다. 
+summary: '"volume quota policy rule show"는 구성된 할당량 규칙을 빠르게 표시하고 "volume quota report"는 적용된 할당량 및 리소스 사용량을 표시합니다.' 
 ---
 = 볼륨 할당량 정책 규칙 표시 및 볼륨 할당량 보고서 명령을 사용하는 경우
 :allow-uri-read: 

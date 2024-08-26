@@ -1,17 +1,17 @@
 ---
 permalink: volumes/view-space-savings-flexclone-files-luns-task.html 
 sidebar: sidebar 
-keywords: view, space, savings, due to flexclone files, flexclone luns 
-summary: FlexClone 파일 및 LUN이 포함된 볼륨 내에서 블록 공유로 절약되는 디스크 공간의 비율을 볼 수 있습니다. 
+keywords: view space, view space savings, flexclone files, flexclone luns 
+summary: FlexClone 파일 및 FlexClone LUN이 포함된 볼륨에서 블록 공유를 통해 절약된 디스크 공간의 비율을 볼 수 있습니다. 이 작업은 용량 계획의 일부로 수행할 수 있습니다. 
 ---
-= FlexClone 파일 및 FlexClone LUN을 통한 공간 절약 효과를 확인하십시오
+= FlexClone 파일 및 FlexClone LUN을 사용하여 공간 절약 효과를 확인하십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-FlexClone 파일 및 LUN이 포함된 볼륨 내에서 블록 공유로 절약되는 디스크 공간의 비율을 볼 수 있습니다.
+FlexClone 파일 및 FlexClone LUN이 포함된 볼륨에서 블록 공유를 통해 절약된 디스크 공간의 비율을 볼 수 있습니다. 이 작업은 용량 계획의 일부로 수행할 수 있습니다.
 
 .단계
 . FlexClone 파일 및 FlexClone LUN으로 인해 절약된 공간을 보려면 다음 명령을 입력합니다.

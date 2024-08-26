@@ -28,7 +28,7 @@ entries:
     url: "/san-admin/clone-luns-active-volume-task.html"
   - title: 볼륨의 스냅샷 복사본에서 FlexClone LUN을 생성합니다
     url: "/san-admin/create-flexclone-luns-snapshot-copy-volume-task.html"
-  - title: 특정 FlexClone 파일 또는 FlexClone LUN이 자동으로 삭제되지 않도록 합니다
+  - title: FlexClone 파일 또는 FlexClone LUN이 자동으로 삭제되지 않도록 방지합니다
     url: "/san-admin/prevent-flexclone-file-lun-deleted-task.html"
 - title: SAN 환경에서 SnapVault 백업을 구성하고 사용합니다
   entries:

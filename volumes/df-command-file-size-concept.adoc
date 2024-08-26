@@ -1,8 +1,8 @@
 ---
 permalink: volumes/df-command-file-size-concept.html 
 sidebar: sidebar 
-keywords: how, df command, accounts for file size 
-summary: df 명령에서 공간 사용을 보고하는 방법은 두 가지 조건, 즉 qtree가 포함된 볼륨에 대해 할당량을 설정하거나 해제할지 여부와 qtree 내의 할당량 사용을 추적할지 여부에 따라 달라집니다. 
+keywords: df, command, file, size, reporting, reports, space, usage, qtree, quota 
+summary: df 명령에서 공간 사용량을 보고하는 방법은 할당량 구성에 따라 다릅니다. 
 ---
 = df 명령이 파일 크기를 어떻게 계산하는지 확인합니다
 :allow-uri-read: 
