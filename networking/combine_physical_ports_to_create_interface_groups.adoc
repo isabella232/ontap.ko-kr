@@ -10,7 +10,7 @@ summary: 두 개 이상의 물리적 포트를 단일 논리 포트로 결합하
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

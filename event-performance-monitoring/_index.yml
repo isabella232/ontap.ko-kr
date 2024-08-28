@@ -1,5 +1,12 @@
 ---
 indexpage:
+  title: 이벤트, 성능 및 상태 모니터링
+  summary: 클러스터의 상태 및 성능을 모니터링합니다. 이벤트에 대한 경고를 설정하고, Active IQ Unified Manager를 사용하고,
+    시스템 상태 알림에 대한 알림을 관리합니다.
+  keywords: event, performance, health, monitoring, nas, configuration, system, manager,
+    quality, service, active iq, latency
+  lead: 클러스터의 상태 및 성능을 모니터링합니다. 이벤트에 대한 경고를 설정하고, Active IQ Unified Manager를 사용하고,
+    시스템 상태 알림에 대한 알림을 관리합니다.
   tiles:
   - title: 시작하십시오
     links:

@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: ransomware-solutions/ransomware-snaplock-tamperproof-snapshots.html 
+keywords: tr-4572, technical report, ransomware, protect, protection, netapp ransomware protection, netapp tr, ontap tr 
+summary: NetApp의 랜섬웨어 보호에는 랜섬웨어 위협을 차단하는 데 매우 효과적인 것으로 검증된 SnapLock이 포함되어 있습니다. 
+---
+= 랜섬웨어 방어를 위한 SnapLock 및 변조 방지 스냅샷 사본
+:allow-uri-read: 
+
+
+[role="lead"]
+NetApp의 Snap Arsenal에서 중요한 무기는 랜섬웨어 위협을 방어하는 데 매우 효과적인 것으로 입증된 SnapLock입니다. SnapLock는 무단 데이터 삭제를 방지함으로써 추가적인 보안 계층을 제공하여 악의적인 공격이 발생했을 때도 중요 데이터를 그대로 유지하고 액세스할 수 있도록 합니다.
+
+
+
+== SnapLock 규정 준수
+
+SLC(SnapLock Compliance)는 데이터를 지워지지 않는 보호 기능을 제공합니다. SLC는 관리자가 스토리지를 다시 초기화하려고 시도해도 데이터가 삭제되는 것을 금지합니다. 다른 경쟁 제품과 달리 SnapLock Compliance는 해당 제품의 지원 팀을 통해 사회 공학 해킹에 취약하지 않습니다. SnapLock Compliance 볼륨으로 보호되는 데이터는 만료 날짜에 도달할 때까지 복구할 수 있습니다.
+
+SnapLock를 활성화하려면 link:../system-admin/manage-licenses-concept.html["ONTAP 1 을 참조하십시오"]라이센스가 필요합니다.
+
+.자세한 정보
+* link:../snaplock/index.html["SnapLock 설명서"]
+
+
+
+
+== 스냅샷 복사본을 무단 복제했습니다
+
+변조 방지 스냅샷(TPS) 복사본은 악의적인 공격으로부터 데이터를 보호하는 편리하고 빠른 방법을 제공합니다. SnapLock Compliance와 달리 TPS는 일반적으로 사용자가 정해진 시간 동안 데이터를 보호하고 빠른 복구를 위해 로컬에 남겨둘 수 있거나 운영 시스템에서 데이터를 복제할 필요가 없는 운영 시스템에서 사용됩니다. TPS는 SnapLock 기술을 사용하여 동일한 SnapLock 보존 만료 기간을 사용하는 ONTAP 관리자가 운영 스냅샷 복제본을 삭제하지 못하도록 방지합니다. 스냅샷과 SnapLock Compliance 볼륨의 삭제 불가능한 특성이 같지는 않지만, 볼륨이 SnapLock를 사용하도록 설정되어 있지 않더라도 스냅샷 복사본 삭제는 금지됩니다.
+
+스냅샷 복사본을 무단 변경으로부터 보호하려면 link:../system-admin/manage-licenses-concept.html["ONTAP 1 을 참조하십시오"]라이센스가 필요합니다.
+
+.자세한 정보
+* link:../snaplock/snapshot-lock-concept.html["랜섬웨어 공격으로부터 보호하기 위해 스냅샷 복사본을 잠급니다"]..
+

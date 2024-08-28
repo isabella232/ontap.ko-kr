@@ -1,5 +1,9 @@
 ---
 indexpage:
+  title: 소개 및 개념
+  summary: 스토리지 솔루션을 구성하기 전에 ONTAP의 모든 기능과 이점을 살펴보십시오.
+  keywords: ontap, concepts, netapp
+  lead: 스토리지 솔루션을 구성하기 전에 ONTAP의 모든 기능과 이점을 살펴보십시오.
   tiles:
   - title: 시작하십시오
     links:

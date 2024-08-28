@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: ransomware-solutions/ransomware-CI-workload-security.html 
+keywords: tr-4572, technical report, ransomware, protect, protection, netapp ransomware protection, netapp tr, ontap tr 
+summary: NetApp의 랜섬웨어 보호에는 스토리지 워크로드 보안이 포함되어 있어 ONTAP 환경의 보안 태세, 복구 능력 및 책임성을 개선합니다. 
+---
+= Cloud Insights 스토리지 워크로드 보안(CISWS)
+:allow-uri-read: 
+
+
+[role="lead"]
+SWS(스토리지 워크로드 보안)는 NetApp Cloud Insights ONTAP 환경의 보안 태세, 복구 기능 및 책임 능력을 대폭 향상하는 기능입니다. SWS는 사용자 중심 접근 방식을 통해 환경에 있는 인증된 모든 사용자의 모든 파일 활동을 추적합니다. 고급 분석을 사용하여 모든 사용자에 대한 일반 및 기간별 액세스 패턴을 설정합니다. 이러한 패턴은 랜섬웨어 서명 없이 의심스러운 행동을 신속하게 식별하는 데 사용됩니다.
+
+SWS가 잠재적 랜섬웨어, 데이터 삭제 또는 유출 공격을 감지하면 다음과 같은 자동 조치를 취할 수 있습니다.
+
+* 영향을 받는 볼륨의 스냅샷을 생성합니다.
+* 악의적인 활동으로 의심되는 사용자 계정 및 IP 주소를 차단합니다.
+* 관리자에게 알림을 보냅니다.
+
+
+내부자 위협을 빠르게 차단하고 모든 파일 활동을 추적하기 위해 자동화된 조치를 취할 수 있기 때문에 SWS를 사용하면 랜섬웨어 이벤트에서 훨씬 더 쉽고 빠르게 복구할 수 있습니다. 사용자는 고급 감사 및 포렌식 도구가 내장되어 있어 공격의 영향을 받은 볼륨 및 파일, 공격이 발생한 사용자 계정 및 수행된 악의적인 작업을 즉시 확인할 수 있습니다. 자동 스냅샷은 손상을 완화하고 파일 복원을 가속화합니다.
+
+image:ransomware-solution-attack-results.png["Cloud Insights 스토리지 워크로드 보안 공격 결과"]
+
+ONTAP의 ARP(자율적 랜섬웨어 방어)의 경고도 SWS에서 볼 수 있으므로 ARP와 SWS를 모두 사용하여 랜섬웨어 공격으로부터 보호할 수 있는 단일 인터페이스를 제공합니다.
+
+.자세한 정보
+* https://www.netapp.com/cloud-services/cloud-insights/["NetApp Cloud Insights를 참조하십시오"^]
+

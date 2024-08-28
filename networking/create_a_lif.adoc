@@ -10,7 +10,7 @@ summary: 물리적 또는 논리적 포트와 연결된 IP 주소인 LIF를 생�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

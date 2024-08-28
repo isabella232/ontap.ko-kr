@@ -10,7 +10,7 @@ summary: 네트워크 케이블 연결 모범 사례
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

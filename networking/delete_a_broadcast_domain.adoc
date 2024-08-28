@@ -10,7 +10,7 @@ summary: '불필요한 브로드캐스트 도메인을 삭제합니다. 그러�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

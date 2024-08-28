@@ -10,7 +10,7 @@ summary: 서브넷 주소, 마스크 값, 게이트웨이 주소 또는 IP 주�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

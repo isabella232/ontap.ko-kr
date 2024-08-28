@@ -1,14 +1,14 @@
 ---
 section: anti-ransomware
-title: 랜섬웨어로부터 보호
+title: 자율 랜섬웨어 보호
 entries:
 - title: 개요
   url: "/anti-ransomware/index.html"
 - title: 활용 사례 및 고려 사항
   url: "/anti-ransomware/use-cases-restrictions-concept.html"
-- title: 랜섬웨어 방지 보호 활성화
+- title: 자율주행 랜섬웨어 보호 활성화
   url: "/anti-ransomware/enable-task.html"
-- title: 기본적으로 안티 랜섬웨어 보호를 활성화합니다
+- title: 기본적으로 Autonomous 랜섬웨어 Protection을 활성화합니다
   url: "/anti-ransomware/enable-default-task.html"
 - title: 보호를 일시 중지합니다
   url: "/anti-ransomware/pause-task.html"

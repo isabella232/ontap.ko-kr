@@ -10,7 +10,7 @@ summary: 페일오버되거나 마이그레이션된 후 LIF를 홈 포트로 �
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

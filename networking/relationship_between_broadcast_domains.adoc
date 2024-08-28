@@ -10,7 +10,7 @@ summary: 브로드캐스트 도메인, 페일오버 그룹 및 페일오버 정�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

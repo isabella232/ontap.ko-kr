@@ -10,7 +10,7 @@ summary: 'IPspace는 SVM(스토리지 가상 머신)이 상주하는 고유 IP �
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

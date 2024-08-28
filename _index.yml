@@ -1,5 +1,9 @@
 ---
 indexpage:
+  title: ONTAP 9 설명서
+  summary: System Manager는 ONTAP 클러스터를 쉽게 구성 및 관리할 수 있는 단순하고 유연한 제품입니다. System Manager는
+    볼륨, LUN, Qtree, 공유 및 엑스포트 생성과 같은 공통 스토리지 작업을 간소화합니다. 시간을 절약하고 오류를 방지할 수 있습니다.
+  keywords: ontap, netapp, documentation, system, manager
   lead: 업계 최고의 데이터 관리 소프트웨어인 NetApp ONTAP는 데이터 센터에 클라우드의 간소성과 유연성을 제공하고 데이터 센터의 모든
     엔터프라이즈 기능을 퍼블릭 클라우드에 제공합니다. 이 사이트의 정보를 사용하여 ONTAP를 설정 또는 업그레이드하고 클라이언트에 스토리지를
     프로비저닝하며 System Manager 또는 ONTAP CLI를 사용하여 데이터를 보호 및 관리할 수 있습니다.
@@ -116,8 +120,8 @@ indexpage:
     links:
     - title: 모든 항목
       url: "/security-encryption/index.html"
-    - title: System Manager로 보안을 관리합니다
-      url: "/concept_security_overview.html"
+    - title: NetApp 랜섬웨어 방어 포트폴리오
+      url: "/ransomware-solutions/ransomware-overview.html"
     - title: CLI를 사용하여 관리자 인증 및 RBAC를 관리합니다
       url: "/authentication/index.html"
     - title: NAS 감사 및 보안 추적

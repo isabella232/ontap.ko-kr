@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: ransomware-solutions/ransomware-cyber-vaulting.html 
+keywords: tr-4572, technical report, ransomware, protect, protection, netapp ransomware protection, netapp tr, ontap tr 
+summary: NetApp의 랜섬웨어 보호에는 사이버 보관과 에어갭 WORM 보호 기능이 포함되어 중요한 데이터 백업을 격리합니다. 
+---
+= 사이버 보관을 통한 폭발적 WORM 보호
+:allow-uri-read: 
+
+
+[role="lead"]
+NetApp의 사이버 소산 접근 방식은 논리적으로 에어갭 사이버 틈새를 위해 특별 제작된 참조 아키텍처입니다. 이 접근 방식은 보안 강화 및 SnapLock 같은 규정 준수 기술을 활용하여 변경 불가능하며 지워지지 않는 스냅샷을 허용합니다.
+
+
+
+== SnapLock Compliance과 논리적 격차가 있는 사이버 소산
+
+공격자가 백업 사본을 폐기하고 경우에 따라 암호화하는 경향이 증가하고 있습니다. 따라서 사이버 보안 업계의 많은 기업들이 전반적인 사이버 복원력 전략의 일환으로 에어 갭 백업을 사용하도록 권장합니다.
+
+문제는 기존 공기 격차(테이프 및 오프라인 미디어)가 복원 시간을 크게 증가시켜 가동 중지 시간과 전반적인 관련 비용을 증가시킬 수 있다는 것입니다. 에어 갭 솔루션에 대한 보다 현대적인 접근 방식도 문제가 될 수 있습니다. 예를 들어, 새 백업 복사본을 받기 위해 백업 볼트가 일시적으로 열렸다가 기본 데이터에 대한 네트워크 연결을 끊고 다시 한 번 "공기 차단"하는 경우 공격자는 임시 열기의 이점을 활용할 수 있습니다. 연결이 온라인 상태일 때 공격자는 데이터를 손상시키거나 파괴할 수 있습니다. 이러한 유형의 구성은 일반적으로 원치 않는 복잡성을 가중시킵니다. 논리적 공기 격차는 백업을 온라인 상태로 유지하면서 동일한 보안 보호 원칙을 가지고 있기 때문에 전통적인 또는 현대적인 공기 격차의 훌륭한 대안이 됩니다. NetApp를 사용하면 변경 불가능한 스냅샷 복사본과 NetApp SnapLock Compliance를 통해 논리적 공기 가핑을 사용하여 테이프나 디스크 기핑의 복잡성을 해결할 수 있습니다.
+
+image:ransomware-solution-workload-characteristics2.png["NetApp 사이버 저장소와의 논리적 항공 격차"]
+
+NetApp은 10년 이상 SnapLock 기능을 발표하여 HIPAA(Health Insurance Portability and Accountability Act), 사베인즈 옥슬리(Sarbanes-Oxley) 및 기타 규정 데이터 규정 준수 요구 사항을 해결했습니다. 또한 기본 스냅샷 복사본을 SnapLock 볼륨에 저장하여 복사본을 WORM으로 커밋할 수 있으므로 삭제를 방지할 수 있습니다. SnapLock 라이센스 버전은 SnapLock Compliance 및 SnapLock Enterprise의 두 가지입니다. 랜섬웨어 보호를 위해 NetApp은 ONTAP 관리자 또는 NetApp 지원팀에서도 스냅샷 복사본이 잠겨 있고 삭제할 수 없는 특정 보존 기간을 설정할 수 있으므로 SnapLock Compliance을 권장합니다.
+
+.자세한 정보
+* https://community.netapp.com/t5/Tech-ONTAP-Blogs/Layered-Ransomware-Protection-with-NetApp-s-Cyber-Vault-Solution/ba-p/452660["블로그: NetApp의 Cyber Vault 솔루션을 이용한 계층화된 랜섬웨어 방어"^]
+
+
+
+
+== 변조 방지 스냅샷 복사본
+
+SnapLock Compliance를 논리적 AIR Gap으로 활용하면 공격자가 백업 복사본을 삭제하지 못하도록 궁극의 보호 기능을 제공할 수 있지만, SnapVault을 사용하여 스냅샷 복사본을 2차 SnapLock 지원 볼륨으로 이동해야 합니다. 결과적으로 많은 고객이 네트워크를 통한 보조 스토리지에 이 구성을 구현합니다. 따라서 기본 스토리지에서 기본 볼륨 스냅샷 복사본을 복원하는 것보다 복원 시간이 더 길 수 있습니다.
+
+ONTAP 9.12.1부터 무단 변경 방지 스냅샷 복사본은 기본 스토리지 및 기본 볼륨의 스냅샷 복사본에 대해 SnapLock Compliance 수준에 가까운 보호 기능을 제공합니다. SnapVault를 사용하여 스냅샷 복사본을 보조 SnapLocked 볼륨에 저장할 필요가 없습니다. 변조 방지 스냅샷 복사본은 SnapLock 기술을 사용하여 동일한 SnapLock 보존 만료 기간을 사용하는 전체 ONTAP 관리자가 기본 스냅샷 복사본을 삭제하지 못하도록 방지합니다. 따라서 복원 시간이 빨라지고 무단 변경 방지 및 보호된 스냅샷 복사본으로 FlexClone 볼륨을 백업할 수 있습니다. 기존의 SnapLock Compliance 저장 스냅샷 복사본으로는 할 수 없는 작업입니다.
+
+SnapLock Compliance와 변조 방지 스냅샷 복사본의 중요한 차이점은 만료 날짜에 도달하지 않은 SnapLock Compliance 볼륨에 저장된 Snapshot 복사본이 있다면 SnapLock Compliance에서는 ONTAP 어레이를 초기화하고 초기화할 수 없다는 점입니다. 스냅샷 복사본을 위조 방지가 되도록 하려면 SnapLock Compliance 라이센스가 필요합니다.
+
+.자세한 정보
+* link:../snaplock/snapshot-lock-concept.html["랜섬웨어 공격으로부터 보호하기 위해 스냅샷 복사본을 잠급니다"]
+

@@ -1,5 +1,10 @@
 ---
 indexpage:
+  title: 네트워크 관리
+  summary: 기본 스토리지 네트워크 관리 수행 네트워크 포트 구성, LIF 생성, 라우팅 및 호스트 해상도 서비스 관리, 로드 밸런싱 사용
+    등
+  keywords: network, management, configure, port, lifs, logical, interfaces
+  lead: 기본 스토리지 네트워크 관리 수행 네트워크 포트 구성, LIF 생성, 라우팅 및 호스트 해상도 서비스 관리, 로드 밸런싱 사용 등
   tiles:
   - title: 시작하십시오
     links:

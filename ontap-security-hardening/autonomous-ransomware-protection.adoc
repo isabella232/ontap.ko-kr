@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: ontap-security-hardening/autonomous-ransomware-protection.html 
-keywords: tr-4569, ontap hardening guide, security, ARP, Fpolicy, UBA, ransomware, machine learning, volume workloads, entropy 
+keywords: tr-4569, ontap hardening guide, security, ARP, fpolicy, UBA, ransomware, machine learning, volume workloads, entropy 
 summary: ONTAP의 온박스 머신 러닝 기능은 볼륨 워크로드 및 엔트로피를 기준으로 랜섬웨어를 감지합니다. 
 ---
 = ONTAP 자율 랜섬웨어 방어
@@ -17,4 +17,4 @@ summary: ONTAP의 온박스 머신 러닝 기능은 볼륨 워크로드 및 엔�
 
 NetApp Cloud Insights/Cloud Secure 및 NetApp FPolicy 파트너 에코시스템과 함께 외부 FPolicy 사용자 행동 분석(UBA)을 사용한 랜섬웨어 감지 및 예방과 더불어 ONTAP 9.10.1에는 자율적인 랜섬웨어 방어 기능이 도입되었습니다. ONTAP 자율적 랜섬웨어 방어는 볼륨 워크로드 활동과 데이터 엔트로피를 확인하여 랜섬웨어를 자동으로 탐지하는 내장 머신 러닝(ML) 기능을 사용합니다. UBA와 다른 활동을 모니터링하여 UBA에 없는 공격을 감지할 수 있습니다.
 
-이 기능에 대한 자세한 내용은 또는 을 참조하십시오 link:https://www.netapp.com/pdf.html?item=/media/7334-tr4572pdf.pdf["TR-4572: 랜섬웨어용 NetApp 솔루션"^] link:https://docs.netapp.com/us-en/ontap/anti-ransomware/use-cases-restrictions-concept.html["ONTAP 자율적 랜섬웨어 방어 문서화"^].
+이 기능에 대한 자세한 내용은 link:../ransomware-solutions/ransomware-overview.html["바로 랜섬웨어용 NetApp 솔루션입니다"^] 또는 을 참조하십시오link:../anti-ransomware/use-cases-restrictions-concept.html["ONTAP 자율적 랜섬웨어 방어 문서화"^].

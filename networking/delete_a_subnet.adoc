@@ -10,7 +10,7 @@ summary: 불필요한 서브넷을 제거하고 관련 IP 주소를 할당 취�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: LIF를 동일한 노드의 다른 포트 또는 클러스터 내의 다
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

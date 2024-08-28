@@ -89,3 +89,6 @@ NOTE: SSL 인터페이스 구성을 변경하기 전에 ONTAP에 연결할 때 �
 cluster1::*> security config modify -interface SSL -supported-protocols TLSv1.2 -supported-cipher-suites PSK:DHE:ECDHE:!LOW:!aNULL:!EXP:!eNULL:!3DES:!kDH:!kECDH
 ----
  `y`각 프롬프트에 대해 확인합니다. PFS에 대한 자세한 내용은 다음을 https://blog.netapp.com/protecting-your-data-perfect-forward-secrecy-pfs-with-netapp-ontap/["NetApp 블로그"^]참조하십시오.
+
+.관련 정보
+https://www.netapp.com/esg/trust-center/compliance/fips-140/["FIPS(Federal Information Processing Standard) Publication 140"^]

@@ -1,5 +1,10 @@
 ---
 indexpage:
+  title: 볼륨 관리
+  summary: FlexVol 볼륨 및 LUN을 비롯한 논리적 스토리지를 관리합니다. 볼륨 추가, 삭제, 이동 또는 할당량 관리와 같은 작업을
+    수행합니다.
+  keywords: volume, administration, flexvol, volumes, flexclone, lun, system, manager
+  lead: FlexVol 볼륨 및 LUN을 비롯한 논리적 스토리지를 관리합니다. 볼륨 추가, 삭제, 이동 또는 할당량 관리와 같은 작업을 수행합니다.
   tiles:
   - title: 시작하십시오
     links:

@@ -1,5 +1,10 @@
 ---
 indexpage:
+  title: 클러스터 관리
+  summary: ONTAP 클러스터 및 클러스터 리소스를 관리합니다. 클러스터 생성 및 구성, 네트워크 구성 요소 및 스토리지 오브젝트 관리 등
+  keywords: cluster, administration, systems, disks, aggregates, local, raid, configuration,
+    flashpool, tiers
+  lead: ONTAP 클러스터 및 클러스터 리소스를 관리합니다. 클러스터 생성 및 구성, 네트워크 구성 요소 및 스토리지 오브젝트 관리 등
   tiles:
   - title: 시작하십시오
     links:

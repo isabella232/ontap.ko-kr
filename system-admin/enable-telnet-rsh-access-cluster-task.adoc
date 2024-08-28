@@ -1,7 +1,7 @@
 ---
 permalink: system-admin/enable-telnet-rsh-access-cluster-task.html 
 sidebar: sidebar 
-keywords: enable, telnet, rsh, access, cluster, mgmt, management, service, policy 
+keywords: enable, telnet, rsh, access, cluster, mgmt, management, service, policy, firewall, roles 
 summary: 보안 모범 사례로 Telnet 및 RSH는 기본적으로 비활성화되어 있습니다. 클러스터가 텔넷 또는 RSH 요청을 수락하도록 하려면 기본 관리 서비스 정책에서 서비스를 사용하도록 설정해야 합니다. 
 ---
 = 클러스터에 대한 Telnet 또는 RSH 액세스를 활성화합니다
@@ -14,6 +14,33 @@ summary: 보안 모범 사례로 Telnet 및 RSH는 기본적으로 비활성화�
 [role="lead"]
 보안 모범 사례로 Telnet 및 RSH는 기본적으로 비활성화되어 있습니다. 클러스터가 텔넷 또는 RSH 요청을 수락하도록 하려면 기본 관리 서비스 정책에서 서비스를 사용하도록 설정해야 합니다.
 
+시간이 지남에 따라 ONTAP에서 LIF에서 지원되는 트래픽 유형을 관리하는 방식이 변경되었습니다.
+
+* ONTAP 9 .5 이전 릴리즈에서는 LIF 역할 및 방화벽 서비스를 사용합니다
+* ONTAP 9 .6 이상 릴리즈에서는 LIF 서비스 정책을 사용합니다
++
+** ONTAP 9 .5 릴리스에는 LIF 서비스 정책이 도입되었습니다
+** ONTAP 9 .6은 LIF 역할을 LIF 서비스 정책으로 교체했습니다
+** ONTAP 9.10.1은 방화벽 서비스를 LIF 서비스 정책으로 교체했습니다
+
+
+
+
+구성하는 방법은 사용 중인 ONTAP 릴리스에 따라 다릅니다.
+
+추가 정보:
+
+* 방화벽 정책은 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli//system-services-firewall-policy-show.html["명령: firewall-policy-show"^]
+* LIF 역할은 를 참조하십시오 link:../networking/lif_roles95.html["LIF 역할(ONTAP 9.5 이하)"]
+* LIF 서비스 정책은 을 참조하십시오 link:../networking/lifs_and_service_policies96.html["LIF 및 서비스 정책(ONTAP 9.6 이상)"]
+
+
+Telnet과 RSH는 보안 프로토콜이 아니므로 SSH를 사용하여 클러스터에 액세스하는 것을 고려해야 합니다. SSH는 보안 원격 셸 및 대화형 네트워크 세션을 제공합니다. 자세한 내용은 을 참조하십시오 link:./access-cluster-ssh-task.html["SSH를 사용하여 클러스터에 액세스합니다"]
+
+[role="tabbed-block"]
+====
+.ONTAP 9.6 이상
+--
 .이 작업에 대해
 * RSH는 보안 프로토콜이 아닙니다.
 +
@@ -64,3 +91,38 @@ SSH를 사용하여 클러스터에 액세스하는 것을 고려해야 합니�
 
 
 
+
+--
+.ONTAP 9.5 이하
+--
+.이 작업에 대해
+ONTAP를 사용하면 미리 정의된 방화벽 정책을 변경할 수 없지만 미리 정의된 `mgmt` 관리 방화벽 정책을 복제하고 새 정책에 따라 텔넷 또는 RSH를 활성화하여 새 정책을 만들 수 있습니다.
+
+.단계
+. 고급 권한 모드로 들어갑니다.
++
+진일진일보한 것
+
+. 보안 프로토콜 활성화(RSH 또는 Telnet):
++
+`security protocol modify -application security_protocol -enabled true`
+
+.  `mgmt`관리 방화벽 정책을 기반으로 새 관리 방화벽 정책을 생성합니다.
++
+`system services firewall policy clone -policy _mgmt_ -destination-policy _policy-name_`
+
+. 새 관리 방화벽 정책에서 텔넷 또는 RSH를 활성화합니다.
++
+`system services firewall policy create -policy _policy-name_ -service _security_protocol_ -action allow -ip-list _ip_address/netmask_`
+
++
+모든 IP 주소를 허용하려면 을 지정해야 합니다 `-ip-list _0.0.0.0/0_`
+
+. 새 정책을 클러스터 관리 LIF와 연결합니다.
++
+`network interface modify -vserver cluster_management_LIF -lif cluster_mgmt -firewall-policy policy-name`
+
+
+
+--
+====

@@ -10,7 +10,7 @@ summary: 포트가 다시 케이블로 연결되거나 스위치 구성이 변�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

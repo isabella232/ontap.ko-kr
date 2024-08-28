@@ -1,6 +1,6 @@
 ---
 section: antivirus
-title: 바이러스로부터 보호합니다
+title: Vscan을 통한 바이러스 보호
 entries:
 - title: 개요
   url: "/antivirus/index.html"

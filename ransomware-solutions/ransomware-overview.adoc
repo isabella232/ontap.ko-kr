@@ -1,0 +1,97 @@
+---
+sidebar: sidebar 
+permalink: ransomware-solutions/ransomware-overview.html 
+keywords: tr-4572, technical report, ransomware, netapp ransomware protection, protect, protection, netapp tr, ontap tr, mav, mfa 
+summary: NetApp의 랜섬웨어 방어 기능은 랜섬웨어 공격을 최대한 빠르게 식별 및 감지하고, 확산을 차단하고, 복구하는 데 도움이 될 수 있습니다. 
+---
+= 랜섬웨어 및 NetApp의 보호 포트폴리오
+:allow-uri-read: 
+
+
+[role="lead"]
+랜섬웨어는 2024년에 조직 중단을 초래하는 가장 중요한 위협 중 하나로 남아 있습니다. 에 따르면 https://news.sophos.com/en-us/2024/04/30/the-state-of-ransomware-2024/["Sophos, 2024년 랜섬웨어 상태"^] 랜섬웨어 공격은 설문조사에 참여한 고객의 72%에 영향을 미친 것으로 나타났습니다. 랜섬웨어 공격은 그 영향과 수익을 극대화하기 위해 인공 지능과 같은 고급 기술을 사용하는 위협 공격자로 인해 더 정교하고 타겟이 되도록 진화하고 있습니다.
+
+조직은 경계, 네트워크, ID, 애플리케이션, 데이터가 스토리지 수준에서 어디에 있는지, 그리고 이러한 계층을 안전하게 보호해야 합니다. 스토리지 계층에서 사이버 보호에 대한 데이터 중심의 접근 방식을 채택하는 것은 오늘날의 위협 환경에서 매우 중요합니다. 단일 솔루션으로 모든 공격을 차단할 수는 없지만, 파트너 관계 및 타사를 포함한 솔루션 포트폴리오를 사용하면 계층화된 방어 체계를 구축할 수 있습니다.
+
+는 <<NetApp의 랜섬웨어 방어 포트폴리오,NetApp 제품 포트폴리오에 대해 자세히 살펴봅니다>>가시성, 감지, 해결을 위한 다양한 효과적인 툴을 제공하므로 랜섬웨어를 조기에 탐지하고 확산을 방지하고 필요한 경우 신속하게 복구하여 비용이 많이 드는 다운타임을 방지할 수 있습니다. 기존의 계층화된 방어 솔루션은 가시성과 감지를 위한 타사 및 파트너 솔루션처럼 널리 사용되고 있습니다. 효과적인 치료는 위협에 대한 대응의 중요한 부분입니다. 변경 불가능한 NetApp 스냅샷 기술 및 SnapLock 논리적 AIR GAP 솔루션을 활용하는 고유한 업계 접근법은 업계 차별화 요소이자 랜섬웨어 수정 기능에 대한 업계 모범 사례입니다.
+
+
+NOTE: 2024년 7월부터 이전에 PDF로 게시되었던 NetApp 랜섬웨어 방지 기술 보고서_TR-4572: NetApp 랜섬웨어 방지 _ 의 내용이 다른 ONTAP 제품 설명서와 통합되었습니다.
+
+
+
+== 데이터는 1차 타겟입니다
+
+데이터를 직접 타겟으로 삼는 사이버 범죄자들이 점차 그 가치를 인식하게 되고 있습니다. 경계, 네트워크 및 애플리케이션 보안은 중요하지만 우회할 수 있습니다. 소스에서 데이터를 보호하는 데 중점을 둔 스토리지 계층은 중요한 최종 방어선을 제공합니다. 랜섬웨어 공격의 목표는 운영 데이터에 액세스하여 암호화하거나 액세스할 수 없도록 렌더링하는 것입니다. 이를 위해서는 공격자들이 경계에서 애플리케이션 보안에 이르기까지 오늘날 조직이 배포한 기존의 방어 체계를 이미 뚫어야만 합니다.
+
+image:ransomware-solution-layers.png["경계에서 데이터 보안까지 레이어를 만듭니다"]
+
+안타깝게도 많은 기업들은 데이터 레이어에서 보안 기능을 활용하지 못하고 있습니다. 이것이 바로 NetApp 랜섬웨어 차단 포트폴리오가 제공하는 이유입니다.
+
+
+
+== 랜섬웨어의 실제 비용
+
+몸값 지급 자체는 기업에 미치는 가장 큰 금전적 효과가 아닙니다. 지불액은 중요하지 않지만 랜섬웨어 사고로 인해 발생하는 다운타임 비용과 비교해 볼 수 있습니다.
+
+몸값 지불은 랜섬웨어 이벤트를 처리할 때 복구 비용의 한 요소에 불과합니다. 지불된 모든 랜스를 제외하고, 2024개 조직은 랜섬웨어 공격으로부터 복구하는 평균 비용이 27만 3천 달러로, 2023년 보고된 1.820만 달러에서 거의 100만 달러 https://assets.sophos.com/X24WTUEQ/at/9brgj5n44hqvgsp5f5bqcps/sophos-state-of-ransomware-2024-wp.pdf["2024 Sophos 랜섬웨어 상태"^] 증가했습니다. 전자 상거래, 주식 거래, 의료 등 IT 가용성에 크게 의존하는 조직의 경우 비용이 10배 이상 높을 수 있습니다.
+
+보험 비용은 보험 회사를 대상으로 랜섬웨어 공격이 발생할 가능성이 매우 높기 때문에 지속적으로 증가하고 있습니다.
+
+
+
+== 데이터 계층에서 랜섬웨어 방어
+
+NetApp은 스토리지 계층에서 데이터가 상주하는 위치까지 조직 전체에서 광범위하고 심층적인 보안 태세를 이해합니다. 보안 스택은 복잡하며 기술 스택의 모든 수준에서 보안을 제공해야 합니다.
+
+데이터 레이어에서 실시간 보호가 훨씬 더 중요하고 고유한 요구 사항이 있습니다. 효율성을 높이려면 이 계층의 솔루션이 다음과 같은 중요한 속성을 제공해야 합니다.
+
+* * 보안 설계 * 를 통해 공격 성공 가능성을 최소화합니다
+* * 실시간 감지 및 응답 * 을 통해 공격이 성공할 경우 미치는 영향을 최소화합니다
+* * Air-gapped WORM 보호 * 로 중요한 데이터 백업을 격리합니다
+* * 포괄적인 랜섬웨어 방어를 위한 단일 제어 플레인 *
+
+
+NetApp은 이러한 모든 것을 제공할 수 있습니다.
+
+image:ransomware-solution-benefits.png["주요 특성이 설명된 NetApp 랜섬웨어 차단 포트폴리오"]
+
+
+
+== NetApp의 랜섬웨어 방어 포트폴리오
+
+NetApp는 link:../ransomware-solutions/ransomware-protection.html["랜섬웨어 방지 기능 내장"]중요한 데이터를 실시간으로 강력한 다면적인 방어 기능을 제공합니다. 고급 AI 기반 감지 알고리즘은 데이터 패턴을 지속적으로 모니터링하여 99% 정확성으로 잠재적 랜섬웨어 위협을 신속하게 식별합니다. 공격에 신속하게 대응함으로써 신속하게 데이터를 스냅샷하고 복사본을 보호하여 신속한 복구를 보장합니다.
+
+데이터를 더욱 강화하기 위해 NetApp의 link:../ransomware-solutions/ransomware-cyber-vaulting.html["사이버 보관"] 기능은 논리적 공극으로 데이터를 격리합니다. 중요한 데이터를 보호함으로써 신속한 비즈니스 연속성을 보장합니다.
+
+NetApp는 link:../ransomware-solutions/ransomware-bluexp-protection.html["BlueXP 랜섬웨어 보호"]단일 제어 플레인을 통해 운영 부담을 경감하여 엔드 투 엔드 워크로드 중심의 랜섬웨어 방어를 지능적으로 조정 및 실행하므로 클릭 한 번으로 중요 워크로드 데이터를 식별하고 보호하면서 잠재적 공격의 영향을 줄이고 며칠이 아닌 몇 분 내에 워크로드를 복구할 수 있으므로 중요한 워크로드 데이터를 보호하고 비용이 많이 드는 운영 중단을 최소화할 수 있습니다.
+
+데이터에 대한 무단 액세스를 보호하기 위한 기본 내장 ONTAP 솔루션에는 link:../multi-admin-verify/index.html["다중 관리자 인증(MAV)"]볼륨 삭제, 추가 관리 사용자 생성 또는 스냅샷 복사본 삭제와 같은 작업을 적어도 두 번째 지정된 관리자로부터 승인을 받은 후에만 수행할 수 있는 강력한 기능이 포함되어 있습니다. 따라서 손상되거나 악의적이거나 경험이 부족한 관리자가 원치 않는 변경 또는 데이터 삭제를 방지할 수 있습니다. 지정된 관리자 승인자를 원하는 수만큼 구성하여 스냅샷 복사본을 삭제할 수 있습니다.
+
+
+NOTE: NetApp ONTAP는 https://www.netapp.com/pdf.html?item=/media/17055-tr4647pdf.pdf["다중 요소 인증(MFA)"^] System Manager와 SSH CLI 인증의 웹 기반 요구사항을 해결합니다.
+
+NetApp의 랜섬웨어 방지 기능은 끊임없이 변화하는 위협 환경에서 안심할 수 있도록 제공합니다. 이 포괄적인 접근 방식은 현재의 랜섬웨어 변종을 방어할 뿐만 아니라 새로운 위협에 대응하여 데이터 인프라에 장기적인 보안을 제공합니다.
+
+.다른 보호 옵션에 대해 알아봅니다
+* link:../ransomware-solutions/ransomware-active-iq.html["Active IQ 랜섬웨어 방어"]
+* link:../ransomware-solutions/ransomware-CI-workload-security.html["Cloud Insights 스토리지 워크로드 보안(CISWS)"]
+* link:../ransomware-solutions/ransomware-fpolicy.html["FPolicy를 참조하십시오"]
+* link:../ransomware-solutions/ransomware-snaplock-tamperproof-snapshots.html["SnapLock 및 변조 방지 스냅샷 복사본"]
+
+
+
+
+== 랜섬웨어 복구 보장
+
+NetApp은 랜섬웨어 공격이 발생할 경우 스냅샷 데이터의 복원을 보장합니다. 보장: 스냅샷 데이터 복원을 지원할 수 없는 경우 NetApp이 바로잡을 것입니다. 이 보장은 AFF A-Series, AFF C-Series, ASA 및 FAS 시스템을 새로 구매할 때 사용할 수 있습니다.
+
+.자세한 정보
+* https://www.netapp.com/how-to-buy/sales-terms-and-conditions/additional-terms/ransomware-recovery-guarantee/["복구 보장 서비스 설명"^]
+* https://www.netapp.com/blog/ransomware-recovery-guarantee/["랜섬웨어 복구 보장 블로그"^]..
+
+
+.관련 정보
+* NetApp 지원 사이트 리소스 페이지  http://mysupport.netapp.com/ontap/resources[]
+* NetApp 제품 보안 https://security.netapp.com/resources/[]
+

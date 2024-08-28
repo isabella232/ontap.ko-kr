@@ -1,0 +1,20 @@
+---
+section: ransomware-solutions
+title: NetApp 랜섬웨어 방어 에 관해 알아보십시오
+entries:
+- title: Ransomware 및 NetApp의 보호 포트폴리오
+  url: "/ransomware-solutions/ransomware-overview.html"
+- title: SnapLock 및 변조 방지 스냅샷 복사본
+  url: "/ransomware-solutions/ransomware-snaplock-tamperproof-snapshots.html"
+- title: FPolicy 파일 차단
+  url: "/ransomware-solutions/ransomware-fpolicy.html"
+- title: CI 스토리지 워크로드 보안(CISWS)
+  url: "/ransomware-solutions/ransomware-CI-workload-security.html"
+- title: 자율 랜섬웨어 보호(ARP)
+  url: "/ransomware-solutions/ransomware-protection.html"
+- title: 사이버 보관
+  url: "/ransomware-solutions/ransomware-cyber-vaulting.html"
+- title: Active IQ 랜섬웨어 방어
+  url: "/ransomware-solutions/ransomware-active-iq.html"
+- title: BlueXP 랜섬웨어 보호
+  url: "/ransomware-solutions/ransomware-bluexp-protection.html"

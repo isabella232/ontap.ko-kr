@@ -1,5 +1,12 @@
 ---
 indexpage:
+  title: SAN 스토리지 관리
+  summary: SAN 환경을 구성, 관리 및 보호합니다. LUN 또는 네임스페이스를 생성하고, iSCSI 또는 FC 네트워크를 설정하고, 고가용성
+    및 이중화를 보장합니다.
+  keywords: san, storage, management, administration, iscsi, ha, pairs, nvme, ontap,
+    san, host
+  lead: SAN 환경을 구성, 관리 및 보호합니다. LUN 또는 네임스페이스를 생성하고, iSCSI 또는 FC 네트워크를 설정하고, 고가용성
+    및 이중화를 보장합니다.
   tiles:
   - title: 시작하십시오
     links:

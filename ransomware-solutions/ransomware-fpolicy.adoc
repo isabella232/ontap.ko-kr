@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: ransomware-solutions/ransomware-fpolicy.html 
+keywords: tr-4572, technical report, ransomware, protect, protection, netapp ransomware protection, netapp tr, ontap tr 
+summary: NetApp의 랜섬웨어 방어에 포함된 FPolicy는 원치 않는 파일이 엔터프라이즈급 스토리지 어플라이언스에 저장되지 않도록 차단합니다. 
+---
+= FPolicy 파일 차단
+:allow-uri-read: 
+
+
+[role="lead"]
+FPolicy는 원치 않는 파일이 엔터프라이즈급 스토리지 어플라이언스에 저장되지 않도록 차단합니다. 또한 FPolicy는 알려진 랜섬웨어 파일 확장자를 차단하는 방법을 제공합니다. 사용자는 여전히 홈 폴더에 대한 모든 액세스 권한을 가지고 있지만 FPolicy는 관리자가 차단으로 표시한 파일을 사용자가 저장할 수 없도록 합니다. 해당 파일이 MP3 파일 또는 알려진 랜섬웨어 파일 확장자인지 여부는 중요하지 않습니다.
+
+
+
+== FPolicy 기본 모드로 악성 파일 차단
+
+NetApp FPolicy 기본 모드(파일 정책 이라는 이름의 진화)는 파일 확장 차단 프레임워크로, 원치 않는 파일 확장명이 사용자 환경에 유입되는 것을 차단할 수 있습니다. 10년 이상 ONTAP의 일부였으며 랜섬웨어로부터 보호하는 데 매우 유용합니다. 이 제로 트러스트 엔진은 액세스 제어 목록(ACL) 권한을 넘어서는 추가 보안 조치를 취하기 때문에 유용합니다.
+
+ONTAP 시스템 관리자 및 BlueXP 에서는 3000개 이상의 파일 확장자 목록을 참조할 수 있습니다.
+
+
+WARNING: 일부 확장은 사용자의 환경에서 합법적일 수 있으며 이러한 확장을 차단하면 예기치 않은 문제가 발생할 수 있습니다. 기본 FPolicy를 구성하기 전에 환경에 적합한 목록을 생성하십시오.
+
+FPolicy 기본 모드는 모든 ONTAP 라이센스에 포함되어 있습니다.
+
+.자세한 정보
+* https://www.netapp.com/blog/fighting-ransomware-tools/["블로그: 랜섬웨어에 대항하기: 3부 - 강력한 기본(무료) 툴인 ONTAP FPolicy"^]
+
+
+
+
+== FPolicy 외부 모드로 사용자 및 엔터티 행동 분석(UEBA)을 설정합니다
+
+FPolicy 외부 모드는 파일 활동 알림 및 제어 프레임워크로, 파일 및 사용자 활동에 대한 가시성을 제공합니다. 이러한 알림은 외부 솔루션에서 AI 기반 분석을 수행하여 악의적인 행동을 감지하는 데 사용할 수 있습니다.
+
+특정 작업이 수행되도록 허용하기 전에 FPolicy 서버의 승인을 기다리도록 FPolicy 외부 모드도 구성할 수 있습니다. 이와 같은 여러 정책을 클러스터에서 구성할 수 있으므로 유연성이 크게 향상됩니다.
+
+
+WARNING: FPolicy 서버는 승인을 제공하도록 구성된 경우 FPolicy 요청에 응답해야 합니다. 그렇지 않으면 스토리지 시스템 성능이 저하될 수 있습니다.
+
+FPolicy 외부 모드가 에 포함되어 link:../system-admin/manage-licenses-concept.html["모든 ONTAP 라이센스"]있습니다.
+
+.자세한 정보
+* https://www.netapp.com/blog/fighting-ransomware-ontap-fpolicy/["블로그: 랜섬웨어에 대항하기: 4부 - FPolicy 외부 모드를 사용하는 UBA 및 ONTAP"^]
+

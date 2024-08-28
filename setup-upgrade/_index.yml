@@ -1,5 +1,11 @@
 ---
 indexpage:
+  title: ONTAP 소프트웨어 및 펌웨어의 설정, 업그레이드 및 되돌리기
+  summary: 새로운 ONTAP 클러스터를 설정하거나, 호환성 및 구성 검사로 소프트웨어 업그레이드를 수행하거나, 이전 ONTAP 릴리즈로 되돌릴
+    수 있습니다.
+  keywords: upgrade, revert, ontap, firmware, cluster
+  lead: 새로운 ONTAP 클러스터를 설정하거나, 호환성 및 구성 검사로 소프트웨어 업그레이드를 수행하거나, 이전 ONTAP 릴리즈로 되돌릴
+    수 있습니다.
   tiles:
   - title: 시작하십시오
     links:

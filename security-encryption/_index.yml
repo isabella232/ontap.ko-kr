@@ -1,10 +1,13 @@
 ---
 indexpage:
+  title: 보안 및 데이터 암호화
+  summary: 클러스터 보안 관리 ONTAP 표준 방법을 사용하여 클라이언트 및 관리자 스토리지 액세스를 보호하고 바이러스로부터 보호합니다.
+  keywords: security, data, encryption, authentication, rbac, system, manager, active,
+    directory
+  lead: 클러스터 보안 관리 ONTAP 표준 방법을 사용하여 클라이언트 및 관리자 스토리지 액세스를 보호하고 바이러스로부터 보호합니다.
   tiles:
   - title: 시작하십시오
     links:
-    - title: 보안 개요
-      url: "/../concept_security_overview.html"
     - title: 인증 및 RBAC 개요
       url: "/../authentication/index.html"
     - title: 자율 랜섬웨어 보호 개요
@@ -53,7 +56,9 @@ indexpage:
       url: "/../nas-audit/interpret-security-trace-results-concept.html"
   - title: 랜섬웨어 보호
     links:
-    - title: 사용 사례 및 제한사항
+    - title: NetApp의 랜섬웨어 방어 포트폴리오
+      url: "/../ransomware-solutions/ransomware-overview.html"
+    - title: 자율적 랜섬웨어 보호 사용 사례 및 제한 사항
       url: "/../anti-ransomware/use-cases-restrictions-concept.html"
     - title: 자율주행 랜섬웨어 보호 활성화
       url: "/../anti-ransomware/enable-task.html"
@@ -83,12 +88,10 @@ indexpage:
       url: "/../zero-trust/zero-trust-cloud-deployments.html"
   - title: 더 많은 리소스
     links:
-    - title: 'TR-4569: NetApp ONTAP 9에 대한 보안 강화'
-      url: https://www.netapp.com/pdf.html?item=/media/10674-tr4569.pdf
+    - title: ONTAP 보안 강화
+      url: "/../ontap-security-hardening/security-hardening-overview.html"
     - title: VMware vSphere용 ONTAP 툴에 대한 보안 강화 가이드
       url: https://docs.netapp.com/us-en/ontap-apps-dbs/vmware/vmware-otv-hardening-overview.html
-    - title: 'TR-4572: 랜섬웨어용 NetApp 솔루션'
-      url: https://www.netapp.com/media/7334-tr4572.pdf
     - title: 고객을 위한 제로 트러스트 랩 온 디맨드(Securing ONTAP with Zero Trust Lab on Demand)를
         사용해 보십시오
       url: https://labondemand.netapp.com/lab/securing-ontap-zero-trust-hol

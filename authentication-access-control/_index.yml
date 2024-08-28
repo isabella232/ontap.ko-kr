@@ -1,5 +1,10 @@
 ---
 indexpage:
+  title: 인증 및 액세스 제어
+  summary: ONTAP 클러스터 인증 및 ONTAP 웹 서비스에 대한 액세스 제어를 관리합니다.
+  keywords: authentication, access, control, cluster, kmip, server, audit, security,
+    tracing
+  lead: ONTAP 클러스터 인증 및 ONTAP 웹 서비스에 대한 액세스 제어를 관리합니다.
   tiles:
   - title: 시작하십시오
     links:
@@ -61,8 +66,8 @@ indexpage:
       url: "/../system-admin/install-ca-signed-client-certificate-kmip-server-task.html"
   - title: 더 많은 리소스
     links:
-    - title: 'TR-4569: NetApp ONTAP 9에 대한 보안 강화'
-      url: https://www.netapp.com/pdf.html?item=/media/10674-tr4569.pdf
+    - title: ONTAP 보안 강화
+      url: "/../ontap-security-hardening/security-hardening-overview.html"
     - title: 고객을 위한 제로 트러스트 랩 온 디맨드(Securing ONTAP with Zero Trust Lab on Demand)를
         사용해 보십시오
       url: https://labondemand.netapp.com/lab/securing-ontap-zero-trust-hol

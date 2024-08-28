@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: ransomware-solutions/ransomware-protection.html 
+keywords: tr-4572, technical report, ransomware, protect, protection, netapp ransomware protection, netapp tr, ontap tr 
+summary: NetApp의 랜섬웨어 보호에는 실시간 AI 기반 감지 및 응답이 포함되어 있습니다. 
+---
+= NetApp ONTAP 내장형 AI 기반 감지 및 응답 기능
+:allow-uri-read: 
+
+
+[role="lead"]
+랜섬웨어 위협이 점점 더 정교해짐에 따라 방어 메커니즘도 갖춰져야 합니다. NetApp의 ARP(자율 랜섬웨어 방어)는 ONTAP에 내장된 지능형 이상 징후 감지 기능을 갖춘 AI를 기반으로 합니다. 이를 통해 사이버 레질리언스에 또 다른 방어 계층을 추가합니다.
+
+ARP 및 ARP/AI는 ONTAP 내장 관리 인터페이스인 System Manager를 통해 구성할 수 있으며 볼륨별로 활성화됩니다.
+
+
+
+== 자율 랜섬웨어 보호(ARP)
+
+9.10.1 이후 내장된 또 다른 네이티브 ONTAP 솔루션인 ARP(자율 랜섬웨어 방어)는 NAS 스토리지 볼륨 워크로드 파일 활동 및 데이터 엔트로피를 연구하여 잠재적 랜섬웨어를 자동으로 감지합니다. ARP는 관리자에게 전례 없는 온박스(on-box) 잠재적인 랜섬웨어 감지를 위한 실시간 감지, 인사이트 및 데이터 복구 지점을 제공합니다.
+
+ARP를 지원하는 ONTAP 9.15.1 및 이전 버전의 경우 ARP는 일반적인 작업 부하 데이터 활동을 학습하기 위해 학습 모드에서 시작됩니다. 대부분의 환경에서 이 작업에는 7일이 걸릴 수 있습니다. 학습 모드가 완료되면 ARP가 자동으로 활성 모드로 전환되어 랜섬웨어가 될 수 있는 비정상적인 워크로드 활동을 찾기 시작합니다.
+
+비정상적인 활동이 감지되면 스냅샷 자동 복사본이 즉시 생성되므로 감염된 데이터를 최소화하면서 공격 시간에 최대한 가까운 복원 지점을 제공합니다. 이와 동시에 관리자가 비정상적인 파일 활동을 확인할 수 있도록 자동 경고(구성 가능)가 생성되므로 해당 활동이 실제로 악의적인지 확인하고 적절한 조치를 취할 수 있습니다.
+
+작업이 예상 작업량인 경우 관리자는 이를 가양성 작업으로 쉽게 표시할 수 있습니다. ARP는 이 변경 사항을 정상적인 워크로드 활동으로 인식하여 앞으로 발생할 수 있는 공격 대상으로 더 이상 플래그를 지정하지 않습니다.
+
+ARP를 활성화하려면 link:../system-admin/manage-licenses-concept.html["ONTAP 1 을 참조하십시오"]라이센스가 필요합니다.
+
+.자세한 정보
+* link:../anti-ransomware/index.html["자율 랜섬웨어 보호"]
+
+
+
+
+== 자율 랜섬웨어 방어/AI(ARP/AI)
+
+ONTAP 9.15.1에서 기술 미리보기로 소개된 ARP/AI는 NAS 스토리지 시스템을 온박스 실시간 감지를 한 차원 높여줍니다. 새로운 AI 기반 감지 기술은 100만 개 이상의 파일과 알려진 다양한 랜섬웨어 공격에 대해 훈련됩니다. ARP에서 사용되는 신호 외에 ARP/AI는 헤더 암호화도 감지합니다. AI 출력 및 추가 신호를 통해 ARP/AI는 99% 이상의 검출 정확도를 제공할 수 있습니다. 이는 ARP/AI가 AAA 등급에서 가장 높은 등급을 받은 독립 테스트 연구소인 SE Labs에 의해 검증되었습니다.
+
+모델을 지속적으로 클라우드에서 훈련하기 때문에 ARP/AI는 학습 모드가 필요하지 않습니다. 이 기능은 켜지는 순간 활성화됩니다. 또한 지속적인 훈련은 새로운 랜섬웨어 공격이 발생했을 때 ARP/AI가 항상 검증된다는 것을 의미합니다. ARP/AI에는 모든 고객에게 새로운 매개 변수를 제공하여 랜섬웨어 탐지를 최신 상태로 유지하는 자동 업데이트 기능도 제공됩니다. ARP의 다른 모든 탐지, 인사이트 및 데이터 복구 지점 기능은 ARP/AI에 대해 유지됩니다.
+
+ARP/AI를 활성화하려면 link:../system-admin/manage-licenses-concept.html["ONTAP 1 을 참조하십시오"]라이센스가 필요합니다.
+
+.자세한 정보
+* https://community.netapp.com/t5/Tech-ONTAP-Blogs/NetApp-s-AI-based-real-time-ransomware-detection-solution-achieves-AAA-rating/ba-p/453379["블로그:NetApp의 AI 기반 실시간 랜섬웨어 감지 솔루션은 AAA 등급을 획득했습니다"^]
+

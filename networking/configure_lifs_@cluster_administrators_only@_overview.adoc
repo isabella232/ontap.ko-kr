@@ -10,7 +10,7 @@ summary: LIF 구성을 소개합니다
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

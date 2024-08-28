@@ -1,5 +1,10 @@
 ---
 indexpage:
+  title: 데이터 보호 및 재해 복구
+  summary: 데이터 보호를 구성하고 관리합니다. 스냅샷 복사본, 미러, 보관소를 생성 및 관리하고 재해 복구에 SnapMirror 기술을 사용합니다.
+  keywords: data, protection, disaster, recovery, cluster, svm, snaplock, tape, backup,
+    system, manager, peering
+  lead: 데이터 보호를 구성하고 관리합니다. 스냅샷 복사본, 미러, 보관소를 생성 및 관리하고 재해 복구에 SnapMirror 기술을 사용합니다.
   tiles:
   - title: 시작하십시오
     links:

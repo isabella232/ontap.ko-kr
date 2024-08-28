@@ -10,7 +10,7 @@ summary: 서브넷을 생성할 때 IP 주소를 추가하거나 기존 서브�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

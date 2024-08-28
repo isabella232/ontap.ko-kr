@@ -10,7 +10,7 @@ summary: 특성을 변경하여 LIF를 수정합니다
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
