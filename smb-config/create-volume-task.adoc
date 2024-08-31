@@ -8,13 +8,9 @@ summary: 볼륨 생성 명령을 사용하여 볼륨을 생성하고 해당 접�
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
-:firstname: *
-:author: *
-:authorinitials: *
-:authors: *
-:revdate: [.lead]
 
 
+[role="lead"]
 볼륨을 생성하고 "volume create" 명령을 사용하여 해당 접합 지점 및 기타 속성을 지정할 수 있습니다.
 
 .이 작업에 대해

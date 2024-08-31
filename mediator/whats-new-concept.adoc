@@ -38,6 +38,7 @@ ONTAP 중재자의 새로운 개선 사항은 각 릴리스에 제공됩니다. 
  a| 
 * RHEL 8.5, 8.6, 8.7, 8.8, 8.9 지원 9.0, 9.1, 9.2 및 9.3
 * Rocky Linux 8 및 9 지원
+* 자체 서명된 인증서 및 타사 서명 인증서의 SAN(주체 대체 이름) 데이터 지원
 
 
 
@@ -655,6 +656,43 @@ Rocky Linux 8
 * ONTAP 중재자 1.6은 Rocky Linux 8 및 9에 대한 지원을 추가합니다.
 
 
+
+
+== SCST 지원 매트릭스
+
+다음 표는 ONTAP mediator의 각 버전에 대해 지원되는 SCST 버전을 보여줍니다.
+
+[cols="2*"]
+|===
+| ONTAP 중재자 버전 | 지원되는 SCST 버전입니다 
+
+
+| ONTAP 중재자 1.8 | scst-3.8.0.tar.bz2 
+
+
+| ONTAP 중재자 1.7 | scst - 3.7.0.tar.bz2 
+
+
+| ONTAP 중재자 1.6 | scst - 3.7.0.tar.bz2 
+
+
+| ONTAP 중재자 1.5 | scst - 3.6.0.tar.bz2 
+
+
+| ONTAP 중재자 1.4 | scst - 3.6.0.tar.bz2 
+
+
+| ONTAP 중재자 1.3 | scst - 3.5.0.tar.bz2 
+
+
+| ONTAP 중재자 1.2 | scst - 3.4.0.tar.bz2 
+
+
+| ONTAP 중재자 1.1 | scst - 3.4.0.tar.bz2 
+
+
+| ONTAP 중재자 1.0 | scst - 3.3.0.tar.bz2 
+|===
 
 
 == 해결된 문제

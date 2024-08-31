@@ -385,7 +385,10 @@ uninstall_ontap_중재자
 
 == 자체 서명된 임시 인증서를 다시 생성합니다
 
-다음 절차를 사용하여 임시 자체 서명된 인증서를 다시 생성할 수 있습니다.
+ONTAP mediator 1.7부터 다음 절차에 따라 자체 서명된 임시 인증서를 다시 생성할 수 있습니다.
+
+
+NOTE: 이 절차는 ONTAP mediator 1.7 이상을 실행하는 시스템에서만 지원됩니다.
 
 .이 작업에 대해
 * ONTAP 중재자 서비스가 설치된 Linux 호스트에서 이 작업을 수행합니다.
@@ -429,11 +432,15 @@ Getting CA Private Key
 
 == 자체 서명된 인증서를 신뢰할 수 있는 타사 인증서로 바꿉니다
 
-
-CAUTION: 타사 인증서는 특정 ONTAP 버전의 ONTAP 중재자에서만 지원됩니다. 을 참조하십시오 link:https://mysupport.netapp.com/site/bugs-online/product/ONTAP/JiraNgage/CONTAP-243278["NetApp 버그 온라인 버그 ID CONTAP-243278"^]
-
 지원되는 경우 자체 서명된 인증서를 신뢰할 수 있는 타사 인증서로 바꿀 수 있습니다.
 
+[CAUTION]
+====
+* 타사 인증서는 특정 ONTAP 버전의 ONTAP 중재자에서만 지원됩니다. 을 link:https://mysupport.netapp.com/site/bugs-online/product/ONTAP/JiraNgage/CONTAP-243278["NetApp 버그 온라인 버그 ID CONTAP-243278"^]참조하십시오.
+* 타사 인증서는 ONTAP mediator 1.7 이상을 실행하는 시스템에서만 지원됩니다.
+
+
+====
 .이 작업에 대해
 * ONTAP 중재자 서비스가 설치된 Linux 호스트에서 이 작업을 수행합니다.
 * 생성된 자체 서명된 인증서를 신뢰할 수 있는 하위 CA(인증 기관)에서 가져온 인증서로 교체해야 하는 경우 이 작업을 수행할 수 있습니다. 이렇게 하려면 신뢰할 수 있는 PKI(공개 키 인프라) 권한에 액세스할 수 있어야 합니다.

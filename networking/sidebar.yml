@@ -238,8 +238,6 @@ entries:
     entries:
     - title: 개요
       url: "/networking/configure_qos_marking_@cluster_administrators_only@_overview.html"
-    - title: UC 규정 준수를 위한 DSCP 표시
-      url: "/networking/dscp_marking_for_uc_compliance.html"
     - title: QoS 표시 값을 수정합니다
       url: "/networking/modify_qos_marking_values.html"
     - title: QoS 표시 값을 표시합니다
