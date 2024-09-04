@@ -34,7 +34,7 @@ System Manager 또는 ONTAP CLI를 사용하여 미러 관계를 생성할 수 �
 ====
 .시스템 관리자
 --
-. 이 스토리지 VM의 첫 번째 S3 SnapMirror 관계인 경우, 소스 및 대상 스토리지 VM 모두에 대해 루트 사용자 키가 있는지 확인하고 그렇지 않은 경우 다시 생성하십시오.
+. 이 스토리지 VM에 대한 첫 번째 SnapMirror S3 관계인 경우 소스 및 대상 스토리지 VM에 대한 루트 사용자 키가 있는지 확인하고 그렇지 않은 경우 다시 생성하십시오.
 +
 .. 스토리지 > 스토리지 VM * 을 선택한 다음 스토리지 VM을 선택합니다.
 .. 설정 * 탭에서 * S3 * 타일을 클릭합니다 image:icon_pencil.gif["편집 아이콘"] .
@@ -46,13 +46,13 @@ System Manager 또는 ONTAP CLI를 사용하여 미러 관계를 생성할 수 �
 +
 을 참조하십시오 link:../task_object_provision_add_s3_users_groups.html["S3 사용자 및 그룹 추가"] 를 참조하십시오.
 
-. 기존 S3 SnapMirror 정책이 없고 기본 정책을 사용하지 않으려는 경우 소스 클러스터에서 S3 SnapMirror 정책을 생성합니다.
+. 기존 정책이 없고 기본 정책을 사용하지 않으려는 경우 소스 클러스터에서 SnapMirror S3 정책을 생성합니다.
 +
 .. 보호 > 개요 * 를 선택한 다음 * 로컬 정책 설정 * 을 클릭합니다.
 .. 보호 정책 * 옆에 있는 을 image:../media/icon_arrow.gif["화살표 아이콘"] 선택한 다음 * 추가 * 를 클릭합니다.
 .. 정책 이름과 설명을 입력합니다.
 .. 클러스터 또는 SVM에서 정책 범위를 선택합니다.
-.. S3 SnapMirror 관계에 대해 * Continuous * 를 선택합니다.
+.. SnapMirror S3 관계에 대해 * 지속적 * 을 선택합니다.
 .. 스로틀 * 및 * 복구 지점 목표 * 값을 입력합니다.
 
 
@@ -76,7 +76,7 @@ GetObject,PutObject,DeleteObject,ListBucket,GetBucketAcl,GetObjectAcl,ListBucket
 
 
 
-. S3 SnapMirror 보호로 기존 버킷 보호:
+. SnapMirror S3 보호로 기존 버킷 보호:
 +
 .. 스토리지 * > * 버킷 * 을 클릭한 다음 보호할 버킷을 선택합니다.
 .. 보호 * 를 클릭하고 다음 값을 입력합니다.
@@ -113,7 +113,9 @@ ONTAP 9.14.1부터는 잠긴 S3 버킷을 백업하고 필요에 따라 복원�
 --
 .CLI를 참조하십시오
 --
-. 이 SVM에서 처음으로 S3 SnapMirror 관계를 구축할 경우, 소스 및 타겟 SVM 모두에 루트 사용자 키가 있는지 확인하고 그렇지 않을 경우 다시 생성하십시오. 'vserver object-store-server user show' + 루트 사용자에 대한 액세스 키가 있는지 확인하십시오. 그렇지 않은 경우 다음을 입력합니다. 'vserver object-store-server user reenate-keys-vserver_svm_name_-user_root_'+키가 이미 있는 경우 키를 다시 생성하지 마십시오.
+. 이 SVM에 대한 첫 번째 SnapMirror S3 관계인 경우, 소스 및 타겟 SVM에 대한 루트 사용자 키가 있는지 확인하고 그렇지 않은 경우
+`vserver object-store-server user show` 루트 사용자 키를 다시 생성하십시오. + 루트 사용자에 대한 액세스 키가 있는지 확인하십시오. 이 없으면 다음을 입력합니다
+`vserver object-store-server user regenerate-keys -vserver _svm_name_ -user _root_`. + 키가 이미 있는 경우 키를 다시 생성하지 마십시오.
 . 대상 SVM에서 미러 타겟으로 사용할 버킷을 생성합니다.
 +
 'vserver object-store-server bucket create-vserver_svm_name_-bucket_dest_bucket_name_[-size_integer_[KB|MB|GB|TB|PB][-comment_text_][_additional_options_]'
@@ -128,7 +130,7 @@ ONTAP 9.14.1부터는 잠긴 S3 버킷을 백업하고 필요에 따라 복원�
 ----
 src_cluster::> vserver object-store-server bucket policy add-statement -bucket test-bucket -effect allow -action GetObject,PutObject,DeleteObject,ListBucket,GetBucketAcl,GetObjectAcl,ListBucketMultipartUploads,ListMultipartUploadParts -principal - -resource test-bucket, test-bucket /*
 ----
-. 기존 S3 SnapMirror 정책이 없고 기본 정책을 사용하지 않으려는 경우 소스 SVM에서 S3 SnapMirror 정책을 생성합니다.
+. 기존 정책이 없고 기본 정책을 사용하지 않으려는 경우 소스 SVM에서 SnapMirror S3 정책을 생성합니다.
 +
 '스냅샷 정책 생성 - vserver svm_name - policy policy_name - type continuous [-RPO_integer_] [-throttle_throttle_type_] [-comment_text_] [_additional_options_]'
 
@@ -136,7 +138,7 @@ src_cluster::> vserver object-store-server bucket policy add-statement -bucket t
 매개 변수:
 
 +
-** '연속' – S3 SnapMirror 관계에 대한 유일한 정책 유형(필수).
+** `continuous` – SnapMirror S3 관계에 대한 유일한 정책 유형(필수).
 ** '-RPO' – 복구 시점 목표의 시간을 초 단위로 지정합니다(선택 사항).
 ** '-throttle' – 처리량/대역폭의 상한값을 킬로바이트/초 단위로 지정합니다(선택 사항).
 +
@@ -156,7 +158,7 @@ src_cluster::> snapmirror policy create -vserver vs0 -type continuous -rpo 0 -po
 
 
 
-. 소스 SVM에서 S3 SnapMirror 관계를 생성합니다.
+. 소스 SVM에서 SnapMirror S3 관계를 생성합니다.
 +
 '스냅미러 create-source-path_src_svm_name_:/bucket/_bucket_name_-destination-path dest_peer_svm_name:/bucket/_bucket_name_,...} [-policy policy_name]'입니다
 

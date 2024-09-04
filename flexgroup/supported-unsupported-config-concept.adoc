@@ -275,7 +275,7 @@ FlexGroup 볼륨은 여러 ONTAP 기능을 지원하며 ONTAP 9.1에 도입되�
  a| 
 * SnapLock 볼륨(ONTAP 9.10.1 이하)
 * SMTape
-* 동기 SnapMirror
+* SnapMirror 동기식
 * FabricPools를 포함하는 FlexGroup 볼륨을 지원하는 SVM DR(ONTAP 9.11.1 이하)
 
  a| 

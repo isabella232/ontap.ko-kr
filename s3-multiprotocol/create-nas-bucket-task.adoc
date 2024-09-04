@@ -33,7 +33,7 @@ SVM의 루트 디렉토리 내에 모든 파일 및 디렉토리 세트를 지�
 S3 NAS “버킷”은 맵핑이며 S3 버킷이 아니기 때문에 표준 S3 버킷의 다음 속성은 S3 NAS 버킷에 적용되지 않습니다.
 
 * * aggr-list\aggr-list-multiplier\storage-service-level\volume\size\exclude-aggr-list\QoS-policy-group * + S3 NAS 버킷을 구성할 때 볼륨 또는 qtree가 생성되지 않습니다.
-* 역할 * 이 보호됨\is-protected-on-ONTAP\is-protected-on-cloud * + S3 NAS 버킷은 S3 SnapMirror를 사용하여 보호되거나 미러링되지 않지만 볼륨 단위로 제공되는 일반 SnapMirror 보호를 사용합니다.
+* * 역할 \ is-protected\ is-protected-on-ONTAP\ is-protected-on-cloud * + S3 NAS 버킷은 SnapMirror S3를 사용하여 보호 또는 미러링되지 않지만 볼륨 단위로 제공되는 정기적인 SnapMirror 보호를 사용합니다.
 * * 버전 관리 상태 * + NAS 볼륨에는 일반적으로 서로 다른 버전을 저장할 수 있는 스냅샷 기술이 있습니다. 그러나 버전 관리는 현재 S3 NAS 버킷에서 사용할 수 없습니다.
 * 볼륨 명령을 통해 NAS 볼륨에 대해 * logical-used\object-count * + 등가 통계를 사용할 수 있습니다.
 

@@ -29,7 +29,7 @@ adaptive QoS_policy 그룹을 사용하면 볼륨 크기가 변경될 때 IOPS�
 +
 [NOTE]
 ====
-AFF 플랫폼에서만 '예상 IOPS'를 보장할 수 있습니다. 계층화 정책이 "없음"으로 설정되고 클라우드에 블록이 없는 경우에만 FabricPool에 대해 '예상 IOPS'가 보장됩니다. SnapMirror Synchronous 관계에 있지 않은 볼륨에 대해서는 예상 IOPS가 보장됩니다.
+ `expected-iops` 는 AFF 플랫폼에서만 보장됩니다. `expected-iops` 계층화 정책이 "없음"으로 설정되어 있고 클라우드에 블록이 없는 경우에만 FabricPool에 대해 보장됩니다. `expected-iops` SnapMirror 동기식 관계에 없는 볼륨에 대해 보장합니다.
 
 ====
 * 'peak-IOPS'는 할당 또는 사용된 TB|GB당 가능한 최대 IOPS입니다.

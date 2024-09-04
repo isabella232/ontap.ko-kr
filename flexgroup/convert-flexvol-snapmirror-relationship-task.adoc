@@ -14,7 +14,7 @@ summary: FlexVol 볼륨 SnapMirror 관계를 ONTAP에서 FlexGroup 볼륨 SnapMi
 FlexVol 볼륨 SnapMirror 관계를 ONTAP에서 FlexGroup 볼륨 SnapMirror 관계로 변환하려면 먼저 대상 FlexVol 볼륨을 변환한 다음 소스 FlexVol 볼륨을 변환해야 합니다.
 
 .이 작업에 대해
-* FlexGroup 변환은 비동기식 SnapMirror 관계에만 지원됩니다.
+* FlexGroup 변환은 SnapMirror 비동기 관계에 대해서만 지원됩니다.
 * 변환 시간은 여러 변수에 따라 달라집니다. 일부 변수는 다음과 같습니다.
 +
 ** 컨트롤러의 CPU입니다

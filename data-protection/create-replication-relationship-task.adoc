@@ -105,7 +105,7 @@ DP를 명시적으로 호출하지 않으면 이 옵션은 무시됩니다.
 
 ONTAP 9.3 이전 버전에서는 타겟 볼륨에 최대 251개의 스냅샷 복사본이 포함될 수 있습니다. ONTAP 9.4 이상에서 타겟 볼륨에는 최대 1019개의 스냅샷 복사본이 포함될 수 있습니다.
 
-ONTAP 9.5부터는 SnapMirror Synchronous 관계가 지원됩니다.
+ONTAP 9.5부터 SnapMirror 동기식 관계가 지원됩니다.
 
 ONTAP 9.14.1부터, `-backoff-level` 및 명령에 옵션이 추가되어 `snapmirror create` `snapmirror modify` `snapmirror restore` 관계별 백오프 레벨을 지정할 수 있습니다. 이 옵션은 FlexVol SnapMirror 관계에서만 지원됩니다. 선택적 명령은 클라이언트 작업에 따른 SnapMirror 백 오프 레벨을 지정합니다. Backoff 값은 high, medium 또는 none일 수 있습니다. 기본값은 high 입니다.
 
@@ -141,7 +141,7 @@ snapmirror create -source-path <SVM:volume> -destination-path <SVM:volume> -type
 
 +
 
-NOTE: SnapMirror Synchronous 관계를 생성할 때는 '예약' 매개 변수를 사용할 수 없습니다.
+NOTE:  `schedule`매개 변수는 SnapMirror 동기식 관계를 생성할 때 적용할 수 없습니다.
 
 +
 다음 예에서는 기본 'MirorLatest' 정책을 사용하여 SnapMirror DR 관계를 생성합니다.
@@ -176,7 +176,7 @@ cluster_dst:> snapmirror create -source-path svm1:volA -destination-path svm_bac
 cluster_dst::> snapmirror create -source-path svm1:volA -destination-path svm_backup:volA_dst -type XDP -schedule my_daily -policy my_unified
 ----
 +
-다음 예에서는 기본 '동기화' 정책을 사용하여 SnapMirror Synchronous 관계를 생성합니다.
+다음 예에서는 기본 `Sync` 정책을 사용하여 SnapMirror 동기식 관계를 생성합니다.
 
 +
 [listing]
@@ -184,7 +184,7 @@ cluster_dst::> snapmirror create -source-path svm1:volA -destination-path svm_ba
 cluster_dst::> snapmirror create -source-path svm1:volA -destination-path svm_backup:volA_dst -type XDP -policy Sync
 ----
 +
-다음 예에서는 기본 'trictSync' 정책을 사용하여 SnapMirror Synchronous 관계를 생성합니다.
+다음 예에서는 기본 `StrictSync` 정책을 사용하여 SnapMirror 동기식 관계를 생성합니다.
 
 +
 [listing]
@@ -216,7 +216,7 @@ cluster_dst::> snapmirror create -source-path svm1:volA -destination-path svm_ba
 cluster_dst::> snapmirror create -source-path svm1:volA -destination-path svm_backup:volA_dst -type XDP -schedule my_daily
 ----
 +
-다음 예에서는 사전 정의된 정책 'apCenterSync'와 SnapMirror Synchronous 관계를 생성합니다.
+다음 예에서는 사전 정의된 정책과 SnapMirror 동기식 관계를 `SnapCenterSync` 생성합니다.
 
 +
 [listing]

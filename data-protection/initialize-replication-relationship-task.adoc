@@ -21,7 +21,7 @@ link:../peering/index.html["클러스터 및 SVM 피어링"]
 .이 작업에 대해
 초기화에는 시간이 오래 걸릴 수 있습니다. 사용량이 적은 시간에 기준 전송을 실행할 수 있습니다.
 
-ONTAP 9.5부터는 SnapMirror Synchronous 관계가 지원됩니다.
+ONTAP 9.5부터 SnapMirror 동기식 관계가 지원됩니다.
 
 .단계
 . 복제 관계 초기화:

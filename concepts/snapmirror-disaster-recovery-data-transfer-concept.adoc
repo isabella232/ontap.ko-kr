@@ -20,7 +20,7 @@ _SnapMirror_는 지리적으로 원격 사이트의 운영 스토리지에서 �
 SVM 간에 데이터 보호 관계를 생성할 수도 있습니다. 이러한 유형의 관계에서 NFS 엑스포트, SMB 공유에서 RBAC에 이르는 SVM 구성의 전체 또는 일부는 SVM이 소유한 볼륨의 데이터뿐만 아니라 복제됩니다.
 
 ====
-ONTAP 9.10.1.1부터 S3 SnapMirror를 사용하여 S3 버킷 간에 데이터 보호 관계를 생성할 수 있습니다. 타겟 버킷은 로컬 또는 원격 ONTAP 시스템 또는 StorageGRID 및 AWS와 같은 비 ONTAP 시스템에 있을 수 있습니다.
+ONTAP 9.10.1부터 SnapMirror S3를 사용하여 S3 버킷 간에 데이터 보호 관계를 생성할 수 있습니다. 타겟 버킷은 로컬 또는 원격 ONTAP 시스템 또는 StorageGRID 및 AWS와 같은 비 ONTAP 시스템에 있을 수 있습니다.
 
 SnapMirror를 처음 호출하면 소스 볼륨에서 대상 볼륨으로 _baseline transfer_를 수행합니다. 기본 전송에는 일반적으로 다음 단계가 포함됩니다.
 

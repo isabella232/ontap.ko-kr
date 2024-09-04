@@ -13,7 +13,7 @@ summary: 팬아웃 구축을 사용하여 데이터 보호를 여러 보조 시�
 [role="lead"]
 fan-out_deployment 를 사용하여 데이터 보호를 여러 보조 시스템으로 확장할 수 있습니다. cascade_deployment를 사용하여 데이터 보호를 3차 시스템으로 확장할 수 있습니다.
 
-팬아웃 및 계단식 배열 모두 SnapMirror DR, SnapVault 또는 통합 복제의 모든 조합을 지원합니다. 그러나 ONTAP 9.5부터 지원되는 SnapMirror Synchronous 관계는 하나 이상의 비동기 SnapMirror 관계가 있는 팬아웃 구축만 지원하고 다중 구간 배포를 지원하지 않습니다. 팬아웃 구성의 한 가지 관계만 SnapMirror Synchronous 관계일 수 있으며, 소스 볼륨의 다른 모든 관계는 비동기식 SnapMirror 관계여야 합니다. xref:../snapmirror-active-sync/recover-unplanned-failover-task.html[SnapMirror 활성 동기화] (ONTAP 9.3.1부터 지원됨) 팬아웃 구성도 지원합니다.
+팬아웃 및 계단식 배열 구축은 모두 SnapMirror DR, SnapVault 또는 통합 복제의 모든 조합을 지원합니다. 그러나 SnapMirror 동기식 관계(ONTAP 9.5부터 지원됨)는 하나 이상의 SnapMirror 비동기식 관계가 있는 팬아웃 구축만 지원하며 계단식 구축을 지원하지 않음 팬아웃 구성에서는 하나의 관계만 SnapMirror 동기식 관계가 될 수 있으며 소스 볼륨의 다른 모든 관계는 SnapMirror 비동기식 관계여야 합니다. xref:../snapmirror-active-sync/recover-unplanned-failover-task.html[SnapMirror 활성 동기화] (ONTAP 9.3.1부터 지원됨) 팬아웃 구성도 지원합니다.
 
 
 NOTE: fan-in_deployment를 사용하여 여러 운영 시스템과 단일 보조 시스템 간에 데이터 보호 관계를 생성할 수 있습니다. 각 관계는 2차 시스템에서 다른 볼륨을 사용해야 합니다.
@@ -35,9 +35,9 @@ image:sm-mirror-mirror-fanout.png["데이터 보호 구축: 다중 미러 미러
 
 image:sm-mirror-vault-fanout.png["데이터 보호 배포: 미러 볼트 팬아웃"]
 
-ONTAP 9.5부터는 SnapMirror Synchronous 관계를 포함하는 팬아웃 구축을 수행할 수 있습니다. 그러나 팬아웃 구성의 한 관계만 SnapMirror Synchronous 관계일 수 있으며, 소스 볼륨의 다른 모든 관계는 비동기식 SnapMirror 관계여야 합니다.
+ONTAP 9.5부터는 SnapMirror 동기식 관계를 통해 팬아웃 환경을 구축할 수 있지만, 팬아웃 구성에서 하나의 관계만 SnapMirror 동기식 관계가 될 수 있으며 소스 볼륨의 다른 모든 관계는 SnapMirror 비동기식 관계여야 합니다.
 
-image:ssm-fanout.gif["데이터 보호 구축: SnapMirror Synchronous 관계를 통해 팬아웃 구축"]
+image:ssm-fanout.gif["데이터 보호 구축: SnapMirror 동기식 관계를 통해 팬아웃 구축"]
 
 
 
@@ -47,7 +47,7 @@ SnapMirror는 _mirror-mirror_mirror-vault_,_vault-mirror_and_vault-vault_cascade
 
 미러 계단식 배열 구축은 소스 볼륨이 2차 볼륨으로 미러링되고 2차 볼륨이 3차 볼륨으로 미러링되는 관계 체인으로 구성됩니다. 2차 볼륨을 사용할 수 없게 되면 새로운 기준 전송을 수행하지 않고도 1차 볼륨과 3차 볼륨 간의 관계를 동기화할 수 있습니다.
 
-ONTAP 9.6부터 미러 계단식 배열 배포에서 SnapMirror Synchronous 관계가 지원됩니다. 운영 볼륨과 2차 볼륨만 SnapMirror Synchronous 관계에 있을 수 있습니다. 2차 볼륨과 3차 볼륨 간의 관계는 비동기식이어야 합니다.
+ONTAP 9.6부터 미러 계단식 구축 환경에서 SnapMirror 동기식 관계가 지원됩니다. 운영 볼륨 및 2차 볼륨만 SnapMirror 동기식 관계에 있을 수 있습니다. 2차 볼륨과 3차 볼륨 간의 관계는 비동기식이어야 합니다.
 
 image:sm-mirror-mirror-cascade.png["SnapMirror 구축: 미러-미러 계단식 배열 복제 소스"]
 

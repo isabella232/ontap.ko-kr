@@ -15,7 +15,7 @@ ONTAP 9.7 이하 버전을 위한 디스크-디스크 전용이었던 SnapMirror
 
 수많은 타사 데이터 보호 애플리케이션에서 ONTAP로 관리하는 데이터에 대한 기존 백업을 제공합니다. Veeam, Veritas, Commvault 중에서도 ONTAP 시스템을 위한 통합 백업을 제공합니다.
 
-ONTAP 9.8부터 SnapMirror Cloud는 ONTAP 인스턴스에서 오브젝트 스토리지 엔드포인트로 Snapshot 복사본을 비동기식으로 복제합니다. SnapMirror 클라우드 복제에는 데이터 보호 워크플로우의 오케스트레이션 및 관리를 위한 라이센스가 부여된 애플리케이션이 필요합니다. SnapMirror 클라우드 관계는 ONTAP 시스템에서 지원되며 AWS S3, Google 클라우드 스토리지 플랫폼 또는 Microsoft Azure Blob Storage를 포함하여 사내 및 퍼블릭 클라우드 오브젝트 스토리지 대상을 선택할 수 있어 공급업체 백업 소프트웨어의 효율성이 향상됩니다. 지원되는 인증 애플리케이션 및 오브젝트 스토리지 공급업체 목록은 NetApp 담당자에게 문의하십시오.
+ONTAP 9.8부터 SnapMirror 클라우드는 ONTAP 인스턴스에서 오브젝트 스토리지 엔드포인트로 Snapshot 복사본의 비동기 복제를 제공합니다. SnapMirror 클라우드 복제를 사용하려면 데이터 보호 워크플로우의 오케스트레이션 및 관리를 위한 라이센스 애플리케이션이 필요합니다. SnapMirror 클라우드 관계는 ONTAP 시스템에서 지원되며 AWS S3, Google Cloud Storage Platform 또는 Microsoft Azure Blob Storage를 포함한 온프레미스 및 퍼블릭 클라우드 오브젝트 스토리지 타겟을 선택할 수 있어 공급업체 백업 소프트웨어의 효율성을 개선합니다. 지원되는 인증 애플리케이션 및 오브젝트 스토리지 공급업체 목록은 NetApp 담당자에게 문의하십시오.
 
 클라우드 네이티브 데이터 보호에 관심이 있는 경우, BlueXP를 사용하여 사내 볼륨과 퍼블릭 클라우드의 Cloud Volumes ONTAP 인스턴스 간에 SnapMirror 또는 SnapVault 관계를 구성할 수 있습니다.
 

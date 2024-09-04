@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: asynchronous, snapmirror, disaster, recovery basics 
 summary: SnapMirror는 재해 복구 기술로, 지리적으로 원격 사이트의 운영 스토리지에서 2차 스토리지로 페일오버하도록 설계되었습니다. 그 이름이 시사하는 것처럼 SnapMirror는 운영 사이트에서 재해가 발생한 경우에도 데이터를 계속 제공할 수 있는 보조 스토리지에 작업 데이터의 복제본 또는 미러를 생성합니다. 
 ---
-= 비동기식 SnapMirror 재해 복구 기본 사항
+= SnapMirror 비동기식 재해 복구 기본 사항
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -40,7 +40,7 @@ image:snapmirror-for-dp-pg.gif["SnapMirror 데이터 보호 관계 그림"]
 +
 link:../snaplock/index.html["SnapLock 기술을 사용한 아카이브 및 규정 준수"]
 
-* ONTAP 9.13.1부터 비동기 SnapMirror를 사용하여 보호할 수 xref:../consistency-groups/index.html[정합성 보장 그룹]있습니다. ONTAP 9.14.1부터는 비동기식 SnapMirror를 사용하여 일관성 그룹 관계를 사용하여 볼륨 세분화 스냅샷을 타겟 클러스터에 복제할 수 있습니다. 자세한 내용은 을 xref:../consistency-groups/protect-task.html#configure-snapmirror-asynchronous[비동기식 SnapMirror 보호를 구성합니다]참조하십시오.
+* ONTAP 9.13.1부터 SnapMirror 비동기식을 사용하여 보호할 수 xref:../consistency-groups/index.html[정합성 보장 그룹]있습니다. ONTAP 9.14.1부터는 SnapMirror 비동기식을 사용하여 일관성 그룹 관계를 사용하여 볼륨 세분화 스냅샷을 대상 클러스터에 복제할 수 있습니다. 자세한 내용은 을 xref:../consistency-groups/protect-task.html#configure-snapmirror-asynchronous[SnapMirror 비동기식 보호를 구성합니다]참조하십시오.
 
 
 
@@ -82,7 +82,7 @@ cluster_dst::> snapmirror policy show -policy MirrorAllSnapshots -instance
      Transfer Restartability: always
  Network Compression Enabled: false
              Create Snapshot: true
-                     Comment: Asynchronous SnapMirror policy for mirroring all snapshots
+                     Comment: SnapMirror asynchronous policy for mirroring all snapshots
                               and the latest active file system.
        Total Number of Rules: 2
                   Total Keep: 2

@@ -37,7 +37,7 @@ xref:concept_upgrade_requirements_for_metrocluster_configurations.html[MetroClus
 | DP 유형 SnapMirror 관계가 정의되어 있으며 ONTAP 9.12.1 이상으로 업그레이드됩니까? | link:../data-protection/convert-snapmirror-version-flexible-task.html["기존 DP 유형 관계를 XDP로 변환합니다"] 
 
 
-| S3 SnapMirror를 사용하고 있으며 ONTAP 9.12.1 이상으로 업그레이드하고 있습니까? | link:considerations-for-s3-snapmirror-concept.html["S3 SnapMirror 구성에 대한 라이센스 확인"] 
+| SnapMirror S3를 사용하고 있고 ONTAP 9.12.1 이상으로 업그레이드합니까? | link:considerations-for-s3-snapmirror-concept.html["SnapMirror S3 구성에 대한 라이센스를 확인합니다"] 
 
 
 | SnapMirror 관계를 사용하고 ONTAP 9.9.1 이전 버전에서 9.10.1 이상 버전으로 업그레이드합니까? | link:snapmirror-cascade-relationship-blocked.html["계단식 토폴로지의 중간 볼륨에서 장기 보존 스냅샷을 비활성화합니다"] 

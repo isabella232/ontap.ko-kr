@@ -2,7 +2,7 @@
 permalink: data-protection/convert-type-snapmirror-task.html 
 sidebar: sidebar 
 keywords: convert, snapmirror, relationship, asynchronous, synchronous, baseline, convert 
-summary: ONTAP 9.5부터 SnapMirror Synchronous가 지원됩니다. 기본 전송을 수행하지 않고도 비동기식 SnapMirror 관계를 SnapMirror Synchronous 관계로 또는 그 반대로 변환할 수 있습니다. 
+summary: ONTAP 9.5부터 SnapMirror Synchronous가 지원됩니다. 기본 전송을 수행하지 않고도 SnapMirror 비동기식 관계를 SnapMirror 동기식 관계로 변환하거나 그 반대로 전환할 수 있습니다. 
 ---
 = SnapMirror 관계의 유형을 변환합니다
 :allow-uri-read: 
@@ -11,15 +11,15 @@ summary: ONTAP 9.5부터 SnapMirror Synchronous가 지원됩니다. 기본 전�
 
 
 [role="lead"]
-ONTAP 9.5부터 SnapMirror Synchronous가 지원됩니다. 기본 전송을 수행하지 않고도 비동기식 SnapMirror 관계를 SnapMirror Synchronous 관계로 또는 그 반대로 변환할 수 있습니다.
+ONTAP 9.5부터 SnapMirror Synchronous가 지원됩니다. 기본 전송을 수행하지 않고도 SnapMirror 비동기식 관계를 SnapMirror 동기식 관계로 변환하거나 그 반대로 전환할 수 있습니다.
 
 .이 작업에 대해
-SnapMirror 정책을 변경하여 비동기식 SnapMirror 관계를 SnapMirror Synchronous 관계로 또는 그 반대로 변환할 수 없습니다
+SnapMirror 정책을 변경하여 SnapMirror 비동기식 관계를 SnapMirror 동기식 관계로 변환하거나 그 반대로 변환할 수 없습니다
 
 .단계
-* * 비동기식 SnapMirror 관계를 SnapMirror Synchronous 관계 * 로 변환
+* * SnapMirror 비동기 관계를 SnapMirror 동기 관계로 변환 *
 +
-.. 대상 클러스터에서 비동기식 SnapMirror 관계를 삭제합니다.
+.. 대상 클러스터에서 SnapMirror 비동기식 관계를 삭제합니다.
 +
 `snapmirror delete -destination-path <SVM:volume>`
 
@@ -37,7 +37,7 @@ cluster2::>snapmirror delete -destination-path vs1_dr:vol1
 ----
 cluster1::>snapmirror release -relationship-info-only true -destination-path vs1_dr:vol1
 ----
-.. 대상 클러스터에서 SnapMirror Synchronous 관계를 생성합니다.
+.. 대상 클러스터에서 SnapMirror 동기식 관계를 생성합니다.
 +
 `snapmirror create -source-path _src_SVM:src_volume_ -destination-path <destination_SVM>:<destination_volume> -policy sync-mirror`
 
@@ -46,7 +46,7 @@ cluster1::>snapmirror release -relationship-info-only true -destination-path vs1
 ----
 cluster2::>snapmirror create -source-path vs1:vol1 -destination-path vs1_dr:vol1 -policy sync
 ----
-.. SnapMirror Synchronous 관계를 재동기화합니다.
+.. SnapMirror 동기식 관계 재동기화:
 +
 `snapmirror resync -destination-path <destination_SVM:destination_volume>`
 
@@ -57,9 +57,9 @@ cluster2::>snapmirror resync -destination-path vs1_dr:vol1
 ----
 
 
-* * SnapMirror Synchronous 관계를 비동기식 SnapMirror 관계 * 로 변환
+* * SnapMirror 동기식 관계를 SnapMirror 비동기식 관계로 변환 *
 +
-.. 대상 클러스터에서 기존 SnapMirror Synchronous 관계를 중지합니다.
+.. 대상 클러스터에서 기존 SnapMirror 동기식 관계를 중지합니다.
 +
 `snapmirror quiesce -destination-path <destination_SVM>:<destination_volume>`
 
@@ -68,7 +68,7 @@ cluster2::>snapmirror resync -destination-path vs1_dr:vol1
 ----
 cluster2::> snapmirror quiesce -destination-path vs1_dr:vol1
 ----
-.. 대상 클러스터에서 비동기식 SnapMirror 관계를 삭제합니다.
+.. 대상 클러스터에서 SnapMirror 비동기식 관계를 삭제합니다.
 +
 `snapmirror delete -destination-path <SVM:volume>`
 
@@ -86,7 +86,7 @@ cluster2::>snapmirror delete -destination-path vs1_dr:vol1
 ----
 cluster1::>snapmirror release -relationship-info-only true -destination-path vs1_dr:vol1
 ----
-.. 대상 클러스터에서 비동기식 SnapMirror 관계를 생성합니다.
+.. 대상 클러스터에서 SnapMirror 비동기식 관계를 생성합니다.
 +
 `snapmirror create -source-path _src_SVM:src_volume_ -destination-path <destination_SVM:destination_volume> -policy MirrorAllSnapshots`
 
@@ -95,7 +95,7 @@ cluster1::>snapmirror release -relationship-info-only true -destination-path vs1
 ----
 cluster2::>snapmirror create -source-path vs1:vol1 -destination-path vs1_dr:vol1 -policy sync
 ----
-.. SnapMirror Synchronous 관계를 재동기화합니다.
+.. SnapMirror 동기식 관계 재동기화:
 +
 `snapmirror resync -destination-path <destination_SVM:destination_volume>`
 

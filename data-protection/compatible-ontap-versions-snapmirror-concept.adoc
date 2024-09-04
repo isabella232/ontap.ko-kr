@@ -103,11 +103,11 @@ NOTE: 상호 운용성은 양방향입니다.
 |===
 
 
-== SnapMirror Synchronous 관계
+== SnapMirror 동기식 관계
 
 [NOTE]
 ====
-ONTAP 클라우드 인스턴스에는 SnapMirror Synchronous가 지원되지 않습니다.
+SnapMirror 동기식은 ONTAP 클라우드 인스턴스에 지원되지 않습니다.
 
 ====
 |===

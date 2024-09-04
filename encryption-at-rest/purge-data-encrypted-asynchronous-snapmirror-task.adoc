@@ -2,16 +2,16 @@
 permalink: encryption-at-rest/purge-data-encrypted-asynchronous-snapmirror-task.html 
 sidebar: sidebar 
 keywords: securely, purging, scrub, data, encrypted, volume, nve, netapp, volume encryption, snapmirror, asynchronous 
-summary: 'ONTAP 9.8부터 안전한 제거를 사용하여 비동기 SnapMirror 관계를 갖는 NVE 지원 볼륨에서 데이터를 중단 없이 "스크럽"할 수 있습니다.' 
+summary: 'ONTAP 9.8부터는 SnapMirror 비동기식 관계를 통해 NVE 지원 볼륨에서 보안 퍼지를 사용하여 데이터를 중단 없이 "스크럽"할 수 있습니다.' 
 ---
-= 비동기 SnapMirror 관계를 사용하여 암호화된 볼륨의 데이터를 안전하게 제거합니다
+= SnapMirror 비동기식 관계를 통해 암호화된 볼륨에서 데이터를 안전하게 제거
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-ONTAP 9.8부터 안전한 제거를 통해 비동기식 SnapMirror 관계를 통해 NVE 지원 볼륨에서 중단 없이 "하위" 데이터를 사용할 수 있습니다.
+ONTAP 9.8부터는 SnapMirror 비동기식 관계를 통해 NVE 지원 볼륨에서 중단 없이 데이터를 "스크럽" 데이터로 안전하게 제거할 수 있습니다.
 
 .시작하기 전에
 * 이 작업을 수행하려면 클러스터 관리자여야 합니다.
@@ -40,7 +40,7 @@ NOTE: SAN 호스트에서 보안 제거를 수행하려면 제거할 파일이 �
 `volume encryption secure-purge start -vserver _SVM_name_ -volume _volume_name_ -prepare true`
 
 +
-비동기식 SnapMirror 관계의 각 볼륨에서 이 단계를 반복합니다.
+SnapMirror 비동기식 관계의 각 볼륨에 대해 이 단계를 반복합니다.
 
 . 안전하게 제거할 파일이 스냅샷 복사본에 있는 경우 다음과 같이 스냅샷 복사본을 삭제합니다.
 +
@@ -48,7 +48,7 @@ NOTE: SAN 호스트에서 보안 제거를 수행하려면 제거할 파일이 �
 
 . 안전하게 제거할 파일이 기본 스냅샷 복사본에 있는 경우 다음을 수행합니다.
 +
-.. 비동기식 SnapMirror 관계의 타겟 볼륨에 스냅샷 복사본을 생성합니다.
+.. SnapMirror 비동기식 관계에서 타겟 볼륨에 스냅샷 복사본을 생성합니다.
 +
 `volume snapshot create -snapshot snapshot_name -vserver _SVM_name_ -volume _volume_name_`
 
@@ -57,7 +57,7 @@ NOTE: SAN 호스트에서 보안 제거를 수행하려면 제거할 파일이 �
 `snapmirror update -source-snapshot _snapshot_name_ -destination-path _destination_path_`
 
 +
-비동기식 SnapMirror 관계의 각 볼륨에 대해 이 단계를 반복합니다.
+SnapMirror 비동기식 관계의 각 볼륨에 대해 이 단계를 반복합니다.
 
 .. (a) 및 (b) 단계를 기본 스냅샷 복사본 수에 1을 더한 값과 같게 반복합니다.
 +
@@ -76,7 +76,7 @@ NOTE: SAN 호스트에서 보안 제거를 수행하려면 제거할 파일이 �
 `volume encryption secure-purge start -vserver _svm_name_ -volume _volume_name_`
 
 +
-비동기식 SnapMirror 관계의 각 볼륨에서 이 단계를 반복합니다.
+SnapMirror 비동기식 관계의 각 볼륨에서 이 단계를 반복합니다.
 
 +
 다음 명령을 실행하면 삭제된 파일이 SVM의 ""vol1""에서 "vs1""으로 안전하게 삭제됩니다.

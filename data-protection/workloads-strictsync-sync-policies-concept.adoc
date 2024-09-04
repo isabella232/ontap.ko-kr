@@ -2,7 +2,7 @@
 permalink: data-protection/workloads-strictsync-sync-policies-concept.html 
 sidebar: sidebar 
 keywords: understand, workloads, support, strictsync, policy, strict sync, policies, snapmirror, snap mirror, cifs, vmware, eda, synchronous, fc, iscsi, nvme, nfsv3, nfsv4 
-summary: 'StrictSync 및 동기화 정책은 FC, iSCSI 및 FC-NVMe 프로토콜을 사용하는 모든 LUN 기반 애플리케이션뿐만 아니라 데이터베이스, VMware, 할당량, SMB 등과 같은 엔터프라이즈 애플리케이션용 NFSv3 및 NFSv4 프로토콜을 지원합니다. ONTAP 9.6부터 SnapMirror Synchronous는 전자 설계 자동화(EDA), 홈 디렉토리 및 소프트웨어 빌드 워크로드와 같은 엔터프라이즈 파일 서비스에 사용할 수 있습니다.' 
+summary: 'StrictSync 및 동기화 정책은 FC, iSCSI 및 FC-NVMe 프로토콜을 사용하는 모든 LUN 기반 애플리케이션뿐만 아니라 데이터베이스, VMware, 할당량, SMB 등과 같은 엔터프라이즈 애플리케이션용 NFSv3 및 NFSv4 프로토콜을 지원합니다. ONTAP 9.6부터 SnapMirror 동기식 은 EDA(전자 설계 자동화), 홈 디렉토리, 소프트웨어 구축 워크로드와 같은 엔터프라이즈 파일 서비스에 사용할 수 있습니다.' 
 ---
 = StrictSync 및 Sync 정책에서 지원되는 워크로드에 대해 알아봅니다
 :allow-uri-read: 
@@ -11,11 +11,11 @@ summary: 'StrictSync 및 동기화 정책은 FC, iSCSI 및 FC-NVMe 프로토콜�
 
 
 [role="lead"]
-StrictSync 및 동기화 정책은 FC, iSCSI 및 FC-NVMe 프로토콜을 사용하는 모든 LUN 기반 애플리케이션뿐만 아니라 데이터베이스, VMware, 할당량, SMB 등과 같은 엔터프라이즈 애플리케이션용 NFSv3 및 NFSv4 프로토콜을 지원합니다. ONTAP 9.6부터 SnapMirror Synchronous는 전자 설계 자동화(EDA), 홈 디렉토리 및 소프트웨어 빌드 워크로드와 같은 엔터프라이즈 파일 서비스에 사용할 수 있습니다.
+StrictSync 및 동기화 정책은 FC, iSCSI 및 FC-NVMe 프로토콜을 사용하는 모든 LUN 기반 애플리케이션뿐만 아니라 데이터베이스, VMware, 할당량, SMB 등과 같은 엔터프라이즈 애플리케이션용 NFSv3 및 NFSv4 프로토콜을 지원합니다. ONTAP 9.6부터 SnapMirror 동기식 은 EDA(전자 설계 자동화), 홈 디렉토리, 소프트웨어 구축 워크로드와 같은 엔터프라이즈 파일 서비스에 사용할 수 있습니다.
 
 ONTAP 9.5에서 동기화 정책의 경우 NFSv3 또는 NFSv4 워크로드를 선택하는 동안 몇 가지 중요한 측면을 고려해야 합니다. 동기화 정책은 높은 읽기 또는 쓰기 입출력 워크로드를 처리할 수 있으므로 워크로드별로 데이터 읽기 또는 쓰기 작업의 양은 고려하지 않습니다. ONTAP 9.5에서는 과도한 파일 생성, 디렉토리 생성, 파일 권한 변경 또는 디렉토리 권한 변경이 있는 워크로드가 적합하지 않을 수 있습니다(이러한 작업을 메타데이터 워크로드가 높은 워크로드라고 함). 메타데이터가 많은 워크로드의 전형적인 예로는 여러 개의 테스트 파일을 만들고, 자동화를 실행하고, 파일을 삭제하는 DevOps 워크로드가 있습니다. 또 다른 예로는 컴파일 중에 여러 임시 파일을 생성하는 병렬 빌드 워크로드가 있습니다. 쓰기 메타데이터 작업이 높으면 미러 간의 동기화가 일시적으로 중단되어 클라이언트의 읽기 및 쓰기 입출력이 중단될 수 있습니다.
 
-ONTAP 9.6부터는 이러한 제한 사항이 제거되고 SnapMirror Synchronous는 홈 디렉토리 및 소프트웨어 빌드 워크로드와 같은 다중 사용자 환경을 포함한 엔터프라이즈 파일 서비스 워크로드에 사용될 수 있습니다.
+ONTAP 9.6부터는 이러한 제한이 제거되며 SnapMirror Synchronous는 홈 디렉토리 및 소프트웨어 빌드 워크로드 등과 같은 다중 사용자 환경이 포함된 엔터프라이즈 파일 서비스 워크로드에 사용할 수 있습니다.
 
 .관련 정보
-http://www.netapp.com/us/media/tr-4733.pdf["SnapMirror Synchronous 구성 및 모범 사례"^]
+http://www.netapp.com/us/media/tr-4733.pdf["SnapMirror 동기식 구성 및 모범 사례"^]

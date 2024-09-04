@@ -40,7 +40,7 @@ ONTAP 9.3 이전 버전에서는 타겟 볼륨에 최대 251개의 스냅샷 복
 초기화에는 시간이 오래 걸릴 수 있습니다. 스냅미러 보호 기능은 작업이 완료되기 전에 초기화가 완료될 때까지 기다리지 않습니다. 따라서 초기화가 완료되는 시점을 결정하려면 job show 명령 대신 sapmirror show 명령을 사용해야 합니다.
 
 ====
-ONTAP 9.5부터 '스냅샷 보호' 명령을 사용하여 SnapMirror 동기식 관계를 생성할 수 있습니다.
+ONTAP 9.5부터 `snapmirror protect` 명령을 사용하여 SnapMirror 동기식 관계를 만들 수 있습니다.
 
 .단계
 . 한 단계로 복제 관계를 생성하고 초기화합니다.
@@ -89,7 +89,7 @@ cluster_dst::> snapmirror protect -path-list svm1:volA, svm1:volB -destination-v
 cluster_dst::> snapmirror protect -path-list svm1:volA, svm1:volB -destination-vserver svm_backup -policy MirrorAndVault
 ----
 +
-다음 예제에서는 기본 '동기화' 정책을 사용하여 SnapMirror Synchronous 관계를 만들고 초기화합니다.
+다음 예에서는 기본 `Sync` 정책을 사용하여 SnapMirror 동기식 관계를 만들고 초기화합니다.
 
 +
 [listing]

@@ -55,13 +55,13 @@ ONTAP One에는 사용 가능한 모든 라이센스 기능이 포함되어 있�
 | SnapCenter 
 
 
-| NetApp 타겟을 위한 S3 SnapMirror 
+| NetApp 타겟에 대한 SnapMirror S3 
 
 
 .2+| 하이브리드 클라우드 번들 | SnapMirror 클라우드 
 
 
-| 비 NetApp 타겟에 대한 S3 SnapMirror 
+| NetApp 이외의 타겟에 대한 SnapMirror S3 
 
 
 .2+| 암호화 번들 | NetApp 볼륨 암호화 

@@ -65,10 +65,10 @@ ARP는 ONTAP 9.10.1부터 온-프레미스 ONTAP 시스템의 NFS 및 SMB 볼륨
 |  | ONTAP 9.15.1 | ONTAP 9.14.1 | ONTAP 9.13.1 | ONTAP 9.12.1 | ONTAP 9.11.1 | ONTAP 9.10.1 
 
 
-| 비동기식 SnapMirror로 보호되는 볼륨 | ✓ | ✓ | ✓ | ✓ |  |  
+| SnapMirror 비동기로 보호되는 볼륨 | ✓ | ✓ | ✓ | ✓ |  |  
 
 
-| 비동기식 SnapMirror(SVM 재해 복구)로 SVM 보호 | ✓ | ✓ | ✓ | ✓ |  |  
+| SnapMirror 비동기(SVM 재해 복구)를 통해 SVM 보호 | ✓ | ✓ | ✓ | ✓ |  |  
 
 
 | SVM 데이터 이동성 (`vserver migrate`) | ✓ | ✓ | ✓ | ✓ |  |  
@@ -83,7 +83,7 @@ ARP는 ONTAP 9.10.1부터 온-프레미스 ONTAP 시스템의 NFS 및 SMB 볼륨
 
 ==== SnapMirror 및 ARP 상호 운용성
 
-ONTAP 9.12.1부터 비동기식 SnapMirror 대상 볼륨에서 ARP가 지원됩니다. ARP는 ** SnapMirror Synchronous에서 지원되지 않습니다.
+ONTAP 9.12.1부터 ARP는 SnapMirror 비동기 대상 볼륨에서 지원됩니다. ARP는 ** SnapMirror Synchronous에서 지원되지 않습니다.
 
 SnapMirror 소스 볼륨이 ARP가 활성화된 경우 SnapMirror 대상 볼륨은 자동으로 ARP 구성 상태(학습, 활성화 등), ARP 교육 데이터 및 소스 볼륨의 ARP 생성 스냅샷을 가져옵니다. 명시적 활성화가 필요하지 않습니다.
 
@@ -136,8 +136,8 @@ ARP는 다음 볼륨 구성을 지원하지 않습니다.
 * 오프라인 볼륨
 * SAN 전용 볼륨
 * SnapLock 볼륨
-* SnapMirror Synchronous
-* 비동기 SnapMirror(ONTAP 9.10.1 및 9.11.1에서만 지원되지 않습니다. 비동기 SnapMirror는 ONTAP 9.12.1부터 지원됩니다. 자세한 내용은 을 참조하십시오 <<snapmirror>>참조)
+* SnapMirror 동기식
+* SnapMirror 비동기(ONTAP 9.10.1 및 9.11.1에서만 지원되지 않습니다. SnapMirror 비동기식은 ONTAP 9.12.1부터 지원됩니다. 자세한 내용은 을 <<snapmirror>>참조하십시오.)
 * 제한된 볼륨
 * 스토리지 VM의 루트 볼륨입니다
 * 중지된 스토리지 VM의 볼륨입니다

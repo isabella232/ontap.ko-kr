@@ -2,39 +2,39 @@
 permalink: upgrade/considerations-for-s3-snapmirror-concept.html 
 sidebar: sidebar 
 keywords: ontap, upgrade, update, considerations, s3, snapmirror, license 
-summary: S3 SnapMirror를 사용하는 경우 ONTAP를 업그레이드하기 전에 라이센스를 확인해야 합니다 
+summary: SnapMirror S3를 사용하는 경우 ONTAP를 업그레이드하기 전에 라이선스를 확인해야 합니다 
 ---
-= S3 SnapMirror 구성에 대한 라이센스 확인
+= SnapMirror S3 구성에 대한 라이센스를 확인합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-ONTAP를 업그레이드하기 전에 S3 SnapMirror를 사용 중이며 ONTAP 9.12.1 이상으로 업그레이드하는 경우 적절한 SnapMirror 라이센스가 있는지 확인해야 합니다.
+ONTAP를 업그레이드하기 전에 SnapMirror S3를 사용하고 있고 ONTAP 9.12.1 이상으로 업그레이드하는 경우 적절한 SnapMirror 라이센스가 있는지 확인해야 합니다.
 
-ONTAP를 업그레이드한 후 ONTAP 9.11.1 이전 버전과 ONTAP 9.12.1 이상 사이에 라이센스 변경 사항이 발생하면 S3 SnapMirror 관계가 실패할 수 있습니다.
+ONTAP를 업그레이드한 후 ONTAP 9.11.1 이전 버전과 ONTAP 9.12.1 이상 간에 발생한 라이선스 변경 사항으로 인해 SnapMirror S3 관계가 실패할 수 있습니다.
 
 
 
 == ONTAP 9.11.1 이전 버전
 
-* NetApp 호스팅 대상 버킷(ONTAP S3 또는 StorageGRID)으로 복제할 경우, S3 SnapMirror는 소프트웨어 제품군이 도입되기 전에 데이터 보호 번들에 포함된 SnapMirror Synchronous 라이센스를 확인합니다 link:../system-admin/manage-licenses-concept.html["ONTAP 1 을 참조하십시오"] .
-* 비 NetApp 타겟 버킷으로 복제하는 경우, S3 SnapMirror는 소프트웨어 제품군 출시 이전에 사용 가능했던 하이브리드 클라우드 번들에 포함된 SnapMirror Cloud 라이센스를 확인합니다 link:../system-admin/manage-licenses-concept.html["ONTAP 1 을 참조하십시오"] .
+* SnapMirror S3는 NetApp 호스팅 대상 버킷(ONTAP S3 또는 StorageGRID)으로 복제할 때 link:../system-admin/manage-licenses-concept.html["ONTAP 1 을 참조하십시오"]소프트웨어 제품군이 도입되기 전에 데이터 보호 번들에 포함된 SnapMirror 동기식 라이센스를 확인합니다.
+* NetApp가 아닌 타겟 버킷으로 복제할 때 SnapMirror S3는 link:../system-admin/manage-licenses-concept.html["ONTAP 1 을 참조하십시오"]소프트웨어 제품군 출시 이전에 사용할 수 있었던 하이브리드 클라우드 번들에 포함된 SnapMirror 클라우드 라이센스를 확인합니다.
 
 
 
 
 == ONTAP 9.12.1 이상
 
-* NetApp 호스팅 대상 버킷(ONTAP S3 또는 StorageGRID)으로 복제할 때 S3 SnapMirror는 소프트웨어 제품군이 도입되기 전에 제공되었던 데이터 보호 번들에 포함된 S3 SnapMirror 라이센스를 확인합니다. link:../system-admin/manage-licenses-concept.html["ONTAP 1 을 참조하십시오"]
-* 비 NetApp 타겟 버킷으로 복제하는 경우, S3 SnapMirror는 소프트웨어 제품군 및 이 도입되기 전에 사용 가능한 하이브리드 클라우드 번들에 포함된 S3 SnapMirror 외부 라이센스를 확인합니다 link:../system-admin/manage-licenses-concept.html["ONTAP 1 을 참조하십시오"] . link:../data-protection/install-snapmirror-cloud-license-task.html["ONTAP One 호환성 번들"]
+* SnapMirror S3는 NetApp 호스팅 대상 버킷(ONTAP S3 또는 StorageGRID)으로 복제할 때 link:../system-admin/manage-licenses-concept.html["ONTAP 1 을 참조하십시오"]소프트웨어 제품군이 도입되기 전에 제공되었던 데이터 보호 번들에 포함된 SnapMirror S3 라이센스를 확인합니다.
+* 비 NetApp 대상 버킷으로 복제할 때 SnapMirror S3는 link:../system-admin/manage-licenses-concept.html["ONTAP 1 을 참조하십시오"]소프트웨어 제품군과 가 도입되기 전에 사용 가능한 하이브리드 클라우드 번들에 포함된 SnapMirror S3 외부 라이센스를 확인합니다.link:../data-protection/install-snapmirror-cloud-license-task.html["ONTAP One 호환성 번들"]
 
 
 
 
-== 기존 S3 SnapMirror 관계
+== 기존 SnapMirror S3 관계
 
-클러스터에 새로운 라이센스가 없더라도 ONTAP 9.11.1 이하에서 ONTAP 9.12.1 이상으로 업그레이드 한 후에도 기존 S3 SnapMirror 관계는 계속 작동해야 합니다.
+기존 SnapMirror S3 관계는 ONTAP 9.11.1 이하에서 ONTAP 9.12.1 이상으로 업그레이드한 후에도 계속 작동해야 합니다. 클러스터에 새 라이센스가 없는 경우에도 마찬가지입니다.
 
-클러스터에 적절한 라이센스가 설치되어 있지 않으면 새로운 S3 SnapMirror 관계 생성이 실패합니다.
+클러스터에 적절한 라이센스가 설치되어 있지 않으면 새 SnapMirror S3 관계 생성이 실패합니다.

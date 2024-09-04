@@ -39,7 +39,7 @@ Cloud Volumes ONTAP
 * link:ontap-s3-supported-actions-reference.html#bucket-operations["개체 버전 관리"] (ONTAP 9.11.1부터)
 * 미러링되지 않은 MetroCluster 애그리게이트(ONTAP 9.12.1부터)
 * 미러링된 MetroCluster 애그리게이트(ONTAP 9.14.1부터)
-* link:../s3-snapmirror/index.html["S3 SnapMirror"] (ONTAP 9.10.1부터)
+* link:../s3-snapmirror/index.html["SnapMirror S3"] (ONTAP 9.10.1부터)
 * SnapMirror(NAS 볼륨만 해당, ONTAP 9.12.1부터)
 * SnapLock(NAS 볼륨 전용, ONTAP 9.14.1부터)
 

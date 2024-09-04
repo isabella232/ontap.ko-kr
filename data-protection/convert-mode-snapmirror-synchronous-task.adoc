@@ -2,22 +2,22 @@
 permalink: data-protection/convert-mode-snapmirror-synchronous-task.html 
 sidebar: sidebar 
 keywords: convert, mode, snapmirror, synchronous, relationship 
-summary: ONTAP 9.5부터는 SnapMirror Synchronous 관계가 지원됩니다. SnapMirror Synchronous 관계의 모드를 StrictSync에서 Sync로 또는 그 반대로 변환할 수 있습니다. 
+summary: ONTAP 9.5부터 SnapMirror 동기식 관계가 지원됩니다. SnapMirror 동기식 관계의 모드를 StrictSync에서 Sync로 또는 그 반대로 변환할 수 있습니다. 
 ---
-= SnapMirror Synchronous 관계의 모드를 변환합니다
+= SnapMirror 동기식 관계의 모드를 변환합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-ONTAP 9.5부터는 SnapMirror Synchronous 관계가 지원됩니다. SnapMirror Synchronous 관계의 모드를 StrictSync에서 Sync로 또는 그 반대로 변환할 수 있습니다.
+ONTAP 9.5부터 SnapMirror 동기식 관계가 지원됩니다. SnapMirror 동기식 관계의 모드를 StrictSync에서 Sync로 또는 그 반대로 변환할 수 있습니다.
 
 .이 작업에 대해
-SnapMirror Synchronous 관계의 정책을 수정하여 모드를 변환할 수는 없습니다.
+SnapMirror 동기식 관계의 정책을 수정하여 모드를 변환할 수는 없습니다.
 
 .단계
-. 대상 클러스터에서 기존 SnapMirror Synchronous 관계를 중지합니다.
+. 대상 클러스터에서 기존 SnapMirror 동기식 관계를 중지합니다.
 +
 `snapmirror quiesce -destination-path <destination_SVM>:<destination_volume>`
 
@@ -26,7 +26,7 @@ SnapMirror Synchronous 관계의 정책을 수정하여 모드를 변환할 수�
 ----
 cluster2::> snapmirror quiesce -destination-path vs1_dr:vol1
 ----
-. 대상 클러스터에서 기존 SnapMirror Synchronous 관계를 삭제합니다.
+. 대상 클러스터에서 기존 SnapMirror 동기식 관계를 삭제합니다.
 +
 `snapmirror delete -destination-path <destination_SVM>:<destination_volume>`
 
@@ -44,7 +44,7 @@ cluster2::> snapmirror delete -destination-path vs1_dr:vol1
 ----
 cluster1::> snapmirror release -relationship-info-only true -destination-path vs1_dr:vol1
 ----
-. 대상 클러스터에서 SnapMirror Synchronous 관계를 변환할 모드를 지정하여 SnapMirror Synchronous 관계를 생성합니다.
+. 대상 클러스터에서 SnapMirror 동기식 관계를 변환할 모드를 지정하여 SnapMirror 동기식 관계를 생성합니다.
 +
 `snapmirror create -source-path vs1:vol1 -destination-path <destination_SVM>:<destination_volume> -policy Sync|StrictSync`
 

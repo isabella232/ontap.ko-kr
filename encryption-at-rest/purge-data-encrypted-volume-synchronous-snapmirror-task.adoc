@@ -2,16 +2,16 @@
 permalink: encryption-at-rest/purge-data-encrypted-volume-synchronous-snapmirror-task.html 
 sidebar: sidebar 
 keywords: secure, purge, scrub, data, encrypted, volume, nve, netapp, volume encryption, snapmirror, synchronous 
-summary: 'ONTAP 9.8부터 안전한 제거를 사용하여 동기 SnapMirror 관계를 갖는 NVE 지원 볼륨의 데이터를 중단 없이 "스크럽"할 수 있습니다.' 
+summary: 'ONTAP 9.8부터는 SnapMirror 동기식 관계를 통해 NVE 지원 볼륨에서 보안 퍼지를 사용하여 중단 없이 데이터를 "스크럽"할 수 있습니다.' 
 ---
-= 동기식 SnapMirror 관계로 암호화된 볼륨의 데이터를 스크러빙합니다
+= SnapMirror 동기식 관계를 통해 암호화된 볼륨의 데이터를 스크럽합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-ONTAP 9.8부터는 동기식 SnapMirror 관계를 통해 NVE 지원 볼륨에서 보안 삭제를 사용하여 중단 없이 데이터를 "스크럽"할 수 있습니다.
+ONTAP 9.8부터 SnapMirror 동기식 관계를 통해 NVE 지원 볼륨에서 보안 삭제를 사용하여 중단 없이 데이터를 "스크럽"할 수 있습니다.
 
 .이 작업에 대해
 삭제된 파일의 데이터 양에 따라 보안 제거를 완료하는 데 몇 분에서 몇 시간까지 걸릴 수 있습니다. 'volume encryption secure-purge show' 명령을 사용하여 작업 상태를 볼 수 있습니다. 'volume encryption secure-purge abort' 명령을 사용하여 작업을 종료할 수 있습니다.
@@ -40,7 +40,7 @@ NOTE: SAN 호스트에서 보안 제거를 수행하려면 제거할 파일이 �
 '볼륨 암호화 secure-purge start-vserver SVM_name-volume volume_name-prepare true
 
 +
-동기 SnapMirror 관계의 다른 볼륨에 대해 이 단계를 반복합니다.
+SnapMirror 동기식 관계의 다른 볼륨에 대해 이 단계를 반복합니다.
 
 . 안전하게 제거할 파일이 스냅샷 복사본에 있는 경우 다음과 같이 스냅샷 복사본을 삭제합니다.
 +
@@ -53,7 +53,7 @@ NOTE: SAN 호스트에서 보안 제거를 수행하려면 제거할 파일이 �
 +
 두 개의 공통 스냅샷 복사본이 있으므로 이 명령을 두 번 실행해야 합니다.
 
-. 보안 제거 파일이 애플리케이션 정합성이 보장되는 스냅샷 복사본에 있는 경우 동기 SnapMirror 관계에 있는 두 볼륨의 스냅샷 복사본을 삭제합니다.
+. 보안 제거 파일이 애플리케이션 정합성이 보장된 스냅샷 복사본에 있는 경우 SnapMirror 동기식 관계의 두 볼륨 모두에서 스냅샷 복사본을 삭제합니다.
 +
 `snapshot delete -vserver _SVM_name_ -volume _volume_name_ -snapshot _snapshot_`
 
@@ -65,7 +65,7 @@ NOTE: SAN 호스트에서 보안 제거를 수행하려면 제거할 파일이 �
 `volume encryption secure-purge start -vserver _SVM_name_ -volume _volume_name_`
 
 +
-동기 SnapMirror 관계의 각 볼륨에서 이 단계를 반복합니다.
+SnapMirror 동기식 관계의 각 볼륨에 대해 이 단계를 반복합니다.
 
 +
 다음 명령을 실행하면 삭제된 파일이 SMV ""VS1""의 ""vol1""에서 안전하게 삭제됩니다.

@@ -31,7 +31,8 @@ summary: 예를 들어 RPO 및 스로틀 값을 조정하려면 S3 미러 정책
 --
 .CLI를 참조하십시오
 --
-S3 SnapMirror 정책 수정: 'sapmirror policy modify -vserver svm_name -policy policy_name [-RPO_integer_] [-throttle_throttle_type_] [-comment_text_]'을 수정합니다
+SnapMirror S3 정책 수정:
+`snapmirror policy modify -vserver svm_name -policy policy_name [-rpo _integer_] [-throttle _throttle_type_] [-comment _text_]`
 
 매개 변수:
 

@@ -204,7 +204,7 @@ SVM 마이그레이션에서 소스와 대상 간의 ONTAP 버전 상호 운용�
 | 로드 공유 미러 | 지원되지 않습니다 |  
 
 
-| MetroCluster SVM | 지원되지 않습니다 | SVM 마이그레이션이 MetroCluster SVM 마이그레이션을 지원하지 않지만 에 SnapMirror 비동기식 복제를 사용할 수 있습니다 link:https://www.netapp.com/media/83785-tr-4966.pdf["MetroCluster 구성에서 SVM 마이그레이션"]. MetroCluster 구성에서 SVM 마이그레이션을 위해 설명된 프로세스는 무중단 방식이 _ 이(가) 아니라 _ 이라는 점에 유의해야 합니다. 
+| MetroCluster SVM | 지원되지 않습니다 | SVM 마이그레이션은 MetroCluster SVM 마이그레이션을 지원하지 않지만, 에 SnapMirror 비동기식 복제를 사용할 수 있습니다.link:https://www.netapp.com/media/83785-tr-4966.pdf["MetroCluster 구성에서 SVM 마이그레이션"] MetroCluster 구성에서 SVM 마이그레이션을 위해 설명된 프로세스는 무중단 방식이 _ 이(가) 아니라 _ 이라는 점에 유의해야 합니다. 
 
 
 | NetApp 애그리게이트 암호화(NAE) | 지원되지 않습니다 | 암호화되지 않은 소스에서 암호화된 대상으로의 마이그레이션은 지원되지 않습니다. 
@@ -259,7 +259,7 @@ SMB 마이그레이션은 무중단으로 수행 가능하며 마이그레이션
 
 
 
-| SnapMirror Cloud 관계 | ONTAP 9.12.1 | ONTAP 9.12.1부터 SnapMirror 클라우드 관계와 SVM을 마이그레이션할 때 타겟 클러스터에 가 있어야 합니다 link:../data-protection/snapmirror-licensing-concept.html#snapmirror-cloud-license["SnapMirror Cloud 라이센스"] 설치되어 있어야 하며, 클라우드로 미러링되는 볼륨의 용량 이동을 지원할 수 있는 충분한 용량이 있어야 합니다. 
+| SnapMirror 클라우드 관계 | ONTAP 9.12.1 | ONTAP 9.12.1부터 SnapMirror 클라우드 관계를 사용하여 SVM을 마이그레이션할 경우 타겟 클러스터에 가 link:../data-protection/snapmirror-licensing-concept.html#snapmirror-cloud-license["SnapMirror 클라우드 라이센스"] 설치되어 있어야 하며, 클라우드로 미러링되는 볼륨의 용량 이동을 지원할 수 있는 충분한 용량이 있어야 합니다. 
 
 
 | SnapMirror 비동기식 타겟 | ONTAP 9.12.1 |  
@@ -294,7 +294,7 @@ SnapMirror 소스가 마이그레이션되면 ONTAP에서 SnapMirror 업데이�
 | SnapMirror SVM 재해 복구 | 지원되지 않습니다 |  
 
 
-| SnapMirror Synchronous | 지원되지 않습니다 |  
+| SnapMirror 동기식 | 지원되지 않습니다 |  
 
 
 | 스냅샷 복사본 | ONTAP 9.10.1 |  

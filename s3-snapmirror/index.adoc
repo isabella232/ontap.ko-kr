@@ -4,7 +4,7 @@ permalink: s3-snapmirror/index.html
 keywords: s3 snapmirror buckets, snapmirror buckets SVM, s3 snapmirror data protection, hybrid cloud bundle, s3 snapmirror relationship, VM peering, cluster and storage VM peering, Fan-in deployments, data protection, s3 snapmirror policy, peering 
 summary: ONTAP 9.10.1부터 친숙한 SnapMirror 미러링 및 백업 기능을 사용하여 ONTAP S3 오브젝트 저장소의 버킷을 보호할 수 있습니다. 
 ---
-= S3 SnapMirror 개요
+= SnapMirror S3 개요
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
@@ -16,9 +16,9 @@ summary: ONTAP 9.10.1부터 친숙한 SnapMirror 미러링 및 백업 기능을 
 
 
 [role="lead"]
-ONTAP 9.10.1부터 SnapMirror 미러링 및 백업 기능을 사용하여 ONTAP S3 오브젝트 저장소의 버킷을 보호할 수 있습니다. 표준 SnapMirror와 달리 S3 SnapMirror를 통해 AWS S3와 같은 비 NetApp 대상에 대한 미러링 및 백업을 수행할 수 있습니다.
+ONTAP 9.10.1부터 SnapMirror 미러링 및 백업 기능을 사용하여 ONTAP S3 오브젝트 저장소의 버킷을 보호할 수 있습니다. 표준 SnapMirror와 달리 SnapMirror S3를 통해 AWS S3와 같은 비 NetApp 대상에 대한 미러링 및 백업을 수행할 수 있습니다.
 
-S3 SnapMirror는 ONTAP S3 버킷에서 다음 대상에 이르기까지 활성 미러와 백업 계층을 지원합니다.
+SnapMirror S3는 ONTAP S3 버킷에서 다음 대상에 이르는 액티브 미러 및 백업 계층을 지원합니다.
 
 [cols="50,25,25"]
 |===
@@ -53,7 +53,7 @@ ONTAP S3 서버에서 기존 버킷을 보호하거나 데이터 보호를 즉�
 
 
 
-== S3 SnapMirror 요구사항
+== SnapMirror S3 요구사항
 
 * ONTAP 버전입니다
 +
@@ -65,8 +65,8 @@ ONTAP S3 서버에서 기존 버킷을 보호하거나 데이터 보호를 즉�
 
 +
 ** ONTAP S3 프로토콜 및 스토리지
-** S3 SnapMirror로 다른 NetApp 오브젝트 저장소 타겟(ONTAP S3, StorageGRID, Cloud Volumes ONTAP) 공략
-** S3 SnapMirror를 통해 AWS S3(에서 사용 가능)를 포함한 타사 오브젝트 저장소를 타겟 link:../data-protection/install-snapmirror-cloud-license-task.html["ONTAP One 호환성 번들"])
+** SnapMirror S3에서 다른 NetApp 오브젝트 저장소 타겟(ONTAP S3, StorageGRID, Cloud Volumes ONTAP) 공략
+** SnapMirror S3에서 AWS S3(에서 사용 가능link:../data-protection/install-snapmirror-cloud-license-task.html["ONTAP One 호환성 번들"])를 비롯한 타사 오브젝트 저장소 공략
 
 
 * ONTAP S3
@@ -90,7 +90,7 @@ ONTAP S3 서버에서 기존 버킷을 보호하거나 데이터 보호를 즉�
 
 * SnapMirror 정책
 +
-** S3 전용 SnapMirror 정책은 모든 S3 SnapMirror 관계에 필요하지만 여러 관계에 동일한 정책을 사용할 수 있습니다.
+** 모든 SnapMirror S3 관계에 S3별 SnapMirror 정책이 필요하지만 여러 관계에 동일한 정책을 사용할 수 있습니다.
 ** 사용자 고유의 정책을 만들거나 다음 값을 포함하는 기본 * 연속 * 정책을 사용할 수 있습니다.
 +
 *** 스로틀(처리량/대역폭의 상한) - 무제한
@@ -104,7 +104,7 @@ ONTAP S3 서버에서 기존 버킷을 보호하거나 데이터 보호를 즉�
 
 NOTE: SnapMirror 관계에 있는 두 개의 S3 버킷이 있을 때 개체의 현재 버전이 만료(삭제됨)되도록 라이프사이클 정책이 구성된 경우 동일한 작업이 파트너 버킷에 복제된다는 것을 알아야 합니다. 파트너 버킷이 읽기 전용 또는 패시브 인 경우에도 마찬가지입니다.
 
-* 루트 사용자 키 스토리지 VM 루트 사용자 액세스 키는 S3 SnapMirror 관계에 필요하며, ONTAP은 기본적으로 이러한 키를 할당하지 않습니다. S3 SnapMirror 관계를 처음 생성할 때 소스 및 타겟 스토리지 VM 둘 다에 키가 있는지 확인하고 없는 경우 다시 생성해야 합니다. 다시 생성해야 하는 경우 액세스 및 암호 키 쌍을 사용하는 모든 클라이언트 및 모든 SnapMirror 오브젝트 저장소 구성을 새 키로 업데이트해야 합니다.
+* 루트 사용자 키 SnapMirror S3 관계에 필요한 스토리지 VM 루트 사용자 액세스 키는 ONTAP에서 기본적으로 할당하지 않습니다. SnapMirror S3 관계를 처음으로 생성할 때 키가 소스 및 타겟 스토리지 VM에 있는지 확인하고 그렇지 않은 경우 다시 생성해야 합니다. 다시 생성해야 하는 경우 액세스 및 암호 키 쌍을 사용하는 모든 클라이언트 및 모든 SnapMirror 오브젝트 저장소 구성을 새 키로 업데이트해야 합니다.
 
 
 S3 서버 구성에 대한 자세한 내용은 다음 항목을 참조하십시오.
@@ -123,9 +123,9 @@ S3 서버 구성에 대한 자세한 내용은 다음 항목을 참조하십시�
 
 == 지원되는 SnapMirror 관계
 
-S3 SnapMirror는 팬아웃 및 캐스케이드 관계를 지원합니다. 개요를 보려면 을 참조하십시오 link:../data-protection/supported-deployment-config-concept.html["팬아웃 및 캐스케이드 데이터 보호 구축"].
+SnapMirror S3는 팬아웃 및 계단식 관계를 지원합니다. 개요는 을 참조하십시오link:../data-protection/supported-deployment-config-concept.html["팬아웃 및 캐스케이드 데이터 보호 구축"].
 
-S3 SnapMirror는 팬인 구축(여러 소스 버킷과 단일 대상 버킷 간의 데이터 보호 관계)을 지원하지 않습니다. S3 SnapMirror는 여러 클러스터에서 단일 보조 클러스터로 여러 버킷 미러를 지원할 수 있지만 각 소스 버킷에는 보조 클러스터에 자체 대상 버킷이 있어야 합니다.
+SnapMirror S3는 팬인 구축(여러 소스 버킷과 단일 대상 버킷 간의 데이터 보호 관계)을 지원하지 않습니다. SnapMirror S3는 여러 클러스터에서 단일 보조 클러스터로 여러 버킷 미러를 지원할 수 있지만 각 소스 버킷에는 보조 클러스터에 자체 대상 버킷이 있어야 합니다.
 
 
 

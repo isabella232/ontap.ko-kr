@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: data-protection/cloud-backup-with-snapmirror-task.html 
-keywords: netapp, ontap, System Manager, ONTAP 9.9.1, cloud backup, SnapMirror Cloud, cloud object store, add cloud object store, remove cloud object store, StorageGRID, ONTAP S3, cloud restore, restore from cloud 
+keywords: netapp, ontap, System Manager, ONTAP 9.9.1, cloud backup, SnapMirror cloud, cloud object store, add cloud object store, remove cloud object store, StorageGRID, ONTAP S3, cloud restore, restore from cloud 
 summary: ONTAP 9.9.1부터 System Manager를 사용하여 데이터를 클라우드로 백업하고 클라우드 스토리지에서 다른 볼륨으로 데이터를 복원할 수 있습니다. StorageGRID 또는 ONTAP S3를 클라우드 오브젝트 저장소로 사용할 수 있습니다. 
 ---
 = SnapMirror를 사용하여 데이터를 클라우드에 백업합니다
@@ -18,7 +18,7 @@ summary: ONTAP 9.9.1부터 System Manager를 사용하여 데이터를 클라우
 [role="lead"]
 ONTAP 9.9.1부터 System Manager를 사용하여 데이터를 클라우드로 백업하고 클라우드 스토리지에서 다른 볼륨으로 데이터를 복원할 수 있습니다. StorageGRID 또는 ONTAP S3를 클라우드 오브젝트 저장소로 사용할 수 있습니다.
 
-SnapMirror 클라우드 기능을 사용하기 전에 NetApp Support 사이트에서 SnapMirror 클라우드 API 라이센스 키를 요청해야 합니다. link:https://mysupport.netapp.com/site/tools/snapmirror-cloud-api-key["SnapMirror Cloud API 라이센스 키 요청"^]. 지침에 따라 비즈니스 기회에 대한 간단한 설명을 제공하고 제공된 이메일 주소로 이메일을 보내 API 키를 요청해야 합니다. API 키를 얻는 방법에 대한 추가 지침이 포함된 이메일 응답을 24시간 이내에 받아야 합니다.
+SnapMirror 클라우드 기능을 사용하기 전에 NetApp 지원 사이트에서 SnapMirror 클라우드 API 라이센스 키를 요청해야 합니다link:https://mysupport.netapp.com/site/tools/snapmirror-cloud-api-key["SnapMirror 클라우드 API 라이센스 키를 요청합니다"^]. 지침에 따라 비즈니스 기회에 대한 간단한 설명을 제공하고 제공된 이메일 주소로 이메일을 보내 API 키를 요청해야 합니다. API 키를 얻는 방법에 대한 추가 지침이 포함된 이메일 응답을 24시간 이내에 받아야 합니다.
 
 
 
@@ -35,11 +35,11 @@ SnapMirror 클라우드 백업을 구성하기 전에 StorageGRID 또는 ONTAP S
 
 == 기본 정책을 사용하여 백업합니다
 
-기본 클라우드 보호 정책인 DailyBackup을 사용하여 기존 볼륨에 대한 SnapMirror Cloud 백업을 빠르게 구성할 수 있습니다.
+기본 클라우드 보호 정책인 DailyBackup을 사용하여 기존 볼륨에 대한 SnapMirror 클라우드 백업을 빠르게 구성할 수 있습니다.
 
 .단계
 . 보호 > 개요 * 를 클릭하고 * Cloud에 볼륨 백업 * 을 선택합니다.
-. 클라우드로 처음 백업하는 경우 표시된 라이센스 필드에 SnapMirror Cloud API 라이센스 키를 입력합니다.
+. 처음으로 클라우드로 백업하는 경우 표시된 대로 라이센스 필드에 SnapMirror 클라우드 API 라이센스 키를 입력합니다.
 . 인증 및 계속 * 을 클릭합니다.
 . 소스 볼륨을 선택합니다.
 . 클라우드 오브젝트 저장소를 선택합니다.
@@ -50,7 +50,7 @@ SnapMirror 클라우드 백업을 구성하기 전에 StorageGRID 또는 ONTAP S
 
 == 사용자 지정 클라우드 백업 정책을 생성합니다
 
-SnapMirror 클라우드 백업에 기본 DailyBackup 클라우드 정책을 사용하지 않으려면 고유한 정책을 생성할 수 있습니다.
+SnapMirror 클라우드 백업에 기본 DailyBackup 클라우드 정책을 사용하지 않으려면 자체 정책을 생성할 수 있습니다.
 
 .단계
 . 보호 > 개요 > 로컬 정책 설정 * 을 클릭하고 * 보호 정책 * 을 선택합니다.

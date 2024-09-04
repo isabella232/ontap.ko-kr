@@ -365,7 +365,7 @@ SnapMirror 비동기식 관계 *
 
 
  a| 
-SnapMirror Synchronous 관계
+SnapMirror 동기식 관계
  a| 
 아니요
  a| 

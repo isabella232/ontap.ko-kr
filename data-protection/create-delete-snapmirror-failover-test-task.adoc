@@ -18,7 +18,7 @@ ONTAP 9.14.1부터 System Manager를 사용하여 활성 SnapMirror 관계를 �
 == SnapMirror 페일오버 테스트 볼륨을 생성합니다
 
 .이 작업에 대해
-* 동기식 및 비동기식 SnapMirror 관계에 대해 페일오버 테스트를 수행할 수 있습니다.
+* 동기식 및 SnapMirror 비동기식 관계에 대해 페일오버 테스트를 수행할 수 있습니다.
 * 재해 복구 테스트를 수행하기 위한 볼륨 클론이 생성됩니다.
 * 클론 볼륨은 SnapMirror 대상과 동일한 스토리지 VM에 생성됩니다.
 * FlexVol 및 FlexGroup SnapMirror 관계를 사용할 수 있습니다.

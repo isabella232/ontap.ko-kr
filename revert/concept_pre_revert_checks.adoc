@@ -19,7 +19,7 @@ summary: 환경에 따라 복원을 시작하기 전에 특정 요소를 고려�
 
 
 | 클러스터에서 SnapMirror가 실행 중입니까?  a| 
-* xref:concept_consideration_for_reverting_systems_with_snapmirror_synchronous_relationships.html[SnapMirror Synchronous 관계로 시스템을 되돌릴 때의 고려 사항을 검토합니다]
+* xref:concept_consideration_for_reverting_systems_with_snapmirror_synchronous_relationships.html[SnapMirror 동기식 관계를 사용하여 시스템을 되돌릴 때 고려해야 할 사항을 검토합니다]
 * xref:concept_reversion_requirements_for_snapmirror_and_snapvault_relationships.html[SnapMirror 및 SnapVault 관계에 대한 개정 요구사항을 검토합니다]
 
 

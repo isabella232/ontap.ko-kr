@@ -2,7 +2,7 @@
 permalink: consistency-groups/protect-task.html 
 sidebar: sidebar 
 keywords: application protection, two-phase commit, 2 phase, smbc, async snapmirror, local, remote, snapshot, asynchronous, svm disaster recovery, snapmirror 
-summary: 일관성 그룹을 사용하여 로컬 스냅샷, 비동기식 SnapMirror, SnapMirror 액티브 동기화 및 SVM 재해 복구를 사용하여 데이터를 보호합니다. 
+summary: 일관성 그룹을 사용하여 로컬 스냅샷, SnapMirror 비동기식, SnapMirror 액티브 동기화 및 SVM 재해 복구를 사용하여 데이터를 보호합니다. 
 ---
 = 일관성 그룹 보호
 :hardbreaks:
@@ -197,7 +197,7 @@ For more information about the ONTAP REST API, see link:https://docs.netapp.com/
 
 == 정합성 보장 그룹에 대한 원격 보호를 설정합니다
 
-일관성 그룹은 ONTAP 9.13.1 비동기 SnapMirror와 더불어 SnapMirror 액티브 동기화를 통해 원격 보호를 제공합니다.
+정합성 보장 그룹은 SnapMirror Active Sync 및 ONTAP 9.13.1, SnapMirror Asynchronous를 통해 원격 보호를 제공합니다.
 
 
 

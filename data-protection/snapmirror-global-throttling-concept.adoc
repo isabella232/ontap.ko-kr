@@ -29,7 +29,7 @@ ONTAP 9.9.1 및 이전 릴리즈에서는 스로틀이 영향을 받지 않습�
 
 [NOTE]
 ====
-SnapMirror 글로벌 스로틀은 동기 중일 때 SnapMirror Synchronous 관계에 영향을 주지 않습니다. 그러나 초기화 작업 또는 동기화 중단 이벤트 후 같은 비동기 전송 단계를 수행할 때 스로틀이 SnapMirror Synchronous 관계에 영향을 줍니다. 따라서 SnapMirror Synchronous 관계를 사용하여 글로벌 제한을 설정하는 것은 권장되지 않습니다.
+SnapMirror 글로벌 제한은 동기화 상태에서의 SnapMirror 동기식 관계에는 영향을 미치지 않습니다. 그러나 초기화 작업과 같은 비동기 전송 단계를 수행하거나 동기화 중단 이벤트 후에 스로틀이 SnapMirror 동기식 관계에 영향을 줍니다. 따라서 SnapMirror 동기식 관계에서 글로벌 제한을 설정하지 않는 것이 좋습니다.
 
 ====
 .단계
