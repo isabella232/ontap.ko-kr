@@ -170,7 +170,10 @@ SVM 마이그레이션에서 소스와 대상 간의 ONTAP 버전 상호 운용�
 
 
 | FabricPool | ONTAP 9.11.1  a| 
-에 대해 자세히 알아보십시오 xref:FabricPool support[FabricPool 지원].
+SVM 마이그레이션은 FabricPool의 볼륨에서 다음 플랫폼용 지원됩니다.
+
+* Azure NetApp Files 플랫폼: 모든 계층화 정책이 지원됩니다(스냅샷 전용, 자동, 모두 및 없음).
+
 
 
 
@@ -314,15 +317,6 @@ SnapMirror 소스가 마이그레이션되면 ONTAP에서 SnapMirror 업데이�
 
 | vStorage | 지원되지 않습니다 |  
 |===
-
-
-=== FabricPool 지원
-
-SVM 마이그레이션은 FabricPool의 볼륨에서 다음 플랫폼용 지원됩니다.
-
-* Azure NetApp Files 플랫폼: 모든 계층화 정책이 지원됩니다(스냅샷 전용, 자동, 모두 및 없음).
-
-
 
 
 == 마이그레이션 중 지원되는 작업

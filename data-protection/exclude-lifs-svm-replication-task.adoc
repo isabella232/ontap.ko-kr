@@ -95,7 +95,7 @@ cluster_dst::> snapmirror policy create -vserver svm1 -policy unified_exclude_LI
 ====
 . 대상 SVM 또는 대상 클러스터에서 다음 명령을 실행하여 복제 관계를 생성합니다.
 +
-'sapmirror create-source-path_SVM_:-destination-path_SVM_:-type DP|XDP-schedule_schedule_-policy_policy_-identity-preserve true|false'입니다
+`snapmirror create -source-path _SVM_: -destination-path _SVM_: -type DP|XDP -schedule _schedule_ -policy _policy_ -identity-preserve true|false -discard-configs true|false`
 
 +
 [NOTE]
@@ -109,7 +109,7 @@ cluster_dst::> snapmirror policy create -vserver svm1 -policy unified_exclude_LI
 +
 [listing]
 ----
-cluster_dst::> snapmirror create -source-path svm1: -destination-path svm_backup: -type XDP -schedule my_daily -policy DR_exclude_LIFs -identity-preserve true
+cluster_dst::> snapmirror create -source-path svm1: -destination-path svm_backup: -type XDP -schedule my_weekly -policy DR_exclude_LIFs -identity-preserve true
 ----
 +
 다음 예제에서는 LIF를 제외한 SnapMirror 통합 복제 관계를 생성합니다.
@@ -117,7 +117,7 @@ cluster_dst::> snapmirror create -source-path svm1: -destination-path svm_backup
 +
 [listing]
 ----
-cluster_dst::> snapmirror create -source-path svm1: -destination-path svm_backup: -type XDP -schedule my_daily -policy unified_exclude_LIFs -identity-preserve true
+cluster_dst::> snapmirror create -source-path svm1: -destination-path svm_backup: -type XDP -schedule my_weekly -policy unified_exclude_LIFs -identity-preserve true -discard-configs true
 ----
 . 대상 SVM 중지:
 +
@@ -127,12 +127,12 @@ cluster_dst::> snapmirror create -source-path svm1: -destination-path svm_backup
 '_SVM 이름 _'
 
 +
-다음 예는 dv1이라는 대상 SVM을 중지합니다.
+다음 예에서는 svm_backup이라는 대상 SVM을 중지합니다.
 
 +
 [listing]
 ----
-cluster_dst::> vserver stop -vserver dvs1
+cluster_dst::> vserver stop -vserver svm_backup
 ----
 . 대상 SVM 또는 대상 클러스터에서 복제 관계를 초기화합니다.
 +
