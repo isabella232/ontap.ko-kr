@@ -24,8 +24,7 @@ S3 서버가 포함된 스토리지 VM이 이미 존재해야 합니다.
 ** ONTAP 9.14.1 전에 S3 FlexGroup 볼륨이 생성되었고 이미 필요한 최소 크기가 있는 경우, ONTAP 9.14.1 이후 버킷 생성 또는 삭제에 의해 S3 FlexGroup 볼륨의 크기가 유지됩니다.
 
 
-* 스토리지 서비스 수준은 _value_, _performance_ 및 _extreme_default 수준으로 사전 정의된 QoS(Adaptive Quality of Service) 정책 그룹입니다. 기본 스토리지 서비스 수준 대신 맞춤형 QoS 정책 그룹을 정의하여 버킷에 적용할 수도 있습니다. 스토리지 서비스 정의에 대한 자세한 내용은 을 참조하십시오 link:storage-service-definitions-reference.html["스토리지 서비스 정의"]. 성능 관리에 대한 자세한 내용은 을 참조하십시오 link:../performance-admin/index.html["성능 관리"].
-ONTAP 9.8부터는 스토리지 용량 할당 시 QoS가 기본적으로 사용하도록 설정됩니다. 프로비저닝 프로세스 중에 또는 나중에 QoS를 비활성화하거나 사용자 지정 QoS 정책을 선택할 수 있습니다.
+* 스토리지 서비스 수준은 _value_, _performance_ 및 _extreme_default 수준으로 사전 정의된 QoS(Adaptive Quality of Service) 정책 그룹입니다. 기본 스토리지 서비스 수준 대신 맞춤형 QoS 정책 그룹을 정의하여 버킷에 적용할 수도 있습니다. 스토리지 서비스 정의에 대한 자세한 내용은 을 link:storage-service-definitions-reference.html["스토리지 서비스 정의"]참조하십시오. 성능 관리에 대한 자세한 내용은 을 link:../performance-admin/index.html["성능 관리"]참조하십시오. ONTAP 9.8부터는 스토리지 용량 할당 시 QoS가 기본적으로 사용하도록 설정됩니다. 프로비저닝 프로세스 도중 또는 나중에 QoS를 사용하지 않도록 설정하거나 사용자 지정 QoS 정책을 선택할 수 있습니다.
 
 
 * 로컬 용량 계층화를 구성하는 경우, S3 서버가 있는 시스템 스토리지 VM이 아닌 데이터 스토리지 VM에 버킷 및 사용자를 생성합니다.

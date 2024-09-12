@@ -15,7 +15,7 @@ MAV(Multi-admin verification)를 사용하도록 설정된 클러스터에서 �
 
 요청이 승인되면 쿼리에 응답하여 요청 만료 기간 내에 작업을 완료해야 합니다. 거부되거나 요청 또는 만료 기간이 초과된 경우 요청을 삭제하고 다시 제출해야 합니다.
 
-MAV 기능은 기존 RBAC 설정을 그대로 사용합니다. 즉, 관리자 역할에 MAV 설정과 관계없이 보호된 작업을 실행할 수 있는 충분한 권한이 있어야 합니다. link:https://docs.netapp.com/us-en/ontap/authentication/create-svm-user-accounts-task.html["RBAC에 대해 자세히 알아보십시오"].
+MAV 기능은 기존 RBAC 설정을 그대로 사용합니다. 즉, 관리자 역할에 MAV 설정과 관계없이 보호된 작업을 실행할 수 있는 충분한 권한이 있어야 합니다. link:../authentication/create-svm-user-accounts-task.html["RBAC에 대해 자세히 알아보십시오"]..
 
 MAV 관리자인 경우 보호된 작업을 실행하기 위한 요청도 MAV 관리자의 승인을 받아야 합니다.
 

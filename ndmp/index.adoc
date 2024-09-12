@@ -26,7 +26,7 @@ SVM 범위 및 노드 범위 NDMP는 상호 배타적이므로 동일한 클러�
 
 NOTE: 노드 범위 NDMP는 ONTAP 9에서 더 이상 사용되지 않습니다.
 
-에 대해 자세히 알아보십시오 link:https://docs.netapp.com/us-en/ontap/tape-backup/cluster-aware-backup-extension-concept.html["운전실(Cluster Aware Backup)"].
+에 대해 자세히 link:../tape-backup/cluster-aware-backup-extension-concept.html["운전실(Cluster Aware Backup)"]알아보십시오.
 
 NDMP를 구성하기 전에 다음을 확인하십시오.
 

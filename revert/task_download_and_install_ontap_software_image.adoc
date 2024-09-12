@@ -31,7 +31,7 @@ ONTAP 9.4 이상을 다운그레이드하거나 되돌리려면 NetApp Support �
 제한된 국가의 ONTAP 소프트웨어 이미지를 사용하여 NetApp 볼륨 암호화를 사용하여 시스템을 다운그레이드하거나 되돌릴 경우 시스템에서 패닉이 발생하고 볼륨에 대한 액세스 권한이 사라집니다.
 
 +
-.. 에서 대상 ONTAP 소프트웨어를 찾습니다 link:http://mysupport.netapp.com/NOW/cgi-bin/software["소프트웨어 다운로드"] NetApp Support 사이트의 영역입니다.
+.. link:http://mysupport.netapp.com/NOW/cgi-bin/software["소프트웨어 다운로드"^]NetApp Support 사이트 영역에서 대상 ONTAP 소프트웨어를 찾습니다.
 .. 소프트웨어 이미지를 복사합니다.
 +
 *** ONTAP 9.3 이전 버전의 경우 NetApp Support 사이트에서 이미지가 제공되는 HTTP 서버 또는 FTP 서버의 디렉토리로 소프트웨어 이미지(예: 93_q_image.tgz)를 복사합니다.

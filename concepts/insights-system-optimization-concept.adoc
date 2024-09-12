@@ -140,7 +140,7 @@ System Manager에서는 데이터 또는 시스템의 보안을 위태롭게 할
  a| 
 기본 FPolicy가 하나 이상의 NAS 스토리지 VM에 구성되지 않았습니다.
  a| 
-* 권장 * : * 중요 * : 확장자를 차단하면 예기치 않은 결과가 발생할 수 있습니다. 9.11.1부터는 스토리지 VM에 대한 기본 FPolicy를 활성화할 수 있는데, 이 FPolicy는 랜섬웨어 공격에 사용되는 것으로 알려진 3,000개 이상의 파일 확장자를 차단합니다.  https://docs.netapp.com/us-en/ontap/insights-configure-native-fpolicy-task.html["기본 FPolicy를 구성합니다"] NAS 스토리지 VM에서 사용자 환경의 볼륨에 쓸 수 있거나 허용되지 않는 파일 확장자를 제어합니다.
+* 권장 * : * 중요 * : 확장자를 차단하면 예기치 않은 결과가 발생할 수 있습니다. 9.11.1부터는 스토리지 VM에 대한 기본 FPolicy를 활성화할 수 있는데, 이 FPolicy는 랜섬웨어 공격에 사용되는 것으로 알려진 3,000개 이상의 파일 확장자를 차단합니다. link:../insights-configure-native-fpolicy-task.html["기본 FPolicy를 구성합니다"] NAS 스토리지 VM에서 사용자 환경의 볼륨에 쓸 수 있거나 허용되지 않는 파일 확장자를 제어합니다.
 
 
 

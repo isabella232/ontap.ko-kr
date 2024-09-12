@@ -153,5 +153,5 @@ ONTAP 9.14.1부터 ARP를 사용하면 두 ARP 이벤트에 대한 경고를 지
 --
 ====
 .추가 정보
-* link:https://kb.netapp.com/onprem/ontap/da/NAS/Understanding_Autonomous_Ransomware_Protection_attacks_and_the_Autonomous_Ransomware_Protection_snapshot["자율적 랜섬웨어 방어 공격 및 자율적 랜섬웨어 방어 스냅샷을 이해합니다"^]
+* link:https://kb.netapp.com/onprem/ontap/da/NAS/Understanding_Autonomous_Ransomware_Protection_attacks_and_the_Autonomous_Ransomware_Protection_snapshot["자율적 랜섬웨어 방어 공격 및 자율적 랜섬웨어 방어 스냅샷을 이해합니다"^]..
 

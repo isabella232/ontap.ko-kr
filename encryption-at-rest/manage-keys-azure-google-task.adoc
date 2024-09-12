@@ -31,7 +31,7 @@ AWS KMS, AKV 및 Cloud KMS를 사용하여 보호할 수 있습니다 link:confi
 .시작하기 전에
 * 해당 클라우드 공급자에 KMS를 구성해야 합니다.
 * ONTAP 클러스터 노드는 NVE를 지원해야 합니다.
-* link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/install-license-task.html["VE(Volume Encryption) 및 MTEKM(Multi-tenant Encryption Key Management) 라이센스를 설치해야 합니다"]. 이 라이선스는 에 포함되어 있습니다 link:https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html#licenses-included-with-ontap-one["ONTAP 1 을 참조하십시오"].
+* link:../encryption-at-rest/install-license-task.html["VE(Volume Encryption) 및 MTEKM(Multi-tenant Encryption Key Management) 라이센스를 설치해야 합니다"].. 이 라이선스는 에 link:../system-admin/manage-licenses-concept.html#licenses-included-with-ontap-one["ONTAP 1 을 참조하십시오"]포함되어 있습니다.
 * 클러스터 또는 SVM 관리자여야 합니다.
 * 데이터 SVM에는 암호화된 볼륨이 포함되어 있지 않아야 하며 키 관리자를 사용해야 합니다. 데이터 SVM에 암호화된 볼륨이 포함된 경우 KMS를 구성하기 전에 해당 볼륨을 마이그레이션해야 합니다.
 

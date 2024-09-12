@@ -135,7 +135,7 @@ ARP 스냅샷 복사본은 최소 2일 동안 보존됩니다. ONTAP 9.11.1부�
 
 ARP는 검증된 ONTAP 데이터 보호 및 재해 복구 기술을 기반으로 구축되며, 랜섬웨어 공격에 대응합니다. 데이터 복구에 대한 자세한 내용은 다음 항목을 참조하십시오.
 
-* link:../task_dp_recover_snapshot.html["Snapshot 복사본에서 복구(System Manager)"]
+* link:../data-protection/restore-contents-volume-snapshot-task.html["Snapshot 복사본에서 복구(System Manager)"]
 * link:../data-protection/restore-contents-volume-snapshot-task.html["스냅샷 복사본에서 파일 복원(CLI)"]
 * link:https://www.netapp.com/blog/smart-ransomware-recovery["스마트 랜섬웨어 복구"^]
 

@@ -16,7 +16,7 @@ ONTAP 9.6 이상을 실행하는 경우 Alibaba 클라우드 오브젝트 스토
 .Alibaba 클라우드 개체 스토리지를 FabricPool와 함께 사용할 때의 고려 사항
 * FabricPool 라이센스가 필요할 수 있습니다.
 +
-새로 주문한 AFF 시스템에는 FabricPool를 사용할 수 있는 10TB의 여유 용량이 제공됩니다. AFF 시스템에서 추가 용량이 필요하거나 AFF가 아닌 시스템에서 Alibaba 클라우드 오브젝트 스토리지를 사용하거나 기존 클러스터에서 업그레이드하는 경우 가 필요합니다 link:https://docs.netapp.com/us-en/ontap/fabricpool/install-license-aws-azure-ibm-task.html["FabricPool 라이센스"].
+새로 주문한 AFF 시스템에는 FabricPool를 사용할 수 있는 10TB의 여유 용량이 제공됩니다. AFF 시스템에 추가 용량이 필요하거나 AFF가 아닌 시스템에서 Alibaba Cloud Object Storage를 사용하는 경우 또는 기존 클러스터에서 업그레이드하는 경우 이 link:../fabricpool/install-license-aws-azure-ibm-task.html["FabricPool 라이센스"]필요합니다.
 
 * AFF 및 FAS 시스템과 ONTAP Select에서 FabricPool는 다음 Alibaba 개체 스토리지 서비스 클래스를 지원합니다.
 +

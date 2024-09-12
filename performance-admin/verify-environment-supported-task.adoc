@@ -27,7 +27,7 @@ Active IQ Unified Manager를 성공적으로 설치하려면 VMware 환경이 �
 +
 [NOTE]
 ====
-를 클릭합니다 http://mysupport.netapp.com/matrix["상호 운용성 매트릭스"] 에는 Unified Manager에 대해 지원되는 구성이 나와 있습니다.
+ http://mysupport.netapp.com/matrix["상호 운용성 매트릭스"^]에는 Unified Manager에 대해 지원되는 구성이 나와 있습니다.
 
 ====
 . 선택한 설정의 설정 이름을 클릭합니다.

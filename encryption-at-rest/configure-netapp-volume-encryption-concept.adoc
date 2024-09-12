@@ -23,7 +23,7 @@ NVE를 사용하면 메타데이터와 데이터(스냅샷 복사본 포함)가 
 * Onboard Key Manager는 데이터와 동일한 스토리지 시스템의 노드에 키를 제공하는 기본 제공 툴입니다.
 
 
-ONTAP 9.7부터 볼륨 암호화(VE) 라이센스가 있고 온보드 키 관리자 또는 외부 키 관리자를 사용하는 경우 애그리게이트 및 볼륨 암호화가 기본적으로 활성화됩니다. VE 라이센스는 에 포함되어 있습니다 link:https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html#licenses-included-with-ontap-one["ONTAP 1 을 참조하십시오"]. 외부 또는 온보드 키 관리자를 구성할 때마다 새로운 애그리게이트 및 완전히 새로운 볼륨에 대해 유휴 데이터 암호화를 구성하는 방식이 변경됩니다. 새로운 애그리게이트에 NetApp NAE(Aggregate Encryption)가 기본적으로 사용되도록 설정됩니다. NAE 애그리게이트에 포함되지 않은 새로운 볼륨의 경우 기본적으로 NVE(NetApp Volume Encryption)가 활성화됩니다. 멀티 테넌트(multi-tenant) 키 관리를 사용하여 데이터 스토리지 가상 시스템(SVM)을 자체 키 관리자로 구성한 경우, SVM용으로 생성된 볼륨은 NVE로 자동으로 구성됩니다.
+ONTAP 9.7부터 볼륨 암호화(VE) 라이센스가 있고 온보드 키 관리자 또는 외부 키 관리자를 사용하는 경우 애그리게이트 및 볼륨 암호화가 기본적으로 활성화됩니다. VE 라이센스는 에 포함되어 link:../system-admin/manage-licenses-concept.html#licenses-included-with-ontap-one["ONTAP 1 을 참조하십시오"]있습니다. 외부 또는 온보드 키 관리자를 구성할 때마다 새로운 애그리게이트 및 완전히 새로운 볼륨에 대해 유휴 데이터 암호화를 구성하는 방식이 변경됩니다. 새로운 애그리게이트에 NetApp NAE(Aggregate Encryption)가 기본적으로 사용되도록 설정됩니다. NAE 애그리게이트에 포함되지 않은 새로운 볼륨의 경우 기본적으로 NVE(NetApp Volume Encryption)가 활성화됩니다. 멀티 테넌트(multi-tenant) 키 관리를 사용하여 데이터 스토리지 가상 시스템(SVM)을 자체 키 관리자로 구성한 경우, SVM용으로 생성된 볼륨은 NVE로 자동으로 구성됩니다.
 
 새 볼륨이나 기존 볼륨에서 암호화를 활성화할 수 있습니다. NVE는 중복제거, 압축을 비롯한 광범위한 스토리지 효율성 기능을 지원합니다. ONTAP 9.14.1부터 가능합니다 xref:configure-nve-svm-root-task.html[기존 SVM 루트 볼륨에서 NVE를 활성화합니다].
 

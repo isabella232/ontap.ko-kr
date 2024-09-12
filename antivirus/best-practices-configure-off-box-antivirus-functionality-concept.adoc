@@ -46,4 +46,4 @@ TIP: Vscan 트래픽용 LIF가 클라이언트 트래픽에 대한 LIF가 아닌
 * 온-액세스 검사 워크로드에 적합한 크기로 주문형 검사를 사용해야 하는 환경의 경우, NetApp 기존 바이러스 백신 인프라에 추가 로드가 발생하지 않도록 사용량이 적은 시간에 온디맨드 검사 작업을 예약하는 것이 좋습니다.
 
 
-파트너 관련 모범 사례에 대한 자세한 내용은 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap/antivirus/vscan-partner-solutions.html["Vscan 파트너 솔루션"].
+파트너 관련 모범 사례에 대한 자세한 내용은 을 link:../antivirus/vscan-partner-solutions.html["Vscan 파트너 솔루션"]참조하십시오.

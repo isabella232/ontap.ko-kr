@@ -14,7 +14,7 @@ summary: 오브젝트 저장소를 클라우드 계층으로 설정한 후 Fabri
 오브젝트 저장소를 클라우드 계층으로 설정한 후 FabricPool에 연결하여 사용할 로컬 계층(애그리게이트)을 지정합니다. ONTAP 9.5 이상에서는 검증된 FlexGroup 볼륨 구성요소가 포함된 로컬 계층(애그리게이트)을 연결할 수도 있습니다.
 
 .이 작업에 대해
-클라우드 계층을 로컬 계층에 연결하는 것은 영구적인 조치입니다. 클라우드 계층은 연결 후 로컬 계층에서 연결을 해제할 수 없습니다. 그러나 을 사용할 수 있습니다 link:https://docs.netapp.com/us-en/ontap/fabricpool/create-mirror-task.html["FabricPool 미러"] 로컬 계층을 다른 클라우드 계층에 연결합니다.
+클라우드 계층을 로컬 계층에 연결하는 것은 영구적인 조치입니다. 클라우드 계층은 연결 후 로컬 계층에서 연결을 해제할 수 없습니다. 하지만 를 사용하면 link:../fabricpool/create-mirror-task.html["FabricPool 미러"]로컬 계층을 다른 클라우드 계층에 연결할 수 있습니다.
 
 .시작하기 전에
 ONTAP CLI를 사용하여 FabricPool용 애그리게이트를 설정할 경우, 애그리게이트가 이미 존재해야 합니다.

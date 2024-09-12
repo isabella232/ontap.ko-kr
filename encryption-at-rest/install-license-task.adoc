@@ -11,9 +11,9 @@ summary: VE 라이센스를 사용하면 클러스터의 모든 노드에서 이
 
 
 [role="lead"]
-VE 라이센스를 사용하면 클러스터의 모든 노드에서 이 기능을 사용할 수 있습니다. 이 라이센스는 NVE로 데이터를 암호화하기 전에 필요합니다. 에 포함되어 있습니다 link:https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html#licenses-included-with-ontap-one["ONTAP 1 을 참조하십시오"].
+VE 라이센스를 사용하면 클러스터의 모든 노드에서 이 기능을 사용할 수 있습니다. 이 라이센스는 NVE로 데이터를 암호화하기 전에 필요합니다. 에 포함되어 link:../system-admin/manage-licenses-concept.html#licenses-included-with-ontap-one["ONTAP 1 을 참조하십시오"]있습니다.
 
-ONTAP One 이전에는 VE 라이센스가 암호화 번들에 포함되어 있었습니다. 암호화 번들이 더 이상 제공되지 않지만 여전히 유효합니다. 현재는 필요하지 않지만 기존 고객은 선택할 수 있습니다 link:https://docs.netapp.com/us-en/ontap/system-admin/download-nlf-task.html["ONTAP One으로 업그레이드하십시오"].
+ONTAP One 이전에는 VE 라이센스가 암호화 번들에 포함되어 있었습니다. 암호화 번들이 더 이상 제공되지 않지만 여전히 유효합니다. 현재는 필요하지 않지만 기존 고객은 선택할 수 link:../system-admin/download-nlf-task.html["ONTAP One으로 업그레이드하십시오"]있습니다.
 
 .시작하기 전에
 * 이 작업을 수행하려면 클러스터 관리자여야 합니다.
@@ -21,9 +21,9 @@ ONTAP One 이전에는 VE 라이센스가 암호화 번들에 포함되어 있�
 
 
 .단계
-. link:https://docs.netapp.com/us-en/ontap/system-admin/manage-license-task.html["VE 라이센스가 설치되어 있는지 확인합니다"].
+. link:../system-admin/manage-license-task.html["VE 라이센스가 설치되어 있는지 확인합니다"]..
 +
 VE 라이센스 패키지 이름은 입니다 `VE`.
 
-. 라이센스가 설치되지 않은 경우 link:https://docs.netapp.com/us-en/ontap/system-admin/install-license-task.html["System Manager 또는 ONTAP CLI를 사용하여 설치합니다"].
+. 라이센스가 설치되지 않은 경우link:../system-admin/install-license-task.html["System Manager 또는 ONTAP CLI를 사용하여 설치합니다"].
 

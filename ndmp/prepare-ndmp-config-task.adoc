@@ -55,7 +55,7 @@ Digital DLT2000                 true       Qualified
 ====
 .. 장치가 상호 운용성 매트릭스에 따라 적격 장치임에도 불구하고 출력에 적격 장치로 표시되지 않는 경우, NetApp Support 사이트의 지침에 따라 장치에 대한 업데이트된 구성 파일을 다운로드하여 설치하십시오.
 +
-http://mysupport.netapp.com/NOW/download/tools/tape_config["NetApp 다운로드: 테이프 장치 구성 파일"]
+http://mysupport.netapp.com/NOW/download/tools/tape_config["NetApp 다운로드: 테이프 장치 구성 파일"^]
 
 +
 노드를 제공한 후 테이프 장치가 검증된 경우, 내장 테이프 구성 파일에 검증된 장치가 나열되지 않을 수 있습니다.

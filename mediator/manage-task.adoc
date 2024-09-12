@@ -503,7 +503,7 @@ PKI 권한은 요청을 확인하고 에 서명하여 `.csr`인증서를 `ca.crt
 
 +
 
-NOTE: SM-BC(SnapMirror Business Continuity) 클러스터의 경우 및 인증서를 ONTAP 클러스터에 추가해야 `ca.crt` `root_ca.crt` 합니다. 을 link:https://docs.netapp.com/us-en/ontap/smbc/smbc_install_confirm_ontap_cluster.html#ontap-mediator["SM-BC용 ONTAP 중재자 및 클러스터를 구성합니다"]참조하십시오.
+NOTE: SM-BC(SnapMirror Business Continuity) 클러스터의 경우 및 인증서를 ONTAP 클러스터에 추가해야 `ca.crt` `root_ca.crt` 합니다. 을 link:../snapmirror-active-sync/mediator-install-task.html["활성 동기화에 대해 ONTAP 중재자 및 클러스터를 구성합니다"]참조하십시오.
 
 
 
@@ -655,7 +655,7 @@ NOTE: 절차의 앞부분에 있는 PKI 기관으로부터 및 인증서를 받�
 ***  `ca_certificate`값은 파일의 경로입니다. `root_ca.crt`
 +
 
-NOTE: SM-BC(SnapMirror Business Continuity) 클러스터의 경우 및 인증서를 ONTAP 클러스터에 추가해야 `intermediate.crt` `root_ca.crt` 합니다. 을 link:https://docs.netapp.com/us-en/ontap/smbc/smbc_install_confirm_ontap_cluster.html#ontap-mediator["SM-BC용 ONTAP 중재자 및 클러스터를 구성합니다"]참조하십시오.
+NOTE: SM-BC(SnapMirror Business Continuity) 클러스터의 경우 및 인증서를 ONTAP 클러스터에 추가해야 `intermediate.crt` `root_ca.crt` 합니다. 을 link:../snapmirror-active-sync/mediator-install-task.html["활성 동기화에 대해 ONTAP 중재자 및 클러스터를 구성합니다"]참조하십시오.
 
 
 

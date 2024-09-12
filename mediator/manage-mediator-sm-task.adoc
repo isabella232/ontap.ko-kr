@@ -30,7 +30,7 @@ ONTAP 9.14.1부터는 System Manager를 사용하여 MetroCluster 사이트의 8
  a| 
 중재자 서비스를 구성합니다
  a| 
-의 단계를 수행합니다 link:https://docs.netapp.com/us-en/ontap/task_metrocluster_configure.html##configure-the-ontap-mediator-service["ONTAP 중재자 서비스를 구성합니다"].
+의 단계를 link:../task_metrocluster_configure.html#configure-the-ontap-mediator-service["ONTAP 중재자 서비스를 구성합니다"]수행합니다.
 
 
 
@@ -65,13 +65,13 @@ MetroCluster 구성에서 중재자를 제거합니다
  a| 
 중재자의 상태를 점검합니다
  a| 
-의 단계를 수행합니다 link:https://docs.netapp.com/us-en/ontap/task_metrocluster_troubleshooting.html["IP MetroCluster 구성 관련 문제를 해결합니다"].
+의 단계를 link:../task_metrocluster_troubleshooting.html["IP MetroCluster 구성 관련 문제를 해결합니다"]수행합니다.
 
 
 
  a| 
 스위치오버 및 스위치백을 수행합니다
  a| 
-의 단계를 수행합니다 link:https://docs.netapp.com/us-en/ontap/task_metrocluster_switchover_switchback.html["IP MetroCluster 전환 및 스위치백을 수행합니다"].
+의 단계를 link:../task_metrocluster_switchover_switchback.html["IP MetroCluster 전환 및 스위치백을 수행합니다"]수행합니다.
 
 |===

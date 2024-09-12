@@ -175,7 +175,7 @@ system node upgrade-revert show -node nodename
 상태는 완료 로 표시되어야 합니다.
 
 +
-상태가 완료되지 않은 경우 link:http://mysupport.netapp.com/["NetApp 지원에 문의하십시오"] 즉시.
+상태가 완료되지 않은 link:http://mysupport.netapp.com/["NetApp 지원에 문의하십시오"^]경우 즉시 를 선택합니다.
 
 .. 관리자 권한 레벨로 돌아갑니다.
 +

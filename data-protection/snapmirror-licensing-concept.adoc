@@ -29,7 +29,7 @@ ONTAP 9.5부터 SnapMirror 동기식 관계가 지원됩니다. SnapMirror 동�
 
 * 소스 클러스터와 대상 클러스터 모두에 SnapMirror 동기식 라이센스가 필요합니다.
 +
-SnapMirror 동기식 라이센스는 의 https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["ONTAP One 라이센스 제품군"]일부입니다.
+SnapMirror 동기식 라이센스는 의 link:../system-admin/manage-licenses-concept.html["ONTAP One 라이센스 제품군"]일부입니다.
 
 +
 2019년 6월 이전에 프리미엄 또는 플래시 번들과 함께 시스템을 구매하신 경우, NetApp 마스터 키를 다운로드하여 NetApp 지원 사이트 에서 필요한 SnapMirror 동기식 라이센스를 얻을 수 있습니다 https://mysupport.netapp.com/NOW/knowledge/docs/olio/guides/master_lickey/["마스터 라이센스 키"^].

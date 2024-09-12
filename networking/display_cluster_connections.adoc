@@ -190,7 +190,7 @@ node3
 .단계
 network connections active show 명령을 사용하여 클러스터의 활성 연결을 표시합니다.
 
-이 명령에 대한 자세한 내용은 man 페이지를 참조하십시오. https://docs.netapp.com/us-en/ontap/concepts/manual-pages.html["ONTAP 명령 참조입니다"^]
+이 명령에 대한 자세한 내용은 man 페이지를 link:../concepts/manual-pages.html["ONTAP 명령 참조입니다"]참조하십시오.
 
 다음 명령을 실행하면 노드 노드 1의 활성 연결이 표시됩니다.
 
