@@ -92,6 +92,6 @@ NetApp은 랜섬웨어 공격이 발생할 경우 스냅샷 데이터의 복원�
 
 
 .관련 정보
-* NetApp 지원 사이트 리소스 페이지  http://mysupport.netapp.com/ontap/resources[]
-* NetApp 제품 보안 https://security.netapp.com/resources/[]
+* http://mysupport.netapp.com/ontap/resources["NetApp 지원 사이트 리소스 페이지"^]
+* https://security.netapp.com/resources/["NetApp 제품 보안"^]
 

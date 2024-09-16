@@ -41,6 +41,6 @@ link:https://mysupport.netapp.com/site/tools/snapmirror-cloud-api-key["SnapMirro
 
 
 .관련 정보
-link:../data-protection/cloud-backup-with-snapmirror-task.html["SnapMirror를 사용하여 데이터를 클라우드에 백업합니다"^]
+link:../data-protection/cloud-backup-with-snapmirror-task.html["SnapMirror를 사용하여 데이터를 클라우드에 백업합니다"]
 
 http://mysupport.netapp.com/licenses["NetApp 소프트웨어 라이센스 검색"^]

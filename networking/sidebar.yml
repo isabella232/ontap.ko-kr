@@ -186,6 +186,8 @@ entries:
       url: "/networking/configure_lifs_@cluster_administrators_only@_overview.html"
     - title: LIF가 포트 유형과 호환됩니다
       url: "/networking/lif_compatibility_with_port_types.html"
+    - title: 지원되는 트래픽을 관리합니다
+      url: "/networking/manage_supported_traffic.html"
     - title: ONTAP 9.5 이전 버전에서 LIF 역할
       url: "/networking/lif_roles95.html"
     - title: LIF 및 서비스 정책을 확인하십시오

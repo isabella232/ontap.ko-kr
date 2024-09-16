@@ -160,13 +160,11 @@ volume snapshot restore -vserver <SVM> -volume <volume> -snapshot <snapshot>
 ----
 cluster1::> volume snapshot restore -vserver vs0 -volume vol1 -snapshot daily.2013-01-25_0010
 ----
-
-
 . 원하는 스냅샷 복사본을 사용하여 볼륨을 복원하려면 1단계와 2단계를 반복합니다.
 
 
 --
 ====
-.추가 정보
+.관련 정보
 * link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Ransomware_prevention_and_recovery_in_ONTAP["KB: ONTAP에서 랜섬웨어 방지 및 복구 기능을 사용할 수 있습니다"^]
 

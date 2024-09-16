@@ -62,5 +62,3 @@ entries:
   url: "/ontap-security-hardening/lif-security.html"
 - title: 프로토콜 및 포트 보안
   url: "/ontap-security-hardening/ports-protocols-security.html"
-- title: 보안 리소스
-  url: "/ontap-security-hardening/security-resources.html"

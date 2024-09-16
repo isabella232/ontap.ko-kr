@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: networking/manage_supported_traffic.html 
+keywords: lif roles, firewall services, lif service policies 
+summary: 시간이 지남에 따라 ONTAP에서 LIF에서 지원되는 트래픽 유형을 관리하는 방식이 변경되었습니다. 
+---
+= 지원되는 트래픽을 관리합니다
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+시간이 지남에 따라 ONTAP에서 LIF에서 지원되는 트래픽 유형을 관리하는 방식이 변경되었습니다.
+
+* ONTAP 9 .5 이전 릴리즈에서는 LIF 역할 및 방화벽 서비스를 사용합니다.
+* ONTAP 9 .6 이상 릴리즈에서는 LIF 서비스 정책을 사용합니다.
++
+** ONTAP 9 .5 릴리스에는 LIF 서비스 정책이 도입되었습니다.
+** ONTAP 9 .6은 LIF 역할을 LIF 서비스 정책으로 교체했습니다.
+** ONTAP 9.10.1은 방화벽 서비스를 LIF 서비스 정책으로 교체했습니다.
+
+
+
+
+구성하는 방법은 사용 중인 ONTAP 릴리스에 따라 다릅니다.
+
+추가 정보:
+
+* 방화벽 정책은 link:https://docs.netapp.com/us-en/ontap-cli//system-services-firewall-policy-show.html["명령: firewall-policy-show"^]을 참조하십시오.
+* LIF 역할은 를 참조하십시오link:../networking/lif_roles95.html["LIF 역할(ONTAP 9.5 이하)"].
+* LIF 서비스 정책은 을 link:../networking/lifs_and_service_policies96.html["LIF 및 서비스 정책(ONTAP 9.6 이상)"]참조하십시오.
+

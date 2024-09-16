@@ -37,38 +37,38 @@ NOTE: SAN 호스트에서 보안 제거를 수행하려면 제거할 파일이 �
 
 . 안전하게 제거할 비동기 관계의 대상 볼륨을 준비합니다.
 +
-'볼륨 암호화 secure-purge start-vserver SVM_name-volume volume_name-prepare true
+`volume encryption secure-purge start -vserver <SVM_name> -volume <volume_name> -prepare true`
 
 +
 SnapMirror 동기식 관계의 다른 볼륨에 대해 이 단계를 반복합니다.
 
 . 안전하게 제거할 파일이 스냅샷 복사본에 있는 경우 다음과 같이 스냅샷 복사본을 삭제합니다.
 +
-`snapshot delete -vserver _SVM_name_ -volume _volume_name_ -snapshot _snapshot_`
+`snapshot delete -vserver <SVM_name> -volume <volume_name> -snapshot <snapshot>`
 
 . 보안 제거 파일이 기본 스냅샷 복사본 또는 공통 스냅샷 복사본에 있는 경우 SnapMirror를 업데이트하여 공통 스냅샷 복사본을 다음으로 이동합니다.
 +
-`snapmirror update -source-snapshot _snapshot_name_ -destination-path _destination_path_`
+`snapmirror update -source-snapshot <snapshot_name> -destination-path <destination_path>`
 
 +
 두 개의 공통 스냅샷 복사본이 있으므로 이 명령을 두 번 실행해야 합니다.
 
 . 보안 제거 파일이 애플리케이션 정합성이 보장된 스냅샷 복사본에 있는 경우 SnapMirror 동기식 관계의 두 볼륨 모두에서 스냅샷 복사본을 삭제합니다.
 +
-`snapshot delete -vserver _SVM_name_ -volume _volume_name_ -snapshot _snapshot_`
+`snapshot delete -vserver <SVM_name> -volume <volume_name> -snapshot <snapshot>`
 
 +
 두 볼륨에서 이 단계를 수행합니다.
 
 . 삭제된 파일을 안전하게 삭제:
 +
-`volume encryption secure-purge start -vserver _SVM_name_ -volume _volume_name_`
+`volume encryption secure-purge start -vserver <SVM_name> -volume <volume_name>`
 
 +
 SnapMirror 동기식 관계의 각 볼륨에 대해 이 단계를 반복합니다.
 
 +
-다음 명령을 실행하면 삭제된 파일이 SMV ""VS1""의 ""vol1""에서 안전하게 삭제됩니다.
+다음 명령을 실행하면 삭제된 파일이 SVM ""VS1""의 ""vol1""에서 안전하게 삭제됩니다.
 
 +
 [listing]

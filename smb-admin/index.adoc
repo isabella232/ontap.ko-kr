@@ -2,9 +2,9 @@
 permalink: smb-admin/index.html 
 sidebar: sidebar 
 keywords: smb, cifs, protocol, file, access, overview 
-summary: SMB 프로토콜에 사용할 수 있는 ONTAP 파일 액세스 기능 CIFS 서버를 설정하고, 공유를 생성하고, Microsoft 서비스를 설정할 수 있습니다. 계획 지침과 자세한 구현 지침이 포함되어 있습니다. 
+summary: CIFS 서버 지원, 공유 생성, Microsoft 서비스 활성화와 같은 SMB 프로토콜을 위해 사용할 수 있는 ONTAP 파일 액세스 기능 
 ---
-= SMB 참조 개요
+= SMB 개요
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

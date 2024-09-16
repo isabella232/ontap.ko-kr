@@ -19,7 +19,7 @@ ONTAP 9.15.1부터 관리자는 동적 권한 부여를 구성 및 활성화하�
 
 동적 권한 부여는 신뢰 점수 부여 시스템을 사용하여 권한 부여 정책에 따라 사용자에게 다른 신뢰 수준을 할당합니다. 사용자의 신뢰 수준에 따라 사용자가 수행하는 작업을 허용 또는 거부하거나 추가 인증을 요구하는 메시지가 표시될 수 있습니다.
 
-link:configure-dynamic-authorization.html["동적 권한 부여를 사용자 지정합니다"^]기준 점수 가중치 및 기타 동적 권한 부여 속성을 구성하는 방법에 대한 자세한 내용은 을 참조하십시오.
+link:configure-dynamic-authorization.html["동적 권한 부여를 사용자 지정합니다"]기준 점수 가중치 및 기타 동적 권한 부여 속성을 구성하는 방법에 대한 자세한 내용은 을 참조하십시오.
 
 
 
@@ -39,6 +39,6 @@ link:configure-dynamic-authorization.html["동적 권한 부여를 사용자 지
 
 
 .다음 단계
-* link:enable-disable-dynamic-authorization.html["동적 권한 부여를 사용하거나 사용하지 않습니다"^]
-* link:configure-dynamic-authorization.html["동적 권한 부여를 사용자 지정합니다"^]
+* link:enable-disable-dynamic-authorization.html["동적 권한 부여를 사용하거나 사용하지 않습니다"]
+* link:configure-dynamic-authorization.html["동적 권한 부여를 사용자 지정합니다"]
 
