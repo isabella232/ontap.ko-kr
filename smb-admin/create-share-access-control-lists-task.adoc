@@ -2,7 +2,7 @@
 permalink: smb-admin/create-share-access-control-lists-task.html 
 sidebar: sidebar 
 keywords: configuring, configure, permission, share, creating, create, control, list, acl, smb, enable, level, access, user, group, create smb share access control lists 
-summary: 'SMB 공유에 대한 ACL(액세스 제어 목록)을 생성하여 공유 권한을 구성하면 사용자 및 그룹의 공유에 대한 액세스 수준을 제어할 수 있습니다.' 
+summary: 'SMB 공유에 대한 ACL(액세스 제어 목록)을 생성하여 공유 권한을 구성하면 사용자 및 그룹에 대한 공유 액세스 수준을 제어할 수 있습니다.' 
 ---
 = SMB 공유 액세스 제어 목록을 생성합니다
 :allow-uri-read: 
@@ -21,7 +21,7 @@ SMB 공유에 대한 ACL(액세스 제어 목록)을 생성하여 공유 권한�
 워크그룹 모드에서 로컬 도메인 이름은 SMB 서버 이름입니다.
 
 .단계
-. 기본 공유 ACL: 'vserver cifs share access-control delete-vserver_vserver_name_-share_share_name_-user-or-group everyone'을 삭제합니다
+. 기본 공유 ACL인 'vserver cifs share access-control delete-vserver <vserver_name>-share <share_name>-user-or-group everyone'을 삭제하십시오
 . 새 ACL 구성:
 +
 |===
@@ -31,28 +31,28 @@ SMB 공유에 대한 ACL(액세스 제어 목록)을 생성하여 공유 권한�
  a| 
 Windows 사용자
  a| 
-`vserver cifs share access-control create -vserver _vserver_name_ -share _share_name_ -user-group-type windows -user-or-group _Windows_domain_name\user_name_ -permission _access_right_`
+`vserver cifs share access-control create -vserver <vserver_name> -share <share_name> -user-group-type windows -user-or-group <Windows_domain_name\user_name> -permission <access_right>`
 
 
 
  a| 
 Windows 그룹
  a| 
-`vserver cifs share access-control create -vserver _vserver_name_ -share _share_name_ -user-group-type windows -user-or-group _Windows_domain_name\group_name_ -permission _access_right_`
+`vserver cifs share access-control create -vserver <vserver_name> -share <share_name> -user-group-type windows -user-or-group <Windows_domain_name\group_name> -permission <access_right>`
 
 
 
  a| 
 Unix 사용자입니다
  a| 
-'vserver cifs share access-control create-vserver_name_-share_share_name_-user-group-type_unix-user_-or-group_unix_user_name_-permission access_right'
+`vserver cifs share access-control create -vserver <vserver_name> -share <share_name> -user-group-type <unix-user> -user-or-group <UNIX_user_name> -permission <access_right>`
 
 
 
  a| 
 Unix 그룹
  a| 
-'vserver cifs share access-control create-vserver_name_-share_share_name_-user-group-type_unix-group_-user-or-group_unix_group_name_-permission access_right'
+`vserver cifs share access-control create -vserver <vserver_name> -share <share_name> -user-group-type <unix-group> -user-or-group <UNIX_group_name> -permission <access_right>`
 
 |===
 . 'vserver cifs share access-control show' 명령을 사용하여 공유에 적용된 ACL이 올바른지 확인하십시오.
@@ -72,7 +72,7 @@ Vserver          Name        Name                    Type        Permission
 vs1.example.com  c$          BUILTIN\Administrators  windows     Full_Control
 vs1.example.com  sales       DOMAIN\Sales Team     windows     Change
 ----
-다음 명령을 실행하면 이 표시됩니다 `Read` "vs2.example.com" SVM에서 "엔지니어링" UNIX 그룹의 "ENG" 공유에 대한 승인:
+다음 명령을 실행하면 `Read` "vs2.example.com" SVM의 "eng" 공유에 대한 "engineering" UNIX 그룹에 대한 권한이 부여됩니다.
 
 [listing]
 ----
@@ -85,7 +85,7 @@ Vserver          Name        Name                     Type        Permission
 vs2.example.com  c$          BUILTIN\Administrators   windows     Full_Control
 vs2.example.com  eng         engineering              unix-group  Read
 ----
-다음 명령은 을 제공합니다 `Change` 호랑이 팀(Tiger Team)이라는 이름의 현지 Windows 그룹에 대한 허가 및 `Full_Control` VS1 SVM의 "다타볼5" 공유에 대한 로컬 Windows 사용자의 "스UE CHANG"에 대한 권한:
+다음 명령은 `Change` "Tiger Team"이라는 로컬 Windows 그룹에 `Full_Control` 대한 권한을 부여하고 "VS1" SVM에서 "datavol5" 공유에 대해 "Sue Chang"이라는 로컬 Windows 사용자에게 권한을 부여합니다.
 
 [listing]
 ----

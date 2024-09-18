@@ -39,7 +39,7 @@ LIF 유형에 기본 페일오버 정책을 사용하는 것이 좋습니다.
 
 === 페일오버 정책 결정 트리
 
-image:LIF_failover_decision_tree.png["LIF 페일오버 의사결정 트리 이미지"]
+image:LIF_failover_decision_tree.png["LIF 페일오버 정책 결정 트리 이미지"]
 
 
 

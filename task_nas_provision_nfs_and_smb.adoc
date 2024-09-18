@@ -20,7 +20,7 @@ NFS 또는 SMB 프로토콜을 사용하여 클라이언트에 스토리지를 �
 
 이 절차를 수행하면 에 새 볼륨이 생성됩니다 link:task_nas_enable_nfs_and_smb.html["NFS 및 SMB 프로토콜 모두에 대해 설정된 기존 스토리지 VM"].
 
-image:workflow_provision_multi_nas.gif["NFS와 SMB를 모두 사용하여 Windows 및 Linux 모두에 대해 NAS 스토리지를 프로비저닝하는 작업을 위한 워크플로우 다이어그램"]
+image:workflow_provision_multi_nas.gif["워크플로 요약: 1 볼륨 2 만들기 Linux 액세스 확인 3 Windows 액세스 확인"]
 
 
 NOTE: NFS 프로토콜은 일반적으로 Linux 환경에서 사용됩니다.  SMB 프로토콜은 일반적으로 Windows 환경에서 사용됩니다.  그러나 NFS와 SMB는 모두 Linux 또는 Windows에서 사용할 수 있습니다.

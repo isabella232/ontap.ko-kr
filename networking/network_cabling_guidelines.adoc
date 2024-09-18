@@ -20,7 +20,7 @@ summary: 네트워크 케이블 연결 모범 사례
 
 다음 다이어그램에서는 3개의 개별 네트워크를 포함하는 4노드 HA 클러스터의 네트워크 케이블을 연결합니다.
 
-image:Network_Cabling_Guidelines.png["네트워크 케이블 연결 다이어그램"]
+image:Network_Cabling_Guidelines.png["4노드 HA 클러스터의 네트워크 케이블 연결"]
 
 네트워크 연결을 연결할 때는 다음과 같은 특정 지침을 따라야 합니다.
 

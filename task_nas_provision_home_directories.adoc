@@ -20,7 +20,7 @@ summary: 볼륨을 생성하여 SMB 프로토콜을 사용하여 홈 디렉토�
 
 이 절차를 수행하면 의 홈 디렉토리에 대한 새 볼륨이 생성됩니다 link:task_nas_enable_windows_smb.html["기존 SMB 지원 스토리지 VM"]. 볼륨을 구성하거나 사용자 지정 구성을 지정할 때 시스템 기본값을 사용할 수 있습니다.
 
-image:workflow_nas_provision_home_directories.gif["홈 디렉토리를 위한 NAS 스토리지 용량 할당을 위한 워크플로우"]
+image:workflow_nas_provision_home_directories.gif["워크플로 요약: 1 볼륨 2 생성 홈 디렉토리 공유 생성 3 공유 액세스 확인"]
 
 FlexVol 볼륨을 생성할 수도 있고, 고성능 요구사항이 높은 대규모 파일 시스템의 경우 FlexGroup 볼륨을 생성할 수도 있습니다. 도 참조하십시오 link:task_nas_provision_flexgroup.html["FlexGroup 볼륨을 사용하여 대용량 파일 시스템용 NAS 스토리지를 프로비저닝합니다"].
 

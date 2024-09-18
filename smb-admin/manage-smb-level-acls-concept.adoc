@@ -13,9 +13,7 @@ summary: 공유 수준 ACL을 변경하여 사용자에게 공유에 대한 액�
 [role="lead"]
 공유 수준 ACL을 변경하여 사용자에게 공유에 대한 액세스 권한을 더 많이 또는 덜 부여할 수 있습니다. Windows 사용자 및 그룹 또는 UNIX 사용자 및 그룹을 사용하여 공유 수준 ACL을 구성할 수 있습니다.
 
-공유를 생성한 후에는 기본적으로 공유 레벨 ACL이 Everyone이라는 표준 그룹에 대한 읽기 액세스를 제공합니다. ACL의 읽기 액세스는 도메인의 모든 사용자와 모든 신뢰할 수 있는 도메인의 모든 사용자가 공유에 대한 읽기 전용 액세스 권한을 가지고 있음을 의미합니다.
-
-Windows 클라이언트 또는 ONTAP 명령줄에서 MMC(Microsoft Management Console)를 사용하여 공유 수준 ACL을 변경할 수 있습니다.
+기본적으로 공유 수준 ACL은 Everyone이라는 표준 그룹에 모든 권한을 부여합니다. ACL에 대한 모든 제어 기능은 도메인 및 모든 신뢰할 수 있는 도메인의 모든 사용자가 공유에 대한 모든 액세스 권한을 갖는다는 것을 의미합니다. 를 사용하여 공유 수준 ACL에 대한 액세스 수준을 제어할 수 link:../smb-admin/create-share-access-control-lists-task.html["Windows 클라이언트의 MMC(Microsoft Management Console) 또는 ONTAP 명령줄입니다"]있습니다.
 
 MMC를 사용할 때 다음 지침이 적용됩니다.
 

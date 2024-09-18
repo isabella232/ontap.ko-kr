@@ -47,7 +47,7 @@ ONTAP 9.7 이하에서는 System Manager가 MetroCluster 구성에 대한 새로
 
 
 
-image:workflow_configure_ontap_on_new_cluster.gif["새 클러스터에서 ONTAP를 구성하는 작업 워크플로우"]
+image:workflow_configure_ontap_on_new_cluster.gif["System Manager를 사용하여 새 클러스터에 ONTAP를 구성하는 단계입니다"]
 
 
 

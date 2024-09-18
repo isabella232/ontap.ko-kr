@@ -17,7 +17,7 @@ StorageGRID에 대한 인증서 확인을 사용하지 않도록 설정하려면
 ONTAP 9.4 이상 릴리즈를 사용하면 StorageGRID에 대한 인증서 검사를 비활성화할 수 있습니다.
 
 .단계
-. StorageGRID 관리자에게 문의하여 StorageGRID 시스템의 CA 인증서를 받으십시오.
+. 를 얻으려면 StorageGRID 관리자에게 https://docs.netapp.com/us-en/storagegrid-118/admin/configuring-storagegrid-certificates-for-fabricpool.html["StorageGRID 시스템의 CA 인증서입니다"^] 문의하십시오.
 . 'server-ca' 매개 변수와 함께 'security certificate install' 명령을 사용하여 클러스터에 StorageGRID CA 인증서를 설치합니다.
 +
 입력하는 FQDN(정규화된 도메인 이름)은 StorageGRID CA 인증서의 사용자 지정 일반 이름과 일치해야 합니다.
@@ -31,4 +31,4 @@ ONTAP 9.4 이상 릴리즈를 사용하면 StorageGRID에 대한 인증서 검�
 만료된 인증서를 업데이트하려면 신뢰할 수 있는 CA를 사용하여 새 서버 인증서를 생성하는 것이 가장 좋습니다. 또한 StorageGRID 서버와 ONTAP 클러스터에서 동시에 인증서를 업데이트하여 가동 중지 시간을 최소화해야 합니다.
 
 .관련 정보
-https://www.netapp.com/data-storage/storagegrid/documentation["StorageGRID 리소스"]
+https://docs.netapp.com/us-en/storagegrid-family/["StorageGRID 리소스"^]

@@ -22,7 +22,7 @@ LUN을 생성하여 SAN 프로토콜로 구성된 기존 스토리지 VM에 추�
 
 == LUN을 추가합니다
 
-image:workflow_admin_add_LUNs.gif["LUN 추가 작업의 워크플로 다이어그램"]
+image:workflow_admin_add_LUNs.gif["LUN을 추가하는 단계 작업입니다"]
 
 .시작하기 전에
 SAN 서비스용으로 구성된 스토리지 VM이 클러스터에 있어야 합니다.

@@ -225,4 +225,4 @@ SnapMirror 동기식 관계의 경우 시스템이  `InSync` `OutofSync`고정�
 관계 상태가 `OutofSync` StrictSync 모드에서 SnapMirror 동기 관계에 대한 상태가 되면 운영 볼륨에 대한 모든 I/O 작업이 중지됩니다.  `OutofSync`동기화 모드에서 SnapMirror 동기식 관계의 상태는 운영 볼륨에 영향을 주지 않으며 운영 볼륨에 입출력 작업이 허용됩니다.
 
 .관련 정보
-http://www.netapp.com/us/media/tr-4733.pdf["NetApp 기술 보고서 4733: SnapMirror 동기식 구성 및 모범 사례"^]
+https://www.netapp.com/pdf.html?item=/media/17174-tr4733pdf.pdf["NetApp 기술 보고서 4733: SnapMirror 동기식 구성 및 모범 사례"^]

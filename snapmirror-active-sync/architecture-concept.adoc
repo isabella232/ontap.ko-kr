@@ -63,7 +63,7 @@ NOTE: ONTAP 중재자를 사용할 수 없는 경우 계획된 또는 자동화�
 
 다음 그림에서는 개괄적인 SnapMirror 액티브 동기화의 설계를 보여 줍니다.
 
-image:workflow_san_snapmirror_business_continuity.png["SnapMirror 활성 동기화 아키텍처 다이어그램"]
+image:workflow_san_snapmirror_business_continuity.png["높은 수준의 SnapMirror 활성 동기화 설계"]
 
 이 다이어그램은 운영 데이터 센터의 SVM(스토리지 VM)에서 호스팅되는 엔터프라이즈 애플리케이션을 보여 줍니다. SVM은 볼륨 5개를 포함하며, 볼륨 3개는 일관성 그룹의 일부입니다. 일관성 그룹의 볼륨 3개가 보조 데이터 센터에 미러링됩니다. 정상적인 상황에서는 모든 쓰기 작업이 운영 데이터 센터에 수행됩니다. 실제로 이 데이터 센터는 I/O 작업의 소스로 사용되고, 보조 데이터 센터는 대상으로 작동합니다.
 
@@ -79,6 +79,6 @@ in_Asymmetric configuration_에서 기본 스토리지 복사본은 활성 최�
 
 in_대칭 액티브/액티브 구성 _ 에서는 액티브 최적화 경로가 두 사이트에 모두 표시되고 호스트마다 다르며 구성이 가능합니다. 즉, 양쪽의 호스트가 액티브 입출력을 위해 로컬 스토리지에 액세스할 수 있습니다
 
-image:snapmirror-active-sync-symmetric.png["대칭 활성 구성 다이어그램"]
+image:snapmirror-active-sync-symmetric.png["대칭 액티브 구성"]
 
 대칭 액티브/액티브는 VMware Metro Storage Cluster, Oracle RAC, SQL을 사용한 Windows 페일오버 클러스터링을 비롯한 클러스터 애플리케이션을 대상으로 합니다.

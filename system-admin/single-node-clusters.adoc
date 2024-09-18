@@ -35,12 +35,12 @@ iSCSI SAN 호스트를 단일 노드에 직접 연결하거나 하나 이상의 
 .직접 연결 단일 노드 구성
 직접 연결된 단일 노드 구성에서는 하나 이상의 호스트가 노드에 직접 연결됩니다.
 
-image:scrn_en_drw_fc-302020-direct-sing-on.png["노드에 직접 연결된 하나 이상의 호스트가 있는 직접 연결된 컨트롤러의 다이어그램"]
+image:scrn_en_drw_fc-302020-direct-sing-on.png["직접 연결 단일 노드 구성"]
 
 .단일 네트워크 단일 노드 구성
 단일 네트워크 단일 노드 구성에서는 하나의 스위치를 하나 이상의 호스트에 연결합니다. 단일 스위치가 있으므로 이 구성은 완전히 중복되지 않습니다.
 
-image:r-oc-set-iscsi-singlenetwork-singlenode.png["직접 연결 단일 네트워크 단일 노드 구성"]
+image:r-oc-set-iscsi-singlenetwork-singlenode.png["단일 네트워크 단일 노드 구성"]
 
 .다중 네트워크 단일 노드 구성
 다중 네트워크 단일 노드 구성에서는 두 개 이상의 스위치가 단일 노드를 하나 이상의 호스트에 연결합니다. 스위치가 여러 개 있으므로 이 구성은 완전히 중복됩니다.
@@ -63,10 +63,10 @@ image:scrn-en-drw-iscsi-multinw-singlen.png["다중 네트워크 단일 노드 �
 
 그림의 FC 타겟 포트(0a, 0c, 0b, 0d)가 예제입니다. 실제 포트 번호는 스토리지 노드의 모델 및 확장 어댑터를 사용하고 있는지에 따라 다릅니다.
 
-image:scrn_en_drw_fc-62xx-multi-singlecontroller.png["다중 패브릭 단일 노드 구성의 다이어그램"]
+image:scrn_en_drw_fc-62xx-multi-singlecontroller.png["2개의 패브릭만 있는 다중 패브릭 단일 노드 구성"]
 
 .관련 정보
-http://www.netapp.com/us/media/tr-4684.pdf["NetApp 기술 보고서 4684: NVMe-oF를 사용하여 최신 SAN 구현 및 구성"^]
+https://www.netapp.com/pdf.html?item=/media/10681-tr4684pdf.pdf["NetApp 기술 보고서 4684: NVMe-oF를 사용하여 최신 SAN 구현 및 구성"^]
 
 
 

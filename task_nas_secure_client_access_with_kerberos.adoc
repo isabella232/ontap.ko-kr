@@ -22,7 +22,7 @@ NAS 클라이언트에 대한 스토리지 액세스를 보호하기 위해 Kerb
 
 시작하기 전에 DNS, NTP 및 를 구성해야 합니다 link:task_nas_provide_client_access_with_name_services.html["LDAP를 지원합니다"] 스토리지 시스템에서
 
-image:workflow_nas_secure_client_access_with_kerberos.gif["Kerberos를 사용한 클라이언트 액세스 보안 워크플로우를 제공합니다"]
+image:workflow_nas_secure_client_access_with_kerberos.gif["워크플로 요약: 1 UNIX 권한 설정 2 사용자 권한 설정 3 그룹 권한 설정 4 Kerberos 구성 5 필요한 경우 이름 매핑 추가"]
 
 .단계
 . ONTAP 명령줄에서 스토리지 VM 루트 볼륨에 대한 UNIX 권한을 설정합니다.

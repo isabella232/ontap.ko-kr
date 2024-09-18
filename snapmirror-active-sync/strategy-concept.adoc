@@ -22,7 +22,7 @@ summary: SnapMirror Active Sync의 배포 및 모범 사례에 대해 알아보�
 
 다이어그램은 SnapMirror 액티브 동기화에 대한 권장 스토리지 VM(SVM) 구성을 캡처합니다.
 
-image:snapmirror-svm-layout.png["SnapMirror 활성 동기화 배포의 SVM 다이어그램"]
+image:snapmirror-svm-layout.png["SnapMirror 액티브 동기화를 위한 스토리지 VM 또는 SVM 구성"]
 
 * 데이터 볼륨의 경우:
 +

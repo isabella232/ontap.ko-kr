@@ -19,4 +19,4 @@ SnapMirror 데이터 보호 관계의 각 유형에 대해 워크플로는 동�
 
 ONTAP 9.3부터는 '스냅샷 보호' 명령을 사용하여 한 번에 데이터 보호 관계를 구성할 수 있습니다. 스냅샷 보호 기능을 사용하더라도 워크플로우의 각 단계를 이해해야 합니다.
 
-image:data-protection-workflow.gif["SnapMirror 복제 워크플로우"]
+image:data-protection-workflow.gif["SnapMirror 복제 워크플로우 세 가지 유형의 데이터 보호 관계를 구성하는 기본 단계를 보여 줍니다."]

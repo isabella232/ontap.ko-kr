@@ -18,4 +18,4 @@ ONTAP에는 '/etc/exports' 파일과 'exportfs' 명령이 없습니다. 대신 �
 .관련 정보
 link:../nfs-admin/index.html["NFS 관리"]
 
-http://www.netapp.com/us/media/tr-4067.pdf["NetApp 기술 보고서 4067: NFS 모범 사례 및 구축 가이드"^]
+https://www.netapp.com/pdf.html?item=/media/10720-tr-4067.pdf["NetApp 기술 보고서 4067: NFS 모범 사례 및 구축 가이드"^]

@@ -28,7 +28,7 @@ summary: 4노드 또는 8노드 MetroCluster 구성을 수동으로 업그레이
 
 * 이 작업은 다음과 같은 고급 워크플로를 사용합니다.
 +
-image:workflow_mcc_lockstep_upgrade.gif["MetroCluster 업그레이드 결정 흐름도"]
+image:workflow_mcc_lockstep_upgrade.gif["MetroCluster 구성 업그레이드 결정 흐름"]
 
 
 

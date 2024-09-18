@@ -22,7 +22,7 @@ System Manager 또는 CLI를 사용하여 SAML 인증을 활성화하려면 다�
 
 NOTE: SAML 인증을 활성화한 후에는 원격 사용자만 System Manager GUI에 액세스할 수 있습니다. SAML 인증이 활성화된 후에는 로컬 사용자가 System Manager GUI에 액세스할 수 없습니다.
 
-image:workflow_security_mfa_setup.gif["SAML로 다중 요소 인증을 설정하는 작업의 워크플로 다이어그램"]
+image:workflow_security_mfa_setup.gif["SAML을 사용한 다중 요소 인증을 설정하는 작업의 워크플로우입니다"]
 
 .시작하기 전에
 * 원격 인증에 사용하려는 IDP를 구성해야 합니다.

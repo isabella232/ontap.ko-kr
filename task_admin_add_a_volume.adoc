@@ -18,7 +18,7 @@ summary: 볼륨을 생성하여 NFS 또는 SMB 서비스용으로 구성된 기�
 [role="lead"]
 볼륨을 생성하여 NFS 또는 SMB 서비스용으로 구성된 기존 스토리지 VM에 추가할 수 있습니다.
 
-image:workflow_admin_add_a_volume.gif["볼륨을 추가하는 워크플로의 다이어그램"]
+image:workflow_admin_add_a_volume.gif["볼륨을 추가하는 단계입니다"]
 
 .시작하기 전에
 * NFS 또는 SMB 서비스용으로 구성된 스토리지 VM이 클러스터에 존재해야 합니다.
