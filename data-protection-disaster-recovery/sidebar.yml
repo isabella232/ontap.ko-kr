@@ -4,7 +4,7 @@ title: 데이터 보호 및 재해 복구
 url: "/data-protection-disaster-recovery/index.html"
 entries:
 - section: peering
-- title: 로컬 Snapshot 복사본 관리
+- title: 로컬 스냅샷을 관리합니다
   entries:
   - title: 개요
     url: "/data-protection/manage-local-snapshot-copies-concept.html"
@@ -12,15 +12,15 @@ entries:
     entries:
     - title: 개요
       url: "/data-protection/configure-custom-snapshot-policies-concept.html"
-    - title: 사용자 지정 스냅샷 정책을 구성하는 시기
+    - title: 사용자 지정 스냅샷 정책을 구성하는 경우
       url: "/data-protection/custom-vs-default-snapshot-policy-concept.html"
-    - title: 스냅샷 작업 일정을 생성합니다
+    - title: 스냅샷 작업 스케줄을 생성합니다
       url: "/data-protection/create-snapshot-job-schedule-task.html"
     - title: 스냅샷 정책을 생성합니다
       url: "/data-protection/create-snapshot-policy-task.html"
   - title: 수동으로 스냅샷 복사본을 관리합니다
     entries:
-    - title: 수동으로 스냅샷 복사본 생성 및 삭제
+    - title: 스냅샷을 수동으로 생성하고 삭제합니다
       url: "/data-protection/create-delete-snapshot-manually-task.html"
     - title: 재확보 가능한 공간을 계산합니다
       url: "/data-protection/calculate-reclaimable-space-task.html"
@@ -54,10 +54,12 @@ entries:
       url: "/data-protection/restore-contents-volume-snapshot-task.html"
 - title: SnapMirror 볼륨 복제
   entries:
-  - title: 비동기식 SnapMirror 재해 복구 기본 사항
+  - title: SnapMirror 비동기식 재해 복구 기본 사항
     url: "/data-protection/snapmirror-disaster-recovery-concept.html"
-  - title: SnapMirror Synchronous 재해 복구 기본 사항
+  - title: SnapMirror 동기식 재해 복구 기초
     url: "/data-protection/snapmirror-synchronous-disaster-recovery-basics-concept.html"
+  - title: 기본 보호 정책
+    url: "/data-protection/default-protection-policies-concept.html"
   - title: StrictSync 및 Sync 정책에서 지원되는 워크로드에 대해 알아봅니다
     url: "/data-protection/workloads-strictsync-sync-policies-concept.html"
   - title: SnapMirror 기술을 사용한 볼트 아카이브
@@ -74,7 +76,7 @@ entries:
     entries:
     - title: 개요
       url: "/data-protection/snapmirror-licensing-concept.html"
-    - title: SnapMirror Cloud 라이센스를 설치합니다
+    - title: SnapMirror 클라우드 라이센스를 설치합니다
       url: "/data-protection/install-snapmirror-cloud-license-task.html"
   - title: DPO 시스템의 향상된 기능
     url: "/data-protection/dpo-systems-feature-enhancements-reference.html"
@@ -109,7 +111,7 @@ entries:
     url: "/data-protection/convert-snapmirror-version-flexible-task.html"
   - title: SnapMirror 관계의 유형을 변환합니다
     url: "/data-protection/convert-type-snapmirror-task.html"
-  - title: SnapMirror Synchronous 관계의 모드를 변환합니다
+  - title: SnapMirror 동기식 관계의 모드를 변환합니다
     url: "/data-protection/convert-mode-snapmirror-synchronous-task.html"
   - title: SnapMirror 페일오버 테스트 볼륨을 생성하고 삭제합니다
     url: "/data-protection/create-delete-snapmirror-failover-test-task.html"

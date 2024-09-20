@@ -1,0 +1,78 @@
+---
+permalink: data-protection/default-protection-policies-concept.html 
+sidebar: sidebar 
+keywords: snapmirror, policy, default, replicate, protection, predefined 
+summary: ONTAP에는 몇 가지 기본 보호 정책이 포함되어 있으며, 이러한 정책은 데이터 보호 관계를 생성할 때 사용할 수 있는 사전 정의된 일정이 있습니다. 
+---
+= 기본 보호 정책
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP에는 데이터 보호 관계에 사용할 수 있는 몇 가지 기본 보호 정책이 포함되어 있습니다. 사용하는 정책은 보호 관계 유형에 따라 다릅니다.
+
+기본 정책이 데이터 보호 관계 요구 사항을 충족하지 못하는 경우 다음을 수행할 수 link:create-custom-replication-policy-concept.html["사용자 지정 정책을 만듭니다"]있습니다.
+
+
+
+== 기본 보호 정책 및 설명 목록입니다
+
+기본 보호 정책 및 관련 정책 유형은 아래에 설명되어 있습니다.
+
+[cols="3,4,1"]
+|===
+| 이름 | 설명 | 정책 유형입니다 
+
+
+| 비동기식 | 최신 활성 파일 시스템과 일별 및 주별 스냅샷을 시간별 전송 일정으로 미러링하기 위한 통합된 SnapMirror 비동기식 및 볼트 정책 | 비동기식 
+
+
+| 자동화된 장애 조치 | 복제 실패 시 클라이언트 입출력이 중단되지 않는 제로 RTO 보장의 SnapMirror 동기식 정책입니다. | 동기식이다 
+
+
+| 자동화된 장애 이중 모드 | 제로 RTO 보장 및 양방향 동기화 복제를 제공하는 SnapMirror Synchronous 정책입니다. | 동기식이다 
+
+
+| CloudBackupDefault를 선택합니다 | 일일 규칙을 포함한 볼트 정책. | 비동기식 
+
+
+| 연속 | S3 버킷 미러링 정책 | 연속 
+
+
+| DailyBackup을 선택합니다 | 일일 규칙 및 일일 전송 일정이 포함된 볼트 정책 | 비동기식 
+
+
+| DPDefault(기본값) | 모든 Snapshot 복사본과 최신 액티브 파일 시스템을 미러링하기 위한 SnapMirror 비동기식 정책 | 비동기식 
+
+
+| MirrorAllSnapshots을 선택합니다 | 모든 스냅샷과 최신 액티브 파일 시스템을 미러링하기 위한 SnapMirror 비동기식 정책 | 비동기식 
+
+
+| MirrorAllSnapshotsDiscardNetwork 를 참조하십시오 | 네트워크 구성을 제외한 모든 스냅샷과 최신 활성 파일 시스템을 미러링하기 위한 SnapMirror 비동기식 정책 | 비동기식 
+
+
+| MirrorAndVault를 선택합니다 | 최신 활성 파일 시스템과 일별 및 주별 스냅샷을 미러링하기 위한 통합된 SnapMirror 비동기식 및 볼트 정책입니다. | 비동기식 
+
+
+| MirrorAndVaultDiscardNetwork 를 참조하십시오 | 네트워크 구성을 제외한 최신 활성 파일 시스템과 일별 및 주별 스냅샷을 미러링하기 위한 통합된 SnapMirror 비동기식 및 볼트 정책. | 비동기식 
+
+
+| 대칭 복사 | 최신 액티브 파일 시스템을 미러링하기 위한 SnapMirror 비동기식 정책입니다. | 비동기식 
+
+
+| SnapCenterSync 를 참조하십시오 | SnapCenter with Application 생성 스냅샷 구성에 대한 SnapMirror Synchronous for Application에 대한 정책 | 동기식이다 
+
+
+| StrictSync를 선택합니다 | 복제 실패 시 클라이언트 액세스가 중단되는 SnapMirror Synchronous에 대한 정책입니다. | 동기식이다 
+
+
+| 동기식이다 | 복제 실패 시 클라이언트 액세스가 중단되지 않는 SnapMirror Synchronous에 대한 정책입니다. | 동기식이다 
+
+
+| Unified7년 | 7년 보존이 가능한 유니파이드 SnapMirror 정책 | 비동기식 
+
+
+| XDPDefault | 일별 및 주별 규칙을 포함한 볼트 정책. | 비동기식 
+|===

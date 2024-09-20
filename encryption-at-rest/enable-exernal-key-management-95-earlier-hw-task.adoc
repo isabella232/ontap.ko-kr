@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: enabling, external key management, ontap 9.5, earlier 
 summary: 하나 이상의 KMIP 서버를 사용하여 클러스터에서 암호화된 데이터에 액세스하는 데 사용하는 키를 보호할 수 있습니다. 하나의 노드에 KMIP 서버를 최대 4개까지 연결할 수 있습니다. 이중화 및 재해 복구를 위해 최소 2대의 서버를 사용하는 것이 좋습니다. 
 ---
-= ONTAP 9.5 이전 버전에서 외부 키 관리를 활성화합니다
+= ONTAP 9 .5 이하(HW 기반)에서 외부 키 관리 지원
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -20,7 +20,7 @@ ONTAP는 클러스터의 모든 노드에 대해 KMIP 서버 연결을 구성합
 * KMIP SSL 클라이언트 및 서버 인증서를 설치해야 합니다.
 * 이 작업을 수행하려면 클러스터 관리자여야 합니다.
 * 외부 키 관리자를 구성하기 전에 MetroCluster 환경을 구성해야 합니다.
-* MetroCluster 환경에서는 두 클러스터 모두에 KMIP SSL 인증서를 설치해야 합니다.
+* MetroCluster 환경에서는 두 클러스터에 동일한 KMIP SSL 인증서를 설치해야 합니다.
 
 
 .단계
