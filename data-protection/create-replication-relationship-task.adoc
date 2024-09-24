@@ -13,6 +13,9 @@ summary: 운영 스토리지의 소스 볼륨과 2차 스토리지의 타겟 볼
 [role="lead"]
 운영 스토리지의 소스 볼륨과 2차 스토리지의 타겟 볼륨 간의 관계를 _ 데이터 보호 관계라고 합니다. _ '스냅샷 생성' 명령을 사용하여 SnapMirror DR, SnapVault 또는 통합 복제 데이터 보호 관계를 생성할 수 있습니다.
 
+
+NOTE: 이 절차는 FAS, AFF 및 현재 ASA 시스템에 적용됩니다. ASA R2 시스템(ASA A1K, ASA A70 또는 ASA A90)이 있는 경우 에 따라 link:https://docs.netapp.com/us-en/asa-r2/data-protection/snapshot-replication.html["수행할 수 있습니다"^]복제 관계를 생성합니다. ASA R2 시스템은 SAN 전용 고객을 대상으로 단순화된 ONTAP 환경을 제공합니다.
+
 ONTAP 9.11.1부터 시스템 관리자를 사용하여 미리 작성된 사용자 정의 미러 및 볼트 정책을 선택하고, 레거시 정책을 표시 및 선택하고, 볼륨 및 스토리지 VM을 보호할 때 보호 정책에 정의된 전송 일정을 재정의할 수 있습니다. 이 기능은 ONTAP 9.8P12 이상의 ONTAP 9.8 패치에서도 사용할 수 있습니다.
 
 [NOTE]

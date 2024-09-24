@@ -18,6 +18,9 @@ summary: 볼륨 암호화를 사용하여 기본 장치를 용도 변경, 반환
 [role="lead"]
 볼륨 암호화를 사용하여 기본 장치를 용도 변경, 반환, 위치 변경 또는 도난 당한 경우 볼륨 데이터를 읽을 수 없도록 합니다. 볼륨 암호화는 특수 디스크가 필요하지 않으며 모든 HDD 및 SSD와 함께 작동합니다.
 
+.이 작업에 대해
+이 절차는 FAS, AFF 및 현재 ASA 시스템에 적용됩니다. ASA R2 시스템(ASA A1K, ASA A70 또는 ASA A90)을 사용하는 경우 를 따라 link:https://docs.netapp.com/us-en/asa-r2/secure-data/encrypt-data-at-rest.html["수행할 수 있습니다"^]소프트웨어 수준 암호화를 활성화합니다. ASA R2 시스템은 SAN 전용 고객을 대상으로 단순화된 ONTAP 환경을 제공합니다.
+
 볼륨 암호화에는 키 관리자가 필요합니다. System Manager를 사용하여 Onboard Key Manager를 구성할 수 있습니다. 외부 키 관리자를 사용할 수도 있지만 먼저 ONTAP CLI를 사용하여 설정해야 합니다.
 
 키 관리자를 구성한 후에는 새 볼륨이 기본적으로 암호화됩니다.

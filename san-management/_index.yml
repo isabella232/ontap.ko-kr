@@ -34,6 +34,8 @@ indexpage:
     links:
     - title: ONTAP SAN 호스트 구성
       url: https://docs.netapp.com/us-en/ontap-sanhost/
+    - title: ASA R2 시스템용 ONTAP
+      url: https://docs.netapp.com/us-en/asa-r2/
     - title: ONTAP 외부 LUN 임포트
       url: https://docs.netapp.com/us-en/ontap-fli/
     - title: 'TR-4080: 최신 SAN에 대한 모범 사례'

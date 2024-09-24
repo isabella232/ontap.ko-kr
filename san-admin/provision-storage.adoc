@@ -18,6 +18,9 @@ summary: LUN을 생성하여 FC 또는 iSCSI SAN 프로토콜을 사용하여 �
 [role="lead"]
 이 절차를 수행하면 FC 또는 iSCSI 프로토콜이 이미 구성된 기존 스토리지 VM에 새 LUN이 생성됩니다.
 
+.이 작업에 대해
+이 절차는 FAS, AFF 및 현재 ASA 시스템에 적용됩니다. ASA R2 시스템(ASA A1K, ASA A70 또는 ASA A90)을 사용하는 경우 에 따라 link:https://docs.netapp.com/us-en/asa-r2/manage-data/provision-san-storage.html["수행할 수 있습니다"^]스토리지를 프로비저닝합니다. ASA R2 시스템은 SAN 전용 고객을 대상으로 단순화된 ONTAP 환경을 제공합니다.
+
 새 스토리지 VM을 생성하고 FC 또는 iSCSI 프로토콜을 구성해야 하는 경우 를 참조하십시오 link:configure-svm-fc-task.html["FC용 SVM 구성"] 또는 link:configure-svm-iscsi-task.html["iSCSI용 SVM을 구성합니다"].
 
 FC 라이센스가 활성화되어 있지 않으면 LIF 및 SVM이 온라인 상태로 나타나지만 운영 상태는 다운입니다.

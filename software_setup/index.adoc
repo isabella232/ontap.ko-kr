@@ -13,10 +13,14 @@ summary: 소프트웨어 설정
 [role="lead"]
 System Manager 또는 ONTAP CLI(Command Line Interface)를 사용하여 새로운 ONTAP 클러스터를 설정할 수 있습니다.  시작하기 전에 클러스터 관리 인터페이스 포트 및 IP 주소 등의 클러스터 설정을 완료하는 데 필요한 정보를 수집해야 합니다.
 
+.이 작업에 대해
+이 절차는 FAS, AFF 및 현재 ASA 시스템에 적용됩니다. ASA R2 시스템(ASA A1K, ASA A70 또는 ASA A90)을 사용하는 경우 에 따라 link:https://docs.netapp.com/us-en/asa-r2/install-setup/initialize-ontap-cluster.html["수행할 수 있습니다"^]ONTAP 클러스터를 설정합니다. ASA R2 시스템은 SAN 전용 고객을 대상으로 단순화된 ONTAP 환경을 제공합니다.
+
 NetApp이 귀사를 추천해 드립니다 link:../task_configure_ontap.html["System Manager를 사용하여 새 클러스터를 설정합니다"].  System Manager에서는 노드 관리 IP 주소 할당, 클러스터 초기화, 로컬 계층 생성, 프로토콜 구성, 초기 스토리지 프로비저닝 등 클러스터 설정 및 구성을 위한 간단하고 쉬운 워크플로를 제공합니다.
 
-오직 필요한 것입니다 link:task_create_the_cluster_on_the_first_node.html["ONTAP CLI를 사용하여 클러스터를 설정합니다"] MetroCluster 구성에서 ONTAP 9.7 이하 버전을 실행하는 경우
-ONTAP 9.13.1부터 AFF A800 및 FAS8700 플랫폼에서는 ONTAP CLI를 사용하여 IPv6 전용 네트워킹 환경에서 새 클러스터를 생성하고 구성할 수도 있습니다. ONTAP 9.13.0 이전 버전이나 ONTAP 9.13.1 이상의 다른 플랫폼에서 IPv6을 사용해야 하는 경우, System Manager를 사용하여 IPv4를 사용하여 새로운 클러스터를 생성할 수 있습니다 link:convert-ipv4-to-ipv6-task.html["IPv6로 변환합니다"].
+link:task_create_the_cluster_on_the_first_node.html["ONTAP CLI를 사용하여 클러스터를 설정합니다"]MetroCluster 구성에서 ONTAP 9 .7 이하 버전을 실행하는 경우에만 필요합니다.
+
+ONTAP 9.13.1부터 AFF A800 및 FAS8700 플랫폼에서는 ONTAP CLI를 사용하여 IPv6 전용 네트워킹 환경에서 새 클러스터를 생성하고 구성할 수도 있습니다. ONTAP 9.13.0 이전 버전이나 ONTAP 9.13.1 이후 버전의 다른 플랫폼에서 IPv6를 사용해야 하는 경우, System Manager를 사용하여 IPv4를 사용하여 새로운 클러스터를 생성할 수 있습니다link:convert-ipv4-to-ipv6-task.html["IPv6로 변환합니다"].
 
 
 

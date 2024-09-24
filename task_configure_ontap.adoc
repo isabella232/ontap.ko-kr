@@ -18,6 +18,9 @@ summary: System Manager는 클러스터를 설정하고 스토리지를 구성�
 [role="lead"]
 System Manager는 새 클러스터를 설정하고 스토리지를 구성하기 위한 간단하고 쉬운 워크플로우를 제공합니다.
 
+.이 작업에 대해
+이 절차는 FAS, AFF 및 현재 ASA 시스템에 적용됩니다. ASA R2 시스템(ASA A1K, ASA A70 또는 ASA A90)이 있는 경우 에 따라 link:https://docs.netapp.com/us-en/asa-r2/install-setup/initialize-ontap-cluster.html["수행할 수 있습니다"^]시스템 관리자를 사용하여 ONTAP 클러스터를 설정합니다. ASA R2 시스템은 SAN 전용 고객을 대상으로 단순화된 ONTAP 환경을 제공합니다.
+
 IPv6 네트워크 주소 지정이 필요한 특정 MetroCluster 배포 또는 클러스터와 같은 일부 경우에는 ONTAP CLI를 사용하여 새 클러스터를 설정해야 할 수 있습니다. 을 클릭합니다 link:./software_setup/concept_set_up_the_cluster.html["여기"] 이러한 요구사항에 대한 자세한 내용과 ONTAP CLI를 사용한 클러스터 설정 단계를 참조하십시오.
 
 .시작하기 전에

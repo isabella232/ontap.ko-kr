@@ -14,6 +14,8 @@ summary: SnapMirror 타겟 볼륨의 스냅샷 복사본에서 전체 볼륨의 
 SnapMirror 타겟 볼륨의 스냅샷 복사본에서 전체 볼륨의 콘텐츠를 복원할 수 있습니다. 볼륨의 내용을 원래 소스 볼륨 또는 다른 볼륨으로 복원할 수 있습니다.
 
 .이 작업에 대해
+이 절차는 FAS, AFF 및 현재 ASA 시스템에 적용됩니다. ASA R2 시스템(ASA A1K, ASA A70 또는 ASA A90)을 사용하는 경우 를 따라 link:https://docs.netapp.com/us-en/asa-r2/data-protection/restore-data.html["수행할 수 있습니다"^]데이터를 복구합니다. ASA R2 시스템은 SAN 전용 고객을 대상으로 단순화된 ONTAP 환경을 제공합니다.
+
 복원 작업의 대상 볼륨은 다음 중 하나여야 합니다.
 
 * 소스 볼륨과 타겟 볼륨에 공통 스냅샷 복사본이 있는 경우 SnapMirror에서 _incremental restore_를 수행하는 읽기-쓰기 볼륨입니다(일반적으로 원래 소스 볼륨으로 복원할 때와 동일).

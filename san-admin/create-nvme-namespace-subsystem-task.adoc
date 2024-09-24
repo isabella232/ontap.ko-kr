@@ -13,6 +13,9 @@ summary: NVMe 프로토콜을 사용하는 시스템의 경우 하나 이상의 
 [role="lead"]
 다음 단계를 사용하여 기존 스토리지 VM에서 NVMe 지원 호스트에 대한 네임스페이스를 생성하고 스토리지를 프로비저닝할 수 있습니다.
 
+.이 작업에 대해
+이 절차는 FAS, AFF 및 현재 ASA 시스템에 적용됩니다. ASA R2 시스템(ASA A1K, ASA A70 또는 ASA A90)을 사용하는 경우 에 따라 link:https://docs.netapp.com/us-en/asa-r2/manage-data/provision-san-storage.html["수행할 수 있습니다"^]스토리지를 프로비저닝합니다. ASA R2 시스템은 SAN 전용 고객을 대상으로 단순화된 ONTAP 환경을 제공합니다.
+
 ONTAP 9.8부터는 스토리지 용량 할당 시 QoS가 기본적으로 사용하도록 설정됩니다. 프로비저닝 프로세스 중에 또는 나중에 QoS를 비활성화하거나 사용자 지정 QoS 정책을 선택할 수 있습니다.
 
 .시작하기 전에

@@ -63,7 +63,8 @@ NVMe 프로토콜은 여러 컨트롤러를 통해 네임스페이스에 대한 
 NVMe 하위 시스템에는 하나 이상의 NVMe 컨트롤러, 네임스페이스, NVM 하위 시스템 포트, NVM 스토리지 미디어 및 컨트롤러와 NVM 스토리지 미디어 간의 인터페이스가 포함되어 있습니다. NVMe 네임스페이스를 생성할 때 기본적으로 이 네임스페이스는 서브시스템에 매핑되지 않습니다. 새 하위 시스템이나 기존 하위 시스템을 매핑하도록 선택할 수도 있습니다.
 
 .관련 정보
-* link:create-nvme-namespace-subsystem-task.html["NVMe 스토리지 프로비저닝"]
-* link:map-nvme-namespace-subsystem-task.html["NVMe 네임스페이스를 하위 시스템에 매핑합니다"]
+* link:create-nvme-namespace-subsystem-task.html["NVMe 스토리지 프로비저닝"]ASA, AFF 및 FAS 시스템에 대해 알아보십시오
+* link:map-nvme-namespace-subsystem-task.html["NVMe 네임스페이스를 서브시스템에 매핑합니다"]ASA AFF 및 FAS 시스템에 대해 알아보십시오.
 * link:https://docs.netapp.com/us-en/ontap-sanhost/["SAN 호스트 및 클라우드 클라이언트를 구성합니다"^]
+* link:https://docs.netapp.com/us-en/asa-r2/manage-data/provision-san-storage.html["SAN 스토리지 프로비저닝"^]ASA R2(ASA A1K, ASA A70 또는 ASA A90) 스토리지 시스템에 대해 알아보십시오.
 
