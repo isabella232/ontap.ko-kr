@@ -19,7 +19,7 @@ summary: 스토리지 시스템의 네트워크 설정이 클라이언트 또는
 
 브로드캐스트 도메인 내의 모든 포트는 MTU 크기가 동일하며 e0M 포트 처리 관리 트래픽을 제외하고 있습니다. 포트가 broadcast-domain의 일부인 경우 broadcast-domain modify 명령을 사용하여 수정된 broadcast-domain 내의 모든 포트에 대한 MTU를 변경한다.
 
-NIC 및 데이터 스위치와 같은 중간 네트워크 장치는 네트워크 엔드포인트보다 더 높은 MTU 크기로 설정할 수 있습니다. 자세한 내용은 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap/performance-admin/check-network-settings-data-switches-task.html["데이터 스위치의 네트워크 설정을 확인합니다"].
+NIC 및 데이터 스위치와 같은 중간 네트워크 장치는 네트워크 엔드포인트보다 더 높은 MTU 크기로 설정할 수 있습니다. 자세한 내용은 을 link:../performance-admin/check-network-settings-data-switches-task.html["데이터 스위치의 네트워크 설정을 확인합니다"]참조하십시오.
 
 .단계
 . 스토리지 시스템에서 MTU 포트 설정을 확인합니다.

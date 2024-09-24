@@ -18,4 +18,4 @@ SMTape 백업 또는 복원 작업이 실행 중이고 '-override-vetoes' 옵션
 .관련 정보
 link:../networking/networking_reference.html["네트워크 관리"]
 
-https://docs.netapp.com/us-en/ontap/high-availability/index.html["고가용성"]
+link:../high-availability/index.html["고가용성"]

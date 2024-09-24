@@ -15,8 +15,8 @@ WORM 상태로 커밋하려는 파일 또는 스냅샷 복사본에 대한 SnapL
 
 .시작하기 전에
 * SnapLock 애그리게이트는 온라인 상태여야 합니다.
-* 당신은 해야 한다 https://docs.netapp.com/us-en/ontap/system-admin/manage-license-task.html["SnapLock 라이센스가 설치되어 있는지 확인합니다"]. 노드에 SnapLock 라이센스가 설치되어 있지 않으면 을 수행해야 합니다 https://docs.netapp.com/us-en/ontap/system-admin/install-license-task.html["설치합니다"] 있습니다. 이 라이센스는 에 포함되어 있습니다 https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["ONTAP 1 을 참조하십시오"]. ONTAP One 이전에는 SnapLock 라이센스가 보안 및 규정 준수 번들에 포함되어 있었습니다. 보안 및 규정 준수 번들은 더 이상 제공되지 않지만 여전히 유효합니다. 현재는 필요하지 않지만 기존 고객은 선택할 수 있습니다 https://docs.netapp.com/us-en/ontap/system-admin/download-nlf-task.html["ONTAP One으로 업그레이드하십시오"].
-* link:https://docs.netapp.com/us-en/ontap/snaplock/initialize-complianceclock-task.html["노드의 규정 준수 클록을 초기화해야 합니다"].
+* 해야 link:../system-admin/manage-license-task.html["SnapLock 라이센스가 설치되어 있는지 확인합니다"]합니다. 노드에 SnapLock 라이센스가 설치되어 있지 않으면 반드시 설치해야 link:../system-admin/install-license-task.html["설치합니다"]합니다. 이 라이센스는 에 link:../system-admin/manage-licenses-concept.html["ONTAP 1 을 참조하십시오"]포함되어 있습니다. ONTAP One 이전에는 SnapLock 라이센스가 보안 및 규정 준수 번들에 포함되어 있었습니다. 보안 및 규정 준수 번들은 더 이상 제공되지 않지만 여전히 유효합니다. 현재는 필요하지 않지만 기존 고객은 선택할 수 link:../system-admin/download-nlf-task.html["ONTAP One으로 업그레이드하십시오"]있습니다.
+* link:../snaplock/initialize-complianceclock-task.html["노드의 규정 준수 클록을 초기화해야 합니다"]..
 
 
 .이 작업에 대해

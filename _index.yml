@@ -10,9 +10,11 @@ indexpage:
   tiles:
   - title: 시작하십시오
     links:
-    - title: 릴리즈 노트
+    - title: 최신 ONTAP 9 릴리스의 새로운 기능
+      url: "/release-notes/index.html"
+    - title: ONTAP 릴리즈 노트
       url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508
-    - title: REST API를 사용하여 자동화
+    - title: ONTAP REST API를 사용하여 자동화합니다
       url: https://docs.netapp.com/us-en/ontap-automation/getting_started_with_the_rest_api.html
     - title: ONTAP 개념
       url: "/introduction-concepts/index.html"
@@ -34,8 +36,6 @@ indexpage:
     links:
     - title: 모든 항목
       url: "/cluster-admin/index.html"
-    - title: ONTAP 명령 참조(수동 페이지)
-      url: "/concepts/manual-pages.html"
     - title: 디스크 및 로컬 계층(애그리게이트) 관리
       url: "/disks-aggregates/index.html"
     - title: System Manager를 사용하여 FabricPool 계층 관리
@@ -58,14 +58,12 @@ indexpage:
     links:
     - title: 모든 항목
       url: "/network-management/index.html"
-    - title: System Manager로 네트워크를 관리합니다
-      url: "/network-manage-overview-concept.html"
+    - title: System Manager를 사용한 네트워크 시각화
+      url: "/networking/networking_reference.html"
     - title: CLI를 사용하여 ONTAP 9.8 이상에 대한 NAS 경로 장애 조치를 설정합니다
       url: "/networking/set_up_nas_path_failover_98_and_later_cli.html"
     - title: CLI를 사용하여 ONTAP 9.7 이하에 대한 NAS 경로 페일오버 설정
       url: "/networking/set_up_nas_path_failover_9_to_97_cli.html"
-    - title: CLI를 사용하여 네트워크를 관리합니다
-      url: "/networking/networking_reference.html"
   - title: NAS 스토리지 관리
     links:
     - title: 모든 항목
@@ -90,14 +88,16 @@ indexpage:
       url: "/san-admin/index.html"
     - title: SAN 구성
       url: "/san-config/index.html"
+    - title: SAN 호스트를 구성합니다
+      url: https://docs.netapp.com/us-en/ontap-sanhost/
   - title: S3 오브젝트 스토리지 관리
     links:
     - title: 모든 항목
       url: "/object-storage-management/index.html"
-    - title: System Manager를 이용한 S3 구성
-      url: "/concept_object_provision_overview.html"
-    - title: CLI를 사용한 S3 구성
-      url: "/s3-config/index.html"
+    - title: S3 액세스 구성
+      url: "/s3-config/workflow-concept.html"
+    - title: SnapMirror로 S3 버킷을 보호합니다
+      url: "/s3-snapmirror/index.html"
   - title: 인증 및 액세스 제어
     links:
     - title: 모든 항목
@@ -160,7 +160,7 @@ indexpage:
       url: https://docs.netapp.com/us-en/ontap-ems-9131/
   - title: 더 많은 리소스
     links:
-    - title: AFF/FAS 플랫폼
+    - title: AFF, ASA 및 FAS 플랫폼
       url: https://docs.netapp.com/us-en/ontap-systems/index.html
     - title: NetApp 클라우드 제품 및 서비스
       url: https://docs.netapp.com/us-en/cloud/
@@ -168,11 +168,13 @@ indexpage:
       url: https://docs.netapp.com/us-en/ontap-metrocluster/
     - title: 자동화 및 REST API
       url: https://docs.netapp.com/us-en/ontap-automation/getting_started_with_the_rest_api.html
-    - title: 7-Mode SAN 호스트에서 전환
+    - title: 7-Mode의 전환
       url: https://docs.netapp.com/us-en/ontap-7mode-transition/index.html
     - title: 알아봅니다
       url: https://docs.netapp.com/us-en/ontap/task_asa_software_configuration.html
-    - title: FlexArray
+    - title: ONTAP 외부 LUN 임포트
+      url: https://docs.netapp.com/us-en/ontap-fli/
+    - title: ONTAP FlexArray
       url: https://docs.netapp.com/us-en/ontap-flexarray/index.html
     - title: ONTAP Select
       url: https://docs.netapp.com/us-en/ontap-select/

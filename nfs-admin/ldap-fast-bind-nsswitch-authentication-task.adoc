@@ -41,14 +41,14 @@ ONTAP 환경에서 LDAP 고속 바인딩을 사용하려면 다음 요구 사항
 'vserver services name-service ldap client show'
 
 +
-link:https://docs.netapp.com/us-en/ontap/nfs-config/create-ldap-client-config-task.html["LDAP 클라이언트 구성에 대해 자세히 알아보십시오."]
+link:../nfs-config/create-ldap-client-config-task.html["LDAP 클라이언트 구성에 대해 자세히 알아보십시오."]
 
 .. LDAP가 nsswitch 'passwd' 데이터베이스에 대해 구성된 소스 중 하나인지 확인하려면 다음을 입력합니다.
 +
 'vserver services name-service ns-switch show'
 
 +
-link:https://docs.netapp.com/us-en/ontap/nfs-config/configure-name-service-switch-table-task.html["nsswitch 구성에 대해 알아봅니다."]
+link:../nfs-config/configure-name-service-switch-table-task.html["nsswitch 구성에 대해 알아봅니다."]
 
 
 
@@ -61,7 +61,7 @@ link:https://docs.netapp.com/us-en/ontap/nfs-config/configure-name-service-switc
 +
 '-is-ldap-fastbind true'
 
-** 새 관리자 사용자는 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap/authentication/grant-access-nis-ldap-user-accounts-task.html["LDAP 또는 NIS 계정 액세스를 설정합니다."]
+** 새 관리자는 를 참조하십시오 link:../authentication/grant-access-nis-ldap-user-accounts-task.html["LDAP 또는 NIS 계정 액세스를 설정합니다."]
 
 
 

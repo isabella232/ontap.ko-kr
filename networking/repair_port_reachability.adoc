@@ -209,6 +209,6 @@ dissplac된 - vLANs delete
 --
 ====
 .관련 항목
-link:https://docs.netapp.com/us-en/ontap/networking/verify_your_network_configuration.html["업그레이드 후 네트워크 구성을 확인합니다"]
+link:verify_your_network_configuration.html["업그레이드 후 네트워크 구성을 확인합니다"]
 
 link:monitor_the_reachability_of_network_ports.html["네트워크 포트의 연결 상태를 모니터링합니다"]

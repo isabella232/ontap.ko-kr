@@ -23,7 +23,7 @@ ONTAP 9.13.1 부터 SnapMirror 소스 볼륨에서 적용 옵션이 활성화된
 
 NOTE: ONTAP 9.13.1 이전의 ONTAP 릴리즈를 실행 중인 경우 적용 설정이 SnapMirror 대상 볼륨으로 전송되지만 대상 볼륨은 적용을 지원하지 않는다는 점을 이해해야 합니다. 따라서 대상은 논리 공간 소비를 보고하지만 해당 적용을 존중하지 않습니다.
 
-에 대해 자세히 알아보십시오 link:https://docs.netapp.com/us-en/ontap/volumes/logical-space-reporting-enforcement-concept.html["논리적 공간 보고를 위한 ONTAP 릴리즈 지원"].
+에 대해 자세히 link:../volumes/logical-space-reporting-enforcement-concept.html["논리적 공간 보고를 위한 ONTAP 릴리즈 지원"]알아보십시오.
 
 .단계
 다음 중 하나 이상을 활성화합니다.

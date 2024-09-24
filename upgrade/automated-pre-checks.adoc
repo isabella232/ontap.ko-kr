@@ -26,7 +26,7 @@ NOTE: MetroCluster 구성의 경우 먼저 클러스터 A에서 이러한 단계
 .시작하기 전에
 당신은 해야 한다 link:download-software-image.html["대상 ONTAP 소프트웨어 이미지를 다운로드합니다"].
 
-에 대한 자동 업그레이드 사전 검사를 실행합니다 link:https://docs.netapp.com/us-en/ontap/upgrade/concept_upgrade_paths.html#types-of-upgrade-paths["직접 멀티 홉 업그레이드"]대상 ONTAP 버전에 대한 소프트웨어 패키지만 다운로드하면 됩니다.  실제 업그레이드를 시작하기 전에는 중간 ONTAP 버전을 로드할 필요가 없습니다.  예를 들어 9.8에서 9.13.1로 업그레이드하는 자동 업그레이드 사전 검사를 실행하는 경우 ONTAP 9.13.1용 소프트웨어 패키지를 다운로드해야 합니다.  ONTAP 9.12.1용 소프트웨어 패키지는 다운로드할 필요가 없습니다.
+에 대한 자동 업그레이드 사전 검사를 실행하려면 link:../upgrade/concept_upgrade_paths.html#types-of-upgrade-paths["직접 멀티 홉 업그레이드"]대상 ONTAP 버전에 대한 소프트웨어 패키지만 다운로드하면 됩니다. 실제 업그레이드를 시작하기 전에는 중간 ONTAP 버전을 로드할 필요가 없습니다. 예를 들어 9.8에서 9.13.1로 업그레이드하는 자동 업그레이드 사전 검사를 실행하는 경우 ONTAP 9.13.1용 소프트웨어 패키지를 다운로드해야 합니다. ONTAP 9.12.1용 소프트웨어 패키지는 다운로드할 필요가 없습니다.
 
 .단계
 [role="tabbed-block"]
@@ -148,7 +148,7 @@ cluster image validate -version <package_version_number> -show-validation-detail
 ----
 +
 
-NOTE: 를 수행하는 경우 link:https://docs.netapp.com/us-en/ontap/upgrade/concept_upgrade_paths.html#types-of-upgrade-paths["직접 멀티 홉 업그레이드"]에서 확인할 대상 ONTAP 패키지를 사용합니다.  중간 업그레이드 이미지를 별도로 검증할 필요는 없습니다.  예를 들어 9.8에서 9.13.1 로 업그레이드하는 경우 9.13.1 패키지를 사용하여 확인해야 합니다. 9.12.1 패키지를 별도로 검증할 필요는 없습니다.
+NOTE: 를 수행하는 경우 link:../upgrade/concept_upgrade_paths.html#types-of-upgrade-paths["직접 멀티 홉 업그레이드"]확인을 위해 대상 ONTAP 패키지를 사용합니다. 중간 업그레이드 이미지를 별도로 검증할 필요는 없습니다. 예를 들어 9.8에서 9.13.1 로 업그레이드하는 경우 9.13.1 패키지를 사용하여 확인해야 합니다. 9.12.1 패키지를 별도로 검증할 필요는 없습니다.
 
 +
 [listing]

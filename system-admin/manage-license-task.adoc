@@ -125,6 +125,6 @@ cluster1::> system license delete { -serial-number 123456789 -installed-license 
 --
 ====
 .관련 정보
-https://docs.netapp.com/us-en/ontap/system-admin/commands-manage-feature-licenses-reference.html["라이센스 관리를 위한 ONTAP CLI 명령"]
+link:../system-admin/commands-manage-feature-licenses-reference.html["라이센스 관리를 위한 ONTAP CLI 명령"]
 
 link:../concepts/manual-pages.html["ONTAP 명령 참조입니다"]

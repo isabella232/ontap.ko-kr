@@ -128,7 +128,7 @@ MOTD에는 클러스터 레벨 MOTD와 데이터 SVM 레벨 MOTD라는 두 가�
 
 
 |===
-ONTAP에서 오늘의 메시지를 구성하는 방법에 대한 자세한 내용은 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap/system-admin/manage-banner-motd-concept.html["오늘의 메시지에 대한 ONTAP 문서"].
+ONTAP에서 오늘의 메시지를 구성하는 방법에 대한 자세한 내용은 를 참조하십시오 link:../system-admin/manage-banner-motd-concept.html["오늘의 메시지에 대한 ONTAP 문서"].
 
 
 
@@ -223,4 +223,4 @@ ONTAP 9.11.1부터 ONTAP System Manager는 클러스터 관리자가 일상 작�
 
 | 클러스터가 알림에 대해 구성되지 않았습니다 | 이메일, Webhook 또는 SNMP traphosts가 알림을 수신하도록 구성되지 않았습니다. 
 |===
-ONTAP System Manager 인사이트에 대한 자세한 내용은 를 link:https://docs.netapp.com/us-en/ontap/insights-system-optimization-task.html#view-optimization-insights["ONTAP System Manager 인사이트 설명서"]참조하십시오.
+ONTAP System Manager 인사이트에 대한 자세한 내용은 를 link:../insights-system-optimization-task.html#view-optimization-insights["ONTAP System Manager 인사이트 설명서"]참조하십시오.

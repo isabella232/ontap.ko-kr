@@ -29,4 +29,4 @@ ONTAP 9.13.1 부터는 이러한 자동 업데이트에 자동 시간대 데이�
 
 
 .관련 정보
-https://docs.netapp.com/us-en/ontap/system-admin/troubleshoot-autosupport-http-https-task.html["HTTP 또는 HTTPS를 통한 AutoSupport 메시지 전송 문제를 해결합니다"]
+link:../system-admin/troubleshoot-autosupport-http-https-task.html["HTTP 또는 HTTPS를 통한 AutoSupport 메시지 전송 문제를 해결합니다"]

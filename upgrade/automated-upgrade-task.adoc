@@ -30,7 +30,7 @@ IMPORTANT: 자동 무중단 업그레이드(ANDU)를 시작하기 전에 '스토
 * 당신은 해야 한다 link:prepare.html["업그레이드를 준비합니다"].
 * 당신은 해야 한다 link:download-software-image.html["ONTAP 소프트웨어 이미지 다운로드"] 대상 ONTAP 릴리스의 경우
 +
-를 수행하는 경우 link:https://docs.netapp.com/us-en/ontap/upgrade/concept_upgrade_paths.html#types-of-upgrade-paths["직접 멀티 홉 업그레이드"]에 필요한 ONTAP 이미지 두 개를 모두 다운로드해야 합니다 link:https://docs.netapp.com/us-en/ontap/upgrade/concept_upgrade_paths.html#supported-upgrade-paths["업그레이드 경로"].
+를 수행하는 경우 link:../upgrade/concept_upgrade_paths.html#types-of-upgrade-paths["직접 멀티 홉 업그레이드"]특정 에 필요한 ONTAP 이미지를 모두 다운로드해야 link:../upgrade/concept_upgrade_paths.html#supported-upgrade-paths["업그레이드 경로"]합니다.
 
 * 각 HA 쌍에 대해 각 노드에는 동일한 브로드캐스트 도메인에 하나 이상의 포트가 있어야 합니다.
 +
@@ -199,7 +199,7 @@ Package download completed.
 Package processing completed.
 ----
 +
-를 수행하는 경우 link:https://docs.netapp.com/us-en/ontap/upgrade/concept_upgrade_paths.html#types-of-upgrade-paths["직접 멀티 홉 업그레이드"]또한 업그레이드에 필요한 중간 버전의 ONTAP용 소프트웨어 패키지를 로드해야 합니다. 예를 들어 9.8에서 9.13.1로 업그레이드하는 경우 ONTAP 9.12.1용 소프트웨어 패키지를 로드한 다음 같은 명령을 사용하여 9.13.1용 소프트웨어 패키지를 로드해야 합니다.
+를 수행하는 경우 link:../upgrade/concept_upgrade_paths.html#types-of-upgrade-paths["직접 멀티 홉 업그레이드"]업그레이드에 필요한 중간 버전의 ONTAP용 소프트웨어 패키지도 로드해야 합니다. 예를 들어 9.8에서 9.13.1로 업그레이드하는 경우 ONTAP 9.12.1용 소프트웨어 패키지를 로드한 다음 같은 명령을 사용하여 9.13.1용 소프트웨어 패키지를 로드해야 합니다.
 
 .. 소프트웨어 패키지를 클러스터 패키지 리포지토리에서 사용할 수 있는지 확인합니다.
 +
@@ -222,7 +222,7 @@ Package Version  Package Build Time
 cluster image validate -version <package_version_number>
 ----
 +
-를 수행하는 경우 link:https://docs.netapp.com/us-en/ontap/upgrade/concept_upgrade_paths.html#types-of-upgrade-paths["직접 멀티 홉 업그레이드"], 검증에는 대상 ONTAP 패키지만 사용하면 됩니다.  중간 업그레이드 이미지를 별도로 검증할 필요는 없습니다.  예를 들어 9.8에서 9.13.1로 업그레이드하는 경우 9.13.1 패키지를 검증에 사용하십시오. 9.12.1 패키지를 별도로 검증할 필요는 없습니다.
+를 수행하는 경우 link:../upgrade/concept_upgrade_paths.html#types-of-upgrade-paths["직접 멀티 홉 업그레이드"]확인을 위해 대상 ONTAP 패키지만 사용하면 됩니다. 중간 업그레이드 이미지를 별도로 검증할 필요는 없습니다. 예를 들어 9.8에서 9.13.1로 업그레이드하는 경우 9.13.1 패키지를 검증에 사용하십시오. 9.12.1 패키지를 별도로 검증할 필요는 없습니다.
 
 +
 [listing]
@@ -261,7 +261,7 @@ NOTE: MetroCluster 구성을 업그레이드하는 경우 클러스터 A 또는 
 cluster image update -version <package_version_number>
 ----
 +
-** 를 수행하는 경우 link:https://docs.netapp.com/us-en/ontap/upgrade/concept_upgrade_paths.html#types-of-upgrade-paths["직접 멀티 홉 업그레이드"]에서 package_version_number 의 대상 ONTAP 버전을 사용합니다. 예를 들어 ONTAP 9.8에서 9.13.1 로 업그레이드하는 경우 package_version_number 로 9.13.1 을 사용합니다.
+** 를 수행하는 경우 link:../upgrade/concept_upgrade_paths.html#types-of-upgrade-paths["직접 멀티 홉 업그레이드"]package_version_number 에 대해 대상 ONTAP 버전을 사용합니다. 예를 들어 ONTAP 9.8에서 9.13.1 로 업그레이드하는 경우 package_version_number 로 9.13.1 을 사용합니다.
 ** 기본적으로 ONTAP는 를 사용합니다 link:concept_upgrade_methods.html["일괄 업그레이드 프로세스"] 8개 이상의 노드로 클러스터를 업그레이드하려면  원하는 경우 를 사용할 수 있습니다 `-force-rolling` 기본 프로세스를 재정의하고 롤링 업그레이드 프로세스를 사용하여 클러스터에서 한 번에 하나의 노드를 업그레이드하도록 하는 매개 변수입니다.
 ** 각각의 테이크오버 및 반환을 완료한 후, 업데이트는 클라이언트 애플리케이션이 테이크오버 및 반환 중에 발생하는 I/O의 일시 중지에서 복구될 수 있도록 8분 동안 대기합니다. 고객 안정화에 필요한 시간이 환경에 더 많이 또는 더 적게 필요한 경우 '-안정화-분' 매개변수를 사용하여 다른 안정화 시간을 지정할 수 있습니다.
 ** 4개 노드가 더 많은 MetroCluster 구성의 경우 두 사이트의 HA 쌍에서 동시에 자동화된 업그레이드를 시작합니다.  2노드 MetroCluster 구성의 경우 업그레이드가 시작되지 않는 사이트에서 업그레이드가 시작됩니다. 나머지 사이트의 업그레이드는 첫 번째 업그레이드가 완료된 후 시작됩니다.

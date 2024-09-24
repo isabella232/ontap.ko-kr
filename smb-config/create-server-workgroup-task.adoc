@@ -33,7 +33,7 @@ summary: vserver cifs create 명령을 사용하여 SVM에 SMB 서버를 생성�
 .단계
 . smb 라이센스가 클러스터에 있는지 확인합니다: 'system license show-package cifs'
 +
-SMB 라이센스는 에 포함되어 있습니다 link:https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html#licenses-included-with-ontap-one["ONTAP 1 을 참조하십시오"]. ONTAP One이 없고 라이선스가 설치되지 않은 경우 영업 담당자에게 문의하십시오.
+SMB 라이센스는 에 포함되어 link:../system-admin/manage-licenses-concept.html#licenses-included-with-ontap-one["ONTAP 1 을 참조하십시오"]있습니다. ONTAP One이 없고 라이선스가 설치되지 않은 경우 영업 담당자에게 문의하십시오.
 
 +
 SMB 서버가 인증용으로만 사용되는 경우에는 CIFS 라이센스가 필요하지 않습니다.

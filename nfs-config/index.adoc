@@ -18,7 +18,7 @@ ONTAP 9 CLI 명령을 사용하여 새 SVM(스토리지 가상 머신) 또는 �
 * 현재 ONTAP에서 지원하는 모든 버전의 NFS, NFSv3, NFSv4, NFSv4.1, NFSv4.2 또는 pNFS를 사용하는 NFSv4.1을 사용하려고 합니다.
 * System Manager나 자동화된 스크립팅 도구가 아니라 CLI(Command-Line Interface)를 사용하려는 경우
 +
-System Manager를 사용하여 NAS 다중 프로토콜 액세스를 구성하려면 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap/task_nas_provision_nfs_and_smb.html["NFS와 SMB를 모두 사용하여 Windows 및 Linux 모두에 대해 NAS 스토리지를 프로비저닝합니다"].
+System Manager를 사용하여 NAS 멀티 프로토콜 액세스를 구성하려면 를 참조하십시오link:../task_nas_provision_nfs_and_smb.html["NFS와 SMB를 모두 사용하여 Windows 및 Linux 모두에 대해 NAS 스토리지를 프로비저닝합니다"].
 
 * 사용 가능한 모든 옵션을 탐색하는 것이 아니라 모범 사례를 사용하려고 합니다.
 +

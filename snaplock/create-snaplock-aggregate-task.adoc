@@ -15,8 +15,8 @@ summary: '볼륨 "-snaplock-type" 옵션을 사용하여 Compliance 또는 Enter
 
 .시작하기 전에
 * 이 작업을 수행하려면 클러스터 관리자여야 합니다.
-* SnapLock입니다 link:https://docs.netapp.com/us-en/ontap/system-admin/install-license-task.html["라이센스를 설치해야 합니다"] 노드에서. 이 라이센스는 에 포함되어 있습니다 link:https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html#licenses-included-with-ontap-one["ONTAP 1 을 참조하십시오"].
-* link:https://docs.netapp.com/us-en/ontap/snaplock/initialize-complianceclock-task.html["노드의 규정 준수 클록을 초기화해야 합니다"].
+* 노드의 SnapLocklink:../system-admin/install-license-task.html["라이센스를 설치해야 합니다"]입니다. 이 라이센스는 에 포함되어 link:../system-admin/manage-licenses-concept.html#licenses-included-with-ontap-one["ONTAP 1 을 참조하십시오"]있습니다.
+* link:../snaplock/initialize-complianceclock-task.html["노드의 규정 준수 클록을 초기화해야 합니다"]..
 * 디스크를 "루트", "루트", "다토1" 및 "다토2"로 분할한 경우 스페어 디스크를 사용할 수 있는지 확인해야 합니다.
 
 

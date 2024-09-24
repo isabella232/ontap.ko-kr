@@ -173,7 +173,7 @@ ONTAP 8.2 ~ ONTAP 9.9.1에서는 라이센스 키가 28자 문자열로 전달�
 
 [NOTE]
 ====
-ONTAP 9.10.1에서는 System Manager 또는 CLI를 사용하여 28자 라이센스 키 설치를 지원합니다. 그러나 기능에 대해 NLF 라이센스가 설치된 경우 동일한 기능에 대해 NetApp 라이센스 파일 위에 28자의 라이센스 키를 설치할 수 없습니다. System Manager를 사용하여 NLF 또는 라이센스 키를 설치하는 방법에 대한 자세한 내용은 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap/system-admin/install-license-task.html["ONTAP 라이센스를 설치합니다"].
+ONTAP 9.10.1에서는 System Manager 또는 CLI를 사용하여 28자 라이센스 키 설치를 지원합니다. 그러나 기능에 대해 NLF 라이센스가 설치된 경우 동일한 기능에 대해 NetApp 라이센스 파일 위에 28자의 라이센스 키를 설치할 수 없습니다. System Manager를 사용하여 NLF 또는 라이센스 키를 설치하는 방법에 대한 자세한 내용은 를 참조하십시오.link:../system-admin/install-license-task.html["ONTAP 라이센스를 설치합니다"]
 
 ====
 .관련 정보

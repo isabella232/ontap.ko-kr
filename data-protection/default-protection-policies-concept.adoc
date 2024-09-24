@@ -71,7 +71,7 @@ ONTAP에는 데이터 보호 관계에 사용할 수 있는 몇 가지 기본 �
 | 동기식이다 | 복제 실패 시 클라이언트 액세스가 중단되지 않는 SnapMirror Synchronous에 대한 정책입니다. | 동기식이다 
 
 
-| Unified7년 | 7년 보존이 가능한 유니파이드 SnapMirror 정책 | 비동기식 
+| Unified7년 | 7년 보존이 있는 Unified SnapMirror 정책 | 비동기식 
 
 
 | XDPDefault | 일별 및 주별 규칙을 포함한 볼트 정책. | 비동기식 

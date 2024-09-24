@@ -114,4 +114,4 @@ join
 클러스터에 노드를 추가한 후에는 각 HA 쌍에 대해 스토리지 페일오버를 설정해야 합니다.
 
 .관련 정보
-https://docs.netapp.com/us-en/ontap/upgrade/concept_mixed_version_requirements.html#requirements-for-mixed-version-ontap-clusters["혼합 버전 ONTAP 클러스터"]
+link:../upgrade/concept_mixed_version_requirements.html#requirements-for-mixed-version-ontap-clusters["혼합 버전 ONTAP 클러스터"]
