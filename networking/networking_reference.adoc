@@ -14,15 +14,7 @@ summary: ONTAP 9 네트워킹 참조 설명서 포털에 오신 것을 환영합
 
 
 [role="lead"]
-다음 정보를 사용하여 System Manager 또는 CLI를 사용하여 기본적인 스토리지 네트워크 관리를 수행할 수 있습니다. 물리적 및 가상 네트워크 포트(VLAN 및 인터페이스 그룹)를 구성하고, IPv4 및 IPv6를 사용하여 LIF를 생성하고, 클러스터에서 라우팅 및 호스트 해상도 서비스를 관리하고, 로드 밸런싱을 사용하여 네트워크 트래픽을 최적화하고, SNMP를 사용하여 클러스터를 모니터링할 수 있습니다.
-
-별도로 언급하지 않는 한 CLI 절차는 ONTAP 9의 모든 버전에 적용됩니다.
-
-각 ONTAP 9 릴리즈에서 사용할 수 있는 네트워크 기능이 미치는 영향에 대한 자세한 내용은 을 참조하십시오 link:../release-notes/index.html["ONTAP 릴리즈 노트"].
-
-ONTAP 9.8부터 System Manager를 사용하여 네트워크의 구성 요소 및 구성을 보여주는 그래픽을 표시할 수 있습니다. ONTAP 9.12부터 네트워크 인터페이스 그리드에서 LIF 및 서브넷 연결을 볼 수 있습니다. ONTAP 9.7 이하에서만 사용할 수 있는 클래식 시스템 관리자를 사용하는 경우 를 참조하십시오. https://docs.netapp.com/us-en/ontap-system-manager-classic/online-help-96-97/concept_managing_network.html["네트워크 관리"^]
-
-새로운 네트워크 시각화 기능을 사용하면 그래픽 인터페이스에서 호스트, 포트, SVM, 볼륨 등의 네트워크 연결 경로를 확인할 수 있습니다.
+ONTAP 9.8부터는 System Manager를 사용하여 네트워크의 구성 요소와 구성을 보여주는 그래픽을 표시할 수 있으며, 호스트, 포트, SVM, 볼륨 등에 걸친 네트워크 연결 경로를 볼 수 있습니다. ONTAP 9.12.1부터 네트워크 인터페이스 그리드에서 LIF 및 서브넷 연결을 볼 수 있습니다.
 
 그래픽은 * 네트워크 > 개요 * 를 선택하거나 대시보드의 * 네트워크 * 섹션에서 선택하면 표시됩니다 image:icon_arrow.gif["화살표 아이콘"] .
 
@@ -36,6 +28,8 @@ ONTAP 9.8부터 System Manager를 사용하여 네트워크의 구성 요소 및
 
 
 각 섹션에는 네트워크 관리 및 구성 작업을 수행하기 위해 마우스를 가져가거나 선택할 수 있는 추가 세부 정보가 표시됩니다.
+
+기존 시스템 관리자(ONTAP 9 .7 이하 버전에서만 사용 가능)를 사용하는 경우 를 참조하십시오.link:https://docs.netapp.com/us-en/ontap-system-manager-classic/online-help-96-97/concept_managing_network.html["네트워크 관리"]
 
 
 

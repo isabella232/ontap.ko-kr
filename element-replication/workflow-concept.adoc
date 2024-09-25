@@ -1,18 +1,8 @@
 ---
 permalink: element-replication/workflow-concept.html 
-sidebar: sidebar 
-keywords: workflow, replication, element, ontap 
-summary: 데이터를 Element에서 ONTAP로 복제하든 ONTAP에서 Element로 복제하든 작업 일정을 구성하고 정책을 지정한 다음 관계를 생성 및 초기화해야 합니다. 기본 또는 사용자 지정 정책을 사용할 수 있습니다. 
+redirect: element-software/storage/concept-element-replication-workflow.html 
 ---
-= Element와 ONTAP 간 복제를 위한 워크플로우
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
-[role="lead"]
-데이터를 Element에서 ONTAP로 복제하든 ONTAP에서 Element로 복제하든 작업 일정을 구성하고 정책을 지정한 다음 관계를 생성 및 초기화해야 합니다. 기본 또는 사용자 지정 정책을 사용할 수 있습니다.
-
-워크플로는 에 나열된 필수 작업을 완료한 것으로 가정합니다 xref:index.adoc#prerequisites[필수 구성 요소]. 사용할 정책에 대한 지침을 포함하여 SnapMirror 정책에 대한 전체 배경 정보는 을 참조하십시오 link:../data-protection/index.html["데이터 보호"].
-
-image:solidfire-to-ontap-backup-workflow.gif["Element와 ONTAP 간 복제를 위한 워크플로우"]

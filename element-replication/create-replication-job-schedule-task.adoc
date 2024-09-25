@@ -1,43 +1,8 @@
 ---
 permalink: element-replication/create-replication-job-schedule-task.html 
-sidebar: sidebar 
-keywords: create, replication, job, schedule 
-summary: 작업 스케줄 cron create 명령을 사용하여 복제 작업 스케줄을 생성할 수 있습니다. 작업 일정은 SnapMirror에서 일정이 할당된 데이터 보호 관계를 자동으로 업데이트할지 여부를 결정합니다. 
+redirect: element-software/storage/task-element-replication-create-replication-job-schedule.html 
 ---
-= 복제 작업 스케줄을 생성합니다
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
-
-[role="lead"]
-데이터를 Element에서 ONTAP로 복제하든 ONTAP에서 Element로 복제하든 작업 일정을 구성하고 정책을 지정한 다음 관계를 생성 및 초기화해야 합니다. 기본 또는 사용자 지정 정책을 사용할 수 있습니다.
-
-job schedule cron create 명령을 사용하여 복제 작업 스케줄을 생성할 수 있습니다. 작업 일정은 SnapMirror에서 일정이 할당된 데이터 보호 관계를 자동으로 업데이트할지 여부를 결정합니다.
-
-.이 작업에 대해
-데이터 보호 관계를 생성할 때 작업 일정을 할당합니다. 작업 일정을 할당하지 않으면 관계를 수동으로 업데이트해야 합니다.
-
-.단계
-. 작업 일정 생성:
-+
-"작업 일정 cron create-name_job_name_-month_month_-DayOfWeek_day_of_week_-day_day_of_month_-hour_hour_-minute_minute_"
-
-+
-월-일-일-주-시-시간의 경우 월, 일, 시 순으로 모두 작업을 실행하도록 지정할 수 있습니다.
-
-+
-ONTAP 9.10.1.1부터는 작업 일정에 SVM을 포함할 수 있습니다.
-
-+
-'job schedule cron create -name_job_name_-vserver_Vserver_name_-month_month_-DayOfWeek_day_of_week_-day_of_month_-hour_hour_-minute_minute_'
-
-+
-다음 예에서는 토요일 오전 3시에 실행되는 my_weekly라는 작업 일정을 생성합니다.
-
-+
-[listing]
-----
-cluster_dst::> job schedule cron create -name my_weekly -dayofweek "Saturday" -hour 3 -minute 0
-----
 

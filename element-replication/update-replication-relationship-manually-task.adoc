@@ -1,41 +1,8 @@
 ---
 permalink: element-replication/update-replication-relationship-manually-task.html 
-sidebar: sidebar 
-keywords: update, replication, relationship, manually 
-summary: 네트워크 오류로 인해 업데이트에 실패하면 복제 관계를 수동으로 업데이트해야 할 수 있습니다. 
+redirect: element-software/storage/task-element-replication-update-replication-relationship-manually.html 
 ---
-= 복제 관계를 수동으로 업데이트합니다
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
-
-[role="lead"]
-네트워크 오류로 인해 업데이트에 실패하면 복제 관계를 수동으로 업데이트해야 할 수 있습니다.
-
-.이 작업에 대해
-형태로 Element 소스 경로를 지정해야 `<hostip:>/lun/<name>`합니다. 여기서 ""lun""은 실제 문자열 ""lun""이고 Element 볼륨의 이름입니다. `name`
-
-.단계
-. 복제 관계를 수동으로 업데이트합니다.
-+
-`snapmirror update -source-path <hostip:>/lun/<name> -destination-path <SVM:volume>|<cluster://SVM/volume>`
-
-+
-전체 명령 구문은 man 페이지를 참조하십시오.
-
-+
-[NOTE]
-====
-소스 및 타겟에 공통 스냅샷 복사본이 존재하지 않으면 명령이 실패합니다. '스냅샷 초기화'를 사용하여 관계를 다시 초기화합니다.
-
-====
-+
-다음 예에서는 IP 주소 10.0.0.11의 소스 볼륨 0005와 'VM_BACKUP'의 대상 볼륨 VolA_DST 사이의 관계를 업데이트합니다.
-
-+
-[listing]
-----
-cluster_src::> snapmirror update -source-path 10.0.0.11:/lun/0005 -destination-path svm_backup:volA_dst
-----
 

@@ -1,33 +1,8 @@
 ---
 permalink: element-replication/enable-snapmirror-cluster-task.html 
-sidebar: sidebar 
-keywords: enable, snapmirror, element, cluster 
-summary: 복제 관계를 생성하려면 먼저 Element 클러스터에서 SnapMirror를 활성화해야 합니다. Element 소프트웨어 웹 UI에서만 이 작업을 수행할 수 있습니다. 
+redirect: element-software/storage/task-element-replication-enable-snapmirror-cluster.html 
 ---
-= Element 클러스터에서 SnapMirror를 사용하도록 설정합니다
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
-
-[role="lead"]
-복제 관계를 생성하려면 먼저 Element 클러스터에서 SnapMirror를 활성화해야 합니다. Element 소프트웨어 웹 UI에서만 이 작업을 수행할 수 있습니다.
-
-.시작하기 전에
-* Element 클러스터는 NetApp Element 소프트웨어 버전 10.1 이상을 실행해야 합니다.
-* SnapMirror는 NetApp ONTAP 볼륨과 함께 사용되는 Element 클러스터에 대해서만 활성화할 수 있습니다.
-
-
-.이 작업에 대해
-Element 시스템에는 기본적으로 SnapMirror가 비활성화되어 있습니다. SnapMirror는 새로운 설치 또는 업그레이드의 일부로 자동 활성화되지 않습니다.
-
-[NOTE]
-====
-SnapMirror를 사용하도록 설정한 후에는 사용하지 않도록 설정할 수 없습니다. SnapMirror 기능만 사용하지 않도록 설정하고 클러스터를 출하 시 상태로 되돌려 기본 설정을 복원할 수 있습니다.
-
-====
-.단계
-. 클러스터 * > * 설정 * 을 클릭합니다.
-. SnapMirror에 대한 클러스터별 설정을 찾습니다.
-. SnapMirror 사용 * 을 클릭합니다.
 
