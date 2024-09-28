@@ -13,14 +13,12 @@ summary: '사용자 환경에서 NIS(Network Information Service)를 사용하�
 [role="lead"]
 사용자 환경에서 NIS(Network Information Service)를 사용하여 이름 서비스를 제공하는 경우 'vserver services name-service NIS-domain create' 명령을 사용하여 SVM에 대한 NIS 도메인 구성을 생성해야 합니다.
 
-.필요한 것
+.시작하기 전에
 SVM에서 NIS 도메인을 구성하기 전에 구성된 모든 NIS 서버를 사용할 수 있고 연결할 수 있어야 합니다.
 
 NIS를 사용하여 디렉터리 검색을 수행할 경우 NIS 서버의 맵에는 각 항목에 대해 1,024자를 초과할 수 없습니다. 이 제한을 준수하지 않는 NIS 서버를 지정하지 마십시오. 그렇지 않으면 NIS 항목에 종속된 클라이언트 액세스가 실패할 수 있습니다.
 
 .이 작업에 대해
-여러 NIS 도메인을 생성할 수 있습니다. 그러나 활성으로 설정된 것만 사용할 수 있습니다.
-
 NIS 데이터베이스에 netgroup.byhost 맵이 포함되어 있으면 ONTAP에서 이를 사용하여 더 빨리 검색할 수 있습니다. 클라이언트 액세스 문제를 방지하려면 디렉토리의 netgroup.byhost 및 netgroup 맵을 항상 동기화해야 합니다. ONTAP 9.7부터 NIS 넷그룹.byhost 항목은 vserver services name-service NIS-domain netgroup-database 명령을 사용하여 캐싱될 수 있습니다.
 
 호스트 이름 확인에 NIS를 사용하는 것은 지원되지 않습니다.
@@ -28,7 +26,7 @@ NIS 데이터베이스에 netgroup.byhost 맵이 포함되어 있으면 ONTAP에
 .단계
 . NIS 도메인 구성 생성:
 +
-'vserver services name-service NIS-domain create-vserver vs1-domain_domain_name_-active true_-servers ip_address_'
+`vserver services name-service nis-domain create -vserver vs1 -domain <domain_name> -nis-servers <IP_addresses>`
 
 +
 NIS 서버는 최대 10개까지 지정할 수 있습니다.
@@ -46,10 +44,9 @@ ONTAP 9.2부터, 필드 '-NIS-SERS'는 필드 '-SERVers'를 대체합니다. 이
 
 
 .예
-다음 명령을 실행하면 IP 주소 192.0.2.180에 NIS 서버가 있는 VS1이라는 SVM에서 nisdomain이라는 NIS 도메인에 대한 활성 NIS 도메인 구성이 생성되고 생성됩니다.
+다음 명령을 실행하면 NIS 도메인용 NIS 도메인 구성이 생성됩니다. SVM은 IP 주소의 NIS `nisdomain` 서버로 이름이 `vs1` 지정됩니다. `192.0.2.180`
 
 [listing]
 ----
-vs1::> vserver services name-service nis-domain create -vserver vs1
--domain nisdomain -active true -nis-servers 192.0.2.180
+vs1::> vserver services name-service nis-domain create -vserver vs1 -domain nisdomain -nis-servers 192.0.2.180
 ----

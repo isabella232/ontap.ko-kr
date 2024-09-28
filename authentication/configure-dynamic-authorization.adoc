@@ -127,9 +127,9 @@ security dynamic-authorization rule show
 [source, subs="specialcharacters,quotes"]
 ----
 security dynamic-authorization group create \
-*-group-name <group-name>* \
+*-name <group-name>* \
 -vserver <storage_VM_name> \
--exclude-users <user1,user2,user3...>
+-excluded-usernames <user1,user2,user3...>
 
 ----
 . 결과 동적 권한 부여 그룹을 봅니다.
@@ -154,7 +154,7 @@ security dynamic-authorization group show
 [source, subs="specialcharacters,quotes"]
 ----
 security dynamic-authorization group delete \
-*-group-name <group-name>* \
+*-name <group-name>* \
 -vserver <storage_VM_name>
 ----
 . 결과 동적 권한 부여 그룹을 봅니다.

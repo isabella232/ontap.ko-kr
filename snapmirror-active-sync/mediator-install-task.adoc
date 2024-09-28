@@ -130,7 +130,7 @@ image:successful-mediator-installation.png["중재자 추가 성공"].
 --
 ONTAP CLI를 사용하여 운영 클러스터 또는 2차 클러스터에서 ONTAP 중재자를 초기화할 수 있습니다. 를 발행할 때 `mediator add` 한 클러스터에서 ONTAP 중재자가 다른 클러스터에 자동으로 추가됩니다.
 
-유효한 CA(인증 기관) 인증서가 없으면 ONTAP에서 ONTAP 중재자를 초기화할 수 없습니다. 따라서 피어링된 클러스터의 인증서 저장소에 유효한 인증 기관을 추가해야 합니다.
+중재자를 사용하여 SnapMirror 활성 동기화 관계를 모니터링하는 경우 유효한 자체 서명 또는 CA(인증 기관) 인증서 없이는 ONTAP에서 중재자를 초기화할 수 없습니다. 피어링된 클러스터에 대한 인증서 저장소에 유효한 인증서를 추가합니다. Mediator를 사용하여 MetroCluster IP 시스템을 모니터링하는 경우 초기 구성 후에 HTTPS가 사용되지 않으므로 인증서가 필요하지 않습니다.
 
 .단계
 . ONTAP 중재자 Linux VM/호스트 소프트웨어 설치 위치에서 ONTAP 중재자 CA 인증서를 찾습니다 `cd /opt/netapp/lib/ontap_mediator/ontap_mediator/server_config`.

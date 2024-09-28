@@ -29,7 +29,7 @@ ONTAP 9.8부터는 System Manager를 사용하여 네트워크의 구성 요소�
 
 각 섹션에는 네트워크 관리 및 구성 작업을 수행하기 위해 마우스를 가져가거나 선택할 수 있는 추가 세부 정보가 표시됩니다.
 
-기존 시스템 관리자(ONTAP 9 .7 이하 버전에서만 사용 가능)를 사용하는 경우 를 참조하십시오.link:https://docs.netapp.com/us-en/ontap-system-manager-classic/online-help-96-97/concept_managing_network.html["네트워크 관리"]
+기존 시스템 관리자(ONTAP 9 .7 이하 버전에서만 사용 가능)를 사용하는 경우 를 참조하십시오.link:https://docs.netapp.com/us-en/ontap-system-manager-classic/online-help-96-97/concept_managing_network.html["네트워크 관리"^]
 
 
 
