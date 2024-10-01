@@ -4,7 +4,7 @@ permalink: concept_metrocluster_manage_nodes.html
 keywords: system manager, manage, metrocluster, clusters, nodes, mcc, HA, config, peering, peers, pairing, pairs 
 summary: ONTAP 9.8부터 System Manager로 MetroCluster 운영을 관리할 수 있습니다. 
 ---
-= System Manager를 사용한 MetroCluster 사이트 관리 개요
+= System Manager를 사용한 MetroCluster IP 사이트 관리
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
@@ -16,24 +16,15 @@ summary: ONTAP 9.8부터 System Manager로 MetroCluster 운영을 관리할 수 
 
 
 [role="lead"]
-ONTAP 9.8부터 System Manager를 MetroCluster 설정 구성을 관리하기 위한 단순한 인터페이스로 사용할 수 있습니다.
+MetroCluster 구성은 별도의 위치에 있는 두 ONTAP 클러스터 간에 데이터와 구성을 동기식으로 미러링합니다. ONTAP 9.8부터 System Manager를 사용하여 MetroCluster IP 구성을 간편하게 관리할 수 있습니다.
 
-MetroCluster 구성을 사용하면 두 클러스터가 서로 데이터를 미러링할 수 있으므로 한 클러스터가 작동 중단되면 데이터가 손실되지 않습니다.
 
-일반적으로 조직은 클러스터를 두 개의 서로 다른 지리적 위치에 설정합니다. 각 위치의 관리자가 클러스터를 설정하고 구성합니다. 그런 다음 관리자 중 한 명이 클러스터 간의 피어링을 설정하여 데이터를 공유할 수 있습니다.
+NOTE: MetroCluster IP 구성에서 System Manager를 통해서만 MetroCluster 작업을 수행할 수 있습니다. MetroCluster FC 구성에서는 System Manager를 사용하여 MetroCluster 구성의 각 노드를 관리할 수 있지만 MetroCluster 관련 작업은 수행할 수 없습니다.
 
-또한 조직은 세 번째 위치에 ONTAP 중재자를 설치할 수 있습니다. ONTAP 중재자 서비스는 각 클러스터의 상태를 모니터링합니다. 클러스터 중 하나가 파트너 클러스터와 통신할 수 없는 것을 감지하면 모니터를 쿼리하여 오류가 클러스터 시스템이나 네트워크 연결에 문제가 있는지 확인합니다.
+일반적으로, 별도의 두 지리적 사이트에서 MetroCluster 구성으로 클러스터를 설정하고 구성합니다. 그런 다음 클러스터 간에 피어링을 설정하여 데이터가 동기화되고 공유되도록 합니다. 피어링된 네트워크에 있는 두 클러스터는 양방향 DR(재해 복구)을 제공하며, 각 클러스터가 다른 클러스터의 소스와 백업될 수 있습니다. 8노드 또는 4노드 MetroCluster IP 구성에서 각 사이트는 하나 또는 두 개의 고가용성(HA) 쌍으로 구성된 스토리지 컨트롤러로 구성됩니다.
 
-네트워크 연결에 문제가 있는 경우 시스템 관리자는 문제 해결 방법을 수행하여 오류를 수정하고 다시 연결합니다. 파트너 클러스터가 중단된 경우, 다른 클러스터는 전환 프로세스를 시작하여 두 클러스터의 데이터 I/O를 제어합니다.
+세 번째 위치에서 노드와 해당 DR 파트너의 상태를 모니터링할 수 link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_mediator_requirements.html["ONTAP 중재자 서비스를 설치합니다"^]있습니다. ONTAP 중재자 서비스는 재해 발생 시 MAUSO(mediator-assisted unplanned switchover)를 구현할 수 있습니다.
 
-계획된 유지 관리를 위해 클러스터 시스템 중 하나를 중단하기 위해 전환을 수행할 수도 있습니다. 파트너 클러스터는 유지보수를 수행한 클러스터를 구성하고 스위치백 작업을 수행할 때까지 두 클러스터 모두에 대한 모든 데이터 I/O 작업을 처리합니다.
+협상된 스위치오버를 수행하여 계획된 유지 관리를 위해 클러스터 중 하나를 가져올 수도 있습니다. 파트너 클러스터는 유지보수 작업을 수행한 클러스터를 불러와서 스위치백 작업을 수행할 때까지 두 클러스터에 대한 모든 데이터 I/O 작업을 처리합니다.
 
-다음 작업을 관리할 수 있습니다.
-
-* link:task_metrocluster_setup.html["IP MetroCluster 사이트를 설정합니다"]
-* link:task_metrocluster_peering.html["IP MetroCluster 피어링을 설정합니다"]
-* link:task_metrocluster_configure.html["IP MetroCluster 사이트를 구성합니다"]
-* link:task_metrocluster_switchover_switchback.html["IP MetroCluster 전환 및 스위치백을 수행합니다"]
-* link:task_metrocluster_troubleshooting.html["IP MetroCluster 구성 관련 문제를 해결합니다"]
-* link:task_metrocluster_ANDU_upgrade.html["MetroCluster 클러스터에서 ONTAP를 업그레이드합니다"]
-
+에서 System Manager를 사용하여 MetroCluster IP 구성을 설정 및 관리하는 절차를 찾을 수 link:https://docs.netapp.com/us-en/ontap-metrocluster/index.html["MetroCluster 설명서"^]있습니다.

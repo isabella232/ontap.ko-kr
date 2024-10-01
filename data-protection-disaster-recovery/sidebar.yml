@@ -241,24 +241,8 @@ entries:
     url: "/mediator/manage-task.html"
   - title: 호스트 유지 관리
     url: "/mediator/host-maintenance-task.html"
-- title: System Manager로 MetroCluster 사이트를 관리합니다
-  entries:
-  - title: MetroCluster 개요
-    url: "/concept_metrocluster_manage_nodes.html"
-  - title: MetroCluster 사이트를 설정합니다
-    url: "/task_metrocluster_setup.html"
-  - title: MetroCluster 피어링을 설정합니다
-    url: "/task_metrocluster_peering.html"
-  - title: MetroCluster 사이트를 구성합니다
-    url: "/task_metrocluster_configure.html"
-  - title: 중재자를 관리합니다
-    url: "/mediator/manage-mediator-sm-task.html"
-  - title: MetroCluster 전환 및 스위치백을 수행합니다
-    url: "/task_metrocluster_switchover_switchback.html"
-  - title: MetroCluster IP에서 주소, 넷마스크 및 게이트웨이를 수정합니다
-    url: "/metrocluster-setup-l3-task.html"
-  - title: MetroCluster 관련 문제를 해결합니다
-    url: "/task_metrocluster_troubleshooting.html"
+- title: System Manager를 사용한 MetroCluster IP 사이트 관리
+  url: "/concept_metrocluster_manage_nodes.html"
 - section: tape-backup
 - section: ndmp
 - section: element-replication
