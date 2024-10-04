@@ -14,10 +14,10 @@ summary: 볼륨에 있는 기존 태그를 보고 목록에 새 태그를 추가
 볼륨에 있는 기존 태그를 보고 목록에 새 태그를 추가하기 전에 사용 가능한 태그를 확인할 수 있습니다.
 
 .단계
-. 볼륨에서 기존 태그를 보려면 '-Tiering-object-tags' 옵션과 함께 'volume show' 명령을 사용합니다.
+. 명령을 옵션과 함께 `tiering-object-tags` 사용하여 `volume show` 볼륨의 기존 태그를 봅니다.
 +
 [listing]
 ----
-volume show [ -vserver <vserver name> ] -volume <volume_name> -fields -tiering-object-tags
+volume show [ -vserver <vserver name> ] -volume <volume_name> -fields tiering-object-tags
 ----
 

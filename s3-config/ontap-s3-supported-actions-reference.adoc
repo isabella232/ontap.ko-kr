@@ -194,3 +194,72 @@ ONTAP 9.11.1부터 ONTAP S3는 다음과 같은 ONTAP API와 함께 개체 버�
 * 그룹 생성
 * 삭제 그룹
 
+
+
+
+== 릴리즈별 S3 작업
+
+.ONTAP 9.14.1
+ONTAP 9.14.1에는 S3 오브젝트 잠금 지원이 추가되었습니다.
+
+* GetObjectLockConfiguration 을 참조하십시오
+* GetObjectRetention을 참조하십시오
+* PutObjectLockConfiguration 을 참조하십시오
+* PutObjectRetention
+
+
+.ONTAP 9.13.1
+ONTAP 9.13.1에는 버킷 라이프사이클 관리 지원이 추가되었습니다.
+
+* DeleteBucketLifecycleConfiguration을 참조하십시오
+* GetBuckLifecycleConfiguration 을 참조하십시오
+* PutBucketLifecycleConfiguration을 참조하십시오
+
+
+.ONTAP 9.12.1
+ONTAP 9.12.1에는 버킷 정책 및 오브젝트 복사 기능이 추가되었습니다.
+
+* DeleteBuckketPolicy를 참조하십시오
+* GetBuckketPolicy를 참조하십시오
+* BucketPolicy를 참조하십시오
+* CopyObject 를 선택합니다
+* 업로드파트 복사
+
+
+.ONTAP 9.11.1
+ONTAP 9.11.1에는 버전 관리, 사전 서명된 URL, 청크 업로드 지원, S3 API를 사용한 버킷 생성 및 삭제와 같은 일반적인 S3 작업 지원이 추가되었습니다.
+
+* ONTAP S3는 이제 x-amz-content-sha256:streaming-aws4-hMAC-sha256-payload를 사용하여 청크 업로드 서명 요청을 지원합니다
+* ONTAP S3는 이제 미리 설정된 URL을 사용하여 개체를 공유하거나 다른 사용자가 사용자 자격 증명 없이도 개체를 업로드할 수 있도록 클라이언트 응용 프로그램을 지원합니다.
+* CreateBucket
+* 삭제 버킷
+* GetBuckketVersioning 을 참조하십시오
+* 목록 BuckketVersions
+* 퍼트버킷
+* PutBucketVersioning을 참조하십시오
+* DeleteObjects 를 클릭합니다
+* ListObjectVersions 를 선택합니다
+
+
+
+NOTE: 첫 번째 버킷이 될 때까지 기본 FlexGroup이 생성되지 않으므로 외부 클라이언트가 CreateBucket을 사용하여 버킷을 생성하려면 먼저 ONTAP에서 버킷을 생성해야 합니다.
+
+.ONTAP 9.10.1
+ONTAP 9.10.1에는 S3 SnapMirror 및 GetBucketLocation에 대한 지원이 추가되었습니다.
+
+* GetBucketLocation 을 참조하십시오
+
+
+.ONTAP 9.9.1
+ONTAP 9.9.1에서는 ONTAP S3에 개체 메타데이터 및 태그 지정 지원에 대한 지원을 추가합니다.
+
+* PutObject 및 CreateMultipartUpload 는 이제 'x-amz-meta-<key>'를 사용하여 키-값 쌍을 포함합니다. 예: 'x-amz-meta-project:ONTAP_S3'.
+* GetObject 및 HeadObject 는 이제 사용자 정의 메타데이터를 반환합니다.
+
+
+태그는 버킷과 함께 사용할 수도 있습니다. 메타데이터와 달리 태그는 다음을 사용하여 오브젝트와 독립적으로 읽을 수 있습니다.
+
+* PutObjectTagging
+* GetObjectTagging
+* DeleteObjectTagging 을 선택합니다
+

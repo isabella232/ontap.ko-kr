@@ -114,7 +114,7 @@ ONTAP 9.10.1 이상으로 업그레이드할 때 SnapMirror 활성 동기화를 
 REST API에서 생성된 일관성 그룹 스냅샷 복사본은 System Manager의 일관성 그룹 인터페이스 및 일관성 그룹 REST API 엔드포인트를 통해 관리할 수 있습니다. ONTAP 9.14.1부터는 ONTAP CLI를 사용하여 일관성 그룹 스냅샷을 관리할 수도 있습니다.
 
 
-NOTE: ONTAPI 명령을 사용하여 생성된 스냅샷 복사본 `cg-start` 및 `cg-commit` 는 일관성 그룹 스냅샷으로 인식되므로 System Manager의 일관성 그룹 인터페이스 또는 ONTAP REST API의 일관성 그룹 엔드포인트를 통해 관리할 수 없습니다. ONTAP 9.14.1부터 SnapMirror 비동기식 정책을 사용하는 경우 이러한 스냅샷 복사본을 타겟 볼륨으로 미러링할 수 있습니다. 자세한 내용은 을 참조하십시오 xref:protect-task.html#configure-snapmirror-asynchronous[SnapMirror 비동기 구성].
+NOTE: ONTAPI 명령을 사용하여 생성된 스냅샷 복사본은 `cg-start` `cg-commit` 일관성 그룹 스냅샷으로 인식되지 않으므로 System Manager의 일관성 그룹 인터페이스 또는 ONTAP REST API의 일관성 그룹 엔드포인트를 통해 관리할 수 없습니다. ONTAP 9.14.1부터 SnapMirror 비동기식 정책을 사용하는 경우 이러한 스냅샷 복사본을 타겟 볼륨으로 미러링할 수 있습니다. 자세한 내용은 을 xref:protect-task.html#configure-snapmirror-asynchronous[SnapMirror 비동기 구성]참조하십시오.
 
 
 
