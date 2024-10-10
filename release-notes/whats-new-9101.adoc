@@ -1,7 +1,7 @@
 ---
 permalink: release-notes/whats-new-9101.html 
 sidebar: sidebar 
-keywords: 'what"s new, release notes, 9.10.1' 
+keywords: 'what"s new, release notes, 9.10.1, digital advisor' 
 summary: ONTAP 9.10.1에서 사용할 수 있는 새로운 기능에 대해 알아보십시오. 
 ---
 = ONTAP 9.10.1의 새로운 기능
@@ -212,7 +212,7 @@ MetroCluster 구성에 대한 플랫폼 및 스위치 구성 개선 사항에 �
 | xref:../task_admin_update_firmware.html[펌웨어를 자동으로 업데이트합니다] | System Manager 관리자는 ONTAP에서 펌웨어를 자동으로 업데이트하도록 구성할 수 있습니다. 
 
 
-| xref:../task_admin_monitor_risks.html[위험 완화 권장 사항을 검토하고 Active IQ에서 보고한 위험을 확인합니다] | System Manager 사용자는 Active IQ에서 보고하는 위험을 확인하고 위험 완화에 대한 권장 사항을 검토할 수 있습니다. 9.10.1부터 사용자는 위험을 인지할 수도 있습니다. 
+| xref:../task_admin_monitor_risks.html[위험 완화 권장 사항을 검토하고 Digital Advisor가 보고한 위험을 확인합니다] | System Manager 사용자는 Digital Advisor가 보고한 위험을 확인하고 위험 완화에 대한 권장 사항을 검토할 수 있습니다. 9.10.1부터 사용자는 위험을 인지할 수도 있습니다. 
 
 
 | xref:../error-messages/configure-ems-events-send-email-task.html[EMS 이벤트 알림의 관리자 수신 설정] | System Manager 관리자는 EMS(이벤트 관리 시스템) 이벤트 알림이 전송되는 방식을 구성하여 주의가 필요한 시스템 문제에 대해 알림을 받을 수 있습니다. 
@@ -221,7 +221,7 @@ MetroCluster 구성에 대한 플랫폼 및 스위치 구성 개선 사항에 �
 | xref:../authentication/manage-certificates-sm-task.html[인증서를 관리합니다] | System Manager 관리자는 신뢰할 수 있는 인증 기관, 클라이언트/서버 인증서 및 로컬(온보드) 인증 기관을 관리할 수 있습니다. 
 
 
-| xref:../concept_capacity_measurements_in_sm.html[System Manager를 사용하여 용량 사용량 기록을 확인하고 향후 용량 요구사항을 예측할 수 있습니다] | 관리자는 Active IQ와 System Manager의 통합을 통해 클러스터의 용량 사용 추세 내역을 볼 수 있습니다. 
+| xref:../concept_capacity_measurements_in_sm.html[System Manager를 사용하여 용량 사용량 기록을 확인하고 향후 용량 요구사항을 예측할 수 있습니다] | Digital Advisor와 System Manager의 통합을 통해 관리자는 클러스터의 용량 사용 내역에 대한 기간별 데이터를 볼 수 있습니다. 
 
 
 | xref:../task_cloud_backup_data_using_cbs.html[System Manager를 사용하여 Cloud Backup Service를 사용하여 StorageGRID에 데이터를 백업합니다] | Cloud Manager를 사내에 구축한 경우 Cloud Backup Service 관리자는 StorageGRID로 백업할 수 있습니다. 또한, AWS 또는 Azure에서 Cloud Backup Service를 사용하여 오브젝트를 아카이브할 수 있습니다. 

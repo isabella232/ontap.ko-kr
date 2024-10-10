@@ -1,8 +1,8 @@
 ---
 permalink: system-admin/when-where-autosupport-messages-sent-concept.html 
 sidebar: sidebar 
-keywords: active, iq, autosupport, messages, email, manual, scheduled, event, triggered 
-summary: 'AutoSupport는 메시지 유형에 따라 다른 수신자에게 메시지를 보냅니다. AutoSupport에서 메시지를 보내는 시기와 위치를 이해하면 전자 메일을 통해 받는 메시지를 이해하거나 Active IQ(이전의 My AutoSupport) 웹 사이트에서 볼 수 있습니다.' 
+keywords: active, iq, digital advisor, active iq, autosupport, messages, email, manual, scheduled, event, triggered 
+summary: AutoSupport는 메시지 유형에 따라 다른 수신자에게 메시지를 보냅니다. AutoSupport에서 메시지를 보내는 시기와 위치를 파악하면 디지털 어드바이저 웹 사이트에서 전자 메일 또는 보기를 통해 받는 메시지를 이해하는 데 도움이 됩니다. 
 ---
 = AutoSupport 메시지가 전송되는 시기 및 위치
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'AutoSupport는 메시지 유형에 따라 다른 수신자에게 메�
 
 
 [role="lead"]
-AutoSupport는 메시지 유형에 따라 다른 수신자에게 메시지를 보냅니다. AutoSupport에서 메시지를 보내는 시기와 위치를 이해하면 전자 메일을 통해 받는 메시지를 이해하거나 Active IQ(이전의 My AutoSupport) 웹 사이트에서 볼 수 있습니다.
+AutoSupport는 메시지 유형에 따라 다른 수신자에게 메시지를 보냅니다. AutoSupport에서 메시지를 보내는 시기와 위치를 파악하면 디지털 어드바이저 웹 사이트에서 전자 메일 또는 보기를 통해 받는 메시지를 이해하는 데 도움이 됩니다.
 
 별도로 지정하지 않는 한 다음 표의 설정은 'system node AutoSupport modify' 명령의 매개 변수입니다.
 

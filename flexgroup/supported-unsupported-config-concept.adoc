@@ -240,7 +240,7 @@ FlexGroup 볼륨은 여러 ONTAP 기능을 지원하며 ONTAP 9.1에 도입되�
 
 * SnapMirror 기술
 * Snapshot 복사본
-* Active IQ
+* 디지털 자문업체
 * 인라인 적응형 압축
 * 인라인 중복제거
 * 인라인 데이터 컴팩션

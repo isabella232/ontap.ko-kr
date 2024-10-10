@@ -38,13 +38,13 @@ indexpage:
       url: "../insights-system-optimization-task.html"
     - title: 시스템 상태 알림을 자동으로 받습니다
       url: "../system-admin/receive-system-health-alerts-automatic-task.html"
-    - title: Active IQ 디지털 자문으로 위험 모니터링
+    - title: Digital Advisor로 위험 모니터링
       url: "../task_admin_monitor_risks.html"
   - title: AutoSupport
     links:
     - title: System Manager로 AutoSupport를 관리합니다
       url: "../system-admin/autosupport-manage-settings-task.html"
-    - title: AutoSupport 및 Active IQ 디지털 자문업체 사용
+    - title: AutoSupport 및 Digital Advisor 사용
       url: "../system-admin/autosupport-active-iq-digital-advisor-concept.html"
   - title: 있습니다
     links:

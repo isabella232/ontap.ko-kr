@@ -65,7 +65,7 @@ System Manager 또는 ONTAP CLI를 사용하여 데이터를 복원할 수 있�
 . ARP 스냅샷 복사본에서 복원하려면 2단계로 건너뜁니다. 이전 스냅샷 사본에서 데이터를 복원하려면 ARP 스냅샷의 잠금을 해제해야 합니다.
 +
 
-NOTE:  `volume snap restore`아래에 설명된 명령을 사용하는 경우 이전 스냅샷 복사본에서 복원하기 전에 안티 랜섬웨어 SnapLock를 해제하면 됩니다. Flex Clone, Single File Snap Restore 또는 기타 방법을 사용하여 데이터를 복구하는 경우에는 이 작업이 필요하지 않습니다.
+NOTE:  `volume snap restore`아래에 설명된 명령을 사용하는 경우 이전 스냅샷 복사본에서 복원하기 전에 안티 랜섬웨어 SnapLock를 해제하면 됩니다. FlexClone, Single File Snap Restore 또는 다른 방법을 사용하여 데이터를 복원하는 경우에는 이 작업이 필요하지 않습니다.
 
 +
 공격을 "거짓 양성" 및 "용의자 명시"로 표시:

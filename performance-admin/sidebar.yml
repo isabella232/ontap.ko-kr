@@ -36,7 +36,7 @@ entries:
       url: "/performance-admin/configure-alert-settings-task.html"
   - title: Active IQ Unified Manager의 성능 문제를 식별합니다
     url: "/performance-admin/identify-performance-issues-unified-manager-task.html"
-- title: Active IQ 디지털 어드바이저를 사용하여 시스템 성능을 확인합니다
+- title: Digital Advisor를 사용하여 시스템 성능을 확인합니다
   url: "/performance-admin/active-iq-digital-advisor-view-performance-concept.html"
 - title: 성능 문제 관리
   entries:

@@ -13,7 +13,7 @@ entries:
     url: "/task_cp_id_hot_objects.html"
   - title: QoS를 수정합니다
     url: "/task_admin_modify_qos.html"
-  - title: Active IQ 디지털 자문으로 위험 모니터링
+  - title: Digital Advisor로 위험 모니터링
     url: "/task_admin_monitor_risks.html"
   - title: System Manager 인사이트
     url: "/concepts/insights-system-optimization-concept.html"
@@ -44,7 +44,7 @@ entries:
     entries:
     - title: AutoSupport 정보
       url: "/system-admin/manage-autosupport-concept.html"
-    - title: Active IQ Digital Advisor 및 AutoSupport 정보
+    - title: Digital Advisor 및 AutoSupport 정보
       url: "/system-admin/autosupport-active-iq-digital-advisor-concept.html"
     - title: AutoSupport 메시지가 전송되는 시기 및 위치
       url: "/system-admin/when-where-autosupport-messages-sent-concept.html"

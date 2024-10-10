@@ -1,19 +1,19 @@
 ---
 sidebar: sidebar 
 permalink: ransomware-solutions/ransomware-active-iq.html 
-keywords: tr-4572, technical report, ransomware, protect, protection, netapp ransomware protection, netapp tr, ontap tr 
-summary: NetApp의 랜섬웨어 방어에 Active IQ가 포함되어 있어 NetApp 스토리지의 선제적 관리 및 최적화를 간소하게 진행하는 디지털 자문업체입니다. 
+keywords: tr-4572, technical report, ransomware, digital advisor, active iq, protect, protection, netapp ransomware protection, netapp tr, ontap tr 
+summary: NetApp의 랜섬웨어 보호에는 NetApp 스토리지의 선제적 관리 및 최적화를 간소하게 진행하는 디지털 자문업체인 Digital Advisor가 포함되어 있습니다. 
 ---
-= Active IQ 랜섬웨어 방어
+= Digital Advisor 랜섬웨어 방어
 :allow-uri-read: 
 
 
 [role="lead"]
-NetApp Active IQ는 최적의 데이터 관리를 위해 실행 가능한 인텔리전스를 통해 NetApp 스토리지의 선제적 관리 및 최적화를 간소하게 진행하는 디지털 자문업체입니다. NetApp의 매우 다양한 설치 기반에서 얻은 원격 분석 데이터와 고급 AI 및 ML 기술을 사용하여 스토리지 환경의 위험을 줄이고 성능 및 효율성을 개선할 기회를 찾아줍니다.
+Active IQ Digital Advisor(Digital Advisor)는 최적의 데이터 관리를 위해 실행 가능한 인텔리전스를 통해 NetApp 스토리지의 능동적 관리 및 최적화를 간소화합니다. NetApp의 매우 다양한 설치 기반에서 얻은 원격 분석 데이터와 고급 AI 및 ML 기술을 사용하여 스토리지 환경의 위험을 줄이고 성능 및 효율성을 개선할 기회를 찾아줍니다.
 
-이 https://www.netapp.com/services/support/active-iq/["NetApp Active IQ를 참조하십시오"^] 방법은 도움이 될 뿐만 https://www.netapp.com/blog/fix-security-vulnerabilities-with-active-iq/["보안 취약점을 제거합니다"^] 아니라 랜섬웨어로부터 보호하는 것과 관련된 통찰력과 지침도 제공합니다. 전용 웰니스 카드는 필요한 조치와 해결된 위험을 보여줍니다. 따라서 시스템이 이러한 모범 사례 권장 사항을 충족하는지 확인할 수 있습니다.
+이 https://www.netapp.com/services/support/active-iq/["NetApp 디지털 자문"^] 방법은 도움이 될 뿐만 https://www.netapp.com/blog/fix-security-vulnerabilities-with-active-iq/["보안 취약점을 제거합니다"^] 아니라 랜섬웨어로부터 보호하는 것과 관련된 통찰력과 지침도 제공합니다. 전용 웰니스 카드는 필요한 조치와 해결된 위험을 보여줍니다. 따라서 시스템이 이러한 모범 사례 권장 사항을 충족하는지 확인할 수 있습니다.
 
-image:ransomware-solution-dashboard.jpg["NetApp Active IQ 대시보드의 웰니스 모니터"]
+image:ransomware-solution-dashboard.jpg["NetApp 디지털 어드바이저 대시보드의 웰니스 모니터"]
 
 랜섬웨어 방어 웰빙 페이지에서 추적된 위험 및 작업은 다음과 같습니다.
 
@@ -21,4 +21,4 @@ image:ransomware-solution-dashboard.jpg["NetApp Active IQ 대시보드의 웰니
 * NAS 프로토콜용으로 구성된 모든 SVM(스토리지 가상 머신)에 FPolicy가 사용되지 않는다.
 
 
-Active IQ 랜섬웨어 방어의 실제 작동 모습을 보려면 를 참조하십시오.link:https://www.netapp.com/services/support/active-iq/["NetApp Active IQ를 참조하십시오"^]
+Digital Advisor 랜섬웨어 방어의 실제 작동 모습을 보려면 를 참조하십시오.link:https://www.netapp.com/services/support/active-iq/["Active IQ 디지털 자문업체"^]

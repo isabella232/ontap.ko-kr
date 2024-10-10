@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: update/firmware-task.html 
-keywords: system manager, netapp, ontap, upgrade, nondisruptive, firmware,  disk, shelves, qualification, package, service, processor, baseboard, management, controller, dqp, sp, bmc, software patch, upgrade, recommendation, recommended, storage firmware, storage devices, disks, shelves, service processors, modules 
+keywords: system manager, netapp, ontap, upgrade, nondisruptive, firmware, disk, shelves, qualification, package, service, processor, baseboard, management, controller, dqp, sp, bmc, software patch, upgrade, recommendation, recommended, storage firmware, storage devices, disks, shelves, service processors, modules, digital advisor, active iq unified manager 
 summary: '디스크, 디스크 쉘프, 서비스 프로세서(SP) 또는 베이스보드 관리 컨트롤러(BMC)와 같이 클러스터에서 지원되는 장치에 업데이트된 펌웨어를 적용할 수 있습니다.' 
 ---
 = 펌웨어를 수동으로 업데이트합니다
@@ -28,7 +28,7 @@ ONTAP 9.8을 실행 중이거나 Active IQ Unified Manager에 등록되어 있�
 
 [role="tabbed-block"]
 ====
-.ONTAP 9.9.1 이상(Active IQ 포함
+.Digital Advisor를 사용하는 ONTAP 9.9.1 이상
 --
 . System Manager에서 * 대시보드 * 로 이동합니다.
 +
@@ -72,7 +72,7 @@ NetApp Support 사이트가 표시됩니다.
 
 --
 --
-.ONTAP 9.8 이상(Active IQ 제외
+.Digital Advisor가 없는 ONTAP 9 .8 이상
 . 로 이동합니다 link:https://mysupport.netapp.com/site/downloads["NetApp Support 사이트"^] 로그인한 다음
 . 클러스터 펌웨어를 업데이트하는 데 사용할 펌웨어 패키지를 선택합니다.
 . 네트워크 또는 로컬 폴더에 있는 HTTP 또는 FTP 서버로 파일을 복사합니다.

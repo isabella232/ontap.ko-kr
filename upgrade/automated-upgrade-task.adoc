@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: upgrade/automated-upgrade-task.html 
-keywords: netapp, ontap, automate, automatic, automated, upgrade, nondisruptive, nondisruptively, non-disruptive update, nondisruptive upgrade, upgrade a cluster, shift workload between clusters, hardware platform, configuration, software image, update, update ONTAP, update software, ndu 
+keywords: netapp, ontap, automate, automatic, automated, digital advisor, upgrade, nondisruptive, nondisruptively, non-disruptive update, nondisruptive upgrade, upgrade a cluster, shift workload between clusters, hardware platform, configuration, software image, update, update ONTAP, update software, ndu 
 summary: 클러스터에서 ONTAP 버전을 중단 없이 업데이트할 수 있습니다. 
 ---
 = 자동화된 무중단 ONTAP 업그레이드
@@ -478,6 +478,6 @@ ONTAP 9.8에서 System Manager의 간소화된 ONTAP 업그레이드 기능을 �
 
 video::xwwX8vrrmIk[youtube,width=848,height=480]
 .관련 정보
-* https://aiq.netapp.com/["Active IQ를 시작합니다"]
-* https://docs.netapp.com/us-en/active-iq/["Active IQ 설명서"]
+* https://aiq.netapp.com/["Active IQ Digital Advisor를 시작합니다"]
+* https://docs.netapp.com/us-en/active-iq/["Active IQ 디지털 자문 문서"]
 

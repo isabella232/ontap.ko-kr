@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task_admin_monitor_capacity_in_sm.html 
-keywords: used storage, local tier capacity, aggregate capacity, add capacity, used capacity, available capacity, total capacity, inactive data, overprovision, overflows, snapshot copy reserves, reserves, clone, maximum capacity limit, storage VM, allocated 
+keywords: used storage, digital advisor, local tier capacity, aggregate capacity, add capacity, used capacity, available capacity, total capacity, inactive data, overprovision, overflows, snapshot copy reserves, reserves, clone, maximum capacity limit, storage VM, allocated 
 summary: System Manager를 사용하면 사용된 스토리지 용량과 클러스터, 로컬 계층 또는 스토리지 VM에 대해 사용 가능한 스토리지 용량을 모니터링할 수 있습니다. 
 ---
 = System Manager에서 용량을 모니터링합니다
@@ -35,7 +35,7 @@ NOTE: 사용된 용량의 측정치는 ONTAP 버전에 따라 다르게 표시�
 System Manager의 대시보드에서 클러스터의 용량 측정값을 볼 수 있습니다.
 
 .시작하기 전에
-클라우드의 용량과 관련된 데이터를 보려면 Active IQ 디지털 자문업체 계정이 있어야 하며 연결되어 있어야 합니다.
+클라우드의 용량과 관련된 데이터를 보려면 Digital Advisor 계정이 있고 연결되어 있어야 합니다.
 
 .단계
 . System Manager에서 * 대시보드 * 를 클릭합니다.

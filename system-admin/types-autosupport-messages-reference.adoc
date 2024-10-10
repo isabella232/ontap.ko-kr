@@ -1,8 +1,8 @@
 ---
 permalink: system-admin/types-autosupport-messages-reference.html 
 sidebar: sidebar 
-keywords: active, iq, autosupport, messages, content, support, subsystems 
-summary: 'AutoSupport 메시지에는 지원되는 하위 시스템에 대한 상태 정보가 포함되어 있습니다. AutoSupport 메시지에 포함된 내용을 학습하면 전자 메일로 받거나 Active IQ(이전의 My AutoSupport) 웹 사이트에서 보는 메시지를 해석하거나 응답할 수 있습니다.' 
+keywords: active, iq, active iq, digital advisor, autosupport, messages, content, support, subsystems 
+summary: AutoSupport 메시지에는 지원되는 하위 시스템에 대한 상태 정보가 포함되어 있습니다. AutoSupport 메시지에 포함된 내용을 학습하면 디지털 어드바이저 웹 사이트에서 이메일 또는 열람으로 받은 메시지를 해석하거나 이에 대응하는 데 도움이 될 수 있습니다. 
 ---
 = AutoSupport 메시지의 유형과 콘텐츠입니다
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'AutoSupport 메시지에는 지원되는 하위 시스템에 대한 �
 
 
 [role="lead"]
-AutoSupport 메시지에는 지원되는 하위 시스템에 대한 상태 정보가 포함되어 있습니다. AutoSupport 메시지에 포함된 내용을 학습하면 전자 메일로 받거나 Active IQ(이전의 My AutoSupport) 웹 사이트에서 보는 메시지를 해석하거나 응답할 수 있습니다.
+AutoSupport 메시지에는 지원되는 하위 시스템에 대한 상태 정보가 포함되어 있습니다. AutoSupport 메시지에 포함된 내용을 학습하면 디지털 어드바이저 웹 사이트에서 이메일 또는 열람으로 받은 메시지를 해석하거나 이에 대응하는 데 도움이 될 수 있습니다.
 
 |===
 | 메시지 유형입니다 | 메시지에 포함된 데이터 유형입니다 

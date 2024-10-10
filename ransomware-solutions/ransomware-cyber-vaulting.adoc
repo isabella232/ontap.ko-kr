@@ -24,7 +24,7 @@ image:ransomware-solution-workload-characteristics2.png["NetApp 사이버 저장
 NetApp은 10년 이상 SnapLock 기능을 발표하여 HIPAA(Health Insurance Portability and Accountability Act), 사베인즈 옥슬리(Sarbanes-Oxley) 및 기타 규정 데이터 규정 준수 요구 사항을 해결했습니다. 또한 기본 스냅샷 복사본을 SnapLock 볼륨에 저장하여 복사본을 WORM으로 커밋할 수 있으므로 삭제를 방지할 수 있습니다. SnapLock 라이센스 버전은 SnapLock Compliance 및 SnapLock Enterprise의 두 가지입니다. 랜섬웨어 보호를 위해 NetApp은 ONTAP 관리자 또는 NetApp 지원팀에서도 스냅샷 복사본이 잠겨 있고 삭제할 수 없는 특정 보존 기간을 설정할 수 있으므로 SnapLock Compliance을 권장합니다.
 
 .자세한 정보
-* https://community.netapp.com/t5/Tech-ONTAP-Blogs/Layered-Ransomware-Protection-with-NetApp-s-Cyber-Vault-Solution/ba-p/452660["블로그: NetApp의 Cyber Vault 솔루션을 이용한 계층화된 랜섬웨어 방어"^]
+* https://docs.netapp.com/us-en/netapp-solutions/cyber-vault/ontap-cyber-vault-overview.html["블로그: ONTAP 사이버 소산 개요"^]
 
 
 

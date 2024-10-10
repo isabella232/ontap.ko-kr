@@ -1,7 +1,7 @@
 ---
 permalink: upgrade/reboot-sp-bmc.html 
 sidebar: sidebar 
-keywords: ontap, upgrade, how, firmware, updated, during 
+keywords: ontap, upgrade, how, firmware, updated, during, digital advisor 
 summary: ONTAP 업그레이드 전에 펌웨어를 업데이트할 필요가 없습니다.  클러스터 펌웨어는 ONTAP 업그레이드 패키지에 포함되어 있으며 업그레이드 프로세스의 일부로 설치됩니다. 
 ---
 = ONTAP 업그레이드 중에 펌웨어 업데이트를 준비하려면 SP 또는 BMC를 재부팅합니다
@@ -36,7 +36,7 @@ system service-processor reboot-sp -node <node_name>
 
 
 
-또한 가능합니다 link:../update/firmware-task.html["펌웨어를 수동으로 업데이트합니다"] ONTAP 업그레이드 간  Active IQ가 있다면 가능합니다 link:https://activeiq.netapp.com/system-firmware/["ONTAP 이미지에 현재 포함되어 있는 펌웨어 버전 목록을 봅니다"^].
+또한 link:../update/firmware-task.html["펌웨어를 수동으로 업데이트합니다"]ONTAP 업그레이드 사이에 가능합니다. Digital Advisor가 있으면 link:https://activeiq.netapp.com/system-firmware/["ONTAP 이미지에 현재 포함되어 있는 펌웨어 버전 목록을 봅니다"^]가능합니다.
 
 업데이트된 펌웨어 버전은 다음과 같습니다.
 

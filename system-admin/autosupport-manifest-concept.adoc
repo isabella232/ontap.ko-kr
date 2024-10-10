@@ -1,7 +1,7 @@
 ---
 permalink: system-admin/autosupport-manifest-concept.html 
 sidebar: sidebar 
-keywords: active, autosupport, manifest, information, errors, file, view 
+keywords: active, autosupport, manifest, information, errors, file, view, digital advisor 
 summary: AutoSupport 매니페스트는 각 AutoSupport 메시지에 대해 수집된 파일에 대한 자세한 보기를 제공합니다. AutoSupport 매니페스트에는 AutoSupport에서 필요한 파일을 수집할 수 없는 경우 컬렉션 오류에 대한 정보도 포함되어 있습니다. 
 ---
 = AutoSupport 매니페스트에 포함된 정보입니다
@@ -24,4 +24,4 @@ AutoSupport 매니페스트에는 다음 정보가 포함됩니다.
 
 'system node AutoSupport manifest show' 명령을 사용하여 AutoSupport 매니페스트를 볼 수 있습니다.
 
-AutoSupport 매니페스트는 모든 AutoSupport 메시지에 포함되어 있으며 XML 형식으로 표시됩니다. 즉, 일반 XML 뷰어를 사용하여 읽거나 Active IQ(이전의 My AutoSupport) 포털을 사용하여 볼 수 있습니다.
+AutoSupport 매니페스트는 모든 AutoSupport 메시지에 포함되어 있으며 XML 형식으로 표시됩니다. 즉, 일반 XML 뷰어를 사용하여 읽거나 디지털 어드바이저 포털을 사용하여 볼 수 있습니다.

@@ -10,7 +10,7 @@ entries:
   url: "/concepts/cluster-storage-concept.html"
 - title: 고가용성 쌍
   url: "/concepts/high-availability-pairs-concept.html"
-- title: AutoSupport 및 Active IQ 디지털 자문업체
+- title: AutoSupport 및 디지털 자문업체
   url: "/concepts/autosupport-active-iq-digital-advisor-concept.html"
 - title: 네트워크 아키텍처
   entries:

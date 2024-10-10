@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: register_active_iq.html 
-keywords: register with active iq, active iq, register, log on, log in, support contract 
+keywords: register with active iq, digital advisor, active iq, register, log on, log in, support contract 
 summary: System Manager의 특정 측정값에 시스템의 스토리지 용량이 반영됩니다. 
 ---
-= Active IQ에 등록하십시오
+= Digital Advisor에 등록하십시오
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
@@ -16,15 +16,15 @@ summary: System Manager의 특정 측정값에 시스템의 스토리지 용량�
 
 
 [role="lead"]
-* NetApp Active IQ * 는 NetApp의 능동적 관리 및 최적화를 단순화하는 디지털 자문가입니다.
+* NetApp 디지털 어드바이저 * 는 NetApp의 사전 예방 관리 및 최적화를 단순화하는 디지털 조언자입니다.
 
-Active IQ은 지원 계약이 유효한 모든 NetApp 고객에게 제공됩니다. 지원 계정을 만들려면 다음으로 이동하십시오.
+Digital Advisor는 지원 계약이 유효한 모든 NetApp 고객에게 제공됩니다. 지원 계정을 만들려면 다음으로 이동하십시오.
 
 * link:https://mysupport.netapp.com/eservice/public/now.do["사용자 등록을 지원합니다"^]
 
 
-Active IQ에 대한 자세한 내용:
+Digital Advisor에 대한 자세한 내용은 다음 웹 사이트를 참조하십시오.
 
-* link:https://www.netapp.com/services/support/active-iq/["ActiveIQ Digital Advisor"^]
-* link:https://mysupport.netapp.com/site/info/aboutAIQ["지원:ActiveIQ"^]
+* link:https://www.netapp.com/services/support/active-iq/["Active IQ 디지털 자문업체"^]
+* link:https://mysupport.netapp.com/site/info/aboutAIQ["지원:Active IQ Digital Advisor"^]
 

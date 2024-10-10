@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: ransomware-solutions/ransomware-overview.html 
-keywords: tr-4572, technical report, ransomware, netapp ransomware protection, protect, protection, netapp tr, ontap tr, mav, mfa 
+keywords: tr-4572, technical report, ransomware, digital advisor, netapp ransomware protection, protect, protection, netapp tr, ontap tr, mav, mfa 
 summary: NetApp의 랜섬웨어 방어 기능은 랜섬웨어 공격을 최대한 빠르게 식별 및 감지하고, 확산을 차단하고, 복구하는 데 도움이 될 수 있습니다. 
 ---
 = 랜섬웨어 및 NetApp의 보호 포트폴리오
@@ -74,7 +74,7 @@ NOTE: NetApp ONTAP는 https://www.netapp.com/pdf.html?item=/media/17055-tr4647pd
 NetApp의 랜섬웨어 방지 기능은 끊임없이 변화하는 위협 환경에서 안심할 수 있도록 제공합니다. 이 포괄적인 접근 방식은 현재의 랜섬웨어 변종을 방어할 뿐만 아니라 새로운 위협에 대응하여 데이터 인프라에 장기적인 보안을 제공합니다.
 
 .다른 보호 옵션에 대해 알아봅니다
-* link:../ransomware-solutions/ransomware-active-iq.html["Active IQ 랜섬웨어 방어"]
+* link:../ransomware-solutions/ransomware-active-iq.html["Digital Advisor 랜섬웨어 방어"]
 * link:../ransomware-solutions/ransomware-CI-workload-security.html["Cloud Insights 스토리지 워크로드 보안(CISWS)"]
 * link:../ransomware-solutions/ransomware-fpolicy.html["FPolicy를 참조하십시오"]
 * link:../ransomware-solutions/ransomware-snaplock-tamperproof-snapshots.html["SnapLock 및 변조 방지 스냅샷 복사본"]

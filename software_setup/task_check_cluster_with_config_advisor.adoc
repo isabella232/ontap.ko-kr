@@ -1,10 +1,10 @@
 ---
 permalink: software_setup/task_check_cluster_with_config_advisor.html 
 sidebar: sidebar 
-keywords: ontap, software, setup, check, cluster, active iq, config, advisor 
+keywords: ontap, software, setup, check, cluster, digital advisor, active iq, config, advisor 
 summary: 모든 노드를 새 클러스터에 결합했으면 Active IQ Config Advisor를 실행하여 구성을 검증하고 일반적인 구성 오류를 확인해야 합니다. 
 ---
-= Active IQ Config Advisor에서 클러스터를 확인하십시오
+= Digital Advisor Config Advisor로 클러스터를 확인하십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -21,7 +21,7 @@ Config Advisor은 일련의 명령을 실행하여 설치를 검증하고 클러
 +
 link:https://mysupport.netapp.com/site/tools/tool-eula/activeiq-configadvisor["Active IQ Config Advisor"^]
 
-. Active IQ를 시작하고 메시지가 표시되면 암호를 설정합니다.
+. Digital Advisor를 실행하고 메시지가 표시되면 암호를 설정합니다.
 . 설정을 검토하고 * 저장 * 을 클릭합니다.
 . Objectives * 페이지에서 * ONTAP 배포 후 검증 * 을 클릭합니다.
 . 안내 모드 또는 전문가 모드를 선택합니다.

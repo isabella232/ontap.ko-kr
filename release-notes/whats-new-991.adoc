@@ -1,7 +1,7 @@
 ---
 permalink: release-notes/whats-new-991.html 
 sidebar: sidebar 
-keywords: 'what"s new, release notes, 9.9.1' 
+keywords: 'what"s new, release notes, 9.9.1, digital advisor' 
 summary: ONTAP 9.9.1에서 사용할 수 있는 새로운 기능에 대해 알아보십시오. 
 ---
 = ONTAP 9.9.1의 새로운 기능
@@ -219,7 +219,7 @@ ONTAP 9.9.1P3부터 Cisco Duo를 SAML ID 공급자(IDP)로 구성하여 사용�
 | 업데이트 | 설명 
 
 
-| xref:../task_admin_monitor_risks.html[System Manager에 Active IQ에서 보고한 위험이 표시됩니다] | System Manager를 사용하여 NetApp Active IQ에 연결하면 위험을 줄이고 스토리지 환경의 성능 및 효율성을 높일 수 있는 기회를 신고할 수 있습니다. 
+| xref:../task_admin_monitor_risks.html[System Manager에 Digital Advisor에서 보고한 위험이 표시됩니다] | System Manager를 사용하여 Active IQ Digital Advisor(Digital Advisor라고도 함)에 연결하면 스토리지 환경의 위험을 줄이고 성능 및 효율성을 개선할 수 있는 기회를 보고할 수 있습니다. 
 
 
 | xref:../task_san_provision_linux.html[로컬 계층을 수동으로 할당합니다] | System Manager 사용자는 볼륨 및 LUN을 생성하고 추가할 때 로컬 계층을 수동으로 할당할 수 있습니다. 
@@ -234,7 +234,7 @@ ONTAP 9.9.1P3부터 Cisco Duo를 SAML ID 공급자(IDP)로 구성하여 사용�
 | xref:../task_admin_troubleshoot_hardware_problems.html[하드웨어 시각화] | ONTAP 9.8에 처음 도입된 하드웨어 시각화 기능이 이제 모든 AFF 플랫폼을 지원합니다. 
 
 
-| xref:../task_admin_troubleshoot_hardware_problems.html[Active IQ 통합] | System Manager 사용자는 클러스터와 관련된 지원 사례를 보고 다운로드할 수 있습니다. 또한 NetApp Support 사이트에서 새로운 지원 케이스를 제출하는 데 필요한 클러스터 세부 정보를 복사할 수 있습니다. System Manager 사용자는 새로운 펌웨어 업데이트가 사용 가능한 경우 Active IQ로부터 알림을 받아 볼 수 있습니다. 그런 다음 펌웨어 이미지를 다운로드한 후 System Manager를 사용하여 업로드할 수 있습니다. 
+| xref:../task_admin_troubleshoot_hardware_problems.html[Digital Advisor 통합] | System Manager 사용자는 클러스터와 관련된 지원 사례를 보고 다운로드할 수 있습니다. 또한 NetApp Support 사이트에서 새로운 지원 케이스를 제출하는 데 필요한 클러스터 세부 정보를 복사할 수 있습니다. System Manager 사용자는 새로운 펌웨어 업데이트가 사용 가능한 경우 Digital Advisor로부터 경고를 받을 수 있습니다. 그런 다음 펌웨어 이미지를 다운로드한 후 System Manager를 사용하여 업로드할 수 있습니다. 
 
 
 | xref:../task_cloud_backup_data_using_cbs.html[Cloud Manager 통합] | System Manager 사용자는 Cloud Backup Service를 사용하여 퍼블릭 클라우드 엔드포인트에 데이터를 백업하도록 보호를 설정할 수 있습니다. 

@@ -1,7 +1,7 @@
 ---
 permalink: release-notes/index.html 
 sidebar: sidebar 
-keywords: release notes, new features, ontap 9 
+keywords: release notes, new features, ontap 9, digital advisor 
 summary: ONTAP 9에서 제공되는 새로운 기능에 대해 알아보십시오. 
 ---
 = ONTAP 9 릴리즈 주요 내용
@@ -239,7 +239,7 @@ ONTAP 9.10.1은 보안 강화, 성능 분석, NVMe 프로토콜 지원 및 오�
 
 * System Manager의 향상된 기능
 +
-System Manager는 디스크, 쉘프, 서비스 프로세서에 대한 펌웨어 업데이트를 자동으로 다운로드하고 NetApp Active IQ Digital Advisor, BlueXP 및 인증서 관리와의 새로운 통합을 제공합니다. 이러한 향상된 기능은 관리를 단순화하고 비즈니스 연속성을 유지합니다.
+System Manager는 디스크, 쉘프, 서비스 프로세서에 대한 펌웨어 업데이트를 자동으로 다운로드하고 Active IQ Digital Advisor(Digital Advisor라고도 함), BlueXP  및 인증서 관리와의 새로운 통합을 제공합니다. 이러한 향상된 기능은 관리를 단순화하고 비즈니스 연속성을 유지합니다.
 
 * xref:../concept_nas_file_system_analytics_overview.html[파일 시스템 분석 기능 향상]
 +
