@@ -49,6 +49,9 @@ xref:concept_upgrade_requirements_for_metrocluster_configurations.html[MetroClus
 | SVM에 넷그룹이 로드되어 있습니까? | xref:task_verifying_that_the_netgroup_file_is_present_on_all_nodes.html[각 노드에 넷그룹 파일이 있는지 확인합니다] 
 
 
+| SVM을 생성했고 ONTAP 9.12.1 이전 버전에서 최신 버전으로 업그레이드합니까? | xref:task_verifying_that_the_netgroup_file_is_present_on_all_nodes.html[v4.2-xattrs 옵션에 명시적 값을 할당합니다] 
+
+
 | SSLv3을 사용하는 LDAP 클라이언트가 있습니까? | xref:task_configuring_ldap_clients_to_use_tls_for_highest_security.html[TLS를 사용하도록 LDAP 클라이언트를 구성합니다] 
 
 

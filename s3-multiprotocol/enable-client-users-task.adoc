@@ -16,6 +16,8 @@ S3 클라이언트 사용자가 NAS 데이터에 액세스할 수 있도록 하�
 .시작하기 전에
 클라이언트 액세스의 사용자 이름(Linux/UNIX, Windows 및 S3 클라이언트 사용자)이 이미 있어야 합니다.
 
+일부 S3 기능은 에 대해 알고 link:index.html#nas-functionality-not-currently-supported-by-s3-nas-buckets["S3 NAS 버킷에서 지원되지 않음"]있어야 합니다.
+
 .이 작업에 대해
 S3 사용자 이름을 해당 Linux/UNIX 또는 Windows 사용자에게 매핑하면 S3 클라이언트가 NAS 파일에 액세스할 때 NAS 파일에 대한 권한 부여 검사를 수행할 수 있습니다. S3-NAS 매핑은 단일 이름 또는 POSIX 정규식으로 표현될 수 있는 S3 사용자 이름_Pattern_과 Linux/UNIX 또는 Windows 사용자 이름_Replacement_를 제공하여 지정합니다.
 
@@ -72,7 +74,7 @@ vserver name-mapping create -direction s3-unix -position 2 -pattern s3_user_1 -r
 `vserver object-store-server bucket policy add-statement -vserver svm_name -bucket bucket_name -effect {deny|allow}  -action list_of_actions -principal list_of_users_or_groups -resource [-sid alphanumeric_text]`
 +
 ** `-effect {deny|allow}` - 사용자가 작업을 요청할 때 액세스를 허용할지 또는 거부할지 여부를 지정합니다.
-** `-action <Action>, ...` - 허용 또는 거부된 리소스 작업을 지정합니다. 현재 오브젝트 저장소 서버가 S3 NAS 버킷에 대해 지원하는 리소스 작업 집합은 GetObject , PutObject , DeleteObject , ListBucket , GetBuckketAcl 입니다. GetObjectAcl, GetObjectTagging, PutObjectTagging, DeleteObjectTagging, GetBucketLocation, GetBuckketVersioning, PutBucketVersioning 및 ListBuckketVersions. 이 매개 변수에는 와일드카드를 사용할 수 있습니다.
+** `-action <Action>, ...` - 허용되거나 거부되는 리소스 작업을 지정합니다. 개체 저장소 서버에서 S3 NAS 버킷에 대해 현재 지원하는 리소스 작업 집합은 GetObject, PutObject, DeleteObject, ListBucketAcl, GetObjectAcl 및 GetBucketLocation입니다. 이 매개 변수에는 와일드카드를 사용할 수 있습니다.
 ** `-principal <Objectstore Principal>, ...` - 이 매개 변수에 지정된 개체 저장소 서버 사용자 또는 그룹에 대해 액세스를 요청하는 사용자의 유효성을 검사합니다.
 +
 *** 개체 저장소 서버 그룹은 그룹 이름에 접두사 그룹 / 을 추가하여 지정합니다.

@@ -54,6 +54,8 @@ entries:
         url: "/upgrade/task-prep-node-upgrade-nse-with-ext-kmip-servers.html"
       - title: 넷그룹
         url: "/upgrade/task_verifying_that_the_netgroup_file_is_present_on_all_nodes.html"
+      - title: v4.2-xattrs 옵션에 명시적 값을 할당합니다
+        url: "/upgrade/task-change-svm-42v-xattrs-option.html"
       - title: SSLv3을 사용하는 LDAP 클라이언트
         url: "/upgrade/task_configuring_ldap_clients_to_use_tls_for_highest_security.html"
       - title: 세션 지향 프로토콜

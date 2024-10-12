@@ -1,0 +1,46 @@
+---
+permalink: upgrade/task-change-svm-42v-xattrs-option.html 
+sidebar: sidebar 
+keywords: ontap, upgrade, svm, xattr, nfsv4.2 
+summary: ONTAP 9.12.1 이상을 업그레이드하기 전에 NFS 응답 오류를 방지하기 위해 NFSv4.2 확장 속성 옵션에 대해 명시적 값을 지정해야 합니다. 
+---
+= v4.2-xattrs 옵션에 명시적 값을 할당합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NFSv4.2 클라이언트가 있는 경우 ONTAP 9.12.1 이상의 특정 릴리스 및 패치에서 업그레이드하기 전에 업그레이드 후 NFS 응답 오류를 방지하기 위해 NFSv4.2 확장 속성 옵션에 대해 명시적 값을 지정해야 합니다.
+
+영향을 받는 버전으로 ONTAP를 업그레이드하기 전에 이 `v4.2-xattrs` 옵션에 값이 명시적으로 할당되지 않은 경우 NFSv4.2 클라이언트에 서버의 확장 속성 옵션이 변경되었음을 알리지 않습니다. 이로 인해 클라이언트와 서버 불일치로 인해 특정 호출에 NFS 응답 오류가 `xattrs` 발생합니다.
+
+.시작하기 전에
+다음과 같은 경우 NFSv4.2 확장 속성 옵션에 대해 명시적 값을 할당해야 합니다.
+
+* ONTAP 9.11.1 이전 버전을 사용하여 생성된 SVM에서 NFSv4.2를 사용하고 있습니다
+* 영향을 받는 이러한 릴리스 및 패치에서 ONTAP를 업그레이드합니다.
++
+** 9.12.1RC1 ~ 9.12.1P11
+** 9.13.1RC1 ~ 9.13.1P8
+** 9.14.1RC1 ~ 9.14.1P1
+
+
+
+
+.이 작업에 대해
+이 절차에서 설명하는 명령을 사용하여 값을 설정하려면 ONTAP 9.12.1 이상을 실행해야 합니다.
+
+가 이미 으로 설정된 `enabled` 경우에는 `v4.2-xattrs` 향후 운영 중단을 방지하기 위해 이 속성을 명시적으로 설정해야 `enabled` 합니다.  `v4.2-xattrs`disabled로 설정하면 NFSv4.2 클라이언트가 다시 마운트되거나 옵션이 로 `enabled` 설정될 때까지 "잘못된 인수" 응답을 받을 수 있습니다 `v4.2-xattrs`.
+
+.단계
+* 옵션에 명시적 값을 `v4.2-xattrs` 할당합니다.
++
+[source, cli]
+----
+nfs modify -v4.2-xattrs <enabled/disabled> -vserver <vserver_name>
+----
+
+
+.관련 정보
+https://kb.netapp.com/on-prem/ontap/da/NAS/NAS-Issues/CONTAP-120160["NFS v4.2-xattrs 필드가 업그레이드 후 뒤집힙니다"^]

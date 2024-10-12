@@ -22,4 +22,4 @@ ONTAP 9.4부터는 ONTAP 노드에서 생성된 LUN의 스냅샷 복사본을 El
 * iSCSI를 사용하여 클라이언트에 데이터를 제공하고 있습니다.
 
 
-link:https://docs.netapp.com/us-en/element-software/storage/element-replication-index.html["NetApp Element 소프트웨어 및 ONTAP의 복제를 구성합니다"^]..
+link:https://docs.netapp.com/us-en/element-software/storage/concept_snapmirror_overview.html["NetApp Element 소프트웨어 및 ONTAP의 복제를 구성합니다"^]..

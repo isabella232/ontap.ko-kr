@@ -190,7 +190,7 @@ System Manager 또는 ONTAP CLI를 사용하여 FlexCache write-back이 활성�
 +
 [source, cli]
 ----
-volume flexcache config show -volume cache -fields is-writeback-enabled
+volume flexcache config show -volume <cache_flexgroup_name> -fields is-writeback-enabled
 ----
 
 
