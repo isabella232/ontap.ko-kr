@@ -16,6 +16,9 @@ summary: Kerberos 인증을 사용하여 NFS 사용자 자격 증명을 처리�
 .이 작업에 대해
 사용자의 자격 증명에 기본 그룹 ID 수보다 많은 수의 그룹 ID가 있는 경우 나머지 그룹 ID가 잘리고 스토리지 시스템에서 파일을 액세스하려고 할 때 오류가 발생할 수 있습니다. SVM당 최대 그룹 수를 환경의 최대 그룹을 나타내는 숫자로 설정해야 합니다.
 
+
+NOTE: 확장 그룹을 (`-auth-sys-extended-groups`사용하기 위한 AUTH_SYS 인증 사전 요구 사항을 이해하려면 기본 최대값인 16을 초과하는 그룹 ID를 사용합니다. https://kb.netapp.com/on-prem/ontap/da/NAS/NAS-KBs/How_does_AUTH_SYS_Extended_Groups_change_NFS_authentication["auth_SYS 확장 그룹이 ONTAP 9에 대한 NFS 인증에 대한 변경 사항"]
+
 다음 표는 세 가지 샘플 구성에서 최대 그룹 ID 수를 결정하는 "vserver NFS modify" 명령의 두 가지 매개 변수를 보여 줍니다.
 
 [cols="40,30,30"]
