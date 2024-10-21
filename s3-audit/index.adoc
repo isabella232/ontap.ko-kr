@@ -13,25 +13,97 @@ summary: 이 기사에서는 ONTAP S3 환경에서 데이터 및 관리 이벤�
 [role="lead"]
 ONTAP 9.10.1부터 ONTAP S3 환경에서 데이터 및 관리 이벤트를 감사할 수 있습니다. S3 감사 기능은 기존의 NAS 감사 기능과 유사하며, S3 및 NAS 감사가 클러스터에 공존할 수 있습니다.
 
-SVM에서 S3 감사 구성을 생성하고 활성화하면 S3 이벤트가 로그 파일에 기록됩니다. 에서 로깅할 다음 이벤트를 지정할 수 있습니다.
+SVM에서 S3 감사 구성을 생성하고 활성화하면 S3 이벤트가 로그 파일에 기록됩니다. 기록할 다음 이벤트를 지정할 수 있습니다.
 
-* 개체 액세스(데이터) 이벤트입니다
-+
-GetObject , PutObject 및 DeleteObject 를 참조하십시오
 
-* 관리 이벤트
-+
-PutBucket 및 DeleteBucket
 
+== 릴리즈별 오브젝트 액세스(데이터) 이벤트
+
+9.11.1:
+
+* 목록 BuckketVersions
+* ListBucket(ListObjects 9.10.1의 이름이 이것으로 변경됨)
+* ListAllMyBucket(9.10.1의 ListBucket 이름이 이것으로 변경됨)
+
+
+9.10.1:
+
+* HeadObject 를 선택합니다
+* GetObject 를 참조하십시오
+* PutObject 를 선택합니다
+* DeleteObject 를 클릭합니다
+* ListBucket
+* ListObjects 를 선택합니다
+* MPUpload 를 클릭합니다
+* MPUploadPart 를 참조하십시오
+* MPComplete(MPComplete)
+* MPAbort(MP중단)
+* GetObjectTagging
+* DeleteObjectTagging 을 선택합니다
+* PutObjectTagging
+* 업로드 목록
+* 목록 파트
+
+
+
+
+== 릴리스별 관리 이벤트
+
+9.15.1:
+
+* GetBucketCORS 를 참조하십시오
+* PutBucketCORS/퍼트버케토르스
+* DeleteBucketCORS를 클릭합니다
+
+
+9.14.1:
+
+* GetObjectRetention을 참조하십시오
+* PutObjectRetention
+* PutBucketObjectLockConfiguration 을 참조하십시오
+* GetBucketObjectLockConfiguration 을 참조하십시오
+
+
+9.13.1:
+
+* PutBucketLifecycle 을 참조하십시오
+* DeleteBucketLifecycle
+* GetBucketLifecycle 을 참조하십시오
+
+
+9.12.1:
+
+* GetBuckketPolicy를 참조하십시오
+* CopyObject 를 선택합니다
+* 업로드파트 복사
+* BucketPolicy를 참조하십시오
+* DeleteBuckketPolicy를 참조하십시오
+
+
+9.11.1:
+
+* GetBuckketVersioning 을 참조하십시오
+* PutBucketVersioning을 참조하십시오
+
+
+9.10.1:
+
+* 머리버킷
+* GetBuckketAcl
+* GetObjectAcl
+* 퍼트버킷
+* 삭제 버킷
+* ModifyObject태그 지정
+* GetBucketLocation 을 참조하십시오
 
 
 로그 형식은 JSON(JavaScript Object Notation)입니다.
 
 S3 및 NFS 감사 구성의 경우 결합된 제한은 클러스터당 50개의 SVM입니다.
 
-다음 라이센스 번들이 필요합니다.
+다음 라이센스가 필요합니다.
 
-* 코어 번들, ONTAP S3 프로토콜 및 스토리지용
+* ONTAP S3 프로토콜 및 스토리지를 위한 ONTAP One, 이전의 코어 번들에 포함됨
 
 
 자세한 내용은 을 참조하십시오 link:../nas-audit/auditing-process-concept.html["ONTAP 감사 프로세스의 작동 방식"].
