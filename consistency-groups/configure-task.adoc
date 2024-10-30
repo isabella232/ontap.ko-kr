@@ -62,21 +62,21 @@ ONTAP 9.14.1부터 ONTAP CLI를 사용하여 새 볼륨으로 새로운 일관�
 .NFS 볼륨으로 일관성 그룹을 생성합니다
 . 정합성 보장 그룹을 생성합니다.
 +
-`consistency-group create -vserver _SVM_name_ -consistency-group _consistency-group-name_ -volume _volume-prefix_ -volume-count _number_ -size _size_ -export-policy _policy_name_`
+`consistency-group create -vserver <SVM_name> -consistency-group <consistency-group-name> -volume-prefix <prefix_for_new_volume_names> -volume-count <number> -size <size> -export-policy <policy_name>`
 
 
 
 .SAN 볼륨으로 정합성 보장 그룹을 생성합니다
 . 정합성 보장 그룹을 생성합니다.
 +
-`consistency-group create -vserver _SVM_name_ -consistency-group _consistency-group-name_ -lun _lun_name_ -size _size_ -lun-count _number_ -igroup _igroup_name_`
+`consistency-group create -vserver <SVM_name> -consistency-group <consistency-group-name> -lun <lun_name> -size <size> -lun-count <number> -lun-os-type <LUN_operating_system_format> -igroup <igroup_name>`
 
 
 
 .NVMe 네임스페이스로 일관성 그룹을 생성합니다
 . 정합성 보장 그룹을 생성합니다.
 +
-`consistency-group create -vserver _SVM_name_ -consistency-group _consistency_group_name_ -namespace _namespace_name_ -volume-count _number_ -namespace-count _number_ -size _size_ -subsystem _subsystem_name_`
+`consistency-group create -vserver <SVM_name> -consistency-group <consistency_group_name> -namespace <namespace_name> -volume-count <number> -namespace-count <number> -size <size> -subsystem <subsystem_name>`
 
 
 
@@ -130,7 +130,7 @@ ONTAP 9.14.1부터 ONTAP CLI를 사용하여 기존 볼륨과 함께 일관성 �
 .단계
 . 를 발행합니다 `consistency-group create` 명령. 를 클릭합니다 `-volumes` 매개 변수에는 쉼표로 구분된 볼륨 이름 목록을 사용할 수 있습니다.
 +
-`consistency-group create -vserver _SVM_name_ -consistency-group _consistency-group-name_ -volume _volumes_`
+`consistency-group create -vserver <SVM_name> -consistency-group <consistency-group-name> -volume <volumes>`
 
 . 를 사용하여 일관성 그룹을 확인합니다 `consistency-group show` 명령.
 

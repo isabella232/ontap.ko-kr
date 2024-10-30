@@ -63,14 +63,15 @@ ONTAP 9.10.1 ~ 9.12.1에서 새 스토리지 객체에 대한 유일한 옵션�
 * ONTAP 9.14.1에서 이 작업을 수행하려면 클러스터 또는 SVM 관리자여야 합니다. ONTAP 9.15.1부터 admin 권한 수준의 모든 사용자가 이 작업을 수행할 수 있습니다.
 
 
+CLI에서 새 볼륨으로 계층적 정합성 보장 그룹을 생성할 때는 각 하위 정합성 보장 그룹을 개별적으로 생성해야 합니다.
+
 .단계
 . 를 사용하여 새 일관성 그룹을 생성합니다 `consistency-group create` 명령.
 +
-를 클릭합니다 `volume-count` 매개 변수는 각 하위 정합성 보장 그룹의 볼륨 수를 설정합니다. 최대 5개의 하위 일관성 그룹을 포함하는 부모 일관성 그룹을 생성할 수 있습니다.
+`consistency-group create -vserver <SVM_name> -consistency-group <consistency_group_name> -parent-consistency-group <parent_consistency_group_name> -volume-prefix <volume_prefix> -volume-count <number_of_volumes> -size <size>`
 
-+
-`consistency-group create -vserver _SVM_name_ -consistency-group _consistency_group_name_ -parent-consistency-group _parent_consistency_group_name_ -cg-count _number_of_child_consistency_groups_ -volume _volume_prefix_ -volume-count _number_ -size _size_ -export-policy _policy_name_ -storage-service extreme`
-
+. CLI에서 메시지가 표시되면 새 부모 일관성 그룹을 생성할지 확인합니다. 를 `y`입력합니다.
+. 필요한 경우 1단계를 반복하여 하위 정합성 보장 그룹을 추가로 생성합니다.
 
 
 --
@@ -115,7 +116,7 @@ ONTAP 9.14.1부터 CLI를 사용하여 계층적 일관성 그룹을 생성할 �
 .단계
 . 새 부모 정합성 보장 그룹을 프로비저닝하고 새 하위 정합성 보장 그룹에 볼륨을 할당합니다.
 +
-`consistency-group create -vserver _svm_name_ -consistency-group _child_consistency_group_name_ -parent-consistency-group _parent_consistency_group_name_ -volumes _volume_names_`
+`consistency-group create -vserver <svm_name> -consistency-group <child_consistency_group_name> -parent-consistency-group <parent_consistency_group_name> -volumes <volume_names>`
 
 . 를 입력합니다 `y` 새 부모 및 자식 일관성 그룹을 생성하려면 다음을 수행합니다.
 

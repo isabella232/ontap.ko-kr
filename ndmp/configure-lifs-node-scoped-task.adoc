@@ -6,16 +6,60 @@ summary: 노드와 백업 애플리케이션 간의 데이터 연결 및 제어 
 ---
 = LIF를 구성합니다
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
 [role="lead"]
 노드와 백업 애플리케이션 간의 데이터 연결 및 제어 연결을 설정하는 데 사용할 LIF를 식별해야 합니다. LIF를 식별한 후 LIF에 대한 방화벽 및 페일오버 정책이 설정되어 있는지 확인해야 합니다.
 
 
-NOTE: ONTAP 9.10.1.1부터 방화벽 정책이 사용되지 않으며 LIF 서비스 정책으로 완전히 대체됩니다. 자세한 내용은 을 참조하십시오 link:../networking/configure_firewall_policies_for_lifs.html["LIF의 방화벽 정책을 구성합니다"].
+NOTE: ONTAP 9.10.1.1부터 방화벽 정책이 사용되지 않으며 LIF 서비스 정책으로 완전히 대체됩니다. 자세한 내용은 을 link:../networking/manage_supported_traffic.html["지원되는 트래픽을 관리합니다"]참조하십시오.
 
+[role="tabbed-block"]
+====
+.ONTAP 9.10.1 이상
+--
+.단계
+. 매개 변수와 함께 명령을 `-service-policy` 사용하여 노드에 호스팅된 인터클러스터 LIF를 `network interface show` 식별합니다.
++
+네트워크 인터페이스 show-service-policy default-인터클러스터
+
+. 인터클러스터 LIF에 서비스가 포함되는지 확인합니다. `backup-ndmp-control`
++
+네트워크 인터페이스 서비스 정책 쇼
+
+. 인터클러스터 LIF에 대해 페일오버 정책이 적절하게 설정되었는지 확인합니다.
++
+.. 네트워크 인터페이스 show-failover 명령을 사용하여 인터클러스터 LIF의 페일오버 정책이 "로컬 전용"으로 설정되었는지 확인합니다.
++
+[listing]
+----
+cluster1::> network interface show -failover
+            Logical          Home              Failover     Failover
+Vserver     Interface        Node:Port         Policy       Group
+--------    ---------------  ----------------- ------------ --------
+cluster1    IC1               cluster1-1:e0a    local-only   Default
+                                                    Failover Targets:
+                                                    .......
+            IC2               cluster1-2:e0b    local-only   Default
+                                                    Failover Targets:
+                                                    .......
+cluster1-1  cluster1-1_mgmt1 cluster1-1:e0m    local-only    Default
+                                                    Failover Targets:
+                                                    .......
+----
+.. 페일오버 정책이 적절하게 설정되지 않은 경우 '-failover-policy' 매개 변수와 함께 'network interface modify' 명령을 사용하여 페일오버 정책을 수정합니다.
++
+[listing]
+----
+cluster1::> network interface modify -vserver cluster1 -lif IC1 -failover-policy local-only
+----
+
+
+
+
+--
+.ONTAP 9.9 이하
+--
 .단계
 . '-role' 매개 변수가 있는 'network interface show' 명령을 사용하여 노드에 호스팅된 인터클러스터 LIF를 식별합니다.
 +
@@ -45,7 +89,7 @@ Vserver     Policy       Service    Allowed
 cluster1    intercluster dns        -
                          http       -
                          https      -
-                         **ndmp       0.0.0.0/0, ::/0**
+                         ndmp       0.0.0.0/0, ::/0
                          ndmps      -
                          ntp        -
                          rsh        -
@@ -74,10 +118,10 @@ cluster1::> network interface show -failover
             Logical          Home              Failover     Failover
 Vserver     Interface        Node:Port         Policy       Group
 --------    ---------------  ----------------- ------------ --------
-cluster1    **IC1               cluster1-1:e0a    local-only   Default**
+cluster1    IC1               cluster1-1:e0a    local-only   Default
                                                     Failover Targets:
                                                     .......
-            **IC2               cluster1-2:e0b    local-only   Default**
+            IC2               cluster1-2:e0b    local-only   Default
                                                     Failover Targets:
                                                     .......
 cluster1-1  cluster1-1_mgmt1 cluster1-1:e0m    local-only    Default
@@ -93,3 +137,6 @@ cluster1::> network interface modify -vserver cluster1 -lif IC1 -failover-policy
 
 
 
+
+--
+====

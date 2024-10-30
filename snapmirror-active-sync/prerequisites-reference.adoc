@@ -20,8 +20,8 @@ SnapMirror 활성 동기화 배포를 계획할 때 다양한 하드웨어, 소�
 
 == 하드웨어
 
-* 2노드 HA 클러스터만 지원됩니다
-* 두 클러스터 모두 AFF(AFF C-Series 포함) 또는 All-Flash SAN 어레이(ASA, C-Series 포함)여야 합니다. 혼합은 지원되지 않습니다.
+* 2노드 HA 클러스터만 지원됩니다.
+* 두 클러스터 모두 AFF(A-Series 및 C-Series) 또는 ASA(A-Series 및 C-Series)여야 합니다. AFF와 ASA를 함께 사용할 수 없습니다. 복제는 AFF A-Series와 C-Series 간에 지원됩니다.
 
 
 

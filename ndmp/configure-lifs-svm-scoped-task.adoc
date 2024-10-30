@@ -2,19 +2,99 @@
 permalink: ndmp/configure-lifs-svm-scoped-task.html 
 sidebar: sidebar 
 keywords: configure, lifs 
-summary: 데이터와 테이프 리소스 간에 데이터 연결을 설정하고, 관리 SVM과 백업 애플리케이션 간의 연결을 제어하는 데 사용할 LIF를 식별해야 합니다. LIF를 식별한 후 LIF에 대한 방화벽 및 페일오버 정책이 설정되었는지 확인하고 기본 인터페이스 역할을 지정해야 합니다. 
+summary: 데이터와 테이프 리소스 간에 데이터 연결을 설정하고, 관리 SVM과 백업 애플리케이션 간의 연결을 제어하는 데 사용할 LIF를 식별해야 합니다. LIF를 식별한 후 서비스 및 페일오버 정책이 설정되었는지 확인해야 합니다. 
 ---
 = LIF를 구성합니다
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
 [role="lead"]
-데이터와 테이프 리소스 간에 데이터 연결을 설정하고, 관리 SVM과 백업 애플리케이션 간의 연결을 제어하는 데 사용할 LIF를 식별해야 합니다. LIF를 식별한 후 LIF에 대한 방화벽 및 페일오버 정책이 설정되었는지 확인하고 기본 인터페이스 역할을 지정해야 합니다.
+데이터와 테이프 리소스 간에 데이터 연결을 설정하고, 관리 SVM과 백업 애플리케이션 간의 연결을 제어하는 데 사용할 LIF를 식별해야 합니다. LIF를 식별한 후 서비스 및 페일오버 정책이 설정되었는지 확인해야 합니다.
 
-ONTAP 9.10.1.1부터 방화벽 정책이 사용되지 않으며 LIF 서비스 정책으로 완전히 대체됩니다. 자세한 내용은 을 참조하십시오 link:../networking/lifs_and_service_policies96.html["ONTAP 9.6 이상의 LIF 및 서비스 정책"].
 
+NOTE: ONTAP 9.10.1.1부터 방화벽 정책이 사용되지 않으며 LIF 서비스 정책으로 완전히 대체됩니다. 자세한 내용은 을 link:../networking/manage_supported_traffic.html["지원되는 트래픽을 관리합니다"]참조하십시오.
+
+[role="tabbed-block"]
+====
+.ONTAP 9.10.1 이상
+--
+.단계
+. 매개 변수와 함께 명령을 `-service-policy` 사용하여 노드에 호스팅된 인터클러스터 LIF를 `network interface show` 식별합니다.
++
+네트워크 인터페이스 show-service-policy default-인터클러스터
+
+. 매개 변수와 함께 명령을 `-service-policy` 사용하여 노드에 호스팅된 관리 LIF를 `network interface show` 식별합니다.
++
+`network interface show -service-policy default-management`
+
+. 인터클러스터 LIF에 서비스가 포함되는지 확인합니다. `backup-ndmp-control`
++
+네트워크 인터페이스 서비스 정책 쇼
+
+. 모든 LIF에 대해 페일오버 정책이 적절하게 설정되었는지 확인합니다.
++
+.. 클러스터 관리 LIF의 페일오버 정책이 브로드캐스트 도메인 전체에 설정되어 있고, 인터클러스터 및 노드 관리 LIF에 대한 정책이 '네트워크 인터페이스 show-failover' 명령을 사용하여 '로컬 전용'으로 설정되어 있는지 확인합니다.
++
+다음 명령을 실행하면 클러스터 관리, 인터클러스터 및 노드 관리 LIF에 대한 페일오버 정책이 표시됩니다.
+
++
+[listing]
+----
+cluster1::> network interface show -failover
+
+           Logical          Home            Failover    Failover
+Vserver    Interface        Node:Port       Policy      Group
+-------    --------------   --------------  ----------  --------
+cluster    cluster1_clus1   cluster1-1:e0a  local-only  cluster
+                                                     Failover Targets:
+                   	                                 .......
+cluster1   cluster_mgmt     cluster1-1:e0m  broadcast-  Default
+                                          domain-wide
+                                                     Failover Targets:
+                                                     .......
+           IC1              cluster1-1:e0a  local-only  Default
+                                                     Failover Targets:
+           IC2              cluster1-1:e0b  local-only  Default
+                                                     Failover Targets:
+                                                     .......
+cluster1-1 c1-1_mgmt1       cluster1-1:e0m  local-only  Default
+                                                     Failover Targets:
+                                                     ......
+cluster1-2 c1-2_mgmt1       cluster1-2:e0m  local-only  Default
+                                                     Failover Targets:
+                                                     ......
+----
+.. 페일오버 정책이 제대로 설정되지 않은 경우 -failover-policy 매개 변수와 함께 network interface modify 명령을 사용하여 페일오버 정책을 수정합니다.
++
+[listing]
+----
+cluster1::> network interface modify -vserver cluster1 -lif IC1 -failover-policy local-only
+----
+
+
+. 데이터 연결에 필요한 LIF를 'preferred-interface-role' 매개 변수와 함께 'vserver services ndmp modify' 명령을 사용하여 지정합니다.
++
+[listing]
+----
+cluster1::> vserver services ndmp modify -vserver cluster1 -preferred-interface-role intercluster,cluster-mgmt,node-mgmt
+----
+. 'vserver services ndmp show' 명령을 사용하여 클러스터에 대해 기본 인터페이스 역할이 설정되어 있는지 확인합니다.
++
+[listing]
+----
+cluster1::> vserver services ndmp show -vserver cluster1
+
+                Vserver: cluster1
+                NDMP Version: 4
+                .......
+                .......
+Preferred Interface Role: intercluster, cluster-mgmt, node-mgmt
+----
+
+
+--
+.ONTAP 9.9 이하
+--
 .단계
 . '-role' 매개 변수가 있는 'network interface show' 명령을 사용하여 인터클러스터, 클러스터 관리 및 노드 관리 LIF를 식별합니다.
 +
@@ -25,11 +105,11 @@ ONTAP 9.10.1.1부터 방화벽 정책이 사용되지 않으며 LIF 서비스 �
 ----
 cluster1::> network interface show -role intercluster
 
-            Logical           Status     Network            Current       Current Is
-Vserver     Interface         Admin/Oper Address/Mask       Node          Port    Home
------------ ----------        ---------- ------------------ ------------- ------- ----
-cluster1    IC1               up/up      192.0.2.65/24      cluster1-1    e0a     true
-cluster1    IC2               up/up      192.0.2.68/24      cluster1-2    e0b     true
+            Logical      Status     Network            Current       Current Is
+Vserver     Interface    Admin/Oper Address/Mask       Node          Port    Home
+----------- ----------   ---------- ------------------ ------------- ------- ----
+cluster1    IC1          up/up      192.0.2.65/24      cluster1-1    e0a     true
+cluster1    IC2          up/up      192.0.2.68/24      cluster1-2    e0b     true
 ----
 +
 다음 명령을 실행하면 클러스터 관리 LIF가 표시됩니다.
@@ -39,10 +119,10 @@ cluster1    IC2               up/up      192.0.2.68/24      cluster1-2    e0b   
 ----
 cluster1::> network interface show -role cluster-mgmt
 
-            Logical           Status     Network            Current       Current Is
-Vserver     Interface         Admin/Oper Address/Mask       Node          Port    Home
------------ ----------        ---------- ------------------ ------------- ------- ----
-cluster1    cluster_mgmt      up/up      192.0.2.60/24      cluster1-2    e0M     true
+            Logical       Status     Network            Current     Current Is
+Vserver     Interface     Admin/Oper Address/Mask       Node        Port    Home
+----------- ----------    ---------- ------------------ ----------- ------- ----
+cluster1    cluster_mgmt  up/up      192.0.2.60/24      cluster1-2  e0M     true
 ----
 +
 다음 명령을 실행하면 노드 관리 LIF가 표시됩니다.
@@ -52,13 +132,13 @@ cluster1    cluster_mgmt      up/up      192.0.2.60/24      cluster1-2    e0M   
 ----
 cluster1::> network interface show -role node-mgmt
 
-            Logical           Status     Network            Current       Current Is
-Vserver     Interface         Admin/Oper Address/Mask       Node          Port    Home
------------ ----------        ---------- ------------------ ------------  ------  ------
-cluster1    cluster1-1_mgmt1  up/up      192.0.2.69/24      cluster1-1    e0M     true
-            cluster1-2_mgmt1  up/up      192.0.2.70/24      cluster1-2    e0M     true
+            Logical           Status     Network         Current       Current Is
+Vserver     Interface         Admin/Oper Address/Mask    Node          Port    Home
+----------- ----------        ---------- --------------- ------------  ------  ------
+cluster1    cluster1-1_mgmt1  up/up      192.0.2.69/24   cluster1-1    e0M     true
+            cluster1-2_mgmt1  up/up      192.0.2.70/24   cluster1-2    e0M     true
 ----
-. 인터클러스터, 클러스터 관리(클러스터 관리) 및 노드 관리(노드 관리) LIF에 NDMP에 대해 방화벽 정책이 활성화되어 있는지 확인합니다.
+. 방화벽 정책이 인터클러스터, 클러스터 관리(`cluster-mgmt`) 및 노드 관리에 NDMP에 대해 사용하도록 설정되어 있는지 확인(`node-mgmt`) LIF:
 +
 .. 'system services firewall policy show' 명령을 사용하여 NDMP에 대해 방화벽 정책이 설정되어 있는지 확인합니다.
 +
@@ -74,7 +154,7 @@ Vserver     Policy       Service    Allowed
 cluster     cluster      dns        0.0.0.0/0
                          http       0.0.0.0/0
                          https      0.0.0.0/0
-                        ** ndmp       0.0.0.0/0**
+                         ndmp       0.0.0.0/0
                          ndmps      0.0.0.0/0
                          ntp        0.0.0.0/0
                          rsh        0.0.0.0/0
@@ -96,7 +176,7 @@ Vserver     Policy       Service    Allowed
 cluster1    intercluster dns        -
                          http       -
                          https      -
-                         **ndmp       0.0.0.0/0, ::/0**
+                         ndmp       0.0.0.0/0, ::/0
                          ndmps      -
                          ntp        -
                          rsh        -
@@ -117,7 +197,7 @@ Vserver     Policy       Service    Allowed
 cluster1-1  mgmt         dns        0.0.0.0/0, ::/0
                          http       0.0.0.0/0, ::/0
                          https      0.0.0.0/0, ::/0
-                         **ndmp       0.0.0.0/0, ::/0**
+                         ndmp       0.0.0.0/0, ::/0
                          ndmps      0.0.0.0/0, ::/0
                          ntp        0.0.0.0/0, ::/0
                          rsh        -
@@ -155,18 +235,18 @@ cluster    cluster1_clus1     cluster1-1:e0a    local-only            cluster
                                                      Failover Targets:
                    	                                 .......
 
-**cluster1   cluster_mgmt       cluster1-1:e0m    broadcast-domain-wide Default**
+cluster1   cluster_mgmt       cluster1-1:e0m    broadcast-domain-wide Default
                                                      Failover Targets:
                                                      .......
-           **IC1                 cluster1-1:e0a    local-only           Default**
+           IC1                 cluster1-1:e0a    local-only           Default
                                                      Failover Targets:
-           **IC2                 cluster1-1:e0b    local-only           Default**
+           IC2                 cluster1-1:e0b    local-only           Default
                                                      Failover Targets:
                                                      .......
-**cluster1-1 cluster1-1_mgmt1   cluster1-1:e0m    local-only            Default**
+cluster1-1 cluster1-1_mgmt1   cluster1-1:e0m    local-only            Default
                                                      Failover Targets:
                                                      ......
-**cluster1-2 cluster1-2_mgmt1   cluster1-2:e0m    local-only            Default**
+cluster1-2 cluster1-2_mgmt1   cluster1-2:e0m    local-only            Default
                                                      Failover Targets:
                                                      ......
 ----
@@ -197,3 +277,6 @@ cluster1::> vserver services ndmp show -vserver cluster1
             Preferred Interface Role: intercluster, cluster-mgmt, node-mgmt
 ----
 
+
+--
+====
