@@ -67,7 +67,7 @@ xref:../snaplock/snaplock-concept.adoc[SnapLock란]
 
 * 클라이언트 비동기 디렉토리 삭제
 +
-xref:manage-client-async-dir-delete-task.adoc[클라이언트 권한을 관리하여 디렉토리를 신속하게 삭제합니다]
+xref:manage-client-async-dir-delete-task.adoc[디렉토리를 비동기적으로 삭제하는 클라이언트 권한을 관리합니다]
 
 
 

@@ -69,7 +69,7 @@ ONTAP 9.8에 도입된 온도에 민감한 스토리지 효율성(TSSE)은 새�
 
 * * CPU 또는 전용 오프로드 프로세서 스토리지 효율성 *
 +
-ONTAP 9.15.1부터 ONTAP은 link:builtin-storage-efficiency-concept.html["CPU 또는 전용 오프로드 프로세서 스토리지 효율성"] AFF A70, AFF A90, AFF A1K 플랫폼에 데이터 컴팩션을 제공합니다. 스토리지 효율성이 자동으로 활성화되며 구성이 필요하지 않습니다.
+ONTAP 9.15.1부터 ONTAP는 link:builtin-storage-efficiency-concept.html["CPU 또는 전용 오프로드 프로세서 스토리지 효율성"]AFF A70, AFF A90, AFF A1K, FAS70, FAS90 플랫폼에 데이터 컴팩션을 제공합니다. AFF A70, AFF A90 및 AFF A1K 시스템에서는 스토리지 효율성이 자동으로 활성화되며 구성이 필요하지 않습니다.
 
 
 

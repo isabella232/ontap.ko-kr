@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task_nas_file_system_analytics_take_corrective_action.html 
-keywords: netapp, ontap, file, system, analytics, File System Analytics, volume, volumes, System Manager, storage, explorer, active data, inactive data, historical data, fast directory delete, move volume, media cost, storage cost comparison 
+keywords: netapp, ontap, file, system, analytics, File System Analytics, volume, volumes, System Manager, storage, explorer, active data, inactive data, historical data, asynchronous directory delete, move volume, media cost, storage cost comparison 
 summary: ONTAP 9.9.1부터 현재 데이터와 원하는 결과를 기준으로 파일 시스템 분석 디스플레이에서 직접 수정 조치를 수행할 수 있습니다. 
 ---
 = 분석을 기반으로 수정 조치 수행
@@ -22,7 +22,7 @@ ONTAP 9.9.1부터 파일 시스템 분석 디스플레이에서 직접 현재 �
 
 == 디렉토리 및 파일을 삭제합니다
 
-탐색기 디스플레이에서 삭제할 디렉터리 또는 개별 파일을 선택할 수 있습니다. 디렉토리는 지연 시간이 짧은 빠른 디렉토리 삭제 기능으로 삭제됩니다. (빠른 디렉토리 삭제는 분석이 활성화되지 않은 ONTAP 9.9.1부터 사용할 수도 있습니다.)
+탐색기 디스플레이에서 삭제할 디렉터리 또는 개별 파일을 선택할 수 있습니다. 디렉토리는 지연 시간이 짧은 비동기 디렉토리 삭제 기능으로 삭제됩니다. 비동기 디렉토리 삭제는 분석 기능을 사용하지 않고 ONTAP 9.9.1부터 사용할 수 있습니다.
 
 .단계
 . 스토리지 > 볼륨 * 을 클릭한 다음 * 탐색기 * 를 클릭합니다.
