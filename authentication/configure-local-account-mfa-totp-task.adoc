@@ -18,7 +18,7 @@ ONTAP 9.13.1 부터는 TOTP(Time-Based One-Time Password)를 사용하여 MFA(Mu
 * 기본 사용자 계정 인증 방법은 사용자 암호 또는 공용 SSH 키여야 합니다.
 * TOTP 앱이 스마트폰과 연동되도록 구성하고 TOTP 비밀 키를 만들어야 합니다.
 +
-TOTP는 Google Authenticator와 같은 다양한 인증 앱에서 지원됩니다.
+Microsoft Authenticator, Google Authenticator, Authy 및 기타 TOTP 호환 인증기가 지원됩니다.
 
 
 

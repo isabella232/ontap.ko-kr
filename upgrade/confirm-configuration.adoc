@@ -17,7 +17,11 @@ ONTAP를 업그레이드하기 전에 하드웨어 구성이 대상 ONTAP 릴리
 
 == 모든 설정
 
-사용 https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"^] 사용 중인 하드웨어 플랫폼과 클러스터 및 관리 스위치가 대상 ONTAP 릴리즈에서 지원되는지 확인합니다.  클러스터 및 관리 스위치에는 NX-OS(클러스터 네트워크 스위치), 관리 네트워크 스위치(IOS) 및 RCF(참조 구성 파일)가 포함됩니다.  클러스터 및 관리 스위치가 지원되지만 타겟 ONTAP 릴리즈에 필요한 최소 소프트웨어 버전이 실행되고 있지 않은 경우 스위치를 지원되는 소프트웨어 버전으로 업그레이드하십시오.
+를 사용하여 https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"^] 하드웨어 플랫폼, 클러스터 및 관리 스위치가 대상 ONTAP 릴리즈에서 지원되는지 확인합니다.
+
+업그레이드할 수 있는 ONTAP 버전은 하드웨어 구성에 따라 제한될 수 있습니다. 하드웨어에서 업그레이드할 ONTAP 소프트웨어 버전을 지원하지 않는 경우 먼저 클러스터에 새 노드를 추가하고, 데이터를 마이그레이션하고, 이전 노드를 제거한 다음 ONTAP 소프트웨어를 업그레이드해야 합니다. 의 절차를 link:concept_mixed_version_requirements.html#adding-new-nodes-to-an-ontap-cluster["ONTAP 클러스터에 새 노드를 추가합니다"]따릅니다.
+
+클러스터 및 관리 스위치에는 NX-OS(클러스터 네트워크 스위치), 관리 네트워크 스위치(IOS) 및 RCF(참조 구성 파일)가 포함됩니다. 클러스터 및 관리 스위치가 지원되지만 타겟 ONTAP 릴리즈에 필요한 최소 소프트웨어 버전이 실행되고 있지 않은 경우 스위치를 지원되는 소프트웨어 버전으로 업그레이드하십시오.
 
 * https://mysupport.netapp.com/site/info/broadcom-cluster-switch["NetApp 다운로드: Broadcom 클러스터 스위치"^]
 * https://mysupport.netapp.com/site/info/cisco-ethernet-switch["NetApp 다운로드: Cisco 이더넷 스위치"^]

@@ -41,18 +41,18 @@ entries:
       url: "/san-config/supported-fc-ports-concept.html"
     - title: X1133A-R6 어댑터를 사용할 경우 연결 끊김 방지
       url: "/san-config/prevent-loss-connectivity-x1133a-r6-adapter-concept.html"
-    - title: X1143A-R6 어댑터를 관리합니다
-      entries:
-      - title: 개요
-        url: "/san-config/supported-port-config-x1143a-r6-adapter-concept.html"
-      - title: 포트를 구성합니다
-        url: "/san-config/configure-ports-task.html"
-      - title: UTA2 포트를 CNA 모드에서 FC 모드로 변경합니다
-        url: "/san-config/change-uta2-port-cna-mode-fc-task.html"
-      - title: CNA/UTA2 타겟 어댑터 광 모듈을 변경합니다
-        url: "/san-config/change-cna-uta2-optical-modules-task.html"
-      - title: 어댑터 설정을 봅니다
-        url: "/san-config/view-adapter-settings-capabilities-task.html"
+  - title: X1143A-R6 어댑터를 관리합니다
+    entries:
+    - title: 개요
+      url: "/san-config/supported-port-config-x1143a-r6-adapter-concept.html"
+    - title: 포트를 구성합니다
+      url: "/san-config/configure-ports-task.html"
+    - title: UTA2 포트를 CNA 모드에서 FC 모드로 변경합니다
+      url: "/san-config/change-uta2-port-cna-mode-fc-task.html"
+    - title: CNA/UTA2 타겟 어댑터 광 모듈을 변경합니다
+      url: "/san-config/change-cna-uta2-optical-modules-task.html"
+    - title: 어댑터 설정을 봅니다
+      url: "/san-config/view-adapter-settings-capabilities-task.html"
 - title: FCoE 구성
   entries:
   - title: 개요
