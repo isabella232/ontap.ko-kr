@@ -70,7 +70,7 @@ indexpage:
       url: "/../task_nas_enable_disable_secure_nfs_client_access_with_tls.html"
   - title: RDMA 상의 NFS
     links:
-    - title: 개요
+    - title: NFS over RDMA 개요
       url: "/../nfs-rdma/index.html"
     - title: NIC 구성
       url: "/../nfs-rdma/configure-nics-task.html"

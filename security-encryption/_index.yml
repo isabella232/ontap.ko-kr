@@ -8,9 +8,7 @@ indexpage:
   tiles:
   - title: 시작하십시오
     links:
-    - title: 인증 및 RBAC 개요
-      url: "/../authentication/index.html"
-    - title: 자율 랜섬웨어 보호 개요
+    - title: ONTAP의 자율적 랜섬웨어 방어에 대해 알아보십시오
       url: "/../anti-ransomware/index.html"
     - title: 바이러스 백신 개요
       url: "/../antivirus/index.html"

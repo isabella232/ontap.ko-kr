@@ -131,7 +131,7 @@ NOTE: 로그 파일 손실을 방지하기 위해 ONTAP 중재자를 재설치�
 
 +
 ....
-[rootmediator-host ~]# ontap-mediator-1.6.0/ontap-mediator-1.6.0
+[rootmediator-host ~]# ontap-mediator-1.9.0/ontap-mediator-1.9.0
 
 ONTAP Mediator: Self Extracting Installer
 

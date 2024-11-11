@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: authentication/overview-oauth2.html 
-keywords: oauth 2.0, oauth2, access token, bearer token, authentication, authorization, mutual tls, mtls, adfs, auth0, oidc 
+keywords: oauth 2.0, oauth2, access token, bearer token, authentication, authorization, mutual tls, mtls, adfs, auth0, oidc, entra id 
 summary: 'ONTAP 9.14부터 OAuth 2.0(Open Authorization 2.0) 프레임워크를 사용하여 ONTAP 클러스터에 대한 액세스를 제어할 수 있습니다. 이 기능은 ONTAP CLI, System Manager, REST API를 포함한 모든 ONTAP 관리 인터페이스를 사용하여 구성할 수 있습니다. 그러나 OAuth 2.0 권한 부여 및 액세스 제어 결정은 클라이언트가 REST API를 사용하여 ONTAP에 액세스할 때만 적용할 수 있습니다.' 
 ---
 = ONTAP OAuth 2.0 구축 개요
@@ -34,13 +34,24 @@ OAuth 2.0은 업계 표준 인증 프레임워크입니다. 서명된 액세스 
 * REST API와 함께 사용하는 데 가장 적합합니다
 
 
-.널리 사용되는 여러 인증 서버를 사용하여 테스트했습니다
-ONTAP 구현은 OAuth 2.0 호환 인증 서버와 호환되도록 설계되었습니다. 다음과 같은 일반적인 서버 또는 서비스를 사용하여 테스트되었습니다.
+.널리 사용되는 인증 서버에서 테스트했습니다
+ONTAP OAuth 2.0 구현은 다음과 같이 ONTAP 릴리스를 기반으로 하는 몇 가지 일반적인 서버 또는 서비스에서 테스트되었습니다.
 
-* Auth0
-* ADFS(Active Directory Federation Service)
-* 키클로크
+* ONTAP 9.16.1(이름 매핑 및 외부 역할에 대한 그룹 UUID 지원):
++
+** Microsoft Entra ID입니다
 
+
+* ONTAP 9.14.1(표준 OAuth 2.0 기능 지원)
++
+** Auth0
+** ADFS(Active Directory Federation Service)
+** 키클로크
+
+
+
+
+각 ONTAP 릴리즈에서 사용할 수 있는 기능에 대한 자세한 내용은 을 link:../authentication/oauth2-as-servers.html["인증 서버 및 액세스 토큰"]참조하십시오.
 
 .여러 개의 동시 인증 서버 지원
 단일 ONTAP 클러스터에 대해 최대 8개의 인증 서버를 정의할 수 있습니다. 따라서 다양한 보안 환경의 요구 사항을 충족할 수 있는 유연성을 제공합니다.
@@ -135,6 +146,7 @@ HTTP 기본 인증:: 초기 HTTP 인증 기법은 여전히 ONTAP에서 지원�
 
 .제품 및 서비스
 * https://auth0.com["Auth0"^]
+* https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id["내부 ID"^]
 * https://learn.microsoft.com/en-us/windows-server/identity/ad-fs/ad-fs-overview["ADFS 개요"^]
 * https://www.keycloak.org["키클로크"^]
 

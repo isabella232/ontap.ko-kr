@@ -10,7 +10,7 @@ summary: ONTAP 9.0 - 9.7 NAS 경로 페일오버 워크플로우에 오신 것�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

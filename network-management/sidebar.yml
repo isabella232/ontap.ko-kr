@@ -168,7 +168,7 @@ entries:
     - title: LIF를 삭제합니다
       url: "/networking/delete_a_lif.html"
   - title: 가상 IP(VIP) LIF
-    url: "/networking/configure_virtual_ip_@vip@_lifs.html#set-up-border-gateway-protocol-bgp"
+    url: "/networking/configure_virtual_ip_@vip@_lifs.html"
 - title: 네트워크 로드 밸런싱
   entries:
   - title: 네트워크 트래픽 최적화(클러스터 관리자만 해당)
@@ -197,8 +197,12 @@ entries:
   entries:
   - title: FIPS(Federal Information Processing Standards)를 사용하여 네트워크 보안 구성
     url: "/networking/configure_network_security_using_federal_information_processing_standards_@fips@.html"
-  - title: 유선 암호화를 통해 IP 보안(IPsec)을 구성합니다
-    url: "/networking/configure_ip_security_@ipsec@_over_wire_encryption.html"
+  - title: IPsec 전송 중 암호화를 구성합니다
+    entries:
+    - title: IPsec 사용을 준비합니다
+      url: "/networking/ipsec-prepare.html"
+    - title: IPsec을 구성합니다
+      url: "/networking/ipsec-configure.html"
   - title: LIF의 방화벽 정책을 구성합니다
     url: "/networking/configure_firewall_policies_for_lifs.html"
   - title: 방화벽 서비스 및 정책을 관리하는 명령입니다

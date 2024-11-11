@@ -10,7 +10,7 @@ summary: 네트워크의 문제를 진단합니다
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -9,7 +9,7 @@ summary: 하드웨어 기반 NetApp 스토리지 암호화 또는 소프트웨�
 :allow-uri-read: 
 :icons: font
 :linkattrs: 
-:imagesdir: ../media
+:imagesdir: ../media/
 
 
 [role="lead"]

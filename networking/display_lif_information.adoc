@@ -10,7 +10,7 @@ summary: LIF에 대한 자세한 정보를 보고 해당 구성을 결정하십�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

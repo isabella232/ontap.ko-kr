@@ -9,7 +9,7 @@ summary: 다른 관리자의 확인을 요청하여 단일 관리자가 중요�
 :allow-uri-read: 
 :icons: font
 :linkattrs: 
-:imagesdir: ../media
+:imagesdir: ../media/
 
 
 [role="lead"]

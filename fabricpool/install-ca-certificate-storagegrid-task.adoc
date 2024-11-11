@@ -11,10 +11,14 @@ summary: StorageGRID에 대한 인증서 확인을 사용하지 않도록 설정
 
 
 [role="lead"]
+CA 인증서를 사용하면 클라이언트 응용 프로그램과 StorageGRID 간에 신뢰할 수 있는 관계가 만들어집니다.
+
 StorageGRID에 대한 인증서 확인을 사용하지 않도록 설정하려면 ONTAP가 FabricPool의 개체 저장소로 StorageGRID를 인증할 수 있도록 클러스터에 StorageGRID CA 인증서를 설치해야 합니다.
 
+StorageGRID에서는 자체 서명된 인증서를 생성할 수 있지만 타사 인증 기관에서 서명한 인증서를 사용하는 것이 좋습니다.
+
 .이 작업에 대해
-ONTAP 9.4 이상 릴리즈를 사용하면 StorageGRID에 대한 인증서 검사를 비활성화할 수 있습니다.
+ONTAP 9.4부터 CA(인증 기관) 인증서를 설치 및 사용하는 것이 권장되지만 StorageGRID에는 CA 인증서를 설치할 필요가 없습니다.
 
 .단계
 . 를 얻으려면 StorageGRID 관리자에게 https://docs.netapp.com/us-en/storagegrid-118/admin/configuring-storagegrid-certificates-for-fabricpool.html["StorageGRID 시스템의 CA 인증서입니다"^] 문의하십시오.

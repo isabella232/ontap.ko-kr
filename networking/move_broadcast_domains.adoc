@@ -10,7 +10,7 @@ summary: 시스템에서 생성한 브로드캐스트 도메인을 생성한 IPs
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

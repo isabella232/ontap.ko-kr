@@ -10,7 +10,7 @@ summary: 로드 밸런싱 존에 속하는 모든 LIF를 표시하여 로드 밸
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

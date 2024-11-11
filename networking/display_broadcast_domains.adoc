@@ -10,7 +10,7 @@ summary: 클러스터 내 각 IPspace 내의 브로드캐스트 도메인 목록
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

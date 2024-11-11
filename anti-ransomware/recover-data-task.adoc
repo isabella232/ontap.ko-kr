@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: anti-ransomware/recover-data-task.html 
-keywords: Restore data after an attack, anti-ransomware backup, restore data from snapshot copies, potential ransomware attack, ransomware attack, recovery snapshot copies are deleted, recover deleted snapshot copies, autonomous, ransomware, protection, arp 
-summary: 스냅샷 사본은 ARP가 잠재적인 공격을 감지할 때 생성됩니다. 이러한 안티 랜섬웨어 사본이나 다른 스냅샷 복사본에서 데이터를 복원할 수 있습니다. 
+keywords: Restore data after an attack, anti-ransomware backup, restore data from snapshots, potential ransomware attack, ransomware attack, recovery snapshots are deleted, recover deleted snapshots, autonomous, ransomware, protection, arp 
+summary: 스냅샷은 ARP가 잠재적인 공격을 감지할 때 생성됩니다. 이러한 안티 랜섬웨어 복사본이나 기타 스냅샷에서 데이터를 복원할 수 있습니다. 
 ---
 = 랜섬웨어 공격 후 데이터 복원
 :hardbreaks:
@@ -16,14 +16,14 @@ summary: 스냅샷 사본은 ARP가 잠재적인 공격을 감지할 때 생성�
 
 
 [role="lead"]
-ARP(자율적 랜섬웨어 방어)는 이라는 스냅샷 복사본을 생성합니다 `Anti_ransomware_backup` 잠재적 랜섬웨어 위협을 감지한 경우 이러한 ARP 스냅샷 복사본 중 하나 또는 볼륨의 다른 스냅샷 복사본을 사용하여 데이터를 복원할 수 있습니다.
+ARP(자율적 랜섬웨어 방어)는 잠재적 랜섬웨어 위협을 감지할 때 이라는 이름의 스냅샷을 `Anti_ransomware_backup` 생성합니다. 이러한 ARP 스냅샷 중 하나 또는 볼륨의 다른 스냅샷을 사용하여 데이터를 복원할 수 있습니다.
 
 .이 작업에 대해
-볼륨에 SnapMirror 관계가 있는 경우 스냅샷 복사본에서 복원한 직후 볼륨의 모든 미러 복사본을 수동으로 복제합니다. 그렇지 않으면 미러 복사본을 사용할 수 없게 되므로 복사본을 삭제하고 다시 생성해야 합니다.
+볼륨에 SnapMirror 관계가 있는 경우 스냅샷에서 복구한 직후 볼륨의 모든 미러 복사본을 수동으로 복제합니다. 그렇지 않으면 미러 복사본을 사용할 수 없게 되므로 복사본을 삭제하고 다시 생성해야 합니다.
 
-가 아닌 다른 스냅샷에서 복원합니다 `Anti_ransomware_backup` 스냅샷 시스템 공격이 식별되면 먼저 ARP 스냅샷을 해제해야 합니다.
+시스템 공격이 확인된 후 스냅샷 이외의 스냅샷에서 복원하려면 `Anti_ransomware_backup` 먼저 ARP 스냅샷을 해제해야 합니다.
 
-시스템 공격이 보고되지 않은 경우 먼저 에서 복구해야 합니다 `Anti_ransomware_backup` 그런 다음, 선택한 스냅샷 복사본에서 볼륨의 후속 복원을 완료합니다.
+시스템 공격이 보고되지 않은 경우 먼저 스냅샷에서 복원한 다음 선택한 스냅샷에서 볼륨의 후속 복원을 완료해야 `Anti_ransomware_backup` 합니다.
 
 .단계
 System Manager 또는 ONTAP CLI를 사용하여 데이터를 복원할 수 있습니다.
@@ -33,47 +33,46 @@ System Manager 또는 ONTAP CLI를 사용하여 데이터를 복원할 수 있�
 .시스템 관리자
 --
 .시스템 공격 후 복원
-. ARP 스냅샷에서 복원하려면 2단계로 건너뜁니다. 이전 스냅샷 복사본에서 복원하려면 먼저 ARP 스냅샷의 잠금을 해제해야 합니다.
+. ARP 스냅샷에서 복원하려면 2단계로 건너뜁니다. 이전 스냅샷에서 복원하려면 먼저 ARP 스냅샷의 잠금을 해제해야 합니다.
 +
 .. 스토리지 > 볼륨 * 을 선택합니다.
-.. 보안 * 을 선택한 다음 * 의심되는 파일 형식 보기 * 를 선택합니다
-.. 파일을 "거짓 양성"으로 표시합니다.
-.. Update * 및 * Clear Suspect File Types * 를 선택합니다
+.. 보안 * 을 선택한 다음 * 의심되는 파일 형식 보기 * 를 선택합니다.
+.. 파일을 "잠재적 랜섬웨어 공격"으로 표시합니다.
+.. Update * 및 * Clear Suspect File Types * 를 선택합니다.
 
 
-. 볼륨에 Snapshot 복사본을 표시합니다.
+. 볼륨에 스냅샷을 표시합니다.
 +
 스토리지 > 볼륨 * 을 선택한 다음 볼륨 및 * Snapshot 복사본 * 을 선택합니다.
 
-. 복원할 스냅샷 복사본 옆의 를 선택하고 * 복원 * 을 선택합니다 image:icon_kabob.gif["메뉴 옵션 아이콘"] .
+. 복원하려는 스냅샷 옆에 있는 을 선택한 다음 * Restore * 를 선택합니다image:icon_kabob.gif["메뉴 옵션 아이콘"].
 
 
 .시스템 공격이 확인되지 않은 경우 복원합니다
-. 볼륨에 Snapshot 복사본을 표시합니다.
+. 볼륨에 스냅샷을 표시합니다.
 +
 스토리지 > 볼륨 * 을 선택한 다음 볼륨 및 * Snapshot 복사본 * 을 선택합니다.
 
-. 스냅샷을 선택합니다 image:icon_kabob.gif["메뉴 옵션 아이콘"] `Anti_ransomware_backup` .
+.  `Anti_ransomware_backup`스냅샷을 선택합니다image:icon_kabob.gif["메뉴 옵션 아이콘"].
 . Restore * 를 선택합니다.
-. Snapshot Copies * 메뉴로 돌아가서 사용할 Snapshot 복사본을 선택합니다. Restore * 를 선택합니다.
+. Snapshot Copies * 메뉴로 돌아간 다음 사용할 스냅샷을 선택합니다. Restore * 를 선택합니다.
 
 
 --
 .CLI를 참조하십시오
 --
 .시스템 공격 후 복원
-. ARP 스냅샷 복사본에서 복원하려면 2단계로 건너뜁니다. 이전 스냅샷 사본에서 데이터를 복원하려면 ARP 스냅샷의 잠금을 해제해야 합니다.
+. ARP 스냅샷에서 복원하려면 2단계로 건너뜁니다. 이전 스냅샷에서 데이터를 복원하려면 ARP 스냅샷의 잠금을 해제해야 합니다.
 +
 
-NOTE:  `volume snap restore`아래에 설명된 명령을 사용하는 경우 이전 스냅샷 복사본에서 복원하기 전에 안티 랜섬웨어 SnapLock를 해제하면 됩니다. FlexClone, Single File Snap Restore 또는 다른 방법을 사용하여 데이터를 복원하는 경우에는 이 작업이 필요하지 않습니다.
+NOTE: 아래에 설명된 명령을 사용하는 경우 이전 스냅샷에서 복원하기 전에 랜섬웨어 방지 SnapLock를 해제하면 `volume snap restore` 됩니다. FlexClone, 단일 파일 스냅 복원 또는 다른 방법을 사용하여 데이터를 복원하는 경우에는 이 작업이 필요하지 않습니다.
 
 +
-공격을 "거짓 양성" 및 "용의자 명시"로 표시:
-`anti-ransomware volume attack clear-suspect -vserver _svm_name_ -volume _vol_name_ [_extension identifiers_] -false-positive true`
-다음 매개 변수 중 하나를 사용하여 확장을 식별합니다.
-`[-seq-no _integer_]` 의심되는 목록에 있는 파일의 시퀀스 번호입니다.
-`[-extension _text_, … ]` 파일 확장자
-`[-start-time _date_time_ -end-time _date_time_]` 지울 파일 범위의 시작 및 종료 시간(예: "MM/DD/YYYY HH:MM:SS" 형식)
+공격을 잠재적 랜섬웨어 공격으로 (`-false-positive false`표시하고 의심스러운 파일을 (`clear-suspect`삭제합니다.): 다음 매개 변수 중 하나를 사용하여 확장자를 식별합니다.
+`anti-ransomware volume attack clear-suspect -vserver _svm_name_ -volume _vol_name_ [_extension identifiers_] -false-positive false` 의심되는 목록에 있는 파일의 시퀀스 번호입니다
+`[-extension _text_, … ]`.
+`[-seq-no _integer_]` 지울 파일
+`[-start-time _date_time_ -end-time _date_time_]` 범위의 시작 및 종료 시간(예: "MM/DD/YYYY HH:MM:SS" 형식).
 
 . 볼륨의 스냅샷 복사본을 나열합니다.
 +
@@ -160,7 +159,7 @@ volume snapshot restore -vserver <SVM> -volume <volume> -snapshot <snapshot>
 ----
 cluster1::> volume snapshot restore -vserver vs0 -volume vol1 -snapshot daily.2013-01-25_0010
 ----
-. 원하는 스냅샷 복사본을 사용하여 볼륨을 복원하려면 1단계와 2단계를 반복합니다.
+. 1단계와 2단계를 반복하여 원하는 스냅샷을 사용하여 볼륨을 복원합니다.
 
 
 --

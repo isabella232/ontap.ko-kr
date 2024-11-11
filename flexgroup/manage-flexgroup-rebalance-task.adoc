@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: enable, storage, rebalance, modify, stop, status, flexgroup, volume 
 summary: ONTAP 9.12.1부터 FlexGroup의 한 구성 요소에서 다른 구성 요소까지 중단 없이 파일을 이동하여 FlexGroup 볼륨의 균형을 재조정할 수 있습니다. 
 ---
-= FlexGroup 볼륨을 재조정합니다
+= 파일을 이동하여 FlexGroup 볼륨의 균형을 조정합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -23,6 +23,8 @@ FlexGroup 재조정은 여러 부분으로 구성된 inode를 생성하여 많�
 재조정은 클러스터의 모든 노드에서 ONTAP 9.12.1 이상 릴리즈를 실행 중인 경우에만 사용할 수 있습니다. 재조정 작업을 실행하는 모든 FlexGroup 볼륨에 대해 세분화된 데이터 기능을 활성화해야 합니다.  이 기능을 사용하도록 설정한 후에는 이 볼륨을 삭제하거나 설정을 사용하도록 설정하기 전에 생성된 스냅샷 복사본에서 복원하지 않는 한 ONTAP 9.11.1 이전 버전으로 되돌릴 수 없습니다.
 
 ONTAP 9.14.1부터 ONTAP는 사용자 개입 없이 세분화된 데이터가 활성화된 볼륨에서 파일을 사전 예방적으로 이동하는 알고리즘을 도입했습니다. 이 알고리즘은 성능 병목 현상을 완화하기 위해 매우 구체적이고 대상이 지정된 시나리오에서 작동합니다.  이 알고리즘이 작동할 수 있는 시나리오에는 클러스터의 한 노드에 있는 특정 파일 세트에 대한 매우 높은 쓰기 부하가 발생하거나 매우 핫 상위 디렉토리에서 지속적으로 증가하는 파일이 포함됩니다.
+
+ONTAP 9.16.1부터 를 사용하여 FlexGroup 멤버 볼륨 간에 대용량 파일의 데이터를 재배포할 수도 link:enable-adv-capacity-flexgroup-task.html["고급 용량 밸런싱"]있습니다.
 
 
 
@@ -95,6 +97,10 @@ ONTAP 9.13.1 버전부터는 단일 FlexGroup 재조정 작업이 미래의 날�
 * 를 사용하여 FlexGroup 볼륨을 생성할 때 `volume create` 명령
 * 를 사용하여 설정을 활성화하기 위해 기존 FlexGroup 볼륨을 수정합니다 `volume modify` 명령
 * 을 사용하여 FlexGroup 재조정이 시작될 때 자동으로 설정합니다 `volume rebalance` 명령
++
+
+NOTE: ONTAP 9.16.1 이상을 사용하고 ONTAP CLI의 옵션을 사용하여 사용하거나 System Manager를 사용하여 사용하도록 설정한 `granular-data advanced` 경우 link:enable-adv-capacity-flexgroup-task.html["FlexGroup 고급 용량 밸런싱"]FlexGroup 재조정도 사용하도록 설정됩니다.
+
 
 
 .단계
@@ -118,7 +124,12 @@ NOTE: 재조정 * 옵션은 FlexGroup 상태가 불균형 상태인 경우에만
 --
 .CLI를 참조하십시오
 --
-. 자동 재조정 시작: `volume rebalance start -vserver _SVM_name_ -volume _volume_name_`
+. 자동 재조정 시작:
++
+[source, cli]
+----
+volume rebalance start -vserver <SVM name> -volume <volume name>
+----
 +
 필요에 따라 다음 옵션을 지정할 수 있습니다.
 
@@ -178,7 +189,12 @@ NOTE: 재조정 * 옵션은 FlexGroup 상태가 불균형 상태인 경우에만
 --
 .CLI를 참조하십시오
 --
-. 자동 재조정 수정: `volume rebalance modify -vserver _SVM_name_ -volume _volume_name_`
+. 자동 재조정 수정:
++
+[source, cli]
+----
+volume rebalance modify -vserver <SVM name> -volume <volume name>
+----
 +
 다음 옵션 중 하나 이상을 지정할 수 있습니다.
 
@@ -225,7 +241,12 @@ FlexGroup 재조정이 활성화 또는 예약되면 언제든지 중지할 수 
 --
 .CLI를 참조하십시오
 --
-. FlexGroup 재조정 중지: `volume rebalance stop -vserver _SVM_name_ -volume _volume_name_`
+. FlexGroup 재조정 중지:
++
+[source, cli]
+----
+volume rebalance stop -vserver <SVM name> -volume <volume name>
+----
 
 
 --
@@ -249,7 +270,12 @@ FlexGroup 재조정 작업, FlexGroup 재조정 구성, 재조정 작업 시간 
 --
 .CLI를 참조하십시오
 --
-. FlexGroup 재조정 작업의 상태를 봅니다. `volume rebalance show`
+. FlexGroup 재조정 작업의 상태를 봅니다.
++
+[source, cli]
+----
+volume rebalance show
+----
 +
 재조정 상태의 예:
 

@@ -1,21 +1,30 @@
 ---
 permalink: update/index.html 
 sidebar: sidebar 
-keywords: ontap, upgrade, update, automatic, automated, firmware, bmc, sp, system, timezone database, timezone 
-summary: ONTAP 버전에 따라 자동 펌웨어 및 시스템 업데이트를 활성화할 수 있습니다. 
+keywords: ontap, upgrade, update, automatic, automated, firmware, bmc, sp, system, timezone database, timezone, security, arp 
+summary: ONTAP 버전에 따라 자동 펌웨어, 시스템 및 보안 업데이트를 활성화할 수 있습니다. 
 ---
-= 펌웨어 및 시스템 업데이트 개요
+= 펌웨어, 시스템 및 보안 업데이트 개요
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-ONTAP 버전에 따라 자동 펌웨어 및 시스템 업데이트를 활성화할 수 있습니다.
+ONTAP 버전에 따라 자동 펌웨어, 시스템 및 보안 업데이트를 활성화할 수 있습니다.
 
 [cols="25,75"]
 |===
 | ONTAP 버전 | 자동 업데이트에 포함된 내용 
+
+
+| 9.16.1 이상  a| 
+* 인공 지능(ARP/AI)을 이용한 자율적 랜섬웨어 방어
+* ONTAP 시간대 데이터베이스
+* 스토리지 장치, 디스크 및 디스크 쉘프를 위한 스토리지 펌웨어
+* 서비스 프로세서 및 BMC 모듈용 SP/BMC 펌웨어
+
+
 
 
 | 9.13.1 이상  a| 
@@ -35,9 +44,13 @@ ONTAP 버전에 따라 자동 펌웨어 및 시스템 업데이트를 활성화�
 
 | 9.9.1 이전 버전 | 지원되지 않습니다 
 |===
-ONTAP 9.9.1 이전 버전을 실행 중이거나 를 실행하고 있지 않은 경우 link:enable-automatic-updates-task.html["자동 시스템 업데이트"] 사용할 수 있습니다 link:firmware-task.html["펌웨어를 수동으로 업데이트합니다"].
+사용 중인 ONTAP 버전에 대해 자동 업데이트를 사용할 수 없거나 자동 업데이트를 사용하도록 설정하지 않은 경우 펌웨어, 시간대 데이터베이스 및 보안 업데이트를 수동으로 수행할 수 있습니다.
 
-ONTAP 9.12.1 이하를 실행 중이거나 가 없는 경우 link:enable-automatic-updates-task.html["자동 시스템 업데이트"] 이 옵션을 사용하면 표준 시간대 데이터베이스를 수동으로 업데이트할 수 있습니다. 자세한 내용은 기술 자료 문서, link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_update_time_zone_information_in_ONTAP_9["ONTAP 9에서 시간대 정보를 업데이트하는 방법"^]자세한 내용은 를 참조하십시오.
+.관련 링크
+* link:firmware-task.html["펌웨어 업데이트를 수동으로 수행하는 방법을 알아봅니다"]
+* link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_update_time_zone_information_in_ONTAP_9["기술 자료 문서, ONTAP 9에서 표준 시간대 정보를 업데이트하는 방법"^]
+* link:../anti-ransomware/enable-arp-ai-with-au.html["수동으로 보안 업데이트를 수행하는 방법을 알아봅니다"]
+
 
 
 

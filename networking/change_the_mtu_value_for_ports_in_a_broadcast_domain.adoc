@@ -10,7 +10,7 @@ summary: 브로드캐스트 도메인의 MTU 값을 수정하여 브로드캐스
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

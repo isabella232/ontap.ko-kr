@@ -1,0 +1,73 @@
+---
+sidebar: sidebar 
+permalink: anti-ransomware/switch-learning-to-active-mode.html 
+keywords: ransomware, arp, mode, switch, active, learning, autonomous ransomware protection 
+summary: 'ARP(Autonomous Ransomware Protection) 9.15.1 이하의 경우 ARP 지원 볼륨을 학습 모드에서 활성 모드로 수동 또는 자동으로 전환합니다.' 
+---
+= 학습 기간 후 ARP 활성 모드로 전환합니다
+:allow-uri-read: 
+
+
+[role="lead"]
+FlexGroup 볼륨으로 실행되는 ARP(자율적 랜섬웨어 방어) 9.15.1 이하 또는 ARP의 경우 ARP 지원 볼륨을 학습 모드에서 활성 모드로 수동 또는 자동으로 전환합니다. ARP가 최소 30일의 권장 학습 모드 실행을 완료한 후 수동으로 활성 모드로 전환할 수 있습니다. ONTAP 9.13.1부터 ARP는 자동으로 최적의 학습 기간 간격을 결정하고 30일 이전에 발생할 수 있는 스위치를 자동화합니다.
+
+ONTAP 9.16.1 이상의 FlexVol 볼륨에서 ARP를 사용하는 경우 ARP/AI 기능은 학습 기간이 필요하지 않으며 기본적으로 활성 모드가 선택됩니다.
+
+
+NOTE: 기존 볼륨에서 학습 및 활성 모드는 볼륨의 기존 데이터가 아닌 새로 기록된 데이터에만 적용됩니다. ARP에 대해 볼륨이 활성화된 후 새 데이터를 기반으로 이전 일반 데이터 트래픽의 특성이 가정되기 때문에 기존 데이터는 스캔되고 분석되지 않습니다.
+
+
+
+== 학습 기간 후 수동으로 활성 모드로 전환합니다
+
+ONTAP 9.10.1 - 9.15.1 및 FlexGroup 볼륨을 사용하는 ARP의 경우 시스템 관리자 또는 ONTAP CLI를 사용하여 ARP 학습 모드에서 활성 모드로 수동 전환할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+.단계
+. 스토리지 > 볼륨 * 을 선택한 다음 활성 모드에 사용할 준비가 된 볼륨을 선택합니다.
+. 볼륨 * 개요의 * 보안 * 탭에서 안티 랜섬웨어 상자에서 * 활성 모드로 전환 * 을 선택합니다.
+. Anti-랜섬웨어 * 상자에서 볼륨의 ARP 상태를 확인할 수 있습니다.
+
+
+--
+.CLI를 참조하십시오
+--
+.단계
+. 학습 기간이 끝나면 보호된 볼륨을 수정하여 아직 자동으로 실행되지 않은 경우 활성 모드로 전환합니다.
++
+`security anti-ransomware volume enable -volume <vol_name> -vserver <svm_name>`
+
++
+볼륨 수정 명령을 사용하여 활성 모드로 전환할 수도 있습니다.
+
++
+`volume modify -volume <vol_name> -vserver <svm_name> -anti-ransomware-state active`
+
+. 볼륨의 ARP 상태를 확인합니다.
++
+'보안 안티 랜섬웨어 볼륨 쇼'
+
+
+
+--
+====
+
+
+== 학습 모드에서 활성 모드로 자동 전환
+
+ONTAP 9.13.1부터 ARP 분석에 적응형 학습이 추가되었으며 학습 모드에서 활성 모드로 자동 전환됩니다. 학습 모드에서 활성 모드로 자동 전환하기 위한 ARP의 자동 결정은 다음 옵션의 구성 설정을 기반으로 합니다.
+
+[listing]
+----
+ -anti-ransomware-auto-switch-minimum-incoming-data-percent
+ -anti-ransomware-auto-switch-duration-without-new-file-extension
+ -anti-ransomware-auto-switch-minimum-learning-period
+ -anti-ransomware-auto-switch-minimum-file-count
+ -anti-ransomware-auto-switch-minimum-file-extension
+----
+학습 후 30일 후에는 이러한 조건 중 하나 이상이 충족되지 않더라도 볼륨이 자동으로 활성 모드로 전환됩니다. 즉, 자동 전환이 활성화된 경우 볼륨은 최대 30일 후에 활성 모드로 전환됩니다. 최대 30일 값은 고정되어 있으며 수정할 수 없습니다.
+
+기본값을 포함한 ARP 구성 옵션에 대한 자세한 내용은 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli/security-anti-ransomware-volume-auto-switch-to-enable-mode-show.html["ONTAP 명령 참조입니다"^].

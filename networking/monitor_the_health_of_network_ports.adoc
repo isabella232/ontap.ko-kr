@@ -10,7 +10,7 @@ summary: 자동 상태 모니터링과 상태 모니터 세트를 사용하면 L
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

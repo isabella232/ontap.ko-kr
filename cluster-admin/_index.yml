@@ -68,7 +68,7 @@ indexpage:
       url: "/../task_admin_view_submit_support_cases.html"
   - title: SVM 마이그레이션
     links:
-    - title: 개요
+    - title: SVM 데이터 이동성 개요
       url: /../svm-migrate/index.html"
     - title: SVM 마이그레이션
       url: /../svm-migrate/migrate-svm-task.html"

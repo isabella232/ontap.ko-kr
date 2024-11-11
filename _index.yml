@@ -110,11 +110,11 @@ indexpage:
       url: "/system-admin/manage-web-services-concept.html"
     - title: SAML 인증을 활성화합니다
       url: "/system-admin/configure-saml-authentication-task.html"
-    - title: CLI를 사용하여 MFA를 사용하도록 설정합니다
+    - title: MFA를 활성화합니다
       url: "/authentication/setup-ssh-multifactor-authentication-task.html"
     - title: 다중 관리 검증
       url: "/multi-admin-verify/index.html"
-    - title: OAuth2 인증(ONTAP 9.14.1의 새로운 기능)
+    - title: OAuth2 권한 부여
       url: "/authentication/overview-oauth2.html"
   - title: 보안 및 데이터 암호화
     links:
@@ -166,8 +166,6 @@ indexpage:
       url: https://docs.netapp.com/us-en/ontap/task_asa_software_configuration.html
     - title: ASA(All-Flash Array) R2 시스템에서 NetApp 스토리지를 사용하고 있습니다
       url: https://docs.netapp.com/us-en/asa-r2/index.html
-    - title: NetApp 클라우드 제품 및 서비스
-      url: https://docs.netapp.com/us-en/cloud/
     - title: MetroCluster
       url: https://docs.netapp.com/us-en/ontap-metrocluster/
     - title: 자동화 및 REST API

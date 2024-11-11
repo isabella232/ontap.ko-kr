@@ -24,6 +24,12 @@ ONTAP 9 릴리스에서 구현된 제한 및 기본값에 대한 몇 가지 변�
 | 피처 | 기본 변경 | 릴리스 위치가 변경되었습니다. 
 
 
+| NAS 감사 | 및 `file-session-io-grouping-duration` 매개 변수의 최대 제한이 `file-session-io-grouping-count` 증가하므로 필요에 따라 더 적은 수의 통합 NAS 감사 이벤트 알림을 선택할 수 있습니다. 이 경우 SVM이 높은 IO 속도를 지원하므로 타겟 볼륨에 대한 스토리지의 영향을 줄일 수 있습니다. NFS_FILE_SESSION_IO_GROUP_COUNT_MAX: 20000 ~ 120000 NFS_FILE_SESSION_IO_GROUP_DURATION_MAX: 600 ~ 3600 | ONTAP 9.16.1 
+
+
+| FAS 시스템의 노드당 최대 볼륨 | 컨트롤러당 200GB RAM이 넘는 FAS 시스템의 경우 노드당 지원되는 최대 볼륨 수가 1000개에서 2500개로 증가합니다. 이전 버전의 ONTAP에서는 link:../data-protection/dpo-systems-feature-enhancements-reference.html["데이터 보호 최적화(DPO)"]ONTAP FAS 시스템 지원을 노드당 1000개에서 2500개로 늘리려면 라이센스가 필요했습니다. | ONTAP 9.16.1 
+
+
 | `vserver object-store-server user show` 명령 | ONTAP 9.15.1 이전 릴리스에서는 이(가) `vserver object-store-server user show` 명령은 S3 사용자의 비밀 키를 반환합니다. 이 명령은 S3 사용자에 대한 비밀 키 데이터를 더 이상 반환하지 않습니다. | ONTAP 9.15.1 
 
 
@@ -56,6 +62,9 @@ ONTAP 9 릴리스에서 구현된 제한 및 기본값에 대한 몇 가지 변�
 [cols="25%,50%,25%"]
 |===
 | 피처 | 제한 변경 | 릴리스 위치가 변경되었습니다. 
+
+
+| Qtree 확장 성능 모니터링 | 단일 ONTAP 클러스터에서 최대 50,000개의 qtree에 대해 확장된 성능 모니터링을 활성화할 수 있습니다. | ONTAP 9.16.1 
 
 
 | SnapMirror 활성 동기화 | SnapMirror Active Sync는 일관성 그룹에서 80개의 볼륨을 지원합니다 | ONTAP 9.15.1 

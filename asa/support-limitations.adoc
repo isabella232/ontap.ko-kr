@@ -12,7 +12,7 @@ summary: 'ASA(All-Flash SAN 어레이)의 구성 제한 및 지원은 ONTAP 버�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

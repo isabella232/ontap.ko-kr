@@ -10,7 +10,7 @@ summary: '기본적으로 사용되는 하드웨어 지원 테이크오버 기�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

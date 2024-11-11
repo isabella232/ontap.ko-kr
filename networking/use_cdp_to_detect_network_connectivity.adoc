@@ -10,7 +10,7 @@ summary: '데이터 센터에서 인접 검색 프로토콜을 사용하여 물�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

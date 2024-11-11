@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: anti-ransomware/enable-arp-ai-with-au.html 
+keywords: ransomware, arp, enable, ai, automatic, update, upgrade, autonomous ransomware protection 
+summary: ONTAP 9.16.1부터 ARP가 활성화된 FlexVol 설치에 ARP/AI를 자동으로 활성화하거나 사전 요구 사항을 충족한 후 수동으로 활성화하십시오. 
+---
+= 자동 업데이트로 ARP/AI를 활성화합니다
+:hardbreaks:
+:toclevels: 1
+:allow-uri-read: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+ONTAP 9.16.1부터 ARP는 위협 탐지 및 대응을 개선하기 위해 인공 지능(ARP/AI)과 함께 자율적 랜섬웨어 보호를 채택했습니다. 클러스터를 ONTAP 9.16.1로 업그레이드한 후 FlexVol 볼륨에 대해 ARP/AI가 이미 활성화된 경우 ARP/AI가 자동으로 활성화됩니다. ARP를 활성화하지 않았거나 클러스터에 대한 자동 업데이트를 활성화하지 않은 경우 이 절차에 설명된 시나리오 중 하나를 수행해야 합니다.
+
+
+IMPORTANT: ONTAP 9.16.1로 업그레이드하기 전에link:../upgrade/arp-warning-clear.html["기존 ARP 검색을 닫습니다"].
+
+.시작하기 전에
+* ARP/AI를 사용하려면 FlexVol 볼륨이 있어야 합니다. FlexGroup 볼륨이 있는 경우 ARP/AI 이전에 사용된 ARP 모델은 ONTAP 9.16.1로 업그레이드한 후에도 계속 작동합니다.
+
+
+
+NOTE: ONTAP 9.16.1로 업그레이드하면 FlexVol 볼륨이 있는 기존 ARP 인스턴스에 대해 ARP가 자동으로 활성 모드로 활성화됩니다. ARP/AI는 광범위한 머신 러닝 모델에 대해 훈련되기 때문에 학습 기간이 더 이상 필요하지 않습니다. 업그레이드 전에 완료되지 않은 모든 학습 기간은 자동으로 종료되고 볼륨이 활성 모드로 전환됩니다.
+
+.단계
+. 사용자의 구성에 해당하는 시나리오를 따릅니다.
++
+** * ONTAP 9.16.1을 실행하는 새 클러스터 *:link:enable-task.html["ARP를 활성화합니다"]. ARP는 기본적으로 활성화되지 않습니다. ARP를 활성화한 후 ARP/AI 기능은 보호하기로 선택한 볼륨에서 활성 모드로 자동 활성화됩니다.
+** * ARP가 활성화된 ONTAP 9.16.1로 최근 업그레이드된 기존 클러스터의 경우 *: 조치가 필요하지 않습니다. ARP/AI는 사용자가 보호하도록 선택한 FlexVol 볼륨에 대한 새로운 위협 보호 ARP 방법이 자동으로 됩니다.
+** * ARP가 활성화되지 않은 ONTAP 9.16.1로 최근 업그레이드된 기존 클러스터의 경우 *:link:enable-task.html["ARP를 활성화합니다"]. ARP/AI는 ARP를 활성화한 후 자동으로 위협 보호의 새로운 ARP 방법이 됩니다.
+
+
+. ARP/AI가 활성화된 후 ARP/AI 보호 업데이트를 제공하고 설치할지 여부를 link:arp-ai-automatic-updates.html["자동 또는 수동"]결정합니다.
+
+
+.관련 정보
+* link:arp-ai-automatic-updates.html["ARP/AI를 업데이트합니다"]
+

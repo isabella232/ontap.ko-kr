@@ -10,7 +10,7 @@ summary: '모든 SSL 연결에 대해 FIPS(Federal Information Processing Standa
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

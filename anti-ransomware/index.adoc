@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: anti-ransomware/index.html 
-keywords: ransomware, security, digital advisor, autonomous protection, arp, detect, detection, threat, attack, suspect, anti-ransomware, entropy, abnormal volume activity, antiransomware, extension conformity, ransomware protection strategy 
+keywords: ransomware, arp, autonomous protection, ai, arp ai, security, detect, detection, threat, attack, suspect, anti-ransomware, entropy, abnormal volume activity, antiransomware, extension conformity, ransomware protection strategy 
 summary: 자율적 랜섬웨어 방어는 NAS 환경의 워크로드 분석을 사용하여 랜섬웨어 공격으로 이어질 수 있는 비정상적인 활동을 감지하여 경고합니다. 
 ---
-= 자율 랜섬웨어 보호 개요
+= ONTAP의 자율적 랜섬웨어 방어에 대해 알아보십시오
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 
@@ -12,19 +12,38 @@ summary: 자율적 랜섬웨어 방어는 NAS 환경의 워크로드 분석을 �
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
-ONTAP 9.10.1부터 ARP(Autonomous 랜섬웨어 보호) 기능은 NAS(NFS 및 SMB) 환경에서 워크로드 분석을 사용하여 랜섬웨어 공격을 나타낼 수 있는 비정상적인 활동을 사전에 감지하여 경고합니다.
+ONTAP 9.10.1부터 ARP(Autonomous 랜섬웨어 보호) 기능은 NAS(NFS 및 SMB) 환경에서 워크로드 분석을 사용하여 랜섬웨어 공격을 나타낼 수 있는 비정상적인 활동을 사전에 감지하여 경고합니다. 공격이 의심되면 ARP는 예약된 스냅샷에서 제공되는 기존 보호 기능 외에 새로운 스냅샷을 생성합니다.
 
-공격이 의심되면 ARP는 예약된 Snapshot 복제본으로부터 기존 보호 기능 외에 새 Snapshot 복제본도 생성합니다.
+
+
+== 인공 지능(ARP/AI)을 이용한 자율적 랜섬웨어 방어
+
+ONTAP 9.16.1부터 ARP는 지속적으로 진화하는 랜섬웨어 형태를 99% 정확도로 감지하는 랜섬웨어 방지 분석을 위한 머신 러닝 모델을 채택함으로써 사이버 복원력을 개선합니다. ARP의 머신 러닝 모델은 시뮬레이션 랜섬웨어 공격 전후에 대규모 파일 데이터 세트에 대해 사전 훈련됩니다. 리소스 집약적인 이 교육은 ONTAP 외부에서 실시되지만, 본 교육의 학습은 ONTAP 내 모델에 사용됩니다.
+
+.FlexVol 볼륨의 ARP/AI를 위해 액티브 모드로 즉시 전환됩니다
+ARP/AI 및 FlexVol 볼륨에는 없습니다.<<학습 및 활성 모드,학습 기간>> ARP/AI는 설치 또는 9.16으로 업그레이드한 직후 활성 모드로 시작됩니다. 클러스터를 ONTAP 9.16.1로 업그레이드한 후 해당 볼륨에 대해 ARP가 이미 활성화된 경우 기존 및 새 FlexVol 볼륨에 대해 ARP/AI가 자동으로 활성화됩니다.
+
+link:enable-arp-ai-with-au.html["ARP/AI 활성화에 대해 자세히 알아보십시오"]
+
+.ARP/AI 자동 업데이트
+최신 랜섬웨어 위협에 대한 최신 보호를 유지하기 위해 ARP/AI는 정기적인 ONTAP 업그레이드 및 릴리스 정보 외부에서 발생하는 자동 업데이트를 자주 제공합니다. link:../update/enable-automatic-updates-task.html["자동 업데이트를 활성화했습니다"]그렇다면 보안 파일에 대한 자동 업데이트를 선택한 후 ARP/AI에 대한 자동 보안 업데이트를 받을 수도 있습니다. 이러한 업데이트를 수동으로 수행하고 업데이트가 발생하는 시기를 제어할 수도 있습니다.
+
+ONTAP 9.16.1부터 시스템 및 펌웨어 업데이트 외에 ARP/AI용 보안 업데이트를 System Manager를 사용하여 사용할 수 있습니다.
+
+
+IMPORTANT: ARP/AI 기능은 현재 NAS만 지원합니다. 자동 업데이트 기능은 System Manager에서 배포할 새 보안 파일의 가용성을 표시하지만 이러한 업데이트는 NAS 워크로드 보호에만 적용됩니다.
+
+link:arp-ai-automatic-updates.html["ARP/AI 업데이트에 대해 자세히 알아보십시오"]
 
 
 
 == 라이센스 및 지원
 
-ARP에는 라이센스가 필요합니다. ARP는 에서 사용할 수 있습니다 link:https://kb.netapp.com/onprem/ontap/os/ONTAP_9.10.1_and_later_licensing_overview["ONTAP One 라이센스"^]. ONTAP One 라이센스가 없는 경우 ONTAP 버전에 따라 다른 ARP를 사용할 수 있습니다.
+ARP 지원은 에 포함되어 link:https://kb.netapp.com/onprem/ontap/os/ONTAP_9.10.1_and_later_licensing_overview["ONTAP One 라이센스"^]있습니다. ONTAP One 라이센스가 없는 경우 ONTAP 버전에 따라 다른 ARP를 사용할 수 있는 다른 라이센스가 있습니다.
 
 [cols="2*"]
 |===
@@ -44,11 +63,11 @@ ONTAP 9.10.1
 Mt_EK_MGMT(멀티 테넌트 키 관리)
 
 |===
-* ONTAP 9.11.1 이상으로 업그레이드하고 ARP가 이미 시스템에 구성되어 있는 경우, 새로운 Anti-랜섬웨어 라이센스를 구입할 필요가 없습니다. 새 ARP 구성의 경우 새 라이센스가 필요합니다.
-* ONTAP 9.11.1 이상에서 ONTAP 9.10.1로 되돌려지는 경우, 안티랜섬웨어 라이센스로 ARP를 활성화한 경우 경고 메시지가 표시되고 ARP를 다시 구성해야 할 수 있습니다. link:../revert/anti-ransomware-license-task.html["ARP를 되돌리는 방법에 대해 알아보십시오"].
+* ONTAP 9.10.1에서 ONTAP 9.11.1 이상으로 업그레이드하는 경우 시스템에 ARP가 이미 구성되어 있으면 새 안티 랜섬웨어 라이센스를 설치할 필요가 없습니다. 새 ARP 구성의 경우 새 라이센스가 필요합니다.
+* ONTAP 9.11.1 이상에서 ONTAP 9.10.1로 되돌려지는 경우, 안티랜섬웨어 라이센스로 ARP를 활성화한 경우 경고 메시지가 표시되고 ARP를 다시 구성해야 할 수 있습니다.
 
 
-System Manager 또는 ONTAP CLI를 사용하여 볼륨별로 ARP를 구성할 수 있습니다.
+link:../revert/anti-ransomware-license-task.html["ARP를 되돌리는 방법에 대해 알아보십시오"]..
 
 
 
@@ -58,7 +77,7 @@ System Manager 또는 ONTAP CLI를 사용하여 볼륨별로 ARP를 구성할 �
 
 예를 들어, 차량의 안전 기능을 들 수 있습니다. 안전 벨트와 같은 단일 기능에 의존하여 사고 시 사용자를 완전히 보호하지 않습니다. 에어백, 안티 브레이크 및 전방 충돌 경고는 모두 추가적인 안전 기능으로 훨씬 더 나은 결과를 제공합니다. 랜섬웨어 보호는 동일한 방법으로 확인해야 합니다.
 
-ONTAP에는 랜섬웨어로부터 보호하기 위한 FPolicy, 스냅샷 복사본, SnapLock 및 Active IQ 디지털 어드바이저(디지털 자문이라고도 함)와 같은 기능이 포함되어 있지만, 머신 러닝 기능을 갖춘 ARP 온박스 기능에 중점을 둡니다.
+ONTAP에는 랜섬웨어로부터 보호하기 위한 FPolicy, 스냅샷, SnapLock 및 Active IQ 디지털 어드바이저(디지털 자문이라고도 함)와 같은 기능이 포함되어 있지만, 머신 러닝 기능을 갖춘 ARP 온박스 기능에 중점을 둡니다.
 
 ONTAP의 다른 안티 랜섬웨어 기능에 대한 자세한 내용은 를 참조하십시오link:../ransomware-solutions/ransomware-overview.html["Ransomware 및 NetApp의 보호 포트폴리오"].
 
@@ -69,9 +88,9 @@ ONTAP의 다른 안티 랜섬웨어 기능에 대한 자세한 내용은 를 참
 ARP는 공격자가 몸값을 지불하기 전까지 데이터를 보유하는 서비스 거부 공격으로부터 보호하도록 설계되었습니다. ARP는 다음을 기반으로 실시간 랜섬웨어 탐지를 제공합니다.
 
 * 들어오는 데이터를 암호화된 데이터 또는 일반 텍스트로 식별합니다.
-* 탐지 분석
+* 다음을 감지하는 분석:
 +
-** ** 엔트로피**: 파일의 데이터 임의 정도 평가
+** ** Entropy**: 파일에 있는 데이터의 임의 정도를 평가합니다
 ** ** 파일 확장명 형식**: 일반 확장명 형식에 맞지 않는 확장자입니다
 ** ** 파일 IOPS**: 데이터 암호화(ONTAP 9.11.1부터 시작)로 인해 비정상적인 볼륨 활동이 급증함
 
@@ -89,53 +108,70 @@ NOTE: 랜섬웨어 탐지 또는 방지 시스템이 랜섬웨어 공격에서 �
 
 ARP에는 두 가지 모드가 있습니다.
 
-* * 학습 * (또는 "드라이 런" 모드)
-* * 활성 * (또는 "활성화" 모드)
+* * 학습 모드 * (또는 "드라이 런" 모드)
+* * 활성 모드 * (또는 "활성화" 모드)
 
 
-ARP를 활성화하면 _learning mode_에서 실행됩니다. 학습 모드에서 ONTAP 시스템은 엔트로피, 파일 확장자 유형 및 파일 IOPS와 같은 분석 영역을 기반으로 경고 프로필을 개발합니다. 학습 모드에서 충분한 시간 동안 ARP를 실행하여 워크로드 특성을 평가한 후 활성 모드로 전환하고 데이터 보호를 시작할 수 있습니다. ARP가 활성 모드로 전환되면 ONTAP는 위협이 감지될 경우 데이터를 보호하기 위해 ARP 스냅샷 복사본을 생성합니다.
+.학습 모드
+ONTAP 9.10.1에서 9.15.1로 실행되는 모든 ARP와 ONTAP 9.16.1을 사용하는 FlexGroup 볼륨에 사용되는 ARP의 경우 ARP를 활성화하면 _learning mode_에서 실행됩니다. 학습 모드에서 ONTAP 시스템은 엔트로피, 파일 확장자 유형 및 파일 IOPS와 같은 분석 영역을 기반으로 경고 프로필을 개발합니다. 학습 모드에서 충분한 시간 동안 ARP를 실행하여 워크로드 특성을 평가한 후 활성 모드로 전환하고 데이터 보호를 시작할 수 있습니다.
 
-30일 동안 ARP를 학습 모드로 두는 것이 좋습니다. ONTAP 9.13.1 부터 ARP는 최적의 학습 기간을 자동으로 결정하고 30일 이전에 발생할 수 있는 스위치를 자동화합니다.
-
-활성 모드에서 파일 확장자가 비정상으로 플래그되는 경우 경고를 평가해야 합니다. 경고를 통해 데이터를 보호하거나 경고를 거짓 긍정 으로 표시할 수 있습니다. 경고를 false positive로 표시하면 경고 프로필이 업데이트됩니다. 예를 들어, 새 파일 확장자에 의해 경고가 트리거되고 이 경고를 false positive로 표시하면 다음에 파일 확장명이 관찰될 때 알림이 수신되지 않습니다. 명령을 입력합니다 `security anti-ransomware volume workload-behavior show` 볼륨에서 감지된 파일 확장자를 표시합니다. (학습 모드 초기에 이 명령을 실행하고 파일 유형을 정확하게 표시한다면 ONTAP에서 다른 메트릭을 계속 수집하므로 해당 데이터를 액티브 모드로 이동하기 위한 기반으로 사용해서는 안 됩니다.)
-
-ONTAP 9.11.1부터 ARP에 대한 검출 파라미터를 사용자 정의할 수 있다. 자세한 내용은 을 참조하십시오 xref:manage-parameters-task.html[ARP 공격 탐지 매개변수를 관리합니다].
+30일 동안 ARP를 학습 모드로 두는 것이 좋습니다. ONTAP 9.13.1부터 ARP는 자동으로 최적의 학습 간격을 결정하고 30일 이전에 발생할 수 있는 스위치를 자동화합니다.
 
 
+TIP: 이 명령은 `security anti-ransomware volume workload-behavior show` 볼륨에서 감지된 파일 확장명을 표시합니다. 이 명령을 학습 모드 초기에 실행하면 파일 유형이 정확하게 표시되는 경우 ONTAP가 다른 메트릭을 수집하고 있으므로 해당 데이터를 활성 모드로 전환하기 위한 기준으로 사용해서는 안 됩니다.
 
-== 위협 평가 및 ARP 스냅샷 사본
+.활성 모드
+ONTAP 9.10.1에서 9.15.1로 실행되는 ARP의 경우 최적의 학습 간격이 완료된 후 ARP가 _ACTIVE MODE_로 전환됩니다. ARP/AI는 ONTAP 9.16.1로 시작하므로 FlexVol 볼륨과 함께 ARP를 사용할 때 학습 기간이 없습니다. FlexVol 볼륨의 ARP/AI는 설치 또는 9.16.1로 업그레이드한 직후 활성 모드로 시작됩니다. FlexGroup 볼륨에서 ONTAP 9.16.1 및 ARP를 사용하는 경우 활성 모드로 전환하기 전에 학습 기간이 필요합니다.
+
+ARP가 활성 모드로 전환된 후 ONTAP는 위협이 감지될 경우 데이터를 보호하기 위해 ARP 스냅샷을 생성합니다.
+
+활성 모드에서 파일 확장자가 비정상으로 플래그되는 경우 경고를 평가해야 합니다. 경고를 통해 데이터를 보호하거나 경고를 거짓 긍정 으로 표시할 수 있습니다. 경고를 false positive로 표시하면 경고 프로필이 업데이트됩니다. 예를 들어, 새 파일 확장자에 의해 경고가 트리거되고 이 경고를 false positive로 표시하면 다음에 파일 확장명이 관찰될 때 알림이 수신되지 않습니다.
+
+
+NOTE: ONTAP 9.11.1부터 ARP에 대한 검출 파라미터를 사용자 정의할 수 있다. 자세한 내용은 을 참조하십시오 xref:manage-parameters-task.html[ARP 공격 탐지 매개변수를 관리합니다].
+
+
+
+== 위협 평가 및 ARP 스냅샷
 
 활성 모드에서 ARP는 학습된 분석에 대해 측정된 수신 데이터를 기반으로 위협 가능성을 평가합니다. ARP가 위협을 탐지할 때 측정이 할당됩니다.
 
-* ** 낮음**: 볼륨에서 비정상 상태를 가장 빨리 감지합니다(예: 볼륨에서 새 파일 확장자가 관찰됨).
-* ** 보통**: 파일 확장자가 표시되지 않은 동일한 여러 개의 파일이 관찰됩니다.
+* * Low * (낮음) *: 볼륨에서 비정상 상태를 가장 먼저 감지합니다(예: 볼륨에서 새 파일 확장자가 관찰됨). 이 감지 수준은 ARP/AI가 없는 ONTAP 9.16.1 이전 버전에서만 사용할 수 있습니다.
+* * 보통 *: 이전에 볼 수 없는 동일한 파일 확장명을 가진 여러 파일이 관찰됩니다.
 +
-** ONTAP 9.10.1에서 Moderate로 에스컬레이션하기 위한 임계값은 100개 이상의 파일입니다. ONTAP 9.11.1부터 파일 수량은 수정할 수 있으며 기본값은 20입니다.
+** ONTAP 9.10.1에서 Moderate로 에스컬레이션하기 위한 임계값은 100개 이상의 파일입니다.
+** ONTAP 9.11.1부터 파일 수량은 수정할 수 있으며 기본값은 20입니다.
 
 
 
 
-위협이 낮은 상황에서 ONTAP는 비정상성을 감지하고 볼륨의 스냅샷 복사본을 생성하여 최상의 복구 지점을 생성합니다. ONTAP는 ARP 스냅샷 복사본의 이름을 로 접두어 붙입니다 `Anti-ransomware-backup` 예를 들어 쉽게 식별할 수 있도록 합니다 `Anti_ransomware_backup.2022-12-20_1248`.
+위협이 낮은 상황에서 ONTAP는 비정상성을 감지하고 볼륨의 스냅샷을 생성하여 최상의 복구 지점을 만듭니다. ONTAP는 쉽게 식별할 수 있도록 ARP 스냅샷의 이름 앞에 을 붙입니다 `Anti-ransomware-backup`(예 `Anti_ransomware_backup.2022-12-20_1248`:).
 
 ONTAP에서 분석 보고서를 실행하고 비정상 상태가 랜섬웨어 프로필과 일치하는지 확인하는 위협이 보통 수준으로 증가합니다. 하위 수준에 남아 있는 위협은 System Manager의 ** 이벤트** 섹션에 기록되고 표시됩니다. 공격 가능성이 보통이면 ONTAP에서 위협을 평가하라는 EMS 알림을 생성합니다. ONTAP는 낮은 위협에 대한 경고를 보내지 않지만 ONTAP 9.14.1부터 시작할 수 있습니다 xref:manage-parameters-task.html#modify-alerts[알림 설정을 수정합니다]. 자세한 내용은 을 참조하십시오 xref:respond-abnormal-task.html[비정상적인 활동에 응답합니다].
 
-System Manager의** 이벤트** 섹션 또는 에서 수준에 관계없이 위협에 대한 정보를 볼 수 있습니다 `security anti-ransomware volume show` 명령.
+수준에 상관없이 System Manager의 * Events * 섹션 또는 명령을 사용하여 위협에 대한 정보를 볼 수 `security anti-ransomware volume show` 있습니다.
 
-ARP 스냅샷 복사본은 최소 2일 동안 보존됩니다. ONTAP 9.11.1부터 보존 설정을 수정할 수 있습니다. 자세한 내용은 을 참조하십시오 xref:modify-automatic-shapshot-options-task.html[스냅샷 복사본에 대한 옵션을 수정합니다].
+개별 ARP 스냅샷은 2일 동안 유지됩니다. ARP 스냅샷이 여러 개 있는 경우 기본적으로 5일 동안 보존됩니다. ONTAP 9.11.1부터 보존 설정을 수정할 수 있습니다. 자세한 내용은 을 xref:modify-automatic-shapshot-options-task.html[스냅샷 옵션을 수정합니다]참조하십시오.
 
 
 
 == 랜섬웨어 공격 후 ONTAP에서 데이터를 복구하는 방법
 
-공격이 의심되면 해당 시점에 시스템에서 볼륨 Snapshot 복사본을 생성한 후 해당 복사본을 잠급니다. 나중에 공격이 확인되면 ARP 스냅샷 복사본을 사용하여 볼륨을 복원할 수 있습니다.
+공격이 의심되는 경우 시스템은 해당 시점에 볼륨 스냅샷을 생성하고 해당 복사본을 잠급니다. 나중에 공격이 확인되면 ARP 스냅샷을 사용하여 볼륨을 복원할 수 있습니다.
 
-잠긴 스냅샷 복사본은 일반적인 방법으로 삭제할 수 없습니다. 그러나 나중에 이 공격을 가양성 공격으로 표시하기로 결정하면 잠긴 복사본이 삭제됩니다.
+잠긴 스냅샷은 정상적인 방법으로 삭제할 수 없습니다. 그러나 나중에 이 공격을 가양성 공격으로 표시하기로 결정하면 잠긴 복사본이 삭제됩니다.
 
-영향을 받는 파일과 공격 시간을 알 수 있으므로 전체 볼륨을 스냅샷 복사본 중 하나로 되돌리는 것이 아니라 다양한 Snapshot 복사본에서 영향을 받는 파일을 선택적으로 복구할 수 있습니다.
+영향을 받는 파일과 공격 시간을 알면 전체 볼륨을 스냅샷 중 하나로 되돌리는 대신 다양한 스냅샷에서 영향을 받는 파일을 선택적으로 복구할 수 있습니다.
 
 ARP는 검증된 ONTAP 데이터 보호 및 재해 복구 기술을 기반으로 구축되며, 랜섬웨어 공격에 대응합니다. 데이터 복구에 대한 자세한 내용은 다음 항목을 참조하십시오.
 
-* link:../data-protection/restore-contents-volume-snapshot-task.html["Snapshot 복사본에서 복구(System Manager)"]
-* link:../data-protection/restore-contents-volume-snapshot-task.html["스냅샷 복사본에서 파일 복원(CLI)"]
+* link:../data-protection/restore-contents-volume-snapshot-task.html["스냅샷에서 복구(System Manager)"]
+* link:../data-protection/restore-contents-volume-snapshot-task.html["스냅샷에서 파일 복구(CLI)"]
 * link:https://www.netapp.com/blog/smart-ransomware-recovery["스마트 랜섬웨어 복구"^]
 
+
+
+
+== ARP에 대한 다중 관리자 인증 보호
+
+ONTAP 9.13.1 부터는 ARP(Autonomous 랜섬웨어 보호) 구성에 2명 이상의 인증된 사용자 관리자가 필요할 수 있도록 MAV(Multi-admin verification)를 활성화하는 것이 좋습니다. 자세한 내용은 을 참조하십시오 link:../multi-admin-verify/enable-disable-task.html["다중 관리 검증을 활성화합니다"^].

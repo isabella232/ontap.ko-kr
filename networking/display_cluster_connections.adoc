@@ -10,7 +10,7 @@ summary: 클러스터의 모든 액티브 또는 리스닝 연결 또는 클라�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

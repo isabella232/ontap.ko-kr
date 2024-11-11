@@ -4,6 +4,8 @@ title: 릴리스 정보
 entries:
 - title: 주요 내용을 릴리스합니다
   url: "/release-notes/index.html"
+- title: ONTAP 9.16.1의 새로운 기능
+  url: "/release-notes/whats-new-9161.html"
 - title: ONTAP 9.15.1의 새로운 기능
   url: "/release-notes/whats-new-9151.html"
 - title: ONTAP 9.14.1의 새로운 기능

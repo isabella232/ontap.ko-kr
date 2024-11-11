@@ -9,7 +9,7 @@ summary: 역할, 응용 프로그램 및 인증
 :allow-uri-read: 
 :icons: font
 :linkattrs: 
-:imagesdir: ../media
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -58,7 +58,7 @@ FabricPool 미러는 데이터 저장소를 원활하게 대체할 수 있는 �
 +
 이렇게 하면 ONTAP에서 StorageGRID의 데이터에 중단 없이 액세스할 수 있습니다.
 
-** is-certificate-validation-enabled 매개 변수를 false로 설정하면 StorageGRID에 대한 인증서 검사가 비활성화됩니다.
+** 매개 변수를 로 `false` 설정하면 `-is-certificate-validation-enabled` StorageGRID에 대한 인증서 검사가 비활성화됩니다. (`-is-certificate-validation-enabled true`타사 인증 기관에서 서명한 인증서를 사용하는 것이 좋습니다.
 
 
 +

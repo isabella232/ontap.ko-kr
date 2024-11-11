@@ -21,7 +21,7 @@ ONTAP 9.15.1에서 사용할 수 있는 새로운 기능에 대해 알아봅니�
 
 의 업데이트에 대해 알아봅니다 https://docs.netapp.com/us-en/ontap-automation/whats_new.html["ONTAP REST API를 참조하십시오"^].
 
-최신 버전의 ONTAP로 업그레이드하려면 를 참조하십시오 link:../upgrade/prepare.html["ONTAP 업그레이드를 준비합니다"].
+최신 버전의 ONTAP로 업그레이드하려면 를 참조하십시오link:../upgrade/create-upgrade-plan.html["ONTAP 업그레이드를 준비합니다"].
 
 
 

@@ -10,7 +10,7 @@ summary: 관리 SVM의 호스트 테이블에서 호스트 이름 항목을 관�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

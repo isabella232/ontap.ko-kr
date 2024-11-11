@@ -9,7 +9,7 @@ summary: 'OCSP(온라인 인증서 상태 프로토콜)를 사용하면 LDAP 또
 :allow-uri-read: 
 :icons: font
 :linkattrs: 
-:imagesdir: ../media
+:imagesdir: ../media/
 
 
 [role="lead"]

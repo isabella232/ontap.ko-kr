@@ -9,7 +9,7 @@ summary: ONTAP 이벤트를 원격 syslog 서버로 오프로드하여 이벤트
 :allow-uri-read: 
 :icons: font
 :linkattrs: 
-:imagesdir: ../media
+:imagesdir: ../media/
 
 
 [role="lead"]

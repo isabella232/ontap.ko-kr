@@ -21,7 +21,7 @@ ONTAP 9.9.1에서 사용할 수 있는 새로운 기능에 대해 알아보십�
 
 의 업데이트에 대해 알아봅니다 https://docs.netapp.com/us-en/ontap-automation/whats_new.html["ONTAP REST API를 참조하십시오"^].
 
-최신 버전의 ONTAP로 업그레이드하려면 를 참조하십시오 xref:../upgrade/prepare.html[ONTAP 업그레이드를 준비합니다].
+최신 버전의 ONTAP로 업그레이드하려면 를 참조하십시오xref:../upgrade/create-upgrade-plan.html[ONTAP 업그레이드를 준비합니다].
 
 
 
@@ -78,10 +78,10 @@ ONTAP 9.9.1에서 사용할 수 있는 새로운 기능에 대해 알아보십�
 | 업데이트 | 설명 
 
 
-| link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_considerations_layer_3.html["계층 3에서 공유 링크에 대한 IP 지원"^] | MetroCluster IP 구성은 IP 라우팅(계층 3) 백엔드 연결을 통해 구현할 수 있습니다. 
+| link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_considerations_layer_3.html["계층 3에서 공유 링크에 대한 IP 지원"] | MetroCluster IP 구성은 IP 라우팅(계층 3) 백엔드 연결을 통해 구현할 수 있습니다. 
 
 
-| link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_install_and_cable_the_mcc_components.html["8노드 클러스터 지원"^] | 영구 8노드 클러스터는 IP 및 패브릭 연결 구성으로 지원됩니다. 또한 AFF ASA 플랫폼은 8노드 MCC IP 구성을 지원합니다. 
+| link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/task_install_and_cable_the_mcc_components.html["8노드 클러스터 지원"] | 영구 8노드 클러스터는 IP 및 패브릭 연결 구성으로 지원됩니다. 또한 AFF ASA 플랫폼은 8노드 MCC IP 구성을 지원합니다. 
 |===
 MetroCluster 구성에 대한 플랫폼 및 스위치 구성 개선 사항에 대한 자세한 내용은 _ 을(를) 참조하십시오link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["ONTAP 9 릴리즈 노트"^]_.
 

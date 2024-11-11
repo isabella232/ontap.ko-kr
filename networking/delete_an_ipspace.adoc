@@ -10,7 +10,7 @@ summary: 불필요한 IPspace를 제거합니다
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -1,0 +1,144 @@
+---
+permalink: flexgroup/enable-adv-capacity-flexgroup-task.html 
+sidebar: sidebar 
+keywords: flexgroup advanced capacity balancing, flexgroup granular data distribution, gdd, flexgroup, volume, balancing 
+summary: ONTAP 9.16.1부터 고급 용량 밸런싱이 도입되어 매우 큰 파일이 확장되어 하나의 구성원 볼륨에서 공간을 사용할 때 FlexGroup 구성원 볼륨 간에 데이터를 배포할 수 있습니다. 
+---
+= 파일 데이터를 재배포하여 ONTAP FlexGroup 볼륨의 균형을 조정합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.16.1부터 고급 용량 밸런싱을 활성화하여 매우 큰 파일이 확장되어 하나의 구성원 볼륨에서 공간을 사용할 때 FlexGroup 구성원 볼륨 간에 데이터를 배포할 수 있습니다.
+
+고급 용량 밸런싱은 ONTAP 9.12.1에 도입된 세분화된 데이터 기능을 확장하므로 ONTAP에서 파일을 다른 구성원으로 이동할 수 link:manage-flexgroup-rebalance-task.html["FlexGroup 볼륨의 균형 조정"]있습니다. ONTAP 9.16.1부터 고급 용량 균형 조정 옵션을 사용하도록 설정하면 `-granular-data advanced` "기본" 파일 재조정 기능과 고급 용량 기능이 모두 활성화됩니다.
+
+[NOTE]
+====
+파일 재조정과 고급 용량 균형 조정은 기본적으로 해제되어 있습니다. 이러한 기능을 활성화한 후에는 비활성화할 수 없습니다. 용량 밸런싱을 해제해야 하는 경우 고급 용량 밸런싱을 사용하기 전에 생성된 스냅샷에서 복원해야 합니다.
+
+====
+고급 용량 균형 조정은 새로운 쓰기가 볼륨의 여유 공간의 10GB 또는 1%에 도달하면 시작됩니다.
+
+
+
+== 파일 배포 방법
+
+고급 용량 밸런싱을 트리거할 정도로 파일이 생성되거나 커질 경우, 해당 파일은 구성원 FlexGroup 볼륨에 걸쳐 1GB~10GB 사이에 스트라이프로 배포됩니다.
+
+고급 용량 균형 조정이 활성화된 경우 ONTAP는 기존 대용량 파일을 소급 스트라이핑하지 않습니다. 고급 용량 균형 조정이 활성화된 후에도 기존 대용량 파일이 계속 증가하는 경우 기존 대용량 파일의 새 컨텐츠가 파일 크기와 사용 가능한 공간에 따라 멤버 FlexGroup 볼륨에 걸쳐 스트라이핑될 수 있습니다.
+
+고급 용량 밸런싱이 스트라이프 폭을 결정하는 한 가지 방법은 멤버 볼륨에서 사용 가능한 여유 공간을 사용하는 것입니다. 고급 용량 균형 조정은 사용 가능한 여유 공간의 1%인 파일 스트라이프를 생성합니다. 즉, 사용 가능한 공간이 더 많으면 스트라이프가 더 커질 수 있으며 FlexGroup가 가득 차면 더 작아집니다.
+
+고급 용량 균형 조정은 구성원 볼륨에서 사용 가능한 공간 외에도 여러 가지 다른 요소를 사용하여 스트라이프 폭을 결정합니다.
+
+* 최소 스트라이프 폭: 지금까지 선택한 최소 스트라이프 폭은 1GB입니다.
+* 최대 스트라이프 폭: 가능한 가장 큰 스트라이프 폭은 10GB입니다.
+* 세분화: 스트라이프는 항상 1GB의 배수로 생성됩니다.
+
+
+
+
+== 지원되는 프로토콜
+
+다음 프로토콜에서는 고급 용량 밸런싱이 지원됩니다.
+
+* NFSv3, NFSv4, NFSv4.1
+* pNFS를 사용합니다
+* 중소기업
+
+
+
+
+== 고급 용량 밸런싱 활성화
+
+고급 용량 균형 조정은 기본적으로 해제되어 있습니다. FlexGroup 용량의 균형을 자동으로 조정하려면 고급 용량 밸런싱을 활성화해야 합니다. 이 기능을 사용하도록 설정한 후에는 해제할 수 없지만 고급 용량 밸런싱을 사용하도록 설정하기 전에 생성된 스냅샷에서 복원할 수 있습니다.
+
+.시작하기 전에
+* 클러스터의 모든 노드에서 ONTAP 9.16.1 이상이 실행되고 있어야 합니다.
+* 고급 용량 밸런싱을 사용하는 경우 ONTAP 9.16.1 이전 릴리즈로 되돌릴 수 없습니다. 되돌려야 하는 경우 먼저 고급 용량 밸런싱을 사용하도록 설정하기 전에 생성된 스냅샷에서 복구해야 합니다.
+* NFS 복사본 오프로드가 사용된 (`vserver nfs -vstorage enabled`경우)SVM에서 FlexGroup 볼륨에 대해 고급 용량 밸런싱을 활성화할 수 없습니다. 마찬가지로 SVM의 모든 FlexGroup 볼륨에 고급 용량 밸런싱을 활성화한 경우 NFS 복사본 오프로드를 활성화할 수 없습니다.
+* FlexCache 쓰기 저장에서는 고급 용량 밸런싱을 지원하지 않습니다.
+
+
+.이 작업에 대해
+세부적인 데이터 옵션(기본 또는 고급)을 사용하여 DP 대상 볼륨을 생성하는 동안 대상은 SnapMirror 전송이 완료될 때까지 설정을 "사용 안 함"으로 표시합니다. 전송이 완료되면 DP 대상에 세분화된 데이터가 "활성화됨"으로 표시됩니다.
+
+
+
+=== FlexGroup 생성 중에 고급 용량 밸런싱을 사용합니다
+
+.단계
+System Manager 또는 ONTAP CLI를 사용하여 새 FlexGroup 볼륨을 생성할 때 고급 용량 밸런싱을 설정할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+. Storage > Volumes * 로 이동한 후 를 클릭합니다image:icon_add_blue_bg.gif["추가 아이콘"].
+. Add volume * (볼륨 추가 *) 창에서 볼륨 이름과 크기를 입력합니다. 그런 다음 * 추가 옵션 * 을 클릭합니다.
+. 저장 및 최적화 * 아래에서 * 클러스터 전체에 볼륨 데이터 배포(FlexGroup) * 를 선택합니다.
+. Advanced capacity balancing * 을 선택합니다.
+. 볼륨 구성을 마치고 * Save * 를 클릭합니다.
+
+
+--
+.CLI를 참조하십시오
+--
+. 고급 용량 밸런싱이 활성화된 볼륨 생성:
++
+[source, cli]
+----
+volume create -vserver <svm name> -volume <volume name> -size <volume size> -auto-provision-as flexgroup -junction-path /<path> -granular-data advanced
+----
++
+예:
+
++
+[listing]
+----
+volume create -vserver vs0 -volume newvol -size 1TB -auto-provision-as flexgroup -junction-path /newvol -granular-data advanced
+----
+
+
+--
+====
+
+
+=== 기존 FlexGroup 볼륨에서 고급 용량 밸런싱을 지원합니다
+
+.단계
+System Manager 또는 ONTAP CLI를 사용하여 고급 용량 밸런싱을 설정할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+. 스토리지 > 볼륨 * 으로 이동한 후 를 클릭하고 image:icon_kabob.gif["메뉴 옵션 아이콘"]* 편집 > 볼륨 * 을 선택합니다.
+. Edit volume * 창의 * Storage and optimization * 에서 * Advanced capacity balancing * 을 선택합니다.
+. 저장 * 을 클릭합니다.
+
+
+--
+.CLI를 참조하십시오
+--
+. 기존 FlexGroup 볼륨을 수정하여 고급 용량 밸런싱 지원:
++
+[source, cli]
+----
+volume modify -vserver <svm name> -volume <volume name> -granular-data advanced
+----
++
+예:
+
++
+[listing]
+----
+volume modify -vserver vs0 -volume newvol  -granular-data advanced
+----
+
+
+--
+====

@@ -9,7 +9,7 @@ summary: ONTAP 이미지 검증
 :allow-uri-read: 
 :icons: font
 :linkattrs: 
-:imagesdir: ../media
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -9,7 +9,7 @@ summary: ONTAP의 온박스 머신 러닝 기능은 볼륨 워크로드 및 엔�
 :allow-uri-read: 
 :icons: font
 :linkattrs: 
-:imagesdir: ../media
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: DNS 로드 밸런싱 소개
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

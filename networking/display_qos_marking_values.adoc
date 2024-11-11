@@ -10,7 +10,7 @@ summary: IPspace별로 다양한 프로토콜에 대한 QoS 마킹 값을 표시
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

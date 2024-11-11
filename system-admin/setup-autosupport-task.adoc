@@ -40,6 +40,10 @@ system node autosupport modify -support enable
 +
 AutoSupport를 AutoSupport OnDemand와 함께 사용하도록 설정하거나 코어 덤프 및 성능 아카이브 파일과 같은 대용량 파일을 기술 지원 또는 지정된 URL에 업로드하려면 이 옵션을 활성화해야 합니다.
 
++
+
+NOTE: AutoSupport OnDemand는 HTTPS 전송 프로토콜을 사용하여 기술 지원 부서로 메시지를 보내도록 구성된 경우 기본적으로 활성화되며 작동합니다.
+
 . NetApp 기술 지원 부서에서 AutoSupport 메시지를 받도록 설정한 경우 메시지에 사용할 전송 프로토콜을 지정합니다.
 +
 다음 옵션 중에서 선택할 수 있습니다.

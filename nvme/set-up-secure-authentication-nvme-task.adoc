@@ -2,7 +2,7 @@
 permalink: nvme/set-up-secure-authentication-nvme-task.html 
 sidebar: sidebar 
 keywords: manage, nvme, secure, authentication, tcp, dh-hmac-hcap, chap, setting up, set up, in-band, in band 
-summary: ONTAP 9.12.1부터는 DH-HMAC-CHAP 인증 프로토콜을 사용하여 NVMe 호스트와 컨트롤러 간의 양방향 인증이 NVMe를 통해 지원됩니다.    
+summary: ONTAP 9.12.1부터는 DH-HMAC-CHAP 인증 프로토콜을 사용하여 NVMe 호스트와 컨트롤러 간의 양방향 인증이 NVMe를 통해 지원됩니다. 
 ---
 = NVMe를 통해 대역 내 인증을 설정합니다
 :allow-uri-read: 
@@ -11,11 +11,11 @@ summary: ONTAP 9.12.1부터는 DH-HMAC-CHAP 인증 프로토콜을 사용하여 
 
 
 [role="lead"]
-ONTAP 9.12.1부터 ONTAP CLI(명령줄 인터페이스)를 사용하여 DH-HMAC-CHAP 인증을 사용하여 NVMe/TCP 및 NVMe/FC 프로토콜을 통해 NVMe 호스트와 컨트롤러 간에 대역 내(보안), 양방향 및 단방향 인증을 구성할 수 있습니다.  ONTAP 9.14.1부터 System Manager에서 대역 내 인증을 구성할 수 있습니다.
+ONTAP 9.12.1부터 ONTAP CLI(명령줄 인터페이스)를 사용하여 DH-HMAC-CHAP 인증을 사용하여 NVMe/TCP 및 NVMe/FC 프로토콜을 통해 NVMe 호스트와 컨트롤러 간에 대역 내(보안), 양방향 및 단방향 인증을 구성할 수 있습니다. ONTAP 9.14.1부터 System Manager에서 대역 내 인증을 구성할 수 있습니다.
 
-대역내 인증을 설정하려면 각 호스트 또는 컨트롤러가 NVMe 호스트 또는 컨트롤러의 NQN 및 관리자가 구성한 인증 비밀의 조합인 DH-HMAC-CHAP 키와 연결되어야 합니다.  NVMe 호스트 또는 컨트롤러가 해당 피어를 인증하려면 피어와 연결된 키를 알고 있어야 합니다.
+대역내 인증을 설정하려면 각 호스트 또는 컨트롤러가 NVMe 호스트 또는 컨트롤러의 NQN 및 관리자가 구성한 인증 비밀의 조합인 DH-HMAC-CHAP 키와 연결되어야 합니다. NVMe 호스트 또는 컨트롤러가 해당 피어를 인증하려면 피어와 연결된 키를 알고 있어야 합니다.
 
-단방향 인증에서는 호스트에 대해 암호 키가 구성되지만 컨트롤러는 구성되지 않습니다.  양방향 인증에서 비밀 키는 호스트와 컨트롤러 모두에 대해 구성됩니다.
+단방향 인증에서는 호스트에 대해 암호 키가 구성되지만 컨트롤러는 구성되지 않습니다. 양방향 인증에서 비밀 키는 호스트와 컨트롤러 모두에 대해 구성됩니다.
 
 SHA-256은 기본 해시 함수이고 2048비트는 기본 DH 그룹입니다.
 
@@ -42,7 +42,7 @@ DH-HMAC-CHAP 키는 NVMe 호스트 또는 컨트롤러의 NQN과 관리자가 �
 . 저장 * 을 클릭합니다.
 . 대역 내 인증이 활성화되어 있는지 확인하려면 * System Manager > Hosts > NVMe Subsystem > Grid > Peek view * 를 클릭합니다.
 +
-호스트 이름 옆에 투명한 키 아이콘은 단방향 모드가 설정되어 있음을 나타냅니다.  호스트 이름 옆의 불투명 키는 양방향 모드가 활성화되었음을 나타냅니다.
+호스트 이름 옆에 투명한 키 아이콘은 단방향 모드가 설정되어 있음을 나타냅니다. 호스트 이름 옆의 불투명 키는 양방향 모드가 활성화되었음을 나타냅니다.
 
 
 

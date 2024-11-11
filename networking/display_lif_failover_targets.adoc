@@ -10,7 +10,7 @@ summary: LIF의 페일오버 정책과 페일오버 그룹 구성을 확인합�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

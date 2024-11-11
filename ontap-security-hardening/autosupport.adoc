@@ -9,7 +9,7 @@ summary: ONTAP의 AutoSupport 기능을 사용하여 시스템 상태를 사전�
 :allow-uri-read: 
 :icons: font
 :linkattrs: 
-:imagesdir: ../media
+:imagesdir: ../media/
 
 
 [role="lead"]

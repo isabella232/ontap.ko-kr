@@ -59,4 +59,7 @@ xref:concept_upgrade_requirements_for_metrocluster_configurations.html[MetroClus
 
 
 | 관리자 계정이 SSH 공개 키로 인증하는 클러스터에서 SSL FIPS 모드가 활성화됩니까? | xref:considerations-authenticate-ssh-public-key-fips-concept.html[SSH 호스트 키 알고리즘 지원을 확인합니다] 
+
+
+| Autonomous 랜섬웨어 Protection에 활성 경고가 있습니까? | xref:arp-warning-clear.html[비정상적인 활동에 대한 자율적 랜섬웨어 방어 경고에 대응] 
 |===

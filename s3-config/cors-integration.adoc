@@ -1,0 +1,255 @@
+---
+permalink: s3-config/cors-integration.html 
+sidebar: sidebar 
+keywords: cors, cross-origin resource sharing, domain, same origin, s3, s3 api, buckets, nas 
+summary: 'ONTAP 9.16.1부터 웹 브라우저를 사용하여 S3 버킷에 안전하게 액세스할 수 있습니다. 액세스는 CORS(Cross-Origin Resource Sharing) 보안 권장 사항을 구현하여 ONTAP에서 제공됩니다.' 
+---
+= ONTAP와 CORS(Cross-Origin Resource Sharing) 통합
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.16.1부터 CORS(Cross-Origin Resource Sharing)를 구성하여 다른 도메인의 클라이언트 웹 애플리케이션이 ONTAP 버킷을 액세스할 수 있도록 할 수 있습니다. 이렇게 하면 웹 브라우저를 사용하여 버킷 객체에 안전하게 액세스할 수 있습니다.
+
+CORS는 HTTP를 기반으로 하는 프레임워크로, 한 웹 페이지에 정의된 스크립트가 다른 도메인의 서버에 있는 리소스에 액세스할 수 있도록 합니다. 프레임워크는 웹 보안의 초기 기반인 _same-origin policy_를 안전하게 우회하는 데 사용됩니다. 주요 개념 및 용어에 대한 설명은 아래에 나와 있습니다.
+
+.원점
+오리진은 리소스의 위치와 ID를 정확하게 정의합니다. 이 값은 다음 값의 조합으로 표시됩니다.
+
+* URI 체계(프로토콜)
+* 호스트 이름(도메인 이름 또는 IP 주소)
+* 포트 번호입니다
+
+
+원점의 간단한 예는 다음과 같습니다 `https://www.mycompany.com:8001`. 오리진이 CORS와 함께 사용될 때 요청을 하는 클라이언트를 식별합니다.
+
+.동일한 원본 정책입니다
+SOP(동일 원본 정책)는 브라우저 기반 스크립트에 적용되는 보안 개념 및 제한 사항입니다. 이 정책은 두 페이지가 동일한 원본에 있는 경우 웹 페이지에서 처음 로드된 스크립트가 다른 페이지의 데이터에 액세스할 수 있도록 합니다. 이 제한 사항은 악성 스크립트가 다른 오리진 페이지의 데이터에 액세스하는 것을 방지합니다.
+
+.일반적인 CORS 사용 사례
+CORS에는 몇 가지 일반적인 사용 사례가 있습니다. 대부분의 경우 도메인 간 인증뿐만 아니라 AJAX 요청, 글꼴 로드, 스타일시트 및 스크립트와 같이 도메인 간 액세스의 잘 정의된 인스턴스가 포함됩니다. CORS는 단일 페이지 애플리케이션(SPA)의 일부로 구현할 수도 있습니다.
+
+.HTTP 헤더
+CORS는 HTTP 요청 및 응답에 삽입된 헤더를 사용하여 구현됩니다. 예를 들어, 액세스 제어를 구현하고 메서드와 헤더를 포함하여 허용되는 작업을 나타내는 몇 가지 응답 헤더가 있습니다. HTTP 요청에 _Origin_header가 있으면 도메인 간 요청으로 정의됩니다. 오리진 값은 CORS 서버에서 유효한 CORS 구성을 찾는 데 사용됩니다.
+
+.HTTP 사전 전송 요청
+서버가 특정 메서드 및 헤더를 포함하여 CORS를 지원하는지 여부를 초기에 확인하기 위한 선택적 요청입니다. 응답에 따라 CORS 요청을 완료할 수도 있고 완료할 수도 없습니다.
+
+.ONTAP 버킷
+버킷은 잘 정의된 네임스페이스를 기반으로 저장 및 액세스하는 오브젝트의 컨테이너입니다. ONTAP 버킷에는 두 가지 유형이 있습니다.
+
+* NAS 및 S3 프로토콜을 통해 액세스할 수 있는 NAS 버킷입니다
+* S3 프로토콜을 통해서만 액세스할 수 있는 S3 버킷
+
+
+
+
+== ONTAP에서의 CORS 구현
+
+CORS는 ONTAP 9.16.1 이상 릴리즈에서 기본적으로 사용됩니다. 활성화할 각 SVM에서 CORS를 구성해야 합니다.
+
+
+NOTE: ONTAP 클러스터에 대해 CORS를 사용하지 않도록 설정하는 관리 옵션은 없습니다. 그러나 규칙을 정의하지 않거나 기존 규칙을 모두 삭제하여 이 규칙을 효과적으로 비활성화할 수 있습니다.
+
+
+
+=== 가능한 사용 사례
+
+ONTAP CORS 구현은 도메인 간 리소스 액세스를 위한 다음과 같은 몇 가지 가능한 토폴로지를 지원합니다.
+
+* ONTAP S3 버킷(동일하거나 다른 SVM 또는 클러스터 내부)
+* ONTAP NAS 버킷(동일하거나 다른 SVM 또는 클러스터 내)
+* ONTAP S3 및 NAS 버킷(동일하거나 다른 SVM 또는 클러스터 내)
+* ONTAP 버킷 및 외부 공급업체 버킷
+* 다양한 시간대의 버킷
+
+
+
+
+=== 개략적인 보기
+
+다음은 CORS에서 ONTAP S3 버킷에 대한 액세스를 지원하는 방법을 개략적으로 보여 줍니다.
+
+image:s3-cors.png["CORS를 사용하여 S3 버킷을 액세스합니다"]
+
+
+
+=== CORS 규칙 정의
+
+이 기능을 활성화하고 사용하려면 ONTAP에서 CORS 규칙을 정의해야 합니다.
+
+
+
+==== 구성 작업
+
+ONTAP에서 지원되는 세 가지 기본 구성 규칙 동작은 다음과 같습니다.
+
+* 표시
+* 생성
+* 삭제
+
+
+ONTAP에 정의된 CORS 규칙에는 SVM과 버킷은 물론 허용된 오리진, 메서드 및 헤더를 포함한 여러 속성이 있습니다.
+
+
+
+==== 관리 옵션
+
+ONTAP 클러스터에서 CORS를 관리할 때 사용할 수 있는 몇 가지 옵션이 있습니다.
+
+.ONTAP 명령줄 인터페이스입니다
+명령줄 인터페이스를 사용하여 CORS를 구성할 수 있습니다. 자세한 내용은 을 <<CLI를 사용하여 CORS 관리>> 참조하십시오.
+
+.ONTAP REST API를 참조하십시오
+ONTAP REST API를 사용하여 CORS를 구성할 수 있습니다. CORS 기능을 지원하기 위해 추가된 새 끝점이 없습니다. 대신 다음과 같은 기존 끝점을 사용할 수 있습니다.
+
+`/api/protocols/s3/services/{svm.uuid}/buckets/{bucket.uuid}`
+
+ https://docs.netapp.com/us-en/ontap-automation/["ONTAP 자동화"^]자세한 내용은 설명서 사이트를 참조하십시오.
+
+.S3 API를 사용합니다
+S3 API를 사용하여 ONTAP 버킷에서 CORS 구성을 생성하고 삭제할 수 있습니다. S3 클라이언트 관리자는 다음을 비롯하여 충분한 Privileges가 필요합니다.
+
+* 액세스 또는 비밀 키 자격 증명
+* s3api를 통한 액세스를 허용하도록 버킷에 구성된 정책입니다
+
+
+
+
+=== 업그레이드 및 되돌리기
+
+CORS를 사용하여 ONTAP S3 버킷을 액세스하려는 경우 몇 가지 관리 문제를 알고 있어야 합니다.
+
+.업그레이드 중
+모든 노드가 9.16.1로 업그레이드되면 CORS 기능이 지원됩니다. 혼합 모드 클러스터에서 이 기능은 유효 클러스터 버전(ECV)이 9.16.1 이상일 때만 사용할 수 있습니다.
+
+.되돌리기
+사용자 관점에서 클러스터 복원을 진행하기 전에 모든 CORS 구성을 제거해야 합니다. 내부적으로 이 작업은 모든 CORS 데이터베이스를 삭제합니다. 이러한 데이터 구조를 지우고 되돌리는 명령을 실행하라는 메시지가 표시됩니다.
+
+
+
+== CLI를 사용하여 CORS 관리
+
+ONTAP CLI를 사용하여 CORS 규칙을 관리할 수 있습니다. 주요 작업은 아래에 설명되어 있습니다. CORS 명령을 실행하려면 ONTAP * admin * 권한 수준이어야 합니다.
+
+
+
+=== 생성
+
+명령을 사용하여 CORS 규칙을 정의할 수 `vserver object-store-server bucket cors-rule create` 있습니다.
+
+.매개 변수
+규칙을 만드는 데 사용되는 매개 변수는 아래에 설명되어 있습니다.
+
+[cols="30,70"]
+|===
+| 매개 변수 | 설명 
+
+
+ a| 
+`vserver`
+ a| 
+규칙이 생성되는 오브젝트 저장소 서버 버킷을 호스팅하는 SVM(SVM)의 이름을 지정합니다.
+
+
+
+ a| 
+`bucket`
+ a| 
+규칙이 생성되는 오브젝트 저장소 서버의 버킷 이름입니다.
+
+
+
+ a| 
+`index`
+ a| 
+규칙이 생성되는 개체 저장소 서버 버킷의 인덱스를 나타내는 선택적 매개 변수입니다.
+
+
+
+ a| 
+`rule id`
+ a| 
+오브젝트 저장소 서버 버킷 규칙의 고유 식별자입니다.
+
+
+
+ a| 
+`allowed-origins`
+ a| 
+오리진 간 요청이 출발할 수 있는 오리진 목록입니다.
+
+
+
+ a| 
+`allowed-methods`
+ a| 
+오리진 간 요청에서 허용되는 HTTP 메서드 목록입니다.
+
+
+
+ a| 
+`allowed-headers`
+ a| 
+오리진 간 요청에 허용되는 HTTP 메서드 목록입니다.
+
+
+
+ a| 
+`expose-headers`
+ a| 
+고객이 애플리케이션에서 액세스할 수 있는 CORS 응답에 보내는 추가 헤더 목록입니다.
+
+
+
+ a| 
+`max-age-in-seconds`
+ a| 
+브라우저가 특정 리소스에 대해 비행 전 응답을 캐시해야 하는 시간을 지정하는 선택적 매개 변수입니다.
+
+|===
+.예
+[listing]
+----
+vserver object-store-server bucket cors-rule create -vserver vs1 -bucket bucket1 -allowed-origins www.myexample.com -allowed-methods GET,DELETE
+----
+
+
+=== 표시
+
+명령을 사용하여 현재 규칙 및 해당 내용의 목록을 표시할 수 `vserver object-store-server bucket cors-rule show` 있습니다.
+
+
+NOTE: 매개 변수를 포함하면 `-instance` 각 규칙에 대해 제공되는 데이터가 확장됩니다. 원하는 필드를 지정할 수도 있습니다.
+
+.예
+[listing]
+----
+server object-store-server bucket cors-rule show -instance
+----
+
+
+=== 삭제
+
+delete 명령을 사용하여 CORS 규칙의 인스턴스를 제거할 수 있습니다.  `index`규칙 값이 필요하므로 이 작업은 다음 두 단계로 수행됩니다.
+
+.  `show`명령을 실행하여 규칙을 표시하고 해당 인덱스를 검색합니다.
+. 인덱스 값을 사용하여 삭제를 실행합니다.
+
+
+.예
+[listing]
+----
+vserver object-store-server bucket cors-rule delete -vserver vs1 -bucket bucket1 -index 1
+----
+
+
+=== 수정
+
+기존 CORS 규칙을 수정하는 데 사용할 수 있는 CLI 명령이 없습니다. 규칙을 수정하려면 다음을 수행해야 합니다.
+
+. 기존 규칙을 삭제합니다.
+. 원하는 옵션을 사용하여 새 규칙을 만듭니다.
+

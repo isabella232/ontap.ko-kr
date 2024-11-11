@@ -51,6 +51,8 @@ entries:
     url: "/revert/task_disable_asuo.html"
   - title: IPsec을 비활성화합니다
     url: "/revert/task-disable-ipsec.html"
+  - title: NVMe 호스트에서 TLS를 사용하지 않도록 설정합니다
+    url: "/revert/task-disable-tls-nvme-host.html"
 - title: 복원 소프트웨어 이미지를 구해서 설치하려면 어떻게 해야 합니까?
   url: "/revert/task_download_and_install_ontap_software_image.html"
 - title: 내 클러스터를 되돌립니다

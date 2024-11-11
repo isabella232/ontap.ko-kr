@@ -4,7 +4,7 @@ permalink: multi-admin-verify/index.html
 keywords: ontap, mav, multi admin verify, RBAC, protected, operation, multi-admin, administrator, verification, approval, rules 
 summary: 'ONTAP 9.11.1부터 MAV(다중 관리자 확인)를 사용하여 지정된 관리자의 승인 후에만 일부 작업을 실행할 수 있습니다' 
 ---
-= 다중 관리 검증 개요
+= ONTAP 다중 관리자 인증 개요
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -25,14 +25,14 @@ ONTAP 9.11.1부터 MAV(Multi-admin verification)를 사용하여 볼륨 삭제 �
 다중 관리자 확인이 활성화된 경우 모든 보호된 작업을 완료하려면 다음 단계를 수행해야 합니다.
 
 . 사용자가 작업을 시작하면, 가 표시됩니다 link:request-operation-task.html["요청이 생성되었습니다."]
-. 실행하기 전에 최소 1개 이상 link:manage-requests-task.html["MAV 관리자가 승인해야 합니다."]
-. 승인 시 사용자는 작업을 완료합니다.
+. 작업을 실행하기 전에 하나 이상의 작업을 수행합니다 link:manage-requests-task.html["MAV 관리자가 승인해야 합니다."]
+. 승인되면 사용자에게 메시지가 표시되고 작업이 완료됩니다.
 
 
 
 NOTE: MAV 관리자의 승인 없이 다중 관리 검증 기능을 사용하지 않도록 설정해야 하는 경우 NetApp Support에 다음 기술 자료 문서를 멘션하십시오. https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_disable_Multi-Admin_Verification_if_MAV_admin_is_unavailable["MAV 관리자를 사용할 수 없는 경우 다중 관리 확인을 비활성화하는 방법"^].
 
-멀티 관리 검증은 작업이 완료되기 전에 각 자동화 작업이 승인을 받아야 하기 때문에 대량 자동화가 필요한 볼륨 또는 워크플로우에서 사용할 수 없습니다.  자동화와 MAV를 함께 사용하려면 특정 MAV 작업에 쿼리를 사용하는 것이 좋습니다. 예를 들어, 지원할 수 있습니다 `volume delete` MAV 규칙은 자동화가 관련되지 않은 볼륨에만 적용되며 특정 명명 체계를 사용하여 해당 볼륨을 지정할 수 있습니다.
+멀티 관리 검증은 작업이 완료되기 전에 각 자동화 작업이 승인을 받아야 하기 때문에 대량 자동화가 필요한 볼륨 또는 워크플로우에서 사용할 수 없습니다. 자동화와 MAV를 함께 사용하려면 특정 MAV 작업에 대한 쿼리를 사용하는 것이 좋습니다. 예를 들어, 자동화가 관련되지 않은 볼륨에만 MAV 규칙을 적용할 수 `volume delete` 있으며 특정 명명 체계를 사용하여 해당 볼륨을 지정할 수 있습니다.
 
 
 NOTE: Cloud Volumes ONTAP에서는 다중 관리자 인증을 사용할 수 없습니다.
@@ -89,6 +89,122 @@ admin이 여러 개인 검증이 필요한 명령 세트 제어
 
 [role="tabbed-block"]
 ====
+.9.16.1
+--
+* `cluster date modify` (영어
+* `cluster log-forwarding create` (영어
+* `cluster log-forwarding delete` (영어
+* `cluster log-forwarding modify` (영어
+* '클러스터 피어 삭제'
+* `cluster time-service ntp server create` (영어
+* `cluster time-service ntp server delete` (영어
+* `cluster time-service ntp server key create` (영어
+* `cluster time-service ntp server key delete` (영어
+* `cluster time-service ntp server key modify` (영어
+* `cluster time-service ntp server modify` (영어
+* 이벤트 구성 수정
+* `lun delete` (영어
+* `security anti-ransomware volume attack clear-suspect` ^1^
+* `security anti-ransomware volume disable` ^1^
+* `security anti-ransomware volume event-log modify` (영어
+* `security anti-ransomware volume pause` ^1^
+* `security anti-ransomware vserver event-log modify` (영어
+* `security audit modify` (영어
+* `security ipsec config modify` (영어
+* `security ipsec policy create` (영어
+* `security ipsec policy delete` (영어
+* `security ipsec policy modify` (영어
+* '보안 로그인 생성'
+* '보안 로그인 삭제
+* 보안 로그인 수정
+* `security key-manager onboard update-passphrase` (영어
+* `security saml-sp create` (영어
+* `security saml-sp delete` (영어
+* `security saml-sp modify` (영어
+* `snaplock legal-hold end` (영어
+* `storage aggregate delete` (영어
+* `storage aggregate offline` (영어
+* `storage encryption disk destroy` (영어
+* `storage encryption disk modify` (영어
+* `storage encryption disk revert-to-original-state` (영어
+* `storage encryption disk sanitize` (영어
+* `system bridge run-cli` (영어
+* `system controller flash-cache secure-erase run` (영어
+* `system controller service-event delete` (영어
+* `system health alert delete` (영어
+* `system health alert modify` (영어
+* `system health policy definition modify` (영어
+* `system node autosupport modify` (영어
+* `system node autosupport trigger modify` (영어
+* `system node coredump delete` (영어
+* `system node coredump delete-all` (영어
+* `system node hardware nvram-encryption modify` (영어
+* '시스템 노드 실행
+* '시스템 노드 시스템 쉘'
+* `system script delete` (영어
+* `system service-processor ssh add-allowed-addresses` (영어
+* `system service-processor ssh remove-allowed-addresses` (영어
+* `system smtape restore` (영어
+* `system switch ethernet log disable-collection` (영어
+* `system switch ethernet log modify` (영어
+* `timezone` (영어
+* `volume create` (영어
+* '볼륨 삭제'
+* `volume encryption conversion start` (영어
+* `volume encryption rekey start` (영어
+* `volume file privileged-delete` (영어
+* 볼륨 FlexCache 삭제
+* `volume modify` (영어
+* `volume recovery-queue modify` ^2^
+* `volume recovery-queue purge` ^2^
+* `volume recovery-queue purge-all` ^2^
+* `volume snaplock modify` ^1^
+* '볼륨 스냅샷 자동 삭제 수정'
+* `volume snapshot create` (영어
+* '볼륨 스냅샷 삭제'
+* `volume snapshot modify` (영어
+* 볼륨 스냅샷 정책 추가 스케줄
+* 볼륨 스냅샷 정책 생성
+* 볼륨 스냅샷 정책 삭제
+* 볼륨 스냅샷 정책 수정
+* 볼륨 스냅샷 정책 수정 스케줄
+* 볼륨 스냅샷 정책 제거 스케줄
+* `volume snapshot rename` (영어
+* '볼륨 스냅샷 복원'
+* `vserver audit create` (영어
+* `vserver audit delete` (영어
+* `vserver audit disable` (영어
+* `vserver audit modify` (영어
+* `vserver audit rotate-log` (영어
+* `vserver create` (영어
+* `vserver consistency-group create` (영어
+* `vserver consistency-group delete` (영어
+* `vserver consistency-group modify` (영어
+* `vserver consistency-group snapshot create` (영어
+* `vserver consistency-group snapshot delete` (영어
+* `vserver delete` (영어
+* `vserver modify` ^2^
+* `vserver object-store-server audit create` (영어
+* `vserver object-store-server audit delete` (영어
+* `vserver object-store-server audit disable` (영어
+* `vserver object-store-server audit modify` (영어
+* `vserver object-store-server audit rotate-log` (영어
+* `vserver options` (영어
+* 'vserver peer delete
+* `vserver security file-directory apply` (영어
+* `vserver security file-directory remove-slag` (영어
+* `vserver stop` (영어
+* `vserver vscan disable` (영어
+* `vserver vscan on-access-policy create` (영어
+* `vserver vscan on-access-policy delete` (영어
+* `vserver vscan on-access-policy disable` (영어
+* `vserver vscan on-access-policy modify` (영어
+* `vserver vscan scanner-pool create` (영어
+* `vserver vscan scanner-pool delete` (영어
+* `vserver vscan scanner-pool modify` (영어
+
+
+--
 .9.15.1
 --
 * `cluster date modify` (영어
@@ -287,9 +403,10 @@ admin이 여러 개인 검증이 필요한 명령 세트 제어
 . 9.13.1에 대한 새로운 규칙 보호 명령입니다
 . 9.14.1에 대한 새로운 규칙 보호 명령입니다
 . 9.15.1에 대한 새로운 규칙 보호 명령입니다
+. 9.16.1에 대한 새로운 규칙 보호 명령입니다
 
 
-*이 명령은 CLI에서만 사용할 수 있으며 System Manager에서는 사용할 수 없습니다.
+*이 명령은 CLI에서만 사용할 수 있으며 일부 릴리즈에서는 System Manager에서 사용할 수 없습니다.
 
 
 
@@ -340,7 +457,7 @@ MAV 관리자는 전자 메일 알림(EMS 사용)으로 승인 요청을 받거�
 요청자가 작업에 대해 동일한 승인 그룹에 있는 경우 요청이 승인되면 이메일을 받게 됩니다.
 
 
-NOTE: 요청자는 승인 그룹에 있는 경우에도 자신의 요청을 승인할 수 없습니다. 이메일 알림을 받을 수 있습니다. 승인 그룹에 없는 요청자(즉, MAV 관리자가 아닌)는 이메일 알림을 받지 않습니다.
+NOTE: 요청자는 승인 그룹에 있는 경우에도 자신의 요청을 승인할 수 없습니다(자신의 요청에 대한 전자 메일 알림을 받을 수는 있음). 승인 그룹에 없는 요청자(즉, MAV 관리자가 아닌)는 이메일 알림을 받지 않습니다.
 
 
 

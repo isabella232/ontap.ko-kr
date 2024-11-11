@@ -10,7 +10,7 @@ summary: 새 IPspace에 추가할 브로드캐스트 도메인을 구성하려�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

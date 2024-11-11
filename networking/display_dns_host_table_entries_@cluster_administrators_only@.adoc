@@ -10,7 +10,7 @@ summary: 클러스터의 모든 SVM에 대해 호스트 및 별칭 이름과 매
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

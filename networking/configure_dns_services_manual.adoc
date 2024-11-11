@@ -10,7 +10,7 @@ summary: NFS 또는 SMB 서버를 생성하기 전에 SVM을 위한 DNS 서비�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: 물리적 네트워크 포트의 자동 협상, 이중, 흐름 제어, 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

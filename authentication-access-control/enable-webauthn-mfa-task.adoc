@@ -1,0 +1,112 @@
+---
+sidebar: sidebar 
+permalink: authentication-access-control/enable-webauthn-mfa-task.html 
+keywords: mfa, multi-factor, authentication, authorization, webauthn, FIDO2, hardware key, enable, system manager 
+summary: System Manager 사용자에 대해 WebAuthn MFA를 활성화할 수 있습니다. 
+---
+= ONTAP 시스템 관리자 사용자 또는 그룹에 대해 WebAuthn MFA를 활성화합니다
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+ONTAP 관리자는 WebAuthn MFA 옵션이 활성화된 새 사용자 또는 그룹을 추가하거나 기존 사용자 또는 그룹에 대한 옵션을 활성화하여 시스템 관리자 사용자 또는 그룹에 대해 WebAuthn MFA를 활성화할 수 있습니다.
+
+
+NOTE: WebAuthn MFA를 사용자 또는 그룹에 대한 두 번째 인증 방법으로 활성화하면 사용자(또는 해당 그룹의 모든 사용자)는 다음에 System Manager에 로그인할 때 하드웨어 FIDO2 장치를 등록하라는 메시지가 표시됩니다. 이 등록은 사용자의 로컬 운영 체제에 의해 처리되며, 일반적으로 보안 키 삽입, 암호 작성 및 보안 키(지원되는 경우)로 구성됩니다.
+
+
+
+== 새 사용자 또는 그룹을 만들 때 WebAuthn MFA를 활성화합니다
+
+System Manager 또는 ONTAP CLI를 사용하여 WebAuthn MFA가 설정된 새 사용자 또는 그룹을 생성할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+. 클러스터 > 설정 * 을 선택합니다.
+. 사용자 및 역할 * 옆에 있는 화살표 아이콘을 선택합니다.
+. 사용자 * 아래에서 * 추가 * 를 선택합니다.
+. 사용자 또는 그룹 이름을 지정하고 * Role * 의 드롭다운 메뉴에서 역할을 선택합니다.
+. 사용자 또는 그룹의 로그인 방법과 암호를 지정합니다.
++
+WebAuthn MFA는 사용자를 위한 "password", "domain" 또는 "nsswitch", 그룹에 대한 "domain" 또는 "nsswitch"의 로그인 방법을 지원합니다.
+
+. HTTP * 용 MFA 열에서 * 사용 * 을 선택합니다.
+. 저장 * 을 선택합니다.
+
+
+--
+.CLI를 참조하십시오
+--
+. WebAuthn MFA를 사용하도록 설정한 새 사용자 또는 그룹을 만듭니다.
++
+다음 예제에서 WebAuthn MFA는 두 번째 인증 방법으로 "publickey"를 선택하여 사용할 수 있습니다.
+
++
+[source, console]
+----
+security login create -user-or-group-name <user_or_group_name> \
+                     -authentication-method domain \
+                     -second-authentication-method publickey \
+                     -application http \
+                     -role admin
+----
+
+
+--
+====
+
+
+== 기존 사용자 또는 그룹에 대해 WebAuthn MFA를 활성화합니다
+
+기존 사용자 또는 그룹에 대해 WebAuthn MFA를 활성화할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+. 클러스터 > 설정 * 을 선택합니다.
+. 사용자 및 역할 * 옆에 있는 화살표 아이콘을 선택합니다.
+. 사용자 및 그룹 목록에서 편집할 사용자 또는 그룹의 옵션 메뉴를 선택합니다.
++
+WebAuthn MFA는 사용자를 위한 "password", "domain" 또는 "nsswitch", 그룹에 대한 "domain" 또는 "nsswitch"의 로그인 방법을 지원합니다.
+
+. 해당 사용자의 * MFA for HTTP * 열에서 * Enabled * 를 선택합니다.
+. 저장 * 을 선택합니다.
+
+
+--
+.CLI를 참조하십시오
+--
+. 기존 사용자 또는 그룹을 수정하여 해당 사용자 또는 그룹에 대해 WebAuthn MFA를 활성화합니다.
++
+다음 예제에서 WebAuthn MFA는 두 번째 인증 방법으로 "publickey"를 선택하여 사용할 수 있습니다.
+
++
+[source, console]
+----
+security login modify -user-or-group-name <user_or_group_name> \
+                     -authentication-method domain \
+                     -second-authentication-method publickey \
+                     -application http \
+                     -role admin
+----
+
+
+--
+====
+
+
+== 자세한 정보
+
+이러한 명령에 대한 자세한 내용은 ONTAP 설명서 페이지를 참조하십시오.
+
+* https://docs.netapp.com/us-en/ontap-cli/security-login-create.html["보안 로그인 생성"^]
+* https://docs.netapp.com/us-en/ontap-cli/security-login-modify.html["보안 로그인 수정"^]
+

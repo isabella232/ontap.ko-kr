@@ -10,7 +10,7 @@ summary: ONTAP의 VLAN을 사용하여 물리적 경계에 정의된 기존 브�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

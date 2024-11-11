@@ -1,0 +1,19 @@
+---
+permalink: upgrade/arp-warning-clear.html 
+sidebar: sidebar 
+keywords: ontap, upgrade, ransomware, protection, security, arp 
+summary: ONTAP를 업그레이드하기 전에 TLS를 사용하도록 LDAP 서버와의 보안 통신을 위해 SSLv3을 사용하여 LDAP 클라이언트를 구성합니다. 업그레이드 후에는 SSL을 사용할 수 없습니다. 
+---
+= 자율적 랜섬웨어 방어(ARP)에서 비정상적인 활동 경고에 대응
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.16.1 이상으로 업그레이드하기 전에 ARP(자율적 랜섬웨어 방어)에서 보고하는 비정상적인 활동 경고에 대응해야 합니다. ONTAP 9.16.1에서 ARP는 머신 러닝/인공 지능(AI) 기반 모델로 변경되었습니다. 이 변경으로 인해 ONTAP 9.15.1 또는 이전 버전의 기존 ARP에서 해결되지 않은 활성 경고는 업그레이드 후 손실됩니다.
+
+.단계
+. 에서 보고한 비정상적인 활동 경고에 응답하고 link:../anti-ransomware/respond-abnormal-task.html["아프"]잠재적인 문제를 해결합니다.
+. 업그레이드 전에 * 업데이트 및 의심되는 파일 유형 지우기 * 를 선택하여 이러한 문제의 해결을 확인하고 결정을 기록하고 정상적인 ARP 모니터링을 재개하십시오.
+

@@ -10,7 +10,7 @@ summary: 인터페이스 그룹 구성을 확인합니다
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

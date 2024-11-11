@@ -10,7 +10,7 @@ summary: 브로드캐스트 도메인에서 포트를 수동으로 추가 및 �
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

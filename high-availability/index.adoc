@@ -10,7 +10,7 @@ summary: 테이크오버는 노드가 파트너의 스토리지를 제어하는 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

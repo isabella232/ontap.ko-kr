@@ -10,7 +10,7 @@ summary: 동적 경로를 제거하여 경로가 만료될 때 연결이 끊어�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

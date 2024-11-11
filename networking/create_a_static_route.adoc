@@ -10,7 +10,7 @@ summary: SVM 내에서 정적 경로를 생성하여 LIF가 아웃바운드 트�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

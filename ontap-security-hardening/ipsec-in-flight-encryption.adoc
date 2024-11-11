@@ -9,7 +9,7 @@ summary: IPsec은 NFS 또는 SMB/CIFS 암호화에 대한 대안을 제공하며
 :allow-uri-read: 
 :icons: font
 :linkattrs: 
-:imagesdir: ../media
+:imagesdir: ../media/
 
 
 [role="lead"]

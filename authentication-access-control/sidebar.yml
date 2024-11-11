@@ -14,8 +14,18 @@ entries:
     entries:
     - title: 인증 서버 및 토큰
       url: "/authentication/oauth2-as-servers.html"
-    - title: 클라이언트 인증 옵션
-      url: "/authentication/oauth2-authorization.html"
+    - title: 클라이언트 인증
+      entries:
+      - title: 개요 및 옵션
+        url: "/authentication/oauth2-authorization.html"
+      - title: 독립형 범위
+        url: "/authentication/oauth2-sc-scopes.html"
+      - title: 그룹 작업
+        url: "/authentication/oauth2-groups.html"
+      - title: 외부 역할 매핑
+        url: "/authentication/oauth2-external-roles.html"
+      - title: ONTAP에서 액세스를 결정하는 방법
+        url: "/authentication/oauth2-determine-access.html"
     - title: 배포 시나리오
       url: "/authentication/oauth2-deployment-scenarios.html"
     - title: MTL을 사용한 클라이언트 인증
@@ -30,6 +40,16 @@ entries:
       url: "/authentication/oauth2-rest-api.html"
 - title: SAML을 사용한 인증 및 권한 부여
   url: "/system-admin/configure-saml-authentication-task.html"
+- title: WebAuthn MFA를 사용한 인증 및 권한 부여
+  entries:
+  - title: WebAuthn MFA 개요
+    url: "/authentication-access-control/webauthn-mfa-overview.html"
+  - title: WebAuthn MFA를 활성화합니다
+    url: "/authentication-access-control/enable-webauthn-mfa-task.html"
+  - title: WebAuthn MFA를 비활성화합니다
+    url: "/authentication-access-control/disable-webauthn-mfa-task.html"
+  - title: WebAuthn MFA 설정을 보고 자격 증명을 관리합니다
+    url: "/authentication-access-control/manage-webauthn-settings-credentials.html"
 - title: 웹 서비스 관리
   entries:
   - title: 개요

@@ -10,7 +10,7 @@ summary: 인접 검색 프로토콜을 사용하여 물리적 또는 가상 시�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

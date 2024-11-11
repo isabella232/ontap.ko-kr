@@ -10,7 +10,7 @@ summary: 하나 이상의 SVM에 대한 DNS 도메인 구성을 확인합니다
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

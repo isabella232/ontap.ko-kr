@@ -9,7 +9,7 @@ summary: 스냅샷 복사본 잠금은 SnapLock 기술을 사용한 스냅샷 �
 :allow-uri-read: 
 :icons: font
 :linkattrs: 
-:imagesdir: ../media
+:imagesdir: ../media/
 
 
 [role="lead"]

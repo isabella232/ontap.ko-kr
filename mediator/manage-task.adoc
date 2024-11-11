@@ -220,6 +220,13 @@ SCST를 제거하려면 설치된 ONTAP 중재자 버전에 사용되는 SCST ta
 
 
  a| 
+ONTAP 중재자 1.9
+ a| 
+scst-3.8.0.tar.bz2
+
+
+
+ a| 
 ONTAP 중재자 1.8
  a| 
 scst-3.8.0.tar.bz2
@@ -435,7 +442,7 @@ Getting CA Private Key
 
 [CAUTION]
 ====
-* 타사 인증서는 특정 ONTAP 버전의 ONTAP 중재자에서만 지원됩니다. 을 link:https://mysupport.netapp.com/site/bugs-online/product/ONTAP/JiraNgage/CONTAP-243278["NetApp 버그 온라인 버그 ID CONTAP-243278"^]참조하십시오.
+* 타사 인증서는 ONTAP 9.16.1 및 일부 이전 ONTAP 패치 릴리스에서만 지원됩니다. 을 link:https://mysupport.netapp.com/site/bugs-online/product/ONTAP/JiraNgage/CONTAP-243278["NetApp 버그 온라인 버그 ID CONTAP-243278"^]참조하십시오.
 * 타사 인증서는 ONTAP mediator 1.7 이상을 실행하는 시스템에서만 지원됩니다.
 
 

@@ -9,7 +9,7 @@ summary: OAuth 2.0 토큰은 사용자 계정 인증을 위한 암호를 대체�
 :allow-uri-read: 
 :icons: font
 :linkattrs: 
-:imagesdir: ../media
+:imagesdir: ../media/
 
 
 [role="lead"]

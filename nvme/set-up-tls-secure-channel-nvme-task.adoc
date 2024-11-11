@@ -1,0 +1,64 @@
+---
+permalink: nvme/set-up-tls-secure-channel-nvme-task.html 
+sidebar: sidebar 
+keywords: manage, nvme, secure, encryption, in-flight, tls secure channel, tcp, tls, encrypt, enable, set up 
+summary: ONTAP 9.16.1부터 NVMe/TCP 연결에 TLS 보안 채널을 활성화 및 비활성화할 수 있습니다. 
+---
+= NVMe/TCP에 대한 TLS 보안 채널을 설정합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.16.1부터, NVMe/TCP 연결을 위해 TLS 보안 채널을 구성할 수 있습니다. System Manager 또는 ONTAP CLI를 사용하여 TLS가 지원되는 새 NVMe 서브시스템을 추가하거나 기존 NVMe 서브시스템에 대해 TLS를 활성화할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+ONTAP 9.16.1부터는 System Manager를 사용하여 NVMe 서브시스템을 생성 또는 업데이트하거나, NVMe 네임스페이스를 생성 또는 복제하거나, 새로운 NVMe 네임스페이스로 일관성 그룹을 추가하는 동안 NVMe/TCP 연결용 TLS를 구성할 수 있습니다.
+
+.단계
+. System Manager에서 * Hosts > NVMe Subsystem * 을 클릭하고 * Add * 를 클릭합니다.
+. NVMe 서브시스템 이름을 추가하고 스토리지 VM 및 호스트 운영 체제를 선택합니다.
+. 호스트 NQN을 입력합니다.
+. 호스트 NQN 옆에 있는 * 전송 계층 보안(TLS) 필요 * 를 선택합니다.
+. 사전 공유 키(PSK)를 제공합니다.
+. 저장 * 을 클릭합니다.
+. TLS 보안 채널이 활성화되어 있는지 확인하려면 * System Manager > 호스트 > NVMe 하위 시스템 > 그리드 > Peek view * 를 선택합니다.
+
+
+--
+.CLI를 참조하십시오
+--
+.단계
+. TLS 보안 채널을 지원하는 NVMe 서브시스템 호스트를 추가합니다. 인수를 사용하여 사전 공유 키(PSK)를 제공하거나 인수를 사용하여 생성된 PSK를 사용할 `tls-generated-psk` 수 `tls-configured-psk` 있습니다.
++
+[source, cli]
+----
+vserver nvme subsystem host add -vserver <svm_name> -subsystem <subsystem> -host-nqn <host_nqn> {-tls-configured-psk <key_text> | -tls-generated-psk true}
+----
+. NVMe 서브시스템 호스트가 TLS 보안 채널에 대해 구성되어 있는지 확인합니다. 선택적으로 인수를 사용하여 해당 키 유형을 사용하는 호스트만 표시할 수 `tls-key-type` 있습니다.
++
+[source, cli]
+----
+vserver nvme subsystem host show -vserver <svm_name> -subsystem <subsystem> -host-nqn <host_nqn> -tls-key-type {none|configured|generated}
+----
+. NVMe 서브시스템 호스트 컨트롤러가 TLS 보안 채널에 대해 구성되어 있는지 확인합니다. 선택적으로, `tls-identity` 또는 `tls-cipher` 인수를 사용하여 해당 TLS 특성이 있는 컨트롤러만 표시할 수 있습니다 `tls-key-type`.
++
+[source, cli]
+----
+vserver nvme subsystem controller show -vserver <svm_name> -subsystem <subsystem> -host-nqn <host_nqn> -tls-key-type {none|configured|generated} -tls-identity <text> -tls-cipher {none|TLS_AES_128_GCM_SHA256|TLS_AES_256_GCM_SHA384}
+----
+
+
+--
+====
+.자세한 정보
+이러한 명령에 대한 자세한 내용은 ONTAP 설명서 페이지를 참조하십시오.
+
+* https://docs.netapp.com/us-en/ontap-cli/vserver-nvme-subsystem-host-add.html["SVM NVMe 서브시스템 호스트 추가"^]
+* https://docs.netapp.com/us-en/ontap-cli/vserver-nvme-subsystem-host-show.html["SVM NVMe 하위 시스템 호스트 표시"^]
+* https://docs.netapp.com/us-en/ontap-cli/vserver-nvme-subsystem-controller-show.html["SVM NVMe 하위 시스템 컨트롤러 표시"^]
+

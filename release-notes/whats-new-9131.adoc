@@ -21,7 +21,7 @@ ONTAP 9.13.1에서 사용 가능한 새로운 기능에 대해 알아보십시�
 
 의 업데이트에 대해 알아봅니다 https://docs.netapp.com/us-en/ontap-automation/whats_new.html["ONTAP REST API를 참조하십시오"^].
 
-ONTAP를 업그레이드하려면 을 참조하십시오 xref:../upgrade/prepare.html[ONTAP 업그레이드를 준비합니다].
+ONTAP를 업그레이드하려면 을 xref:../upgrade/create-upgrade-plan.html[ONTAP 업그레이드를 준비합니다]참조하십시오.
 
 
 
@@ -74,22 +74,22 @@ ONTAP를 업그레이드하려면 을 참조하십시오 xref:../upgrade/prepare
 | 업데이트 | 설명 
 
 
-| link:https://docs.netapp.com/us-en/ontap-metrocluster/transition/concept_nondisruptively_transitioning_from_a_four_node_mcc_fc_to_a_mcc_ip_configuration.html["MetroCluster IP 및 이더넷 연결 스토리지의 공유 스위치를 사용하여 MetroCluster FC에서 MetroCluster IP로 전환합니다"^] | 공유 스위치를 사용하면 MetroCluster FC에서 MetroCluster IP 구성(ONTAP 9.8 이상)으로 중단 없이 전환할 수 있습니다. 
+| link:https://docs.netapp.com/us-en/ontap-metrocluster/transition/concept_nondisruptively_transitioning_from_a_four_node_mcc_fc_to_a_mcc_ip_configuration.html["MetroCluster IP 및 이더넷 연결 스토리지의 공유 스위치를 사용하여 MetroCluster FC에서 MetroCluster IP로 전환합니다"] | 공유 스위치를 사용하면 MetroCluster FC에서 MetroCluster IP 구성(ONTAP 9.8 이상)으로 중단 없이 전환할 수 있습니다. 
 
 
-| link:https://docs.netapp.com/us-en/ontap-metrocluster/transition/concept_nondisruptively_transitioning_from_a_four_node_mcc_fc_to_a_mcc_ip_configuration.html["8노드 MetroCluster FC 구성에서 MetroCluster IP 구성으로 무중단 전환"^] | 기존 8노드 MetroCluster FC 구성에서 새 MetroCluster IP 구성으로 중단 없이 워크로드와 데이터를 전환할 수 있습니다. 
+| link:https://docs.netapp.com/us-en/ontap-metrocluster/transition/concept_nondisruptively_transitioning_from_a_four_node_mcc_fc_to_a_mcc_ip_configuration.html["8노드 MetroCluster FC 구성에서 MetroCluster IP 구성으로 무중단 전환"] | 기존 8노드 MetroCluster FC 구성에서 새 MetroCluster IP 구성으로 중단 없이 워크로드와 데이터를 전환할 수 있습니다. 
 
 
-| link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/task_upgrade_controllers_system_control_commands_in_a_four_node_mcc_ip.html["스위치오버 및 스위치백을 사용한 4노드 MetroCluster IP 구성 업그레이드"^] | 스위치오버 및 스위치백을 사용하여 4노드 MetroCluster IP 구성에서 컨트롤러를 업그레이드합니다 `system controller replace` 명령. 
+| link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/task_upgrade_controllers_system_control_commands_in_a_four_node_mcc_ip.html["스위치오버 및 스위치백을 사용한 4노드 MetroCluster IP 구성 업그레이드"] | 스위치오버 및 스위치백을 사용하여 4노드 MetroCluster IP 구성에서 컨트롤러를 업그레이드합니다 `system controller replace` 명령. 
 
 
-| link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_considerations_mediator.html#interoperability-of-ontap-mediator-with-other-applications-and-appliances["환경 종료를 위해 중재자 지원 자동 계획되지 않은 전환(MAUSO)이 트리거됩니다"^] | 환경 가동 중단으로 인해 한 사이트가 정상적으로 종료되면 MAUSO가 트리거됩니다. 
+| link:https://docs.netapp.com/us-en/ontap-metrocluster/install-ip/concept_considerations_mediator.html#interoperability-of-ontap-mediator-with-other-applications-and-appliances["환경 종료를 위해 중재자 지원 자동 계획되지 않은 전환(MAUSO)이 트리거됩니다"] | 환경 가동 중단으로 인해 한 사이트가 정상적으로 종료되면 MAUSO가 트리거됩니다. 
 
 
-| link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/task_refresh_4n_mcc_ip.html["8노드 MetroCluster IP 구성 지원"^] | 8노드 MetroCluster IP 구성에서 컨트롤러 및 스토리지를 업그레이드할 수 있도록 구성을 임시 12노드 구성으로 확장한 다음 이전 DR 그룹을 제거하면 됩니다. 
+| link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/task_refresh_4n_mcc_ip.html["8노드 MetroCluster IP 구성 지원"] | 8노드 MetroCluster IP 구성에서 컨트롤러 및 스토리지를 업그레이드할 수 있도록 구성을 임시 12노드 구성으로 확장한 다음 이전 DR 그룹을 제거하면 됩니다. 
 
 
-| link:https://docs.netapp.com/us-en/ontap-metrocluster/maintain/task_replace_an_ip_switch.html["공유 스토리지 MetroCluster 스위치 구성으로 MetroCluster IP 구성 변환"^] | MetroCluster IP 구성을 공유 스토리지 MetroCluster 스위치 구성으로 변환할 수 있습니다. 
+| link:https://docs.netapp.com/us-en/ontap-metrocluster/maintain/task_replace_an_ip_switch.html["공유 스토리지 MetroCluster 스위치 구성으로 MetroCluster IP 구성 변환"] | MetroCluster IP 구성을 공유 스토리지 MetroCluster 스위치 구성으로 변환할 수 있습니다. 
 |===
 MetroCluster 구성에 대한 플랫폼 및 스위치 구성 개선 사항에 대한 자세한 내용은 _ 을(를) 참조하십시오link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["ONTAP 9 릴리즈 노트"^]_.
 

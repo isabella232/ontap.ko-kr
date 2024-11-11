@@ -1,0 +1,12 @@
+---
+section: s3-snapshots
+title: 스냅샷으로 S3 데이터를 보호합니다
+entries:
+- title: S3 스냅샷에 대해 자세히 알아보십시오
+  url: "/s3-snapshots/index.html"
+- title: S3 스냅샷을 생성합니다
+  url: "/s3-snapshots/create-s3-snapshot.html"
+- title: S3 스냅샷을 보고 복원합니다
+  url: "/s3-snapshots/list-restore-s3-snapshot.html"
+- title: S3 스냅샷을 삭제합니다
+  url: "/s3-snapshots/delete-s3-snapshot.html"

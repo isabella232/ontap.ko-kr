@@ -16,6 +16,11 @@ ONTAP 9.8 이상을 실행 중인 경우 ONTAP S3를 FabricPool의 클라우드 
 .필요한 것
 원격 클러스터에 연결된 LIF의 ONTAP S3 서버 이름과 IP 주소가 있어야 합니다.
 
+[NOTE]
+====
+서버 이름은 클라이언트 응용 프로그램에서 FQDN(정규화된 도메인 이름)으로 사용됩니다. ONTAP 외부에서 DNS 레코드가 사용 중인 SVM 데이터 LIF와 일치하는지 확인합니다.
+
+====
 로컬 클러스터에 대한 인터클러스터 LIF가 있어야 합니다.
 
 link:../s3-config/create-intercluster-lifs-remote-fabricpool-tiering-task.html["원격 FabricPool 계층화를 위한 인터클러스터 LIF 만들기"]
@@ -72,7 +77,7 @@ dns host create -vserver svm_name -address ip_address -hostname s3_server_name"�
 +
 이렇게 하면 ONTAP S3 오브젝트 저장소에서 중단 없이 데이터에 액세스할 수 있습니다.
 
-** '-is-certificate-validation-enabled' 매개 변수를 'false'로 설정하면 ONTAP S3에 대한 인증서 검사가 비활성화됩니다.
+** 매개 변수를 로 `false` 설정하면 `-is-certificate-validation-enabled` ONTAP S3에 대한 인증서 검사가 비활성화됩니다. (`-is-certificate-validation-enabled true`타사 인증 기관에서 서명한 인증서를 사용하는 것이 좋습니다.
 
 
 +

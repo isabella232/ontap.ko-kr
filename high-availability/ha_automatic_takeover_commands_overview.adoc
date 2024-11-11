@@ -10,7 +10,7 @@ summary: 자동 테이크오버 기능은 지원되는 모든 NetApp FAS, AFF, A
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

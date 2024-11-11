@@ -1,0 +1,123 @@
+---
+sidebar: sidebar 
+permalink: anti-ransomware/arp-ai-automatic-updates.html 
+keywords: ransomware, arp, automatic, ai, update, upgrade, autonomous ransomware protection 
+summary: 보안 번들을 자동 또는 수동으로 업데이트하여 랜섬웨어 위협으로부터 최신 ARP/AI 보호를 유지하십시오. 
+---
+= AI(ARP/AI)로 자율적 랜섬웨어 방어 업데이트
+:hardbreaks:
+:toclevels: 1
+:allow-uri-read: 
+:toclevels: 1
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+최신 랜섬웨어 위협에 대한 보호를 최신 상태로 유지하기 위해 ARP/AI는 일반 ONTAP 릴리스 정보 외부에서 발생하는 자동 업데이트를 제공합니다.
+
+ONTAP 9.16.1부터 ARP/AI용 보안 업데이트는 시스템 및 펌웨어 업데이트 외에 System Manager 소프트웨어 다운로드에서 사용할 수 있습니다. ONTAP 클러스터가 이미 에 등록되어 있는 경우 link:../update/enable-automatic-updates-task.html["시스템 및 펌웨어 자동 업데이트"]ARP/AI 보안 업데이트를 사용할 수 있을 때 자동으로 알림을 받게 됩니다. ONTAP에서 보안 업데이트를 자동으로 설치하도록 변경할 수도 <<ARP/AI에 대한 업데이트 기본 설정을 선택합니다,기본 설정을 업데이트합니다>>있습니다.
+
+원하는 경우 <<최신 보안 패키지로 ARP/AI를 수동으로 업데이트합니다,ARP/AI를 수동으로 업데이트합니다>>NetApp 지원 사이트에서 업데이트를 다운로드하여 System Manager를 사용하여 설치할 수 있습니다.
+
+
+IMPORTANT: ARP/AI 기능은 현재 NAS만 지원합니다. 자동 업데이트 기능은 System Manager에서 배포할 새 보안 파일의 가용성을 표시하지만 이러한 업데이트는 NAS 워크로드 보호에만 적용됩니다.
+
+.이 작업에 대해
+ONTAP 9.16.1 이상의 경우 시스템 관리자를 사용하여 ARP/AI만 업데이트할 수 있습니다.
+
+
+
+== ARP/AI에 대한 업데이트 기본 설정을 선택합니다
+
+자동 펌웨어 및 시스템 업데이트에 이미 등록된 경우 System Manager에서 보안 파일에 대한 자동 업데이트 활성화 페이지의 설정이 로 `Show notifications` 설정됩니다. ONTAP에서 최신 업데이트를 자동으로 적용하도록 하려면 업데이트 설정을 로 변경할 수 `Automatically update` 있습니다. 다크 사이트를 사용하거나 수동으로 업데이트를 수행하려는 경우 알림을 표시하거나 보안 업데이트를 자동으로 해제하도록 선택할 수 있습니다.
+
+.시작하기 전에
+자동 보안 업데이트의 https://docs.netapp.com/us-en/ontap/system-admin/setup-autosupport-task.html["AutoSupport 및 AutoSupport OnDemand가 활성화되고 전송 프로토콜이 HTTPS로 설정되어야 합니다"] 경우.
+
+.단계
+. System Manager에서 * 클러스터 > 설정 > 소프트웨어 업데이트 * 를 클릭합니다.
+. 소프트웨어 업데이트 * 섹션에서 를 선택합니다image:icon_arrow.gif["화살표 아이콘"].
+. 소프트웨어 업데이트 * 페이지에서 * 기타 모든 업데이트 * 탭을 선택합니다.
+. 기타 모든 업데이트 * 탭을 선택하고 * 자세히 * 를 클릭합니다.
+. 자동 업데이트 설정 편집 * 을 선택합니다.
+. 자동 업데이트 설정 페이지에서 * 보안 파일 * 을 선택합니다.
+. 보안 파일에 대해 수행할 작업을 지정합니다(ARP/AI 업데이트).
++
+자동으로 업데이트하거나 알림을 표시하거나 업데이트를 자동으로 해제하도록 선택할 수 있습니다.
+
++
+
+NOTE: 보안 업데이트가 자동으로 업데이트되도록 하려면 AutoSupport 및 AutoSupport OnDemand를 사용하도록 설정하고 전송 프로토콜을 HTTPS로 설정해야 합니다.
+
+. 이용 약관에 동의하고 * 저장 * 을 선택합니다.
+
+
+
+
+== 최신 보안 패키지로 ARP/AI를 수동으로 업데이트합니다
+
+Active IQ Unified Manager에 등록되었는지 여부에 따라 적절한 절차를 따릅니다.
+
+
+NOTE: 의도하지 않은 ARP 다운그레이드를 방지하려면 현재 버전보다 최신 ARP 업데이트만 설치하십시오.
+
+[role="tabbed-block"]
+====
+.Digital Advisor를 사용하는 ONTAP 9.16.1 이상
+--
+.단계
+. System Manager에서 * 대시보드 * 로 이동합니다.
++
+Health * 섹션에 클러스터에 대해 권장되는 보안 업데이트가 있는지 여부에 대한 메시지가 표시됩니다.
+
+. 경고 메시지를 클릭합니다.
+. 권장 업데이트 목록에서 보안 업데이트 옆에 있는 * 작업 * 을 선택합니다.
+. 업데이트를 즉시 설치하려면 * 업데이트 * 를 클릭하고, 나중에 업데이트 일정을 예약하려면 * 일정 * 을 클릭합니다.
++
+업데이트가 이미 예약된 경우 * 편집 * 또는 * 취소 * 할 수 있습니다.
+
+
+
+--
+.ONTAP 9.16.1 이상(디지털 어드바이저 제외)
+--
+.단계
+. 로 이동합니다 link:https://mysupport.netapp.com/site/downloads["NetApp Support 사이트"^] 로그인한 다음
+. 클러스터 ARP/AI를 업데이트하는 데 사용할 보안 패키지를 선택합니다.
+. 파일을 네트워크의 HTTP 또는 FTP 서버 또는 ARP/AI로 클러스터에서 액세스할 수 있는 로컬 폴더에 복사합니다.
+. System Manager에서 * 클러스터 > 설정 > 소프트웨어 업데이트 * 를 클릭합니다.
+. 소프트웨어 업데이트 * 에서 * 기타 모든 업데이트 * 탭을 선택합니다.
+. 수동 업데이트 * 창에서 * 보안 파일 추가 * 를 클릭하고 다음 기본 설정 중 하나를 사용하여 파일을 추가합니다.
++
+** * 서버에서 다운로드 *: 보안 파일 패키지의 URL을 입력합니다.
+** * 로컬 클라이언트에서 업로드 *: 다운로드한 TGZ 파일로 이동합니다.
++
+
+IMPORTANT: 파일 이름이 로 `ontap_security_file_arpai_` 시작하고 파일 확장명으로 지정되었는지 확인합니다. `.tgz`
+
+
+
+. 업데이트를 적용하려면 * 추가 * 를 클릭하십시오.
+
+
+--
+====
+
+
+== ARP/AI 업데이트를 확인합니다
+
+해제되었거나 설치에 실패한 자동 업데이트 기록을 보려면 다음을 실행합니다.
+
+. System Manager에서 * 클러스터 > 설정 > 소프트웨어 업데이트 * 를 클릭합니다.
+. 소프트웨어 업데이트 * 섹션에서 를 선택합니다image:icon_arrow.gif["화살표 아이콘"].
+. 소프트웨어 업데이트 * 페이지에서 * 기타 모든 업데이트 * 탭을 선택하고 * 자세히 * 를 클릭합니다.
+. 모든 자동 업데이트 보기 * 를 선택합니다.
+
+
+.관련 정보
+* link:enable-arp-ai-with-au.html["ARP/AI를 활성화합니다"]
+* https://mysupport.netapp.com/site/user/email-subscription["소프트웨어 업데이트를 위한 이메일 구독"^]
+

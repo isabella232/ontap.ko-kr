@@ -9,7 +9,7 @@ summary: 데이터 복제 암호화를 사용하여 TLS 1.2에 대해 ONTAP 클�
 :allow-uri-read: 
 :icons: font
 :linkattrs: 
-:imagesdir: ../media
+:imagesdir: ../media/
 
 
 [role="lead"]

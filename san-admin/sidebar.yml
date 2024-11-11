@@ -48,8 +48,6 @@ entries:
     url: "/san-admin/copy-luns-concept.html"
   - title: LUN의 구성 및 사용 공간을 검사합니다
     url: "/san-admin/examine-configured-used-space-lun-task.html"
-  - title: 공간 할당을 활성화합니다
-    url: "/san-admin/enable-space-allocation.html"
   - title: 스토리지 QoS를 사용하여 LUN의 I/O 성능을 제어 및 모니터링합니다
     url: "/san-admin/control-monitor-io-performance-luns-qos-task.html"
   - title: LUN을 효과적으로 모니터링하는 데 사용할 수 있는 툴입니다
@@ -118,6 +116,10 @@ entries:
     url: "/nvme/set-up-secure-authentication-nvme-task.html"
   - title: NVMe를 통한 대역 내 인증을 비활성화합니다
     url: "/nvme/disable-secure-authentication-nvme-task.html"
+  - title: NVMe/TCP에 대한 TLS 보안 채널을 설정합니다
+    url: "/nvme/set-up-tls-secure-channel-nvme-task.html"
+  - title: NVMe/TCP에 대한 TLS 보안 채널을 비활성화합니다
+    url: "/nvme/disable-tls-secure-channel-nvme-task.html"
   - title: NVMe 호스트 우선순위를 변경합니다
     url: "/nvme/change-host-priority-nvme-task.html"
   - title: NVMe/TCP에 대한 자동화된 호스트 검색을 관리합니다
@@ -162,6 +164,8 @@ entries:
     url: "/san-admin/add-nodes-cluster-concept.html"
   - title: 호스트 iSCSI SendTargets 검색 작업에 FQDN을 반환하도록 iSCSI LIF를 구성합니다
     url: "/san-admin/configure-return-fqdn-host-iscsi-discovery-task.html"
+- title: SAN 프로토콜에 공간 할당을 사용합니다
+  url: "/san-admin/enable-space-allocation.html"
 - title: 권장되는 볼륨 및 파일 또는 LUN 구성 조합
   pdf-filename: 볼륨 및 파일 또는 LUN 구성 조합
   entries:

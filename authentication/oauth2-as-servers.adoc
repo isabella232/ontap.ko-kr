@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: authentication/oauth2-as-servers.html 
-keywords: oauth 2.0, oauth2, access token, grant type, jwt 
+keywords: oauth 2.0, oauth2, authorization servers, features, access tokens, grant types, jwt 
 summary: 인증 서버는 OAuth 2.0 권한 부여 프레임워크 내에서 중앙 구성 요소로 몇 가지 중요한 기능을 수행합니다. 
 ---
 = 인증 서버 및 액세스 토큰
@@ -70,6 +70,33 @@ CLI, System Manager 또는 REST API를 포함한 관리 인터페이스를 사�
 
 .인증 서버 수입니다
 단일 ONTAP 클러스터에 대해 최대 8개의 인증 서버를 정의할 수 있습니다. 발급사 또는 발급사/대상 그룹 클레임이 고유하면 동일한 인증 서버를 동일한 ONTAP 클러스터에 두 번 이상 정의할 수 있습니다. 예를 들어 Keycloak를 사용하면 다른 영역을 사용할 때 항상 이 경우가 발생합니다.
+
+
+
+== OAuth 2.0 기능은 ONTAP에서 지원됩니다
+
+OAuth 2.0에 대한 지원은 처음에 ONTAP 9.14.1에서 제공되었으며 이후 릴리스에서도 계속 향상되었습니다. ONTAP에서 지원하는 OAuth 2.0 기능은 아래에 설명되어 있습니다.
+
+
+NOTE: 특정 ONTAP 릴리스에서 도입된 기능은 향후 릴리스로 이전됩니다.
+
+
+
+=== ONTAP 9.16.1
+
+ONTAP 9.16.1은 기본 Entra ID 그룹에 대한 Entra ID별 확장을 포함하도록 표준 OAuth 2.0 기능을 확장합니다. 여기에는 이름 대신 액세스 토큰에 GUID를 사용하는 작업이 포함됩니다. 또한 릴리스는 액세스 토큰의 "역할" 필드를 사용하여 기본 ID 공급자 역할을 ONTAP 역할에 매핑하기 위해 외부 역할 매핑에 대한 지원을 추가합니다.
+
+
+
+=== ONTAP 9.14.1
+
+ONTAP 9.14.1부터 인증 서버는 다음을 사용하는 응용 프로그램에 대해 다음 표준 OAuth 2.0 기능을 통해 지원됩니다.
+
+* 및 https://www.rfc-editor.org/rfc/rfc7519["RFC 7519: JSON 웹 토큰(JWT)"^] 에 설명된 대로 "ISS", "AUD" 및 "exp"와 같은 표준 필드가 있는 OAuth 2.0 https://www.rfc-editor.org/rfc/rfc6749["RFC6749: OAuth 2.0 인증 프레임워크"^] 여기에는 "UPN", "AppID", "sub", "username" 또는 "preferred_username"과 같은 액세스 토큰의 필드를 통해 사용자를 고유하게 식별하는 기능도 포함됩니다.
+* "그룹" 필드가 있는 그룹 이름에 대한 ADFS 공급업체별 확장명입니다.
+* "그룹" 필드가 있는 그룹 UUID에 대한 Azure 공급업체별 확장입니다.
+* OAuth 2.0 액세스 토큰 범위 내에서 자체 포함 및 명명된 역할을 사용하는 인증 지원을 위한 ONTAP 확장 여기에는 범위 내의 그룹 이름뿐만 아니라 "범위" 및 "SCP" 필드가 포함됩니다.
+
 
 
 

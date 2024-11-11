@@ -10,7 +10,7 @@ summary: 브로드캐스트 도메인을 분할하여 ONTAP 9.8 이상의 구성
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

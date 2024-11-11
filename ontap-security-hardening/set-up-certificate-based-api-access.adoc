@@ -9,7 +9,7 @@ summary: 사용자 ID 및 암호 인증 대신 ONTAP에 대한 REST API 또는 N
 :allow-uri-read: 
 :icons: font
 :linkattrs: 
-:imagesdir: ../media
+:imagesdir: ../media/
 
 
 [role="lead"]

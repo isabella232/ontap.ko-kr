@@ -10,7 +10,7 @@ summary: LIF에 대한 서비스 정책을 생성하고 할당합니다
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

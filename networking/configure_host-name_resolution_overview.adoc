@@ -10,7 +10,7 @@ summary: 호스트 이름을 숫자 IP 주소로 변환합니다
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

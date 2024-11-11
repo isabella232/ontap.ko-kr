@@ -10,7 +10,7 @@ summary: 정상적인 반환, 파트너 노드에서 프로세스를 종료하�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

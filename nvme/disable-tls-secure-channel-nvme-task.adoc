@@ -1,0 +1,43 @@
+---
+permalink: nvme/disable-tls-secure-channel-nvme-task.html 
+sidebar: sidebar 
+keywords: manage, nvme, secure, encryption, in-flight, tcp, tls secure channel, tls, encrypt, disable, turn off 
+summary: ONTAP 9.16.1부터는 NVMe/TCP 연결에 TLS 보안 채널을 활성화하거나 비활성화할 수 있습니다. 
+---
+= NVMe/TCP에 대한 TLS 보안 채널을 비활성화합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.16.1부터, NVMe/TCP 연결을 위해 TLS 보안 채널을 구성할 수 있습니다. NVMe/TCP 연결을 위해 TLS 보안 채널을 구성한 경우 언제든지 사용하지 않도록 설정할 수 있습니다.
+
+.단계
+. TLS 보안 채널을 비활성화하려면 서브시스템에서 호스트를 제거합니다.
++
+[source, cli]
+----
+vserver nvme subsystem host remove -vserver <svm_name> -subsystem <subsystem> -host-nqn <host_nqn>
+----
+. TLS 보안 채널이 호스트에서 제거되었는지 확인합니다.
++
+[source, cli]
+----
+vserver nvme subsystem host show
+----
+. TLS 보안 채널이 없는 서브시스템에 호스트를 다시 추가합니다.
++
+[source, cli]
+----
+vserver nvme subsystem host add vserver <svm_name> -subsystem <subsystem> -host-nqn <host_nqn>
+----
+
+
+.자세한 정보
+이러한 명령에 대한 자세한 내용은 ONTAP 설명서 페이지를 참조하십시오.
+
+* https://docs.netapp.com/us-en/ontap-cli/vserver-nvme-subsystem-host-add.html["SVM NVMe 서브시스템 호스트 추가"^]
+* https://docs.netapp.com/us-en/ontap-cli/vserver-nvme-subsystem-host-remove.html["SVM NVMe 서브시스템 호스트 제거"^]
+* https://docs.netapp.com/us-en/ontap-cli/vserver-nvme-subsystem-host-show.html["SVM NVMe 하위 시스템 호스트 표시"^]
+

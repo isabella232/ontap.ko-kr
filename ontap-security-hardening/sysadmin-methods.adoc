@@ -9,7 +9,7 @@ summary: 강력한 ONTAP 시스템 관리를 위해 이러한 방법을 배포�
 :allow-uri-read: 
 :icons: font
 :linkattrs: 
-:imagesdir: ../media
+:imagesdir: ../media/
 
 
 [role="lead"]

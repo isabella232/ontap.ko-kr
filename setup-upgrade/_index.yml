@@ -10,7 +10,7 @@ indexpage:
   - title: 시작하십시오
     links:
     - title: ONTAP를 설정합니다
-      url: "/../software_setup/concept_decide_whether_to_use_ontap_cli.html"
+      url: "/../software_setup/index.html"
     - title: ONTAP를 업그레이드합니다
       url: "/../upgrade/index.html"
     - title: ONTAP를 되돌립니다
@@ -20,15 +20,13 @@ indexpage:
     - title: System Manager로 클러스터 설정
       url: "/../task_configure_ontap.html"
     - title: CLI를 사용하여 클러스터 설정
-      url: "/../software_setup/concept_set_up_the_cluster.html"
+      url: "/../software_setup/task_create_the_cluster_on_the_first_node.html"
   - title: 클러스터를 업그레이드합니다
     links:
     - title: 업그레이드 경로
       url: "/../upgrade/concept_upgrade_paths.html"
-    - title: System Manager로 무중단 업그레이드 자동화
-      url: "/../upgrade/task_upgrade_andu_sm.html"
-    - title: CLI로 무중단 업그레이드를 자동으로 수행
-      url: "/../upgrade/task_upgrade_andu_cli.html"
+    - title: 무중단 업그레이드 자동화
+      url: "/../upgrade/automated-upgrade-task.html"
     - title: 펌웨어를 업데이트합니다
       url: "/../update/firmware-task.html"
   - title: 클러스터를 되돌립니다

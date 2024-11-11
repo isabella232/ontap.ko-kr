@@ -9,7 +9,7 @@ summary: ONTAP는 일반적으로 이러한 포트와 프로토콜을 사용하�
 :allow-uri-read: 
 :icons: font
 :linkattrs: 
-:imagesdir: ../media
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -21,6 +21,11 @@ summary: 되돌릴 수 있는 ONTAP 버전은 현재 노드에서 실행 중인 
 
 
  a| 
+ONTAP 9.16.1
+| ONTAP 9.15.1 
+
+
+ a| 
 ONTAP 9.15.1
 | ONTAP 9.14.1 
 

@@ -10,7 +10,7 @@ summary: 다중 경로 라우팅을 활성화하여 로드 밸런싱을 수행�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

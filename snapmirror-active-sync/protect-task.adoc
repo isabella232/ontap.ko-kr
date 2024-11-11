@@ -12,7 +12,7 @@ summary: 비즈니스 연속성을 위해 보호를 구성하려면 ONTAP 소스
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

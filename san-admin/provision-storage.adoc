@@ -12,7 +12,7 @@ summary: LUN을 생성하여 FC 또는 iSCSI SAN 프로토콜을 사용하여 �
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

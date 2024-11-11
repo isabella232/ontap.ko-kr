@@ -10,7 +10,7 @@ summary: 특정 VLAN에 대한 정보 또는 클러스터의 모든 VLAN에 대�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: ONTAP 9.8 이상의 네트워킹에 대한 자세한 내용을 확인�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

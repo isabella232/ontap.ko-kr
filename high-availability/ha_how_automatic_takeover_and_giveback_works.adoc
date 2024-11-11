@@ -10,7 +10,7 @@ summary: 자동 테이크오버 및 반환 작업이 함께 작동하여 클라�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

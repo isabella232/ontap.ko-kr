@@ -37,6 +37,8 @@ entries:
       url: "/encryption-at-rest/enable-onboard-key-management-95-earlier-nve-task.html"
     - title: 새로 추가된 노드에서 온보드 키 관리를 활성화합니다
       url: "/encryption-at-rest/enable-onboard-key-management-new-nodes-concept.html"
+    - title: 키 관리자 간에 데이터 암호화 키를 마이그레이션합니다
+      url: "/encryption-at-rest/migrate-keys-between-key-managers.html"
   - title: NVE를 사용하여 볼륨 데이터 암호화
     entries:
     - title: 개요

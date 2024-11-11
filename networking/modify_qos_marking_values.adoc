@@ -10,7 +10,7 @@ summary: 다른 프로토콜에 대한 QoS 표시 값을 변경합니다
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

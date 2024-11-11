@@ -14,6 +14,8 @@ indexpage:
       url: "/../authentication/index.html"
     - title: OAuth 2.0을 사용한 인증 및 권한 부여
       url: "/../authentication/overview-oauth2.html"
+    - title: WebAuthn MFA를 사용한 인증 및 권한 부여
+      url: "/../authentication-access-control/webauthn-mfa-overview.html"
     - title: 웹 서비스 관리
       url: "/../system-admin/manage-web-services-concept.html"
     - title: 인증서를 사용하여 원격 서버의 ID를 확인합니다
@@ -26,9 +28,11 @@ indexpage:
       url: "/../authentication/oauth2-prepare.html"
     - title: SAML 인증을 구성합니다
       url: "/../system-admin/configure-saml-authentication-task.html"
+    - title: WebAuthn MFA를 활성화합니다
+      url: "/../authentication-access-control/enable-webauthn-mfa-task.html"
   - title: 관리자 인증 및 RBAC 관리
     links:
-    - title: 워크플로우
+    - title: 관리자 인증 및 RBAC 워크플로
       url: "/../authentication/workflow-concept.html"
     - title: 로그인 계정을 만듭니다
       url: "/../authentication/create-svm-user-accounts-task.html"
@@ -36,7 +40,7 @@ indexpage:
       url: "/../authentication/manage-access-control-roles-concept.html"
     - title: 관리자 계정을 관리합니다
       url: "/../authentication/manage-user-accounts-concept.html"
-    - title: 다중 관리자 확인을 관리합니다
+    - title: 여러 관리자 검증 관리
       url: "/../multi-admin-verify/index.html"
     - title: 동적 권한 부여를 구성합니다
       url: "/../authentication/configure-dynamic-authorization.html"
@@ -68,9 +72,6 @@ indexpage:
     links:
     - title: ONTAP 보안 강화
       url: "/../ontap-security-hardening/security-hardening-overview.html"
-    - title: 고객을 위한 제로 트러스트 랩 온 디맨드(Securing ONTAP with Zero Trust Lab on Demand)를
-        사용해 보십시오
-      url: https://labondemand.netapp.com/lab/securing-ontap-zero-trust-hol
     - title: 시험 구동이 포함된 NetApp 제품 시험 사용(신규 고객의 경우)
       url: https://www.netapp.com/test-drives/
     - title: 'TR-4647: ONTAP 모범 사례 및 구현 가이드의 다중 요소 인증'

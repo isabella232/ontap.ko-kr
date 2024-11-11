@@ -10,7 +10,7 @@ summary: DNS를 사용하여 호스트 정보에 대한 로컬 또는 원격 소
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

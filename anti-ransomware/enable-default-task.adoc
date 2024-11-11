@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: anti-ransomware/enable-default-task.html 
-keywords: system manager, cli, enable, anti-ransomware, anti ransomware, antiransom, antiransomware, autonomous, ransomware, protection, arp, default, volumes, configure, storage volumes, enable anti-ransomware in system manager, modify, storage VM, SVM, create 
-summary: ONTAP 9.10.1부터 새 볼륨이 기본적으로 랜섬웨어 방지 보호를 위해 활성화되도록 SVM을 구성할 수 있습니다. 
+keywords: ransomware, arp, enable, set up, autonomous ransomware protection, default, volume default 
+summary: 'ONTAP 9.10.1부터 새로운 볼륨이 기본적으로 자동 랜섬웨어 방어(ARP)에 활성화되도록 SVM을 구성할 수 있습니다.' 
 ---
 = 새로운 볼륨에서 자율 랜섬웨어 보호를 기본적으로 활성화하십시오
 :hardbreaks:
@@ -16,70 +16,82 @@ summary: ONTAP 9.10.1부터 새 볼륨이 기본적으로 랜섬웨어 방지 �
 
 
 [role="lead"]
-ONTAP 9.10.1부터 학습 모드에서 새로운 볼륨이 기본적으로 자동 랜섬웨어 보호(ARP)에 사용되도록 스토리지 VM(SVM)을 구성할 수 있습니다.
+ONTAP 9.10.1부터 새로운 볼륨이 기본적으로 활성화되도록 SVM(스토리지 VM)을 구성할 수 있습니다. System Manager 또는 CLI를 사용하여 이 설정을 수정할 수 있습니다.
+
+ARP를 기본값으로 설정하지 않고 개별 새 볼륨이나 기존 볼륨만 구성하려면 다음을 참조하십시오.link:enable-task.html["관련 ARP 절차"]
 
 .이 작업에 대해
-기본적으로 새 볼륨은 ARP가 비활성화 모드로 생성됩니다. System Manager 및 CLI에서 이 설정을 수정할 수 있습니다. 기본적으로 활성화된 볼륨은 학습(또는 드라이 런) 모드에서 ARP로 설정됩니다.
+기본적으로 새 볼륨은 ARP가 비활성화 모드로 생성됩니다. ARP는 NAS 볼륨 기능에 대해 ARP를 활성화한 후 SVM에 생성된 새 볼륨에서만 기본적으로 활성화됩니다.
 
-ARP는 설정을 변경한 후 SVM에서 생성된 볼륨에서만 활성화됩니다. ARP는 기존 볼륨에서 활성화되지 않습니다. 자세한 내용을 알아보십시오 link:enable-task.html["기존 볼륨에서 ARP를 활성화합니다"].
+ARP는 기존 볼륨에서 자동으로 활성화되지 않습니다. 이 절차에서 설명하는 설정 변경 사항은 새 볼륨에만 적용됩니다. 의 방법을 link:enable-task.html["기존 볼륨에 대해 ARP를 활성화합니다"]알아보십시오.
 
-ONTAP 9.13.1 부터는 적응형 학습이 ARP 분석에 추가되었으며 학습 모드에서 활성 모드로 자동 전환됩니다. 자세한 내용은 을 참조하십시오 link:index.html#learning-and-active-modes["학습 및 활성 모드"].
+* * ONTAP 9.10.1 ~ 9.15.1 및 FlexGroup 볼륨 * 의 경우 기본적으로 ARP가 활성화된 새 볼륨은 link:index.html#learning-and-active-modes["학습 모드"]정상 동작을 확인하기 위해 워크로드를 분석하는 (또는 "건식 실행") 모드로 설정됩니다. 학습 모드는 수동으로(모든 ARP 버전) 또는 자동으로(ARP 9.13.1부터) 활성 모드로 전환할 수 있습니다. ARP 9.13.1 이상에서는 학습 모드에서 활성 모드로 자동 전환할 수 있도록 ARP 분석에 적응형 학습이 추가되었습니다.
+* * ONTAP 9.16.1 이상의 경우 FlexVol 볼륨 * ARP를 활성화하면 ARP/AI 보호가 즉시 활성 모드에서 시작됩니다. 학습 기간은 필요하지 않습니다.
+
 
 .시작하기 전에
 * 를 클릭합니다 xref:index.html[올바른 라이센스입니다] ONTAP 버전용으로 설치해야 합니다.
 * 볼륨이 100% 미만이어야 합니다.
 * 접합 경로가 활성 상태여야 합니다.
-* ONTAP 9.13.1 부터는 MAV(Multi-admin verification)를 활성화하여 두 명 이상의 인증된 사용자 관리자가 랜섬웨어 방지 작업에 필요할 수 있도록 하는 것이 좋습니다. link:../multi-admin-verify/enable-disable-task.html["자세한 정보"^].
+* ONTAP 9.13.1 부터는 MAV(Multi-admin verification)를 활성화하여 두 명 이상의 인증된 사용자 관리자가 랜섬웨어 방지 작업에 필요할 수 있도록 하는 것이 좋습니다. link:../multi-admin-verify/enable-disable-task.html["자세한 정보"]..
 
 
-.ARP를 학습에서 활성 모드로 전환합니다
-[%collapsible]
-====
-ONTAP 9.13.1부터 ARP 분석에 적응형 학습이 추가되었습니다. 학습 모드에서 활성 모드로 자동 전환됩니다. 학습 모드에서 활성 모드로 자동 전환하기 위한 ARP의 자동 결정은 다음 옵션의 구성 설정을 기반으로 합니다.
-
-[listing]
-----
- -anti-ransomware-auto-switch-minimum-incoming-data-percent
- -anti-ransomware-auto-switch-duration-without-new-file-extension
- -anti-ransomware-auto-switch-minimum-learning-period
- -anti-ransomware-auto-switch-minimum-file-count
- -anti-ransomware-auto-switch-minimum-file-extension
-----
-학습 후 30일 후에는 이러한 조건 중 하나 이상이 충족되지 않더라도 볼륨이 자동으로 활성 모드로 전환됩니다. 즉, 자동 전환이 활성화된 경우 볼륨은 최대 30일 후에 활성 모드로 전환됩니다. 최대 30일 값은 고정되어 있으며 수정할 수 없습니다.
-
-기본값을 포함한 ARP 구성 옵션에 대한 자세한 내용은 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli/security-anti-ransomware-volume-auto-switch-to-enable-mode-show.html["ONTAP 명령 참조입니다"^].
-
-====
 .단계
-시스템 관리자 또는 ONTAP CLI를 사용하여 기본적으로 ARP를 활성화할 수 있습니다.
+시스템 관리자 또는 ONTAP CLI를 사용하여 새 볼륨에 대해 기본적으로 ARP를 활성화할 수 있습니다.
 
 [role="tabbed-block"]
 ====
 .시스템 관리자
 --
 . 스토리지 > 스토리지 VM * 을 선택한 다음 ARP로 보호할 볼륨이 포함된 스토리지 VM을 선택합니다.
-. 설정 * 탭으로 이동합니다. 보안 * 에서 ** 안티 랜섬웨어** 타일을 찾은 다음 을 선택합니다 image:icon_pencil.gif["편집 아이콘"]
+. 설정 * 탭으로 이동합니다. 보안 * 에서 ** 안티 랜섬웨어** 타일을 찾은 다음 을 선택합니다image:icon_pencil.gif["편집 아이콘"].
 . NAS 볼륨에 대해 ARP를 활성화하려면 확인란을 선택합니다. 스토리지 VM의 모든 유효한 NAS 볼륨에서 ARP를 활성화하려면 추가 확인란을 선택합니다.
 +
 
-NOTE: ONTAP 9.13.1 로 업그레이드한 경우 * 충분한 학습 * 설정이 자동으로 활성화되면 * 학습 모드에서 활성 모드로 자동 전환됩니다. 이를 통해 ARP는 최적의 학습 기간을 결정하고 스위치를 활성 모드로 자동 전환할 수 있습니다. 활성 모드로 수동으로 전환하려면 설정을 끕니다.
+NOTE: ONTAP 9.16.1의 경우 새 FlexVol 볼륨에 대해 활성 모드가 기본적으로 자동으로 설정되며 학습 기간이 필요하지 않습니다.
 
++
+
+NOTE: 기존 볼륨에서 학습 및 활성 모드는 볼륨의 기존 데이터가 아닌 새로 기록된 데이터에만 적용됩니다. ARP에 대해 볼륨이 활성화된 후 새 데이터를 기반으로 이전 일반 데이터 트래픽의 특성이 가정되기 때문에 기존 데이터는 스캔되고 분석되지 않습니다.
+
+. ARP 9.13.1 이상으로 업그레이드한 경우, 필요한 경우 * 충분한 학습 후 학습에서 활성 모드로 자동 전환 * 을 선택합니다. 이를 통해 ARP는 최적의 학습 기간을 결정하고 스위치를 활성 모드로 자동 전환할 수 있습니다.
 
 
 --
 .CLI를 참조하십시오
 --
-. 새 볼륨에서 ARP를 기본적으로 사용하도록 기존 SVM을 수정합니다. 'vserver modify -vserver_svm_name_-anti-랜섬웨어-default-volume-state dry-run'
+* 새 볼륨에서 기본적으로 ARP를 사용하도록 기존 SVM을 수정합니다.
 +
-CLI에서 새 볼륨에 대해 기본적으로 ARP가 설정된 새 SVM을 생성할 수도 있습니다. 'vserver create-vserver svm_name-anti-랜섬웨어-default-volume-state dry-run[_other parameters as needed_]'
+** ONTAP 9.15.1 이하 및 FlexGroup 볼륨의 경우 기본 상태를 (학습 모드)로 설정합니다 `dry-run`.
++
+`vserver modify -vserver <svm_name> -anti-ransomware-default-volume-state dry-run`
 
+** ARP/AI 및 FlexVol 볼륨이 있는 ONTAP 9.16.1 이상의 경우 기본 상태를 (활성 모드)로 설정합니다 `active`.
 +
-ONTAP 9.13.1 이상으로 업그레이드한 경우, 적응형 학습이 활성화되어 활성 상태로 자동 변경됩니다. 이 동작을 자동으로 사용하지 않으려면 다음 명령을 사용합니다.
+`vserver modify -vserver <svm_name> -anti-ransomware-default-volume-state active`
 
+
+
+* 새 볼륨에 대해 기본적으로 ARP가 활성화된 새 SVM을 생성합니다.
 +
-`vserver modify _svm_name_ -anti-ransomware-auto-switch-from-learning-to-enabled false`
+** ONTAP 9.15.1 이하 및 FlexGroup 볼륨의 경우 기본 상태를 (학습 모드)로 설정합니다 `dry-run`.
++
+`vserver create -vserver <svm_name> -anti-ransomware-default-volume-state dry-run <other parameters as needed>`
+
+** ARP/AI 및 FlexVol 볼륨이 있는 ONTAP 9.16.1 이상의 경우 기본 상태를 (활성 모드)로 설정합니다 `active`.
++
+`vserver modify -vserver <svm_name> -anti-ransomware-default-volume-state active`
+
+
+
+* ONTAP 9.13.1 이상으로 업그레이드한 경우 기본 상태가 인 경우 `dry-run` 활성 상태로 자동 변경되도록 Adaptive Learning이 활성화됩니다. 이 동작을 자동으로 활성화하지 않으려면 기존 SVM을 수정합니다.
++
+`vserver modify <svm_name> -anti-ransomware-auto-switch-from-learning-to-enabled false`
 
 
 
 --
 ====
+.관련 정보
+* link:switch-learning-to-active-mode.html["학습 기간 후 활성 모드로 전환합니다"]
+

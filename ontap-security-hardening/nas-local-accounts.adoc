@@ -9,7 +9,7 @@ summary: 로컬로 정의된 사용자 및 그룹을 사용하여 서버에 인�
 :allow-uri-read: 
 :icons: font
 :linkattrs: 
-:imagesdir: ../media
+:imagesdir: ../media/
 
 
 [role="lead"]

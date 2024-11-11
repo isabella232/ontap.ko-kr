@@ -21,14 +21,14 @@ summary: 시스템 노드 check show 명령을 사용하여 AutoSupport 구성 �
 
 
  a| 
-``시스템 노드 AutoSupport CHOK SHOW *’
+'시스템 노드 AutoSupport check show'
  a| 
 AutoSupport HTTP 또는 HTTPS 대상, AutoSupport SMTP 대상, AutoSupport OnDemand 서버 및 AutoSupport 구성과 같은 AutoSupport 하위 시스템의 전체 상태를 표시합니다
 
 
 
  a| 
-``시스템 노드 AutoSupport CHOK SHOW-details *’
+'시스템 노드 AutoSupport check show-details
  a| 
 오류에 대한 자세한 설명과 수정 조치 등 AutoSupport 하위 시스템의 세부 상태를 표시합니다
 

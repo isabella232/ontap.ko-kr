@@ -19,40 +19,49 @@ summary: 환경에 따라 복원을 시작하기 전에 특정 요소를 고려�
 
 
 | 클러스터에서 SnapMirror가 실행 중입니까?  a| 
-* xref:concept_consideration_for_reverting_systems_with_snapmirror_synchronous_relationships.html[SnapMirror 동기식 관계를 사용하여 시스템을 되돌릴 때 고려해야 할 사항을 검토합니다]
-* xref:concept_reversion_requirements_for_snapmirror_and_snapvault_relationships.html[SnapMirror 및 SnapVault 관계에 대한 개정 요구사항을 검토합니다]
+* link:concept_consideration_for_reverting_systems_with_snapmirror_synchronous_relationships.html["SnapMirror 동기식 관계를 사용하여 시스템을 되돌릴 때 고려해야 할 사항을 검토합니다"]
+* link:concept_reversion_requirements_for_snapmirror_and_snapvault_relationships.html["SnapMirror 및 SnapVault 관계에 대한 개정 요구사항을 검토합니다"]
 
 
 
 
-| 클러스터에서 SnapLock가 실행 중입니까? | xref:task_setting_autocommit_periods_for_snaplock_volumes_before_reverting.html[자동 커밋 기간을 설정합니다] 
+| 클러스터에서 SnapLock가 실행 중입니까? | link:task_setting_autocommit_periods_for_snaplock_volumes_before_reverting.html["자동 커밋 기간을 설정합니다"] 
 
 
-| FlexClone 볼륨 분할이 있습니까? | xref:task_reverting_the_physical_block_sharing_in_split_flexclone_volumes.html[물리적 블록 공유를 반대로 수행합니다] 
+| 분할 FlexClone 볼륨이 있습니까? | link:task_reverting_the_physical_block_sharing_in_split_flexclone_volumes.html["물리적 블록 공유를 반대로 수행합니다"] 
 
 
-| FlexGroup 볼륨이 있습니까? | xref:task_disabling_qtrees_in_flexgroup_volumes_before_reverting.html[qtree 기능을 비활성화합니다] 
+| FlexGroup 볼륨이 있습니까? | link:task_disabling_qtrees_in_flexgroup_volumes_before_reverting.html["qtree 기능을 비활성화합니다"] 
 
 
-| 작업 그룹 모드에 CIFS 서버가 있습니까? | xref:task_identifying_and_moving_cifs_servers_in_workgroup_mode.html[워크그룹 모드에서 CIFS 서버를 이동 또는 삭제합니다] 
+| 작업 그룹 모드에 CIFS 서버가 있습니까? | link:task_identifying_and_moving_cifs_servers_in_workgroup_mode.html["워크그룹 모드에서 CIFS 서버를 이동 또는 삭제합니다"] 
 
 
-| 중복 제거된 볼륨이 있습니까? | xref:task_reverting_systems_with_deduplicated_volumes.html[볼륨에 충분한 여유 공간이 있는지 확인합니다] 
+| 중복 제거된 볼륨이 있습니까? | link:task_reverting_systems_with_deduplicated_volumes.html["볼륨에 충분한 여유 공간이 있는지 확인합니다"] 
 
 
-| Snapshot 복사본이 있습니까? | xref:task_preparing_snapshot_copies_before_reverting.html[Snapshop 복제본 준비] 
+| 스냅샷 복사본이 있습니까? | link:task_preparing_snapshot_copies_before_reverting.html["스냅샷 복사본을 준비합니다"] 
 
 
-| ONTAP 8.3.x로 되돌리겠습니까? | xref:identify-user-sha2-hash-user-accounts.html[SHA-2 해시 기능을 사용하는 사용자 계정을 식별합니다] 
+| ONTAP 8.3.x로 되돌리겠습니까? | link:identify-user-sha2-hash-user-accounts.html["SHA-2 해시 기능을 사용하는 사용자 계정을 식별합니다"] 
 
 
-| ONTAP 9.11.1 이상에 대해 랜섬웨어 방지 보호가 구성되었습니까? | xref:anti-ransomware-license-task.html[랜섬웨어 방지 라이센스를 확인하십시오] 
+| ONTAP 9.11.1 이상에 대해 랜섬웨어 방지 보호가 구성되었습니까? | link:anti-ransomware-license-task.html["랜섬웨어 방지 라이센스를 확인하십시오"] 
 
 
-| S3 멀티프로토콜 액세스가 ONTAP 9.12.1 이상용으로 구성되었습니까? | xref:remove-nas-bucket-task.html[S3 NAS 버킷 구성을 제거합니다] 
+| S3 멀티프로토콜 액세스가 ONTAP 9.12.1 이상용으로 구성되었습니까? | link:remove-nas-bucket-task.html["S3 NAS 버킷 구성을 제거합니다"] 
 
 
-| NFSv4.1 세션 트렁킹은 ONTAP 9.14.1 이상에 대해 구성됩니까? | xref:remove-nfs-trunking-task.html[NFSv4.1 세션 트렁킹 구성을 제거합니다] 
+| NFSv4.1 세션 트렁킹은 ONTAP 9.14.1 이상에 대해 구성됩니까? | link:remove-nfs-trunking-task.html["NFSv4.1 세션 트렁킹 구성을 제거합니다"] 
+
+
+| TLS 보안 채널이 ONTAP 9.16.1 이상의 NVMe 호스트에 대해 구성됩니까? | link:task-disable-tls-nvme-host.html["NVMe 호스트 구성에서 TLS를 제거합니다"] 
+
+
+| Qtree 확장 성능 모니터링을 사용하고 있습니까? | link:../volumes/qtrees-partition-your-volumes-concept.html["Qtree 및 ONTAP FlexVol volume 파티셔닝"] 
+
+
+| CORS(Cross-Origin Resource Sharing)가 구성되었습니까? | link:../s3-config/cors-integration.html["CORS와 ONTAP 통합"] 
 |===
 
 
@@ -65,8 +74,8 @@ MetroCluster 구성에 따라 되돌리기 전에 특정 요인을 고려해야 
 | 스스로에게 물어보십시오. | 답변이 * 예 * 인 경우 다음을 수행하십시오. 
 
 
-| 2노드 또는 4노드 MetroCluster 구성이 있습니까? | xref:task_disable_asuo.html[예기치 않은 자동 전환을 비활성화합니다] 
+| 2노드 또는 4노드 MetroCluster 구성이 있습니까? | link:task_disable_asuo.html["예기치 않은 자동 전환을 비활성화합니다"] 
 
 
-| ONTAP 9.12.1 이상을 실행하는 4노드 또는 8노드 MetroCluster IP 또는 패브릭 연결 구성이 있습니까? | xref:task-disable-ipsec.html [IPsec을 비활성화합니다] 
+| ONTAP 9.12.1 이상을 실행하는 4노드 또는 8노드 MetroCluster IP 또는 패브릭 연결 구성이 있습니까? | link:task-disable-ipsec.html["IPsec을 비활성화합니다"] 
 |===

@@ -9,7 +9,7 @@ summary: LIF는 다양한 포트 유형을 지원하는 다양한 특성을 가�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

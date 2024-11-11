@@ -10,7 +10,7 @@ summary: '더 이상 필요하지 않은 네트워크 인터페이스(LIF)를 �
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

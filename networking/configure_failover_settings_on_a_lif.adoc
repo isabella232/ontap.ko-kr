@@ -10,7 +10,7 @@ summary: LIF가 특정 네트워크 포트 그룹으로 페일오버되도록 �
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -9,7 +9,7 @@ summary: Lightweight Directory Access Protocol 서명 및 봉인을 사용하면
 :allow-uri-read: 
 :icons: font
 :linkattrs: 
-:imagesdir: ../media
+:imagesdir: ../media/
 
 
 [role="lead"]

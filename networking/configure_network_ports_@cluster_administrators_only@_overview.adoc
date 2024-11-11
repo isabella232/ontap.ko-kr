@@ -10,7 +10,7 @@ summary: 물리적 및 가상 네트워크 포트 소개
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

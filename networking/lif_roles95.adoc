@@ -10,7 +10,7 @@ summary: 다양한 역할을 수행하는 LIF는 다양한 특성을 갖습니�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

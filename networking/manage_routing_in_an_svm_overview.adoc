@@ -10,7 +10,7 @@ summary: 라우팅 테이블과 네트워크 경로를 소개합니다
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

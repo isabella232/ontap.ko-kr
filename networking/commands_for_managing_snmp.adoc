@@ -10,7 +10,7 @@ summary: SNMP, SNMP 사용자, 트랩, 트랩 이벤트 및 traphosts를 관리�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: 자동 반환 명령
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

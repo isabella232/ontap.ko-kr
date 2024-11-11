@@ -9,7 +9,7 @@ summary: 'SMB 서명을 구성하고 사용하도록 설정하려면 "vserver ci
 :allow-uri-read: 
 :icons: font
 :linkattrs: 
-:imagesdir: ../media
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -1,0 +1,138 @@
+---
+sidebar: sidebar 
+permalink: networking/ipsec-prepare.html 
+keywords: ip security, ipsec, data-in-motion, in-flight encryption, ONTAP ipsec evolution, security policy database, spd, hardware offload, nic 
+summary: 'ONTAP 9.8부터 IP 보안(IPsec)을 사용하여 네트워크 트래픽을 보호할 수 있습니다. IPsec은 ONTAP에서 사용할 수 있는 여러 가지 데이터 이동 중 또는 전송 중 암호화 옵션 중 하나입니다. IPsec을 프로덕션 환경에서 사용하기 전에 구성할 준비를 해야 합니다.' 
+---
+= IP 보안 사용을 준비합니다
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.8부터 IP 보안(IPsec)을 사용하여 네트워크 트래픽을 보호할 수 있습니다. IPsec은 ONTAP에서 사용할 수 있는 여러 가지 데이터 이동 중 또는 전송 중 암호화 옵션 중 하나입니다. IPsec을 프로덕션 환경에서 사용하기 전에 구성할 준비를 해야 합니다.
+
+
+
+== ONTAP에서 IP 보안 구현
+
+IPSec은 IETF에서 관리하는 인터넷 표준입니다. IP 레벨에서 네트워크 엔드포인트 간에 흐르는 트래픽에 대한 인증뿐 아니라 데이터 암호화 및 무결성을 제공합니다.
+
+ONTAP를 통해 IPsec은 ONTAP와 NFS, SMB 및 iSCSI 프로토콜을 포함한 다양한 클라이언트 간의 모든 IP 트래픽을 보호합니다. 네트워크 트래픽은 개인 정보 보호 및 데이터 무결성 외에도 재생 및 메시지 가로채기 공격과 같은 여러 공격으로부터 보호됩니다. ONTAP는 IPsec 전송 모드 구현을 사용합니다. IPv4 또는 IPv6를 사용하여 ONTAP와 클라이언트 간의 키 자료를 협상하는 데 IKE(인터넷 키 교환) 프로토콜 버전 2를 활용합니다.
+
+클러스터에서 IPsec 기능이 활성화된 경우 네트워크에는 다양한 트래픽 특성과 일치하는 ONTAP SPD(보안 정책 데이터베이스)에 하나 이상의 항목이 필요합니다. 이러한 항목은 데이터를 처리하고 전송하는 데 필요한 특정 보호 세부 정보(예: 암호 그룹 및 인증 방법)에 매핑됩니다. 각 클라이언트에는 해당 SPD 항목도 필요합니다.
+
+특정 트래픽 유형의 경우 다른 이동 중인 데이터 암호화 옵션이 더 선호될 수 있습니다. 예를 들어, NetApp SnapMirror 및 클러스터 피어링 트래픽의 암호화를 위해 일반적으로 IPsec 대신 TLS(전송 계층 보안) 프로토콜을 사용하는 것이 좋습니다. TLS는 대부분의 상황에서 더 나은 성능을 제공하기 때문입니다.
+
+.관련 정보
+* https://www.ietf.org/["Internet Engineering Task Force의 약어입니다"^]
+* https://www.rfc-editor.org/info/rfc4301["RFC 4301: 인터넷 프로토콜에 대한 보안 아키텍처"^]
+
+
+
+
+== ONTAP IPsec 구현의 진화
+
+IPsec은 ONTAP 9.8에 처음 도입되었습니다. 구현은 아래에 설명된 대로 계속 발전되고 개선되어 왔습니다.
+
+
+NOTE: 특정 ONTAP 릴리스부터 기능이 도입되면 별도로 언급하지 않는 한 후속 릴리스에서도 지원됩니다.
+
+.ONTAP 9.16.1
+암호화 및 무결성 검사와 같은 여러 암호화 작업을 지원되는 NIC 카드로 오프로드할 수 있습니다. 자세한 내용은 을 <<IPsec 하드웨어 오프로드 기능>> 참조하십시오.
+
+.ONTAP 9.12.1
+MetroCluster IP 및 MetroCluster 패브릭 연결 구성에서 IPsec 프런트엔드 호스트 프로토콜 지원을 사용할 수 있습니다. MetroCluster 클러스터와 함께 제공되는 IPsec 지원은 프런트 엔드 호스트 트래픽으로 제한되며 MetroCluster 인터클러스터 LIF에서는 지원되지 않습니다.
+
+.ONTAP 9.10.1
+인증서는 미리 공유된 키(PSK)와 함께 IPsec 인증에 사용할 수 있습니다. ONTAP 9.10.1 이전에는 PSK만 인증에 지원됩니다.
+
+.ONTAP 9.9.1
+IPsec에 사용되는 암호화 알고리즘은 FIPS 140-2 검증을 거쳤습니다. 이러한 알고리즘은 FIPS 140-2 검증을 수행하는 ONTAP의 NetApp 암호화 모듈에 의해 처리됩니다.
+
+.ONTAP 9.8
+IPsec에 대한 지원은 처음에 전송 모드 구현에 따라 사용할 수 있습니다.
+
+
+
+== IPsec 하드웨어 오프로드 기능
+
+ONTAP 9.16.1 이상을 사용하는 경우 암호화 및 무결성 검사와 같은 계산 집약적인 특정 작업을 스토리지 노드에 설치된 NIC(Network Interface Controller) 카드로 오프로드할 수 있습니다. 이 하드웨어 오프로드 옵션을 사용하면 IPsec으로 보호되는 네트워크 트래픽의 성능과 처리량을 크게 향상시킬 수 있습니다.
+
+
+
+=== 요구 사항 및 권장 사항
+
+IPsec 하드웨어 오프로드 기능을 사용하기 전에 고려해야 할 몇 가지 요구 사항이 있습니다.
+
+.지원되는 이더넷 카드
+스토리지 노드에 지원되는 이더넷 카드만 설치하고 사용해야 합니다. ONTAP 9.16.1에서 지원되는 이더넷 카드는 다음과 같습니다.
+
+* X50131A(2p, 40G/100G/200g/400G 이더넷 컨트롤러 CX7)
+* X60243A(4P, 10G/25G 이더넷 컨트롤러 CX7)
+
+
+.클러스터 범위
+IPsec 하드웨어 오프로드 기능은 클러스터에 대해 전역적으로 구성됩니다. 예를 들어, 명령은 `security ipsec config` 클러스터의 모든 노드에 적용됩니다.
+
+.일관된 구성
+지원되는 NIC 카드는 클러스터의 모든 노드에 설치되어야 합니다. 지원되는 NIC 카드를 일부 노드에서만 사용할 수 있는 경우 일부 LIF가 오프로드 지원 NIC에 호스팅되지 않으면 페일오버 후 성능이 크게 저하될 수 있습니다.
+
+.다시 재생 안 함
+ONTAP(기본 구성) 및 IPsec 클라이언트에서 IPsec 재생 방지 보호를 비활성화해야 합니다. 비활성화하지 않으면 조각화 및 다중 경로(중복 경로)가 지원되지 않습니다.
+
+
+
+=== 제한 사항
+
+IPsec 하드웨어 오프로드 기능을 사용하기 전에 고려해야 할 몇 가지 제한 사항이 있습니다.
+
+.IPv6를 참조하십시오
+IP 버전 6은 IPsec 하드웨어 오프로드 기능에 대해 지원되지 않습니다. IPv6는 IPsec 소프트웨어 구현에서만 지원됩니다.
+
+.확장 순서 번호
+IPsec 확장 시퀀스 번호는 하드웨어 오프로드 기능에서 지원되지 않습니다. 일반적인 32비트 시퀀스 번호만 사용됩니다.
+
+.Link Aggregation
+IPsec 하드웨어 오프로드 기능은 링크 집계를 지원하지 않습니다. 따라서 ONTAP CLI에서 명령을 통해 관리되는 인터페이스 또는 Link Aggregation 그룹과 함께 사용할 수 없습니다 `network port ifgrp`.
+
+
+
+=== ONTAP CLI에서 구성을 지원합니다
+
+ONTAP 9.16.1에서는 아래와 같이 IPsec 하드웨어 오프로드 기능을 지원하도록 기존 CLI 명령 세 개가 업데이트됩니다. 자세한 내용은 를 link:../networking/ipsec-configure.html["ONTAP에서 IP 보안을 구성합니다"]참조하십시오.
+
+[cols="40,60"]
+|===
+| ONTAP 명령 | 업데이트 
+
+
+| '보안 IPsec 구성 표시' | 부울 매개 변수는 `Offload Enabled` 현재 NIC 오프로드 상태를 표시합니다. 
+
+
+| `security ipsec config modify` | 매개 변수는 `is-offload-enabled` NIC 오프로드 기능을 활성화 또는 비활성화하는 데 사용할 수 있습니다. 
+
+
+| `security ipsec config show-ipsecsa` | 인바운드와 아웃바운드 트래픽을 바이트 및 패킷으로 표시하기 위해 새로운 카운터 4개가 추가되었습니다. 
+|===
+
+
+=== ONTAP REST API에서 구성 지원
+
+아래에 설명된 대로 IPsec 하드웨어 오프로드 기능을 지원하도록 ONTAP 9.16.1에서 두 개의 기존 REST API 끝점이 업데이트되었습니다.
+
+[cols="40,60"]
+|===
+| REST 엔드포인트 | 업데이트 
+
+
+| `/api/security/ipsec` | 매개 변수가 `offload_enabled` 추가되었으며 패치 메서드에서 사용할 수 있습니다. 
+
+
+| `/api/security/ipsec/security_association` | 오프로드 기능에 의해 처리된 총 바이트 및 패킷을 추적하기 위해 두 개의 새로운 카운터 값이 추가되었습니다. 
+|===
+ONTAP REST API에 대한 자세한 내용은 ONTAP 자동화 문서 사이트를 참조하십시오 https://docs.netapp.com/us-en/ontap-automation/whats-new.html["ONTAP REST API의 새로운 기능"^]. IPsec 끝점에 대한 자세한 내용은 ONTAP 설명서를 검토해야 https://docs.netapp.com/us-en/ontap-automation/reference/api_reference.html["API 참조"^] 합니다.

@@ -10,7 +10,7 @@ summary: 관리 스테이션과 SVM 간 인증 메커니즘 역할을 하는 SNM
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

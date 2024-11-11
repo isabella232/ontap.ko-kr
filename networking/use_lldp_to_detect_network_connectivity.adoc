@@ -10,7 +10,7 @@ summary: LLDP를 사용하여 네트워크 연결을 탐지하는 작업은 배�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

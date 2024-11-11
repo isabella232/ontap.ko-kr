@@ -10,7 +10,7 @@ summary: SVM 내 경로에 대한 정보를 봅니다
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

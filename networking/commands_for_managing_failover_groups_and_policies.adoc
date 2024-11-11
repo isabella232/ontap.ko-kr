@@ -10,7 +10,7 @@ summary: 페일오버 그룹을 관리합니다
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

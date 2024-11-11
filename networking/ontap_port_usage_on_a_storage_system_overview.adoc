@@ -10,7 +10,7 @@ summary: 특정 서비스와 ONTAP 통신을 위한 예약된 포트입니다
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: 클러스터에서 각 SVM을 위한 IPspace 생성
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

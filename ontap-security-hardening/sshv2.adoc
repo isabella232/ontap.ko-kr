@@ -9,7 +9,7 @@ summary: 클러스터에 대한 SSH 키 교환 알고리즘, 암호화 또는 MA
 :allow-uri-read: 
 :icons: font
 :linkattrs: 
-:imagesdir: ../media
+:imagesdir: ../media/
 
 
 [role="lead"]

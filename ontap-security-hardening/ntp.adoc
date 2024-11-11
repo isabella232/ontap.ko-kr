@@ -9,7 +9,7 @@ summary: '3개 이상의 외부 NTP 서버와 클러스터 시간을 동기화�
 :allow-uri-read: 
 :icons: font
 :linkattrs: 
-:imagesdir: ../media
+:imagesdir: ../media/
 
 
 [role="lead"]

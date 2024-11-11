@@ -1,22 +1,171 @@
 ---
 permalink: volumes/qtrees-partition-your-volumes-concept.html 
 sidebar: sidebar 
-keywords: use, qtrees, partition, flexvol volumes 
-summary: Qtree를 사용하면 FlexVol 볼륨을 작은 세그먼트로 파티셔닝하여 개별적으로 관리할 수 있습니다. Qtree를 사용하여 할당량, 보안 스타일 및 CIFS oplocks를 관리할 수 있습니다. 
+keywords: volumes, volume partitioning, qtrees, flexvol volumes, performance, metrics, extended performance monitoring 
+summary: Qtree를 사용하면 FlexVol 볼륨을 개별적으로 관리할 수 있는 더 작은 세그먼트로 파티셔닝할 수 있습니다. qtree가 지원하는 볼륨 파티셔닝은 프로젝트, 사용자 또는 그룹별로 스토리지를 관리할 때 보다 세부적인 제어 수준을 제공합니다. Qtree를 사용하여 할당량, 보안 스타일 및 CIFS oplocks를 효율적으로 관리할 수 있습니다. 
 ---
-= Qtree 및 FlexVol volume 파티셔닝
+= Qtree 및 ONTAP FlexVol volume 파티셔닝
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Qtree를 사용하면 FlexVol 볼륨을 작은 세그먼트로 파티셔닝하여 개별적으로 관리할 수 있습니다. Qtree를 사용하여 할당량, 보안 스타일 및 CIFS oplocks를 관리할 수 있습니다.
+Qtree를 사용하면 FlexVol 볼륨을 개별적으로 관리할 수 있는 더 작은 세그먼트로 파티셔닝할 수 있습니다. qtree가 지원하는 볼륨 파티셔닝은 프로젝트, 사용자 또는 그룹별로 스토리지를 관리할 때 보다 세부적인 제어 수준을 제공합니다. Qtree를 사용하여 할당량, 보안 스타일 및 CIFS oplocks를 효율적으로 관리할 수 있습니다.
 
-ONTAP는 각 볼륨에 대해 _qtree0_이라는 기본 qtree를 생성합니다. 데이터를 qtree에 넣지 않으면 qtree0에 상주합니다.
 
-qtree 이름은 64자 이하여야 합니다.
+NOTE: ONTAP는 각 볼륨에 대해 * qtree0 * 이라는 기본 qtree를 생성합니다. 데이터를 특정 qtree에 배치하지 않으면 qtree0에 배치됩니다.
 
-qtree 간에 디렉토리를 이동할 수 없습니다. Qtree 간에 파일만 이동할 수 있습니다.
 
-동일한 FlexVol 또는 SCVMM 풀에 qtree 레벨 및 볼륨 레벨 공유를 생성하는 경우 qtree가 FlexVol 공유에 디렉토리로 표시됩니다. 따라서 실수로 삭제하지 않도록 주의해야 합니다.
+
+== 일반 제한 사항
+
+운영 환경에서 Qtree를 사용하기 전에 해당 한계를 알아야 합니다. 또한 확장된 qtree 성능 모니터링 기능을 사용할 때 를 <<작동 및 제한 사항>>검토하십시오.
+
+* qtree 이름은 64자를 초과할 수 없습니다.
+* 쉼표, 공백과 같은 qtree 이름에 사용되는 특정 특수 문자는 다른 ONTAP 기능에 문제가 발생할 수 있으므로 사용하지 않아야 합니다.
+* 서로 다른 qtree 간에 디렉토리를 이동할 수 없습니다. Qtree 간에 파일만 이동할 수 있습니다.
+* 동일한 FlexVol 또는 SCVMM 풀에 qtree 레벨 및 볼륨 레벨 공유를 생성하는 경우 qtree가 FlexVol 공유에 디렉토리로 표시됩니다. 실수로 삭제하지 않도록 주의해야 합니다.
+
+
+
+
+== Qtree 관리 및 구성을 위한 명령
+
+ONTAP CLI를 사용하여 qtree를 관리하고 구성할 수 있습니다. 수행하려는 작업에 따라 다음 명령을 사용하여 qtree를 관리해야 합니다.
+
+[NOTE]
+====
+이 명령으로 `volume rehost` 인해 동일한 볼륨을 대상으로 하는 다른 동시 관리 작업이 실패할 수 있습니다.
+
+====
+|===
+
+
+| 원하는 작업 | 이 명령 사용... 
+
+
+ a| 
+qtree를 생성합니다
+ a| 
+'볼륨 qtree 생성'
+
+
+
+ a| 
+qtree의 필터링된 목록을 표시합니다
+ a| 
+'볼륨 qtree 표시'
+
+
+
+ a| 
+qtree를 삭제합니다
+ a| 
+'볼륨 qtree 삭제'
+
+
+NOTE: qtree가 비어 있거나 플래그를 사용하지 않으면 이 명령은 `-force true` 실패합니다.
+
+
+
+ a| 
+qtree의 UNIX 사용 권한을 수정합니다
+ a| 
+볼륨 qtree 수정 - unix - 권한
+
+
+
+ a| 
+qtree의 CIFS oplocks 설정을 수정합니다
+ a| 
+'볼륨 qtree oplocks'
+
+
+
+ a| 
+qtree의 보안 설정을 수정합니다
+ a| 
+볼륨 qtree 보안
+
+
+
+ a| 
+qtree의 이름을 바꿉니다
+ a| 
+'볼륨 qtree 이름 변경'
+
+
+
+ a| 
+qtree의 통계를 표시합니다
+ a| 
+볼륨 qtree 통계
+
+
+
+ a| 
+qtree의 통계를 재설정합니다
+ a| 
+'볼륨 qtree 통계 - 재설정'
+
+|===
+
+
+== 확장된 qtree 성능 모니터링
+
+ONTAP 9.16.1부터 ONTAP REST API를 사용하여 지연 시간 메트릭 및 기간별 통계를 비롯한 확장된 qtree 모니터링 기능에 액세스할 수 있습니다.
+
+ONTAP REST API에는 Qtree와 관련된 여러 엔드포인트가 포함됩니다. ONTAP 9.16.1 이전에는 IOPS(초당 IO 작업), 읽기, 쓰기 및 기타 작업을 위한 처리량 등의 qtree에 대한 실시간 통계에 액세스할 수 있었습니다.
+
+ONTAP 9.16.1부터 제공되는 확장된 qtree 성능 모니터링을 통해 NFSv3, NFSv4.0, NFSv4.1, NFSv4.2, pNFS(기술적으로 NFSv4.1 및 NFSv4.2의 일부) 및 CIFS에 대한 IOP 및 처리량뿐만 아니라 실시간 지연 시간 통계를 모니터링할 수 있습니다. 또한 통계를 수집 및 보관하여 성능 기록 데이터를 볼 수 있습니다.
+
+이러한 확장된 모니터링은 스토리지 관리자가 시스템 성능에 대한 보다 뛰어난 통찰력을 제공합니다. 이 데이터를 사용하여 서비스 품질 향상을 위해 작업할 때 고용량 qtree, 잠재적 병목 현상 및 기타 영역을 식별할 수 있습니다. 이러한 지표를 분석하면 더 많은 정보에 입각한 데이터 기반 의사 결정을 내릴 수 있습니다.
+
+
+
+=== 작동 및 제한 사항
+
+운영 환경에서 확장 qtree 성능 모니터링 기능을 사용하기 전에 고려해야 할 몇 가지 운영 특성들을 고려해야 합니다.
+
+.다시 마운트해야 합니다
+Qtree 확장 모니터링을 활성화한 후 이 기능을 활성화하려면 영향을 받은 볼륨을 다시 마운트해야 합니다.
+
+.통계의 가용성
+확장 성능 모니터링을 활성화한 후에는 통계 데이터를 즉시 사용할 수 없습니다. 여기에는 IOPS, 처리량, 지연 시간 통계가 포함됩니다. qtree의 경우 이 데이터가 표시되기까지 최대 5분이 걸릴 수 있습니다.
+
+.클러스터당 qtree
+ONTAP 클러스터에서 최대 50,000개의 qtree에 대해 확장된 성능 모니터링을 활성화할 수 있습니다.
+
+
+
+=== ONTAP REST API를 사용하여 확장된 메트릭에 액세스할 수 있습니다
+
+ONTAP 9.16.1부터 ONTAP REST API를 통해 확장된 qtree 성능 모니터링 기능에 액세스할 수 있습니다. 기본 기능은 아래 설명된 바와 같이 몇 가지 범주로 분류됩니다.
+
+.확장 성능 모니터링을 활성화 및 비활성화합니다
+끝점에서 `/api/storage/qtrees` 속성에 액세스하여 확장 모니터링 기능을 사용하거나 사용하지 않도록 설정할 수 `ext_performance_monitoring.enabled` 있습니다. POST 및 패치 방법은 새 qtree를 생성하는지 또는 기존 qtree를 구성하는지에 따라 사용할 수 있습니다.
+
+.글로벌 모니터링 메트릭 및 설정을 검색합니다
+끝점에 여러 개의 새 글로벌 속성이 `/api/storage/qtrees` 추가되었습니다. Get 메서드를 사용하여 이러한 필드를 검색할 수 있습니다.
+
+.특정 qtree에 대한 메트릭을 검색합니다
+엔드포인트에서 get 방법을 사용하여 특정 볼륨에 정의된 특정 qtree에 대한 새 통계 및 메트릭 속성을 검색할 수 있습니다 `/api/storage/qtrees/{volume.uuid}/{id}/metrics`.
+
+
+
+=== 업그레이드 및 되돌리기
+
+ONTAP 9.16.1에서 이 기능을 사용하도록 설정하면 제한 없이 후속 ONTAP 릴리스로 업그레이드할 수 있습니다. 그러나 두 가지 시나리오를 고려해야 합니다.
+
+.9.16.1로 업그레이드하고 혼합 버전 클러스터를 처리합니다
+클러스터의 유효 클러스터 버전(ECV)이 9.16.1이 될 때까지 확장 성능 모니터링 기능을 사용할 수 없습니다(즉, `ext_performance_monitoring.enabled` 로 설정할 수 없음 `true`).
+
+.9.16.1에서 되돌립니다
+속성이 로 설정된 `true` qtree가 있으면 `ext_performance_monitoring.enabled` 9.16.1에서 9.15.1로 되돌릴 수 없습니다. 되돌리기 작업이 차단되었습니다. 모범 사례는 이전 ONTAP 릴리즈로 되돌리기 전에 모든 qtree에 대해 로 `false` 설정하는 `ext_performance_monitoring.enabled` 것입니다.
+
+
+
+=== 자세한 정보
+
+ONTAP REST API에 대한 자세한 내용은 를 포함한 ONTAP 자동화 설명서를 참조하십시오 https://docs.netapp.com/us-en/ontap-automation/whats-new.html["ONTAP REST API의 새로운 기능"^]. ONTAP REST API qtree 엔드포인트에 대한 자세한 내용은 ONTAP 설명서를 검토해야 https://docs.netapp.com/us-en/ontap-automation/reference/api_reference.html["API 참조"^] 합니다.

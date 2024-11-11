@@ -10,7 +10,7 @@ summary: 'SVM(스토리지 가상 머신)의 DNS 로드 밸런싱 영역에서 L
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

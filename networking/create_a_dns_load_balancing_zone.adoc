@@ -10,7 +10,7 @@ summary: DNS 로드 밸런싱 영역을 생성하여 LIF 성능을 개선합니�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

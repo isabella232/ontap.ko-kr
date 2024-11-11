@@ -10,7 +10,7 @@ summary: 적절하게 로드된 LIF의 클라이언트 요청을 처리하도록
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

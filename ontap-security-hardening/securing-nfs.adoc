@@ -9,7 +9,7 @@ summary: ONTAP은 엑스포트 정책 기능을 사용하여 특정 매개 변�
 :allow-uri-read: 
 :icons: font
 :linkattrs: 
-:imagesdir: ../media
+:imagesdir: ../media/
 
 
 [role="lead"]

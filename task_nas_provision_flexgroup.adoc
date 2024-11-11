@@ -50,6 +50,6 @@ NOTE: ONTAP 9.8 이상을 실행 중인 경우 QoS를 비활성화하거나 사�
 video::gB-yF1UTv2I[youtube,width=848,height=480]
 
 
-== FlexGroup 볼륨 - 더 적은 리소스로 더 많은 작업 수행
+=== FlexGroup 볼륨 - 더 적은 리소스로 더 많은 작업 수행
 
 video::0B4nlChf0b4[youtube,width=848,height=480]

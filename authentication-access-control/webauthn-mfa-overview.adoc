@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: authentication-access-control/webauthn-mfa-overview.html 
+keywords: mfa, multi-factor, authentication, authorization, webauthn, FIDO2, hardware key 
+summary: ONTAP 9.16.1부터 ONTAP 사용자를 위한 WebAuthn MFA를 활성화할 수 있습니다. 
+---
+= WebAuthn 다중 요소 인증 개요
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+관리자는 ONTAP 9.16.1부터 System Manager에 로그인하는 사용자에 대해 WebAuthn MFA(다중 요소 인증)를 활성화할 수 있습니다. 이렇게 하면 FIDO2 키(예: YubiKey)를 두 번째 인증 형태로 사용하여 System Manager 로그인을 사용할 수 있습니다. 기본적으로 WebAuthn MFA는 신규 및 기존 ONTAP 사용자에 대해 사용되지 않습니다.
+
+WebAuthn MFA는 첫 번째 인증 방법에 대해 다음 유형의 인증을 사용하는 사용자 및 그룹에 대해 지원됩니다.
+
+* 사용자: 암호, 도메인 또는 nsswitch
+* 그룹: domain 또는 nsswitch
+
+
+WebAuthn MFA를 사용자에 대한 두 번째 인증 방법으로 설정한 후 System Manager에 로그인할 때 사용자에게 하드웨어 인증자를 등록하라는 메시지가 표시됩니다. 등록 후 개인 키는 인증자에 저장되고 공개 키는 ONTAP에 저장됩니다.
+
+ONTAP는 사용자당 하나의 WebAuthn 자격 증명을 지원합니다. 사용자가 인증 프로그램을 분실하여 교체해야 하는 경우 ONTAP 관리자는 다음에 로그인할 때 새 인증 프로그램을 등록할 수 있도록 해당 사용자의 WebAuthn 자격 증명을 삭제해야 합니다.
+
+
+NOTE: 두 번째 인증 방법으로 WebAuthn MFA를 사용하도록 설정한 사용자는 "https://myontap.example.com"[]IP 주소(예:"https://192.168.100.200"[]) 대신 FQDN(예:)을 사용하여 System Manager에 액세스해야 합니다. WebAuthn MFA가 활성화된 사용자의 경우 IP 주소를 사용하여 System Manager 로그인 시도가 거부됩니다.

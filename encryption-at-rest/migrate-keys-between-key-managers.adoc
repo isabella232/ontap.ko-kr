@@ -1,0 +1,157 @@
+---
+permalink: encryption-at-rest/migrate-keys-between-key-managers.html 
+sidebar: sidebar 
+keywords: onboard key manager, external key manager, configure, migrate keys, store keys, authentication keys, encryption keys 
+summary: 'ONTAP 온보드 키 관리자나 외부 키 관리자 또는 둘 다(한 가지 경우) 사용하여 데이터 암호화 키를 관리할 수 있습니다.' 
+---
+= 키 관리자 간에 ONTAP 데이터 암호화 키를 마이그레이션합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 온보드 키 관리자나 외부 키 관리자(또는 둘 다)를 사용하여 데이터 암호화 키를 관리할 수 있습니다. 외부 키 관리자는 스토리지 VM 레벨에서만 사용하도록 설정할 수 있습니다. ONTAP 클러스터 레벨에서 온보드 키 관리자 또는 외부 키 관리자를 사용하도록 설정할 수 있습니다.
+
+[cols="2,2"]
+|===
+| 에서 키 관리자를 활성화하면... | 다음을 사용할 수 있습니다. 
+
+
+| 클러스터 레벨만 해당  a| 
+온보드 키 관리자 또는 외부 키 관리자
+
+
+
+| SVM 레벨만 해당 | 외부 키 관리자만 해당됩니다 
+
+
+ a| 
+클러스터 및 SVM 레벨 모두 지원합니다
+ a| 
+다음 키 관리자 조합 중 하나:
+
+* 옵션 1
++
+클러스터 레벨: 온보드 키 관리자
+
++
+SVM 레벨: 외부 키 관리자
+
+* 옵션 2
++
+클러스터 레벨: 외부 키 관리자
+
++
+SVM 레벨: 외부 키 관리자
+
+
+
+|===
+
+
+== ONTAP 클러스터 레벨에서 주요 관리자 간에 키를 마이그레이션합니다
+
+ONTAP 9.16.1부터는 ONTAP CLI(Command Line Interface)를 사용하여 클러스터 레벨의 키 관리자 간에 키를 마이그레이션할 수 있습니다.
+
+[role="tabbed-block"]
+====
+.Onboard Key Manager에서 외부 키 관리자까지
+--
+.단계
+. 권한 수준을 고급으로 설정합니다.
++
+[source, cli]
+----
+set -privilege advanced
+----
+. 비활성 외부 키 관리자 구성 생성:
++
+[source, cli]
+----
+security key-manager external create-config
+----
+. 외부 키 관리자로 전환합니다.
++
+[source, cli]
+----
+security key-manager keystore enable -vserver <svm_name> -type KMIP
+----
+. Onboard Key Manager 구성을 삭제합니다.
++
+[source, cli]
+----
+security key-manager keystore delete-config -vserver <svm_name> -type OKM
+----
+. 권한 수준을 admin으로 설정합니다.
++
+[source, cli]
+----
+set -privilege admin
+----
+
+
+--
+.외부 키 관리자에서 온보드 키 관리자로
+--
+.단계
+. 권한 수준을 고급으로 설정합니다.
++
+[source, cli]
+----
+set -privilege advanced
+----
+. 비활성 온보드 키 관리자 구성 생성:
++
+[source, cli]
+----
+security key-manager onboard create-config
+----
+. Onboard Key Manager 구성을 활성화합니다.
++
+[source, cli]
+----
+security key-manager keystore enable -vserver <svm_name> -type OKM
+----
+. 외부 키 관리자 구성을 삭제합니다
++
+[source, cli]
+----
+security key-manager keystore delete-config -vserver <svm_name> -type KMIP
+----
+. 권한 수준을 admin으로 설정합니다.
++
+[source, cli]
+----
+set -privilege admin
+----
+
+
+--
+====
+
+
+== ONTAP 클러스터와 스토리지 VM 수준에서 주요 관리자 간에 키를 마이그레이션합니다
+
+ONTAP CLI(Command Line Interface)를 사용하여 클러스터 수준의 키 관리자와 스토리지 VM 레벨의 키 관리자 간에 키를 마이그레이션할 수 있습니다.
+
+.단계
+. 권한 수준을 고급으로 설정합니다.
++
+[source, cli]
+----
+set -privilege advanced
+----
+. 키를 마이그레이션합니다.
++
+[source, cli]
+----
+security key-manager key migrate -from-vserver <svm_name> -to-vserver <svm_name>
+----
+. 권한 수준을 admin으로 설정합니다.
++
+[source, cli]
+----
+set -privilege admin
+----
+

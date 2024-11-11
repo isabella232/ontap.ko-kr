@@ -10,7 +10,7 @@ summary: ONTAP 명령을 사용하여 HA 쌍의 상태를 모니터링할 수 �
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

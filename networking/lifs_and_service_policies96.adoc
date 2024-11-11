@@ -10,7 +10,7 @@ summary: LIF에 서비스 정책을 할당하여 지원되는 트래픽을 지�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

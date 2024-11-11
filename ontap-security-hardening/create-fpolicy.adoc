@@ -9,7 +9,7 @@ summary: 가시성과 파일 액세스 제어를 제공하기 위해 ONTAP 솔�
 :allow-uri-read: 
 :icons: font
 :linkattrs: 
-:imagesdir: ../media
+:imagesdir: ../media/
 
 
 [role="lead"]

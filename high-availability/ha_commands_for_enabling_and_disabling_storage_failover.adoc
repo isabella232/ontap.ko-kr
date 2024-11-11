@@ -10,7 +10,7 @@ summary: 스토리지 페일오버를 설정 및 해제하는 명령입니다
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

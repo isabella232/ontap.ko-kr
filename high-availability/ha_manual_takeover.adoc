@@ -10,7 +10,7 @@ summary: 파트너의 유지 관리가 필요한 상황이나 기타 유사한 �
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

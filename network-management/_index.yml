@@ -22,7 +22,7 @@ indexpage:
       url: "/../networking/configure_network_ports_@cluster_administrators_only@_overview.html"
     - title: 네트워크 포트의 상태를 모니터링합니다
       url: "/../networking/monitor_the_health_of_network_ports.html"
-    - title: ONTAP 9.8 이상에서 네트워크 포트의 연결 상태를 모니터링합니다
+    - title: 네트워크 포트의 연결 상태 모니터링(ONTAP 9.8 이상)
       url: "/../networking/monitor_the_reachability_of_network_ports.html"
     - title: 스토리지 시스템에서 ONTAP 포트 사용
       url: "/../networking/ontap_port_usage_on_a_storage_system_overview.html"
@@ -56,7 +56,7 @@ indexpage:
       url: "/../networking/display_routing_information.html"
   - title: SNMP를 선택합니다
     links:
-    - title: 개요
+    - title: SNMP 개요
       url: "/../networking/manage_snmp_on_the_cluster_@cluster_administrators_only@_overview.html"
     - title: Traphosts를 구성합니다
       url: "/../networking/configure_traphosts_to_receive_snmp_notifications.html"
@@ -65,7 +65,7 @@ indexpage:
     - title: FIPS를 구성합니다
       url: "/../networking/configure_network_security_using_federal_information_processing_standards_@fips@.html"
     - title: IPsec을 구성합니다
-      url: "/../networking/configure_ip_security_@ipsec@_over_wire_encryption.html"
+      url: "/../networking/ipsec-prepare.html"
     - title: 방화벽 및 서비스 정책을 구성합니다
       url: "/../networking/configure_firewall_policies_for_lifs.html"
   - title: 더 많은 리소스

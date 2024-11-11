@@ -10,7 +10,7 @@ summary: 시간이 지남에 따라 ONTAP에서 LIF에서 지원되는 트래픽
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

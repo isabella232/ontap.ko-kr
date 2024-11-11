@@ -10,7 +10,7 @@ summary: IPspace를 나열하고 클러스터에 대한 IPspace 정보를 표시
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

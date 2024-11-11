@@ -9,7 +9,7 @@ summary: '감사 이벤트를 생성하려면 CIFS 감사를 설정해야 합니
 :allow-uri-read: 
 :icons: font
 :linkattrs: 
-:imagesdir: ../media
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -9,7 +9,7 @@ summary: 클러스터 또는 SVM을 SSL 서버로 인증하는 데 사용할 CA 
 :allow-uri-read: 
 :icons: font
 :linkattrs: 
-:imagesdir: ../media
+:imagesdir: ../media/
 
 
 [role="lead"]
