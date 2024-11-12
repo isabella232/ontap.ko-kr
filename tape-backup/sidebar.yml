@@ -65,8 +65,9 @@ entries:
   - title: FlexVol 볼륨용 NDMP 정보
     url: "/tape-backup/ndmp-management-concept.html"
   - title: NDMP 작업 모드에 대해 설명합니다
-    url: "/tape-backup/ndmp-modes-concept.html"
     entries:
+    - title: 개요
+      url: "/tape-backup/ndmp-modes-concept.html"
     - title: 노드 범위의 NDMP 모드는 무엇입니까
       url: "/tape-backup/node-scoped-ndmp-mode-concept.html"
     - title: SVM 범위의 NDMP 모드는 무엇입니까

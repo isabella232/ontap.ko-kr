@@ -12,7 +12,7 @@ summary: ONTAP 9.16.1부터 ARP가 활성화된 FlexVol 설치에 ARP/AI를 자�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

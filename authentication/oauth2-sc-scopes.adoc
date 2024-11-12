@@ -10,7 +10,7 @@ summary: 자체 포함 범위는 액세스 토큰으로 전달되는 문자열�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: System Manager 사용자에 대해 WebAuthn MFA를 사용하도록 설�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

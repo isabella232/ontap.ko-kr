@@ -202,6 +202,9 @@ ONTAP 9.11.1부터 ONTAP S3는 다음과 같은 ONTAP API와 함께 개체 버�
 .ONTAP 9.14.1
 ONTAP 9.14.1에는 S3 오브젝트 잠금 지원이 추가되었습니다.
 
+
+NOTE: 법적 증거 자료 보관 작업(정의된 보존 시간이 없는 잠금)은 지원되지 않습니다.
+
 * GetObjectLockConfiguration 을 참조하십시오
 * GetObjectRetention을 참조하십시오
 * PutObjectLockConfiguration 을 참조하십시오
@@ -227,7 +230,7 @@ ONTAP 9.12.1에는 버킷 정책 및 오브젝트 복사 기능이 추가되었�
 
 
 .ONTAP 9.11.1
-ONTAP 9.11.1에는 버전 관리, 사전 서명된 URL, 청크 업로드 지원, S3 API를 사용한 버킷 생성 및 삭제와 같은 일반적인 S3 작업 지원이 추가되었습니다.
+ONTAP 9.11.1에는 버전 관리, 미리 지정된 URL, 청크 업로드 지원, S3 API를 사용한 버킷 생성 및 삭제와 같은 일반적인 S3 작업 지원이 추가되었습니다.
 
 * ONTAP S3는 이제 x-amz-content-sha256:streaming-aws4-hMAC-sha256-payload를 사용하여 청크 업로드 서명 요청을 지원합니다
 * ONTAP S3는 이제 미리 설정된 URL을 사용하여 개체를 공유하거나 다른 사용자가 사용자 자격 증명 없이도 개체를 업로드할 수 있도록 클라이언트 응용 프로그램을 지원합니다.

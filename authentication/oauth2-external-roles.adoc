@@ -10,7 +10,7 @@ summary: 외부 역할은 ONTAP에서 사용하도록 구성된 식별 공급자
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

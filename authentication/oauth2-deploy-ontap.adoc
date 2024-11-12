@@ -10,7 +10,7 @@ summary: 핵심 OAuth 2.0 기능을 배포하려면 세 가지 기본 단계가 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

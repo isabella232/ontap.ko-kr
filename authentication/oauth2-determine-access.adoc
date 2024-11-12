@@ -10,7 +10,7 @@ summary: OAuth 2.0을 올바르게 설계하고 구현하려면 ONTAP에서 클�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

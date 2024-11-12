@@ -10,7 +10,7 @@ summary: 인증 서버는 OAuth 2.0 권한 부여 프레임워크 내에서 중�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

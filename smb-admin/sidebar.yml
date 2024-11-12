@@ -507,8 +507,9 @@ entries:
       - title: 적용된 파일 보안을 확인합니다
         url: "/smb-admin/verify-applied-file-security-task.html"
     - title: CLI를 사용하여 NTFS 파일 및 폴더에 감사 정책을 구성하고 적용합니다
-      url: "/smb-admin/configure-apply-audit-policies-ntfs-files-folders-task.html"
       entries:
+      - title: 개요
+        url: "/smb-admin/configure-apply-audit-policies-ntfs-files-folders-task.html"
       - title: NTFS 보안 설명자를 만듭니다
         url: "/smb-admin/create-ntfs-security-descriptor-audit-task.html"
       - title: NTFS SACL 액세스 제어 항목을 NTFS 보안 설명자에 추가합니다

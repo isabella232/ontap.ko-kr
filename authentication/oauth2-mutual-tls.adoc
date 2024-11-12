@@ -10,7 +10,7 @@ summary: '보안 요구에 따라 강력한 클라이언트 인증을 구현하�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

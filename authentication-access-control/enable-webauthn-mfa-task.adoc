@@ -10,7 +10,7 @@ summary: System Manager 사용자에 대해 WebAuthn MFA를 활성화할 수 있
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

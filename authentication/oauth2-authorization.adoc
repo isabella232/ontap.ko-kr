@@ -10,7 +10,7 @@ summary: ONTAP OAuth 2.0 구현은 유연하고 강력하도록 설계되어 ONT
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

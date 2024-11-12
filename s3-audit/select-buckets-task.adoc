@@ -20,13 +20,15 @@ summary: 감사 가능 SVM에서 감사할 버킷은 지정해야 합니다.
 .이 작업에 대해
 S3 감사 구성은 SVM별로 활성화되지만 감사를 위해 SVM에서 버킷을 선택해야 합니다. SVM에 버킷을 추가하고 새 버킷을 감사하려면 이 절차를 사용하여 해당 버킷을 선택해야 합니다. S3 감사를 위해 SVM에서 감사하지 않은 버킷을 포함할 수도 있습니다.
 
-감사 구성은 'vserver object-store-server audit object-select delete' 명령으로 제거될 때까지 버킷에 대해 유지됩니다.
+감사 구성은 명령에 의해 제거될 때까지 버킷에 대해 `vserver object-store-server audit event-selector delete` 유지됩니다.
 
 .절차를 참조하십시오
 S3 감사에 사용할 버킷 선택:
 
-'vserver object-store-server audit event-selector create-vserver_svm_name_-bucket_bucket_name_[[- access]{read-only|write-only|all}][[- permission]{allow-only|deny-only|all}]'입니다
-
+[source, cli]
+----
+vserver object-store-server audit event-selector create -vserver <svm_name> -bucket <bucket_name> [[-access] {read-only|write-only|all}] [[-permission] {allow-only|deny-only|all}]
+----
 * '-access' - 감사할 이벤트 액세스 유형을 'read-only', 'write-only', 'all'(기본값은 모두)로 지정합니다.
 * '-permission'-'allow-only'', 'deny-only', 'all'(기본값: all')으로 감사할 이벤트 권한 유형을 지정합니다.
 

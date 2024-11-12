@@ -10,7 +10,7 @@ summary: ONTAP 환경에서 OAuth 2.0을 구성하기 전에 배포를 준비해
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
