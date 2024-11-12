@@ -30,6 +30,32 @@ ONTAP의 최신 릴리즈로 업그레이드하려면 를 참조하십시오 xre
 
 ONTAP 9.16.1은 보안 관리, 데이터 보호, 네트워킹, SAN 관리 및 스토리지 관리 영역에서 새롭고 향상된 기능을 제공합니다. 새로운 기능 및 향상된 기능의 전체 목록은 를 참조하십시오xref:whats-new-9161.adoc[ONTAP 9.16.1의 새로운 기능].
 
+* xref:../multi-admin-verify/index.html#rule-protected-commands[MAV(Multi-admin Verification) 기능 향상]
++
+ONTAP 9.16.1은 악의적인 내부자로부터 추가적인 보호를 위해 MAV 프레임워크에 더 많은 명령을 추가합니다. 이러한 향상된 기능에는 다수의 CG(Consistency Group), Vscan 및 ARP(Autonomous Ransomware Protection) 관리, NVMe 구성 명령이 포함됩니다.
+
+* xref:../anti-ransomware/index.html[AI 개선(ARP/AI)을 통한 자율적 랜섬웨어 방어]
++
+ARP는 새로운 AI 기능으로 업그레이드되어 99%의 정밀도와 리콜로 랜섬웨어 공격을 감지하고 이에 대응할 수 있습니다. AI는 포괄적인 데이터 세트에서 훈련되기 때문에 FlexVol 볼륨에서 실행되는 ARP에 대한 학습 기간이 더 이상 없으며 ARP/AI가 즉시 활성 모드에서 시작됩니다. ARP/AI는 또한 ONTAP 업그레이드와 독립적인 자동 업데이트 기능을 도입하여 최신 위협에 대한 지속적인 보호 및 복원력을 보장합니다.
+
+* TLS를 통한 NVMe/TCP 1.3
++
+IPSec에 비해 간소화된 구성과 향상된 성능으로 프로토콜 계층에서 NVMe/TCP를 "유선"으로 보호합니다.
+
+* xref:../ipsec-prepare.html[새 네트워크 카드에 대한 IPsec HW 오프로드 지원]
++
+ONTAP 9.16.1은 모든 새로운 AFF A 시리즈 및 AFF-C 시리즈 시스템 플랫폼에 도입된 오프로드 카드에서 IPSec 하드웨어 오프로드 기능을 활용할 때 보다 높은 "유선" 암호화 성능을 제공합니다.
+
+* xref:../san-admin/enable-space-allocation.html[NVMe 공간 할당 해제 지원]
++
+이제 NVMe 네임스페이스에 대해 공간 할당 해제("홀 펀칭" 및 "매핑 해제"라고도 함)가 지원됩니다. 공간 삭제는 씬 프로비저닝된 볼륨 및 NVMe 네임스페이스가 호스트 애플리케이션에서 데이터를 삭제할 때 사용되지 않는 공간을 회수하는 데 도움이 됩니다. 따라서 특히 데이터 회전율이 높은 파일 시스템에서 전반적인 스토리지 효율성이 크게 향상됩니다.
+
+* xref:../flexgroup/enable-adv-capacity-flexgroup-task.html[FlexGroup 볼륨을 위한 고급 용량 밸런싱]
++
+NetApp FlexGroup 볼륨은 선택적으로 여러 백 엔드 구성요소 볼륨에 걸쳐 파일 데이터를 스트라이핑하여 성능 병목 현상을 줄이고 백엔드 구성 볼륨에 걸쳐 용량 밸런싱의 일관성을 추가할 수 있습니다.
+
+
+
 
 
 == ONTAP 9.15.1 하이라이트
@@ -54,7 +80,7 @@ ONTAP 9.15.1 RC1은 악의적인 내부자로부터 추가적인 보호를 위�
 
 * xref:../nfs-admin/tls-nfs-strong-security-concept.html[TLS를 통한 NFS]
 +
-IPSec 및 NFS Kerberos와 같은 다른 기술과 비교하여 간소화된 구성으로 프로토콜 계층에서 "유선을 통해" 데이터를 보호합니다. 이 기능은 현재 공개 미리 보기로 포함되어 있습니다. 이 기능에 대한 자세한 내용은 영업 팀에 문의하십시오.
+IPSec 및 NFS Kerberos와 같은 다른 기술과 비교하여 간소화된 구성으로 프로토콜 계층의 데이터를 보호합니다. 이 기능은 현재 공개 미리 보기로 포함되어 있습니다. 이 기능에 대한 자세한 내용은 영업 팀에 문의하십시오.
 
 * 클러스터 피어링 등을 위해 TLS 1.3 암호화 지원
 +
