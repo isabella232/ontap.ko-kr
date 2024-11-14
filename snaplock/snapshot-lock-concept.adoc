@@ -288,6 +288,8 @@ cluster1> volume snapshot modify-snaplock-expiry-time -volume vol1 -snapshot sna
 
 === 기존 정책을 수정하여 장기 보존을 적용합니다
 
+SnapMirror 관계에서 미러 소산 정책 규칙에 보존 기간을 설정할 수 있으며, 타겟 볼륨에 스냅샷 복사본 잠금이 활성화된 경우 타겟에 복제된 스냅샷 복사본에 보존 기간이 적용됩니다. 보존 기간이 keep 카운트보다 우선합니다. 예를 들어, 만료일이 경과하지 않은 Snapshot 복사본은 keep 카운트가 초과되더라도 보존됩니다.
+
 ONTAP 9.14.1부터 스냅샷 복사본의 장기 보존을 설정하는 규칙을 추가하여 기존 SnapMirror 정책을 수정할 수 있습니다. 이 규칙은 SnapLock 소산 대상 및 비 SnapLock SnapMirror 대상 볼륨에서 기본 볼륨 보존 기간을 재정의하는 데 사용됩니다.
 
 . 기존 SnapMirror 정책에 규칙 추가:
