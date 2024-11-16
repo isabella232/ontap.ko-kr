@@ -15,6 +15,20 @@ ONTAP 9의 FlexGroup 볼륨에서 지원되고 지원되지 않는 ONTAP 기능�
 
 
 
+== ONTAP 9.16.1부터 지원되는 기능
+
+* xref:enable-adv-capacity-flexgroup-task.html[고급 용량 밸런싱]
+
+
+
+
+== ONTAP 9.15.1부터 지원되는 기능
+
+* xref:provision-automatically-task.html[자동 프로비저닝 기능 향상]
+
+
+
+
 == ONTAP 9.14.1부터 지원되는 기능
 
 * 스냅샷 복사본 태그 지정: 를 사용하여 FlexGroup 볼륨의 스냅샷 복사본에 대한 스냅샷 복사본 태그(SnapMirror 레이블 및 설명)를 생성, 수정 및 삭제할 수 있도록 지원합니다 `volume snapshot` 명령.
@@ -24,32 +38,32 @@ ONTAP 9의 FlexGroup 볼륨에서 지원되고 지원되지 않는 ONTAP 기능�
 
 == ONTAP 9.13.1 버전부터 지원되는 기능
 
-* FlexGroup 볼륨에 대한 자율 ARP(랜섬웨어 보호): 지원되는 기능:
+* xref:../anti-ransomware/index.html[자율 랜섬웨어 보호(ARP)] 지원되는 다음 기능을 포함한 FlexGroup 볼륨의 경우:
 +
-** FlexGroup 운영 확장: 새로운 구성요소에서 자율 랜섬웨어 보호 속성을 상속합니다.
+** FlexGroup 확장 운영: 새로운 구성원 볼륨이 자율적 랜섬웨어 방어 특성을 상속합니다.
 ** FlexVol에서 FlexGroup로 전환: 능동적 자율 랜섬웨어 보호를 사용하여 FlexVol을 변환할 수 있습니다.
 ** FlexGroup 재조정: 운영 중단 및 무중단 재조정 작업 중에 자율적 랜섬웨어 보호가 지원됩니다.
 
 
 * 단일 FlexGroup 재조정 작업을 예약합니다.
-* FlexGroup 볼륨에서 SVM DR과의 SnapMirror 팬아웃 관계 8개 사이트로 팬아웃 지원
+* xref:create-snapmirror-cascade-fanout-reference.html[SnapMirror 팬아웃] FlexGroup 볼륨의 SVM DR과 관계 8개 사이트로 팬아웃 지원
 
 
 
 
 == ONTAP 9.12.1부터 지원되는 기능입니다
 
-* FlexGroup 재조정
+* xref:manage-flexgroup-rebalance-task.html[FlexGroup 재조정]
 * SnapVault용 SnapLock
 * FabricPool, FlexGroup 및 SVM DR이 함께 작동합니다. (ONTAP 9.12.1 이전 버전에서는 이러한 기능 중 두 가지가 함께 작동하지만 세 가지 기능이 모두 함께 작동하지는 않습니다.)
-* ONTAP 9.12.1 P2 이상을 사용하는 경우 AFF 및 FAS 플랫폼에서 FlexGroup 볼륨 구성 크기는 최대 300TB까지 확장됩니다.
+* xref:../volumes/enable-large-vol-file-support-task.html[대용량 지원] FlexGroup 볼륨 구성원 크기를 최대 100TB에서 최대 300TB로 늘립니다.
 
 
 
 
 == ONTAP 9.11.1부터 지원되는 기능입니다
 
-* SnapLock 볼륨
+* xref:../snaplock/index.html[SnapLock 볼륨]
 +
 SnapLock는 FlexGroup 볼륨에서 다음 기능을 지원하지 않습니다.
 
@@ -61,37 +75,26 @@ SnapLock는 FlexGroup 볼륨에서 다음 기능을 지원하지 않습니다.
 
 
 
-FlexGroup 레벨에서 SnapLock를 구성합니다. 구성 요소 수준에서는 SnapLock를 구성할 수 없습니다.
+FlexGroup 레벨에서 SnapLock를 구성합니다. 구성원 볼륨 수준에서 SnapLock를 구성할 수 없습니다.
 
-xref:../snaplock/snaplock-concept.adoc[SnapLock란]
-
-* 클라이언트 비동기 디렉토리 삭제
-+
-xref:manage-client-async-dir-delete-task.adoc[디렉토리를 비동기적으로 삭제하는 클라이언트 권한을 관리합니다]
-
+* xref:manage-client-async-dir-delete-task.adoc[클라이언트 비동기 디렉토리 삭제]
 
 
 
 
 == ONTAP 9.10.1부터 지원되는 피처
 
-* SVM-DR 소스에서 FlexVol 볼륨을 FlexGroup 볼륨으로 변환합니다
-+
-xref:convert-flexvol-svm-dr-relationship-task.adoc[SVM-DR 관계 내에서 FlexVol 볼륨을 FlexGroup 볼륨으로 변환합니다]
-
-* FlexGroup 볼륨에 대한 SVM DR FlexClone 지원
-+
-xref:../volumes/create-flexclone-task.adoc[FlexClone 볼륨 생성에 대해 자세히 알아보십시오.]
-
+* xref:convert-flexvol-svm-dr-relationship-task.adoc[SVM DR 관계 내에서 FlexVol volume을 FlexGroup 볼륨으로 변환합니다]
+* xref:../volumes/create-flexclone-task.adoc[FlexGroup 볼륨에 대한 SVM DR FlexClone 지원]
 
 
 
 
 == ONTAP 9.9.1부터 지원되는 기능
 
-* SVM 재해 복구
+* xref:create-svm-disaster-recovery-relationship-task.html[SVM 재해 복구]
 +
-SVM-DR 관계의 일부인 FlexGroup 볼륨의 복제는 지원되지 않습니다.
+SVM DR 관계에 있는 FlexGroup 볼륨의 클론 복제는 지원되지 않습니다.
 
 * 최대 8개의 팬아웃 다리로 구성된 2개 이상의 SnapMirror 팬아웃 관계(A에서 B, A에서 C까지)입니다.
 +
@@ -118,8 +121,8 @@ xref:create-snapmirror-cascade-fanout-reference.adoc[FlexGroups에 대한 계단
 자세한 내용은 기술 자료 문서를 참조하십시오 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_To_Convert_a_Transitioned_FlexVol_to_FlexGroup["전환된 FlexVol를 FlexGroup로 변환하는 방법"].
 
 * NFSv4.2
-* 파일 및 디렉토리의 비동기식 삭제
-* 파일 시스템 분석(FSA)
+* xref:fast-directory-delete-asynchronous-task.html[파일 및 디렉토리의 비동기식 삭제]
+* xref:../concept_nas_file_system_analytics_overview.html[파일 시스템 분석(FSA)]
 * FlexGroup를 VMware vSphere 데이터 저장소로 사용합니다
 * 다음 기능을 포함하여 NDMP를 사용한 테이프 백업 및 복구에 대한 추가 지원:
 +
@@ -135,10 +138,10 @@ xref:create-snapmirror-cascade-fanout-reference.adoc[FlexGroups에 대한 계단
 
 == ONTAP 9.7부터 지원되는 기능
 
-* FlexClone 볼륨
+* xref:../volumes/flexclone-efficient-copies-concept.html[FlexClone 볼륨]
 * NFSv4 및 NFSv4.1
 * pNFS를 사용합니다
-* NDMP를 사용하여 테이프 백업 및 복구
+* xref:../ndmp/index.html[NDMP를 사용하여 테이프 백업 및 복구]
 +
 FlexGroup 볼륨에서 NDMP를 지원하려면 다음 사항을 염두에 두어야 합니다.
 
@@ -165,7 +168,7 @@ Data ONTAP 9.7에서 이전 버전으로 되돌릴 경우 이전 전송의 증�
 == ONTAP 9.6부터 지원되는 기능
 
 * 지속적으로 사용 가능한 SMB 공유
-* MetroCluster 구성
+* https://docs.netapp.com/us-en/ontap-metrocluster/index.html["MetroCluster 구성"^]
 * FlexGroup 볼륨 이름 바꾸기('볼륨 이름 바꾸기' 명령)
 * FlexGroup 볼륨 크기 축소 또는 축소('볼륨 크기' 명령)
 * 탄력적인 사이징
@@ -229,7 +232,7 @@ Data ONTAP 9.7에서 이전 버전으로 되돌릴 경우 이전 전송의 증�
 
 * 볼륨 암호화
 * 애그리게이트 인라인 중복제거(볼륨 간 중복제거)
-* NetApp 볼륨 암호화(NVE)
+* xref:../encryption-at-rest/encrypt-volumes-concept.html[NetApp 볼륨 암호화(NVE)]
 
 
 
@@ -258,7 +261,7 @@ FlexGroup 볼륨은 여러 ONTAP 기능을 지원하며 ONTAP 9.1에 도입되�
 
 
 
-== ONTAP 9에서 지원되지 않는 구성입니다
+== ONTAP 9에서 지원되지 않는 FlexGroup 볼륨 구성입니다
 
 |===
 
@@ -267,22 +270,20 @@ FlexGroup 볼륨은 여러 ONTAP 기능을 지원하며 ONTAP 9.1에 도입되�
 
 
  a| 
-* pNFS(ONTAP 9.0 ~ 9.6)
+* xref:../nfs-admin/enable-disable-pnfs-task.html[pNFS를 사용합니다] (ONTAP 9 .6 이하)
 * SMB 1.0
-* SMB 투명 페일오버(ONTAP 9.0 ~ 9.5)
-* 산
+* xref:../smb-hyper-v-sql/witness-protocol-transparent-failover-concept.html[SMB 투명한 페일오버] (ONTAP 9 .5 이하)
+* xref:../volumes/san-volumes-concept.html[산]
 
  a| 
-* SnapLock 볼륨(ONTAP 9.10.1 이하)
-* SMTape
-* SnapMirror 동기식
+* xref:../snaplock/index.html[SnapLock 볼륨] (ONTAP 9.10.1 이하)
+* xref:../tape-backup/smtape-engine-concept.html[SMTape]
+* xref:../data-protection/snapmirror-synchronous-disaster-recovery-basics-concept.html[SnapMirror 동기식]
 * FabricPools를 포함하는 FlexGroup 볼륨을 지원하는 SVM DR(ONTAP 9.11.1 이하)
 
  a| 
-* 원격 볼륨 섀도 복사본 서비스(VSS)
-* SVM 데이터 이동성
+* xref:../smb-hyper-v-sql/share-based-backups-remote-vss-concept.html[원격 볼륨 섀도 복사본 서비스(VSS)]
+* xref:../svm-migrate/index.html[SVM 데이터 이동성]
 
 
 |===
-.관련 정보
-https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9 문서 센터"]

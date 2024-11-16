@@ -42,7 +42,7 @@ ARP는 새로운 AI 기능으로 업그레이드되어 99%의 정밀도와 리�
 +
 IPSec에 비해 간소화된 구성과 향상된 성능으로 프로토콜 계층에서 NVMe/TCP를 "유선"으로 보호합니다.
 
-* xref:../ipsec-prepare.html[새 네트워크 카드에 대한 IPsec HW 오프로드 지원]
+* xref:../networking/ipsec-prepare.html[새 네트워크 카드에 대한 IPsec HW 오프로드 지원]
 +
 ONTAP 9.16.1은 모든 새로운 AFF A 시리즈 및 AFF-C 시리즈 시스템 플랫폼에 도입된 오프로드 카드에서 IPSec 하드웨어 오프로드 기능을 활용할 때 보다 높은 "유선" 암호화 성능을 제공합니다.
 
