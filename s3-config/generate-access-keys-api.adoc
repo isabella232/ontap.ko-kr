@@ -23,7 +23,7 @@ ONTAP 9.14.1부터 ONTAP 관리자는 사용자 지정 역할을 만들고 로�
 . 해당 스토리지 VM에 버킷이 생성되었습니다. 을 참조하십시오 link:../s3-config/create-bucket-task.html["버킷을 만듭니다"].
 . 스토리지 VM에 DNS가 구성되어 있다. 을 참조하십시오 link:../networking/configure_dns_services_manual.html["DNS 서비스를 구성합니다"].
 . LDAP 서버의 자체 서명된 루트 CA(인증 기관) 인증서가 스토리지 VM에 설치되어 있습니다. 을 참조하십시오 link:../nfs-config/install-self-signed-root-ca-certificate-svm-task.html["SVM에 자체 서명된 루트 CA 인증서를 설치합니다"].
-. LDAP 클라이언트는 스토리지 VM에서 TLS를 사용하도록 구성했습니다. 을 참조하십시오 link:../nfs-config/create-ldap-client-config-task.html["LDAP 클라이언트 구성을 생성합니다"] 및.
+. LDAP 클라이언트는 스토리지 VM에서 TLS를 사용하도록 구성했습니다. 을 link:../nfs-config/create-ldap-client-config-task.html["LDAP 클라이언트 구성을 생성합니다"]참조하십시오.
 . 클라이언트 구성을 SVM에 연결합니다. 을 참조하십시오 link:../nfs-config/enable-ldap-svms-task.html["LDAP 클라이언트 구성을 SVM과 연결합니다"] 및 https://docs.netapp.com/us-en/ontap-cli//vserver-services-name-service-ldap-create.html["SVM 서비스 이름 - 서비스 LDAP 생성"].
 . 데이터 스토리지 VM을 사용하는 경우 관리 네트워크 인터페이스(LIF) 및 VM에 그리고 LIF에 대한 서비스 정책을 생성합니다. 를 참조하십시오 https://docs.netapp.com/us-en/ontap-cli/network-interface-create.html["네트워크 인터페이스 생성"] 및 https://docs.netapp.com/us-en/ontap-cli//network-interface-service-policy-create.html["네트워크 인터페이스 서비스 - 정책 생성"] 명령.
 

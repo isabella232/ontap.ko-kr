@@ -18,6 +18,9 @@ NOTE: CIFS 구성을 완료해야 합니다.
 
 image:avcfg-workflow.gif["바이러스 검사 워크플로"]
 
+
+NOTE: 필요 시 작업을 생성하려면 액세스 시 정책을 하나 이상 활성화해야 합니다. 기본 정책이거나 사용자가 만든 액세스 시 정책일 수 있습니다.
+
 .다음 단계
 * xref:create-scanner-pool-single-cluster-task.html[단일 클러스터에 스캐너 풀을 생성합니다]
 * xref:apply-scanner-policy-pool-task.html[단일 클러스터에 스캐너 정책을 적용합니다]

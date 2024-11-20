@@ -174,4 +174,4 @@ ARP는 검증된 ONTAP 데이터 보호 및 재해 복구 기술을 기반으로
 
 == ARP에 대한 다중 관리자 인증 보호
 
-ONTAP 9.13.1 부터는 ARP(Autonomous 랜섬웨어 보호) 구성에 2명 이상의 인증된 사용자 관리자가 필요할 수 있도록 MAV(Multi-admin verification)를 활성화하는 것이 좋습니다. 자세한 내용은 을 참조하십시오 link:../multi-admin-verify/enable-disable-task.html["다중 관리 검증을 활성화합니다"^].
+ONTAP 9.13.1 부터는 ARP(Autonomous 랜섬웨어 보호) 구성에 2명 이상의 인증된 사용자 관리자가 필요할 수 있도록 MAV(Multi-admin verification)를 활성화하는 것이 좋습니다. 자세한 내용은 을 link:../multi-admin-verify/enable-disable-task.html["다중 관리 검증을 활성화합니다"]참조하십시오.
