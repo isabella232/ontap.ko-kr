@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: s3-snapmirror/modify-policy-task.html 
-keywords: modify a mirror policy, s3 snapmirror, s3 snapmirror policy, modify s3 snapmirror policy, change snapmirror policy, edit snapmirror policy, 
+keywords: modify a mirror policy, snapmirror s3, snapmirror s3 policy, modify snapmirror s3 policy, change snapmirror policy, edit snapmirror policy, 
 summary: 예를 들어 RPO 및 스로틀 값을 조정하려면 S3 미러 정책을 수정할 수 있습니다. 
 ---
 = 미러 정책을 수정합니다

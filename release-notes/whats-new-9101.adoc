@@ -113,7 +113,7 @@ MetroCluster 구성에 대한 플랫폼 및 스위치 구성 개선 사항에 �
 | 업데이트 | 설명 
 
 
-| xref:../s3-snapmirror/index.html[S3 오브젝트 데이터 보호, 백업 및 재해 복구] | S3 SnapMirror는 ONTAP S3 구성에 대한 버킷 미러링, NetApp 및 타사 대상에 대한 버킷 백업을 비롯하여 ONTAP S3 오브젝트 스토리지를 위한 데이터 보호 서비스를 제공합니다. 
+| xref:../s3-snapmirror/index.html[S3 오브젝트 데이터 보호, 백업 및 재해 복구] | SnapMirror S3는 ONTAP S3 구성에 대한 버킷 미러링, NetApp 및 비 NetApp 대상에 대한 버킷 백업을 비롯하여 ONTAP S3 오브젝트 스토리지를 위한 데이터 보호 서비스를 제공합니다. 
 
 
 | xref:../s3-audit/index.html[S3 감사] | ONTAP S3 환경에서 데이터 및 관리 이벤트를 감사할 수 있습니다. S3 감사 기능은 기존의 NAS 감사 기능과 유사하며, S3 및 NAS 감사가 클러스터에 공존할 수 있습니다. 

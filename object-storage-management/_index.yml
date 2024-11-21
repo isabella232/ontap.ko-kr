@@ -12,7 +12,7 @@ indexpage:
     links:
     - title: S3 구성 개요
       url: "/../s3-config/index.html"
-    - title: S3 SnapMirror 개요
+    - title: SnapMirror S3 개요
       url: "/../s3-snapmirror/index.html"
     - title: S3 감사 개요
       url: "/../s3-audit/index.html"
@@ -24,7 +24,7 @@ indexpage:
       url: "/../s3-config/create-bucket-task.html"
     - title: 사용자 및 그룹을 추가합니다
       url: "/../s3-config/create-s3-user-task.html"
-  - title: S3 SnapMirror
+  - title: SnapMirror S3
     links:
     - title: 원격 클러스터의 미러링 및 백업 보호
       url: "/../s3-snapmirror/create-remote-mirror-new-bucket-task.html"

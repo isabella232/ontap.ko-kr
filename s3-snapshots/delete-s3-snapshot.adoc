@@ -49,7 +49,7 @@ vserver object-store-server bucket snapshot delete -vserver <svm_name> -bucket <
 S3 스냅샷을 사용하면 스냅샷 메타데이터도 버킷에서 생성됩니다. 스냅샷 메타데이터는 모든 스냅샷이 해당 스냅샷에서 제거되더라도 계속해서 버킷에 있게 됩니다. 스냅샷 메타데이터가 있으면 다음 작업이 차단됩니다.
 
 * 클러스터를 ONTAP 9.16.1 이전 버전의 ONTAP로 되돌립니다
-* 버킷에 S3 SnapMirror 구성
+* 버킷에 SnapMirror S3 구성
 
 
 이러한 작업을 수행하기 전에 버킷에서 모든 스냅샷 메타데이터를 지워야 합니다.

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: s3-snapmirror/index.html 
-keywords: s3 snapmirror buckets, snapmirror buckets SVM, s3 snapmirror data protection, hybrid cloud bundle, s3 snapmirror relationship, VM peering, cluster and storage VM peering, Fan-in deployments, data protection, s3 snapmirror policy, peering 
+keywords: snapmirror s3 buckets, snapmirror buckets SVM, snapmirror s3 data protection, hybrid cloud bundle, snapmirror s3 relationship, VM peering, cluster and storage VM peering, Fan-in deployments, data protection, snapmirror s3 policy, peering 
 summary: ONTAP 9.10.1부터 친숙한 SnapMirror 미러링 및 백업 기능을 사용하여 ONTAP S3 오브젝트 저장소의 버킷을 보호할 수 있습니다. 
 ---
 = SnapMirror S3 개요

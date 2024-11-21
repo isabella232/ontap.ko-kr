@@ -1,6 +1,6 @@
 ---
 section: s3-snapmirror
-title: S3 SnapMirror로 버킷 보호
+title: SnapMirror S3로 버킷 보호
 entries:
 - title: 개요
   url: "/s3-snapmirror/index.html"

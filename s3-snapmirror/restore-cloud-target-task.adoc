@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: s3-snapmirror/restore-cloud-target-task.html 
-keywords: restore a bucket from a cloud target, restore, bucket, restore bucket, source bucket data loss, restore from destination bucket, bucket, s3 snapmirror data loss, s3 snapmirror restore bucket, s3 snapmirror, s3 snapmirror restore bucket from cloud 
+keywords: restore a bucket from a cloud target, restore, bucket, restore bucket, source bucket data loss, restore from destination bucket, bucket, snapmirror s3 data loss, snapmirror s3 restore bucket, snapmirror s3, snapmirror s3 restore bucket from cloud 
 summary: 소스 버킷의 데이터가 손실되거나 손상된 경우 대상 버킷에서 복구하여 데이터를 다시 채울 수 있습니다. 
 ---
 = 클라우드 대상에서 버킷 복원

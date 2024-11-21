@@ -248,7 +248,7 @@ ONTAP 9.11.1에는 버전 관리, 미리 지정된 URL, 청크 업로드 지원,
 NOTE: 첫 번째 버킷이 될 때까지 기본 FlexGroup이 생성되지 않으므로 외부 클라이언트가 CreateBucket을 사용하여 버킷을 생성하려면 먼저 ONTAP에서 버킷을 생성해야 합니다.
 
 .ONTAP 9.10.1
-ONTAP 9.10.1에는 S3 SnapMirror 및 GetBucketLocation에 대한 지원이 추가되었습니다.
+ONTAP 9.10.1에는 SnapMirror S3 및 GetBucketLocation에 대한 지원이 추가되었습니다.
 
 * GetBucketLocation 을 참조하십시오
 
