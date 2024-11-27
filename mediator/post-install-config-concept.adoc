@@ -21,9 +21,9 @@ ONTAP 중재자 서비스를 설치하고 실행한 후 ONTAP 스토리지 시�
 
 == ONTAP 중재자 보안 정책을 구성합니다
 
-ONTAP 중재자 서버는 구성 가능한 여러 가지 보안 설정을 지원합니다. 모든 설정의 기본값은 low_space_threshold_mib:10read-only 파일에서 제공됩니다.
+ONTAP 중재자 서버는 구성 가능한 여러 가지 보안 설정을 지원합니다. 모든 설정의 기본값은 `low_space_threshold_mib: 10` 읽기 전용 파일로 제공됩니다.
 
-`/opt/netapp/lib/ontap_mediator/server_config/ontap_mediator.user_config.yaml`
+`/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ontap_mediator.user_config.yaml`
 
 에 배치된 모든 값 `ontap_mediator.user_config.yaml` 는 기본값을 무시하고 모든 ONTAP 중재자 업그레이드에 대해 유지됩니다.
 
@@ -35,40 +35,93 @@ ONTAP 중재자 서버는 구성 가능한 여러 가지 보안 설정을 지원
 
 == ONTAP 중재자 특성을 수정합니다
 
-다음 속성을 구성할 수 있습니다.
+필요한 경우 이 섹션에 설명된 ONTAP 중재자 속성을 수정할 수 있습니다.
 
 
-NOTE: 의 다른 기본값입니다 `ontap_mediator.config.yaml` 수정할 수 없습니다.
+NOTE: ONTAP 중재자 업그레이드 중에 수정된 값이 유지되지 않으므로 의 다른 기본값은 `ontap_mediator.config.yaml` 변경되지 않아야 합니다.
 
-* * 타사 SSL 인증서를 기본 자체 서명 인증서의 대체품으로 설치하는 데 사용되는 설정 *
-+
-....
-cert_path: '/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ontap_mediator_server.crt'
-key_path: '/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ontap_mediator_server.key'
-ca_cert_path: '/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ca.crt'
-ca_key_path: '/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ca.key'
-ca_serial_path: '/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ca.srl'
-cert_valid_days: '1095'                   # Used to set the expiration on client certs to 3 years
-x509_passin_pwd: 'pass:ontap'             # passphrase for the signed client cert
-....
-* * 무차별 암호 추측 공격에 대한 보호 기능을 제공하는 설정 *
-+
-기능을 활성화하려면 에 대한 값을 설정합니다 `window_seconds` 및 `retry_limit`
+필요한 변수를 파일에 복사하여 기본 설정을 재정의하여 ONTAP 중재자 특성을 `ontap_mediator.user_config.yaml` 수정합니다.
 
-+
+
+
+=== 타사 SSL 인증서를 설치합니다
+
+자체 서명된 기본 인증서를 타사 SSL 인증서로 대체해야 하는 경우 다음 파일에서 특정 특성을 수정합니다.
+
+* `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ontap_mediator.config.yaml`
+* `/opt/netapp/lib/ontap_mediator/uwsgi/ontap_mediator.ini`
+
+
+이러한 파일의 변수는 ONTAP 중재자 서비스에서 사용하는 인증서 파일을 제어하는 데 사용됩니다.
+
+다음 표에 나열된 기본 변수가 파일에 포함되어 `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ontap_mediator.config.yaml` 있습니다.
+
+[cols="2*"]
+|===
+| 변수 | 경로 
+
+
+| `cert_path` | `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ontap_mediator_server.crt` 
+
+
+| `key_path` | `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ontap_mediator_server.key` 
+
+
+| `ca_cert_path` | `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ca.crt` 
+
+
+| `ca_key_path` | `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ca.key` 
+
+
+| `ca_serial_path` | `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ca.srl` 
+
+
+| `cert_valid_days` | `1095` 
+
+
+| `x509_passin_pwd` | `pass:ontap` 
+|===
+* `cert_valid_days` 클라이언트 인증서의 만료를 설정하는 데 사용됩니다. 최대값은 3년(1095일)입니다.
+* `x509_passin_pwd` 은 서명된 클라이언트 인증서의 암호입니다.
+
+
+다음 표에 나열된 기본 변수가 파일에 포함되어 `/opt/netapp/lib/ontap_mediator/uwsgi/ontap_mediator.ini` 있습니다.
+
+[cols="2*"]
+|===
+| 변수 | 경로 
+
+
+| `mediator_cert` | `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ontap_mediator_server.crt` 
+
+
+| `mediator_key` | `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ontap_mediator_server.key` 
+
+
+| `ca_cert_path` | `/opt/netapp/lib/ontap_mediator/ontap_mediator/server_config/ca.crt` 
+|===
+이러한 속성을 수정하는 경우 ONTAP 중재자 서비스를 다시 시작하여 변경 사항을 적용합니다. 기본 인증서를 타사 인증서로 교체하는 방법에 대한 자세한 지침은 을 참조하십시오link:../mediator/manage-task.html#replace-self-signed-certificates-with-trusted-third-party-certificates["자체 서명된 인증서를 신뢰할 수 있는 타사 인증서로 바꿉니다"].
+
+
+
+=== 암호 공격 보호
+
+다음 설정은 무차별 암호 추측 공격에 대한 보호 기능을 제공합니다.
+
+기능을 활성화하려면 및 `retry_limit` 의 값을 `window_seconds` 설정합니다.
+
 예:
 
-+
 --
-** 추측을 위한 5분 창을 제공한 다음 이 수를 0으로 재설정합니다.
+* 추측을 위한 5분 창을 제공한 다음 이 수를 0으로 재설정합니다.
 +
 `authentication_lock_window_seconds: 300`
 
-** 기간 내에 5번의 장애가 발생할 경우 계정을 잠급니다.
+* 기간 내에 5번의 장애가 발생할 경우 계정을 잠급니다.
 +
 `authentication_retry_limit: 5`
 
-** 각 시도를 거부하기 전에 발생하는 지연을 설정하여 무차별 암호 추측 공격의 영향을 줄입니다.
+* 각 시도를 거부하기 전에 발생하는 지연을 설정하여 무차별 암호 추측 공격의 영향을 줄입니다.
 +
 `authentication_failure_delay_seconds: 5`
 
@@ -81,8 +134,12 @@ authentication_retry_limit: null          # number of retries to allow before lo
 
 
 --
-* * ONTAP 중재자 API 사용자 계정의 암호 복잡성 규칙을 제어하는 필드 *
-+
+
+
+=== 암호 복잡성 규칙
+
+다음 필드는 ONTAP 중재자 API 사용자 계정의 암호 복잡성 규칙을 제어합니다.
+
 ....
 password_min_length: 8
 
@@ -96,45 +153,44 @@ password_special_chars: 1      # min. non-letter, non-digit
 
 password_nonletter_chars: 2    # min. non-letter characters (digits, specials, anything)
 ....
-* * 에서 필요한 여유 공간을 제어하는 설정입니다 `/opt/netapp/lib/ontap_mediator` 디스크. *
-+
+
+
+=== 사용 가능한 공간 제어
+
+디스크에 필요한 여유 공간을 제어하는 설정이 `/opt/netapp/lib/ontap_mediator` 있습니다.
+
 공간이 설정된 임계값보다 낮으면 서비스에서 경고 이벤트를 실행합니다.
 
-+
 ....
 low_space_threshold_mib: 10
 ....
-* * reserve_log_space를 제어하는 설정. *
-+
-기본적으로 ONTAP 중재자 서버는 로그에 별도의 디스크 공간을 생성합니다.  설치 프로그램은 중재자 로깅에 명시적으로 사용할 총 700MB의 디스크 공간을 가진 새 고정 크기 파일을 만듭니다.
 
-+
+
+=== 예약 로그 공간을 제어합니다
+
+reserve_log_space는 특정 설정에 의해 제어됩니다. 기본적으로 ONTAP 중재자 서버 설치는 로그를 위한 별도의 디스크 공간을 만듭니다. 설치 프로그램은 중재자 로깅에 명시적으로 사용할 총 700MB의 디스크 공간을 가진 새 고정 크기 파일을 만듭니다.
+
 이 기능을 비활성화하고 기본 디스크 공간을 사용하려면 다음 단계를 수행하십시오.
 
-+
 --
-.. 다음 파일에서 reserve_log_space 값을 "'1'"에서 "'0'"으로 변경합니다.
+. 다음 파일에서 reserve_log_space 값을 1에서 0으로 변경합니다.
 +
 `/opt/netapp/lib/ontap_mediator/tools/mediator_env`
 
-.. 중재자 다시 시작:
+. 중재자 다시 시작:
 +
-... `cat /opt/netapp/lib/ontap_mediator/tools/mediator_env | grep "RESERVE_LOG_SPACE"`
+.. `cat /opt/netapp/lib/ontap_mediator/tools/mediator_env | grep "RESERVE_LOG_SPACE"`
 +
 ....
 RESERVE_LOG_SPACE=0
 ....
-... `systemctl restart ontap_mediator`
+.. `systemctl restart ontap_mediator`
 
 
 
 
 --
-+
-기능을 다시 활성화하려면 값을 "'0'에서 "'1'"로 변경하고 중재자를 다시 시작하십시오.
+이 기능을 다시 활성화하려면 값을 0에서 1로 변경하고 중재자를 다시 시작하십시오.
 
-+
 
 NOTE: 디스크 공간 간에 전환하면 기존 로그가 지워지지 않습니다.  이전 로그는 모두 백업된 다음 중재자를 전환하고 다시 시작한 후 현재 디스크 공간으로 이동합니다.
-
-
