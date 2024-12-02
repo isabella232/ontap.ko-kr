@@ -1,0 +1,29 @@
+---
+permalink: abac/abac-overview.html 
+sidebar: sidebar 
+keywords: technical report, tr, abac, attribute, access control, attribute based, nfs, security labels, xattrs, nfs 4.2, nist, abac compliant, data management, role-based access control, rbac, policy enforcement point, pep, policy decision point, pdp 
+summary: 'ONTAP를 NFS 4.2 보안 레이블 및 확장 특성(XATTRS)으로 구성한 경우 NIST ABAC 준수 데이터 관리 솔루션인 RBAC(역할 기반 액세스 제어) 및 ABAC(속성 기반 액세스 제어) ID 및 액세스 제어 소프트웨어와 통합할 수 있습니다.' 
+---
+= ONTAP로 속성 기반 액세스 제어
+:allow-uri-read: 
+
+
+[role="lead"]
+ONTAP를 사용하여 속성 및 속성 기반 액세스 제어(ABAC)로 향상된 RBAC를 구현할 수 있습니다. ONTAP는 NFS 4.2 및 SMB/CIFS를 사용하는 XATTRS 등 고객이 파일 수준 ABAC를 달성하기 위해 사용할 수 있는 몇 가지 접근 방식을 제공합니다.
+
+ABAC(속성 기반 액세스 제어)는 사용자 속성, 리소스 속성 및 환경 조건을 고려하는 정교한 액세스 권한 관리 방법입니다. NIST(National Institute of Standards and Technology)는 ABAC 표준을 확립하여 안전하고 일관된 구현을 위한 프레임워크를 제공합니다.
+
+ONTAP 9.12.1부터 ONTAP가 RBAC(역할 기반 액세스 제어) 및 ABAC(속성 기반 액세스 제어) ID와 통합될 수 있도록 NFSv4.2 보안 레이블 및 확장 특성(XATTRS)을 사용하여 구성할 수 있습니다. 이러한 통합을 통해 ONTAP는 NIST ABAC 준수 데이터 관리 솔루션으로 분류되는 제어 소프트웨어에 액세스할 수 있으므로 PEP(Policy Enforcement Point), PDP(Policy Decision Point) 및 사용자, 리소스, 환경과 관련된 특성을 고려하는 정책을 비롯한 복잡한 환경에서 액세스 권한을 관리할 수 있는 강력하고 진보된 접근 방식을 제공합니다.
+
+NetApp ONTAP와 확장 특성(XATTRS) 및 속성 기반 액세스 제어(ABAC) 소프트웨어의 통합은 NIST 특별 간행물 800-162에 명시된 지침에 따라 ABAC 구현을 위한 NIST 표준을 준수합니다. NFS 4.2 보안 레이블 및 XATTRS를 사용하면 파일에 사용자 정의 속성을 연결할 수 있으며, 액세스 제어 의사 결정에 리소스 속성을 고려하기 위한 NIST ABAC 표준의 요구 사항을 충족합니다. ABAC 소프트웨어의 PEP 및 PDP는 액세스 제어 프로세스에서 이러한 구성 요소에 대한 NIST ABAC 표준의 요구 사항에 부합합니다. 여러 특성과 조건을 고려하는 복잡한 정책을 정의하는 기능은 NIST ABAC 표준의 정책 기반 액세스 제어 요구 사항에 부합합니다.
+
+.관련 정보
+* link:../abac/abac-approaches.html["ABAC에 대한 ONTAP의 접근 방식"]
+* link:https://www.netapp.com/media/10720-tr-4067.pdf["NFS in NetApp ONTAP: 모범 사례 및 구축 가이드"^]
+* 설명 요청(RFC)
++
+** RFC 2203: RPCSEC_GSS 프로토콜 사양
+** RFC 3530: NFS(Network File System) 버전 4 프로토콜
+
+
+

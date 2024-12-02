@@ -88,3 +88,4 @@ entries:
     url: "/system-admin/install-ca-signed-server-certificate-cluster-task.html"
   - title: KMIP 서버용 CA 서명 클라이언트 인증서를 설치합니다
     url: "/system-admin/install-ca-signed-client-certificate-kmip-server-task.html"
+- section: abac
