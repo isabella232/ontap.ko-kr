@@ -62,10 +62,25 @@ NOTE: NFS 마운트 크기가 64K보다 크면 NFS over RDMA 구성에서 성능
 ** AFF A900 탑재
 
 
+
+
+| ONTAP 9.15.1 이상  a| 
+** AFF A1K 를 참조하십시오
+** AFF A90 를 참조하십시오
+** AFF A70 를 참조하십시오
+
+
+
+
+| ONTAP 9.16.1 이상  a| 
+** AFF A50 를 참조하십시오
+** AFF A30 를 참조하십시오
+** AFF A20 를 참조하십시오
+
+
 |===
-* RDMA 지원 하드웨어(예 Mellanox CX-5 또는 CX-6).
 * 데이터 LIF는 RDMA를 지원하도록 구성해야 합니다.
-* 클라이언트는 Mellanox RDMA 지원 NIC 카드 및 Mellanox OFED(MOFED) 네트워크 소프트웨어를 사용해야 합니다.
+* 클라이언트는 Mellanox RDMA 지원 NIC 카드 및 Mellanox OFED(MOFED) 네트워크 소프트웨어를 사용해야 합니다. 어댑터 지원에 대한 자세한 내용은 를 link:https://hwu.netapp.com/["NetApp Hardware Universe를 참조하십시오"^]참조하십시오. NFS over RDMA 지원 어댑터 설명 필드에 "RoCE"가 표시됩니다.
 
 
 
