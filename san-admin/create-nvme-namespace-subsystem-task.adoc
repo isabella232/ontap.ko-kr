@@ -60,6 +60,10 @@ vserver show -vserver <svm_name> -fields allowed-protocols
 
 . NVMe 네임스페이스를 생성합니다.
 +
+
+NOTE: 매개 변수로 참조하는 볼륨이 이미 존재해야 하며, 그렇지 않으면 이 명령을 실행하기 전에 볼륨을 `-path` 생성해야 합니다.
+
++
 [source, cli]
 ----
 vserver nvme namespace create -vserver <svm_name> -path <path> -size <size_of_namespace> -ostype <OS_type>
