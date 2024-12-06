@@ -1,0 +1,24 @@
+= 
+:allow-uri-read: 
+
+
+.단계
+. DH-HMAC-CHAP 인증을 비활성화하려면 서브시스템에서 호스트를 제거합니다.
++
+[source, cli]
+----
+vserver nvme subsystem host remove -vserver <svm_name> -subsystem <subsystem> -host-nqn <host_nqn>
+----
+. DH-HMAC-CHAP 인증 프로토콜이 호스트에서 제거되었는지 확인합니다.
++
+[source, cli]
+----
+vserver nvme subsystem host show
+----
+. 인증 없이 호스트를 하위 시스템에 다시 추가합니다.
++
+[source, cli]
+----
+vserver nvme subsystem host add vserver <svm_name> -subsystem <subsystem> -host-nqn <host_nqn>
+----
+

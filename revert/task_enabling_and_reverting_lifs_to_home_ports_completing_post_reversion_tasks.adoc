@@ -4,18 +4,24 @@ sidebar: sidebar
 keywords: ontap, revert, reverting, reversion, downgrade, downgrading, enable, enabling, lifs, home, ports 
 summary: 재부팅 중 일부 LIF는 할당된 페일오버 포트로 마이그레이션되었을 수 있습니다. 클러스터를 되돌린 후에는 홈 포트에 없는 모든 LIF를 설정 및 되돌려야 합니다. 
 ---
-= 되돌리기 후 LIF를 홈 포트로 설정 및 되돌립니다
+= ONTAP 되돌리기 후 LIF를 홈 포트로 설정 및 되돌리기
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-재부팅 중 일부 LIF는 할당된 페일오버 포트로 마이그레이션되었을 수 있습니다. 클러스터를 되돌린 후에는 홈 포트에 없는 모든 LIF를 설정 및 되돌려야 합니다.
+재부팅 중 일부 LIF는 할당된 페일오버 포트로 마이그레이션되었을 수 있습니다. ONTAP 클러스터를 되돌린 후 홈 포트에 없는 LIF를 사용하도록 설정하고 되돌려야 합니다.
 
 네트워크 인터페이스 되돌리기 명령은 홈 포트가 작동하고 있을 경우 홈 포트에 없는 LIF를 홈 포트로 되돌립니다. LIF의 홈 포트는 LIF가 생성될 때 지정됩니다. 네트워크 인터페이스 show 명령을 사용하여 LIF의 홈 포트를 확인할 수 있습니다.
 
-. 모든 LIF의 상태를 'network interface show'로 표시합니다
+.단계
+. 모든 LIF의 상태를 표시합니다.
++
+[source, cli]
+----
+network interface show
+----
 +
 이 예는 SVM(스토리지 가상 머신)에 대한 모든 LIF의 상태를 표시합니다.
 
@@ -40,24 +46,24 @@ vs0
 +
 Status Admin 상태가 DOWN 이거나 is home 상태가 false인 LIF가 나타나면 다음 단계를 계속 진행합니다.
 
-. 데이터 LIF를 활성화합니다. 'network interface modify {-role data}-status-admin up'
+. 데이터 LIF 지원:
 +
-[listing]
+[source, cli]
 ----
-cluster1::> network interface modify {-role data} -status-admin up
-8 entries were modified.
+network interface modify {-role data} -status-admin up
 ----
-. LIF를 홈 포트인 '네트워크 인터페이스 되돌리기 *'로 되돌립니다
+. LIF를 홈 포트로 되돌리기:
 +
-이 명령은 모든 LIF를 홈 포트로 되돌립니다.
-
+[source, cli]
+----
+network interface revert *
+----
+. 모든 LIF가 홈 포트에 있는지 확인:
 +
-[listing]
+[source, cli]
 ----
-cluster1::> network interface revert *
-8 entries were acted on.
+network interface show
 ----
-. 모든 LIF가 홈 포트인 'network interface show'에 있는지 확인합니다
 +
 이 예에서는 SVM vs0용 모든 LIF가 홈 포트에 있음을 보여 줍니다.
 

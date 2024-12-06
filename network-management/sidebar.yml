@@ -43,6 +43,12 @@ entries:
       url: "/networking/modify_network_port_attributes.html"
     - title: 10GbE 연결을 위해 40GbE NIC 포트를 여러 10GbE 포트로 변환합니다
       url: "/networking/convert_40gbe_nic_ports_into_multiple_10gbe_ports_for_10gbe_connectivity.html"
+    - title: ONTAP 시스템에 맞게 UTA X1143A-R6 포트를 구성합니다
+      url: "/networking/configure-ports-uta-x1143a-r6.html"
+    - title: ONTAP의 UTA2 포트를 숨깁니다
+      url: "/networking/convert-uta2-port-cna-fc.html"
+    - title: CNA/UTA2 광 모듈을 변환합니다
+      url: "/networking/convert-cna-uta2-optical-modules.html"
     - title: 노드에서 NIC 제거(ONTAP 9.8 이상)
       url: "/networking/removing_a_nic_from_the_node.html"
     - title: 노드에서 NIC 제거(ONTAP 9.7 이하)

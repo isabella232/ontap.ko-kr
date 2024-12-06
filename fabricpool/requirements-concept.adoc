@@ -152,20 +152,6 @@ HDD FabricPools는 SAS, FSA, BSAS 및 mSATA 디스크와 함께 지원되며 CPU
 
 
 
-== 플랫폼
-
-* FabricPool는 다음 사항을 제외하고 ONTAP 9.2를 실행할 수 있는 모든 플랫폼에서 지원됩니다.
-+
-** FAS8020
-** FAS2554
-** FAS2552
-** FAS2520
-
-
-
-
-
-
 == 로컬 계층(애그리게이트)
 
 FabricPool는 다음과 같은 애그리게이트 유형을 지원합니다.

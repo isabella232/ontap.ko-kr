@@ -2,62 +2,69 @@
 section: revert
 title: ONTAP를 되돌립니다
 entries:
-- title: 개요
-  url: "/revert/index.html"
 - title: 기술 지원이 필요합니까?
   url: "/revert/concept_when_to_call_technical_support.html"
-- title: 복원 경로는 무엇입니까?
+- title: ONTAP 복원 경로
   url: "/revert/concept_revert_paths.html"
-- title: 되돌리기 전에 무엇을 읽어야 합니까?
+- title: 복원 문제 및 제한 사항
+  url: "/revert/concept_revert_process_considerations.html"
+- title: ONTAP 복원을 준비합니다
   entries:
-  - title: 사전 버전 리소스
+  - title: 되돌리기 전에 검토할 리소스입니다
     url: "/revert/task_reviewing_pre_reversion_resources.html"
-  - title: 되돌리기 고려 사항
-    url: "/revert/concept_revert_process_considerations.html"
-- title: 되돌리기 전에 무엇을 확인해야 합니까?
-  url: "/revert/task_things_to_verify_before_revert.html"
-- title: 되돌리기 전에 무엇을 확인해야 합니까?
-  entries:
-  - title: 사전 복원 검사 요약
-    url: "/revert/concept_pre_revert_checks.html"
-  - title: SnapMirror를 참조하십시오
-    pdf-filename: SnapMirror 재버전 요구사항
+  - title: 시스템 검증
+    url: "/revert/task_things_to_verify_before_revert.html"
+  - title: ONTAP 버전별 되돌리기 전 검사를 수행합니다
     entries:
-    - title: SnapMirror Synchronous 관계
-      url: "/revert/concept_consideration_for_reverting_systems_with_snapmirror_synchronous_relationships.html"
-    - title: SnapMirror/SnapVault 관계
-      url: "/revert/concept_reversion_requirements_for_snapmirror_and_snapvault_relationships.html"
-  - title: SnapLock
-    url: "/revert/task_setting_autocommit_periods_for_snaplock_volumes_before_reverting.html"
-  - title: FlexClone 볼륨을 분할합니다
-    url: "/revert/task_reverting_the_physical_block_sharing_in_split_flexclone_volumes.html"
-  - title: FlexGroup 볼륨
-    url: "/revert/task_disabling_qtrees_in_flexgroup_volumes_before_reverting.html"
-  - title: 작업 그룹 모드의 SMB 서버
-    url: "/revert/task_identifying_and_moving_cifs_servers_in_workgroup_mode.html"
-  - title: 중복제거된 볼륨
-    url: "/revert/task_reverting_systems_with_deduplicated_volumes.html"
-  - title: Snapshot 복사본
-    url: "/revert/task_preparing_snapshot_copies_before_reverting.html"
-  - title: SHA-2 해시 기능을 사용하는 사용자 계정
-    url: "/revert/identify-user-sha2-hash-user-accounts.html"
-  - title: 랜섬웨어 방지 라이센스
-    url: "/revert/anti-ransomware-license-task.html"
-  - title: S3 NAS 버킷
-    url: "/revert/remove-nas-bucket-task.html"
-  - title: NFSv4.1 트렁킹
-    url: "/revert/remove-nfs-trunking-task.html"
-  - title: 2 또는 4노드 MetroCluster
-    url: "/revert/task_disable_asuo.html"
-  - title: IPsec을 비활성화합니다
-    url: "/revert/task-disable-ipsec.html"
-  - title: NVMe 호스트에서 TLS를 사용하지 않도록 설정합니다
-    url: "/revert/task-disable-tls-nvme-host.html"
-- title: 복원 소프트웨어 이미지를 구해서 설치하려면 어떻게 해야 합니까?
+    - title: 사전 복원 검사 요약
+      url: "/revert/concept_pre_revert_checks.html"
+    - title: 모든 ONTAP 9 버전
+      entries:
+      - title: SMB 세션
+        url: "/revert/terminate-smb-sessions.html"
+      - title: SnapMirror/SnapVault 관계
+        url: "/revert/concept_reversion_requirements_for_snapmirror_and_snapvault_relationships.html"
+      - title: 중복제거된 볼륨
+        url: "/revert/task_reverting_systems_with_deduplicated_volumes.html"
+      - title: 스냅샷 수
+        url: "/revert/task_preparing_snapshot_copies_before_reverting.html"
+      - title: SnapLock
+        url: "/revert/task_setting_autocommit_periods_for_snaplock_volumes_before_reverting.html"
+      - title: MetroCluster 구성을 위한 계획되지 않은 자동 전환
+        url: "/revert/task_disable_asuo.html"
+    - title: ONTAP 9.16.1
+      entries:
+      - title: NVMe TLS 구성
+        url: "/revert/task-disable-tls-nvme-host.html"
+      - title: 확장된 qtree 성능 모니터링
+        url: "/revert/disable-extended-qtree-performance-monitoring.html"
+      - title: S3 CORS 구성
+        url: "/revert/remove-cors-configuration.html"
+    - title: ONTAP 9.14.1
+      entries:
+      - title: NFS 트렁킹
+        url: "/revert/remove-nfs-trunking-task.html"
+    - title: ONTAP 9.12.1
+      entries:
+      - title: S3 NAS 버킷
+        url: "/revert/remove-nas-bucket-task.html"
+      - title: NVMe 대역 내 인증
+        url: "/revert/disable-in-band-authentication.html"
+      - title: MetroCluster 구성을 위한 IPsec
+        url: "/revert/task-disable-ipsec.html"
+    - title: ONTAP 9.11.1
+      entries:
+      - title: 랜섬웨어 방지 라이센스
+        url: "/revert/anti-ransomware-license-task.html"
+    - title: ONTAP 9.6
+      entries:
+      - title: SnapMirror Synchronous 관계
+        url: "/revert/concept_consideration_for_reverting_systems_with_snapmirror_synchronous_relationships.html"
+- title: 복원 소프트웨어 이미지를 다운로드하고 설치합니다
   url: "/revert/task_download_and_install_ontap_software_image.html"
-- title: 내 클러스터를 되돌립니다
+- title: 클러스터를 되돌립니다
   url: "/revert/task_reverting_an_ontap_cluster.html"
-- title: 클러스터를 되돌린 후에는 어떻게 해야 합니까?
+- title: ONTAP 복원 후 수행할 작업
   entries:
   - title: 클러스터 및 스토리지 상태를 확인합니다
     url: "/revert/task_verify_health.html"
@@ -67,13 +74,7 @@ entries:
     url: "/revert/task_enabling_and_reverting_lifs_to_home_ports_completing_post_reversion_tasks.html"
   - title: 스냅샷 복사본 정책 설정
     url: "/revert/task_preparing_snapshot_copies_after_reverting.html"
-  - title: 클라이언트 액세스 확인(SMB 및 NFS)
-    url: "/revert/task_verifying_client_access_cifs_and_nfs.html"
   - title: IPv6 방화벽 항목을 확인합니다
     url: "/revert/task_verifying_ipv6_firewall_entries.html"
-  - title: 암호 해시 기능을 되돌립니다
-    url: "/revert/task_reverting_password_hash_function.html"
-  - title: SP 펌웨어를 업데이트합니다
-    url: "/revert/concept_support_of_sp_firmware_automatic_revert.html"
   - title: 서비스 프로세서에 액세스할 수 있는 사용자 계정을 확인합니다
     url: "/revert/verify-sp-user-accounts-task.html"

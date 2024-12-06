@@ -4,12 +4,12 @@ sidebar: sidebar
 keywords: revert, reverting, reversion, anti-ransomware, autonomous, protection, arp, license, licensing 
 summary: 랜섬웨어 방지 보호를 구성했고 ONTAP 9.11.1 이상에서 ONTAP 9.10.1로 복원하면 경고 메시지와 제한된 랜섬웨어 방지 기능이 나타날 수 있습니다. 
 ---
-= ONTAP 9.11.1 이상에서 되돌리기 전에 자율 랜섬웨어 보호 라이센스를 확인하십시오
+= ONTAP 9.11.1에서 되돌리기 전에 자율적 랜섬웨어 방어 라이센스를 확인하십시오
 :allow-uri-read: 
 
 
 [role="lead"]
-자동 랜섬웨어 보호(ARP)를 구성하고 ONTAP 9.11.1 이상에서 ONTAP 9.10.1 이전 버전으로 되돌릴 경우 경고 메시지와 제한된 ARP 기능이 나타날 수 있습니다.
+ARP(자율적 랜섬웨어 방어)를 구성한 후 ONTAP 9.11.1에서 ONTAP 9.10.1로 되돌리면 경고 메시지와 제한된 ARP 기능이 발생할 수 있습니다.
 
 ONTAP 9.11.1에서 Anti-랜섬웨어 라이센스는 멀티 테넌트 키 관리(MTKM) 라이센스를 대체합니다. 시스템에 Anti_랜섬웨어 라이센스가 있지만 MT_EK_MGMT 라이센스가 없는 경우 되돌리기 중에 ARP가 새 볼륨에 대해 활성화될 수 없다는 경고가 표시됩니다.
 

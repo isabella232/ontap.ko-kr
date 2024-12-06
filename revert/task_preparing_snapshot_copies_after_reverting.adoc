@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ontap, revert, reverting, reversion, snapshot, copy, copies, policy, policies, enable, restart 
 summary: 이전 버전의 ONTAP로 되돌린 후에는 스냅샷 복사본 정책을 사용하도록 설정해야 스냅샷 복사본 생성이 다시 시작됩니다. 
 ---
-= 되돌리기 후 스냅샷 복사본 정책을 사용하도록 설정합니다
+= ONTAP 되돌리기 후 스냅샷 복사본 정책 사용
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,17 +15,22 @@ summary: 이전 버전의 ONTAP로 되돌린 후에는 스냅샷 복사본 정�
 
 이전 버전의 ONTAP로 되돌리기 전에 사용하지 않도록 설정한 스냅샷 스케줄을 다시 사용하도록 설정합니다.
 
+.단계
 . 모든 데이터 SVM에 대해 스냅샷 복사본 정책 설정:
 +
-'볼륨 스냅샷 정책 수정 - vserver * -enabled true'
-
-+
-'스냅샷 정책 수정 pg-RPO-hourly-enable true
-
-. 각 노드에 대해 run-nodenameevol optionsroot_vol_namenosnap off 명령을 사용하여 루트 볼륨의 스냅샷 복사본 정책을 설정합니다.
-+
-[listing]
+[source, cli]
 ----
-cluster1::> run -node node1 vol options vol0 nosnap off
+volume snapshot policy modify -vserver * -enabled true
+----
++
+[source, cli]
+----
+snapshot policy modify pg-rpo-hourly -enable true
+----
+. 각 노드에 대해 루트 볼륨의 스냅샷 복사본 정책을 설정합니다.
++
+[source, cli]
+----
+run -node <node_name> vol options <volume_name> nosnap off
 ----
 

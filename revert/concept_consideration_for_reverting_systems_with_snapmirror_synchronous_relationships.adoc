@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ontap, revert, reverting, reversion, considerations, snapmirror, synchronous, relationships 
 summary: ONTAP 9 .6에서 ONTAP 9.5로 되돌리려면 먼저 SnapMirror 동기 관계에 대한 고려 사항을 알고 있어야 합니다. 
 ---
-= SnapMirror 동기식 관계를 사용하여 시스템을 되돌릴 때의 고려 사항
+= SnapMirror 동기식 관계를 사용하여 ONTAP 9.6에서 시스템을 되돌리기 위한 고려 사항
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

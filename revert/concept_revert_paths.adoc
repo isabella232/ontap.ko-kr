@@ -2,18 +2,22 @@
 permalink: revert/concept_revert_paths.html 
 sidebar: sidebar 
 keywords: ontap, downgrade, revert, paths 
-summary: 되돌릴 수 있는 ONTAP 버전은 현재 노드에서 실행 중인 ONTAP 버전에 따라 달라집니다. 
+summary: ONTAP 소프트웨어를 현재 ONTAP 버전보다 한 가지 이전 릴리즈로 직접 되돌릴 수 있습니다. 지원되지 않는 ONTAP 버전으로 되돌리면 안 됩니다. 
 ---
-= 복원 경로
+= 지원되는 ONTAP 되돌리기 경로
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-되돌릴 수 있는 ONTAP 버전은 현재 노드에서 실행 중인 ONTAP 버전에 따라 달라집니다. 'system image show' 명령을 사용하여 각 노드에서 실행 중인 ONTAP 버전을 확인할 수 있습니다.
+ONTAP 소프트웨어를 현재 ONTAP 버전보다 이전 릴리즈로 직접 되돌릴 수 있습니다. 예를 들어 9.15.1을 실행하는 경우 9.13.1로 바로 되돌릴 수 없습니다. 9.14.1로 되돌린 다음 9.14.1에서 9.13.1로 별도의 복원을 수행해야 합니다.
 
-이러한 지침은 온프레미스 ONTAP 릴리스에만 적용됩니다. 클라우드에서 ONTAP을 되돌리는 방법에 대한 자세한 내용은 를 참조하십시오 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-updating-ontap-cloud.html#reverting-or-downgrading["Cloud Volumes ONTAP를 되돌리거나 다운그레이드하는 중입니다"^].
+ONTAP 9.4 이하 버전으로 되돌리는 것은 지원되지 않습니다. 지원되지 않는 ONTAP 버전으로 되돌리면 안 됩니다.
+
+명령을 사용하여 각 노드에서 실행 중인 ONTAP 버전을 확인할 수 `system image show` 있습니다.
+
+다음과 같은 지원되는 되돌리기 경로는 사내 ONTAP 릴리즈에만 해당됩니다. 클라우드에서 ONTAP를 되돌리는 방법에 대한 자세한 내용은 을 참조하십시오 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-updating-ontap-cloud.html#reverting-or-downgrading["Cloud Volumes ONTAP를 되돌리거나 다운그레이드하는 중입니다"^].
 
 [cols="2*"]
 |===
@@ -62,58 +66,15 @@ ONTAP 9.9.1
 
  a| 
 ONTAP 9.8
- a| 
-ONTAP 9.7
-
+| ONTAP 9.7 
 
 
  a| 
 ONTAP 9.7
- a| 
-ONTAP 9.6
-
+| ONTAP 9.6 
 
 
  a| 
 ONTAP 9.6
- a| 
-ONTAP 9.5
-
-
-
- a| 
-ONTAP 9.5
- a| 
-ONTAP 9.4
-
-
-
- a| 
-ONTAP 9.4
- a| 
-ONTAP 9.3
-
-
-
- a| 
-ONTAP 9.3
- a| 
-ONTAP 9.2
-
-
-
- a| 
-ONTAP 9.2
- a| 
-ONTAP 9.1
-
-
-
- a| 
-ONTAP 9.1 또는 ONTAP 9
- a| 
-Data ONTAP 8.3.x
-
+| ONTAP 9.5 
 |===
-
-NOTE: ONTAP 9.1에서 9.0으로 변경해야 하는 경우 을 따라야 합니다 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2876873["다운그레이드 프로세스"^] 여기에 문서화되었습니다.

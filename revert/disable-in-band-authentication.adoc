@@ -1,0 +1,35 @@
+---
+permalink: revert/disable-in-band-authentication.html 
+sidebar: sidebar 
+keywords: manage, nvme, secure, authentication, tcp, dh-hmac-hcap, chap, disable, in-band, in band 
+summary: ONTAP 9.12.1에서 되돌리는 경우 되돌리기 전에 대역내 인증을 비활성화해야 합니다. 
+---
+= ONTAP 9.12.1에서 되돌리기 전에 NVMe 대역 내 인증을 비활성화한다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NVMe 프로토콜을 실행 중인 경우 클러스터를 ONTAP 9.12.1에서 되돌리기 전에 대역 내 인증을 비활성화해야 합니다. DH-HMAC-CHAP를 사용한 대역내 인증이 해제되지 않은 경우 되돌리기가 실패합니다.
+
+.단계
+. DH-HMAC-CHAP 인증을 비활성화하려면 서브시스템에서 호스트를 제거합니다.
++
+[source, cli]
+----
+vserver nvme subsystem host remove -vserver <svm_name> -subsystem <subsystem> -host-nqn <host_nqn>
+----
+. DH-HMAC-CHAP 인증 프로토콜이 호스트에서 제거되었는지 확인합니다.
++
+[source, cli]
+----
+vserver nvme subsystem host show
+----
+. 인증 없이 호스트를 하위 시스템에 다시 추가합니다.
++
+[source, cli]
+----
+vserver nvme subsystem host add vserver <svm_name> -subsystem <subsystem> -host-nqn <host_nqn>
+----
+

@@ -2,16 +2,16 @@
 permalink: revert/concept_reversion_requirements_for_snapmirror_and_snapvault_relationships.html 
 sidebar: sidebar 
 keywords: ontap, revert, reverting, reversion, requirements, snapmirror, snapvault, relationships 
-summary: 시스템 노드 되돌리기 명령은 재조정 프로세스를 완료하기 위해 삭제하거나 재구성해야 하는 SnapMirror 및 SnapVault 관계를 알려 줍니다. 그러나 재버전을 시작하기 전에 이러한 요구 사항을 알고 있어야 합니다. 
+summary: system node revert-to 명령은 복원 프로세스를 완료하기 위해 삭제 또는 재구성해야 하는 모든 SnapMirror 및 SnapVault 관계를 사용자에게 알립니다. 그러나 재버전을 시작하기 전에 이러한 요구 사항을 알고 있어야 합니다. 
 ---
-= SnapMirror 및 SnapVault 관계에 대한 되돌리기 요구 사항
+= SnapMirror 및 SnapVault 관계에 대한 ONTAP 복원 요구사항
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-시스템 노드 되돌리기 명령은 재조정 프로세스를 완료하기 위해 삭제하거나 재구성해야 하는 SnapMirror 및 SnapVault 관계를 알려 줍니다. 그러나 재버전을 시작하기 전에 이러한 요구 사항을 알고 있어야 합니다.
+이 `system node revert-to` 명령은 되돌리기 프로세스를 완료하기 위해 삭제 또는 재구성해야 하는 SnapMirror 및 SnapVault 관계를 알려 줍니다. 그러나 재버전을 시작하기 전에 이러한 요구 사항을 알고 있어야 합니다.
 
 * 모든 SnapVault 및 데이터 보호 미러링 관계를 중지했다가 해제해야 합니다.
 +
@@ -41,5 +41,5 @@ NOTE: 단일 파일 스냅샷 복원(SFSR) 및 부분 파일 스냅샷 복원(PF
 +
 복원 작업이 완료될 때까지 기다리거나 작업을 중단할 수 있습니다.
 
-* 완료되지 않은 단일 파일 및 스냅샷 복원 작업은 SnapMirror 복원 명령을 사용하여 제거해야 합니다.
+* 완료되지 않은 단일 파일 및 스냅샷 복원 작업은 명령을 사용하여 제거해야 `snapmirror restore` 합니다.
 

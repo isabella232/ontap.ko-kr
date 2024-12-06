@@ -4,34 +4,56 @@ sidebar: sidebar
 keywords: ontap, revert, reverting, reversion, snapshot, copies, prepare, preparing, disable, delete 
 summary: 이전 ONTAP 릴리즈로 되돌리기 전에 모든 스냅샷 복사본 정책을 사용하지 않도록 설정하고 현재 릴리즈로 업그레이드한 후 생성한 모든 스냅샷 복사본을 삭제해야 합니다. 
 ---
-= 되돌리기 전에 스냅샷 복사본을 준비합니다
+= ONTAP 클러스터를 되돌리기 전에 스냅샷을 준비합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-이전 ONTAP 릴리즈로 되돌리기 전에 모든 스냅샷 복사본 정책을 사용하지 않도록 설정하고 현재 릴리즈로 업그레이드한 후 생성한 모든 스냅샷 복사본을 삭제해야 합니다.
+ONTAP 9 버전에서 ONTAP 클러스터를 되돌리려면 먼저 모든 스냅샷 복사본 정책을 사용하지 않도록 설정하고 현재 릴리즈로 업그레이드한 후 생성된 스냅샷 복사본을 모두 삭제해야 합니다.
 
 SnapMirror 환경에서 되돌리는 경우 먼저 다음과 같은 미러링 관계를 삭제해야 합니다.
 
 * 모든 로드 공유 미러 관계
 * ONTAP 8.3.x에서 생성된 모든 데이터 보호 미러링 관계
 * ONTAP 8.3.x에서 클러스터가 다시 생성된 경우 모든 데이터 보호 미러링 관계가 형성됩니다
-+
-.. 모든 데이터 SVM에 대해 스냅샷 복사 정책을 사용하지 않도록 설정합니다. '볼륨 스냅샷 정책 수정 - vserver * -enabled false'
-.. 각 노드의 애그리게이트에 대해 스냅샷 복사본 정책을 사용하지 않도록 설정:
-+
-... run-nodenameaggr 상태 명령을 사용하여 노드의 애그리게이트를 식별합니다.
-... 각 집계에 대해 "run-node nodename aggr options aggr_name nosnap on"이라는 스냅샷 복사 정책을 사용하지 않도록 설정합니다
-... 나머지 각 노드에 대해 이 단계를 반복합니다.
 
 
-.. 각 노드의 루트 볼륨에 대해 스냅샷 복사본 정책 해제:
+.단계
+. 모든 데이터 SVM에 대해 스냅샷 복사본 정책 비활성화:
 +
-... run-nodenameevol status 명령을 사용하여 노드의 루트 볼륨을 식별합니다.
+[source, cli]
+----
+volume snapshot policy modify -vserver * -enabled false
+----
+. 각 노드의 애그리게이트에 대해 스냅샷 복사본 정책을 사용하지 않도록 설정:
 +
-vol status 명령 출력의 Options 열에서 root라는 단어를 사용하여 루트 볼륨을 식별합니다.
+.. 노드의 애그리게이트를 식별합니다.
++
+[source, cli]
+----
+run -node <nodename> -command aggr status
+----
+.. 각 애그리게이트에 대해 스냅샷 복사본 정책을 사용하지 않도록 설정합니다.
++
+[source, cli]
+----
+run -node <nodename> -command aggr options aggr_name nosnap on
+----
+.. 나머지 각 노드에 대해 이 단계를 반복합니다.
+
+
+. 각 노드의 루트 볼륨에 대해 스냅샷 복사본 정책 해제:
++
+.. 노드의 루트 볼륨 식별:
++
+[source, cli]
+----
+run-node <node_name> -command vol status
+----
++
+명령 출력의 * Options * 열에서 root 라는 단어로 루트 볼륨을 `vol status` 식별합니다.
 
 +
 [listing]
@@ -42,20 +64,40 @@ vs1::> run -node node1 vol status
            vol0 online          raid_dp, flex     root, nvfail=on
                                 64-bit
 ----
-... 루트 볼륨에 대한 스냅샷 복제 정책: 'run-node nodename vol options root_volume_name nosnap on'을 비활성화합니다
-... 나머지 각 노드에 대해 이 단계를 반복합니다.
-
-
-.. 현재 릴리즈로 업그레이드한 후 생성된 모든 스냅샷 복사본을 삭제합니다.
+.. 루트 볼륨에서 스냅샷 복사본 정책을 사용하지 않도록 설정합니다.
 +
-... 권한 수준을 Advanced:'Set-Privilege advanced'로 설정합니다
-... 스냅샷 비활성화: ''스냅샷 정책 수정 - vserver * -enabled false'
-... 노드의 최신 버전의 Snapshot 복제본 '볼륨 스냅샷 준비-되돌리기-노드 nodename'을 삭제합니다
+[source, cli]
+----
+run -node <node_name> vol options root_volume_name nosnap on
+----
+.. 나머지 각 노드에 대해 이 단계를 반복합니다.
+
+
+. 현재 릴리즈로 업그레이드한 후 생성된 모든 스냅샷 복사본을 삭제합니다.
++
+.. 권한 수준을 고급으로 설정합니다.
++
+[source, cli]
+----
+set -privilege advanced
+----
+.. 스냅샷을 비활성화합니다.
++
+[source, cli]
+----
+snapshot policy modify -vserver * -enabled false
+----
+.. 노드의 최신 버전 Snapshot 복사본을 삭제합니다.
++
+[source, cli]
+----
+volume snapshot prepare-for-revert -node <node_name>
+----
 +
 이 명령을 실행하면 각 데이터 볼륨, 루트 애그리게이트 및 루트 볼륨에서 최신 버전의 Snapshot 복사본이 삭제됩니다.
 
 +
-스냅샷 복사본을 삭제할 수 없는 경우 명령은 실패하고 스냅샷 복사본을 삭제하기 전에 수행해야 하는 모든 필수 작업이 통지됩니다. 다음 단계로 진행하기 전에 필요한 작업을 완료한 다음 볼륨 스냅샷 prepare-for-revert 명령을 다시 실행해야 합니다.
+스냅샷 복사본을 삭제할 수 없는 경우 명령은 실패하고 스냅샷 복사본을 삭제하기 전에 수행해야 하는 모든 필수 작업이 통지됩니다. 다음 단계로 진행하기 전에 필요한 작업을 완료한 다음 명령을 다시 실행해야 `volume snapshot prepare-for-revert` 합니다.
 
 +
 [listing]
@@ -65,18 +107,28 @@ cluster1::*> volume snapshot prepare-for-revert -node node1
 Warning: This command will delete all Snapshot copies that have the format used by the current version of ONTAP. It will fail if any Snapshot copy polices are enabled, or
          if any Snapshot copies have an owner. Continue? {y|n}: y
 ----
-... 스냅샷 복사본이 삭제되었는지 확인합니다. 'volume snapshot show-node nodename'
+.. 스냅샷 복사본이 삭제되었는지 확인:
 +
-최신 버전의 Snapshot 복제본이 남아 있는 경우 강제로 삭제합니다. '볼륨 스냅샷 삭제{-fs-version 9.0 - node nodename-is-fuenu구성요소 true} - ignore-hoids-force'
-
-... 나머지 각 노드에 대해 c 단계를 반복합니다.
-... admin 권한 수준으로 복귀:'et-Privilege admin'입니다
-
-
-
-
+[source, cli]
+----
+volume snapshot show -node nodename
+----
+.. 최신 버전의 Snapshot 복사본이 남아 있는 경우 강제로 삭제합니다.
 +
+[source, cli]
+----
+volume snapshot delete {-fs-version 9.0 -node nodename -is-constituent true} -ignore-owners -force
+----
+.. 나머지 각 노드에 대해 이 단계를 반복합니다.
+.. 관리자 권한 레벨로 돌아갑니다.
++
+[source, cli]
+----
+set -privilege admin
+----
+
+
+
+
 
 NOTE: MetroCluster 구성의 두 클러스터에서 이 단계를 수행해야 합니다.
-
-

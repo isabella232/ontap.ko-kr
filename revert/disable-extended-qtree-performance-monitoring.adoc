@@ -1,0 +1,16 @@
+---
+permalink: revert/disable-extended-qtree-performance-monitoring.html 
+sidebar: sidebar 
+keywords: ontap, revert, reversion, reverting, downgrade, downgrading, preparation 
+summary: 다양한 구성 설정이 클러스터 업그레이드 준비에 영향을 미칠 수 있습니다. 
+---
+= ONTAP 9.16.1에서 되돌리기 전에 확장 Qtree 성능 모니터링을 비활성화하십시오
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ONTAP 9.16.1부터 ONTAP REST API를 사용하여 지연 시간 메트릭 및 기간별 통계를 비롯한 확장된 qtree 모니터링 기능에 액세스할 수 있습니다. 모든 qtree에서 확장 모니터링이 활성화되어 있는 경우 9.16.1에서 되돌리려면 먼저 false로 설정해야 합니다 `ext_performance_monitoring.enabled`.
+
+에 대해 자세히 link:..volumes/qtrees-partition-your-volumes-concept.html#upgrading-and-reverting["확장된 qtree 성능 모니터링으로 클러스터 되돌리기"]알아보십시오.

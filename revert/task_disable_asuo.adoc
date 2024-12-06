@@ -11,9 +11,15 @@ summary: '2노드 또는 4노드 MetroCluster 구성을 되돌리기 전에 자�
 
 
 [role="lead"]
-2노드 또는 4노드 MetroCluster 구성을 되돌리기 전에 자동 UNPLANNED 절체(AUSO)를 비활성화해야 합니다.
+모든 버전의 ONTAP 9를 실행 중인 2노드 또는 4노드 MetroCluster 구성을 되돌리기 전에 AUSO(자동 계획되지 않은 스위치오버)를 사용하지 않도록 설정해야 합니다.
 
-. MetroCluster의 두 클러스터 모두에서 'MetroCluster modify-auto-switchover-failure-domain auso-disabled'라는 예기치 않은 자동 전환을 비활성화합니다
+.단계
+. MetroCluster의 클러스터 모두에서 계획되지 않은 자동 전환이 사용되지 않도록 설정합니다.
++
+[source, cli]
+----
+metrocluster modify -auto-switchover-failure-domain auso-disabled
+----
 
 
 .관련 정보

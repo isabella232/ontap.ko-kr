@@ -58,4 +58,14 @@ NetApp는 Trellix, Symantec, Trend Micro 및 Sentinel One과 협력하여 ONTAP 
 * link:https://www.deepinstinct.com/pdf/datasheet-deep-instinct-prevention-for-storage-netapp["데이터 시트"^]
 
 
+
+
+| OPSWAT  a| 
+OPSWAT MetaDefender 스토리지 보안
+
+* link:https://www.opswat.com/blog/metadefender-storage-security-integration-with-netapp["MetaDefender 스토리지 보안과 NetApp의 통합"^]
+* link:https://www.opswat.com/partners/netapp["OPSWAP 파트너 페이지 를 참조하십시오"^]
+* link:https://static.opswat.com/uploads/files/opswat-metadefender-storage-security-netapp-brochure.pdf["통합 솔루션 개요"^]
+
+
 |===

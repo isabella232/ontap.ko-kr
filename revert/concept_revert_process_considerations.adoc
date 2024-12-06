@@ -1,17 +1,17 @@
 ---
 permalink: revert/concept_revert_process_considerations.html 
 sidebar: sidebar 
-keywords: ontap, revert, considerations 
+keywords: ontap, revert, limitations, issues 
 summary: ONTAP 리버전을 시작하기 전에 복원 문제와 제한 사항을 고려해야 합니다. 
 ---
-= 되돌리기 고려 사항
+= ONTAP 복원 문제 및 제한 사항
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-ONTAP 리버전을 시작하기 전에 복원 문제와 제한 사항을 고려해야 합니다.
+ONTAP 클러스터를 복구하기 전에 되돌리기 문제 및 제한 사항을 고려해야 합니다.
 
 * 되돌리기 - 중단이 발생합니다.
 +

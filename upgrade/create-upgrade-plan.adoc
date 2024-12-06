@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ontap, upgrade, plan, planning, upgrade advisor, advisor, digital advisor, active iq, create an upgrade plan, estimate upgrade, 
 summary: Digital Advisor의 Upgrade Advisor 서비스는 업그레이드를 계획하고 불확실성과 위험을 최소화할 수 있는 인텔리전스를 제공합니다. 
 ---
-= Upgrade Advisor를 사용하여 업그레이드 계획
+= 업그레이드 관리자를 통해 ONTAP 업그레이드 계획을 세우십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

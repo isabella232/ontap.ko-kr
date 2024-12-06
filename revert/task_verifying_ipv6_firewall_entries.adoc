@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: revert, reverting, reversion, ipv6, firewall, entries, verify 
 summary: ONTAP 9 버전에서 다시 버전을 사용하면 방화벽 정책의 일부 서비스에 대한 기본 IPv6 방화벽 항목이 누락될 수 있습니다. 필요한 방화벽 항목이 시스템에 복원되었는지 확인해야 합니다. 
 ---
-= IPv6 방화벽 항목을 확인합니다
+= ONTAP 복원 후 IPv6 방화벽 항목을 확인합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,7 +13,13 @@ summary: ONTAP 9 버전에서 다시 버전을 사용하면 방화벽 정책의 
 [role="lead"]
 ONTAP 9 버전에서 다시 버전을 사용하면 방화벽 정책의 일부 서비스에 대한 기본 IPv6 방화벽 항목이 누락될 수 있습니다. 필요한 방화벽 항목이 시스템에 복원되었는지 확인해야 합니다.
 
-. 모든 방화벽 정책을 기본 정책(시스템 서비스 방화벽 정책 표시)과 비교하여 올바른지 확인합니다
+.단계
+. 모든 방화벽 정책을 기본 정책과 비교하여 올바른지 확인합니다.
++
+[source, cli]
+----
+system services firewall policy show
+----
 +
 다음 예에서는 기본 정책을 보여 줍니다.
 
@@ -44,18 +50,16 @@ data
 .
 .
 ----
-. 누락된 기본 IPv6 방화벽 항목을 수동으로 추가하려면 새 방화벽 정책인 '시스템 서비스 방화벽 정책 생성'을 만드십시오
+. 새 방화벽 정책을 생성하여 누락된 기본 IPv6 방화벽 항목을 수동으로 추가합니다.
 +
-[listing]
+[source, cli]
 ----
-cluster1::*> system services firewall policy create -policy newIPv6
--service ssh -action allow -ip-list ::/0
+system services firewall policy create -policy <policy_name> -service ssh -action allow -ip-list <ip_list>
 ----
-. 새로운 정책을 LIF에 적용하여 네트워크 서비스에 대한 액세스를 허용합니다. '네트워크 인터페이스 수정
+. LIF에 새 정책을 적용하여 네트워크 서비스에 대한 액세스를 허용합니다.
 +
-[listing]
+[source, cli]
 ----
-cluster1::*> network interface modify -vserver VS1 -lif LIF1
--firewall-policy newIPv6
+network interface modify -vserve <svm_name> -lif <lif_name> -firewall-policy <policy_name>
 ----
 

@@ -1,25 +1,34 @@
 ---
 permalink: revert/task_things_to_verify_before_revert.html 
 sidebar: sidebar 
-keywords: ontap, revert, reversion, reverting, downgrade, downgrading, preparation 
-summary: 다양한 구성 설정이 클러스터 업그레이드 준비에 영향을 미칠 수 있습니다. 
+keywords: ontap, revert, reversion, reverting, downgrade, downgrading, preparation, pre-revert, checks, verification, cluster health, storage health, system time, jobs 
+summary: ONTAP를 되돌리기 전에 클러스터 상태, 스토리지 상태 및 시스템 시간을 확인해야 합니다. 또한 클러스터에서 실행 중인 작업이 없는지 확인해야 합니다. 
 ---
-= 되돌리기 전에 확인해야 할 사항
+= ONTAP 클러스터를 되돌리기 전에 수행할 시스템 확인
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-되돌리기 전에 클러스터 상태, 스토리지 상태 및 시스템 시간을 확인해야 합니다. 또한 실행 중인 모든 클러스터 작업을 삭제하고 지속적으로 사용할 수 없는 SMB 세션을 정상적으로 종료해야 합니다.
+ONTAP 클러스터를 되돌리려면 먼저 클러스터 상태, 스토리지 상태 및 시스템 시간을 확인해야 합니다. 또한 클러스터에서 실행 중인 작업이 없는지 확인해야 합니다.
 
 
 
 == 클러스터 상태를 확인합니다
 
-클러스터를 되돌리기 전에 노드가 정상 상태이며 클러스터에 참여할 자격이 있는지, 클러스터가 쿼럼에 있는지 확인해야 합니다.
+ONTAP 클러스터를 되돌리려면 먼저 노드가 정상 상태이고 클러스터에 참여할 자격이 있는지, 클러스터가 쿼럼에 있는지 확인해야 합니다.
 
-. 클러스터의 노드가 온라인 상태이고 클러스터 쇼에 참여할 자격이 있는지 확인합니다
+.단계
+. 클러스터의 노드가 온라인 상태이며 클러스터에 참여할 자격이 있는지 확인합니다.
++
+[source, cli]
+----
+cluster show
+----
++
+이 예에서는 모든 노드가 정상 상태이며 클러스터에 참여할 수 있습니다.
+
 +
 [listing]
 ----
@@ -32,7 +41,12 @@ node1                 true    true
 +
 노드가 정상 상태가 아니거나 적합하지 않은 경우 EMS 로그에서 오류를 확인하고 수정 조치를 취합니다.
 
-. 권한 수준을 advanced:+'et-Privilege advanced로 설정합니다
+. 권한 수준을 고급으로 설정합니다.
++
+[source, cli]
+----
+set -privilege advanced
+----
 +
 계속하려면 y를 입력하십시오.
 
@@ -52,29 +66,37 @@ node1                 true    true
  a| 
 기능과
  a| 
-클러스터 링 쇼-unitname 관리
-
+[source, cli]
+----
+cluster ring show -unitname mgmt
+----
 
 
  a| 
 볼륨 위치 데이터베이스
  a| 
-클러스터 링 쇼-언이트네임 VLDB
-
+[source, cli]
+----
+cluster ring show -unitname vldb
+----
 
 
  a| 
 Virtual-Interface Manager를 참조하십시오
  a| 
-클러스터 링 쇼-unitname vifmgr
-
+[source, cli]
+----
+cluster ring show -unitname vifmgr
+----
 
 
  a| 
 SAN 관리 데몬
  a| 
-'클러스터 링 쇼-언이트네임 bcomd'
-
+[source, cli]
+----
+cluster ring show -unitname bcomd
+----
 |===
 +
 이 예에서는 볼륨 위치 데이터베이스 프로세스를 보여 줍니다.
@@ -93,8 +115,18 @@ node3     vldb     154      154      14847    node0     secondary
 ----
 
 
-. 관리자 권한 수준으로 돌아가기: + 'Set-Privilege admin
-. SAN 환경에서 작동 중인 경우 각 노드가 SAN quorum에 있는지 확인합니다. '이벤트 로그 show-severity Informational-message-name scsibeBlade. *
+. 관리자 권한 레벨로 돌아갑니다.
++
+[source, cli]
+----
+set -privilege admin
+----
+. SAN 환경에서 작동 중인 경우 각 노드가 SAN 쿼럼에 있는지 확인합니다.
++
+[source, cli]
+----
+event log show  -severity informational -message-name scsiblade.*
+----
 +
 각 노드에 대한 가장 최근의 scsib블레이드 이벤트 메시지는 SCSI 블레이드가 quorum에 있음을 나타내야 합니다.
 
@@ -116,8 +148,9 @@ link:../system-admin/index.html["시스템 관리"]
 
 == 스토리지 상태를 확인합니다
 
-클러스터를 되돌리기 전에 디스크, 애그리게이트, 볼륨의 상태를 확인해야 합니다.
+ONTAP 클러스터를 되돌리려면 먼저 디스크, 애그리게이트 및 볼륨의 상태를 확인해야 합니다.
 
+.단계
 . 디스크 상태 확인:
 +
 [cols="2*"]
@@ -128,7 +161,12 @@ link:../system-admin/index.html["시스템 관리"]
  a| 
 손상된 디스크
  a| 
-.. 깨진 디스크를 표시합니다:'스토리지 디스크 표시 상태 파단'
+.. 손상된 디스크를 표시합니다.
++
+[source, cli]
+----
+storage disk show -state broken
+----
 .. 손상된 디스크를 제거하거나 교체합니다.
 
 
@@ -137,12 +175,22 @@ link:../system-admin/index.html["시스템 관리"]
  a| 
 유지보수 또는 재구성이 진행 중인 디스크
  a| 
-.. 유지 보수, 보류 중 또는 재구성 상태의 디스크를 표시합니다. 스토리지 디스크 표시 상태 유지 관리 | 보류 중 | 재구성 중
+.. 유지 보수, 보류 또는 재구성 상태의 디스크를 표시합니다.
++
+[source, cli]
+----
+storage disk show -state maintenance|pending|reconstructing
+----
 .. 유지보수 또는 재구성 작업이 완료될 때까지 기다린 후 계속 진행하십시오.
 
 
 |===
-. 스토리지 Aggregate의 'Storage aggregate show-state! online'을 비롯한 물리적 스토리지와 논리적 스토리지의 상태를 표시하여 모든 애그리게이트가 온라인 상태인지 확인합니다
+. 스토리지 애그리게이트를 포함하여 물리적 스토리지와 논리적 스토리지의 상태를 표시하여 모든 애그리게이트가 온라인 상태인지 확인합니다
++
+[source, cli]
+----
+storage aggregate show -state !online
+----
 +
 이 명령은 _not_online 인 애그리게이트를 표시합니다. 주요 업그레이드 또는 리버전을 수행하기 전과 후의 모든 애그리게이트는 온라인 상태여야 합니다.
 
@@ -152,7 +200,12 @@ link:../system-admin/index.html["시스템 관리"]
 cluster1::> storage aggregate show -state !online
 There are no entries matching your query.
 ----
-. "volume show-state! online"이라는 볼륨을 표시하여 모든 볼륨이 온라인 상태인지 확인합니다
+. _NOT_ONLINE 상태인 볼륨을 표시하여 모든 볼륨이 온라인 상태인지 확인합니다.
++
+[source, cli]
+----
+volume show -state !online
+----
 +
 주요 업그레이드 또는 재버전을 수행하기 전과 후에 모든 볼륨이 온라인 상태여야 합니다.
 
@@ -162,7 +215,12 @@ There are no entries matching your query.
 cluster1::> volume show -state !online
 There are no entries matching your query.
 ----
-. '볼륨 표시 - 불일치 true'라는 일관성 없는 볼륨이 없는지 확인합니다
+. 일치하지 않는 볼륨이 없는지 확인합니다.
++
+[source, cli]
+----
+volume show -is-inconsistent true
+----
 +
 기술 자료 문서를 참조하십시오 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/Volume_Showing_WAFL_Inconsistent["WAFL가 일치하지 않는 볼륨으로 표시됩니다"] 정합성이 보장되지 않는 볼륨을 처리하는 방법에 대해 설명합니다.
 
@@ -175,10 +233,21 @@ link:../disks-aggregates/index.html["디스크 및 애그리게이트 관리"]
 
 == 시스템 시간을 확인합니다
 
-되돌리기 전에 NTP가 구성되었는지, 그리고 시간이 클러스터 전체에서 동기화되었는지 확인해야 합니다.
+ONTAP 클러스터를 되돌리려면 먼저 NTP가 구성되어 있고 클러스터 전체에서 시간이 동기화되는지 확인해야 합니다.
 
-. 클러스터가 NTP 서버와 연결되어 있는지 확인합니다. 'cluster time-service ntp server show'
-. 각 노드의 날짜 및 시간이 'cluster date show'와 동일한지 확인합니다
+.단계
+. 클러스터가 NTP 서버와 연결되어 있는지 확인합니다.
++
+[source, cli]
+----
+cluster time-service ntp server show
+----
+. 각 노드의 날짜와 시간이 동일한지 확인합니다.
++
+[source, cli]
+----
+cluster date show
+----
 +
 [listing]
 ----
@@ -197,9 +266,18 @@ node3     4/6/2013 20:54:38   GMT
 
 == 실행 중인 작업이 없는지 확인합니다
 
-ONTAP 소프트웨어를 되돌리기 전에 클러스터 작업의 상태를 확인해야 합니다. 애그리게이트, 볼륨, NDMP(덤프 또는 복원) 또는 스냅샷 작업(예: 생성, 삭제, 이동, 수정, 복제, 및 마운트 작업)이 실행 중이거나 대기 중입니다. 작업이 성공적으로 완료되도록 하거나 대기열에 있는 항목을 중지해야 합니다.
+ONTAP 클러스터를 되돌리려면 먼저 클러스터 작업의 상태를 확인해야 합니다. 집계, 볼륨, NDMP(덤프 또는 복원) 또는 스냅샷 작업(예: 생성, 삭제, 이동, 수정, 복제 및 마운트 작업)이 실행 중이거나 대기 중인 경우 작업이 성공적으로 완료되도록 허용하거나 대기 중인 항목을 중지해야 합니다.
 
-. 실행 중이거나 대기 중인 집계, 볼륨 또는 스냅샷 작업의 목록을 검토하십시오
+.단계
+. 실행 중이거나 대기열에 있는 집계, 볼륨 또는 스냅샷 작업의 목록을 검토합니다.
++
+[source, cli]
+----
+job show
+----
++
+이 예에서는 대기열에 있는 두 개의 작업이 있습니다.
+
 +
 [listing]
 ----
@@ -212,17 +290,19 @@ Job ID Name                 Vserver    Node           State
 8630   Certificate Expiry Check
                             cluster1   -              Queued
        Description: Certificate Expiry Check
-.
-.
-.
 ----
-. 실행 중이거나 대기 중인 모든 집계, 볼륨 또는 스냅샷 복사 작업('job delete-id job_id')을 삭제합니다
+. 실행 중이거나 대기열에 있는 애그리게이트, 볼륨 또는 스냅샷 복사본 작업을 삭제합니다.
 +
-[listing]
+[source, cli]
 ----
-cluster1::> job delete -id 8629
+job delete -id <job_id>
 ----
-. 집계, 볼륨 또는 스냅샷 작업이 실행 중이거나 대기 중인지 확인합니다. 'job show'
+. 집계, 볼륨 또는 스냅샷 작업이 실행되고 있지 않은지 또는 큐에 대기하고 있지 않은지 확인합니다.
++
+[source, cli]
+----
+job show
+----
 +
 이 예에서는 실행 중인 작업과 대기열에 있는 작업이 모두 삭제되었습니다.
 
@@ -242,65 +322,3 @@ Job ID Name                 Vserver    Node           State
 2 entries were displayed
 ----
 
-
-
-
-== 종료해야 하는 SMB 세션입니다
-
-되돌리기 전에 지속적으로 사용할 수 없는 SMB 세션을 식별하여 정상적으로 종료해야 합니다.
-
-Hyper-V 또는 Microsoft SQL Server 클라이언트가 SMB 3.0 프로토콜을 사용하여 액세스하는 지속적으로 사용 가능한 SMB 공유는 업그레이드 또는 다운그레이드하기 전에 종료할 필요가 없습니다.
-
-. 지속적으로 사용할 수 없는 설정된 SMB 세션을 식별합니다. `vserver cifs session show -continuously-available No -instance`
-+
-이 명령은 무중단 가용성이 없는 SMB 세션에 대한 자세한 정보를 표시합니다. ONTAP 다운그레이드를 진행하기 전에 종료해야 합니다.
-
-+
-[listing]
-----
-cluster1::> vserver cifs session show -continuously-available No -instance
-
-                        Node: node1
-                     Vserver: vs1
-                  Session ID: 1
-               Connection ID: 4160072788
-Incoming Data LIF IP Address: 198.51.100.5
-      Workstation IP address: 203.0.113.20
-    Authentication Mechanism: NTLMv2
-                Windows User: CIFSLAB\user1
-                   UNIX User: nobody
-                 Open Shares: 1
-                  Open Files: 2
-                  Open Other: 0
-              Connected Time: 8m 39s
-                   Idle Time: 7m 45s
-            Protocol Version: SMB2_1
-      Continuously Available: No
-1 entry was displayed.
-----
-. 필요한 경우, 확인한 각 SMB 세션에 대해 열려 있는 파일을 확인하십시오: 'vserver cifs session file show-session-id session_ID'
-+
-[listing]
-----
-cluster1::> vserver cifs session file show -session-id 1
-
-Node:       node1
-Vserver:    vs1
-Connection: 4160072788
-Session:    1
-File    File      Open Hosting                               Continuously
-ID      Type      Mode Volume          Share                 Available
-------- --------- ---- --------------- --------------------- ------------
-1       Regular   rw   vol10           homedirshare          No
-Path: \TestDocument.docx
-2       Regular   rw   vol10           homedirshare          No
-Path: \file1.txt
-2 entries were displayed.
-----
-
-
-
-
-== NVMe 대역 내 인증
-
-ONTAP 9.12.1 이상에서 ONTAP 9.12.0 이전 버전으로 되돌리려면 이 작업을 수행해야 합니다 link:../nvme/disable-secure-authentication-nvme-task.html["대역내 인증을 비활성화합니다"] 되돌리기 전에.  DH-HMAC-CHAP를 사용한 대역내 인증이 해제되지 않은 경우 되돌리기가 실패합니다.

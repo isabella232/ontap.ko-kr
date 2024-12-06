@@ -1,0 +1,16 @@
+---
+permalink: revert/remove-cors-configuration.html 
+sidebar: sidebar 
+keywords: ontap, revert, reversion, reverting, downgrade, downgrading, preparation 
+summary: 다양한 구성 설정이 클러스터 업그레이드 준비에 영향을 미칠 수 있습니다. 
+---
+= ONTAP 9.16.1에서 되돌리기 전에 CORS 구성을 제거합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+CORS(Cross-Origin Resource Sharing)를 사용하여 ONTAP S3 버킷을 액세스하는 경우 ONTAP 9.16.1에서 되돌리기 전에 이를 제거해야 합니다.
+
+에 대해 자세히 link:../s3-config/cors-integration.html#upgrading-and-reverting["CORS를 사용하여 ONTAP 클러스터 되돌리기"]알아보십시오.

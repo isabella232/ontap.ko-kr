@@ -1,0 +1,29 @@
+---
+permalink: networking/convert-cna-uta2-optical-modules.html 
+sidebar: sidebar 
+keywords: change, cna/uta2, target, adapter, optical, modules 
+summary: '어댑터에 대해 선택한 퍼스낼리티 모드를 지원하도록 유니파이드 타겟 어댑터(CNA/UTA2)의 광 모듈을 변경해야 합니다.' 
+---
+= ONTAP 시스템에 맞게 CNA/UTA2 광 모듈을 변환합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+어댑터에 대해 선택한 퍼스낼리티 모드를 지원하도록 유니파이드 타겟 어댑터(CNA/UTA2)의 광 모듈을 변경해야 합니다.
+
+.단계
+. 카드에 사용된 현재 SFP+를 확인합니다. 그런 다음 기본 설정 특성(FC 또는 CNA)에 대해 현재 SFP+를 적절한 SFP+로 교체합니다.
+. X1143A-R6 어댑터에서 현재 광 모듈을 제거합니다.
+. 기본 퍼스낼리티 모드(FC 또는 CNA) 광학장치에 맞는 모듈을 삽입합니다.
+. 올바른 SFP+가 설치되었는지 확인합니다.
++
+[source, cli]
+----
+network fcp adapter show -instance -node -adapter
+----
++
+지원되는 SFP+ 모듈 및 Cisco Twinax(Copper) 케이블이 에 나열되어 있습니다 https://hwu.netapp.com["NetApp Hardware Universe를 참조하십시오"^].
+
+
