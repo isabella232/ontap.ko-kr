@@ -16,6 +16,8 @@ summary: 볼륨 생성 명령을 사용하여 새 볼륨에서 암호화를 활�
 .이 작업에 대해
 NVE(NetApp Volume Encryption)를 사용하여 볼륨을 암호화하고 ONTAP 9.6, NetApp Aggregate Encryption(NAE)로 시작할 수 있습니다. NAE와 NVE에 대한 자세한 내용은 를 참조하십시오 xref:configure-netapp-volume-encryption-concept.html[볼륨 암호화 개요].
 
+이 절차에서 설명하는 명령에 대한 자세한 내용은 를 link:https://docs.netapp.com/us-en/ontap-cli/["ONTAP 명령 참조입니다"^]참조하십시오.
+
 ONTAP에서 새 볼륨에 대한 암호화를 활성화하는 절차는 사용 중인 ONTAP 버전과 특정 구성에 따라 다릅니다.
 
 * ONTAP 9.4부터 시작합니다(사용하는 경우) `cc-mode` Onboard Key Manager(온보드 키 관리자)를 설정할 때 로 생성한 볼륨입니다 `volume create` 명령은 사용자가 지정하든 관계없이 자동으로 암호화됩니다 `-encrypt true`.
@@ -65,7 +67,7 @@ NOTE: NAE가 지원되지 않는 ONTAP 9.6 및 이전 버전에서는 `-encrypt 
 
 |===
 +
-전체 명령 구문은 명령 참조 페이지에서 link:https://docs.netapp.com/us-en/ontap-cli/volume-create.html를 참조하십시오[`volume create`^].
+ONTAP 명령 참조에서 https://docs .NetApp.com/us-en/ONTAP-cli/volume-create.html 명령 링크에 대해 자세히[`volume create` 알아보십시오.
 
 . 볼륨에 암호화가 설정되어 있는지 확인합니다.
 +

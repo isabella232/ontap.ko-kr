@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: enable, tls, data, lif 
 summary: '를 사용할 수 있습니다 `vserver nfs tls interface enable` NFS 클라이언트에 대해 데이터 LIF에서 TLS를 사용하도록 설정하는 명령 따라서 SVM은 NFS에 TLS 보안 서비스를 사용할 수 있습니다.' 
 ---
-= NFS 클라이언트에 대해 TLS를 사용하거나 사용하지 않도록 설정합니다
+= ONTAP에서 NFS 클라이언트에 대해 TLS를 사용하거나 사용하지 않도록 설정합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -24,7 +24,7 @@ NFS 클라이언트에 대해 TLS 암호화를 활성화하여 전송 중인 데
 
 .시작하기 전에
 * 을 참조하십시오 link:tls-nfs-strong-security-concept.html["요구 사항"] NFS over TLS를 사용하는 것이 좋습니다.
-* 을 참조하십시오 https://docs.netapp.com/us-en/ontap-cli/vserver-nfs-tls-interface-enable.html["수동 페이지"^] 에 대한 자세한 내용은 `vserver nfs tls interface enable` 명령.
+* 명령에 대한 자세한 https://docs.netapp.com/us-en/ontap-cli/vserver-nfs-tls-interface-enable.html["SVM NFS TLS 인터페이스 지원"^] 내용은 ONTAP 명령 참조 를 참조하십시오.
 
 
 .단계
@@ -72,7 +72,7 @@ vs2            data2         10.0.1.2        disabled   -
 NOTE: TLS를 통해 NFS를 사용하지 않도록 설정하면 NFS 연결에 사용되는 TLS 인증서가 제거됩니다. 나중에 TLS를 통한 NFS를 활성화해야 하는 경우 활성화 중에 인증서 이름을 다시 지정해야 합니다.
 
 .시작하기 전에
-을 참조하십시오 https://docs.netapp.com/us-en/ontap-cli/vserver-nfs-tls-interface-disable.html["수동 페이지"^] 에 대한 자세한 내용은 `vserver nfs tls interface disable` 명령.
+명령에 대한 자세한 https://docs.netapp.com/us-en/ontap-cli/vserver-nfs-tls-interface-disable.html["SVM NFS TLS 인터페이스 비활성화"^] 내용은 ONTAP 명령 참조 를 참조하십시오.
 
 .단계
 . TLS를 사용하지 않도록 설정할 스토리지 VM 및 논리 인터페이스(LIF)를 선택합니다.
@@ -116,7 +116,7 @@ vs2            data2         10.0.1.2        disabled   -
 TLS를 통한 기존 NFS 구성의 설정을 변경할 수 있습니다. 예를 들어, 이 절차를 사용하여 TLS 인증서를 업데이트할 수 있습니다.
 
 .시작하기 전에
-을 참조하십시오 https://docs.netapp.com/us-en/ontap-cli/vserver-nfs-tls-interface-modify.html["수동 페이지"^] 에 대한 자세한 내용은 `vserver nfs tls interface modify` 명령.
+명령에 대한 자세한 https://docs.netapp.com/us-en/ontap-cli/vserver-nfs-tls-interface-modify.html["SVM NFS TLS 인터페이스 수정"^] 내용은 ONTAP 명령 참조 를 참조하십시오.
 
 .단계
 . NFS 클라이언트에 대한 TLS 구성을 수정할 스토리지 VM 및 논리 인터페이스(LIF)를 선택합니다.

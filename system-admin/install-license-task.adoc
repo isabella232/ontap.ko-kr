@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install, license, enable, add, record, ontap one, software, entitlement, keys, codes, cluster, administrator, nlf 
 summary: 'NLF를 설치하는 기본 방법인 System Manager를 사용하여 NLF(NetApp 라이센스 파일) 및 라이센스 키를 설치하거나 ONTAP CLI를 사용하여 라이센스 키를 설치할 수 있습니다. ONTAP 9.10.1 이상에서는 NetApp 라이센스 파일을 통해 기능이 활성화되고, ONTAP 9.10.1 이전 릴리스에서는 라이센스 키를 사용하여 ONTAP 기능을 사용할 수 있습니다. ' 
 ---
-= ONTAP 라이센스를 설치합니다
+= ONTAP에서 NetApp 라이센스를 설치합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -60,10 +60,10 @@ cluster1::> system license add -use-license-file true
 ----
 cluster1::> system license add -license-code AAAAAAAAAAAAAAAAAAAAAAAAAAAA, BBBBBBBBBBBBBBBBBBBBBBBBBBBB
 ----
++
+ONTAP 명령 참조에서 https://docs .NetApp.com/us-en/ONTAP-cli/system-license-add.html 명령 링크에 대해 자세히[`system license add` 알아보십시오.
+
 
 
 --
 ====
-.관련 정보
-* .
-

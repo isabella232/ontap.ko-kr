@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ontap 9, create, aggregates, auto-provision, add, local tier, automatic, automatically 
 summary: 'ONTAP가 로컬 계층을 자동으로 추가하는 데 제공하는 Best Practice 권장 사항(자동 프로비저닝을 통해 애그리게이트 생성)이 사용자 환경에 적합한 경우, 권장 사항을 수락하고 ONTAP가 로컬 계층을 추가하도록 할 수 있습니다.' 
 ---
-= 로컬 계층을 자동으로 추가(자동 프로비저닝을 통해 애그리게이트 생성)
+= ONTAP에서 로컬 계층을 자동으로 추가(자동 프로비저닝을 통해 애그리게이트 생성
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,6 +15,8 @@ ONTAP가 로컬 계층을 자동으로 추가하는 데 제공하는 Best Practi
 
 .시작하기 전에
 디스크를 로컬 계층(애그리게이트)에서 사용하려면 먼저 노드가 디스크를 소유해야 합니다.  클러스터가 자동 디스크 소유권 할당을 사용하도록 구성되어 있지 않은 경우, 반드시 해야 합니다 link:manual-assign-disks-ownership-prep-task.html["소유권을 수동으로 할당합니다"].
+
+이 절차에서 설명하는 명령에 대한 자세한 내용은 를 link:https://docs.netapp.com/us-en/ontap-cli/["ONTAP 명령 참조입니다"^]참조하십시오.
 
 [role="tabbed-block"]
 ====
@@ -103,7 +105,7 @@ ONTAP 9.2 이상이 클러스터에서 실행 중이어야 합니다.
 
 자동 프로비저닝 방법에 익숙하고 환경이 제대로 준비되었으면 '-skip-confirmation' 옵션을 사용하여 표시 및 확인 없이 권장 집계를 생성할 수 있습니다. 스토리지 집계 자동 프로비저닝 명령은 CLI 세션 확인 설정의 영향을 받지 않습니다.
 
-https://docs.netapp.com/us-en/ontap-cli/storage-aggregate-auto-provision.html 링크를 클릭합니다[`storage aggregate auto-provision` man 페이지^]애그리게이트 레이아웃 권장 사항에 대한 자세한 정보를 제공합니다.
+ONTAP 명령 참조에서 https://docs .NetApp.com/us-en/ONTAP-cli/storage-aggregate-auto-provision.html 명령 링크에 대해 자세히[`storage aggregate auto-provision` 알아보십시오.
 
 .단계
 . 원하는 표시 옵션으로 'Storage aggregate auto-provision' 명령을 실행합니다.

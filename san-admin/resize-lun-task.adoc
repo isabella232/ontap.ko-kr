@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: decrease, increase, resize, size, modify, change, lun 
 summary: LUN 크기를 늘리거나 줄일 수 있습니다. 
 ---
-= LUN 크기를 조정합니다
+= ONTAP에서 LUN 크기를 조정합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -52,7 +52,7 @@ AFF, FAS 및 ASA 플랫폼의 경우 128TB
 |===
 크기를 늘리기 위해 LUN을 오프라인 상태로 전환하지 않아도 됩니다. 그러나 크기를 늘린 후에는 호스트에서 LUN을 재검색하여 크기 변경을 인식해야 합니다.
 
-LUN 크기 조정에 대한 자세한 내용은 'LUN 크기 조정' 명령에 대한 명령 참조 페이지를 참조하십시오.
+ONTAP 명령 참조에서 https://docs .NetApp.com/us-en/ONTAP-cli//lun-resize.html#description] 명령에 대해 자세히[`lun resize` 알아보십시오.
 
 .단계
 [role="tabbed-block"]

@@ -4,7 +4,7 @@ permalink: networking/manage_supported_traffic.html
 keywords: lif roles, firewall services, lif service policies 
 summary: 시간이 지남에 따라 ONTAP에서 LIF에서 지원되는 트래픽 유형을 관리하는 방식이 변경되었습니다. 
 ---
-= 지원되는 트래픽을 관리합니다
+= ONTAP에서 지원되는 트래픽을 관리합니다
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

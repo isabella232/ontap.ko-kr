@@ -148,6 +148,10 @@ ipspace1
 
 . 데이터에 액세스하는 데 사용할 포트에 하나 이상의 LIF를 생성합니다.
 +
+
+CAUTION: NetApp은 데이터 SVM의 모든 LIF에 대한 서브넷 개체를 생성할 것을 권장합니다. 이는 각 서브넷 객체에 연결된 브로드캐스트 도메인이 있기 때문에 ONTAP에서 대상 클러스터의 페일오버 대상을 결정할 수 있도록 서브넷 객체를 사용하는 MetroCluster 구성에서 특히 중요합니다. 자세한 내용은 을 link:../networking/create_a_subnet.html["서브넷을 생성합니다"]참조하십시오.
+
++
 ....
 network interface create -vserver _SVM_name_ -lif _lif_name_ -service-policy _service_policy_name_ -home-node _node_name_ -home-port port_name {-address _IP_address_ - netmask _Netmask_value_ | -subnet-name _subnet_name_} -firewall- policy _policy_ -auto-revert {true|false}
 ....

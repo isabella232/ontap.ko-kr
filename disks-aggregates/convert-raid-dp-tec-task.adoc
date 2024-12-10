@@ -18,7 +18,7 @@ summary: 3중 패리티 보호를 추가하려면 RAID-DP에서 RAID-TEC로 전�
 
 .이 작업에 대해
 * 하드 디스크 드라이브(HDD) 로컬 계층을 RAID-DP에서 RAID-TEC로 변환할 수 있습니다. 여기에는 Flash Pool 로컬 계층의 HDD 계층이 포함됩니다.
-* RAID 유형 간 변환의 의미를 이해하려면 명령의 를 참조하십시오 https://docs.netapp.com/us-en/ontap-cli/storage-aggregate-modify.html#parameters["매개 변수"^] `storage aggregate modify` .
+* ONTAP 명령 참조에서 https://docs .NetApp.com/us-en/ONTAP-cli/storage-aggregate-modify.html# 매개변수 명령에 대해 자세히[`storage aggregate modify` 알아봅니다.
 
 
 .단계

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: understanding, fabricpool, tiering, policies, types, modify, volume, clone, cloud migration 
 summary: FabricPool 계층화 정책을 사용하면 데이터가 핫 또는 콜드 데이터가 될 때 계층 간에 데이터를 효율적으로 이동할 수 있습니다. 계층화 정책을 이해하면 스토리지 관리 요구 사항에 적합한 정책을 선택할 수 있습니다. 
 ---
-= FabricPool 계층화 정책 정보
+= ONTAP의 FabricPool 계층화 정책 정보 를 참조하십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -26,7 +26,7 @@ FabricPool 계층화 정책은 FabricPool에 있는 볼륨의 사용자 데이�
 를 사용하는 볼륨의 데이터입니다 `all` 계층화 정책은 즉시 '콜드'으로 표시되며 가능한 한 빨리 클라우드 계층으로 계층화를 시작합니다. 일일 계층화 검사가 실행될 때까지 기다릴 필요가 없습니다.
 
 ====
-를 사용할 수 있습니다 `volume object-store tiering show` FabricPool 볼륨의 계층화 상태를 확인하는 명령입니다. 자세한 내용은 를 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli/["명령 참조"].
+명령을 사용하여 FabricPool 볼륨의 계층화 상태를 확인할 수 있다[`volume object-store tiering show`. ONTAP 명령 참조에서 https://docs.NetApp.com/us-en/ONTAP-cli//volume-object-store-tiering-show.html] 명령에 대해 자세히[`volume object-store tiering show` 알아보십시오.
 
 FabricPool 계층화 정책은 볼륨 레벨에서 지정됩니다. 다음 4가지 옵션을 사용할 수 있습니다.
 
@@ -248,3 +248,4 @@ ONTAP 9.8부터 클라우드 마이그레이션 제어 '클라우드 검색 정�
 
 
 |===
+이 절차에서 설명하는 명령에 대한 자세한 내용은 를 link:https://docs.netapp.com/us-en/ontap-cli/["ONTAP 명령 참조입니다"^]참조하십시오.

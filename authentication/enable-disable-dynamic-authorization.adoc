@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: dynamic, authorization, framework, security, login, ssh 
 summary: 동적 권한 부여 프레임워크를 구성하여 SSH 로그인의 보안을 강화하고 의심스러운 상황에서 특정 명령의 실행을 제한합니다. 
 ---
-= 동적 권한 부여를 사용하거나 사용하지 않습니다
+= ONTAP에서 동적 인증을 사용하거나 사용하지 않도록 설정합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,7 +13,7 @@ summary: 동적 권한 부여 프레임워크를 구성하여 SSH 로그인의 �
 [role="lead"]
 ONTAP 9.15.1부터 관리자는 에서 동적 권한 부여를 구성하고 활성화할 수 있습니다 `visibility` 모드 를 눌러 구성을 테스트하거나 에서 를 누릅니다 `enforced` SSH를 통해 접속하는 CLI 사용자에 대한 구성을 활성화하는 모드입니다. 동적 인증이 더 이상 필요하지 않으면 비활성화할 수 있습니다. 동적 권한 부여를 비활성화해도 구성 설정을 계속 사용할 수 있으며 나중에 다시 사용하도록 설정하려는 경우 해당 설정을 사용할 수 있습니다.
 
- `security dynamic-authorization modify`명령의 매개 변수에 대한 자세한 내용은 를 https://docs.netapp.com/us-en/ontap-cli/security-dynamic-authorization-modify.html["ONTAP 설명서 페이지"^]참조하십시오.
+ONTAP 명령 참조에서 https://docs .NetApp.com/us-en/ONTAP-cli/security-dynamic-authorization-modify.html 명령 링크에 대해 자세히[`security dynamic-authorization modify` 알아보십시오.
 
 
 

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: manage, motd, message, day, cluster, svm, administrator 
 summary: '클러스터 또는 SVM 레벨에서 하루 중 메시지(MOTD)를 관리할 수 있습니다. 기본적으로 클러스터에 구성된 MOTD도 모든 SVM에 대해 활성화됩니다. 또한 SVM별로 MOTD를 구성할 수 있습니다. 클러스터 관리자가 각 SVM에 대해 클러스터 레벨 MOTD를 설정하거나 해제할 수 있습니다.' 
 ---
-= MOTD 관리
+= ONTAP에서 MOTD를 관리합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,7 +13,7 @@ summary: '클러스터 또는 SVM 레벨에서 하루 중 메시지(MOTD)를 관
 [role="lead"]
 클러스터 또는 SVM 레벨에서 하루 중 메시지(MOTD)를 관리할 수 있습니다. 기본적으로 클러스터에 구성된 MOTD도 모든 SVM에 대해 활성화됩니다. 또한 SVM별로 MOTD를 구성할 수 있습니다. 클러스터 관리자가 각 SVM에 대해 클러스터 레벨 MOTD를 설정하거나 해제할 수 있습니다.
 
-MOTD에 대한 콘텐츠를 동적으로 생성하는 데 사용할 수 있는 이스케이프 시퀀스 목록은 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-cli//security-login-motd-modify.html#parameters["명령 참조"].
+MOTD의 컨텐츠를 동적으로 생성하는 데 사용할 수 있는 에 대한 자세한 link:https://docs.netapp.com/us-en/ontap-cli//security-login-motd-modify.html#parameters["이스케이프 시퀀스"^]내용은 ONTAP 명령 참조 를 참조하십시오.
 
 .선택
 * 클러스터 레벨에서 MOTD 관리:
@@ -170,3 +170,5 @@ SVM 레벨 MOTD를 빈 문자열로 설정한 다음, 클러스터 관리자가 
 
 |===
 
+
+이 절차에서 설명하는 명령에 대한 자세한 내용은 를 link:https://docs.netapp.com/us-en/ontap-cli/["ONTAP 명령 참조입니다"^]참조하십시오.
