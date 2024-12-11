@@ -61,7 +61,7 @@ security dynamic-authorization show
 
 동적 권한 부여로 제한된 명령 목록에 명령을 추가할 수 있습니다.
 
-ONTAP 명령 참조에서 https://docs.NetApp.com/us-en/ONTAP-cli/security-dynamic-authorization-rule-create.html] 명령에 대해 자세히[`security dynamic-authorization rule create` 알아보십시오.
+ONTAP 명령 참조에서 https://docs .NetApp.com/us-en/ONTAP-cli/security-dynamic-authorization-rule-create.html 명령 링크에 대해 자세히[`security dynamic-authorization rule create` 알아보십시오.
 
 .단계
 . 명령을 추가합니다. 괄호(>)의 값을 환경에 맞게 업데이트합니다. 를 사용하지 않는 경우 `-vserver` 매개 변수로, 명령은 클러스터 레벨에서 실행됩니다. 굵은 글씨로 표시된 매개 변수가 필요합니다.

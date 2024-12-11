@@ -67,7 +67,7 @@ ONTAP에서는 테이크오버, 애그리게이트 재배치 또는 반환 중�
 
 [NOTE]
 ====
-https://docs.netapp.com/us-en/ontap-cli//system-node-reboot.html#parameters 링크를 클릭합니다[`skip-lif-migration-before-reboot`] 매개 변수는 재부팅 전에 LIF 마이그레이션을 건너뛰도록 지정합니다.
+링크: https://docs.NetApp.com/us-en/ONTAP-cli//system-node-reboot.html#parameters[`skip-lif-migration-before-reboot` [ ] 매개 변수는 재부팅 전에 LIF 마이그레이션을 건너뛰도록 지정합니다.
 
 ====
 
@@ -79,7 +79,7 @@ https://docs.netapp.com/us-en/ontap-cli//system-node-reboot.html#parameters 링�
 
 [NOTE]
 ====
-https://docs.netapp.com/us-en/ontap-cli/system-node-halt.html#parameters 링크를 클릭합니다[`skip-lif-migration-before-shutdown`] 매개 변수는 종료 전에 LIF 마이그레이션을 건너뛰도록 지정합니다.
+링크: https://docs.NetApp.com/us-en/ONTAP-cli/system-node-halt.html#parameters[`skip-lif-migration-before-shutdown` [ ] 매개 변수는 종료 전의 LIF 마이그레이션을 건너뛰도록 지정합니다.
 
 ====
 

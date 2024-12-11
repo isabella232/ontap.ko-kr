@@ -76,6 +76,10 @@ entries:
     url: "/fabricpool/archive-volumes-video-reference.html"
   - title: 클라우드 마이그레이션 제어를 사용하여 볼륨의 기본 계층화 정책을 재정의합니다
     url: "/fabricpool/migration-controls-override-tiering-policy-task.html"
+  - title: 스로틀 위치
+    url: "/fabricpool/throttle-puts-task.html"
+  - title: 개체 삭제
+    url: "/fabricpool/fabricpool-object-deletion.html"
   - title: 데이터를 성능 계층으로 상향 이동
     url: "/fabricpool/promote-data-performance-tier-task.html"
 - title: FabricPool 미러를 관리합니다

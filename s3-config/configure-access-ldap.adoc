@@ -40,7 +40,7 @@ ns-switch modify -vserver <vserver-name> -database group -sources files,ldap
 ns-switch modify -vserver <vserver-name> -database passwd -sources files,ldap
 ----
 +
-ONTAP 명령 참조에서 https://docs.NetApp.com/us-en/ONTAP-cli/vserver-services-name-service-ns-switch-modify.html] 명령에 대해 자세히[`vserver services name-service ns-switch modify` 알아보십시오.
+ONTAP 명령 참조에서 https://docs .NetApp.com/us-en/ONTAP-cli/vserver-services-name-service-ns-switch-modify.html 명령 링크에 대해 자세히[`vserver services name-service ns-switch modify` 알아보십시오.
 
 . 를 사용하여 오브젝트 저장소 버킷 정책 문을 생성합니다 `principal` 액세스 권한을 부여할 LDAP 그룹으로 설정합니다.
 +
@@ -72,7 +72,7 @@ ns-switch modify -vserver <vserver-name> -database group -sources files,ldap
 ns-switch modify -vserver <vserver-name> -database passwd -sources files,ldap
 ----
 +
-ONTAP 명령 참조에서 https://docs.NetApp.com/us-en/ONTAP-cli/vserver-services-name-service-ns-switch-modify.html] 명령에 대해 자세히[`vserver services name-service ns-switch modify` 알아보십시오.
+ONTAP 명령 참조에서 https://docs .NetApp.com/us-en/ONTAP-cli/vserver-services-name-service-ns-switch-modify.html 명령 링크에 대해 자세히[`vserver services name-service ns-switch modify` 알아보십시오.
 
 . S3 버킷에 액세스하는 LDAP 사용자에게 버킷 정책에 정의된 권한이 있는지 확인합니다. 자세한 내용은 을 참조하십시오 link:../s3-config/create-modify-bucket-policy-task.html["버킷 정책을 수정합니다"].
 . LDAP 그룹의 사용자가 다음 작업을 수행할 수 있는지 확인합니다.

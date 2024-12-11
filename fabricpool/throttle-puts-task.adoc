@@ -1,0 +1,35 @@
+---
+permalink: fabricpool/throttle-puts-task.html 
+sidebar: sidebar 
+keywords: throttle, fabricpool, fabric pool, tiering, put, rate, limit 
+summary: PUT 제한을 사용하면 스토리지 관리자가 노드별 최대 PUT 속도에 대한 상한값을 설정할 수 있습니다. 
+---
+= 스로틀 FabricPool 푸트
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+스토리지 관리자는 PUT 제한을 사용하여 최대 노드당 PUT 속도에 대한 임계값을 설정할 수 있습니다.
+
+PUT 임계치 조절은 네트워크 리소스 또는 개체 저장소 끝점이 리소스가 제한되어 있는 경우에 유용합니다. 드물기는 하지만 성능이 부족한 오브젝트 저장소나 FabricPool 사용량이 처음 발생하는 동안 TB 또는 PB의 콜드 데이터가 계층화되기 시작하면 리소스 제약이 발생할 수 있습니다.
+
+PUT 임계치 조절은 노드마다 적용됩니다. 최소 PUT 제한 PUT 속도 제한은 8MB/s입니다 PUT 속도 제한을 8MB/s 미만의 값으로 설정하면 해당 노드에서 8MB/s의 처리량이 생성됩니다. 여러 노드를 동시에 계층화하면 더 많은 대역폭을 소비하고 용량이 매우 제한된 네트워크 링크가 포화될 수 있습니다.
+
+[NOTE]
+====
+FabricPool PUT 작업은 리소스를 다른 애플리케이션과 경쟁하지 않습니다. FabricPool PUT 작업은 클라이언트 애플리케이션 및 SnapMirror 같은 기타 ONTAP 워크로드에서 자동으로 낮은 우선순위("중요")에 배치됩니다. PUT 제한 `put-rate-limit` 사용은 FabricPool 계층화와 관련된 네트워크 트래픽을 줄이는 데 유용할 수 있지만 동시 ONTAP 트래픽과는 관련이 없습니다.
+
+====
+.시작하기 전에
+고급 권한 수준이 필요합니다.
+
+.단계
+. ONTAP CLI를 사용하여 FabricPool Put 작업 임계치 조절:
++
+[source, cli]
+----
+storage aggregate object-store put-rate-limit modify -node <name> -default <true|false> -putrate-bytes-limit <integer>[KB|MB|GB|TB|PB]
+----
+

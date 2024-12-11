@@ -38,7 +38,7 @@ summary: 클러스터의 모든 액티브 또는 리스닝 연결 또는 클라�
 .단계
 network connections active show-clients 명령을 사용하여 노드의 클라이언트별 활성 연결 수를 표시합니다.
 
-ONTAP 명령 참조에서 http://docs.NetApp.com/us-en/ONTAP-cli/network-connections-active-show-clients.html] 명령에 대해 자세히[`network connections active show-clients` 알아보십시오.
+ONTAP 명령 참조에서 http://docs .NetApp.com/us-en/ONTAP-cli/network-connections-active-show-clients.html 명령 링크에 대해 자세히[`network connections active show-clients` 알아보십시오.
 
 ....
 network connections active show-clients

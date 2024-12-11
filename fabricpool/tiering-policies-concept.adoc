@@ -26,7 +26,7 @@ FabricPool 계층화 정책은 FabricPool에 있는 볼륨의 사용자 데이�
 를 사용하는 볼륨의 데이터입니다 `all` 계층화 정책은 즉시 '콜드'으로 표시되며 가능한 한 빨리 클라우드 계층으로 계층화를 시작합니다. 일일 계층화 검사가 실행될 때까지 기다릴 필요가 없습니다.
 
 ====
-명령을 사용하여 FabricPool 볼륨의 계층화 상태를 확인할 수 있다[`volume object-store tiering show`. ONTAP 명령 참조에서 https://docs.NetApp.com/us-en/ONTAP-cli//volume-object-store-tiering-show.html] 명령에 대해 자세히[`volume object-store tiering show` 알아보십시오.
+명령을 사용하여 FabricPool 볼륨의 계층화 상태를 확인할 수 있다[`volume object-store tiering show`. ONTAP 명령 참조에서 https://docs .NetApp.com/us-en/ONTAP-cli//volume-object-store-tiering-show.html 명령 링크에 대해 자세히[`volume object-store tiering show` 알아보십시오.
 
 FabricPool 계층화 정책은 볼륨 레벨에서 지정됩니다. 다음 4가지 옵션을 사용할 수 있습니다.
 

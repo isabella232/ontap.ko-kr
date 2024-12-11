@@ -64,7 +64,7 @@ vs1       vol1     9/18/2017 17:51:41   Phase 2 of 2 is in progress.
 볼륨 쇼는 암호화된 사실이다
 
 +
-ONTAP 명령 참조에서 https://docs.NetApp.com/us-en/ONTAP-cli//volume-show.html#parameters] 명령에 대해 자세히[`volume show -is-encrypted true` 알아보십시오.
+ONTAP 명령 참조에서 https://docs .NetApp.com/us-en/ONTAP-cli//volume-show.html#parameters' 명령에 대해 자세히[`volume show -is-encrypted true` 알아보십시오.
 
 +
 다음 명령을 실행하면 암호화된 볼륨이 'cluster1'에 표시됩니다.

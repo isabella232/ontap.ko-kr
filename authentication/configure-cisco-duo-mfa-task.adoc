@@ -30,7 +30,7 @@ ONTAP 명령줄 인터페이스를 사용하여 Cisco Duo에서 다음 작업을
 
 == Cisco Duo를 구성합니다
 
-명령을 사용하여 전체 클러스터 또는 특정 스토리지 VM(ONTAP CLI에서 가상 서버라고 함)에 대한 Cisco Duo 구성을 생성할 수 있습니다[`security login duo create`. 이렇게 하면 이 클러스터 또는 스토리지 VM에 대한 SSH 로그인에 Cisco Duo가 활성화됩니다. ONTAP 명령 참조에서 https://docs.NetApp.com/us-en/ONTAP-cli//security-login-duo-create.html] 명령에 대해 자세히[`security login duo create` 알아보십시오.
+명령을 사용하여 전체 클러스터 또는 특정 스토리지 VM(ONTAP CLI에서 가상 서버라고 함)에 대한 Cisco Duo 구성을 생성할 수 있습니다[`security login duo create`. 이렇게 하면 이 클러스터 또는 스토리지 VM에 대한 SSH 로그인에 Cisco Duo가 활성화됩니다. ONTAP 명령 참조에서 https://docs .NetApp.com/us-en/ONTAP-cli//security-login-duo-create.html 명령 링크에 대해 자세히[`security login duo create` 알아보십시오.
 
 .단계
 . Cisco Duo Admin Panel에 로그인합니다.
@@ -56,7 +56,7 @@ security login duo create \
 
 == Cisco Duo 구성을 변경합니다
 
-Cisco Duo가 사용자를 인증하는 방법(예: 받은 인증 프롬프트 수 또는 사용된 HTTP 프록시)을 변경할 수 있습니다. 스토리지 VM(ONTAP CLI에서 가상 서버로 지칭)에 대한 Cisco Duo 구성을 변경해야 하는 경우 명령을 사용할 수 있습니다[`security login duo modify`. ONTAP 명령 참조에서 https://docs.NetApp.com/us-en/ONTAP-cli//security-login-duo-modify.html] 명령에 대해 자세히[`security login duo modify` 알아보십시오.
+Cisco Duo가 사용자를 인증하는 방법(예: 받은 인증 프롬프트 수 또는 사용된 HTTP 프록시)을 변경할 수 있습니다. 스토리지 VM(ONTAP CLI에서 가상 서버로 지칭)에 대한 Cisco Duo 구성을 변경해야 하는 경우 명령을 사용할 수 있습니다[`security login duo modify`. ONTAP 명령 참조에서 https://docs .NetApp.com/us-en/ONTAP-cli//security-login-duo-modify.html 명령 링크에 대해 자세히[`security login duo modify` 알아보십시오.
 
 .단계
 . Cisco Duo Admin Panel에 로그인합니다.
@@ -86,7 +86,7 @@ security login duo modify \
 
 == Cisco Duo 구성을 제거합니다
 
-Cisco Duo 구성을 제거하면 SSH 사용자가 로그인할 때 Duo를 사용하여 인증할 필요가 없습니다. 스토리지 VM(ONTAP CLI에서 가상 서버로 지칭)에 대한 Cisco Duo 구성을 제거하려면 명령을 사용합니다[`security login duo delete`. ONTAP 명령 참조에서 https://docs.NetApp.com/us-en/ONTAP-cli//security-login-duo-delete.html] 명령에 대해 자세히[`security login duo delete` 알아보십시오.
+Cisco Duo 구성을 제거하면 SSH 사용자가 로그인할 때 Duo를 사용하여 인증할 필요가 없습니다. 스토리지 VM(ONTAP CLI에서 가상 서버로 지칭)에 대한 Cisco Duo 구성을 제거하려면 명령을 사용합니다[`security login duo delete`. ONTAP 명령 참조에서 https://docs .NetApp.com/us-en/ONTAP-cli//security-login-duo-delete.html 명령 링크에 대해 자세히[`security login duo delete` 알아보십시오.
 
 .단계
 . SSH를 사용하여 ONTAP 계정에 로그인합니다.
@@ -105,7 +105,7 @@ security login duo delete  -vserver <STORAGE_VM_NAME>
 
 == Cisco Duo 구성을 봅니다
 
-명령을 사용하여 스토리지 VM(ONTAP CLI에서 가상 서버로 지칭)에 대한 기존 Cisco Duo 구성을 볼 수 있습니다[`security login duo show`. ONTAP 명령 참조에서 https://docs.NetApp.com/us-en/ONTAP-cli//security-login-duo-show.html] 명령에 대해 자세히[`security login duo show` 알아보십시오.
+명령을 사용하여 스토리지 VM(ONTAP CLI에서 가상 서버로 지칭)에 대한 기존 Cisco Duo 구성을 볼 수 있습니다[`security login duo show`. ONTAP 명령 참조에서 https://docs .NetApp.com/us-en/ONTAP-cli//security-login-duo-show.html 명령 링크에 대해 자세히[`security login duo show` 알아보십시오.
 
 .단계
 . SSH를 사용하여 ONTAP 계정에 로그인합니다.
@@ -142,7 +142,7 @@ Comments: -
 
 == Duo 그룹을 생성합니다
 
-Cisco Duo에 특정 Active Directory, LDAP 또는 로컬 사용자 그룹의 사용자만 Duo 인증 프로세스에 포함하도록 지시할 수 있습니다. Duo 그룹을 생성하는 경우 해당 그룹의 사용자만 Duo 인증을 요구합니다. 명령을 사용하여 Duo 그룹을 생성할 수[`security login duo group create` 있습니다. 그룹을 생성할 때 필요에 따라 해당 그룹의 특정 사용자를 Duo 인증 프로세스에서 제외할 수 있습니다. ONTAP 명령 참조에서 https://docs.NetApp.com/us-en/ONTAP-cli//security-login-duo-group-create.html] 명령에 대해 자세히[`security login duo group create` 알아보십시오.
+Cisco Duo에 특정 Active Directory, LDAP 또는 로컬 사용자 그룹의 사용자만 Duo 인증 프로세스에 포함하도록 지시할 수 있습니다. Duo 그룹을 생성하는 경우 해당 그룹의 사용자만 Duo 인증을 요구합니다. 명령을 사용하여 Duo 그룹을 생성할 수[`security login duo group create` 있습니다. 그룹을 생성할 때 필요에 따라 해당 그룹의 특정 사용자를 Duo 인증 프로세스에서 제외할 수 있습니다. ONTAP 명령 참조에서 https://docs .NetApp.com/us-en/ONTAP-cli//security-login-duo-group-create.html 명령 링크에 대해 자세히[`security login duo group create` 알아보십시오.
 
 .단계
 . SSH를 사용하여 ONTAP 계정에 로그인합니다.
@@ -161,7 +161,7 @@ Duo 그룹의 이름은 Active Directory, LDAP 또는 로컬 그룹과 일치해
 
 == Duo 그룹 보기
 
-명령을 사용하여 기존 Cisco Duo 그룹 항목을 볼 수[`security login duo group show` 있습니다. ONTAP 명령 참조에서 https://docs.NetApp.com/us-en/ONTAP-cli//security-login-duo-group-show.html] 명령에 대해 자세히[`security login duo group show` 알아보십시오.
+명령을 사용하여 기존 Cisco Duo 그룹 항목을 볼 수[`security login duo group show` 있습니다. ONTAP 명령 참조에서 https://docs .NetApp.com/us-en/ONTAP-cli//security-login-duo-group-show.html 명령 링크에 대해 자세히[`security login duo group show` 알아보십시오.
 
 .단계
 . SSH를 사용하여 ONTAP 계정에 로그인합니다.
@@ -180,7 +180,7 @@ Duo 그룹의 이름은 Active Directory, LDAP 또는 로컬 그룹과 일치해
 
 == Duo 그룹을 제거합니다
 
-명령을 사용하여 Duo 그룹 항목을 제거할 수[`security login duo group delete` 있습니다. 그룹을 제거하면 해당 그룹의 사용자가 Duo 인증 프로세스에 더 이상 포함되지 않습니다. ONTAP 명령 참조에서 https://docs.NetApp.com/us-en/ONTAP-cli//security-login-duo-group-delete.html] 명령에 대해 자세히[`security login duo group delete` 알아보십시오.
+명령을 사용하여 Duo 그룹 항목을 제거할 수[`security login duo group delete` 있습니다. 그룹을 제거하면 해당 그룹의 사용자가 Duo 인증 프로세스에 더 이상 포함되지 않습니다. ONTAP 명령 참조에서 https://docs .NetApp.com/us-en/ONTAP-cli//security-login-duo-group-delete.html 명령 링크에 대해 자세히[`security login duo group delete` 알아보십시오.
 
 .단계
 . SSH를 사용하여 ONTAP 계정에 로그인합니다.

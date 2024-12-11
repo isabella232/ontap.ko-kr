@@ -13,4 +13,4 @@ summary: 다양한 구성 설정이 클러스터 업그레이드 준비에 영�
 [role="lead"]
 ONTAP 9.16.1부터 ONTAP REST API를 사용하여 지연 시간 메트릭 및 기간별 통계를 비롯한 확장된 qtree 모니터링 기능에 액세스할 수 있습니다. 모든 qtree에서 확장 모니터링이 활성화되어 있는 경우 9.16.1에서 되돌리려면 먼저 false로 설정해야 합니다 `ext_performance_monitoring.enabled`.
 
-에 대해 자세히 link:..volumes/qtrees-partition-your-volumes-concept.html#upgrading-and-reverting["확장된 qtree 성능 모니터링으로 클러스터 되돌리기"]알아보십시오.
+에 대해 자세히 link:../volumes/qtrees-partition-your-volumes-concept.html#upgrading-and-reverting["확장된 qtree 성능 모니터링으로 클러스터 되돌리기"]알아보십시오.

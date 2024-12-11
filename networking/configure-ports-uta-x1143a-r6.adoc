@@ -1,0 +1,45 @@
+---
+permalink: networking/configure-ports-uta-x1143a-r6.html 
+sidebar: sidebar 
+keywords: configure, ports 
+summary: '통합 타겟 어댑터(X1143A-R6)를 구성하려면 동일한 퍼스낼리티 모드에서 동일한 칩에 두 개의 인접 포트를 구성해야 합니다.' 
+---
+= ONTAP 시스템에 맞게 UTA X1143A-R6 포트를 구성합니다
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+기본적으로 X1143A-R6 유니파이드 타겟 어댑터는 FC 타겟 모드로 구성되지만, 포트를 10Gb 이더넷 및 FCoE(CNA) 포트 또는 16Gb FC 이니시에이터 또는 타겟 포트로 구성할 수 있습니다. 여기에는 다른 SFP+ 어댑터가 필요합니다.
+
+이더넷 및 FCoE용으로 구성된 경우 X1143A-R6 어댑터는 동일한 10GbE 포트에서 동시 NIC 및 FCoE 타겟 트래픽을 지원합니다. FC용으로 구성한 경우 동일한 ASIC를 공유하는 각 2포트 쌍은 FC 타겟 또는 FC 이니시에이터 모드에 대해 개별적으로 구성할 수 있습니다. 즉, 단일 X1143A-R6 어댑터는 하나의 2포트 쌍에서 FC 타겟 모드를, 다른 2포트 쌍에서 FC 이니시에이터 모드를 지원할 수 있습니다. 동일한 ASIC에 연결된 포트 쌍은 같은 모드로 구성해야 합니다.
+
+FC 모드에서 X1143A-R6 어댑터는 최대 16Gbps의 속도를 제공하는 기존 FC 장치와 동일하게 작동합니다. CNA 모드에서 X1143A-R6 어댑터를 사용하여 동일한 10GbE 포트를 공유하는 동시 NIC 및 FCoE 트래픽을 공유할 수 있습니다. CNA 모드는 FCoE 기능에 대해 FC 타겟 모드만 지원합니다.
+
+통합 타겟 어댑터(X1143A-R6)를 구성하려면 동일한 퍼스낼리티 모드에서 동일한 칩에 두 개의 인접 포트를 구성해야 합니다.
+
+.단계
+. 포트 구성 보기:
++
+[source, cli]
+----
+system hardware unified-connect show
+----
+. FC(Fibre Channel) 또는 CNA(Converged Network Adapter)에 필요한 포트를 구성합니다.
++
+[source, cli]
+----
+system node hardware unified-connect modify -node <node_name> -adapter <adapter_name> -mode {fcp|cna}
+----
+. FC 또는 10Gb 이더넷에 적합한 케이블을 연결합니다.
+. 올바른 SFP+가 설치되었는지 확인합니다.
++
+[source, cli]
+----
+network fcp adapter show -instance -node -adapter
+----
++
+CNA의 경우 10Gb 이더넷 SFP를 사용해야 합니다. FC의 경우 연결 중인 FC 패브릭을 기반으로 8Gb SFP 또는 16Gb SFP를 사용해야 합니다.
+
+

@@ -24,7 +24,7 @@ HTTP 응용 프로그램에 대한 사용자 계정을 만들고 REST API에 대
 
 ONTAP 명령 참조에서 https://docs .NetApp.com/us-en/ONTAP-cli/security-login-role-create.html#description] 및 link:https://docs .NetApp.com/us-en/ONTAP-cli/security-login-create.html[`security login create`] 명령에 대해 자세히[`security login role create` 알아보십시오.
 
-관리 SVM에 대한 인증 터널 SVM을 추가하여 도메인 사용자를 계정으로 사용할 수도 있습니다. ONTAP 명령 참조에서 https://docs.NetApp.com/us-en/ONTAP-cli/security-login-domain-tunnel-create.html] 명령에 대해 자세히[`security login domain-tunnel create` 알아보십시오.
+관리 SVM에 대한 인증 터널 SVM을 추가하여 도메인 사용자를 계정으로 사용할 수도 있습니다. ONTAP 명령 참조에서 https://docs .NetApp.com/us-en/ONTAP-cli/security-login-domain-tunnel-create.html 명령 링크에 대해 자세히[`security login domain-tunnel create` 알아보십시오.
 
 .단계
 . 안티바이러스 커넥터 설치를 완료하면 바탕 화면에 저장된 * ONTAP LIF 구성 * 아이콘을 마우스 오른쪽 단추로 클릭한 다음 * 관리자 권한으로 실행 * 을 선택합니다. ONTAP LIF 구성 대화 상자가 열립니다.

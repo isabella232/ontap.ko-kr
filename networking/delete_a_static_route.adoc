@@ -19,7 +19,7 @@ SVM(스토리지 가상 머신)에서 불필요한 정적 경로를 삭제할 �
 .단계
 정적 라우트를 삭제하려면 network route delete 명령을 사용한다.
 
-ONTAP 명령 참조에서 http://docs.NetApp.com/us-en/ONTAP-cli/network-route-delete.html] 명령에 대해 자세히[`network route` 알아보십시오.
+ONTAP 명령 참조에서 http://docs .NetApp.com/us-en/ONTAP-cli/network-route-delete.html 명령 링크에 대해 자세히[`network route` 알아보십시오.
 
 다음 예제에서는 게이트웨이 10.63.0.1 및 대상 IP 주소가 0.0.0.0/0인 SVM vs0과 연관된 정적 경로를 삭제합니다.
 

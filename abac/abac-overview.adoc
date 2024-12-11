@@ -6,6 +6,8 @@ summary: 'ONTAP를 NFS 4.2 보안 레이블 및 확장 특성(XATTRS)으로 구�
 ---
 = ONTAP로 속성 기반 액세스 제어
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media
 
 
 [role="lead"]

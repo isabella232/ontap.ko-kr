@@ -1,8 +1,8 @@
 ---
-sidebar: sidebar 
 permalink: system-admin/requirements-autosupport-reference.html 
-keywords: requirements, autosupport, messages, http, https, smtp, smtps 
-summary: 최상의 보안을 제공하고 최신 AutoSupport 기능을 지원하려면 AutoSupport 메시지 전달을 위해 TLSv1.2와 함께 HTTPS 또는 보안 SMTP를 사용해야 합니다. 
+sidebar: sidebar 
+keywords: requirements, autosupport, messages, https, smtp, smtps, tls, email, proxy, certificate, validation 
+summary: AutoSupport 메시지를 전달하려면 TLSv1.2 또는 SMTPS와 함께 HTTPS를 사용하여 최상의 보안을 제공하고 최신 AutoSupport 기능을 지원해야 합니다. 
 ---
 = AutoSupport 사용을 준비합니다
 :allow-uri-read: 
@@ -17,63 +17,49 @@ ONTAP 클러스터를 구성하여 AutoSupport 메시지를 NetApp에 전달할 
 
 == AutoSupport 메시지를 NetApp에 전달합니다
 
-AutoSupport 메시지는 HTTP 또는 SMTP 프로토콜을 사용하여 NetApp에 전달할 수 있습니다. 보안을 강화하기 위해 HTTP와 함께 TLS를 사용할 수 있습니다. ONTAP 9.15.1부터 SMTP와 함께 TLS를 사용할 수도 있습니다.
+AutoSupport 메시지는 HTTPS 또는 SMTP 프로토콜을 사용하여 NetApp에 전달될 수 있습니다. ONTAP 9.15.1부터 SMTP와 함께 TLS를 사용할 수도 있습니다.
 
 
-TIP: 가능하면 항상 TLS와 함께 HTTP(HTTPS)를 사용합니다.
+TIP: AutoSupport OnDemand와의 통신 및 대용량 파일 업로드에 가능하면 항상 HTTPS를 사용하십시오.
 
 또한 다음 사항에 유의하십시오.
 
 * NetApp AutoSupport 메시지에 대해 하나의 전달 채널만 구성할 수 있습니다. 두 프로토콜을 사용하여 AutoSupport 메시지를 NetApp에 전달할 수는 없습니다.
 * AutoSupport는 각 프로토콜의 최대 파일 크기를 제한합니다. AutoSupport 메시지의 크기가 구성된 제한을 초과하는 경우 AutoSupport는 메시지를 최대한 많이 전달하지만 잘립니다.
-* 필요한 경우 최대 파일 크기를 변경할 수 있습니다. 명령을 참조하십시오 `system node autosupport modify` 를 참조하십시오.
+* 필요한 경우 최대 파일 크기를 변경할 수 있습니다. ONTAP 명령 참조에서 + [ ] 명령에 대해[`system node autosupport modify` 자세히 알아보십시오.
 * 두 프로토콜 모두 이름이 확인되는 주소 패밀리에 따라 IPv4 또는 IPv6를 통해 전송할 수 있습니다.
 * ONTAP에서 AutoSupport 메시지를 보내기 위해 설정한 TCP 연결은 일시적이며 단기간 동안 사용됩니다.
 
 
 
 
-=== HTTP
+=== HTTPS
 
 가장 강력한 기능을 제공합니다. 다음 사항에 유의하십시오.
 
 * AutoSupport OnDemand 및 대용량 파일 전송이 지원됩니다.
-* HTTP PUT 요청이 먼저 시도됩니다. 전송 중에 요청이 실패하면 요청이 중지된 곳에서 다시 시작됩니다.
-* 서버가 PUT를 지원하지 않으면 HTTP POST 메서드가 대신 사용됩니다.
-* HTTP 전송의 기본 제한은 50MB입니다.
-* 보안되지 않은 HTTP 프로토콜은 포트 80을 사용합니다.
+* HTTPS PUT 요청이 먼저 시도됩니다. 전송 중에 요청이 실패하면 요청이 중지된 곳에서 다시 시작됩니다.
+* 서버가 PUT를 지원하지 않으면 HTTPS POST 메서드가 대신 사용됩니다.
+* HTTPS 전송의 기본 제한은 50MB입니다.
+* HTTPS 프로토콜은 포트 443을 사용합니다.
 
 
 
 
 === SMTP
 
-일반적으로 어떤 이유로 HTTPS/HTTP가 허용되지 않거나 지원되지 않는 경우에만 SMTP를 사용해야 합니다. 다음 사항에 유의하십시오.
+일반적으로 HTTPS가 허용되지 않거나 지원되지 않는 경우에만 SMTP를 사용해야 합니다. 다음 사항에 유의하십시오.
 
 * AutoSupport OnDemand 및 대용량 파일 전송은 지원되지 않습니다.
 * SMTP 로그인 자격 증명이 구성된 경우 암호화되지 않은 상태로 전송됩니다.
-* HTTP 전송의 기본 제한은 5MB입니다.
+* 기본 전송 제한은 5MB입니다.
 * 비보안 SMTP 프로토콜은 포트 25를 사용합니다.
 
 
+.TLS를 사용하여 SMTP 보안 개선
+SMTP를 사용하는 경우 모든 트래픽이 암호화되지 않으므로 쉽게 가로채서 읽을 수 있습니다. ONTAP 9.15.1부터 SMTP(SMTPS)와 함께 TLS를 사용할 수도 있습니다. 이 경우 TCP 연결이 설정된 후 보안 채널을 활성화하는 _explicit TLS_가 사용됩니다.
 
-
-=== TLS를 사용하여 보안을 향상합니다
-
-HTTP 또는 SMTP를 사용할 경우 모든 트래픽이 암호화되지 않으므로 쉽게 가로채서 읽을 수 있습니다. HTTP를 사용할 때는 항상 TLS(HTTPS)도 사용하도록 프로토콜을 구성해야 합니다.
-
-
-NOTE: ONTAP 9.15.1부터 SMTP(SMTPS)와 함께 TLS를 사용할 수도 있습니다. 이 경우 TCP 연결이 설정된 후 보안 채널을 활성화하는 _explicit TLS_가 사용됩니다.
-
-.보안 프로토콜용 포트
-다음 포트는 일반적으로 이러한 프로토콜의 보안 버전에 사용됩니다.
-
-* HTTPS 포트 443입니다
-* SMTPS - 포트 587
-
-
-.인증서 검증
-TLS를 사용하면 서버에서 다운로드한 인증서의 유효성을 루트 CA 인증서에 따라 ONTAP에서 확인합니다. HTTPS 또는 SMTPS를 사용하기 전에 루트 인증서가 ONTAP에 설치되어 있는지 확인해야 합니다. 을 참조하십시오 <<서버 인증서를 설치합니다>> 를 참조하십시오.
+일반적으로 SMTPS에 사용되는 포트는 포트 587입니다
 
 
 
@@ -81,9 +67,11 @@ TLS를 사용하면 서버에서 다운로드한 인증서의 유효성을 루�
 
 AutoSupport를 구성할 때 고려해야 할 몇 가지 추가 사항이 있습니다.
 
+이러한 고려 사항과 관련된 명령에 대한 자세한 내용은 을 참조하십시오link:../system-admin/setup-autosupport-task.html["AutoSupport를 설정합니다"].
 
 
-=== 이메일을 사용하여 로컬 사본 보내기
+
+=== 이메일을 사용하여 로컬 사본을 보냅니다
 
 AutoSupport 메시지를 NetApp에 전달하는 데 사용되는 프로토콜에 관계없이 각 메시지의 복사본을 하나 이상의 로컬 전자 메일 주소로 보낼 수도 있습니다. 예를 들어, 내부 지원 조직이나 파트너 조직에 메시지를 보낼 수 있습니다.
 
@@ -100,11 +88,11 @@ NOTE: SMTP(또는 SMTPS)를 사용하여 NetApp에 메시지를 전달하고 해
 
 == 서버 인증서를 설치합니다
 
-TLS(HTTPS 또는 SMTPS)를 사용하는 경우 ONTAP에서 서버 인증서의 유효성을 검사할 수 있는지 확인해야 합니다. 이 유효성 검사는 서버 인증서에 서명한 CA를 기반으로 수행됩니다.
+TLS(HTTPS 또는 SMTPS)를 사용하면 서버에서 다운로드한 인증서는 루트 CA 인증서를 기반으로 ONTAP에 의해 검증됩니다. HTTPS 또는 SMTPS를 사용하기 전에 루트 인증서가 ONTAP에 설치되어 있고 ONTAP에서 서버 인증서의 유효성을 검사할 수 있는지 확인해야 합니다. 이 유효성 검사는 서버 인증서에 서명한 CA를 기반으로 수행됩니다.
 
-ONTAP에는 미리 설치된 루트 CA 인증서가 다수 포함되어 있습니다. 따라서 대부분의 경우 추가 구성 없이 ONTAP에서 서버의 인증서를 즉시 인식합니다. 그러나 서버 인증서 서명 방법에 따라 루트 CA 인증서와 중간 인증서를 설치해야 할 수도 있습니다.
+ONTAP에는 미리 설치된 루트 CA 인증서가 다수 포함되어 있습니다. 대부분의 경우 추가 구성 없이 ONTAP에서 서버의 인증서를 즉시 인식합니다. 서버 인증서 서명 방법에 따라 루트 CA 인증서 및 중간 인증서를 설치해야 할 수도 있습니다.
 
-필요한 경우 아래 제공된 지침에 따라 인증서를 설치합니다. 필요한 모든 인증서를 클러스터 수준에서 설치해야 합니다.
+필요한 경우 다음 절차에 따라 인증서를 설치합니다. 필요한 모든 인증서를 클러스터 수준에서 설치해야 합니다.
 
 .단계
 [role="tabbed-block"]
@@ -125,29 +113,41 @@ ONTAP에는 미리 설치된 루트 CA 인증서가 다수 포함되어 있습�
 --
 . 설치를 시작합니다.
 +
-보안 인증서설치형 server-ca
-
+[source, cli]
+----
+security certificate install -type server-ca
+----
 . 다음 콘솔 메시지를 찾습니다.
 +
-`Please enter Certificate: Press <Enter> when done`
-
+[listing]
+----
+Please enter Certificate: Press <Enter> when done
+----
 . 텍스트 편집기로 인증서 파일을 엽니다.
 . 다음 행을 포함하여 전체 인증서를 복사합니다.
 +
-`-----BEGIN CERTIFICATE-----`
-
+[listing]
+----
+-----BEGIN CERTIFICATE-----
+----
 +
-`-----END CERTIFICATE-----`
-
+[listing]
+----
+-----END CERTIFICATE-----
+----
 . 명령 프롬프트 후 터미널에 인증서를 붙여 넣습니다.
 . Enter * 키를 눌러 설치를 완료합니다.
-. 다음 중 하나를 사용하여 인증서가 설치되었는지 확인합니다.
+. 다음 명령 중 하나를 실행하여 인증서가 설치되었는지 확인합니다.
 +
-`security certificate show-user-installed`
-
+[source, cli]
+----
+security certificate show-user-installed
+----
 +
-`security certificate show`
-
+[source, cli]
+----
+security certificate show
+----
 
 
 --
