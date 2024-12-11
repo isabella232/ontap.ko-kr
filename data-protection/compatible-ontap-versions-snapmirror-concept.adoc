@@ -30,6 +30,9 @@ NOTE: ONTAP 9.16.0은 에 대한 지원을 제공하여 클라우드 전용 규�
 
 
 
+NOTE:  경우 link:../flexgroup/enable-adv-capacity-flexgroup-task.html["고급 용량 밸런싱"]ONTAP 9.16.1 이상을 실행하는 클러스터의 볼륨에서 이 설정된SnapMirror 전송이 ONTAP ONTAP 9.16.1 이전 버전을 실행하는 클러스터에 지원되지 않습니다.
+
+
 NOTE: 상호 운용성은 양방향입니다.
 
 * ONTAP 버전 9.3 이상의 상호 운용성 *

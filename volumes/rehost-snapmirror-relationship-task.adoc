@@ -55,10 +55,14 @@ SnapMirror 관계를 중단해서는 안 됩니다. 그렇지 않으면 대상 �
 
 . 소스 클러스터에서 SnapMirror 관계 정보를 제거합니다.
 +
-'냅미러 해제 관계 - 정보만으로 진실된'
+`snapmirror release -relationship-info-only true`
 
 +
-'lationship-info-only' 매개 변수를 'true'로 설정하면 스냅샷 복사본을 삭제하지 않고 소스 관계 정보가 제거됩니다.
+ `-relationship-info-only`스냅샷을 삭제하지 않고 소스 관계 정보를 제거하도록 매개 변수를 `true` 설정합니다.
+
+. 볼륨이 마운트된 경우 마운트 해제합니다.
++
+`volume unmount -vserver <source_svm> -volume <vol_name>`
 
 . 고급 권한 레벨로 전환합니다.
 +
@@ -66,7 +70,7 @@ SnapMirror 관계를 중단해서는 안 됩니다. 그렇지 않으면 대상 �
 
 . 대상 SVM에서 볼륨 재호스팅:
 +
-'volume rehost-vserver source_svm-volume vol_name-destination-vserver destination_svm'
+`volume rehost -vserver <source_svm> -volume <vol_name> -destination-vserver <destination_svm>`
 
 . SVM 피어링 관계가 없을 경우, 소스 SVM과 타겟 SVM 간에 SVM 피어 관계를 생성합니다.
 +

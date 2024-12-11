@@ -13,8 +13,91 @@ summary: ONTAP 9.8부터 고급 권한 수준의 클러스터 관리자인 경�
 [role="lead"]
 ONTAP 9.8부터 고급 권한 수준의 클러스터 관리자라면 계층화-정책과 클라우드 검색-정책 설정을 조합하여 클라우드 계층에서 성능 계층으로 데이터를 사전 예방적으로 승격할 수 있습니다.
 
-
-
-== 이 작업에 대해
-
+.이 작업에 대해
 볼륨에 FabricPool 사용을 중단하거나 '스냅샷 전용' 계층화 정책이 있고 복원된 스냅샷 복사본 데이터를 성능 계층으로 다시 가져오려는 경우 이 작업을 수행할 수 있습니다.
+
+
+
+== FabricPool 볼륨의 모든 데이터를 성능 계층으로 상향 이동합니다
+
+클라우드 계층에서 FabricPool 볼륨의 모든 데이터를 사전에 검색하여 성능 계층으로 승격할 수 있습니다.
+
+.단계
+. 볼륨 수정 명령을 사용하여 계층화-정책을 없음으로 설정하고 클라우드 검색-정책을 상향 이동 정책으로 설정합니다.
++
+[listing]
+----
+volume modify -vserver <vserver-name> -volume <volume-name> -tiering-policy none -cloud-retrieval-policy promote
+----
+
+
+
+
+== 파일 시스템 데이터를 성능 계층으로 상향 이동합니다
+
+클라우드 계층의 복원된 스냅샷 복사본에서 액티브 파일 시스템 데이터를 능동적으로 검색하여 성능 계층으로 상향 이동할 수 있습니다.
+
+.단계
+. 볼륨 수정 명령을 사용하여 계층화-정책을 '스냅샷 전용'으로 설정하고 '승격'을 위한 클라우드 검색 정책을 설정하십시오.
++
+[listing]
+----
+volume modify -vserver <vserver-name> -volume <volume-name> -tiering-policy snapshot-only cloud-retrieval-policy promote
+----
+
+
+
+
+== 성능 계층 프로모션의 상태를 확인합니다
+
+성능 계층 프로모션의 상태를 확인하여 작업이 완료되는 시기를 결정할 수 있습니다.
+
+.단계
+. '계층화' 옵션과 함께 volume 'object-store' 명령을 사용하여 성능 계층 프로모션의 상태를 확인합니다.
++
+[listing]
+----
+volume object-store tiering show [ -instance | -fields <fieldname>, ... ] [ -vserver <vserver name> ] *Vserver
+[[-volume] <volume name>] *Volume [ -node <nodename> ] *Node Name [ -vol-dsid <integer> ] *Volume DSID
+[ -aggregate <aggregate name> ] *Aggregate Name
+----
++
+[listing]
+----
+volume object-store tiering show v1 -instance
+
+                                  Vserver: vs1
+                                   Volume: v1
+                                Node Name: node1
+                              Volume DSID: 1023
+                           Aggregate Name: a1
+                                    State: ready
+                      Previous Run Status: completed
+                 Aborted Exception Status: -
+               Time Scanner Last Finished: Mon Jan 13 20:27:30 2020
+                 Scanner Percent Complete: -
+                      Scanner Current VBN: -
+                         Scanner Max VBNs: -
+      Time Waiting Scan will be scheduled: -
+                           Tiering Policy: snapshot-only
+     Estimated Space Needed for Promotion: -
+                        Time Scan Started: -
+  Estimated Time Remaining for scan to complete: -
+                    Cloud Retrieve Policy: promote
+----
+
+
+
+
+== 예약된 마이그레이션 및 계층화 트리거
+
+ONTAP 9.8부터 기본 계층화 스캔을 기다리지 않으려는 경우 언제든지 계층화 스캔 요청을 트리거할 수 있습니다.
+
+.단계
+. 'trigger' 옵션과 함께 'volume object-store' 명령을 사용하여 마이그레이션 및 계층화를 요청합니다.
++
+[listing]
+----
+volume object-store tiering trigger [ -vserver <vserver name> ] *VServer Name [-volume] <volume name> *Volume Name
+----
+

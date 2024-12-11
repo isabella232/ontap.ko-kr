@@ -1,7 +1,7 @@
 ---
 permalink: fabricpool/object-tagging-user-created-custom-tags-task.html 
 sidebar: sidebar 
-keywords: object, tagging, user-created, custom tags, fabricpool, fabric pool, sort 
+keywords: object, tagging, user-created, custom tags, fabricpool, fabric pool, sort, fabricpool sorting, fabricpool data 
 summary: ONTAP 9.8부터 FabricPool는 사용자가 만든 사용자 지정 태그를 사용하여 개체 태그 지정을 지원하므로, 개체를 쉽게 분류하고 정렬할 수 있습니다. admin 권한 수준을 가진 사용자는 새 개체 태그를 만들고 기존 태그를 수정, 삭제 및 볼 수 있습니다. 
 ---
 = 사용자가 만든 사용자 지정 태그를 사용하여 개체 태그 지정 개요
@@ -12,3 +12,173 @@ summary: ONTAP 9.8부터 FabricPool는 사용자가 만든 사용자 지정 태�
 
 [role="lead"]
 ONTAP 9.8부터 FabricPool는 사용자가 만든 사용자 지정 태그를 사용하여 개체 태그 지정을 지원하므로, 개체를 쉽게 분류하고 정렬할 수 있습니다. admin 권한 수준을 가진 사용자는 새 개체 태그를 만들고 기존 태그를 수정, 삭제 및 볼 수 있습니다.
+
+
+
+== 볼륨을 생성하는 동안 새 태그를 할당합니다
+
+새로 만든 볼륨에서 계층화된 새 개체에 하나 이상의 태그를 할당하려는 경우 새 개체 태그를 만들 수 있습니다. 태그를 사용하여 계층화 객체를 분류하고 정렬하면 데이터를 보다 쉽게 관리할 수 있습니다. ONTAP 9.8부터는 System Manager를 사용하여 개체 태그를 만들 수 있습니다.
+
+.이 작업에 대해
+FabricPool에 연결된 StorageGRID 볼륨에서만 태그를 설정할 수 있습니다. 이러한 태그는 볼륨 이동 중에 유지됩니다.
+
+* 볼륨당 최대 4개의 태그가 허용됩니다.
+* CLI에서 각 개체 태그는 등호로 구분된 키-값 쌍이어야 합니다.
+* CLI에서는 여러 태그를 쉼표로 구분해야 합니다.
+* 각 태그 값은 최대 127자를 포함할 수 있습니다.
+* 각 태그 키는 영문자 또는 밑줄로 시작해야 합니다.
++
+키에는 영숫자와 밑줄만 포함되어야 하며 허용되는 최대 문자 수는 127입니다.
+
+
+
+ONTAP 시스템 관리자 또는 ONTAP CLI를 사용하여 오브젝트 태그를 할당할 수 있습니다.
+
+.단계
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+. Storage > Tiers * 로 이동합니다.
+. 태그를 지정할 볼륨이 있는 스토리지 계층을 찾습니다.
+. 볼륨 * 탭을 클릭합니다.
+. 태그를 지정할 볼륨을 찾고 * 개체 태그 * 열에서 * 태그를 입력하려면 클릭 * 을 선택합니다.
+. 키와 값을 입력합니다.
+. 적용 * 을 클릭합니다.
+
+
+--
+.CLI를 참조하십시오
+--
+. '-Tiering-object-tags' 옵션과 함께 'volume create' 명령을 사용하여 지정된 태그로 새 볼륨을 생성합니다. 쉼표로 구분된 쌍으로 여러 태그를 지정할 수 있습니다.
++
+[listing]
+----
+volume create [ -vserver <vserver name> ] -volume <volume_name> -tiering-object-tags <key1=value1> [,<key2=value2>,<key3=value3>,<key4=value4> ]
+----
++
+다음 예에서는 개체 태그가 3개인 fp_volume1 볼륨을 생성합니다.
+
++
+[listing]
+----
+vol create -volume fp_volume1 -vserver vs0 -tiering-object-tags project=fabricpool,type=abc,content=data
+----
+
+
+--
+====
+
+
+== 기존 태그를 수정합니다
+
+태그 이름을 변경하거나, 개체 저장소의 기존 개체에 있는 태그를 바꾸거나, 나중에 추가할 새 개체에 다른 태그를 추가할 수 있습니다.
+
+.단계
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+. Storage > Tiers * 로 이동합니다.
+. 수정할 태그가 포함된 볼륨이 있는 스토리지 계층을 찾습니다.
+. 볼륨 * 탭을 클릭합니다.
+. 수정할 태그가 있는 볼륨을 찾은 다음 * 개체 태그 * 열에서 태그 이름을 클릭합니다.
+. 태그를 수정합니다.
+. 적용 * 을 클릭합니다.
+
+
+--
+.CLI를 참조하십시오
+--
+. '-Tiering-object-tags' 옵션과 함께 'volume modify' 명령을 사용하여 기존 태그를 수정합니다.
++
+[listing]
+----
+volume modify [ -vserver <vserver name> ] -volume <volume_name> -tiering-object-tags <key1=value1> [ ,<key2=value2>,
+<key3=value3>,<key4=value4> ]
+----
++
+다음 예제에서는 기존 태그 형식 =abc 의 이름을 type=xyz 로 변경합니다.
+
++
+[listing]
+----
+vol create -volume fp_volume1 -vserver vs0 -tiering-object-tags project=fabricpool,type=xyz,content=data
+----
+
+
+--
+====
+
+
+== 태그를 삭제합니다
+
+오브젝트 태그가 더 이상 볼륨 또는 오브젝트 저장소 오브젝트에서 설정되지 않도록 하려면 오브젝트 태그를 삭제할 수 있습니다.
+
+.단계
+[role="tabbed-block"]
+====
+.시스템 관리자
+--
+. Storage > Tiers * 로 이동합니다.
+. 삭제할 태그가 포함된 볼륨이 있는 스토리지 계층을 찾습니다.
+. 볼륨 * 탭을 클릭합니다.
+. 삭제할 태그가 있는 볼륨을 찾고 * 개체 태그 * 열에서 태그 이름을 클릭합니다.
+. 태그를 삭제하려면 휴지통 아이콘을 클릭합니다.
+. 적용 * 을 클릭합니다.
+
+
+--
+.CLI를 참조하십시오
+--
+. 기존 태그를 삭제하려면 '-Tiering-object-tags' 옵션과 함께 'volume modify' 명령을 사용한 다음 빈 값('")을 사용합니다.
++
+다음 예제에서는 fp_volume1의 기존 태그를 삭제합니다.
+
++
+[listing]
+----
+vol modify -volume fp_volume1 -vserver vs0 -tiering-object-tags ""
+----
+
+
+--
+====
+
+
+== 볼륨의 기존 태그를 봅니다
+
+볼륨에 있는 기존 태그를 보고 목록에 새 태그를 추가하기 전에 사용 가능한 태그를 확인할 수 있습니다.
+
+.단계
+. 명령을 옵션과 함께 `tiering-object-tags` 사용하여 `volume show` 볼륨의 기존 태그를 봅니다.
++
+[listing]
+----
+volume show [ -vserver <vserver name> ] -volume <volume_name> -fields tiering-object-tags
+----
+
+
+
+
+== FabricPool 볼륨에서 객체 태그 지정 상태를 확인합니다
+
+하나 이상의 FabricPool 볼륨에서 태깅이 완료되었는지 확인할 수 있습니다.
+
+.단계
+. 옵션과 함께 명령을 `-fields needs-object-retagging` 사용하여 `vol show` 태깅이 진행 중인지, 작업이 완료되었는지 또는 태깅이 설정되지 않았는지 확인하십시오.
++
+[listing]
+----
+vol show -fields needs-object-retagging  [ -instance | -volume <volume name>]
+----
++
+다음 값 중 하나가 표시됩니다.
+
++
+** `true`: 개체 태그 지정 스캐너가 아직 실행되지 않았거나 이 볼륨에 대해 다시 실행해야 합니다
+** `false`: 개체 태깅 스캐너가 이 볼륨에 대한 태그를 완료했습니다
+** `+<->+`: 이 볼륨에는 개체 태그 지정 스캐너를 사용할 수 없습니다. 이 문제는 FabricPool에 없는 볼륨에 대해 발생합니다.
+
+
+
