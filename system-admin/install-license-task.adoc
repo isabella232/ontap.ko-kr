@@ -1,7 +1,7 @@
 ---
 permalink: system-admin/install-license-task.html 
 sidebar: sidebar 
-keywords: install, license, enable, add, record, ontap one, software, entitlement, keys, codes, cluster, administrator, nlf 
+keywords: install, license, enable, add, record, ontap one, software, entitlement, keys, codes, cluster, administrator, nlf, add license, license key, snaplock license, fabricpool license, flexclone license, snapmirror license 
 summary: 'NLF를 설치하는 기본 방법인 System Manager를 사용하여 NLF(NetApp 라이센스 파일) 및 라이센스 키를 설치하거나 ONTAP CLI를 사용하여 라이센스 키를 설치할 수 있습니다. ONTAP 9.10.1 이상에서는 NetApp 라이센스 파일을 통해 기능이 활성화되고, ONTAP 9.10.1 이전 릴리스에서는 라이센스 키를 사용하여 ONTAP 기능을 사용할 수 있습니다. ' 
 ---
 = ONTAP에서 NetApp 라이센스를 설치합니다

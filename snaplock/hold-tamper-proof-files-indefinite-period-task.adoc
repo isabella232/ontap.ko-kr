@@ -13,7 +13,7 @@ summary: ONTAP 9.3부터 법적 증거 자료 보관 기능을 사용하여 소�
 [role="lead"]
 ONTAP 9.3부터는 _Legal Hold_ 기능을 사용하여 소송 기간 동안 준수 모드 WORM 파일을 보존할 수 있습니다.
 
-.필요한 것
+.시작하기 전에
 * 이 작업을 수행하려면 SnapLock 관리자여야 합니다.
 +
 link:create-compliance-administrator-account-task.html["SnapLock 관리자 계정을 만듭니다"]
@@ -29,7 +29,7 @@ link:create-compliance-administrator-account-task.html["SnapLock 관리자 계�
 .단계
 . 법적 증거 자료 보관 시작:
 +
-``SnapLock legal-hold begin-citigation-name_citigation_name_-volume_volume_name_-path_path_name_*'
+`snaplock legal-hold begin -litigation-name <litigation_name> -volume <volume_name> -path <path_name>`
 
 +
 다음 명령은 'vol1'의 모든 파일에 대해 법적 대기를 시작합니다.
@@ -41,7 +41,7 @@ cluster1::>snaplock legal-hold begin -litigation-name litigation1 -volume vol1 -
 ----
 . 법적 증거 자료 보관 종료:
 +
-``SnapLock legal-hold end-cigation-name_citigation_name_-volume_volume_name_-path_path_name_*'
+`snaplock legal-hold end -litigation-name <litigation_name> -volume <volume_name> -path <path_name>`
 
 +
 다음 명령은 'vol1'의 모든 파일에 대해 법적 보류를 종료합니다.

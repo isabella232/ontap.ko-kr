@@ -27,6 +27,8 @@ summary: '모든 GPO(그룹 정책 개체)가 CIFS 지원 SVM(스토리지 가�
 ** 성공 이벤트만 감사합니다
 ** 오류 이벤트만 감사합니다
 ** 성공 및 실패 이벤트를 모두 감사합니다
+
+
 +
 [NOTE]
 ====
@@ -42,8 +44,6 @@ Advanced Audit Policy Configuration/Audit Policies/Object Access GPO에서 Audit
 고급 감사 정책 구성 GPO 설정을 사용하려면 이 설정을 적용할 CIFS 지원 SVM에 대해 감사를 구성해야 합니다. SVM에서 감사를 구성하지 않으면 GPO 설정이 적용되지 않고 삭제됩니다.
 
 ====
-
-
 * 레지스트리 설정:
 +
 ** CIFS 지원 SVM에 대한 그룹 정책 업데이트 간격

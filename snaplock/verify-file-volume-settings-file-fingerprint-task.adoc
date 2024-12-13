@@ -16,7 +16,7 @@ summary: '볼륨 파일 지문 시작 및 볼륨 파일 지문 덤프 명령을 
 .단계
 . 파일 지문 생성:
 +
-'* 볼륨 파일 지문 시작 - vserver_SVM_name_-file_file_path_*'
+`volume file fingerprint start -vserver <SVM_name> -file <file_path>`
 
 +
 [listing]
@@ -35,7 +35,7 @@ File fingerprint operation is queued. Run "volume file fingerprint show -session
 ====
 . 파일의 지문을 표시합니다.
 +
-'* 볼륨 파일 지문 덤프 - session-id_session_ID_ * '
+`volume file fingerprint dump -session-id <session_ID>`
 
 +
 [listing]
