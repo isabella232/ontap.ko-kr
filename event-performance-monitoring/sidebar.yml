@@ -96,8 +96,8 @@ entries:
     entries:
     - title: 메시지가 수신되지 않을 경우 AutoSupport 문제를 해결합니다
       url: "/system-admin/troubleshoot-autosupport-messages-not-received-task.html"
-    - title: HTTP 또는 HTTPS를 통한 AutoSupport 메시지 전송 문제를 해결합니다
-      url: "/system-admin/troubleshoot-autosupport-http-https-task.html"
+    - title: HTTPS를 통한 AutoSupport 메시지 전달 문제를 해결합니다
+      url: "/system-admin/troubleshoot-autosupport-https-task.html"
     - title: SMTP를 통한 AutoSupport 메시지 전달 문제를 해결합니다
       url: "/system-admin/troubleshoot-autosupport-delivery-smtp-task.html"
     - title: AutoSupport 하위 시스템 문제를 해결합니다

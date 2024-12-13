@@ -105,7 +105,7 @@ link:../high-availability/index.html["클러스터 복원력"]
 
 
  a| 
-link:../networking/configure_virtual_ip_@vip@_lifs.html["VIP(가상 IP) LIF 확장"]
+link:../networking/configure_virtual_ip_vip_lifs.html["VIP(가상 IP) LIF 확장"]
  a| 
 * BGP(Border Gateway Protocol)의 ASN(Autonomous System Number)은 4바이트 비음의 정수를 지원합니다.
 * MED(Multi-exit 판별자)는 경로 우선 순위 지정을 지원하여 고급 경로 선택을 가능하게 합니다. Med는 BGP 업데이트 메시지에서 선택적 속성입니다.

@@ -300,6 +300,6 @@ System Manager는 * Protection > Relationships * 메뉴에서 LUN 맵을 시각�
 * link:../task_dp_recover_snapshot.html["Snapshot 복사본에서 복구"]
 * link:../task_dp_restore_from_vault.html["이전 스냅샷 복사본에서 볼륨을 복원합니다"]
 * link:../snapmirror-active-sync/index.html["SnapMirror Active Sync 개요"]
-* link:https://docs.netapp.com/us-en/ontap-automation/["ONTAP 자동화 문서"^]
+* link:https://docs.netapp.com/us-en/ontap-automation/["ONTAP 자동화 설명서"^]
 * xref:../data-protection/snapmirror-disaster-recovery-concept.html[SnapMirror 비동기식 재해 복구 기본 사항]
 

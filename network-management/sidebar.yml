@@ -32,7 +32,7 @@ entries:
 - title: 네트워크 포트
   entries:
   - title: 개요
-    url: "/networking/configure_network_ports_@cluster_administrators_only@_overview.html"
+    url: "/networking/configure_network_ports_cluster_administrators_only_overview.html"
   - title: 네트워크 포트를 구성합니다
     entries:
     - title: 물리적 포트를 결합하여 인터페이스 그룹을 생성합니다
@@ -66,7 +66,7 @@ entries:
 - title: IPspace
   entries:
   - title: 개요
-    url: "/networking/configure_ipspaces_@cluster_administrators_only@_overview.html"
+    url: "/networking/configure_ipspaces_cluster_administrators_only_overview.html"
   - title: IPspace 생성
     url: "/networking/create_ipspaces.html"
   - title: IPspace를 표시합니다
@@ -78,7 +78,7 @@ entries:
   - title: 브로드캐스트 도메인(ONTAP 9.8 이상)
     entries:
     - title: 개요(ONTAP 9.8 이상)
-      url: "/networking/configure_broadcast_domains_@cluster_administrators_only@_overview.html"
+      url: "/networking/configure_broadcast_domains_cluster_administrators_only_overview.html"
     - title: 브로드캐스트 도메인 생성(ONTAP 9.8 이상)
       url: "/networking/add_broadcast_domain.html"
     - title: 포트 추가 또는 제거(ONTAP 9.8 이상)
@@ -130,7 +130,7 @@ entries:
 - title: 서브넷(클러스터 관리자만 해당)
   entries:
   - title: 개요
-    url: "/networking/configure_subnets_@cluster_administrators_only@_overview.html"
+    url: "/networking/configure_subnets_cluster_administrators_only_overview.html"
   - title: 서브넷을 생성합니다
     url: "/networking/create_a_subnet.html"
   - title: 서브넷에서 IP 주소를 추가하거나 제거합니다
@@ -148,7 +148,7 @@ entries:
   - title: LIF 개요
     entries:
     - title: 개요
-      url: "/networking/configure_lifs_@cluster_administrators_only@_overview.html"
+      url: "/networking/configure_lifs_cluster_administrators_only_overview.html"
     - title: LIF가 포트 유형과 호환됩니다
       url: "/networking/lif_compatibility_with_port_types.html"
     - title: 지원되는 트래픽을 관리합니다
@@ -174,11 +174,11 @@ entries:
     - title: LIF를 삭제합니다
       url: "/networking/delete_a_lif.html"
   - title: 가상 IP(VIP) LIF
-    url: "/networking/configure_virtual_ip_@vip@_lifs.html"
+    url: "/networking/configure_virtual_ip_vip_lifs.html"
 - title: 네트워크 로드 밸런싱
   entries:
   - title: 네트워크 트래픽 최적화(클러스터 관리자만 해당)
-    url: "/networking/balance_network_loads_to_optimize_user_traffic_@cluster_administrators_only@_overview.html"
+    url: "/networking/balance_network_loads_to_optimize_user_traffic_cluster_administrators_only_overview.html"
   - title: DNS 로드 밸런싱 개요
     url: "/networking/how_dns_load_balancing_works.html"
   - title: DNS 부하 분산 영역을 만듭니다
@@ -198,11 +198,11 @@ entries:
   - title: 호스트 이름 확인을 위해 DNS를 구성합니다
     url: "/networking/configure_dns_for_host-name_resolution.html"
   - title: 호스트 테이블 관리(클러스터 관리자만 해당)
-    url: "/networking/manage_the_hosts_table_@cluster_administrators_only@.html"
+    url: "/networking/manage_the_hosts_table_cluster_administrators_only.html"
 - title: 네트워크 보안
   entries:
   - title: FIPS(Federal Information Processing Standards)를 사용하여 네트워크 보안 구성
-    url: "/networking/configure_network_security_using_federal_information_processing_standards_@fips@.html"
+    url: "/networking/configure_network_security_using_federal_information_processing_standards_fips.html"
   - title: IPsec 전송 중 암호화를 구성합니다
     entries:
     - title: IPsec 사용을 준비합니다
@@ -216,7 +216,7 @@ entries:
 - title: QoS 표시(클러스터 관리자만 해당)
   entries:
   - title: 개요
-    url: "/networking/configure_qos_marking_@cluster_administrators_only@_overview.html"
+    url: "/networking/configure_qos_marking_cluster_administrators_only_overview.html"
   - title: QoS 표시 값을 수정합니다
     url: "/networking/modify_qos_marking_values.html"
   - title: QoS 표시 값을 표시합니다
@@ -224,7 +224,7 @@ entries:
 - title: SNMP 관리(클러스터 관리자만 해당)
   entries:
   - title: 개요
-    url: "/networking/manage_snmp_on_the_cluster_@cluster_administrators_only@_overview.html"
+    url: "/networking/manage_snmp_on_the_cluster_cluster_administrators_only_overview.html"
   - title: SNMP 커뮤니티를 생성하여 LIF에 할당합니다
     url: "/networking/create_an_snmp_community_and_assigning_it_to_a_lif.html"
   - title: 클러스터에서 SNMPv3 사용자를 구성합니다
@@ -254,17 +254,17 @@ entries:
   - title: 개요
     url: "/networking/view_network_information_overview.html"
   - title: 네트워크 포트 정보 표시(클러스터 관리자만 해당)
-    url: "/networking/display_network_port_information_@cluster_administrators_only@.html"
+    url: "/networking/display_network_port_information_cluster_administrators_only.html"
   - title: VLAN에 대한 정보 표시(클러스터 관리자만 해당)
-    url: "/networking/display_information_about_a_vlan_@cluster_administrators_only@.html"
+    url: "/networking/display_information_about_a_vlan_cluster_administrators_only.html"
   - title: 인터페이스 그룹 정보 표시(클러스터 관리자만 해당)
-    url: "/networking/display_interface_group_information_@cluster_administrators_only@.html"
+    url: "/networking/display_interface_group_information_cluster_administrators_only.html"
   - title: LIF 정보를 표시합니다
     url: "/networking/display_lif_information.html"
   - title: 라우팅 정보를 표시합니다
     url: "/networking/display_routing_information_01.html"
   - title: DNS 호스트 테이블 항목 표시(클러스터 관리자만 해당)
-    url: "/networking/display_dns_host_table_entries_@cluster_administrators_only@.html"
+    url: "/networking/display_dns_host_table_entries_cluster_administrators_only.html"
   - title: DNS 도메인 구성을 표시합니다
     url: "/networking/display_dns_domain_configurations.html"
   - title: 페일오버 그룹에 대한 정보를 표시합니다

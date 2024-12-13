@@ -7,7 +7,7 @@ summary: ONTAP는 NFS 및 SMB/CIFS를 사용하는 NFSv4.2 및 XATTRS를 비롯�
 = ABAC에 대한 ONTAP의 접근 방식
 :allow-uri-read: 
 :icons: font
-:imagesdir: ../media
+:imagesdir: ../media/
 
 
 [role="lead"]

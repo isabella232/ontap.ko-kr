@@ -11,7 +11,7 @@ summary: Zephyr API를 사용하여 스크립트 또는 워크플로우 자동�
 
 
 [role="lead"]
-Zephyr API를 사용하여 스크립트 또는 워크플로우 자동화의 SnapLock 기능과 통합할 수 있습니다. API는 HTTP, HTTPS 및 Windows DCE/RPC를 통한 XML 메시징을 사용합니다. 자세한 내용은 을 참조하십시오 link:https://docs.netapp.com/us-en/ontap-automation/["ONTAP 자동화 문서"].
+Zephyr API를 사용하여 스크립트 또는 워크플로우 자동화의 SnapLock 기능과 통합할 수 있습니다. API는 HTTP, HTTPS 및 Windows DCE/RPC를 통한 XML 메시징을 사용합니다. 자세한 내용은 을 link:https://docs.netapp.com/us-en/ontap-automation/["ONTAP 자동화 설명서"^]참조하십시오.
 
 
 

@@ -107,7 +107,7 @@ ONTAP REST API를 사용하여 CORS를 구성할 수 있습니다. CORS 기능�
 
 `/api/protocols/s3/services/{svm.uuid}/buckets/{bucket.uuid}`
 
- https://docs.netapp.com/us-en/ontap-automation/["ONTAP 자동화"^]자세한 내용은 설명서 사이트를 참조하십시오.
+자세한 내용은 을 https://docs.netapp.com/us-en/ontap-automation/["ONTAP 자동화 설명서"^]참조하십시오.
 
 .S3 API를 사용합니다
 S3 API를 사용하여 ONTAP 버킷에서 CORS 구성을 생성하고 삭제할 수 있습니다. S3 클라이언트 관리자는 다음을 비롯하여 충분한 Privileges가 필요합니다.

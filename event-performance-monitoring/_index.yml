@@ -17,7 +17,7 @@ indexpage:
     - title: EMS 개요
       url: "/../error-messages/index.html"
     - title: SNMP 개요
-      url: "/../networking/manage_snmp_on_the_cluster_@cluster_administrators_only@_overview.html"
+      url: "/../networking/manage_snmp_on_the_cluster_cluster_administrators_only_overview.html"
     - title: 파일 시스템 분석 개요
       url: "../concept_nas_file_system_analytics_overview.html"
   - title: 성능

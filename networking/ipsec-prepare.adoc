@@ -135,4 +135,4 @@ ONTAP 9.16.1에서는 아래와 같이 IPsec 하드웨어 오프로드 기능을
 
 | `/api/security/ipsec/security_association` | 오프로드 기능에 의해 처리된 총 바이트 및 패킷을 추적하기 위해 두 개의 새로운 카운터 값이 추가되었습니다. 
 |===
-ONTAP REST API에 대한 자세한 내용은 ONTAP 자동화 문서 사이트를 참조하십시오 https://docs.netapp.com/us-en/ontap-automation/whats-new.html["ONTAP REST API의 새로운 기능"^]. IPsec 끝점에 대한 자세한 내용은 ONTAP 설명서를 검토해야 https://docs.netapp.com/us-en/ontap-automation/reference/api_reference.html["API 참조"^] 합니다.
+를 비롯한 ONTAP REST API에 대한 자세한 내용은 ONTAP 자동화 설명서 를 https://docs.netapp.com/us-en/ontap-automation/whats-new.html["ONTAP REST API의 새로운 기능"^] 참조하십시오. 에 대한 자세한 내용은 ONTAP 자동화 설명서를 검토해야 https://docs.netapp.com/us-en/ontap-automation/reference/api_reference.html["IPsec 끝점"^] 합니다.

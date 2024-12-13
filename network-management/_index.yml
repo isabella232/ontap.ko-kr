@@ -19,7 +19,7 @@ indexpage:
   - title: 네트워크 포트
     links:
     - title: 네트워크 포트를 구성합니다
-      url: "/../networking/configure_network_ports_@cluster_administrators_only@_overview.html"
+      url: "/../networking/configure_network_ports_cluster_administrators_only_overview.html"
     - title: 네트워크 포트의 상태를 모니터링합니다
       url: "/../networking/monitor_the_health_of_network_ports.html"
     - title: 네트워크 포트의 연결 상태 모니터링(ONTAP 9.8 이상)
@@ -29,7 +29,7 @@ indexpage:
   - title: 논리 인터페이스(LIF)
     links:
     - title: LIF를 구성합니다
-      url: "/../networking/configure_lifs_@cluster_administrators_only@_overview.html"
+      url: "/../networking/configure_lifs_cluster_administrators_only_overview.html"
     - title: LIF 마이그레이션
       url: "/../networking/migrate_a_lif.html"
     - title: LIF 및 서비스 정책
@@ -39,9 +39,9 @@ indexpage:
   - title: IPspace 및 브로드캐스트 도메인
     links:
     - title: IPspace 구성
-      url: "/../networking/configure_ipspaces_@cluster_administrators_only@_overview.html"
+      url: "/../networking/configure_ipspaces_cluster_administrators_only_overview.html"
     - title: 브로드캐스트 도메인을 구성합니다
-      url: "/../networking/configure_broadcast_domains_@cluster_administrators_only@_overview.html"
+      url: "/../networking/configure_broadcast_domains_cluster_administrators_only_overview.html"
   - title: 가상 인터페이스
     links:
     - title: VLAN을 생성합니다
@@ -57,13 +57,13 @@ indexpage:
   - title: SNMP를 선택합니다
     links:
     - title: SNMP 개요
-      url: "/../networking/manage_snmp_on_the_cluster_@cluster_administrators_only@_overview.html"
+      url: "/../networking/manage_snmp_on_the_cluster_cluster_administrators_only_overview.html"
     - title: Traphosts를 구성합니다
       url: "/../networking/configure_traphosts_to_receive_snmp_notifications.html"
   - title: 보안
     links:
     - title: FIPS를 구성합니다
-      url: "/../networking/configure_network_security_using_federal_information_processing_standards_@fips@.html"
+      url: "/../networking/configure_network_security_using_federal_information_processing_standards_fips.html"
     - title: IPsec을 구성합니다
       url: "/../networking/ipsec-prepare.html"
     - title: 방화벽 및 서비스 정책을 구성합니다

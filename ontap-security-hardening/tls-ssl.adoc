@@ -42,8 +42,8 @@ NOTE: NIST는 FIPS-140-3 표준을 제출했으며, NCSM은 FIPS-140-2 및 FIPS-
 
 ONTAP 9부터 클러스터 전체 컨트롤 플레인 인터페이스에 대해 FIPS-140-2 및 FIPS-140-3 규정 준수 모드를 활성화할 수 있습니다.
 
-* link:../networking/configure_network_security_using_federal_information_processing_standards_@fips@.html#enable-fips["FIPS를 사용하도록 설정합니다"]
-* link:../networking/configure_network_security_using_federal_information_processing_standards_@fips@.html#view-fips-compliance-status["FIPS 상태를 봅니다"]
+* link:../networking/configure_network_security_using_federal_information_processing_standards_fips.html#enable-fips["FIPS를 사용하도록 설정합니다"]
+* link:../networking/configure_network_security_using_federal_information_processing_standards_fips.html#view-fips-compliance-status["FIPS 상태를 봅니다"]
 
 
 

@@ -189,7 +189,7 @@ NOTE: ONTAPI 명령을 사용하여 생성된 스냅샷 복사본은 `cg-start` 
 
 video::j0jfXDcdyzE[youtube,width=848,height=480]
 .관련 정보
-* link:https://docs.netapp.com/us-en/ontap-automation/["ONTAP 자동화 문서"^]
+* link:https://docs.netapp.com/us-en/ontap-automation/["ONTAP 자동화 설명서"^]
 * xref:../snapmirror-active-sync/index.html[SnapMirror 활성 동기화]
 * xref:../data-protection/snapmirror-disaster-recovery-concept.html[SnapMirror 비동기식 재해 복구 기본 사항]
 * link:https://docs.netapp.com/us-en/ontap-metrocluster/["MetroCluster 설명서"]

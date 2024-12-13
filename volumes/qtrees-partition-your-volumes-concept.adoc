@@ -168,4 +168,4 @@ ONTAP 9.16.1에서 이 기능을 사용하도록 설정하면 제한 없이 후�
 
 === 자세한 정보
 
-ONTAP REST API에 대한 자세한 내용은 를 포함한 ONTAP 자동화 설명서를 참조하십시오 https://docs.netapp.com/us-en/ontap-automation/whats-new.html["ONTAP REST API의 새로운 기능"^]. ONTAP REST API qtree 엔드포인트에 대한 자세한 내용은 ONTAP 설명서를 검토해야 https://docs.netapp.com/us-en/ontap-automation/reference/api_reference.html["API 참조"^] 합니다.
+를 비롯한 ONTAP REST API에 대한 자세한 내용은 ONTAP 자동화 설명서 를 https://docs.netapp.com/us-en/ontap-automation/whats-new.html["ONTAP REST API의 새로운 기능"^] 참조하십시오. ONTAP REST API에 대한 자세한 내용은 ONTAP 자동화 설명서를 https://docs.netapp.com/us-en/ontap-automation/reference/api_reference.html["Qtree 엔드포인트"^] 검토해야 합니다.

@@ -157,5 +157,5 @@ HTTP 기본 인증:: 초기 HTTP 인증 기법은 여전히 ONTAP에서 지원�
 
 
 .NetApp 설명서 및 리소스
-* https://docs.netapp.com/us-en/ontap-automation["ONTAP 자동화"^] 문서화
+* https://docs.netapp.com/us-en/ontap-automation["ONTAP 자동화 설명서"^]
 

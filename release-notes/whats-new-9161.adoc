@@ -55,7 +55,7 @@ ONTAP 온보드 키 관리자에서 클러스터 수준의 외부 키 관리자�
 
 
  a| 
-xref:../networking/configure_virtual_ip_@vip@_lifs.html#set-up-border-gateway-protocol-bgp[BGP 피어 그룹에 대한 MD5 인증 지원]
+xref:../networking/configure_virtual_ip_vip_lifs.html#set-up-border-gateway-protocol-bgp[BGP 피어 그룹에 대한 MD5 인증 지원]
  a| 
 ONTAP는 BGP 피어 그룹에서 MD5 인증을 지원하여 BGP 세션을 보호합니다. MD5가 활성화되면 승인된 피어 사이에서만 BGP 세션을 설정 및 처리할 수 있으므로 권한이 없는 행위자에 의한 세션 중단을 방지할 수 있습니다.
 

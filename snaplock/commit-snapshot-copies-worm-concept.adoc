@@ -2,16 +2,16 @@
 permalink: snaplock/commit-snapshot-copies-worm-concept.html 
 sidebar: sidebar 
 keywords: snaplock, commit, snapshot, copy, worm, snapvault, protect, snapmirror, clone, snaplock type 
-summary: SnapLock for SnapVault를 사용하여 2차 스토리지에서 WORM 상태로 스냅샷 복사본을 보호할 수 있습니다. 볼트 대상에서 모든 기본 SnapLock 작업을 수행합니다. 
+summary: SnapVault용 SnapLock를 사용하여 보조 스토리지에서 WORM으로 스냅샷을 보호할 수 있습니다. 볼트 대상에서 모든 기본 SnapLock 작업을 수행합니다. 
 ---
-= 볼트 대상에서 WORM에 스냅샷 복사본을 커밋합니다
+= 볼트 대상에서 WORM에 스냅샷을 커밋합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-SnapLock for SnapVault를 사용하여 2차 스토리지에서 WORM 상태로 스냅샷 복사본을 보호할 수 있습니다. 볼트 대상에서 모든 기본 SnapLock 작업을 수행합니다. 타겟 볼륨이 읽기 전용으로 자동 마운트되므로 Snapshot 복사본을 WORM에 명시적으로 커밋할 필요가 없습니다. 따라서 SnapMirror 정책을 사용하여 타겟 볼륨에 예약된 Snapshot 복사본을 생성하는 것은 지원되지 않습니다.
+SnapVault용 SnapLock를 사용하여 보조 스토리지에서 WORM으로 스냅샷을 보호할 수 있습니다. 볼트 대상에서 모든 기본 SnapLock 작업을 수행합니다. 대상 볼륨은 읽기 전용으로 자동 마운트되므로 WORM에 스냅샷을 명시적으로 커밋할 필요가 없습니다.
 
 .시작하기 전에
 * System Manager를 사용하여 관계를 구성하려면 소스 클러스터와 대상 클러스터 모두에서 ONTAP 9.15.1 이상이 실행 중이어야 합니다.
@@ -32,20 +32,20 @@ SnapLock for SnapVault를 사용하여 2차 스토리지에서 WORM 상태로 �
 소스 볼륨에서 NetApp 또는 타사 스토리지를 사용할 수 있습니다. 타사 스토리지의 경우 FlexArray 가상화를 사용해야 합니다.
 
 
-NOTE: WORM 상태로 커밋된 스냅샷 복사본의 이름은 변경할 수 없습니다.
+NOTE: WORM 상태로 커밋된 스냅샷의 이름은 변경할 수 없습니다.
 
 SnapLock 볼륨의 클론을 생성할 수는 있지만 SnapLock 볼륨의 파일은 복제할 수 없습니다.
 
 
-NOTE: LUN은 SnapLock 볼륨에서 지원되지 않습니다. LUN은 비 SnapLock 볼륨에서 생성된 스냅샷 복사본이 SnapLock 볼트 관계의 일부로 보호를 위해 SnapLock 볼륨으로 전송되는 경우에만 SnapLock 볼륨에서 지원됩니다. LUN은 읽기/쓰기 SnapLock 볼륨에서 지원되지 않습니다. 그러나 SnapMirror 소스 볼륨과 LUN이 포함된 타겟 볼륨 모두에서 무단 스냅샷 복사본이 지원됩니다.
+NOTE: LUN은 SnapLock 볼륨에서 지원되지 않습니다. LUN은 비 SnapLock 볼륨에서 생성된 스냅샷이 SnapLock 소산 관계의 일부로 보호를 위해 SnapLock 볼륨으로 전송되는 경우에만 SnapLock 볼륨에서 지원됩니다. LUN은 읽기/쓰기 SnapLock 볼륨에서 지원되지 않습니다. 하지만 변조 방지 스냅샷은 SnapMirror 소스 볼륨과 LUN이 포함된 타겟 볼륨 모두에서 지원됩니다.
 
 ONTAP 9.10.1부터 SnapLock 및 비 SnapLock 볼륨은 동일한 애그리게이트에 존재할 수 있으므로, ONTAP 9.10.1을 사용하는 경우 더 이상 별도의 SnapLock 애그리게이트를 생성할 필요가 없습니다. '-snaplock-type' 볼륨 옵션을 사용하여 Compliance 또는 Enterprise SnapLock 볼륨 유형을 지정합니다. ONTAP 9.10.1 이전의 ONTAP 릴리즈에서는 SnapLock 모드, 규정 준수 또는 엔터프라이즈가 aggregate에서 상속됩니다. 버전에 상관없이 유연한 타겟 볼륨이 지원되지 않습니다. 대상 볼륨의 언어 설정은 소스 볼륨의 언어 설정과 일치해야 합니다.
 
-볼트 대상인 SnapLock 볼륨에 기본 보존 기간이 할당되어 있습니다. 이 기간의 값은 처음에 SnapLock 엔터프라이즈 볼륨의 경우 0년, SnapLock 규정 준수 볼륨의 경우 최대 30년으로 설정됩니다. 각 NetApp 스냅샷 복사본은 처음에 이 기본 보존 기간을 사용하여 커밋됩니다. 필요한 경우 보존 기간을 나중에 연장할 수 있습니다. 자세한 내용은 을 참조하십시오 link:set-retention-period-task.html["보존 시간 개요를 설정합니다"].
+볼트 대상인 SnapLock 볼륨에 기본 보존 기간이 할당되어 있습니다. 이 기간의 값은 처음에 SnapLock 엔터프라이즈 볼륨의 경우 0년, SnapLock 규정 준수 볼륨의 경우 최대 30년으로 설정됩니다. 각 NetApp 스냅샷은 처음에는 이 기본 보존 기간을 사용하여 커밋됩니다. 필요한 경우 보존 기간을 나중에 연장할 수 있습니다. 자세한 내용은 을 link:set-retention-period-task.html["보존 시간 개요를 설정합니다"]참조하십시오.
 
-ONTAP 9.14.1부터는 SnapMirror 관계의 SnapMirror 정책에서 특정 SnapMirror 레이블에 대한 보존 기간을 지정할 수 있으므로 소스에서 타겟 볼륨으로의 복제된 스냅샷 복사본이 규칙에 지정된 보존 기간 동안 유지되도록 할 수 있습니다. 보존 기간을 지정하지 않으면 대상 볼륨의 기본 보존 기간이 사용됩니다.
+ONTAP 9.14.1부터 SnapMirror 관계의 SnapMirror 정책에서 특정 SnapMirror 레이블에 대한 보존 기간을 지정하여 소스에서 대상 볼륨으로의 복제된 스냅샷이 규칙에 지정된 보존 기간 동안 보존되도록 할 수 있습니다. 보존 기간을 지정하지 않으면 대상 볼륨의 기본 보존 기간이 사용됩니다.
 
-ONTAP 9.13.1부터 에 FlexClone을 생성하여 SnapLock 소산 관계의 대상 SnapLock 볼륨에서 잠긴 스냅샷 복사본을 즉시 복원할 수 있습니다 `snaplock-type` 볼륨 클론 생성 작업을 실행할 때 옵션을 "비 SnapLock"으로 설정하고 Snapshot 복사본을 "상위 스냅샷"으로 지정합니다. 에 대해 자세히 알아보십시오 link:../volumes/create-flexclone-task.html?q=volume+clone["SnapLock 형식으로 FlexClone 볼륨 생성"].
+ONTAP 9.13.1부터 옵션을 로 설정한 `non-snaplock` 상태로 FlexClone을 생성하고 볼륨 클론 생성 작업을 실행할 때 스냅샷을 "상위-스냅샷"으로 지정하여 SnapLock 소산 관계의 대상 SnapLock 볼륨에서 잠긴 스냅샷을 즉시 복원할 수 있습니다 `snaplock-type`. 에 대해 자세히 link:../volumes/create-flexclone-task.html?q=volume+clone["SnapLock 형식으로 FlexClone 볼륨 생성"]알아보십시오.
 
 MetroCluster 구성의 경우 다음 사항에 유의해야 합니다.
 
@@ -93,7 +93,7 @@ cluster2::> volume create -vserver SVM2 -volume dstvolB -aggregate node01_aggr -
 . 대상 클러스터에서 link:set-retention-period-task.html["기본 보존 기간을 설정합니다"].
 . link:../data-protection/create-replication-relationship-task.html["새 복제 관계를 생성합니다"] 비 SnapLock 소스와 사용자가 생성한 새 SnapLock 대상 간
 +
-이 예에서는 일별 및 주별 이라는 레이블이 지정된 스냅샷 복사본을 시간별 스케줄로 저장할 수 있는 "XDPDefault" 정책을 사용하여 대상 SnapLock 볼륨 DstvolB와 새로운 SnapMirror 관계를 생성합니다.
+이 예에서는 매일 및 매주 레이블이 지정된 스냅샷을 시간별 일정에 따라 볼팅하는 정책을 사용하여 `XDPDefault` 대상 SnapLock 볼륨과의 새로운 SnapMirror 관계를 `dstvolB` 생성합니다.
 
 +
 [listing]
@@ -118,9 +118,9 @@ snapmirror initialize -destination-path <destination_path>
 ----
 cluster2::> snapmirror initialize -destination-path SVM2:dstvolB
 ----
-. 관계가 초기화되고 유휴 상태가 된 후 를 사용합니다 `snapshot show` 타겟에서 명령을 실행하여 복제된 스냅샷 복사본에 적용되는 SnapLock 만료 시간을 확인합니다.
+. 관계가 초기화되고 유휴 상태가 되면 대상에서 명령을 사용하여 `snapshot show` 복제된 스냅샷에 적용되는 SnapLock 만료 시간을 확인합니다.
 +
-이 예에서는 SnapMirror 레이블과 SnapLock 만료 날짜가 있는 볼륨 DstvolB의 스냅샷 복사본을 보여 줍니다.
+이 예에서는 SnapMirror 레이블과 SnapLock 만료 날짜가 있는 볼륨의 스냅숏을 `dstvolB` 나열합니다.
 
 +
 [listing]

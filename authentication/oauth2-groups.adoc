@@ -75,7 +75,7 @@ NOTE: 액세스 토큰에 여러 그룹이 포함된 경우 ONTAP는 일치하�
 security login create -user-or-group-name "NICAD5\\Domain Users" -application http -authentication-method domain -role admin
 ----
 
-NOTE: ONTAP REST API를 사용하여 이 기능을 구성할 수도 있습니다. 자세한 내용은 을 https://docs.netapp.com/us-en/ontap-automation/["ONTAP 자동화"^] 참조하십시오.
+NOTE: ONTAP REST API를 사용하여 이 기능을 구성할 수도 있습니다. 자세한 내용은 을 https://docs.netapp.com/us-en/ontap-automation/["ONTAP 자동화 설명서"^]참조하십시오.
 
 
 
@@ -84,7 +84,7 @@ NOTE: ONTAP REST API를 사용하여 이 기능을 구성할 수도 있습니다
 인증 서버가 UUID 값을 사용하여 그룹을 나타내는 경우 그룹을 사용하기 전에 2단계 구성을 수행해야 합니다. ONTAP 9.16.1부터 두 가지 매핑 기능을 사용할 수 있으며 Microsoft Entra ID로 테스트되었습니다. CLI 명령을 실행하려면 ONTAP * admin * 권한 수준이어야 합니다.
 
 
-NOTE: ONTAP REST API를 사용하여 이러한 기능을 구성할 수도 있습니다.  https://docs.netapp.com/us-en/ontap-automation/["ONTAP 자동화"^]자세한 내용은 설명서 사이트를 참조하십시오.
+NOTE: ONTAP REST API를 사용하여 이러한 기능을 구성할 수도 있습니다. 자세한 내용은 을 https://docs.netapp.com/us-en/ontap-automation/["ONTAP 자동화 설명서"^]참조하십시오.
 
 .관련 정보
 * https://docs.netapp.com/us-en/ontap-cli/["ONTAP CLI 명령"^]

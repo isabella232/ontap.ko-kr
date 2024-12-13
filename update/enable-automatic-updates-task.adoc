@@ -82,5 +82,5 @@ ONTAP 버전에 따라 펌웨어, 시스템 또는 보안 파일에 대한 * 자
 ====
 .관련 정보
 * link:../system-admin/requirements-autosupport-reference.html["AutoSupport 사용을 준비합니다"]
-* link:../system-admin/troubleshoot-autosupport-http-https-task.html["HTTP 또는 HTTPS를 통한 AutoSupport 메시지 전송 문제를 해결합니다"]
+* link:../system-admin/troubleshoot-autosupport-https-task.html["HTTP 또는 HTTPS를 통한 AutoSupport 메시지 전송 문제를 해결합니다"]
 

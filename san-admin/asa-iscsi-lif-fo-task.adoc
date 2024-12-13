@@ -27,7 +27,7 @@ ONTAP 9.11.1 이상에서는 기본적으로 새로 생성된 iSCSI LIF가 다�
 
 기본적으로 ONTAP 9.10.1 이전 버전에서 생성된 iSCSI LIF는 자동 LIF 페일오버에 사용되지 않습니다.  자동 LIF 페일오버에 사용되지 않는 SVM에 iSCSI LIF가 있으면 새로 생성한 LIF가 자동 LIF 페일오버 중에 사용할 수 없습니다.  자동 LIF 페일오버가 사용되도록 설정되어 있지 않고 페일오버 이벤트가 발생하면 iSCSI LIF가 마이그레이션되지 않습니다.
 
-에 대해 자세히 알아보십시오 link:../networking/configure_lifs_@cluster_administrators_only@_overview.html#lif-failover-and-giveback["LIF 페일오버 및 반환"].
+에 대해 자세히 link:../networking/configure_lifs_cluster_administrators_only_overview.html#lif-failover-and-giveback["LIF 페일오버 및 반환"]알아보십시오.
 
 .단계
 . iSCSI LIF에 대해 자동 페일오버 활성화:

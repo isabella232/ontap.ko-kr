@@ -24,6 +24,6 @@ HA 쌍에서 처리하는 LUN에 대한 액세스를 허용하려면 논리 인�
 LIF를 생성한 후 포트 세트에서 제거하고 SVM(스토리지 가상 머신) 내의 다른 노드로 이동한 후 삭제할 수 있습니다.
 
 .관련 정보
-* link:../networking/configure_lifs_@cluster_administrators_only@_overview.html#lif-failover-and-giveback["LIF over veiw를 구성합니다"]
+* link:../networking/configure_lifs_cluster_administrators_only_overview.html#lif-failover-and-giveback["LIF 개요 구성"]
 * link:../networking/create_a_lif.html["LIF를 생성합니다"]
 

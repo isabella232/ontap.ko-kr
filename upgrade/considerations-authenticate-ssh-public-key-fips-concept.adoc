@@ -42,7 +42,7 @@ ECDSA-SHA2-nistp256+ssh-ed25519+ssh-dss+ssh-rsa
 
 NOTE: ONTAP 9.11.1부터 ssh-ed25519 호스트 키 알고리즘에 대한 지원이 제거되었습니다.
 
-자세한 내용은 을 참조하십시오 link:../networking/configure_network_security_using_federal_information_processing_standards_@fips@.html["FIPS를 사용하여 네트워크 보안을 구성합니다"].
+자세한 내용은 을 link:../networking/configure_network_security_using_federal_information_processing_standards_fips.html["FIPS를 사용하여 네트워크 보안을 구성합니다"]참조하십시오.
 
 지원되는 키 알고리즘이 없는 기존 SSH 공개 키 계정을 지원되는 키 유형으로 다시 구성해야 업그레이드 또는 관리자 인증이 실패합니다.
 
