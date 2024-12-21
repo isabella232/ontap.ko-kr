@@ -2,7 +2,7 @@
 permalink: flexgroup/definition-concept.html 
 sidebar: sidebar 
 keywords: flexgroup, volume 
-summary: FlexGroup 볼륨은 자동 로드 분산 및 확장성과 함께 고성능을 제공하는 스케일아웃 NAS 컨테이너입니다. FlexGroup 볼륨에는 트래픽을 자동으로 투명하게 공유하는 여러 구성요소가 포함되어 있습니다. 
+summary: 'FlexGroup 볼륨은 자동 로드 분산 및 확장성과 함께 고성능을 제공하는 스케일아웃 NAS 컨테이너입니다. FlexGroup 볼륨에는 트래픽을 자동으로 투명하게 공유하는 여러 구성원 볼륨(구성 요소)이 포함되어 있습니다.' 
 ---
 = FlexGroup 볼륨이란
 :allow-uri-read: 
@@ -11,16 +11,26 @@ summary: FlexGroup 볼륨은 자동 로드 분산 및 확장성과 함께 고성
 
 
 [role="lead"]
-FlexGroup 볼륨은 자동 로드 분산 및 확장성과 함께 고성능을 제공하는 스케일아웃 NAS 컨테이너입니다. FlexGroup 볼륨에는 트래픽을 자동으로 투명하게 공유하는 여러 구성요소가 포함되어 있습니다. _f구성요소_는 FlexGroup 볼륨을 구성하는 기본 FlexVol 볼륨입니다.
+FlexGroup 볼륨은 자동 로드 분산 및 확장성과 함께 고성능을 제공하는 스케일아웃 NAS 컨테이너입니다. FlexGroup 볼륨에는 트래픽을 자동으로 투명하게 공유하는 여러 구성원 볼륨(구성 요소)이 포함되어 있습니다. _멤버 볼륨 _ 은(는) FlexGroup 볼륨을 구성하는 기본 FlexVol 볼륨입니다.
 
-image:fg-overview-flexgroup.gif["FlexVol 볼륨은 구성 요소라고 하는 FlexGroup 볼륨 그룹으로 표시됩니다"]
+image:fg-overview-flexgroup.gif["FlexGroup 볼륨은 구성원 볼륨 또는 구성요소라고 하는 FlexVol 볼륨의 그룹으로 표시됩니다"]
 
 FlexGroup 볼륨은 다음과 같은 이점을 제공합니다.
 
 * 높은 확장성
 +
-ONTAP 9.1 이상에서 FlexGroup 볼륨의 최대 크기는 20PB이며 10노드 클러스터에서 4천억 개의 파일이 있습니다.
+구성원 볼륨 수가 노드 또는 클러스터의 제한을 초과하지 않는 한 하나의 클러스터에서 여러 FlexGroup 볼륨을 프로비저닝할 수 있습니다.
 
++
+ONTAP 9.12.1P2부터 단일 FlexGroup 볼륨의 최대 용량은 60PB이며, 10노드 클러스터에 4천억 개의 파일을 저장할 수 있습니다.link:../volumes/enable-large-vol-file-support-task.html["대용량 지원이 활성화되었습니다"] 대규모 볼륨 지원이 없으면 단일 FlexGroup 볼륨의 최대 용량은 20PB입니다.
+
+
+
+[NOTE]
+====
+단일 FlexGroup 볼륨의 최대 용량은 60PB(200개 구성원 볼륨 x 300TB = 60PB)이지만 구성원 볼륨의 사용 용량이 80%(200개 구성원 볼륨 x 240TB = 48PB) 미만으로 유지될 때 최상의 성능을 얻을 수 있습니다.
+
+====
 * 고성능
 +
 FlexGroup 볼륨은 클러스터의 리소스를 활용하여 높은 처리량과 짧은 지연 시간을 가진 워크로드를 지원할 수 있습니다.

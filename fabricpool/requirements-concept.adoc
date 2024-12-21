@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: considerations, requirements, using, fabricpool 
 summary: FabricPool 구성을 최적화하려면 FabricPool 사용에 대한 몇 가지 고려 사항과 요구 사항을 숙지해야 합니다. 
 ---
-= FabricPool 사용에 대한 고려 사항 및 요구 사항
+= ONTAP FabricPool 사용을 위한 요구 사항
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -100,7 +100,7 @@ https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/
 * 다음 FabricPool 기능을 사용하려면 ONTAP 9.8 이상을 실행해야 합니다.
 +
 ** 클라우드 검색
-** SnapLock 엔터프라이즈 및 FabricPool SnapLock Enterprise를 지원하는 FabricPool에는 FPVR(Feature Product Variance Request)이 필요합니다. FPVR을 생성하려면 영업 팀에 문의하십시오.
+** SnapLock 엔터프라이즈 및 FabricPool SnapLock Enterprise를 지원하는 FabricPool에는 FPVR(Feature Product Variance Request)이 필요합니다. FPVR을 생성하려면 세일즈 팀에 문의하십시오.
 ** 최소 냉각 기간은 최대 183일입니다
 ** 사용자가 만든 사용자 지정 태그를 사용하여 개체 태그 지정
 ** HDD FabricPool 애그리게이트로 전환 가능

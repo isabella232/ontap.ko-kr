@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: tr-4814, create, s3 object, store, server 
 summary: ONTAP 오브젝트 저장소 서버는 ONTAP NAS 및 SAN 서버에서 제공하는 파일 또는 블록 스토리지가 아니라 데이터를 S3 오브젝트로 관리합니다. 
 ---
-= S3 오브젝트 저장소 서버를 생성합니다
+= ONTAP S3 오브젝트 저장소 서버를 생성합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

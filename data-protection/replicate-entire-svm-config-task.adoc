@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: replicate, entire, svm, storage vm, disaster, protection, configuration, snapmirror, snap mirror, replication, mirror vault policy, snapshot 
 summary: 'SVM DR(재해 복구) 관계를 생성하여 하나의 SVM 구성을 다른 SVM 구성으로 복제할 수 있습니다. 운영 사이트에 재해가 발생하면 대상 SVM을 빠르게 활성화할 수 있습니다.' 
 ---
-= 전체 SVM 구성을 복제합니다
+= 전체 ONTAP SVM 구성을 복제합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

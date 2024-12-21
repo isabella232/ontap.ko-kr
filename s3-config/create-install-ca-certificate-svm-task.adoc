@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create, install, ca certificate, svm 
 summary: 'S3 클라이언트에서 S3 기반 SVM으로 HTTPS 트래픽을 활성화하려면 CA(인증 기관) 인증서가 필요합니다.' 
 ---
-= SVM에서 CA 인증서를 생성하고 설치합니다
+= ONTAP S3 지원 SVM에 CA 인증서를 생성하고 설치합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -74,8 +74,6 @@ The certificate's generated name for reference: svm1_ca_159D1587CE21E9D4_svm1_ca
 +
 ** '-ca' -- 1단계에서 입력한 CA의 공통 이름입니다.
 ** '-ca-serial' -- 1단계의 CA 일련 번호입니다. 예를 들어 CA 인증서 이름이 svm1_ca_159D1587CE21E9D4_svm1_ca인 경우 일련 번호는 159D1587CE21E9D4입니다.
-
-
 +
 기본적으로 서명된 인증서는 365일 후에 만료됩니다. 다른 값을 선택하고 다른 서명 세부 정보를 지정할 수 있습니다.
 
@@ -84,6 +82,8 @@ The certificate's generated name for reference: svm1_ca_159D1587CE21E9D4_svm1_ca
 
 +
 서명된 인증서가 표시되면 나중에 사용할 수 있도록 저장합니다.
+
+
 
 . S3 기반 SVM에 서명된 인증서 설치:
 +

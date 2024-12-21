@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: replacing, existing, object, store, fabricpool, mirror 
 summary: FabricPool 미러 기술을 사용하여 한 오브젝트 저장소를 다른 오브젝트 저장소로 대체할 수 있습니다. 새 오브젝트 저장소는 원래 오브젝트 저장소와 동일한 클라우드 공급자를 사용할 필요가 없습니다. 
 ---
-= FabricPool 미러를 사용하여 기존 오브젝트 저장소를 교체합니다
+= 기존 오브젝트 저장소를 ONTAP FabricPool 미러로 교체합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

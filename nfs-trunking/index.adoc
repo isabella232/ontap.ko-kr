@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: NFSv4.1, trunking, Linux, VMware, FlexGroup, volumes, multipathing, AI/ML, rdma, data lake 
 summary: ONTAP 9.14.1부터 v4.1 이상을 실행하는 NFS 클라이언트는 세션 트렁킹 기능을 활용하여 NFS 서버에 대한 다중 연결을 열어 데이터 전송 속도를 높이고 다중 경로를 통해 복원력을 제공할 수 있습니다 
 ---
-= NFS 트렁킹 개요
+= ONTAP NFS 트렁킹에 대해 알아보십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

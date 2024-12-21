@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cors, cross-origin resource sharing, domain, same origin, s3, s3 api, buckets, nas 
 summary: 'ONTAP 9.16.1부터 웹 브라우저를 사용하여 S3 버킷에 안전하게 액세스할 수 있습니다. 액세스는 CORS(Cross-Origin Resource Sharing) 보안 권장 사항을 구현하여 ONTAP에서 제공됩니다.' 
 ---
-= ONTAP와 CORS(Cross-Origin Resource Sharing) 통합
+= ONTAP S3 버킷을 위한 CORS(Cross-Origin Resource Sharing)를 구성합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

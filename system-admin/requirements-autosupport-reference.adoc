@@ -1,7 +1,7 @@
 ---
 permalink: system-admin/requirements-autosupport-reference.html 
 sidebar: sidebar 
-keywords: requirements, autosupport, messages, https, smtp, smtps, tls, email, proxy, certificate, validation 
+keywords: requirements, autosupport, messages, https, smtp, smtps, tls, email, proxy, certificate, validation, root ca, server certificate, install, cluster level 
 summary: AutoSupport 메시지를 전달하려면 TLSv1.2 또는 SMTPS와 함께 HTTPS를 사용하여 최상의 보안을 제공하고 최신 AutoSupport 기능을 지원해야 합니다. 
 ---
 = AutoSupport 사용을 준비합니다
@@ -152,3 +152,6 @@ security certificate show
 
 --
 ====
+.관련 정보
+* link:../system-admin/setup-autosupport-task.html["AutoSupport를 설정합니다"]
+

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: creating, manage, disable, view, flexcache, flex cache, writeback, write-back, write back 
 summary: FlexCache 볼륨에서 FlexCache write-back 모드를 활성화하면 에지 컴퓨팅 환경에 더 나은 성능을 제공하고 쓰기 작업이 많은 워크로드를 통해 캐시에 저장할 수 있습니다. 
 ---
-= FlexCache write-back 설정 및 관리
+= ONTAP FlexCache write-back 설정 및 관리
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -170,7 +170,7 @@ volume flexcache config modify -volume <cache_flexgroup_name> -is-writeback-enab
 ====
 
 
-== FlexCache writback이 활성화되어 있는지 확인합니다
+== FlexCache write-back이 활성화되어 있는지 확인한다
 
 .단계
 System Manager 또는 ONTAP CLI를 사용하여 FlexCache write-back이 활성화되어 있는지 확인할 수 있습니다.

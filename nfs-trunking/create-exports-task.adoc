@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: servers, network, NFS trunking, NIC, export policies, rule, Linux, VMware, datastores, client 
 summary: 데이터 공유에 대한 클라이언트 액세스를 제공하려면 하나 이상의 볼륨을 생성해야 하며 볼륨에 하나 이상의 규칙이 포함된 엑스포트 정책이 있어야 합니다. 
 ---
-= 클라이언트 액세스를 위해 데이터를 내보냅니다
+= ONTAP 볼륨 엑스포트 정책을 생성합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

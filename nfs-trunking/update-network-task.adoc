@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: NFS, servers, network, prepare, NFS trunking, LIF, trunking group, NIC 
 summary: NFS 트렁킹을 활용하려면 트렁킹된 각 연결에 대해 2개 이상의 NIC에 여러 LIF가 상주해야 합니다. 
 ---
-= 트렁킹을 위해 네트워크를 업데이트합니다
+= ONTAP NFS 트렁킹용 네트워크를 업데이트합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

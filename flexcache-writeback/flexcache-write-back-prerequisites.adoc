@@ -4,12 +4,21 @@ sidebar: sidebar
 keywords: tr-4743, flexcache writeback, flexcache write-back, prerequisites, technical report, netapp tr, ontap tr 
 summary: 쓰기 저장 모드로 FlexCache를 배포하기 전에 이러한 소프트웨어, 라이센스 및 시스템 구성 요구 사항을 충족하는지 확인하십시오. 
 ---
-= FlexCache write-back 사전 요구 사항
+= ONTAP FlexCache write-back 사전 요구 사항
 :allow-uri-read: 
 
 
 [role="lead"]
-쓰기 저장 모드로 FlexCache를 배포하기 전에 이러한 소프트웨어, 라이센스 및 시스템 구성 요구 사항을 충족하는지 확인하십시오.
+쓰기 저장 모드로 FlexCache를 배포하기 전에 이러한 성능, 소프트웨어, 라이센스 및 시스템 구성 요구 사항을 충족하는지 확인하십시오.
+
+
+
+== CPU 및 메모리
+
+각 오리진 클러스터 노드에는 쓰기-백 사용 캐시에서 시작된 쓰기-백 메시지를 흡수하기 위한 최소 128GB RAM과 20개의 CPU가 있어야 합니다. A400 이상과 동일합니다. 오리진 클러스터가 복수 쓰기 가능 FlexCaches의 오리진으로 작동하는 경우 더 많은 CPU와 RAM이 필요합니다.
+
+
+CAUTION: 작업 부하에 크기가 작은 원본을 사용하면 다시 쓰기 가능 캐시 또는 오리진에서 성능에 큰 영향을 줄 수 있습니다.
 
 
 
@@ -17,7 +26,7 @@ summary: 쓰기 저장 모드로 FlexCache를 배포하기 전에 이러한 소�
 
 * 오리진 *_MUST_ * 에서 ONTAP 9.15.1 이상을 실행하고 있습니다.
 * write-back 모드에서 작동해야 하는 캐싱 클러스터는 *_must_ * ONTAP 9.15.1 이상을 실행하고 있습니다.
-* write-back 모드로 작동할 필요가 없는 캐싱 클러스터는 지원되는 ONTAP 버전을 실행할 수 있습니다.
+* write-back 모드로 작동할 필요가 없는 캐싱 클러스터는 일반적으로 지원되는 모든 ONTAP 버전을 실행할 수 있습니다.
 
 
 

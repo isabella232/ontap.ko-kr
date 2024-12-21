@@ -11,7 +11,7 @@ summary: 새 볼륨을 생성하거나 기존 볼륨을 수정할 때 대용량 
 
 
 [role="lead"]
-ONTAP 9.12.1 P2부터 새 볼륨을 생성하거나 기존 볼륨을 수정하여 최대 볼륨 크기 300TB와 최대 파일(LUN) 크기 128TB를 지원할 수 있습니다.
+ONTAP 9.12.1 P2부터 새 볼륨을 생성하거나 기존 볼륨을 수정하여 최대 볼륨 크기 300TB, 최대  크기 60PB 및 최대 파일(LUN) 크기 128TB를 지원할 수 link:../flexgroup/definition-concept.html["FlexGroup 볼륨"]있습니다.
 
 .시작하기 전에
 * ONTAP 9.12.1 P2 이상이 클러스터에 설치되어 있습니다.

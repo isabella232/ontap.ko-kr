@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: creating, volume, fabricpool, cloud write, enable, disable 
 summary: ONTAP 9.14.1부터 FabricPool의 신규 볼륨 또는 기존 볼륨에 대해 클라우드 쓰기 모드를 활성화 및 비활성화하여 NFS 클라이언트가 클라우드에 직접 데이터를 쓸 수 있도록 할 수 있습니다. 
 ---
-= 볼륨을 클라우드에 직접 쓰도록 설정 및 해제합니다
+= FabricPool의 ONTAP 볼륨을 통해 클라우드에 직접 쓸 수 있습니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

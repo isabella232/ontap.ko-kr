@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: NFS, servers, network, NFS trunking, data, shares, Linux, VMware, mounts, client 
 summary: 트렁킹되지 않은 클라이언트 연결을 트렁킹 연결로 변환하려면 Linux 및 VMware 클라이언트의 기존 마운트를 분리하고 LIF에 대한 정보를 사용하여 다시 마운트해야 합니다. 
 ---
-= 클라이언트 마운트를 다시 설정합니다
+= ONTAP 볼륨 또는 데이터 공유를 NFS 트렁킹에 다시 마운트합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

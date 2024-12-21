@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ontap, s3, user, authorization, auth 
 summary: 특정 권한 및 액세스 기간을 사용하여 S3 사용자를 생성합니다. 
 ---
-= S3 사용자를 생성합니다
+= ONTAP S3 사용자를 생성합니다
 :hardbreaks:
 :allow-uri-read: 
 :icons: font

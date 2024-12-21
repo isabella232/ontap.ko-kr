@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: installing, fabricpool, license, cloud, tiering, bluexp 
 summary: 과거에 사용했을지도 모르는 FabricPool 사용권은 변경되며 BlueXP에서 지원되지 않는 구성에만 유지됩니다. 2021년 8월 21일부터 Cloud Tiering 서비스를 사용하여 BlueXP에서 지원되는 계층화 구성에 새로운 Cloud Tiering BYOL 라이센스가 도입되었습니다. 
 ---
-= FabricPool 라이센스를 설치합니다
+= ONTAP 클러스터에 FabricPool 라이센스를 설치합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: tr-4743, flexcache writeback, flexcache write-back, flexcache, write-back, write back, lock delegations, data delegations, dirty data, cache scrubbers, disconnected mode, grok it, sequence diagrams, technical report, netapp tr, ontap tr 
 summary: FlexCache write-back 작동 방식에 대한 세부 정보를 이해합니다. 
 ---
-= FlexCache 후기입 아키텍처
+= ONTAP FlexCache 후기입 아키텍처
 :allow-uri-read: 
 
 

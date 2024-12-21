@@ -1,0 +1,32 @@
+---
+permalink: flexcache-writeback/faq-flexcache-write-back.html 
+sidebar: sidebar 
+keywords: tr-4743, flexcache writeback, flexcache write-back, flexcache, write-back, write back, faq, frequently asked questions, ontap tr, netapp tr 
+summary: 'FlexCache 후기입(Write-Back)에 대한 질문과 대답(FAQ' 
+---
+= ONTAP FlexCache 후기입(Write-Back)에 대한 질문과 대답(FAQ
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 FAQ는 질문에 대한 빠른 답변을 찾는 경우에 도움이 될 수 있습니다.
+
+.다시 쓰기를 사용하고 싶습니다. 어떤 버전의 ONTAP를 실행해야 합니까?
+캐시와 오리진 모두 ONTAP 9.15.1 이상을 실행해야 합니다. 최신 P 릴리스를 실행하는 것이 좋습니다. 엔지니어링은 Write-back 사용 캐시의 성능과 기능을 지속적으로 개선하고 있습니다.
+
+.오리진에 액세스하는 클라이언트가 다시 쓰기 가능 캐시에 액세스하는 클라이언트에 영향을 줄 수 있습니까?
+예. 오리진에는 캐시와 동일한 데이터 권한이 있습니다. 캐시에서 파일을 제거하거나 잠금/데이터 위임을 취소해야 하는 파일에 대해 작업이 실행되는 경우 캐시의 클라이언트에서 파일 액세스가 지연될 수 있습니다.
+
+.Write-back 지원 FlexCaches에 QoS를 적용할 수 있습니까?
+예. 모든 캐시와 오리진에는 독립적인 QoS 정책이 적용될 수 있습니다. 이 기능은 write-back이 시작되는 인터클러스터 트래픽에 직접적인 영향을 주지 않습니다. 간접적으로 write-back 지원 캐시에서 프런트 엔드 트래픽을 제한하여 인터클러스터 write-back 트래픽을 줄일 수 있습니다.
+
+.멀티 프로토콜 NAS는 후기입 가능 FlexCaches에서 지원됩니까?
+예. 멀티 프로토콜은 후기입 가능 FlexCaches에서 완벽하게 지원됩니다. 현재 NFSv4.2 및 S3는 write-around 또는 write-back 모드로 작동하는 FlexCache에서 지원되지 않습니다.
+
+.SMB 대체 데이터 스트림은 후기입 지원 FlexCaches에서 지원됩니까?
+SMB ADS(대체 데이터 스트림)는 지원되지만 Write-Back을 통해 가속화되지는 않습니다. ADS에 대한 쓰기가 오리진으로 전달되어 WAN 지연 시간이 줄어듭니다. 또한 쓰기는 ADS가 캐시의 일부인 주 파일을 제거합니다.
+
+.캐시를 생성한 후 write-around 모드와 write-back 모드 간에 전환할 수 있습니까?
+예. 당신은 할 일은 링크의 플래그를 토글하는 것입니다 `is-writeback-enabled`:../FlexCache-writeback/FlexCache -writeback-enable-task.html[`flexcache modify` 명령].

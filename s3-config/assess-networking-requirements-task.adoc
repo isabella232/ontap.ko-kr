@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: assess, networking, requirements 
 summary: S3 스토리지를 클라이언트에 제공하기 전에 네트워킹이 S3 프로비저닝 요구사항을 충족하도록 올바르게 구성되었는지 확인해야 합니다. 
 ---
-= 네트워킹 요구 사항을 평가합니다
+= ONTAP S3 네트워킹 요구사항을 평가합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

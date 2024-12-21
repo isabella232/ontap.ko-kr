@@ -2,27 +2,27 @@
 section: nfs-trunking
 title: NFS 트렁킹을 관리합니다
 entries:
-- title: NFS 트렁킹 개요
+- title: ONTAP NFS 트렁킹에 대해 알아보십시오
   url: "/nfs-trunking/index.html"
 - title: 트렁킹을 위해 새 NFS 서버 및 내보내기를 구성합니다
   entries:
-  - title: 트렁킹 사용 NFS 서버를 생성합니다
+  - title: ONTAP SVM에 트렁킹 지원 NFS 서버를 생성합니다
     url: "/nfs-trunking/create-server-task.html"
-  - title: 트렁킹을 위해 네트워크를 준비합니다
+  - title: ONTAP NFS 트렁킹을 위한 네트워크를 준비합니다
     url: "/nfs-trunking/prepare-network-task.html"
-  - title: 클라이언트 액세스를 위해 데이터를 내보냅니다
+  - title: ONTAP 볼륨 엑스포트 정책을 생성합니다
     url: "/nfs-trunking/create-exports-task.html"
-  - title: 클라이언트 마운트를 생성합니다
+  - title: ONTAP 볼륨 또는 NFS 트렁킹용 데이터 공유를 마운트합니다
     url: "/nfs-trunking/client-mount-task.html"
 - title: 트렁킹을 위해 기존 NFS 내보내기 조정
   entries:
-  - title: 단일 경로 내보내기 조정 개요
+  - title: ONTAP NFS 트렁킹을 위한 단일 경로 내보내기 조정
     url: "/nfs-trunking/adapt-exports-overview.html"
-  - title: NFS 서버에서 트렁킹을 활성화합니다
+  - title: ONTAP NFS 서버에서 트렁킹을 활성화합니다
     url: "/nfs-trunking/enable-server-task.html"
-  - title: 트렁킹을 위해 네트워크를 업데이트합니다
+  - title: ONTAP NFS 트렁킹용 네트워크를 업데이트합니다
     url: "/nfs-trunking/update-network-task.html"
-  - title: 클라이언트 액세스를 위해 데이터 내보내기를 수정합니다
+  - title: ONTAP 볼륨 엑스포트 정책을 수정합니다
     url: "/nfs-trunking/modify-exports-task.html"
-  - title: 클라이언트 마운트를 다시 설정합니다
+  - title: ONTAP 볼륨 또는 데이터 공유를 NFS 트렁킹에 다시 마운트합니다
     url: "/nfs-trunking/reestablish-client-mount-task.html"

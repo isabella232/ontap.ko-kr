@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: make, svm, storage vm, destination, volume, writable 
 summary: 클라이언트에 데이터를 제공하려면 SVM 대상 볼륨을 쓰기 가능하게 해야 합니다. 
 ---
-= SVM 타겟 볼륨을 쓰기 가능하게 만듭니다
+= ONTAP SVM 대상 볼륨을 쓰기 가능으로 구성합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

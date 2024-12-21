@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3, bucket, size, system manager, cli 
 summary: 필요에 따라 버킷 크기를 늘리거나 줄일 수 있습니다. 
 ---
-= 버킷 크기를 관리합니다
+= ONTAP S3 버킷 크기를 늘리거나 줄입니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create, s3, service, data, policy 
 summary: S3 데이터 및 관리 서비스에 대한 서비스 정책을 생성할 수 있습니다. LIF에서 S3 데이터 트래픽을 활성화하려면 S3 서비스 데이터 정책이 필요합니다. 
 ---
-= S3 서비스 데이터 정책을 생성합니다
+= ONTAP S3 서비스 데이터 정책을 생성합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

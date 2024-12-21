@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: tr-4743, flexcache writeback, flexcache write-back, interoperability, client, technical report, netapp tr, ontap tr 
 summary: write-back 모드로 FlexCache를 구축할 때 고려해야 할 상호 운용성 사항을 이해합니다 
 ---
-= FlexCache 쓰기 저장 상호 운용성
+= ONTAP FlexCache 후기입 상호 운용성
 :allow-uri-read: 
 
 

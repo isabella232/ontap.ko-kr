@@ -4,7 +4,7 @@ permalink: data-protection/resync-svm-destination-task.html
 keywords: netapp, ontap, system manager, data, VM, resynchronize, resynchronization, resync, source, SVM, source SVM, source storage VM, destination, destination storage VM, destination SVM, protection, relationship, protection relationship, relationships 
 summary: ONTAP 9.8부터는 System Manager를 사용하여 소스 스토리지 VM의 데이터 및 구성 세부 정보를 손상된 보호 관계에 있는 대상 스토리지 VM으로 재동기화하고 관계를 다시 설정할 수 있습니다. 
 ---
-= 대상 스토리지 VM을 다시 동기화합니다
+= ONTAP 대상 SVM에서 데이터를 다시 동기화합니다
 :hardbreaks:
 :toclevels: 1
 :allow-uri-read: 

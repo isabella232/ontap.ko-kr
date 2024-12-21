@@ -1,7 +1,7 @@
 ---
 permalink: system-admin/setup-autosupport-task.html 
 sidebar: sidebar 
-keywords: autosupport, set up autosupport, technical support 
+keywords: autosupport, set up autosupport, technical support, internal support organization, AutoSupport messages, AutoSupport configuration, AutoSupport OnDemand, HTTPS, SMTP, email, proxy, mail host, DNS, TLS, AutoSupport history, AutoSupport check 
 summary: ONTAP 클러스터를 구성하여 AutoSupport 메시지를 NetApp 기술 지원에 전달하고 이메일 복사본을 내부 지원 조직에 보냅니다. 
 ---
 = AutoSupport를 설정합니다
@@ -186,4 +186,8 @@ system node autosupport history show -node local
 .. 필요에 따라 에 구성한 모든 주소의 이메일을 확인하여 AutoSupport 메시지가 내부 지원 조직 또는 지원 파트너에게 전송되는지 확인합니다 `-to`, `-noteto`, 또는 `-partner-address`  의 매개 변수 `system node autosupport modify` 명령.
 
 
+
+
+.관련 정보
+* link:../system-admin/requirements-autosupport-reference.html["AutoSupport 사용을 준비합니다"]
 

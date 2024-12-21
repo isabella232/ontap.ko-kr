@@ -1,8 +1,8 @@
 ---
 permalink: data-protection/exclude-network-name-service-svm-replication-task.html 
 sidebar: sidebar 
-keywords: exclude, network, name service, other settings, svm replication 
-summary: SnapMirror create 명령의 -identity-preserve false 옵션을 사용하여 SVM의 볼륨 및 보안 구성만 복제할 수 있습니다. 일부 프로토콜 및 이름 서비스 설정도 보존됩니다. 
+keywords: exclude, network, name service, other settings, svm replication, disaster recovery 
+summary: SnapMirror create 명령의 -identity-preserve false 옵션을 사용하여 SVM의 볼륨 및 보안 구성만 복제할 수 있습니다. 
 ---
 = SVM 복제에서 네트워크, 이름 서비스 및 기타 설정을 제외합니다
 :allow-uri-read: 
@@ -11,6 +11,8 @@ summary: SnapMirror create 명령의 -identity-preserve false 옵션을 사용�
 
 
 [role="lead"]
+타겟 SVM과의 충돌 또는 구성 차이를 방지하기 위해 SVM 복제 관계에서 네트워크, 네임 서비스 및 기타 설정을 제외할 수 있습니다.
+
 스냅샷 생성 명령의 '-identity-preserve false' 옵션을 사용하여 SVM의 볼륨 및 보안 구성만 복제할 수 있습니다. 일부 프로토콜 및 이름 서비스 설정도 보존됩니다.
 
 .이 작업에 대해

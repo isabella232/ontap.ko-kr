@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: deciding, use, managing, storage tiers, fabricpool 
 summary: FabricPool를 사용하면 데이터 액세스 빈도에 따라 데이터를 자동으로 계층화할 수 있습니다. 
 ---
-= FabricPool 계층 관리 개요
+= ONTAP FabricPool를 통한 데이터 계층화에 대해 알아보십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

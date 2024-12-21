@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: tr-4743, flexcache writeback, flexcache write-back, use cases, workloads, technical report, netapp tr, ontap tr 
 summary: 쓰기 프로파일은 다시 쓰기 가능 FlexCache에 가장 적합합니다. 작업을 테스트하여 Write-back 또는 write-around가 최상의 성능을 제공하는지 확인해야 합니다. 
 ---
-= FlexCache 쓰기 저장 사용 사례
+= ONTAP FlexCache 후기입 사용 사례
 :allow-uri-read: 
 
 
@@ -21,17 +21,19 @@ NOTE: Write-back은 write-around를 대체하는 것이 아닙니다. 쓰기 작
 .파일 크기
 파일 크기는 및 파일 호출 사이에 실행된 쓰기 수보다 덜 `OPEN` `CLOSE` 중요합니다. 작은 파일은 기본적으로 호출 수가 적기 때문에 `WRITE` 다시 쓰기에 적합하지 않습니다. 큰 파일은 및 호출 사이에 더 많은 쓰기를 가질 수 `OPEN` `CLOSE` 있지만, 이는 보장되지 않습니다.
 
+link:../flexcache-writeback/flexcache-write-back-guidelines.html["FlexCache write-back 지침"]최대 파일 크기에 대한 최신 권장 사항은 페이지를 참조하십시오.
+
 .쓰기 크기
-클라이언트에서 쓸 때 쓰기 호출 이외의 다른 NAS 호출이 관련됩니다.
+클라이언트에서 쓸 때 쓰기 호출이 아닌 다른 수정 NAS 호출이 관련됩니다. 여기에는 다음이 포함되지만 이에 국한되지 않습니다.
 
 * `CREATE`
 * `OPEN`
 * `CLOSE`
-* `READDIR/READDIRPLUS`
-*  `SETATTR`: `SETATTR` , 또는 만 수정하거나 캐시에서 처리되는 호출입니다. `mtime` `atime` `ctime`
+* `SETATTR`
+* `SET_INFO`
 
 
-이러한 호출은 오리진에서 처리되어야 하며, 작업 중인 파일에 대해 Write-back 지원 캐시에 누적된 더티 데이터의 Write-Back을 트리거해야 합니다. 파일 입출력은 쓰기가 완료될 때까지 정지됩니다.
+`SETATTR` `SET_INFO` `atime` , , `ctime`, , `owner` `group` 또는 를 `size` 설정한 호출이 `mtime` 캐시에서 처리됩니다. 이러한 나머지 호출은 오리진에서 처리되어야 하며, 작업 중인 파일에 대해 Write-back이 활성화된 캐시에 누적된 더티 데이터의 Write-Back을 트리거해야 합니다. 파일 입출력은 쓰기가 완료될 때까지 정지됩니다.
 
 이러한 호출이 WAN을 통과해야 한다는 것을 알면 다시 쓰기에 적합한 워크로드를 식별하는 데 도움이 됩니다. 일반적으로 `OPEN` `CLOSE` 위에 나열된 다른 호출 중 하나를 실행하지 않고 및 호출 간에 수행할 수 있는 쓰기가 많을수록 성능 향상 Write-Back이 더 좋습니다.
 
@@ -48,7 +50,7 @@ TIP: 쓰기 후 읽기가 작업 부하에서 중요한 부분인 경우 다시 
 
 == 지연 시간 고려
 
-FlexCache가 Write-back 모드로 작동하는 경우 지연 시간이 증가함에 따라 NAS 클라이언트에 더 많은 이점을 제공합니다. 하지만 지연 시간이 짧은 환경에서 얻을 수 있는 이점보다 쓰기 작업의 오버헤드가 훨씬 더 중요합니다. 일부 NetApp 테스트에서는 캐시와 원본 간 지연 시간이 8ms를 약간 초과하기 시작했으며, 이 지연 시간은 워크로드에 따라 달라지므로 이점을 테스트해 보십시오.
+FlexCache가 Write-back 모드로 작동하는 경우 지연 시간이 증가함에 따라 NAS 클라이언트에 더 많은 이점을 제공합니다. 하지만 지연 시간이 짧은 환경에서 얻을 수 있는 이점보다 쓰기 작업의 오버헤드가 훨씬 더 중요합니다. 일부 NetApp 테스트에서는 캐시와 원본 간 지연 시간이 8ms를 최소한으로 초과했을 때 쓰기 저장 이점이 시작되었습니다. 이 지연 시간은 워크로드에 따라 달라지므로 워크로드의 반환 시점을 테스트해야 합니다.
 
 다음 그래프는 NetApp 랩 테스트에서 Write-back에 대한 반환 지점을 보여 줍니다.  `x`축은 파일 크기이고 `y` 축은 경과 시간입니다. 이 테스트에서는 NFSv3, 256KB 및 64ms의 WAN 지연 시간으로 마운트했습니다. `rsize` `wsize` 이 테스트는 캐시와 오리진에 대해 작은 ONTAP Select 인스턴스와 단일 스레드 쓰기 작업을 사용하여 수행되었습니다. 결과는 다를 수 있습니다.
 

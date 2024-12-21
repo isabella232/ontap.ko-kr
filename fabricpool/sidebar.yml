@@ -4,11 +4,9 @@ title: FabricPool 계층 관리
 entries:
 - title: 개요
   url: "/fabricpool/index.html"
-- title: FabricPool를 사용하여 스토리지 계층의 이점 실현
-  url: "/fabricpool/benefits-storage-tiers-concept.html"
-- title: FabricPool 사용에 대한 고려 사항 및 요구 사항
+- title: ONTAP FabricPool 사용을 위한 요구 사항
   url: "/fabricpool/requirements-concept.html"
-- title: FabricPool 계층화 정책 정보
+- title: ONTAP FabricPool 정책을 사용하여 데이터를 효율적으로 계층화
   url: "/fabricpool/tiering-policies-concept.html"
 - title: FabricPool 관리 워크플로우
   url: "/fabricpool/workflow-concept.html"
@@ -18,87 +16,83 @@ entries:
     entries:
     - title: 개요
       url: "/fabricpool/prepare-config-task.html"
-    - title: FabricPool 라이센스를 설치합니다
+    - title: ONTAP 클러스터에 FabricPool 라이센스를 설치합니다
       url: "/fabricpool/install-license-aws-azure-ibm-task.html"
-    - title: StorageGRID를 사용하는 경우 CA 인증서를 설치합니다
+    - title: StorageGRID용 ONTAP 클러스터에 CA 인증서를 설치합니다
       url: "/fabricpool/install-ca-certificate-storagegrid-task.html"
-    - title: ONTAP S3을 사용하는 경우 CA 인증서를 설치합니다
+    - title: ONTAP S3용 클러스터에 CA 인증서를 설치합니다
       url: "/fabricpool/install-ca-certificate-ontap-s3-task.html"
     - title: 오브젝트 저장소를 FabricPool의 클라우드 계층으로 설정합니다
       entries:
       - title: 개요
         url: "/fabricpool/setup-object-store-as-cloud-tier-task.html"
-      - title: StorageGRID를 클라우드 계층으로 설정합니다
+      - title: StorageGRID를 ONTAP FabricPool 클라우드 계층으로 설정합니다
         url: "/fabricpool/setup-storagegrid-cloud-tier-task.html"
-      - title: ONTAP S3를 클라우드 계층으로 설정합니다
+      - title: ONTAP S3를 ONTAP FabricPool 클라우드 계층으로 설정합니다
         url: "/fabricpool/setup-ontap-s3-cloud-tier-task.html"
-      - title: Alibaba Cloud Object Storage를 클라우드 계층으로 설정합니다
+      - title: Alibaba 클라우드 오브젝트 스토리지를 ONTAP FabricPool 클라우드 계층으로 설정합니다
         url: "/fabricpool/setup-alibaba-object-storage-cloud-tier-task.html"
-      - title: Amazon S3를 클라우드 계층으로 설정합니다
+      - title: Amazon S3를 ONTAP FabricPool 클라우드 계층으로 설정합니다
         url: "/fabricpool/setup-aws-s3-cloud-tier-task.html"
-      - title: Google Cloud Storage를 클라우드 계층으로 설정합니다
+      - title: Google Cloud Storage를 ONTAP FabricPool 클라우드 계층으로 설정합니다
         url: "/fabricpool/setup-google-storage-cloud-tier-task.html"
-      - title: IBM 클라우드 오브젝트 스토리지를 클라우드 계층으로 설정
+      - title: IBM 클라우드 오브젝트 스토리지를 ONTAP FabricPool 클라우드 계층으로 설정합니다
         url: "/fabricpool/setup-ibm-object-storage-cloud-tier-task.html"
-      - title: 클라우드용 Azure Blob Storage를 클라우드 계층으로 설정
+      - title: Azure Blob Storage를 ONTAP FabricPool 클라우드 계층으로 설정합니다
         url: "/fabricpool/setup-azure-blob-storage-cloud-tier-task.html"
       - title: MetroCluster 구성에서 FabricPool에 대한 오브젝트 저장소를 설정합니다
         url: "/fabricpool/setup-object-stores-mcc-task.html"
-    - title: 로컬 계층에 연결하기 전에 객체 저장소 처리량 성능을 테스트합니다
+    - title: ONTAP 클라우드 계층 지연 시간 및 처리량 성능을 테스트합니다
       url: "/fabricpool/test-object-store-performance-task.html"
-    - title: 클라우드 계층을 Aggregate에 연결합니다
+    - title: ONTAP 클라우드 계층을 로컬 계층(애그리게이트)과 연결
       url: "/fabricpool/attach-cloud-tier-aggregate-task.html"
     - title: 데이터를 로컬 버킷에 계층화
       url: "/fabricpool/local-bucket-tier-data-task.html"
 - title: FabricPool 관리
   entries:
-  - title: 개요
-    url: "/fabricpool/manage-task.html"
-  - title: 비활성 데이터 보고를 사용하여 볼륨의 비활성 데이터 양을 결정합니다
+  - title: 비활성 데이터 보고를 통해 비활성 ONTAP 데이터를 분석
     url: "/fabricpool/determine-data-inactive-reporting-task.html"
   - title: FabricPool에 대한 볼륨을 관리합니다
     entries:
-    - title: FabricPool용 볼륨을 생성합니다
+    - title: FabricPool 지원 ONTAP 애그리게이트에서 볼륨을 생성합니다
       url: "/fabricpool/create-volume-task.html"
-    - title: 볼륨을 FabricPool로 이동합니다
+    - title: 볼륨을 FabricPool 지원 ONTAP 애그리게이트로 이동
       url: "/fabricpool/move-volume-task.html"
-    - title: 볼륨을 클라우드에 직접 쓰도록 설정 및 해제합니다
+    - title: FabricPool의 ONTAP 볼륨을 통해 클라우드에 직접 쓸 수 있습니다
       url: "/fabricpool/enable-disable-volume-cloud-write-task.html"
-    - title: 적극적인 미리 읽기 모드를 활성화 및 비활성화합니다
+    - title: FabricPool에서 ONTAP 볼륨을 활성화하여 적극적인 읽기-헤드를 수행할 수 있습니다
       url: "/fabricpool/enable-disable-aggressive-read-ahead-task.html"
-  - title: 사용자가 만든 사용자 지정 태그를 사용하여 개체 태그 지정
+  - title: 사용자가 생성한 맞춤형 태그로 ONTAP FabricPool 볼륨 관리
     url: "/fabricpool/object-tagging-user-created-custom-tags-task.html"
-  - title: FabricPool의 공간 사용률을 모니터링합니다
+  - title: FabricPool 지원 ONTAP 애그리게이트의 공간 활용률 모니터링
     url: "/fabricpool/monitor-space-utilization-task.html"
-  - title: 볼륨의 계층화 정책을 수정하거나 최소 냉각 기간을 계층화하여 스토리지 계층화를 관리합니다
+  - title: ONTAP 볼륨의 계층화 정책 및 최소 냉각 기간을 수정합니다
     url: "/fabricpool/modify-tiering-policy-cooling-period-task.html"
   - title: FabricPool로 볼륨 아카이브(비디오)
     url: "/fabricpool/archive-volumes-video-reference.html"
-  - title: 클라우드 마이그레이션 제어를 사용하여 볼륨의 기본 계층화 정책을 재정의합니다
+  - title: ONTAP 볼륨의 기본 FabricPool 계층화 정책을 수정합니다
     url: "/fabricpool/migration-controls-override-tiering-policy-task.html"
   - title: 스로틀 위치
     url: "/fabricpool/throttle-puts-task.html"
   - title: 개체 삭제
     url: "/fabricpool/fabricpool-object-deletion.html"
-  - title: 데이터를 성능 계층으로 상향 이동
+  - title: ONTAP 데이터를 성능 계층으로 승격한다
     url: "/fabricpool/promote-data-performance-tier-task.html"
 - title: FabricPool 미러를 관리합니다
   entries:
   - title: 개요
     url: "/fabricpool/manage-mirrors-task.html"
-  - title: FabricPool 미러를 생성합니다
+  - title: ONTAP FabricPool 미러를 생성합니다
     url: "/fabricpool/create-mirror-task.html"
-  - title: FabricPool 미러 재동기화 상태를 모니터링합니다
-    url: "/fabricpool/monitor-mirror-resync-status-task.html"
-  - title: FabricPool 미러 세부 정보를 표시합니다
+  - title: ONTAP FabricPool 미러 세부 정보를 표시합니다
     url: "/fabricpool/display-mirror-details-task.html"
-  - title: FabricPool 미러를 상향 이동합니다
+  - title: ONTAP FabricPool 미러를 상향 이동합니다
     url: "/fabricpool/promote-mirror-task.html"
-  - title: FabricPool 미러를 탈거하십시오
+  - title: ONTAP FabricPool 미러를 탈거하십시오
     url: "/fabricpool/remove-mirror-task.html"
-  - title: FabricPool 미러를 사용하여 기존 오브젝트 저장소를 교체합니다
+  - title: 기존 오브젝트 저장소를 ONTAP FabricPool 미러로 교체합니다
     url: "/fabricpool/replace-existing-object-store-mirror-task.html"
-  - title: MetroCluster 구성에서 FabricPool 미러를 교체합니다
+  - title: ONTAP MetroCluster 구성에서 FabricPool 미러를 교체합니다
     url: "/fabricpool/replace-mirror-mcc-task.html"
-- title: FabricPool에서 애그리게이트를 관리하기 위한 명령입니다
+- title: FabricPool 리소스를 관리하는 명령입니다
   url: "/fabricpool/commands-manage-aggregates-reference.html"

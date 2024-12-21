@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: tr-4814, generate, ldap, s3, access keys, secret keys using API 
 summary: S3 사용자가 API를 사용하여 S3 클라이언트에 액세스하기 위한 키를 다시 생성할 수 있습니다. 
 ---
-= 외부 디렉토리 서비스에 대한 ONTAP S3 액세스를 구성합니다
+= ONTAP S3 액세스를 위한 외부 디렉토리 서비스를 구성합니다
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -77,10 +77,9 @@ ONTAP 명령 참조에서 https://docs .NetApp.com/us-en/ONTAP-cli/vserver-servi
 . S3 버킷에 액세스하는 LDAP 사용자에게 버킷 정책에 정의된 권한이 있는지 확인합니다. 자세한 내용은 을 참조하십시오 link:../s3-config/create-modify-bucket-policy-task.html["버킷 정책을 수정합니다"].
 . LDAP 그룹의 사용자가 다음 작업을 수행할 수 있는지 확인합니다.
 +
-.. S3 클라이언트의 액세스 키를 다음 형식으로 구성합니다.
-`"NTAPFASTBIND" + base64-encode(user-name:password)`
-예: `"NTAPFASTBIND"` +base64-encode(ldapuser:password)
-                      `NTAPFASTBINDbGRhcHVzZXI6cGFzc3dvcmQ=`
+.. S3 클라이언트의 액세스 키를 다음 형식으로 구성합니다
+`"NTAPFASTBIND" + base64-encode(user-name:password)`. 예 `"NTAPFASTBIND"`: +base64-encode(ldapuser:password)
+`NTAPFASTBINDbGRhcHVzZXI6cGFzc3dvcmQ=`
 +
 
 NOTE: S3 클라이언트에서 비밀 키를 입력하라는 메시지가 표시될 수 있습니다. 비밀 키가 없으면 16자 이상의 암호를 입력할 수 있습니다.

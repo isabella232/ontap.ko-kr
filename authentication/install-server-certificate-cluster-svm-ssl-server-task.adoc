@@ -60,7 +60,7 @@ cwBZ5NfZeMBpwQIhAPk0KWQSLadGfsKO077itF+h9FGFNHbtuNTrVq4vPW3nAiAA
 peMBQgEv28y2r8D4dkYzxcXmjzJluUSZSZ9c/wS6fA==
 -----END RSA PRIVATE KEY-----
 
-Note: Please keep a copy of your certificate request and private key for future reference.
+NOTE: Keep a copy of your certificate request and private key for future reference.
 ----
 ====
 . CSR 출력에서 인증서 요청을 복사한 다음 전자 양식(예: 전자 메일)으로 신뢰할 수 있는 타사 CA로 보내 서명합니다.

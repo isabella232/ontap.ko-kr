@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: enable, client, access, s3 app 
 summary: S3 클라이언트 애플리케이션에서 ONTAP S3 서버에 액세스하려면 ONTAP S3 관리자가 S3 사용자에게 구성 정보를 제공해야 합니다. 
 ---
-= S3 애플리케이션에서 클라이언트 액세스 설정
+= S3 클라이언트 애플리케이션이 ONTAP S3 서버에 액세스하도록 설정
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

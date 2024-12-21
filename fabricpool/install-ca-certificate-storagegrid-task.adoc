@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: installing, ca certificate, storagegrid 
 summary: StorageGRID에 대한 인증서 확인을 사용하지 않도록 설정하려면 ONTAP가 FabricPool의 개체 저장소로 StorageGRID를 인증할 수 있도록 클러스터에 StorageGRID CA 인증서를 설치해야 합니다. 
 ---
-= StorageGRID를 사용하는 경우 CA 인증서를 설치합니다
+= StorageGRID용 ONTAP 클러스터에 CA 인증서를 설치합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

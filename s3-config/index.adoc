@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: tr-4814, decide, s3, configuration, client, access, configure, object, bucket, svm 
 summary: 'ONTAP 9.8부터 ONTAP 클러스터에서 ONTAP S3(Simple Storage Service) 오브젝트 스토리지 서버를 활성화할 수 있습니다.' 
 ---
-= S3 구성 개요
+= ONTAP S3 구성에 대해 자세히 알아보십시오
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

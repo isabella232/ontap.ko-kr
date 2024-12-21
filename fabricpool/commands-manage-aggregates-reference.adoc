@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: commands, managing, aggregates, storage aggregate object-store config 
 summary: 스토리지 애그리게이트 오브젝트 저장소 명령을 사용하여 FabricPool의 오브젝트 저장소를 관리할 수 있습니다. 스토리지 애그리게이트 명령을 사용하여 FabricPool의 애그리게이트를 관리할 수 있습니다. volume 명령을 사용하여 FabricPool의 볼륨을 관리할 수 있습니다. 
 ---
-= FabricPool에서 애그리게이트를 관리하기 위한 명령입니다
+= FabricPool 리소스를 관리하는 명령입니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: NFS, servers, network, NFS trunking, adapt, single-path 
 summary: '트렁킹을 사용하도록 기존 단일 경로(비트렁킹) NFS 내보내기를 조정할 수 있습니다.' 
 ---
-= 단일 경로 내보내기 조정 개요
+= ONTAP NFS 트렁킹을 위한 단일 경로 내보내기 조정
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

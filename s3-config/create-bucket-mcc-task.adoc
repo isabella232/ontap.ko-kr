@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3, bucket, system manager, metrocluster, unmirrored, mirrored, aggregate 
 summary: ONTAP 9.14.1부터 MetroCluster FC 및 IP 구성의 미러링 또는 미러링되지 않은 애그리게이트에 버킷을 프로비저닝할 수 있습니다. 
 ---
-= MetroCluster 구성의 경우 미러링된 또는 미러링되지 않은 애그리게이트에 버킷을 생성합니다
+= MetroCluster 구성의 경우 미러링된 또는 미러링되지 않은 애그리게이트에 ONTAP S3 버킷을 생성합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -136,10 +136,10 @@ NOTE: 오브젝트 저장소에 대한 무제한 액세스 권한이 있으므�
 
 
 
-. S3 클라이언트 애플리케이션 – 다른 ONTAP 시스템 또는 외부 타사 애플리케이션 – 다음을 입력하여 새 버킷에 대한 액세스를 확인합니다.
+. S3 클라이언트 앱(다른 ONTAP 시스템 또는 외부 타사 앱)에서 다음을 입력하여 새 버킷에 대한 액세스를 확인합니다.
 +
 ** S3 서버 CA 인증서입니다.
-** 사용자의 액세스 키 및 암호 키입니다.
+** 사용자의 액세스 키와 비밀 키입니다.
 ** S3 서버 FQDN 이름 및 버킷 이름입니다.
 
 

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: exclude, volumes, svm replication 
 summary: 기본적으로 소스 SVM의 모든 RW 데이터 볼륨이 복제됩니다. 소스 SVM에서 모든 볼륨을 보호하지 않으려는 경우 volume modify 명령의 -vserver-dr-protection protected 옵션을 사용하여 SVM 복제에서 볼륨을 제외할 수 있습니다. 
 ---
-= SVM 복제에서 볼륨 제외
+= ONTAP SVM DR 관계에서 볼륨을 제외합니다
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

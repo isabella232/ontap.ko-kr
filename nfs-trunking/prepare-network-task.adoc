@@ -4,10 +4,8 @@ sidebar: sidebar
 keywords: NFS, servers, network, prepare, NFS trunking, LIF, trunking group, NIC 
 summary: NFSv4.1 트렁킹을 활용하려면 트렁킹 그룹의 LIF가 동일한 노드에 있어야 하고 동일한 노드에 홈 포트가 있어야 합니다. . 
 ---
-= 트렁킹을 위해 네트워크를 준비합니다
+= ONTAP NFS 트렁킹을 위한 네트워크를 준비합니다
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
 [role="lead"]
